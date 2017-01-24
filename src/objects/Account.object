@@ -1,0 +1,4378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>CallHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EmailHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EnableCustomerPortalUser</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ListClean</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>RequestUpdate</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ViewCustomerPortalUser</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>WebsiteHighlightAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>AccountNumber</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>AccountSource</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>Government Agency</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Inbound Call / Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Referral / Word of Mouth</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Strategic Partner</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trade Event</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Account_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Registration Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>U.S. Business</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Foreign Business</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trade/Industry Association</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business Service Provider/Consultant/Lawyer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Economic Development Organization</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Government</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Researcher</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Create_Date__c</fullName>
+        <defaultValue>NOW()</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>This field will display the actual creation date for records from CTS/ITA Central/Salesforce. Use this field for FY 15&apos; reporting</inlineHelpText>
+        <label>Actual Create Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>AnnualRevenue</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Associated_Business_Names__c</fullName>
+        <description>Alternative names for the organization.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter alternative names for the organization in this field.</inlineHelpText>
+        <label>Associated Organization Names</label>
+        <length>1000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>BillingAddress</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>CTS_Org_ID__c</fullName>
+        <description>Legacy Organization ID for easy data loading and validation.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>Legacy Organization ID for easy data loading and validation.</inlineHelpText>
+        <label>CTS Org ID</label>
+        <length>36</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Category</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Business Service Providers</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Codes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contacts</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Country Pages</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Data</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Events</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Form</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Links</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Location</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Market Research</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Procurment Opportunity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Promotion Opportunity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Reference</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Statistics</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tariff Schedules</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Video</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Web Content</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>CleanStatus</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Congressional_District__c</fullName>
+        <externalId>false</externalId>
+        <label>Congressional District</label>
+        <length>4</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Congressional_District_formula__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(State_Code__c &lt;&gt; NULL &amp;&amp;  Congressional_District__c &lt;&gt; NULL , State_Code__c +&apos;-&apos;+ Congressional_District__c , &quot;&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>This field is auto populated for US Organizations based on zip code</inlineHelpText>
+        <label>Congressional District</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>County_Name__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>This field is auto populated for US Organizations based on zip code</inlineHelpText>
+        <label>County (US Only)</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DUNS_field__c</fullName>
+        <description>to catpure duns field numbers</description>
+        <externalId>false</externalId>
+        <label>DUNS field</label>
+        <length>200</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DandbCompanyId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DataPartnerType__c</fullName>
+        <externalId>false</externalId>
+        <label>Data Partner Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Customer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+        <inlineHelpText>This information is automatically populated from Data.com.  If additional information is needed, please add a Note to the organization.</inlineHelpText>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>DunsNumber</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>DupeBlocker_Insert_Action__c</fullName>
+        <externalId>false</externalId>
+        <label>DupeBlocker Insert Action</label>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DupeBlocker_Update_Action__c</fullName>
+        <externalId>false</externalId>
+        <label>DupeBlocker Update Action</label>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Fax</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>For_Dupeblocker_Triggering__c</fullName>
+        <description>for uploading to trigger dupeblocker.</description>
+        <externalId>false</externalId>
+        <label>For Dupeblocker Triggering</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Has_Exported_To__c</fullName>
+        <description>list of contries visited</description>
+        <externalId>false</externalId>
+        <label>Has Exported To</label>
+        <length>4000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ITA_Organization_and_Product_Description__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>ITA’s notes on this company</inlineHelpText>
+        <label>ITA Organization and Product Description</label>
+        <length>32000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Ignore__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>For Data Admin teams and Sys Admins - check this to eliminate from future reports easily.</inlineHelpText>
+        <label>Ignore</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Industries__c</fullName>
+        <description>based on NAICS; changed Field Type from Long Text Area(3000);</description>
+        <externalId>false</externalId>
+        <label>Industries</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Accounting Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Advanced Ceramics</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Advertising Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Agricultural Chemicals</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Agricultural Machinery &amp; Eq.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Agricultural Products</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Agricultural Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Air Conditioning/Refrigeration Eq.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aircraft/Aircraft Parts</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Airport/Ground Support Eq.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Apparel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Architectural/Constr./Engineering SVC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Artwork</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Audio/Visual Eq.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Automobile/Light Truck/Vans</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Automotive Parts/Services Eq.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aviation Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Biotechnology</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Books/Periodicals</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Building Products</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business Eq. (Non-Computer)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chemical Production Machinery</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Coal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Commercial Fishing Eq.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Commercial Vessel/Eq. (Non-Fisheries)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Composite Materials</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Computers/Peripherals</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Computer Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Computer Software</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Construction Eq.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consumer Electronics</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cosmetics/Toiletries</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Defense Industry Eq.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dental Eq.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Drugs/Pharmaceuticals</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Economy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Education/Training Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electrical Power Systems</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electronic Commerce</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electronic Components</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electronics Industry Prod/Test Eq.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Employment Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Environmental Technologies</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Films/Videos</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Financial Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Food Processing/Packaging Eq.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Foods - Processed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Footwear</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Forestry/Woodworking Machinery</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Franchising</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Furniture</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>General Consumer Goods</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>General Industrial Eq./Supplies</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>General Science &amp; Technology</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>General Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Giftware</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Health Care Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hotel/Restaurant Eq.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Household Consumer Goods</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Industrial Chemicals</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Information Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Insurance Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Investment Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Iron/Steel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Jewelry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Laboratory Scientific Instruments</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lawn/Garden Eq.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Leasing Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Leather/Fur Products</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Machine Tools/Metalworking Eq.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Management Consulting Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marine Fisheries Products (Seafood)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Materials Handling Machinery</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Medical Eq.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mining Industry Eq.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Musical Instruments</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Non-Ferrous Metals</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Oil/Gas/Mineral Prod/Explor Serv.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Oil/Gas Field Machinery</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Operations/Maintenance Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Packaging Eq.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Paper/Paperboard</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pet Foods/Supp.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Photographic Eq.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Plastics Materials/Resins</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Plastics Production Machinery</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pleasure Boats/Accessories</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pollution Control Eq.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Port/Shipbuilding Eq.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Printing/Graphic Arts Eq.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Process Controls - Industrial</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pulp/Paper Machinery</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pumps/Valves/Compressors</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Railroad Eq.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Regulations</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Renewable Energy Eq.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Robotics</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Security/Safety Eq.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sporting Goods/Recreational Eq.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Telecommunications Eq.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Telecommunications Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Textile Fabrics</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Textile Machinery/Eq.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Textile Products - Made-Up</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tools - Hand/Power</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Toys/Games</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trade Promotion Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trans. Serv. (other than Aviation)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Travel and Tourism Industries</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trucks/Trailers/Buses</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Used/Reconditioned Eq.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Veterinary Medicine Eq./Supplies</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Water Resources Eq./Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yarns</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>MultiselectPicklist</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Industry</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>Agriculture</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Apparel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Banking</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Biotechnology</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chemicals</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Communications</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electronics</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Energy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Engineering</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Entertainment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Environmental</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Food &amp; Beverage</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Government</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Healthcare</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hospitality</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Machinery</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Media</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not For Profit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Recreation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Shipping</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Technology</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Telecommunications</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Utilities</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>IsCustomerPortal</fullName>
+    </fields>
+    <fields>
+        <fullName>IsExcludedFromRealign</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Is_Holding__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Check when this record is a Holding organization</inlineHelpText>
+        <label>Is Holding</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Subsidiary__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Subsidiary</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Jigsaw</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Lead_Industry_Holder__c</fullName>
+        <externalId>false</externalId>
+        <label>Lead Industry Holder</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lead_Sector_Holder__c</fullName>
+        <externalId>false</externalId>
+        <label>Lead Sector Holder</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lead_Sub_sector_Holder__c</fullName>
+        <externalId>false</externalId>
+        <label>Lead Sub-sector Holder</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Local_ITA_Office__c</fullName>
+        <externalId>false</externalId>
+        <label>Local ITA Office</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Merged_Organization__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>displays the organization it will be merged with.</description>
+        <externalId>false</externalId>
+        <label>Merged Organization</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.Verification_Status__c</field>
+                <operation>equals</operation>
+                <value>Verified</value>
+            </filterItems>
+            <infoMessage>Only Verified Organizations can accept merged records.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Accounts</relationshipLabel>
+        <relationshipName>Account</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Minority_Owned_Indicator__c</fullName>
+        <description>Minority-Owned Indicator from D&amp;B</description>
+        <externalId>false</externalId>
+        <formula>TEXT(DandbCompany.MinorityOwned)</formula>
+        <label>Minority-Owned Indicator</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NAICS__c</fullName>
+        <description>IF(DandbCompany.PrimaryNaics &gt;0, DandbCompany.PrimaryNaics &amp; &quot;: &quot; &amp;  DandbCompany.PrimaryNaicsDesc &amp; &quot;, &quot; &amp;  DandbCompany.SecondNaics &amp; &quot;: &quot; &amp;  DandbCompany.SecondNaicsDesc &amp; &quot;, &quot; &amp;  DandbCompany.ThirdNaics &amp; &quot;: &quot; &amp;  DandbCompany.ThirdNaicsDesc</description>
+        <externalId>false</externalId>
+        <formula>(IF(NOT(ISBLANK(DandbCompany.PrimaryNaics)) , DandbCompany.PrimaryNaics &amp; &quot;: &quot; &amp;  DandbCompany.PrimaryNaicsDesc,&quot;&quot;) &amp;
+IF(NOT(ISBLANK(DandbCompany.SecondNaics)), &quot;, &quot; &amp;  DandbCompany.SecondNaics &amp; &quot;: &quot; &amp;  DandbCompany.SecondNaicsDesc,&quot;&quot;) &amp;
+IF(NOT(ISBLANK(DandbCompany.ThirdNaics)), &quot;, &quot; &amp;  DandbCompany.ThirdNaics &amp; &quot;: &quot; &amp;  DandbCompany.ThirdNaicsDesc, &quot;&quot;)
+)</formula>
+        <inlineHelpText>Displays top 3 NAICS codes with their description for this company.</inlineHelpText>
+        <label>NAICS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NaicsCode</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>NaicsDesc</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Name</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+    </fields>
+    <fields>
+        <fullName>NameLocal</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>NumberOfEmployees</fullName>
+        <inlineHelpText>The highest number of employees from the Data.com employee count fields.</inlineHelpText>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Organization_18_ID__c</fullName>
+        <description>Adds 18 character case safe ID for reporting purposes.</description>
+        <externalId>false</externalId>
+        <formula>Casesafeid(Id)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Organization 18 ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Organization_One__c</fullName>
+        <description>This field is for the concept of Power of One. It is a field to use for summary counting sub groups and the like.</description>
+        <externalId>false</externalId>
+        <formula>1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>This field is for being able to sum on records for reporting. Not shown on page layout.</inlineHelpText>
+        <label>Organization One</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OwnerId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Owner_Office__c</fullName>
+        <externalId>false</externalId>
+        <formula>Owner.ITA_Office__c</formula>
+        <inlineHelpText>Primary ITA POC for this Organization&apos;s office.</inlineHelpText>
+        <label>Owner&apos;s Office</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Ownership</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>Public</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Private</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Subsidiary</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>ParentId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Hierarchy</type>
+    </fields>
+    <fields>
+        <fullName>Phone</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Primary_Trade_Style__c</fullName>
+        <description>Primary Trade Style from D&amp;B</description>
+        <externalId>false</externalId>
+        <formula>DandbCompany.TradeStyle1</formula>
+        <label>Primary Trade Style</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Privacy_Shield_Disabled__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Privacy Shield Disabled</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Rating</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>Hot</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Warm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cold</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Request_Organization_Removal__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Users may select this to alert the data team to investigate the organization record for removal.</inlineHelpText>
+        <label>Request Organization Removal</label>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SME__c</fullName>
+        <description>Checkbox is checked when # of employees on record is &gt;1 and &lt;500 Old Formula: IF(MAX(DandbCompany.GlobalUltimateTotalEmployees, NumberOfEmployees, DandbCompany.EmployeesHere, DandbCompany.EmployeesTotal)&lt;501, TRUE, FALSE)</description>
+        <externalId>false</externalId>
+        <formula>IF(MAX(DandbCompany.GlobalUltimateTotalEmployees, NumberOfEmployees, DandbCompany.EmployeesHere, DandbCompany.EmployeesTotal)&lt;501 &amp;&amp; BillingCountry = &apos;United States&apos;, TRUE, FALSE)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Populated based on Data.com, where there are less than 501 employees &amp; country = US, includes null values.</inlineHelpText>
+        <label>SME (U.S. Only)</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SharePoint_ID__c</fullName>
+        <description>Legacy SharePoint record ID</description>
+        <externalId>false</externalId>
+        <label>SharePoint ID</label>
+        <length>8</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sharepoint_Org_Name__c</fullName>
+        <description>Legacy SharePoint Organization Name</description>
+        <externalId>false</externalId>
+        <label>Sharepoint Organization Name</label>
+        <length>128</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ShippingAddress</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Sic</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>SicDesc</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Site</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>SourceTechnology__c</fullName>
+        <externalId>false</externalId>
+        <label>Source Technology</label>
+        <picklist>
+            <picklistValues>
+                <fullName>API</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Excel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FTP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lotus Notes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RSS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Salesforce</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SharePoint</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Web Service</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Word Document</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>XML</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>State_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>State Code</label>
+        <length>4</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TickerSymbol</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>TracHier__DUNS_Global_Ultimate_Parent__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Global Ultimate Parent Company</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>All Child Accounts</relationshipLabel>
+        <relationshipName>All_Child_Accounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>TracHier__Excluded_From_Account_Hierarchies__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Override Default Account Hierarchy</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>TracHier__Global_Ultimate_Grouping_Id__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Field used by Traction Hierarchies for grouping by Global Ultimate Parent account in reports</description>
+        <externalId>false</externalId>
+        <formula>if(!ISBLANK( TracHier__DUNS_Global_Ultimate_Parent__c), 
+TracHier__DUNS_Global_Ultimate_Parent__r.Name &amp; &quot; (&quot; &amp; TracHier__DUNS_Global_Ultimate_Parent__r.DunsNumber &amp; &quot;)&quot; 
+, 
+Name &amp; &quot; (&quot; &amp; BLANKVALUE(DunsNumber, &quot;No D&amp;B Data Available&quot;) &amp; &quot;)&quot; 
+)</formula>
+        <inlineHelpText>Use this field to group records by Global Ultimate Parent account in reports</inlineHelpText>
+        <label>Global Ultimate Grouping Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TracHier__Owner__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The name of the Sales rep who owns the Account.</description>
+        <externalId>false</externalId>
+        <formula>Owner.FirstName + &quot; &quot; + Owner.LastName</formula>
+        <inlineHelpText>The name of the Sales rep who owns the Account.</inlineHelpText>
+        <label>Owner</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TracHier__Parent_Company__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Parent Company</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Direct Child Accounts</relationshipLabel>
+        <relationshipName>Direct_Child_Accounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Tradestyle</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Type</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>Analyst</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Competitor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Customer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Integrator</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Investor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Press</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Prospect</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Reseller</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>US_Tax_ID_from_Data_com__c</fullName>
+        <description>This is the Tax ID field from D&amp;B company information, removed and populated here to provide FLS to prevent users from accessing the field. The D&amp;B C field is overwritten after copy.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the Tax ID field from D&amp;B company information.</inlineHelpText>
+        <label>US Tax ID from Data.com</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Validated__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Field for data support team to use to recognize what is a new organization record that needs reviewed to ensure non-dupe or other issue. NOT viewable by ITA Users.</description>
+        <externalId>false</externalId>
+        <label>Validated</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Verification_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Verification Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Unverified</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>To Be Merged</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Verified</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Website</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Woman_Owned_Indicator__c</fullName>
+        <description>Woman-Owned Indicator from Data.com</description>
+        <externalId>false</externalId>
+        <formula>TEXT(DandbCompany.WomenOwned)</formula>
+        <label>Woman-Owned Indicator</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>YearStarted</fullName>
+        <inlineHelpText>The year the entity commenced operations in its current form. If the entity was acquired by another company, the start date may reflect the date it was acquired.</inlineHelpText>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>eMenu_ES_ID__c</fullName>
+        <description>Legacy eMenu ES ID</description>
+        <externalId>false</externalId>
+        <label>eMenu ES ID</label>
+        <length>36</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>eMenu_Org_Name__c</fullName>
+        <description>Legacy eMenu Organization Name</description>
+        <externalId>false</externalId>
+        <label>eMenu Organization Name</label>
+        <length>128</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>test__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>test</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>test_number__c</fullName>
+        <externalId>false</externalId>
+        <label>test number</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>zipCodeLen__c</fullName>
+        <externalId>false</externalId>
+        <formula>LEN(RIGHT( BillingPostalCode ,(LEN(BillingPostalCode)- FIND(&apos;-&apos;, BillingPostalCode))))+
+LEN(LEFT(BillingPostalCode, FIND(&apos;-&apos;, BillingPostalCode )-1))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>zipCodeLen</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <listViews>
+        <fullName>AllAccounts</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.ADDRESS1_CITY</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE_CODE</columns>
+        <columns>ACCOUNT.ADDRESS1_COUNTRY_CODE</columns>
+        <columns>CORE.USERS.FIRST_NAME</columns>
+        <columns>CORE.USERS.LAST_NAME</columns>
+        <columns>Owner_Office__c</columns>
+        <columns>Industries__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Request_Organization_Removal__c</field>
+            <operation>notEqual</operation>
+            <value>1</value>
+        </filters>
+        <label>All Organizations</label>
+    </listViews>
+    <listViews>
+        <fullName>All_API_Partner_Organizations</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.ADDRESS1_CITY</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE_CODE</columns>
+        <columns>ACCOUNT.ADDRESS1_COUNTRY_CODE</columns>
+        <columns>CORE.USERS.FIRST_NAME</columns>
+        <columns>CORE.USERS.LAST_NAME</columns>
+        <columns>Owner_Office__c</columns>
+        <columns>Industries__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Account.Partner_Account</value>
+        </filters>
+        <label>All API Partner Organizations</label>
+        <sharedTo>
+            <group>SOD_Scrum_Team</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MyAccounts</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.ADDRESS1_STREET</columns>
+        <columns>ACCOUNT.ADDRESS1_CITY</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE_CODE</columns>
+        <columns>ACCOUNT.ADDRESS1_COUNTRY_CODE</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>Request_Organization_Removal__c</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>My Organizations</label>
+    </listViews>
+    <listViews>
+        <fullName>MyAccountsNotCleaned</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.ADDRESS1_STREET</columns>
+        <columns>ACCOUNT.ADDRESS1_CITY</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE_CODE</columns>
+        <columns>ACCOUNT.ADDRESS1_COUNTRY_CODE</columns>
+        <columns>CLEAN_STATUS</columns>
+        <columns>ACCOUNT.CREATED_DATE</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>Request_Organization_Removal__c</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>CLEAN_STATUS</field>
+            <operation>equals</operation>
+            <value>3,5,6,7</value>
+        </filters>
+        <label>My Organizations Not Cleaned</label>
+    </listViews>
+    <listViews>
+        <fullName>Organization_Hierarchy</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>PARENT_NAME</columns>
+        <columns>ACCOUNT.ADDRESS1_STREET</columns>
+        <columns>ACCOUNT.ADDRESS1_CITY</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE_CODE</columns>
+        <columns>CORE.USERS.FIRST_NAME</columns>
+        <columns>CORE.USERS.LAST_NAME</columns>
+        <columns>Owner_Office__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Request_Organization_Removal__c</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>Organization Hierarchy</label>
+    </listViews>
+    <listViews>
+        <fullName>Request_For_Removal</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CLEAN_STATUS</columns>
+        <columns>ACCOUNT.LAST_ACTIVITY</columns>
+        <columns>TracHier__Owner__c</columns>
+        <columns>Owner_Office__c</columns>
+        <columns>Request_Organization_Removal__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Request_Organization_Removal__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>CLEAN_STATUS</field>
+            <operation>equals</operation>
+            <value>0,1,2,3,4,7</value>
+        </filters>
+        <label>Request For Removal Cleaned</label>
+        <sharedTo>
+            <group>Data_Admin_Team</group>
+        </sharedTo>
+    </listViews>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>ITA_User_Account_RT</fullName>
+        <active>true</active>
+        <label>ITA User Account RT</label>
+        <picklistValues>
+            <picklist>AccountSource</picklist>
+            <values>
+                <fullName>Government Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inbound Call %2F Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral %2F Word of Mouth</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Strategic Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Account_Type__c</picklist>
+            <values>
+                <fullName>Business Service Provider%2FConsultant%2FLawyer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economic Development Organization</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade%2FIndustry Association</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Business</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Industries__c</picklist>
+            <values>
+                <fullName>Accounting Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advanced Ceramics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advertising Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agricultural Chemicals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agricultural Machinery %26 Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agricultural Products</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agricultural Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Air Conditioning%2FRefrigeration Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aircraft%2FAircraft Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Airport%2FGround Support Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Apparel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Architectural%2FConstr%2E%2FEngineering SVC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Artwork</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Audio%2FVisual Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automobile%2FLight Truck%2FVans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive Parts%2FServices Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aviation Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Biotechnology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Books%2FPeriodicals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Building Products</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Eq%2E %28Non-Computer%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemical Production Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commercial Fishing Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commercial Vessel%2FEq%2E %28Non-Fisheries%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Composite Materials</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Computer Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Computer Software</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Computers%2FPeripherals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consumer Electronics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cosmetics%2FToiletries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Defense Industry Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dental Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Drugs%2FPharmaceuticals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education%2FTraining Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electrical Power Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronic Commerce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronic Components</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronics Industry Prod%2FTest Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employment Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental Technologies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Films%2FVideos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food Processing%2FPackaging Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foods - Processed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Footwear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forestry%2FWoodworking Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Franchising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Furniture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Consumer Goods</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Industrial Eq%2E%2FSupplies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Science %26 Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Giftware</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health Care Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hotel%2FRestaurant Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Household Consumer Goods</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Industrial Chemicals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Investment Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Iron%2FSteel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jewelry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Laboratory Scientific Instruments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lawn%2FGarden Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%2FFur Products</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Machine Tools%2FMetalworking Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management Consulting Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marine Fisheries Products %28Seafood%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Materials Handling Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mining Industry Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Musical Instruments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Ferrous Metals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oil%2FGas Field Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oil%2FGas%2FMineral Prod%2FExplor Serv%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Operations%2FMaintenance Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Packaging Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paper%2FPaperboard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pet Foods%2FSupp%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Photographic Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plastics Materials%2FResins</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plastics Production Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pleasure Boats%2FAccessories</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pollution Control Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Port%2FShipbuilding Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Printing%2FGraphic Arts Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process Controls - Industrial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pulp%2FPaper Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pumps%2FValves%2FCompressors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Railroad Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regulations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewable Energy Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Robotics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security%2FSafety Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sporting Goods%2FRecreational Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telecommunications Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telecommunications Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Textile Fabrics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Textile Machinery%2FEq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Textile Products - Made-Up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tools - Hand%2FPower</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Toys%2FGames</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Promotion Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trans%2E Serv%2E %28other than Aviation%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel and Tourism Industries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trucks%2FTrailers%2FBuses</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used%2FReconditioned Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Veterinary Medicine Eq%2E%2FSupplies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Water Resources Eq%2E%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yarns</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Industry</picklist>
+            <values>
+                <fullName>Agriculture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Apparel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Banking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Biotechnology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemicals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Communications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Engineering</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Entertainment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food %26 Beverage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hospitality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not For Profit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recreation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shipping</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telecommunications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Utilities</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ownership</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Private</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subsidiary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Rating</picklist>
+            <values>
+                <fullName>Cold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warm</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Analyst</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Competitor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Integrator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Investor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Press</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospect</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reseller</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Verification_Status__c</picklist>
+            <values>
+                <fullName>To Be Merged</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unverified</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Verified</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Individual</fullName>
+        <active>true</active>
+        <label>Individual</label>
+        <picklistValues>
+            <picklist>AccountSource</picklist>
+            <values>
+                <fullName>Government Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inbound Call %2F Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral %2F Word of Mouth</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Strategic Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Account_Type__c</picklist>
+            <values>
+                <fullName>Researcher</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Industries__c</picklist>
+            <values>
+                <fullName>Accounting Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advanced Ceramics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advertising Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agricultural Chemicals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agricultural Machinery %26 Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agricultural Products</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agricultural Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Air Conditioning%2FRefrigeration Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aircraft%2FAircraft Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Airport%2FGround Support Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Apparel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Architectural%2FConstr%2E%2FEngineering SVC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Artwork</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Audio%2FVisual Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automobile%2FLight Truck%2FVans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive Parts%2FServices Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aviation Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Biotechnology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Books%2FPeriodicals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Building Products</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Eq%2E %28Non-Computer%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemical Production Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commercial Fishing Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commercial Vessel%2FEq%2E %28Non-Fisheries%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Composite Materials</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Computer Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Computer Software</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Computers%2FPeripherals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consumer Electronics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cosmetics%2FToiletries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Defense Industry Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dental Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Drugs%2FPharmaceuticals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education%2FTraining Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electrical Power Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronic Commerce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronic Components</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronics Industry Prod%2FTest Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employment Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental Technologies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Films%2FVideos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food Processing%2FPackaging Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foods - Processed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Footwear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forestry%2FWoodworking Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Franchising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Furniture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Consumer Goods</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Industrial Eq%2E%2FSupplies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Science %26 Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Giftware</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health Care Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hotel%2FRestaurant Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Household Consumer Goods</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Industrial Chemicals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Investment Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Iron%2FSteel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jewelry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Laboratory Scientific Instruments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lawn%2FGarden Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%2FFur Products</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Machine Tools%2FMetalworking Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management Consulting Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marine Fisheries Products %28Seafood%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Materials Handling Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mining Industry Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Musical Instruments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Ferrous Metals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oil%2FGas Field Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oil%2FGas%2FMineral Prod%2FExplor Serv%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Operations%2FMaintenance Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Packaging Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paper%2FPaperboard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pet Foods%2FSupp%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Photographic Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plastics Materials%2FResins</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plastics Production Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pleasure Boats%2FAccessories</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pollution Control Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Port%2FShipbuilding Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Printing%2FGraphic Arts Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process Controls - Industrial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pulp%2FPaper Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pumps%2FValves%2FCompressors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Railroad Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regulations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewable Energy Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Robotics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security%2FSafety Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sporting Goods%2FRecreational Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telecommunications Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telecommunications Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Textile Fabrics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Textile Machinery%2FEq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Textile Products - Made-Up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tools - Hand%2FPower</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Toys%2FGames</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Promotion Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trans%2E Serv%2E %28other than Aviation%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel and Tourism Industries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trucks%2FTrailers%2FBuses</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used%2FReconditioned Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Veterinary Medicine Eq%2E%2FSupplies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Water Resources Eq%2E%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yarns</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Industry</picklist>
+            <values>
+                <fullName>Agriculture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Apparel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Banking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Biotechnology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemicals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Communications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Engineering</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Entertainment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food %26 Beverage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hospitality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not For Profit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recreation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shipping</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telecommunications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Utilities</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ownership</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Private</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subsidiary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Rating</picklist>
+            <values>
+                <fullName>Cold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warm</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Analyst</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Competitor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Integrator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Investor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Press</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospect</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reseller</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Verification_Status__c</picklist>
+            <values>
+                <fullName>To Be Merged</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unverified</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Verified</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Partner_Account</fullName>
+        <active>true</active>
+        <description>Used for tracking Partner Accounts</description>
+        <label>Partner Account</label>
+        <picklistValues>
+            <picklist>AccountSource</picklist>
+            <values>
+                <fullName>Government Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inbound Call %2F Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral %2F Word of Mouth</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Strategic Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Account_Type__c</picklist>
+            <values>
+                <fullName>Researcher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Business</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Category__c</picklist>
+            <values>
+                <fullName>Business Service Providers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Codes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contacts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Country Pages</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Form</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Links</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Location</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Market Research</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Procurment Opportunity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Promotion Opportunity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reference</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Statistics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tariff Schedules</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Video</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web Content</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>DataPartnerType__c</picklist>
+            <values>
+                <fullName>Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Industries__c</picklist>
+            <values>
+                <fullName>Accounting Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advanced Ceramics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advertising Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agricultural Chemicals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agricultural Machinery %26 Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agricultural Products</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agricultural Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Air Conditioning%2FRefrigeration Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aircraft%2FAircraft Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Airport%2FGround Support Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Apparel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Architectural%2FConstr%2E%2FEngineering SVC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Artwork</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Audio%2FVisual Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automobile%2FLight Truck%2FVans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Automotive Parts%2FServices Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Aviation Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Biotechnology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Books%2FPeriodicals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Building Products</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Eq%2E %28Non-Computer%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemical Production Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commercial Fishing Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commercial Vessel%2FEq%2E %28Non-Fisheries%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Composite Materials</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Computer Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Computer Software</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Computers%2FPeripherals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consumer Electronics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cosmetics%2FToiletries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Defense Industry Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dental Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Drugs%2FPharmaceuticals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education%2FTraining Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electrical Power Systems</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronic Commerce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronic Components</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronics Industry Prod%2FTest Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employment Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental Technologies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Films%2FVideos</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Financial Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food Processing%2FPackaging Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foods - Processed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Footwear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forestry%2FWoodworking Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Franchising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Furniture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Consumer Goods</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Industrial Eq%2E%2FSupplies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Science %26 Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Giftware</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health Care Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hotel%2FRestaurant Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Household Consumer Goods</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Industrial Chemicals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Investment Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Iron%2FSteel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Jewelry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Laboratory Scientific Instruments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lawn%2FGarden Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leasing Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%2FFur Products</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Machine Tools%2FMetalworking Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management Consulting Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marine Fisheries Products %28Seafood%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Materials Handling Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mining Industry Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Musical Instruments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Ferrous Metals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oil%2FGas Field Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oil%2FGas%2FMineral Prod%2FExplor Serv%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Operations%2FMaintenance Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Packaging Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paper%2FPaperboard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pet Foods%2FSupp%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Photographic Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plastics Materials%2FResins</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plastics Production Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pleasure Boats%2FAccessories</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pollution Control Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Port%2FShipbuilding Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Printing%2FGraphic Arts Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Process Controls - Industrial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pulp%2FPaper Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pumps%2FValves%2FCompressors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Railroad Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regulations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewable Energy Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Robotics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Security%2FSafety Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sporting Goods%2FRecreational Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telecommunications Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telecommunications Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Textile Fabrics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Textile Machinery%2FEq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Textile Products - Made-Up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tools - Hand%2FPower</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Toys%2FGames</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade Promotion Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trans%2E Serv%2E %28other than Aviation%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel and Tourism Industries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trucks%2FTrailers%2FBuses</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Used%2FReconditioned Eq%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Veterinary Medicine Eq%2E%2FSupplies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Water Resources Eq%2E%2FServices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yarns</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Industry</picklist>
+            <values>
+                <fullName>Agriculture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Apparel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Banking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Biotechnology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemicals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Communications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Engineering</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Entertainment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food %26 Beverage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hospitality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not For Profit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recreation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shipping</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telecommunications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Utilities</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ownership</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Private</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subsidiary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Rating</picklist>
+            <values>
+                <fullName>Cold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warm</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SourceTechnology__c</picklist>
+            <values>
+                <fullName>API</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Excel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FTP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lotus Notes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RSS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Salesforce</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SharePoint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Word Document</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>XML</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Analyst</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Competitor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Integrator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Investor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Press</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospect</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reseller</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Verification_Status__c</picklist>
+            <values>
+                <fullName>To Be Merged</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unverified</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Verified</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ACCOUNT.ADDRESS1_STREET</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ACCOUNT.ADDRESS1_CITY</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ACCOUNT.ADDRESS1_STATE_CODE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CORE.USERS.FIRST_NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CORE.USERS.LAST_NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Owner_Office__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.SITE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.PHONE1</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CORE.USERS.ALIAS</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.TYPE</lookupDialogsAdditionalFields>
+        <lookupFilterFields>ACCOUNT.NAME</lookupFilterFields>
+        <lookupFilterFields>ACCOUNT.SITE</lookupFilterFields>
+        <lookupFilterFields>CORE.USERS.ALIAS</lookupFilterFields>
+        <lookupFilterFields>ACCOUNT.TYPE</lookupFilterFields>
+        <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ACCOUNT.SITE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CORE.USERS.ALIAS</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ACCOUNT.TYPE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ACCOUNT.PHONE1</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.ADDRESS1_CITY</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.ADDRESS1_STATE_CODE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.ADDRESS1_COUNTRY_CODE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>TracHier__Owner__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>To_Be_Merged_must_have_org</fullName>
+        <active>true</active>
+        <description>To be merged when selected must have org in merged org when saved</description>
+        <errorConditionFormula>ISPICKVAL( Verification_Status__c , &quot;To Be Merged&quot;)  &amp;&amp;
+ISBLANK( Merged_Organization__c )</errorConditionFormula>
+        <errorDisplayField>Verification_Status__c</errorDisplayField>
+        <errorMessage>If you select Verification Status of To Be Merged, you must indicate the Merged Organization before it will save.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Verify_Country_Exists</fullName>
+        <active>true</active>
+        <description>Verify Country has value populated.</description>
+        <errorConditionFormula>AND( 
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;, 
+$Profile.Name &lt;&gt; &quot;Data Team Admin&quot;, 
+$Profile.Name &lt;&gt; &quot;Delegated Admin (Field)&quot;, 
+$User.Id &lt;&gt; &quot;005r0000000EZ0K&quot;, 
+$User.Alias &lt;&gt; &quot;autocln&quot;, 
+ISBLANK(BillingCountry) 
+)</errorConditionFormula>
+        <errorMessage>You must enter a value for Country.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>When_removal_selected_cant_edit</fullName>
+        <active>true</active>
+        <description>Unless administrator, can not edit wins marked for removal.
+
+AND( 
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;, 
+$Profile.Name &lt;&gt; &quot;Data Team Admin&quot;,
+$Profile.Name &lt;&gt; &quot;Delegated Admin (Field)&quot;, 
+Request_Organization_Removal__c = TRUE 
+)</description>
+        <errorConditionFormula>AND($Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+$Profile.Name &lt;&gt; &quot;Data Team Admin&quot;,
+$Profile.Name &lt;&gt; &quot;Help Desk Administration&quot;,
+$Profile.Name &lt;&gt; &quot;Delegated Admin (Field)&quot;,
+$User.Alias &lt;&gt; &quot;autocln&quot;,
+PRIORVALUE(Request_Organization_Removal__c) &lt;&gt; FALSE
+)</errorConditionFormula>
+        <errorMessage>This Organization is requested to be removed.  If you believe this is in error, please contact the help desk immediately.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>AltavistaNews</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>true</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>true</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Altavista News</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>true</showsLocation>
+        <showsStatus>true</showsStatus>
+        <url>http://news.altavista.com/search?nc=0&amp;q={!Account_Name}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Batch</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Batch</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/apex.js&quot;)}
+var batchMethod = &quot;mccdBatchProcess mBatch = new mccdBatchProcess(); Database.executebatch(mBatch);&quot;
+var result = sforce.apex.executeAnonymous(batchMethod);
+sforce.debug.trace=true;
+
+if(result[&quot;compiled&quot;] !=  &quot;false&quot; &amp;&amp; result[&quot;success&quot;] != &quot;false&quot;)
+  alert(&quot;Batch has been submitted by the went successfully a mail will be sent when the job is completed&quot;);
+else
+  alert(&quot;Please check you email/Debug log for the error&quot;);</url>
+    </webLinks>
+    <webLinks>
+        <fullName>GoogleMaps</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Google Maps</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://maps.google.com/maps?f=q&amp;hl=en&amp;q={!Account_BillingStreet}+{!Account_BillingCity}+{!Account_BillingState}&amp;om=1</url>
+    </webLinks>
+    <webLinks>
+        <fullName>GoogleNews</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Google News</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://www.google.com/news?&amp;q={!Account_Name}&amp;btnG=Search+News</url>
+    </webLinks>
+    <webLinks>
+        <fullName>GoogleSearch</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Google Search</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://www.google.com/search?q={!Account_Name}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>HooversProfile</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Hoovers Profile</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://search.hoovers.com/cgi-bin/hol_search?which=company&amp;query_string={!Account_Name}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>YahooMaps</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>true</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>true</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Yahoo Maps</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>true</showsLocation>
+        <showsStatus>true</showsStatus>
+        <url>http://maps.yahoo.com/py/maps.py?cn={!Account_BillingCountry}&amp;csz={!Account_BillingCity}+{!Account_BillingState}+{!Account_BillingPostalCode}+&amp;addr={!Account_BillingAddress}</url>
+    </webLinks>
+</CustomObject>

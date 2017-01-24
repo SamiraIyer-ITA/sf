@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>PS - New Case (Non-Register) User Notification Email</description>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>Privacy_Shield_Letterhead</letterhead>
+    <name>PS: New Case (Non-Register) User Notification Email</name>
+    <style>freeForm</style>
+    <subject>Re: New Case: {!Case.Subject}</subject>
+    <textOnly>Dear {!Case.SuppliedName},
+
+Thank you for contacting the Privacy Shield team at the U.S. Department of Commerce’s International Trade Administration (ITA). We will work diligently to review and respond to your submission in a timely manner. Please note that the processing time will depend on the nature and completeness of the submission, as well as the volume of submissions received.
+
+Case Number - {!Case.CaseNumber}
+
+Case Status - {!Case.Status}
+
+Sincerely,
+
+Privacy Shield Team
+International Trade Administration
+Department of Commerce
+
+
+
+
+[ {!Case.Thread_Id} ]</textOnly>
+    <type>html</type>
+</EmailTemplate>

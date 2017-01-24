@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Icon</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Icons</value>
+    </caseValues>
+    <fields>
+        <label><!-- Alt Text --></label>
+        <name>Alt_Text__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select the type of icon you are adding to the Icon library. --></help>
+        <label><!-- Icon Type --></label>
+        <name>Icon_Type__c</name>
+        <picklistValues>
+            <masterLabel>Social</masterLabel>
+            <translation><!-- Social --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Class Name --></label>
+        <name>class_name__c</name>
+    </fields>
+    <layouts>
+        <layout>Icon Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

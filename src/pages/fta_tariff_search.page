@@ -1,0 +1,98 @@
+<apex:page sidebar="false" showHeader="false" controller="article_controller" applyBodyTag="false" applyHtmlTag="false">
+ <apex:composition template="Site_Template">
+     <apex:define name="page">
+
+<div class="main">
+            <div style="background-image: url('https://images.unsplash.com/photo-1465326117523-6450112b60b2'); background-repeat:no-repeat; background-size: cover;">
+                <div class="section clearfix primary-bg-ita-img">
+                <div>
+                    <div class="row content">
+                         <div class="containerInternal enforceHeight" >
+                                    <div class="col-md-5" >  
+                                        <div><h1>What's My Tariff?</h1><br/><br/>
+                                        <small><p class="lead">This tariff search tool allows users to find tariff information on all products covered under the U.S. FTAs. The tool shows the tariff applied on the date the FTA enters into force and the rates each subsequent year as the tariffs are eliminated under the agreement.</p>
+                                        <br/>
+                                        <p class="lead">Most tariffs are expressed as a percentage of the value of the good. Other tariffs are expressed as a specific charge on the good.</p></small>
+                                        </div>   
+                                    </div> 
+                                    <div class="col-md-7">
+                                    
+                                    <div class="container " style="max-width: 600px;background: rgba(0, 0, 0, 0.3);padding: 25px 25px 30px 25px;">
+                                    
+                                   <!-- <p>Are you Importing or Exporting?</p>
+                                    <div class="radio">
+                                    <label style="font-size:14px;"><input type="radio" name="optradio">You are exporting goods from the United States to an FTA partner</input></label>
+                                    </div>
+                                    
+                                    <div class="radio">
+                                    <label style="font-size:14px;"><input type="radio" name="optradio">You are importing goods from an FTA partner into the United States</input></label>
+                                    </div>
+                                    <hr/>-->
+                                    <p>Select an FTA Partner:</p>
+                                    <select class="form-control" style="margin-left:0px;" id="tpp_btn2">
+                    <option class="hidden">--Partners--</option>
+    <option value="Australia">Australia</option>
+    <option value="Brunei">Brunei</option>
+    <option value="Canada">Canada</option>
+    <option value="Chile">Chile</option>
+    <option value="Japan">Japan</option>
+    <option value="Malaysia">Malaysia</option>
+    <option value="Mexico">Mexico</option>
+    <option value="New Zealand">New Zealand</option>
+    <option value="Peru">Peru</option>
+    <option value="Singapore">Singapore</option>
+    <option value="Vietnam">Vietnam</option>
+
+                  </select>
+                                    
+                                    <hr/>
+                                    <p >Search by an HS Code: </p>
+                                    
+                                    
+                                   <div class="col-md-6" style="padding-left:0;padding-right:0;">
+                    
+                    <input type="text" class="form-control" style="max-width:200px;" id="tpp_search"></input>
+                 </div>
+                 
+                                    
+                                    <div class="col-md-6" style="padding-left:0;padding-right:0;">
+                                            <button class="btn-dark pull-right" style="margin: 0;" id="tpp_btn" onclick="window.location.replace('http://www.export.gov/tpp_rates#/search/?q='+$('#tpp_search' ).val());" type="submit" value="Search">Search</button>
+                                    </div>
+
+                                    
+                                    <script language="javascript">
+                                        $('#tpp_btn').on('click', function(e){
+                                            var query, url;
+                                            e.preventDefault();
+                                            url = 'http://www.export.gov/tpp_rates#/search/?q='+$('#tpp_search' ).val();
+                                            return window.location.replace(url);
+                                        });
+                                    </script>
+                                    
+                                     <script language="javascript">
+                                        $('#tpp_btn2').on('change', function(e){
+                                            var query, url;
+                                            e.preventDefault();
+                                            url = 'http://www.export.gov/tpp_rates#/search/?q='+$('#tpp_btn2' ).val();
+                                            return window.location.replace(url);
+                                        });
+                                    </script>
+                                    
+
+                                    
+                                    </div>
+                          
+                                    
+                                    </div>
+                        
+                        </div>   
+                    </div>
+                </div>
+                </div>
+            </div>
+   </div>
+
+
+     </apex:define>
+ </apex:composition>
+</apex:page>

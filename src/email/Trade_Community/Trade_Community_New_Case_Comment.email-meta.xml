@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email template to inform users that a new case comment has been added</description>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>ITA_Logo</letterhead>
+    <name>Trade Community - New Case Comment</name>
+    <style>freeForm</style>
+    <subject>Re: {!Case.Subject}</subject>
+    <textOnly>Thank you for contacting the Privacy Shield team. A new comment is available on your case.
+
+Case Number - {!Case.CaseNumber}
+Case Status - {!Case.Status}
+Case Comment - {!Case.Last_Case_Comment}
+
+Please click here to view your case - https://privacyshield.gov/{!Case.Id}
+
+
+
+Thank You,
+
+Privacy Shield Team
+International Trade Administration
+Department of Commerce
+
+
+
+
+
+
+[ {!Case.Thread_Id} ]</textOnly>
+    <type>html</type>
+</EmailTemplate>

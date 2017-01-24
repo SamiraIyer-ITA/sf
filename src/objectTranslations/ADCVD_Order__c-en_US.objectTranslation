@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>ADCVD Order</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>ADCVD Orders</value>
+    </caseValues>
+    <fields>
+        <label><!-- Actual Amended Final Signature --></label>
+        <name>Actual_Amended_Final_Signature__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Amended Prelim Determination Sig --></label>
+        <name>Actual_Amended_Prelim_Determination_Sig__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Final Signature --></label>
+        <name>Actual_Final_Signature__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Initiation Signature --></label>
+        <name>Actual_Initiation_Signature__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Preliminary Signature --></label>
+        <name>Actual_Preliminary_Signature__c</name>
+    </fields>
+    <fields>
+        <label><!-- Alignment Postponement of Final FR Pub --></label>
+        <name>Alignment_Postponement_of_Final_FR_Pub__c</name>
+    </fields>
+    <fields>
+        <label><!-- Anniversary Month --></label>
+        <name>Anniversary_Month__c</name>
+    </fields>
+    <fields>
+        <label><!-- Calculated Amended Final Signature --></label>
+        <name>Calculated_Amended_Final_Signature__c</name>
+    </fields>
+    <fields>
+        <label><!-- Calculated Amended Prelim Det Signature --></label>
+        <name>Calculated_Amended_Prelim_Det_Signature__c</name>
+    </fields>
+    <fields>
+        <label><!-- Calculated Final Signature --></label>
+        <name>Calculated_Final_Signature__c</name>
+    </fields>
+    <fields>
+        <label><!-- Calculated ITC Final FR Published --></label>
+        <name>Calculated_ITC_Final_FR_Published__c</name>
+    </fields>
+    <fields>
+        <label><!-- Calculated ITC Prelim Determination --></label>
+        <name>Calculated_ITC_Prelim_Determination__c</name>
+    </fields>
+    <fields>
+        <label><!-- Calculated Initiation Signature --></label>
+        <name>Calculated_Initiation_Signature__c</name>
+    </fields>
+    <fields>
+        <label><!-- Calculated Order FR Signature --></label>
+        <name>Calculated_Order_FR_Signature__c</name>
+    </fields>
+    <fields>
+        <label><!-- Calculated Postponement of Prelim Det FR --></label>
+        <name>Calculated_Postponement_of_Prelim_Det_FR__c</name>
+    </fields>
+    <fields>
+        <label><!-- Calculated Prelim Extension Req. Filed --></label>
+        <name>Calculated_Prelim_Extension_Req_Filed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Calculated Preliminary Signature --></label>
+        <name>Calculated_Preliminary_Signature__c</name>
+    </fields>
+    <fields>
+        <label><!-- Choose Following Respondent Selection: --></label>
+        <name>Choose_Following_Respondent_Selection__c</name>
+        <picklistValues>
+            <masterLabel>CBP Data</masterLabel>
+            <translation><!-- CBP Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quantity and Value Questionnaires</masterLabel>
+            <translation><!-- Quantity and Value Questionnaires --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Concurrence to DAS --></label>
+        <name>Concurrence_to_DAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Do you have Ministerial Error for Final? --></label>
+        <name>Do_you_have_Ministerial_Error_for_Final__c</name>
+    </fields>
+    <fields>
+        <label><!-- Do you have Ministerial Error for Prelim --></label>
+        <name>Do_you_have_Ministerial_Error_for_Prelim__c</name>
+    </fields>
+    <fields>
+        <label><!-- Effective Date for Most Recent SunsetFR --></label>
+        <name>Effective_Date_for_Most_Recent_SunsetFR__c</name>
+    </fields>
+    <fields>
+        <label><!-- Est. ITC Notification to DOC --></label>
+        <name>Est_ITC_Notification_to_DOC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Estimated Order FR Published --></label>
+        <name>Estimated_Order_FR_Published__c</name>
+    </fields>
+    <fields>
+        <label><!-- Final Extension (# of days) --></label>
+        <name>Final_Extension_of_days__c</name>
+    </fields>
+    <fields>
+        <label><!-- Final Team Meeting Deadline --></label>
+        <name>Final_Team_Meeting_Deadline__c</name>
+    </fields>
+    <fields>
+        <label><!-- HTS Number --></label>
+        <name>HTS_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- ITC Finding --></label>
+        <name>ITC_Finding__c</name>
+        <picklistValues>
+            <masterLabel>Materially Injured</masterLabel>
+            <translation><!-- Materially Injured --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Materially Retarded</masterLabel>
+            <translation><!-- Materially Retarded --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Threatened with Injury</masterLabel>
+            <translation><!-- Threatened with Injury --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- ITC Notification to DOC of Final Determ --></label>
+        <name>ITC_Notification_to_DOC_of_Final_Determ__c</name>
+    </fields>
+    <fields>
+        <label><!-- If Aligned, Input AD Final Det Signature --></label>
+        <name>If_Aligned_Input_AD_Final_Det_Signature__c</name>
+    </fields>
+    <fields>
+        <label><!-- Initiation Extension (# of days) --></label>
+        <name>Initiation_Extension_of_days__c</name>
+    </fields>
+    <fields>
+        <label><!-- Input Date of Post Prelim Det Signature --></label>
+        <name>Input_Date_of_Post_Prelim_Det_Signature__c</name>
+    </fields>
+    <fields>
+        <label><!-- Investigation Outcome --></label>
+        <name>Investigation_Outcome__c</name>
+        <picklistValues>
+            <masterLabel>DOC Negative Final/Termination of Investigation</masterLabel>
+            <translation><!-- DOC Negative Final/Termination of Investigation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Negative Prelim/Termination of Investigation</masterLabel>
+            <translation><!-- ITC Negative Prelim/Termination of Investigation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITCC Negative Final/Termination of Investigation</masterLabel>
+            <translation><!-- ITCC Negative Final/Termination of Investigation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order</masterLabel>
+            <translation><!-- Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petition Withdrawn After Initiation</masterLabel>
+            <translation><!-- Petition Withdrawn After Initiation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suspension Agreement</masterLabel>
+            <translation><!-- Suspension Agreement --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Investigation --></label>
+        <name>Investigation__c</name>
+        <relationshipLabel><!-- ADCVD Orders --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Is This Investigation Aligned With AD In --></label>
+        <name>Is_This_Investigation_Aligned_With_AD_In__c</name>
+    </fields>
+    <fields>
+        <label><!-- Issues to DAS --></label>
+        <name>Issues_to_DAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lotus Notes History Data --></label>
+        <name>Lotus_Notes_History_Data__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Due to DAS Deadline and Timeline --></label>
+        <name>Next_Due_to_DAS_Deadline_and_Timeline__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Major AS/DAS Deadline and Timeline --></label>
+        <name>Next_Major_AS_DAS_Deadline_and_Timeline__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Office/PM Deadline and Timeline --></label>
+        <name>Next_Office_PM_Deadline_and_Timeline__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Sunset Initiation Date --></label>
+        <name>Next_Sunset_Initiation_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Additional Companies Inv/Rev --></label>
+        <name>Number_of_Additional_Companies_Inv_Rev__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Companies Requested --></label>
+        <name>Number_of_Companies_Requested__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Mandatory Companies --></label>
+        <name>Number_of_Mandatory_Companies__c</name>
+    </fields>
+    <fields>
+        <label><!-- Office --></label>
+        <name>Office__c</name>
+        <picklistValues>
+            <masterLabel>I</masterLabel>
+            <translation><!-- I --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>II</masterLabel>
+            <translation><!-- II --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>III</masterLabel>
+            <translation><!-- III --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IV</masterLabel>
+            <translation><!-- IV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>V</masterLabel>
+            <translation><!-- V --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VI</masterLabel>
+            <translation><!-- VI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VII</masterLabel>
+            <translation><!-- VII --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Period Covered - End Date --></label>
+        <name>Period_Covered_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Period Covered - Start Date --></label>
+        <name>Period_Covered_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Petition Case Number --></label>
+        <name>Petition_Case_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Petition Case Type --></label>
+        <name>Petition_Case_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Petition Commodity --></label>
+        <name>Petition_Commodity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Petition Country --></label>
+        <name>Petition_Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- Petition Filed --></label>
+        <name>Petition_Filed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Petition Product --></label>
+        <name>Petition_Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prelim Extension (# of days) --></label>
+        <name>Prelim_Extension_of_days__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prelim Team Meeting Deadline --></label>
+        <name>Prelim_Team_Meeting_Deadline__c</name>
+    </fields>
+    <fields>
+        <label><!-- Receive Injunction or In Litigation? --></label>
+        <name>Receive_Injunction_or_In_Litigation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Revocation Reason --></label>
+        <name>Revocation_Reason__c</name>
+        <picklistValues>
+            <masterLabel>CCR - No Interest</masterLabel>
+            <translation><!-- CCR - No Interest --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sunset - Injury</masterLabel>
+            <translation><!-- Sunset - Injury --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sunset - No Interest</masterLabel>
+            <translation><!-- Sunset - No Interest --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sunset - No Likelihood</masterLabel>
+            <translation><!-- Sunset - No Likelihood --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Scope Language Change(s) --></label>
+        <name>Scope_Language_Change_s__c</name>
+    </fields>
+    <fields>
+        <label><!-- Segment Status --></label>
+        <name>Segment_Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Litigation</masterLabel>
+            <translation><!-- Litigation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Litigation Hold</masterLabel>
+            <translation><!-- Litigation Hold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suspended</masterLabel>
+            <translation><!-- Suspended --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Termination of Suspension Gap Period Beg --></label>
+        <name>Termination_of_Suspension_Gap_Period_Beg__c</name>
+    </fields>
+    <fields>
+        <label><!-- Third Country Case Number(s) --></label>
+        <name>Third_Country_Case_Number_s__c</name>
+    </fields>
+    <fields>
+        <label><!-- Upstream Subsidy Allegation? --></label>
+        <name>Upstream_Subsidy_Allegation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Will You Amend the Final? --></label>
+        <name>Will_You_Amend_the_Final__c</name>
+    </fields>
+    <fields>
+        <label><!-- Will You Amend the Prelim Determination? --></label>
+        <name>Will_You_Amend_the_Prelim_Determination__c</name>
+    </fields>
+    <fields>
+        <label><!-- Will you Issue Post Prelim Determination --></label>
+        <name>Will_you_Issue_Post_Prelim_Determination__c</name>
+    </fields>
+    <layouts>
+        <layout>Order</layout>
+        <sections>
+            <label><!-- Administrative --></label>
+            <section>Administrative</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Scope Description --></label>
+            <section>Scope Description</section>
+        </sections>
+        <sections>
+            <label><!-- Scope of the Order --></label>
+            <section>Scope of the Order</section>
+        </sections>
+        <sections>
+            <label><!-- Status --></label>
+            <section>Status</section>
+        </sections>
+        <sections>
+            <label><!-- Sunset and Revocation Information --></label>
+            <section>Sunset and Revocation Information</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>ADCVD Order Name</nameFieldLabel>
+    <recordTypes>
+        <label><!-- Anti-Circumvention Review --></label>
+        <name>Anti_Circumvention_Review</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,8 @@
+<apex:page standardController="Lead" showHeader="false" sidebar="false" title="Traction Hierarchies" standardStylesheets="false">
+	<style>
+		table.treetable thead {
+    		border-top: 3px solid #e39321 !important;
+    	}
+    </style>
+    <c:Hierarchy recordId="{!Lead.Id}"/>
+</apex:page>

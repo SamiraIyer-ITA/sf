@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Respondent</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Respondents</value>
+    </caseValues>
+    <fields>
+        <label><!-- Investigation --></label>
+        <name>Investigation__c</name>
+        <relationshipLabel><!-- Respondents --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Respondent Received --></label>
+        <name>Respondent_Received__c</name>
+        <picklistValues>
+            <masterLabel>Injunction</masterLabel>
+            <translation><!-- Injunction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Litigation</masterLabel>
+            <translation><!-- Litigation --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Respondent --></label>
+        <name>Respondent__c</name>
+        <relationshipLabel><!-- Respondents --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Segment --></label>
+        <name>Segment__c</name>
+        <relationshipLabel><!-- Respondents --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Type of Respondent --></label>
+        <name>Type_of_Respondent__c</name>
+        <picklistValues>
+            <masterLabel>All Other/Country-Wide</masterLabel>
+            <translation><!-- All Other/Country-Wide --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mandatory</masterLabel>
+            <translation><!-- Mandatory --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Review Request/Separate Rate</masterLabel>
+            <translation><!-- Review Request/Separate Rate --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Type of Response --></label>
+        <name>Type_of_Response__c</name>
+        <picklistValues>
+            <masterLabel>Full</masterLabel>
+            <translation><!-- Full --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Shipments</masterLabel>
+            <translation><!-- No Shipments --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partial</masterLabel>
+            <translation><!-- Partial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unresponsive</masterLabel>
+            <translation><!-- Unresponsive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Withdrawn</masterLabel>
+            <translation><!-- Withdrawn --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Respondent Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

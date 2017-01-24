@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SecuritySettings xmlns="http://soap.sforce.com/2006/04/metadata">
+    <networkAccess>
+        <ipRanges>
+            <end>216.206.87.228</end>
+            <start>216.206.87.228</start>
+        </ipRanges>
+        <ipRanges>
+            <description>iContact - 3</description>
+            <end>69.166.134.158</end>
+            <start>69.166.134.129</start>
+        </ipRanges>
+        <ipRanges>
+            <description>iContact - 2</description>
+            <end>69.166.132.254</end>
+            <start>69.166.132.241</start>
+        </ipRanges>
+        <ipRanges>
+            <description>iContact - 1</description>
+            <end>66.192.165.133</end>
+            <start>66.192.165.133</start>
+        </ipRanges>
+    </networkAccess>
+    <passwordPolicies>
+        <complexity>UpperLowerCaseNumericSpecialCharacters</complexity>
+        <expiration>SixtyDays</expiration>
+        <historyRestriction>8</historyRestriction>
+        <lockoutInterval>FifteenMinutes</lockoutInterval>
+        <maxLoginAttempts>FiveAttempts</maxLoginAttempts>
+        <minimumPasswordLength>12</minimumPasswordLength>
+        <minimumPasswordLifetime>false</minimumPasswordLifetime>
+        <obscureSecretAnswer>true</obscureSecretAnswer>
+        <questionRestriction>DoesNotContainPassword</questionRestriction>
+    </passwordPolicies>
+    <sessionSettings>
+        <disableTimeoutWarning>false</disableTimeoutWarning>
+        <enableCSPOnEmail>true</enableCSPOnEmail>
+        <enableCSRFOnGet>true</enableCSRFOnGet>
+        <enableCSRFOnPost>true</enableCSRFOnPost>
+        <enableCacheAndAutocomplete>true</enableCacheAndAutocomplete>
+        <enableClickjackNonsetupSFDC>true</enableClickjackNonsetupSFDC>
+        <enableClickjackNonsetupUser>false</enableClickjackNonsetupUser>
+        <enableClickjackNonsetupUserHeaderless>false</enableClickjackNonsetupUserHeaderless>
+        <enableClickjackSetup>true</enableClickjackSetup>
+        <enablePostForSessions>false</enablePostForSessions>
+        <enableSMSIdentity>true</enableSMSIdentity>
+        <enforceIpRangesEveryRequest>false</enforceIpRangesEveryRequest>
+        <forceLogoutOnSessionTimeout>true</forceLogoutOnSessionTimeout>
+        <forceRelogin>false</forceRelogin>
+        <lockSessionsToDomain>true</lockSessionsToDomain>
+        <lockSessionsToIp>true</lockSessionsToIp>
+        <securityCentralKillSession>true</securityCentralKillSession>
+        <sessionTimeout>FourHours</sessionTimeout>
+    </sessionSettings>
+</SecuritySettings>

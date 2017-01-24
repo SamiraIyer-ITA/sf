@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Department Taxonomy</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Department Taxonomy</value>
+    </caseValues>
+    <fields>
+        <label><!-- User Unit --></label>
+        <name>All__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Country --></label>
+        <name>Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- User DAS --></label>
+        <name>DAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Agency --></label>
+        <name>Level_0__c</name>
+    </fields>
+    <fields>
+        <label><!-- OLD Office --></label>
+        <name>Office__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Office --></label>
+        <name>Old_Office_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Sub-region --></label>
+        <name>Region_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Region --></label>
+        <name>Region_2__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

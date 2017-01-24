@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>DUNS_Global_Ultimate_Parent__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Global Ultimate Parent Company</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>All Child Accounts</relationshipLabel>
+        <relationshipName>All_Child_Accounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Excluded_From_Account_Hierarchies__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Override Default Account Hierarchy</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Global_Ultimate_Grouping_Id__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Field used by Traction Hierarchies for grouping by Global Ultimate Parent account in reports</description>
+        <externalId>false</externalId>
+        <formula>if(!ISBLANK( DUNS_Global_Ultimate_Parent__c), 
+DUNS_Global_Ultimate_Parent__r.Name &amp; &quot; (&quot; &amp; DUNS_Global_Ultimate_Parent__r.DunsNumber &amp; &quot;)&quot; 
+, 
+Name &amp; &quot; (&quot; &amp; BLANKVALUE(DunsNumber, &quot;No D&amp;B Data Available&quot;) &amp; &quot;)&quot; 
+)</formula>
+        <inlineHelpText>Use this field to group records by Global Ultimate Parent account in reports</inlineHelpText>
+        <label>Global Ultimate Grouping Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Owner__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The name of the Sales rep who owns the Account.</description>
+        <externalId>false</externalId>
+        <formula>Owner.FirstName + &quot; &quot; + Owner.LastName</formula>
+        <inlineHelpText>The name of the Sales rep who owns the Account.</inlineHelpText>
+        <label>Owner</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Parent_Company__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Parent Company</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Direct Child Accounts</relationshipLabel>
+        <relationshipName>Direct_Child_Accounts</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+</CustomObject>

@@ -1,0 +1,1516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Organization</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Organizations</value>
+    </caseValues>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Access</value>
+        </caseValues>
+        <name>account_access</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Access Level</value>
+        </caseValues>
+        <name>account_access_level</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Contact Role</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Organization Contact Roles</value>
+        </caseValues>
+        <name>account_contact_role</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Creator</value>
+        </caseValues>
+        <name>account_creator</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Currency</value>
+        </caseValues>
+        <name>account_currency</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Description</value>
+        </caseValues>
+        <name>account_description</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Detail Page</value>
+        </caseValues>
+        <name>account_detail_page</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Division</value>
+        </caseValues>
+        <name>account_division</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Edit</value>
+        </caseValues>
+        <name>account_edit</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Fax</value>
+        </caseValues>
+        <name>account_fax</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Field</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Organization Fields</value>
+        </caseValues>
+        <name>account_field</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization General</value>
+        </caseValues>
+        <name>account_general</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Hierarchy</value>
+        </caseValues>
+        <name>account_hierarchy</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization History</value>
+        </caseValues>
+        <name>account_history</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization History Archive</value>
+        </caseValues>
+        <name>account_history_archive</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization History Report</value>
+        </caseValues>
+        <name>account_history_report</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization ID</value>
+        </caseValues>
+        <name>account_id</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Information</value>
+        </caseValues>
+        <name>account_information</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Name</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Organization Names</value>
+        </caseValues>
+        <name>account_name</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Number</value>
+        </caseValues>
+        <name>account_number</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Owner</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Organization Owners</value>
+        </caseValues>
+        <name>account_owner</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Owner Alias</value>
+        </caseValues>
+        <name>account_owner_alias</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Owner Report</value>
+        </caseValues>
+        <name>account_owner_report</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Owner Role</value>
+        </caseValues>
+        <name>account_owner_role</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Ownership</value>
+        </caseValues>
+        <name>account_ownership</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Phone</value>
+        </caseValues>
+        <name>account_phone</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Rating</value>
+        </caseValues>
+        <name>account_rating</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Record</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Organization Records</value>
+        </caseValues>
+        <name>account_record</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Record Type</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Organization Record Types</value>
+        </caseValues>
+        <name>account_record_type</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Report</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Organization Reports</value>
+        </caseValues>
+        <name>account_report</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Sharing</value>
+        </caseValues>
+        <name>account_sharing</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Site</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Organization Sites</value>
+        </caseValues>
+        <name>account_site</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Source</value>
+        </caseValues>
+        <name>account_source</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Stage ID</value>
+        </caseValues>
+        <name>account_stage_id</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Team</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Organization Teams</value>
+        </caseValues>
+        <name>account_team</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Team Member</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Organization Team Members</value>
+        </caseValues>
+        <name>account_team_member</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Team Member ID</value>
+        </caseValues>
+        <name>account_team_member_id</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Team Report</value>
+        </caseValues>
+        <name>account_team_report</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Territory</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Organization Territories</value>
+        </caseValues>
+        <name>account_territory</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Tool</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Organization Tools</value>
+        </caseValues>
+        <name>account_tool</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Type</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Organization Types</value>
+        </caseValues>
+        <name>account_type</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization View</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Organization Views</value>
+        </caseValues>
+        <name>account_view</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Address</value>
+        </caseValues>
+        <name>billing_address_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>City</value>
+        </caseValues>
+        <name>billing_city_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Country</value>
+        </caseValues>
+        <name>billing_country_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Country Code</value>
+        </caseValues>
+        <name>billing_country_code_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Latitude</value>
+        </caseValues>
+        <name>billing_latitude_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Longitude</value>
+        </caseValues>
+        <name>billing_longitude_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>State/Province</value>
+        </caseValues>
+        <name>billing_state_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>State/Province Code</value>
+        </caseValues>
+        <name>billing_state_code_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Street</value>
+        </caseValues>
+        <name>billing_street_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Zip/Postal Code</value>
+        </caseValues>
+        <name>billing_zip_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization and Product Description</value>
+        </caseValues>
+        <name>description_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Number of Employees</value>
+        </caseValues>
+        <name>employees_account</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Parent Organization</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Parent Organizations</value>
+        </caseValues>
+        <name>parent_account</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Parent Organization Division</value>
+        </caseValues>
+        <name>parent_account_division</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Parent Organization ID</value>
+        </caseValues>
+        <name>parent_account_id</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Parent Organization Site</value>
+        </caseValues>
+        <name>parent_account_site</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Person Organization Record</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Person Organization Records</value>
+        </caseValues>
+        <name>person_account_record</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Web Site</value>
+        </caseValues>
+        <name>website_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <label><!-- Registration Type --></label>
+        <name>Account_Type__c</name>
+        <picklistValues>
+            <masterLabel>Business Service Provider/Consultant/Lawyer</masterLabel>
+            <translation><!-- Business Service Provider/Consultant/Lawyer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Economic Development Organization</masterLabel>
+            <translation><!-- Economic Development Organization --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Foreign Business</masterLabel>
+            <translation><!-- Foreign Business --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Government</masterLabel>
+            <translation><!-- Government --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Researcher</masterLabel>
+            <translation><!-- Researcher --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trade/Industry Association</masterLabel>
+            <translation><!-- Trade/Industry Association --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>U.S. Business</masterLabel>
+            <translation><!-- U.S. Business --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- This field will display the actual creation date for records from CTS/ITA Central/Salesforce. Use this field for FY 15&apos; reporting --></help>
+        <label><!-- Actual Create Date --></label>
+        <name>Actual_Create_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter alternative names for the organization in this field. --></help>
+        <label><!-- Associated Organization Names --></label>
+        <name>Associated_Business_Names__c</name>
+    </fields>
+    <fields>
+        <help><!-- Legacy Organization ID for easy data loading and validation. --></help>
+        <label><!-- CTS Org ID --></label>
+        <name>CTS_Org_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Category --></label>
+        <name>Category__c</name>
+        <picklistValues>
+            <masterLabel>Business Service Providers</masterLabel>
+            <translation><!-- Business Service Providers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Codes</masterLabel>
+            <translation><!-- Codes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contacts</masterLabel>
+            <translation><!-- Contacts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Country Pages</masterLabel>
+            <translation><!-- Country Pages --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data</masterLabel>
+            <translation><!-- Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Events</masterLabel>
+            <translation><!-- Events --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Form</masterLabel>
+            <translation><!-- Form --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Links</masterLabel>
+            <translation><!-- Links --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Location</masterLabel>
+            <translation><!-- Location --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Market Research</masterLabel>
+            <translation><!-- Market Research --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Procurment Opportunity</masterLabel>
+            <translation><!-- Procurment Opportunity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Promotion Opportunity</masterLabel>
+            <translation><!-- Promotion Opportunity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reference</masterLabel>
+            <translation><!-- Reference --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service</masterLabel>
+            <translation><!-- Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Statistics</masterLabel>
+            <translation><!-- Statistics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tariff Schedules</masterLabel>
+            <translation><!-- Tariff Schedules --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Video</masterLabel>
+            <translation><!-- Video --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web Content</masterLabel>
+            <translation><!-- Web Content --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Congressional District --></label>
+        <name>Congressional_District__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field is auto populated for US Organizations based on zip code --></help>
+        <label><!-- Congressional District --></label>
+        <name>Congressional_District_formula__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field is auto populated for US Organizations based on zip code --></help>
+        <label><!-- County (US Only) --></label>
+        <name>County_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- DUNS field --></label>
+        <name>DUNS_field__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data Partner Type --></label>
+        <name>DataPartnerType__c</name>
+        <picklistValues>
+            <masterLabel>Customer</masterLabel>
+            <translation><!-- Customer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partner</masterLabel>
+            <translation><!-- Partner --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- DupeBlocker Insert Action --></label>
+        <name>DupeBlocker_Insert_Action__c</name>
+    </fields>
+    <fields>
+        <label><!-- DupeBlocker Update Action --></label>
+        <name>DupeBlocker_Update_Action__c</name>
+    </fields>
+    <fields>
+        <label><!-- For Dupeblocker Triggering --></label>
+        <name>For_Dupeblocker_Triggering__c</name>
+    </fields>
+    <fields>
+        <label><!-- Has Exported To --></label>
+        <name>Has_Exported_To__c</name>
+    </fields>
+    <fields>
+        <help><!-- ITA’s notes on this company --></help>
+        <label><!-- ITA Organization and Product Description --></label>
+        <name>ITA_Organization_and_Product_Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- For Data Admin teams and Sys Admins - check this to eliminate from future reports easily. --></help>
+        <label><!-- Ignore --></label>
+        <name>Ignore__c</name>
+    </fields>
+    <fields>
+        <label><!-- Industries --></label>
+        <name>Industries__c</name>
+        <picklistValues>
+            <masterLabel>Accounting Services</masterLabel>
+            <translation><!-- Accounting Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Advanced Ceramics</masterLabel>
+            <translation><!-- Advanced Ceramics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Advertising Services</masterLabel>
+            <translation><!-- Advertising Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Agricultural Chemicals</masterLabel>
+            <translation><!-- Agricultural Chemicals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Agricultural Machinery &amp; Eq.</masterLabel>
+            <translation><!-- Agricultural Machinery &amp; Eq. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Agricultural Products</masterLabel>
+            <translation><!-- Agricultural Products --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Agricultural Services</masterLabel>
+            <translation><!-- Agricultural Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Air Conditioning/Refrigeration Eq.</masterLabel>
+            <translation><!-- Air Conditioning/Refrigeration Eq. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aircraft/Aircraft Parts</masterLabel>
+            <translation><!-- Aircraft/Aircraft Parts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Airport/Ground Support Eq.</masterLabel>
+            <translation><!-- Airport/Ground Support Eq. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Apparel</masterLabel>
+            <translation><!-- Apparel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Architectural/Constr./Engineering SVC</masterLabel>
+            <translation><!-- Architectural/Constr./Engineering SVC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Artwork</masterLabel>
+            <translation><!-- Artwork --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Audio/Visual Eq.</masterLabel>
+            <translation><!-- Audio/Visual Eq. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Automobile/Light Truck/Vans</masterLabel>
+            <translation><!-- Automobile/Light Truck/Vans --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Automotive Parts/Services Eq.</masterLabel>
+            <translation><!-- Automotive Parts/Services Eq. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aviation Services</masterLabel>
+            <translation><!-- Aviation Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Biotechnology</masterLabel>
+            <translation><!-- Biotechnology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Books/Periodicals</masterLabel>
+            <translation><!-- Books/Periodicals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Building Products</masterLabel>
+            <translation><!-- Building Products --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business Eq. (Non-Computer)</masterLabel>
+            <translation><!-- Business Eq. (Non-Computer) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chemical Production Machinery</masterLabel>
+            <translation><!-- Chemical Production Machinery --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coal</masterLabel>
+            <translation><!-- Coal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Commercial Fishing Eq.</masterLabel>
+            <translation><!-- Commercial Fishing Eq. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Commercial Vessel/Eq. (Non-Fisheries)</masterLabel>
+            <translation><!-- Commercial Vessel/Eq. (Non-Fisheries) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Composite Materials</masterLabel>
+            <translation><!-- Composite Materials --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Computer Services</masterLabel>
+            <translation><!-- Computer Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Computer Software</masterLabel>
+            <translation><!-- Computer Software --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Computers/Peripherals</masterLabel>
+            <translation><!-- Computers/Peripherals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Construction Eq.</masterLabel>
+            <translation><!-- Construction Eq. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Consumer Electronics</masterLabel>
+            <translation><!-- Consumer Electronics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cosmetics/Toiletries</masterLabel>
+            <translation><!-- Cosmetics/Toiletries --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Defense Industry Eq.</masterLabel>
+            <translation><!-- Defense Industry Eq. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dental Eq.</masterLabel>
+            <translation><!-- Dental Eq. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Drugs/Pharmaceuticals</masterLabel>
+            <translation><!-- Drugs/Pharmaceuticals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Economy</masterLabel>
+            <translation><!-- Economy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Education/Training Services</masterLabel>
+            <translation><!-- Education/Training Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Electrical Power Systems</masterLabel>
+            <translation><!-- Electrical Power Systems --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Electronic Commerce</masterLabel>
+            <translation><!-- Electronic Commerce --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Electronic Components</masterLabel>
+            <translation><!-- Electronic Components --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Electronics Industry Prod/Test Eq.</masterLabel>
+            <translation><!-- Electronics Industry Prod/Test Eq. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Employment Services</masterLabel>
+            <translation><!-- Employment Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Environmental Technologies</masterLabel>
+            <translation><!-- Environmental Technologies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Films/Videos</masterLabel>
+            <translation><!-- Films/Videos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Financial Services</masterLabel>
+            <translation><!-- Financial Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Food Processing/Packaging Eq.</masterLabel>
+            <translation><!-- Food Processing/Packaging Eq. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Foods - Processed</masterLabel>
+            <translation><!-- Foods - Processed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Footwear</masterLabel>
+            <translation><!-- Footwear --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forestry/Woodworking Machinery</masterLabel>
+            <translation><!-- Forestry/Woodworking Machinery --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Franchising</masterLabel>
+            <translation><!-- Franchising --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Furniture</masterLabel>
+            <translation><!-- Furniture --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General Consumer Goods</masterLabel>
+            <translation><!-- General Consumer Goods --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General Industrial Eq./Supplies</masterLabel>
+            <translation><!-- General Industrial Eq./Supplies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General Science &amp; Technology</masterLabel>
+            <translation><!-- General Science &amp; Technology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General Services</masterLabel>
+            <translation><!-- General Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Giftware</masterLabel>
+            <translation><!-- Giftware --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health Care Services</masterLabel>
+            <translation><!-- Health Care Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hotel/Restaurant Eq.</masterLabel>
+            <translation><!-- Hotel/Restaurant Eq. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Household Consumer Goods</masterLabel>
+            <translation><!-- Household Consumer Goods --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Industrial Chemicals</masterLabel>
+            <translation><!-- Industrial Chemicals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Information Services</masterLabel>
+            <translation><!-- Information Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insurance Services</masterLabel>
+            <translation><!-- Insurance Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Investment Services</masterLabel>
+            <translation><!-- Investment Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Iron/Steel</masterLabel>
+            <translation><!-- Iron/Steel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jewelry</masterLabel>
+            <translation><!-- Jewelry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Laboratory Scientific Instruments</masterLabel>
+            <translation><!-- Laboratory Scientific Instruments --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lawn/Garden Eq.</masterLabel>
+            <translation><!-- Lawn/Garden Eq. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Leasing Services</masterLabel>
+            <translation><!-- Leasing Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Leather/Fur Products</masterLabel>
+            <translation><!-- Leather/Fur Products --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Machine Tools/Metalworking Eq.</masterLabel>
+            <translation><!-- Machine Tools/Metalworking Eq. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Management Consulting Services</masterLabel>
+            <translation><!-- Management Consulting Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marine Fisheries Products (Seafood)</masterLabel>
+            <translation><!-- Marine Fisheries Products (Seafood) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Materials Handling Machinery</masterLabel>
+            <translation><!-- Materials Handling Machinery --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Eq.</masterLabel>
+            <translation><!-- Medical Eq. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mining Industry Eq.</masterLabel>
+            <translation><!-- Mining Industry Eq. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Musical Instruments</masterLabel>
+            <translation><!-- Musical Instruments --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-Ferrous Metals</masterLabel>
+            <translation><!-- Non-Ferrous Metals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oil/Gas Field Machinery</masterLabel>
+            <translation><!-- Oil/Gas Field Machinery --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oil/Gas/Mineral Prod/Explor Serv.</masterLabel>
+            <translation><!-- Oil/Gas/Mineral Prod/Explor Serv. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operations/Maintenance Services</masterLabel>
+            <translation><!-- Operations/Maintenance Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Packaging Eq.</masterLabel>
+            <translation><!-- Packaging Eq. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Paper/Paperboard</masterLabel>
+            <translation><!-- Paper/Paperboard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pet Foods/Supp.</masterLabel>
+            <translation><!-- Pet Foods/Supp. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Photographic Eq.</masterLabel>
+            <translation><!-- Photographic Eq. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Plastics Materials/Resins</masterLabel>
+            <translation><!-- Plastics Materials/Resins --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Plastics Production Machinery</masterLabel>
+            <translation><!-- Plastics Production Machinery --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pleasure Boats/Accessories</masterLabel>
+            <translation><!-- Pleasure Boats/Accessories --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pollution Control Eq.</masterLabel>
+            <translation><!-- Pollution Control Eq. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Port/Shipbuilding Eq.</masterLabel>
+            <translation><!-- Port/Shipbuilding Eq. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Printing/Graphic Arts Eq.</masterLabel>
+            <translation><!-- Printing/Graphic Arts Eq. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Process Controls - Industrial</masterLabel>
+            <translation><!-- Process Controls - Industrial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pulp/Paper Machinery</masterLabel>
+            <translation><!-- Pulp/Paper Machinery --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pumps/Valves/Compressors</masterLabel>
+            <translation><!-- Pumps/Valves/Compressors --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Railroad Eq.</masterLabel>
+            <translation><!-- Railroad Eq. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regulations</masterLabel>
+            <translation><!-- Regulations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Renewable Energy Eq.</masterLabel>
+            <translation><!-- Renewable Energy Eq. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Robotics</masterLabel>
+            <translation><!-- Robotics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Security/Safety Eq.</masterLabel>
+            <translation><!-- Security/Safety Eq. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sporting Goods/Recreational Eq.</masterLabel>
+            <translation><!-- Sporting Goods/Recreational Eq. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Telecommunications Eq.</masterLabel>
+            <translation><!-- Telecommunications Eq. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Telecommunications Services</masterLabel>
+            <translation><!-- Telecommunications Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Textile Fabrics</masterLabel>
+            <translation><!-- Textile Fabrics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Textile Machinery/Eq.</masterLabel>
+            <translation><!-- Textile Machinery/Eq. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Textile Products - Made-Up</masterLabel>
+            <translation><!-- Textile Products - Made-Up --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tools - Hand/Power</masterLabel>
+            <translation><!-- Tools - Hand/Power --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toys/Games</masterLabel>
+            <translation><!-- Toys/Games --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trade Promotion Services</masterLabel>
+            <translation><!-- Trade Promotion Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trans. Serv. (other than Aviation)</masterLabel>
+            <translation><!-- Trans. Serv. (other than Aviation) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Travel and Tourism Industries</masterLabel>
+            <translation><!-- Travel and Tourism Industries --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trucks/Trailers/Buses</masterLabel>
+            <translation><!-- Trucks/Trailers/Buses --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Used/Reconditioned Eq.</masterLabel>
+            <translation><!-- Used/Reconditioned Eq. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Veterinary Medicine Eq./Supplies</masterLabel>
+            <translation><!-- Veterinary Medicine Eq./Supplies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Water Resources Eq./Services</masterLabel>
+            <translation><!-- Water Resources Eq./Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yarns</masterLabel>
+            <translation><!-- Yarns --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Check when this record is a Holding organization --></help>
+        <label><!-- Is Holding --></label>
+        <name>Is_Holding__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Subsidiary --></label>
+        <name>Is_Subsidiary__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead Industry Holder --></label>
+        <name>Lead_Industry_Holder__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead Sector Holder --></label>
+        <name>Lead_Sector_Holder__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead Sub-sector Holder --></label>
+        <name>Lead_Sub_sector_Holder__c</name>
+    </fields>
+    <fields>
+        <label><!-- Local ITA Office --></label>
+        <name>Local_ITA_Office__c</name>
+    </fields>
+    <fields>
+        <label><!-- Merged Organization --></label>
+        <name>Merged_Organization__c</name>
+        <relationshipLabel><!-- Accounts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Minority-Owned Indicator --></label>
+        <name>Minority_Owned_Indicator__c</name>
+    </fields>
+    <fields>
+        <help><!-- Displays top 3 NAICS codes with their description for this company. --></help>
+        <label><!-- NAICS --></label>
+        <name>NAICS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Organization 18 ID --></label>
+        <name>Organization_18_ID__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field is for being able to sum on records for reporting. Not shown on page layout. --></help>
+        <label><!-- Organization One --></label>
+        <name>Organization_One__c</name>
+    </fields>
+    <fields>
+        <help><!-- Primary ITA POC for this Organization&apos;s office. --></help>
+        <label><!-- Owner&apos;s Office --></label>
+        <name>Owner_Office__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Trade Style --></label>
+        <name>Primary_Trade_Style__c</name>
+    </fields>
+    <fields>
+        <label><!-- Privacy Shield Disabled --></label>
+        <name>Privacy_Shield_Disabled__c</name>
+    </fields>
+    <fields>
+        <help><!-- Users may select this to alert the data team to investigate the organization record for removal. --></help>
+        <label><!-- Request Organization Removal --></label>
+        <name>Request_Organization_Removal__c</name>
+    </fields>
+    <fields>
+        <help><!-- Populated based on Data.com, where there are less than 501 employees &amp; country = US, includes null values. --></help>
+        <label><!-- SME (U.S. Only) --></label>
+        <name>SME__c</name>
+    </fields>
+    <fields>
+        <label><!-- SharePoint ID --></label>
+        <name>SharePoint_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sharepoint Organization Name --></label>
+        <name>Sharepoint_Org_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source Technology --></label>
+        <name>SourceTechnology__c</name>
+        <picklistValues>
+            <masterLabel>API</masterLabel>
+            <translation><!-- API --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Excel</masterLabel>
+            <translation><!-- Excel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FTP</masterLabel>
+            <translation><!-- FTP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lotus Notes</masterLabel>
+            <translation><!-- Lotus Notes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RSS</masterLabel>
+            <translation><!-- RSS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Salesforce</masterLabel>
+            <translation><!-- Salesforce --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SharePoint</masterLabel>
+            <translation><!-- SharePoint --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web Service</masterLabel>
+            <translation><!-- Web Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Word Document</masterLabel>
+            <translation><!-- Word Document --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>XML</masterLabel>
+            <translation><!-- XML --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- State Code --></label>
+        <name>State_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Global Ultimate Parent Company --></label>
+        <name>TracHier__DUNS_Global_Ultimate_Parent__c</name>
+        <relationshipLabel><!-- All Child Accounts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Override Default Account Hierarchy --></label>
+        <name>TracHier__Excluded_From_Account_Hierarchies__c</name>
+    </fields>
+    <fields>
+        <help><!-- Use this field to group records by Global Ultimate Parent account in reports --></help>
+        <label><!-- Global Ultimate Grouping Id --></label>
+        <name>TracHier__Global_Ultimate_Grouping_Id__c</name>
+    </fields>
+    <fields>
+        <help><!-- The name of the Sales rep who owns the Account. --></help>
+        <label><!-- Owner --></label>
+        <name>TracHier__Owner__c</name>
+    </fields>
+    <fields>
+        <label><!-- Parent Company --></label>
+        <name>TracHier__Parent_Company__c</name>
+        <relationshipLabel><!-- Direct Child Accounts --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- This is the Tax ID field from D&amp;B company information. --></help>
+        <label><!-- US Tax ID from Data.com --></label>
+        <name>US_Tax_ID_from_Data_com__c</name>
+    </fields>
+    <fields>
+        <label><!-- Validated --></label>
+        <name>Validated__c</name>
+    </fields>
+    <fields>
+        <label><!-- Verification Status --></label>
+        <name>Verification_Status__c</name>
+        <picklistValues>
+            <masterLabel>To Be Merged</masterLabel>
+            <translation><!-- To Be Merged --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unverified</masterLabel>
+            <translation><!-- Unverified --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Verified</masterLabel>
+            <translation><!-- Verified --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Woman-Owned Indicator --></label>
+        <name>Woman_Owned_Indicator__c</name>
+    </fields>
+    <fields>
+        <label><!-- eMenu ES ID --></label>
+        <name>eMenu_ES_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- eMenu Organization Name --></label>
+        <name>eMenu_Org_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- test --></label>
+        <name>test__c</name>
+    </fields>
+    <fields>
+        <label><!-- test number --></label>
+        <name>test_number__c</name>
+    </fields>
+    <fields>
+        <label><!-- zipCodeLen --></label>
+        <name>zipCodeLen__c</name>
+    </fields>
+    <layouts>
+        <layout>Account Layout</layout>
+        <sections>
+            <label><!-- Data.com --></label>
+            <section>Data.com</section>
+        </sections>
+        <sections>
+            <label><!-- Hierarchies --></label>
+            <section>Hierarchies</section>
+        </sections>
+        <sections>
+            <label><!-- ITA --></label>
+            <section>ITA</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Individual Account</layout>
+        <sections>
+            <label><!-- Data.com --></label>
+            <section>Data.com</section>
+        </sections>
+        <sections>
+            <label><!-- ITA --></label>
+            <section>ITA</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Partner Account Layout</layout>
+        <sections>
+            <label><!-- Data.com --></label>
+            <section>Data.com</section>
+        </sections>
+        <sections>
+            <label><!-- Hierarchies --></label>
+            <section>Hierarchies</section>
+        </sections>
+        <sections>
+            <label><!-- ITA --></label>
+            <section>ITA</section>
+        </sections>
+        <sections>
+            <label><!-- Partner Information --></label>
+            <section>Partner Information</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- New Industry --></label>
+        <name>AccountTaxonomy</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create a WIN --></label>
+        <name>Create_a_WIN</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Update Account --></label>
+        <name>UpdateLookupforCCD</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Change Date --></label>
+        <name>Update_Org</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- ITA User Account RT --></label>
+        <name>ITA_User_Account_RT</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Individual --></label>
+        <name>Individual</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Partner Account --></label>
+        <name>Partner_Account</name>
+    </recordTypes>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <errorMessage><!-- If you select Verification Status of To Be Merged, you must indicate the Merged Organization before it will save. --></errorMessage>
+        <name>To_Be_Merged_must_have_org</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must enter a value for Country. --></errorMessage>
+        <name>Verify_Country_Exists</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This Organization is requested to be removed.  If you believe this is in error, please contact the help desk immediately. --></errorMessage>
+        <name>When_removal_selected_cant_edit</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- AltavistaNews --></label>
+        <name>AltavistaNews</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Batch --></label>
+        <name>Batch</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleMaps --></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleNews --></label>
+        <name>GoogleNews</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleSearch --></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- HooversProfile --></label>
+        <name>HooversProfile</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- YahooMaps --></label>
+        <name>YahooMaps</name>
+    </webLinks>
+</CustomObjectTranslation>

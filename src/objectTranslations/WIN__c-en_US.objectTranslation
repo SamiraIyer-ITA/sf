@@ -1,0 +1,978 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>WIN</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>WINs</value>
+    </caseValues>
+    <fields>
+        <label><!-- AC Date Contract Recorded --></label>
+        <name>AC_Date_Contract_Recorded__c</name>
+    </fields>
+    <fields>
+        <label><!-- AC Total US Export Content --></label>
+        <name>AC_Total_US_Export_Content__c</name>
+    </fields>
+    <fields>
+        <label><!-- AC WIN Summary --></label>
+        <name>AC_WIN_Summary__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field will display the actual creation date for records from CTS/ITA Central/Salesforce. Use this field for FY 15&apos; reporting --></help>
+        <label><!-- Actual Create Date --></label>
+        <name>Actual_Create_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Additional WIN Features --></label>
+        <name>Additional_WIN_Features__c</name>
+        <picklistValues>
+            <masterLabel>E-Award Winner</masterLabel>
+            <translation><!-- E-Award Winner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Export Achievement Certificate Recipient</masterLabel>
+            <translation><!-- Export Achievement Certificate Recipient --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Minority-Owned Business</masterLabel>
+            <translation><!-- Minority-Owned Business --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rural Business</masterLabel>
+            <translation><!-- Rural Business --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Veteran-Owned</masterLabel>
+            <translation><!-- Veteran-Owned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Woman-Owned Business</masterLabel>
+            <translation><!-- Woman-Owned Business --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Date foreign government signed the procurement contract. --></help>
+        <label><!-- AC Date Contract Signed --></label>
+        <name>Advocacy_Date_Contract_Signed__c</name>
+    </fields>
+    <fields>
+        <help><!-- The total dollar amount of the awarded contract. --></help>
+        <label><!-- AC Total Project Value --></label>
+        <name>Advocacy_Total_Project_Value__c</name>
+    </fields>
+    <fields>
+        <help><!-- The total value of any exports related to the contract award. --></help>
+        <label><!-- Advocacy Total US Export Content --></label>
+        <name>Advocacy_Total_US_Export_Content__c</name>
+    </fields>
+    <fields>
+        <help><!-- The value of U.S. Export Content (Goods) related to the contract award. --></help>
+        <label><!-- AC US Export Content (Goods) --></label>
+        <name>Advocacy_US_Export_Content_Goods__c</name>
+    </fields>
+    <fields>
+        <help><!-- The value of U.S. Export Content (Services) related to the contract award. --></help>
+        <label><!-- AC US Export Content (Services) --></label>
+        <name>Advocacy_US_Export_Content_Services__c</name>
+    </fields>
+    <fields>
+        <label><!-- Approved Narrative FTA --></label>
+        <name>Approved_Narrative_FTA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Approved Narrative --></label>
+        <name>Approved_Narrative__c</name>
+    </fields>
+    <fields>
+        <label><!-- CTS ID --></label>
+        <name>CTS_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- CTS Org ID --></label>
+        <name>CTS_Org_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Calendar Year of Results --></label>
+        <name>Calendar_Year_of_Results__c</name>
+        <picklistValues>
+            <masterLabel>2012</masterLabel>
+            <translation><!-- 2012 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2013</masterLabel>
+            <translation><!-- 2013 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2014</masterLabel>
+            <translation><!-- 2014 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2015</masterLabel>
+            <translation><!-- 2015 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2016</masterLabel>
+            <translation><!-- 2016 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Clearance Notes --></label>
+        <name>Clearance_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cleared For --></label>
+        <name>Cleared_For__c</name>
+        <picklistValues>
+            <masterLabel>Client willing to speak to  media</masterLabel>
+            <translation><!-- Client willing to speak to  media --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DOC/ITA websites and social media</masterLabel>
+            <translation><!-- DOC/ITA websites and social media --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Declined to clear</masterLabel>
+            <translation><!-- Declined to clear --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outreach by TPCC Agencies</masterLabel>
+            <translation><!-- Outreach by TPCC Agencies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Press Use</masterLabel>
+            <translation><!-- Press Use --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Send to Congress</masterLabel>
+            <translation><!-- Send to Congress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Speeches</masterLabel>
+            <translation><!-- Speeches --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Select a Date 1 or 2 years from the WIN date. --></help>
+        <label><!-- Cleared Until --></label>
+        <name>Cleared_Until__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Client Cleared --></label>
+        <name>Client_Cleared__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check this box to indicate that the contact entered above has verified all essential facts of this WIN. --></help>
+        <label><!-- Client Verified --></label>
+        <name>Client_Verified__c</name>
+    </fields>
+    <fields>
+        <help><!-- Be sure to select a contact associated to this organization. --></help>
+        <label><!-- Contact Name --></label>
+        <lookupFilter>
+            <errorMessage><!-- Contact must be a contact of the associated WIN organization. --></errorMessage>
+            <informationalMessage><!-- Contact must be a contact of the associated WIN organization. --></informationalMessage>
+        </lookupFilter>
+        <name>Contact_Name__c</name>
+        <relationshipLabel><!-- WINs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Copy AccountName to Text --></label>
+        <name>Copy_AccountName_to_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Copy Contact Email --></label>
+        <name>Copy_Contact_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Copy WIN Contact Text --></label>
+        <name>Copy_WIN_Contact_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country in Win --></label>
+        <name>Country_in_Win__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client Objectives --></label>
+        <name>Description_of_Objectives_Met__c</name>
+    </fields>
+    <fields>
+        <help><!-- For example Sales Revenue, signed distributor/partner agreements or other significant positive outcomes. --></help>
+        <label><!-- Description of Results --></label>
+        <name>Description_of_Results__c</name>
+    </fields>
+    <fields>
+        <help><!-- Impact of Exporting on the Ability of the Company to Grow, Hire, and Retain Jobs. --></help>
+        <label><!-- EP Impact of Exporting --></label>
+        <name>EP_Impact_of_Exporting__c</name>
+    </fields>
+    <fields>
+        <help><!-- Impact of Exporting on the Ability of the Company to Grow, Hire, and Retain Jobs --></help>
+        <label><!-- EP Impact Narrative --></label>
+        <name>EP__c</name>
+    </fields>
+    <fields>
+        <help><!-- Ask client if FTAs will help their export prospects, and if so, how. --></help>
+        <label><!-- FTA Prospects --></label>
+        <name>FTA_Prospects__c</name>
+    </fields>
+    <fields>
+        <help><!-- This will be your second approver --></help>
+        <label><!-- Final Approver --></label>
+        <name>Final_Approver__c</name>
+        <relationshipLabel><!-- WINs (Final Approver) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Final Line Approval Date --></label>
+        <name>Final_Line_Approval_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Final Line Approval --></label>
+        <name>Final_Line_Approval__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Approved</masterLabel>
+            <translation><!-- Not Approved --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Final Line Approver --></label>
+        <name>Final_Line_Approver__c</name>
+    </fields>
+    <fields>
+        <help><!-- This will be your first approver --></help>
+        <label><!-- First Approver --></label>
+        <name>First_Approver__c</name>
+        <relationshipLabel><!-- WINs (First Approver) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- First Line Approval Date --></label>
+        <name>First_Line_Approval_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Line Approval --></label>
+        <name>First_Line_Approval__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Approved</masterLabel>
+            <translation><!-- Not Approved --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- First Line Approver --></label>
+        <name>First_Line_Approver__c</name>
+    </fields>
+    <fields>
+        <help><!-- The estimated dollar amount of the investment for the U.S. locale. --></help>
+        <label><!-- SUSA Inv. Amount(est) --></label>
+        <name>IP_Inv_Amount_est__c</name>
+    </fields>
+    <fields>
+        <help><!-- The date the investment award was announced. --></help>
+        <label><!-- SUSA Inv. Announcement Date --></label>
+        <name>IP_Inv_Announcement_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- This can be different than the Congressional District on the Organization record. --></help>
+        <label><!-- SUSA Inv. Location Congressional Distr. --></label>
+        <name>IP_Inv_Location_Congressional_District__c</name>
+    </fields>
+    <fields>
+        <help><!-- The location (City, State) of the announced investment. --></help>
+        <label><!-- SUSA Inv. Location --></label>
+        <name>IP_Inv_Location__c</name>
+    </fields>
+    <fields>
+        <help><!-- The estimated number of new jobs created based on the investment. --></help>
+        <label><!-- SUSA Jobs Created(est) --></label>
+        <name>IP_Jobs_Created_est__c</name>
+    </fields>
+    <fields>
+        <help><!-- The estimated number of retained jobs created based on the investment. --></help>
+        <label><!-- SUSA Jobs Retained(est) --></label>
+        <name>IP_Jobs_Retained_est__c</name>
+    </fields>
+    <fields>
+        <help><!-- Web links to new releases announcing the investment (can be numerous). --></help>
+        <label><!-- SUSA Press/News Release --></label>
+        <name>IP_Press_News_Release__c</name>
+    </fields>
+    <fields>
+        <help><!-- Zip+4 --></help>
+        <label><!-- SUSA Zip+4 --></label>
+        <name>IP_Zip_4__c</name>
+    </fields>
+    <fields>
+        <help><!-- Impact of Exporting on the ability of the company to grow, hire, and retain jobs. --></help>
+        <label><!-- Impact (Especially Jobs/Revenue) --></label>
+        <name>Impact_of_Exporting__c</name>
+    </fields>
+    <fields>
+        <label><!-- Includes Multiple Cases --></label>
+        <name>Includes_Multiple_Cases__c</name>
+    </fields>
+    <fields>
+        <label><!-- Industry Win Rollup --></label>
+        <name>Industry_Rollup__c</name>
+    </fields>
+    <fields>
+        <label><!-- Internal Comment --></label>
+        <name>Internal_Comment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Links to Additional Cases --></label>
+        <name>Links_to_Additional_Cases__c</name>
+    </fields>
+    <fields>
+        <label><!-- Assistance Provided --></label>
+        <name>Narrative__c</name>
+    </fields>
+    <fields>
+        <label><!-- OPA Ready --></label>
+        <name>OPA_Ready__c</name>
+    </fields>
+    <fields>
+        <help><!-- Principle Associated Organization to the WIN --></help>
+        <label><!-- Organization Name --></label>
+        <name>Organization__c</name>
+        <relationshipLabel><!-- WINs --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- This list includes all Trade Promotion Coordinating Committee (TPCC) Agencies. --></help>
+        <label><!-- Other USG Entities Involved --></label>
+        <name>Other_USG_Entities_Involved__c</name>
+        <picklistValues>
+            <masterLabel>Agriculture Department</masterLabel>
+            <translation><!-- Agriculture Department --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bureau of Economic Analysis</masterLabel>
+            <translation><!-- Bureau of Economic Analysis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bureau of Industry and Security</masterLabel>
+            <translation><!-- Bureau of Industry and Security --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Council of Economic Advisors</masterLabel>
+            <translation><!-- Council of Economic Advisors --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Defense Department</masterLabel>
+            <translation><!-- Defense Department --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Economic Development Administration</masterLabel>
+            <translation><!-- Economic Development Administration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Economics and Statistics Administration</masterLabel>
+            <translation><!-- Economics and Statistics Administration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Energy Department</masterLabel>
+            <translation><!-- Energy Department --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Environmental Protection Agency</masterLabel>
+            <translation><!-- Environmental Protection Agency --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Export-Import Bank</masterLabel>
+            <translation><!-- Export-Import Bank --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health and Human Services Department</masterLabel>
+            <translation><!-- Health and Human Services Department --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Homeland Security Department</masterLabel>
+            <translation><!-- Homeland Security Department --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Labor Department</masterLabel>
+            <translation><!-- Labor Department --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Millennium Challenge Corporation</masterLabel>
+            <translation><!-- Millennium Challenge Corporation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Minority Business Development Agency</masterLabel>
+            <translation><!-- Minority Business Development Agency --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NIST</masterLabel>
+            <translation><!-- NIST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NOAA</masterLabel>
+            <translation><!-- NOAA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NTIA</masterLabel>
+            <translation><!-- NTIA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>National Security Council</masterLabel>
+            <translation><!-- National Security Council --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>National Technical Information Service</masterLabel>
+            <translation><!-- National Technical Information Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Office of Management and Budget</masterLabel>
+            <translation><!-- Office of Management and Budget --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Office of the U.S. Trade Representative</masterLabel>
+            <translation><!-- Office of the U.S. Trade Representative --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Overseas Private Investment Corporation</masterLabel>
+            <translation><!-- Overseas Private Investment Corporation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Small Business Administration</masterLabel>
+            <translation><!-- Small Business Administration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>State Department</masterLabel>
+            <translation><!-- State Department --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transportation Department</masterLabel>
+            <translation><!-- Transportation Department --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Treasury Department</masterLabel>
+            <translation><!-- Treasury Department --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>U.S. Census Bureau</masterLabel>
+            <translation><!-- U.S. Census Bureau --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>U.S. Patent and Trademark Office</masterLabel>
+            <translation><!-- U.S. Patent and Trademark Office --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>U.S. Trade and Development Agency</masterLabel>
+            <translation><!-- U.S. Trade and Development Agency --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>USAID</masterLabel>
+            <translation><!-- USAID --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Owner&apos;s Office --></label>
+        <name>Owner_Office__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Outcome --></label>
+        <name>Primary_Outcome__c</name>
+        <picklistValues>
+            <masterLabel>Compliance with trade agreement</masterLabel>
+            <translation><!-- Compliance with trade agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Facilitated export transaction</masterLabel>
+            <translation><!-- Facilitated export transaction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reduced/Eliminated threat to US business</masterLabel>
+            <translation><!-- Reduced/Eliminated threat to US business --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reduced/Removed/Prevented trade barrier</masterLabel>
+            <translation><!-- Reduced/Removed/Prevented trade barrier --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Senior executives preferred. --></help>
+        <label><!-- Quote/Testimonial --></label>
+        <name>Quote_Testimonial__c</name>
+    </fields>
+    <fields>
+        <label><!-- Related Cases to WIN Count --></label>
+        <name>Related_Cases_to_WIN_Count__c</name>
+    </fields>
+    <fields>
+        <label><!-- Related Countries Text --></label>
+        <name>Related_Countries_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Related Countries --></label>
+        <name>Related_Countries__c</name>
+        <relationshipLabel><!-- WINs --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- When record is created in error. --></help>
+        <label><!-- Request WIN Removal --></label>
+        <name>Request_WIN_Removal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reviewed By OPA --></label>
+        <name>ReviewedByOPA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sensitive Attachment Links --></label>
+        <name>Sensitive_Attachment_Links__c</name>
+    </fields>
+    <fields>
+        <label><!-- SharePoint ID --></label>
+        <name>SharePoint_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- SharePoint Organization Name --></label>
+        <name>SharePoint_Org_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Describes the type of products associated with the WIN. --></help>
+        <label><!-- Specific Product --></label>
+        <name>Specific_Product__c</name>
+    </fields>
+    <fields>
+        <help><!-- By entering my name, I verify that all essential facts are validated. --></help>
+        <label><!-- Verify/Validate --></label>
+        <name>Verify_Validate__c</name>
+    </fields>
+    <fields>
+        <label><!-- WIN 18 ID --></label>
+        <name>WIN_18_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- WIN Contributors Rollup --></label>
+        <name>WIN_Contributors_Rollup__c</name>
+    </fields>
+    <fields>
+        <help><!-- Effective Date of the WIN --></help>
+        <label><!-- WIN Date --></label>
+        <name>WIN_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- WIN Number --></label>
+        <name>WIN_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- WIN One --></label>
+        <name>WIN_One__c</name>
+    </fields>
+    <fields>
+        <label><!-- WIN Title --></label>
+        <name>WIN_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- WIN Type Selector --></label>
+        <name>WIN_Type_Selector__c</name>
+        <picklistValues>
+            <masterLabel>Advocacy</masterLabel>
+            <translation><!-- Advocacy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Commercial Diplomacy</masterLabel>
+            <translation><!-- Commercial Diplomacy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Export Promotion</masterLabel>
+            <translation><!-- Export Promotion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Import Promotion</masterLabel>
+            <translation><!-- Import Promotion --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- WIN Type --></label>
+        <name>WIN_Type__c</name>
+        <picklistValues>
+            <masterLabel>Advocacy</masterLabel>
+            <translation><!-- Advocacy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Commercial Diplomacy</masterLabel>
+            <translation><!-- Commercial Diplomacy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Export Promotion</masterLabel>
+            <translation><!-- Export Promotion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Investment Promotion</masterLabel>
+            <translation><!-- Investment Promotion --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Advocacy Locked Layout</layout>
+        <sections>
+            <label><!-- Advocacy Center Fields --></label>
+            <section>Advocacy Center Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Approvals --></label>
+            <section>Approvals</section>
+        </sections>
+        <sections>
+            <label><!-- Approvers --></label>
+            <section>Approvers</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Links --></label>
+            <section>Links</section>
+        </sections>
+        <sections>
+            <label><!-- Multi-selects --></label>
+            <section>Multi-selects</section>
+        </sections>
+        <sections>
+            <label><!-- Verification Multi-selects --></label>
+            <section>Verification Multi-selects</section>
+        </sections>
+        <sections>
+            <label><!-- Verification and Clearance --></label>
+            <section>Verification and Clearance</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Advocacy Open</layout>
+        <sections>
+            <label><!-- Advocacy Center Fields --></label>
+            <section>Advocacy Center Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Approvals --></label>
+            <section>Approvals</section>
+        </sections>
+        <sections>
+            <label><!-- Approvers --></label>
+            <section>Approvers</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Links --></label>
+            <section>Links</section>
+        </sections>
+        <sections>
+            <label><!-- Multi-selects --></label>
+            <section>Multi-selects</section>
+        </sections>
+        <sections>
+            <label><!-- Verification Multi-selects --></label>
+            <section>Verification Multi-selects</section>
+        </sections>
+        <sections>
+            <label><!-- Verification and Clearance --></label>
+            <section>Verification and Clearance</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Commercial Diplomacy Locked</layout>
+        <sections>
+            <label><!-- Approvals --></label>
+            <section>Approvals</section>
+        </sections>
+        <sections>
+            <label><!-- Approvers --></label>
+            <section>Approvers</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Multi-selects --></label>
+            <section>Multi-selects</section>
+        </sections>
+        <sections>
+            <label><!-- Verification Multi-selects --></label>
+            <section>Verification Multi-selects</section>
+        </sections>
+        <sections>
+            <label><!-- Verification and Clearance --></label>
+            <section>Verification and Clearance</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Commercial Diplomacy Open</layout>
+        <sections>
+            <label><!-- Approvals --></label>
+            <section>Approvals</section>
+        </sections>
+        <sections>
+            <label><!-- Approvers --></label>
+            <section>Approvers</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Multi-selects --></label>
+            <section>Multi-selects</section>
+        </sections>
+        <sections>
+            <label><!-- Verification Multi-selects --></label>
+            <section>Verification Multi-selects</section>
+        </sections>
+        <sections>
+            <label><!-- Verification and Clearance --></label>
+            <section>Verification and Clearance</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Export Promo Locked</layout>
+        <sections>
+            <label><!-- Approvals --></label>
+            <section>Approvals</section>
+        </sections>
+        <sections>
+            <label><!-- Approvers --></label>
+            <section>Approvers</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Multi-selects --></label>
+            <section>Multi-selects</section>
+        </sections>
+        <sections>
+            <label><!-- Verification Multi-selects --></label>
+            <section>Verification Multi-selects</section>
+        </sections>
+        <sections>
+            <label><!-- Verification and Clearance --></label>
+            <section>Verification and Clearance</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Export Promo Open</layout>
+        <sections>
+            <label><!-- Approvals --></label>
+            <section>Approvals</section>
+        </sections>
+        <sections>
+            <label><!-- Approvers --></label>
+            <section>Approvers</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Multi-selects --></label>
+            <section>Multi-selects</section>
+        </sections>
+        <sections>
+            <label><!-- Verification Multi-selects --></label>
+            <section>Verification Multi-selects</section>
+        </sections>
+        <sections>
+            <label><!-- Verification and Clearance --></label>
+            <section>Verification and Clearance</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Investment Promotion Locked</layout>
+        <sections>
+            <label><!-- Approvals --></label>
+            <section>Approvals</section>
+        </sections>
+        <sections>
+            <label><!-- Approvers --></label>
+            <section>Approvers</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Multi-selects --></label>
+            <section>Multi-selects</section>
+        </sections>
+        <sections>
+            <label><!-- SelectUSA Fields --></label>
+            <section>SelectUSA Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Verification Multi-selects --></label>
+            <section>Verification Multi-selects</section>
+        </sections>
+        <sections>
+            <label><!-- Verification and Clearance --></label>
+            <section>Verification and Clearance</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Investment Promotion Open</layout>
+        <sections>
+            <label><!-- Approvals --></label>
+            <section>Approvals</section>
+        </sections>
+        <sections>
+            <label><!-- Approvers --></label>
+            <section>Approvers</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Multi-selects --></label>
+            <section>Multi-selects</section>
+        </sections>
+        <sections>
+            <label><!-- SelectUSA Fields --></label>
+            <section>SelectUSA Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Verification Multi-selects --></label>
+            <section>Verification Multi-selects</section>
+        </sections>
+        <sections>
+            <label><!-- Verification and Clearance --></label>
+            <section>Verification and Clearance</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>WIN Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Internal Comment --></label>
+            <section>Internal Comment</section>
+        </sections>
+        <sections>
+            <label><!-- Investment Promotion Related --></label>
+            <section>Investment Promotion Related</section>
+        </sections>
+        <sections>
+            <label><!-- Links --></label>
+            <section>Links</section>
+        </sections>
+        <sections>
+            <label><!-- Verification and Clearance --></label>
+            <section>Verification and Clearance</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>WIN User Layout</layout>
+        <sections>
+            <label><!-- Additional Information --></label>
+            <section>Additional Information</section>
+        </sections>
+        <sections>
+            <label><!-- Approvals --></label>
+            <section>Approvals</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Links --></label>
+            <section>Links</section>
+        </sections>
+        <sections>
+            <label><!-- Verification and Clearance --></label>
+            <section>Verification and Clearance</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Edit Advocacy WIN --></label>
+        <name>Edit_Advocacy_WIN</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Edit CD WIN --></label>
+        <name>Edit_CD_WIN</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Edit EP WIN --></label>
+        <name>Edit_EP_WIN</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Edit IP WIN --></label>
+        <name>Edit_IP_WIN</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Log a Call --></label>
+        <name>ITA_Log_a_Call</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Industry --></label>
+        <name>NewTaxonomy</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- Advocacy --></label>
+        <name>Advocacy</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Advocacy Locked --></label>
+        <name>Advocacy_Locked</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Commercial Diplomacy --></label>
+        <name>Commercial_Diplomacy</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Commercial Diplomacy Locked --></label>
+        <name>Commercial_Diplomacy_Locked</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Export Promotion --></label>
+        <name>Export_Promotion</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Export Promotion Locked --></label>
+        <name>Export_Promotion_Locked</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Investment Promotion --></label>
+        <name>Investment_Promotion</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Investment Promotion Locked --></label>
+        <name>Investment_Promotion_Locked</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- WIN Standard Record Type --></label>
+        <name>WIN_Standard_Record_Type</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Only System Administrators and those with the Can Modify Locked WINs permission can modify a WIN after final approval.. --></errorMessage>
+        <name>No_mod_to_WIN_without_user_permissions</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Can not change WIN record type. --></errorMessage>
+        <name>Once_create_can_not_change_record_type</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This WIN is requested to be removed.  If you believe this is in error, please contact the help desk immediately. --></errorMessage>
+        <name>When_removal_selected_cant_edit</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Validate --></label>
+        <name>Validate</name>
+    </webLinks>
+</CustomObjectTranslation>

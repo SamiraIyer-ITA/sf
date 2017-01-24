@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Export.gov: New (Non-Register) Case Comment - Notification Email</description>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>ITA_Logo</letterhead>
+    <name>Export.gov: New (Non-Register) Case Comment - Notification Email</name>
+    <style>freeForm</style>
+    <subject>New Case Comment for your Export.gov Case - {!Case.CaseNumber}</subject>
+    <textOnly>Dear {!Case.SuppliedName},
+
+Thank you for your Website Feedback for Export.gov at the U.S. Department of Commerce’s International Trade Administration (ITA). We will work diligently to review and respond to your submission in a timely manner. Please note that the processing time will depend on the nature and completeness of the submission, as well as the volume of submissions received.
+
+Case Number - {!Case.CaseNumber}
+
+Case Status - {!Case.Status}
+
+Sincerely,
+
+Export.gov Team
+International Trade Administration
+Department of Commerce
+
+
+
+
+[ {!Case.Thread_Id} ]</textOnly>
+    <type>html</type>
+</EmailTemplate>

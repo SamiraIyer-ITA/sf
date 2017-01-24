@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HomePageComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <links>Industry_List</links>
+    <links>Trade_Secrets_Act</links>
+    <links>I_A_Sector_Lead</links>
+    <links>Quick_Reference_Guide</links>
+    <pageComponentType>links</pageComponentType>
+</HomePageComponent>

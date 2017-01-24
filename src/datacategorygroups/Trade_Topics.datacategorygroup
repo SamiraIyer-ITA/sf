@@ -1,0 +1,1985 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCategoryGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Advertising</label>
+                <name>Advertising</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Bid</label>
+                <name>Bid</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Business News</label>
+                <name>Business_News</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Business Registration</label>
+                <name>Business_Registration</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Business to Business</label>
+                <name>Business_to_Business</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Business to Consumer</label>
+                <name>Business_to_Consumer</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Business to Government</label>
+                <name>Business_to_Government</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Business Travel and Etiquette</label>
+                <name>Business_Travel_and_Etiquette</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Communication</label>
+                <name>Communication</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Competition</label>
+                <name>Competition</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Consumer Behavior</label>
+                <name>Consumer_Behavior</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Prices</label>
+                    <name>Prices</name>
+                </dataCategory>
+                <label>Cost and Pricing</label>
+                <name>Cost_and_Pricing</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Credit Information</label>
+                <name>Credit_Information</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Design</label>
+                <name>Design</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Distribution</label>
+                <name>Distribution</name>
+            </dataCategory>
+            <dataCategory>
+                <label>eCommerce</label>
+                <name>eCommerce</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Agents</label>
+                    <name>Agents</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Brokers</label>
+                    <name>Brokers</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Exporters</label>
+                    <name>Exporters</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Importers</label>
+                    <name>Importers</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Manufacturers</label>
+                    <name>Manufacturers</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Retailers</label>
+                    <name>Retailers</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Small and Medium Enterprises</label>
+                    <name>Small_and_Medium_Enterprises</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Startups</label>
+                    <name>Startups</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Traders</label>
+                    <name>Traders</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Wholesalers</label>
+                    <name>Wholesalers</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Women Entrepreneurs</label>
+                    <name>Women_Entrepreneurs</name>
+                </dataCategory>
+                <label>Enterprises</label>
+                <name>Enterprises</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Entrepreneurship</label>
+                <name>Entrepreneurship</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Foreign Trade Techniques</label>
+                <name>Foreign_Trade_Techniques</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Accounting</label>
+                    <name>Accounting</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Auditing</label>
+                    <name>Auditing</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Benchmarking</label>
+                    <name>Benchmarking</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Evaluation</label>
+                    <name>Evaluation</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Monitoring</label>
+                    <name>Monitoring</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Performance Management</label>
+                    <name>Performance_Management</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Personnel Management</label>
+                    <name>Personnel_Management</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Planning</label>
+                    <name>Planning</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Research and Development</label>
+                    <name>Research_and_Development</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Training</label>
+                    <name>Training</name>
+                </dataCategory>
+                <label>Management</label>
+                <name>Management</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Market Research</label>
+                <name>Market_Research</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Direct Marketing</label>
+                    <name>Direct_Marketing</name>
+                </dataCategory>
+                <label>Marketing</label>
+                <name>Marketing</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Mergers</label>
+                <name>Mergers</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Negotiation</label>
+                <name>Negotiation</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Product Development</label>
+                <name>Product_Development</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Public Relations</label>
+                <name>Public_Relations</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Purchasing</label>
+                <name>Purchasing</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Risk Management</label>
+                <name>Risk_Management</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Sales Promotion</label>
+                <name>Sales_Promotion</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Subcontracting</label>
+                <name>Subcontracting</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Supply Chain</label>
+                <name>Supply_Chain</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Supply Management</label>
+                <name>Supply_Management</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Tendering</label>
+                <name>Tendering</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Transnational Corporations</label>
+                <name>Transnational_Corporations</name>
+            </dataCategory>
+            <label>Business Management</label>
+            <name>Business_Management</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Agricultural Investment</label>
+                <name>Agricultural_Investment</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Balance of Trade</label>
+                <name>Balance_of_Trade</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Capital</label>
+                <name>Capital</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Digital Economy</label>
+                <name>Digital_Economy</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Economic Conditions</label>
+                <name>Economic_Conditions</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Development Plans</label>
+                    <name>Development_Plans</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Global Cities Initiatives</label>
+                    <name>Global_Cities_Initiatives</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Poverty Reduction</label>
+                    <name>Poverty_Reduction</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Sectoral Development</label>
+                    <name>Sectoral_Development</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Structural Adjustment</label>
+                    <name>Structural_Adjustment</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Sustainable Development</label>
+                    <name>Sustainable_Development</name>
+                </dataCategory>
+                <label>Economic Development</label>
+                <name>Economic_Development</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Economic Indicators</label>
+                <name>Economic_Indicators</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Economic Policy</label>
+                <name>Economic_Policy</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Export-Oriented Industrialization</label>
+                <name>Export_Oriented_Industrialization</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Gross National Product</label>
+                <name>Gross_National_Product</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Industrial Development</label>
+                <name>Industrial_Development</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Small-Scale Industry</label>
+                    <name>Small_Scale_Industry</name>
+                </dataCategory>
+                <label>Industry</label>
+                <name>Industry</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Informal Sector</label>
+                <name>Informal_Sector</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Foreign Direct Investment</label>
+                    <name>Foreign_Direct_Investment</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Foreign Investment</label>
+                    <name>Foreign_Investment</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Investment Policy</label>
+                    <name>Investment_Policy</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Investment Regulations</label>
+                    <name>Investment_Regulations</name>
+                </dataCategory>
+                <label>Investment</label>
+                <name>Investment</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Facilitated Investment Mission</label>
+                    <name>Facilitated_Investment_Mission</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Roadshow</label>
+                    <name>Roadshow</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Single Location Promotion</label>
+                    <name>Single_Location_Promotion</name>
+                </dataCategory>
+                <label>Investment Events</label>
+                <name>Investment_Events</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Investment Incentives</label>
+                <name>Investment_Incentives</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Investment Advocacy</label>
+                    <name>Investment_Advocacy</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Investment Counseling</label>
+                    <name>Investment_Counseling</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Investment Ombudsman</label>
+                    <name>Investment_Ombudsman</name>
+                </dataCategory>
+                <label>Investment Support Services</label>
+                <name>Investment_Support_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Joint Ventures</label>
+                <name>Joint_Ventures</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Monopolies</label>
+                <name>Monopolies</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Private Sector</label>
+                <name>Private_Sector</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Rural Development</label>
+                <name>Rural_Development</name>
+            </dataCategory>
+            <label>Economic Development and Investment</label>
+            <name>Economic_Development_and_Investment</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Biodiversity</label>
+                <name>Biodiversity</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Climate</label>
+                <name>Climate</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Dangerous Substances</label>
+                <name>Dangerous_Substances</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Environmental Legislation</label>
+                <name>Environmental_Legislation</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Environmental Management</label>
+                <name>Environmental_Management</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Forest Conservation</label>
+                <name>Forest_Conservation</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Soil Conservation</label>
+                <name>Soil_Conservation</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Packaging Wastes</label>
+                    <name>Packaging_Wastes</name>
+                </dataCategory>
+                <label>Waste Management</label>
+                <name>Waste_Management</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Water Treatment</label>
+                <name>Water_Treatment</name>
+            </dataCategory>
+            <label>Environment</label>
+            <name>Environment</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Agricultural Banks</label>
+                    <name>Agricultural_Banks</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Cash in Advance</label>
+                    <name>Cash_in_Advance</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Credit Cooperatives</label>
+                    <name>Credit_Cooperatives</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Development Banks</label>
+                    <name>Development_Banks</name>
+                </dataCategory>
+                <label>Banks</label>
+                <name>Banks</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Bills of Exchange</label>
+                <name>Bills_of_Exchange</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Commodity Markets</label>
+                <name>Commodity_Markets</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Central Banks</label>
+                <name>Central_Banks</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Countervailing Measures</label>
+                <name>Countervailing_Measures</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Credit</label>
+                <name>Credit</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Currencies</label>
+                <name>Currencies</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Debt</label>
+                <name>Debt</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Devaluation</label>
+                <name>Devaluation</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Exchange Rates</label>
+                <name>Exchange_Rates</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Export Credit</label>
+                <name>Export_Credit</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Export Credit Insurance</label>
+                <name>Export_Credit_Insurance</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Export Financing</label>
+                <name>Export_Financing</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Export Subsidies</label>
+                <name>Export_Subsidies</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Factoring</label>
+                <name>Factoring</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Feed-in Tariffs</label>
+                <name>Feed_in_Tariffs</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Financial Market</label>
+                <name>Financial_Market</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Fiscal Policy</label>
+                <name>Fiscal_Policy</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Foreign Exchange</label>
+                <name>Foreign_Exchange</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Forfaiting</label>
+                <name>Forfaiting</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Import Credit</label>
+                <name>Import_Credit</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Import Financing</label>
+                <name>Import_Financing</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Informal Credit</label>
+                <name>Informal_Credit</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Political Risk Insurance</label>
+                    <name>Political_Risk_Insurance</name>
+                </dataCategory>
+                <label>Insurance</label>
+                <name>Insurance</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Confirmed Letter of Credit</label>
+                    <name>Confirmed_Letter_of_Credit</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Standby Letter of Credit</label>
+                    <name>Standby_Letter_of_Credit</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Confirmed Export Letter of Credit</label>
+                    <name>Confirmed_Export_Letter_of_Credit</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Export Letter of Credit</label>
+                    <name>Export_Letter_of_Credit</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Import Letter of Credit</label>
+                    <name>Import_Letter_of_Credit</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Irrevocable Letter of Credit</label>
+                    <name>Irrevocable_Letter_of_Credit</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Revocable Letter of Credit</label>
+                    <name>Revocable_Letter_of_Credit</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Revolving Letter of Credit</label>
+                    <name>Revolving_Letter_of_Credit</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Sandby Letter of Credit</label>
+                    <name>Sandby_Letter_of_Credit</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Transferable Letter of Credit</label>
+                    <name>Transferable_Letter_of_Credit</name>
+                </dataCategory>
+                <label>Letters of Credit</label>
+                <name>Letters_of_Credit</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Loans</label>
+                <name>Loans</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Microfinancing</label>
+                <name>Microfinancing</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Monetary Policy</label>
+                <name>Monetary_Policy</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Monetary Systems</label>
+                <name>Monetary_Systems</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Payment</label>
+                <name>Payment</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Project Financing</label>
+                <name>Project_Financing</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Public Expenditures</label>
+                <name>Public_Expenditures</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Public Finance</label>
+                <name>Public_Finance</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Revenues</label>
+                <name>Revenues</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Bonds</label>
+                    <name>Bonds</name>
+                </dataCategory>
+                <label>Securities</label>
+                <name>Securities</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Subsidies</label>
+                <name>Subsidies</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Taxes</label>
+                <name>Taxes</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Trade Financing</label>
+                <name>Trade_Financing</name>
+            </dataCategory>
+            <label>Finance</label>
+            <name>Finance</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Industry Trade Advisory Committees</label>
+                    <name>Industry_Trade_Advisory_Committees</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>President&apos;s AC-Doing Business in Africa</label>
+                    <name>President_s_AC_Doing_Business_in_Africa</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>President&apos;s Export Council</label>
+                    <name>President_s_Export_Council</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Renewable Energy &amp; Energy Efficiency AC</label>
+                    <name>Renewable_Energy_Energy_Efficiency_AC</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>United States Manufacturing Council</label>
+                    <name>United_States_Manufacturing_Council</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>US Travel &amp; Tourism Advisory Board</label>
+                    <name>US_Travel_Tourism_Advisory_Board</name>
+                </dataCategory>
+                <label>Advisory Committees</label>
+                <name>Advisory_Committees</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Council of Economic Advisors</label>
+                    <name>Council_of_Economic_Advisors</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>National Economic Council</label>
+                    <name>National_Economic_Council</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>National Security Council</label>
+                    <name>National_Security_Council</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Office of Management and Budget</label>
+                    <name>Office_of_Management_and_Budget</name>
+                </dataCategory>
+                <label>Executive Office of the President</label>
+                <name>Executive_Office_of_the_President</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Gender</label>
+                <name>Gender</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Environmental Protection Agency</label>
+                    <name>Environmental_Protection_Agency</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Export-Import Bank</label>
+                    <name>Export_Import_Bank</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Office of the U.S. Trade Representative</label>
+                    <name>Office_of_the_U_S_Trade_Representative</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Overseas Private Investment Corporation</label>
+                    <name>Overseas_Private_Investment_Corporation</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Small Business Administration</label>
+                    <name>Small_Business_Administration</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>U.S. Agency for International Developmen</label>
+                    <name>U_S_Agency_for_International_Developmen</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>U.S. Department of Agriculture</label>
+                    <name>U_S_Department_of_Agriculture</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>U.S. Department of Commerce</label>
+                    <name>U_S_Department_of_Commerce</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>U.S. Department of Defense</label>
+                    <name>U_S_Department_of_Defense</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>U.S. Department of Energy</label>
+                    <name>U_S_Department_of_Energy</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>U.S. Department of Labor</label>
+                    <name>U_S_Department_of_Labor</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>U.S. Department of State</label>
+                    <name>U_S_Department_of_State</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>U.S. Department of the Interior</label>
+                    <name>U_S_Department_of_the_Interior</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>U.S. Department of the Treasury</label>
+                    <name>U_S_Department_of_the_Treasury</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>U.S. Department of Transportation</label>
+                    <name>U_S_Department_of_Transportation</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>U.S. Trade and Development Agency</label>
+                    <name>U_S_Trade_and_Development_Agency</name>
+                </dataCategory>
+                <label>Government Agencies</label>
+                <name>Government_Agencies</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Institutional Framework</label>
+                <name>Institutional_Framework</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Committee on Foreign Investment in U.S.</label>
+                    <name>Committee_on_Foreign_Investment_in_U_S</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Cmt on Implementation Textile Agreements</label>
+                    <name>Cmt_on_Implementation_Textile_Agreements</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Trade Promotion Coordinating Committee</label>
+                    <name>Trade_Promotion_Coordinating_Committee</name>
+                </dataCategory>
+                <label>Inter-agency Committees</label>
+                <name>Inter_agency_Committees</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Labor</label>
+                <name>Labor</name>
+            </dataCategory>
+            <dataCategory>
+                <label>National Export Strategy</label>
+                <name>National_Export_Strategy</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Policy</label>
+                <name>Policy</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Public Administration</label>
+                <name>Public_Administration</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Renewable Energy Targets</label>
+                <name>Renewable_Energy_Targets</name>
+            </dataCategory>
+            <label>Government</label>
+            <name>Government</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Information Networks</label>
+                <name>Information_Networks</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Information Sciences</label>
+                <name>Information_Sciences</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Information Services</label>
+                <name>Information_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Information Systems</label>
+                <name>Information_Systems</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Information Technology</label>
+                <name>Information_Technology</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Knowledge Management</label>
+                <name>Knowledge_Management</name>
+            </dataCategory>
+            <label>Information Management</label>
+            <name>Information_Management</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Cotonou Agreement</label>
+                <name>Cotonou_Agreement</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Aid Financing</label>
+                    <name>Aid_Financing</name>
+                </dataCategory>
+                <label>Development Aid</label>
+                <name>Development_Aid</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Donors</label>
+                <name>Donors</name>
+            </dataCategory>
+            <dataCategory>
+                <label>ECDC</label>
+                <name>ECDC</name>
+            </dataCategory>
+            <dataCategory>
+                <label>ECE</label>
+                <name>ECE</name>
+            </dataCategory>
+            <dataCategory>
+                <label>ECLAC</label>
+                <name>ECLAC</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Economic Integration</label>
+                <name>Economic_Integration</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Globalization</label>
+                <name>Globalization</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>African Development Bank</label>
+                    <name>African_Development_Bank</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Asian Development Bank</label>
+                    <name>Asian_Development_Bank</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>BIS</label>
+                    <name>BIS</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>CABEI</label>
+                    <name>CABEI</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Caribbean Development Bank</label>
+                    <name>Caribbean_Development_Bank</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>EBRD</label>
+                    <name>EBRD</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>ECB</label>
+                    <name>ECB</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>IDB</label>
+                    <name>IDB</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>IFAD</label>
+                    <name>IFAD</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>IMF</label>
+                    <name>IMF</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>OPEC Fund</label>
+                    <name>OPEC_Fund</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>ECA</label>
+                    <name>ECA</name>
+                </dataCategory>
+                <dataCategory>
+                    <dataCategory>
+                        <label>IBRD</label>
+                        <name>IBRD</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>IDA</label>
+                        <name>IDA</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>IFC</label>
+                        <name>IFC</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>MIGA</label>
+                        <name>MIGA</name>
+                    </dataCategory>
+                    <label>World Bank</label>
+                    <name>World_Bank</name>
+                </dataCategory>
+                <label>International Financial Institutions</label>
+                <name>International_Financial_Institutions</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>ICC</label>
+                    <name>ICC</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Intergov Agency of the Francophone</label>
+                    <name>Intergov_Agency_of_the_Francophone</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>INTERPOL</label>
+                    <name>INTERPOL</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>ISO</label>
+                    <name>ISO</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>OIML</label>
+                    <name>OIML</name>
+                </dataCategory>
+                <dataCategory>
+                    <dataCategory>
+                        <label>WIPO</label>
+                        <name>WIPO</name>
+                    </dataCategory>
+                    <label>UN</label>
+                    <name>UN</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>World Customs Organization</label>
+                    <name>World_Customs_Organization</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>WTO</label>
+                    <name>WTO</name>
+                </dataCategory>
+                <label>International Organizations</label>
+                <name>International_Organizations</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Networking</label>
+                <name>Networking</name>
+            </dataCategory>
+            <dataCategory>
+                <label>NGOs</label>
+                <name>NGOs</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Partnership</label>
+                <name>Partnership</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Regional Integration</label>
+                <name>Regional_Integration</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Regional Organizations</label>
+                <name>Regional_Organizations</name>
+            </dataCategory>
+            <dataCategory>
+                <label>TCDC</label>
+                <name>TCDC</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Technical Cooperation</label>
+                <name>Technical_Cooperation</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Technology Transfer</label>
+                <name>Technology_Transfer</name>
+            </dataCategory>
+            <label>International Cooperation</label>
+            <name>International_Cooperation</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Export Trading Company Act</label>
+                    <name>Export_Trading_Company_Act</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Foreign Corrupt Practices Act</label>
+                    <name>Foreign_Corrupt_Practices_Act</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Softwoods Lumber Act of 2008</label>
+                    <name>Softwoods_Lumber_Act_of_2008</name>
+                </dataCategory>
+                <label>Commercial Law</label>
+                <name>Commercial_Law</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Company Law</label>
+                <name>Company_Law</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Competition Law</label>
+                <name>Competition_Law</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Contracts</label>
+                <name>Contracts</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Arbitration</label>
+                    <name>Arbitration</name>
+                </dataCategory>
+                <label>Dispute Resolution</label>
+                <name>Dispute_Resolution</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Bilateral Investment Treaties</label>
+                    <name>Bilateral_Investment_Treaties</name>
+                </dataCategory>
+                <label>International Agreements</label>
+                <name>International_Agreements</name>
+            </dataCategory>
+            <dataCategory>
+                <label>International Trade Law</label>
+                <name>International_Trade_Law</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Legal Conditions</label>
+                <name>Legal_Conditions</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Licensing</label>
+                    <name>Licensing</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Micellaneous Tariff Bill</label>
+                    <name>Micellaneous_Tariff_Bill</name>
+                </dataCategory>
+                <label>Legislation</label>
+                <name>Legislation</name>
+            </dataCategory>
+            <label>Law</label>
+            <name>Law</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Eco-Labeling</label>
+                <name>Eco_Labeling</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Export Administration Regulations</label>
+                    <name>Export_Administration_Regulations</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Export Control Classification Number</label>
+                    <name>Export_Control_Classification_Number</name>
+                </dataCategory>
+                <label>Export Controls</label>
+                <name>Export_Controls</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Dual-Use Export License</label>
+                    <name>Dual_Use_Export_License</name>
+                </dataCategory>
+                <label>Export Licenses</label>
+                <name>Export_Licenses</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Export Processing Zones</label>
+                <name>Export_Processing_Zones</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <dataCategory>
+                        <label>Anti-Boycott Regulations</label>
+                        <name>Anti_Boycott_Regulations</name>
+                    </dataCategory>
+                    <label>Export Regulations</label>
+                    <name>Export_Regulations</name>
+                </dataCategory>
+                <dataCategory>
+                    <dataCategory>
+                        <label>Insular Possessions Watch &amp; Jewelry Prog</label>
+                        <name>Insular_Possessions_Watch_Jewelry_Prog</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Steel Import Licenses</label>
+                        <name>Steel_Import_Licenses</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Steel Import Monitoring &amp; Analysis Prog</label>
+                        <name>Steel_Import_Monitoring_Analysis_Prog</name>
+                    </dataCategory>
+                    <label>Import Regulations</label>
+                    <name>Import_Regulations</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Local Content Requirements</label>
+                    <name>Local_Content_Requirements</name>
+                </dataCategory>
+                <label>Foreign Trade Regulations</label>
+                <name>Foreign_Trade_Regulations</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Foreign Trade Zones</label>
+                <name>Foreign_Trade_Zones</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Brand Names</label>
+                    <name>Brand_Names</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Business Names</label>
+                    <name>Business_Names</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Counterfeits</label>
+                    <name>Counterfeits</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Designs and Models</label>
+                    <name>Designs_and_Models</name>
+                </dataCategory>
+                <dataCategory>
+                    <dataCategory>
+                        <label>Copyright Infringement</label>
+                        <name>Copyright_Infringement</name>
+                    </dataCategory>
+                    <label>Copyright</label>
+                    <name>Copyright</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Patents</label>
+                    <name>Patents</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Trade Secrets</label>
+                    <name>Trade_Secrets</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Trademarks</label>
+                    <name>Trademarks</name>
+                </dataCategory>
+                <label>Intellectual Property</label>
+                <name>Intellectual_Property</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Metrology</label>
+                <name>Metrology</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Labeling</label>
+                    <name>Labeling</name>
+                </dataCategory>
+                <dataCategory>
+                    <dataCategory>
+                        <label>Carrier Certificate</label>
+                        <name>Carrier_Certificate</name>
+                    </dataCategory>
+                    <label>Marking</label>
+                    <name>Marking</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Packaging Standards</label>
+                    <name>Packaging_Standards</name>
+                </dataCategory>
+                <label>Packaging</label>
+                <name>Packaging</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Quality Assurance</label>
+                <name>Quality_Assurance</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Quality Management</label>
+                <name>Quality_Management</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Quality Systems</label>
+                <name>Quality_Systems</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Rules of Origin</label>
+                <name>Rules_of_Origin</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Safe Harbor</label>
+                <name>Safe_Harbor</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Safeguards</label>
+                <name>Safeguards</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Sanitary and Phytosanitary Measures</label>
+                <name>Sanitary_and_Phytosanitary_Measures</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Tariff-Rate Quotas</label>
+                <name>Tariff_Rate_Quotas</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Accreditation</label>
+                    <name>Accreditation</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Certification</label>
+                    <name>Certification</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Conformity Assessment</label>
+                    <name>Conformity_Assessment</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Food Standards</label>
+                    <name>Food_Standards</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>HACCP</label>
+                    <name>HACCP</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Quality Standards</label>
+                    <name>Quality_Standards</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Sampling</label>
+                    <name>Sampling</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Standardization</label>
+                    <name>Standardization</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Standards</label>
+                    <name>Standards</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Technical Regulations</label>
+                    <name>Technical_Regulations</name>
+                </dataCategory>
+                <label>Testing</label>
+                <name>Testing</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Anti-Dumping</label>
+                    <name>Anti_Dumping</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Boycotts</label>
+                    <name>Boycotts</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Bribery</label>
+                    <name>Bribery</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Certification Barriers</label>
+                    <name>Certification_Barriers</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Customs Barriers</label>
+                    <name>Customs_Barriers</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>GSP</label>
+                    <name>GSP</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Lack of Rule of law</label>
+                    <name>Lack_of_Rule_of_law</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Non-Tariff Barriers</label>
+                    <name>Non_Tariff_Barriers</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Preferential Tariffs</label>
+                    <name>Preferential_Tariffs</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Protectionism</label>
+                    <name>Protectionism</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Standards Barriers</label>
+                    <name>Standards_Barriers</name>
+                </dataCategory>
+                <dataCategory>
+                    <dataCategory>
+                        <label>Ad Valorem Duties</label>
+                        <name>Ad_Valorem_Duties</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Anti-Dumping and Countervailing Duties</label>
+                        <name>Anti_Dumping_and_Countervailing_Duties</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Customs Fees</label>
+                        <name>Customs_Fees</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Domestic Taxes</label>
+                        <name>Domestic_Taxes</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Duty Drawback</label>
+                        <name>Duty_Drawback</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Excise Taxes</label>
+                        <name>Excise_Taxes</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Export Tariffs</label>
+                        <name>Export_Tariffs</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Import Duties</label>
+                        <name>Import_Duties</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Import Fees</label>
+                        <name>Import_Fees</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Port Charges</label>
+                        <name>Port_Charges</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Sales Taxes</label>
+                        <name>Sales_Taxes</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Statistics Fees</label>
+                        <name>Statistics_Fees</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Value Added Taxes</label>
+                        <name>Value_Added_Taxes</name>
+                    </dataCategory>
+                    <label>Tariffs</label>
+                    <name>Tariffs</name>
+                </dataCategory>
+                <label>Trade Barriers</label>
+                <name>Trade_Barriers</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Trade Facilitation</label>
+                <name>Trade_Facilitation</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Trade Practices</label>
+                <name>Trade_Practices</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Weights and Measures</label>
+                <name>Weights_and_Measures</name>
+            </dataCategory>
+            <label>Market Access</label>
+            <name>Market_Access</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Countertrade</label>
+                <name>Countertrade</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Export Diversification</label>
+                <name>Export_Diversification</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Export Marketing</label>
+                <name>Export_Marketing</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Export Potential</label>
+                <name>Export_Potential</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Exports</label>
+                <name>Exports</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Government Procurement</label>
+                <name>Government_Procurement</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Import Management</label>
+                <name>Import_Management</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Imports</label>
+                <name>Imports</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Outsourcing</label>
+                <name>Outsourcing</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Export Strategy</label>
+                    <name>Export_Strategy</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Foreign trade</label>
+                    <name>Foreign_trade</name>
+                </dataCategory>
+                <label>Trade Development</label>
+                <name>Trade_Development</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Conferences</label>
+                    <name>Conferences</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Trade Fairs</label>
+                    <name>Trade_Fairs</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Trade Missions</label>
+                    <name>Trade_Missions</name>
+                </dataCategory>
+                <label>Trade Events</label>
+                <name>Trade_Events</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Trade Opportunities</label>
+                <name>Trade_Opportunities</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Branding</label>
+                    <name>Branding</name>
+                </dataCategory>
+                <dataCategory>
+                    <dataCategory>
+                        <label>Business Service Providers Program</label>
+                        <name>Business_Service_Providers_Program</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Doing Business in Africa Initiative</label>
+                        <name>Doing_Business_in_Africa_Initiative</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>E-Awards</label>
+                        <name>E_Awards</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Featured U.S. Exporters Program</label>
+                        <name>Featured_U_S_Exporters_Program</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Industry Forward</label>
+                        <name>Industry_Forward</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Look South Initiative</label>
+                        <name>Look_South_Initiative</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Made in Rural America Initiative</label>
+                        <name>Made_in_Rural_America_Initiative</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Market Development Cooperator Program</label>
+                        <name>Market_Development_Cooperator_Program</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Renewable Energy &amp; Efficiency Initiative</label>
+                        <name>Renewable_Energy_Efficiency_Initiative</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Startup Global</label>
+                        <name>Startup_Global</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Strategic Partnership Program</label>
+                        <name>Strategic_Partnership_Program</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>Trade Fair Certification Program</label>
+                        <name>Trade_Fair_Certification_Program</name>
+                    </dataCategory>
+                    <label>Export Promotion</label>
+                    <name>Export_Promotion</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Import Promotion</label>
+                    <name>Import_Promotion</name>
+                </dataCategory>
+                <label>Trade Promotion</label>
+                <name>Trade_Promotion</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Chamber of Commerce</label>
+                    <name>Chamber_of_Commerce</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>District Export Councils</label>
+                    <name>District_Export_Councils</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Trade Associations</label>
+                    <name>Trade_Associations</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Trade Points</label>
+                    <name>Trade_Points</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Trade Promotion Organizations</label>
+                    <name>Trade_Promotion_Organizations</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Trade Representation</label>
+                    <name>Trade_Representation</name>
+                </dataCategory>
+                <label>Trade Support Institutions</label>
+                <name>Trade_Support_Institutions</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Business Matchmaking</label>
+                    <name>Business_Matchmaking</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Business Meeting Facilitation</label>
+                    <name>Business_Meeting_Facilitation</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Commercial Diplomacy</label>
+                    <name>Commercial_Diplomacy</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Export Trading Company Affairs</label>
+                    <name>Export_Trading_Company_Affairs</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>International Buyer Program</label>
+                    <name>International_Buyer_Program</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Market Access Advocacy</label>
+                    <name>Market_Access_Advocacy</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Trade Advocacy</label>
+                    <name>Trade_Advocacy</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Trade Counseling</label>
+                    <name>Trade_Counseling</name>
+                </dataCategory>
+                <label>Trade Support Services</label>
+                <name>Trade_Support_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Competitiveness</label>
+                <name>Competitiveness</name>
+            </dataCategory>
+            <label>Trade Development and Promotion</label>
+            <name>Trade_Development_and_Promotion</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Doha Agreement</label>
+                <name>Doha_Agreement</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Free Trade Areas</label>
+                <name>Free_Trade_Areas</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Intraregional Trade</label>
+                <name>Intraregional_Trade</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Multilateral Trading System</label>
+                <name>Multilateral_Trading_System</name>
+            </dataCategory>
+            <dataCategory>
+                <label>South-South Trade</label>
+                <name>South_South_Trade</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Technical Barriers to Trade</label>
+                <name>Technical_Barriers_to_Trade</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Commodity Agreements</label>
+                    <name>Commodity_Agreements</name>
+                </dataCategory>
+                <dataCategory>
+                    <dataCategory>
+                        <label>CAFTA</label>
+                        <name>CAFTA</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>NAFTA</label>
+                        <name>NAFTA</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>T-TIP</label>
+                        <name>T_TIP</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>TPP</label>
+                        <name>TPP</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>U.S. Trade Agreements Secretariat</label>
+                        <name>U_S_Trade_Agreements_Secretariat</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>US-Australia Free Trade Agreement</label>
+                        <name>US_Australia_Free_Trade_Agreement</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>US-Bahrain Free Trade Agreement</label>
+                        <name>US_Bahrain_Free_Trade_Agreement</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>US-Chile Free Trade Agreement</label>
+                        <name>US_Chile_Free_Trade_Agreement</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>US-Colombia Trade Promotion Agreement</label>
+                        <name>US_Colombia_Trade_Promotion_Agreement</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>US-Israel Free Trade Area Agreement</label>
+                        <name>US_Israel_Free_Trade_Area_Agreement</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>US-Jordan Free Trade Agreement</label>
+                        <name>US_Jordan_Free_Trade_Agreement</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>US-Korea Free Trade Agreement</label>
+                        <name>US_Korea_Free_Trade_Agreement</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>US-Morocco Free Trade Agreement</label>
+                        <name>US_Morocco_Free_Trade_Agreement</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>US-Oman Free Trade Agreement</label>
+                        <name>US_Oman_Free_Trade_Agreement</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>US-Panama Trade Promotion Agreement</label>
+                        <name>US_Panama_Trade_Promotion_Agreement</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>US-Peru Trade Promotion Agreement</label>
+                        <name>US_Peru_Trade_Promotion_Agreement</name>
+                    </dataCategory>
+                    <dataCategory>
+                        <label>US-Singapore Free Trade Agreement</label>
+                        <name>US_Singapore_Free_Trade_Agreement</name>
+                    </dataCategory>
+                    <label>Free Trade Agreements</label>
+                    <name>Free_Trade_Agreements</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Intellectual Property License Agreements</label>
+                    <name>Intellectual_Property_License_Agreements</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Trade Agreements Compliance Program</label>
+                    <name>Trade_Agreements_Compliance_Program</name>
+                </dataCategory>
+                <dataCategory>
+                    <dataCategory>
+                        <label>TRIPS</label>
+                        <name>TRIPS</name>
+                    </dataCategory>
+                    <label>Uruguay Round</label>
+                    <name>Uruguay_Round</name>
+                </dataCategory>
+                <label>Trade Agreements</label>
+                <name>Trade_Agreements</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Trade Liberalization</label>
+                <name>Trade_Liberalization</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Trade Policy</label>
+                <name>Trade_Policy</name>
+            </dataCategory>
+            <label>Trade Policy and Agreements</label>
+            <name>Trade_Policy_and_Agreements</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Air Transport</label>
+                <name>Air_Transport</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Cold Storage</label>
+                <name>Cold_Storage</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Customs Bonded Warehouses</label>
+                    <name>Customs_Bonded_Warehouses</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Customs Certificate of Registration</label>
+                    <name>Customs_Certificate_of_Registration</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Customs Declarations</label>
+                    <name>Customs_Declarations</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Customs Invoices</label>
+                    <name>Customs_Invoices</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Customs Valuation</label>
+                    <name>Customs_Valuation</name>
+                </dataCategory>
+                <label>Customs</label>
+                <name>Customs</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Freight Forwarding</label>
+                <name>Freight_Forwarding</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Inspection</label>
+                <name>Inspection</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Landed Costs</label>
+                <name>Landed_Costs</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Personal Shipments</label>
+                <name>Personal_Shipments</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Preshipment Inspection</label>
+                <name>Preshipment_Inspection</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Railway Transport</label>
+                <name>Railway_Transport</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Sea Transport</label>
+                <name>Sea_Transport</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Shipping Insurance</label>
+                <name>Shipping_Insurance</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Storage</label>
+                <name>Storage</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Incoterms</label>
+                    <name>Incoterms</name>
+                </dataCategory>
+                <label>Terms of Sale</label>
+                <name>Terms_of_Sale</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>ATA Carnet</label>
+                    <name>ATA_Carnet</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>CE Marking</label>
+                    <name>CE_Marking</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Certificate of Analysis</label>
+                    <name>Certificate_of_Analysis</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Certificate of Free Sale</label>
+                    <name>Certificate_of_Free_Sale</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Certificate of Origin</label>
+                    <name>Certificate_of_Origin</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Certificate of Quality</label>
+                    <name>Certificate_of_Quality</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Certificate of Weight</label>
+                    <name>Certificate_of_Weight</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>China Compulsory Certification</label>
+                    <name>China_Compulsory_Certification</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Commercial Invoice</label>
+                    <name>Commercial_Invoice</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Dangerous Goods Certificate</label>
+                    <name>Dangerous_Goods_Certificate</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Delivery Verification Certificate</label>
+                    <name>Delivery_Verification_Certificate</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Destination Control Statements</label>
+                    <name>Destination_Control_Statements</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Export Packing List</label>
+                    <name>Export_Packing_List</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Halal Certificate</label>
+                    <name>Halal_Certificate</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Health Certificates</label>
+                    <name>Health_Certificates</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Ingredients Certificate</label>
+                    <name>Ingredients_Certificate</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Inspection Certificate</label>
+                    <name>Inspection_Certificate</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Insurance Certificate</label>
+                    <name>Insurance_Certificate</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Phytosanitary Inspection Certificate</label>
+                    <name>Phytosanitary_Inspection_Certificate</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Pro Forma Invoice</label>
+                    <name>Pro_Forma_Invoice</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Radiation Certificate</label>
+                    <name>Radiation_Certificate</name>
+                </dataCategory>
+                <label>Trade Documents</label>
+                <name>Trade_Documents</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Through Bill of Lading</label>
+                    <name>Through_Bill_of_Lading</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Straight Bill of Lading</label>
+                    <name>Straight_Bill_of_Lading</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Shipper&apos;s Letter of Instruction</label>
+                    <name>Shipper_s_Letter_of_Instruction</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Sea Waybill</label>
+                    <name>Sea_Waybill</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Ocean Bill of Lading</label>
+                    <name>Ocean_Bill_of_Lading</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Air Waybills</label>
+                    <name>Air_Waybills</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Negotiable Bill of Lading</label>
+                    <name>Negotiable_Bill_of_Lading</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Liner Bill of Lading</label>
+                    <name>Liner_Bill_of_Lading</name>
+                </dataCategory>
+                <label>Transport Documents</label>
+                <name>Transport_Documents</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Ports</label>
+                    <name>Ports</name>
+                </dataCategory>
+                <label>Transport Infrastructure</label>
+                <name>Transport_Infrastructure</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Warehousing</label>
+                <name>Warehousing</name>
+            </dataCategory>
+            <label>Transport and Logistics</label>
+            <name>Transport_and_Logistics</name>
+        </dataCategory>
+        <label>All</label>
+        <name>All</name>
+    </dataCategory>
+    <description>Trade Topics Taxonomy</description>
+    <label>Trade Topics</label>
+    <objectUsage>
+        <object>KnowledgeArticleVersion</object>
+    </objectUsage>
+</DataCategoryGroup>

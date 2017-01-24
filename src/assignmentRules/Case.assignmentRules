@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssignmentRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignmentRule>
+        <fullName>Case Comments Rule</fullName>
+        <active>false</active>
+    </assignmentRule>
+    <assignmentRule>
+        <fullName>Salesforce Support Case Assignment</fullName>
+        <active>true</active>
+        <ruleEntry>
+            <assignedTo>Salesforce_Support</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Salesforce Support</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>Email</value>
+            </criteriaItems>
+            <template>Tier_3_Salesforce_Support/Salesforce_Support_Request_Alert</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>PS_Participation</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Privacy Shield</value>
+            </criteriaItems>
+            <template>Privacy_Shield_Templates/PS_PS_Participation_Case_Assignment_Alert</template>
+        </ruleEntry>
+    </assignmentRule>
+</AssignmentRules>

@@ -1,0 +1,188 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="true" docType="html-5.0" applyBodyTag="false" applyHtmlTag="false">
+<apex:composition template="Site_Template">
+    <apex:define name="page">
+    
+    <style>
+    @import url(https://fonts.googleapis.com/css?family=Lato:900);
+@media (max-width:480px) {
+.url_link a{
+font-size:10px;
+}
+}
+</style>
+
+    <div class="subheader secondary-bg-ita">
+        <div class="containerITA nopad">
+            <div class="row nopad">
+                <nav id="subnav">
+                <h4 id="sectionName">Trade Event</h4>
+                    <span>
+                <!-- Button trigger modal -->
+                    <!-- c:boardSave /-->
+                </span>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+            
+
+
+ <div style="background-image: url('https://ajsingh273.github.io/testsf/images/event.jpg'); background-repeat:no-repeat; background-size: cover;">
+                <div class="section clearfix tertiary-bg-ita-img" style="padding:0px;">
+                <div>
+                    <div class="row content text-center" id="titlebox">
+
+                    </div>
+                </div>
+                </div>
+  </div>
+
+
+
+
+<div class="containerITA">
+            <div class="row nopad">
+
+                        <!-- main start -->
+                        <!-- ================ -->
+                        <div class="main ">
+                   
+<div class="article-body" id="entry"></div>
+<div id="tags"></div>
+</div>
+</div>
+</div>
+            
+       
+<script src="//code.jquery.com/jquery-2.2.0.min.js" language="javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
+<script type='text/javascript'>
+    (function($) {
+    $.QueryString = (function(a) {
+        if (a == "") return {};
+        var b = {};
+        for (var i = 0; i < a.length; ++i)
+        {
+            var p=a[i].split('=');
+            if (p.length != 2) continue;
+            b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+        }
+        return b;
+    })(window.location.search.substr(1).split('&'))
+})(jQuery);
+
+    id = $.QueryString['id'];
+url = 'https://intrasearch.export.gov/v1/trade_events/' + encodeURIComponent(id);
+$.ajax({
+
+  // The 'type' property sets the HTTP method.
+  // A value of 'PUT' or 'DELETE' will trigger a preflight request.
+  type: 'GET',
+
+  // The URL to make the request to.
+  url: url,
+
+  // The 'contentType' property sets the 'Content-Type' header.
+  // The JQuery default for this property is
+  // 'application/x-www-form-urlencoded; charset=UTF-8', which does not trigger
+  // a preflight. If you set this value to anything other than
+  // application/x-www-form-urlencoded, multipart/form-data, or text/plain,
+  // you will trigger a preflight request.
+  contentType: 'text/plain',
+
+  xhrFields: {
+    // The 'xhrFields' property sets additional fields on the XMLHttpRequest.
+    // This can be used to set the 'withCredentials' property.
+    // Set the value to 'true' if you'd like to pass cookies to the server.
+    // If this is enabled, your server must respond with the header
+    // 'Access-Control-Allow-Credentials: true'.
+    withCredentials: false
+  },
+
+  headers: {
+    // Set any custom headers here.
+    // If you set any non-simple headers, your server must include these
+    // headers in the 'Access-Control-Allow-Headers' response header.
+  },
+
+  success: function(data) {
+        for(i = 0; i < data.industries.length; i++){
+            var a = document.createElement('a');
+            $(a).addClass('btn');
+            $(a).addClass('btn-primary');
+            $(a).addClass('btn-sm');
+            a.innerHTML = data.industries[i];
+            a.setAttribute('role', 'button');
+            a.href="/apex/search#/search/trade_events?industries="+data.industries[i].replace(/ /g, "+");
+            document.getElementById('tags').appendChild(a);
+        }
+        for(i = 0; i < data.countries.length; i++){
+            var a = document.createElement('a');
+            $(a).addClass('btn');
+            $(a).addClass('btn-primary');
+            $(a).addClass('btn-sm');
+            a.innerHTML = data.countries[i];
+            a.setAttribute('role', 'button');
+            a.href="/apex/search#/search/trade_events?countries="+data.countries[i].replace(/ /g, "+");
+            document.getElementById('tags').appendChild(a);
+        }
+    var name = $('<h2 class="article-title" style="font-size: 25px;font-weight: 700;color:#fff;"></h2>');
+    name.append(data.name);
+    var source_text = $('<span style="color: #7f919e;font-size: 15px;font-weight:900;">Source: </span>');
+    var source_text_br = $('<br/>');
+    var source = $('<span style="color: #7f919e;font-size: 15px;font-weight:400;"></span>');
+    source.append(data.source);
+    var space = $('<hr/>');
+    var next = $('<br/>');
+    var atom_br = $('<br/><br/>');
+    var text = $('<span style="color: #7f919e;font-size: 15px;font-weight:900;">Start Date: </span>');
+    var start_date = $('<span style="color: #7f919e;font-size: 15px;font-weight:400;"></span>' );
+
+    start_date.append(data.start_date);
+    var to = $('<br/>');
+    var text2 = $('<span style="color: #7f919e;font-size: 15px;font-weight:900;">End Date: </span>');
+    var end_date = $('<span style="color: #7f919e;font-size: 15px;font-weight:400;"></span>' + '<br/>');
+    
+    end_date.append(data.end_date);
+    var description = $('<p style="font-weight: 300;font-size: 17px;line-height: 190%;color: #000;"></p>');
+    description.append(data.description);
+    var url = $('<small><p></p></small>');
+    url.append(data.url);
+
+    var registration_url = $('<p></p>');
+    registration_url.append(data.registration_url);
+    
+    var registration_title = $('<a style="font-size:15px;font-weight:400;" href="' + data.registration_url + '"></a>');
+    registration_title.append(data.registration_title);
+    
+    var cost = $('<span style="color: #7f919e;font-size: 15px;font-weight:400;"><strong>Cost: </strong>$</span>');
+    cost.append(data.cost);
+    var zero = $('<br/>');
+    var industries = $('<p></p>');
+    industries.append(data.industries);
+    var trade_regions = $('<p>Trade Regions: </p>');
+    trade_regions.append(data.trade_regions);
+    var world_regions = $('<p>World Regions: </p>');
+    world_regions.append(data.world_regions);
+    $('#titlebox').append(name);   
+    $('#entry').append( description, text, start_date, to, text2, end_date, cost, zero, source_text, source, source_text_br, registration_title);
+  },
+  
+
+
+
+  error: function() {
+    $('#entry').append('page not found');
+    // Here's where you handle an error response.
+    // Note that if the error was due to a CORS issue,
+    // this function will still fire, but there won't be any additional
+    // information about the error.
+  }
+});
+</script>
+    <!-- Modal -->
+    <!--c:InsightModal SummaryText="{!summary}" TitleText="{!title}" PinId="{!$CurrentPage.parameters.Id}" /-->
+    </apex:define>
+</apex:composition>
+</apex:page>

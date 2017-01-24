@@ -1,0 +1,7 @@
+Dear  {!WIN__c.OwnerFullName} and {!WIN__c.First_Approver__c} ,
+
+A WIN record: {!WIN__c.Name} has been Rejected.  You may access the WIN via this link: {!WIN__c.Link} 
+
+Thank you. 
+
+WINs Management Team

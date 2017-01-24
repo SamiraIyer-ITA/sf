@@ -1,0 +1,1151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Basic Guide to Exporting</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Basic Guide to Exporting</value>
+    </caseValues>
+    <fields>
+        <help><!-- Select the approval queue for this Article. --></help>
+        <label><!-- Approval Queue --></label>
+        <name>Approval_Queue__c</name>
+        <picklistValues>
+            <masterLabel>Global Markets</masterLabel>
+            <translation><!-- Global Markets --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- This rich-text area is where the body of your content should be placed. The content should not deviate from the overall theme and should stand on its own as a reliable source of information. Otherwise, a new topic should be created. --></help>
+        <label><!-- Atom --></label>
+        <name>Atom__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days Since Last Published Date --></label>
+        <name>Days_Since_Last_Published_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Flag the draft version is ready for approval --></help>
+        <label><!-- Draft Complete --></label>
+        <name>Draft_Complete__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select the Level 0 section for this series. --></help>
+        <label><!-- Level 0 --></label>
+        <name>Level_0__c</name>
+        <picklistValues>
+            <masterLabel>Basic Guide to Exporting</masterLabel>
+            <translation><!-- Basic Guide to Exporting --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Select the Level 1 section for this series. --></help>
+        <label><!-- Level 1 --></label>
+        <name>Level_1__c</name>
+        <picklistValues>
+            <masterLabel>Business Travel Abroad</masterLabel>
+            <translation><!-- Business Travel Abroad --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Developing a Marketing Plan</masterLabel>
+            <translation><!-- Developing a Marketing Plan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E-Exporting Tools for Small Businesses</masterLabel>
+            <translation><!-- E-Exporting Tools for Small Businesses --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Export Advice</masterLabel>
+            <translation><!-- Export Advice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Export Overview</masterLabel>
+            <translation><!-- Export Overview --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Export Strategy</masterLabel>
+            <translation><!-- Export Strategy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Exporting Services</masterLabel>
+            <translation><!-- Exporting Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Financing Export Transactions</masterLabel>
+            <translation><!-- Financing Export Transactions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finding Qualified Buyers</masterLabel>
+            <translation><!-- Finding Qualified Buyers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Glossary of Trade Terms</masterLabel>
+            <translation><!-- Glossary of Trade Terms --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>International Legal Considerations</masterLabel>
+            <translation><!-- International Legal Considerations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Methods and Channels for Exporting</masterLabel>
+            <translation><!-- Methods and Channels for Exporting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Methods of Payment</masterLabel>
+            <translation><!-- Methods of Payment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preparing your Product for Export</masterLabel>
+            <translation><!-- Preparing your Product for Export --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pricing, Quotation and Terms</masterLabel>
+            <translation><!-- Pricing, Quotation and Terms --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rules of Origin for FTAs</masterLabel>
+            <translation><!-- Rules of Origin for FTAs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Selling Overseas and Aftersales Service</masterLabel>
+            <translation><!-- Selling Overseas and Aftersales Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shipping Your Product</masterLabel>
+            <translation><!-- Shipping Your Product --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tech Licensing and Joint Ventures</masterLabel>
+            <translation><!-- Tech Licensing and Joint Ventures --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Select the Level 2 section for this series. --></help>
+        <label><!-- Level 2 --></label>
+        <name>Level_2__c</name>
+        <picklistValues>
+            <masterLabel>American Chambers of Commerce Abroad</masterLabel>
+            <translation><!-- American Chambers of Commerce Abroad --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Approaches to Exporting</masterLabel>
+            <translation><!-- Approaches to Exporting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aspects of Service Exports</masterLabel>
+            <translation><!-- Aspects of Service Exports --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Assessing Your Company&apos;s Readiness to go Online</masterLabel>
+            <translation><!-- Assessing Your Company&apos;s Readiness to go Online --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Basic Steps to Qualify a Product for Duty Free or Reduced Duty Benefits</masterLabel>
+            <translation><!-- Basic Steps to Qualify a Product for Duty Free or Reduced Duty Benefits --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Branding, Labeling, and Packaging</masterLabel>
+            <translation><!-- Branding, Labeling, and Packaging --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Building a Working Relationship</masterLabel>
+            <translation><!-- Building a Working Relationship --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bureau of Industry and Security</masterLabel>
+            <translation><!-- Bureau of Industry and Security --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business Culture</masterLabel>
+            <translation><!-- Business Culture --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cash in Advance</masterLabel>
+            <translation><!-- Cash in Advance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Certifying Origin of Product for FTA</masterLabel>
+            <translation><!-- Certifying Origin of Product for FTA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Channels of Distribution</masterLabel>
+            <translation><!-- Channels of Distribution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Choosing a Foreign Representative/Distributor</masterLabel>
+            <translation><!-- Choosing a Foreign Representative/Distributor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Commonly Used Terms</masterLabel>
+            <translation><!-- Commonly Used Terms --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Commonly Used Terms When Chartering a Vessel</masterLabel>
+            <translation><!-- Commonly Used Terms When Chartering a Vessel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Company Export Readiness Assessment</masterLabel>
+            <translation><!-- Company Export Readiness Assessment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Conducting Business Internationally</masterLabel>
+            <translation><!-- Conducting Business Internationally --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Consignment</masterLabel>
+            <translation><!-- Consignment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Bonded Warehouses</masterLabel>
+            <translation><!-- Custom Bonded Warehouses --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Defeet International: Success Story</masterLabel>
+            <translation><!-- Defeet International: Success Story --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Determine a Products Export Potential</masterLabel>
+            <translation><!-- Determine a Products Export Potential --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>District Export Councils</masterLabel>
+            <translation><!-- District Export Councils --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Do I need a license?</masterLabel>
+            <translation><!-- Do I need a license? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Documentation</masterLabel>
+            <translation><!-- Documentation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ecommerce Providers</masterLabel>
+            <translation><!-- Ecommerce Providers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Engineering and Redesign</masterLabel>
+            <translation><!-- Engineering and Redesign --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Escrow</masterLabel>
+            <translation><!-- Escrow --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Example Rules of Origin</masterLabel>
+            <translation><!-- Example Rules of Origin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Executing Orders and Providing After-Sales Service</masterLabel>
+            <translation><!-- Executing Orders and Providing After-Sales Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Exploring State and Local Export Finance Programs</masterLabel>
+            <translation><!-- Exploring State and Local Export Finance Programs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Export Intermediaries</masterLabel>
+            <translation><!-- Export Intermediaries --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Export Plan Development</masterLabel>
+            <translation><!-- Export Plan Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Export Processing Zones</masterLabel>
+            <translation><!-- Export Processing Zones --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Export Regulations</masterLabel>
+            <translation><!-- Export Regulations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Export-Import Bank of the US</masterLabel>
+            <translation><!-- Export-Import Bank of the US --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Extending Credit to Foreign Buyers</masterLabel>
+            <translation><!-- Extending Credit to Foreign Buyers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Factors to Consider in Making Financing Decisions</masterLabel>
+            <translation><!-- Factors to Consider in Making Financing Decisions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Financial Institutions</masterLabel>
+            <translation><!-- Financial Institutions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Foreign Agricultural Service</masterLabel>
+            <translation><!-- Foreign Agricultural Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Foreign Exchange Risk</masterLabel>
+            <translation><!-- Foreign Exchange Risk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Foreign Legal and Regulatory Requirements</masterLabel>
+            <translation><!-- Foreign Legal and Regulatory Requirements --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Free Trade Agreements and Service Exports</masterLabel>
+            <translation><!-- Free Trade Agreements and Service Exports --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Freight Forwarders</masterLabel>
+            <translation><!-- Freight Forwarders --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Freight Forwarders and Shipping Companies</masterLabel>
+            <translation><!-- Freight Forwarders and Shipping Companies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Generic Certificates</masterLabel>
+            <translation><!-- Generic Certificates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Industry and Trade Associations</masterLabel>
+            <translation><!-- Industry and Trade Associations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Installation</masterLabel>
+            <translation><!-- Installation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Intellectual Property Considerations</masterLabel>
+            <translation><!-- Intellectual Property Considerations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>International Agreements</masterLabel>
+            <translation><!-- International Agreements --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>International Trade Consultants and Other Advisers</masterLabel>
+            <translation><!-- International Trade Consultants and Other Advisers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Joint Ventures</masterLabel>
+            <translation><!-- Joint Ventures --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Labeling</masterLabel>
+            <translation><!-- Labeling --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Learning about Potential Clients</masterLabel>
+            <translation><!-- Learning about Potential Clients --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Letters of Credit and Documentary Collection</masterLabel>
+            <translation><!-- Letters of Credit and Documentary Collection --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Local US Commercial Service Offices</masterLabel>
+            <translation><!-- Local US Commercial Service Offices --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Market Development on the Web</masterLabel>
+            <translation><!-- Market Development on the Web --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Market Research</masterLabel>
+            <translation><!-- Market Research --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing Services Abroad</masterLabel>
+            <translation><!-- Marketing Services Abroad --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Methods of Market Research</masterLabel>
+            <translation><!-- Methods of Market Research --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Millennium Challenge Corporation</masterLabel>
+            <translation><!-- Millennium Challenge Corporation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Minority Business Development Agency</masterLabel>
+            <translation><!-- Minority Business Development Agency --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>National Center for Standards and Certifications Information</masterLabel>
+            <translation><!-- National Center for Standards and Certifications Information --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>North America Free Trade Agreements</masterLabel>
+            <translation><!-- North America Free Trade Agreements --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Obtaining Assistance from US Embassies and Consulates</masterLabel>
+            <translation><!-- Obtaining Assistance from US Embassies and Consulates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Obtaining Funding from Multilateral Investment Banks</masterLabel>
+            <translation><!-- Obtaining Funding from Multilateral Investment Banks --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Obtaining Government Support for Service Exports</masterLabel>
+            <translation><!-- Obtaining Government Support for Service Exports --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Obtaining Proper Documentation</masterLabel>
+            <translation><!-- Obtaining Proper Documentation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open Account</masterLabel>
+            <translation><!-- Open Account --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Packing</masterLabel>
+            <translation><!-- Packing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payment Problems</masterLabel>
+            <translation><!-- Payment Problems --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Percentage Based Rules</masterLabel>
+            <translation><!-- Percentage Based Rules --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Post-export Financing</masterLabel>
+            <translation><!-- Post-export Financing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pre-export Financing</masterLabel>
+            <translation><!-- Pre-export Financing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pricing Considerations</masterLabel>
+            <translation><!-- Pricing Considerations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Adaptation</masterLabel>
+            <translation><!-- Product Adaptation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Promotion in Publications and Other Media</masterLabel>
+            <translation><!-- Promotion in Publications and Other Media --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Providing After-Sales Service</masterLabel>
+            <translation><!-- Providing After-Sales Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prudent Credit Practices</masterLabel>
+            <translation><!-- Prudent Credit Practices --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quotations and Pro-Forma Invoices</masterLabel>
+            <translation><!-- Quotations and Pro-Forma Invoices --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regional Value Content-Based Rule</masterLabel>
+            <translation><!-- Regional Value Content-Based Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Responding to Inquiries</masterLabel>
+            <translation><!-- Responding to Inquiries --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rules of Origin - General Categories</masterLabel>
+            <translation><!-- Rules of Origin - General Categories --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rules of Origin Considerations</masterLabel>
+            <translation><!-- Rules of Origin Considerations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rules of Origin and Why They Matter</masterLabel>
+            <translation><!-- Rules of Origin and Why They Matter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SCORE - Counselors to America&apos;s Small Business</masterLabel>
+            <translation><!-- SCORE - Counselors to America&apos;s Small Business --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sector-Specific Considerations</masterLabel>
+            <translation><!-- Sector-Specific Considerations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Exports with High Growth Potential</masterLabel>
+            <translation><!-- Service Exports with High Growth Potential --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sources of Market Research</masterLabel>
+            <translation><!-- Sources of Market Research --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>State and Local Government Assistance</masterLabel>
+            <translation><!-- State and Local Government Assistance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>State and Local Governments</masterLabel>
+            <translation><!-- State and Local Governments --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Steps to Going Online</masterLabel>
+            <translation><!-- Steps to Going Online --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Strategic Reasons to Export</masterLabel>
+            <translation><!-- Strategic Reasons to Export --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Strategies for Keeping Buyers</masterLabel>
+            <translation><!-- Strategies for Keeping Buyers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Success Stories:  Avazzia</masterLabel>
+            <translation><!-- Success Stories:  Avazzia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Success Story:  Alignment Simple Solution</masterLabel>
+            <translation><!-- Success Story:  Alignment Simple Solution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Success Story:  Lightning Eliminators</masterLabel>
+            <translation><!-- Success Story:  Lightning Eliminators --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Success Story:  NuStep</masterLabel>
+            <translation><!-- Success Story:  NuStep --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Success Story:  Patton Electronics Company</masterLabel>
+            <translation><!-- Success Story:  Patton Electronics Company --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Success Story:  Spancrete Machinery Corporation</masterLabel>
+            <translation><!-- Success Story:  Spancrete Machinery Corporation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Success Story: Advanced Superabrasives</masterLabel>
+            <translation><!-- Success Story: Advanced Superabrasives --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Success Story: Bassetts Ice Cream company</masterLabel>
+            <translation><!-- Success Story: Bassetts Ice Cream company --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Success Story: Giant Loop</masterLabel>
+            <translation><!-- Success Story: Giant Loop --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Success Story: Home Instead Senior Care</masterLabel>
+            <translation><!-- Success Story: Home Instead Senior Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Success Story: Infinity Air</masterLabel>
+            <translation><!-- Success Story: Infinity Air --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Success Story: Jet Incorporated</masterLabel>
+            <translation><!-- Success Story: Jet Incorporated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Success Story: Zeigler Brothers</masterLabel>
+            <translation><!-- Success Story: Zeigler Brothers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technology Licensing</masterLabel>
+            <translation><!-- Technology Licensing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Terms of Sale</masterLabel>
+            <translation><!-- Terms of Sale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>The US Commercial Service Advocacy Center</masterLabel>
+            <translation><!-- The US Commercial Service Advocacy Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trade Agreeements Negotiations and Compliance</masterLabel>
+            <translation><!-- Trade Agreeements Negotiations and Compliance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>US Agency for International Development</masterLabel>
+            <translation><!-- US Agency for International Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>US Commercial Service Offices Overseas Posts</masterLabel>
+            <translation><!-- US Commercial Service Offices Overseas Posts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>US Department of Agriculture</masterLabel>
+            <translation><!-- US Department of Agriculture --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>US Department of Commerce: Buyer-Finding Programs</masterLabel>
+            <translation><!-- US Department of Commerce: Buyer-Finding Programs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>US Department of Commerce: Trade Event Programs</masterLabel>
+            <translation><!-- US Department of Commerce: Trade Event Programs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>US Department of State</masterLabel>
+            <translation><!-- US Department of State --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>US Foreign Trade Zones</masterLabel>
+            <translation><!-- US Foreign Trade Zones --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>US Small Business Administration</masterLabel>
+            <translation><!-- US Small Business Administration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>US Trade and Development Agency</masterLabel>
+            <translation><!-- US Trade and Development Agency --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use of E-Commerce for International Business and Trade</masterLabel>
+            <translation><!-- Use of E-Commerce for International Business and Trade --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Using Discounting and Bankers Acceptance</masterLabel>
+            <translation><!-- Using Discounting and Bankers Acceptance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Using Export Intermediaries</masterLabel>
+            <translation><!-- Using Export Intermediaries --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Using Government Assistance Programs</masterLabel>
+            <translation><!-- Using Government Assistance Programs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Warranties</masterLabel>
+            <translation><!-- Warranties --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>What is e-commerce?</masterLabel>
+            <translation><!-- What is e-commerce? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Why Companies Should Export</masterLabel>
+            <translation><!-- Why Companies Should Export --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Why Small Companies Don’t Export to More Than One Market</masterLabel>
+            <translation><!-- Why Small Companies Don’t Export to More Than One Market --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Working with Commercial Banks</masterLabel>
+            <translation><!-- Working with Commercial Banks --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>World Trade Center, International Trade Clubs, Local Chambers of Commerce</masterLabel>
+            <translation><!-- World Trade Center, International Trade Clubs, Local Chambers of Commerce --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Select the Level 3 section for this series. --></help>
+        <label><!-- Level 3 --></label>
+        <name>Level_3__c</name>
+        <picklistValues>
+            <masterLabel>Accessories, Spare Parts, and Tools</masterLabel>
+            <translation><!-- Accessories, Spare Parts, and Tools --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accumulation</masterLabel>
+            <translation><!-- Accumulation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Agents or Representatives</masterLabel>
+            <translation><!-- Agents or Representatives --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Agricultural Products</masterLabel>
+            <translation><!-- Agricultural Products --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Airway Bill</masterLabel>
+            <translation><!-- Airway Bill --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Antiboycott Regulations</masterLabel>
+            <translation><!-- Antiboycott Regulations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Antidiversion Clause</masterLabel>
+            <translation><!-- Antidiversion Clause --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Automobiles</masterLabel>
+            <translation><!-- Automobiles --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bill of Lading</masterLabel>
+            <translation><!-- Bill of Lading --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Can I discuss my invention with a potential investor before filing for a patent?</masterLabel>
+            <translation><!-- Can I discuss my invention with a potential investor before filing for a patent? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Can I obtain a patent for my software-related invention?</masterLabel>
+            <translation><!-- Can I obtain a patent for my software-related invention? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Can I protect my trademark in more than one country at the same time?</masterLabel>
+            <translation><!-- Can I protect my trademark in more than one country at the same time? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cargo Insurance</masterLabel>
+            <translation><!-- Cargo Insurance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Carnets</masterLabel>
+            <translation><!-- Carnets --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Carriage and Insurance Paid</masterLabel>
+            <translation><!-- Carriage and Insurance Paid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Certificate of Conformity</masterLabel>
+            <translation><!-- Certificate of Conformity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Certificate of Free Sale</masterLabel>
+            <translation><!-- Certificate of Free Sale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Certificate of Origin</masterLabel>
+            <translation><!-- Certificate of Origin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chemicals</masterLabel>
+            <translation><!-- Chemicals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chile, Singapore, Australia, CAFTA-DR, Peru, Colombia, Korea, and  Panama FTAs</masterLabel>
+            <translation><!-- Chile, Singapore, Australia, CAFTA-DR, Peru, Colombia, Korea, and  Panama FTAs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Commercial Invoice</masterLabel>
+            <translation><!-- Commercial Invoice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Consular Invoice</masterLabel>
+            <translation><!-- Consular Invoice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contacting and Evaluating Foreign Representatives</masterLabel>
+            <translation><!-- Contacting and Evaluating Foreign Representatives --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cost and Freight</masterLabel>
+            <translation><!-- Cost and Freight --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cost, Insurance and Freight</masterLabel>
+            <translation><!-- Cost, Insurance and Freight --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customized Market Research</masterLabel>
+            <translation><!-- Customized Market Research --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>De Minimus Rule</masterLabel>
+            <translation><!-- De Minimus Rule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Department of Agriculture</masterLabel>
+            <translation><!-- Department of Agriculture --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Destination Control Statement</masterLabel>
+            <translation><!-- Destination Control Statement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Direct Exporting</masterLabel>
+            <translation><!-- Direct Exporting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Direct Sales to End-Users</masterLabel>
+            <translation><!-- Direct Sales to End-Users --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Distribution Considerations</masterLabel>
+            <translation><!-- Distribution Considerations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Distributors</masterLabel>
+            <translation><!-- Distributors --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dock Receipt/Warehouse Receipt</masterLabel>
+            <translation><!-- Dock Receipt/Warehouse Receipt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Electronic Export Information (formerly Shipper&apos;s Export Declaration)</masterLabel>
+            <translation><!-- Electronic Export Information (formerly Shipper&apos;s Export Declaration) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ex Works</masterLabel>
+            <translation><!-- Ex Works --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Export Admininstration Regulations</masterLabel>
+            <translation><!-- Export Admininstration Regulations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Export Credit Insurance</masterLabel>
+            <translation><!-- Export Credit Insurance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Export License</masterLabel>
+            <translation><!-- Export License --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Export Opportunities at Development Banks</masterLabel>
+            <translation><!-- Export Opportunities at Development Banks --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Export Packing List</masterLabel>
+            <translation><!-- Export Packing List --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Featured US Exporters</masterLabel>
+            <translation><!-- Featured US Exporters --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Foreign Customs</masterLabel>
+            <translation><!-- Foreign Customs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Foreign Retailers</masterLabel>
+            <translation><!-- Foreign Retailers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Free Alongside Ship</masterLabel>
+            <translation><!-- Free Alongside Ship --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Free Carrier</masterLabel>
+            <translation><!-- Free Carrier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Free In</masterLabel>
+            <translation><!-- Free In --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Free In and Out</masterLabel>
+            <translation><!-- Free In and Out --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Free Onboard</masterLabel>
+            <translation><!-- Free Onboard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Free Out</masterLabel>
+            <translation><!-- Free Out --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fungible Goods and Materials</masterLabel>
+            <translation><!-- Fungible Goods and Materials --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General Information about Exporting</masterLabel>
+            <translation><!-- General Information about Exporting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gold Key Matching Service</masterLabel>
+            <translation><!-- Gold Key Matching Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>How can I find the patent laws of various countries?</masterLabel>
+            <translation><!-- How can I find the patent laws of various countries? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>How can I learn more about Intellectual Property Law?</masterLabel>
+            <translation><!-- How can I learn more about Intellectual Property Law? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>How can a patent be obtained worldwide?</masterLabel>
+            <translation><!-- How can a patent be obtained worldwide? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>How do I file a complaint if I think my intellectual property has been stolen?</masterLabel>
+            <translation><!-- How do I file a complaint if I think my intellectual property has been stolen? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>How do I file in the US?</masterLabel>
+            <translation><!-- How do I file in the US? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>How is a patent granted?</masterLabel>
+            <translation><!-- How is a patent granted? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>How long does it take to get a patent granted?</masterLabel>
+            <translation><!-- How long does it take to get a patent granted? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Import Regulations of Foreign Governments</masterLabel>
+            <translation><!-- Import Regulations of Foreign Governments --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Indirect Exporting</masterLabel>
+            <translation><!-- Indirect Exporting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Indirect Materials</masterLabel>
+            <translation><!-- Indirect Materials --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Industry Information</masterLabel>
+            <translation><!-- Industry Information --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inspection Certificate</masterLabel>
+            <translation><!-- Inspection Certificate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insurance Certificate</masterLabel>
+            <translation><!-- Insurance Certificate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>International Buyer Program</masterLabel>
+            <translation><!-- International Buyer Program --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>International Company Profiles</masterLabel>
+            <translation><!-- International Company Profiles --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>International Copyright Law</masterLabel>
+            <translation><!-- International Copyright Law --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>International Partner Search</masterLabel>
+            <translation><!-- International Partner Search --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>International Traffic in Arms Regulations</masterLabel>
+            <translation><!-- International Traffic in Arms Regulations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Israel, Jordan, Morocco, Bahrain, and Oman FTAs</masterLabel>
+            <translation><!-- Israel, Jordan, Morocco, Bahrain, and Oman FTAs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Major Shippers</masterLabel>
+            <translation><!-- Major Shippers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NAFTA Certificate of Origin</masterLabel>
+            <translation><!-- NAFTA Certificate of Origin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NAFTA and Agreement on Trade-Related Aspects of Intellectual Property Rights</masterLabel>
+            <translation><!-- NAFTA and Agreement on Trade-Related Aspects of Intellectual Property Rights --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NAFTA, Chile, Singapore, Australia, CAFTA-DR, Colombia, Panama, Korea, and Peru FTAs</masterLabel>
+            <translation><!-- NAFTA, Chile, Singapore, Australia, CAFTA-DR, Colombia, Panama, Korea, and Peru FTAs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Negotiating an Agreement with a Foreign Representative</masterLabel>
+            <translation><!-- Negotiating an Agreement with a Foreign Representative --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Overseas Private Investment Corporation</masterLabel>
+            <translation><!-- Overseas Private Investment Corporation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Passports</masterLabel>
+            <translation><!-- Passports --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patent Law</masterLabel>
+            <translation><!-- Patent Law --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Persons Restricted to Trade Restrictions</masterLabel>
+            <translation><!-- Persons Restricted to Trade Restrictions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Planning an Itinerary</masterLabel>
+            <translation><!-- Planning an Itinerary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regional and Country Information</masterLabel>
+            <translation><!-- Regional and Country Information --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales Representative</masterLabel>
+            <translation><!-- Sales Representative --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sample Export Plan</masterLabel>
+            <translation><!-- Sample Export Plan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Small Business Association</masterLabel>
+            <translation><!-- Small Business Association --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Statistical and Demographic Information</masterLabel>
+            <translation><!-- Statistical and Demographic Information --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tariffs</masterLabel>
+            <translation><!-- Tariffs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Textile Products</masterLabel>
+            <translation><!-- Textile Products --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>The Export-Import Bank of the United States</masterLabel>
+            <translation><!-- The Export-Import Bank of the United States --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trade Fair Certification Program</masterLabel>
+            <translation><!-- Trade Fair Certification Program --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trade Missions</masterLabel>
+            <translation><!-- Trade Missions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trademark Law</masterLabel>
+            <translation><!-- Trademark Law --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Two Kinds of Insurance</masterLabel>
+            <translation><!-- Two Kinds of Insurance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>US Copyright Law Compared to International Copyright Law</masterLabel>
+            <translation><!-- US Copyright Law Compared to International Copyright Law --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>US Foreign Corrupt Practices Act</masterLabel>
+            <translation><!-- US Foreign Corrupt Practices Act --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vaccinations</masterLabel>
+            <translation><!-- Vaccinations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Visas</masterLabel>
+            <translation><!-- Visas --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>What does a patent do?</masterLabel>
+            <translation><!-- What does a patent do? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>What is a patent?</masterLabel>
+            <translation><!-- What is a patent? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>What kind of inventions can be protected?</masterLabel>
+            <translation><!-- What kind of inventions can be protected? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>What kind of protection does a patent provide?</masterLabel>
+            <translation><!-- What kind of protection does a patent provide? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>What rights does a patent owner have?</masterLabel>
+            <translation><!-- What rights does a patent owner have? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>What role do patents play in everyday life?</masterLabel>
+            <translation><!-- What role do patents play in everyday life? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Where can I find patent information?</masterLabel>
+            <translation><!-- Where can I find patent information? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Who grants patents?</masterLabel>
+            <translation><!-- Who grants patents? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Why are patents necessary?</masterLabel>
+            <translation><!-- Why are patents necessary? --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Title of the article in Mobile/Tablet View --></help>
+        <label><!-- Mobile Title --></label>
+        <name>Mobile_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- Public URL --></label>
+        <name>Public_URL__c</name>
+    </fields>
+    <fields>
+        <help><!-- If there are any references that were used during the writing of the content, they can be highlighted here. The rich text editor allows for formatting and link creation. --></help>
+        <label><!-- References (Public) --></label>
+        <name>References__c</name>
+    </fields>
+    <fields>
+        <help><!-- Type Basic Guide to Exporting in this field. --></help>
+        <label><!-- Series --></label>
+        <name>Series__c</name>
+        <relationshipLabel><!-- Basic Guides to Exporting --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Stage is the phase of the process that your content is in. --></help>
+        <label><!-- Stage --></label>
+        <name>Stage__c</name>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft: Submitted for Approval</masterLabel>
+            <translation><!-- Draft: Submitted for Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Published</masterLabel>
+            <translation><!-- Published --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Under Review</masterLabel>
+            <translation><!-- Under Review --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Basic Guide to Exporting Layout</layout>
+        <sections>
+            <label><!-- Content --></label>
+            <section>Content</section>
+        </sections>
+        <sections>
+            <label><!-- Pins --></label>
+            <section>Pins</section>
+        </sections>
+        <sections>
+            <label><!-- References --></label>
+            <section>References</section>
+        </sections>
+        <sections>
+            <label><!-- Workflow --></label>
+            <section>Workflow</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please pick Level 1 (Mandatory field) --></errorMessage>
+        <name>Required_Level_1</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter the Mobile Title (Article Title is too large for Mobile view) --></errorMessage>
+        <name>Required_Mobile_Title</name>
+    </validationRules>
+</CustomObjectTranslation>

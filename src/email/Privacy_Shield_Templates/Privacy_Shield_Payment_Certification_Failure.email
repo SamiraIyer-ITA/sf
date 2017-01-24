@@ -1,0 +1,14 @@
+<table border="0" cellpadding="5" width="600" cellspacing="5" height="400" >
+<tr valign="top" height="50" >
+<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
+<![CDATA[]]></td>
+</tr>
+<tr valign="top" height="300" >
+<td tEditID="c1r2" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r2" locked="0" >
+<![CDATA[<div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">Dear {!Payment__c.OwnerFirstName} {!Payment__c.OwnerLastName},</div><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><br></div><div><font face="arial" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="font-size: 12pt;">Thank you for attempting to self-certify your organization’s adherence to the Privacy Shield Principles. &nbsp;The Privacy Shield team has received your organization’s self-certification submission, but the attempt to submit&nbsp;</span></font><b style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">payment has failed</b><font face="arial"><span style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">. &nbsp;The Privacy Shield self-certification for&nbsp;</span>{!Payment__c.Participant__c}<span style="font-size: 12pt;">&nbsp;has&nbsp;</span></font><i style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">not</i><font face="arial" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="font-size: 12pt;">&nbsp;been finalized. Please login and resubmit payment through the&nbsp;</span></font><a href="https://www.privacyshield.gov/welcome" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">original application process</a><font face="arial" style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><span style="font-size: 12pt;">.</span></font></div><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><br></div><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><b style="font-size: 12pt;">Questions</b></div><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><br></div><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;">If your organization has any questions concerning Privacy Shield or the self-certification process, please contact the ITA’s Privacy Shield team via the Privacy Shield website, whenever possible, at&nbsp;<a href="https://www.privacyshield.gov/assistance">https://www.privacyshield.gov/assistance</a>&nbsp;or by phone at 202-482-1512.</div>]]></td>
+</tr>
+<tr valign="top" height="50" >
+<td tEditID="c1r3" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r3" locked="0" >
+<![CDATA[]]></td>
+</tr>
+</table>

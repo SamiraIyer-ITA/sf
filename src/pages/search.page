@@ -1,0 +1,27 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="true" docType="html-5.0" applyBodyTag="false" applyHtmlTag="false">
+<apex:composition template="Site_Template">
+    <apex:define name="page">
+    <head>
+    <link href="{!URLFor($Resource.mi4, 'mi/app.css')}" rel="stylesheet" />
+    </head>
+    
+    
+    <body style="height: 100%; margin: 0">
+    <section id="mi-app" class="mi-app"></section>
+  <script type="text/javascript" src="{!URLFor($Resource.mi4, 'mi/bundle.js')}"></script></body>
+    
+    <script type="text/javascript">
+   var options = {
+     apis: {
+       web_documents: true,
+       how_to_articles: true,
+       articles: true,
+       trade_events: true,
+       trade_leads: true
+     }
+   };
+   MarketIntelligenceSearchApp.render('mi-app', options);
+  </script>
+    </apex:define>
+</apex:composition>
+</apex:page>

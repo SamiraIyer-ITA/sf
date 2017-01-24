@@ -1,0 +1,7 @@
+Dear  {!WIN__c.OwnerFullName},
+
+A WIN record: {!WIN__c.Name} has been Approved.  You may access the WIN via this link: {!WIN__c.Link} 
+
+Thank you. 
+
+WINs Management Team

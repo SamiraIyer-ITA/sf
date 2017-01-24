@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>ITA_Logo</letterhead>
+    <name>Instructions for Login and SFO</name>
+    <style>freeForm</style>
+    <subject>Welcome to the Salesforce Customer Relationship Management System</subject>
+    <textOnly>Dear {!Contact.Name},
+
+To ensure you have access to the full functionality of ITA’s Salesforce CRM, please read this entire email and follow all instructions in the referenced documents.  If you experience any difficulty during the steps below, contact the CSC Help Desk for assistance:  1-877-206-0645 or email CSC@trade.gov .
+
+
+
+Completing Salesforce Install:
+
+The day your Salesforce account is activated your ITA Computer will be updated with two applications Salesforce for Outlook and WalkMe Tutorials.
+
+
+
+The ‘Salesforce for Outlook’ icon below (1) will appear on your desktop. The ‘Walk Me Through’ box (2) below will automatically appear in the bottom right corner within the Salesforce browser.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+If you do not see the ‘Salesforce for Outlook’ icon on your desktop or the ‘Walk Me Through’ box in the bottom right corner of Salesforce within 24 hours reboot your computer and check again. If the problem persists, contact the Help Desk.
+
+
+After you receive the updates you will need to manually complete the installation of Salesforce for Outlook. First access Salesforce at the following URL https://trade.my.salesforce.com.
+
+Enter your email address (i.e. firstname.lastname@trade.gov) and ITA network password (same password used to login to your ITA computer). Upon successful login, you will be directed to the Salesforce Home page.
+
+Click on the Salesforce for Outlook Installation  Instructions located under the Help &amp; Stuff tab
+
+
+
+
+
+
+
+Installing Salesforce for ITA iPhone
+
+To use Salesforce on your ITA iPhone follow the Salesforce 1 Mobile Installation Instructions  also located on the Help &amp; Stuff tab.
+
+Please do not send emails to clients from Salesforce 1 mobile until you have configured your email appropriately on the ITA iPhone.
+
+To do so, register for an online instruction session by going to ITA Central Training Registration
+
+1. Select iOS Email Upgrade from the “Course Category” list.
+
+2. Select an iOS Email Upgrade session from the “Course Title” list (all times are in Eastern Standard Time (EST)).
+
+If you are unable to attend a session in person, you may dial in to the session you registered for using the following conference line: 1-877-754-2070, Passcode 1108919. If you are unable to attend a session at all, please contact the Help Desk.
+
+Please Note: Failure to perform these configurations may result in clients not receiving emails if you use the device to send emails from within Salesforce 1 mobile.
+
+Obtain Additional Training and Guidance
+
+Consult the Help &amp; Stuff tab within Salesforce, or the ITA CRM Salesforce Training SharePoint site for the following information:
+
+· Salesforce Computer Based Training (CBTs)
+
+· Training Tutorials Materials
+
+· FAQs
+
+· Business Guidance Documents
+
+Once again, Welcome to Salesforce!
+
+
+Salesforce Assistance
+
+For technical assistance:
+
+ITA Customer Support Hotline
+
+202-482-4641
+
+202-482-1955
+
+Toll Free 1-877-206-0645
+
+Fax: 202-482-0251
+
+Email: CSC@trade.gov
+
+Hours of Operation: 24 hours a day - 365 days a year
+
+To provide suggestions or general feedback to the CRM Team:
+
+
+Email: SFCRM@trade.gov</textOnly>
+    <type>html</type>
+</EmailTemplate>

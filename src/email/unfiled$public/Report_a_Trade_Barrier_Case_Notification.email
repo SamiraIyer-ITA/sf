@@ -1,0 +1,8 @@
+*** New Report a Barrier Case Notification ***
+
+New "{!Case.Type}" case is assigned to your Queue.
+
+<h3>{!Case.Subject}</h3>
+<p>{!Case.Description}</p>
+
+Click on the link to access the Case directly: {!Case.Id}

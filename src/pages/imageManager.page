@@ -1,0 +1,65 @@
+<apex:page controller="imageManager_Controller">
+<apex:messages />
+<style>
+.full {width : 100%;}
+</style>
+<script language="javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script language="javascript">
+var MAX_HEIGHT = 100;
+function render(src){
+    var image = new Image();
+    image.onload = function(){
+        var canvas = document.getElementById("editor");
+        if(image.height > MAX_HEIGHT) {
+            image.width *= MAX_HEIGHT / image.height;
+            image.height = MAX_HEIGHT;
+        }
+        var ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        canvas.width = 296;
+        canvas.height = image.height;
+        ctx.drawImage(image, 0, 0, image.width, image.height);
+        var thumb = canvas.toDataURL("image/png");
+    };
+    image.src = src;
+    console.log(image);
+}
+
+function loadImage(src){
+    //  Prevent any non-image file type from being read.
+    if(!src.type.match(/image.*/)){
+        console.log("The dropped file is not an image: ", src.type);
+        return;
+    }
+
+    //  Create our FileReader and run the results through the render function.
+    var reader = new FileReader();
+    reader.onload = function(e){
+        render(e.target.result);
+    };
+    reader.readAsDataURL(src);
+}
+
+function showImage(img){
+    loadImage(img.files[0]);
+}
+</script>
+<apex:form enctype="multipart/form-data">
+<apex:pageblock title="Upload Image">
+    <apex:pageBlockButtons >
+        <apex:commandButton value="Upload" action="{!upload}" />
+    </apex:pageBlockButtons>
+    <apex:pageBlockSection >
+        <apex:pageBlockSectionItem ><apex:inputText html-placeholder="Image Name" value="{!name}" styleClass="full" /></apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem ><apex:inputFile contentType="{!image.contentType}" filename="{!filename}" value="{!image.body}" id="image" styleclass="full" onchange="showImage(this);" /></apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem ><apex:inputtext value="{!description}" html-placeholder="Description / ALT Text" maxlength="125" styleClass="full" /></apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem >Select a Type:  <apex:selectList value="{!type}" size="1"><apex:selectOptions value="{!types}"  /></apex:selectList></apex:pageBlockSectionItem>
+    </apex:pageBlockSection>
+    <apex:pageBlockSection >
+        <canvas id="editor">
+            <p>Canvas is not supported by this browser.</p>
+        </canvas>
+    </apex:pageBlockSection>
+</apex:pageblock>
+</apex:form>
+</apex:page>

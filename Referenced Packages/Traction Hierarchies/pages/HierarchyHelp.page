@@ -1,0 +1,5 @@
+<apex:page showHeader="false" sidebar="false" title="Traction Hierarchies Help">
+	<script type="text/javascript">
+		window.location.href = 'https://appexchange.salesforce.com/servlet/servlet.FileDownload?file=00P3000000LIGHwEAP';
+	</script>
+</apex:page>

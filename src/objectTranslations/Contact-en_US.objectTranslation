@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Comments</value>
+        </caseValues>
+        <name>description_contact</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Marketing Email Opt Out</value>
+        </caseValues>
+        <name>email_opt_out_contact</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Family Name</value>
+        </caseValues>
+        <name>last_name_contact</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Address</value>
+        </caseValues>
+        <name>mailing_address_contact</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>City</value>
+        </caseValues>
+        <name>mailing_city_contact</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Country Code</value>
+        </caseValues>
+        <name>mailing_country_code_contact</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Country</value>
+        </caseValues>
+        <name>mailing_country_contact</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>State/Province Code</value>
+        </caseValues>
+        <name>mailing_state_code_contact</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>State</value>
+        </caseValues>
+        <name>mailing_state_contact</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Street</value>
+        </caseValues>
+        <name>mailing_street_contact</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Zip</value>
+        </caseValues>
+        <name>mailing_zip_contact</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Mobile Phone</value>
+        </caseValues>
+        <name>mobile_contact</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Other State</value>
+        </caseValues>
+        <name>other_state_contact</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Other Zip</value>
+        </caseValues>
+        <name>other_zip_contact</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Work Phone</value>
+        </caseValues>
+        <name>phone_contact</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <help><!-- Uncheck this box if the contact is no longer with the organization. --></help>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field will display the actual creation date for records from CTS/ITA Central/Salesforce. Use this field for FY 15&apos; reporting --></help>
+        <label><!-- Actual Create Date --></label>
+        <name>Actual_Create_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Legacy Contact ID for easy data loading and validation. --></help>
+        <label><!-- CTS Contact ID --></label>
+        <name>CTS_Contact_ID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Legacy Org ID for easy data loading and validation. --></help>
+        <label><!-- CTS Org ID --></label>
+        <name>CTS_Org_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Community User Detail --></label>
+        <name>Community_User__c</name>
+        <relationshipLabel><!-- Contacts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Congressional District --></label>
+        <name>Congressional_District__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact 18 ID --></label>
+        <name>Contact_18_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact One --></label>
+        <name>Contact_One__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact Zip Len --></label>
+        <name>Contact_Zip_Len__c</name>
+    </fields>
+    <fields>
+        <label><!-- Copy AccountName to Text --></label>
+        <name>Copy_AccountName_to_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- County --></label>
+        <name>County__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lead Source Detail --></label>
+        <name>Lead_Source_Detail__c</name>
+    </fields>
+    <fields>
+        <help><!-- Based on Associated Organization local office --></help>
+        <label><!-- Local ITA Office --></label>
+        <name>Local_ITA_Office__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other County --></label>
+        <name>Other_County__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the primary ITA point of contact for the contact&apos;s office. --></help>
+        <label><!-- Owner&apos;s Office --></label>
+        <name>Owner_Office__c</name>
+    </fields>
+    <fields>
+        <label><!-- Active Community Member --></label>
+        <name>Registered_Community_Member__c</name>
+    </fields>
+    <fields>
+        <help><!-- Only when record created in error. --></help>
+        <label><!-- Request Contact Removal --></label>
+        <name>Request_Contact_Removal__c</name>
+    </fields>
+    <fields>
+        <label><!-- SharePoint ID --></label>
+        <name>SharePoint_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sharepoint Organization Name --></label>
+        <name>Sharepoint_Org_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Survey Opt-Out --></label>
+        <name>Survey_Opt_Out__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Activities --></label>
+        <name>Total_Activities__c</name>
+    </fields>
+    <fields>
+        <label><!-- eMenu ID --></label>
+        <name>eMenu_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- eMenu Organization Name --></label>
+        <name>eMenu_Org_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- iContact Contact Id --></label>
+        <name>iContactforSF__iContact_Contact_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Site --></label>
+        <name>site__c</name>
+        <relationshipLabel><!-- Contacts --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Admin Layout</layout>
+        <sections>
+            <label><!-- Comments --></label>
+            <section>Comments</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Preferences --></label>
+            <section>Contact Preferences</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>ITA Contact Layout</layout>
+        <sections>
+            <label><!-- Comments --></label>
+            <section>Comments</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Preferences --></label>
+            <section>Contact Preferences</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Partner Contact Layout</layout>
+        <sections>
+            <label><!-- Contact Preferences --></label>
+            <section>Contact Preferences</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Advocacy --></label>
+        <name>Advocacy</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Commercial Diplomacy --></label>
+        <name>Commercial_Diplomacy</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create New Case --></label>
+        <name>CreateCaseCONTACT</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create Case --></label>
+        <name>Createnewcase</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Export Promotion --></label>
+        <name>Export_Promotion</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Case --></label>
+        <name>ITA_New_Case</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Task --></label>
+        <name>ITA_New_Task</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Investment Promotion --></label>
+        <name>Investment_Promotion</name>
+    </quickActions>
+    <recordTypes>
+        <label><!-- ITA Contacts --></label>
+        <name>ITA_Contacts</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Partner Contacts --></label>
+        <name>Partner_Contact</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- You cannot change the value for Organization Name on a Contact.  Please create a new Contact record related to the new Organization. --></errorMessage>
+        <name>Prevent_Edit_Organizations</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must enter a value for First Name. --></errorMessage>
+        <name>Required_First_Name</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must enter values for Street, City, County, State, Zip &amp; Country. --></errorMessage>
+        <name>Verify_Address_Exists</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must enter a value for Country. --></errorMessage>
+        <name>Verify_Country_Exists</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Zip must be in XXXXX or XXXXX-XXXX format --></errorMessage>
+        <name>Verify_US_Postal_Code</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Advo_2 --></label>
+        <name>Advo_2</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Client_Assist --></label>
+        <name>Client_Assist</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Comm_Diplomacy_2 --></label>
+        <name>Comm_Diplomacy_2</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Contacts_with_ITA_POC_Report --></label>
+        <name>Contacts_with_ITA_POC_Report</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleMaps --></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleSearch --></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ITA_Case --></label>
+        <name>ITA_Case</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Link_Advocacy --></label>
+        <name>Link_Advocacy</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Link_Client_Assist --></label>
+        <name>Link_Client_Assist</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Link_Export_Promotion --></label>
+        <name>Link_Export_Promotion</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Link_Investment_Promotion --></label>
+        <name>Link_Investment_Promotion</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Link_for_ITA_Case --></label>
+        <name>Link_for_ITA_Case</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- SendGmail --></label>
+        <name>SendGmail</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- YahooMaps --></label>
+        <name>YahooMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- YahooWeather --></label>
+        <name>YahooWeather</name>
+    </webLinks>
+</CustomObjectTranslation>

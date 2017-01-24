@@ -1,0 +1,176 @@
+<apex:page controller="CaseList" showHeader="false" applyBodyTag="false" applyHtmlTag="false">
+<apex:composition template="Site_Template">
+    <apex:define name="page">
+    <head> 
+        <title>Assistance Dashboard</title>
+    </head>
+<apex:form >
+<style>
+.bPageBlock {
+    border-top: 1px solid lightgray;
+}
+    
+.colHeadr {
+    text-align:center;
+}    
+</style>
+<script>
+function myFunction() {
+    alert("This is Assistance Dashboard");
+}
+</script>
+      
+<div class="row">
+<div class="containerInternal">
+    <apex:Messages />
+    <div class="col-md-12 itaBr">
+        <div align="left" class="col-md-10"><div class="dashboardTitle">Assistance Dashboard</div></div>
+        <div align="right" class="col-md-2"><apex:commandButton styleClass="zen2-btn zen2-highlightBtn" action="{!NewCase}" value="New Case" /></div>
+    </div>
+
+<!--Start dashboard-->
+    <div class="col-md-12">
+        <div class="grid">
+                <div class="row" align="center">
+                    <div class="col-md-4" >
+                        <apex:commandLink action="{!processRequests}" rerender="cases_table">
+                            <div class="col-md-12" style="border-radius: 6px; border: 1px solid lightgray; padding: 20px; background-color:#ffffff;" align="center">
+                                <center>   
+                                    <h3 style="text-align:center; font-size:150%; color: #32404E"> Action Required </h3> <br/><br/>
+                                    <h3 style="text-align:center; font-size:500%;"> <font color="{!IF(AND(NOT(ISNULL(actionReqCases.size)), actionReqCases.size > 0), 'red', '#94C254')}">{!actionReqCases.size}</font></h3>
+                                </center>
+                            </div>
+                            <apex:param name="filterID" value="Action Required" assignTo="{!filterId}" />
+                        </apex:commandlink>
+                    </div>
+                    <div class="col-md-4">
+                        <apex:commandLink action="{!processRequests}" rerender="cases_table">
+                            <div class="col-md-12" style="border-radius: 6px; border: 1px solid lightgray; padding: 20px; background-color:#ffffff;" align="center">
+                                <center>
+                                    <h3 style="text-align:center; font-size:150%; color: #32404E"> My Open Cases </h3> <br/><br/>
+                                    <h3 style="text-align:center; font-size:500%; color: #94C254"> {!openCases.size}</h3>
+                                </center>
+                            </div>
+                            <apex:param name="filterID" value="My Open Cases" assignTo="{!filterId}" />
+                        </apex:commandLink>
+                    </div>
+                    <div class="col-md-4">
+                        <apex:commandLink action="{!processRequests}">
+                            <div class="col-md-12" style="border-radius: 6px; border: 1px solid lightgray; padding: 20px; background-color:#ffffff;" align="center">
+                                <center>
+                                    <h3 style="text-align:center; font-size:150%; color: #32404E"> My Company Cases </h3> <br/><br/>
+                                    <h3 style="text-align:center; font-size:500%; color: #94C254">{!orgOpenCases.size}</h3>
+                                </center>
+                            </div>
+                            <apex:param name="filterID" value="My Company Cases" assignTo="{!filterId}" />
+                        </apex:commandLink>
+                </div>     
+            </div>    
+        </div>
+    </div>
+<!--End dashboard--> 
+      <br/>
+      <br/>
+<!--Start Case List-->
+    <div class="col-md-12" style="background-color:#f8f8f8; padding:21px 0px 21px 0px; border: 1px solid lightgray;">
+        <apex:outputPanel id="cases_table">
+            <div align="left" style="border-bottom: 1px solid darkgray;">
+                <h3>&nbsp; Assistance Cases</h3>
+            </div>
+            &nbsp;
+            <div class="col-md-12">
+                <div align="left" class="col-md-6">
+                    <div class="col-md-2">View: </div>    
+                    <div class="col-md-6">
+                            <apex:selectList value="{!filterId}" size="1">
+                                <apex:actionSupport event="onchange" action="{!changeFilter}"/>
+                                    <apex:param name="filterID" value="{!items}" assignTo="{!filterId}" />
+                                <apex:selectOptions value="{!items}"/>
+                            </apex:selectList>    
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+                <div align="right" class="col-md-6">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-6">Records Per Page: </div>
+                    <div class="col-md-2">
+                        <apex:selectList value="{!RecPerPage}" size="1">
+                            <apex:actionSupport event="onchange" action="{!processRequests}"/>
+                            <apex:selectOptions value="{!RecPerPageOption}"/>
+                        </apex:selectList> 
+                    </div>
+                </div>
+            </div>
+        <div class="col-md-12 itaBr">
+            <apex:actionFunction action="{!SortToggle}" name="sort" rerender="cases_table">
+                <apex:param name="SortField" value="" assignTo="{!SortField}" />
+            </apex:actionFunction>
+        <div class="table-responsive"> 
+            <apex:dataTable value="{!results}" var="c" width="100%" styleClass="table table-hover" style="border: 1px solid lightgray;" >
+            <apex:column width="15%" headerClass="colHeadr">
+                <a target="_parent" href="status?id={!c.id}" >{!c.CaseNumber}</a>
+                <apex:facet name="header">
+                    <apex:commandLink action="{!SortToggle}" value="Case Number {!IF(SortField=='CaseNumber',IF(SortDirection='asc','▲','▼'),'')}" >
+                        <apex:param name="SortField" value="CaseNumber" assignTo="{!SortField}" />
+                    </apex:commandLink>
+                </apex:facet>
+            </apex:column> 
+            <apex:column width="15%" headerClass="colHeadr">
+                <apex:facet name="header">
+                    <apex:commandLink action="{!SortToggle}">
+                       <apex:param name="SortField" value="Status" assignTo="{!SortField}" />
+                       <apex:outputText value="Status {!IF(SortField=='Status',IF(SortDirection='asc','▲','▼'),'')}" />
+                    </apex:commandLink>
+                </apex:facet>
+               <center> <apex:outputField value="{!c.status}" /></center>
+            </apex:column>
+            <apex:column width="40%" headerClass="colHeadr">
+                <a target="_parent" href="status?id={!c.id}">{!c.Subject}</a>
+                <apex:facet name="header">
+                    <apex:commandLink action="{!SortToggle}">
+                       <apex:param name="SortField" value="Subject" assignTo="{!SortField}" />
+                       <apex:outputText value="Subject {!IF(SortField=='Subject',IF(SortDirection='asc','▲','▼'),'')}" />
+                    </apex:commandLink>
+                </apex:facet>
+            </apex:column> 
+            <apex:column width="15%" headerClass="colHeadr">
+                <apex:facet name="header">
+                    <apex:commandLink action="{!SortToggle}">
+                       <apex:param name="SortField" value="CreatedBy.Name" assignTo="{!SortField}" />
+                       <apex:outputText value="Created By {!IF(SortField=='CreatedBy.Name',IF(SortDirection='asc','▲','▼'),'')}" />
+                    </apex:commandLink>
+                </apex:facet>
+                <center><apex:outputField value="{!c.CreatedBy.Name}" /></center>
+            </apex:column>
+            <apex:column width="15%" headerClass="colHeadr">
+                <apex:facet name="header">
+                    <apex:commandLink action="{!SortToggle}">
+                        <apex:param name="SortField" value="LastModifiedDate" assignTo="{!SortField}" />
+                        <apex:outputText value="Last Activity {!IF(SortField=='LastModifiedDate',IF(SortDirection='asc','▲','▼'),'')}" />
+                    </apex:commandLink>
+                </apex:facet>
+                <apex:outputField value="{!c.LastModifiedDate}" />
+            </apex:column> 
+            
+            <apex:facet name="footer"><center><b>Page {!pageNumber} of {!totalPages}: {!total_size} Total Records</b></center></apex:facet>
+            </apex:dataTable>
+           </div> 
+         </div>   
+            
+            <div class="col-md-12 itaBr">
+                <apex:outputPanel id="myButtons">
+                        <div class="col-md-3" style="display:{!if(disablePrevious == True,'none','')}"><apex:commandButton action="{!Beginning}" title="Beginning" value="<<" reRender="myButtons,cases_table"/><br /></div>
+                        <div class="col-md-3" style="display:{!if(disablePrevious == True,'none','')}"><apex:commandButton action="{!Previous}" title="Previous" value="<" reRender="myButtons,cases_table"/><br /></div>       
+                        <div class="col-md-3" style="display:{!if(disableNext == True,'none','')}"><apex:commandButton action="{!Next}" title="Next" value=">" reRender="myButtons,cases_table"/><br /></div>
+                        <div class="col-md-3" style="display:{!if(disableNext == True,'none','')}"><apex:commandButton action="{!End}" title="End" value=">>" reRender="myPanel,cases_table"/><br /></div>  
+                </apex:outputPanel>
+            </div>
+        </apex:outputPanel>       
+    </div>
+ 
+<!--End Case List-->            
+</div></div>
+    </apex:form>
+    </apex:define>
+</apex:composition>
+</apex:page>

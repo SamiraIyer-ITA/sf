@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Participant Contact</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Participant Contacts</value>
+    </caseValues>
+    <fields>
+        <label><!-- Contact Office --></label>
+        <name>Contact_Office__c</name>
+    </fields>
+    <fields>
+        <label><!-- CRM Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Participant Contacts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Email --></label>
+        <name>Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fax --></label>
+        <name>Fax__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Name --></label>
+        <name>First_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Name --></label>
+        <name>Last_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Participant --></label>
+        <name>Participant__c</name>
+        <relationshipLabel><!-- Participant Contacts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Phone --></label>
+        <name>Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Role --></label>
+        <name>Role__c</name>
+        <picklistValues>
+            <masterLabel>Organization Contact</masterLabel>
+            <translation><!-- Organization Contact --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Organization Corporate Officer</masterLabel>
+            <translation><!-- Organization Corporate Officer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Portal Administrator</masterLabel>
+            <translation><!-- Portal Administrator --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Job Title for Participant Contact --></help>
+        <label><!-- Title --></label>
+        <name>Title__c</name>
+    </fields>
+    <layouts>
+        <layout>Participant Contact Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Profile --></label>
+            <section>Profile</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

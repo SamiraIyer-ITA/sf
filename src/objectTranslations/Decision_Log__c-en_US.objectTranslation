@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Decision Log</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Decision Logs</value>
+    </caseValues>
+    <fields>
+        <help><!-- Lookup the Epic this decision impacts. --></help>
+        <label><!-- Epic Impacted --></label>
+        <name>Epic_Impacted__c</name>
+        <relationshipLabel><!-- Decision Logs --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Enter the Justification for the Decision --></help>
+        <label><!-- Justification --></label>
+        <name>Justification__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Approved</masterLabel>
+            <translation><!-- Not Approved --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Enter a brief subject describing the decision. --></help>
+        <label><!-- Subject --></label>
+        <name>Subject__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter the Summary of the decision in consideration --></help>
+        <label><!-- Summary --></label>
+        <name>Summary__c</name>
+    </fields>
+    <layouts>
+        <layout>Decision Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Decision --></label>
+            <section>Decision</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

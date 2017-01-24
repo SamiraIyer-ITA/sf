@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Instructions for Login and SFO New</name>
+    <style>none</style>
+    <subject>Welcome to the Salesforce Customer Relationship Management System</subject>
+    <textOnly>Dear CRM User,
+
+To ensure you have access to the full functionality of ITA&apos;s Salesforce CRM, please read this entire email and follow all instructions in the referenced documents.  If you experience any difficulty, contact the Help Desk for assistance: 1-877-206-0645 or CSC@trade.gov.
+
+Note:  As part of the CRM system&apos;s &quot;Soft-Launch&quot;, you will now be able to work with your organizations, contacts and activities; and also review case and WIN records.  The CRM Team is currently working on cleaning up migrated case and WIN data. Additionally, the Data Team will be cleaning Organization records and reducing duplicates.  Thank you for your patience.
+
+Logging Into Salesforce:
+You can access Salesforce at the following URL: https://trade.my.salesforce.com.   Enter your email address (i.e. firstname.lastname@trade.gov) and ITA network password (same password used to login to your ITA computer). Upon successful login, you will be directed to the Salesforce Home page.  You now have the ability to take advantage of the new CRM Tool.
+
+
+Installing Salesforce Plug-Ins:
+The day your Salesforce account is activated and you have received this welcome letter, the following two applications will be pushed to your ITA Computer: WalkMe Tutorials and Salesforce for Outlook. (Note:  The Salesforce for Outlook plug-in is an enhancement tool. If you don’t install it, you can still access and use Salesforce.)
+
+Walk Me will install automatically and the &apos;Walk Me Through&apos; box, shown at the bottom of the email (1), will appear in the bottom right corner within Salesforce.
+
+As for the Salesforce for Outlook plug-in, you will need to manually complete the installation.   Click on the Salesforce for Outlook Installation Instructions located under the Help &amp; Stuff tab (2). After you have successfully installed the &apos;Salesforce for Outlook&apos; plug-in, the icon (3) will appear on your desktop.
+
+If you do not see &apos;Walk Me Through&apos; box in the bottom right corner of Salesforce within 24 hours reboot your computer.  If you still do not see it, or if you have issues installing the Salesforce for Outlook plug-in, contact the Help Desk.
+
+
+Installing Salesforce 1 on your ITA iPhone
+To use Salesforce on your ITA iPhone follow the Salesforce 1 Mobile Installation Instructions also located under the Help &amp; Stuff tab.
+
+Please do not send emails to clients from Salesforce 1 mobile until you have configured your email appropriately on the ITA iPhone.
+
+To do so, register for an online instruction session by going to ITA Central Training Registration
+1.	Select iOS Email Upgrade from the “Course Category” list.
+2.	Select an iOS Email Upgrade session from the “Course Title” list (all times are in Eastern Standard Time (EST)).
+
+If you are unable to attend a session in person, you may dial in to the session you registered for using the following conference line: 1-877-754-2070, Passcode 1108919. If you are unable to attend a session at all, please contact the Help Desk.
+
+Please Note:  Failure to perform these configurations may result in clients not receiving emails sent from within Salesforce 1 mobile.
+
+
+Obtain Additional Training and Guidance
+Consult the Help &amp; Stuff tab within Salesforce, or the ITA CRM Salesforce Training SharePoint site for the following information:
+
+Salesforce Computer Based Training (CBTs)
+Training Tutorials Materials
+FAQs
+Business Guidance Documents
+
+
+Welcome to Salesforce!
+
+Salesforce Assistance
+For technical assistance:
+ITA Customer Support Hotline
+202-482-4641
+202-482-1955
+Toll Free 1-877-206-0645
+Fax: 202-482-0251
+Email: CSC@trade.gov
+Hours of Operation: 24 hours a day - 365 days a year
+
+To provide suggestions or general feedback to the CRM Team:
+Email: SFCRM@trade.gov
+
+If you are unable to see the images below, please click on the section that reads &apos;Click here to download pictures. To help protect your privacy, Outlook prevented automatic download of some pictures in this message.&apos; at the top of your message in Outlook and click &apos;Download Images&apos; option.
+
+1.
+2.
+3.</textOnly>
+    <type>custom</type>
+</EmailTemplate>

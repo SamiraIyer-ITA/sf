@@ -1,0 +1,36 @@
+<apex:page controller="PaymentController" sidebar="false" showHeader="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false">
+    <apex:composition template="Site_Template">
+    <apex:define name="page">
+  <div style="background-image: url(&quot;/servlet/servlet.FileDownload?file=&quot;); background-repeat:no-repeat; background-size: cover;">
+                <div class="section clearfix">
+                    <div class="row content">
+                         <div class="containerInternal">
+ <div class="col-md-12">
+        <div class="col-md-3"></div>
+        <div id="main_wrapper" class="col-md-6 itaCaseBox itaFormBox">
+           
+    <apex:form >
+    <apex:pagemessages />
+    <apex:actionFunction name="privacyShieldPayment" action="{!privacyShieldPayment}"></apex:actionFunction>
+  <div class="col-md-12">
+  <center><h2 class="itaFormHeader">Make A Payment With <img src="https://pay.gov/public/resources/images/Pay.gov.logo.png" style="height: 50px" /></h2></center>
+        <apex:outputPanel id="outputPanel" rendered="{!If(paymentCancelled, true, false)}">
+            <div style="color:red">Payment was cancelled.  Please try again. </div>
+        </apex:outputPanel>
+
+             <div class="itaFormLabel">Payment Amount</div>
+             <apex:inputText value="{!amount}" label="" styleClass="itaFormField" disabled="{!!isBlank(amount)}" />
+            <apex:commandButton action="{!getAgencyTrackingId}" value="Pay" oncomplete="privacyShieldPayment()" />
+            
+            <div class="payNotice">Note: You will be redirected to the pay.gov payment site, which will accept your payment information.  After submitting your payment information, you will be redirected back to this site so you can complete your payment.</div>
+ </div>
+    </apex:form> 
+
+         </div><div class="col-md-3"></div></div>
+                      </div>   
+                    </div>
+                </div>
+            </div>
+    </apex:define>
+</apex:composition>
+</apex:page>

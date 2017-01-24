@@ -1,0 +1,90 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="false" docType="html-5.0" applyBodyTag="false" applyHtmlTag="false">
+   
+<html lang="en">
+  <head>
+      <meta charset="utf-8"/>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Export.gov - Consolidated Screening List</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <meta name="description" content="Export.gov - Consolidated Screening List"/>
+      <meta http-equiv="Content-Language" content="en" />
+      <meta name="author" content="ITA"/>
+      <apex:stylesheet value="{!URLFOR($Resource.cslsearch, 'cslsearch/vendor.css')}" />
+      <apex:stylesheet value="{!URLFOR($Resource.cslsearch, 'cslsearch/explorer.css')}" />
+      <apex:stylesheet value="{!URLFOR($Resource.cslsearch, 'cslsearch/eg2_master.css')}" />
+      <apex:stylesheet value="{!URLFOR($Resource.cslsearch, 'cslsearch/exp_master.css')}" />
+      <apex:stylesheet value="{!URLFOR($Resource.cslsearch, 'cslsearch/colorbox.css')}" />
+      <!-- apex:stylesheet value="{!URLFOR($Resource.cslsearch, 'cslsearch/print.css')}" / -->
+      <!-- apex:stylesheet value="{!URLFOR($Resource.cslsearch, 'cslsearch/print2.css')}" / -->
+      <apex:stylesheet value="{!URLFOR($Resource.cslsearch, 'cslsearch/fl_eg_lnavmulti.css')}" />
+      
+      <apex:includeScript value="{!URLFOR($Resource.cslsearch, 'cslsearch/sitenavigation.js')}"/>
+      <apex:includeScript value="{!URLFOR($Resource.cslsearch, 'cslsearch/jquery-1.3.2.min.js')}"/>
+  </head>
+  <body>
+    <apex:includeScript value="{!URLFOR($Resource.cslsearch, 'cslsearch/call.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.cslsearch, 'cslsearch/vendor.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.cslsearch, 'cslsearch/explorer.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.cslsearch, 'cslsearch/window.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.cslsearch, 'cslsearch/ui.js')}"/>
+<script type="text/javascript">
+if (typeof jQuery != 'undefined') {
+     jQuery(document).ready(function($) {
+         var filetypes = /\.(zip|exe|pdf|mp4|mov|wmv|txt|doc*|xls*|ppt*|mp3)$/i;
+         var baseHref = '';
+         if (jQuery('base').attr('href') != undefined)
+             baseHref = jQuery('base').attr('href');
+         jQuery('a').each(function() {
+             var href = jQuery(this).attr('href');
+             if (href && (href.match(/^https?\:/i)) && (!href.match(document.domain))) {
+                 jQuery(this).click(function() {
+                     var extLink = href.replace(/^https?\:\/\//i, '');
+                     _gaq.push(['_trackEvent', 'External', 'Click', extLink]);
+                     if (jQuery(this).attr('target') != undefined && jQuery(this).attr('target').toLowerCase() != '_blank') {
+                         setTimeout(function() { location.href = href; }, 200);
+                         return false;
+                     }
+                 });
+             }
+             else if (href && href.match(/^mailto\:/i)) {
+                 jQuery(this).click(function() {
+                     var mailLink = href.replace(/^mailto\:/i, '');
+                     _gaq.push(['_trackEvent', 'Email', 'Click', mailLink]);
+                 });
+             }
+             else if (href && href.match(filetypes)) {
+                 jQuery(this).click(function() {
+                     var extension = (/[.]/.exec(href)) ? /[^.]+$/.exec(href) : undefined;
+                     var filePath = href;
+                     _gaq.push(['_trackEvent', 'Download', 'Click-' + extension, filePath]);
+                     if (jQuery(this).attr('target') != undefined && jQuery(this).attr('target').toLowerCase() != '_blank') {
+                         setTimeout(function() { location.href = baseHref + href; }, 200);
+                         return false;
+                     }
+                 });
+             }
+         }); 
+     });
+ } </script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28628707-1']);
+  _gaq.push(['_setDomainName', '.export.gov']);
+  _gaq.push(['_trackPageview']);
+setTimeout("_gaq.push(['_trackEvent', '10_seconds', 'read'])",10000);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    <script src="{!URLFOR($Resource.GA, 'GA/UniversalFederated-Analytics.js')}" id="_fed_an_ua_tag"/>
+
+  </body>
+</html>
+
+</apex:page>

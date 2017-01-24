@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email template to inform users that a case has been submitted.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>ITA_Logo</letterhead>
+    <name>Trade Community - New Case Email for PS Team</name>
+    <style>freeForm</style>
+    <subject>New Case Submission: {!Case.Subject}</subject>
+    <textOnly>Dear [Privacy Shield Team]
+
+{!Contact.Name} has submitted a case regarding {!Case.Subject}.
+
+Below is a copy of the message:
+
+Case Link - https://privacyshield.gov/{!Case.Id}
+Case Number - {!Case.CaseNumber}
+Case Status - New
+
+{!Case.Description}</textOnly>
+    <type>html</type>
+</EmailTemplate>

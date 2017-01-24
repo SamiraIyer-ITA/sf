@@ -1,0 +1,282 @@
+<apex:page controller="TracHier.HierarchySetupCtlr" title="{!$Label.trachier__SETUP_PAGE_TITLE}" id="page" docType="html-5.0" tabStyle="Traction_Hierarchies_Setup__tab">
+    <apex:stylesheet value="{!URLFOR($Resource.TracHier__AccountHierarchy, 'css/lib/jquery.qtip.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.TracHier__AccountHierarchy, 'css/setup.css')}"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1.11.0/jquery.min.js"></script>
+
+    <apex:form id="form">
+        <script type="text/javascript">
+            "use strict";
+
+            $('.addModalBackground').mousedown(function(e) {
+                if ($(e.target).is('.addModal') || $(e.target).parents().is('.addModal')) {
+                    return; // don't close when clicking on dialog itself
+                }
+                cancelAdd();
+            });
+
+            function confirmRemove() {
+                var result = window.confirm('{!$Label.trachier__SETUP_CONFIRM_REMOVE_PROFILE_SETTINGS}');
+
+                if(result) {
+                    remove();
+                }
+            }
+        </script>
+
+        <apex:actionPoller action="{!updateBatchInProgress}" reRender="builderSettings, buttons" interval="5" enabled="{!batchInProgress}" id="poller"/>
+        <apex:actionFunction name="refreshMessages" reRender="messages"/>
+        <apex:actionFunction name="settingsChanged" action="{!settingsMgr.selectedSettingsChanged}" reRender="form"/>
+        <apex:actionFunction name="cancelAdd" action="{!settingsMgr.cancel}" reRender="form"/>
+        <apex:actionFunction name="remove" action="{!settingsMgr.remove}" reRender="form"/>
+        <apex:actionFunction name="disableDuplicateCheckChanged" reRender="form"/>
+
+        <apex:variable var="displayFieldMetadata" value="{!$ObjectType.TracHier__Hierarchy_Display_Fields__c.fields}"/>
+        <apex:variable var="showOverrideFields" value="{!(!hasDnB || theLinkerSettings.TracHier__Override_DnB_Data_Fields__c || !ISBLANK($CurrentPage.parameters.override))}" id="showOverrideFields"/>
+        <apex:variable var="overrideUnchecked" value="{!NOT(theLinkerSettings.TracHier__Override_DnB_Data_Fields__c)}" id="overrideUnchecked"/>
+
+        <apex:pageMessages id="messages" escape="false"/>
+
+        <apex:pageBlock title="{!$Label.trachier__SETUP_PAGE_BLOCK_TITLE}" helpUrl="https://appexchange.salesforce.com/servlet/servlet.FileDownload?file=00P3A00000UUnVKUA1" helpTitle="{!$Label.trachier__SETUP_PAGE_BLOCK_HELP_TITLE}" id="block">
+
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton action="{!saveAllSettings}" value="{!$Label.trachier__SETUP_SAVE_BUTTON}" reRender="messages" oncomplete="if(!{!hasErrorsOrWarnings}) setTimeout(refreshMessages, 1000);"/>
+                <apex:outputPanel layout="none" id="buttons">
+                    <apex:commandButton value="{!$Label.trachier__SETUP_START_BATCH_BUTTON}" action="{!startBatch}" reRender="messages, builderSettings, buttons, poller" rendered="{!NOT(batchInProgress)}" disabled="{!(!hasDnB && !theLinkerSettings.TracHier__Override_DnB_Data_Fields__c)}" title="{!$Label.trachier__SETUP_START_BATCH_BUTTON_TITLE}"/>
+                    <apex:commandButton value="{!$Label.trachier__SETUP_STOP_BATCH_BUTTON}" action="{!cancelBatch}" reRender="messages, builderSettings, buttons, poller" rendered="{!batchInProgress}" title="{!$Label.trachier__SETUP_STOP_BATCH_BUTTON_TITLE}"/>
+                </apex:outputPanel>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection collapsible="false" id="displayfields" title="{!$Label.trachier__SETUP_DISPLAY_FIELDS_SECTION}">
+                <apex:outputPanel >
+                    <apex:commandButton value="{!$Label.trachier__SETUP_ADD_PROFILE_SETTINGS_BUTTON}" action="{!settingsMgr.startAdd}" reRender="form"/>
+                    <apex:selectList size="1" disabled="{!settingsMgr.noSettings}" value="{!settingsMgr.selectedSettingsName}" onchange="settingsChanged()">
+                    <apex:selectOptions value="{!settingsMgr.settingsPicklist}"/>
+                        </apex:selectList>
+                    <apex:commandButton value="{!$Label.trachier__SETUP_REMOVE_BUTTON}" disabled="{!settingsMgr.defaultSettingsSelected}" onclick="confirmRemove(); return false;"/>
+                </apex:outputPanel>
+
+                <apex:pageBlockSectionItem >
+                    &nbsp;
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!displayFieldMetadata.TracHier__Field1__c.Label}" for="Field1__c"/>
+                    <apex:selectList value="{!settingsMgr.selectedDisplayFields.TracHier__Field1__c}" id="Field1__c" size="1">
+                        <apex:selectOptions value="{!accountFields}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!displayFieldMetadata.TracHier__Field2__c.Label}" for="Field2__c"/>
+                    <apex:selectList value="{!settingsMgr.selectedDisplayFields.TracHier__Field2__c}" id="Field2__c" size="1">
+                        <apex:selectOptions value="{!accountFields}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!displayFieldMetadata.TracHier__Field3__c.Label}" for="Field3__c"/>
+                    <apex:selectList value="{!settingsMgr.selectedDisplayFields.TracHier__Field3__c}" id="Field3__c" size="1">
+                        <apex:selectOptions value="{!accountFields}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!displayFieldMetadata.TracHier__Field4__c.Label}" for="Field4__c"/>
+                    <apex:selectList value="{!settingsMgr.selectedDisplayFields.TracHier__Field4__c}" id="Field4__c" size="1">
+                        <apex:selectOptions value="{!accountFields}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!displayFieldMetadata.TracHier__Field5__c.Label}" for="Field5__c"/>
+                    <apex:selectList value="{!settingsMgr.selectedDisplayFields.TracHier__Field5__c}" id="Field5__c" size="1">
+                        <apex:selectOptions value="{!accountFields}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!displayFieldMetadata.TracHier__Field6__c.Label}" for="Field6__c"/>
+                    <apex:selectList value="{!settingsMgr.selectedDisplayFields.TracHier__Field6__c}" id="Field6__c" size="1">
+                        <apex:selectOptions value="{!accountFields}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:inputField value="{!settingsMgr.selectedSettings.TracHier__Show_Records_for_All_Users__c}"/>
+                <apex:inputField value="{!settingsMgr.selectedSettings.TracHier__Disable_Per_User_Field_Selection__c}"/>
+                <apex:inputField value="{!settingsMgr.selectedSettings.TracHier__Show_Display_Fields_for_All_Users__c}"/>
+                <apex:inputField value="{!settingsMgr.selectedSettings.TracHier__Disable_Duplicate_Check__c}" onchange="disableDuplicateCheckChanged()"/>
+                <apex:inputField value="{!settingsMgr.selectedSettings.TracHier__Enable_Create_Inferred_Account_Button__c}"/>
+                <apex:inputField value="{!settingsMgr.selectedSettings.TracHier__Enable_Click_to_Merge__c}" rendered="{!NOT(settingsMgr.selectedSettings.TracHier__Disable_Duplicate_Check__c)}"/>
+                <apex:pageBlockSectionItem rendered="{!settingsMgr.selectedSettings.TracHier__Disable_Duplicate_Check__c}">
+                    <apex:outputLabel value="{!$ObjectType.TracHier__Hierarchy_Settings__c.fields.TracHier__Enable_Click_to_Merge__c.label}" style="color: #909090"/>
+                    <apex:inputCheckbox disabled="true"/>
+                </apex:pageBlockSectionItem>
+                <apex:inputField value="{!settingsMgr.selectedSettings.TracHier__Show_Summary_Footer__c}"/>
+                <apex:pageBlockSectionItem />
+                <apex:inputField value="{!settingsMgr.selectedSettings.TracHier__Enable_Whitespace_Prospecting__c}" rendered="{!hasDnBSearch}"/>
+                <apex:pageBlockSectionItem />
+                <apex:inputField value="{!settingsMgr.selectedSettings.TracHier__Enable_Field_Filters__c}"/>
+                
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection title="{!$Label.trachier__SETUP_LINKER_FIELDS_SECTION}" id="builderSettings" collapsible="false">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.trachier__SETUP_BUILD_STATUS_LABEL}" for="buildStatus" title="{!$Label.trachier__SETUP_BUILD_STATUS_TITLE}"/>
+                    <apex:outputPanel layout="none" id="buildStatus">
+                        <apex:outputPanel layout="none" rendered="{!batchInProgress}">
+                            <apex:outputText value="{!$Label.trachier__SETUP_BUILD_STATUS_IN_PROGRESS}"/>&nbsp;
+                            <apex:outputPanel layout="none" rendered="{!(totalBatchItems > 0)}">
+                                <progress value="{!completedBatchItems}" max="{!totalBatchItems}">
+                                    - {!completedBatchItems} / {!totalBatchItems} - 
+                                </progress>
+                                &nbsp;{!FLOOR((completedBatchItems / totalBatchItems) * 100)}%
+                            </apex:outputPanel>
+                        </apex:outputPanel>
+                        <apex:outputPanel layout="none" rendered="{!(!batchInProgress)}">
+                            <apex:outputText value="{!$Label.trachier__SETUP_BUILD_STATUS_NO_RUNNING}"/>
+                        </apex:outputPanel>
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+
+                <apex:inputField value="{!theLinkerSettings.TracHier__Populate_Native_Parent_Field__c}" rendered="{!NOT(batchInProgress)}"/>
+                <apex:outputField value="{!theLinkerSettings.TracHier__Populate_Native_Parent_Field__c}" rendered="{!batchInProgress}"/>
+            </apex:pageBlockSection>
+            
+            <div class="infoMessage">
+                {!$Label.trachier__SETUP_LINKER_FIELDS_DESC}
+            </div>
+
+            <apex:pageBlockSection title="{!$Label.trachier__SETUP_ADVANCED_SECTION}" id="advancedSettings" collapsible="false">
+                <apex:inputField value="{!theLinkerSettings.TracHier__Disable_Trigger__c}"/>
+                <apex:pageBlockSectionItem />
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$Label.trachier__SETUP_CREATE_BUTTON_OPENS_LABEL}"/>
+                    <apex:selectList size="1" value="{!createLink}">
+                        <apex:actionSupport event="onchange" reRender="advancedSettings" action="{!createLinkOptionChanged}"/>
+                        <apex:selectOption itemValue="native" itemLabel="{!$Label.trachier__SETUP_NATIVE_NEW_ACCOUNT_PAGE}"/>
+                        <apex:selectOption itemValue="overridden" itemLabel="{!$Label.trachier__SETUP_OVERRIDDEN_NEW_ACCOUNT_PAGE}"/>
+                        <apex:selectOption itemValue="custom" itemLabel="{!$Label.trachier__SETUP_CUSTOM_LINK}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+                <apex:inputField value="{!theLinkerSettings.TracHier__Custom_Create_URL__c}" rendered="{!(createLink == 'custom')}" style="min-width:200px"/>
+                <apex:pageBlockSectionItem rendered="{!(createLink != 'custom')}"/>
+                <apex:inputField value="{!theLinkerSettings.TracHier__Show_Create_Button_for_All_Users__c}" rendered="{!(createLink == 'custom')}"/>
+                
+                <apex:pageBlockSectionItem rendered="{!(showOverrideFields && createLink == 'custom')}"/>
+                <apex:pageBlockSectionItem rendered="{!showOverrideFields}"/>
+                <apex:pageBlockSectionItem rendered="{!showOverrideFields}"/>
+                <apex:pageBlockSectionItem rendered="{!showOverrideFields}">
+                    <apex:outputLabel value="{!$ObjectType.TracHier__Hierarchy_Settings__c.fields.TracHier__Override_DnB_Data_Fields__c.Label}" for="override"/>
+                    <apex:actionRegion >
+                        <apex:inputField value="{!theLinkerSettings.TracHier__Override_DnB_Data_Fields__c}" id="override">
+                            <apex:actionSupport event="onchange" reRender="advancedSettings, messages, buttons, showOverrideFields, overrideUnchecked" action="{!validateDnB}"/>
+                        </apex:inputField>
+                    </apex:actionRegion>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem rendered="{!showOverrideFields}"/>
+                <apex:selectList value="{!theLinkerSettings.TracHier__duns__c}" disabled="{!overrideUnchecked}" required="true" size="1" rendered="{!showOverrideFields}">
+                    <apex:selectOptions value="{!accountFields}"/>
+                </apex:selectList>
+                <apex:selectList value="{!theLinkerSettings.TracHier__locstatus__c}" disabled="{!overrideUnchecked}" size="1" rendered="{!showOverrideFields}">
+                    <apex:selectOptions value="{!accountFields}"/>
+                </apex:selectList>
+                <apex:selectList value="{!theLinkerSettings.TracHier__parentduns__c}" disabled="{!overrideUnchecked}" required="true" size="1" rendered="{!showOverrideFields}">
+                    <apex:selectOptions value="{!accountFields}"/>
+                </apex:selectList>
+                <apex:selectList value="{!theLinkerSettings.TracHier__parentname__c}" disabled="{!overrideUnchecked}" required="true" size="1" rendered="{!showOverrideFields}">
+                    <apex:selectOptions value="{!accountFields}"/>
+                </apex:selectList>
+                <apex:selectList value="{!theLinkerSettings.TracHier__globalduns__c}" disabled="{!overrideUnchecked}" required="true" size="1" rendered="{!showOverrideFields}">
+                    <apex:selectOptions value="{!accountFields}"/>
+                </apex:selectList>
+                <apex:selectList value="{!theLinkerSettings.TracHier__globalname__c}" disabled="{!overrideUnchecked}" required="true" size="1" rendered="{!showOverrideFields}">
+                    <apex:selectOptions value="{!accountFields}"/>
+                </apex:selectList>
+                <apex:selectList value="{!theLinkerSettings.TracHier__domesticduns__c}" disabled="{!overrideUnchecked}" required="true" size="1" rendered="{!showOverrideFields}">
+                    <apex:selectOptions value="{!accountFields}"/>
+                </apex:selectList>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+
+        <apex:outputPanel layout="block" styleclass="addModalBackground" rendered="{!settingsMgr.addInProgress}">
+            <apex:outputPanel layout="block" styleclass="addModal" rendered="{!settingsMgr.addInProgress}">
+        <apex:pageBlock title="{!$Label.trachier__SETUP_ADD_NEW_PER_PROFILE_SETTINGS_TITLE}" id="addBlock">
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="{!$Label.trachier__SETUP_ADD_MODAL_ADD_BUTTON}" action="{!settingsMgr.add}" reRender="form"/>
+                <apex:commandButton value="{!$Label.trachier__SETUP_ADD_MODAL_CANCEL_BUTTON}" action="{!settingsMgr.cancel}" reRender="form"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection collapsible="false" id="displayfields_add">
+                <apex:facet name="header">
+                    <apex:outputPanel >
+                        <h3>
+                            {!$Label.trachier__SETUP_DISPLAY_FIELDS_SECTION} - Profile:&nbsp;
+                            <apex:selectList size="1" id="addProfile" value="{!settingsMgr.selectedProfileName}">
+                                <apex:selectOptions value="{!settingsMgr.profilePicklist}"/>
+                            </apex:selectList>
+                        </h3>
+                    </apex:outputPanel>
+                </apex:facet>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!displayFieldMetadata.TracHier__Field1__c.Label}" for="Field1__c"/>
+                    <apex:selectList value="{!settingsMgr.newDisplayFields.TracHier__Field1__c}" id="Field1__c" size="1">
+                        <apex:selectOptions value="{!accountFields}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!displayFieldMetadata.TracHier__Field2__c.Label}" for="Field2__c"/>
+                    <apex:selectList value="{!settingsMgr.newDisplayFields.TracHier__Field2__c}" id="Field2__c" size="1">
+                        <apex:selectOptions value="{!accountFields}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!displayFieldMetadata.TracHier__Field3__c.Label}" for="Field3__c"/>
+                    <apex:selectList value="{!settingsMgr.newDisplayFields.TracHier__Field3__c}" id="Field3__c" size="1">
+                        <apex:selectOptions value="{!accountFields}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!displayFieldMetadata.TracHier__Field4__c.Label}" for="Field4__c"/>
+                    <apex:selectList value="{!settingsMgr.newDisplayFields.TracHier__Field4__c}" id="Field4__c" size="1">
+                        <apex:selectOptions value="{!accountFields}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!displayFieldMetadata.TracHier__Field5__c.Label}" for="Field5__c"/>
+                    <apex:selectList value="{!settingsMgr.newDisplayFields.TracHier__Field5__c}" id="Field5__c" size="1">
+                        <apex:selectOptions value="{!accountFields}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!displayFieldMetadata.TracHier__Field6__c.Label}" for="Field6__c"/>
+                    <apex:selectList value="{!settingsMgr.newDisplayFields.TracHier__Field6__c}" id="Field6__c" size="1">
+                        <apex:selectOptions value="{!accountFields}"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:inputField value="{!settingsMgr.newSettings.TracHier__Show_Records_for_All_Users__c}"/>
+                <apex:inputField value="{!settingsMgr.newSettings.TracHier__Disable_Per_User_Field_Selection__c}"/>
+                <apex:inputField value="{!settingsMgr.newSettings.TracHier__Show_Display_Fields_for_All_Users__c}"/>
+                <apex:inputField value="{!settingsMgr.newSettings.TracHier__Disable_Duplicate_Check__c}" onchange="disableDuplicateCheckChanged()"/>
+                <apex:inputField value="{!settingsMgr.newSettings.TracHier__Enable_Create_Inferred_Account_Button__c}"/>
+                <apex:inputField value="{!settingsMgr.newSettings.TracHier__Enable_Click_to_Merge__c}" rendered="{!NOT(settingsMgr.newSettings.TracHier__Disable_Duplicate_Check__c)}"/>
+                <apex:pageBlockSectionItem rendered="{!settingsMgr.newSettings.TracHier__Disable_Duplicate_Check__c}">
+                    <apex:outputLabel value="{!$ObjectType.TracHier__Hierarchy_Settings__c.fields.TracHier__Enable_Click_to_Merge__c.label}" style="color: #909090"/>
+                    <apex:inputCheckbox disabled="true"/>
+                </apex:pageBlockSectionItem>
+                <apex:inputField value="{!settingsMgr.newSettings.TracHier__Show_Summary_Footer__c}"/>
+                <apex:pageBlockSectionItem />
+                <apex:inputField value="{!settingsMgr.newSettings.TracHier__Enable_Whitespace_Prospecting__c}" rendered="{!hasDnBSearch}"/>
+                <apex:pageBlockSectionItem />
+                <apex:inputField value="{!settingsMgr.selectedSettings.TracHier__Enable_Field_Filters__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        </apex:outputPanel>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

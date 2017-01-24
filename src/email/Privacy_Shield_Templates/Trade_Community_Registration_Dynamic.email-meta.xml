@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Registration email for Trade Community users</description>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>ITA_Logo</letterhead>
+    <name>Trade Community - Registration - Dynamic</name>
+    <style>freeForm</style>
+    <subject>Complete your ITA Community Registration</subject>
+    <textOnly>Hi {!Receiving_User.FirstName},
+
+Thank you for taking the time to register with the International Trade Administration (ITA) Community. You now have access ITA&apos;s family of websites including:
+
+Export.gov
+PrivacyShield.gov
+SelectUSA.gov
+Stopfakes.gov
+
+
+Username: {!Receiving_User.Username}
+
+To complete your registration, please follow this link or cut and paste into a new window: {!$Site.CurrentSiteUrl}
+
+You will also receive a welcome email with more information on resources, benefits of being a registered user, and additional contact information for our community.
+
+Enjoy the community!</textOnly>
+    <type>html</type>
+</EmailTemplate>

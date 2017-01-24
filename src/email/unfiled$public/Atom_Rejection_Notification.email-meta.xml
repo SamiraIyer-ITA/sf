@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Atom Rejection Email Notification</description>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>ITA_Logo</letterhead>
+    <name>Atom Rejection Notification</name>
+    <style>freeForm</style>
+    <subject>Atom &apos;{!Content__c.Name}&apos; - Rejected</subject>
+    <textOnly>New &apos;{!Content__c.Name}&apos; is Created.
+
+Please verify and Approve/Reject - https://trade--cops.cs32.my.salesforce.com/{!Content__c.Id}.
+
+Thank You
+{!Content__c.OwnerFullName}</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Platform</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Platforms</value>
+    </caseValues>
+    <fields>
+        <help><!-- This rich-text area is for the body of your content. The content should not deviate from the overall theme as indicated in the title and/or summary. This content should stand on its own as a cohesive and complete source of information. --></help>
+        <label><!-- Atom --></label>
+        <name>Atom__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days Since Last Published Date --></label>
+        <name>Days_Since_Last_Published_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check this box if the article is ready to move into the approval workflow. An article cannot move out of Draft Stage without this box being checked. If you&apos;re completely satisfied with your draft, then click the &quot;Submit for Approval&quot; button. --></help>
+        <label><!-- Draft Complete --></label>
+        <name>Draft_Complete__c</name>
+    </fields>
+    <fields>
+        <label><!-- Epic --></label>
+        <name>Epic__c</name>
+        <relationshipLabel><!-- Knowledge Articles --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Select a Level 0 section for this sequence. --></help>
+        <label><!-- Level 0 --></label>
+        <name>Level_0__c</name>
+        <picklistValues>
+            <masterLabel>Amazon Web Servies Component</masterLabel>
+            <translation><!-- Amazon Web Servies Component --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>O365 Platform Application</masterLabel>
+            <translation><!-- O365 Platform Application --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Salesforce Platform Application</masterLabel>
+            <translation><!-- Salesforce Platform Application --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Select a Level 1 section for this sequence. --></help>
+        <label><!-- Level 1 --></label>
+        <name>Level_1__c</name>
+        <picklistValues>
+            <masterLabel>Architecture</masterLabel>
+            <translation><!-- Architecture --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Integrations</masterLabel>
+            <translation><!-- Integrations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Overview</masterLabel>
+            <translation><!-- Overview --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Security</masterLabel>
+            <translation><!-- Security --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Visual Walkthrough</masterLabel>
+            <translation><!-- Visual Walkthrough --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Select a Level 2 section for this sequence. --></help>
+        <label><!-- Level 2 --></label>
+        <name>Level_2__c</name>
+        <picklistValues>
+            <masterLabel>Activity Diagram</masterLabel>
+            <translation><!-- Activity Diagram --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Batch Jobs</masterLabel>
+            <translation><!-- Batch Jobs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Configuration</masterLabel>
+            <translation><!-- Configuration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Current State</masterLabel>
+            <translation><!-- Current State --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom Components</masterLabel>
+            <translation><!-- Custom Components --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer</masterLabel>
+            <translation><!-- Customer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Future State</masterLabel>
+            <translation><!-- Future State --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal</masterLabel>
+            <translation><!-- Internal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legacy State</masterLabel>
+            <translation><!-- Legacy State --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Object Schema</masterLabel>
+            <translation><!-- Object Schema --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partner</masterLabel>
+            <translation><!-- Partner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Programmatic</masterLabel>
+            <translation><!-- Programmatic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Public</masterLabel>
+            <translation><!-- Public --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Salesforce Platform Components</masterLabel>
+            <translation><!-- Salesforce Platform Components --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Triggers</masterLabel>
+            <translation><!-- Triggers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Validation Rules</masterLabel>
+            <translation><!-- Validation Rules --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Workflows</masterLabel>
+            <translation><!-- Workflows --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Select a Level 3 section for this sequence. --></help>
+        <label><!-- Level 3 --></label>
+        <name>Level_3__c</name>
+        <picklistValues>
+            <masterLabel>Apex Controllers</masterLabel>
+            <translation><!-- Apex Controllers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Compact Layouts</masterLabel>
+            <translation><!-- Compact Layouts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Considerations</masterLabel>
+            <translation><!-- Considerations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Field Level Detail</masterLabel>
+            <translation><!-- Field Level Detail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Layouts</masterLabel>
+            <translation><!-- Layouts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lightening Components</masterLabel>
+            <translation><!-- Lightening Components --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Notifications</masterLabel>
+            <translation><!-- Notifications --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Object Detail</masterLabel>
+            <translation><!-- Object Detail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Overview</masterLabel>
+            <translation><!-- Overview --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Permission Sets</masterLabel>
+            <translation><!-- Permission Sets --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Profiles</masterLabel>
+            <translation><!-- Profiles --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Search Configuration</masterLabel>
+            <translation><!-- Search Configuration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Static Resources</masterLabel>
+            <translation><!-- Static Resources --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Test Cases</masterLabel>
+            <translation><!-- Test Cases --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Visualforce Components</masterLabel>
+            <translation><!-- Visualforce Components --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Visualforce Pages</masterLabel>
+            <translation><!-- Visualforce Pages --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Title for Tablet / Mobile View --></help>
+        <label><!-- Mobile Title --></label>
+        <name>Mobile_Title__c</name>
+    </fields>
+    <fields>
+        <help><!-- Creates relationship to Series --></help>
+        <label><!-- Series --></label>
+        <name>Series__c</name>
+        <relationshipLabel><!-- Platforms --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Tracks the stages of an article through an approval process --></help>
+        <label><!-- Stage --></label>
+        <name>Stage__c</name>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Published</masterLabel>
+            <translation><!-- Published --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitted for Approval</masterLabel>
+            <translation><!-- Submitted for Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Under Review</masterLabel>
+            <translation><!-- Under Review --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Platform Layout</layout>
+        <sections>
+            <label><!-- Content --></label>
+            <section>Content</section>
+        </sections>
+        <sections>
+            <label><!-- Pins --></label>
+            <section>Pins</section>
+        </sections>
+        <sections>
+            <label><!-- Workflow --></label>
+            <section>Workflow</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please enter the Mobile Title (Article Title is too large for Mobile view) --></errorMessage>
+        <name>Required_Mobile_Title</name>
+    </validationRules>
+</CustomObjectTranslation>

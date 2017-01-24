@@ -1,0 +1,54 @@
+<apex:component controller="Insight" allowDML="true" >
+<apex:messages />
+
+<!-- Modal -->
+<apex:form >
+<div id="insightModal" class="ita-modal" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+      <div class="row">
+          <div class="modal-header">
+            <h4 class="ModalSectionHeader">Create A New Board</h4><button type="button" class="close" onclick="$('#insightModal').hide();" aria-hidden="true">×</button><br />
+          </div>
+          <div class="modal-body">
+                  <apex:outputpanel id="boardForm" >
+                      <div class="row">
+                         <div class="col-md-12">
+                            <apex:outputpanel styleclass="SaveInsight" id="SaveInsight">
+                            <div class="row">
+                              <div class="col-md-3">
+                                  <label for="InsightName" class="itaModalLabel">Board Name </label> 
+                              </div>
+                              <div class="col-md-8">
+                                <apex:inputField value="{!record.Name__c}" styleclass="itaModalInput NewInsightName" id="InsightName" html-placeholder="Board Name" />
+                              </div>
+                              <div class="col-md-1"></div>
+                            </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label for="InsightGoals" class="itaModalLabel">Description </label>
+                              </div>
+                              <div class="col-md-8">
+                                <apex:inputtextarea value="{!record.Goals__c}" styleclass="itaModalInput" id="InsightGoals" html-placeholder="What are the goals/intents of this Board?" />
+                              </div>
+                              <div class="col-md-1"></div>
+                        </div>
+                        <div class="row">
+                              <div class="col-md-12">
+                                <p><center><button type="button" class="btn-primary" onclick="if(!checkInsightRequiredField('NewInsightName')){alert('Board Name is a required field.');}else{SaveInsight();}">Create</button>
+                            <button type="button" class="btn-secondary" onclick="$('#insightModal').hide();">Cancel</button></center></p>
+                              </div>
+                        </div>
+                            
+                            </apex:outputpanel>
+                        </div>
+                      </div>
+                  </apex:outputpanel>
+          </div>
+      </div>
+    </div>
+</div>
+</div>
+<apex:actionFunction action="{!save}" name="SaveInsight" oncomplete="$('#insightModal').hide(); refreshPage();" rerender="boardForm" />
+</apex:form>
+</apex:component>

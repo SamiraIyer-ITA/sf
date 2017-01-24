@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notification to Case Contact that Privacy Shield Application has been approved.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>Privacy_Shield_Letterhead</letterhead>
+    <name>PS: Application Approved</name>
+    <style>formalLetter</style>
+    <subject>Privacy Shield: Application Approved</subject>
+    <textOnly>Dear {!Case.Contact_Full_Name__c},
+
+Thank you for self-certifying your organization’s adherence to the Privacy Shield Principles.  The Privacy Shield team has received your organization’s self-certification submission, as well as payment of the processing fee, and has completed the review.  The Privacy Shield self-certification for {!Case.Account} has been finalized and is effective as of {!Today}.
+
+Annual Privacy Shield Re-Certification
+
+An organization seeking assurance of the benefits of the Privacy Shield must self-certify annually to the U.S. Department of Commerce’s International Trade Administration (ITA) that it adheres to the Privacy Shield Principles in order to remain on the Privacy Shield List.  Next year your organization will be sent an automated re-certification reminder with instructions on how to re-certify your organization’s adherence to the Privacy Shield Principles.  The initial re-certification reminder, which will be sent one month prior to the anniversary of the date that your organization’s original self-certification was finalized, will be followed by another re-certification reminder two weeks later if at that point your organization still has not made a re-certification submission.  To ensure that your organization can continue to receive communications regarding Privacy Shield, your organization should ensure that the organization contact information remains current.
+
+Your must notify ITA if your organization wishes to withdraw from the Privacy Shield program.  Please see the Privacy Shield Principles for more information.
+
+Privacy Shield Enforcement
+
+An organization&apos;s failure to comply with the Privacy Shield Principles is enforceable under Section 5 of the Federal Trade Commission Act prohibiting unfair and deceptive acts in or affecting commerce (15 U.S.C. § 45(a)) or other laws or regulations prohibiting such acts.  Misrepresentations to the U.S. Department of Commerce may be actionable under the False Statements Act (18 U.S.C. § 1001).
+
+Questions
+
+If your organization has any questions concerning Privacy Shield or the self-certification process, please contact the ITA’s Privacy Shield team via the Privacy Shield website, whenever possible, at https://www.privacyshield.gov/assistance or by phone at 202-482-1512.</textOnly>
+    <type>html</type>
+</EmailTemplate>

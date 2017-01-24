@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Container</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Containers</value>
+    </caseValues>
+    <fields>
+        <help><!-- The Name of the container class --></help>
+        <label><!-- Class Name --></label>
+        <name>Class_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Style</masterLabel>
+            <translation><!-- Style --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Width</masterLabel>
+            <translation><!-- Width --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Content Container Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Admin Only --></label>
+        <name>Admin_Only</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Style --></label>
+        <name>Style</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

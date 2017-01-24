@@ -1,0 +1,19 @@
+<apex:page controller="MyOrdersPageController" showHeader="false" applyBodyTag="false" applyHtmlTag="false" >
+<apex:composition template="Site_Template">
+    <apex:define name="page">
+        <div class="main" id="content" style="background:#fff;">
+        <div class="section clearfix ">
+           <div class="row content">
+              <div class="containerInternal enforceHeight">
+        <div class="col-md-10 col-md-offset-1">      
+        <h1 class="steps">My Orders</h1><br/><br/>
+        <apex:messages />
+        <c:MyOrdersComponent orderList="{!Orders}" rendered="{!and(orders != null, orders.size != 0)}" />
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+    </apex:define>
+</apex:composition>
+</apex:page>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Navigation</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Navigation</value>
+    </caseValues>
+    <fields>
+        <help><!-- If this field is populated, the Navigation group will direct the user to the Chatter Group populated --></help>
+        <label><!-- Chatter Group --></label>
+        <name>Chatter_Group__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Page this Navigation Group will link to if the Navigation Group is clicked. --></help>
+        <label><!-- Page Link --></label>
+        <name>Page__c</name>
+        <relationshipLabel><!-- Navigation --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The Site that this Navigation Group will appear on --></help>
+        <label><!-- Site --></label>
+        <name>Site__c</name>
+        <relationshipLabel><!-- Navigation --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The Order in which the Navigation Group will be displayed --></help>
+        <label><!-- Sort Order --></label>
+        <name>Sort_Order__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field allows you to link to an external web site. If populated with a URL, it will override the Page field. Note: http:// is not needed. --></help>
+        <label><!-- Custom URL --></label>
+        <name>URL__c</name>
+    </fields>
+    <fields>
+        <help><!-- When checked this Navigation option will be a MegaMenu (Having multiple sections in one dropdown) --></help>
+        <label><!-- Mega Navigation Group --></label>
+        <name>isMegaMenu__c</name>
+    </fields>
+    <layouts>
+        <layout>Navigation Group Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Link --></label>
+            <section>Link</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

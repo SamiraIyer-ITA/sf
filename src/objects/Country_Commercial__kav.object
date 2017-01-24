@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <articleTypeChannelDisplay>
+        <articleTypeTemplates>
+            <channel>App</channel>
+            <template>Tab</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Prm</channel>
+            <template>Tab</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Csp</channel>
+            <template>Tab</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Pkb</channel>
+            <template>Toc</template>
+        </articleTypeTemplates>
+    </articleTypeChannelDisplay>
+    <compactLayoutAssignment>CCG</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>CCG</fullName>
+        <fields>Title</fields>
+        <fields>Level_1__c</fields>
+        <fields>LastPublishedDate</fields>
+        <label>CCG</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Input form to capture individual sections of a Country Commercial Guide</description>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <fields>
+        <fullName>Approval_Queue__c</fullName>
+        <description>ITA Business Unit</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the ITA business unit that is the owner of this content.</inlineHelpText>
+        <label>Approval Queue</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Global Markets</fullName>
+                <default>true</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Atom__c</fullName>
+        <description>Body of an Article</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This rich-text area is where the body of your content should be placed. The content should not deviate from the overall theme and should stand on its own as a reliable source of information. Otherwise, a new topic should be created.</inlineHelpText>
+        <label>Atom</label>
+        <length>131072</length>
+        <trackHistory>true</trackHistory>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Daft_Complete__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Flag the draft version is ready for approval</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this box, if your document is ready to go into workflow. If you&apos;re completely satisfied with your draft, then click &quot;Submit for Approval&quot; button.</inlineHelpText>
+        <label>Draft Complete</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Days_Since_Last_Published_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>TODAY() - DATEVALUE( LastPublishedDate )</formula>
+        <label>Days Since Last Published Date</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Level_1__c</fullName>
+        <description>Related Chapter of a Country Commercial Guide</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the applicable chapter from the publication that your content belongs to.</inlineHelpText>
+        <label>Level 1</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Doing Business in</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Political &amp; Economic Environment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Selling US Products &amp; Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Leading Sectors for US Exports &amp; Investments</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trade Regulations, Customs, &amp; Standards</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Investment Climate Statement</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trade &amp; Project Financing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business Travel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Level_2__c</fullName>
+        <description>Related Section of the Related Chapter of a Country Commercial Guide</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Choose the section within the chapter that your content is associated with.</inlineHelpText>
+        <label>Level 2</label>
+        <picklist>
+            <controllingField>Level_1__c</controllingField>
+            <picklistValues>
+                <fullName>Market Overview</fullName>
+                <default>false</default>
+                <controllingFieldValues>Doing Business in</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Market Challenges</fullName>
+                <default>false</default>
+                <controllingFieldValues>Doing Business in</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Market Opportunities</fullName>
+                <default>false</default>
+                <controllingFieldValues>Doing Business in</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Market Entry Strategy</fullName>
+                <default>false</default>
+                <controllingFieldValues>Doing Business in</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Political Environment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Political &amp; Economic Environment</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Using an Agent</fullName>
+                <default>false</default>
+                <controllingFieldValues>Selling US Products &amp; Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Establishing an Office</fullName>
+                <default>false</default>
+                <controllingFieldValues>Selling US Products &amp; Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Franchising</fullName>
+                <default>false</default>
+                <controllingFieldValues>Selling US Products &amp; Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Direct Marketing</fullName>
+                <default>false</default>
+                <controllingFieldValues>Selling US Products &amp; Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Joint Ventures/Licensing</fullName>
+                <default>false</default>
+                <controllingFieldValues>Selling US Products &amp; Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Selling to the Government</fullName>
+                <default>false</default>
+                <controllingFieldValues>Selling US Products &amp; Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Distribution &amp; Sales Channels</fullName>
+                <default>false</default>
+                <controllingFieldValues>Selling US Products &amp; Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Express Delivery</fullName>
+                <default>false</default>
+                <controllingFieldValues>Selling US Products &amp; Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Selling Factors &amp; Techniques</fullName>
+                <default>false</default>
+                <controllingFieldValues>Selling US Products &amp; Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electronic Commerce</fullName>
+                <default>false</default>
+                <controllingFieldValues>Selling US Products &amp; Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trade Promotion &amp; Advertising</fullName>
+                <default>false</default>
+                <controllingFieldValues>Selling US Products &amp; Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pricing</fullName>
+                <default>false</default>
+                <controllingFieldValues>Selling US Products &amp; Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales Service/Customer Support</fullName>
+                <default>false</default>
+                <controllingFieldValues>Selling US Products &amp; Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Protecting Intellectual Property</fullName>
+                <default>false</default>
+                <controllingFieldValues>Selling US Products &amp; Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Due Diligence</fullName>
+                <default>false</default>
+                <controllingFieldValues>Selling US Products &amp; Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Local Professional Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Selling US Products &amp; Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Principle Business Associations</fullName>
+                <default>false</default>
+                <controllingFieldValues>Selling US Products &amp; Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Limitations</fullName>
+                <default>false</default>
+                <controllingFieldValues>Selling US Products &amp; Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Best Prospect Overview</fullName>
+                <default>false</default>
+                <controllingFieldValues>Leading Sectors for US Exports &amp; Investments</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Import Tariffs</fullName>
+                <default>false</default>
+                <controllingFieldValues>Trade Regulations, Customs, &amp; Standards</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trade Barriers</fullName>
+                <default>false</default>
+                <controllingFieldValues>Trade Regulations, Customs, &amp; Standards</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Import Requirements &amp; Documentation</fullName>
+                <default>false</default>
+                <controllingFieldValues>Trade Regulations, Customs, &amp; Standards</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Labeling/Marking Requirements</fullName>
+                <default>false</default>
+                <controllingFieldValues>Trade Regulations, Customs, &amp; Standards</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>US Export Controls</fullName>
+                <default>false</default>
+                <controllingFieldValues>Trade Regulations, Customs, &amp; Standards</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Prohibited &amp; Restricted Imports</fullName>
+                <default>false</default>
+                <controllingFieldValues>Trade Regulations, Customs, &amp; Standards</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Customs Regulations</fullName>
+                <default>false</default>
+                <controllingFieldValues>Trade Regulations, Customs, &amp; Standards</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trade Standards</fullName>
+                <default>false</default>
+                <controllingFieldValues>Trade Regulations, Customs, &amp; Standards</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Temporary Entry</fullName>
+                <default>false</default>
+                <controllingFieldValues>Trade Regulations, Customs, &amp; Standards</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trade Agreements</fullName>
+                <default>false</default>
+                <controllingFieldValues>Trade Regulations, Customs, &amp; Standards</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Licensing Requirements for Professional Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Trade Regulations, Customs, &amp; Standards</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Executive Summary</fullName>
+                <default>false</default>
+                <controllingFieldValues>Investment Climate Statement</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Openness to and Restrictions upon Foreign Investment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Investment Climate Statement</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Conversion and Transfer Policies</fullName>
+                <default>false</default>
+                <controllingFieldValues>Investment Climate Statement</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Expropriation and Compensation</fullName>
+                <default>false</default>
+                <controllingFieldValues>Investment Climate Statement</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dispute Settlement</fullName>
+                <default>false</default>
+                <controllingFieldValues>Investment Climate Statement</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Performance Requirements and Investment Incentives</fullName>
+                <default>false</default>
+                <controllingFieldValues>Investment Climate Statement</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Limits on Foreign Control and Right to Private Ownership and Establishmen</fullName>
+                <default>false</default>
+                <controllingFieldValues>Investment Climate Statement</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Protection of Property Rights</fullName>
+                <default>false</default>
+                <controllingFieldValues>Investment Climate Statement</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Transparency of the Regulatory System</fullName>
+                <default>false</default>
+                <controllingFieldValues>Investment Climate Statement</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Efficient Capital Markets and Portfolio Investment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Investment Climate Statement</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Competition from State-Owned Enterprises</fullName>
+                <default>false</default>
+                <controllingFieldValues>Investment Climate Statement</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Responsible Business Conduct</fullName>
+                <default>false</default>
+                <controllingFieldValues>Investment Climate Statement</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Political Violence</fullName>
+                <default>false</default>
+                <controllingFieldValues>Investment Climate Statement</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Corruption</fullName>
+                <default>false</default>
+                <controllingFieldValues>Investment Climate Statement</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bilateral Investment Agreements</fullName>
+                <default>false</default>
+                <controllingFieldValues>Investment Climate Statement</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>OPIC and Other Investment Insurance Programs</fullName>
+                <default>false</default>
+                <controllingFieldValues>Investment Climate Statement</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Labor</fullName>
+                <default>false</default>
+                <controllingFieldValues>Investment Climate Statement</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Foreign Trade Zones/Free Ports/Trade Facilitation</fullName>
+                <default>false</default>
+                <controllingFieldValues>Investment Climate Statement</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Foreign Direct Investment and Foreign Portfolio Investment Statistics</fullName>
+                <default>false</default>
+                <controllingFieldValues>Investment Climate Statement</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contact for More Information on the Investment Climate Statement</fullName>
+                <default>false</default>
+                <controllingFieldValues>Investment Climate Statement</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Methods of Payment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Trade &amp; Project Financing</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Banking Systems</fullName>
+                <default>false</default>
+                <controllingFieldValues>Trade &amp; Project Financing</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Foreign Exchange Controls</fullName>
+                <default>false</default>
+                <controllingFieldValues>Trade &amp; Project Financing</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>US Banks &amp; Local Correspondent Banks</fullName>
+                <default>false</default>
+                <controllingFieldValues>Trade &amp; Project Financing</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Project Financing</fullName>
+                <default>false</default>
+                <controllingFieldValues>Trade &amp; Project Financing</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business Customs</fullName>
+                <default>false</default>
+                <controllingFieldValues>Business Travel</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Travel Advisory</fullName>
+                <default>false</default>
+                <controllingFieldValues>Business Travel</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Visa Requirements</fullName>
+                <default>false</default>
+                <controllingFieldValues>Business Travel</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Money</fullName>
+                <default>false</default>
+                <controllingFieldValues>Business Travel</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Telecommunications/Electric</fullName>
+                <default>false</default>
+                <controllingFieldValues>Business Travel</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+                <controllingFieldValues>Business Travel</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Language</fullName>
+                <default>false</default>
+                <controllingFieldValues>Business Travel</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Health</fullName>
+                <default>false</default>
+                <controllingFieldValues>Business Travel</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Local Time, Business Hours, &amp; Holidays</fullName>
+                <default>false</default>
+                <controllingFieldValues>Business Travel</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Temporary Entry of Materials or Personal Belongings</fullName>
+                <default>false</default>
+                <controllingFieldValues>Business Travel</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Web Resources</fullName>
+                <default>false</default>
+                <controllingFieldValues>Business Travel</controllingFieldValues>
+                <controllingFieldValues>Selling US Products &amp; Services</controllingFieldValues>
+                <controllingFieldValues>Trade &amp; Project Financing</controllingFieldValues>
+                <controllingFieldValues>Trade Regulations, Customs, &amp; Standards</controllingFieldValues>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Level_3__c</fullName>
+        <externalId>false</externalId>
+        <label>Level 3</label>
+        <picklist>
+            <picklistValues>
+                <fullName>NA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Mobile_Title__c</fullName>
+        <description>This is the title that will display on mobile sites</description>
+        <externalId>false</externalId>
+        <label>Mobile Title</label>
+        <length>37</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Public_URL__c</fullName>
+        <description>Full Public URL for Article</description>
+        <externalId>false</externalId>
+        <formula>HYPERLINK($Label.export_gov&amp;&quot;/article?id=&quot;&amp;UrlName, $Label.export_gov&amp;&quot;/article?id=&quot;&amp;UrlName)</formula>
+        <label>Public URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>References__c</fullName>
+        <defaultValue>&quot;Prepared by our U.S. Embassies abroad.  With its network of 108 offices across the United States and in more than 75 countries, the U.S. Commercial Service of the U.S. Department of Commerce utilizes its global presence and international marketing expertise to help U.S. companies sell their products and services worldwide. Locate the U.S. Commercial Service trade specialist in the U.S. nearest you by visiting http://export.gov/usoffices.&quot;</defaultValue>
+        <description>Article references</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If there are any references that were used during the writing of the content, they can be highlighted here. The rich text editor allows for formatting and link creation.</inlineHelpText>
+        <label>References (Public)</label>
+        <length>1000</length>
+        <trackHistory>true</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Series__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Creates relationship to Publications</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Type a keyword, such as country name and click the magnifying glass to search available Publications.</inlineHelpText>
+        <label>Series</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Series__c.Type__c</field>
+                <operation>equals</operation>
+                <value>Country Commercial</value>
+            </filterItems>
+            <infoMessage>Search by Country name to find a Country Commercial Guide</infoMessage>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <referenceTo>Series__c</referenceTo>
+        <relationshipLabel>Country Commercial Guide Articles</relationshipLabel>
+        <relationshipName>Country_Commercial_Guides</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Stage__c</fullName>
+        <description>Tracks the stages of an article through an approval process</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Stage is the phase of the process that your content is in.</inlineHelpText>
+        <label>Stage</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Draft</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Under Review</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Submitted for Approval</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Published</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>level_0__c</fullName>
+        <description>Dummy field to streamline KM.</description>
+        <externalId>false</externalId>
+        <label>Level 0</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Country Commercial Guide</fullName>
+                <default>true</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <label>Country Commercial</label>
+    <pluralLabel>Country Commercials</pluralLabel>
+    <validationRules>
+        <fullName>Required_Level_1</fullName>
+        <active>false</active>
+        <description>Level 1 is mandatory</description>
+        <errorConditionFormula>ISBLANK(TEXT(Level_1__c))</errorConditionFormula>
+        <errorMessage>Please pick Level 1 (Mandatory field)</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Required_Mobile_Title</fullName>
+        <active>true</active>
+        <description>Mobile Title Needed if Article Title is larger than 37 characters</description>
+        <errorConditionFormula>AND( (LEN(Title)&gt;37) , ISBLANK( Mobile_Title__c ) )</errorConditionFormula>
+        <errorMessage>Please enter the Mobile Title (Article Title is too large for Mobile view)</errorMessage>
+    </validationRules>
+</CustomObject>

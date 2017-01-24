@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email template for notifying organization that their Privacy Shield record is due for re-certification in 2 weeks.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>ITA_Logo</letterhead>
+    <name>PS: Re-Certification Due in 2 Weeks</name>
+    <style>formalLetter</style>
+    <subject>Privacy Shield Re-Certification Reminder</subject>
+    <textOnly>PRIVACY SHIELD RE-CERTIFICATION FOLLOW-UP REMINDER
+
+
+Our records indicate that the original Privacy Shield self-certification for {!Asset.Account} was finalized on {!Asset.InstallDate}.
+
+The U.S. Department of Commerce’s International Trade Administration (ITA) would once again like to invite your organization to re-certify its adherence to the Privacy Shield Principles, including the Supplemental Principles or confirm that your organization wishes to withdraw from the Privacy Shield program administered by the Department. Instructions on how to re-certify are available on the Privacy Shield website at: https://www.privacyshield.gov.
+
+If your organization does not withdraw from the program, but nevertheless fails to complete the annual re-certification process in a timely manner in accordance with the requirements specified in the Privacy Shield Principles, including the Supplemental Principles and guidance provided by the ITA, its self-certification will lapse, it will be removed from the Privacy Shield List, and it will no longer be assured of the benefits of the Privacy Shield.
+
+Please note that this reminder follows a previous Privacy Shield Re-Certification Reminder, which provided additional detail; therefore, your organization should refer to the previous reminder.
+
+If your organization has any questions concerning the re-certification process, please contact the ITA at privacyshield@trade.gov.</textOnly>
+    <type>html</type>
+</EmailTemplate>

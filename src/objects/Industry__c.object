@@ -1,0 +1,2227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Associted_Case_Subject__c</fullName>
+        <description>To display case subject manner when looking up on industrial hierarchy</description>
+        <externalId>false</externalId>
+        <formula>HYPERLINK(&quot;/&quot;&amp;  Case_Industrial_Hierarchy__r.Id  ,Case_Industrial_Hierarchy__r.Subject,&quot;_self&quot;)</formula>
+        <label>Associated Case Subject</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case_Industrial_Hierarchy__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Do not edit these fields</inlineHelpText>
+        <label>Case Industrial Hierarchy</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipName>Case_Industry_Hierarchy</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Case_Subject__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK( &quot;/&quot; &amp; Case_Industrial_Hierarchy__c , Case_Industrial_Hierarchy__r.Subject,&quot;_self&quot;)</formula>
+        <label>Case Subject</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Industry_One__c</fullName>
+        <externalId>false</externalId>
+        <formula>1</formula>
+        <label>Industry One</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Industry_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Industry Text</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Industry__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>You must select an Industry before you can save the record.</inlineHelpText>
+        <label>Industry</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Aerospace and Defense</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Agribusiness</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Automotive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business and Professional Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chemicals</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consumer Goods</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Distribution and Logistics</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Energy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Environmental Technology</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Equipment and Machinery</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Financial Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Food and Beverage</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Franchising</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Healthcare</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Industrial Materials</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Information and Communications Technology</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marine Technology</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Media and Entertainment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Non-Profits and Associations</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Public Sector</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retail Trade</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Safety &amp; Security</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Textiles and Apparel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Travel and Tourism</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wholesale Trade</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Lead__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Lead</label>
+        <referenceTo>Lead</referenceTo>
+        <relationshipName>Industry_Hierarchies</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Organization__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Do not edit these fields</inlineHelpText>
+        <label>Organization</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>OrgIndustryHierarchy</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Participant__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Participant</label>
+        <referenceTo>Participation__c</referenceTo>
+        <relationshipLabel>Industries</relationshipLabel>
+        <relationshipName>Industries</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Sector_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Sector Text</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sector__c</fullName>
+        <externalId>false</externalId>
+        <label>Sector</label>
+        <picklist>
+            <controllingField>Industry__c</controllingField>
+            <picklistValues>
+                <fullName>Access Control Systems</fullName>
+                <default>false</default>
+                <controllingFieldValues>Safety &amp; Security</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Accommodations</fullName>
+                <default>false</default>
+                <controllingFieldValues>Travel and Tourism</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Accounting Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Business and Professional Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Adult Education and Training</fullName>
+                <default>false</default>
+                <controllingFieldValues>Education</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Advertising Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Business and Professional Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Agricultural Chemicals</fullName>
+                <default>false</default>
+                <controllingFieldValues>Agribusiness</controllingFieldValues>
+                <controllingFieldValues>Chemicals</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Agricultural Equipment and Machinery</fullName>
+                <default>false</default>
+                <controllingFieldValues>Agribusiness</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Air Pollution Control</fullName>
+                <default>false</default>
+                <controllingFieldValues>Environmental Technology</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Apparel</fullName>
+                <default>false</default>
+                <controllingFieldValues>Consumer Goods</controllingFieldValues>
+                <controllingFieldValues>Textiles and Apparel</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Architecture Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Business and Professional Services</controllingFieldValues>
+                <controllingFieldValues>Construction</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Artwork</fullName>
+                <default>false</default>
+                <controllingFieldValues>Consumer Goods</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Asset Management</fullName>
+                <default>false</default>
+                <controllingFieldValues>Financial Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Audio-Visual Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Information and Communications Technology</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Automobiles</fullName>
+                <default>false</default>
+                <controllingFieldValues>Automotive</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Automotive Aftermarket</fullName>
+                <default>false</default>
+                <controllingFieldValues>Automotive</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Automotive Parts</fullName>
+                <default>false</default>
+                <controllingFieldValues>Automotive</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Automotive Repair Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Automotive</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aviation</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aerospace and Defense</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bakeries</fullName>
+                <default>false</default>
+                <controllingFieldValues>Food and Beverage</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Banking</fullName>
+                <default>false</default>
+                <controllingFieldValues>Financial Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Beverages</fullName>
+                <default>false</default>
+                <controllingFieldValues>Food and Beverage</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Building Products and Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Construction</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Buses</fullName>
+                <default>false</default>
+                <controllingFieldValues>Automotive</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business Associations</fullName>
+                <default>false</default>
+                <controllingFieldValues>Non-Profits and Associations</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Information and Communications Technology</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Catalog and Mail Order</fullName>
+                <default>false</default>
+                <controllingFieldValues>Retail Trade</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ceramics</fullName>
+                <default>false</default>
+                <controllingFieldValues>Industrial Materials</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chambers of Commerce</fullName>
+                <default>false</default>
+                <controllingFieldValues>Non-Profits and Associations</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chemical Production Machinery</fullName>
+                <default>false</default>
+                <controllingFieldValues>Chemicals</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Civil Nuclear Power</fullName>
+                <default>false</default>
+                <controllingFieldValues>Energy</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Coal</fullName>
+                <default>false</default>
+                <controllingFieldValues>Energy</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Coatings and Adhesives</fullName>
+                <default>false</default>
+                <controllingFieldValues>Chemicals</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Commercial Trucks</fullName>
+                <default>false</default>
+                <controllingFieldValues>Automotive</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Composites</fullName>
+                <default>false</default>
+                <controllingFieldValues>Industrial Materials</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Computer-Aided Technologies</fullName>
+                <default>false</default>
+                <controllingFieldValues>Information and Communications Technology</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Computer Hardware</fullName>
+                <default>false</default>
+                <controllingFieldValues>Information and Communications Technology</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Computer Software</fullName>
+                <default>false</default>
+                <controllingFieldValues>Information and Communications Technology</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Computer Systems</fullName>
+                <default>false</default>
+                <controllingFieldValues>Information and Communications Technology</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Condiments and Seasonings</fullName>
+                <default>false</default>
+                <controllingFieldValues>Food and Beverage</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Confectionary Products</fullName>
+                <default>false</default>
+                <controllingFieldValues>Food and Beverage</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consumer Electronics</fullName>
+                <default>false</default>
+                <controllingFieldValues>Consumer Goods</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Convenience Stores</fullName>
+                <default>false</default>
+                <controllingFieldValues>Retail Trade</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Corporate Training Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Business and Professional Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cosmetics and Toiletries</fullName>
+                <default>false</default>
+                <controllingFieldValues>Consumer Goods</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cybersecurity</fullName>
+                <default>false</default>
+                <controllingFieldValues>Information and Communications Technology</controllingFieldValues>
+                <controllingFieldValues>Safety &amp; Security</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dairy Products</fullName>
+                <default>false</default>
+                <controllingFieldValues>Food and Beverage</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Debt Collection</fullName>
+                <default>false</default>
+                <controllingFieldValues>Financial Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Defense Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aerospace and Defense</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Department Stores</fullName>
+                <default>false</default>
+                <controllingFieldValues>Retail Trade</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Direct Selling</fullName>
+                <default>false</default>
+                <controllingFieldValues>Retail Trade</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Discount Stores</fullName>
+                <default>false</default>
+                <controllingFieldValues>Retail Trade</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Drug Stores</fullName>
+                <default>false</default>
+                <controllingFieldValues>Retail Trade</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Due Diligence Investigation Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Business and Professional Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Education Technology</fullName>
+                <default>false</default>
+                <controllingFieldValues>Education</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electricity Infrastructure</fullName>
+                <default>false</default>
+                <controllingFieldValues>Energy</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electric Vehicles</fullName>
+                <default>false</default>
+                <controllingFieldValues>Automotive</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electronic Commerce</fullName>
+                <default>false</default>
+                <controllingFieldValues>Information and Communications Technology</controllingFieldValues>
+                <controllingFieldValues>Retail Trade</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electronics</fullName>
+                <default>false</default>
+                <controllingFieldValues>Information and Communications Technology</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Employment Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Business and Professional Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Entertainment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Media and Entertainment</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Environmental Remediation</fullName>
+                <default>false</default>
+                <controllingFieldValues>Environmental Technology</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event Management</fullName>
+                <default>false</default>
+                <controllingFieldValues>Business and Professional Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Explosives</fullName>
+                <default>false</default>
+                <controllingFieldValues>Chemicals</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Export Management</fullName>
+                <default>false</default>
+                <controllingFieldValues>Distribution and Logistics</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Express Delivery Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Distribution and Logistics</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fabrics</fullName>
+                <default>false</default>
+                <controllingFieldValues>Textiles and Apparel</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Firearms and Accessories</fullName>
+                <default>false</default>
+                <controllingFieldValues>Consumer Goods</controllingFieldValues>
+                <controllingFieldValues>Safety &amp; Security</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fire Safety and Rescue Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Safety &amp; Security</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fluiding Handling Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Equipment and Machinery</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Food and Drink Establisments</fullName>
+                <default>false</default>
+                <controllingFieldValues>Travel and Tourism</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Food and Grocery Retailing</fullName>
+                <default>false</default>
+                <controllingFieldValues>Retail Trade</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Food Processing Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Food and Beverage</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Footwear</fullName>
+                <default>false</default>
+                <controllingFieldValues>Textiles and Apparel</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Forestry Equipment and Machinery</fullName>
+                <default>false</default>
+                <controllingFieldValues>Agribusiness</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Freight Forwarding</fullName>
+                <default>false</default>
+                <controllingFieldValues>Distribution and Logistics</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Furniture</fullName>
+                <default>false</default>
+                <controllingFieldValues>Consumer Goods</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Furniture Retailing</fullName>
+                <default>false</default>
+                <controllingFieldValues>Retail Trade</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gasoline Service Stations</fullName>
+                <default>false</default>
+                <controllingFieldValues>Automotive</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Giftware</fullName>
+                <default>false</default>
+                <controllingFieldValues>Consumer Goods</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Grains and Legumes</fullName>
+                <default>false</default>
+                <controllingFieldValues>Food and Beverage</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Green Building</fullName>
+                <default>false</default>
+                <controllingFieldValues>Construction</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hardware Stores</fullName>
+                <default>false</default>
+                <controllingFieldValues>Retail Trade</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Healthcare Facilities</fullName>
+                <default>false</default>
+                <controllingFieldValues>Healthcare</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Healthcare Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Healthcare</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Health Information Technology</fullName>
+                <default>false</default>
+                <controllingFieldValues>Healthcare</controllingFieldValues>
+                <controllingFieldValues>Information and Communications Technology</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Higher Education</fullName>
+                <default>false</default>
+                <controllingFieldValues>Education</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Home Security Systems</fullName>
+                <default>false</default>
+                <controllingFieldValues>Safety &amp; Security</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hotel and Restaurant Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Travel and Tourism</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Household Appliances</fullName>
+                <default>false</default>
+                <controllingFieldValues>Consumer Goods</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Housewares</fullName>
+                <default>false</default>
+                <controllingFieldValues>Consumer Goods</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Industrial Chemicals</fullName>
+                <default>false</default>
+                <controllingFieldValues>Chemicals</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Industrial Safety and Security</fullName>
+                <default>false</default>
+                <controllingFieldValues>Safety &amp; Security</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Information Technology Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Information and Communications Technology</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Inorganic Chemicals</fullName>
+                <default>false</default>
+                <controllingFieldValues>Chemicals</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Insurance Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Financial Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Intelligent Transportation Systems</fullName>
+                <default>false</default>
+                <controllingFieldValues>Distribution and Logistics</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Investment Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Financial Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Jewelry</fullName>
+                <default>false</default>
+                <controllingFieldValues>Consumer Goods</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lawn and Garden Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Agribusiness</controllingFieldValues>
+                <controllingFieldValues>Consumer Goods</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Leasing Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Financial Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Leather and Fur Products</fullName>
+                <default>false</default>
+                <controllingFieldValues>Textiles and Apparel</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Legal Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Business and Professional Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Livestock</fullName>
+                <default>false</default>
+                <controllingFieldValues>Agribusiness</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Machinery and Tools</fullName>
+                <default>false</default>
+                <controllingFieldValues>Equipment and Machinery</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Management Consulting Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Business and Professional Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Maritime Transportation</fullName>
+                <default>false</default>
+                <controllingFieldValues>Distribution and Logistics</controllingFieldValues>
+                <controllingFieldValues>Marine Technology</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marketing Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Business and Professional Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Material Handling</fullName>
+                <default>false</default>
+                <controllingFieldValues>Distribution and Logistics</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Materials Handling Machinery</fullName>
+                <default>false</default>
+                <controllingFieldValues>Equipment and Machinery</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Meat Processing</fullName>
+                <default>false</default>
+                <controllingFieldValues>Food and Beverage</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Medical Devices</fullName>
+                <default>false</default>
+                <controllingFieldValues>Healthcare</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Medical Textiles</fullName>
+                <default>false</default>
+                <controllingFieldValues>Textiles and Apparel</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Metals</fullName>
+                <default>false</default>
+                <controllingFieldValues>Industrial Materials</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mining Equipment and Machinery</fullName>
+                <default>false</default>
+                <controllingFieldValues>Energy</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Motorcycles</fullName>
+                <default>false</default>
+                <controllingFieldValues>Automotive</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Moving Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Distribution and Logistics</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Musical Instruments</fullName>
+                <default>false</default>
+                <controllingFieldValues>Consumer Goods</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Oil and Gas</fullName>
+                <default>false</default>
+                <controllingFieldValues>Energy</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Operations and Maintenance Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Business and Professional Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Organic Chemicals</fullName>
+                <default>false</default>
+                <controllingFieldValues>Chemicals</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Packaging Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Equipment and Machinery</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pet Foods and Supplies</fullName>
+                <default>false</default>
+                <controllingFieldValues>Consumer Goods</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pharmaceuticals</fullName>
+                <default>false</default>
+                <controllingFieldValues>Healthcare</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Photographic Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Media and Entertainment</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Plastics</fullName>
+                <default>false</default>
+                <controllingFieldValues>Industrial Materials</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pleasure Boats &amp; Accessories</fullName>
+                <default>false</default>
+                <controllingFieldValues>Consumer Goods</controllingFieldValues>
+                <controllingFieldValues>Marine Technology</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Police Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Safety &amp; Security</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Polymers</fullName>
+                <default>false</default>
+                <controllingFieldValues>Chemicals</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Printing</fullName>
+                <default>false</default>
+                <controllingFieldValues>Media and Entertainment</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Private Equity</fullName>
+                <default>false</default>
+                <controllingFieldValues>Financial Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Process Controls</fullName>
+                <default>false</default>
+                <controllingFieldValues>Equipment and Machinery</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Protective Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Safety &amp; Security</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Publishing</fullName>
+                <default>false</default>
+                <controllingFieldValues>Media and Entertainment</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pulp and Paper</fullName>
+                <default>false</default>
+                <controllingFieldValues>Industrial Materials</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rail Transportation</fullName>
+                <default>false</default>
+                <controllingFieldValues>Distribution and Logistics</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Real Estate Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Business and Professional Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Recreational Vehicles</fullName>
+                <default>false</default>
+                <controllingFieldValues>Automotive</controllingFieldValues>
+                <controllingFieldValues>Consumer Goods</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Regional Economic Development</fullName>
+                <default>false</default>
+                <controllingFieldValues>Non-Profits and Associations</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Renewable Energy</fullName>
+                <default>false</default>
+                <controllingFieldValues>Energy</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Renewable Fuels</fullName>
+                <default>false</default>
+                <controllingFieldValues>Energy</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Robotics</fullName>
+                <default>false</default>
+                <controllingFieldValues>Information and Communications Technology</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Safety Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Safety &amp; Security</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Scientific and Technical Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Business and Professional Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Scientific Laboratory Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Equipment and Machinery</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Seafood</fullName>
+                <default>false</default>
+                <controllingFieldValues>Food and Beverage</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Security and Safety Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Safety &amp; Security</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Security Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Safety &amp; Security</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Serviced Office Leasing</fullName>
+                <default>false</default>
+                <controllingFieldValues>Business and Professional Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Snack Foods</fullName>
+                <default>false</default>
+                <controllingFieldValues>Food and Beverage</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Solar Vehicles</fullName>
+                <default>false</default>
+                <controllingFieldValues>Automotive</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Space</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aerospace and Defense</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sporting Goods</fullName>
+                <default>false</default>
+                <controllingFieldValues>Consumer Goods</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sweeteners</fullName>
+                <default>false</default>
+                <controllingFieldValues>Food and Beverage</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Telecommunications</fullName>
+                <default>false</default>
+                <controllingFieldValues>Information and Communications Technology</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Textile Equipment and Machinery</fullName>
+                <default>false</default>
+                <controllingFieldValues>Textiles and Apparel</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Textile Made-Ups</fullName>
+                <default>false</default>
+                <controllingFieldValues>Textiles and Apparel</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Toys and Games</fullName>
+                <default>false</default>
+                <controllingFieldValues>Consumer Goods</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trailers</fullName>
+                <default>false</default>
+                <controllingFieldValues>Automotive</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Translation and Interpretation Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Business and Professional Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Travel Agencies</fullName>
+                <default>false</default>
+                <controllingFieldValues>Travel and Tourism</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trucking</fullName>
+                <default>false</default>
+                <controllingFieldValues>Distribution and Logistics</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Underwater Robotics</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marine Technology</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Underwater Vehicles</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marine Technology</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Used and Reconditioned Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Equipment and Machinery</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle Electronics</fullName>
+                <default>false</default>
+                <controllingFieldValues>Automotive</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Venture Capital</fullName>
+                <default>false</default>
+                <controllingFieldValues>Financial Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Veterinary Equipment and Supplies</fullName>
+                <default>false</default>
+                <controllingFieldValues>Agribusiness</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Waste Management and Recycling</fullName>
+                <default>false</default>
+                <controllingFieldValues>Environmental Technology</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Water and Wastewater</fullName>
+                <default>false</default>
+                <controllingFieldValues>Environmental Technology</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yarns</fullName>
+                <default>false</default>
+                <controllingFieldValues>Textiles and Apparel</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3D Printing</fullName>
+                <default>false</default>
+                <controllingFieldValues>Equipment and Machinery</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Agricultural Biotechnology</fullName>
+                <default>false</default>
+                <controllingFieldValues>Agribusiness</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Agricultural Commodities</fullName>
+                <default>false</default>
+                <controllingFieldValues>Agribusiness</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Air Transportation</fullName>
+                <default>false</default>
+                <controllingFieldValues>Distribution and Logistics</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Baby Food</fullName>
+                <default>false</default>
+                <controllingFieldValues>Food and Beverage</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cruise Ships</fullName>
+                <default>false</default>
+                <controllingFieldValues>Travel and Tourism</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Distance Learning</fullName>
+                <default>false</default>
+                <controllingFieldValues>Education</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Exam Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Education</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fruit Products</fullName>
+                <default>false</default>
+                <controllingFieldValues>Food and Beverage</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Grid Transmission Distribution</fullName>
+                <default>false</default>
+                <controllingFieldValues>Energy</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Heavy Equipment and Construction Machinery</fullName>
+                <default>false</default>
+                <controllingFieldValues>Construction</controllingFieldValues>
+                <controllingFieldValues>Equipment and Machinery</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Infrastructure</fullName>
+                <default>false</default>
+                <controllingFieldValues>Construction</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Language Learning</fullName>
+                <default>false</default>
+                <controllingFieldValues>Education</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Medical Biotechnology</fullName>
+                <default>false</default>
+                <controllingFieldValues>Healthcare</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Passenger Transportation Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Travel and Tourism</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Petrochemicals</fullName>
+                <default>false</default>
+                <controllingFieldValues>Chemicals</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Primary Education</fullName>
+                <default>false</default>
+                <controllingFieldValues>Education</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Secondary Education</fullName>
+                <default>false</default>
+                <controllingFieldValues>Education</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trade Schools</fullName>
+                <default>false</default>
+                <controllingFieldValues>Education</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vegetable Products</fullName>
+                <default>false</default>
+                <controllingFieldValues>Food and Beverage</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vitamins and Supplements</fullName>
+                <default>false</default>
+                <controllingFieldValues>Food and Beverage</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Enginering Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Business and Professional Services</controllingFieldValues>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Sub_Sector_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Sub-Sector Text</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sub_Sector__c</fullName>
+        <externalId>false</externalId>
+        <label>Sub-Sector</label>
+        <picklist>
+            <controllingField>Sector__c</controllingField>
+            <picklistValues>
+                <fullName>Aircraft and Aircraft Parts</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aviation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Airport and Ground Support Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aviation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Air Traffic Control Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aviation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Air Transportation</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aviation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Air Travel</fullName>
+                <default>false</default>
+                <controllingFieldValues>Passenger Transportation Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Asphalt</fullName>
+                <default>false</default>
+                <controllingFieldValues>Building Products and Equipment</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aviation Security Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aviation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Avionics</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aviation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Beer</fullName>
+                <default>false</default>
+                <controllingFieldValues>Beverages</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bicycles</fullName>
+                <default>false</default>
+                <controllingFieldValues>Sporting Goods</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Biodiesel</fullName>
+                <default>false</default>
+                <controllingFieldValues>Renewable Fuels</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Biomass Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Renewable Energy</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Biopharmaceuticals</fullName>
+                <default>false</default>
+                <controllingFieldValues>Medical Biotechnology</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Books and Periodicals Publishing</fullName>
+                <default>false</default>
+                <controllingFieldValues>Publishing</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business Development</fullName>
+                <default>false</default>
+                <controllingFieldValues>Management Consulting Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bus Service</fullName>
+                <default>false</default>
+                <controllingFieldValues>Passenger Transportation Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Car Rentals</fullName>
+                <default>false</default>
+                <controllingFieldValues>Passenger Transportation Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cement and Concrete</fullName>
+                <default>false</default>
+                <controllingFieldValues>Building Products and Equipment</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Clean Coal Technology</fullName>
+                <default>false</default>
+                <controllingFieldValues>Coal</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Coal Gasification Systems</fullName>
+                <default>false</default>
+                <controllingFieldValues>Coal</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Coffee</fullName>
+                <default>false</default>
+                <controllingFieldValues>Beverages</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Commercial Fishing Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Seafood</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Commercial Vessel Equipment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Commission Agents</fullName>
+                <default>false</default>
+                <controllingFieldValues>Export Management</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Computer Peripherals</fullName>
+                <default>false</default>
+                <controllingFieldValues>Computer Hardware</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Computer Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Information Technology Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Construction Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Building Products and Equipment</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Custom Brokerage</fullName>
+                <default>false</default>
+                <controllingFieldValues>Export Management</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cutting Tools</fullName>
+                <default>false</default>
+                <controllingFieldValues>Machinery and Tools</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dental Equipment and Supplies</fullName>
+                <default>false</default>
+                <controllingFieldValues>Medical Devices</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Desktop Computers</fullName>
+                <default>false</default>
+                <controllingFieldValues>Computer Systems</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Direct Marketing Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Distilled Spirits</fullName>
+                <default>false</default>
+                <controllingFieldValues>Beverages</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Doors and Windows</fullName>
+                <default>false</default>
+                <controllingFieldValues>Building Products and Equipment</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Drug Development and Discovery</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pharmaceuticals</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electrical Systems &amp; Lighting</fullName>
+                <default>false</default>
+                <controllingFieldValues>Building Products and Equipment</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electric Cars</fullName>
+                <default>false</default>
+                <controllingFieldValues>Automobiles</controllingFieldValues>
+                <controllingFieldValues>Electric Vehicles</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electric Motors</fullName>
+                <default>false</default>
+                <controllingFieldValues>Machinery and Tools</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electromedical and Electrotherapeutic Apparatus</fullName>
+                <default>false</default>
+                <controllingFieldValues>Medical Devices</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electronic Components</fullName>
+                <default>false</default>
+                <controllingFieldValues>Electronics</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electronic Control Systems</fullName>
+                <default>false</default>
+                <controllingFieldValues>Electronics</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electronic Health Records</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electronic Product Testing Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Electronics</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Environmental Engineering Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Environmental Remediation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Environmental Monitoring</fullName>
+                <default>false</default>
+                <controllingFieldValues>Environmental Remediation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ethanol</fullName>
+                <default>false</default>
+                <controllingFieldValues>Renewable Fuels</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fertilizers</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fillers and Additives</fullName>
+                <default>false</default>
+                <controllingFieldValues>Polymers</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Film and Video Production</fullName>
+                <default>false</default>
+                <controllingFieldValues>Entertainment</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fluid Power Components</fullName>
+                <default>false</default>
+                <controllingFieldValues>Fluiding Handling Equipment</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fragrances</fullName>
+                <default>false</default>
+                <controllingFieldValues>Cosmetics and Toiletries</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gambling</fullName>
+                <default>false</default>
+                <controllingFieldValues>Entertainment</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Generic Pharamceuticals</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pharmaceuticals</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Geothermal Energy</fullName>
+                <default>false</default>
+                <controllingFieldValues>Renewable Energy</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Glass</fullName>
+                <default>false</default>
+                <controllingFieldValues>Building Products and Equipment</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Graphic Design</fullName>
+                <default>false</default>
+                <controllingFieldValues>Printing</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Groundwater Remediation</fullName>
+                <default>false</default>
+                <controllingFieldValues>Environmental Remediation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hand Tools</fullName>
+                <default>false</default>
+                <controllingFieldValues>Machinery and Tools</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hazardous Waste</fullName>
+                <default>false</default>
+                <controllingFieldValues>Waste Management and Recycling</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Health Information Exchange</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Helicopters</fullName>
+                <default>false</default>
+                <controllingFieldValues>Aviation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>High Performance Computers</fullName>
+                <default>false</default>
+                <controllingFieldValues>Computer Systems</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Household Appliances</fullName>
+                <default>false</default>
+                <controllingFieldValues>Building Products and Equipment</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HVAC Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Building Products and Equipment</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hydropower</fullName>
+                <default>false</default>
+                <controllingFieldValues>Renewable Energy</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Industrial Waste Water</fullName>
+                <default>false</default>
+                <controllingFieldValues>Water and Wastewater</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Information Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Information Technology Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Insulation</fullName>
+                <default>false</default>
+                <controllingFieldValues>Building Products and Equipment</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Internet Advertising</fullName>
+                <default>false</default>
+                <controllingFieldValues>Advertising Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>In Vitro Diagnostics</fullName>
+                <default>false</default>
+                <controllingFieldValues>Medical Biotechnology</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Iron and Steel</fullName>
+                <default>false</default>
+                <controllingFieldValues>Metals</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Irradiation Appartus</fullName>
+                <default>false</default>
+                <controllingFieldValues>Medical Devices</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Laboratory Supplies and Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Medical Biotechnology</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Light Trucks</fullName>
+                <default>false</default>
+                <controllingFieldValues>Automobiles</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lumber</fullName>
+                <default>false</default>
+                <controllingFieldValues>Building Products and Equipment</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Machine Tools</fullName>
+                <default>false</default>
+                <controllingFieldValues>Machinery and Tools</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Market Research Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Masonry and Stone</fullName>
+                <default>false</default>
+                <controllingFieldValues>Building Products and Equipment</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Medical Waste</fullName>
+                <default>false</default>
+                <controllingFieldValues>Waste Management and Recycling</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Metals</fullName>
+                <default>false</default>
+                <controllingFieldValues>Building Products and Equipment</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mobile Health</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mobile Source Air Pollution Control</fullName>
+                <default>false</default>
+                <controllingFieldValues>Air Pollution Control</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Motorcycle Parts</fullName>
+                <default>false</default>
+                <controllingFieldValues>Motorcycles</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Motorhomes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Municipal Drinking Water</fullName>
+                <default>false</default>
+                <controllingFieldValues>Water and Wastewater</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Municipal Solid Waste</fullName>
+                <default>false</default>
+                <controllingFieldValues>Waste Management and Recycling</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Municipal Wastewater</fullName>
+                <default>false</default>
+                <controllingFieldValues>Water and Wastewater</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nonferrous Metals</fullName>
+                <default>false</default>
+                <controllingFieldValues>Metals</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nonroad Diesel Engines</fullName>
+                <default>false</default>
+                <controllingFieldValues>Machinery and Tools</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nuclear Fuels</fullName>
+                <default>false</default>
+                <controllingFieldValues>Civil Nuclear Power</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nuclear Reactors</fullName>
+                <default>false</default>
+                <controllingFieldValues>Civil Nuclear Power</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ocean Energy</fullName>
+                <default>false</default>
+                <controllingFieldValues>Renewable Energy</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Office Furniture</fullName>
+                <default>false</default>
+                <controllingFieldValues>Furniture</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Oil &amp; Gas Field Machinery</fullName>
+                <default>false</default>
+                <controllingFieldValues>Oil and Gas</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ophthalmic Goods</fullName>
+                <default>false</default>
+                <controllingFieldValues>Medical Devices</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Outdoor Advertising</fullName>
+                <default>false</default>
+                <controllingFieldValues>Advertising Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Paint</fullName>
+                <default>false</default>
+                <controllingFieldValues>Coatings and Adhesives</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Paper and Paperboard</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pulp and Paper</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Paper Product Machinery</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pulp and Paper</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parking Lots and Garages</fullName>
+                <default>false</default>
+                <controllingFieldValues>Passenger Transportation Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Patent and Trademark Law Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Legal Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pesticides</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Petroleum Refineries</fullName>
+                <default>false</default>
+                <controllingFieldValues>Oil and Gas</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Photographic Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Consumer Electronics</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Plaster and Gypsum Board</fullName>
+                <default>false</default>
+                <controllingFieldValues>Building Products and Equipment</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Plastic</fullName>
+                <default>false</default>
+                <controllingFieldValues>Polymers</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Plastics Materials and Resins</fullName>
+                <default>false</default>
+                <controllingFieldValues>Plastics</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Plastics Production Machinery</fullName>
+                <default>false</default>
+                <controllingFieldValues>Plastics</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Plumbing</fullName>
+                <default>false</default>
+                <controllingFieldValues>Building Products and Equipment</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Portable Computers</fullName>
+                <default>false</default>
+                <controllingFieldValues>Computer Systems</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Precious Metals</fullName>
+                <default>false</default>
+                <controllingFieldValues>Metals</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Printing and Graphic Arts Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Printing</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Process Water</fullName>
+                <default>false</default>
+                <controllingFieldValues>Water and Wastewater</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Safety Testing and Certification</fullName>
+                <default>false</default>
+                <controllingFieldValues>Scientific and Technical Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Protective and Safety Clothing</fullName>
+                <default>false</default>
+                <controllingFieldValues>Apparel</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Public Relations Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Marketing Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pumps, Valves and Compressors</fullName>
+                <default>false</default>
+                <controllingFieldValues>Fluiding Handling Equipment</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Radio Advertising</fullName>
+                <default>false</default>
+                <controllingFieldValues>Advertising Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Railroad Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Rail Transportation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rail Travel</fullName>
+                <default>false</default>
+                <controllingFieldValues>Passenger Transportation Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rare Earth Metals</fullName>
+                <default>false</default>
+                <controllingFieldValues>Metals</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Recycling</fullName>
+                <default>false</default>
+                <controllingFieldValues>Waste Management and Recycling</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Renewable Energy Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Renewable Energy</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rolling Mills</fullName>
+                <default>false</default>
+                <controllingFieldValues>Machinery and Tools</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rubber</fullName>
+                <default>false</default>
+                <controllingFieldValues>Polymers</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Satellites</fullName>
+                <default>false</default>
+                <controllingFieldValues>Space</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Semiconductor Manufacturing Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Electronics</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Semiconductors</fullName>
+                <default>false</default>
+                <controllingFieldValues>Electronics</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Servers</fullName>
+                <default>false</default>
+                <controllingFieldValues>Computer Software</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Shipbuidling Equipment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sightseeing Transportation Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Passenger Transportation Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Smart Grid</fullName>
+                <default>false</default>
+                <controllingFieldValues>Electricity Infrastructure</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Soaps and Detergents</fullName>
+                <default>false</default>
+                <controllingFieldValues>Cosmetics and Toiletries</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Soil Remediation</fullName>
+                <default>false</default>
+                <controllingFieldValues>Environmental Remediation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Solar Energy</fullName>
+                <default>false</default>
+                <controllingFieldValues>Renewable Energy</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Space Launch Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Space</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sports</fullName>
+                <default>false</default>
+                <controllingFieldValues>Entertainment</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Stationary Fuel Cells</fullName>
+                <default>false</default>
+                <controllingFieldValues>Electricity Infrastructure</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Stationary Source Air Pollution Control</fullName>
+                <default>false</default>
+                <controllingFieldValues>Air Pollution Control</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Surgical and Medical Instruments</fullName>
+                <default>false</default>
+                <controllingFieldValues>Medical Devices</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Surgical Appliances</fullName>
+                <default>false</default>
+                <controllingFieldValues>Medical Devices</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Taxi Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Passenger Transportation Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Telecommunications Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Telecommunications</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Telecommunications Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Telecommunications</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Telemedicine</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Television Advertising</fullName>
+                <default>false</default>
+                <controllingFieldValues>Advertising Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tile</fullName>
+                <default>false</default>
+                <controllingFieldValues>Building Products and Equipment</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tires</fullName>
+                <default>false</default>
+                <controllingFieldValues>Automotive Parts</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tooling Equipment and Supplies</fullName>
+                <default>false</default>
+                <controllingFieldValues>Machinery and Tools</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trade Promotion Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Event Management</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Travel Trailers</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Urban Transit Systems</fullName>
+                <default>false</default>
+                <controllingFieldValues>Passenger Transportation Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Used Clothing</fullName>
+                <default>false</default>
+                <controllingFieldValues>Apparel</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vaccines</fullName>
+                <default>false</default>
+                <controllingFieldValues>Medical Biotechnology</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vans</fullName>
+                <default>false</default>
+                <controllingFieldValues>Automobiles</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle Electronics</fullName>
+                <default>false</default>
+                <controllingFieldValues>Consumer Electronics</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Waste Management Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Waste Management and Recycling</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Water Monitoring</fullName>
+                <default>false</default>
+                <controllingFieldValues>Water and Wastewater</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Water Treatment Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Water and Wastewater</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Welding Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Machinery and Tools</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wind Energy</fullName>
+                <default>false</default>
+                <controllingFieldValues>Renewable Energy</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wine</fullName>
+                <default>false</default>
+                <controllingFieldValues>Beverages</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wireless</fullName>
+                <default>false</default>
+                <controllingFieldValues>Telecommunications</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wood Products</fullName>
+                <default>false</default>
+                <controllingFieldValues>Building Products and Equipment</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Woodworking Machinery</fullName>
+                <default>false</default>
+                <controllingFieldValues>Machinery and Tools</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Air Pollution Monitoring Equipment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Air Pollution Control</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Air Pollution Monitoring Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Air Pollution Control</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bulk Commodities</fullName>
+                <default>false</default>
+                <controllingFieldValues>Agricultural Commodities</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Energy Storage</fullName>
+                <default>false</default>
+                <controllingFieldValues>Grid Transmission Distribution</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>English as a Second Language Instruction</fullName>
+                <default>false</default>
+                <controllingFieldValues>Language Learning</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Executive Education</fullName>
+                <default>false</default>
+                <controllingFieldValues>Adult Education and Training</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nuclear Waste Processing</fullName>
+                <default>false</default>
+                <controllingFieldValues>Civil Nuclear Power</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Toll Roads</fullName>
+                <default>false</default>
+                <controllingFieldValues>Infrastructure</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Value-Added Agriculture</fullName>
+                <default>false</default>
+                <controllingFieldValues>Agricultural Commodities</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vitamins and Supplements</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pharmaceuticals</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Water Transportation</fullName>
+                <default>false</default>
+                <controllingFieldValues>Passenger Transportation Services</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wood Pellets</fullName>
+                <default>false</default>
+                <controllingFieldValues>Renewable Fuels</controllingFieldValues>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>WIN_Industrial_Hierarchy__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Do not edit these fields</inlineHelpText>
+        <label>WIN Industrial Hierarchy</label>
+        <referenceTo>WIN__c</referenceTo>
+        <relationshipName>WINIndustrialHierarchy</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>WIN_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK( &quot;/&quot; &amp; WIN_Industrial_Hierarchy__c, WIN_Industrial_Hierarchy__r.Name,&quot;_self&quot;)</formula>
+        <label>WIN Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Industry</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Industry__c</columns>
+        <columns>Organization__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>IH-{0000}</displayFormat>
+        <label>Industry ID</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Industries</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Industry__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Organization__c</customTabListAdditionalFields>
+        <searchResultsAdditionalFields>Organization__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Case_Subject__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>WIN_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Industry__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Sector__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Sub_Sector__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <fullName>Industry_must_be_selected</fullName>
+        <active>true</active>
+        <description>Must select at least an entry on Industry picklist.</description>
+        <errorConditionFormula>ISPICKVAL(Industry__c,&quot;&quot; )</errorConditionFormula>
+        <errorDisplayField>Industry__c</errorDisplayField>
+        <errorMessage>You must select an Industry.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Lookup_Validation</fullName>
+        <active>true</active>
+        <errorConditionFormula>( IF(ISBLANK( Organization__c ),0,1) + 
+  IF(ISBLANK( WIN_Industrial_Hierarchy__c ),0,1) + 
+  IF(ISBLANK( Case_Industrial_Hierarchy__c ),0,1)
+) &gt; 1</errorConditionFormula>
+        <errorMessage>Can only update one of the following fields:  Organization, Case Industrial Hierarchy, or WIN Industrial Hierarchy.</errorMessage>
+    </validationRules>
+</CustomObject>

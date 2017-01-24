@@ -1,0 +1,12 @@
+<apex:page standardController="Payment__c" extensions="RefundController" sidebar="false" showHeader="false" standardStylesheets="true" applyBodyTag="false" applyHtmlTag="false" action="{!issueRefund}">
+           
+    <apex:form id="myForm">
+        <apex:pagemessages />
+    
+        <!--Redirect back to Payment Page-->
+        <br/>
+        <apex:commandButton value="Back to Payment" action="{!redirectToPayment}" />
+    
+    </apex:form> 
+
+</apex:page>

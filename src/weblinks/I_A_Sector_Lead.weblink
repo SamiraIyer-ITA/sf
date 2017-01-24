@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomPageWebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <availability>online</availability>
+    <description>I&amp;A Sector Leads &amp; GM Country Desk Officers</description>
+    <displayType>link</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>I&amp;A Sector Leads &amp; GM Country Desk Officers</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/069t0000000D8D9</url>
+</CustomPageWebLink>

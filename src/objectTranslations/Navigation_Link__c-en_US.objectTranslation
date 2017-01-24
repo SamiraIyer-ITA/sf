@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Navigation Link</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Navigation Links</value>
+    </caseValues>
+    <fields>
+        <help><!-- The Navigation Group that this Navigation Link will appear on --></help>
+        <label><!-- Navigation Group --></label>
+        <name>Navigation_Group__c</name>
+        <relationshipLabel><!-- Navigation Links --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- If this link should be displayed under a Navigation Section this field should contain the name of the Navigation Section --></help>
+        <label><!-- Navigation Section --></label>
+        <name>Navigation_Section__c</name>
+        <relationshipLabel><!-- Navigation Links --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- If this field is populated, the Navigation link will direct the user to the Page specified --></help>
+        <label><!-- Page Link --></label>
+        <name>Page__c</name>
+        <relationshipLabel><!-- Navigation Links --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- If this field is populated, the Navigation link will direct the user to the URL specified (takes priority over Page field) --></help>
+        <label><!-- Custom URL --></label>
+        <name>Redirect__c</name>
+    </fields>
+    <fields>
+        <help><!-- The MicroSite which this Navigation Link will appear. --></help>
+        <label><!-- MicroSite --></label>
+        <name>Section__c</name>
+        <relationshipLabel><!-- Navigation Links --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The Order in which the Navigation Link will be displayed under the Navigation Group or Navigation Section --></help>
+        <label><!-- Sort Order --></label>
+        <name>Sort_Order__c</name>
+    </fields>
+    <layouts>
+        <layout>Navigation Link Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Link --></label>
+            <section>Link</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Navigation Link Layout - Section</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Link --></label>
+            <section>Link</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Link --></label>
+        <name>Link</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Mega Section --></label>
+        <name>Section</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please choose either Page Link or Custom URL. --></errorMessage>
+        <name>Must_have_a_Link</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please choose either Page Link or Custom URL. --></errorMessage>
+        <name>Page_Link_or_Custom_URL</name>
+    </validationRules>
+</CustomObjectTranslation>

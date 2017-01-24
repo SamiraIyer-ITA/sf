@@ -1,0 +1,77 @@
+<apex:page docType="html" controller="CaseList" showHeader="false" applyBodyTag="false" applyHtmlTag="false" standardStylesheets="false" cache="true">
+<apex:composition template="Site_Template">
+<apex:define name="page">
+<script language="javascript">
+    
+    function confirmCancel() {
+        var isCancel = confirm("Are you sure you want to cancel?");
+        if (isCancel) return true;
+        return false;
+    }    
+</script>
+<apex:form >
+
+<div class="row">
+<div class="containerInternal">
+    <center>
+    <div id="recordtypeselection" >
+        <apex:outputPanel rendered="{!IF(caseSelected=='0', true, false)}">
+            <h1 class="text-center case-title">Assistance Services</h1>
+                <div class="grid">
+                    <apex:repeat value="{!RecordTypes2}" var="row">
+                        <apex:repeat value="{!RecordTypes2[row]}" var="rt">
+                            <div class="col-md-4 col-centered">
+                                <apex:commandLink action="{!SetRecordTypeId}" oncomplete="$('#recordtypeselection').hide();" reRender="caseRecord" title="{!rt.name}" styleClass="case">
+                                    <apex:repeat value="{!iconMap}" var="ico" >
+                                        <apex:outputtext rendered="{!ico == rt.developername}">
+                                            <span class="case"><h3><i class="fa {!iconMap[ico]}"></i><br><br>{!rt.name}</br></br></h3></span>
+                                        </apex:outputtext>
+                                    </apex:repeat>
+                                    <apex:param value="{!rt.developername}" name="casediv" />
+                                    <apex:param value="{!rt.id}" name="recordtypeid" />
+                                    <apex:param value="{!rt.Name}" name="RecordTypeName" />                    
+                                </apex:commandLink>
+                            </div>
+                        </apex:repeat>
+                    </apex:repeat>
+                </div>
+        </apex:outputPanel>
+    </div>
+    </center>
+    <apex:outputPanel id="caseRecord" >
+        <!-- --Error Section - Start- -->
+        <apex:messages styleClass="alert alert-danger fade in itaNoUL" />
+        <!-- --Error Section - End- -->
+        
+        <apex:outputPanel rendered="{!IF(caseSelected=='1', true, false)}">
+            <h3>{!RecordTypeName}&nbsp;<font color="#999999">|</font>&nbsp;Case</h3>
+            <br/>
+            <br/>
+            <div class="col-md-12" style="margin: 0 0 30px 0; padding: 15px 20px; border-radius: 3px; background-color: #ADDFAD; border: 1px solid #4cae4c">
+                <div class="col-md-6"><h4>Status:&nbsp;<font color="#4cae4c"><apex:OutputField value="{!c.Status}"/></font></h4></div>
+                <div class="col-md-6"><h4 class="itaCaseRight"><b>{!if(loggedIn, $User.FirstName, '')} {!if(loggedIn,$User.LastName,'')}</b></h4> </div>    
+            </div>
+            
+        <div class="col-md-12" style="margin: 0 0 30px 0; padding: 15px 20px; border-radius: 3px; border: 1px solid lightgray; padding: 20px;">
+<!--        <apex:outputPanel rendered="{!if(RecordTypeName == 'Website Feedback', true, false)}"><div class="col-md-3 itaBr"><div class="itaFormLabel2">Name:<font color="red">*</font></div></div><div class="col-md-7 itaBr"><apex:inputField value="{!c.SuppliedName}" styleClass="form-control itaNoMargin"/>   </div><div class="col-md-1"></div></apex:outputPanel>
+            <apex:outputPanel rendered="{!if(RecordTypeName == 'Website Feedback', true, false)}"><div class="col-md-3 itaBr"><div class="itaFormLabel2">Email:<font color="red">*</font></div></div><div class="col-md-7 itaBr"><apex:inputField value="{!c.SuppliedEmail}" styleClass="form-control itaNoMargin"/>   </div><div class="col-md-1"></div></apex:outputPanel> -->
+            <apex:outputPanel rendered="{!if(loggedIn, false, true)}"><div class="col-md-3 itaBr"><div class="itaFormLabel2">Name:<font color="red">*</font></div></div><div class="col-md-7 itaBr"><apex:inputField value="{!c.SuppliedName}" styleClass="form-control itaNoMargin"/>   </div><div class="col-md-1"></div></apex:outputPanel>
+            <apex:outputPanel rendered="{!if(loggedIn, false, true)}"><div class="col-md-3 itaBr"><div class="itaFormLabel2">Email:<font color="red">*</font></div></div><div class="col-md-7 itaBr"><apex:inputField value="{!c.SuppliedEmail}" styleClass="form-control itaNoMargin"/>   </div><div class="col-md-1"></div></apex:outputPanel>
+            <apex:outputPanel rendered="{!if(and(currentDomain.name == 'STOPfakes',not(RecordTypeName == 'Website Feedback')), false, true)}"><div class="col-md-3 itaBr"><div class="itaFormLabel2">{!if(RecordTypeName == 'Website Feedback', 'Feedback:','Assistance:')}<font color="red">*</font></div></div><div class="col-md-7 itaBr"><apex:inputField value="{!c.type}" styleClass="form-control itaNoMargin"/>   </div><div class="col-md-1"></div></apex:outputPanel>
+            <div class="col-md-3 itaBr"><div class="itaFormLabel2">Subject:<font color="red">*</font></div></div><div class="col-md-7 itaBr"><apex:inputField value="{!c.Subject}"  styleClass="itaFormField" /></div><div class="col-md-1"></div> 
+            <div class="col-md-3 itaBr"><div class="itaFormLabel2">Description:<font color="red">*</font></div></div><div class="col-md-7 itaBr"><apex:inputField value="{!c.description}"  styleClass="itaFormField" style="width:100%; height: 100px;"/></div><div class="col-md-1"></div> 
+            <div class="col-md-4 itaBr"></div><div class="col-md-4 itaBr"><apex:commandButton action="{!save}" value="Save" onclick="window.location.reload();"/><apex:commandButton action="{!cancel}" value="Cancel" onclick="confirmCancel()" immediate="true" html-formnovalidate="formnovalidate"/></div>  <div class="col-md-4"></div>                          
+        </div>
+        <center>
+        <div>
+        </div>
+           
+        </center>
+    </apex:outputPanel>
+    </apex:outputPanel>
+   </div> 
+ </div>  
+</apex:form>
+</apex:define>
+</apex:composition>
+</apex:page>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Third Party</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Third Parties</value>
+    </caseValues>
+    <fields>
+        <label><!-- HR Recourse Mechanism --></label>
+        <name>HR_Data__c</name>
+    </fields>
+    <fields>
+        <label><!-- Non-HR Recourse Mechanism --></label>
+        <name>NonHR_Data__c</name>
+    </fields>
+    <fields>
+        <label><!-- Participation Number --></label>
+        <name>Participation_Status__c</name>
+        <relationshipLabel><!-- Third Parties --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Third Party Master List --></label>
+        <name>Third_Party_Master_List__c</name>
+        <relationshipLabel><!-- Third Parties --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>HR</masterLabel>
+            <translation><!-- HR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-HR</masterLabel>
+            <translation><!-- Non-HR --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- What is the Official Website of this Third Party? --></help>
+        <label><!-- Website --></label>
+        <name>Website__c</name>
+    </fields>
+    <fields>
+        <label><!-- updateName --></label>
+        <name>updateName__c</name>
+    </fields>
+    <layouts>
+        <layout>Third Party Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Resolution Provider --></label>
+        <name>Resolution_Provider</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Statutory Body --></label>
+        <name>Statutory_Body</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Verification Method --></label>
+        <name>Verification</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- You must provide a Website or a Third Party Master List record. --></errorMessage>
+        <name>Website_or_Third_Party_Master_Required</name>
+    </validationRules>
+</CustomObjectTranslation>

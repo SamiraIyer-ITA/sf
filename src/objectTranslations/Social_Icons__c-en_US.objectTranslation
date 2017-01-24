@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Social Icon</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Social Icons</value>
+    </caseValues>
+    <fields>
+        <help><!-- If Checked, Social Icon will display above the Site&apos;s navigation bar. --></help>
+        <label><!-- Active --></label>
+        <name>Active__c</name>
+    </fields>
+    <fields>
+        <help><!-- Search for the Icon required for this Social Icon --></help>
+        <label><!-- Atom --></label>
+        <name>Icon__c</name>
+        <relationshipLabel><!-- Social Icons --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Search for the Site associated to this Social Icon --></help>
+        <label><!-- Site --></label>
+        <name>Site__c</name>
+        <relationshipLabel><!-- Social Icons --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Sort Order --></label>
+        <name>Sort_Order__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter the URL for this Social Icon --></help>
+        <label><!-- URL --></label>
+        <name>URL__c</name>
+    </fields>
+    <layouts>
+        <layout>Social Icon Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,26 @@
+<apex:page sidebar="false" showHeader="false" controller="article_controller" applyBodyTag="false" applyHtmlTag="false">
+ <apex:composition template="Site_Template">
+     <apex:define name="page">
+
+<style>
+body {
+margin:0;
+padding-bottom:0;
+}
+#frame {
+width:100%; 
+min-height:600px;
+border:none;
+padding:0;
+margin:0;
+margin-bottom: -5px;
+}
+
+
+</style>
+
+<apex:iframe id="frame" src="https://govwizely.github.io/stopfakes-ipr/enter/" scrolling="true"/>
+
+     </apex:define>
+ </apex:composition>
+</apex:page>

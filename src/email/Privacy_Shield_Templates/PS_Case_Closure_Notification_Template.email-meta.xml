@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>PS: Case Closure Notification Template</description>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>Privacy_Shield_Letterhead</letterhead>
+    <name>PS: Case Closure Notification Template</name>
+    <style>freeForm</style>
+    <subject>Your Privacy Shield Case ({!Case.CaseNumber}) is Successfully Closed</subject>
+    <textOnly>Dear {!Case.SuppliedName}{!Case.Contact},
+
+Thank you again for contacting the Privacy Shield team at the U.S. Department of Commerce’s International Trade Administration (ITA).
+
+Please be aware that the case referred to below has been closed.
+
+Case Number - {!Case.CaseNumber}
+
+Case Status - {!Case.Status}
+
+Case Close Summary:
+{!Case.Case_Close_Summary__c}
+
+Sincerely,
+
+Privacy Shield Team
+International Trade Administration
+U.S. Department of Commerce</textOnly>
+    <type>html</type>
+</EmailTemplate>

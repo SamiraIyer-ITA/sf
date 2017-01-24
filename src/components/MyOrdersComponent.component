@@ -1,0 +1,59 @@
+<apex:component controller="MyOrdersComponentController">
+    <apex:attribute name="orderList" type="Order[]" assignTo="{!orders}" required="true" description="List of Orders to show" />
+    <apex:repeat value="{!orderMap}" var="order">
+    <link href="{!URLFor($Resource.ps, 'ps/application.css')}" rel="stylesheet" />  
+    <div class="panel panel-default order" id="order">
+        <div class="panel-heading" id="grayheading" >
+        <div class="row pad-left-zero pad-right-zero pad-up-down">
+            <div class="col-md-9">
+                <h4>Order Date</h4><br/>
+                <span class="field">{!orderMap[order].orderDate}</span>
+            </div>
+            <div class="col-md-3">
+                <h4>Order Number</h4><br/>
+                <span class="field">{!orderMap[order].orderNumber}</span>
+            </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row pad-left-zero pad-right-zero pad-up-down2">
+            <div class="col-md-9">
+            <apex:repeat value="{!orderMap[order].Products}" var="orderitem">
+                <span class="field-item">{!orderMap[order].Products[orderitem].name}</span>
+                <apex:outputtext rendered="{!orderMap[order].Products[orderitem].NextCertification != null}">
+                <br/><h4 class="field-item">Next Certification Due Date: {!orderMap[order].Products[orderitem].NextCertification}</h4>
+                </apex:outputtext>
+            </apex:repeat>
+            </div>
+            <div class="col-md-3">
+                <a class="btn btn-gray btn-sm" href="/PrivacyShield/ApplyNow">EDIT PROFILE</a>
+            </div>
+</div>
+            <apex:repeat var="transaction" value="{!orderMap[order].Transactions}">
+                <div class="row pad-left-zero pad-right-zero pad-up-down3">
+                <div class="col-md-3">
+                <br/><h4>Transaction Date</h4><br/>
+                    {!orderMap[order].Transactions[transaction].TransactionDate}   
+                </div>
+                <div class="col-md-3">
+                <br/><h4>Transaction ID</h4><br/>
+                    {!transaction}
+                </div>
+                <div class="col-md-3">
+                <br/><h4>Amount</h4><br/>
+                    {!orderMap[order].Transactions[transaction].Amount} 
+                </div>
+                <div class="col-md-1">
+                <br/><h4>Status</h4><br/>
+                    {!orderMap[order].Transactions[transaction].Status} 
+                </div>
+                <div class="col-md-1">
+                <br/><h4>Type</h4><br/>
+                    {!orderMap[order].Transactions[transaction].Type} 
+                </div>
+                    </div>
+            </apex:repeat>
+        </div>
+    </div>
+    </apex:repeat>
+</apex:component>

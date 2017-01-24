@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Email template for notification that application has been received and payment has failed Privacy Shield participation.</description>
+    <encodingKey>UTF-8</encodingKey>
+    <letterhead>Privacy_Shield_Letterhead</letterhead>
+    <name>PS: Payment Failure/Application Submitted</name>
+    <style>formalLetter</style>
+    <subject>Payment Failure - Privacy Shield Certification</subject>
+    <textOnly>Dear {!Payment__c.OwnerFirstName} {!Payment__c.OwnerLastName},
+
+Thank you for attempting to self-certify your organization’s adherence to the Privacy Shield Principles.  The Privacy Shield team has received your organization’s self-certification submission, but the attempt to submit payment has failed.  The Privacy Shield self-certification for {!Payment__c.Participant__c} has not been finalized. Please login and resubmit payment through the original application process. https://www.privacyshield.gov/welcome
+
+Questions
+
+If your organization has any questions concerning Privacy Shield or the self-certification process, please contact the ITA’s Privacy Shield team via the Privacy Shield website, whenever possible, at https://www.privacyshield.gov/assistance or by phone at 202-482-1512.</textOnly>
+    <type>html</type>
+</EmailTemplate>

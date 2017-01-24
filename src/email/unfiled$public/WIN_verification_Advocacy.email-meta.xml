@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>WIN verification Advocacy template</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>ITA_Logo</letterhead>
+    <name>WIN verification Advocacy</name>
+    <style>freeForm</style>
+    <subject>Request to review and grant permission to share success</subject>
+    <textOnly>Dear {!WIN__c.Contact_Name__c},
+
+As discussed, I&apos;d like to highlight your organization’s accomplishments in a write-up demonstrating how the U.S. Department of Commerce assists U.S. companies in securing foreign contracts.
+
+Please review the narrative below and respond to this email noting the following:
+
+• Whether or not you verify these statements accurately reflect our work together and your resulting success
+• Whether or not you clear this write-up for public use
+
+If you clear for public use, which forms below are acceptable:
+A. Press Use
+B. Speeches
+C. Send to Congress
+D. Your organization willing to speak to the media
+E. Outreach by other trade or investment related agencies
+
+Congratulations again on your success, and I look forward to continuing to work together in the future.
+
+Sincerely,
+{!WIN__c.OwnerFullName}
+
+Narrative for Review:
+
+Client Objectives:  {!WIN__c.Description_of_Objectives_Met__c}
+Assistance Provided by ITA and other government agencies:  {!WIN__c.Narrative__c}
+Description of Results:  {!WIN__c.Description_of_Results__c}
+Impact:  {!WIN__c.Impact_of_Exporting__c}
+Quote / Testimonial:  {!WIN__c.Quote_Testimonial__c}
+Total Project Value:  {!WIN__c.Advocacy_Total_Project_Value__c}
+Date Contract Signed:  {!WIN__c.Advocacy_Date_Contract_Signed__c}
+U.S. Export Content - Goods (est.):  {!WIN__c.Advocacy_US_Export_Content_Goods__c}
+U.S. Export Content - Services (est.):  {!WIN__c.Advocacy_US_Export_Content_Services__c}
+Total U.S. Export Content - Total (est.): {!WIN__c.AC_Total_US_Export_Content__c}</textOnly>
+    <type>html</type>
+</EmailTemplate>
