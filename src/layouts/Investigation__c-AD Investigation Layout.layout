@@ -35,6 +35,14 @@
         <label>Information</label>
         <layoutColumns>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Petition_Case_Number__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Petition_Product__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Office__c</field>
             </layoutItems>
@@ -45,7 +53,16 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <emptySpace>true</emptySpace>
+                <behavior>Readonly</behavior>
+                <field>Petition_Case_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Petition_Country__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Petition_Commodity__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -76,6 +93,10 @@
                 <behavior>Edit</behavior>
                 <field>Range_of_Rates_Prelim__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Amend_the_Preliminary_Determination__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -90,6 +111,10 @@
                 <behavior>Edit</behavior>
                 <field>Actual_Preliminary_Signature__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Ministerial_Error_for_Prelim__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -101,10 +126,6 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Ministerial_Error_for_Prelim__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Calc_Amended_Prelim_Determination_Sig__c</field>
             </layoutItems>
             <layoutItems>
@@ -113,10 +134,6 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Amend_the_Preliminary_Determination__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Actual_Amended_Prelim_Determination_Sig__c</field>
@@ -140,7 +157,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Termination_of_Suspension_Gap_Period_Beg__c</field>
+                <field>Range_of_Rates_Final__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Will_you_Amend_the_Final__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -154,7 +175,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Range_of_Rates_Final__c</field>
+                <field>Termination_of_Suspension_Gap_Period_Beg__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Ministerial_Error_for_final__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -167,10 +192,6 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Ministerial_Error_for_final__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Calculated_Amended_Final_Signature__c</field>
             </layoutItems>
             <layoutItems>
@@ -179,10 +200,6 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Will_you_Amend_the_Final__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Actual_Amended_Final_Signature__c</field>
@@ -202,10 +219,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Calculated_ITC_Final_FR_Published__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Calculated_Order_FR_Signature__c</field>
             </layoutItems>
         </layoutColumns>
@@ -213,10 +226,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>ITC_Notification_to_DOC_of_Final_Determ__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Actual_ITC_Final_FR_Published__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

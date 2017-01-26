@@ -396,8 +396,8 @@
         <externalId>false</externalId>
         <label>Segment</label>
         <referenceTo>Segment__c</referenceTo>
-        <relationshipLabel>Litigations</relationshipLabel>
-        <relationshipName>Litigations</relationshipName>
+        <relationshipLabel>Litigation</relationshipLabel>
+        <relationshipName>Litigation</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
@@ -422,9 +422,9 @@
     </nameField>
     <pluralLabel>Litigation</pluralLabel>
     <recordTypes>
-        <fullName>Litigation</fullName>
+        <fullName>International_Litigation</fullName>
         <active>true</active>
-        <label>Litigation</label>
+        <label>International Litigation</label>
         <picklistValues>
             <picklist>Choose_Following_Respondent_Selection__c</picklist>
             <values>

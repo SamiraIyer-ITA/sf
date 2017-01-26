@@ -1703,31 +1703,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>I</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>I</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>II</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>II</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>II</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>III</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>III</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1739,43 +1715,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>IV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>V</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>V</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>V</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>VI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VII</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VII</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1810,62 +1754,6 @@
             <picklist>YesNo</picklist>
             <values>
                 <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2299,31 +2187,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>I</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>I</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>II</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>II</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>II</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>III</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>III</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2335,43 +2199,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>IV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>V</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>V</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>V</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>VI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VII</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VII</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2406,62 +2238,6 @@
             <picklist>YesNo</picklist>
             <values>
                 <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
             <values>

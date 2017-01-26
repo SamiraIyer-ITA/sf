@@ -44,7 +44,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Information</label>
+        <label>New Shipper Review Information</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>

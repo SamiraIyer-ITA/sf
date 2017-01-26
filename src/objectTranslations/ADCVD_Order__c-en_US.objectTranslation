@@ -238,38 +238,6 @@
         <name>Number_of_Mandatory_Companies__c</name>
     </fields>
     <fields>
-        <label><!-- Office --></label>
-        <name>Office__c</name>
-        <picklistValues>
-            <masterLabel>I</masterLabel>
-            <translation><!-- I --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>II</masterLabel>
-            <translation><!-- II --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>III</masterLabel>
-            <translation><!-- III --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>IV</masterLabel>
-            <translation><!-- IV --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>V</masterLabel>
-            <translation><!-- V --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>VI</masterLabel>
-            <translation><!-- VI --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>VII</masterLabel>
-            <translation><!-- VII --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
         <label><!-- Period Covered - End Date --></label>
         <name>Period_Covered_End_Date__c</name>
     </fields>
@@ -334,8 +302,9 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Scope Language Change(s) --></label>
-        <name>Scope_Language_Change_s__c</name>
+        <help><!-- Scope Description --></help>
+        <label><!-- Scope Description --></label>
+        <name>Scope_Description__c</name>
     </fields>
     <fields>
         <label><!-- Segment Status --></label>

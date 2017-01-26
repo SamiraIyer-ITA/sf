@@ -5,7 +5,7 @@
         <customLabel>true</customLabel>
         <detailHeading>false</detailHeading>
         <editHeading>false</editHeading>
-        <label>Fields</label>
+        <label>Sunset Review Information</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>

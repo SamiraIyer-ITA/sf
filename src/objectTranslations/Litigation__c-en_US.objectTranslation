@@ -193,22 +193,22 @@
     <fields>
         <label><!-- Segment --></label>
         <name>Segment__c</name>
-        <relationshipLabel><!-- Litigations --></relationshipLabel>
+        <relationshipLabel><!-- Litigation --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- USTR Notification to Implement Final Res --></label>
         <name>USTR_Notification_to_Implement_Final_Res__c</name>
     </fields>
     <layouts>
-        <layout>Litigation</layout>
+        <layout>InternationalLitigation</layout>
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
     </layouts>
     <recordTypes>
-        <label><!-- Litigation --></label>
-        <name>Litigation</name>
+        <label><!-- International Litigation --></label>
+        <name>International_Litigation</name>
     </recordTypes>
     <recordTypes>
         <label><!-- Remand --></label>

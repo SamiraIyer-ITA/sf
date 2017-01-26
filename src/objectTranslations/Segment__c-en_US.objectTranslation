@@ -23,6 +23,11 @@
         <name>Actual_Amended_Final_Signature__c</name>
     </fields>
     <fields>
+        <help><!-- Actual date of Decision on How to Proceed --></help>
+        <label><!-- Actual date of Decision - How to Proceed --></label>
+        <name>Actual_Date_of_Decision_on_HoP__c</name>
+    </fields>
+    <fields>
         <help><!-- Actual Final Signature --></help>
         <label><!-- Actual Final Signature --></label>
         <name>Actual_Final_Signature__c</name>
@@ -149,6 +154,11 @@
         <help><!-- Country in which factors were valued --></help>
         <label><!-- Country in which factors were valued --></label>
         <name>Country_in_which_factors_were_valued__c</name>
+    </fields>
+    <fields>
+        <help><!-- Deadline for Decision on How to Proceed --></help>
+        <label><!-- Deadline for Decision on How to Proceed --></label>
+        <name>Deadline_for_Decision_on_How_to_Proceed__c</name>
     </fields>
     <fields>
         <label><!-- Decision on How to Proceed --></label>
@@ -640,6 +650,10 @@
             <section>Administrative</section>
         </sections>
         <sections>
+            <label><!-- Administrative Review Information --></label>
+            <section>Administrative Review Information</section>
+        </sections>
+        <sections>
             <label><!-- Amended Final Phase --></label>
             <section>Amended Final Phase</section>
         </sections>
@@ -654,10 +668,6 @@
         <sections>
             <label><!-- Final Phase --></label>
             <section>Final Phase</section>
-        </sections>
-        <sections>
-            <label><!-- Information --></label>
-            <section>Information</section>
         </sections>
         <sections>
             <label><!-- Litigation --></label>
@@ -679,6 +689,10 @@
             <section>Administrative</section>
         </sections>
         <sections>
+            <label><!-- Anti Circumvention Information --></label>
+            <section>Anti Circumvention Information</section>
+        </sections>
+        <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
@@ -689,10 +703,6 @@
         <sections>
             <label><!-- Final Phase --></label>
             <section>Final Phase</section>
-        </sections>
-        <sections>
-            <label><!-- Information --></label>
-            <section>Information</section>
         </sections>
         <sections>
             <label><!-- Initiation Phase --></label>
@@ -718,6 +728,10 @@
             <section>Administrative</section>
         </sections>
         <sections>
+            <label><!-- Changed Circumstance Information --></label>
+            <section>Changed Circumstance Information</section>
+        </sections>
+        <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
@@ -728,10 +742,6 @@
         <sections>
             <label><!-- Final Phase --></label>
             <section>Final Phase</section>
-        </sections>
-        <sections>
-            <label><!-- Information --></label>
-            <section>Information</section>
         </sections>
         <sections>
             <label><!-- Initiation Phase --></label>
@@ -769,12 +779,12 @@
             <section>Customs Instructions</section>
         </sections>
         <sections>
-            <label><!-- Final Phase --></label>
-            <section>Final Phase</section>
+            <label><!-- Expedited Review Information --></label>
+            <section>Expedited Review Information</section>
         </sections>
         <sections>
-            <label><!-- Information --></label>
-            <section>Information</section>
+            <label><!-- Final Phase --></label>
+            <section>Final Phase</section>
         </sections>
         <sections>
             <label><!-- Litigation --></label>
@@ -812,16 +822,16 @@
             <section>Final Phase</section>
         </sections>
         <sections>
-            <label><!-- Information --></label>
-            <section>Information</section>
-        </sections>
-        <sections>
             <label><!-- Initiation Phase --></label>
             <section>Initiation Phase</section>
         </sections>
         <sections>
             <label><!-- Litigation --></label>
             <section>Litigation</section>
+        </sections>
+        <sections>
+            <label><!-- New Shipper Review Information --></label>
+            <section>New Shipper Review Information</section>
         </sections>
         <sections>
             <label><!-- Preliminary Phase --></label>
@@ -838,6 +848,10 @@
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
+        <sections>
+            <label><!-- Scope Inquiry Information --></label>
+            <section>Scope Inquiry Information</section>
+        </sections>
     </layouts>
     <layouts>
         <layout>Segment Layout</layout>
@@ -853,8 +867,8 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Fields --></label>
-            <section>Fields</section>
+            <label><!-- Sunset Review Information --></label>
+            <section>Sunset Review Information</section>
         </sections>
     </layouts>
     <recordTypes>

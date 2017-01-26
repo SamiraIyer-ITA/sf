@@ -39,6 +39,10 @@
                 <behavior>Edit</behavior>
                 <field>Adequacy_Determination_Letter_120_day__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Deadline_for_Decision_on_How_to_Proceed__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -56,7 +60,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Information</label>
+        <label>Anti Circumvention Information</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>

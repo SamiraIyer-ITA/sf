@@ -814,11 +814,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>ADCVD_Order__c.Office__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>ADCVD_Order__c.Period_Covered_End_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -879,7 +874,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>ADCVD_Order__c.Scope_Language_Change_s__c</field>
+        <field>ADCVD_Order__c.Scope_Description__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5724,6 +5719,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Segment__c.Actual_Date_of_Decision_on_HoP__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Segment__c.Actual_Final_Signature__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -5855,6 +5855,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Segment__c.Country_in_which_factors_were_valued__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.Deadline_for_Decision_on_How_to_Proceed__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8475,11 +8480,11 @@
         <layout>Litigation_Respondent__c-Litigation Respondent Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Litigation__c-Litigation</layout>
+        <layout>Litigation__c-InternationalLitigation</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Litigation__c-Litigation</layout>
-        <recordType>Litigation__c.Litigation</recordType>
+        <layout>Litigation__c-InternationalLitigation</layout>
+        <recordType>Litigation__c.International_Litigation</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Litigation__c-Remand</layout>
@@ -9829,7 +9834,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <recordType>Litigation__c.Litigation</recordType>
+        <recordType>Litigation__c.International_Litigation</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
