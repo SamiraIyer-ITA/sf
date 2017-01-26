@@ -1,1 +1,0 @@
-<apex:page id="page" controller="agf.ADM_WorkPrioritizerController" action="{!goToNewVersion}" showHeader="true" sideBar="true" tabStyle="agf__ADM_Work__c">    </apex:page>

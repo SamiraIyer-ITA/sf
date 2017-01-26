@@ -1,4 +1,0 @@
-<apex:page standardController="agf__ADM_Team_Release__c" extensions="agf.ADM_TeamReleaseExtension">
-
-	<!--TODO to be deleted once page layout reference is removed -->
-</apex:page>

@@ -1,3 +1,0 @@
-<apex:page controller="agf.ADM_TeamLocatorController" action="{!goToCurrentKanbanBoard}">
-    <c:ADM_TeamSelector destinationurl="{/apex/{!nameSpace}adm_kanbansplash" destinationlabel="Kanban Board"></c:ADM_TeamSelector>
-</apex:page>

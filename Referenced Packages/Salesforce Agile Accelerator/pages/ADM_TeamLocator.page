@@ -1,5 +1,0 @@
-<apex:page controller="agf.ADM_TeamLocatorController" action="{!goToCurrentTeam}">
-
-    <c:ADM_TeamSelector destinationurl="/apex/adm_scrumteamdetail" destinationlabel="Team Page" destinationparam="id"></c:ADM_TeamSelector>
-
-</apex:page>
