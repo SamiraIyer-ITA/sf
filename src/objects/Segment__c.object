@@ -276,17 +276,6 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Changed_Circumstances_Review_Involvement__c</fullName>
-        <description>Changed Circumstances Review Involvement</description>
-        <externalId>false</externalId>
-        <globalPicklist>YesNo</globalPicklist>
-        <inlineHelpText>Changed Circumstances Review Involvement</inlineHelpText>
-        <label>Changed Circumstances Review Involvement</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>Choose_Following_Respondent_Selection__c</fullName>
         <description>Will you use CBP data, Quantity and Value Questionnaires or Other for respondent selection?</description>
         <externalId>false</externalId>
@@ -907,7 +896,7 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Product_determined_to_be_in_scope__c</fullName>
+        <fullName>Product_determined_to_be_in_scope_del__c</fullName>
         <externalId>false</externalId>
         <globalPicklist>YesNo</globalPicklist>
         <label>Product determined to be in scope?</label>
@@ -990,7 +979,7 @@
         <fullName>Receive_an_Injunction_or_in_Litigation__c</fullName>
         <externalId>false</externalId>
         <globalPicklist>YesNo</globalPicklist>
-        <label>Receive an Injunction or nn Litigation?</label>
+        <label>Receive an Injunction or in Litigation?</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>

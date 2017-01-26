@@ -25,18 +25,20 @@
         <name>ApprovalProcess</name>
     </types>
     <types>
-        <members>Case.Case Comments Rule</members>
         <members>Case.Salesforce Support Case Assignment</members>
         <name>AssignmentRule</name>
     </types>
     <types>
-        <members>Case.Case Comments</members>
         <members>Case.Salesforce Support Case</members>
         <name>AutoResponseRule</name>
     </types>
     <types>
         <members>*</members>
         <name>Community</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>ConnectedApp</name>
     </types>
     <types>
         <members>*</members>
@@ -48,61 +50,6 @@
     </types>
     <types>
         <members>*</members>
-        <name>CustomMetadata</name>
-    </types>
-    <types>
-        <members>*</members>
-        <members>Account</members>
-        <members>AccountCleanInfo</members>
-        <members>AccountContactRole</members>
-        <members>Activity</members>
-        <members>Asset</members>
-        <members>AssistantProgress</members>
-        <members>Campaign</members>
-        <members>CampaignMember</members>
-        <members>Case</members>
-        <members>CaseContactRole</members>
-        <members>Contact</members>
-        <members>ContactCleanInfo</members>
-        <members>ContentVersion</members>
-        <members>Contract</members>
-        <members>ContractContactRole</members>
-        <members>DandBCompany</members>
-        <members>DuplicateRecordItem</members>
-        <members>DuplicateRecordSet</members>
-        <members>EmailMessage</members>
-        <members>Event</members>
-        <members>ExchangeUserMapping</members>
-        <members>FeedItem</members>
-        <members>ForecastingCategoryMapping</members>
-        <members>Idea</members>
-        <members>Lead</members>
-        <members>LeadCleanInfo</members>
-        <members>LinkedArticle</members>
-        <members>Macro</members>
-        <members>MacroAction</members>
-        <members>MacroInstruction</members>
-        <members>Opportunity</members>
-        <members>OpportunityCompetitor</members>
-        <members>OpportunityContactRole</members>
-        <members>OpportunityLineItem</members>
-        <members>Order</members>
-        <members>OrderItem</members>
-        <members>PartnerRole</members>
-        <members>Pricebook2</members>
-        <members>PricebookEntry</members>
-        <members>Product2</members>
-        <members>Site</members>
-        <members>SocialPersona</members>
-        <members>SocialPost</members>
-        <members>Solution</members>
-        <members>StreamingChannel</members>
-        <members>Task</members>
-        <members>Territory2</members>
-        <members>Territory2Model</members>
-        <members>User</members>
-        <members>UserProvisioningRequest</members>
-        <members>UserTerritory2Association</members>
         <name>CustomObject</name>
     </types>
     <types>
@@ -115,7 +62,7 @@
     </types>
     <types>
         <members>*</members>
-        <name>CustomPermission</name>
+        <name>CustomSite</name>
     </types>
     <types>
         <members>*</members>
@@ -126,100 +73,12 @@
         <name>DataCategoryGroup</name>
     </types>
     <types>
-        <members>Approval_Processes</members>
-        <members>Approval_Processes/Country_Commercial_Approval</members>
-        <members>Approval_Processes/Decision_Log_Approval</members>
-        <members>Approval_Processes/Market_Insight_Approval</members>
-        <members>Approval_Processes/State_Report_Approval</members>
-        <members>Approval_Processes/Top_Markets_Approval</members>
-        <members>Privacy_Shield_Templates</members>
-        <members>Privacy_Shield_Templates/Export_gov_New_Non_Register_Case_Comment_Notification_Email</members>
-        <members>Privacy_Shield_Templates/PS_Application_Approved</members>
-        <members>Privacy_Shield_Templates/PS_Case_Closure_Notification_Template</members>
-        <members>Privacy_Shield_Templates/PS_New_Case_Community_User_Notification_Email</members>
-        <members>Privacy_Shield_Templates/PS_New_Case_Non_Register_User_Notification_Email</members>
-        <members>Privacy_Shield_Templates/PS_New_Community_User_Case_Comment_Notification_Email</members>
-        <members>Privacy_Shield_Templates/PS_New_Non_Register_User_Case_Comment_Notification_Email</members>
-        <members>Privacy_Shield_Templates/PS_PS_Participation_Case_Assignment_Alert</members>
-        <members>Privacy_Shield_Templates/PS_Payment_Receipt</members>
-        <members>Privacy_Shield_Templates/PS_Payment_Received</members>
-        <members>Privacy_Shield_Templates/PS_Payment_Refunded</members>
-        <members>Privacy_Shield_Templates/PS_User_Notification_New_Case</members>
-        <members>Privacy_Shield_Templates/Payment_Failure_Application_Submitted_VF</members>
-        <members>Privacy_Shield_Templates/Privacy_Shield_Payment_Certification_Failure</members>
-        <members>Privacy_Shield_Templates/Privacy_Shield_Payment_Success_and_Application_Submitted</members>
-        <members>Privacy_Shield_Templates/Privacy_Shield_ReCertification_Due_in_1_Month</members>
-        <members>Privacy_Shield_Templates/Privacy_Shield_ReCertification_Due_in_2_Weeks</members>
-        <members>Privacy_Shield_Templates/Refund_Template</members>
-        <members>Privacy_Shield_Templates/Stopfakes_New_Non_Register_Case_Comment_Notification_Email</members>
-        <members>Privacy_Shield_Templates/Trade_Community_PS_Welcome1</members>
-        <members>Privacy_Shield_Templates/Trade_Community_Registration_Dynamic</members>
-        <members>Privacy_Shield_Templates/demo_for_shafi</members>
-        <members>Tier_3_Salesforce_Support</members>
-        <members>Tier_3_Salesforce_Support/Salesforce_Support_Request_Alert</members>
-        <members>Tier_3_Salesforce_Support/Salesforce_Support_Request_Notification</members>
-        <members>Trade_Community</members>
-        <members>Trade_Community/Trade_Community_New_Case_Comment</members>
-        <members>Trade_Community/Trade_Community_New_Case_Email_for_PS_Team</members>
-        <members>Trade_Community/Trade_Community_Password_Reset</members>
-        <members>Trade_Community/Trade_Community_Registration</members>
-        <members>Trade_Community/Trade_Community_Welcome</members>
-        <members>iContactforSF__iContact_Templates</members>
-        <members>iContactforSF__iContact_Templates/Chinese_Culture</members>
-        <members>iContactforSF__iContact_Templates/Jorge_Arce_Web_Dev_201</members>
-        <members>iContactforSF__iContact_Templates/July_Template_3</members>
-        <members>iContactforSF__iContact_Templates/Template_for_Training</members>
-        <members>iContactforSF__iContact_Templates/Trade_Mission_to_Canada</members>
-        <members>unfiled$public</members>
-        <members>unfiled$public/AcceptanceEmail</members>
-        <members>unfiled$public/Agile_Accelerator_Task_Assignment</members>
-        <members>unfiled$public/Atom_Approval_Request_Notification</members>
-        <members>unfiled$public/Atom_Rejection_Notification</members>
-        <members>unfiled$public/Canada_Trade_Mission</members>
-        <members>unfiled$public/Case_CA_Complete_send</members>
-        <members>unfiled$public/Case_Comment_Notification_Email</members>
-        <members>unfiled$public/CommunityChangePasswordEmailTemplate</members>
-        <members>unfiled$public/CommunityForgotPasswordEmailTemplate</members>
-        <members>unfiled$public/CommunityWelcomeEmailTemplate</members>
-        <members>unfiled$public/ContactFollowUpSAMPLE</members>
-        <members>unfiled$public/DeactivationEmail</members>
-        <members>unfiled$public/Export_gov_New_Case_Non_Register_User_Notification_Email</members>
-        <members>unfiled$public/Instructions_for_Login_and_SFO</members>
-        <members>unfiled$public/Instructions_for_Login_and_SFO_New</members>
-        <members>unfiled$public/InvitationEmail</members>
-        <members>unfiled$public/LeadsNewassignmentnotificationSAMPLE</members>
-        <members>unfiled$public/LeadsWebtoLeademailresponseSAMPLE</members>
-        <members>unfiled$public/Organization_Validated</members>
-        <members>unfiled$public/RejectionEmail</members>
-        <members>unfiled$public/Report_a_Trade_Barrier_Case_Notification</members>
-        <members>unfiled$public/SUPPORTCaseResponsewithSolutionSAMPLE</members>
-        <members>unfiled$public/SUPPORTCaseescalationnotificationSAMPLE</members>
-        <members>unfiled$public/SUPPORTNewassignmentnotificationSAMPLE</members>
-        <members>unfiled$public/SUPPORTSelfServiceNewCommentNotificationSAMPLE</members>
-        <members>unfiled$public/SUPPORTSelfServiceNewUserLoginInformationSAMPLE</members>
-        <members>unfiled$public/SUPPORTSelfServiceResetPasswordSAMPLE</members>
-        <members>unfiled$public/SUPPORTWebtoCaseemailresponseSAMPLE</members>
-        <members>unfiled$public/Send_SFO_Instructions</members>
-        <members>unfiled$public/Stopfakes_New_Case_Non_Register_User_Notification_Email</members>
-        <members>unfiled$public/Survey_Message_Low_Score_10</members>
-        <members>unfiled$public/UpdateConnEmail</members>
-        <members>unfiled$public/Verification_Merge</members>
-        <members>unfiled$public/WIN_FL_Approved</members>
-        <members>unfiled$public/WIN_FL_Rejected</members>
-        <members>unfiled$public/WIN_First_Line_Approval</members>
-        <members>unfiled$public/WIN_verification_Advocacy</members>
-        <members>unfiled$public/WIN_verification_Comm_Diplomacy</members>
-        <members>unfiled$public/WIN_verification_Invest_Promo</members>
-        <members>unfiled$public/WIN_verification_template_v2</members>
+        <members>*</members>
+        <name>Document</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>EmailTemplate</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>FlexiPage</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Flow</name>
     </types>
     <types>
         <members>*</members>
@@ -243,6 +102,10 @@
     </types>
     <types>
         <members>*</members>
+        <name>Network</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>PermissionSet</name>
     </types>
     <types>
@@ -258,10 +121,7 @@
         <name>QuickAction</name>
     </types>
     <types>
-        <members>Pay_Gov</members>
-        <members>SelfLink</members>
-        <members>dlrs_mdapi</members>
-        <members>requestb</members>
+        <members>*</members>
         <name>RemoteSiteSetting</name>
     </types>
     <types>
@@ -275,6 +135,10 @@
     <types>
         <members>*</members>
         <name>SharingSet</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>SiteDotCom</name>
     </types>
     <types>
         <members>*</members>

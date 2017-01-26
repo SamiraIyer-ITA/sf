@@ -88,10 +88,6 @@
                 <behavior>Edit</behavior>
                 <field>Does_the_Review_Involve_CCR__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Changed_Circumstances_Review_Involvement__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>

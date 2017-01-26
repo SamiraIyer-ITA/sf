@@ -111,11 +111,6 @@
         <name>Case_Briefs_Due__c</name>
     </fields>
     <fields>
-        <help><!-- Changed Circumstances Review Involvement --></help>
-        <label><!-- Changed Circumstances Review Involvement --></label>
-        <name>Changed_Circumstances_Review_Involvement__c</name>
-    </fields>
-    <fields>
         <help><!-- Will you use CBP data, Quantity and Value Questionnaires or Other for respondent selection? --></help>
         <label><!-- Choose Following Respondent Selection --></label>
         <name>Choose_Following_Respondent_Selection__c</name>
@@ -446,7 +441,7 @@
         <name>Receive_Request_to_Consider_Sampling__c</name>
     </fields>
     <fields>
-        <label><!-- Receive an Injunction or nn Litigation? --></label>
+        <label><!-- Receive an Injunction or in Litigation? --></label>
         <name>Receive_an_Injunction_or_in_Litigation__c</name>
     </fields>
     <fields>
@@ -845,12 +840,36 @@
     <layouts>
         <layout>Scope Inquiry</layout>
         <sections>
+            <label><!-- Administrative --></label>
+            <section>Administrative</section>
+        </sections>
+        <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
         </sections>
         <sections>
+            <label><!-- Formal Scope - Final Phase --></label>
+            <section>Formal Scope - Final Phase</section>
+        </sections>
+        <sections>
+            <label><!-- Formal Scope - Preliminary Phase --></label>
+            <section>Formal Scope - Preliminary Phase</section>
+        </sections>
+        <sections>
+            <label><!-- Informal Scope Procceding --></label>
+            <section>Informal Scope Procceding</section>
+        </sections>
+        <sections>
             <label><!-- Scope Inquiry Information --></label>
             <section>Scope Inquiry Information</section>
+        </sections>
+        <sections>
+            <label><!-- Scope Results --></label>
+            <section>Scope Results</section>
+        </sections>
+        <sections>
+            <label><!-- Status --></label>
+            <section>Status</section>
         </sections>
     </layouts>
     <layouts>
