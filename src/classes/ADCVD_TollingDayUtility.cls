@@ -82,7 +82,10 @@ public without sharing class ADCVD_TollingDayUtility {
 	/* method returns true if date entered is a weekday */
 	@TestVisible private static Boolean isWeekday(Date dt) {
 		//dayOfWeek is Sun, Mon, Tue, etc.
-		Time myTime = Time.newInstance(-4, 0, 0, 0);
+		//get timezone offset of user;
+		integer offset = UserInfo.getTimeZone().getOffset(DateTime.newInstance(dt.year(),dt.month(),dt.day(),0,0,0));
+		//offest time by 
+		Time myTime = Time.newInstance(0, 0, 0, offset);
 		DateTime dateTimeToCompare = datetime.newInstanceGmt(dt, mytime);
 		String dayOfWeek = dateTimeToCompare.format('E');
 		if(dayOfWeek == 'Sun' || dayOfWeek == 'Sat') {
@@ -90,7 +93,6 @@ public without sharing class ADCVD_TollingDayUtility {
 		} else {
 		    return true;
 		}
-
 	}
 	/* method returns true if date entered is a holiday */
 	@TestVisible private static Boolean isHoliday(Date dt) {
