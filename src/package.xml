@@ -1,156 +1,930 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>*</members>
+        <members>AttachmentWriterController</members>
+        <members>AttachmentWriterControllerTest</members>
+        <members>BatchJobExecutionTest</members>
+        <members>CSPArticles</members>
+        <members>CaseList</members>
+        <members>ChangePasswordController</members>
+        <members>ChangePasswordControllerTest</members>
+        <members>CommunitiesLandingController</members>
+        <members>CommunitiesLandingControllerTest</members>
+        <members>CommunitiesLoginController</members>
+        <members>CommunitiesLoginControllerTest</members>
+        <members>CommunitiesSelfRegConfirmController</members>
+        <members>CommunitiesSelfRegConfirmControllerTest</members>
+        <members>CommunitiesSelfRegController</members>
+        <members>CommunitiesSelfRegControllerTest</members>
+        <members>ConnectionHelper</members>
+        <members>CreateTaxonomyOnUserHelper</members>
+        <members>DB_Custom_Case_Contributor_c</members>
+        <members>DB_Custom_Industry_c</members>
+        <members>DB_Custom_RelatedCountries_c</members>
+        <members>DB_Custom_Related_Cases_and_Orgs_c</members>
+        <members>DB_Custom_WIN_Contributor_c</members>
+        <members>ExceptionHandler</members>
+        <members>ForgotPasswordController</members>
+        <members>ForgotPasswordControllerTest</members>
+        <members>Group_Controller</members>
+        <members>Insight</members>
+        <members>InsightsController</members>
+        <members>Landing_Controller</members>
+        <members>MyOrdersComponentController</members>
+        <members>MyOrdersPageController</members>
+        <members>MyProfilePageController</members>
+        <members>MyProfilePageControllerTest</members>
+        <members>Opportunity_Events_Controller</members>
+        <members>Order_Events_Controller</members>
+        <members>PageBuilder_Controller</members>
+        <members>PageMessaging</members>
+        <members>Page_Events_Controller</members>
+        <members>Page_Section_Controller</members>
+        <members>PayGovTCSOnline</members>
+        <members>PayGovTCSSingleQueryService</members>
+        <members>PayGovTCSSingleService</members>
+        <members>Payment</members>
+        <members>PaymentConfirmationController</members>
+        <members>PaymentController</members>
+        <members>PaymentDetailsController</members>
+        <members>PaymentTriggerHandler</members>
+        <members>PrivacyPolicyComponentController</members>
+        <members>Profile_Controller</members>
+        <members>PublishArticles</members>
+        <members>REST_CONTENT</members>
+        <members>RefundController</members>
+        <members>SafeDMLHandler</members>
+        <members>SeriesType_Controller</members>
+        <members>SiteLoginController</members>
+        <members>SiteLoginControllerTest</members>
+        <members>SiteMap_Controller</members>
+        <members>SiteRegisterController</members>
+        <members>SiteRegisterControllerTest</members>
+        <members>Site_Template_Controller</members>
+        <members>TEST_CMS</members>
+        <members>TEST_Chatter_Pages</members>
+        <members>TEST_ECOMM</members>
+        <members>TEST_Insight</members>
+        <members>TEST_InsightsController</members>
+        <members>TEST_Knowledge_Management</members>
+        <members>TEST_Knowledge_Management2</members>
+        <members>TEST_MyOrders</members>
+        <members>TEST_PayGovSingleQueryAchMockImpl</members>
+        <members>TEST_PayGovSingleQueryCCMockImpl</members>
+        <members>TEST_PayGovTCSOnlineCallout</members>
+        <members>TEST_PayGovTCSOnlineCalloutTest</members>
+        <members>TEST_PayGovTCSOnlineMockImpl</members>
+        <members>TEST_PayGovTCSSingleQueryCallout</members>
+        <members>TEST_PayGovTCSSingleQueryCalloutTest</members>
+        <members>TEST_PayGovTCSSingleQueryMockImpl</members>
+        <members>TEST_PayGovTCSSingleServiceCallout</members>
+        <members>TEST_PayGovTCSSingleServiceCalloutTest</members>
+        <members>TEST_PayGovTCSSingleServiceMockImpl</members>
+        <members>TEST_PaymentDetailsController</members>
+        <members>TEST_PaymentDetailsControllerCallout</members>
+        <members>TEST_PaymentDetailsControllerMockImpl</members>
+        <members>TEST_PaymentTriggerHandler</members>
+        <members>TEST_PrivacyPolicyComponentController</members>
+        <members>TEST_URLRewriter</members>
+        <members>TEST_activitytrigger</members>
+        <members>TestCreateHierarchy</members>
+        <members>TestUtils</members>
+        <members>Test_CaseList</members>
+        <members>Test_PayGovWsdl</members>
+        <members>Test_PaymentController</members>
+        <members>Test_REST_Content</members>
+        <members>Test_caseEmailHandler</members>
+        <members>Test_teamController</members>
+        <members>Test_tradeRegistration_Controller</members>
+        <members>USTaxIdFldCleanTest</members>
+        <members>UnpublishArticles</members>
+        <members>UpdateCCDLookupIdTest</members>
+        <members>UserTriggerHelper</members>
+        <members>UserTriggerTest</members>
+        <members>WebServiceMockImpl</members>
+        <members>activityTriggerHandler</members>
+        <members>article_controller</members>
+        <members>carouselController</members>
+        <members>caseEmailHandler</members>
+        <members>dlrs_IndustryTest</members>
+        <members>dlrs_RelatedCountriesTest</members>
+        <members>dlrs_Related_Cases_and_OrgsTest</members>
+        <members>dlrs_WIN_ContributorTest</members>
+        <members>file_upload_controller</members>
+        <members>imageManager_Controller</members>
+        <members>km_atom_controller</members>
+        <members>mccdBatchProcessTest</members>
+        <members>orderTriggerTest</members>
+        <members>participant_search_controller</members>
+        <members>print_article_controller</members>
+        <members>ps_controller</members>
+        <members>redirect_controller</members>
+        <members>runOnce</members>
+        <members>san_test</members>
+        <members>sendToConnection</members>
+        <members>teamController</members>
+        <members>tradeRegistration_Controller</members>
+        <members>urlRewriter</members>
         <name>ApexClass</name>
     </types>
     <types>
-        <members>*</members>
+        <members>EditInsightModal</members>
+        <members>InsightModal</members>
+        <members>MyOrdersComponent</members>
+        <members>NewInsightModal</members>
+        <members>PrivacyPolicyComponent</members>
+        <members>PrivacyPolicyEditComponent</members>
+        <members>Series_List</members>
+        <members>SiteFooter</members>
+        <members>SiteHeader</members>
+        <members>SiteLogin</members>
+        <members>boardSave</members>
+        <members>boards_home</members>
+        <members>communityCase</members>
         <name>ApexComponent</name>
     </types>
     <types>
-        <members>*</members>
+        <members>AnswersHome</members>
+        <members>BandwidthExceeded</members>
+        <members>ChangePassword</members>
+        <members>CommunitiesLanding</members>
+        <members>CommunitiesLogin</members>
+        <members>CommunitiesSelfReg</members>
+        <members>CommunitiesSelfRegConfirm</members>
+        <members>CommunitiesTemplate</members>
+        <members>Exception</members>
+        <members>FAQ</members>
+        <members>FileNotFound</members>
+        <members>ForgotPassword</members>
+        <members>ForgotPasswordConfirm</members>
+        <members>IPR_Assistance</members>
+        <members>IPR_Assitance</members>
+        <members>IdeasHome</members>
+        <members>InMaintenance</members>
+        <members>Insights</members>
+        <members>MyOrders</members>
+        <members>MyProfilePage</members>
+        <members>MyTrackedOrgs</members>
+        <members>OrderAttachmentWriter</members>
+        <members>PageBuilder</members>
+        <members>Payment</members>
+        <members>PaymentConfirmation</members>
+        <members>PaymentDetails</members>
+        <members>PaymentRefund</members>
+        <members>Registration</members>
+        <members>RegistrationConfirmation</members>
+        <members>Robots</members>
+        <members>SiteLogin</members>
+        <members>SiteRegister</members>
+        <members>SiteRegisterConfirm</members>
+        <members>SiteTemplate</members>
+        <members>Site_Template</members>
+        <members>StdExceptionTemplate</members>
+        <members>TradeEvent</members>
+        <members>Unauthorized</members>
+        <members>UnderConstruction</members>
+        <members>about</members>
+        <members>article</members>
+        <members>article2</members>
+        <members>assistance</members>
+        <members>carouselManager</members>
+        <members>community</members>
+        <members>consolidated_screening_list</members>
+        <members>csl_search</members>
+        <members>dashboard</members>
+        <members>data</members>
+        <members>federal_incentives</members>
+        <members>file_upload</members>
+        <members>fta_tariff_search</members>
+        <members>group</members>
+        <members>imageManager</members>
+        <members>ipr_training</members>
+        <members>landing</members>
+        <members>mrlsearch</members>
+        <members>my_boards</members>
+        <members>page</members>
+        <members>pageforbidden</members>
+        <members>pagenotfound</members>
+        <members>participant</members>
+        <members>participant_search</members>
+        <members>printarticle</members>
+        <members>privacyshield_search</members>
+        <members>ps</members>
+        <members>redirect</members>
+        <members>search</members>
+        <members>search_export</members>
+        <members>sitemap</members>
+        <members>stateincentives</members>
+        <members>status</members>
+        <members>stopfakes_search</members>
+        <members>susa_events</members>
+        <members>susa_past_events</members>
+        <members>susa_reading_room</members>
+        <members>susa_social_media</members>
+        <members>team</members>
+        <members>tpp_rates</members>
         <name>ApexPage</name>
     </types>
     <types>
-        <members>*</members>
+        <members>BatchJobExecution</members>
+        <members>CVers</members>
+        <members>CreateTaxonomyOnUser</members>
+        <members>DB_Custom_Industry_c</members>
+        <members>DB_Custom_RelatedCountries_c</members>
+        <members>DB_Custom_Related_Cases_and_Orgs_c</members>
+        <members>DB_Custom_WIN_Contributor_c</members>
+        <members>GetContactPhone</members>
+        <members>Opportunity_Events</members>
+        <members>Order_Events</members>
+        <members>Page_Evets</members>
+        <members>Payment_Events</members>
+        <members>SimpleCaseTrigger</members>
+        <members>USTaxIdFldClean</members>
+        <members>UpdateCCDLookupId</members>
+        <members>UserTrigger</members>
+        <members>activity</members>
+        <members>caseEmail</members>
+        <members>dlrs_IndustryTrigger</members>
+        <members>dlrs_RelatedCountriesTrigger</members>
+        <members>dlrs_WIN_ContributorTrigger</members>
         <name>ApexTrigger</name>
     </types>
     <types>
-        <members>*</members>
-        <name>AppMenu</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ApprovalProcess</name>
-    </types>
-    <types>
-        <members>Case.Salesforce Support Case Assignment</members>
-        <name>AssignmentRule</name>
-    </types>
-    <types>
-        <members>Case.Salesforce Support Case</members>
-        <name>AutoResponseRule</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Community</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ConnectedApp</name>
-    </types>
-    <types>
-        <members>*</members>
+        <members>AD_CVD</members>
+        <members>AD_CVD_Lightning</members>
+        <members>API_Partners</members>
+        <members>ITA_CRM</members>
+        <members>Knowledge_Management</members>
+        <members>Web</members>
+        <members>eCommerce</members>
+        <members>standard__AppLauncher</members>
+        <members>standard__Community</members>
+        <members>standard__DataAssessment</members>
+        <members>standard__LightningSales</members>
+        <members>standard__LightningSalesConsole</members>
+        <members>standard__LightningService</members>
+        <members>standard__Marketing</members>
+        <members>standard__Platform</members>
+        <members>standard__Sales</members>
+        <members>standard__Service</members>
+        <members>standard__ServiceConsole</members>
         <name>CustomApplication</name>
     </types>
     <types>
-        <members>*</members>
-        <name>CustomLabels</name>
-    </types>
-    <types>
-        <members>*</members>
+        <members>ADCVD_Order__c</members>
+        <members>Account</members>
+        <members>AccountCleanInfo</members>
+        <members>AccountContactRole</members>
+        <members>Activity</members>
+        <members>Artifact__c</members>
+        <members>Asset</members>
+        <members>AssistantProgress</members>
+        <members>BatchJobScheduler__c</members>
+        <members>BatchTriggerFlag__c</members>
+        <members>Campaign</members>
+        <members>CampaignMember</members>
+        <members>Carousel_Item__c</members>
+        <members>Case</members>
+        <members>CaseContactRole</members>
+        <members>Case_Contributor__c</members>
+        <members>Case__c</members>
+        <members>CertificationPricePoints__c</members>
+        <members>Chapter_Section__c</members>
+        <members>Chapter__c</members>
+        <members>Clean_URL__c</members>
+        <members>Contact</members>
+        <members>ContactCleanInfo</members>
+        <members>ContentVersion</members>
+        <members>Content_Container__c</members>
+        <members>Content_Override__c</members>
+        <members>Content_Version__c</members>
+        <members>Content__c</members>
+        <members>Contract</members>
+        <members>ContractContactRole</members>
+        <members>Covered_Entity__c</members>
+        <members>DandBCompany</members>
+        <members>Decision_Log__c</members>
+        <members>Department_Taxonomy__c</members>
+        <members>DuplicateRecordItem</members>
+        <members>DuplicateRecordSet</members>
+        <members>EmailMessage</members>
+        <members>Event</members>
+        <members>FAQ__kav</members>
+        <members>FAQlegacy__kav</members>
+        <members>Federal_Register__c</members>
+        <members>FeedItem</members>
+        <members>ForecastingCategoryMapping</members>
+        <members>Framework__c</members>
+        <members>Icon__c</members>
+        <members>Idea</members>
+        <members>Image__c</members>
+        <members>Inactive_Period__c</members>
+        <members>Inactive_Reason__c</members>
+        <members>Industry__c</members>
+        <members>Insight_Atom__c</members>
+        <members>Insight_Chapter__c</members>
+        <members>Insight__c</members>
+        <members>Investigation__c</members>
+        <members>Issue__c</members>
+        <members>KnowledgeMap__c</members>
+        <members>KnowledgeSearch__c</members>
+        <members>Lead</members>
+        <members>LeadCleanInfo</members>
+        <members>Level__c</members>
+        <members>LinkedArticle</members>
+        <members>Litigation_Respondent__c</members>
+        <members>Litigation__c</members>
+        <members>Macro</members>
+        <members>MacroAction</members>
+        <members>MacroInstruction</members>
+        <members>Market_Insight__kav</members>
+        <members>Master_CongressionalDistrict__c</members>
+        <members>My_Profile_Option__c</members>
+        <members>Navigation_Group__c</members>
+        <members>Navigation_Link__c</members>
+        <members>Opportunity</members>
+        <members>OpportunityCompetitor</members>
+        <members>OpportunityContactRole</members>
+        <members>OpportunityLineItem</members>
+        <members>Order</members>
+        <members>OrderItem</members>
+        <members>Page_Content__c</members>
+        <members>Page__c</members>
+        <members>Participant_Contact__c</members>
+        <members>Participant__c</members>
+        <members>Participation__c</members>
+        <members>PartnerRole</members>
+        <members>PaymentSettings__c</members>
+        <members>Payment__c</members>
+        <members>Petition__c</members>
+        <members>Petitioner__c</members>
+        <members>Platform__kav</members>
+        <members>Pricebook2</members>
+        <members>PricebookEntry</members>
+        <members>Product2</members>
+        <members>Program__c</members>
+        <members>Publication_Template__c</members>
+        <members>Refund__c</members>
+        <members>RelatedCountries__c</members>
+        <members>Related_Cases_and_Orgs__c</members>
+        <members>Renewing_Product__c</members>
+        <members>Respondent__c</members>
+        <members>Row__c</members>
+        <members>Section__c</members>
+        <members>Segment__c</members>
+        <members>Series__c</members>
+        <members>Site</members>
+        <members>Site__c</members>
+        <members>SocialPersona</members>
+        <members>SocialPost</members>
+        <members>Social_Icons__c</members>
+        <members>Solution</members>
+        <members>State_Report__kav</members>
+        <members>StreamingChannel</members>
+        <members>Survey_Result__c</members>
+        <members>Suspension_Agreement__c</members>
+        <members>Task</members>
+        <members>Template_Page_Content__c</members>
+        <members>Template_Page__c</members>
+        <members>Template_Row__c</members>
+        <members>Territory2</members>
+        <members>Territory2Model</members>
+        <members>Third_Party_Master_List__c</members>
+        <members>Third_Party__c</members>
+        <members>Top_Markets__kav</members>
+        <members>Trade_Agreement__kav</members>
+        <members>URL__c</members>
+        <members>User</members>
+        <members>UserProvisioningRequest</members>
+        <members>UserTerritory2Association</members>
+        <members>WIN_Contributor__c</members>
+        <members>WIN__c</members>
         <name>CustomObject</name>
     </types>
     <types>
-        <members>*</members>
+        <members>ADCVD_Order__c-en_US</members>
+        <members>Account-en_US</members>
+        <members>Artifact__c-en_US</members>
+        <members>Basic_Guide_to_Exporting__kav-en_US</members>
+        <members>BatchJobScheduler__c-en_US</members>
+        <members>BatchTriggerFlag__c-en_US</members>
+        <members>CRMfusionDBR101__Account_Name_Filter__c-en_US</members>
+        <members>CRMfusionDBR101__AutoConvert_Mapping__c-en_US</members>
+        <members>CRMfusionDBR101__AutoConvert_Setting__c-en_US</members>
+        <members>CRMfusionDBR101__AutoMerge_Mapping__c-en_US</members>
+        <members>CRMfusionDBR101__AutoMerge_Setting__c-en_US</members>
+        <members>CRMfusionDBR101__Batch_Key_Builder_Data__c-en_US</members>
+        <members>CRMfusionDBR101__Block_Bypass__c-en_US</members>
+        <members>CRMfusionDBR101__Convert_Display_Field__c-en_US</members>
+        <members>CRMfusionDBR101__Country_Mapping__c-en_US</members>
+        <members>CRMfusionDBR101__Duplicate_Warning__c-en_US</members>
+        <members>CRMfusionDBR101__FirstName_Mapping__c-en_US</members>
+        <members>CRMfusionDBR101__Fuzzy_Rule__c-en_US</members>
+        <members>CRMfusionDBR101__General_Setting__c-en_US</members>
+        <members>CRMfusionDBR101__Potential_Duplicate__c-en_US</members>
+        <members>CRMfusionDBR101__Scenario_Filter__c-en_US</members>
+        <members>CRMfusionDBR101__Scenario_Key__c-en_US</members>
+        <members>CRMfusionDBR101__Scenario_Link__c-en_US</members>
+        <members>CRMfusionDBR101__Scenario_Rule__c-en_US</members>
+        <members>CRMfusionDBR101__Scenario_Target_Filter__c-en_US</members>
+        <members>CRMfusionDBR101__Scenario__c-en_US</members>
+        <members>CRMfusionDBR101__Setting__c-en_US</members>
+        <members>CRMfusionDBR101__State_Mapping__c-en_US</members>
+        <members>CRMfusionDBR101__Web_Lead_Source__c-en_US</members>
+        <members>Carousel_Item__c-en_US</members>
+        <members>Case-en_US</members>
+        <members>Case_Contributor__c-en_US</members>
+        <members>Case__c-en_US</members>
+        <members>CertificationPricePoints__c-en_US</members>
+        <members>Chapter_Section__c-en_US</members>
+        <members>Chapter__c-en_US</members>
+        <members>Clean_URL__c-en_US</members>
+        <members>Contact-en_US</members>
+        <members>Content_Container__c-en_US</members>
+        <members>Content_Override__c-en_US</members>
+        <members>Content_Version__c-en_US</members>
+        <members>Content__c-en_US</members>
+        <members>Covered_Entity__c-en_US</members>
+        <members>Decision_Log__c-en_US</members>
+        <members>Department_Taxonomy__c-en_US</members>
+        <members>Federal_Register__c-en_US</members>
+        <members>Framework__c-en_US</members>
+        <members>Icon__c-en_US</members>
+        <members>Image__c-en_US</members>
+        <members>Inactive_Period__c-en_US</members>
+        <members>Inactive_Reason__c-en_US</members>
+        <members>Industry__c-en_US</members>
+        <members>Insight_Atom__c-en_US</members>
+        <members>Insight_Chapter__c-en_US</members>
+        <members>Insight__c-en_US</members>
+        <members>Investigation__c-en_US</members>
+        <members>Issue__c-en_US</members>
+        <members>KnowledgeMap__c-en_US</members>
+        <members>KnowledgeSearch__c-en_US</members>
+        <members>Lead-en_US</members>
+        <members>Level__c-en_US</members>
+        <members>Litigation_Respondent__c-en_US</members>
+        <members>Litigation__c-en_US</members>
+        <members>Master_CongressionalDistrict__c-en_US</members>
+        <members>My_Profile_Option__c-en_US</members>
+        <members>Navigation_Group__c-en_US</members>
+        <members>Navigation_Link__c-en_US</members>
+        <members>Page_Content__c-en_US</members>
+        <members>Page__c-en_US</members>
+        <members>Participant_Contact__c-en_US</members>
+        <members>Participant__c-en_US</members>
+        <members>Participation__c-en_US</members>
+        <members>PaymentSettings__c-en_US</members>
+        <members>Payment__c-en_US</members>
+        <members>Petition__c-en_US</members>
+        <members>Petitioner__c-en_US</members>
+        <members>Program__c-en_US</members>
+        <members>Publication_Template__c-en_US</members>
+        <members>Refund__c-en_US</members>
+        <members>RelatedCountries__c-en_US</members>
+        <members>Related_Cases_and_Orgs__c-en_US</members>
+        <members>Renewing_Product__c-en_US</members>
+        <members>Respondent__c-en_US</members>
+        <members>Row__c-en_US</members>
+        <members>Section__c-en_US</members>
+        <members>Segment__c-en_US</members>
+        <members>Series__c-en_US</members>
+        <members>Site__c-en_US</members>
+        <members>Social_Icons__c-en_US</members>
+        <members>Survey_Result__c-en_US</members>
+        <members>Suspension_Agreement__c-en_US</members>
+        <members>Template_Page_Content__c-en_US</members>
+        <members>Template_Page__c-en_US</members>
+        <members>Template_Row__c-en_US</members>
+        <members>Third_Party_Master_List__c-en_US</members>
+        <members>Third_Party__c-en_US</members>
+        <members>URL__c-en_US</members>
+        <members>WIN_Contributor__c-en_US</members>
+        <members>WIN__c-en_US</members>
+        <members>agf__ADM_Acceptance_Criterion__c-en_US</members>
+        <members>agf__ADM_Additional_Field__c-en_US</members>
+        <members>agf__ADM_Application_Approver__c-en_US</members>
+        <members>agf__ADM_Application__c-en_US</members>
+        <members>agf__ADM_Assignment_Rule__c-en_US</members>
+        <members>agf__ADM_Bookmark__c-en_US</members>
+        <members>agf__ADM_Build__c-en_US</members>
+        <members>agf__ADM_Burndown_Item__c-en_US</members>
+        <members>agf__ADM_Cache_Metadata__mdt-en_US</members>
+        <members>agf__ADM_Case__c-en_US</members>
+        <members>agf__ADM_Change_List__c-en_US</members>
+        <members>agf__ADM_Cloud__c-en_US</members>
+        <members>agf__ADM_Color__c-en_US</members>
+        <members>agf__ADM_Column_History__c-en_US</members>
+        <members>agf__ADM_Column_Status_Assignment__c-en_US</members>
+        <members>agf__ADM_Column__c-en_US</members>
+        <members>agf__ADM_Comment__c-en_US</members>
+        <members>agf__ADM_Copy_Log__c-en_US</members>
+        <members>agf__ADM_Coverage__c-en_US</members>
+        <members>agf__ADM_Deleted_Task__c-en_US</members>
+        <members>agf__ADM_Epic_Burndown_Item__c-en_US</members>
+        <members>agf__ADM_Epic__c-en_US</members>
+        <members>agf__ADM_Feature_Freeze_Exception_Request__c-en_US</members>
+        <members>agf__ADM_Feature_Freeze_Status__c-en_US</members>
+        <members>agf__ADM_Frequency__c-en_US</members>
+        <members>agf__ADM_GUS_Exception__c-en_US</members>
+        <members>agf__ADM_Goal__c-en_US</members>
+        <members>agf__ADM_Impact_Type__c-en_US</members>
+        <members>agf__ADM_Impact__c-en_US</members>
+        <members>agf__ADM_Investigation_Exception__c-en_US</members>
+        <members>agf__ADM_Key_Value_Properties__c-en_US</members>
+        <members>agf__ADM_Parent_Work__c-en_US</members>
+        <members>agf__ADM_Perforce_Connector__c-en_US</members>
+        <members>agf__ADM_Priority_Mapping__c-en_US</members>
+        <members>agf__ADM_Priority_Override__c-en_US</members>
+        <members>agf__ADM_Priority__c-en_US</members>
+        <members>agf__ADM_Product_Tag__c-en_US</members>
+        <members>agf__ADM_Release_Burndown_Item__c-en_US</members>
+        <members>agf__ADM_Release_Calendar__c-en_US</members>
+        <members>agf__ADM_Release_Event_Template__c-en_US</members>
+        <members>agf__ADM_Release_Event__c-en_US</members>
+        <members>agf__ADM_Release_Freeze_Status__c-en_US</members>
+        <members>agf__ADM_Release_Signoff__c-en_US</members>
+        <members>agf__ADM_Release_Stamp_Batch_ID__c-en_US</members>
+        <members>agf__ADM_Release_Stamp_Cache__c-en_US</members>
+        <members>agf__ADM_Release__c-en_US</members>
+        <members>agf__ADM_Released_In__c-en_US</members>
+        <members>agf__ADM_Scrum_Team_Cache__c-en_US</members>
+        <members>agf__ADM_Scrum_Team_Member__c-en_US</members>
+        <members>agf__ADM_Scrum_Team__c-en_US</members>
+        <members>agf__ADM_Security_Questionaire__c-en_US</members>
+        <members>agf__ADM_Severity_Type__c-en_US</members>
+        <members>agf__ADM_Severity__c-en_US</members>
+        <members>agf__ADM_Solution_Overview__c-en_US</members>
+        <members>agf__ADM_Sprint__c-en_US</members>
+        <members>agf__ADM_Tag_Assignment__c-en_US</members>
+        <members>agf__ADM_Task__c-en_US</members>
+        <members>agf__ADM_Team_Dependency__c-en_US</members>
+        <members>agf__ADM_Team_Release__c-en_US</members>
+        <members>agf__ADM_Theme_Assignment__c-en_US</members>
+        <members>agf__ADM_Theme__c-en_US</members>
+        <members>agf__ADM_Third_Party_Software__c-en_US</members>
+        <members>agf__ADM_Time_Off_Log__c-en_US</members>
+        <members>agf__ADM_Type__c-en_US</members>
+        <members>agf__ADM_User_Business_Hours__c-en_US</members>
+        <members>agf__ADM_Valid_GUS_Value__c-en_US</members>
+        <members>agf__ADM_Work_Cache__c-en_US</members>
+        <members>agf__ADM_Work_History__c-en_US</members>
+        <members>agf__ADM_Work_SLA_Response_Time__mdt-en_US</members>
+        <members>agf__ADM_Work_Status__c-en_US</members>
+        <members>agf__ADM_Work_Subscriber__c-en_US</members>
+        <members>agf__ADM_Work__c-en_US</members>
+        <members>agf__Environments_Order__c-en_US</members>
+        <members>agf__Headcount__c-en_US</members>
+        <members>agf__Locking_Record__c-en_US</members>
+        <members>agf__OMOpportunity__c-en_US</members>
+        <members>agf__QA_Answer__c-en_US</members>
+        <members>agf__QA_Comment__c-en_US</members>
+        <members>agf__QA_Default_Test_Case__c-en_US</members>
+        <members>agf__QA_ExecutionBug__c-en_US</members>
+        <members>agf__QA_FTest__c-en_US</members>
+        <members>agf__QA_Hierarchy__c-en_US</members>
+        <members>agf__QA_Question__c-en_US</members>
+        <members>agf__QA_Test_Case__c-en_US</members>
+        <members>agf__QA_Test_Execution__c-en_US</members>
+        <members>agf__QA_Test_Plan__c-en_US</members>
+        <members>agf__RCA__c-en_US</members>
+        <members>agf__Release_Signoff_Infrastructure__c-en_US</members>
+        <members>agf__Retrospective__c-en_US</members>
+        <members>agf__SLA_Violation__c-en_US</members>
+        <members>agf__WorkData__c-en_US</members>
+        <members>agf__eRelease_Request__c-en_US</members>
+        <members>dlrs__DeclarativeLookupRollupSummaries__c-en_US</members>
+        <members>dlrs__LookupChildAReallyReallyReallyBigBigName__c-en_US</members>
+        <members>dlrs__LookupChild__c-en_US</members>
+        <members>dlrs__LookupParent__c-en_US</members>
+        <members>dlrs__LookupRollupSummaryLog__c-en_US</members>
+        <members>dlrs__LookupRollupSummaryScheduleItems__c-en_US</members>
+        <members>dlrs__LookupRollupSummary__c-en_US</members>
+        <members>iContactforSF__iContact_API_Connection__c-en_US</members>
+        <members>iContactforSF__iContact_Clicked_Link__c-en_US</members>
+        <members>iContactforSF__iContact_Global_Statistic__c-en_US</members>
+        <members>iContactforSF__iContact_Message_Statistic__c-en_US</members>
+        <members>iContactforSF__iContact_Sent_Message__c-en_US</members>
+        <members>iContactforSF__iContact_Temp_Recipient__c-en_US</members>
         <name>CustomObjectTranslation</name>
     </types>
     <types>
-        <members>*</members>
-        <name>CustomPageWebLink</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>CustomSite</name>
-    </types>
-    <types>
-        <members>*</members>
+        <members>ADCVD_Order__c</members>
+        <members>About_ITA</members>
+        <members>BatchJobScheduler__c</members>
+        <members>Boards</members>
+        <members>Carousel_Item__c</members>
+        <members>Case_Contributor__c</members>
+        <members>Content_Container__c</members>
+        <members>Content_Version__c</members>
+        <members>Content__c</members>
+        <members>Decision_Log__c</members>
+        <members>Department_Taxonomy__c</members>
+        <members>Home</members>
+        <members>Icon__c</members>
+        <members>Image_Manager</members>
+        <members>Image__c</members>
+        <members>Industry__c</members>
+        <members>Investigation__c</members>
+        <members>Litigation__c</members>
+        <members>Master_CongressionalDistrict__c</members>
+        <members>Navigation_Group__c</members>
+        <members>Page_Builder</members>
+        <members>Page__c</members>
+        <members>Participant__c</members>
+        <members>Participation__c</members>
+        <members>Payment__c</members>
+        <members>Petition__c</members>
+        <members>Program__c</members>
+        <members>Publication_Template__c</members>
+        <members>RelatedCountries__c</members>
+        <members>Section__c</members>
+        <members>Segment__c</members>
+        <members>Series__c</members>
+        <members>Site__c</members>
+        <members>Survey_Result__c</members>
+        <members>Suspension_Agreement__c</members>
+        <members>Template_Page__c</members>
+        <members>Third_Party_Master_List__c</members>
+        <members>WIN_Contributor__c</members>
+        <members>WIN__c</members>
+        <members>iContact_MessageBuilder</members>
         <name>CustomTab</name>
     </types>
     <types>
-        <members>*</members>
-        <name>DataCategoryGroup</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Document</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>EmailTemplate</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Group</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>HomePageComponent</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>HomePageLayout</name>
-    </types>
-    <types>
-        <members>*</members>
+        <members>ADCVD_Order__c-Order</members>
+        <members>Account-Account Layout</members>
+        <members>Account-Individual Account</members>
+        <members>Account-Partner Account Layout</members>
+        <members>Artifact__c-Artifact Layout</members>
+        <members>Asset-Asset Layout</members>
+        <members>BatchJobScheduler__c-BatchJobScheduler Layout</members>
+        <members>BatchJobScheduler__c-Cong-County Batch Job Layout</members>
+        <members>Campaign-Campaign Layout</members>
+        <members>CampaignMember-Campaign Member Page Layout</members>
+        <members>Carousel_Item__c-Carousel Item Layout</members>
+        <members>Case-Advocacy Cases</members>
+        <members>Case-Case Layout</members>
+        <members>Case-Commercial Diplomacy Cases</members>
+        <members>Case-Export Promotion Cases</members>
+        <members>Case-Feedback</members>
+        <members>Case-Investment Promotion Cases</members>
+        <members>Case-PA Case Create layout</members>
+        <members>Case-PS Assistance Layout</members>
+        <members>Case-PS Web Case</members>
+        <members>Case-Privacy Shield</members>
+        <members>Case-Record Type Holder Layout</members>
+        <members>Case-Salesforce Support Case Layout</members>
+        <members>CaseClose-Client Activities Closed</members>
+        <members>CaseClose-Close Case Layout</members>
+        <members>CaseClose-Close Salesforce Support Case Layout</members>
+        <members>CaseClose-ITA Cases Closed</members>
+        <members>CaseClose-PS%3A Assistance Close Case Layout</members>
+        <members>Case_Contributor__c-Case Contributor Layout</members>
+        <members>Chapter_Section__c-Chapter Section Layout</members>
+        <members>Chapter__c-Chapter Layout</members>
+        <members>Clean_URL__c-Clean URL Layout</members>
+        <members>CollaborationGroup-Group Layout</members>
+        <members>Contact-Admin Layout</members>
+        <members>Contact-ITA Contact Layout</members>
+        <members>Contact-Partner Contact Layout</members>
+        <members>Content_Container__c-Content Container Layout</members>
+        <members>Content_Override__c-Content Override Layout</members>
+        <members>Content_Version__c-Content Version Layout</members>
+        <members>Content_Version__c-Published Content Version Layout</members>
+        <members>Content__c-API</members>
+        <members>Content__c-Carousel</members>
+        <members>Content__c-Content Layout</members>
+        <members>Content__c-Draft Generic Content Layout</members>
+        <members>Content__c-Icon Layout</members>
+        <members>Content__c-Series Layout</members>
+        <members>Content__c-Video</members>
+        <members>Contract-Contract Layout</members>
+        <members>Covered_Entity__c-Covered Entity Layout</members>
+        <members>DandBCompany-D%26B Company Layout</members>
+        <members>Decision_Log__c-Decision Layout</members>
+        <members>Department_Taxonomy__c-Department Taxonomy Layout</members>
+        <members>DuplicateRecordItem-Duplicate Record Item Layout</members>
+        <members>DuplicateRecordSet-Duplicate Record Set Layout</members>
+        <members>EmailMessage-Email Message Layout - Email-to-Case</members>
+        <members>Event-Event Layout</members>
+        <members>Federal_Register__c-Federal Register Layout</members>
+        <members>FeedItem-Feed Item Layout</members>
+        <members>Framework__c-Framework Layout</members>
+        <members>Global-Global Layout</members>
+        <members>Icon__c-Icon Layout</members>
+        <members>Idea-Idea Layout</members>
+        <members>Image__c-Image Layout</members>
+        <members>Inactive_Period__c-Inactive Period Layout</members>
+        <members>Inactive_Reason__c-Inactive Status Reason Layout</members>
+        <members>Industry__c-Industry Layout</members>
+        <members>Industry__c-Participant Layout</members>
+        <members>Industry__c-Taxonomy Layout</members>
+        <members>Insight_Atom__c-Insight Atom Layout</members>
+        <members>Insight_Chapter__c-Insight Chapter Layout</members>
+        <members>Insight__c-Insight Layout</members>
+        <members>Investigation__c-AD Investigation Layout</members>
+        <members>Investigation__c-CVD Investigation Layout</members>
+        <members>Issue__c-Issue Layout</members>
+        <members>Lead-Lead Layout</members>
+        <members>Lead-Partner Lead Layout</members>
+        <members>Level__c-Level Layout</members>
+        <members>Litigation_Respondent__c-Litigation Respondent Layout</members>
+        <members>Litigation__c-InternationalLitigation</members>
+        <members>Litigation__c-Remand</members>
+        <members>Macro-Macro Layout</members>
+        <members>Master_CongressionalDistrict__c-Master CongressionalDistrict Layout</members>
+        <members>My_Profile_Option__c-My Profile Option Layout</members>
+        <members>Navigation_Group__c-Navigation Group Layout</members>
+        <members>Navigation_Link__c-Navigation Link Layout</members>
+        <members>Navigation_Link__c-Navigation Link Layout - Section</members>
+        <members>ObjectTerritory2AssignmentRule-Object Territory Assignment Rule Layout</members>
+        <members>Opportunity-Data Customer Layout</members>
+        <members>Opportunity-Data Partner Layout</members>
+        <members>Opportunity-Opportunity Layout</members>
+        <members>OpportunityLineItem-Opportunity Product Layout</members>
+        <members>Order-Order Layout</members>
+        <members>OrderItem-Order Product Layout</members>
+        <members>Outlook-Demo publisher actions</members>
+        <members>Page_Content__c-Carousel Layout</members>
+        <members>Page_Content__c-Icon Element Layout</members>
+        <members>Page_Content__c-Row Content Layout</members>
+        <members>Page_Content__c-Search Layout</members>
+        <members>Page_Content__c-Series List Layout</members>
+        <members>Page_Content__c-Video Layout</members>
+        <members>Page__c-Generic Page</members>
+        <members>Participant_Contact__c-Participant Contact Layout</members>
+        <members>Participant__c-Participation Status Layout</members>
+        <members>Participation__c-Participation Layout</members>
+        <members>Payment__c-Payment Layout</members>
+        <members>Petition__c-Petition Layout</members>
+        <members>Petitioner__c-Petitioner Layout</members>
+        <members>Pricebook2-Price Book Layout</members>
+        <members>PricebookEntry-Price Book Entry</members>
+        <members>Product2-Product Layout</members>
+        <members>Program__c-Mission Layout</members>
+        <members>Publication_Template__c-Publication Template Layout</members>
+        <members>Publication_Template__c-Series Template Layout</members>
+        <members>Refund__c-Refund Layout</members>
+        <members>RelatedCountries__c-Countries Layout</members>
+        <members>RelatedCountries__c-Country Layout</members>
+        <members>Related_Cases_and_Orgs__c-Cases Associated to WIN Layout</members>
+        <members>Related_Cases_and_Orgs__c-Relate Case to WIN Layout</members>
+        <members>Renewing_Product__c-Renewing Product Layout</members>
+        <members>Respondent__c-Respondent Layout</members>
+        <members>Row__c-Row Layout</members>
+        <members>SearchPromotionRule-Promoted Search Term Layout</members>
+        <members>Section__c-Section Layout</members>
+        <members>Segment__c-Administrative Review</members>
+        <members>Segment__c-Anti-Circumvention Review</members>
+        <members>Segment__c-Changed Circumstances Review</members>
+        <members>Segment__c-Expedited Review</members>
+        <members>Segment__c-New Shipper Review</members>
+        <members>Segment__c-Scope Inquiry</members>
+        <members>Segment__c-Segment Layout</members>
+        <members>Segment__c-Sunset Review</members>
+        <members>Series__c-Series Layout</members>
+        <members>Site__c-Site Layout</members>
+        <members>Social_Icons__c-Social Icon Layout</members>
+        <members>Solution-Solution Layout</members>
+        <members>Survey_Result__c-Annual Survey Result Layout</members>
+        <members>Survey_Result__c-Transactional Survey Result Layout</members>
+        <members>Suspension_Agreement__c-Suspension Agreement Layout</members>
+        <members>Task-Task Layout</members>
+        <members>Template_Page_Content__c-_Page_Content Layout</members>
+        <members>Template_Page__c-_Page Layout</members>
+        <members>Template_Row__c-Row Layout</members>
+        <members>Third_Party_Master_List__c-Third Party Layout</members>
+        <members>Third_Party__c-Third Party Layout</members>
+        <members>URL__c-URL Layout</members>
+        <members>User-User Layout</members>
+        <members>UserAlt-User Profile Layout</members>
+        <members>UserAppMenuItem-Application Layout</members>
+        <members>WIN_Contributor__c-ITA POC Layout</members>
+        <members>WIN_Contributor__c-WIN Contributor Layout</members>
+        <members>WIN__c-Advocacy Locked Layout</members>
+        <members>WIN__c-Advocacy Open</members>
+        <members>WIN__c-Commercial Diplomacy Locked</members>
+        <members>WIN__c-Commercial Diplomacy Open</members>
+        <members>WIN__c-Export Promo Locked</members>
+        <members>WIN__c-Export Promo Open</members>
+        <members>WIN__c-Investment Promotion Locked</members>
+        <members>WIN__c-Investment Promotion Open</members>
+        <members>WIN__c-WIN Layout</members>
+        <members>WIN__c-WIN User Layout</members>
         <name>Layout</name>
     </types>
     <types>
-        <members>*</members>
-        <name>Letterhead</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Network</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>PermissionSet</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Profile</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Queue</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>QuickAction</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>RemoteSiteSetting</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Role</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Scontrol</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>SharingSet</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>SiteDotCom</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>StaticResource</name>
-    </types>
-    <types>
-        <members>*</members>
+        <members>ADCVD_Order__c</members>
+        <members>Account</members>
+        <members>Artifact__c</members>
+        <members>Asset</members>
+        <members>AssistantProgress</members>
+        <members>BatchJobScheduler__c</members>
+        <members>BatchTriggerFlag__c</members>
+        <members>Campaign</members>
+        <members>CampaignMember</members>
+        <members>Carousel_Item__c</members>
+        <members>Case</members>
+        <members>Case_Contributor__c</members>
+        <members>Case__c</members>
+        <members>CertificationPricePoints__c</members>
+        <members>Chapter_Section__c</members>
+        <members>Chapter__c</members>
+        <members>Clean_URL__c</members>
+        <members>Contact</members>
+        <members>Content_Container__c</members>
+        <members>Content_Override__c</members>
+        <members>Content_Version__c</members>
+        <members>Content__c</members>
+        <members>Contract</members>
+        <members>Covered_Entity__c</members>
+        <members>DandBCompany</members>
+        <members>Decision_Log__c</members>
+        <members>Department_Taxonomy__c</members>
+        <members>DuplicateRecordItem</members>
+        <members>DuplicateRecordSet</members>
+        <members>EmailMessage</members>
+        <members>Event</members>
+        <members>ExchangeUserMapping</members>
+        <members>Federal_Register__c</members>
+        <members>FeedItem</members>
+        <members>Framework__c</members>
+        <members>Icon__c</members>
+        <members>Idea</members>
+        <members>Image__c</members>
+        <members>Inactive_Period__c</members>
+        <members>Inactive_Reason__c</members>
+        <members>Industry__c</members>
+        <members>Insight_Atom__c</members>
+        <members>Insight_Chapter__c</members>
+        <members>Insight__c</members>
+        <members>Investigation__c</members>
+        <members>Issue__c</members>
+        <members>KnowledgeMap__c</members>
+        <members>KnowledgeSearch__c</members>
+        <members>Lead</members>
+        <members>Level__c</members>
+        <members>LinkedArticle</members>
+        <members>Litigation_Respondent__c</members>
+        <members>Litigation__c</members>
+        <members>Macro</members>
+        <members>MacroAction</members>
+        <members>MacroInstruction</members>
+        <members>Master_CongressionalDistrict__c</members>
+        <members>My_Profile_Option__c</members>
+        <members>Navigation_Group__c</members>
+        <members>Navigation_Link__c</members>
+        <members>Opportunity</members>
+        <members>OpportunityLineItem</members>
+        <members>Order</members>
+        <members>OrderItem</members>
+        <members>Organization</members>
+        <members>Page_Content__c</members>
+        <members>Page__c</members>
+        <members>Participant_Contact__c</members>
+        <members>Participant__c</members>
+        <members>Participation__c</members>
+        <members>PaymentSettings__c</members>
+        <members>Payment__c</members>
+        <members>Petition__c</members>
+        <members>Petitioner__c</members>
+        <members>Product2</members>
+        <members>Program__c</members>
+        <members>Publication_Template__c</members>
+        <members>Question</members>
+        <members>Refund__c</members>
+        <members>RelatedCountries__c</members>
+        <members>Related_Cases_and_Orgs__c</members>
+        <members>Renewing_Product__c</members>
+        <members>Reply</members>
+        <members>Respondent__c</members>
+        <members>Row__c</members>
+        <members>Section__c</members>
+        <members>Segment__c</members>
+        <members>Series__c</members>
+        <members>Site</members>
+        <members>Site__c</members>
+        <members>SocialPersona</members>
+        <members>SocialPost</members>
+        <members>Social_Icons__c</members>
+        <members>Solution</members>
+        <members>StreamingChannel</members>
+        <members>Survey_Result__c</members>
+        <members>Suspension_Agreement__c</members>
+        <members>Task</members>
+        <members>Template_Page_Content__c</members>
+        <members>Template_Page__c</members>
+        <members>Template_Row__c</members>
+        <members>Third_Party_Master_List__c</members>
+        <members>Third_Party__c</members>
+        <members>URL__c</members>
+        <members>User</members>
+        <members>UserLicense</members>
+        <members>UserProvisioningRequest</members>
+        <members>WIN_Contributor__c</members>
+        <members>WIN__c</members>
         <name>Workflow</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Settings</name>
     </types>
     <version>36.0</version>
 </Package>
