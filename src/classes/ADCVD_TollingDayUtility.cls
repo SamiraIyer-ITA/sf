@@ -41,7 +41,7 @@ public without sharing class ADCVD_TollingDayUtility {
 	*  Return Value: New deadline
 	*  (e.g. petition start should be 'start date' for a petition)
 	*/ 
-	public static Date getCacluatedDate(Date startDate, Date deadline, Boolean rollfoward) {
+	public static Date getCalculatedDate(Date startDate, Date deadline, Boolean rollfoward) {
 		deadline = deadlineWithTollingDays(startDate, deadline);
 		if(rollfoward) {
 			deadline = rollForwardNextBusinessDay(deadline);
@@ -64,12 +64,12 @@ public without sharing class ADCVD_TollingDayUtility {
 				continue; //process next tolling day
 			} else if (deadline < td.Start_Date__c) { //scenario 2: tolling days after the record ended
 				continue;
-			} else if (startDate > td.Start_Date__c) { //scenario 3: tolling days began after the record was initiated
+			} else if (startDate >= td.Start_Date__c) { //scenario 3: tolling days began after the record was initiated
 				//add the entire span of the tolling days
-				deadline = deadline.addDays(td.Start_Date__c.daysBetween(td.End_Date__c));
-			} else if (startDate < td.Start_Date__c && deadline > td.Start_Date__c){ //scenario 4: tolling days began before record was initiated, but span across into record initation
-				//add a subset of the tolling days
 				deadline = deadline.addDays(startDate.daysBetween(td.End_Date__c));
+			} else if (startDate < td.Start_Date__c && deadline >= td.Start_Date__c){ //scenario 4: tolling days began before record was initiated, but span across into record initation
+				//add a subset of the tolling days
+				deadline = deadline.addDays(td.Start_Date__c.daysBetween(td.End_Date__c));
 			}
 			//TODO how to handle if multiple tolling days are creating in the same span??? 
 			//TODO think we should write a trigger to prevent
