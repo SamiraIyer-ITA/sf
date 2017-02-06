@@ -1,3 +1,0 @@
-<apex:page showHeader="false" sidebar="false" action="{!doRedirectConfiguration}" controller="iContactforSF.iContactHelpController">
-Redirecting...
-</apex:page>

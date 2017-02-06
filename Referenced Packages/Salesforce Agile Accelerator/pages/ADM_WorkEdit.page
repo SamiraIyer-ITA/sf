@@ -1,1 +1,0 @@
-<apex:page standardController="agf__ADM_Work__c" extensions="agf.ADM_WorkEditController" action="{!gotoEditPage}"></apex:page>

@@ -1,2 +1,0 @@
-<apex:page standardController="iContactforSF__iContact_Sent_Message__c" extensions="iContactforSF.SentMessageController" action="{!targetsend}">
-</apex:page>

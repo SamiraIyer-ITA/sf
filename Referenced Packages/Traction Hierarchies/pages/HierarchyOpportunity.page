@@ -1,3 +1,0 @@
-<apex:page standardController="Opportunity" showHeader="false" sidebar="false" title="Traction Hierarchies" standardStylesheets="false">
-    <c:Hierarchy recordId="{!Opportunity.AccountId}"/>
-</apex:page>
