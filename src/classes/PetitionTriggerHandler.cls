@@ -25,7 +25,8 @@ public with sharing class PetitionTriggerHandler {
 	        	if(p.Initiation_Extension_of_days__c != null) {
 	        		p.Calculated_Initiation_Signature__c = p.Calculated_Initiation_Signature__c.addDays((integer)p.Initiation_Extension_of_days__c);
 	        	}
-	        	p.Calculated_Initiation_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(p.Petition_Filed__c, p.Calculated_Initiation_Signature__c, true);
+	        	//roll back if more than 40 days or more between petition filed and calculated date, otherwise rollforward;
+	        	p.Calculated_Initiation_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(p.Petition_Filed__c, p.Calculated_Initiation_Signature__c, p.Petition_Filed__c.daysBetween(p.Calculated_Initiation_Signature__c) >= 39);
 	        }
        	}
     }

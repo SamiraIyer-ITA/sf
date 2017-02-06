@@ -12,7 +12,7 @@ public class AttachmentWriterController {
     public Boolean edit {get { if(edit == null) {edit = false;} return edit; } set;}
     
     public void init() {
-    	editAccess = false;
+        editAccess = false;
         readAccess = false;
         if(recordId != null) {
             List<UserRecordAccess> ura = [SELECT RecordId, HasEditAccess, HasReadAccess FROM UserRecordAccess WHERE UserId =: UserInfo.getUserId() AND RecordId =: recordId];
@@ -32,22 +32,22 @@ public class AttachmentWriterController {
         }
     }
     private void queryBody() {
-    	try {
-	    	List<Attachment> aList = [SELECT Id, Body, Description FROM Attachment WHERE ParentId =: recordId AND Name =: defaultName LIMIT 1];
-	        if(!aList.isEmpty()) {
-	            attachmentBody = aList[0].body.toString();
-	            attachmentId = aList[0].Id;
-	        }
+        try {
+            List<Attachment> aList = [SELECT Id, Body, Description FROM Attachment WHERE ParentId =: recordId AND Name =: defaultName LIMIT 1];
+            if(!aList.isEmpty()) {
+                attachmentBody = aList[0].body.toString();
+                attachmentId = aList[0].Id;
+            }
         } catch (Exception e) {
-        	system.debug(e);
+            system.debug(e);
         }
     }
     public AttachmentWriterController(ApexPages.StandardController stdController) {
-    	if(stdController.getRecord() InstanceOf ADCVD_Order__c) {
-    		ADCVD_Order__c o = (ADCVD_Order__c)stdController.getRecord();
-    		RecordId = o.Id;
-    	}
-    	init();
+        if(stdController.getRecord() InstanceOf ADCVD_Order__c) {
+            ADCVD_Order__c o = (ADCVD_Order__c)stdController.getRecord();
+            RecordId = o.Id;
+        }
+        init();
     }
     public AttachmentWriterController() {
         /*recordId = ApexPages.currentPage().getParameters().get('Id');
@@ -63,16 +63,16 @@ public class AttachmentWriterController {
     }
     public PageReference saveAttachment() {
         try {
-	        	Attachment a = new Attachment(
-	            Id = attachmentId,
-	        	parentId = recordId,
-	            body = Blob.valueOf(AttachmentBody),
-	            name = defaultName
-	        );
-	        upsert a;
-	        cancel();
+                Attachment a = new Attachment(
+                Id = attachmentId,
+                parentId = recordId,
+                body = Blob.valueOf(AttachmentBody),
+                name = defaultName
+            );
+            upsert a;
+            cancel();
         } catch (Exception e) {
-        	system.debug(e);
+            system.debug(e);
         }
         return null;
     }
