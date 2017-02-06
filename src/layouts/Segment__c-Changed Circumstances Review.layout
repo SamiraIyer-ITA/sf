@@ -74,10 +74,6 @@
                 <behavior>Edit</behavior>
                 <field>Type_of_Requestor__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Changed_Circumstances_Review_Involvement__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

@@ -1,2 +1,0 @@
-<apex:page standardController="EmailTemplate" contentType="text/html">
-</apex:page>

@@ -1,3 +1,0 @@
-<apex:page standardController="Contact" showHeader="false" sidebar="false" title="Traction Hierarchies" standardStylesheets="false">
-    <c:Hierarchy recordId="{!Contact.AccountId}"/>
-</apex:page>

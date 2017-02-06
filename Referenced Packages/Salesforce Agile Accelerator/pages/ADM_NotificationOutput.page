@@ -1,3 +1,0 @@
-<apex:page standardController="agf__ADM_Work__c" extensions="agf.ADM_WorkControllerExtension">  
-	<c:ADM_NotifierDetail workObject="{!work}"   /> 
-</apex:page>

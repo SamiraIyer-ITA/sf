@@ -35,6 +35,14 @@
         <label>Information</label>
         <layoutColumns>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Petition_Case_Number__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Petition_Product__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Office__c</field>
             </layoutItems>
@@ -44,6 +52,18 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Petition_Case_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Petition_Country__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Petition_Commodity__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Upstream_Subsidy_Allegation__c</field>
@@ -64,6 +84,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Calculated_ITC_Prelim_Determination__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Calculated_Prelim_Extension_Request_File__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -91,6 +115,14 @@
                 <behavior>Edit</behavior>
                 <field>Actual_Preliminary_Signature__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Ministerial_Error_for_Prelim__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Amend_the_Preliminary_Determination__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -102,10 +134,6 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Ministerial_Error_for_Prelim__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Calc_Amended_Prelim_Determination_Sig__c</field>
             </layoutItems>
             <layoutItems>
@@ -114,10 +142,6 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Amend_the_Preliminary_Determination__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Actual_Amended_Prelim_Determination_Sig__c</field>
@@ -180,6 +204,14 @@
                 <behavior>Edit</behavior>
                 <field>Actual_Final_Signature__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Ministerial_Error_for_final__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Will_you_Amend_the_Final__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -191,10 +223,6 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Ministerial_Error_for_final__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Calculated_Amended_Final_Signature__c</field>
             </layoutItems>
             <layoutItems>
@@ -203,10 +231,6 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Will_you_Amend_the_Final__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Actual_Amended_Final_Signature__c</field>
@@ -226,7 +250,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Calculated_ITC_Final_FR_Published__c</field>
+                <field>ITC_Finding__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -240,7 +264,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Actual_ITC_Final_FR_Published__c</field>
+                <field>Calculated_ITC_Final_FR_Published__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -255,10 +279,6 @@
         <editHeading>true</editHeading>
         <label>Litigation and Administrative Information</label>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>ITC_Finding__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Petition__c</field>
@@ -372,6 +392,10 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <relatedList>Litigation__c.Investigation__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
         <relatedList>Suspension_Agreement__c.Investigation__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -382,10 +406,6 @@
         <fields>CORE.USERS.FULL_NAME</fields>
         <fields>TASK.LAST_UPDATE</fields>
         <relatedList>RelatedHistoryList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Litigation__c.Investigation__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
