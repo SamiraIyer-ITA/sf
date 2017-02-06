@@ -41,7 +41,7 @@ public without sharing class ADCVD_TollingDayUtility {
 	*  Return Value: New deadline
 	*  (e.g. petition start should be 'start date' for a petition)
 	*/ 
-	public static Date getCacluatedDate(Date startDate, Date deadline, Boolean rollfoward) {
+	public static Date getCalculatedDate(Date startDate, Date deadline, Boolean rollfoward) {
 		deadline = deadlineWithTollingDays(startDate, deadline);
 		if(rollfoward) {
 			deadline = rollForwardNextBusinessDay(deadline);
@@ -58,21 +58,21 @@ public without sharing class ADCVD_TollingDayUtility {
 	*  (e.g. petition start should be 'start date' for a petition)
 	*/ 
 	@TestVisible private static Date deadlineWithTollingDays(Date startDate, Date deadline){
-		//tolling days have a period of time - Start and End - so it is a range
-		for(Tolling_Day__c td: tollingDayList) {
-			if(startDate > td.End_Date__c) { //scenario 1: tolling days occured before the record was initiated
+		//iterate through each tolling day in scope
+		List<Date> dateList = new List<Date>(tollingDaySet);
+		dateList.sort(); //needs to be ordered
+		for(Date td: dateList) {
+			system.debug(td);
+			if (startDate == td || deadline == td || (startDate < td && td < deadline)) { //scenario 3: tolling day = record initiation or record end
+				deadline = deadline.addDays(1);
+				system.debug(true);
+			} else if(startDate > td) { //scenario 1: tolling day occured before the record was initiated
 				continue; //process next tolling day
-			} else if (deadline < td.Start_Date__c) { //scenario 2: tolling days after the record ended
+				system.debug(true);
+			} else if (deadline < td) { //scenario 2: tolling day after the record ended
 				continue;
-			} else if (startDate > td.Start_Date__c) { //scenario 3: tolling days began after the record was initiated
-				//add the entire span of the tolling days
-				deadline = deadline.addDays(td.Start_Date__c.daysBetween(td.End_Date__c));
-			} else if (startDate < td.Start_Date__c && deadline > td.Start_Date__c){ //scenario 4: tolling days began before record was initiated, but span across into record initation
-				//add a subset of the tolling days
-				deadline = deadline.addDays(startDate.daysBetween(td.End_Date__c));
+				system.debug(true);
 			}
-			//TODO how to handle if multiple tolling days are creating in the same span??? 
-			//TODO think we should write a trigger to prevent
 		}
 		return deadline;
 	}
@@ -103,8 +103,7 @@ public without sharing class ADCVD_TollingDayUtility {
 		return tollingDaySet.contains(dt);
 	}
 	/* method rolls the inputDate forward to next working day */
-	@TestVisible private static date rollForwardNextBusinessDay(date inputDate) {
-		Date dt = inputDate;
+	@TestVisible private static date rollForwardNextBusinessDay(date dt) {
 		while (true) { //loop through until a working day is found
 			if(isWorkingDay(dt)) {
 				return dt;
@@ -115,9 +114,7 @@ public without sharing class ADCVD_TollingDayUtility {
 		return dt;
 	}
 	
-	@TestVisible private static date rollBackPreviousBusinessDay(date inputDate) {
-		//TODO - validate - what happens if we roll back across a span of tolling days?
-		Date dt = inputDate;
+	@TestVisible private static date rollBackPreviousBusinessDay(date dt) {
 		while (true) {//loop through until a working day is found
 			if(isTollingDay(dt)){
 				rollForwardNextBusinessDay(dt); //assumed we should roll forward if we land on a tolling day
