@@ -1,0 +1,131 @@
+public without sharing class ADCVD_TollingDayUtility {
+	@TestVisible private static List<Tolling_Day__c> tollingDayList {
+		get {
+			if(tollingDayList == null) {
+				tollingDayList = [SELECT Id, Start_Date__c, End_Date__c FROM Tolling_Day__c];
+			}
+			return tollingDayList;
+		}
+	}
+	@TestVisible private static Set<Date> tollingDaySet {
+		get {
+			if(tollingDaySet == null) {
+				tollingDaySet = new Set<Date>();
+				for(Tolling_Day__c td: tollingDayList) {
+					Date dt = td.Start_Date__c;
+					while(dt <= td.End_Date__c) {
+						tollingDaySet.add(dt);
+						dt = dt.addDays(1);
+					}
+				}
+			}
+			return tollingDaySet;
+		}
+	}
+
+	@TestVisible private static Set<Date> holidaySet {
+		get {
+			if(holidaySet == null) {
+				holidaySet = new Set<Date>();
+				for(Holiday h: [SELECT ActivityDate FROM Holiday]) {
+					holidaySet.add(h.ActivityDate);
+				}
+			}
+			return holidaySet;
+		}
+	}
+	/* Method used to determine the new value of the deadline tolling day, holiday and weekends accounted for
+	*  Input Params: 	startDate:  	should be passed in to determine how many of the days are in scope 
+	*					deadline: 	 	this is the current deadline (without tolling days in scope)
+	*					rollforward: 	boolean to either roll the date forward or back to next or previous working day
+	*  Return Value: New deadline
+	*  (e.g. petition start should be 'start date' for a petition)
+	*/ 
+	public static Date getCacluatedDate(Date startDate, Date deadline, Boolean rollfoward) {
+		deadline = deadlineWithTollingDays(startDate, deadline);
+		if(rollfoward) {
+			deadline = rollForwardNextBusinessDay(deadline);
+		} else {
+			deadline = rollBackPreviousBusinessDay(deadline);
+		}
+		return deadline;
+	}
+
+	/* Method used to determine the value of the deadline with tolling days taken into account
+	*  Input Params: 	startDate:  	should be passed in to determine how many of the days are in scope 
+	*					deadline: 	 	this is the current deadline (without tolling days in scope)
+	*  Return Value: New deadline
+	*  (e.g. petition start should be 'start date' for a petition)
+	*/ 
+	@TestVisible private static Date deadlineWithTollingDays(Date startDate, Date deadline){
+		//tolling days have a period of time - Start and End - so it is a range
+		for(Tolling_Day__c td: tollingDayList) {
+			if(startDate > td.End_Date__c) { //scenario 1: tolling days occured before the record was initiated
+				continue; //process next tolling day
+			} else if (deadline < td.Start_Date__c) { //scenario 2: tolling days after the record ended
+				continue;
+			} else if (startDate > td.Start_Date__c) { //scenario 3: tolling days began after the record was initiated
+				//add the entire span of the tolling days
+				deadline = deadline.addDays(td.Start_Date__c.daysBetween(td.End_Date__c));
+			} else if (startDate < td.Start_Date__c && deadline > td.Start_Date__c){ //scenario 4: tolling days began before record was initiated, but span across into record initation
+				//add a subset of the tolling days
+				deadline = deadline.addDays(startDate.daysBetween(td.End_Date__c));
+			}
+			//TODO how to handle if multiple tolling days are creating in the same span??? 
+			//TODO think we should write a trigger to prevent
+		}
+		return deadline;
+	}
+	@TestVisible private static Boolean isWorkingDay(Date dt) {
+		return isWeekday(dt) && !isHoliday(dt) && !isTollingDay(dt);
+	}
+	/* method returns true if date entered is a weekday */
+	@TestVisible private static Boolean isWeekday(Date dt) {
+		//dayOfWeek is Sun, Mon, Tue, etc.
+		Time myTime = Time.newInstance(-4, 0, 0, 0);
+		DateTime dateTimeToCompare = datetime.newInstanceGmt(dt, mytime);
+		String dayOfWeek = dateTimeToCompare.format('E');
+		if(dayOfWeek == 'Sun' || dayOfWeek == 'Sat') {
+		    return false;
+		} else {
+		    return true;
+		}
+
+	}
+	/* method returns true if date entered is a holiday */
+	@TestVisible private static Boolean isHoliday(Date dt) {
+		return holidaySet.contains(dt);
+	}
+	/* method returns true if the date is a tolling day */
+	@TestVisible private static Boolean isTollingDay(Date dt) {
+		return tollingDaySet.contains(dt);
+	}
+	/* method rolls the inputDate forward to next working day */
+	@TestVisible private static date rollForwardNextBusinessDay(date inputDate) {
+		Date dt = inputDate;
+		while (true) { //loop through until a working day is found
+			if(isWorkingDay(dt)) {
+				return dt;
+			} else {
+				dt = dt.addDays(1);
+			}
+		}
+		return dt;
+	}
+	
+	@TestVisible private static date rollBackPreviousBusinessDay(date inputDate) {
+		//TODO - validate - what happens if we roll back across a span of tolling days?
+		Date dt = inputDate;
+		while (true) {//loop through until a working day is found
+			if(isTollingDay(dt)){
+				rollForwardNextBusinessDay(dt); //assumed we should roll forward if we land on a tolling day
+			}
+			if(isWorkingDay(dt)) {
+				return dt;
+			} else {
+				dt = dt.addDays(-1);
+			}
+		}
+		return dt;
+	}
+}
