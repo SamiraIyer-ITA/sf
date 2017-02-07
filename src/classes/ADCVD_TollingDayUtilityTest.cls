@@ -40,8 +40,56 @@ public with sharing class ADCVD_TollingDayUtilityTest {
 			}
 		}
 	}
-	@isTest static void getCacluatedDate(){
-
+	@isTest static void deadlineWithTollingDays(){
+		for(integer i = 0; i<7; i++){
+			Date myVariableDate = System.today().addDays(-7).addDays(i);
+			Date myDeadline = System.today();
+			if(!ADCVD_TollingDayUtility.isTollingDay(myVariableDate)){
+				System.assertEquals(ADCVD_TollingDayUtility.deadlineWithTollingDays(myVariableDate, myDeadline), myDeadline);
+			} else {
+				//first iteration has 5 tolling days, reduces by i for each iteration
+				System.assertEquals(ADCVD_TollingDayUtility.deadlineWithTollingDays(myVariableDate,myDeadline), myDeadline.addDays(5).addDays(-i));
+			}
+		}
+	}
+	@isTest static void getCalculatedDate(){
+		//With 10 loops, the testing time will include the tolling period created by class variables
+		//Each iteration advances one day, shortening the request but comparing against the same tolling period
+		//This will cover scenarios of start prior to tolling start, on tolling start, during tolling, on tolling end date, and with no tolling days
+		integer loops = 10;
+		for(integer i = 0; i<loops; i++){
+			Date myVariableDate = System.today().addDays(-loops).addDays(i);
+			Date myDeadline = System.today();
+			Date verifiedDeadline = System.today();
+			Boolean rollForward = false;
+			integer totalTollingDays = 0;
+			integer rolledForwardDays = 0;
+			integer rolledBackDays = 0;
+			//count tolling days in scope
+			for(integer j = 0; j<(10-i); j++){
+				Date tempDate = myVariableDate.addDays(j);
+				if(ADCVD_TollingDayUtility.isTollingDay(tempDate)){
+					totalTollingDays ++;
+				}
+			}
+			//after tolling adjustment, count days until workday
+			while(!ADCVD_TollingDayUtility.isWorkingDay(verifiedDeadline.addDays(totalTollingDays+rolledForwardDays))){
+				rolledForwardDays++;
+			}
+			//after tolling adjustment, count days back until workday
+			while(!ADCVD_TollingDayUtility.isWorkingDay(verifiedDeadline.addDays(totalTollingDays+rolledBackDays)) && !rollForward){
+				if(!ADCVD_TollingDayUtility.isTollingDay(verifiedDeadline.addDays(totalTollingDays+rolledBackDays))){
+					rolledBackDays--;
+				} else {
+					rollForward = true;
+				}
+			}
+			//
+			System.assertEquals(ADCVD_TollingDayUtility.getCalculatedDate(myVariableDate, myDeadline, true), verifiedDeadline.addDays(totalTollingDays).addDays(rolledForwardDays));
+			if(!rollForward){
+				System.assertEquals(ADCVD_TollingDayUtility.getCalculatedDate(myVariableDate, myDeadline, rollForward), verifiedDeadline.addDays(totalTollingDays).addDays(rolledBackDays));
+			}
+		}
 	}
 	@isTest static void isWorkingDay() {
 		integer validations = 0;
@@ -61,7 +109,7 @@ public with sharing class ADCVD_TollingDayUtilityTest {
 		Holiday h = new Holiday(ActivityDate = holidayDate, Name = 'Every day is a holiday');
 		insert h;
 		system.runAs(u) {
-			Tolling_Day__c td = new Tolling_Day__c(Start_Date__c = tollingDateStart, End_Date__c = tollingDateEnd);
+			Tolling_Day__c td = new Tolling_Day__c(Start_Date__c = tollingDateStart, End_Date__c = tollingDateEnd, Reason__c = 'Because!');
 			insert td;
 		}
 	}
