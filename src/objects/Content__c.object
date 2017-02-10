@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -164,17 +160,19 @@ IF ( AND((Version_Number__c = 0),(ISPICKVAL(Status__c, &quot;Draft: Rejected&quo
         <externalId>false</externalId>
         <inlineHelpText>Select the type of icon you are adding to the Icon library.</inlineHelpText>
         <label>Icon Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Social</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Social</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Image__c</fullName>
@@ -210,37 +208,39 @@ IF ( AND((Version_Number__c = 0),(ISPICKVAL(Status__c, &quot;Draft: Rejected&quo
         <fullName>Series_Type__c</fullName>
         <externalId>false</externalId>
         <label>Series Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Country Commercial</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>State Report</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Top Markets</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Article</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Basic Guide to Exporting</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>FAQ</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Country Commercial</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Report</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Top Markets</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Article</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Basic Guide to Exporting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FAQ</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Status__c</fullName>
@@ -248,29 +248,31 @@ IF ( AND((Version_Number__c = 0),(ISPICKVAL(Status__c, &quot;Draft: Rejected&quo
         <externalId>false</externalId>
         <inlineHelpText>Publishing Status</inlineHelpText>
         <label>Publishing Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Draft</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Draft: Submitted for Approval</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Online</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Draft: Rejected</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Draft</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Draft: Submitted for Approval</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Online</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Draft: Rejected</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Updated_Version__c</fullName>
@@ -323,29 +325,31 @@ IF ( AND((Version_Number__c = 0),(ISPICKVAL(Status__c, &quot;Draft: Rejected&quo
         <fullName>api_type__c</fullName>
         <externalId>false</externalId>
         <label>api type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>trade events</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>market research library</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>trade leads</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>search</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>trade events</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>market research library</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>trade leads</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>search</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <label>Atom</label>
     <listViews>

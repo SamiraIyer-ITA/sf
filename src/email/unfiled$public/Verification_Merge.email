@@ -1,8 +1,0 @@
-After review by the Data team, your new organization {!Account.Name} has been merged with another organization.
-
-The correct organization to use will be {!Account.Merged_Organization__c}.
-
-**additional information regarding who to contact if in error or other questions**
-
-Sincerely,
-Data Team

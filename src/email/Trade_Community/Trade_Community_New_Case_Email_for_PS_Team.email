@@ -1,6 +1,0 @@
-<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
-<tr valign="top" height="400" >
-<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
-<![CDATA[<div><font face="arial">Dear [Privacy Shield Team]</font></div><div><font face="arial"><br></font></div><div><font face="arial">{!Contact.Name}&nbsp;has submitted a case regarding&nbsp;{!Case.Subject}.&nbsp;</font></div><div><font face="arial"><br></font></div><div><font face="arial">Below is a copy of the message:&nbsp;</font></div><div><font face="arial"><br></font></div><div><font face="arial"><div>Case Link - https://privacyshield.gov/{!Case.Id}</div><div>Case Number - {!Case.CaseNumber}&nbsp;</div><div>Case Status - New</div><div><br></div></font></div><div><font face="arial">{!Case.Description}</font></div><div style="color: rgb(0, 0, 0); font-family: arial; font-size: 12pt;"><br></div>]]></td>
-</tr>
-</table>

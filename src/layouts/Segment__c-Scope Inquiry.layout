@@ -87,7 +87,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Informal Scope Procceding</label>
+        <label>Informal Scope Proceeding</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -206,10 +206,6 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Product_determined_to_be_in_scope__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Access_Barcode__c</field>
             </layoutItems>
             <layoutItems>
@@ -256,6 +252,10 @@
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Issue__c.Segment__c</relatedList>
+    </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>Litigation__c.Segment__c</relatedList>

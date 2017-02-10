@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -55,7 +51,7 @@
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
-    <enableReports>false</enableReports>
+    <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
@@ -159,31 +155,40 @@
     <fields>
         <fullName>Adequate_after_Determination__c</fullName>
         <externalId>false</externalId>
-        <globalPicklist>YesNo</globalPicklist>
         <label>Adequate after Determination?</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Adequate_after_Reconsideration__c</fullName>
         <externalId>false</externalId>
-        <globalPicklist>YesNo</globalPicklist>
         <label>Adequate after Reconsideration?</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>All_parties_in_agreement_to_the_outcome__c</fullName>
         <description>Are all parties in agreement as to the outcome?</description>
         <externalId>false</externalId>
-        <globalPicklist>YesNo</globalPicklist>
         <inlineHelpText>Are all parties in agreement as to the outcome?</inlineHelpText>
         <label>All parties in agreement to the outcome?</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Amended_Prelim_Issues__c</fullName>
@@ -199,11 +204,14 @@
     <fields>
         <fullName>Anniversary_Month__c</fullName>
         <externalId>false</externalId>
-        <globalPicklist>Months</globalPicklist>
         <label>Anniversary Month</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Months</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Application_Accepted__c</fullName>
@@ -279,12 +287,15 @@
         <fullName>Choose_Following_Respondent_Selection__c</fullName>
         <description>Will you use CBP data, Quantity and Value Questionnaires or Other for respondent selection?</description>
         <externalId>false</externalId>
-        <globalPicklist>YesNo</globalPicklist>
         <inlineHelpText>Will you use CBP data, Quantity and Value Questionnaires or Other for respondent selection?</inlineHelpText>
         <label>Choose Following Respondent Selection</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Comments_on_Adequacy_Determination_Filed__c</fullName>
@@ -316,21 +327,23 @@
         <fullName>Continuation_or_Revocation__c</fullName>
         <externalId>false</externalId>
         <label>Continuation or Revocation?</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Continuation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Revocation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Continuation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Revocation</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Countervailed_Programs__c</fullName>
@@ -347,12 +360,15 @@
         <fullName>Country_in_which_factors_were_valued__c</fullName>
         <description>Country in which factors were valued</description>
         <externalId>false</externalId>
-        <globalPicklist>Country</globalPicklist>
         <inlineHelpText>Country in which factors were valued</inlineHelpText>
         <label>Country in which factors were valued</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Country</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Deadline_for_Decision_on_How_to_Proceed__c</fullName>
@@ -368,43 +384,51 @@
         <fullName>Decision_on_How_to_Proceed__c</fullName>
         <externalId>false</externalId>
         <label>Decision on How to Proceed</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Formal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Informal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Reject</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Formal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Informal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Reject</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Does_the_Review_Involve_CCR__c</fullName>
         <externalId>false</externalId>
-        <globalPicklist>YesNo</globalPicklist>
         <label>Does the Review Involve CCR?</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Domestic_Party_File_Substan_Response__c</fullName>
         <externalId>false</externalId>
-        <globalPicklist>YesNo</globalPicklist>
         <label>Domestic Party File Substan. Response?</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Effective_Date_if_revoked__c</fullName>
@@ -471,11 +495,14 @@
         <fullName>Have_Custom_Instructions_been_sent__c</fullName>
         <description>Have Custom Instructions been sent?</description>
         <externalId>false</externalId>
-        <globalPicklist>YesNo</globalPicklist>
         <label>Have Custom Instructions been sent?</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Hearing_if_Requested__c</fullName>
@@ -531,33 +558,42 @@
     <fields>
         <fullName>Intent_to_Participate_by_Domestic_IPs__c</fullName>
         <externalId>false</externalId>
-        <globalPicklist>YesNo</globalPicklist>
         <label>Intent to Participate by Domestic IPs?</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Is_the_review_being_rescinded__c</fullName>
         <description>Is the review being rescinded?</description>
         <externalId>false</externalId>
-        <globalPicklist>YesNo</globalPicklist>
         <inlineHelpText>Is the review being rescinded?</inlineHelpText>
         <label>Is the review being rescinded?</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Is_this_review_expedited__c</fullName>
         <description>Is this review expedited?</description>
         <externalId>false</externalId>
-        <globalPicklist>YesNo</globalPicklist>
         <inlineHelpText>Is this review expedited?</inlineHelpText>
         <label>Is this review expedited?</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Issue_Liquidation_Revocation_Instruction__c</fullName>
@@ -583,25 +619,27 @@
         <fullName>Litigation_Status__c</fullName>
         <externalId>false</externalId>
         <label>Litigation Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Injunction</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Litigation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>None</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Injunction</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Litigation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>None</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
@@ -627,12 +665,15 @@
         <fullName>Minesterial_Error_for_final__c</fullName>
         <description>Do you have a Ministerial Error for Final?</description>
         <externalId>false</externalId>
-        <globalPicklist>YesNo</globalPicklist>
         <inlineHelpText>Do you have a Ministerial Error for Final?</inlineHelpText>
         <label>Ministerial Error for Final</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Next_Due_to_DAS_Deadline_and_Timeline__c</fullName>
@@ -686,11 +727,14 @@
         <fullName>Notice_of_intent_to_participate_Ips__c</fullName>
         <description>Was notice of intent to participate by domestic IPs filed?</description>
         <externalId>false</externalId>
-        <globalPicklist>YesNo</globalPicklist>
         <label>Notice of intent to participate Ips?</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Notification_of_ITC_of_Inadequate_Resp__c</fullName>
@@ -896,61 +940,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Product_determined_to_be_in_scope_del__c</fullName>
-        <externalId>false</externalId>
-        <globalPicklist>YesNo</globalPicklist>
-        <label>Product determined to be in scope?</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Range_of_Rates_Final_Amended__c</fullName>
-        <description>Range of Rates - Final Amended</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Range of Rates - Final Amended</inlineHelpText>
-        <label>Range of Rates - Final Amended</label>
-        <length>255</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Range_of_Rates_Final__c</fullName>
-        <description>Range of Rates - Final</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Range of Rates - Final</inlineHelpText>
-        <label>Range of Rates - Final</label>
-        <length>255</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Range_of_Rates_Prelim_Amended__c</fullName>
-        <description>Range of Rates - Prelim Amended</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Range of Rates - Prelim Amended</inlineHelpText>
-        <label>Range of Rates - Prelim Amended</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Range_of_Rates_Prelim__c</fullName>
-        <description>Range of Rates - Prelim</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Range of Rates - Prelim</inlineHelpText>
-        <label>Range of Rates - Prelim</label>
-        <length>255</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Rebuttal_Briefs_Due__c</fullName>
         <externalId>false</externalId>
         <label>Rebuttal Briefs Due</label>
@@ -969,20 +958,26 @@
     <fields>
         <fullName>Receive_Request_to_Consider_Sampling__c</fullName>
         <externalId>false</externalId>
-        <globalPicklist>YesNo</globalPicklist>
         <label>Receive Request to Consider Sampling?</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Receive_an_Injunction_or_in_Litigation__c</fullName>
         <externalId>false</externalId>
-        <globalPicklist>YesNo</globalPicklist>
         <label>Receive an Injunction or in Litigation?</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Request_Filed__c</fullName>
@@ -1017,22 +1012,28 @@
     <fields>
         <fullName>Respondent_File_Substantive_Response__c</fullName>
         <externalId>false</externalId>
-        <globalPicklist>YesNo</globalPicklist>
         <label>Respondent File Substantive Response?</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Review_to_address_zeroing_in_Segments__c</fullName>
         <description>Conduct 240-day review to address zeroing in underlying segments?</description>
         <externalId>false</externalId>
-        <globalPicklist>YesNo</globalPicklist>
         <inlineHelpText>Conduct 240-day review to address zeroing in underlying segments?</inlineHelpText>
         <label>Review to address zeroing in Segments?</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Revocation_or_Continuation_to_DAS__c</fullName>
@@ -1064,29 +1065,31 @@
         <fullName>Scope_Segment_Termination__c</fullName>
         <externalId>false</externalId>
         <label>Scope Segment Termination</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Scope not properly filed and served</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Scope not fully complete</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Department did not initiate</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Respondent not fully responsive</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Scope not properly filed and served</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Scope not fully complete</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Department did not initiate</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Respondent not fully responsive</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Segment_Status__c</fullName>
@@ -1094,33 +1097,35 @@
         <externalId>false</externalId>
         <inlineHelpText>Segment Status</inlineHelpText>
         <label>Segment Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Active</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Litigation Hold</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Litigation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Closed</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Suspended</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Litigation Hold</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Litigation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Closed</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Suspended</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Substantive_Response_Due_For_All_Parties__c</fullName>
@@ -1146,82 +1151,88 @@
         <fullName>Type_of_Circumvention_Inquiry__c</fullName>
         <externalId>false</externalId>
         <label>Type of Circumvention Inquiry</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Merchandise Completed or Assembled in United States</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Merchandise Completed or Assembled in other Foreign Countries</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Minor Altercations of Merchandise</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Later-Developed Merchandise</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Merchandise Completed or Assembled in United States</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Merchandise Completed or Assembled in other Foreign Countries</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Minor Altercations of Merchandise</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Later-Developed Merchandise</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>Type_of_Requestor__c</fullName>
         <externalId>false</externalId>
         <label>Type of Requestor</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Petitioner</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Respondent</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>U.S. Importer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Domestic Interested Party</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Self-Initiated by the Department</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Petitioner</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Respondent</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>U.S. Importer</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Domestic Interested Party</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Self-Initiated by the Department</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Type_of_Scope_Ruling__c</fullName>
         <externalId>false</externalId>
         <label>Type of Scope Ruling</label>
-        <picklist>
-            <picklistValues>
-                <fullName>K (1)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>K (2)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>K (1)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>K (2)</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Update_ACE_Customs_Module__c</fullName>
@@ -1245,69 +1256,79 @@
         <fullName>Was_Product_Prelim_Determine_on_Scope__c</fullName>
         <externalId>false</externalId>
         <label>Was Product Prelim Determine on Scope?</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Was_product_determined_to_be_in_scope__c</fullName>
         <externalId>false</externalId>
-        <globalPicklist>YesNo</globalPicklist>
         <label>Was product determined to be in scope?</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>What_to_Use_For_Respondent_Selection__c</fullName>
         <externalId>false</externalId>
         <label>What to Use For Respondent Selection?</label>
-        <picklist>
-            <picklistValues>
-                <fullName>CBP Data</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Quantity and Value Questionaires</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>N/A</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>CBP Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Quantity and Value Questionaires</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Will_you_Amend_the_Final__c</fullName>
         <description>Will you Amend the Final?</description>
         <externalId>false</externalId>
-        <globalPicklist>YesNo</globalPicklist>
         <inlineHelpText>Will you Amend the Final?</inlineHelpText>
         <label>Will you Amend the Final?</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <label>Segment</label>
     <listViews>
@@ -1352,53 +1373,6 @@
         <fullName>Administrative_Review</fullName>
         <active>true</active>
         <label>Administrative Review</label>
-        <picklistValues>
-            <picklist>Commodity</picklist>
-            <values>
-                <fullName>Cement and Ceramics</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chemicals and Allied Industries</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Foodstuffs</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Machinery and Automotive</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Minerals</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Metals and Articles of Metal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Mfg%2E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Paper and Paperboard</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Plastics and Rubber</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Steel-Related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Textiles</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>Continuation_or_Revocation__c</picklist>
             <values>
@@ -1900,53 +1874,6 @@
         <active>true</active>
         <label>Anti-Circumvention Review</label>
         <picklistValues>
-            <picklist>Commodity</picklist>
-            <values>
-                <fullName>Cement and Ceramics</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chemicals and Allied Industries</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Foodstuffs</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Machinery and Automotive</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Minerals</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Metals and Articles of Metal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Mfg%2E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Paper and Paperboard</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Plastics and Rubber</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Steel-Related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Textiles</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Continuation_or_Revocation__c</picklist>
             <values>
                 <fullName>Continuation</fullName>
@@ -2446,53 +2373,6 @@
         <fullName>Changed_Circumstances_Review</fullName>
         <active>true</active>
         <label>Changed Circumstances Review</label>
-        <picklistValues>
-            <picklist>Commodity</picklist>
-            <values>
-                <fullName>Cement and Ceramics</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chemicals and Allied Industries</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Foodstuffs</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Machinery and Automotive</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Minerals</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Metals and Articles of Metal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Mfg%2E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Paper and Paperboard</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Plastics and Rubber</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Steel-Related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Textiles</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>Continuation_or_Revocation__c</picklist>
             <values>
@@ -2994,53 +2874,6 @@
         <active>true</active>
         <label>Expedited Review</label>
         <picklistValues>
-            <picklist>Commodity</picklist>
-            <values>
-                <fullName>Cement and Ceramics</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chemicals and Allied Industries</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Foodstuffs</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Machinery and Automotive</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Minerals</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Metals and Articles of Metal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Mfg%2E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Paper and Paperboard</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Plastics and Rubber</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Steel-Related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Textiles</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Continuation_or_Revocation__c</picklist>
             <values>
                 <fullName>Continuation</fullName>
@@ -3540,53 +3373,6 @@
         <fullName>New_Shipper_Review</fullName>
         <active>true</active>
         <label>New Shipper Review</label>
-        <picklistValues>
-            <picklist>Commodity</picklist>
-            <values>
-                <fullName>Cement and Ceramics</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chemicals and Allied Industries</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Foodstuffs</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Machinery and Automotive</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Minerals</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Metals and Articles of Metal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Mfg%2E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Paper and Paperboard</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Plastics and Rubber</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Steel-Related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Textiles</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>Continuation_or_Revocation__c</picklist>
             <values>
@@ -4088,53 +3874,6 @@
         <active>true</active>
         <label>Scope Inquiry</label>
         <picklistValues>
-            <picklist>Commodity</picklist>
-            <values>
-                <fullName>Cement and Ceramics</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chemicals and Allied Industries</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Foodstuffs</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Machinery and Automotive</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Minerals</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Metals and Articles of Metal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Mfg%2E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Paper and Paperboard</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Plastics and Rubber</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Steel-Related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Textiles</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Continuation_or_Revocation__c</picklist>
             <values>
                 <fullName>Continuation</fullName>
@@ -4634,53 +4373,6 @@
         <fullName>Sunset_Review</fullName>
         <active>true</active>
         <label>Sunset Review</label>
-        <picklistValues>
-            <picklist>Commodity</picklist>
-            <values>
-                <fullName>Cement and Ceramics</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chemicals and Allied Industries</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Foodstuffs</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Machinery and Automotive</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Minerals</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Metals and Articles of Metal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Mfg%2E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Paper and Paperboard</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Plastics and Rubber</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Steel-Related</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Textiles</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>Continuation_or_Revocation__c</picklist>
             <values>

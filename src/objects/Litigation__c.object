@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -132,29 +128,31 @@
         <fullName>Choose_Following_Respondent_Selection__c</fullName>
         <externalId>false</externalId>
         <label>Choose Following Respondent Selection:</label>
-        <picklist>
-            <picklistValues>
-                <fullName>CBP Data</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Quantity and Value Questionaires</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>N/A</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>CBP Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Quantity and Value Questionaires</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Concurrence_to_DAS__c</fullName>
@@ -222,33 +220,35 @@
         <fullName>International_Litigation_Type__c</fullName>
         <externalId>false</externalId>
         <label>International Litigation Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>129</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>429</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>437</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>449</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>464</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>129</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>429</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>437</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>449</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>464</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Investigation__c</fullName>
@@ -256,8 +256,8 @@
         <externalId>false</externalId>
         <label>Investigation</label>
         <referenceTo>Investigation__c</referenceTo>
-        <relationshipLabel>Litigations</relationshipLabel>
-        <relationshipName>Litigations</relationshipName>
+        <relationshipLabel>Litigation</relationshipLabel>
+        <relationshipName>Litigation</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
@@ -362,33 +362,35 @@
         <fullName>Segment_Status__c</fullName>
         <externalId>false</externalId>
         <label>Segment Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Active</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Litigation Hold</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Litigation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Closed</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Suspended</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Litigation Hold</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Litigation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Closed</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Suspended</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Segment__c</fullName>

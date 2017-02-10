@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -111,11 +107,14 @@
     <fields>
         <fullName>Anniversary_Month__c</fullName>
         <externalId>false</externalId>
-        <globalPicklist>Months</globalPicklist>
         <label>Anniversary Month</label>
         <required>true</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Months</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Calculated_Amended_Final_Signature__c</fullName>
@@ -201,29 +200,31 @@
         <fullName>Choose_Following_Respondent_Selection__c</fullName>
         <externalId>false</externalId>
         <label>Choose Following Respondent Selection:</label>
-        <picklist>
-            <picklistValues>
-                <fullName>CBP Data</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Quantity and Value Questionnaires</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>N/A</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>CBP Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Quantity and Value Questionnaires</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Others</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Concurrence_to_DAS__c</fullName>
@@ -236,20 +237,26 @@
     <fields>
         <fullName>Do_you_have_Ministerial_Error_for_Final__c</fullName>
         <externalId>false</externalId>
-        <globalPicklist>YesNo</globalPicklist>
         <label>Do you have Ministerial Error for Final?</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Do_you_have_Ministerial_Error_for_Prelim__c</fullName>
         <externalId>false</externalId>
-        <globalPicklist>YesNo</globalPicklist>
         <label>Do you have Ministerial Error for Prelim</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Effective_Date_for_Most_Recent_SunsetFR__c</fullName>
@@ -309,25 +316,27 @@
         <fullName>ITC_Finding__c</fullName>
         <externalId>false</externalId>
         <label>ITC Finding</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Materially Injured</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Threatened with Injury</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Materially Retarded</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Materially Injured</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Threatened with Injury</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Materially Retarded</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
@@ -369,37 +378,39 @@
         <fullName>Investigation_Outcome__c</fullName>
         <externalId>false</externalId>
         <label>Investigation Outcome</label>
-        <picklist>
-            <picklistValues>
-                <fullName>DOC Negative Final/Termination of Investigation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ITCC Negative Final/Termination of Investigation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ITC Negative Prelim/Termination of Investigation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Petition Withdrawn After Initiation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Suspension Agreement</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Order</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>DOC Negative Final/Termination of Investigation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ITCC Negative Final/Termination of Investigation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ITC Negative Prelim/Termination of Investigation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Petition Withdrawn After Initiation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Suspension Agreement</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Order</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Investigation__c</fullName>
@@ -416,11 +427,14 @@
         <fullName>Is_This_Investigation_Aligned_With_AD_In__c</fullName>
         <description>Is this Investigation Aligned with the AD Investigation?</description>
         <externalId>false</externalId>
-        <globalPicklist>YesNo</globalPicklist>
         <label>Is This Investigation Aligned With AD In</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Issues_to_DAS__c</fullName>
@@ -602,39 +616,44 @@
     <fields>
         <fullName>Receive_Injunction_or_In_Litigation__c</fullName>
         <externalId>false</externalId>
-        <globalPicklist>YesNo</globalPicklist>
         <label>Receive Injunction or In Litigation?</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Revocation_Reason__c</fullName>
         <externalId>false</externalId>
         <label>Revocation Reason</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Sunset - No Interest</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sunset - No Likelihood</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sunset - Injury</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CCR - No Interest</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Sunset - No Interest</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sunset - No Likelihood</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sunset - Injury</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CCR - No Interest</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
@@ -652,33 +671,35 @@
         <fullName>Segment_Status__c</fullName>
         <externalId>false</externalId>
         <label>Segment Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Active</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Litigation Hold</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Litigation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Closed</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Suspended</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Litigation Hold</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Litigation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Closed</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Suspended</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Termination_of_Suspension_Gap_Period_Beg__c</fullName>
@@ -701,38 +722,50 @@
     <fields>
         <fullName>Upstream_Subsidy_Allegation__c</fullName>
         <externalId>false</externalId>
-        <globalPicklist>YesNo</globalPicklist>
         <label>Upstream Subsidy Allegation?</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Will_You_Amend_the_Final__c</fullName>
         <externalId>false</externalId>
-        <globalPicklist>YesNo</globalPicklist>
         <label>Will You Amend the Final?</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Will_You_Amend_the_Prelim_Determination__c</fullName>
         <externalId>false</externalId>
-        <globalPicklist>YesNo</globalPicklist>
         <label>Will You Amend the Prelim Determination?</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Will_you_Issue_Post_Prelim_Determination__c</fullName>
         <externalId>false</externalId>
-        <globalPicklist>YesNo</globalPicklist>
         <label>Will you Issue Post Prelim Determination</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <label>ADCVD Order</label>
     <listViews>

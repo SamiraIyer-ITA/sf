@@ -1,7 +1,0 @@
-Hello this is a test email from creating a case via client assist publisher action.
-
-Case ID: {!Case.CaseNumber}
-
-Case Subject: {!Case.Subject}
-
-Case Description: {!Case.Description}
