@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+        <members>ADCVD_TollingDayUtility</members>
+        <members>ADCVD_TollingDayUtilityTest</members>
         <members>AttachmentWriterController</members>
         <members>AttachmentWriterControllerTest</members>
         <members>BatchJobExecutionTest</members>
@@ -48,6 +50,8 @@
         <members>PaymentController</members>
         <members>PaymentDetailsController</members>
         <members>PaymentTriggerHandler</members>
+        <members>PetitionTriggerHandler</members>
+        <members>PetitionTriggerHandlerTest</members>
         <members>PrivacyPolicyComponentController</members>
         <members>Profile_Controller</members>
         <members>PublishArticles</members>
@@ -926,5 +930,5 @@
         <members>WIN__c</members>
         <name>Workflow</name>
     </types>
-    <version>36.0</version>
+    <version>38.0</version>
 </Package>
