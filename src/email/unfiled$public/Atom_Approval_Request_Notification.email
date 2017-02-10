@@ -1,6 +1,0 @@
-<table border="0" cellpadding="5" width="550" cellspacing="5" height="400" >
-<tr valign="top" height="400" >
-<td tEditID="c1r1" style=" background-color:#FFFFFF; bEditID:r3st1; color:#000000; bLabel:main; font-size:12pt; font-family:arial;" aEditID="c1r1" locked="0" >
-<![CDATA[New '{!Content__c.Name}' is Created.<div><br></div><div>Please verify and Approve/Reject -&nbsp;<a href="https://trade.my.salesforce.com/{!Content__c.Id}">https://trade.my.salesforce.com/{!Content__c.Id}</a>.</div><div><br></div><div>Thank You</div><div>&nbsp;{!Content__c.OwnerFullName}</div>]]></td>
-</tr>
-</table>

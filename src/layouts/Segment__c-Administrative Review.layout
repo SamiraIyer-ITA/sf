@@ -105,10 +105,6 @@
                 <behavior>Edit</behavior>
                 <field>Calculated_Preliminary_Signature__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Range_of_Rates_Prelim__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -135,10 +131,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Calculated_Final_Signature__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Range_of_Rates_Final__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -173,10 +165,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Calculated_Amended_Final_Signature__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Range_of_Rates_Final_Amended__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

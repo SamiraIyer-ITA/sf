@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -120,11 +116,14 @@
     <fields>
         <fullName>State__c</fullName>
         <externalId>false</externalId>
-        <globalPicklist>States</globalPicklist>
         <label>State</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>States</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Zip_Code__c</fullName>

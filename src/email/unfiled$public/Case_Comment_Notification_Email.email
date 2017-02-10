@@ -1,2 +1,0 @@
-<p>Case Comment for {!Case.CaseNumber}</p> 
-<p>{!Case.Recent_Comment__c}</p>

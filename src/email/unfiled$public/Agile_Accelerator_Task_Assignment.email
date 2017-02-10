@@ -1,5 +1,0 @@
-New Task # {!agf__ADM_Task__c.Name} - '{!agf__ADM_Task__c.agf__Subject__c}' (for work # {!agf__ADM_Task__c.agf__Work__c}) is assigned to you.
- 
-Please goto https://trade.my.salesforce.com/{!agf__ADM_Task__c.Id} for more details
-
-Assigned to: {!agf__ADM_Task__c.agf__Assigned_To__c}

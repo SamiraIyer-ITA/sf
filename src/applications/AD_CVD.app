@@ -8,4 +8,6 @@
     <tab>Segment__c</tab>
     <tab>Suspension_Agreement__c</tab>
     <tab>Litigation__c</tab>
+    <tab>Tolling_Day__c</tab>
+    <tab>standard-report</tab>
 </CustomApplication>

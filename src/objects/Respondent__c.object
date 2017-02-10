@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -72,21 +68,23 @@
         <fullName>Respondent_Received__c</fullName>
         <externalId>false</externalId>
         <label>Respondent Received</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Injunction</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Litigation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Injunction</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Litigation</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Respondent__c</fullName>
@@ -116,57 +114,61 @@
         <fullName>Type_of_Respondent__c</fullName>
         <externalId>false</externalId>
         <label>Type of Respondent</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Mandatory</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Review Request/Separate Rate</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>All Other/Country-Wide</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Mandatory</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Review Request/Separate Rate</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>All Other/Country-Wide</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Type_of_Response__c</fullName>
         <externalId>false</externalId>
         <label>Type of Response</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Full</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No Shipments</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Partial</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Unresponsive</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Full</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>No Shipments</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Partial</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Withdrawn</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Unresponsive</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <label>Respondent</label>
     <nameField>

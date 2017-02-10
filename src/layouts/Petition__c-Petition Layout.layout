@@ -8,7 +8,7 @@
         <label>Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Petition_Outcome__c</field>
             </layoutItems>
             <layoutItems>
@@ -54,11 +54,11 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Initiation_Extension__c</field>
+                <field>Actual_Initiation_Signature__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Actual_Signature_Date__c</field>
+                <field>Initiation_Extension_of_days__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

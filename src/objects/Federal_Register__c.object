@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -57,11 +53,37 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
+        <fullName>Actual_ITC_Final_FR_Published__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual ITC Final FR Published</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Alignment_Postponement_of_Final_FR_Pub__c</fullName>
+        <description>Alignment (Postponement of Final) FR Published</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Alignment (Postponement of Final) FR Published</inlineHelpText>
+        <label>Alignment (Postponement of Final) FR Pub</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Amended_Final_FR_Published__c</fullName>
         <description>Amended Final FR Published</description>
         <externalId>false</externalId>
         <inlineHelpText>Amended Final FR Published</inlineHelpText>
         <label>Amended Final FR Published</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Amended_Preliminary_Determination_FR_Pub__c</fullName>
+        <externalId>false</externalId>
+        <label>Amended Preliminary Determination FR Pub</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -98,6 +120,18 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Federal_Register__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Federal Register</label>
+        <referenceTo>Litigation__c</referenceTo>
+        <relationshipLabel>Federal Registers</relationshipLabel>
+        <relationshipName>Federal_Registers</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Final_FR_Published__c</fullName>
@@ -182,6 +216,16 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Postponement_of_Final_Determination_FR__c</fullName>
+        <description>Postponement of Final Determination FR Published</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Postponement of Final Determination FR Published</inlineHelpText>
+        <label>Postponement of Final Determination FR</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Preliminary_FR_Published__c</fullName>
         <description>Preliminary FR Published</description>
         <externalId>false</externalId>
@@ -225,57 +269,59 @@
         <fullName>Type__c</fullName>
         <externalId>false</externalId>
         <label>Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Initiation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Continuation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Preliminary</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Amended Preliminary</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Final</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Amended Final</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ITC Preliminary</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ITC Final</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Order</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Postponement</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Post Litigation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Initiation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Continuation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Preliminary</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Amended Preliminary</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Final</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Amended Final</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ITC Preliminary</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ITC Final</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Order</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Postponement</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Post Litigation</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>URL__c</fullName>

@@ -81,18 +81,24 @@ public without sharing class ADCVD_TollingDayUtility {
 	}
 	/* method returns true if date entered is a weekday */
 	@TestVisible private static Boolean isWeekday(Date dt) {
+		String dayOfWeek = dayOfWeek(dt);
+		if(dayOfWeek == 'Sun' || dayOfWeek == 'Sat') {
+		    return false;
+		} else {
+		    return true;
+		}
+	}
+	public static String dayOfWeek(dateTime dt){
+		return dt.format('E');
+	}
+	public static String dayOfWeek(date dt) {
 		//dayOfWeek is Sun, Mon, Tue, etc.
 		//get timezone offset of user;
 		integer offset = UserInfo.getTimeZone().getOffset(DateTime.newInstance(dt.year(),dt.month(),dt.day(),0,0,0));
 		//offest time by 
 		Time myTime = Time.newInstance(0, 0, 0, offset);
 		DateTime dateTimeToCompare = datetime.newInstanceGmt(dt, mytime);
-		String dayOfWeek = dateTimeToCompare.format('E');
-		if(dayOfWeek == 'Sun' || dayOfWeek == 'Sat') {
-		    return false;
-		} else {
-		    return true;
-		}
+		return dayOfWeek(dateTimeToCompare);
 	}
 	/* method returns true if date entered is a holiday */
 	@TestVisible private static Boolean isHoliday(Date dt) {
@@ -117,7 +123,7 @@ public without sharing class ADCVD_TollingDayUtility {
 	@TestVisible private static date rollBackPreviousBusinessDay(date dt) {
 		while (true) {//loop through until a working day is found
 			if(isTollingDay(dt)){
-				rollForwardNextBusinessDay(dt); //assumed we should roll forward if we land on a tolling day
+				return rollForwardNextBusinessDay(dt); //assumed we should roll forward if we land on a tolling day
 			}
 			if(isWorkingDay(dt)) {
 				return dt;

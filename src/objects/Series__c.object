@@ -21,10 +21,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -62,46 +58,48 @@
         <fullName>Type__c</fullName>
         <externalId>false</externalId>
         <label>Series Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Country Commercial</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>State Report</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Top Markets</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Article</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Basic Guide to Exporting</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>FAQ</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Salesforce Products</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Market Insight</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackFeedHistory>true</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Country Commercial</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>State Report</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Top Markets</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Article</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Basic Guide to Exporting</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FAQ</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Salesforce Products</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Market Insight</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <label>Series</label>
     <listViews>

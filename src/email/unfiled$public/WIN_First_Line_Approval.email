@@ -1,7 +1,0 @@
-Dear {!User.Manager},
-
-A WIN record:  {!WIN__c.Name} has been submitted for your Approval.  You may access the WIN via this link: {!WIN__c.Link} 
-
-Thank you.
-
-ITA Salesforce CRM Management Team

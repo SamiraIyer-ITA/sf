@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<HomePageComponent xmlns="http://soap.sforce.com/2006/04/metadata">
-    <links>View_My_Actvities</links>
-    <links>My_Contributor_Cases</links>
-    <links>My_Contributor_WINs</links>
-    <links>My_Survey_Results</links>
-    <pageComponentType>links</pageComponentType>
-</HomePageComponent>
