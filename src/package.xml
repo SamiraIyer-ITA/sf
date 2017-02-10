@@ -100,6 +100,8 @@
         <members>Test_caseEmailHandler</members>
         <members>Test_teamController</members>
         <members>Test_tradeRegistration_Controller</members>
+        <members>TollingDayTriggerHandler</members>
+        <members>TollingDayTriggerHandlerTest</members>
         <members>USTaxIdFldCleanTest</members>
         <members>UnpublishArticles</members>
         <members>UpdateCCDLookupIdTest</members>
