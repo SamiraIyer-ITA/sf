@@ -148,6 +148,43 @@ public with sharing class TestUtils {
         }
         return opp;
     }
+
+    // create test Petition
+    public static Petition__c createPetition(Date petitionDate, String caseType, Boolean doInsert){
+        Petition__c petition = new Petition__c();
+        petition.Petition_Outcome__c = 'Initiated';
+        petition.Product__c = 'tacos';
+        petition.Case_Type__c = caseType;
+        if(caseType.substring(0, 1) == 'A'){
+            petition.Case_Number__c = 'A-111-222';
+        } else {
+            petition.Case_Number__c = 'C-111-222';
+        }
+        petition.Country__c = 'United States';
+        petition.Commodity__c = 'Foodstuffs'; 
+        petition.Petition_Filed__c = petitionDate;
+        //added for testing purposes
+        petition.Petition_Outcome__c = 'Initiated';
+        petition.Initiation_Extension_of_days__c = 3;
+        if(doInsert){
+            insert petition;
+        }
+        return petition;
+    }
+
+    //create test Tolling Day
+    public static Tolling_Day__c createTollingDay(Date startDate, Date endDate, User u, Boolean doInsert){
+        Tolling_Day__c td = new Tolling_Day__c();
+        td.Start_Date__c = startDate;
+        td.End_Date__c = endDate;
+        td.Reason__c = 'Snow Day';
+        if(doInsert){
+            System.runAs(u){
+                insert td;
+            }
+        }
+        return td;
+    }
     
      public static User createGenericUser(string username, string email, String profileId) {
         User user = new User();
