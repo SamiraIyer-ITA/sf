@@ -40,7 +40,7 @@ public class TollingDayTriggerHandler {
         return petitionIdSet;
         
     }
-    private static void recalculatePetitionTollingDay(List<Tolling_Day__c> tdList) {
+    @TestVisible private static void recalculatePetitionTollingDay(List<Tolling_Day__c> tdList) {
         calculatePetitionsFuture(findPetitionsInScope(tdList));
     }
     @future

@@ -1,8 +1,16 @@
 @isTest
 public class TollingDayTriggerHandlerTest {
-	private static Date petitionDate = System.today();
+	private static Date petitionDate {
+		get {
+			if(petitionDate == null){
+				petitionDate = System.today();
+				petitionDate = petitionDate.toStartOfWeek().addDays(1);
+			}
+			return petitionDate;
+		}
+	}
 	private static Date tollingDateStart = System.today().addDays(6);
-	private static Date tollingDateEnd = System.today().addDays(13);
+	private static Date tollingDateEnd = System.today().addDays(10);
 
 	private static User u{
 		get{
@@ -44,13 +52,12 @@ public class TollingDayTriggerHandlerTest {
 		System.assertEquals(TollingDayTriggerHandler.latestDate, null);
 		Tolling_Day__c td = TestUtils.createTollingDay(tollingDateStart, tollingDateEnd, u, true);
 		TollingDayTriggerHandler.setDatesInScope(tdList);
-		System.assertEquals(TollingDayTriggerHandler.earliestDate, tollingDateStart);//equal wo the tolling day scope
+		System.assertEquals(TollingDayTriggerHandler.earliestDate, tollingDateStart);//equal to the tolling day scope
 		System.assertEquals(TollingDayTriggerHandler.latestDate, tollingDateEnd);
 		Test.stopTest();
 	}
 	@isTest static void findPetitionsInScope(){
 		Test.startTest();
-		Petition__c p = TestUtils.createPetition(tollingDateStart, 'AD ME', true);//insert Petition starting on tolling day
 		//create new Tolling Day List in memory for test
 		Tolling_Day__c td = TestUtils.createTollingDay(tollingDateStart, tollingDateEnd, u, false);//no insert needed
 		tdList.add(td);
@@ -59,16 +66,18 @@ public class TollingDayTriggerHandlerTest {
 	}
 	@isTest static void recalculatePetitionTollingDay(){
 		Test.startTest();
-		Petition__c p = TestUtils.createPetition(petitionDate, 'AD ME', false);
-		p.Petition_Filed__c = p.Petition_Filed__c.toStartOfWeek().addDays(1);//set Petition Filed to Monday
-		insert p;
-		Tolling_Day__c td = TestUtils.createTollingDay(tollingDateStart, tollingDateEnd, u, true);//add 8 tolling days
+		Tolling_Day__c td = TestUtils.createTollingDay(tollingDateStart, tollingDateEnd, u, true);//add 5 tolling days
 		Test.stopTest();
-		//Petition_Filed + 20(standard) + 8 tollingdays = Petition Calculated_Initiation_Signature__c
-		System.assertEquals(p.Petition_Filed__c.addDays(28), petitionList[0].Calculated_Initiation_Signature__c);
+		//Petition_Filed + 20(standard) + 3 Extension + 5 tollingdays = Petition Calculated_Initiation_Signature__c
+		System.assertEquals(petitionDate.addDays(28), [SELECT Calculated_Initiation_Signature__c 
+																FROM Petition__c 
+																WHERE Petition_Filed__c =: petitionDate
+																LIMIT 1].Calculated_Initiation_Signature__c);
 	}
 	@testSetup static void dataSetup() {
 		Test.startTest();
 		User testUser = testUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
+		Petition__c p = TestUtils.createPetition(petitionDate, 'AD ME', true);//TestUtils creates with a 3 day extension
+		System.debug('Petition_Filed__c ' + p.Petition_Filed__c);
 	}
 }

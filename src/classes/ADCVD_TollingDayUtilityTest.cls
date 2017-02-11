@@ -105,12 +105,9 @@ public with sharing class ADCVD_TollingDayUtilityTest {
 	}
 	@testSetup static void dataSetup() {
 		Test.startTest();
-		User u = testUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
+		User u = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
 		Holiday h = new Holiday(ActivityDate = holidayDate, Name = 'Every day is a holiday');
 		insert h;
-		system.runAs(u) {
-			Tolling_Day__c td = new Tolling_Day__c(Start_Date__c = tollingDateStart, End_Date__c = tollingDateEnd, Reason__c = 'Because!');
-			insert td;
-		}
+		Tolling_Day__c td = TestUtils.createTollingDay(tollingDateStart, tollingDateEnd, u, true);
 	}
 }

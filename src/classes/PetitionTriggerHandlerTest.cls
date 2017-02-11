@@ -89,7 +89,7 @@ public class PetitionTriggerHandlerTest {
 		System.runAs(u){
 			Petition__c p = testUtils.createPetition(petitionDate, 'AD ME', false);
 			p.Initiation_Extension_of_days__c = 1;//20+1 will set Calculated Initiation Signature to same day of the week as Petition Filed
-			if(ADCVD_TollingDayUtility.isWeekday(p.Petition_Filed__c)){//If not a day of the week, roll forward to the next Monday
+			if(ADCVD_TollingDayUtility.dayOfWeek(p.Petition_Filed__c) != 'Mon'){//Set to Monday
 				p.Petition_Filed__c = p.Petition_Filed__c.toStartOfWeek().addDays(1);
 			}
 			System.debug(p.Petition_Filed__c);

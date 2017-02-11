@@ -152,7 +152,6 @@ public with sharing class TestUtils {
     // create test Petition
     public static Petition__c createPetition(Date petitionDate, String caseType, Boolean doInsert){
         Petition__c petition = new Petition__c();
-        petition.Petition_Outcome__c = 'Initiated';
         petition.Product__c = 'tacos';
         petition.Case_Type__c = caseType;
         if(caseType.substring(0, 1) == 'A'){
