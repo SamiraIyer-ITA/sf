@@ -1,8 +1,8 @@
 @isTest
 public with sharing class ADCVD_TollingDayUtilityTest {
 	private static Date holidayDate = System.today();
-	private static Date tollingDateStart = System.today().addDays(-9);
-	private static Date tollingDateEnd = System.today().addDays(-3);
+	private static Date tollingDateStart = System.today().addDays(-10);
+	private static Date tollingDateEnd = System.today().addDays(-4);
 	@isTest static void tollingDayList(){
 		System.assert(ADCVD_TollingDayUtility.tollingDayList.size() == 1);	
 	}
