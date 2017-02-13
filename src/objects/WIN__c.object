@@ -115,26 +115,32 @@
                 <value>
                     <fullName>E-Award Winner</fullName>
                     <default>false</default>
+                    <label>E-Award Winner</label>
                 </value>
                 <value>
                     <fullName>Export Achievement Certificate Recipient</fullName>
                     <default>false</default>
+                    <label>Export Achievement Certificate Recipient</label>
                 </value>
                 <value>
                     <fullName>Woman-Owned Business</fullName>
                     <default>false</default>
+                    <label>Woman-Owned Business</label>
                 </value>
                 <value>
                     <fullName>Minority-Owned Business</fullName>
                     <default>false</default>
+                    <label>Minority-Owned Business</label>
                 </value>
                 <value>
                     <fullName>Rural Business</fullName>
                     <default>false</default>
+                    <label>Rural Business</label>
                 </value>
                 <value>
                     <fullName>Veteran-Owned</fullName>
                     <default>false</default>
+                    <label>Veteran-Owned</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -267,22 +273,27 @@
                 <value>
                     <fullName>2012</fullName>
                     <default>false</default>
+                    <label>2012</label>
                 </value>
                 <value>
                     <fullName>2013</fullName>
                     <default>false</default>
+                    <label>2013</label>
                 </value>
                 <value>
                     <fullName>2014</fullName>
                     <default>false</default>
+                    <label>2014</label>
                 </value>
                 <value>
                     <fullName>2015</fullName>
                     <default>false</default>
+                    <label>2015</label>
                 </value>
                 <value>
                     <fullName>2016</fullName>
                     <default>false</default>
+                    <label>2016</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -313,30 +324,37 @@
                 <value>
                     <fullName>Press Use</fullName>
                     <default>false</default>
+                    <label>Press Use</label>
                 </value>
                 <value>
                     <fullName>Speeches</fullName>
                     <default>false</default>
+                    <label>Speeches</label>
                 </value>
                 <value>
                     <fullName>Send to Congress</fullName>
                     <default>false</default>
+                    <label>Send to Congress</label>
                 </value>
                 <value>
                     <fullName>Client willing to speak to  media</fullName>
                     <default>false</default>
+                    <label>Client willing to speak to  media</label>
                 </value>
                 <value>
                     <fullName>DOC/ITA websites and social media</fullName>
                     <default>false</default>
+                    <label>DOC/ITA websites and social media</label>
                 </value>
                 <value>
                     <fullName>Outreach by TPCC Agencies</fullName>
                     <default>false</default>
+                    <label>Outreach by TPCC Agencies</label>
                 </value>
                 <value>
                     <fullName>Declined to clear</fullName>
                     <default>false</default>
+                    <label>Declined to clear</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -552,10 +570,12 @@
                 <value>
                     <fullName>Approved</fullName>
                     <default>false</default>
+                    <label>Approved</label>
                 </value>
                 <value>
                     <fullName>Not Approved</fullName>
                     <default>false</default>
+                    <label>Not Approved</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -612,10 +632,12 @@
                 <value>
                     <fullName>Approved</fullName>
                     <default>false</default>
+                    <label>Approved</label>
                 </value>
                 <value>
                     <fullName>Not Approved</fullName>
                     <default>false</default>
+                    <label>Not Approved</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -850,126 +872,157 @@ Other Government entities that were involved with the WIN.</description>
                 <value>
                     <fullName>Agriculture Department</fullName>
                     <default>false</default>
+                    <label>Agriculture Department</label>
                 </value>
                 <value>
                     <fullName>Bureau of Economic Analysis</fullName>
                     <default>false</default>
+                    <label>Bureau of Economic Analysis</label>
                 </value>
                 <value>
                     <fullName>Bureau of Industry and Security</fullName>
                     <default>false</default>
+                    <label>Bureau of Industry and Security</label>
                 </value>
                 <value>
                     <fullName>Council of Economic Advisors</fullName>
                     <default>false</default>
+                    <label>Council of Economic Advisors</label>
                 </value>
                 <value>
                     <fullName>Defense Department</fullName>
                     <default>false</default>
+                    <label>Defense Department</label>
                 </value>
                 <value>
                     <fullName>Economic Development Administration</fullName>
                     <default>false</default>
+                    <label>Economic Development Administration</label>
                 </value>
                 <value>
                     <fullName>Economics and Statistics Administration</fullName>
                     <default>false</default>
+                    <label>Economics and Statistics Administration</label>
                 </value>
                 <value>
                     <fullName>Energy Department</fullName>
                     <default>false</default>
+                    <label>Energy Department</label>
                 </value>
                 <value>
                     <fullName>Environmental Protection Agency</fullName>
                     <default>false</default>
+                    <label>Environmental Protection Agency</label>
                 </value>
                 <value>
                     <fullName>Export-Import Bank</fullName>
                     <default>false</default>
+                    <label>Export-Import Bank</label>
                 </value>
                 <value>
                     <fullName>Health and Human Services Department</fullName>
                     <default>false</default>
+                    <label>Health and Human Services Department</label>
                 </value>
                 <value>
                     <fullName>Homeland Security Department</fullName>
                     <default>false</default>
+                    <label>Homeland Security Department</label>
                 </value>
                 <value>
                     <fullName>Labor Department</fullName>
                     <default>false</default>
+                    <label>Labor Department</label>
                 </value>
                 <value>
                     <fullName>Millennium Challenge Corporation</fullName>
                     <default>false</default>
+                    <label>Millennium Challenge Corporation</label>
                 </value>
                 <value>
                     <fullName>Minority Business Development Agency</fullName>
                     <default>false</default>
+                    <label>Minority Business Development Agency</label>
                 </value>
                 <value>
                     <fullName>National Security Council</fullName>
                     <default>false</default>
+                    <label>National Security Council</label>
                 </value>
                 <value>
                     <fullName>National Technical Information Service</fullName>
                     <default>false</default>
+                    <label>National Technical Information Service</label>
                 </value>
                 <value>
                     <fullName>NIST</fullName>
                     <default>false</default>
+                    <label>NIST</label>
                 </value>
                 <value>
                     <fullName>NOAA</fullName>
                     <default>false</default>
+                    <label>NOAA</label>
                 </value>
                 <value>
                     <fullName>NTIA</fullName>
                     <default>false</default>
+                    <label>NTIA</label>
                 </value>
                 <value>
                     <fullName>Office of Management and Budget</fullName>
                     <default>false</default>
+                    <label>Office of Management and Budget</label>
                 </value>
                 <value>
                     <fullName>Office of the U.S. Trade Representative</fullName>
                     <default>false</default>
+                    <label>Office of the U.S. Trade Representative</label>
                 </value>
                 <value>
                     <fullName>Overseas Private Investment Corporation</fullName>
                     <default>false</default>
+                    <label>Overseas Private Investment Corporation</label>
                 </value>
                 <value>
                     <fullName>Small Business Administration</fullName>
                     <default>false</default>
+                    <label>Small Business Administration</label>
                 </value>
                 <value>
                     <fullName>State Department</fullName>
                     <default>false</default>
+                    <label>State Department</label>
                 </value>
                 <value>
                     <fullName>Transportation Department</fullName>
                     <default>false</default>
+                    <label>Transportation Department</label>
                 </value>
                 <value>
                     <fullName>Treasury Department</fullName>
                     <default>false</default>
+                    <label>Treasury Department</label>
                 </value>
                 <value>
                     <fullName>USAID</fullName>
                     <default>false</default>
+                    <label>USAID</label>
                 </value>
                 <value>
                     <fullName>U.S. Census Bureau</fullName>
                     <default>false</default>
+                    <label>U.S. Census Bureau</label>
                 </value>
                 <value>
                     <fullName>U.S. Patent and Trademark Office</fullName>
                     <default>false</default>
+                    <label>U.S. Patent and Trademark Office</label>
                 </value>
                 <value>
                     <fullName>U.S. Trade and Development Agency</fullName>
                     <default>false</default>
+                    <label>U.S. Trade and Development Agency</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1003,18 +1056,22 @@ Other Government entities that were involved with the WIN.</description>
                 <value>
                     <fullName>Compliance with trade agreement</fullName>
                     <default>false</default>
+                    <label>Compliance with trade agreement</label>
                 </value>
                 <value>
                     <fullName>Facilitated export transaction</fullName>
                     <default>false</default>
+                    <label>Facilitated export transaction</label>
                 </value>
                 <value>
                     <fullName>Reduced/Eliminated threat to US business</fullName>
                     <default>false</default>
+                    <label>Reduced/Eliminated threat to US business</label>
                 </value>
                 <value>
                     <fullName>Reduced/Removed/Prevented trade barrier</fullName>
                     <default>false</default>
+                    <label>Reduced/Removed/Prevented trade barrier</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1246,18 +1303,22 @@ Other Government entities that were involved with the WIN.</description>
                 <value>
                     <fullName>Advocacy</fullName>
                     <default>false</default>
+                    <label>Advocacy</label>
                 </value>
                 <value>
                     <fullName>Commercial Diplomacy</fullName>
                     <default>false</default>
+                    <label>Commercial Diplomacy</label>
                 </value>
                 <value>
                     <fullName>Export Promotion</fullName>
                     <default>false</default>
+                    <label>Export Promotion</label>
                 </value>
                 <value>
                     <fullName>Import Promotion</fullName>
                     <default>false</default>
+                    <label>Import Promotion</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1277,18 +1338,22 @@ Other Government entities that were involved with the WIN.</description>
                 <value>
                     <fullName>Advocacy</fullName>
                     <default>false</default>
+                    <label>Advocacy</label>
                 </value>
                 <value>
                     <fullName>Commercial Diplomacy</fullName>
                     <default>false</default>
+                    <label>Commercial Diplomacy</label>
                 </value>
                 <value>
                     <fullName>Export Promotion</fullName>
                     <default>false</default>
+                    <label>Export Promotion</label>
                 </value>
                 <value>
                     <fullName>Investment Promotion</fullName>
                     <default>false</default>
+                    <label>Investment Promotion</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -4172,6 +4237,7 @@ PRIORVALUE(Request_WIN_Removal__c) &lt;&gt; FALSE &amp;&amp;
 )</errorConditionFormula>
         <errorMessage>This WIN is requested to be removed.  If you believe this is in error, please contact the help desk immediately.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
     <webLinks>
         <fullName>Validate</fullName>
         <availability>online</availability>

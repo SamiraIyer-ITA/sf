@@ -170,6 +170,7 @@ IF ( AND((Version_Number__c = 0),(ISPICKVAL(Status__c, &quot;Draft: Rejected&quo
                 <value>
                     <fullName>Social</fullName>
                     <default>false</default>
+                    <label>Social</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -218,26 +219,32 @@ IF ( AND((Version_Number__c = 0),(ISPICKVAL(Status__c, &quot;Draft: Rejected&quo
                 <value>
                     <fullName>Country Commercial</fullName>
                     <default>false</default>
+                    <label>Country Commercial</label>
                 </value>
                 <value>
                     <fullName>State Report</fullName>
                     <default>false</default>
+                    <label>State Report</label>
                 </value>
                 <value>
                     <fullName>Top Markets</fullName>
                     <default>false</default>
+                    <label>Top Markets</label>
                 </value>
                 <value>
                     <fullName>Article</fullName>
                     <default>false</default>
+                    <label>Article</label>
                 </value>
                 <value>
                     <fullName>Basic Guide to Exporting</fullName>
                     <default>false</default>
+                    <label>Basic Guide to Exporting</label>
                 </value>
                 <value>
                     <fullName>FAQ</fullName>
                     <default>false</default>
+                    <label>FAQ</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -258,18 +265,22 @@ IF ( AND((Version_Number__c = 0),(ISPICKVAL(Status__c, &quot;Draft: Rejected&quo
                 <value>
                     <fullName>Draft</fullName>
                     <default>true</default>
+                    <label>Draft</label>
                 </value>
                 <value>
                     <fullName>Draft: Submitted for Approval</fullName>
                     <default>false</default>
+                    <label>Draft: Submitted for Approval</label>
                 </value>
                 <value>
                     <fullName>Online</fullName>
                     <default>false</default>
+                    <label>Online</label>
                 </value>
                 <value>
                     <fullName>Draft: Rejected</fullName>
                     <default>false</default>
+                    <label>Draft: Rejected</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -335,18 +346,22 @@ IF ( AND((Version_Number__c = 0),(ISPICKVAL(Status__c, &quot;Draft: Rejected&quo
                 <value>
                     <fullName>trade events</fullName>
                     <default>false</default>
+                    <label>trade events</label>
                 </value>
                 <value>
                     <fullName>market research library</fullName>
                     <default>false</default>
+                    <label>market research library</label>
                 </value>
                 <value>
                     <fullName>trade leads</fullName>
                     <default>false</default>
+                    <label>trade leads</label>
                 </value>
                 <value>
                     <fullName>search</fullName>
                     <default>false</default>
+                    <label>search</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -819,6 +834,7 @@ IF ( AND((Version_Number__c = 0),(ISPICKVAL(Status__c, &quot;Draft: Rejected&quo
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <startsWith>Vowel</startsWith>
+    <visibility>Public</visibility>
     <webLinks>
         <fullName>Carousel_Manager</fullName>
         <availability>online</availability>

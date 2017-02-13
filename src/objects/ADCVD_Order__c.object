@@ -210,18 +210,22 @@
                 <value>
                     <fullName>CBP Data</fullName>
                     <default>false</default>
+                    <label>CBP Data</label>
                 </value>
                 <value>
                     <fullName>Quantity and Value Questionnaires</fullName>
                     <default>false</default>
+                    <label>Quantity and Value Questionnaires</label>
                 </value>
                 <value>
                     <fullName>Others</fullName>
                     <default>false</default>
+                    <label>Others</label>
                 </value>
                 <value>
                     <fullName>N/A</fullName>
                     <default>false</default>
+                    <label>N/A</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -326,14 +330,17 @@
                 <value>
                     <fullName>Materially Injured</fullName>
                     <default>false</default>
+                    <label>Materially Injured</label>
                 </value>
                 <value>
                     <fullName>Threatened with Injury</fullName>
                     <default>false</default>
+                    <label>Threatened with Injury</label>
                 </value>
                 <value>
                     <fullName>Materially Retarded</fullName>
                     <default>false</default>
+                    <label>Materially Retarded</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -377,40 +384,13 @@
     <fields>
         <fullName>Investigation_Outcome__c</fullName>
         <externalId>false</externalId>
+        <formula>TEXT( Investigation__r.Investigation_Outcome__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Investigation Outcome</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>DOC Negative Final/Termination of Investigation</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>ITCC Negative Final/Termination of Investigation</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>ITC Negative Prelim/Termination of Investigation</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Petition Withdrawn After Initiation</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Suspension Agreement</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Order</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Investigation__c</fullName>
@@ -639,18 +619,22 @@
                 <value>
                     <fullName>Sunset - No Interest</fullName>
                     <default>false</default>
+                    <label>Sunset - No Interest</label>
                 </value>
                 <value>
                     <fullName>Sunset - No Likelihood</fullName>
                     <default>false</default>
+                    <label>Sunset - No Likelihood</label>
                 </value>
                 <value>
                     <fullName>Sunset - Injury</fullName>
                     <default>false</default>
+                    <label>Sunset - Injury</label>
                 </value>
                 <value>
                     <fullName>CCR - No Interest</fullName>
                     <default>false</default>
+                    <label>CCR - No Interest</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -681,22 +665,27 @@
                 <value>
                     <fullName>Active</fullName>
                     <default>false</default>
+                    <label>Active</label>
                 </value>
                 <value>
                     <fullName>Litigation Hold</fullName>
                     <default>false</default>
+                    <label>Litigation Hold</label>
                 </value>
                 <value>
                     <fullName>Litigation</fullName>
                     <default>false</default>
+                    <label>Litigation</label>
                 </value>
                 <value>
                     <fullName>Closed</fullName>
                     <default>false</default>
+                    <label>Closed</label>
                 </value>
                 <value>
                     <fullName>Suspended</fullName>
                     <default>false</default>
+                    <label>Suspended</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -790,68 +779,7 @@
         <active>true</active>
         <label>Anti-Circumvention Review</label>
         <picklistValues>
-            <picklist>Choose_Following_Respondent_Selection__c</picklist>
-            <values>
-                <fullName>CBP Data</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>N%2FA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Quantity and Value Questionnaires</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>ITC_Finding__c</picklist>
-            <values>
-                <fullName>Materially Injured</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Materially Retarded</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Threatened with Injury</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Investigation_Outcome__c</picklist>
-            <values>
-                <fullName>DOC Negative Final%2FTermination of Investigation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ITC Negative Prelim%2FTermination of Investigation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ITCC Negative Final%2FTermination of Investigation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Order</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Petition Withdrawn After Initiation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Suspension Agreement</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Months</picklist>
+            <picklist>Anniversary_Month__c</picklist>
             <values>
                 <fullName>April</fullName>
                 <default>false</default>
@@ -902,6 +830,84 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Choose_Following_Respondent_Selection__c</picklist>
+            <values>
+                <fullName>CBP Data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quantity and Value Questionnaires</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Do_you_have_Ministerial_Error_for_Final__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Do_you_have_Ministerial_Error_for_Prelim__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ITC_Finding__c</picklist>
+            <values>
+                <fullName>Materially Injured</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Materially Retarded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Threatened with Injury</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Is_This_Investigation_Aligned_With_AD_In__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receive_Injunction_or_In_Litigation__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Revocation_Reason__c</picklist>
             <values>
                 <fullName>CCR - No Interest</fullName>
@@ -944,7 +950,40 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>YesNo</picklist>
+            <picklist>Upstream_Subsidy_Allegation__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Will_You_Amend_the_Final__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Will_You_Amend_the_Prelim_Determination__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Will_you_Issue_Post_Prelim_Determination__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -957,4 +996,5 @@
     </recordTypes>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

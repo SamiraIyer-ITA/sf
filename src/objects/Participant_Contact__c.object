@@ -154,14 +154,17 @@
                 <value>
                     <fullName>Portal Administrator</fullName>
                     <default>false</default>
+                    <label>Portal Administrator</label>
                 </value>
                 <value>
                     <fullName>Organization Contact</fullName>
                     <default>false</default>
+                    <label>Organization Contact</label>
                 </value>
                 <value>
                     <fullName>Organization Corporate Officer</fullName>
                     <default>false</default>
+                    <label>Organization Corporate Officer</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -188,4 +191,5 @@
     <pluralLabel>Participant Contacts</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

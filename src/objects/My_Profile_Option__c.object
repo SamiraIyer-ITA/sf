@@ -120,4 +120,5 @@
     <pluralLabel>My Account Navigation</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

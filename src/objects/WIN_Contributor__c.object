@@ -250,4 +250,5 @@
 ($Profile.Name &lt;&gt; &quot;System Administrator&quot;)</errorConditionFormula>
         <errorMessage>Contributor Name is Required.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>

@@ -11,7 +11,9 @@
         <type>Region</type>
     </flexiPageRegions>
     <masterLabel>ADCVD Lightning Layout</masterLabel>
-    <pageTemplate>flexipage:recordHomeSingleColNoHeaderTemplateDesktop</pageTemplate>
     <sobjectType>Segment__c</sobjectType>
+    <template>
+        <name>flexipage:recordHomeSingleColNoHeaderTemplateDesktop</name>
+    </template>
     <type>RecordPage</type>
 </FlexiPage>

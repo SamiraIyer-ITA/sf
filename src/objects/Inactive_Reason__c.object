@@ -89,4 +89,5 @@
     <pluralLabel>Inactive Reasons</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

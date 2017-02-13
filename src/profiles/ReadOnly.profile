@@ -678,7 +678,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>ADCVD_Order__c.Investigation_Outcome__c</field>
         <readable>true</readable>
     </fieldPermissions>

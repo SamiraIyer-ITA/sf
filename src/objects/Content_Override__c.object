@@ -98,4 +98,5 @@
     <pluralLabel>Page Overrides</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

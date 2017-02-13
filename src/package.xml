@@ -124,8 +124,6 @@
         <members>ADCVD</members>
         <members>ADCVD/ADCVD_Order_By_Commodities</members>
         <members>ADCVD/ADCVD_Order_By_Commodities1</members>
-        <members>ADCVD/All_Segments_Petitions_Investigations</members>
-        <members>ADCVD/Segments_By_Record_Type</members>
         <name>Report</name>
     </types>
     <types>
@@ -136,5 +134,5 @@
         <members>*</members>
         <name>ReportType</name>
     </types>
-    <version>38.0</version>
+    <version>39.0</version>
 </Package>

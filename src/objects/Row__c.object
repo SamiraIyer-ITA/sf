@@ -158,4 +158,5 @@
         <errorDisplayField>Container__c</errorDisplayField>
         <errorMessage>Please select a color for this row or remove the background image.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>

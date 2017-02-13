@@ -142,4 +142,5 @@
     <pluralLabel>Social Icons</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

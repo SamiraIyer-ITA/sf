@@ -81,10 +81,12 @@
                 <value>
                     <fullName>Style</fullName>
                     <default>false</default>
+                    <label>Style</label>
                 </value>
                 <value>
                     <fullName>Width</fullName>
                     <default>false</default>
+                    <label>Width</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -166,4 +168,5 @@
     </recordTypes>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

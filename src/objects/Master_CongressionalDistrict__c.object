@@ -189,4 +189,5 @@
         <lookupDialogsAdditionalFields>zip_Plus4__c</lookupDialogsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

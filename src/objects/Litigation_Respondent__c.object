@@ -85,4 +85,5 @@
     <pluralLabel>Litigation Respondents</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

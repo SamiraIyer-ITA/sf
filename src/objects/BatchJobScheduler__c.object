@@ -152,4 +152,5 @@
     <pluralLabel>Cong-County Batch Jobs</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

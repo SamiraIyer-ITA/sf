@@ -68,19 +68,23 @@
                 <value>
                     <fullName>Privacy Shield</fullName>
                     <default>true</default>
+                    <label>Privacy Shield</label>
                 </value>
                 <value>
                     <fullName>Event or Service</fullName>
                     <default>false</default>
+                    <label>Event or Service</label>
                 </value>
                 <value>
                     <fullName>Unknown</fullName>
                     <default>false</default>
+                    <label>Unknown</label>
                 </value>
                 <value>
                     <fullName>PS</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>PS</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -191,26 +195,32 @@
                 <value>
                     <fullName>Cancelled</fullName>
                     <default>false</default>
+                    <label>Cancelled</label>
                 </value>
                 <value>
                     <fullName>Failed</fullName>
                     <default>false</default>
+                    <label>Failed</label>
                 </value>
                 <value>
                     <fullName>Received</fullName>
                     <default>false</default>
+                    <label>Received</label>
                 </value>
                 <value>
                     <fullName>Retired</fullName>
                     <default>false</default>
+                    <label>Retired</label>
                 </value>
                 <value>
                     <fullName>Settled</fullName>
                     <default>false</default>
+                    <label>Settled</label>
                 </value>
                 <value>
                     <fullName>Success</fullName>
                     <default>false</default>
+                    <label>Success</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -266,6 +276,7 @@
         <searchResultsAdditionalFields>Transaction_Status__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
+    <visibility>Public</visibility>
     <webLinks>
         <fullName>Issue_Refund</fullName>
         <availability>online</availability>

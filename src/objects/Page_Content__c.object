@@ -316,4 +316,5 @@
         <errorDisplayField>Content__c</errorDisplayField>
         <errorMessage>The Type of Content must match the Content of this Page-Content.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>
