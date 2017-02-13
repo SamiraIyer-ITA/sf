@@ -80,14 +80,17 @@
                 <value>
                     <fullName>New</fullName>
                     <default>false</default>
+                    <label>New</label>
                 </value>
                 <value>
                     <fullName>Pending Review</fullName>
                     <default>false</default>
+                    <label>Pending Review</label>
                 </value>
                 <value>
                     <fullName>Finalized</fullName>
                     <default>false</default>
+                    <label>Finalized</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -106,10 +109,12 @@
                 <value>
                     <fullName>Self-Assessment</fullName>
                     <default>false</default>
+                    <label>Self-Assessment</label>
                 </value>
                 <value>
                     <fullName>Outside Compliance Review</fullName>
                     <default>false</default>
+                    <label>Outside Compliance Review</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -264,14 +269,17 @@
                 <value>
                     <fullName>Pending</fullName>
                     <default>true</default>
+                    <label>Pending</label>
                 </value>
                 <value>
                     <fullName>Active</fullName>
                     <default>false</default>
+                    <label>Active</label>
                 </value>
                 <value>
                     <fullName>Inactive</fullName>
                     <default>false</default>
+                    <label>Inactive</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -401,4 +409,5 @@
         <errorDisplayField>Inactive_Status_Reason__c</errorDisplayField>
         <errorMessage>You must indicate the reason that this Organization is no longer participating in the Framework.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>

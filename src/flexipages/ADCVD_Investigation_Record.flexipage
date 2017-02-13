@@ -11,7 +11,9 @@
         <type>Region</type>
     </flexiPageRegions>
     <masterLabel>ADCVD Investigation Record</masterLabel>
-    <pageTemplate>flexipage:recordHomeSingleColNoHeaderTemplateDesktop</pageTemplate>
     <sobjectType>Investigation__c</sobjectType>
+    <template>
+        <name>flexipage:recordHomeSingleColNoHeaderTemplateDesktop</name>
+    </template>
     <type>RecordPage</type>
 </FlexiPage>

@@ -69,34 +69,42 @@
                 <value>
                     <fullName>Country Commercial</fullName>
                     <default>false</default>
+                    <label>Country Commercial</label>
                 </value>
                 <value>
                     <fullName>State Report</fullName>
                     <default>false</default>
+                    <label>State Report</label>
                 </value>
                 <value>
                     <fullName>Top Markets</fullName>
                     <default>false</default>
+                    <label>Top Markets</label>
                 </value>
                 <value>
                     <fullName>Article</fullName>
                     <default>false</default>
+                    <label>Article</label>
                 </value>
                 <value>
                     <fullName>Basic Guide to Exporting</fullName>
                     <default>false</default>
+                    <label>Basic Guide to Exporting</label>
                 </value>
                 <value>
                     <fullName>FAQ</fullName>
                     <default>false</default>
+                    <label>FAQ</label>
                 </value>
                 <value>
                     <fullName>Salesforce Products</fullName>
                     <default>false</default>
+                    <label>Salesforce Products</label>
                 </value>
                 <value>
                     <fullName>Market Insight</fullName>
                     <default>false</default>
+                    <label>Market Insight</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -215,4 +223,5 @@
         <searchFilterFields>Type__c</searchFilterFields>
     </searchLayouts>
     <sharingModel>Read</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

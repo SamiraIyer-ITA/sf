@@ -13,7 +13,13 @@
         <name>ApexTrigger</name>
     </types>
     <types>
+        <members>Winter_17_175x65Recovered_lightning</members>
+        <name>ContentAsset</name>
+    </types>
+    <types>
         <members>AD_CVD</members>
+        <members>AD_CVD_Lightning</members>
+        <members>AD_CVD_Lightning1</members>
         <name>CustomApplication</name>
     </types>
     <types>
@@ -124,8 +130,6 @@
         <members>ADCVD</members>
         <members>ADCVD/ADCVD_Order_By_Commodities</members>
         <members>ADCVD/ADCVD_Order_By_Commodities1</members>
-        <members>ADCVD/All_Segments_Petitions_Investigations</members>
-        <members>ADCVD/Segments_By_Record_Type</members>
         <name>Report</name>
     </types>
     <types>
@@ -136,5 +140,5 @@
         <members>*</members>
         <name>ReportType</name>
     </types>
-    <version>38.0</version>
+    <version>39.0</version>
 </Package>

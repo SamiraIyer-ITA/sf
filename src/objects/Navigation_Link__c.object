@@ -183,4 +183,5 @@
         <errorConditionFormula>IF(AND(Page__c!=null,  Redirect__c!= null), true, false)</errorConditionFormula>
         <errorMessage>Please choose either Page Link or Custom URL.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>

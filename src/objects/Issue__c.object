@@ -67,14 +67,17 @@
                 <value>
                     <fullName>Unassigned</fullName>
                     <default>true</default>
+                    <label>Unassigned</label>
                 </value>
                 <value>
                     <fullName>Assigned</fullName>
                     <default>false</default>
+                    <label>Assigned</label>
                 </value>
                 <value>
                     <fullName>Complete</fullName>
                     <default>false</default>
+                    <label>Complete</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -130,14 +133,17 @@
                 <value>
                     <fullName>Legal</fullName>
                     <default>false</default>
+                    <label>Legal</label>
                 </value>
                 <value>
                     <fullName>Sr Legal</fullName>
                     <default>false</default>
+                    <label>Sr Legal</label>
                 </value>
                 <value>
                     <fullName>Complete</fullName>
                     <default>false</default>
+                    <label>Complete</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -157,14 +163,17 @@
                 <value>
                     <fullName>Ops</fullName>
                     <default>false</default>
+                    <label>Ops</label>
                 </value>
                 <value>
                     <fullName>Sr Ops</fullName>
                     <default>false</default>
+                    <label>Sr Ops</label>
                 </value>
                 <value>
                     <fullName>Complete</fullName>
                     <default>false</default>
+                    <label>Complete</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -197,14 +206,17 @@
                 <value>
                     <fullName>Policy</fullName>
                     <default>false</default>
+                    <label>Policy</label>
                 </value>
                 <value>
                     <fullName>Sr Policy</fullName>
                     <default>false</default>
+                    <label>Sr Policy</label>
                 </value>
                 <value>
                     <fullName>Complete</fullName>
                     <default>false</default>
+                    <label>Complete</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -237,18 +249,22 @@
                 <value>
                     <fullName>Preliminary</fullName>
                     <default>false</default>
+                    <label>Preliminary</label>
                 </value>
                 <value>
                     <fullName>Amended Preliminary</fullName>
                     <default>false</default>
+                    <label>Amended Preliminary</label>
                 </value>
                 <value>
                     <fullName>Final</fullName>
                     <default>false</default>
+                    <label>Final</label>
                 </value>
                 <value>
                     <fullName>Amended Final</fullName>
                     <default>false</default>
+                    <label>Amended Final</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -263,4 +279,5 @@
     <pluralLabel>Issues</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

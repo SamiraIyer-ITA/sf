@@ -74,7 +74,9 @@
         <type>Region</type>
     </flexiPageRegions>
     <masterLabel>ADCVD Home Page</masterLabel>
-    <pageTemplate>home:desktopTemplate</pageTemplate>
     <parentFlexiPage>home__desktopDefault</parentFlexiPage>
+    <template>
+        <name>home:desktopTemplate</name>
+    </template>
     <type>HomePage</type>
 </FlexiPage>

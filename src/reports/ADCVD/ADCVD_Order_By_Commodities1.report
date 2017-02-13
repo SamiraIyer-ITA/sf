@@ -52,21 +52,12 @@
     <columns>
         <field>ADCVD_Order__c.Investigation__c</field>
     </columns>
-    <columns>
-        <field>ADCVD_Order__c.Investigation_Outcome__c</field>
-    </columns>
     <filter>
         <criteriaItems>
             <column>ADCVD_Order__c.Petition_Commodity__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>notEqual</operator>
             <value></value>
-        </criteriaItems>
-        <criteriaItems>
-            <column>ADCVD_Order__c.Investigation_Outcome__c</column>
-            <isUnlocked>true</isUnlocked>
-            <operator>notEqual</operator>
-            <value>DOC Negative Final/Termination of Investigation,ITCC Negative Final/Termination of Investigation,ITC Negative Prelim/Termination of Investigation,Petition Withdrawn After Initiation</value>
         </criteriaItems>
     </filter>
     <format>Summary</format>

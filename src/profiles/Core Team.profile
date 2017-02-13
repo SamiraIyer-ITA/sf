@@ -5,6 +5,16 @@
         <default>false</default>
         <visible>true</visible>
     </applicationVisibilities>
+    <applicationVisibilities>
+        <application>AD_CVD_Lightning</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>AD_CVD_Lightning1</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
     <classAccesses>
         <apexClass>ADCVD_TollingDayUtility</apexClass>
         <enabled>false</enabled>
@@ -679,7 +689,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>ADCVD_Order__c.Investigation_Outcome__c</field>
         <readable>true</readable>
     </fieldPermissions>

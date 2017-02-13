@@ -337,10 +337,12 @@
                 <value>
                     <fullName>Continuation</fullName>
                     <default>false</default>
+                    <label>Continuation</label>
                 </value>
                 <value>
                     <fullName>Revocation</fullName>
                     <default>false</default>
+                    <label>Revocation</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -394,14 +396,17 @@
                 <value>
                     <fullName>Formal</fullName>
                     <default>false</default>
+                    <label>Formal</label>
                 </value>
                 <value>
                     <fullName>Informal</fullName>
                     <default>false</default>
+                    <label>Informal</label>
                 </value>
                 <value>
                     <fullName>Reject</fullName>
                     <default>false</default>
+                    <label>Reject</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -629,14 +634,17 @@
                 <value>
                     <fullName>Injunction</fullName>
                     <default>false</default>
+                    <label>Injunction</label>
                 </value>
                 <value>
                     <fullName>Litigation</fullName>
                     <default>false</default>
+                    <label>Litigation</label>
                 </value>
                 <value>
                     <fullName>None</fullName>
                     <default>false</default>
+                    <label>None</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1075,18 +1083,22 @@
                 <value>
                     <fullName>Scope not properly filed and served</fullName>
                     <default>false</default>
+                    <label>Scope not properly filed and served</label>
                 </value>
                 <value>
                     <fullName>Scope not fully complete</fullName>
                     <default>false</default>
+                    <label>Scope not fully complete</label>
                 </value>
                 <value>
                     <fullName>Department did not initiate</fullName>
                     <default>false</default>
+                    <label>Department did not initiate</label>
                 </value>
                 <value>
                     <fullName>Respondent not fully responsive</fullName>
                     <default>false</default>
+                    <label>Respondent not fully responsive</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1107,22 +1119,27 @@
                 <value>
                     <fullName>Active</fullName>
                     <default>false</default>
+                    <label>Active</label>
                 </value>
                 <value>
                     <fullName>Litigation Hold</fullName>
                     <default>false</default>
+                    <label>Litigation Hold</label>
                 </value>
                 <value>
                     <fullName>Litigation</fullName>
                     <default>false</default>
+                    <label>Litigation</label>
                 </value>
                 <value>
                     <fullName>Closed</fullName>
                     <default>false</default>
+                    <label>Closed</label>
                 </value>
                 <value>
                     <fullName>Suspended</fullName>
                     <default>false</default>
+                    <label>Suspended</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1161,18 +1178,22 @@
                 <value>
                     <fullName>Merchandise Completed or Assembled in United States</fullName>
                     <default>false</default>
+                    <label>Merchandise Completed or Assembled in United States</label>
                 </value>
                 <value>
                     <fullName>Merchandise Completed or Assembled in other Foreign Countries</fullName>
                     <default>false</default>
+                    <label>Merchandise Completed or Assembled in other Foreign Countries</label>
                 </value>
                 <value>
                     <fullName>Minor Altercations of Merchandise</fullName>
                     <default>false</default>
+                    <label>Minor Altercations of Merchandise</label>
                 </value>
                 <value>
                     <fullName>Later-Developed Merchandise</fullName>
                     <default>false</default>
+                    <label>Later-Developed Merchandise</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1192,22 +1213,27 @@
                 <value>
                     <fullName>Petitioner</fullName>
                     <default>false</default>
+                    <label>Petitioner</label>
                 </value>
                 <value>
                     <fullName>Respondent</fullName>
                     <default>false</default>
+                    <label>Respondent</label>
                 </value>
                 <value>
                     <fullName>U.S. Importer</fullName>
                     <default>false</default>
+                    <label>U.S. Importer</label>
                 </value>
                 <value>
                     <fullName>Domestic Interested Party</fullName>
                     <default>false</default>
+                    <label>Domestic Interested Party</label>
                 </value>
                 <value>
                     <fullName>Self-Initiated by the Department</fullName>
                     <default>false</default>
+                    <label>Self-Initiated by the Department</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1226,10 +1252,12 @@
                 <value>
                     <fullName>K (1)</fullName>
                     <default>false</default>
+                    <label>K (1)</label>
                 </value>
                 <value>
                     <fullName>K (2)</fullName>
                     <default>false</default>
+                    <label>K (2)</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1266,10 +1294,12 @@
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1300,18 +1330,22 @@
                 <value>
                     <fullName>CBP Data</fullName>
                     <default>false</default>
+                    <label>CBP Data</label>
                 </value>
                 <value>
                     <fullName>Quantity and Value Questionaires</fullName>
                     <default>false</default>
+                    <label>Quantity and Value Questionaires</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
                 <value>
                     <fullName>N/A</fullName>
                     <default>false</default>
+                    <label>N/A</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1374,6 +1408,101 @@
         <active>true</active>
         <label>Administrative Review</label>
         <picklistValues>
+            <picklist>Adequate_after_Determination__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Adequate_after_Reconsideration__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>All_parties_in_agreement_to_the_outcome__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Anniversary_Month__c</picklist>
+            <values>
+                <fullName>April</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>August</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>December</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>February</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>January</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>July</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>June</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>March</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>May</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>November</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>October</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>September</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Choose_Following_Respondent_Selection__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Continuation_or_Revocation__c</picklist>
             <values>
                 <fullName>Continuation</fullName>
@@ -1385,7 +1514,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Country</picklist>
+            <picklist>Country_in_which_factors_were_valued__c</picklist>
             <values>
                 <fullName>Argentina</fullName>
                 <default>false</default>
@@ -1667,6 +1796,72 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Does_the_Review_Involve_CCR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Domestic_Party_File_Substan_Response__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Have_Custom_Instructions_been_sent__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Intent_to_Participate_by_Domestic_IPs__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Is_the_review_being_rescinded__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Is_this_review_expedited__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Litigation_Status__c</picklist>
             <values>
                 <fullName>Injunction</fullName>
@@ -1682,53 +1877,68 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Months</picklist>
+            <picklist>Minesterial_Error_for_final__c</picklist>
             <values>
-                <fullName>April</fullName>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>August</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Notice_of_intent_to_participate_Ips__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>December</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receive_Request_to_Consider_Sampling__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>February</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receive_an_Injunction_or_in_Litigation__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>January</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Respondent_File_Substantive_Response__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>July</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Review_to_address_zeroing_in_Segments__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>June</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>March</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>May</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>November</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>October</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>September</fullName>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1839,6 +2049,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Was_product_determined_to_be_in_scope__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>What_to_Use_For_Respondent_Selection__c</picklist>
             <values>
                 <fullName>CBP Data</fullName>
@@ -1858,7 +2079,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>YesNo</picklist>
+            <picklist>Will_you_Amend_the_Final__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -1874,6 +2095,101 @@
         <active>true</active>
         <label>Anti-Circumvention Review</label>
         <picklistValues>
+            <picklist>Adequate_after_Determination__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Adequate_after_Reconsideration__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>All_parties_in_agreement_to_the_outcome__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Anniversary_Month__c</picklist>
+            <values>
+                <fullName>April</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>August</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>December</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>February</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>January</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>July</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>June</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>March</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>May</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>November</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>October</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>September</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Choose_Following_Respondent_Selection__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Continuation_or_Revocation__c</picklist>
             <values>
                 <fullName>Continuation</fullName>
@@ -1885,7 +2201,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Country</picklist>
+            <picklist>Country_in_which_factors_were_valued__c</picklist>
             <values>
                 <fullName>Argentina</fullName>
                 <default>false</default>
@@ -2167,6 +2483,72 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Does_the_Review_Involve_CCR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Domestic_Party_File_Substan_Response__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Have_Custom_Instructions_been_sent__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Intent_to_Participate_by_Domestic_IPs__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Is_the_review_being_rescinded__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Is_this_review_expedited__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Litigation_Status__c</picklist>
             <values>
                 <fullName>Injunction</fullName>
@@ -2182,53 +2564,68 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Months</picklist>
+            <picklist>Minesterial_Error_for_final__c</picklist>
             <values>
-                <fullName>April</fullName>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>August</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Notice_of_intent_to_participate_Ips__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>December</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receive_Request_to_Consider_Sampling__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>February</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receive_an_Injunction_or_in_Litigation__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>January</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Respondent_File_Substantive_Response__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>July</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Review_to_address_zeroing_in_Segments__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>June</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>March</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>May</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>November</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>October</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>September</fullName>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2339,6 +2736,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Was_product_determined_to_be_in_scope__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>What_to_Use_For_Respondent_Selection__c</picklist>
             <values>
                 <fullName>CBP Data</fullName>
@@ -2358,7 +2766,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>YesNo</picklist>
+            <picklist>Will_you_Amend_the_Final__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -2374,6 +2782,101 @@
         <active>true</active>
         <label>Changed Circumstances Review</label>
         <picklistValues>
+            <picklist>Adequate_after_Determination__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Adequate_after_Reconsideration__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>All_parties_in_agreement_to_the_outcome__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Anniversary_Month__c</picklist>
+            <values>
+                <fullName>April</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>August</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>December</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>February</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>January</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>July</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>June</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>March</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>May</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>November</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>October</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>September</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Choose_Following_Respondent_Selection__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Continuation_or_Revocation__c</picklist>
             <values>
                 <fullName>Continuation</fullName>
@@ -2385,7 +2888,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Country</picklist>
+            <picklist>Country_in_which_factors_were_valued__c</picklist>
             <values>
                 <fullName>Argentina</fullName>
                 <default>false</default>
@@ -2667,6 +3170,72 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Does_the_Review_Involve_CCR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Domestic_Party_File_Substan_Response__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Have_Custom_Instructions_been_sent__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Intent_to_Participate_by_Domestic_IPs__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Is_the_review_being_rescinded__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Is_this_review_expedited__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Litigation_Status__c</picklist>
             <values>
                 <fullName>Injunction</fullName>
@@ -2682,53 +3251,68 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Months</picklist>
+            <picklist>Minesterial_Error_for_final__c</picklist>
             <values>
-                <fullName>April</fullName>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>August</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Notice_of_intent_to_participate_Ips__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>December</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receive_Request_to_Consider_Sampling__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>February</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receive_an_Injunction_or_in_Litigation__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>January</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Respondent_File_Substantive_Response__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>July</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Review_to_address_zeroing_in_Segments__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>June</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>March</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>May</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>November</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>October</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>September</fullName>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2839,6 +3423,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Was_product_determined_to_be_in_scope__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>What_to_Use_For_Respondent_Selection__c</picklist>
             <values>
                 <fullName>CBP Data</fullName>
@@ -2858,7 +3453,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>YesNo</picklist>
+            <picklist>Will_you_Amend_the_Final__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -2874,6 +3469,101 @@
         <active>true</active>
         <label>Expedited Review</label>
         <picklistValues>
+            <picklist>Adequate_after_Determination__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Adequate_after_Reconsideration__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>All_parties_in_agreement_to_the_outcome__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Anniversary_Month__c</picklist>
+            <values>
+                <fullName>April</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>August</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>December</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>February</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>January</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>July</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>June</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>March</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>May</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>November</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>October</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>September</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Choose_Following_Respondent_Selection__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Continuation_or_Revocation__c</picklist>
             <values>
                 <fullName>Continuation</fullName>
@@ -2885,7 +3575,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Country</picklist>
+            <picklist>Country_in_which_factors_were_valued__c</picklist>
             <values>
                 <fullName>Argentina</fullName>
                 <default>false</default>
@@ -3167,6 +3857,72 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Does_the_Review_Involve_CCR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Domestic_Party_File_Substan_Response__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Have_Custom_Instructions_been_sent__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Intent_to_Participate_by_Domestic_IPs__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Is_the_review_being_rescinded__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Is_this_review_expedited__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Litigation_Status__c</picklist>
             <values>
                 <fullName>Injunction</fullName>
@@ -3182,53 +3938,68 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Months</picklist>
+            <picklist>Minesterial_Error_for_final__c</picklist>
             <values>
-                <fullName>April</fullName>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>August</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Notice_of_intent_to_participate_Ips__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>December</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receive_Request_to_Consider_Sampling__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>February</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receive_an_Injunction_or_in_Litigation__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>January</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Respondent_File_Substantive_Response__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>July</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Review_to_address_zeroing_in_Segments__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>June</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>March</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>May</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>November</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>October</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>September</fullName>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3339,6 +4110,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Was_product_determined_to_be_in_scope__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>What_to_Use_For_Respondent_Selection__c</picklist>
             <values>
                 <fullName>CBP Data</fullName>
@@ -3358,7 +4140,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>YesNo</picklist>
+            <picklist>Will_you_Amend_the_Final__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -3374,6 +4156,101 @@
         <active>true</active>
         <label>New Shipper Review</label>
         <picklistValues>
+            <picklist>Adequate_after_Determination__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Adequate_after_Reconsideration__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>All_parties_in_agreement_to_the_outcome__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Anniversary_Month__c</picklist>
+            <values>
+                <fullName>April</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>August</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>December</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>February</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>January</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>July</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>June</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>March</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>May</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>November</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>October</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>September</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Choose_Following_Respondent_Selection__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Continuation_or_Revocation__c</picklist>
             <values>
                 <fullName>Continuation</fullName>
@@ -3385,7 +4262,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Country</picklist>
+            <picklist>Country_in_which_factors_were_valued__c</picklist>
             <values>
                 <fullName>Argentina</fullName>
                 <default>false</default>
@@ -3667,6 +4544,72 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Does_the_Review_Involve_CCR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Domestic_Party_File_Substan_Response__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Have_Custom_Instructions_been_sent__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Intent_to_Participate_by_Domestic_IPs__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Is_the_review_being_rescinded__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Is_this_review_expedited__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Litigation_Status__c</picklist>
             <values>
                 <fullName>Injunction</fullName>
@@ -3682,53 +4625,68 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Months</picklist>
+            <picklist>Minesterial_Error_for_final__c</picklist>
             <values>
-                <fullName>April</fullName>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>August</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Notice_of_intent_to_participate_Ips__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>December</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receive_Request_to_Consider_Sampling__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>February</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receive_an_Injunction_or_in_Litigation__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>January</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Respondent_File_Substantive_Response__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>July</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Review_to_address_zeroing_in_Segments__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>June</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>March</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>May</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>November</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>October</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>September</fullName>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3839,6 +4797,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Was_product_determined_to_be_in_scope__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>What_to_Use_For_Respondent_Selection__c</picklist>
             <values>
                 <fullName>CBP Data</fullName>
@@ -3858,7 +4827,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>YesNo</picklist>
+            <picklist>Will_you_Amend_the_Final__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -3874,6 +4843,101 @@
         <active>true</active>
         <label>Scope Inquiry</label>
         <picklistValues>
+            <picklist>Adequate_after_Determination__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Adequate_after_Reconsideration__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>All_parties_in_agreement_to_the_outcome__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Anniversary_Month__c</picklist>
+            <values>
+                <fullName>April</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>August</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>December</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>February</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>January</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>July</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>June</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>March</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>May</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>November</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>October</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>September</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Choose_Following_Respondent_Selection__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Continuation_or_Revocation__c</picklist>
             <values>
                 <fullName>Continuation</fullName>
@@ -3885,7 +4949,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Country</picklist>
+            <picklist>Country_in_which_factors_were_valued__c</picklist>
             <values>
                 <fullName>Argentina</fullName>
                 <default>false</default>
@@ -4167,6 +5231,72 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Does_the_Review_Involve_CCR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Domestic_Party_File_Substan_Response__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Have_Custom_Instructions_been_sent__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Intent_to_Participate_by_Domestic_IPs__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Is_the_review_being_rescinded__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Is_this_review_expedited__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Litigation_Status__c</picklist>
             <values>
                 <fullName>Injunction</fullName>
@@ -4182,53 +5312,68 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Months</picklist>
+            <picklist>Minesterial_Error_for_final__c</picklist>
             <values>
-                <fullName>April</fullName>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>August</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Notice_of_intent_to_participate_Ips__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>December</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receive_Request_to_Consider_Sampling__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>February</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receive_an_Injunction_or_in_Litigation__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>January</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Respondent_File_Substantive_Response__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>July</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Review_to_address_zeroing_in_Segments__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>June</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>March</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>May</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>November</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>October</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>September</fullName>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4339,6 +5484,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Was_product_determined_to_be_in_scope__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>What_to_Use_For_Respondent_Selection__c</picklist>
             <values>
                 <fullName>CBP Data</fullName>
@@ -4358,7 +5514,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>YesNo</picklist>
+            <picklist>Will_you_Amend_the_Final__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -4374,6 +5530,101 @@
         <active>true</active>
         <label>Sunset Review</label>
         <picklistValues>
+            <picklist>Adequate_after_Determination__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Adequate_after_Reconsideration__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>All_parties_in_agreement_to_the_outcome__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Anniversary_Month__c</picklist>
+            <values>
+                <fullName>April</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>August</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>December</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>February</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>January</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>July</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>June</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>March</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>May</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>November</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>October</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>September</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Choose_Following_Respondent_Selection__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Continuation_or_Revocation__c</picklist>
             <values>
                 <fullName>Continuation</fullName>
@@ -4385,7 +5636,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Country</picklist>
+            <picklist>Country_in_which_factors_were_valued__c</picklist>
             <values>
                 <fullName>Argentina</fullName>
                 <default>false</default>
@@ -4667,6 +5918,72 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Does_the_Review_Involve_CCR__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Domestic_Party_File_Substan_Response__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Have_Custom_Instructions_been_sent__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Intent_to_Participate_by_Domestic_IPs__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Is_the_review_being_rescinded__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Is_this_review_expedited__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Litigation_Status__c</picklist>
             <values>
                 <fullName>Injunction</fullName>
@@ -4682,53 +5999,68 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Months</picklist>
+            <picklist>Minesterial_Error_for_final__c</picklist>
             <values>
-                <fullName>April</fullName>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>August</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Notice_of_intent_to_participate_Ips__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>December</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receive_Request_to_Consider_Sampling__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>February</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Receive_an_Injunction_or_in_Litigation__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>January</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Respondent_File_Substantive_Response__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>July</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Review_to_address_zeroing_in_Segments__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>June</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>March</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>May</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>November</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>October</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>September</fullName>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4839,6 +6171,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Was_product_determined_to_be_in_scope__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>What_to_Use_For_Respondent_Selection__c</picklist>
             <values>
                 <fullName>CBP Data</fullName>
@@ -4858,7 +6201,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>YesNo</picklist>
+            <picklist>Will_you_Amend_the_Final__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -4889,4 +6232,25 @@
 )</errorConditionFormula>
         <errorMessage>Cannot exceed more than 120 days</errorMessage>
     </validationRules>
+    <validationRules>
+        <fullName>Prelim_Extension_for_Admin_Review_Exceed</fullName>
+        <active>true</active>
+        <description>Preliminary Extension cannot exceed more than 120 days</description>
+        <errorConditionFormula>And (
+ $RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
+ Prelim_Extension__c &gt; 120
+)</errorConditionFormula>
+        <errorMessage>Preliminary Extension cannot exceed more than 120 days</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Prelim_Extension_for_Admin_Review_Neg</fullName>
+        <active>true</active>
+        <description>Preliminary Extension must be greater than zero days.</description>
+        <errorConditionFormula>And (
+ $RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
+ Prelim_Extension__c &lt; 0
+)</errorConditionFormula>
+        <errorMessage>Preliminary Extension must be greater than zero days.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>

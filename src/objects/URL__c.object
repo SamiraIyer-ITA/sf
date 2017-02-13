@@ -131,4 +131,5 @@
         <searchResultsAdditionalFields>Page__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

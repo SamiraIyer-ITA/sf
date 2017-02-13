@@ -85,14 +85,17 @@
                 <value>
                     <fullName>Dispute Resolution Provider</fullName>
                     <default>false</default>
+                    <label>Dispute Resolution Provider</label>
                 </value>
                 <value>
                     <fullName>U.S. Statutory Body</fullName>
                     <default>false</default>
+                    <label>U.S. Statutory Body</label>
                 </value>
                 <value>
                     <fullName>Verification Provider</fullName>
                     <default>false</default>
+                    <label>Verification Provider</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -189,4 +192,5 @@
     </recordTypes>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

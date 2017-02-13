@@ -121,110 +121,137 @@
                 <value>
                     <fullName>Aerospace and Defense</fullName>
                     <default>false</default>
+                    <label>Aerospace and Defense</label>
                 </value>
                 <value>
                     <fullName>Agribusiness</fullName>
                     <default>false</default>
+                    <label>Agribusiness</label>
                 </value>
                 <value>
                     <fullName>Automotive</fullName>
                     <default>false</default>
+                    <label>Automotive</label>
                 </value>
                 <value>
                     <fullName>Business and Professional Services</fullName>
                     <default>false</default>
+                    <label>Business and Professional Services</label>
                 </value>
                 <value>
                     <fullName>Chemicals</fullName>
                     <default>false</default>
+                    <label>Chemicals</label>
                 </value>
                 <value>
                     <fullName>Construction</fullName>
                     <default>false</default>
+                    <label>Construction</label>
                 </value>
                 <value>
                     <fullName>Consumer Goods</fullName>
                     <default>false</default>
+                    <label>Consumer Goods</label>
                 </value>
                 <value>
                     <fullName>Distribution and Logistics</fullName>
                     <default>false</default>
+                    <label>Distribution and Logistics</label>
                 </value>
                 <value>
                     <fullName>Education</fullName>
                     <default>false</default>
+                    <label>Education</label>
                 </value>
                 <value>
                     <fullName>Energy</fullName>
                     <default>false</default>
+                    <label>Energy</label>
                 </value>
                 <value>
                     <fullName>Environmental Technology</fullName>
                     <default>false</default>
+                    <label>Environmental Technology</label>
                 </value>
                 <value>
                     <fullName>Equipment and Machinery</fullName>
                     <default>false</default>
+                    <label>Equipment and Machinery</label>
                 </value>
                 <value>
                     <fullName>Financial Services</fullName>
                     <default>false</default>
+                    <label>Financial Services</label>
                 </value>
                 <value>
                     <fullName>Food and Beverage</fullName>
                     <default>false</default>
+                    <label>Food and Beverage</label>
                 </value>
                 <value>
                     <fullName>Franchising</fullName>
                     <default>false</default>
+                    <label>Franchising</label>
                 </value>
                 <value>
                     <fullName>Healthcare</fullName>
                     <default>false</default>
+                    <label>Healthcare</label>
                 </value>
                 <value>
                     <fullName>Industrial Materials</fullName>
                     <default>false</default>
+                    <label>Industrial Materials</label>
                 </value>
                 <value>
                     <fullName>Information and Communications Technology</fullName>
                     <default>false</default>
+                    <label>Information and Communications Technology</label>
                 </value>
                 <value>
                     <fullName>Marine Technology</fullName>
                     <default>false</default>
+                    <label>Marine Technology</label>
                 </value>
                 <value>
                     <fullName>Media and Entertainment</fullName>
                     <default>false</default>
+                    <label>Media and Entertainment</label>
                 </value>
                 <value>
                     <fullName>Non-Profits and Associations</fullName>
                     <default>false</default>
+                    <label>Non-Profits and Associations</label>
                 </value>
                 <value>
                     <fullName>Public Sector</fullName>
                     <default>false</default>
+                    <label>Public Sector</label>
                 </value>
                 <value>
                     <fullName>Retail Trade</fullName>
                     <default>false</default>
+                    <label>Retail Trade</label>
                 </value>
                 <value>
                     <fullName>Safety &amp; Security</fullName>
                     <default>false</default>
+                    <label>Safety &amp; Security</label>
                 </value>
                 <value>
                     <fullName>Textiles and Apparel</fullName>
                     <default>false</default>
+                    <label>Textiles and Apparel</label>
                 </value>
                 <value>
                     <fullName>Travel and Tourism</fullName>
                     <default>false</default>
+                    <label>Travel and Tourism</label>
                 </value>
                 <value>
                     <fullName>Wholesale Trade</fullName>
                     <default>false</default>
+                    <label>Wholesale Trade</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -288,770 +315,962 @@
                 <value>
                     <fullName>Access Control Systems</fullName>
                     <default>false</default>
+                    <label>Access Control Systems</label>
                 </value>
                 <value>
                     <fullName>Accommodations</fullName>
                     <default>false</default>
+                    <label>Accommodations</label>
                 </value>
                 <value>
                     <fullName>Accounting Services</fullName>
                     <default>false</default>
+                    <label>Accounting Services</label>
                 </value>
                 <value>
                     <fullName>Adult Education and Training</fullName>
                     <default>false</default>
+                    <label>Adult Education and Training</label>
                 </value>
                 <value>
                     <fullName>Advertising Services</fullName>
                     <default>false</default>
+                    <label>Advertising Services</label>
                 </value>
                 <value>
                     <fullName>Agricultural Chemicals</fullName>
                     <default>false</default>
+                    <label>Agricultural Chemicals</label>
                 </value>
                 <value>
                     <fullName>Agricultural Equipment and Machinery</fullName>
                     <default>false</default>
+                    <label>Agricultural Equipment and Machinery</label>
                 </value>
                 <value>
                     <fullName>Air Pollution Control</fullName>
                     <default>false</default>
+                    <label>Air Pollution Control</label>
                 </value>
                 <value>
                     <fullName>Apparel</fullName>
                     <default>false</default>
+                    <label>Apparel</label>
                 </value>
                 <value>
                     <fullName>Architecture Services</fullName>
                     <default>false</default>
+                    <label>Architecture Services</label>
                 </value>
                 <value>
                     <fullName>Artwork</fullName>
                     <default>false</default>
+                    <label>Artwork</label>
                 </value>
                 <value>
                     <fullName>Asset Management</fullName>
                     <default>false</default>
+                    <label>Asset Management</label>
                 </value>
                 <value>
                     <fullName>Audio-Visual Equipment</fullName>
                     <default>false</default>
+                    <label>Audio-Visual Equipment</label>
                 </value>
                 <value>
                     <fullName>Automobiles</fullName>
                     <default>false</default>
+                    <label>Automobiles</label>
                 </value>
                 <value>
                     <fullName>Automotive Aftermarket</fullName>
                     <default>false</default>
+                    <label>Automotive Aftermarket</label>
                 </value>
                 <value>
                     <fullName>Automotive Parts</fullName>
                     <default>false</default>
+                    <label>Automotive Parts</label>
                 </value>
                 <value>
                     <fullName>Automotive Repair Services</fullName>
                     <default>false</default>
+                    <label>Automotive Repair Services</label>
                 </value>
                 <value>
                     <fullName>Aviation</fullName>
                     <default>false</default>
+                    <label>Aviation</label>
                 </value>
                 <value>
                     <fullName>Bakeries</fullName>
                     <default>false</default>
+                    <label>Bakeries</label>
                 </value>
                 <value>
                     <fullName>Banking</fullName>
                     <default>false</default>
+                    <label>Banking</label>
                 </value>
                 <value>
                     <fullName>Beverages</fullName>
                     <default>false</default>
+                    <label>Beverages</label>
                 </value>
                 <value>
                     <fullName>Building Products and Equipment</fullName>
                     <default>false</default>
+                    <label>Building Products and Equipment</label>
                 </value>
                 <value>
                     <fullName>Buses</fullName>
                     <default>false</default>
+                    <label>Buses</label>
                 </value>
                 <value>
                     <fullName>Business Associations</fullName>
                     <default>false</default>
+                    <label>Business Associations</label>
                 </value>
                 <value>
                     <fullName>Business Equipment</fullName>
                     <default>false</default>
+                    <label>Business Equipment</label>
                 </value>
                 <value>
                     <fullName>Catalog and Mail Order</fullName>
                     <default>false</default>
+                    <label>Catalog and Mail Order</label>
                 </value>
                 <value>
                     <fullName>Ceramics</fullName>
                     <default>false</default>
+                    <label>Ceramics</label>
                 </value>
                 <value>
                     <fullName>Chambers of Commerce</fullName>
                     <default>false</default>
+                    <label>Chambers of Commerce</label>
                 </value>
                 <value>
                     <fullName>Chemical Production Machinery</fullName>
                     <default>false</default>
+                    <label>Chemical Production Machinery</label>
                 </value>
                 <value>
                     <fullName>Civil Nuclear Power</fullName>
                     <default>false</default>
+                    <label>Civil Nuclear Power</label>
                 </value>
                 <value>
                     <fullName>Coal</fullName>
                     <default>false</default>
+                    <label>Coal</label>
                 </value>
                 <value>
                     <fullName>Coatings and Adhesives</fullName>
                     <default>false</default>
+                    <label>Coatings and Adhesives</label>
                 </value>
                 <value>
                     <fullName>Commercial Trucks</fullName>
                     <default>false</default>
+                    <label>Commercial Trucks</label>
                 </value>
                 <value>
                     <fullName>Composites</fullName>
                     <default>false</default>
+                    <label>Composites</label>
                 </value>
                 <value>
                     <fullName>Computer-Aided Technologies</fullName>
                     <default>false</default>
+                    <label>Computer-Aided Technologies</label>
                 </value>
                 <value>
                     <fullName>Computer Hardware</fullName>
                     <default>false</default>
+                    <label>Computer Hardware</label>
                 </value>
                 <value>
                     <fullName>Computer Software</fullName>
                     <default>false</default>
+                    <label>Computer Software</label>
                 </value>
                 <value>
                     <fullName>Computer Systems</fullName>
                     <default>false</default>
+                    <label>Computer Systems</label>
                 </value>
                 <value>
                     <fullName>Condiments and Seasonings</fullName>
                     <default>false</default>
+                    <label>Condiments and Seasonings</label>
                 </value>
                 <value>
                     <fullName>Confectionary Products</fullName>
                     <default>false</default>
+                    <label>Confectionary Products</label>
                 </value>
                 <value>
                     <fullName>Consumer Electronics</fullName>
                     <default>false</default>
+                    <label>Consumer Electronics</label>
                 </value>
                 <value>
                     <fullName>Convenience Stores</fullName>
                     <default>false</default>
+                    <label>Convenience Stores</label>
                 </value>
                 <value>
                     <fullName>Corporate Training Services</fullName>
                     <default>false</default>
+                    <label>Corporate Training Services</label>
                 </value>
                 <value>
                     <fullName>Cosmetics and Toiletries</fullName>
                     <default>false</default>
+                    <label>Cosmetics and Toiletries</label>
                 </value>
                 <value>
                     <fullName>Cybersecurity</fullName>
                     <default>false</default>
+                    <label>Cybersecurity</label>
                 </value>
                 <value>
                     <fullName>Dairy Products</fullName>
                     <default>false</default>
+                    <label>Dairy Products</label>
                 </value>
                 <value>
                     <fullName>Debt Collection</fullName>
                     <default>false</default>
+                    <label>Debt Collection</label>
                 </value>
                 <value>
                     <fullName>Defense Equipment</fullName>
                     <default>false</default>
+                    <label>Defense Equipment</label>
                 </value>
                 <value>
                     <fullName>Department Stores</fullName>
                     <default>false</default>
+                    <label>Department Stores</label>
                 </value>
                 <value>
                     <fullName>Direct Selling</fullName>
                     <default>false</default>
+                    <label>Direct Selling</label>
                 </value>
                 <value>
                     <fullName>Discount Stores</fullName>
                     <default>false</default>
+                    <label>Discount Stores</label>
                 </value>
                 <value>
                     <fullName>Drug Stores</fullName>
                     <default>false</default>
+                    <label>Drug Stores</label>
                 </value>
                 <value>
                     <fullName>Due Diligence Investigation Services</fullName>
                     <default>false</default>
+                    <label>Due Diligence Investigation Services</label>
                 </value>
                 <value>
                     <fullName>Education Technology</fullName>
                     <default>false</default>
+                    <label>Education Technology</label>
                 </value>
                 <value>
                     <fullName>Electricity Infrastructure</fullName>
                     <default>false</default>
+                    <label>Electricity Infrastructure</label>
                 </value>
                 <value>
                     <fullName>Electric Vehicles</fullName>
                     <default>false</default>
+                    <label>Electric Vehicles</label>
                 </value>
                 <value>
                     <fullName>Electronic Commerce</fullName>
                     <default>false</default>
+                    <label>Electronic Commerce</label>
                 </value>
                 <value>
                     <fullName>Electronics</fullName>
                     <default>false</default>
+                    <label>Electronics</label>
                 </value>
                 <value>
                     <fullName>Employment Services</fullName>
                     <default>false</default>
+                    <label>Employment Services</label>
                 </value>
                 <value>
                     <fullName>Entertainment</fullName>
                     <default>false</default>
+                    <label>Entertainment</label>
                 </value>
                 <value>
                     <fullName>Environmental Remediation</fullName>
                     <default>false</default>
+                    <label>Environmental Remediation</label>
                 </value>
                 <value>
                     <fullName>Event Management</fullName>
                     <default>false</default>
+                    <label>Event Management</label>
                 </value>
                 <value>
                     <fullName>Explosives</fullName>
                     <default>false</default>
+                    <label>Explosives</label>
                 </value>
                 <value>
                     <fullName>Export Management</fullName>
                     <default>false</default>
+                    <label>Export Management</label>
                 </value>
                 <value>
                     <fullName>Express Delivery Services</fullName>
                     <default>false</default>
+                    <label>Express Delivery Services</label>
                 </value>
                 <value>
                     <fullName>Fabrics</fullName>
                     <default>false</default>
+                    <label>Fabrics</label>
                 </value>
                 <value>
                     <fullName>Firearms and Accessories</fullName>
                     <default>false</default>
+                    <label>Firearms and Accessories</label>
                 </value>
                 <value>
                     <fullName>Fire Safety and Rescue Equipment</fullName>
                     <default>false</default>
+                    <label>Fire Safety and Rescue Equipment</label>
                 </value>
                 <value>
                     <fullName>Fluiding Handling Equipment</fullName>
                     <default>false</default>
+                    <label>Fluiding Handling Equipment</label>
                 </value>
                 <value>
                     <fullName>Food and Drink Establisments</fullName>
                     <default>false</default>
+                    <label>Food and Drink Establisments</label>
                 </value>
                 <value>
                     <fullName>Food and Grocery Retailing</fullName>
                     <default>false</default>
+                    <label>Food and Grocery Retailing</label>
                 </value>
                 <value>
                     <fullName>Food Processing Equipment</fullName>
                     <default>false</default>
+                    <label>Food Processing Equipment</label>
                 </value>
                 <value>
                     <fullName>Footwear</fullName>
                     <default>false</default>
+                    <label>Footwear</label>
                 </value>
                 <value>
                     <fullName>Forestry Equipment and Machinery</fullName>
                     <default>false</default>
+                    <label>Forestry Equipment and Machinery</label>
                 </value>
                 <value>
                     <fullName>Freight Forwarding</fullName>
                     <default>false</default>
+                    <label>Freight Forwarding</label>
                 </value>
                 <value>
                     <fullName>Furniture</fullName>
                     <default>false</default>
+                    <label>Furniture</label>
                 </value>
                 <value>
                     <fullName>Furniture Retailing</fullName>
                     <default>false</default>
+                    <label>Furniture Retailing</label>
                 </value>
                 <value>
                     <fullName>Gasoline Service Stations</fullName>
                     <default>false</default>
+                    <label>Gasoline Service Stations</label>
                 </value>
                 <value>
                     <fullName>Giftware</fullName>
                     <default>false</default>
+                    <label>Giftware</label>
                 </value>
                 <value>
                     <fullName>Grains and Legumes</fullName>
                     <default>false</default>
+                    <label>Grains and Legumes</label>
                 </value>
                 <value>
                     <fullName>Green Building</fullName>
                     <default>false</default>
+                    <label>Green Building</label>
                 </value>
                 <value>
                     <fullName>Hardware Stores</fullName>
                     <default>false</default>
+                    <label>Hardware Stores</label>
                 </value>
                 <value>
                     <fullName>Healthcare Facilities</fullName>
                     <default>false</default>
+                    <label>Healthcare Facilities</label>
                 </value>
                 <value>
                     <fullName>Healthcare Services</fullName>
                     <default>false</default>
+                    <label>Healthcare Services</label>
                 </value>
                 <value>
                     <fullName>Health Information Technology</fullName>
                     <default>false</default>
+                    <label>Health Information Technology</label>
                 </value>
                 <value>
                     <fullName>Higher Education</fullName>
                     <default>false</default>
+                    <label>Higher Education</label>
                 </value>
                 <value>
                     <fullName>Home Security Systems</fullName>
                     <default>false</default>
+                    <label>Home Security Systems</label>
                 </value>
                 <value>
                     <fullName>Hotel and Restaurant Equipment</fullName>
                     <default>false</default>
+                    <label>Hotel and Restaurant Equipment</label>
                 </value>
                 <value>
                     <fullName>Household Appliances</fullName>
                     <default>false</default>
+                    <label>Household Appliances</label>
                 </value>
                 <value>
                     <fullName>Housewares</fullName>
                     <default>false</default>
+                    <label>Housewares</label>
                 </value>
                 <value>
                     <fullName>Industrial Chemicals</fullName>
                     <default>false</default>
+                    <label>Industrial Chemicals</label>
                 </value>
                 <value>
                     <fullName>Industrial Safety and Security</fullName>
                     <default>false</default>
+                    <label>Industrial Safety and Security</label>
                 </value>
                 <value>
                     <fullName>Information Technology Services</fullName>
                     <default>false</default>
+                    <label>Information Technology Services</label>
                 </value>
                 <value>
                     <fullName>Inorganic Chemicals</fullName>
                     <default>false</default>
+                    <label>Inorganic Chemicals</label>
                 </value>
                 <value>
                     <fullName>Insurance Services</fullName>
                     <default>false</default>
+                    <label>Insurance Services</label>
                 </value>
                 <value>
                     <fullName>Intelligent Transportation Systems</fullName>
                     <default>false</default>
+                    <label>Intelligent Transportation Systems</label>
                 </value>
                 <value>
                     <fullName>Investment Services</fullName>
                     <default>false</default>
+                    <label>Investment Services</label>
                 </value>
                 <value>
                     <fullName>Jewelry</fullName>
                     <default>false</default>
+                    <label>Jewelry</label>
                 </value>
                 <value>
                     <fullName>Lawn and Garden Equipment</fullName>
                     <default>false</default>
+                    <label>Lawn and Garden Equipment</label>
                 </value>
                 <value>
                     <fullName>Leasing Services</fullName>
                     <default>false</default>
+                    <label>Leasing Services</label>
                 </value>
                 <value>
                     <fullName>Leather and Fur Products</fullName>
                     <default>false</default>
+                    <label>Leather and Fur Products</label>
                 </value>
                 <value>
                     <fullName>Legal Services</fullName>
                     <default>false</default>
+                    <label>Legal Services</label>
                 </value>
                 <value>
                     <fullName>Livestock</fullName>
                     <default>false</default>
+                    <label>Livestock</label>
                 </value>
                 <value>
                     <fullName>Machinery and Tools</fullName>
                     <default>false</default>
+                    <label>Machinery and Tools</label>
                 </value>
                 <value>
                     <fullName>Management Consulting Services</fullName>
                     <default>false</default>
+                    <label>Management Consulting Services</label>
                 </value>
                 <value>
                     <fullName>Maritime Transportation</fullName>
                     <default>false</default>
+                    <label>Maritime Transportation</label>
                 </value>
                 <value>
                     <fullName>Marketing Services</fullName>
                     <default>false</default>
+                    <label>Marketing Services</label>
                 </value>
                 <value>
                     <fullName>Material Handling</fullName>
                     <default>false</default>
+                    <label>Material Handling</label>
                 </value>
                 <value>
                     <fullName>Materials Handling Machinery</fullName>
                     <default>false</default>
+                    <label>Materials Handling Machinery</label>
                 </value>
                 <value>
                     <fullName>Meat Processing</fullName>
                     <default>false</default>
+                    <label>Meat Processing</label>
                 </value>
                 <value>
                     <fullName>Medical Devices</fullName>
                     <default>false</default>
+                    <label>Medical Devices</label>
                 </value>
                 <value>
                     <fullName>Medical Textiles</fullName>
                     <default>false</default>
+                    <label>Medical Textiles</label>
                 </value>
                 <value>
                     <fullName>Metals</fullName>
                     <default>false</default>
+                    <label>Metals</label>
                 </value>
                 <value>
                     <fullName>Mining Equipment and Machinery</fullName>
                     <default>false</default>
+                    <label>Mining Equipment and Machinery</label>
                 </value>
                 <value>
                     <fullName>Motorcycles</fullName>
                     <default>false</default>
+                    <label>Motorcycles</label>
                 </value>
                 <value>
                     <fullName>Moving Services</fullName>
                     <default>false</default>
+                    <label>Moving Services</label>
                 </value>
                 <value>
                     <fullName>Musical Instruments</fullName>
                     <default>false</default>
+                    <label>Musical Instruments</label>
                 </value>
                 <value>
                     <fullName>Oil and Gas</fullName>
                     <default>false</default>
+                    <label>Oil and Gas</label>
                 </value>
                 <value>
                     <fullName>Operations and Maintenance Services</fullName>
                     <default>false</default>
+                    <label>Operations and Maintenance Services</label>
                 </value>
                 <value>
                     <fullName>Organic Chemicals</fullName>
                     <default>false</default>
+                    <label>Organic Chemicals</label>
                 </value>
                 <value>
                     <fullName>Packaging Equipment</fullName>
                     <default>false</default>
+                    <label>Packaging Equipment</label>
                 </value>
                 <value>
                     <fullName>Pet Foods and Supplies</fullName>
                     <default>false</default>
+                    <label>Pet Foods and Supplies</label>
                 </value>
                 <value>
                     <fullName>Pharmaceuticals</fullName>
                     <default>false</default>
+                    <label>Pharmaceuticals</label>
                 </value>
                 <value>
                     <fullName>Photographic Services</fullName>
                     <default>false</default>
+                    <label>Photographic Services</label>
                 </value>
                 <value>
                     <fullName>Plastics</fullName>
                     <default>false</default>
+                    <label>Plastics</label>
                 </value>
                 <value>
                     <fullName>Pleasure Boats &amp; Accessories</fullName>
                     <default>false</default>
+                    <label>Pleasure Boats &amp; Accessories</label>
                 </value>
                 <value>
                     <fullName>Police Equipment</fullName>
                     <default>false</default>
+                    <label>Police Equipment</label>
                 </value>
                 <value>
                     <fullName>Polymers</fullName>
                     <default>false</default>
+                    <label>Polymers</label>
                 </value>
                 <value>
                     <fullName>Printing</fullName>
                     <default>false</default>
+                    <label>Printing</label>
                 </value>
                 <value>
                     <fullName>Private Equity</fullName>
                     <default>false</default>
+                    <label>Private Equity</label>
                 </value>
                 <value>
                     <fullName>Process Controls</fullName>
                     <default>false</default>
+                    <label>Process Controls</label>
                 </value>
                 <value>
                     <fullName>Protective Equipment</fullName>
                     <default>false</default>
+                    <label>Protective Equipment</label>
                 </value>
                 <value>
                     <fullName>Publishing</fullName>
                     <default>false</default>
+                    <label>Publishing</label>
                 </value>
                 <value>
                     <fullName>Pulp and Paper</fullName>
                     <default>false</default>
+                    <label>Pulp and Paper</label>
                 </value>
                 <value>
                     <fullName>Rail Transportation</fullName>
                     <default>false</default>
+                    <label>Rail Transportation</label>
                 </value>
                 <value>
                     <fullName>Real Estate Services</fullName>
                     <default>false</default>
+                    <label>Real Estate Services</label>
                 </value>
                 <value>
                     <fullName>Recreational Vehicles</fullName>
                     <default>false</default>
+                    <label>Recreational Vehicles</label>
                 </value>
                 <value>
                     <fullName>Regional Economic Development</fullName>
                     <default>false</default>
+                    <label>Regional Economic Development</label>
                 </value>
                 <value>
                     <fullName>Renewable Energy</fullName>
                     <default>false</default>
+                    <label>Renewable Energy</label>
                 </value>
                 <value>
                     <fullName>Renewable Fuels</fullName>
                     <default>false</default>
+                    <label>Renewable Fuels</label>
                 </value>
                 <value>
                     <fullName>Robotics</fullName>
                     <default>false</default>
+                    <label>Robotics</label>
                 </value>
                 <value>
                     <fullName>Safety Services</fullName>
                     <default>false</default>
+                    <label>Safety Services</label>
                 </value>
                 <value>
                     <fullName>Scientific and Technical Services</fullName>
                     <default>false</default>
+                    <label>Scientific and Technical Services</label>
                 </value>
                 <value>
                     <fullName>Scientific Laboratory Equipment</fullName>
                     <default>false</default>
+                    <label>Scientific Laboratory Equipment</label>
                 </value>
                 <value>
                     <fullName>Seafood</fullName>
                     <default>false</default>
+                    <label>Seafood</label>
                 </value>
                 <value>
                     <fullName>Security and Safety Equipment</fullName>
                     <default>false</default>
+                    <label>Security and Safety Equipment</label>
                 </value>
                 <value>
                     <fullName>Security Services</fullName>
                     <default>false</default>
+                    <label>Security Services</label>
                 </value>
                 <value>
                     <fullName>Serviced Office Leasing</fullName>
                     <default>false</default>
+                    <label>Serviced Office Leasing</label>
                 </value>
                 <value>
                     <fullName>Snack Foods</fullName>
                     <default>false</default>
+                    <label>Snack Foods</label>
                 </value>
                 <value>
                     <fullName>Solar Vehicles</fullName>
                     <default>false</default>
+                    <label>Solar Vehicles</label>
                 </value>
                 <value>
                     <fullName>Space</fullName>
                     <default>false</default>
+                    <label>Space</label>
                 </value>
                 <value>
                     <fullName>Sporting Goods</fullName>
                     <default>false</default>
+                    <label>Sporting Goods</label>
                 </value>
                 <value>
                     <fullName>Sweeteners</fullName>
                     <default>false</default>
+                    <label>Sweeteners</label>
                 </value>
                 <value>
                     <fullName>Telecommunications</fullName>
                     <default>false</default>
+                    <label>Telecommunications</label>
                 </value>
                 <value>
                     <fullName>Textile Equipment and Machinery</fullName>
                     <default>false</default>
+                    <label>Textile Equipment and Machinery</label>
                 </value>
                 <value>
                     <fullName>Textile Made-Ups</fullName>
                     <default>false</default>
+                    <label>Textile Made-Ups</label>
                 </value>
                 <value>
                     <fullName>Toys and Games</fullName>
                     <default>false</default>
+                    <label>Toys and Games</label>
                 </value>
                 <value>
                     <fullName>Trailers</fullName>
                     <default>false</default>
+                    <label>Trailers</label>
                 </value>
                 <value>
                     <fullName>Translation and Interpretation Services</fullName>
                     <default>false</default>
+                    <label>Translation and Interpretation Services</label>
                 </value>
                 <value>
                     <fullName>Travel Agencies</fullName>
                     <default>false</default>
+                    <label>Travel Agencies</label>
                 </value>
                 <value>
                     <fullName>Trucking</fullName>
                     <default>false</default>
+                    <label>Trucking</label>
                 </value>
                 <value>
                     <fullName>Underwater Robotics</fullName>
                     <default>false</default>
+                    <label>Underwater Robotics</label>
                 </value>
                 <value>
                     <fullName>Underwater Vehicles</fullName>
                     <default>false</default>
+                    <label>Underwater Vehicles</label>
                 </value>
                 <value>
                     <fullName>Used and Reconditioned Equipment</fullName>
                     <default>false</default>
+                    <label>Used and Reconditioned Equipment</label>
                 </value>
                 <value>
                     <fullName>Vehicle Electronics</fullName>
                     <default>false</default>
+                    <label>Vehicle Electronics</label>
                 </value>
                 <value>
                     <fullName>Venture Capital</fullName>
                     <default>false</default>
+                    <label>Venture Capital</label>
                 </value>
                 <value>
                     <fullName>Veterinary Equipment and Supplies</fullName>
                     <default>false</default>
+                    <label>Veterinary Equipment and Supplies</label>
                 </value>
                 <value>
                     <fullName>Waste Management and Recycling</fullName>
                     <default>false</default>
+                    <label>Waste Management and Recycling</label>
                 </value>
                 <value>
                     <fullName>Water and Wastewater</fullName>
                     <default>false</default>
+                    <label>Water and Wastewater</label>
                 </value>
                 <value>
                     <fullName>Yarns</fullName>
                     <default>false</default>
+                    <label>Yarns</label>
                 </value>
                 <value>
                     <fullName>3D Printing</fullName>
                     <default>false</default>
+                    <label>3D Printing</label>
                 </value>
                 <value>
                     <fullName>Agricultural Biotechnology</fullName>
                     <default>false</default>
+                    <label>Agricultural Biotechnology</label>
                 </value>
                 <value>
                     <fullName>Agricultural Commodities</fullName>
                     <default>false</default>
+                    <label>Agricultural Commodities</label>
                 </value>
                 <value>
                     <fullName>Air Transportation</fullName>
                     <default>false</default>
+                    <label>Air Transportation</label>
                 </value>
                 <value>
                     <fullName>Baby Food</fullName>
                     <default>false</default>
+                    <label>Baby Food</label>
                 </value>
                 <value>
                     <fullName>Cruise Ships</fullName>
                     <default>false</default>
+                    <label>Cruise Ships</label>
                 </value>
                 <value>
                     <fullName>Distance Learning</fullName>
                     <default>false</default>
+                    <label>Distance Learning</label>
                 </value>
                 <value>
                     <fullName>Exam Services</fullName>
                     <default>false</default>
+                    <label>Exam Services</label>
                 </value>
                 <value>
                     <fullName>Fruit Products</fullName>
                     <default>false</default>
+                    <label>Fruit Products</label>
                 </value>
                 <value>
                     <fullName>Grid Transmission Distribution</fullName>
                     <default>false</default>
+                    <label>Grid Transmission Distribution</label>
                 </value>
                 <value>
                     <fullName>Heavy Equipment and Construction Machinery</fullName>
                     <default>false</default>
+                    <label>Heavy Equipment and Construction Machinery</label>
                 </value>
                 <value>
                     <fullName>Infrastructure</fullName>
                     <default>false</default>
+                    <label>Infrastructure</label>
                 </value>
                 <value>
                     <fullName>Language Learning</fullName>
                     <default>false</default>
+                    <label>Language Learning</label>
                 </value>
                 <value>
                     <fullName>Medical Biotechnology</fullName>
                     <default>false</default>
+                    <label>Medical Biotechnology</label>
                 </value>
                 <value>
                     <fullName>Passenger Transportation Services</fullName>
                     <default>false</default>
+                    <label>Passenger Transportation Services</label>
                 </value>
                 <value>
                     <fullName>Petrochemicals</fullName>
                     <default>false</default>
+                    <label>Petrochemicals</label>
                 </value>
                 <value>
                     <fullName>Primary Education</fullName>
                     <default>false</default>
+                    <label>Primary Education</label>
                 </value>
                 <value>
                     <fullName>Secondary Education</fullName>
                     <default>false</default>
+                    <label>Secondary Education</label>
                 </value>
                 <value>
                     <fullName>Trade Schools</fullName>
                     <default>false</default>
+                    <label>Trade Schools</label>
                 </value>
                 <value>
                     <fullName>Vegetable Products</fullName>
                     <default>false</default>
+                    <label>Vegetable Products</label>
                 </value>
                 <value>
                     <fullName>Vitamins and Supplements</fullName>
                     <default>false</default>
+                    <label>Vitamins and Supplements</label>
                 </value>
                 <value>
                     <fullName>Enginering Services</fullName>
                     <default>false</default>
+                    <label>Enginering Services</label>
                 </value>
             </valueSetDefinition>
             <valueSettings>
@@ -1860,710 +2079,887 @@
                 <value>
                     <fullName>Aircraft and Aircraft Parts</fullName>
                     <default>false</default>
+                    <label>Aircraft and Aircraft Parts</label>
                 </value>
                 <value>
                     <fullName>Airport and Ground Support Equipment</fullName>
                     <default>false</default>
+                    <label>Airport and Ground Support Equipment</label>
                 </value>
                 <value>
                     <fullName>Air Traffic Control Equipment</fullName>
                     <default>false</default>
+                    <label>Air Traffic Control Equipment</label>
                 </value>
                 <value>
                     <fullName>Air Transportation</fullName>
                     <default>false</default>
+                    <label>Air Transportation</label>
                 </value>
                 <value>
                     <fullName>Air Travel</fullName>
                     <default>false</default>
+                    <label>Air Travel</label>
                 </value>
                 <value>
                     <fullName>Asphalt</fullName>
                     <default>false</default>
+                    <label>Asphalt</label>
                 </value>
                 <value>
                     <fullName>Aviation Security Equipment</fullName>
                     <default>false</default>
+                    <label>Aviation Security Equipment</label>
                 </value>
                 <value>
                     <fullName>Avionics</fullName>
                     <default>false</default>
+                    <label>Avionics</label>
                 </value>
                 <value>
                     <fullName>Beer</fullName>
                     <default>false</default>
+                    <label>Beer</label>
                 </value>
                 <value>
                     <fullName>Bicycles</fullName>
                     <default>false</default>
+                    <label>Bicycles</label>
                 </value>
                 <value>
                     <fullName>Biodiesel</fullName>
                     <default>false</default>
+                    <label>Biodiesel</label>
                 </value>
                 <value>
                     <fullName>Biomass Equipment</fullName>
                     <default>false</default>
+                    <label>Biomass Equipment</label>
                 </value>
                 <value>
                     <fullName>Biopharmaceuticals</fullName>
                     <default>false</default>
+                    <label>Biopharmaceuticals</label>
                 </value>
                 <value>
                     <fullName>Books and Periodicals Publishing</fullName>
                     <default>false</default>
+                    <label>Books and Periodicals Publishing</label>
                 </value>
                 <value>
                     <fullName>Business Development</fullName>
                     <default>false</default>
+                    <label>Business Development</label>
                 </value>
                 <value>
                     <fullName>Bus Service</fullName>
                     <default>false</default>
+                    <label>Bus Service</label>
                 </value>
                 <value>
                     <fullName>Car Rentals</fullName>
                     <default>false</default>
+                    <label>Car Rentals</label>
                 </value>
                 <value>
                     <fullName>Cement and Concrete</fullName>
                     <default>false</default>
+                    <label>Cement and Concrete</label>
                 </value>
                 <value>
                     <fullName>Clean Coal Technology</fullName>
                     <default>false</default>
+                    <label>Clean Coal Technology</label>
                 </value>
                 <value>
                     <fullName>Coal Gasification Systems</fullName>
                     <default>false</default>
+                    <label>Coal Gasification Systems</label>
                 </value>
                 <value>
                     <fullName>Coffee</fullName>
                     <default>false</default>
+                    <label>Coffee</label>
                 </value>
                 <value>
                     <fullName>Commercial Fishing Equipment</fullName>
                     <default>false</default>
+                    <label>Commercial Fishing Equipment</label>
                 </value>
                 <value>
                     <fullName>Commercial Vessel Equipment</fullName>
                     <default>false</default>
+                    <label>Commercial Vessel Equipment</label>
                 </value>
                 <value>
                     <fullName>Commission Agents</fullName>
                     <default>false</default>
+                    <label>Commission Agents</label>
                 </value>
                 <value>
                     <fullName>Computer Peripherals</fullName>
                     <default>false</default>
+                    <label>Computer Peripherals</label>
                 </value>
                 <value>
                     <fullName>Computer Services</fullName>
                     <default>false</default>
+                    <label>Computer Services</label>
                 </value>
                 <value>
                     <fullName>Construction Equipment</fullName>
                     <default>false</default>
+                    <label>Construction Equipment</label>
                 </value>
                 <value>
                     <fullName>Custom Brokerage</fullName>
                     <default>false</default>
+                    <label>Custom Brokerage</label>
                 </value>
                 <value>
                     <fullName>Cutting Tools</fullName>
                     <default>false</default>
+                    <label>Cutting Tools</label>
                 </value>
                 <value>
                     <fullName>Dental Equipment and Supplies</fullName>
                     <default>false</default>
+                    <label>Dental Equipment and Supplies</label>
                 </value>
                 <value>
                     <fullName>Desktop Computers</fullName>
                     <default>false</default>
+                    <label>Desktop Computers</label>
                 </value>
                 <value>
                     <fullName>Direct Marketing Services</fullName>
                     <default>false</default>
+                    <label>Direct Marketing Services</label>
                 </value>
                 <value>
                     <fullName>Distilled Spirits</fullName>
                     <default>false</default>
+                    <label>Distilled Spirits</label>
                 </value>
                 <value>
                     <fullName>Doors and Windows</fullName>
                     <default>false</default>
+                    <label>Doors and Windows</label>
                 </value>
                 <value>
                     <fullName>Drug Development and Discovery</fullName>
                     <default>false</default>
+                    <label>Drug Development and Discovery</label>
                 </value>
                 <value>
                     <fullName>Electrical Systems &amp; Lighting</fullName>
                     <default>false</default>
+                    <label>Electrical Systems &amp; Lighting</label>
                 </value>
                 <value>
                     <fullName>Electric Cars</fullName>
                     <default>false</default>
+                    <label>Electric Cars</label>
                 </value>
                 <value>
                     <fullName>Electric Motors</fullName>
                     <default>false</default>
+                    <label>Electric Motors</label>
                 </value>
                 <value>
                     <fullName>Electromedical and Electrotherapeutic Apparatus</fullName>
                     <default>false</default>
+                    <label>Electromedical and Electrotherapeutic Apparatus</label>
                 </value>
                 <value>
                     <fullName>Electronic Components</fullName>
                     <default>false</default>
+                    <label>Electronic Components</label>
                 </value>
                 <value>
                     <fullName>Electronic Control Systems</fullName>
                     <default>false</default>
+                    <label>Electronic Control Systems</label>
                 </value>
                 <value>
                     <fullName>Electronic Health Records</fullName>
                     <default>false</default>
+                    <label>Electronic Health Records</label>
                 </value>
                 <value>
                     <fullName>Electronic Product Testing Equipment</fullName>
                     <default>false</default>
+                    <label>Electronic Product Testing Equipment</label>
                 </value>
                 <value>
                     <fullName>Environmental Engineering Services</fullName>
                     <default>false</default>
+                    <label>Environmental Engineering Services</label>
                 </value>
                 <value>
                     <fullName>Environmental Monitoring</fullName>
                     <default>false</default>
+                    <label>Environmental Monitoring</label>
                 </value>
                 <value>
                     <fullName>Ethanol</fullName>
                     <default>false</default>
+                    <label>Ethanol</label>
                 </value>
                 <value>
                     <fullName>Fertilizers</fullName>
                     <default>false</default>
+                    <label>Fertilizers</label>
                 </value>
                 <value>
                     <fullName>Fillers and Additives</fullName>
                     <default>false</default>
+                    <label>Fillers and Additives</label>
                 </value>
                 <value>
                     <fullName>Film and Video Production</fullName>
                     <default>false</default>
+                    <label>Film and Video Production</label>
                 </value>
                 <value>
                     <fullName>Fluid Power Components</fullName>
                     <default>false</default>
+                    <label>Fluid Power Components</label>
                 </value>
                 <value>
                     <fullName>Fragrances</fullName>
                     <default>false</default>
+                    <label>Fragrances</label>
                 </value>
                 <value>
                     <fullName>Gambling</fullName>
                     <default>false</default>
+                    <label>Gambling</label>
                 </value>
                 <value>
                     <fullName>Generic Pharamceuticals</fullName>
                     <default>false</default>
+                    <label>Generic Pharamceuticals</label>
                 </value>
                 <value>
                     <fullName>Geothermal Energy</fullName>
                     <default>false</default>
+                    <label>Geothermal Energy</label>
                 </value>
                 <value>
                     <fullName>Glass</fullName>
                     <default>false</default>
+                    <label>Glass</label>
                 </value>
                 <value>
                     <fullName>Graphic Design</fullName>
                     <default>false</default>
+                    <label>Graphic Design</label>
                 </value>
                 <value>
                     <fullName>Groundwater Remediation</fullName>
                     <default>false</default>
+                    <label>Groundwater Remediation</label>
                 </value>
                 <value>
                     <fullName>Hand Tools</fullName>
                     <default>false</default>
+                    <label>Hand Tools</label>
                 </value>
                 <value>
                     <fullName>Hazardous Waste</fullName>
                     <default>false</default>
+                    <label>Hazardous Waste</label>
                 </value>
                 <value>
                     <fullName>Health Information Exchange</fullName>
                     <default>false</default>
+                    <label>Health Information Exchange</label>
                 </value>
                 <value>
                     <fullName>Helicopters</fullName>
                     <default>false</default>
+                    <label>Helicopters</label>
                 </value>
                 <value>
                     <fullName>High Performance Computers</fullName>
                     <default>false</default>
+                    <label>High Performance Computers</label>
                 </value>
                 <value>
                     <fullName>Household Appliances</fullName>
                     <default>false</default>
+                    <label>Household Appliances</label>
                 </value>
                 <value>
                     <fullName>HVAC Equipment</fullName>
                     <default>false</default>
+                    <label>HVAC Equipment</label>
                 </value>
                 <value>
                     <fullName>Hydropower</fullName>
                     <default>false</default>
+                    <label>Hydropower</label>
                 </value>
                 <value>
                     <fullName>Industrial Waste Water</fullName>
                     <default>false</default>
+                    <label>Industrial Waste Water</label>
                 </value>
                 <value>
                     <fullName>Information Services</fullName>
                     <default>false</default>
+                    <label>Information Services</label>
                 </value>
                 <value>
                     <fullName>Insulation</fullName>
                     <default>false</default>
+                    <label>Insulation</label>
                 </value>
                 <value>
                     <fullName>Internet Advertising</fullName>
                     <default>false</default>
+                    <label>Internet Advertising</label>
                 </value>
                 <value>
                     <fullName>In Vitro Diagnostics</fullName>
                     <default>false</default>
+                    <label>In Vitro Diagnostics</label>
                 </value>
                 <value>
                     <fullName>Iron and Steel</fullName>
                     <default>false</default>
+                    <label>Iron and Steel</label>
                 </value>
                 <value>
                     <fullName>Irradiation Appartus</fullName>
                     <default>false</default>
+                    <label>Irradiation Appartus</label>
                 </value>
                 <value>
                     <fullName>Laboratory Supplies and Equipment</fullName>
                     <default>false</default>
+                    <label>Laboratory Supplies and Equipment</label>
                 </value>
                 <value>
                     <fullName>Light Trucks</fullName>
                     <default>false</default>
+                    <label>Light Trucks</label>
                 </value>
                 <value>
                     <fullName>Lumber</fullName>
                     <default>false</default>
+                    <label>Lumber</label>
                 </value>
                 <value>
                     <fullName>Machine Tools</fullName>
                     <default>false</default>
+                    <label>Machine Tools</label>
                 </value>
                 <value>
                     <fullName>Market Research Services</fullName>
                     <default>false</default>
+                    <label>Market Research Services</label>
                 </value>
                 <value>
                     <fullName>Masonry and Stone</fullName>
                     <default>false</default>
+                    <label>Masonry and Stone</label>
                 </value>
                 <value>
                     <fullName>Medical Waste</fullName>
                     <default>false</default>
+                    <label>Medical Waste</label>
                 </value>
                 <value>
                     <fullName>Metals</fullName>
                     <default>false</default>
+                    <label>Metals</label>
                 </value>
                 <value>
                     <fullName>Mobile Health</fullName>
                     <default>false</default>
+                    <label>Mobile Health</label>
                 </value>
                 <value>
                     <fullName>Mobile Source Air Pollution Control</fullName>
                     <default>false</default>
+                    <label>Mobile Source Air Pollution Control</label>
                 </value>
                 <value>
                     <fullName>Motorcycle Parts</fullName>
                     <default>false</default>
+                    <label>Motorcycle Parts</label>
                 </value>
                 <value>
                     <fullName>Motorhomes</fullName>
                     <default>false</default>
+                    <label>Motorhomes</label>
                 </value>
                 <value>
                     <fullName>Municipal Drinking Water</fullName>
                     <default>false</default>
+                    <label>Municipal Drinking Water</label>
                 </value>
                 <value>
                     <fullName>Municipal Solid Waste</fullName>
                     <default>false</default>
+                    <label>Municipal Solid Waste</label>
                 </value>
                 <value>
                     <fullName>Municipal Wastewater</fullName>
                     <default>false</default>
+                    <label>Municipal Wastewater</label>
                 </value>
                 <value>
                     <fullName>Nonferrous Metals</fullName>
                     <default>false</default>
+                    <label>Nonferrous Metals</label>
                 </value>
                 <value>
                     <fullName>Nonroad Diesel Engines</fullName>
                     <default>false</default>
+                    <label>Nonroad Diesel Engines</label>
                 </value>
                 <value>
                     <fullName>Nuclear Fuels</fullName>
                     <default>false</default>
+                    <label>Nuclear Fuels</label>
                 </value>
                 <value>
                     <fullName>Nuclear Reactors</fullName>
                     <default>false</default>
+                    <label>Nuclear Reactors</label>
                 </value>
                 <value>
                     <fullName>Ocean Energy</fullName>
                     <default>false</default>
+                    <label>Ocean Energy</label>
                 </value>
                 <value>
                     <fullName>Office Furniture</fullName>
                     <default>false</default>
+                    <label>Office Furniture</label>
                 </value>
                 <value>
                     <fullName>Oil &amp; Gas Field Machinery</fullName>
                     <default>false</default>
+                    <label>Oil &amp; Gas Field Machinery</label>
                 </value>
                 <value>
                     <fullName>Ophthalmic Goods</fullName>
                     <default>false</default>
+                    <label>Ophthalmic Goods</label>
                 </value>
                 <value>
                     <fullName>Outdoor Advertising</fullName>
                     <default>false</default>
+                    <label>Outdoor Advertising</label>
                 </value>
                 <value>
                     <fullName>Paint</fullName>
                     <default>false</default>
+                    <label>Paint</label>
                 </value>
                 <value>
                     <fullName>Paper and Paperboard</fullName>
                     <default>false</default>
+                    <label>Paper and Paperboard</label>
                 </value>
                 <value>
                     <fullName>Paper Product Machinery</fullName>
                     <default>false</default>
+                    <label>Paper Product Machinery</label>
                 </value>
                 <value>
                     <fullName>Parking Lots and Garages</fullName>
                     <default>false</default>
+                    <label>Parking Lots and Garages</label>
                 </value>
                 <value>
                     <fullName>Patent and Trademark Law Services</fullName>
                     <default>false</default>
+                    <label>Patent and Trademark Law Services</label>
                 </value>
                 <value>
                     <fullName>Pesticides</fullName>
                     <default>false</default>
+                    <label>Pesticides</label>
                 </value>
                 <value>
                     <fullName>Petroleum Refineries</fullName>
                     <default>false</default>
+                    <label>Petroleum Refineries</label>
                 </value>
                 <value>
                     <fullName>Photographic Equipment</fullName>
                     <default>false</default>
+                    <label>Photographic Equipment</label>
                 </value>
                 <value>
                     <fullName>Plaster and Gypsum Board</fullName>
                     <default>false</default>
+                    <label>Plaster and Gypsum Board</label>
                 </value>
                 <value>
                     <fullName>Plastic</fullName>
                     <default>false</default>
+                    <label>Plastic</label>
                 </value>
                 <value>
                     <fullName>Plastics Materials and Resins</fullName>
                     <default>false</default>
+                    <label>Plastics Materials and Resins</label>
                 </value>
                 <value>
                     <fullName>Plastics Production Machinery</fullName>
                     <default>false</default>
+                    <label>Plastics Production Machinery</label>
                 </value>
                 <value>
                     <fullName>Plumbing</fullName>
                     <default>false</default>
+                    <label>Plumbing</label>
                 </value>
                 <value>
                     <fullName>Portable Computers</fullName>
                     <default>false</default>
+                    <label>Portable Computers</label>
                 </value>
                 <value>
                     <fullName>Precious Metals</fullName>
                     <default>false</default>
+                    <label>Precious Metals</label>
                 </value>
                 <value>
                     <fullName>Printing and Graphic Arts Equipment</fullName>
                     <default>false</default>
+                    <label>Printing and Graphic Arts Equipment</label>
                 </value>
                 <value>
                     <fullName>Process Water</fullName>
                     <default>false</default>
+                    <label>Process Water</label>
                 </value>
                 <value>
                     <fullName>Product Safety Testing and Certification</fullName>
                     <default>false</default>
+                    <label>Product Safety Testing and Certification</label>
                 </value>
                 <value>
                     <fullName>Protective and Safety Clothing</fullName>
                     <default>false</default>
+                    <label>Protective and Safety Clothing</label>
                 </value>
                 <value>
                     <fullName>Public Relations Services</fullName>
                     <default>false</default>
+                    <label>Public Relations Services</label>
                 </value>
                 <value>
                     <fullName>Pumps, Valves and Compressors</fullName>
                     <default>false</default>
+                    <label>Pumps, Valves and Compressors</label>
                 </value>
                 <value>
                     <fullName>Radio Advertising</fullName>
                     <default>false</default>
+                    <label>Radio Advertising</label>
                 </value>
                 <value>
                     <fullName>Railroad Equipment</fullName>
                     <default>false</default>
+                    <label>Railroad Equipment</label>
                 </value>
                 <value>
                     <fullName>Rail Travel</fullName>
                     <default>false</default>
+                    <label>Rail Travel</label>
                 </value>
                 <value>
                     <fullName>Rare Earth Metals</fullName>
                     <default>false</default>
+                    <label>Rare Earth Metals</label>
                 </value>
                 <value>
                     <fullName>Recycling</fullName>
                     <default>false</default>
+                    <label>Recycling</label>
                 </value>
                 <value>
                     <fullName>Renewable Energy Equipment</fullName>
                     <default>false</default>
+                    <label>Renewable Energy Equipment</label>
                 </value>
                 <value>
                     <fullName>Rolling Mills</fullName>
                     <default>false</default>
+                    <label>Rolling Mills</label>
                 </value>
                 <value>
                     <fullName>Rubber</fullName>
                     <default>false</default>
+                    <label>Rubber</label>
                 </value>
                 <value>
                     <fullName>Satellites</fullName>
                     <default>false</default>
+                    <label>Satellites</label>
                 </value>
                 <value>
                     <fullName>Semiconductor Manufacturing Equipment</fullName>
                     <default>false</default>
+                    <label>Semiconductor Manufacturing Equipment</label>
                 </value>
                 <value>
                     <fullName>Semiconductors</fullName>
                     <default>false</default>
+                    <label>Semiconductors</label>
                 </value>
                 <value>
                     <fullName>Servers</fullName>
                     <default>false</default>
+                    <label>Servers</label>
                 </value>
                 <value>
                     <fullName>Shipbuidling Equipment</fullName>
                     <default>false</default>
+                    <label>Shipbuidling Equipment</label>
                 </value>
                 <value>
                     <fullName>Sightseeing Transportation Services</fullName>
                     <default>false</default>
+                    <label>Sightseeing Transportation Services</label>
                 </value>
                 <value>
                     <fullName>Smart Grid</fullName>
                     <default>false</default>
+                    <label>Smart Grid</label>
                 </value>
                 <value>
                     <fullName>Soaps and Detergents</fullName>
                     <default>false</default>
+                    <label>Soaps and Detergents</label>
                 </value>
                 <value>
                     <fullName>Soil Remediation</fullName>
                     <default>false</default>
+                    <label>Soil Remediation</label>
                 </value>
                 <value>
                     <fullName>Solar Energy</fullName>
                     <default>false</default>
+                    <label>Solar Energy</label>
                 </value>
                 <value>
                     <fullName>Space Launch Equipment</fullName>
                     <default>false</default>
+                    <label>Space Launch Equipment</label>
                 </value>
                 <value>
                     <fullName>Sports</fullName>
                     <default>false</default>
+                    <label>Sports</label>
                 </value>
                 <value>
                     <fullName>Stationary Fuel Cells</fullName>
                     <default>false</default>
+                    <label>Stationary Fuel Cells</label>
                 </value>
                 <value>
                     <fullName>Stationary Source Air Pollution Control</fullName>
                     <default>false</default>
+                    <label>Stationary Source Air Pollution Control</label>
                 </value>
                 <value>
                     <fullName>Surgical and Medical Instruments</fullName>
                     <default>false</default>
+                    <label>Surgical and Medical Instruments</label>
                 </value>
                 <value>
                     <fullName>Surgical Appliances</fullName>
                     <default>false</default>
+                    <label>Surgical Appliances</label>
                 </value>
                 <value>
                     <fullName>Taxi Services</fullName>
                     <default>false</default>
+                    <label>Taxi Services</label>
                 </value>
                 <value>
                     <fullName>Telecommunications Equipment</fullName>
                     <default>false</default>
+                    <label>Telecommunications Equipment</label>
                 </value>
                 <value>
                     <fullName>Telecommunications Services</fullName>
                     <default>false</default>
+                    <label>Telecommunications Services</label>
                 </value>
                 <value>
                     <fullName>Telemedicine</fullName>
                     <default>false</default>
+                    <label>Telemedicine</label>
                 </value>
                 <value>
                     <fullName>Television Advertising</fullName>
                     <default>false</default>
+                    <label>Television Advertising</label>
                 </value>
                 <value>
                     <fullName>Tile</fullName>
                     <default>false</default>
+                    <label>Tile</label>
                 </value>
                 <value>
                     <fullName>Tires</fullName>
                     <default>false</default>
+                    <label>Tires</label>
                 </value>
                 <value>
                     <fullName>Tooling Equipment and Supplies</fullName>
                     <default>false</default>
+                    <label>Tooling Equipment and Supplies</label>
                 </value>
                 <value>
                     <fullName>Trade Promotion Services</fullName>
                     <default>false</default>
+                    <label>Trade Promotion Services</label>
                 </value>
                 <value>
                     <fullName>Travel Trailers</fullName>
                     <default>false</default>
+                    <label>Travel Trailers</label>
                 </value>
                 <value>
                     <fullName>Urban Transit Systems</fullName>
                     <default>false</default>
+                    <label>Urban Transit Systems</label>
                 </value>
                 <value>
                     <fullName>Used Clothing</fullName>
                     <default>false</default>
+                    <label>Used Clothing</label>
                 </value>
                 <value>
                     <fullName>Vaccines</fullName>
                     <default>false</default>
+                    <label>Vaccines</label>
                 </value>
                 <value>
                     <fullName>Vans</fullName>
                     <default>false</default>
+                    <label>Vans</label>
                 </value>
                 <value>
                     <fullName>Vehicle Electronics</fullName>
                     <default>false</default>
+                    <label>Vehicle Electronics</label>
                 </value>
                 <value>
                     <fullName>Waste Management Services</fullName>
                     <default>false</default>
+                    <label>Waste Management Services</label>
                 </value>
                 <value>
                     <fullName>Water Monitoring</fullName>
                     <default>false</default>
+                    <label>Water Monitoring</label>
                 </value>
                 <value>
                     <fullName>Water Treatment Services</fullName>
                     <default>false</default>
+                    <label>Water Treatment Services</label>
                 </value>
                 <value>
                     <fullName>Welding Equipment</fullName>
                     <default>false</default>
+                    <label>Welding Equipment</label>
                 </value>
                 <value>
                     <fullName>Wind Energy</fullName>
                     <default>false</default>
+                    <label>Wind Energy</label>
                 </value>
                 <value>
                     <fullName>Wine</fullName>
                     <default>false</default>
+                    <label>Wine</label>
                 </value>
                 <value>
                     <fullName>Wireless</fullName>
                     <default>false</default>
+                    <label>Wireless</label>
                 </value>
                 <value>
                     <fullName>Wood Products</fullName>
                     <default>false</default>
+                    <label>Wood Products</label>
                 </value>
                 <value>
                     <fullName>Woodworking Machinery</fullName>
                     <default>false</default>
+                    <label>Woodworking Machinery</label>
                 </value>
                 <value>
                     <fullName>Air Pollution Monitoring Equipment</fullName>
                     <default>false</default>
+                    <label>Air Pollution Monitoring Equipment</label>
                 </value>
                 <value>
                     <fullName>Air Pollution Monitoring Services</fullName>
                     <default>false</default>
+                    <label>Air Pollution Monitoring Services</label>
                 </value>
                 <value>
                     <fullName>Bulk Commodities</fullName>
                     <default>false</default>
+                    <label>Bulk Commodities</label>
                 </value>
                 <value>
                     <fullName>Energy Storage</fullName>
                     <default>false</default>
+                    <label>Energy Storage</label>
                 </value>
                 <value>
                     <fullName>English as a Second Language Instruction</fullName>
                     <default>false</default>
+                    <label>English as a Second Language Instruction</label>
                 </value>
                 <value>
                     <fullName>Executive Education</fullName>
                     <default>false</default>
+                    <label>Executive Education</label>
                 </value>
                 <value>
                     <fullName>Nuclear Waste Processing</fullName>
                     <default>false</default>
+                    <label>Nuclear Waste Processing</label>
                 </value>
                 <value>
                     <fullName>Toll Roads</fullName>
                     <default>false</default>
+                    <label>Toll Roads</label>
                 </value>
                 <value>
                     <fullName>Value-Added Agriculture</fullName>
                     <default>false</default>
+                    <label>Value-Added Agriculture</label>
                 </value>
                 <value>
                     <fullName>Vitamins and Supplements</fullName>
                     <default>false</default>
+                    <label>Vitamins and Supplements</label>
                 </value>
                 <value>
                     <fullName>Water Transportation</fullName>
                     <default>false</default>
+                    <label>Water Transportation</label>
                 </value>
                 <value>
                     <fullName>Wood Pellets</fullName>
                     <default>false</default>
+                    <label>Wood Pellets</label>
                 </value>
             </valueSetDefinition>
             <valueSettings>
@@ -3303,4 +3699,5 @@
 ) &gt; 1</errorConditionFormula>
         <errorMessage>Can only update one of the following fields:  Organization, Case Industrial Hierarchy, or WIN Industrial Hierarchy.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>

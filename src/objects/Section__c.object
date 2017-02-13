@@ -116,4 +116,5 @@
     </recordTypes>
     <searchLayouts/>
     <sharingModel>Read</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

@@ -68,18 +68,22 @@
                 <value>
                     <fullName>Level 0</fullName>
                     <default>false</default>
+                    <label>Level 0</label>
                 </value>
                 <value>
                     <fullName>Level 1</fullName>
                     <default>false</default>
+                    <label>Level 1</label>
                 </value>
                 <value>
                     <fullName>Level 2</fullName>
                     <default>false</default>
+                    <label>Level 2</label>
                 </value>
                 <value>
                     <fullName>Level 3</fullName>
                     <default>false</default>
+                    <label>Level 3</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -134,4 +138,5 @@
     <pluralLabel>Levels</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>
