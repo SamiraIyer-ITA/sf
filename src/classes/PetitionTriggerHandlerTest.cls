@@ -11,17 +11,6 @@ public class PetitionTriggerHandlerTest {
 			return u;
 		}
 	}
-	private static List<Petition__c> petitionList {
-		get {
-			if(petitionList == null) {
-				petitionList = [SELECT Id, Petition_Filed__c, Petition_Outcome__c, Case_Number__c, Product__c,
-									Case_Type__c, Country__c, Commodity__c, Initiation_Extension_of_days__c,
-									Calculated_Initiation_Signature__c 
-								FROM Petition__c];
-			}
-			return petitionList;
-		}
-	}
 	//Petition Filed - Scenarios 1, 2, 5
 	@isTest static void petitionFiledDateIsValid(){
 		Test.startTest();
@@ -42,31 +31,27 @@ public class PetitionTriggerHandlerTest {
 			System.assert(error.contains(''));//needs a portion of Petition Filed on Holiday VR error message
 			p.Petition_Filed__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(p.Petition_Filed__c);//successful insert
 			error = attemptInsert(p);
-			System.assertEquals(petitionList.size(), 1);
+			System.assertNotEquals(p.Id, null);
 		}
 		Test.stopTest();
 	}
 
-	//JM: Good job, Tony!  This is a good framework to start with.
-	//Your assert compares a value in the database, adds 2 to it, then validates it against a date 2 days from today
-	//Was the petition inserted with a future date?
-	//Do you know for sure that the petition insert, which could calculate tolling days, holidays, and weekends, will not adjust your petition filed date?
+
+	/*@isTest static void petitionFiledDateFuture(){
+		Test.startTest();
+		Petition__c p = TestUtils.createPetition(petitionDate, 'AD ME', true);
+		Date futureDate = petitionDate.addDays(2);
+		System.assertEquals([SELECT Id, Petition_Filed__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Petition_Filed__c.addDays(2),futureDate);
+		Test.stopTest();
+	}*/
+	//Petition Filed - Scenario 
 	@isTest static void petitionFiledDateFuture(){
 		Test.startTest();
-		Petition__c p = testUtils.createPetition(petitionDate, 'AD ME', true);
-		Date futureDate = petitionDate.addDays(2);
-		System.assertEquals(petitionList[0].Petition_Filed__c.addDays(2),futureDate);
+		Petition__c p = TestUtils.createPetition(petitionDate.addDays(3), 'AD ME', true);
+		System.assert([SELECT Id, Petition_Filed__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Petition_Filed__c > System.today());
 		Test.stopTest();
 	}
-	//@isTest static void petitionFiledDateFuture(){
-	//	Test.startTest();
-	//	Petition__c p = createPetition();
-	//	p.Petition_Filed__c = p.PetitionFiled__c.addDays(2);
-	//	System.assertEquals(petitionList[0].Petition_Filed__c, petitionDate.addDays(2));
-	//	Test.stopTest();
-	//}
 
-	//nice touch!!  generally dont see unit tests for validation rules but we will probably wannt them for this project
 	//Initiation Extension - Scenarios 1 and 2
 	@isTest static void petitionExtensionBound(){
 		Test.startTest();
@@ -79,7 +64,7 @@ public class PetitionTriggerHandlerTest {
 		System.assert(error.contains('extension cannot exceed more than 20 days'));
 		p.Initiation_Extension_of_days__c = 20;//in bounds
 		error = attemptInsert(p);
-		System.assertEquals(petitionList[0].Initiation_Extension_of_days__c, 20);
+		System.assertEquals(20, [SELECT Id, Initiation_Extension_of_days__c FROM  Petition__c WHERE Id =: p.Id].Initiation_Extension_of_days__c);
 		Test.stopTest();
 	}
 
@@ -97,8 +82,10 @@ public class PetitionTriggerHandlerTest {
 			System.debug(p.Petition_Filed__c.addDays(20).addDays((integer)p.Initiation_Extension_of_days__c));
 			System.debug(p.Petition_Filed__c.addDays(20).addDays((integer)p.Initiation_Extension_of_days__c).addDays(0));
 			insert p;
+			System.assertNotEquals(p.Id, null);
 			//Petition Filed Date in memory + 20(standard) + 1(extenstion) + 0(adjustment from trigger) == Calculated Initiation in database
-			System.assertEquals(p.Petition_Filed__c.addDays(20).addDays((integer)(p.Initiation_Extension_of_days__c)), petitionList[0].Calculated_Initiation_Signature__c);
+			System.assertEquals(p.Petition_Filed__c.addDays(20).addDays((integer)(p.Initiation_Extension_of_days__c)), 
+				[SELECT Id, Calculated_Initiation_Signature__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Calculated_Initiation_Signature__c);
 		}
 		Test.stopTest();
 	}
@@ -117,8 +104,10 @@ public class PetitionTriggerHandlerTest {
 			System.debug(p.Petition_Filed__c.addDays(20).addDays((integer)p.Initiation_Extension_of_days__c));
 			System.debug(p.Petition_Filed__c.addDays(20).addDays((integer)p.Initiation_Extension_of_days__c).addDays(2));
 			insert p;
+			System.assertNotEquals(p.Id, null);
 			//Petition Filed Date in memory + 20(standard) + 2(extension) + 2(Saturday and Sunday adjustment from trigger) == Calculated Initiation in database
-			System.assertEquals(p.Petition_Filed__c.addDays(20).addDays((integer)p.Initiation_Extension_of_days__c).addDays(2), petitionList[0].Calculated_Initiation_Signature__c);
+			System.assertEquals(p.Petition_Filed__c.addDays(20).addDays((integer)p.Initiation_Extension_of_days__c).addDays(2), 
+				[SELECT Id, Calculated_Initiation_Signature__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Calculated_Initiation_Signature__c);
 		}
 		Test.stopTest();
 	}
@@ -138,8 +127,10 @@ public class PetitionTriggerHandlerTest {
 			System.debug(p.Petition_Filed__c.addDays(20).addDays((integer)p.Initiation_Extension_of_days__c));
 			System.debug(p.Petition_Filed__c.addDays(20).addDays((integer)p.Initiation_Extension_of_days__c).addDays(3));
 			insert p;
+			System.assertNotEquals(p.Id, null);
 			//Petition Filed Date in memory + 20(standard) + 2(extension) + 3(Saturday, Sunday, and holiday Monday adjustment from trigger) == Calculated Initiation in database
-			System.assertEquals(p.Petition_Filed__c.addDays(20).addDays((integer)p.Initiation_Extension_of_days__c).addDays(3), petitionList[0].Calculated_Initiation_Signature__c);
+			System.assertEquals(p.Petition_Filed__c.addDays(20).addDays((integer)p.Initiation_Extension_of_days__c).addDays(3), 
+				[SELECT Id, Calculated_Initiation_Signature__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Calculated_Initiation_Signature__c);
 		}
 		Test.stopTest();
 	}
@@ -159,8 +150,10 @@ public class PetitionTriggerHandlerTest {
 			System.debug(p.Petition_Filed__c.addDays(20).addDays((integer)p.Initiation_Extension_of_days__c));
 			System.debug(p.Petition_Filed__c.addDays(20).addDays((integer)p.Initiation_Extension_of_days__c).addDays(1));
 			insert p;
+			System.assertNotEquals(p.Id, null);
 			//Petition Filed Date in memory + 20(standard) + 1(extension) + 1(Holiday adjustment from trigger) == Calculated Initiation in database
-			System.assertEquals(p.Petition_Filed__c.addDays(20).addDays((integer)p.Initiation_Extension_of_days__c).addDays(1), petitionList[0].Calculated_Initiation_Signature__c);
+			System.assertEquals(p.Petition_Filed__c.addDays(20).addDays((integer)p.Initiation_Extension_of_days__c).addDays(1), 
+				[SELECT Id, Calculated_Initiation_Signature__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Calculated_Initiation_Signature__c);
 		}
 		Test.stopTest();
 	}
@@ -178,8 +171,10 @@ public class PetitionTriggerHandlerTest {
 			System.debug(p.Petition_Filed__c.addDays(20).addDays((integer)p.Initiation_Extension_of_days__c));
 			System.debug(p.Petition_Filed__c.addDays(20).addDays((integer)p.Initiation_Extension_of_days__c).addDays(0));
 			insert p;
+			System.assertNotEquals(p.Id, null);
 			//Petition Filed Date in memory + 20(standard) + 20(extenstion) + 0(adjustment from trigger) == Calculated Initiation in database
-			System.assertEquals(p.Petition_Filed__c.addDays(20).addDays((integer)(p.Initiation_Extension_of_days__c)), petitionList[0].Calculated_Initiation_Signature__c);
+			System.assertEquals(p.Petition_Filed__c.addDays(20).addDays((integer)(p.Initiation_Extension_of_days__c)), 
+				[SELECT Id, Calculated_Initiation_Signature__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Calculated_Initiation_Signature__c);
 		}
 		Test.stopTest();
 	}
@@ -198,8 +193,10 @@ public class PetitionTriggerHandlerTest {
 			System.debug(p.Petition_Filed__c.addDays(20).addDays((integer)p.Initiation_Extension_of_days__c));
 			System.debug(p.Petition_Filed__c.addDays(20).addDays((integer)p.Initiation_Extension_of_days__c).addDays(-2));
 			insert p;
+			System.assertNotEquals(p.Id, null);
 			//Petition Filed Date in memory + 20(standard) + 20(extenstion) - 2(Sat and Sun adjustment from trigger) == Calculated Initiation in database
-			System.assertEquals(p.Petition_Filed__c.addDays(20).addDays((integer)(p.Initiation_Extension_of_days__c)).addDays(-2), petitionList[0].Calculated_Initiation_Signature__c);
+			System.assertEquals(p.Petition_Filed__c.addDays(20).addDays((integer)(p.Initiation_Extension_of_days__c)).addDays(-2), 
+				[SELECT Id, Calculated_Initiation_Signature__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Calculated_Initiation_Signature__c);
 		}
 		Test.stopTest();
 	}
