@@ -16,10 +16,10 @@ public class TollingDayTriggerHandler {
         }
     }
     //private static Set<Date> datesInScope = new Set<Date>();
-    private static Date earliestDate = null;
-    private static Date latestDate = null;
+    @TestVisible private static Date earliestDate = null;
+    @TestVisible private static Date latestDate = null;
     /* method to build an earliest and latest set of dates in scope */ 
-    private static void setDatesInScope(List<Tolling_Day__c> tdList) {
+    @TestVisible private static void setDatesInScope(List<Tolling_Day__c> tdList) {
         for(Tolling_Day__c td: tdList) {
             Date loopDate = td.Start_Date__c;
             if(earliestDate == null || earliestDate > td.Start_Date__c) {
@@ -30,7 +30,7 @@ public class TollingDayTriggerHandler {
             }
         }
     }
-    private static Set<Id> findPetitionsInScope(List<Tolling_Day__c> tdList) {
+    @TestVisible private static Set<Id> findPetitionsInScope(List<Tolling_Day__c> tdList) {
         setDatesInScope(tdList);
         Set<Id> petitionIdSet = new Set<Id>();
         system.debug(latestDate);
@@ -40,7 +40,7 @@ public class TollingDayTriggerHandler {
         return petitionIdSet;
         
     }
-    private static void recalculatePetitionTollingDay(List<Tolling_Day__c> tdList) {
+    @TestVisible private static void recalculatePetitionTollingDay(List<Tolling_Day__c> tdList) {
         calculatePetitionsFuture(findPetitionsInScope(tdList));
     }
     @future
