@@ -219,17 +219,26 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Calculated_Postponement_of_PrelimDeterFR__c</fullName>
+        <description>Calculated Postponement of Preliminary Determination Federal Register Signature</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Calculated Postponement of Preliminary Determination Federal Register Signature</inlineHelpText>
+        <label>Calculated Postponement of PrelimDeterFR</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Calculated_Prelim_Extension_Request_File__c</fullName>
         <description>Calculated Prelim Extension Request Filed</description>
         <externalId>false</externalId>
         <inlineHelpText>Calculated Prelim Extension Request Filed</inlineHelpText>
         <label>Calculated Prelim Extension Request File</label>
-        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Calculated_Preliminary_Signature__c</fullName>
