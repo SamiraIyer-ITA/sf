@@ -2313,7 +2313,7 @@
 $RecordType.DeveloperName = &quot;CVD&quot;, 
 OR(Final_Extension_of_days__c &gt; 90, Final_Extension_of_days__c &lt; 0)
 )</errorConditionFormula>
-        <errorMessage>Final extension # of days can only range from 0 to 90 days</errorMessage>
+        <errorMessage>Final extension # of days can only range from 1 to 90 days</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Final_Extension_AD_Form_Bound</fullName>

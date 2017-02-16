@@ -6219,64 +6219,14 @@
         <active>true</active>
         <errorConditionFormula>AND($RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
 NOT(ISBLANK( Prelim_Extension__c)), OR(Final_Extension_of_days__c &gt; 60, Final_Extension_of_days__c &lt; 0))</errorConditionFormula>
-        <errorMessage>If there is a value in preliminary extension # of days, the bound for final extension is 0-60 days. 
-If there is no value in preliminary extension # of days, the bound of final extension is 0-120 days.</errorMessage>
+        <errorMessage>If there is a value in preliminary extension # of days, the bound for final extension is 1-60 days.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Bound_If_Prelim_Extension_Not_Exists</fullName>
         <active>true</active>
         <errorConditionFormula>AND($RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
-ISBLANK( Prelim_Extension__c), OR(Final_Extension_of_days__c &gt; 120, Final_Extension_of_days__c &lt; 0))</errorConditionFormula>
-        <errorMessage>If there is a value in preliminary extension # of days, the bound for final extension is 0-60 days.
-If there is no value in preliminary extension # of days, the bound of final extension is 0-120 days.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Bound_If_Prelim_Extension_Exists</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND($RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
-NOT(ISBLANK( Prelim_Extension__c)), OR(Final_Extension_of_days__c &gt; 60, Final_Extension_of_days__c &lt; 0))</errorConditionFormula>
-        <errorMessage>If there is a value in preliminary extension # of days, the bound for final extension is 0-60 days. 
-If there is no value in preliminary extension # of days, the bound of final extension is 0-120 days.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Bound_If_Prelim_Extension_Not_Exists</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND($RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
-ISBLANK( Prelim_Extension__c), OR(Final_Extension_of_days__c &gt; 120, Final_Extension_of_days__c &lt; 0))</errorConditionFormula>
-        <errorMessage>If there is a value in preliminary extension # of days, the bound for final extension is 0-60 days.
-If there is no value in preliminary extension # of days, the bound of final extension is 0-120 days.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Bound_If_Prelim_Extension_Exists</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND($RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
-NOT(ISBLANK( Prelim_Extension__c)), OR(Final_Extension_of_days__c &gt; 60, Final_Extension_of_days__c &lt; 0))</errorConditionFormula>
-        <errorMessage>If there is a value in preliminary extension # of days, the bound for final extension is 0-60 days. 
-If there is no value in preliminary extension # of days, the bound of final extension is 0-120 days.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Bound_If_Prelim_Extension_Not_Exists</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND($RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
-ISBLANK( Prelim_Extension__c), OR(Final_Extension_of_days__c &gt; 120, Final_Extension_of_days__c &lt; 0))</errorConditionFormula>
-        <errorMessage>If there is a value in preliminary extension # of days, the bound for final extension is 0-60 days.
-If there is no value in preliminary extension # of days, the bound of final extension is 0-120 days.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Bound_If_Prelim_Extension_Exists</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND($RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
-NOT(ISBLANK( Prelim_Extension__c)), OR(Final_Extension_of_days__c &gt; 60, Final_Extension_of_days__c &lt; 0))</errorConditionFormula>
-        <errorMessage>If there is a value in preliminary extension # of days, the bound for final extension is 0-60 days. 
-If there is no value in preliminary extension # of days, the bound of final extension is 0-120 days.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Bound_If_Prelim_Extension_Not_Exists</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND($RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
-ISBLANK( Prelim_Extension__c), OR(Final_Extension_of_days__c &gt; 120, Final_Extension_of_days__c &lt; 0))</errorConditionFormula>
-        <errorMessage>If there is a value in preliminary extension # of days, the bound for final extension is 0-60 days.
-If there is no value in preliminary extension # of days, the bound of final extension is 0-120 days.</errorMessage>
+ISBLANK( Prelim_Extension__c), OR(Final_Extension_of_days__c &gt; 180, Final_Extension_of_days__c &lt; 0))</errorConditionFormula>
+        <errorMessage>If there is no value in preliminary extension # of days, the bound of final extension is 1-180 days.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Prelim_Extension_For_Expedited_Review</fullName>
@@ -6297,24 +6247,13 @@ If there is no value in preliminary extension # of days, the bound of final exte
         <errorMessage>Cannot exceed more than 120 days</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Prelim_Extension_for_Admin_Review_Exceed</fullName>
+        <fullName>Prelim_Extension_for_Admin_Review_Bound</fullName>
         <active>true</active>
-        <description>Preliminary Extension cannot exceed more than 120 days</description>
         <errorConditionFormula>And (
  $RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
- Prelim_Extension__c &gt; 120
+ OR(Prelim_Extension__c &gt; 120, Prelim_Extension__c &lt; 0)
 )</errorConditionFormula>
-        <errorMessage>Preliminary Extension cannot exceed more than 120 days</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Prelim_Extension_for_Admin_Review_Neg</fullName>
-        <active>true</active>
-        <description>Preliminary Extension must be greater than zero days.</description>
-        <errorConditionFormula>And (
- $RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
- Prelim_Extension__c &lt; 0
-)</errorConditionFormula>
-        <errorMessage>Preliminary Extension must be greater than zero days.</errorMessage>
+        <errorMessage>Preliminary Extension can only range from 1-120 days.</errorMessage>
     </validationRules>
     <visibility>Public</visibility>
 </CustomObject>
