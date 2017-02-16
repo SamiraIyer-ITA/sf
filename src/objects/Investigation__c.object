@@ -789,19 +789,19 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>DOC_Negative_Final_Termination_of_Investigation</fullName>
+                    <fullName>DOC Negative Final/Termination of Investigation</fullName>
                     <default>false</default>
-                    <label>DOC Negative Final -- Termination of Investigation</label>
+                    <label>DOC Negative Final/Termination of Investigation</label>
                 </value>
                 <value>
-                    <fullName>ITC_Negative_Final_Termination_of_Investigation</fullName>
+                    <fullName>ITC Negative Final/Termination of Investigation</fullName>
                     <default>false</default>
-                    <label>ITC Negative Final -- Termination of Investigation</label>
+                    <label>ITC Negative Final/Termination of Investigation</label>
                 </value>
                 <value>
-                    <fullName>ITC_Negative_Prelim_Termination_of_Investigation</fullName>
+                    <fullName>ITC Negative Prelim/Termination of Investigation</fullName>
                     <default>false</default>
-                    <label>ITC Negative Prelim -- Termination of Investigation</label>
+                    <label>ITC Negative Prelim/Termination of Investigation</label>
                 </value>
                 <value>
                     <fullName>Petition_Withdrawn_After_Initiation</fullName>
@@ -809,7 +809,7 @@
                     <label>Petition Withdrawn After Initiation</label>
                 </value>
                 <value>
-                    <fullName>Suspension_Agreement</fullName>
+                    <fullName>Suspension Agreement</fullName>
                     <default>false</default>
                     <label>Suspension Agreement</label>
                 </value>
@@ -1645,15 +1645,15 @@
         <picklistValues>
             <picklist>Investigation_Outcome__c</picklist>
             <values>
-                <fullName>DOC Negative Final -- Termination of Investigation</fullName>
+                <fullName>DOC Negative Final%2FTermination of Investigation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ITC Negative Final -- Termination of Investigation</fullName>
+                <fullName>ITC Negative Final%2FTermination of Investigation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ITC Negative Prelim -- Termination of Investigation</fullName>
+                <fullName>ITC Negative Prelim%2FTermination of Investigation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2155,15 +2155,15 @@
         <picklistValues>
             <picklist>Investigation_Outcome__c</picklist>
             <values>
-                <fullName>DOC Negative Final -- Termination of Investigation</fullName>
+                <fullName>DOC Negative Final%2FTermination of Investigation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ITC Negative Final -- Termination of Investigation</fullName>
+                <fullName>ITC Negative Final%2FTermination of Investigation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ITC Negative Prelim -- Termination of Investigation</fullName>
+                <fullName>ITC Negative Prelim%2FTermination of Investigation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2306,5 +2306,33 @@
     </recordTypes>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Bounded_Days_For_Final_Extension</fullName>
+        <active>true</active>
+        <errorConditionFormula>And (
+$RecordType.DeveloperName = &quot;CVD&quot;, 
+OR(Final_Extension_of_days__c &gt; 90, Final_Extension_of_days__c &lt; 0)
+)</errorConditionFormula>
+        <errorMessage>Final extension # of days can only range from 0 to 90 days</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Final_Extension_AD_Form_Bound</fullName>
+        <active>true</active>
+        <errorConditionFormula>And (
+$RecordType.DeveloperName = &quot;AD&quot;, 
+OR(Final_Extension_of_days__c &gt; 60, Final_Extension_of_days__c &lt; 0)
+)</errorConditionFormula>
+        <errorMessage>Final extension bound for AD Form Final Extension is 0-60 days.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Final_Extension_Null_If_False</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND ( 
+$RecordType.DeveloperName = &quot;CVD&quot;, 
+ISPICKVAL( Upstream_Subsidy_Allegation__c , &quot;No&quot;), 
+NOT(AND(ISBLANK( Final_Extension_of_days__c))) 
+)</errorConditionFormula>
+        <errorMessage>If upstream subsidy allegation is &quot;No&quot; , then final extensions of day must be null.</errorMessage>
+    </validationRules>
     <visibility>Public</visibility>
 </CustomObject>
