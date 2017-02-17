@@ -47,16 +47,16 @@ public with sharing class ADCVD_TollingDayUtilityTest {
 			if(!ADCVD_TollingDayUtility.isTollingDay(myVariableDate)){
 				System.assertEquals(ADCVD_TollingDayUtility.deadlineWithTollingDays(myVariableDate, myDeadline), myDeadline);
 			} else {
-				//first iteration has 5 tolling days, reduces by i for each iteration
-				System.assertEquals(ADCVD_TollingDayUtility.deadlineWithTollingDays(myVariableDate,myDeadline), myDeadline.addDays(5).addDays(-i));
+				//first iteration has 4 tolling days, reduces by i for each iteration
+				System.assertEquals(ADCVD_TollingDayUtility.deadlineWithTollingDays(myVariableDate,myDeadline), myDeadline.addDays(4).addDays(-i));
 			}
 		}
 	}
 	@isTest static void getCalculatedDate(){
-		//With 10 loops, the testing time will include the tolling period created by class variables
+		//With 11 loops, the testing time will include the tolling period created by class variables
 		//Each iteration advances one day, shortening the request but comparing against the same tolling period
 		//This will cover scenarios of start prior to tolling start, on tolling start, during tolling, on tolling end date, and with no tolling days
-		integer loops = 10;
+		integer loops = 11;
 		for(integer i = 0; i<loops; i++){
 			Date myVariableDate = System.today().addDays(-loops).addDays(i);
 			Date myDeadline = System.today();
@@ -66,7 +66,7 @@ public with sharing class ADCVD_TollingDayUtilityTest {
 			integer rolledForwardDays = 0;
 			integer rolledBackDays = 0;
 			//count tolling days in scope
-			for(integer j = 0; j<(10-i); j++){
+			for(integer j = 0; j<(loops-i); j++){
 				Date tempDate = myVariableDate.addDays(j);
 				if(ADCVD_TollingDayUtility.isTollingDay(tempDate)){
 					totalTollingDays ++;
