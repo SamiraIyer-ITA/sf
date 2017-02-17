@@ -219,17 +219,26 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Calculated_Postponement_of_PrelimDeterFR__c</fullName>
+        <description>Calculated Postponement of Preliminary Determination Federal Register Signature</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Calculated Postponement of Preliminary Determination Federal Register Signature</inlineHelpText>
+        <label>Calculated Postponement of PrelimDeterFR</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Calculated_Prelim_Extension_Request_File__c</fullName>
         <description>Calculated Prelim Extension Request Filed</description>
         <externalId>false</externalId>
         <inlineHelpText>Calculated Prelim Extension Request Filed</inlineHelpText>
         <label>Calculated Prelim Extension Request File</label>
-        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Calculated_Preliminary_Signature__c</fullName>
@@ -1012,8 +1021,8 @@
     <fields>
         <fullName>Petition_Case_Number__c</fullName>
         <externalId>false</externalId>
-        <formula>Petition__r.Case_Number__c</formula>
         <label>Petition Case Number</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1023,8 +1032,8 @@
     <fields>
         <fullName>Petition_Case_Type__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT( Petition__r.Case_Type__c )</formula>
         <label>Petition Case Type</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1034,8 +1043,8 @@
     <fields>
         <fullName>Petition_Commodity__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT( Petition__r.Commodity__c )</formula>
         <label>Petition Commodity</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1045,8 +1054,8 @@
     <fields>
         <fullName>Petition_Country__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT( Petition__r.Country__c )</formula>
         <label>Petition Country</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1056,8 +1065,8 @@
     <fields>
         <fullName>Petition_Product__c</fullName>
         <externalId>false</externalId>
-        <formula>Petition__r.Product__c</formula>
         <label>Petition Product</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1258,11 +1267,6 @@
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
-        <columns>Petition_Country__c</columns>
-        <columns>Petition_Product__c</columns>
-        <columns>Petition_Case_Type__c</columns>
-        <columns>Petition_Commodity__c</columns>
-        <columns>Petition_Case_Number__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
@@ -2306,33 +2310,5 @@
     </recordTypes>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
-    <validationRules>
-        <fullName>Final_Extension_Null_If_False</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND (
-$RecordType.DeveloperName = &quot;CVD&quot;, 
- ISPICKVAL( Upstream_Subsidy_Allegation__c , &quot;No&quot;),
- NOT(AND(ISBLANK( Final_Extension_of_days__c)))
-)</errorConditionFormula>
-        <errorMessage>If upstream subsidy allegation is &quot;No&quot; , then final extensions of day must be null.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Final_extension_cannot_be_less_than_0</fullName>
-        <active>true</active>
-        <errorConditionFormula>And (
-$RecordType.DeveloperName = &quot;CVD&quot;, 
-Final_Extension_of_days__c &lt; 0
-)</errorConditionFormula>
-        <errorMessage>Final extension cannot be less than 0 days when applicable.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Final_extension_cannot_exceed_90_days</fullName>
-        <active>true</active>
-        <errorConditionFormula>And (
-$RecordType.DeveloperName = &quot;CVD&quot;, 
-Final_Extension_of_days__c &gt; 90
-)</errorConditionFormula>
-        <errorMessage>Final extension cannot exceed 90 days when applicable.</errorMessage>
-    </validationRules>
     <visibility>Public</visibility>
 </CustomObject>
