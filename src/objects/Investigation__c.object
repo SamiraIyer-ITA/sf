@@ -219,26 +219,17 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Calculated_Postponement_of_PrelimDeterFR__c</fullName>
-        <description>Calculated Postponement of Preliminary Determination Federal Register Signature</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Calculated Postponement of Preliminary Determination Federal Register Signature</inlineHelpText>
-        <label>Calculated Postponement of PrelimDeterFR</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Calculated_Prelim_Extension_Request_File__c</fullName>
         <description>Calculated Prelim Extension Request Filed</description>
         <externalId>false</externalId>
         <inlineHelpText>Calculated Prelim Extension Request Filed</inlineHelpText>
         <label>Calculated Prelim Extension Request File</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Date</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Calculated_Preliminary_Signature__c</fullName>
@@ -1654,15 +1645,15 @@
         <picklistValues>
             <picklist>Investigation_Outcome__c</picklist>
             <values>
-                <fullName>DOC Negative Final -- Termination of Investigation</fullName>
+                <fullName>DOC_Negative_Final_Termination_of_Investigation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ITC Negative Final -- Termination of Investigation</fullName>
+                <fullName>ITC_Negative_Final_Termination_of_Investigation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ITC Negative Prelim -- Termination of Investigation</fullName>
+                <fullName>ITC_Negative_Prelim_Termination_of_Investigation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1670,11 +1661,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Petition Withdrawn After Initiation</fullName>
+                <fullName>Petition_Withdrawn_After_Initiation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Suspension Agreement</fullName>
+                <fullName>Suspension_Agreement</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2164,15 +2155,15 @@
         <picklistValues>
             <picklist>Investigation_Outcome__c</picklist>
             <values>
-                <fullName>DOC Negative Final -- Termination of Investigation</fullName>
+                <fullName>DOC_Negative_Final_Termination_of_Investigation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ITC Negative Final -- Termination of Investigation</fullName>
+                <fullName>ITC_Negative_Final_Termination_of_Investigation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ITC Negative Prelim -- Termination of Investigation</fullName>
+                <fullName>ITC_Negative_Prelim_Termination_of_Investigation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2180,11 +2171,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Petition Withdrawn After Initiation</fullName>
+                <fullName>Petition_Withdrawn_After_Initiation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Suspension Agreement</fullName>
+                <fullName>Suspension_Agreement</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2315,5 +2306,33 @@
     </recordTypes>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Final_Extension_Null_If_False</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND (
+$RecordType.DeveloperName = &quot;CVD&quot;, 
+ ISPICKVAL( Upstream_Subsidy_Allegation__c , &quot;No&quot;),
+ NOT(AND(ISBLANK( Final_Extension_of_days__c)))
+)</errorConditionFormula>
+        <errorMessage>If upstream subsidy allegation is &quot;No&quot; , then final extensions of day must be null.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Final_extension_cannot_be_less_than_0</fullName>
+        <active>true</active>
+        <errorConditionFormula>And (
+$RecordType.DeveloperName = &quot;CVD&quot;, 
+Final_Extension_of_days__c &lt; 0
+)</errorConditionFormula>
+        <errorMessage>Final extension cannot be less than 0 days when applicable.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Final_extension_cannot_exceed_90_days</fullName>
+        <active>true</active>
+        <errorConditionFormula>And (
+$RecordType.DeveloperName = &quot;CVD&quot;, 
+Final_Extension_of_days__c &gt; 90
+)</errorConditionFormula>
+        <errorMessage>Final extension cannot exceed 90 days when applicable.</errorMessage>
+    </validationRules>
     <visibility>Public</visibility>
 </CustomObject>
