@@ -1,4 +1,11 @@
 public class utils {
+
+	//Gets API name of the passed Object
+	public static String getSObjectName(SObject o) {
+		Schema.DescribeSObjectResult dsr = o.getSObjectType().getDescribe();
+		String sObjectName = dsr.getName();
+		return sObjectName;
+	}
 	//Gets a map of Record Type Ids to Developer Names for the object name
 	public static Map<Id,String> getRecordTypeDeveloperNameMap(String sObjectName){
 		Map<Id,String> returnMap = new Map<Id,String>();
@@ -8,8 +15,7 @@ public class utils {
 		return returnMap;
 	}
 	public static Map<Id,String> getRecordTypeDeveloperNameMap(SObject o){
-		Schema.DescribeSObjectResult dsr = o.getSObjectType().getDescribe();
-		String sObjectName = dsr.getName();
+		String sObjectName = getSObjectName(o);
 		Map<Id,String> returnMap = getRecordTypeDeveloperNameMap(sObjectName);
 		return returnMap;
 	}

@@ -53,6 +53,41 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
+        <fullName>AD_Investigation_Aligned_To__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>AD investigation that this CVD investigation is aligned to</description>
+        <externalId>false</externalId>
+        <label>AD Investigation Aligned To</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>1 AND 2 AND 3</booleanFilter>
+            <filterItems>
+                <field>Investigation__c.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>AD</value>
+            </filterItems>
+            <filterItems>
+                <field>$Source.Petition_Commodity__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.Petition_Commodity__c</valueField>
+            </filterItems>
+            <filterItems>
+                <field>$Source.Petition_Initiation_Signature__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.Petition_Initiation_Signature__c</valueField>
+            </filterItems>
+            <infoMessage>Additionally, the product on both investigations must match</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Investigation__c</referenceTo>
+        <relationshipLabel>Aligned CVD Investigations</relationshipLabel>
+        <relationshipName>Investigations</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Actual_Amended_Final_Signature__c</fullName>
         <description>Actual Amended Final Signature</description>
         <externalId>false</externalId>
@@ -1044,12 +1079,70 @@
         <fullName>Petition_Commodity__c</fullName>
         <externalId>false</externalId>
         <label>Petition Commodity</label>
-        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Cement and Ceramics</fullName>
+                    <default>false</default>
+                    <label>Cement and Ceramics</label>
+                </value>
+                <value>
+                    <fullName>Chemicals and Allied Industries</fullName>
+                    <default>false</default>
+                    <label>Chemicals and Allied Industries</label>
+                </value>
+                <value>
+                    <fullName>Foodstuffs</fullName>
+                    <default>false</default>
+                    <label>Foodstuffs</label>
+                </value>
+                <value>
+                    <fullName>Machinery and Automotive</fullName>
+                    <default>false</default>
+                    <label>Machinery and Automotive</label>
+                </value>
+                <value>
+                    <fullName>Minerals</fullName>
+                    <default>false</default>
+                    <label>Minerals</label>
+                </value>
+                <value>
+                    <fullName>Other Metals and Articles of Metal</fullName>
+                    <default>false</default>
+                    <label>Other Metals and Articles of Metal</label>
+                </value>
+                <value>
+                    <fullName>Other Mfg.</fullName>
+                    <default>false</default>
+                    <label>Other Mfg.</label>
+                </value>
+                <value>
+                    <fullName>Paper and Paperboard</fullName>
+                    <default>false</default>
+                    <label>Paper and Paperboard</label>
+                </value>
+                <value>
+                    <fullName>Plastics and Rubber</fullName>
+                    <default>false</default>
+                    <label>Plastics and Rubber</label>
+                </value>
+                <value>
+                    <fullName>Steel-Related</fullName>
+                    <default>false</default>
+                    <label>Steel-Related</label>
+                </value>
+                <value>
+                    <fullName>Textiles</fullName>
+                    <default>false</default>
+                    <label>Textiles</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Petition_Country__c</fullName>
@@ -1061,6 +1154,16 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Petition_Initiation_Signature__c</fullName>
+        <description>This is for either the Actual or Calculated Initiation Signature date from the Petition without any further calculation.  This is used in the lookup filter to align a CVD investigation with an AD investigation.</description>
+        <externalId>false</externalId>
+        <label>Petition Initiation Signature</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Petition_Product__c</fullName>
@@ -1742,6 +1845,53 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Petition_Commodity__c</picklist>
+            <values>
+                <fullName>Cement and Ceramics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemicals and Allied Industries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foodstuffs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Machinery and Automotive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minerals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Metals and Articles of Metal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Mfg%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paper and Paperboard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plastics and Rubber</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Steel-Related</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Textiles</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Segment_Status__c</picklist>
             <values>
                 <fullName>Active</fullName>
@@ -2248,6 +2398,53 @@
             </values>
             <values>
                 <fullName>VII</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Petition_Commodity__c</picklist>
+            <values>
+                <fullName>Cement and Ceramics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemicals and Allied Industries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foodstuffs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Machinery and Automotive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minerals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Metals and Articles of Metal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Mfg%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paper and Paperboard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plastics and Rubber</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Steel-Related</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Textiles</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
