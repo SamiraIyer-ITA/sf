@@ -19,4 +19,17 @@ public class utils {
 		Map<Id,String> returnMap = getRecordTypeDeveloperNameMap(sObjectName);
 		return returnMap;
 	}
+	//Gets a map of Record Type Developer Names to Record Type Ids for the object name
+	public static Map<String,Id> getRecordTypeIdMap(String sObjectName){
+		Map<String,Id> returnMap = new Map<String,Id>();
+		for(RecordType rt : [SELECT Id, DeveloperName FROM RecordType WHERE SObjectType =: sObjectName]){
+			returnMap.put(rt.DeveloperName, rt.Id);
+		}
+		return returnMap;
+	}
+	public static Map<String,Id> getRecordTypeIdMap(SObject o){
+		String sObjectName = getSObjectName(o);
+		Map<String,Id> returnMap = getRecordTypeIdMap(sObjectName);
+		return returnMap;
+	}
 }
