@@ -2254,21 +2254,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Custom_Date_Logic__mdt.Additional_Number_of_Days__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Custom_Date_Logic__mdt.Field__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Custom_Date_Logic__mdt.Object__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Decision_Log__c.Justification__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -6543,9 +6528,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Covered_Entity__c-Covered Entity Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Custom_Date_Logic__mdt-Custom Date Logic Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>DandBCompany-D%26B Company Layout</layout>
