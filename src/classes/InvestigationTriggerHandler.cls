@@ -56,9 +56,9 @@ public class InvestigationTriggerHandler {
     }
     
     //Maps used in multiple methods in calculateInvestigationDates regardless of record type
-    private static Map<Id,Petition__c> petitionsInScopeMap = new Map<Id,Petition__c>();
-    private static Map<Id,String> recordTypeNameMap = new Map<Id,String>();
-    private static Map<Id,Federal_Register__c> investigationIdToFRMap = new Map<Id,Federal_Register__c>();
+    @TestVisible private static Map<Id,Petition__c> petitionsInScopeMap = new Map<Id,Petition__c>();
+    @TestVisible private static Map<Id,String> recordTypeNameMap = new Map<Id,String>();
+    @TestVisible private static Map<Id,Federal_Register__c> investigationIdToFRMap = new Map<Id,Federal_Register__c>();
 
     //Setup Methods used to set class level variables
     @TestVisible private static void initialize(List<Investigation__c> newList, Map<Id,Investigation__c> newMap) {
@@ -101,7 +101,6 @@ public class InvestigationTriggerHandler {
     //returns a set of Petition Ids in scope of the Investigations in trigger
     @TestVisible private static Set<Id> findIdsInScope(List<Investigation__c> newList) {
     	Set<Id> petitionIdSet = new Set<Id>();
-    	Set<Id> fedRegisterIdSet = new Set<Id>();
     	for (Investigation__c i : newList) {
     		petitionIdSet.add(i.Petition__c);
     	}
