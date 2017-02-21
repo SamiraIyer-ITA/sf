@@ -123,6 +123,16 @@ public with sharing class TestUtils {
         return cs;
     }
     
+    //create Investigation
+    public static Investigation__c createInvestigation(String recordTypeName, Petition__c p, Boolean doInsert) {
+        Investigation__c i = new Investigation__c();
+        i.Petition__c = p.Id;
+        i.RecordTypeId = utils.getRecordTypeIdMap(i).get(recordTypeName);
+        if (doInsert) {
+            insert i;
+        }
+        return i;
+    }
     
     // create Case
     public static Lead createLead(String firstName, String LastName,boolean isInsert){

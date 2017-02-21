@@ -46,9 +46,11 @@ public class InvestigationTriggerHandler {
         initialize(newList, newMap);
 
         if (isBefore && isInsert) {
+            syncToInvestigation(newList);
         	calculateInvestigationDates(newList);
         }
         if (isBefore && isUpdate) {
+            syncToInvestigation(newList);
             calculateInvestigationDates(newList);
         }
     }
@@ -57,6 +59,19 @@ public class InvestigationTriggerHandler {
     private static Map<Id,Petition__c> petitionsInScopeMap = new Map<Id,Petition__c>();
     private static Map<Id,String> recordTypeNameMap = new Map<Id,String>();
     private static Map<Id,Federal_Register__c> investigationIdToFRMap = new Map<Id,Federal_Register__c>();
+
+    //Setup Methods used to set class level variables
+    @TestVisible private static void initialize(List<Investigation__c> newList, Map<Id,Investigation__c> newMap) {
+        petitionsInScopeMap = findPetitionsInScopeMap(newList);
+        recordTypeNameMap = utils.getRecordTypeDeveloperNameMap(newList[0]);
+        if (newMap != null) {
+           investigationIdToFRMap = investigationIdToFRMap(newMap);
+        }
+    }
+    //Syncs petition fields to investigation fields and AD to CVD if aligned
+    @TestVisible private static void syncToInvestigation(List<Investigation__c> newList) {
+            SyncUtility.syncObject(newList, null, true);
+    }
 
     @TestVisible private static void calculateInvestigationDates(List<Investigation__c> newList) {
     	for (Investigation__c i : newList) {
@@ -82,12 +97,6 @@ public class InvestigationTriggerHandler {
     		setCalculatedAmendedFinalSignature(i);
 
     	}
-    }
-    //Setup Methods used to set class level variables
-    @TestVisible private static void initialize(List<Investigation__c> newList, Map<Id,Investigation__c> newMap) {
-    	petitionsInScopeMap = findPetitionsInScopeMap(newList);
-    	recordTypeNameMap = utils.getRecordTypeDeveloperNameMap(newList[0]);
-    	investigationIdToFRMap = investigationIdToFRMap(newMap);
     }
     //returns a set of Petition Ids in scope of the Investigations in trigger
     @TestVisible private static Set<Id> findIdsInScope(List<Investigation__c> newList) {
@@ -137,14 +146,25 @@ public class InvestigationTriggerHandler {
     	if(recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
     		Integer extension = i.Prelim_Extension_of_days__c == null ? 0 : (Integer)i.Prelim_Extension_of_days__c;//null check on extension, set to 0 if null
 			if (p != null && p.Actual_Initiation_Signature__c == null && p.Calculated_Initiation_Signature__c != null) {
+                i.Petition_Initiation_Signature__c = p.Calculated_Initiation_Signature__c;//used for 
 				i.Calculated_Preliminary_Signature__c = p.Calculated_Initiation_Signature__c.addDays(ADCALCPRELIMSIGN).addDays(extension);
 				i.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(p.Calculated_Initiation_Signature__c, i.Calculated_Preliminary_Signature__c, true);
 			} else if (p != null && p.Actual_Initiation_Signature__c != null) {
+                i.Petition_Initiation_Signature__c = p.Actual_Initiation_Signature__c;
 				i.Calculated_Preliminary_Signature__c = p.Actual_Initiation_Signature__c.addDays(ADCALCPRELIMSIGN).addDays(extension);
 				i.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(p.Actual_Initiation_Signature__c, i.Calculated_Preliminary_Signature__c, true);
 			}
 		} else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD) {
-			//TODO
+			Integer extension = i.Prelim_Extension_of_days__c == null ? 0 : (Integer)i.Prelim_Extension_of_days__c;//null check on extension, set to 0 if null
+            if (p != null && p.Actual_Initiation_Signature__c == null && p.Calculated_Initiation_Signature__c != null) {
+                i.Petition_Initiation_Signature__c = p.Calculated_Initiation_Signature__c;
+                i.Calculated_Preliminary_Signature__c = p.Calculated_Initiation_Signature__c.addDays(CVDCALCPRELIMSIGN).addDays(extension);
+                i.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(p.Calculated_Initiation_Signature__c, i.Calculated_Preliminary_Signature__c, true);
+            } else if (p != null && p.Actual_Initiation_Signature__c != null) {
+                i.Petition_Initiation_Signature__c = p.Actual_Initiation_Signature__c;
+                i.Calculated_Preliminary_Signature__c = p.Actual_Initiation_Signature__c.addDays(CVDCALCPRELIMSIGN).addDays(extension);
+                i.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(p.Actual_Initiation_Signature__c, i.Calculated_Preliminary_Signature__c, true);
+            }
 		}
     }
 
@@ -159,23 +179,36 @@ public class InvestigationTriggerHandler {
 	    		i.Calc_Amended_Prelim_Determination_Sig__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Actual_Preliminary_Signature__c, i.Calc_Amended_Prelim_Determination_Sig__c, true);
 	    	}
 	    } else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD) {
-			//TODO
+			if (i.Actual_Preliminary_Signature__c == null && i.Calculated_Preliminary_Signature__c != null) {
+                i.Calc_Amended_Prelim_Determination_Sig__c = i.Calculated_Preliminary_Signature__c.addDays(CVDCALCAMENDPRELIMSIGN);
+                i.Calc_Amended_Prelim_Determination_Sig__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Calculated_Preliminary_Signature__c, i.Calc_Amended_Prelim_Determination_Sig__c, true);
+            } else if (i.Actual_Preliminary_Signature__c != null) {
+                i.Calc_Amended_Prelim_Determination_Sig__c =  i.Actual_Preliminary_Signature__c.addDays(CVDCALCAMENDPRELIMSIGN);
+                i.Calc_Amended_Prelim_Determination_Sig__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Actual_Preliminary_Signature__c, i.Calc_Amended_Prelim_Determination_Sig__c, true);
+            }
 		}
     }
 
     //sets Prelim_Team_Meeting_Deadline__c, requires Calculated_Preliminary_Signature__c to be set
     @TestVisible private static void setPrelimTeamMeetingDeadline(Investigation__c i){
-    	if (i.Calculated_Preliminary_Signature__c != null) {
-    		i.Prelim_Team_Meeting_Deadline__c = i.Calculated_Preliminary_Signature__c.addDays(ADPRELIMTEAMMEETINGDEADLINE);
-    		i.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Calculated_Preliminary_Signature__c, i.Prelim_Team_Meeting_Deadline__c, true);
-    	}
+        if(recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
+        	if (i.Calculated_Preliminary_Signature__c != null) {
+        		i.Prelim_Team_Meeting_Deadline__c = i.Calculated_Preliminary_Signature__c.addDays(ADPRELIMTEAMMEETINGDEADLINE);
+        		i.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Calculated_Preliminary_Signature__c, i.Prelim_Team_Meeting_Deadline__c, true);
+        	}
+        } else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD) {
+            if (i.Calculated_Preliminary_Signature__c != null) {
+                i.Prelim_Team_Meeting_Deadline__c = i.Calculated_Preliminary_Signature__c.addDays(CVDPRELIMTEAMMEETINGDEADLINE);
+                i.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Calculated_Preliminary_Signature__c, i.Prelim_Team_Meeting_Deadline__c, true);
+            }
+        }
     }
 
     //sets Calculated_Final_Signature__c, requires Calculated_Preliminary_Signature__c to be set
     @TestVisible private static void setCalculatedFinalSignature(Investigation__c i){
     	Federal_Register__c fr = investigationIdToFRMap.get(i.Id);
+        Integer extension = i.Final_Extension_of_days__c == null ? 0 : (Integer)i.Final_Extension_of_days__c;//null check on extension, set to 0 if null
     	if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
-    		Integer extension = i.Final_Extension_of_days__c == null ? 0 : (Integer)i.Final_Extension_of_days__c;//null check on extension, set to 0 if null
     		if (fr == null || fr.Postponement_of_Final_Determination_FR__c == null) {
     			if (i.Actual_Preliminary_Signature__c == null) {
     				i.Calculated_Final_Signature__c = i.Calculated_Preliminary_Signature__c.addDays(ADCALCFINALSIGN);
@@ -188,9 +221,36 @@ public class InvestigationTriggerHandler {
     			i.Calculated_Final_Signature__c = fr.Preliminary_FR_Published__c.addDays(ADCALCFINALSIGN).addDays(extension);
     			i.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(fr.Preliminary_FR_Published__c, i.Calculated_Final_Signature__c, true);
     		}
-    	} else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD) {
-    		//TODO
+    	} else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD && i.AD_Investigation_Aligned_To__c == null) {
+            if (i.Actual_Preliminary_Signature__c == null) {
+                i.Calculated_Final_Signature__c = i.Calculated_Preliminary_Signature__c.addDays(CVDCALCFINALSIGN);
+                i.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Calculated_Preliminary_Signature__c, i.Calculated_Final_Signature__c, true);
+            } else {
+                i.Calculated_Final_Signature__c = i.Actual_Preliminary_Signature__c.addDays(CVDCALCFINALSIGN);
+                i.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Actual_Preliminary_Signature__c, i.Calculated_Final_Signature__c, true);
+            }
     	}
+    }
+
+    //sets Calculated_Amended_Final_Signature__c
+    @TestVisible private static void setCalculatedAmendedFinalSignature(Investigation__c i){
+        if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
+            if (i.Actual_Final_Signature__c != null) {
+                i.Calculated_Amended_Final_Signature__c = i.Actual_Final_Signature__c.addDays(ADCALCULATEDAMENDEDFINALSIGNATURE);
+                i.Calculated_Amended_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Actual_Final_Signature__c, i.Calculated_Amended_Final_Signature__c, true);
+            } else {
+                i.Calculated_Amended_Final_Signature__c = i.Calculated_Final_Signature__c.addDays(ADCALCULATEDAMENDEDFINALSIGNATURE);
+                i.Calculated_Amended_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Calculated_Final_Signature__c, i.Calculated_Amended_Final_Signature__c, true);
+            }
+        } else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD && i.AD_Investigation_Aligned_To__c == null) {
+            if (i.Actual_Final_Signature__c != null) {
+                i.Calculated_Amended_Final_Signature__c = i.Actual_Final_Signature__c.addDays(CVDCALCULATEDAMENDEDFINALSIGNATURE);
+                i.Calculated_Amended_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Actual_Final_Signature__c, i.Calculated_Amended_Final_Signature__c, true);
+            } else {
+                i.Calculated_Amended_Final_Signature__c = i.Calculated_Final_Signature__c.addDays(CVDCALCULATEDAMENDEDFINALSIGNATURE);
+                i.Calculated_Amended_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Calculated_Final_Signature__c, i.Calculated_Amended_Final_Signature__c, true);
+            }
+        }
     }
 
     //sets Final_Team_Meeting_Deadline__c, requires Calculated_Final_Signature__c to be set
@@ -200,8 +260,11 @@ public class InvestigationTriggerHandler {
 	    		i.Final_Team_Meeting_Deadline__c = i.Calculated_Final_Signature__c.addDays(ADFINALTEAMMEETINGDEADLINE);
 	    		i.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Calculated_Final_Signature__c, i.Final_Team_Meeting_Deadline__c, true);
 	    	}
-	    } else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD) {
-	    	//TODO
+	    } else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD && i.AD_Investigation_Aligned_To__c == null) {
+	    	if (i.Calculated_Final_Signature__c != null) {
+                i.Final_Team_Meeting_Deadline__c = i.Calculated_Final_Signature__c.addDays(CVDFINALTEAMMEETINGDEADLINE);
+                i.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Calculated_Final_Signature__c, i.Final_Team_Meeting_Deadline__c, true);
+            }
 	    }
     }
 
@@ -215,8 +278,14 @@ public class InvestigationTriggerHandler {
     			i.Est_ITC_Notification_to_DOC_of_Final_Det__c = i.Actual_Final_Signature__c.addDays(ADESTITCNOTIFTODOCOFFINALDET);
     			i.Est_ITC_Notification_to_DOC_of_Final_Det__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Actual_Final_Signature__c, i.Est_ITC_Notification_to_DOC_of_Final_Det__c, true);
     		}
-    	} else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD) {
-    		//TODO
+    	} else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD && i.AD_Investigation_Aligned_To__c == null) {
+    		if(i.Actual_Final_Signature__c == null) {
+                i.Est_ITC_Notification_to_DOC_of_Final_Det__c = i.Calculated_Final_Signature__c.addDays(CVDESTITCNOTIFTODOCOFFINALDET);
+                i.Est_ITC_Notification_to_DOC_of_Final_Det__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Calculated_Final_Signature__c, i.Est_ITC_Notification_to_DOC_of_Final_Det__c, true);
+            } else {
+                i.Est_ITC_Notification_to_DOC_of_Final_Det__c = i.Actual_Final_Signature__c.addDays(CVDESTITCNOTIFTODOCOFFINALDET);
+                i.Est_ITC_Notification_to_DOC_of_Final_Det__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Actual_Final_Signature__c, i.Est_ITC_Notification_to_DOC_of_Final_Det__c, true);
+            }
     	}
     }
 
@@ -230,7 +299,7 @@ public class InvestigationTriggerHandler {
     			i.Calculated_Order_FR_Signature__c = i.ITC_Notification_to_DOC_of_Final_Determ__c.addDays(ADCALCULATEDORDERFRSIGNATURE);
     			i.Calculated_Order_FR_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(i.ITC_Notification_to_DOC_of_Final_Determ__c, i.Calculated_Order_FR_Signature__c, true);
     		}
-    	} else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD) {
+    	} else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD && i.AD_Investigation_Aligned_To__c == null) {
     		if(i.ITC_Notification_to_DOC_of_Final_Determ__c == null) {
     			i.Calculated_Order_FR_Signature__c = i.Est_ITC_Notification_to_DOC_of_Final_Det__c.addDays(CVDCALCULATEDORDERFRSIGNATURE);
     			i.Calculated_Order_FR_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(i.ITC_Notification_to_DOC_of_Final_Determ__c, i.Calculated_Order_FR_Signature__c, true);
@@ -251,7 +320,7 @@ public class InvestigationTriggerHandler {
     			i.Calculated_ITC_Final_FR_Published__c = i.ITC_Notification_to_DOC_of_Final_Determ__c.addDays(ADCALCULATEDITCFINALFRPUBLISHED);
     			i.Calculated_ITC_Final_FR_Published__c = ADCVD_TollingDayUtility.getCalculatedDate(i.ITC_Notification_to_DOC_of_Final_Determ__c, i.Calculated_ITC_Final_FR_Published__c, true);
     		}
-    	} else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD) {
+    	} else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD && i.AD_Investigation_Aligned_To__c == null) {
     		if(i.ITC_Notification_to_DOC_of_Final_Determ__c == null) {
     			i.Calculated_ITC_Final_FR_Published__c = i.Est_ITC_Notification_to_DOC_of_Final_Det__c.addDays(CVDCALCULATEDITCFINALFRPUBLISHED);
     			i.Calculated_ITC_Final_FR_Published__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Est_ITC_Notification_to_DOC_of_Final_Det__c, i.Calculated_ITC_Final_FR_Published__c, true);
@@ -272,7 +341,7 @@ public class InvestigationTriggerHandler {
     			i.Estimated_Order_FR_Published__c = i.ITC_Notification_to_DOC_of_Final_Determ__c.addDays(ADESTIMATEDORDERFRPUBLISHED);
     			i.Estimated_Order_FR_Published__c = ADCVD_TollingDayUtility.getCalculatedDate(i.ITC_Notification_to_DOC_of_Final_Determ__c, i.Estimated_Order_FR_Published__c, true);
     		}
-    	} else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD) {
+    	} else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD && i.AD_Investigation_Aligned_To__c == null) {
     		if(i.ITC_Notification_to_DOC_of_Final_Determ__c == null) {
     			i.Estimated_Order_FR_Published__c = i.Est_ITC_Notification_to_DOC_of_Final_Det__c.addDays(CVDESTIMATEDORDERFRPUBLISHED);
     			i.Estimated_Order_FR_Published__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Est_ITC_Notification_to_DOC_of_Final_Det__c, i.Estimated_Order_FR_Published__c, true);
@@ -293,7 +362,10 @@ public class InvestigationTriggerHandler {
 				i.Calculated_ITC_Prelim_Determination__c = ADCVD_TollingDayUtility.getCalculatedDate(p.Petition_Filed__c, i.Calculated_ITC_Prelim_Determination__c, true);
 			}
 		} else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD) {
-			//TODO
+			if (p != null && p.Petition_Filed__c != null) {
+                i.Calculated_ITC_Prelim_Determination__c = p.Petition_Filed__c.addDays(CVDCALCITCPRELIMDETERMINATION);
+                i.Calculated_ITC_Prelim_Determination__c = ADCVD_TollingDayUtility.getCalculatedDate(p.Petition_Filed__c, i.Calculated_ITC_Prelim_Determination__c, true);
+            }
 		}
     }
 
@@ -309,7 +381,13 @@ public class InvestigationTriggerHandler {
 				i.Calculated_Prelim_Extension_Request_File__c = ADCVD_TollingDayUtility.getCalculatedDate(p.Actual_Initiation_Signature__c, i.Calculated_Prelim_Extension_Request_File__c, true);
 			}
 		} else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD) {
-			//TODO
+			if (p != null && p.Actual_Initiation_Signature__c == null && p.Calculated_Initiation_Signature__c != null) {
+                i.Calculated_Prelim_Extension_Request_File__c = p.Calculated_Initiation_Signature__c.addDays(CVDCALCPRELIMEXTREQFILE);
+                i.Calculated_Prelim_Extension_Request_File__c = ADCVD_TollingDayUtility.getCalculatedDate(p.Calculated_Initiation_Signature__c, i.Calculated_Prelim_Extension_Request_File__c, true);
+            } else if (p != null && p.Actual_Initiation_Signature__c != null) {
+                i.Calculated_Prelim_Extension_Request_File__c = p.Actual_Initiation_Signature__c.addDays(CVDCALCPRELIMEXTREQFILE);
+                i.Calculated_Prelim_Extension_Request_File__c = ADCVD_TollingDayUtility.getCalculatedDate(p.Actual_Initiation_Signature__c, i.Calculated_Prelim_Extension_Request_File__c, true);
+            }
 		}
     }
 
@@ -325,7 +403,13 @@ public class InvestigationTriggerHandler {
 				i.Calculated_Postponement_of_PrelimDeterFR__c = ADCVD_TollingDayUtility.getCalculatedDate(p.Actual_Initiation_Signature__c, i.Calculated_Postponement_of_PrelimDeterFR__c, true);
 			}
 		} else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD) {
-			//TODO
+			if (p != null && p.Actual_Initiation_Signature__c == null && p.Calculated_Initiation_Signature__c != null) {
+                i.Calculated_Postponement_of_PrelimDeterFR__c = p.Calculated_Initiation_Signature__c.addDays(ADCALCPOSTPONEPRELIMDETERFR);
+                i.Calculated_Postponement_of_PrelimDeterFR__c = ADCVD_TollingDayUtility.getCalculatedDate(p.Calculated_Initiation_Signature__c, i.Calculated_Postponement_of_PrelimDeterFR__c, true);
+            } else if (p != null && p.Actual_Initiation_Signature__c != null) {
+                i.Calculated_Postponement_of_PrelimDeterFR__c = p.Actual_Initiation_Signature__c.addDays(ADCALCPOSTPONEPRELIMDETERFR);
+                i.Calculated_Postponement_of_PrelimDeterFR__c = ADCVD_TollingDayUtility.getCalculatedDate(p.Actual_Initiation_Signature__c, i.Calculated_Postponement_of_PrelimDeterFR__c, true);
+            }
 		}
     }
 
@@ -340,15 +424,10 @@ public class InvestigationTriggerHandler {
 		    	i.Termination_of_Suspension_Gap_Period_Beg__c = ADCVD_TollingDayUtility.getCalculatedDate(fr.Preliminary_FR_Published__c, i.Termination_of_Suspension_Gap_Period_Beg__c, true);
 		    }
 		} else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD) {
-			//TODO
+			if (fr != null) {
+                i.Termination_of_Suspension_Gap_Period_Beg__c = fr.Preliminary_FR_Published__c.addDays(CVDTERMOFSUSPGAPPERIODBEG);
+                i.Termination_of_Suspension_Gap_Period_Beg__c = ADCVD_TollingDayUtility.getCalculatedDate(fr.Preliminary_FR_Published__c, i.Termination_of_Suspension_Gap_Period_Beg__c, true);
+            }
 		}
 	}
-
-    //sets Calculated_Amended_Final_Signature__c
-    @TestVisible private static void setCalculatedAmendedFinalSignature(Investigation__c i){
-    	if (i.Actual_Final_Signature__c != null) {
-    		i.Calculated_Amended_Final_Signature__c = i.Actual_Final_Signature__c.addDays(ADCALCULATEDAMENDEDFINALSIGNATURE);
-    		i.Calculated_Amended_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Actual_Final_Signature__c, i.Calculated_Amended_Final_Signature__c, true);
-    	}
-    }
 }

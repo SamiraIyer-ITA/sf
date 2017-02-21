@@ -27,6 +27,10 @@
         <name>CustomField</name>
     </types>
     <types>
+        <members>*</members>
+        <name>CustomMetadata</name>
+    </types>
+    <types>
         <members>ADCVD_Order__c</members>
         <members>Artifact__c</members>
         <members>BatchJobScheduler__c</members>
@@ -90,6 +94,7 @@
         <members>Social_Icons__c</members>
         <members>Survey_Result__c</members>
         <members>Suspension_Agreement__c</members>
+        <members>Sync_Investigation__mdt</members>
         <members>Template_Page_Content__c</members>
         <members>Template_Page__c</members>
         <members>Template_Row__c</members>
