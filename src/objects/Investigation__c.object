@@ -789,19 +789,19 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>DOC Negative Final/Termination of Investigation</fullName>
+                    <fullName>DOC_Negative_Final_Termination_of_Investigation</fullName>
                     <default>false</default>
-                    <label>DOC Negative Final/Termination of Investigation</label>
+                    <label>DOC Negative Final -- Termination of Investigation</label>
                 </value>
                 <value>
-                    <fullName>ITC Negative Final/Termination of Investigation</fullName>
+                    <fullName>ITC_Negative_Final_Termination_of_Investigation</fullName>
                     <default>false</default>
-                    <label>ITC Negative Final/Termination of Investigation</label>
+                    <label>ITC Negative Final -- Termination of Investigation</label>
                 </value>
                 <value>
-                    <fullName>ITC Negative Prelim/Termination of Investigation</fullName>
+                    <fullName>ITC_Negative_Prelim_Termination_of_Investigation</fullName>
                     <default>false</default>
-                    <label>ITC Negative Prelim/Termination of Investigation</label>
+                    <label>ITC_Negative Prelim -- Termination of Investigation</label>
                 </value>
                 <value>
                     <fullName>Petition_Withdrawn_After_Initiation</fullName>
@@ -809,7 +809,7 @@
                     <label>Petition Withdrawn After Initiation</label>
                 </value>
                 <value>
-                    <fullName>Suspension Agreement</fullName>
+                    <fullName>Suspension_Agreement</fullName>
                     <default>false</default>
                     <label>Suspension Agreement</label>
                 </value>
