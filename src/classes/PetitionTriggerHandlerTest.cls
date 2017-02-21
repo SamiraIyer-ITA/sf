@@ -1,6 +1,24 @@
 @isTest
 public class PetitionTriggerHandlerTest {
 	private static Date petitionDate = System.today();
+	
+	//TB: we have a isWeekday method in the utility class
+	private static Set<String> weekDays = new Set<String>{'Mon', 'Tue', 'Wed', 'Thu', 'Fri'};
+	
+	
+	private static String dayOfWeek {
+		get{
+			if(dayOfWeek == null){
+				//TB: Why are we repeating this code? It already exists in the ADCVD_TollingDayUtil
+				integer offset = UserInfo.getTimeZone().getOffset(DateTime.newInstance(petitionDate.year(),petitionDate.month(),petitionDate.day(),0,0,0));
+				//offest time by 
+				Time myTime = Time.newInstance(0, 0, 0, offset);
+				DateTime dateTimeToCompare = datetime.newInstanceGmt(petitionDate, mytime);
+				dayOfWeek = dateTimeToCompare.format('E');
+			}
+			return dayOfWeek;
+		}
+	}
 	private static User u{
 		get{
 			if(u == null){

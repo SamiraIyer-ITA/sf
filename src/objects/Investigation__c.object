@@ -857,7 +857,7 @@
                 <value>
                     <fullName>ITC_Negative_Prelim_Termination_of_Investigation</fullName>
                     <default>false</default>
-                    <label>ITC Negative Prelim -- Termination of Investigation</label>
+                    <label>ITC_Negative Prelim -- Termination of Investigation</label>
                 </value>
                 <value>
                     <fullName>Petition_Withdrawn_After_Initiation</fullName>
