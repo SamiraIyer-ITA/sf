@@ -94,10 +94,12 @@
                 <value>
                     <fullName>Not Approved</fullName>
                     <default>true</default>
+                    <label>Not Approved</label>
                 </value>
                 <value>
                     <fullName>Approved</fullName>
                     <default>false</default>
+                    <label>Approved</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -143,4 +145,5 @@
     <pluralLabel>Decision Logs</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

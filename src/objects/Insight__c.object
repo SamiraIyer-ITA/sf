@@ -117,4 +117,5 @@
     <pluralLabel>Boards</pluralLabel>
     <searchLayouts/>
     <sharingModel>Private</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

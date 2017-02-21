@@ -109,10 +109,12 @@
                 <value>
                     <fullName>Background Image</fullName>
                     <default>false</default>
+                    <label>Background Image</label>
                 </value>
                 <value>
                     <fullName>Carousel Image</fullName>
                     <default>false</default>
+                    <label>Carousel Image</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -178,4 +180,5 @@
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <startsWith>Vowel</startsWith>
+    <visibility>Public</visibility>
 </CustomObject>

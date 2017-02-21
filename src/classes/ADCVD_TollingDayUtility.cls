@@ -41,9 +41,9 @@ public without sharing class ADCVD_TollingDayUtility {
 	*  Return Value: New deadline
 	*  (e.g. petition start should be 'start date' for a petition)
 	*/ 
-	public static Date getCalculatedDate(Date startDate, Date deadline, Boolean rollfoward) {
+	public static Date getCalculatedDate(Date startDate, Date deadline, Boolean rollforward) {
 		deadline = deadlineWithTollingDays(startDate, deadline);
-		if(rollfoward) {
+		if(rollforward) {
 			deadline = rollForwardNextBusinessDay(deadline);
 		} else {
 			deadline = rollBackPreviousBusinessDay(deadline);

@@ -15,7 +15,7 @@ public class TollingDayTriggerHandler {
             recalculatePetitionTollingDay(oldList);
         }
     }
-    //@TestVisible private static Set<Date> datesInScope = new Set<Date>();
+    //private static Set<Date> datesInScope = new Set<Date>();
     @TestVisible private static Date earliestDate = null;
     @TestVisible private static Date latestDate = null;
     /* method to build an earliest and latest set of dates in scope */ 
@@ -43,8 +43,8 @@ public class TollingDayTriggerHandler {
     @TestVisible private static void recalculatePetitionTollingDay(List<Tolling_Day__c> tdList) {
         calculatePetitionsFuture(findPetitionsInScope(tdList));
     }
-    //@future
-    @TestVisible private static void calculatePetitionsFuture(Set<Id> petitionIdSet) {
+    @future
+    private static void calculatePetitionsFuture(Set<Id> petitionIdSet) {
         List<Petition__c> petitionsToUpdate = [SELECT Id FROM Petition__c WHERE Id IN: petitionIdSet];
         database.update(petitionsToUpdate, false);
     }

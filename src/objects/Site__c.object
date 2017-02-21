@@ -132,10 +132,12 @@
                 <value>
                     <fullName>Legacy</fullName>
                     <default>false</default>
+                    <label>Legacy</label>
                 </value>
                 <value>
                     <fullName>Modern</fullName>
                     <default>false</default>
+                    <label>Modern</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -305,4 +307,5 @@
         <customTabListAdditionalFields>isSearchEnabled__c</customTabListAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

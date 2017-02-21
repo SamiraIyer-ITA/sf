@@ -112,10 +112,12 @@
                 <value>
                     <fullName>HR</fullName>
                     <default>false</default>
+                    <label>HR</label>
                 </value>
                 <value>
                     <fullName>Non-HR</fullName>
                     <default>false</default>
+                    <label>Non-HR</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -206,4 +208,5 @@
         <errorConditionFormula>and(isBlank(Website__c), isBlank(Third_Party_Master_List__c))</errorConditionFormula>
         <errorMessage>You must provide a Website or a Third Party Master List record.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>

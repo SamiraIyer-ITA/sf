@@ -230,6 +230,7 @@ AND( NOT(ISBLANK( Related_WIN__c )), ISCHANGED( Related_WIN__c ))
 )</errorConditionFormula>
         <errorMessage>You do not have permission to change the existing value of a Case or WIN field.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
     <webLinks>
         <fullName>New_Related_WIN</fullName>
         <availability>online</availability>

@@ -109,18 +109,22 @@
                 <value>
                     <fullName>Draft</fullName>
                     <default>true</default>
+                    <label>Draft</label>
                 </value>
                 <value>
                     <fullName>Draft: Submitted for Approval</fullName>
                     <default>false</default>
+                    <label>Draft: Submitted for Approval</label>
                 </value>
                 <value>
                     <fullName>Online</fullName>
                     <default>false</default>
+                    <label>Online</label>
                 </value>
                 <value>
                     <fullName>Draft: Rejected</fullName>
                     <default>false</default>
+                    <label>Draft: Rejected</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -231,4 +235,5 @@ IF ( (Version_Number__c = TEXT(MAX(Atom__r.Version_Number__c))) || (NOT(ISPICKVA
     </recordTypes>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

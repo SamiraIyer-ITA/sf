@@ -78,10 +78,12 @@
                 <value>
                     <fullName>Injunction</fullName>
                     <default>false</default>
+                    <label>Injunction</label>
                 </value>
                 <value>
                     <fullName>Litigation</fullName>
                     <default>false</default>
+                    <label>Litigation</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -124,14 +126,17 @@
                 <value>
                     <fullName>Mandatory</fullName>
                     <default>false</default>
+                    <label>Mandatory</label>
                 </value>
                 <value>
                     <fullName>Review Request/Separate Rate</fullName>
                     <default>false</default>
+                    <label>Review Request/Separate Rate</label>
                 </value>
                 <value>
                     <fullName>All Other/Country-Wide</fullName>
                     <default>false</default>
+                    <label>All Other/Country-Wide</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -150,22 +155,27 @@
                 <value>
                     <fullName>Full</fullName>
                     <default>false</default>
+                    <label>Full</label>
                 </value>
                 <value>
                     <fullName>No Shipments</fullName>
                     <default>false</default>
+                    <label>No Shipments</label>
                 </value>
                 <value>
                     <fullName>Partial</fullName>
                     <default>false</default>
+                    <label>Partial</label>
                 </value>
                 <value>
                     <fullName>Withdrawn</fullName>
                     <default>false</default>
+                    <label>Withdrawn</label>
                 </value>
                 <value>
                     <fullName>Unresponsive</fullName>
                     <default>false</default>
+                    <label>Unresponsive</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -178,4 +188,5 @@
     <pluralLabel>Respondents</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>

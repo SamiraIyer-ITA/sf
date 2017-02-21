@@ -131,14 +131,17 @@
                 <value>
                     <fullName>Failed</fullName>
                     <default>false</default>
+                    <label>Failed</label>
                 </value>
                 <value>
                     <fullName>In Process</fullName>
                     <default>false</default>
+                    <label>In Process</label>
                 </value>
                 <value>
                     <fullName>Completed</fullName>
                     <default>false</default>
+                    <label>Completed</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -181,26 +184,32 @@
                 <value>
                     <fullName>Cancelled</fullName>
                     <default>false</default>
+                    <label>Cancelled</label>
                 </value>
                 <value>
                     <fullName>Failed</fullName>
                     <default>false</default>
+                    <label>Failed</label>
                 </value>
                 <value>
                     <fullName>Received</fullName>
                     <default>false</default>
+                    <label>Received</label>
                 </value>
                 <value>
                     <fullName>Retired</fullName>
                     <default>false</default>
+                    <label>Retired</label>
                 </value>
                 <value>
                     <fullName>Settled</fullName>
                     <default>false</default>
+                    <label>Settled</label>
                 </value>
                 <value>
                     <fullName>Success</fullName>
                     <default>false</default>
+                    <label>Success</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -270,4 +279,5 @@
         <errorConditionFormula>Transaction_Amount__c &gt; Payment__r.Transaction_Amount__c - Payment__r.Total_Refunds__c</errorConditionFormula>
         <errorMessage>Invalid refund amount.  The refund amount must be less than or equal to the payment minus total refunds already issued for the payment.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>

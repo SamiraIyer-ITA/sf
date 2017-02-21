@@ -110,4 +110,5 @@
     <pluralLabel>Page Templates</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
 </CustomObject>
