@@ -36,7 +36,15 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>BulkCsvTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CSPArticles</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CSVIterator</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -185,6 +193,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>Page_Section_Controller</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Parser</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -2240,6 +2252,21 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Custom_Date_Logic__mdt.Additional_Number_of_Days__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Custom_Date_Logic__mdt.Field__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Custom_Date_Logic__mdt.Object__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Decision_Log__c.Justification__c</field>
         <readable>true</readable>
@@ -2897,6 +2924,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Investigation__c.Estimated_Order_FR_Published__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Investigation__c.External_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4077,6 +4109,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Petition__c.Country__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Petition__c.External_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5651,6 +5688,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Tolling_Day__c.External_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Top_Markets__kav.Approval_Queue__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -6500,6 +6542,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Covered_Entity__c-Covered Entity Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Custom_Date_Logic__mdt-Custom Date Logic Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>DandBCompany-D%26B Company Layout</layout>
@@ -7912,7 +7957,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Content__c.RichText</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -7938,7 +7982,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Litigation__c.International_Litigation</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -7969,7 +8012,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Page_Content__c.Generic_Content</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -8055,7 +8097,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Survey_Result__c.Annual_Survey</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
