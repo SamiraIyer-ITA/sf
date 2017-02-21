@@ -36,7 +36,15 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>BulkCsvTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CSPArticles</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CSVIterator</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -136,6 +144,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>InvestigationTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>InvestigationTriggerHandlerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>Landing_Controller</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -180,6 +196,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>Parser</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>PayGovTCSOnline</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -213,6 +233,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>PetitionTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PetitionTriggerHandlerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -266,6 +290,14 @@
     <classAccesses>
         <apexClass>Site_Template_Controller</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SyncUtility</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SyncUtilityTest</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>TEST_CMS</apexClass>
@@ -412,6 +444,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TollingDayTriggerHandlerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>USTaxIdFldCleanTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -530,6 +566,14 @@
     <classAccesses>
         <apexClass>urlRewriter</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>utils</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>utilsTest</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <custom>true</custom>
     <description>Custom profile for Customer Community Users.</description>
@@ -2760,6 +2804,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Investigation__c.AD_Investigation_Aligned_To__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Investigation__c.Actual_Amended_Final_Signature__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2816,6 +2865,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Investigation__c.Calculated_Order_FR_Signature__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Investigation__c.Calculated_Postponement_of_PrelimDeterFR__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2991,6 +3045,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Investigation__c.Petition_Country__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Investigation__c.Petition_Initiation_Signature__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5390,6 +5449,26 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Sync_Investigation__mdt.Destination_Field__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Sync_Investigation__mdt.Source_Field__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Sync_Investigation__mdt.Source_Object__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Sync_Investigation__mdt.Sync_Field__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Task.Activity_Assigned_Office__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -6754,6 +6833,9 @@
         <layout>Suspension_Agreement__c-Suspension Agreement Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Sync_Investigation__mdt-Sync Investigation Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Task-Task Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -7497,7 +7579,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Content__c.Carousel</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -7548,7 +7629,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Navigation_Link__c.Link</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -7559,7 +7639,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Page_Content__c.API</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -7600,7 +7679,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Section__c.Initiative</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>

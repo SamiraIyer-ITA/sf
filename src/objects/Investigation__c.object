@@ -2507,5 +2507,33 @@
     </recordTypes>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Final_Extension_Null_If_False</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND (
+$RecordType.DeveloperName = &quot;CVD&quot;, 
+ ISPICKVAL( Upstream_Subsidy_Allegation__c , &quot;No&quot;),
+ NOT(AND(ISBLANK( Final_Extension_of_days__c)))
+)</errorConditionFormula>
+        <errorMessage>If upstream subsidy allegation is &quot;No&quot; , then final extensions of day must be null.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Final_extension_cannot_be_less_than_0</fullName>
+        <active>true</active>
+        <errorConditionFormula>And (
+$RecordType.DeveloperName = &quot;CVD&quot;, 
+Final_Extension_of_days__c &lt; 0
+)</errorConditionFormula>
+        <errorMessage>Final extension cannot be less than 0 days when applicable.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Final_extension_cannot_exceed_90_days</fullName>
+        <active>true</active>
+        <errorConditionFormula>And (
+$RecordType.DeveloperName = &quot;CVD&quot;, 
+Final_Extension_of_days__c &gt; 90
+)</errorConditionFormula>
+        <errorMessage>Final extension cannot exceed 90 days when applicable.</errorMessage>
+    </validationRules>
     <visibility>Public</visibility>
 </CustomObject>

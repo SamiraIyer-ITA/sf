@@ -36,7 +36,15 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>BulkCsvTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CSPArticles</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CSVIterator</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -185,6 +193,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>Page_Section_Controller</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Parser</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -7912,7 +7924,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Content__c.RichText</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -7938,7 +7949,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Litigation__c.International_Litigation</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -7969,7 +7979,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Page_Content__c.Generic_Content</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -8055,7 +8064,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Survey_Result__c.Annual_Survey</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>

@@ -6252,5 +6252,12 @@
 )</errorConditionFormula>
         <errorMessage>Preliminary Extension must be greater than zero days.</errorMessage>
     </validationRules>
+    <validationRules>
+        <fullName>max_180_days_if_prelim_extend_is_blank</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($RecordType.DeveloperName = &quot;Administrative Review&quot;,
+OR(AND(NOT(ISBLANK( Prelim_Extension__c)),  Final_Extension_of_days__c  &gt; 60),AND(ISBLANK( Prelim_Extension__c ),  Final_Extension_of_days__c &gt; 180)))</errorConditionFormula>
+        <errorMessage>Final extension # of days can only range from 0-180 days.</errorMessage>
+    </validationRules>
     <visibility>Public</visibility>
 </CustomObject>
