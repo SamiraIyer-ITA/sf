@@ -20,7 +20,7 @@ public with sharing class PetitionTriggerHandler {
     }
     @testVisible private static void calculatePetitionDates(List<Petition__c> newList) {
         for (Petition__c p : newList){
-            if(p.Petition_Outcome__c == 'Initiated' || p.Petition_Outcome__c == 'In Progress') {
+            if((p.Petition_Outcome__c == 'Initiated' || p.Petition_Outcome__c == 'In Progress') && p.Petition_Filed__c != null){
                 Integer maximumDays = 40;
                 p.Calculated_Initiation_Signature__c = p.Petition_Filed__c.addDays(20);
                 if(p.Initiation_Extension_of_days__c != null) {
