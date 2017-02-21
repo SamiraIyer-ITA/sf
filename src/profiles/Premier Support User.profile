@@ -2253,6 +2253,21 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Custom_Date_Logic__mdt.Additional_Number_of_Days__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Custom_Date_Logic__mdt.Field__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Custom_Date_Logic__mdt.Object__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Decision_Log__c.Justification__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2909,6 +2924,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Investigation__c.Estimated_Order_FR_Published__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Investigation__c.External_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4089,6 +4109,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Petition__c.Country__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Petition__c.External_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5662,6 +5687,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Tolling_Day__c.External_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Top_Markets__kav.Approval_Queue__c</field>
         <readable>false</readable>
@@ -6512,6 +6542,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Covered_Entity__c-Covered Entity Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Custom_Date_Logic__mdt-Custom Date Logic Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>DandBCompany-D%26B Company Layout</layout>

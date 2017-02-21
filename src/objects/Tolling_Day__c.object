@@ -61,6 +61,16 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>External_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>External Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Reason__c</fullName>
         <externalId>false</externalId>
         <label>Reason</label>

@@ -28,6 +28,22 @@
     <navType>Standard</navType>
     <profileActionOverrides>
         <actionName>View</actionName>
+        <content>ADCVD_Petition_Record</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Petition__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>GM Advocacy</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Petition_Record</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Petition__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>E&amp;C TANC</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
         <content>ADCVD_Suspension_Agreement_Record</content>
         <formFactor>Large</formFactor>
         <pageOrSobjectType>Suspension_Agreement__c</pageOrSobjectType>
@@ -439,22 +455,6 @@
         <pageOrSobjectType>Petition__c</pageOrSobjectType>
         <type>Flexipage</type>
         <profile>GM Commercial Service</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Petition_Record</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Petition__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>GM Advocacy</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Petition_Record</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Petition__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>E&amp;C TANC</profile>
     </profileActionOverrides>
     <tab>standard-home</tab>
     <tab>Petition__c</tab>
