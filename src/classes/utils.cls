@@ -1,4 +1,4 @@
-public class utils {
+public without sharing class utils {
 
 	//Gets API name of the passed Object
 	public static String getSObjectName(SObject o) {
