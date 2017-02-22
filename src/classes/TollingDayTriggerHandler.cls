@@ -1,4 +1,4 @@
-public without sharing class TollingDayTriggerHandler {
+public class TollingDayTriggerHandler {
     public static boolean preventRecursion = false;
     public static void mainEntry(List<Tolling_Day__c> newList, List<Tolling_Day__c> oldList, Map<Id, Tolling_Day__c> newMap, 
         Map<Id, Tolling_Day__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete, 

@@ -1,4 +1,4 @@
-public without sharing class SyncUtility {
+public class SyncUtility {
 	/*******************************************************************
 	This utility class uses custom metadata to sync objects.  To setup 
 	a new object to sync, create a custom metadata object with the same 
@@ -19,7 +19,7 @@ public without sharing class SyncUtility {
 	private static Map<String,Map<String,String>> syncFieldMap = new Map<String,Map<String,String>>();
 	private static Map<Id,SObject> sourceObjectsMap = new Map<Id,SObject>();
 	private static Map<Id,String> sourceObjectsTypeMap = new Map<Id,String>();
-	private static Map<Id,List<SObject>> sourceIdToTargetObjectMap = new Map<Id,List<SObject>>();
+	private static Map<Id,SObject> sourceIdToTargetObjectMap = new Map<Id,SObject>();
 
 	//Object specific variables
 	//Sync Petition to Investigation
@@ -89,17 +89,13 @@ public without sharing class SyncUtility {
 	}
 	//sync the source values to the target object
 	@TestVisible private static void setTargetObjectValues() {
-		for (SObject sourceObject : sourceObjectsMap.values()) {//iterate through the source objects that were queried
+		for (SObject sourceObject : sourceObjectsMap.values()) {//iterate through the objects queried
 			Map<String,String> targetApiToSourceApiMap = syncFieldMap.get(sourceObjectsTypeMap.get(sourceObject.Id));//set the field api's from CMT to the source object type
-			if(sourceIdToTargetObjectMap.get(sourceObject.Id) != null && sourceIdToTargetObjectMap.get(sourceObject.Id).size() > 0) {
-				for(SObject target : sourceIdToTargetObjectMap.get(sourceObject.Id)) {//most are lists of one, but this is a list for loop in case multiple objects update from same source
-					for (String targetObjectField : targetApiToSourceApiMap.keySet()) {//iterate through the target object field api's
-						String sourceObjectField = targetApiToSourceApiMap.get(targetObjectField);//set the source field api that matches the target
-						Object sourceValue = sourceObject.get(sourceObjectField);//instantiate an instance of the value from the source object using the source field api
-						target.put(targetObjectField, sourceValue);//put the source value to the target object's target field
-					}
-				}
-			}	
+			for (String targetObjectField : targetApiToSourceApiMap.keySet()) {//iterate through the target object field api's
+				String sourceObjectField = targetApiToSourceApiMap.get(targetObjectField);//set the source field api that matches the target
+				Object sourceValue = sourceObject.get(sourceObjectField);//instantiate an instance of the value from the source object using the source field api
+				sourceIdToTargetObjectMap.get(sourceObject.Id).put(targetObjectField, sourceValue);//put the source value to the target object's target field
+			}
 		}
 	}
 
@@ -121,25 +117,19 @@ public without sharing class SyncUtility {
 			syncFieldMap.put('Investigation__c', investigationFieldMap);
 		}
 	}
-	@TestVisible private static Set<Id> setPetitionIdSet() {
-		Set<Id> returnSet = new Set<Id>();
+	@TestVisible private static Map<Id,Investigation__c> setPetitionIdToInvestigationMap() {
+		Map<Id,Investigation__c> returnMap = new Map<Id,Investigation__c>();
 		for (Investigation__c i : investigationList) {
 			if (i.Petition__c != null) {
-				if(sourceIdToTargetObjectMap.get(i.Petition__c) != null) {
-					sourceIdToTargetObjectMap.get(i.Petition__c).add(i);//add objects to the map that will be updated
-				} else {
-					List<SObject> tempList = new List<SObject>();
-					tempList.add(i);
-					sourceIdToTargetObjectMap.put(i.Petition__c, tempList);
-				}
-				returnSet.add(i.Petition__c);//create a set of petition Ids to query from the targetObjectList that was initialized
+				returnMap.put(i.Petition__c, i);//create a set of petition Ids to query from the targetObjectList that was initialized
+				sourceIdToTargetObjectMap.put(i.Petition__c, i);//add objects to the map that will be updated
 			}
 		}
-		return returnSet;
+		return returnMap;
 	}
 
 	@TestVisible private static void addPetitionsToSourceObjectsMap() {
-		Set<Id> petitionIdSet = setPetitionIdSet();//create set for dynamic SOQL
+		Set<Id> petitionIdSet = setPetitionIdToInvestigationMap().keySet();//create set for dynamic SOQL
 		List<Petition__c> petitionList = new List<Petition__c>();
 		String objectQuery = 'SELECT Id, ';
 		for(Sync_Investigation__mdt si : investigationCMT) {
@@ -150,29 +140,25 @@ public without sharing class SyncUtility {
 		objectQuery = objectQuery.removeEnd(', ');
 		objectQuery += ' FROM Petition__c WHERE Id IN: petitionIdSet';//limit by the Ids gathered from the current set
 		petitionList = Database.Query(objectQuery);
-		for(Petition__c p : petitionList) {
-			sourceObjectsMap.put(p.Id, p);
-			sourceObjectsTypeMap.put(p.Id, 'Petition__c');//set map of Id and object type name
+		System.debug('###@@ '+petitionList);
+		for(Petition__c pet : petitionList) {
+			sourceObjectsMap.put(pet.Id, pet);//set map of Id and values
+			sourceObjectsTypeMap.put(pet.Id, 'Petition__c');//set map of Id and object type name
 		}
 	}
-	@TestVisible private static Set<Id> setAdInvestigationIdSet() {
-		Set<Id> returnSet = new Set<Id>();
+	@TestVisible private static Map<Id,Investigation__c> setAdIdToCvdInvestigationMap() {
+		Map<Id,Investigation__c> returnMap = new Map<Id,Investigation__c>();
 		for(Investigation__c i : investigationList) {
 			if(i.AD_Investigation_Aligned_To__c != null) {
-				if(sourceIdToTargetObjectMap.get(i.AD_Investigation_Aligned_To__c) != null) {
-					sourceIdToTargetObjectMap.get(i.AD_Investigation_Aligned_To__c).add(i);//add objects to the map that will be updated
-				} else {
-					List<SObject> tempList = new List<SObject>();
-					tempList.add(i);
-					sourceIdToTargetObjectMap.put(i.AD_Investigation_Aligned_To__c, tempList);
-				}
-				returnSet.add(i.AD_Investigation_Aligned_To__c);//create a set of AD investigations to query from targetObjectList that was initialized
+				returnMap.put(i.AD_Investigation_Aligned_To__c, i);//create a set of AD investigations to query from targetObjectList that was initialized
+				sourceIdToTargetObjectMap.put(i.AD_Investigation_Aligned_To__c, i);//add objects to the map that will be updated
 			}
 		}
-		return returnSet;
+		return returnMap;
 	}
 	@TestVisible private static void addADInvestigationsToSourceObjectsMap() {
-		Set<Id> adInvestigationIdSet = setAdInvestigationIdSet();
+		Set<Id> adInvestigationIdSet = setAdIdToCvdInvestigationMap().keyset();
+		System.debug('***&& '+adInvestigationIdSet);
 		List<Investigation__c> adInvestigationList = new List<Investigation__c>();
 		String objectQuery = 'SELECT Id, ';
 		for(Sync_Investigation__mdt si : investigationCMT) {
@@ -183,9 +169,10 @@ public without sharing class SyncUtility {
 		objectQuery = objectQuery.removeEnd(', ');
 		objectQuery += ' FROM Investigation__c WHERE Id IN: adInvestigationIdSet';//limit by Ids gathered from the current set
 		adInvestigationList = Database.Query(objectQuery);
-		for(Investigation__c i : adInvestigationList) {
-			sourceObjectsMap.put(i.Id, i);
-			sourceObjectsTypeMap.put(i.Id, 'Investigation__c');//set map of Id and object type name
+		System.debug('###@@ '+adInvestigationList);
+		for(Investigation__c inv : adInvestigationList) {
+			sourceObjectsMap.put(inv.Id, inv);//set map of Id and values
+			sourceObjectsTypeMap.put(inv.Id, 'Investigation__c');//set map of Id and object type name
 		}
 	}	
 }

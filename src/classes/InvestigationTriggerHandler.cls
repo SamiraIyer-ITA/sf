@@ -1,4 +1,4 @@
-public without sharing class InvestigationTriggerHandler {
+public class InvestigationTriggerHandler {
 	
 	//FINAL Investigation Record Type Developer Names
 	private static FINAL String ADRECORD = 'AD';
@@ -121,7 +121,7 @@ public without sharing class InvestigationTriggerHandler {
     //returns a map of Federal Register objects in the form: key = Investigation Id, value = Federal Register object
     @TestVisible private static Map<Id,Federal_Register__c> investigationIdToFRMap(Map<Id, Investigation__c> newMap) {
     	Map<Id,Federal_Register__c> returnMap = new Map<Id,Federal_Register__c>();
-    	for (Federal_Register__c fr : [SELECT Id, Type__c, Preliminary_FR_Published__c, Postponement_of_Final_Determination_FR__c, Investigation__c 
+    	for (Federal_Register__c fr : [SELECT Id, Type__c, Published_Date__c, Postponement_of_Final_Determination_FR__c, Investigation__c 
     									FROM Federal_Register__c WHERE Investigation__c IN: newMap.keySet()]) {
     		if (fr.Type__c == 'Preliminary') {
     			returnMap.put(fr.Investigation__c, fr);
