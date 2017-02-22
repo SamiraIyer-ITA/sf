@@ -67,16 +67,16 @@
                 <value>AD</value>
             </filterItems>
             <filterItems>
-                <field>$Source.Petition_Commodity__c</field>
+                <field>Investigation__c.Petition_Commodity__c</field>
                 <operation>equals</operation>
                 <valueField>$Source.Petition_Commodity__c</valueField>
             </filterItems>
             <filterItems>
-                <field>$Source.Petition_Initiation_Signature__c</field>
+                <field>Investigation__c.Petition_Initiation_Signature__c</field>
                 <operation>equals</operation>
                 <valueField>$Source.Petition_Initiation_Signature__c</valueField>
             </filterItems>
-            <infoMessage>Additionally, the product on both investigations must match</infoMessage>
+            <infoMessage>The Product on both investigations must match as well</infoMessage>
             <isOptional>false</isOptional>
         </lookupFilter>
         <referenceTo>Investigation__c</referenceTo>
