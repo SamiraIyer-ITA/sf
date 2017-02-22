@@ -53,6 +53,9 @@ public without sharing class InvestigationTriggerHandler {
             syncToInvestigation(newList);
             calculateInvestigationDates(newList);
         }
+        if (isAfter && isUpdate) {
+            recalculateCVDinvestigations(newMap);
+        }
     }
     
     //Maps used in multiple methods in calculateInvestigationDates regardless of record type
@@ -136,7 +139,7 @@ public without sharing class InvestigationTriggerHandler {
     	}
     	return returnMap;
     }
-    //returs a map of <String,Integer> in the form: key = CMT Api name, CMT number value
+    //returns a map of <String,Integer> in the form: key = CMT Api name, CMT number value
     //used to set Offset Variables
     @TestVisible private static Map<String,Investigation_Constant__mdt> investigationCalcOffsets() {
         Map<String,Investigation_Constant__mdt> returnMap = new Map<String,Investigation_Constant__mdt>();
@@ -146,6 +149,11 @@ public without sharing class InvestigationTriggerHandler {
             returnMap.put(ic.QualifiedAPIName, ic);
         }
         return returnMap;
+    }
+    //returns a list of CVD Investigations to update if the aligned AD Investigation is updated
+    @TestVisible private static void recalculateCVDinvestigations(Map<Id,Investigation__c> newMap) {
+        List<Investigation__c> CVDinvestigations = [SELECT Id FROM Investigation__c WHERE AD_Investigation_Aligned_To__c IN: newMap.keySet()];
+        update CVDinvestigations;
     }
 
 
@@ -159,7 +167,7 @@ public without sharing class InvestigationTriggerHandler {
     @TestVisible private static Boolean findCompletePetition(Investigation__c i){
         Boolean returnBoolean = false;
         Petition__c p = petitionsInScopeMap.get(i.Petition__c);
-        if(unfinishedPetitions.contains(p.Id)){
+        if(!unfinishedPetitions.contains(p.Id)){
             returnBoolean = true;
         }
         return returnBoolean;
