@@ -59,6 +59,7 @@
         <members>Insight_Atom__c</members>
         <members>Insight_Chapter__c</members>
         <members>Insight__c</members>
+        <members>Investigation_Constant__mdt</members>
         <members>Investigation__c</members>
         <members>Issue__c</members>
         <members>KnowledgeMap__c</members>
