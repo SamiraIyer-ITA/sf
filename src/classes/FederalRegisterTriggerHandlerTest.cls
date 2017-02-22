@@ -1,13 +1,6 @@
 @isTest
 public class FederalRegisterTriggerHandlerTest {
-	private static Date publishDate {
-		get {
-			if(publishDate == null){
-				publishDate = System.today();
-			}
-			return publishDate;
-		}
-	}
+	private static Date publishDate = System.today();
 	private static User u{
 		get{
 			if(u == null){
@@ -41,26 +34,22 @@ public class FederalRegisterTriggerHandlerTest {
 	@isTest static void findInvestigationsInScope(){
 		Test.startTest();
 		Federal_Register__c fr = TestUtils.createFR(publishDate.addDays(200), false);
-		Date testCalculated_Final_Signature = investigationList[0].Calculated_Final_Signature__c;
 		fr.Investigation__c = investigationList[0].Id;
 		List<Federal_Register__c> frList = new List<Federal_Register__c>();
 		frList.add(fr);
+		//when given a fr list, the method returns an Investigation Id set
 		System.assert(FederalRegisterTriggerHandler.findInvestigationsInScope(frList).contains(investigationList[0].Id));
-		
 		Test.stopTest();
 	}
-	@isTest static void recalculatePetitionTollingDay(){
+	@isTest static void recalculateInvestigationFederalRegister(){
 		Test.startTest();
 		Federal_Register__c fr = TestUtils.createFR(publishDate.addDays(300), false);
+		//curent Final Signature prior to fr insert
 		Date testCalculated_Final_Signature = investigationList[0].Calculated_Final_Signature__c;
-		System.debug(testCalculated_Final_Signature);
-		System.debug(fr.Preliminary_FR_Published__c);
 		fr.Investigation__c = investigationList[0].Id;
 		insert fr;
-		System.debug([SELECT Preliminary_FR_Published__c FROM Federal_Register__c WHERE Id =: fr.Id]);
-		System.debug([SELECT Calculated_Final_Signature__c FROM Investigation__c WHERE Id =: investigationList[0].Id]);
-		//date in database should be greater based on future publishDate
-		//System.assert(testCalculated_Final_Signature < [SELECT Calculated_Final_Signature__c FROM Investigation__c WHERE Id =: investigationList[0].Id].Calculated_Final_Signature__c);
+		//date in database should have increased based on future fr.Preliminary_FR_Published__c
+		System.assert(testCalculated_Final_Signature < [SELECT Calculated_Final_Signature__c FROM Investigation__c WHERE Id =: investigationList[0].Id].Calculated_Final_Signature__c);
 		Test.stopTest();
 	}
 	@testSetup static void dataSetup() {

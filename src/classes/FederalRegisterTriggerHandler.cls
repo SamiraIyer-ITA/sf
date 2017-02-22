@@ -1,4 +1,4 @@
-public with sharing class FederalRegisterTriggerHandler {
+public without sharing class FederalRegisterTriggerHandler {
 	public static boolean preventRecursion = false;
     public static void mainEntry(List<Federal_Register__c> newList, List<Federal_Register__c> oldList, Map<Id, Federal_Register__c> newMap, 
         Map<Id, Federal_Register__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete, 
@@ -11,11 +11,8 @@ public with sharing class FederalRegisterTriggerHandler {
         if(isAfter && isUpdate) {
             recalculateInvestigationFederalRegister(newList);
         }
-        if(isBefore && isInsert) {
-
-        }
-        if(isBefore && isUpdate) {
-
+        if(isBefore && isDelete) {
+            recalculateInvestigationFederalRegister(newList);
         }
     }
     @TestVisible private static Set<Id> findInvestigationsInScope(List<Federal_Register__c> newList) {
