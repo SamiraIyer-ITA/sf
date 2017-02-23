@@ -14,18 +14,18 @@ public without sharing class SyncUtility {
 	 *******************************************************************/
 
 	//Object agnostic variables
-	private static String targetObjectName = '';
-	private static Set<String> sourceObjectNames = new Set<String>();
-	private static Map<String,Map<String,String>> syncFieldMap = new Map<String,Map<String,String>>();
-	private static Map<Id,SObject> sourceObjectsMap = new Map<Id,SObject>();
-	private static Map<Id,String> sourceObjectsTypeMap = new Map<Id,String>();
-	private static Map<Id,List<SObject>> sourceIdToTargetObjectMap = new Map<Id,List<SObject>>();
+	@TestVisible private static String targetObjectName = '';
+	@TestVisible private static Set<String> sourceObjectNames = new Set<String>();
+	@TestVisible private static Map<String,Map<String,String>> syncFieldMap = new Map<String,Map<String,String>>();
+	@TestVisible private static Map<Id,SObject> sourceObjectsMap = new Map<Id,SObject>();
+	@TestVisible private static Map<Id,String> sourceObjectsTypeMap = new Map<Id,String>();
+	@TestVisible private static Map<Id,List<SObject>> sourceIdToTargetObjectMap = new Map<Id,List<SObject>>();
 
 	//Object specific variables
 	//Sync Petition to Investigation
-	private static List<Investigation__c> investigationList = new List<Investigation__c>();
-	private static Set<String> allInvestigationSources = new Set<String>{'Petition__c', 'Investigation__c'};
-	private static List<Sync_Investigation__mdt> investigationCMT {
+	@TestVisible private static List<Investigation__c> investigationList = new List<Investigation__c>();
+	@TestVisible private static Set<String> allInvestigationSources = new Set<String>{'Petition__c', 'Investigation__c'};
+	@TestVisible private static List<Sync_Investigation__mdt> investigationCMT {
 		get {
 			if(investigationCMT == null) {
 				investigationCMT = ([SELECT Source_Object__c, Source_Field__c, Destination_Field__c, Sync_Field__c
@@ -44,28 +44,27 @@ public without sharing class SyncUtility {
 	}
 	//accepts object List and set of object names or boolean true to use all sources
 	public static void syncObject(List<SObject> targetObjectList , Set<String> sourceObjects, Boolean allSources) {
-		targetObjectName = utils.getSObjectName(targetObjectList[0]);//targetObjectName specifies which parts of the methods to run
-		setSourceObjectNames(sourceObjects, allSources);//sets the names of the source objects to retrieve from
 		initialize(targetObjectList);//Set targetObject values to class level object of targetObjectName's type
+		setSourceObjectNames(sourceObjects, allSources);//sets the names of the source objects to retrieve from
 		setSyncFieldMap();//set the field api's for the sync from CMT
-		setsourceObjectsMap();//set the source object values and add the target objects to target object map
+		setSourceObjectsMap();//set the source object values and add the target objects to target object map
 		setTargetObjectValues();//set the values in the target object fields to the source object values
 	}
-
+	//type cast the targetObjectList to a targetObject type so specific fields can be referenced
+	@TestVisible private static void initialize(List<SObject> targetObjectList) {
+		targetObjectName = utils.getSObjectName(targetObjectList[0]);//targetObjectName specifies which parts of the methods to run
+		if(targetObjectName == 'Investigation__c') {
+			investigationList = (List<Investigation__c>) targetObjectList;
+		}
+	}
 	//method to set source Objects to query, handles nulls from syncObject params
 	@TestVisible private static void setSourceObjectNames(Set<String> sourceObjects, Boolean allSources) {
 		if(targetObjectName == 'Investigation__c') {
-			if(sourceObjectNames == null || sourceObjectNames.size() < 1 || allSources) {
+			if(sourceObjects == null || sourceObjects.size() < 1 || allSources) {
 				sourceObjectNames.addAll(allInvestigationSources);
 			} else {
 				sourceObjectNames.addAll(sourceObjects);
 			}
-		}
-	}
-	//type cast the targetObjectList to a targetObject type so specific fields can be referenced
-	@TestVisible private static void initialize(List<SObject> targetObjectList) {
-		if(targetObjectName == 'Investigation__c') {
-			investigationList = (List<Investigation__c>) targetObjectList;
 		}
 	}
 	//query the CMT for the source object fields and set them to a map inside a object name map
@@ -75,7 +74,7 @@ public without sharing class SyncUtility {
 		}
 	}
 	//query the source objects for the values to sync
-	@TestVisible private static void setsourceObjectsMap() {
+	@TestVisible private static void setSourceObjectsMap() {
 		if(targetObjectName == 'Investigation__c') {
 			for (String name : sourceObjectNames) {
 				if(name != null && name.containsIgnoreCase('Petition__c')) {
