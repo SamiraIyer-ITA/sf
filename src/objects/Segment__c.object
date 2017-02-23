@@ -6256,6 +6256,26 @@ ISBLANK( Prelim_Extension__c), OR(Final_Extension_of_days__c &gt; 180, Final_Ext
         <errorMessage>Preliminary Extension can only range from 1-120 days.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Prelim_Extension_for_Admin_Review_Exceed</fullName>
+        <active>true</active>
+        <description>Preliminary Extension cannot exceed more than 120 days</description>
+        <errorConditionFormula>And (
+ $RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
+ Prelim_Extension__c &gt; 120
+)</errorConditionFormula>
+        <errorMessage>Preliminary Extension cannot exceed more than 120 days</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Prelim_Extension_for_Admin_Review_Neg</fullName>
+        <active>true</active>
+        <description>Preliminary Extension must be greater than zero days.</description>
+        <errorConditionFormula>And (
+ $RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
+ Prelim_Extension__c &lt; 0
+)</errorConditionFormula>
+        <errorMessage>Preliminary Extension must be greater than zero days.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>max_180_days_if_prelim_extend_is_blank</fullName>
         <active>true</active>
         <errorConditionFormula>AND($RecordType.DeveloperName = &quot;Administrative Review&quot;,

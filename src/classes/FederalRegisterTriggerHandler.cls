@@ -6,27 +6,27 @@ public without sharing class FederalRegisterTriggerHandler {
         if(preventRecursion) {return;}
 
         if(isAfter && isInsert) {
-            recalculateInvestigationFederalRegister(newList);
+            recalculateInvestigationFederalRegister(newList,oldMap);
         }
         if(isAfter && isUpdate) {
-            recalculateInvestigationFederalRegister(newList);
+            recalculateInvestigationFederalRegister(newList,oldMap);
         }
         if(isBefore && isDelete) {
             calculateInvestigationsOnDelete(oldMap);
         }
     }
-    @TestVisible private static Set<Id> findInvestigationsInScope(List<Federal_Register__c> newList) {
+    @TestVisible private static Set<Id> findInvestigationsInScope(List<Federal_Register__c> newList, Map<Id,Federal_Register__c> oldMap) {
         Set<Id> investigationIdSet = new Set<Id>();
         for(Federal_Register__c fr : newList) {
-            if(fr.Type__c == 'Preliminary' && fr.Investigation__c != null) {
+            if((fr.Type__c == 'Preliminary' ||(oldMap != null && oldMap.get(fr.Id).Type__c == 'Preliminary')) && fr.Investigation__c != null) {
                 investigationIdSet.add(fr.Investigation__c);
             }
         }
         return investigationIdSet;
         
     }
-    @TestVisible private static void recalculateInvestigationFederalRegister(List<Federal_Register__c> newList) {
-        calculateInvestigations(findInvestigationsInScope(newList));
+    @TestVisible private static void recalculateInvestigationFederalRegister(List<Federal_Register__c> newList, Map<Id,Federal_Register__c> oldMap) {
+        calculateInvestigations(findInvestigationsInScope(newList, oldMap));
     }
     @TestVisible private static void calculateInvestigations(Set<Id> investigationIdSet) {
         List<Investigation__c> investigationsToUpdate = [SELECT Id FROM Investigation__c WHERE Id IN: investigationIdSet];
