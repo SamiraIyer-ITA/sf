@@ -2549,6 +2549,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Federal_Register__c.External_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Federal_Register__c.FR_Cite__c</field>
         <readable>true</readable>
     </fieldPermissions>
