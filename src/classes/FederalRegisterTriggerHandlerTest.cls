@@ -38,7 +38,7 @@ public class FederalRegisterTriggerHandlerTest {
 		List<Federal_Register__c> frList = new List<Federal_Register__c>();
 		frList.add(fr);
 		//when given a fr list, the method returns an Investigation Id set
-		System.assert(FederalRegisterTriggerHandler.findInvestigationsInScope(frList).contains(investigationList[0].Id));
+		System.assert(FederalRegisterTriggerHandler.findInvestigationsInScope(frList, null).contains(investigationList[0].Id));
 		Test.stopTest();
 	}
 	@isTest static void recalculateInvestigationFederalRegister(){
