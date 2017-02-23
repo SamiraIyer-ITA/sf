@@ -118,7 +118,7 @@ public without sharing class InvestigationTriggerHandler {
     @TestVisible private static Map<Id,Petition__c> findPetitionsInScopeMap(List<Investigation__c> newList) {
     	Map<Id,Petition__c> returnMap = new Map<Id,Petition__c>();
     	Set<Id> petitionIdSet = findIdsInScope(newList);
-    	for (Petition__c p : [SELECT Id, Petition_Filed__c, Actual_Initiation_Signature__c, 
+    	for (Petition__c p : [SELECT Id, Petition_Filed__c, Initiation_Extension_of_days__c, Actual_Initiation_Signature__c, 
     									Calculated_Initiation_Signature__c
     								FROM Petition__c WHERE Id IN: petitionIdSet]) {
     		returnMap.put(p.Id, p);
@@ -251,7 +251,7 @@ public without sharing class InvestigationTriggerHandler {
     				i.Calculated_Final_Signature__c = i.Actual_Preliminary_Signature__c.addDays(ADCALCFINALSIGN);
     				i.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Actual_Preliminary_Signature__c, i.Calculated_Final_Signature__c, true);
     			}
-    		} else if (fr.Postponement_of_Final_Determination_FR__c != null) {
+    		} else if (fr.Postponement_of_Final_Determination_FR__c != null && fr.Preliminary_FR_Published__c != null) {
     			i.Calculated_Final_Signature__c = fr.Preliminary_FR_Published__c.addDays(ADCALCFINALSIGN).addDays(extension);
     			i.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(fr.Preliminary_FR_Published__c, i.Calculated_Final_Signature__c, true);
     		}
@@ -423,10 +423,10 @@ public without sharing class InvestigationTriggerHandler {
 			}
 		} else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD) {
 			if (p != null && p.Actual_Initiation_Signature__c == null && p.Calculated_Initiation_Signature__c != null) {
-                i.Calculated_Postponement_of_PrelimDeterFR__c = p.Calculated_Initiation_Signature__c.addDays(ADCALCPOSTPONEPRELIMDETFR);
+                i.Calculated_Postponement_of_PrelimDeterFR__c = p.Calculated_Initiation_Signature__c.addDays(CVDCALCPOSTPONEPRELIMDETFR);
                 i.Calculated_Postponement_of_PrelimDeterFR__c = ADCVD_TollingDayUtility.getCalculatedDate(p.Calculated_Initiation_Signature__c, i.Calculated_Postponement_of_PrelimDeterFR__c, true);
             } else if (p != null && p.Actual_Initiation_Signature__c != null) {
-                i.Calculated_Postponement_of_PrelimDeterFR__c = p.Actual_Initiation_Signature__c.addDays(ADCALCPOSTPONEPRELIMDETFR);
+                i.Calculated_Postponement_of_PrelimDeterFR__c = p.Actual_Initiation_Signature__c.addDays(CVDCALCPOSTPONEPRELIMDETFR);
                 i.Calculated_Postponement_of_PrelimDeterFR__c = ADCVD_TollingDayUtility.getCalculatedDate(p.Actual_Initiation_Signature__c, i.Calculated_Postponement_of_PrelimDeterFR__c, true);
             }
 		}
@@ -434,14 +434,15 @@ public without sharing class InvestigationTriggerHandler {
     //sets Calculated_ITC_Prelim_Determination__c
     @TestVisible private static void setCalculatedITCPrelimDetermination(Investigation__c i){
         Petition__c p = petitionsInScopeMap.get(i.Petition__c);
+        Integer extension = i.Prelim_Extension_of_days__c == null ? 0 : (Integer)i.Prelim_Extension_of_days__c;//null check on extension, set to 0 if null
         if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
             if (p != null && p.Petition_Filed__c != null) {
-                i.Calculated_ITC_Prelim_Determination__c = p.Petition_Filed__c.addDays(ADCALCITCPRELIMDET);
+                i.Calculated_ITC_Prelim_Determination__c = p.Petition_Filed__c.addDays(ADCALCITCPRELIMDET).addDays(extension);
                 i.Calculated_ITC_Prelim_Determination__c = ADCVD_TollingDayUtility.getCalculatedDate(p.Petition_Filed__c, i.Calculated_ITC_Prelim_Determination__c, true);
             }
         } else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD) {
             if (p != null && p.Petition_Filed__c != null) {
-                i.Calculated_ITC_Prelim_Determination__c = p.Petition_Filed__c.addDays(CVDCALCITCPRELIMDET);
+                i.Calculated_ITC_Prelim_Determination__c = p.Petition_Filed__c.addDays(CVDCALCITCPRELIMDET).addDays(extension);
                 i.Calculated_ITC_Prelim_Determination__c = ADCVD_TollingDayUtility.getCalculatedDate(p.Petition_Filed__c, i.Calculated_ITC_Prelim_Determination__c, true);
             }
         }
