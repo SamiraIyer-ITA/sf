@@ -1,4 +1,4 @@
-public class SyncUtility {
+public without sharing class SyncUtility {
 	/*******************************************************************
 	This utility class uses custom metadata to sync objects.  To setup 
 	a new object to sync, create a custom metadata object with the same 
