@@ -12,7 +12,7 @@ public without sharing class FederalRegisterTriggerHandler {
             recalculateInvestigationFederalRegister(newList);
         }
         if(isBefore && isDelete) {
-            recalculateInvestigationFederalRegister(newList);
+            calculateInvestigationsOnDelete(oldMap);
         }
     }
     @TestVisible private static Set<Id> findInvestigationsInScope(List<Federal_Register__c> newList) {
@@ -31,5 +31,12 @@ public without sharing class FederalRegisterTriggerHandler {
     @TestVisible private static void calculateInvestigations(Set<Id> investigationIdSet) {
         List<Investigation__c> investigationsToUpdate = [SELECT Id FROM Investigation__c WHERE Id IN: investigationIdSet];
         database.update(investigationsToUpdate, false);
+    }
+    @TestVisible private static void calculateInvestigationsOnDelete(Map<Id,Federal_Register__c> oldMap) {
+        List<Federal_Register__c> frList = [SELECT Id FROM Federal_Register__c WHERE Id IN: oldMap.keySet()];
+        for(Federal_Register__c fr : frList) {
+            fr.Do_Delete__c = true;
+        }
+        update frList;
     }
 }

@@ -43,17 +43,18 @@ public without sharing class InvestigationTriggerHandler {
         Boolean isBefore, Boolean isAfter) {
         if (preventRecursion) {return;}
 
-        initialize(newList, newMap);
-
         if (isBefore && isInsert) {
+            initialize(newList, newMap);
             syncToInvestigation(newList);
         	calculateInvestigationDates(newList);
         }
         if (isBefore && isUpdate) {
+            initialize(newList, newMap);
             syncToInvestigation(newList);
             calculateInvestigationDates(newList);
         }
         if (isAfter && isUpdate) {
+            initialize(newList, newMap);
             recalculateCVDinvestigations(newMap);
         }
     }
@@ -118,7 +119,7 @@ public without sharing class InvestigationTriggerHandler {
     @TestVisible private static Map<Id,Petition__c> findPetitionsInScopeMap(List<Investigation__c> newList) {
     	Map<Id,Petition__c> returnMap = new Map<Id,Petition__c>();
     	Set<Id> petitionIdSet = findIdsInScope(newList);
-    	for (Petition__c p : [SELECT Id, Petition_Filed__c, Actual_Initiation_Signature__c, 
+    	for (Petition__c p : [SELECT Id, Petition_Filed__c, Initiation_Extension_of_days__c, Actual_Initiation_Signature__c, 
     									Calculated_Initiation_Signature__c
     								FROM Petition__c WHERE Id IN: petitionIdSet]) {
     		returnMap.put(p.Id, p);
@@ -131,11 +132,13 @@ public without sharing class InvestigationTriggerHandler {
     //returns a map of Federal Register objects in the form: key = Investigation Id, value = Federal Register object
     @TestVisible private static Map<Id,Federal_Register__c> investigationIdToFRMap(Map<Id, Investigation__c> newMap) {
     	Map<Id,Federal_Register__c> returnMap = new Map<Id,Federal_Register__c>();
-    	for (Federal_Register__c fr : [SELECT Id, Type__c, Published_Date__c, Postponement_of_Final_Determination_FR__c, Investigation__c 
+    	for (Federal_Register__c fr : [SELECT Id, Type__c, Do_Delete__c, Published_Date__c, Postponement_of_Final_Determination_FR__c, Investigation__c 
     									FROM Federal_Register__c WHERE Investigation__c IN: newMap.keySet()]) {
-    		if (fr.Type__c == 'Preliminary') {
+    		if (fr.Type__c == 'Preliminary' && !fr.Do_Delete__c) {
     			returnMap.put(fr.Investigation__c, fr);
-    		}
+            } else if (fr.Type__c == 'Preliminary' && fr.Do_Delete__c) {
+                returnMap.put(fr.Investigation__c, null);
+            }
     	}
     	return returnMap;
     }
@@ -251,9 +254,9 @@ public without sharing class InvestigationTriggerHandler {
     				i.Calculated_Final_Signature__c = i.Actual_Preliminary_Signature__c.addDays(ADCALCFINALSIGN);
     				i.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Actual_Preliminary_Signature__c, i.Calculated_Final_Signature__c, true);
     			}
-    		} else if (fr.Postponement_of_Final_Determination_FR__c != null) {
-    			i.Calculated_Final_Signature__c = fr.Preliminary_FR_Published__c.addDays(ADCALCFINALSIGN).addDays(extension);
-    			i.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(fr.Preliminary_FR_Published__c, i.Calculated_Final_Signature__c, true);
+    		} else if (fr.Postponement_of_Final_Determination_FR__c != null && fr.Published_Date__c != null) {
+    			i.Calculated_Final_Signature__c = fr.Published_Date__c.addDays(ADCALCFINALSIGN).addDays(extension);
+    			i.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(fr.Published_Date__c, i.Calculated_Final_Signature__c, true);
     		}
     	} else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD && i.AD_Investigation_Aligned_To__c == null) {
             if (i.Actual_Preliminary_Signature__c == null) {
@@ -423,10 +426,10 @@ public without sharing class InvestigationTriggerHandler {
 			}
 		} else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD) {
 			if (p != null && p.Actual_Initiation_Signature__c == null && p.Calculated_Initiation_Signature__c != null) {
-                i.Calculated_Postponement_of_PrelimDeterFR__c = p.Calculated_Initiation_Signature__c.addDays(ADCALCPOSTPONEPRELIMDETFR);
+                i.Calculated_Postponement_of_PrelimDeterFR__c = p.Calculated_Initiation_Signature__c.addDays(CVDCALCPOSTPONEPRELIMDETFR);
                 i.Calculated_Postponement_of_PrelimDeterFR__c = ADCVD_TollingDayUtility.getCalculatedDate(p.Calculated_Initiation_Signature__c, i.Calculated_Postponement_of_PrelimDeterFR__c, true);
             } else if (p != null && p.Actual_Initiation_Signature__c != null) {
-                i.Calculated_Postponement_of_PrelimDeterFR__c = p.Actual_Initiation_Signature__c.addDays(ADCALCPOSTPONEPRELIMDETFR);
+                i.Calculated_Postponement_of_PrelimDeterFR__c = p.Actual_Initiation_Signature__c.addDays(CVDCALCPOSTPONEPRELIMDETFR);
                 i.Calculated_Postponement_of_PrelimDeterFR__c = ADCVD_TollingDayUtility.getCalculatedDate(p.Actual_Initiation_Signature__c, i.Calculated_Postponement_of_PrelimDeterFR__c, true);
             }
 		}
@@ -434,14 +437,15 @@ public without sharing class InvestigationTriggerHandler {
     //sets Calculated_ITC_Prelim_Determination__c
     @TestVisible private static void setCalculatedITCPrelimDetermination(Investigation__c i){
         Petition__c p = petitionsInScopeMap.get(i.Petition__c);
+        Integer extension = i.Prelim_Extension_of_days__c == null ? 0 : (Integer)i.Prelim_Extension_of_days__c;//null check on extension, set to 0 if null
         if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
             if (p != null && p.Petition_Filed__c != null) {
-                i.Calculated_ITC_Prelim_Determination__c = p.Petition_Filed__c.addDays(ADCALCITCPRELIMDET);
+                i.Calculated_ITC_Prelim_Determination__c = p.Petition_Filed__c.addDays(ADCALCITCPRELIMDET).addDays(extension);
                 i.Calculated_ITC_Prelim_Determination__c = ADCVD_TollingDayUtility.getCalculatedDate(p.Petition_Filed__c, i.Calculated_ITC_Prelim_Determination__c, true);
             }
         } else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD) {
             if (p != null && p.Petition_Filed__c != null) {
-                i.Calculated_ITC_Prelim_Determination__c = p.Petition_Filed__c.addDays(CVDCALCITCPRELIMDET);
+                i.Calculated_ITC_Prelim_Determination__c = p.Petition_Filed__c.addDays(CVDCALCITCPRELIMDET).addDays(extension);
                 i.Calculated_ITC_Prelim_Determination__c = ADCVD_TollingDayUtility.getCalculatedDate(p.Petition_Filed__c, i.Calculated_ITC_Prelim_Determination__c, true);
             }
         }
@@ -451,16 +455,20 @@ public without sharing class InvestigationTriggerHandler {
     @TestVisible private static void setTerminationofSuspensionGapPeriodBeg(Investigation__c i){
     	Federal_Register__c fr = investigationIdToFRMap.get(i.Id);
     	if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
-	    	if (fr != null && fr.Preliminary_FR_Published__c != null) {
+	    	if (fr != null && fr.Published_Date__c != null) {
 		    	i.Termination_of_Suspension_Gap_Period_Beg__c = i.Final_Extension_of_days__c == null ? 
-		    	fr.Preliminary_FR_Published__c.addDays(ADTERMSUSPGAPPERIODBEGWOEXT) : 
-		    	fr.Preliminary_FR_Published__c.addDays(ADTERMSUSPGAPPERIODBEGWEXT);
-		    	i.Termination_of_Suspension_Gap_Period_Beg__c = ADCVD_TollingDayUtility.getCalculatedDate(fr.Preliminary_FR_Published__c, i.Termination_of_Suspension_Gap_Period_Beg__c, true);
-		    }
+		    	fr.Published_Date__c.addDays(ADTERMSUSPGAPPERIODBEGWOEXT) : 
+		    	fr.Published_Date__c.addDays(ADTERMSUSPGAPPERIODBEGWEXT);
+		    	i.Termination_of_Suspension_Gap_Period_Beg__c = ADCVD_TollingDayUtility.getCalculatedDate(fr.Published_Date__c, i.Termination_of_Suspension_Gap_Period_Beg__c, true);
+		    } else if (i.Termination_of_Suspension_Gap_Period_Beg__c != null && fr == null) {
+                i.Termination_of_Suspension_Gap_Period_Beg__c = null;//after delete of fr
+            }
 		} else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD) {
-			if (fr != null && fr.Preliminary_FR_Published__c != null) {
-                i.Termination_of_Suspension_Gap_Period_Beg__c = fr.Preliminary_FR_Published__c.addDays(CVDTERMOFSUSPGAPPERIODBEG);
-                i.Termination_of_Suspension_Gap_Period_Beg__c = ADCVD_TollingDayUtility.getCalculatedDate(fr.Preliminary_FR_Published__c, i.Termination_of_Suspension_Gap_Period_Beg__c, true);
+			if (fr != null && fr.Published_Date__c != null) {
+                i.Termination_of_Suspension_Gap_Period_Beg__c = fr.Published_Date__c.addDays(CVDTERMOFSUSPGAPPERIODBEG);
+                i.Termination_of_Suspension_Gap_Period_Beg__c = ADCVD_TollingDayUtility.getCalculatedDate(fr.Published_Date__c, i.Termination_of_Suspension_Gap_Period_Beg__c, true);
+            } else if (i.Termination_of_Suspension_Gap_Period_Beg__c != null && fr == null) {
+                i.Termination_of_Suspension_Gap_Period_Beg__c = null;//after delete of fr
             }
 		}
 	}

@@ -40,6 +40,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Preliminary_FR_Published__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Initiation_Prelim_FR_published__c</field>
             </layoutItems>
             <layoutItems>
@@ -57,6 +61,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Postponement_of_Final_Determination_FR__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Final_FR_Published__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

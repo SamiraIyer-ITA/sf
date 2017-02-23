@@ -126,7 +126,7 @@ public with sharing class TestUtils {
     public static Federal_Register__c createFR(Date prelimPub, Boolean doInsert) {
         Federal_Register__c fr = new Federal_Register__c();
         fr.Type__c = 'Preliminary';
-        fr.Preliminary_FR_Published__c = prelimPub;
+        fr.Published_Date__c = prelimPub;
         fr.Postponement_of_Final_Determination_FR__c = prelimPub;
         if(doInsert) {
             insert fr;
