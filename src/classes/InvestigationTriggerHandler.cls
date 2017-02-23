@@ -1,4 +1,4 @@
-public class InvestigationTriggerHandler {
+public without sharing class InvestigationTriggerHandler {
 	
 	//FINAL Investigation Record Type Developer Names
 	private static FINAL String ADRECORD = 'AD';
