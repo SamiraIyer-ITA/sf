@@ -1,4 +1,4 @@
-public with sharing class PetitionTriggerHandler {
+public without sharing class PetitionTriggerHandler {
     public static boolean preventRecursion = false;
     public static void mainEntry(List<Petition__c> newList, List<Petition__c> oldList, Map<Id, Petition__c> newMap, 
         Map<Id, Petition__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete, 
