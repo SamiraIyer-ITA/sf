@@ -99,6 +99,14 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Do_Delete__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Do Delete</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>External_Id__c</fullName>
         <caseSensitive>false</caseSensitive>
         <externalId>true</externalId>
@@ -108,14 +116,6 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>true</unique>
-    </fields>
-    <fields>
-        <fullName>Do_Delete__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Do Delete</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>FR_Cite__c</fullName>
