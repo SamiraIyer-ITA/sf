@@ -115,6 +115,7 @@ public with sharing class BulkCsvTest {
   public static Map<Integer, TestRow> rowNumberToTestRow  = new Map<Integer, TestRow>();
   public static List<TestRow> allTestRows = new List<TestRow>();
   
+  /* Ordered List of Rows to Process - ordered by OperationOrder column */
   public static Map<Integer, List<TestRow>> orderedTestRow {
     get {
       if(orderedTestRow == null) {
@@ -133,12 +134,20 @@ public with sharing class BulkCsvTest {
     return orderedTestRow;
     }
   }
+  /* Enhancement list 
+  *  User interface to load CSVs. Auto create the apex unit test. 
+  *  Test Result object
+  *  Option to run tests, roll back, and generate / attach CSV to test result
+  * 
+  */
   @isTest
-  private static void testFile1() {
-    runTestOnCsv('testCsvFile1', 109);
-    
+  private static void testad() {
+    runTestOnCsv('testad', 109);
   }
-
+  @isTest
+  private static void testcvd() {
+    runTestOnCsv('testcvd', 85);
+  }
   public static void runTestOnCsv(String fileName, Integer expectedCount) {
     //try {
       //query static resource
@@ -253,6 +262,9 @@ public with sharing class BulkCsvTest {
   public static void buildParentsObjectMap(Set<String> sObjectSet) {
     for(String sObjName: sObjectSet) {
       if(String.isBlank(sObjName)) { continue; }
+      system.debug(sObjName);
+
+      //blows up if no external ID name is found?
       system.assert(validFieldName(sObjName, EXTERNAL_ID_FIELD_NAME), 'Expected external Id: ' + EXTERNAL_ID_FIELD_NAME + ' on object ' + sObjName + '. Please create the unique external ID field on the object.');
       Map<String, String> objNameToRelationshipName = new Map<String, String>();
       Schema.SObjectType sObjType = gd.get(sObjName); //dynamic binding of sObject name to schema
@@ -331,12 +343,15 @@ public with sharing class BulkCsvTest {
   }
 
   private static Boolean validFieldName(String sObjectName, String fieldName) {
-    if(String.IsBlank(sObjectName.trim()) || String.isBlank(fieldName.trim())) { return false; }
+    if(String.IsBlank(sObjectName.trim()) || String.isBlank(fieldName.trim()) || String.isBlank(fieldName) || getFieldsForSObject(sObjectName) == null) { return false; }
     return getFieldsForSObject(sObjectName).containsKey(fieldName.trim());
   }
 
   private static Map<String, Schema.SObjectField> getFieldsForSObject(String sObjectName){
-    return gd.get(sObjectName.trim()).getDescribe().fields.getMap();
+    if(!String.IsBlank(sObjectName) && gd.get(sObjectName.trim()) != null){
+      return gd.get(sObjectName.trim()).getDescribe().fields.getMap();
+      } 
+      return null;
   }
 
   private static Schema.DisplayType getDataType(String sObjectName, String fieldName) {
