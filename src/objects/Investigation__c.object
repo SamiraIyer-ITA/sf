@@ -2520,6 +2520,72 @@
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
+        <fullName>Actual_Amended_Prelim_Determ_Sig_Null</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND ( 
+$RecordType.DeveloperName = &quot;AD&quot;, 
+ISPICKVAL(Amend_the_Preliminary_Determination__c , &quot;No&quot;), 
+NOT(AND(ISBLANK( Actual_Amended_Prelim_Determination_Sig__c))) 
+)</errorConditionFormula>
+        <errorMessage>If Amend the Preliminary Determination is &quot;No&quot;, then there should be null for Actual Amended Preliminary Determination Signature field.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Actual_Amended_Prelim_Determination_Null</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND ( 
+$RecordType.DeveloperName = &quot;CVD&quot;, 
+ISPICKVAL(Amend_the_Preliminary_Determination__c , &quot;No&quot;), 
+NOT(AND(ISBLANK(  Actual_Amended_Prelim_Determination_Sig__c))) 
+)</errorConditionFormula>
+        <errorMessage>If Amend the Preliminary Determination is &quot;No&quot;, then there should be null for Actual Amended Preliminary Determination Signature field.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Bounded_Days_For_AD_Final_Extension</fullName>
+        <active>true</active>
+        <errorConditionFormula>And (
+$RecordType.DeveloperName = &quot;AD&quot;, 
+OR(Final_Extension_of_days__c &gt; 60, Final_Extension_of_days__c &lt; 0)
+)</errorConditionFormula>
+        <errorMessage>Final extension # of days on AD Investigation can only range from 1 to 60 days.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Bounded_Days_For_AD_Prelim_Extension</fullName>
+        <active>true</active>
+        <errorConditionFormula>And (
+$RecordType.DeveloperName = &quot;AD&quot;, 
+OR(Prelim_Extension_of_days__c &gt; 50,  Prelim_Extension_of_days__c &lt; 0)
+)</errorConditionFormula>
+        <errorMessage>Preliminary extension # of days on AD Investigation can only range from 1 to 50 days.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Bounded_Days_For_CVD_Final_Extension</fullName>
+        <active>true</active>
+        <errorConditionFormula>And (
+$RecordType.DeveloperName = &quot;CVD&quot;, 
+OR(Final_Extension_of_days__c &gt; 90, Final_Extension_of_days__c &lt; 0)
+)</errorConditionFormula>
+        <errorMessage>Final extension # of days on CVD Investigation can only range from 1 to 90 days.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Bounded_Days_For_CVD_Prelim_Extension</fullName>
+        <active>true</active>
+        <errorConditionFormula>And (
+$RecordType.DeveloperName = &quot;CVD&quot;, 
+OR(Prelim_Extension_of_days__c &gt; 65, Prelim_Extension_of_days__c &lt; 0)
+)</errorConditionFormula>
+        <errorMessage>Preliminary extension # of days on CVD Investigation can only range from 1 to 65 days.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Calc_Amended_Prelim_Determination_Null</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND ( 
+$RecordType.DeveloperName = &quot;CVD&quot;, 
+ISPICKVAL(Amend_the_Preliminary_Determination__c , &quot;No&quot;), 
+NOT(AND(ISBLANK( Calc_Amended_Prelim_Determination_Sig__c ))) 
+)</errorConditionFormula>
+        <errorMessage>If Amend the Preliminary Determination is &quot;No&quot;, then there should be null for Calculated Amended Preliminary Determination Signature field.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Final_Extension_Null_If_False</fullName>
         <active>true</active>
         <errorConditionFormula>AND (
@@ -2546,6 +2612,16 @@ $RecordType.DeveloperName = &quot;CVD&quot;,
 Final_Extension_of_days__c &gt; 90
 )</errorConditionFormula>
         <errorMessage>Final extension cannot exceed 90 days when applicable.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Input_AD_Final_Determination_Sig_Null</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND ( 
+$RecordType.DeveloperName = &quot;CVD&quot;, 
+ISPICKVAL( Investigation_Aligned_with_the_AD_Invest__c , &quot;No&quot;), 
+NOT(AND(ISBLANK( If_Aligned_Input_AD_Final_Determin_Sig__c ))) 
+)</errorConditionFormula>
+        <errorMessage>If Investigation Aligned with AD Investigation is &quot;No&quot;, then there should be null for If Aligned Input AD Final Determination Signature field.</errorMessage>
     </validationRules>
     <visibility>Public</visibility>
 </CustomObject>

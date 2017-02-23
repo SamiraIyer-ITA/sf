@@ -19,9 +19,9 @@ public with sharing class BulkCsvTest {
   private static FINAL String       EXTERNAL_ID_FIELD_NAME = 'External_Id__c';
   private static FINAL String       DESCRIPTION_COL    = 'Test_Description';
   private static FINAL String       EXTERNAL_ID_COL    = 'External ID';
-  private static FINAL String       PARENT_RECORD_COL  = 'ParentRecord';
+  private static FINAL String       PARENT_RECORD_COL  = 'Parent Record';
   private static FINAL String       OBJECT_COL      = 'ObjectName';
-  private static FINAL String       OPERATION_COL    = 'Order';
+  private static FINAL String       OPERATION_COL    = 'Operation Order';
   private static FINAL String       EXPECTED_DML_COL  = 'DMLSuccess';
   private static Integer           operationColIndex;                  //index of the operation order column
   private static Integer           parentRecordColIndex;                //index of the parent record column
@@ -115,6 +115,7 @@ public with sharing class BulkCsvTest {
   public static Map<Integer, TestRow> rowNumberToTestRow  = new Map<Integer, TestRow>();
   public static List<TestRow> allTestRows = new List<TestRow>();
   
+  /* Ordered List of Rows to Process - ordered by OperationOrder column */
   public static Map<Integer, List<TestRow>> orderedTestRow {
     get {
       if(orderedTestRow == null) {
@@ -133,12 +134,20 @@ public with sharing class BulkCsvTest {
     return orderedTestRow;
     }
   }
+  /* Enhancement list 
+  *  User interface to load CSVs. Auto create the apex unit test. 
+  *  Test Result object
+  *  Option to run tests, roll back, and generate / attach CSV to test result
+  * 
+  */
   @isTest
-  private static void testFile1() {
-    runTestOnCsv('testCsvFile1', 10);
-    
+  private static void testad() {
+    runTestOnCsv('testad', 109);
   }
-
+  @isTest
+  private static void testcvd() {
+    runTestOnCsv('testcvd', 85);
+  }
   public static void runTestOnCsv(String fileName, Integer expectedCount) {
     //try {
       //query static resource
@@ -147,7 +156,7 @@ public with sharing class BulkCsvTest {
       initializeFile(csvFile);
       
       runOrderedOperation();
-      system.assert(validateAndAssert() == expectedCount, 'Wrong expected count');
+      system.assertEquals(expectedCount, validateAndAssert(), 'Wrong expected count');
       system.debug('CPU Time:' + LIMITS.getCpuTime());
       system.debug('DML Rows:' + LIMITS.getDmlRows());
       system.debug('SOQL Cnt:' + LIMITS.getQueries());
@@ -178,10 +187,12 @@ public with sharing class BulkCsvTest {
         TestRow relatedRow = externalIdToTestRow.get(tr.ExternalId); //pull back existing related row
         //TODO - if same row occurs twice and has different assertions it will fail
         //sObject list do not support upsert
-        if(relatedRow.SfdcId == null) { //insert record if it has not been populated already
-          sObjectListToInsert.add(createsObjectFromTestRow(tr));
-        } else {             //update record if it exists already
-          sObjectListToUpdate.add(createsObjectFromTestRow(tr));
+        if(createsObjectFromTestRow(tr) != null) {
+            if(relatedRow.SfdcId == null) { //insert record if it has not been populated already
+              sObjectListToInsert.add(createsObjectFromTestRow(tr));
+            } else {             //update record if it exists already
+              sObjectListToUpdate.add(createsObjectFromTestRow(tr));
+            }
         }
       }
 
@@ -202,9 +213,9 @@ public with sharing class BulkCsvTest {
           }
           }
       }
-
       //loop through fields to query and build dynamic query
       for(String sObjToQuery : sObjectFieldsToQuery.keySet()) { 
+        if(sObjToQuery == '') {continue;}
         String soqlQuery = 'SELECT Id, ' + EXTERNAL_ID_FIELD_NAME +' '; //build dynamic SOQL query
         for(String fieldToQuery: sObjectFieldsToQuery.get(sObjToQuery)) {
           soqlQuery += ', ' + fieldToQuery;
@@ -223,8 +234,13 @@ public with sharing class BulkCsvTest {
           Map<String, String> expectedValues = relatedRow.AssrtValueMap; //pull expected values from the related testrow
           for(String field: expectedValues.keySet()) {
             Schema.DisplayType fieldType = getDataType(relatedRow.SObjectType, field);
+            try{ 
              if(sObj.get(field) != stringToDisplayType(expectedValues.get(field), fieldType)) {
               relatedRow.RecordErrors.add('Unexpected value for field:' + field + '. Actual value: ' + sObj.get(field) + ' --- Expected Value: ' + expectedValues.get(field));
+          }
+              } catch (exception e) {
+              	relatedRow.RecordErrors.add('Failed to test input value - error:' + e.getMessage());
+
             }
           }
         }
@@ -245,8 +261,11 @@ public with sharing class BulkCsvTest {
   //KNOWN LIMITATION - can not handle multiple parents of same sObjectType
   public static void buildParentsObjectMap(Set<String> sObjectSet) {
     for(String sObjName: sObjectSet) {
-      system.assert(validFieldName(sObjName, EXTERNAL_ID_FIELD_NAME), 'Expected external Id: ' + EXTERNAL_ID_FIELD_NAME + ' on object ' + sObjName + '. Please create the unique external ID field on the object.');
       if(String.isBlank(sObjName)) { continue; }
+      system.debug(sObjName);
+
+      //blows up if no external ID name is found?
+      system.assert(validFieldName(sObjName, EXTERNAL_ID_FIELD_NAME), 'Expected external Id: ' + EXTERNAL_ID_FIELD_NAME + ' on object ' + sObjName + '. Please create the unique external ID field on the object.');
       Map<String, String> objNameToRelationshipName = new Map<String, String>();
       Schema.SObjectType sObjType = gd.get(sObjName); //dynamic binding of sObject name to schema
       for(Schema.SobjectField strFld: sObjType.getDescribe().fields.getMap().Values()) {
@@ -324,12 +343,15 @@ public with sharing class BulkCsvTest {
   }
 
   private static Boolean validFieldName(String sObjectName, String fieldName) {
-    if(String.IsBlank(sObjectName.trim()) || String.isBlank(fieldName.trim())) { return false; }
+    if(String.IsBlank(sObjectName.trim()) || String.isBlank(fieldName.trim()) || String.isBlank(fieldName) || getFieldsForSObject(sObjectName) == null) { return false; }
     return getFieldsForSObject(sObjectName).containsKey(fieldName.trim());
   }
 
   private static Map<String, Schema.SObjectField> getFieldsForSObject(String sObjectName){
-    return gd.get(sObjectName.trim()).getDescribe().fields.getMap();
+    if(!String.IsBlank(sObjectName) && gd.get(sObjectName.trim()) != null){
+      return gd.get(sObjectName.trim()).getDescribe().fields.getMap();
+      } 
+      return null;
   }
 
   private static Schema.DisplayType getDataType(String sObjectName, String fieldName) {
@@ -385,6 +407,7 @@ public with sharing class BulkCsvTest {
   /* initialize the file */ 
   private static void initializeFile(String myCsvFileString) {
     //split csv into an array
+    //does not handle intra cell line breaks
     csvArray = myCsvFileString.split('\n');
     //read the header & populate maps
 
@@ -406,12 +429,12 @@ public with sharing class BulkCsvTest {
        for(TestRow tr: allTestRows) {
          if(!tr.Error) {
            successCount++;
-      } else {
-        errorCount++;
-        for(String s: tr.RecordErrors) {
-          system.debug('V&A Test Failure:' + tr.RowNumber + ':' + s + ':' + tr);
-        }
-      }
+          } else {
+            errorCount++;
+            for(String s: tr.RecordErrors) {
+              system.debug('V&A Test Failure:' + tr.RowNumber + ':' + s + ':' + tr);
+            }
+          }
        }
        system.debug('V&A success count:' + successCount);
        system.debug('V&A error count: ' + errorCount);

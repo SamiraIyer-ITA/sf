@@ -122,8 +122,7 @@ public with sharing class TestUtils {
         }  
         return cs;
     }
-
-    //create Federal Register
+      //create Federal Register
     public static Federal_Register__c createFR(Date prelimPub, Boolean doInsert) {
         Federal_Register__c fr = new Federal_Register__c();
         fr.Type__c = 'Preliminary';
@@ -134,7 +133,6 @@ public with sharing class TestUtils {
         }
         return fr;
     }
-    
     //create Investigation
     public static Investigation__c createInvestigation(String recordTypeName, Petition__c p, Boolean doInsert) {
         Investigation__c i = new Investigation__c();

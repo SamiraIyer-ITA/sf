@@ -3,20 +3,20 @@
     <actionOverrides>
         <actionName>View</actionName>
         <comment>Action override created by Lightning App Builder during activation.</comment>
-        <content>ADCVD_Lightning_Layout</content>
-        <formFactor>Large</formFactor>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Flexipage</type>
-        <pageOrSobjectType>ADCVD_Order__c</pageOrSobjectType>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>View</actionName>
-        <comment>Action override created by Lightning App Builder during activation.</comment>
         <content>ADCVD_Investigation_Record</content>
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
         <pageOrSobjectType>Investigation__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>ADCVD_Lightning_Layout</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>ADCVD_Order__c</pageOrSobjectType>
     </actionOverrides>
     <brand>
         <headerColor>#1589EE</headerColor>
@@ -26,6 +26,211 @@
     <formFactors>Large</formFactors>
     <label>AD CVD Lightning</label>
     <navType>Standard</navType>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>ADCVD_Order__c</pageOrSobjectType>
+        <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Chatter Free User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>ADCVD_Order__c</pageOrSobjectType>
+        <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
+        <type>Flexipage</type>
+        <profile>ContractManager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>ADCVD_Order__c</pageOrSobjectType>
+        <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Chatter Moderator User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>ADCVD_Order__c</pageOrSobjectType>
+        <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Core Team</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>ADCVD_Order__c</pageOrSobjectType>
+        <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Customer Community Login User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>ADCVD_Order__c</pageOrSobjectType>
+        <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Data Team Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>ADCVD_Order__c</pageOrSobjectType>
+        <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
+        <type>Flexipage</type>
+        <profile>I&amp;A</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>ADCVD_Order__c</pageOrSobjectType>
+        <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Integrated User Profile</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>ADCVD_Order__c</pageOrSobjectType>
+        <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Security Review</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>ADCVD_Order__c</pageOrSobjectType>
+        <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>ADCVD_Order__c</pageOrSobjectType>
+        <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Trade Community Profile</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>ADCVD_Order__c</pageOrSobjectType>
+        <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Standard</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>ADCVD_Order__c</pageOrSobjectType>
+        <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
+        <type>Flexipage</type>
+        <profile>SolutionManager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Petition_Record</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Petition__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Petition_Record</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Petition__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>SolutionManager</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Petition_Record</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Petition__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Standard</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Petition_Record</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Petition__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Security Review</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Petition_Record</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Petition__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Salesforce Developer</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Petition_Record</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Petition__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Librarian</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Petition_Record</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Petition__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>ITA User Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Petition_Record</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Petition__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>ITA OPA/OLIA</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Petition_Record</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Petition__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>I&amp;A</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Petition_Record</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Petition__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>GM SelectUSA</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Petition_Record</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Petition__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>GM Commercial Service</profile>
+    </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
         <content>ADCVD_Petition_Record</content>
@@ -250,211 +455,6 @@
         <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
         <type>Flexipage</type>
         <profile>Chatter External User</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>ADCVD_Order__c</pageOrSobjectType>
-        <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Chatter Free User</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>ADCVD_Order__c</pageOrSobjectType>
-        <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
-        <type>Flexipage</type>
-        <profile>ContractManager</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>ADCVD_Order__c</pageOrSobjectType>
-        <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Chatter Moderator User</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>ADCVD_Order__c</pageOrSobjectType>
-        <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Core Team</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>ADCVD_Order__c</pageOrSobjectType>
-        <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Customer Community Login User</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>ADCVD_Order__c</pageOrSobjectType>
-        <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Data Team Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>ADCVD_Order__c</pageOrSobjectType>
-        <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
-        <type>Flexipage</type>
-        <profile>I&amp;A</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>ADCVD_Order__c</pageOrSobjectType>
-        <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Integrated User Profile</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>ADCVD_Order__c</pageOrSobjectType>
-        <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Security Review</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>ADCVD_Order__c</pageOrSobjectType>
-        <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>ADCVD_Order__c</pageOrSobjectType>
-        <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Trade Community Profile</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>ADCVD_Order__c</pageOrSobjectType>
-        <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Standard</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>ADCVD_Order__c</pageOrSobjectType>
-        <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
-        <type>Flexipage</type>
-        <profile>SolutionManager</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Petition_Record</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Petition__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Petition_Record</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Petition__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>SolutionManager</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Petition_Record</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Petition__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>Standard</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Petition_Record</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Petition__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>Security Review</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Petition_Record</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Petition__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>Salesforce Developer</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Petition_Record</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Petition__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>Librarian</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Petition_Record</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Petition__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>ITA User Read Only</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Petition_Record</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Petition__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>ITA OPA/OLIA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Petition_Record</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Petition__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>I&amp;A</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Petition_Record</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Petition__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>GM SelectUSA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Petition_Record</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Petition__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>GM Commercial Service</profile>
     </profileActionOverrides>
     <tab>standard-home</tab>
     <tab>Petition__c</tab>
