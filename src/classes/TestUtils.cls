@@ -1,13 +1,6 @@
 @isTest
 public with sharing class TestUtils {
-	public static ADCVD_Order__c createOrder(Boolean doInsert) {
-		ADCVD_Order__c o = new ADCVD_Order__c();
-		if(doInsert) {
-			insert o;
-		}
-		return o;
-	}
-
+	
 	private static Id adminProfileId = [SELECT Id FROM Profile WHERE Name=: 'System Administrator' LIMIT 1].Id;
 	
 	/*public static Staffing_Assignment__c createStaffingAssignment(Boolean doInsert, Segment__c seg, ADCVD_Order__c ord) {
@@ -17,16 +10,6 @@ public with sharing class TestUtils {
 		}
 		return sa;
 	}*/
-	public static Segment__c createSegment(Boolean doInsert, ADCVD_Order__c ord) {
-		Segment__c seg = new Segment__c();
-		if(ord != null && ord.Id != null) {
-			seg.ADCVD_Order__c = ord.Id;
-		}
-		if(doInsert) {
-			insert seg;
-		}
-		return seg;
-	}
 
 /*	/public static List<User> createStaffUsers(Boolean doInsert) {
 		Integer i = 0;
@@ -171,6 +154,16 @@ public with sharing class TestUtils {
         return opp;
     }
 
+    // create test order
+    public static ADCVD_Order__c createOrder(Boolean doInsert) {
+        ADCVD_Order__c o = new ADCVD_Order__c();
+        o.Anniversary_Month__c = 'January';
+        if(doInsert) {
+            insert o;
+        }
+        return o;
+    }
+
     // create test Petition
     public static Petition__c createPetition(Date petitionDate, String caseType, Boolean doInsert){
         Petition__c petition = new Petition__c();
@@ -191,6 +184,19 @@ public with sharing class TestUtils {
             insert petition;
         }
         return petition;
+    }
+
+    //create test segment
+    public static Segment__c createSegment(ADCVD_Order__c ord, String recordTypeName, Boolean doInsert) {
+        Segment__c seg = new Segment__c();
+        seg.RecordTypeId = utils.getRecordTypeIdMap('Segment__c').get(recordTypeName);
+        if(ord != null && ord.Id != null) {
+            seg.ADCVD_Order__c = ord.Id;
+        }
+        if(doInsert) {
+            insert seg;
+        }
+        return seg;
     }
 
     //create test Tolling Day
