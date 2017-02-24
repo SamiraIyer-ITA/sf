@@ -76,7 +76,7 @@ public without sharing class ADCVD_TollingDayUtility {
 		}
 		return deadline;
 	}
-	@TestVisible private static Boolean isWorkingDay(Date dt) {
+	public static Boolean isWorkingDay(Date dt) {
 		return isWeekday(dt) && !isHoliday(dt) && !isTollingDay(dt);
 	}
 	/* method returns true if date entered is a weekday */
@@ -109,7 +109,7 @@ public without sharing class ADCVD_TollingDayUtility {
 		return tollingDaySet.contains(dt);
 	}
 	/* method rolls the inputDate forward to next working day */
-	public static date rollForwardNextBusinessDay(date dt) {
+	@TestVisible private static date rollForwardNextBusinessDay(date dt) {
 		while (true) { //loop through until a working day is found
 			if(isWorkingDay(dt)) {
 				return dt;
