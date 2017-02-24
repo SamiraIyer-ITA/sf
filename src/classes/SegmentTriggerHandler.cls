@@ -6,7 +6,7 @@ public without sharing class SegmentTriggerHandler {
 	private static FINAL String CHANGED_CIRCUMSTANCES_REVIEW = '';
 	private static FINAL String EXPEDITED_REVIEW = '';
 	private static FINAL String NEW_SHIPPER_REVIEW = segmentCalcOffsets().get('New_Shipper_Calc_Prelim_Sig').Record_Type_Name__c;
-	private static FINAL String SCOPE_INQUIRY = '';
+	private static FINAL String SCOPE_INQUIRY = segmentCalcOffsets().get('Scope_Inq_Calc_Prelim_Sig').Record_Type_Name__c;
 	private static FINAL String SUNSET_REVIEW = '';
 
 	//FINAL Segment Administrative Review Offsets
@@ -17,13 +17,20 @@ public without sharing class SegmentTriggerHandler {
 	private static FINAL Integer AR_CALC_AMEN_FINAL_SIG = ((Integer)segmentCalcOffsets().get('Admin_Review_Calc_Amen_Final_Sig').Number_Value__c);//Calculated_Amended_Final_Signature__c
 
 	//FINAL Segment New Shipper Review Offsets
-	private static FINAL Integer NS_CALC_PRELIM_SIG = ((Integer)segmentCalcOffsets().get('New_Shipper_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature __c	
+	private static FINAL Integer NS_CALC_PRELIM_SIG = ((Integer)segmentCalcOffsets().get('New_Shipper_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature__c	
 	private static FINAL Integer NS_PRELIM_TEAM_MEET_DEADLINE = ((Integer)segmentCalcOffsets().get('New_Shipper_Prelim_Team_Meet_Deadline').Number_Value__c);//Prelim_Team_Meeting_Deadline__c	
 	private static FINAL Integer NS_CALC_FINAL_SIG = ((Integer)segmentCalcOffsets().get('New_Shipper_Calc_Final_Sig').Number_Value__c);//Calculated_Final_Signature__c
 	private static FINAL Integer NS_FINAL_TEAM_MEET_DEADLINE = ((Integer)segmentCalcOffsets().get('New_Shipper_Final_Team_Meet_Deadline').Number_Value__c);//Final_Team_Meeting_Deadline__c
 	private static FINAL Integer NS_CALC_AMEN_FINAL_SIG = ((Integer)segmentCalcOffsets().get('New_Shipper_Calc_Amen_Final_Sig').Number_Value__c);//Calculated_Amended_Final_Signature__c
 
 	//FINAL Segment Scope Inquiry Offsets
+	private static FINAL Integer SI_DEADLINE_FOR_DECISION_HOP = ((Integer)segmentCalcOffsets().get('Scope_Inq_Deadline_for_Decision_HoP').Number_Value__c);//Scope_Inq_Deadline_for_Decision_HoP__c	
+	private static FINAL Integer SI_CALC_PRELIM_SIG = ((Integer)segmentCalcOffsets().get('Scope_Inq_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature__c	
+	private static FINAL Integer SI_PRELIM_TEAM_MEET_DEADLINE = ((Integer)segmentCalcOffsets().get('Scope_Inq_Prelim_Team_Meet_Deadline').Number_Value__c);//Prelim_Team_Meeting_Deadline__c	
+	private static FINAL Integer SI_CALC_FINAL_SIG = ((Integer)segmentCalcOffsets().get('Scope_Inq_Calc_Final_Sig').Number_Value__c);//Calculated_Final_Signature__c
+	private static FINAL Integer SI_FINAL_TEAM_MEET_DEADLINE = ((Integer)segmentCalcOffsets().get('Scope_inq_Final_Team_Meet_Deadline').Number_Value__c);//Final_Team_Meeting_Deadline__c
+	
+
 	
 
 	public static boolean preventRecursion = false;
@@ -52,6 +59,7 @@ public without sharing class SegmentTriggerHandler {
     @TestVisible private static void calculateSegmentDates(List<Segment__c> newList) {
     	for (Segment__c s : newList) {
 			//Ordered Methods (must be done in a specific order)
+			setDeadlineForDecisionForHoP(s);
     		setCalculatedPreliminarySignature(s);
     		//dependent on setCalculatedPreliminarySignature
     		setPrelimTeamMeetingDeadline(s);
@@ -100,14 +108,24 @@ public without sharing class SegmentTriggerHandler {
     *********************************************************************************/
 
     //Ordered Methods
+    //sets Deadline_for_Decision_for_HoP__c for Scope Inquiry Segments
+    @TestVisible private static void setDeadlineForDecisionForHoP(Segment__c s) {
+    	if (recordTypeNameMap.get(s.RecordTypeId) == SCOPE_INQUIRY) {
+//TODO is Initiation_Extension_of_days__c correct?
+    		Integer extension = s.Initiation_Extension_of_days__c == null ? 0 : (Integer)s.Initiation_Extension_of_days__c;//null check on extension, set to 0 if null
+    		if(s.Request_Filed__c != null) {
+    			s.Deadline_for_Decision_on_How_to_Proceed__c = s.Request_Filed__c.addDays(SI_DEADLINE_FOR_DECISION_HOP).addDays(extension);
+    			s.Deadline_for_Decision_on_How_to_Proceed__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Request_Filed__c, s.Deadline_for_Decision_on_How_to_Proceed__c, true);
+    		}
+    	}
+    }
     //sets Calculated_Preliminary_Signature__c
     @TestVisible private static void setCalculatedPreliminarySignature(Segment__c s) {
+    	Integer extension = s.Prelim_Extension__c == null ? 0 : (Integer)s.Prelim_Extension__c;//null check on extension, set to 0 if null
     	if(recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW) {
-    		Integer extension = s.Prelim_Extension__c == null ? 0 : (Integer)s.Prelim_Extension__c;//null check on extension, set to 0 if null
 				s.Calculated_Preliminary_Signature__c = s.Final_Date_of_Anniversary_Month__c.addDays(AR_CALC_PRELIM_SIG).addDays(extension);
 				s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Final_Date_of_Anniversary_Month__c, s.Calculated_Preliminary_Signature__c, true);
 		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
-			Integer extension = s.Prelim_Extension__c == null ? 0 : (Integer)s.Prelim_Extension__c;//null check on extension, set to 0 if null
 			if (s.Actual_Initiation_Signature__c == null && s.Calculated_Initiation_Signature__c != null) {
                 s.Calculated_Preliminary_Signature__c = s.Calculated_Initiation_Signature__c.addDays(NS_CALC_PRELIM_SIG).addDays(extension);
 				s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Initiation_Signature__c, s.Calculated_Preliminary_Signature__c, true);
@@ -116,7 +134,14 @@ public without sharing class SegmentTriggerHandler {
 				s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Initiation_Signature__c, s.Calculated_Preliminary_Signature__c, true);
 			}
 		} else if (recordTypeNameMap.get(s.RecordTypeId) == SCOPE_INQUIRY) {
-
+//TODO  Are we sure Actual_Date_of_Decision_on_HoP__c won't be null?  Seems like it is user input with a VR.
+			if(s.Actual_Date_of_Decision_on_HoP__c == null && s.Deadline_for_Decision_on_How_to_Proceed__c != null) {
+				s.Calculated_Preliminary_Signature__c = s.Deadline_for_Decision_on_How_to_Proceed__c.addDays(SI_CALC_PRELIM_SIG).addDays(extension);
+				s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Deadline_for_Decision_on_How_to_Proceed__c, s.Calculated_Preliminary_Signature__c, true);
+			} else if (s.Actual_Date_of_Decision_on_HoP__c != null) {
+				s.Calculated_Preliminary_Signature__c = s.Actual_Date_of_Decision_on_HoP__c.addDays(SI_CALC_PRELIM_SIG).addDays(extension);
+				s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Date_of_Decision_on_HoP__c, s.Calculated_Preliminary_Signature__c, true);
+			}
 		}
     }
 
@@ -125,7 +150,7 @@ public without sharing class SegmentTriggerHandler {
         if(recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW) {
         	if (s.Calculated_Preliminary_Signature__c != null) {
         		s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(AR_PRELIM_TEAM_MEET_DEADLINE);
- //TODO       		//team meetings use a negative offset, which will never account for a tolling/weekend/holiday.  I recommend making rollforward public and calling that or adding a method for this.
+ //TODO     team meetings use a negative offset, which will never account for a tolling/weekend/holiday.  I recommend making rollforward public and calling that or adding a method for this.
         		s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Preliminary_Signature__c, s.Prelim_Team_Meeting_Deadline__c, true);
         	}
         } else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
@@ -134,7 +159,10 @@ public without sharing class SegmentTriggerHandler {
                 s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Preliminary_Signature__c, s.Prelim_Team_Meeting_Deadline__c, true);
             }
         } else if (recordTypeNameMap.get(s.RecordTypeId) == SCOPE_INQUIRY) {
-
+        	if (s.Calculated_Preliminary_Signature__c != null) {
+                s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(SI_PRELIM_TEAM_MEET_DEADLINE);
+                s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Preliminary_Signature__c, s.Prelim_Team_Meeting_Deadline__c, true);
+            }
 		}
     }
 
@@ -159,7 +187,13 @@ public without sharing class SegmentTriggerHandler {
                 s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Preliminary_Signature__c, s.Calculated_Final_Signature__c, true);
             }
     	} else if (recordTypeNameMap.get(s.RecordTypeId) == SCOPE_INQUIRY) {
-
+    		if(s.Actual_Date_of_Decision_on_HoP__c == null && s.Deadline_for_Decision_on_How_to_Proceed__c != null) {
+				s.Calculated_Preliminary_Signature__c = s.Deadline_for_Decision_on_How_to_Proceed__c.addDays(SI_CALC_FINAL_SIG).addDays(extension);
+				s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Deadline_for_Decision_on_How_to_Proceed__c, s.Calculated_Preliminary_Signature__c, true);
+			} else if (s.Actual_Date_of_Decision_on_HoP__c != null) {
+				s.Calculated_Preliminary_Signature__c = s.Actual_Date_of_Decision_on_HoP__c.addDays(SI_CALC_FINAL_SIG).addDays(extension);
+				s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Date_of_Decision_on_HoP__c, s.Calculated_Preliminary_Signature__c, true);
+			}
 		}
     }
 
@@ -176,7 +210,10 @@ public without sharing class SegmentTriggerHandler {
                 s.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Final_Signature__c, s.Final_Team_Meeting_Deadline__c, true);
             }
 	    } else if (recordTypeNameMap.get(s.RecordTypeId) == SCOPE_INQUIRY) {
-
+	    	if (s.Calculated_Final_Signature__c != null) {
+                s.Final_Team_Meeting_Deadline__c = s.Calculated_Final_Signature__c.addDays(SI_FINAL_TEAM_MEET_DEADLINE);
+                s.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Final_Signature__c, s.Final_Team_Meeting_Deadline__c, true);
+            }
 		}
     }
 
@@ -192,8 +229,6 @@ public without sharing class SegmentTriggerHandler {
 	            s.Calculated_Amended_Final_Signature__c = s.Calculated_Final_Signature__c.addDays(0);
 	            s.Calculated_Amended_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Final_Signature__c, s.Calculated_Amended_Final_Signature__c, true);
 	        }
-        } else if (recordTypeNameMap.get(s.RecordTypeId) == SCOPE_INQUIRY) {
-
-		}
+        }
     }
 }
