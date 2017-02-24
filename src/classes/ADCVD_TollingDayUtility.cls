@@ -76,7 +76,7 @@ public without sharing class ADCVD_TollingDayUtility {
 		}
 		return deadline;
 	}
-	@TestVisible private static Boolean isWorkingDay(Date dt) {
+	public static Boolean isWorkingDay(Date dt) {
 		return isWeekday(dt) && !isHoliday(dt) && !isTollingDay(dt);
 	}
 	/* method returns true if date entered is a weekday */

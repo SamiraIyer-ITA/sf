@@ -116,6 +116,11 @@
             <field>Petition_Outcome__c</field>
             <table>Petition__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Actual_Initiation_Sig_After_Calculated__c</field>
+            <table>Petition__c</table>
+        </columns>
         <masterLabel>Petitions</masterLabel>
     </sections>
 </ReportType>
