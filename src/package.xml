@@ -89,8 +89,8 @@
         <members>Respondent__c</members>
         <members>Row__c</members>
         <members>Section__c</members>
-        <members>Segment__c</members>
         <members>Segment_Constant__mdt</members>
+        <members>Segment__c</members>
         <members>Series__c</members>
         <members>Site__c</members>
         <members>Social_Icons__c</members>
@@ -137,6 +137,7 @@
         <members>ADCVD</members>
         <members>ADCVD/ADCVD_Order_By_Commodities</members>
         <members>ADCVD/ADCVD_Order_By_Commodities1</members>
+        <members>ADCVD/Petition_Actual_Signature_After_Deadline</members>
         <name>Report</name>
     </types>
     <types>
