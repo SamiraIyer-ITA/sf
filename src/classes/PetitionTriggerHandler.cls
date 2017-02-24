@@ -43,8 +43,8 @@ public without sharing class PetitionTriggerHandler {
     }
     @TestVisible private static void rollForwardNextBusinessDay(List<Petition__c> newList) {
         for (Petition__c p : newList) {
-            if(p.Actual_Initiation_Signature__c != null) {
-                ADCVD_TollingDayUtility.rollForwardNextBusinessDay(p.Actual_Initiation_Signature__c);
+            if(p.Actual_Initiation_Signature__c != null && !ADCVD_TollingDayUtility.isWorkingDay(p.Actual_Initiation_Signature__c)) {
+                p.Actual_Initiation_Signature__c.addError('The Actual Initiation Signature date is invalid.');
             }
         }
     }

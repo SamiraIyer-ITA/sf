@@ -53,6 +53,15 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
+        <fullName>Actual_Initiation_Sig_After_Calculated__c</fullName>
+        <externalId>false</externalId>
+        <formula>Actual_Initiation_Signature__c &gt; Calculated_Initiation_Signature__c</formula>
+        <label>Actual Initiation Sig After Calculated</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Actual_Initiation_Signature__c</fullName>
         <description>Actual Initiation Signature</description>
         <externalId>false</externalId>
