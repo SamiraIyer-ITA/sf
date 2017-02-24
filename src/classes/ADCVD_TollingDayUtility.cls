@@ -109,7 +109,7 @@ public without sharing class ADCVD_TollingDayUtility {
 		return tollingDaySet.contains(dt);
 	}
 	/* method rolls the inputDate forward to next working day */
-	@TestVisible private static date rollForwardNextBusinessDay(date dt) {
+	public static date rollForwardNextBusinessDay(date dt) {
 		while (true) { //loop through until a working day is found
 			if(isWorkingDay(dt)) {
 				return dt;
