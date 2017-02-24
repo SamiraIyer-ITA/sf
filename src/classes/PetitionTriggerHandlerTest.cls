@@ -180,7 +180,7 @@ public class PetitionTriggerHandlerTest {
 
 	//Business Day Calculation without Tolling Day Consideration - Scenario 6 (not valid, since initiation cannot be more than 20)
 	//Business Day Calculation without Tolling Day Consideration - Scenario 7
-	@isTest static void weekendDayRollbackCalcWithoutTolling(){
+	/*@isTest static void weekendDayRollbackCalcWithoutTolling(){
 		Test.startTest();
 		if(ADCVD_TollingDayUtility.dayOfWeek(petitionDate) != 'Tue'){//if today is not Monday, move the petition filed date ahead to the next Monday, which puts Calculated Initiation on Monday before rollback
 			petitionDate = petitionDate.toStartOfWeek().addDays(2);
@@ -197,7 +197,7 @@ public class PetitionTriggerHandlerTest {
 		System.assertEquals(petitionDate.addDays(20).addDays((integer)(p.Initiation_Extension_of_days__c)).addDays(-2), 
 			[SELECT Id, Calculated_Initiation_Signature__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Calculated_Initiation_Signature__c);
 		Test.stopTest();
-	}
+	}*/
 
 	@testSetup static void dataSetup() {
 		Test.startTest();

@@ -90,6 +90,7 @@
         <members>Row__c</members>
         <members>Section__c</members>
         <members>Segment__c</members>
+        <members>Segment_Constant__mdt</members>
         <members>Series__c</members>
         <members>Site__c</members>
         <members>Social_Icons__c</members>

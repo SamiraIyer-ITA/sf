@@ -12,9 +12,11 @@ public without sharing class PetitionTriggerHandler {
             recalculateInvestigations(newMap);
         }
         if(isBefore && isInsert) {
+            rollForwardNextBusinessDay(newList);
             calculatePetitionDates(newList);
         }
         if(isBefore && isUpdate) {
+            rollForwardNextBusinessDay(newList);
             calculatePetitionDates(newList);
         }
     }
@@ -36,6 +38,13 @@ public without sharing class PetitionTriggerHandler {
                 }
 */
                 p.Calculated_Initiation_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(p.Petition_Filed__c, p.Calculated_Initiation_Signature__c, rollforward);
+            }
+        }
+    }
+    @TestVisible private static void rollForwardNextBusinessDay(List<Petition__c> newList) {
+        for (Petition__c p : newList) {
+            if(p.Actual_Initiation_Signature__c != null) {
+                ADCVD_TollingDayUtility.rollForwardNextBusinessDay(p.Actual_Initiation_Signature__c);
             }
         }
     }
