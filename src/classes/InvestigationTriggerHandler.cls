@@ -63,14 +63,14 @@ public without sharing class InvestigationTriggerHandler {
     @TestVisible private static Map<Id,Petition__c> petitionsInScopeMap = new Map<Id,Petition__c>();
     @TestVisible private static Set<Id> unfinishedPetitions = new Set<Id>();
     @TestVisible private static Map<Id,String> recordTypeNameMap = new Map<Id,String>();
-    @TestVisible private static Map<Id,Federal_Register__c> investigationIdToFRMap = new Map<Id,Federal_Register__c>();
+    @TestVisible private static Map<Id,List<Federal_Register__c>> investigationIdToFRMap = new Map<Id,List<Federal_Register__c>>();
 
     //Setup Methods used to set class level variables
     @TestVisible private static void initialize(List<Investigation__c> newList, Map<Id,Investigation__c> newMap) {
         petitionsInScopeMap = findPetitionsInScopeMap(newList);
         recordTypeNameMap = utils.getRecordTypeDeveloperNameMap(newList[0]);
         if (newMap != null) {
-           investigationIdToFRMap = investigationIdToFRMap(newMap);
+           investigationIdToFRMap = investigationIdToFRMap(newList);
         }
     }
     //Syncs petition fields to investigation fields and AD to CVD if aligned
@@ -130,16 +130,18 @@ public without sharing class InvestigationTriggerHandler {
     	return returnMap;
     }
     //returns a map of Federal Register objects in the form: key = Investigation Id, value = Federal Register object
-    @TestVisible private static Map<Id,Federal_Register__c> investigationIdToFRMap(Map<Id, Investigation__c> newMap) {
-    	Map<Id,Federal_Register__c> returnMap = new Map<Id,Federal_Register__c>();
-    	for (Federal_Register__c fr : [SELECT Id, Type__c, Do_Delete__c, Published_Date__c, Postponement_of_Final_Determination_FR__c, Investigation__c 
-    									FROM Federal_Register__c WHERE Investigation__c IN: newMap.keySet()]) {
-    		if (fr.Type__c == 'Preliminary' && !fr.Do_Delete__c) {
-    			returnMap.put(fr.Investigation__c, fr);
-            } else if (fr.Type__c == 'Preliminary' && fr.Do_Delete__c) {
-                returnMap.put(fr.Investigation__c, null);
+    @TestVisible private static Map<Id,List<Federal_Register__c>> investigationIdToFRMap(List<Investigation__c> newList) {
+        Map<Id,List<Federal_Register__c>> returnMap = ADCVD_FederalRegisterUtility.getParentIdToFRsMap(newList);
+        for(Investigation__c i : newList) {
+            if(i.Id != null) {
+                for(Federal_Register__c fr : returnMap.get(i.Id)) {
+                    if (fr.Do_Delete__c) {
+                        fr = null;
+                    }
+                }
             }
-    	}
+        }
+        
     	return returnMap;
     }
     //returns a map of <String,Integer> in the form: key = CMT Api name, CMT number value
@@ -243,7 +245,7 @@ public without sharing class InvestigationTriggerHandler {
 
     //sets Calculated_Final_Signature__c, requires Calculated_Preliminary_Signature__c to be set
     @TestVisible private static void setCalculatedFinalSignature(Investigation__c i){
-    	Federal_Register__c fr = investigationIdToFRMap.get(i.Id);
+    	Federal_Register__c fr = investigationIdToFRMap.get(i.Id)[0];
         Integer extension = i.Final_Extension_of_days__c == null ? 0 : (Integer)i.Final_Extension_of_days__c;//null check on extension, set to 0 if null
     	if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
     		if (fr == null || fr.Postponement_of_Final_Determination_FR__c == null) {
@@ -453,7 +455,7 @@ public without sharing class InvestigationTriggerHandler {
 
     //sets Termination_of_Suspension_Gap_Period_Beg__c
     @TestVisible private static void setTerminationofSuspensionGapPeriodBeg(Investigation__c i){
-    	Federal_Register__c fr = investigationIdToFRMap.get(i.Id);
+    	Federal_Register__c fr = investigationIdToFRMap.get(i.Id)[0];
     	if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
 	    	if (fr != null && fr.Published_Date__c != null) {
 		    	i.Termination_of_Suspension_Gap_Period_Beg__c = i.Final_Extension_of_days__c == null ? 

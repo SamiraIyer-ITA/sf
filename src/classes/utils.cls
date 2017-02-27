@@ -32,4 +32,36 @@ public without sharing class utils {
 		Map<String,Id> returnMap = getRecordTypeIdMap(sObjectName);
 		return returnMap;
 	}
+	//Gets a map of an object's fields in the form: String object name, List<String> field names
+	public static Map<String,List<String>> getObjectToFieldMap(String sObjectName) {
+		Map<String,List<String>> returnMap = new Map<String,List<String>>();
+		List<String> fieldList = new List<String>();
+		Schema.DescribeSObjectResult dsr = Schema.getGlobalDescribe().get(sObjectName).getDescribe();
+		Map<String,Schema.SObjectField> tempFieldMap = dsr.fields.getMap();
+		for(String fieldName : tempFieldMap.keySet()) {
+			fieldList.add(fieldName);
+		}
+		returnMap.put(sObjectName, fieldList);
+		return returnMap;
+
+	}
+	public static Map<String,List<String>> getObjectToFieldMap(SObject o) {
+		String sObjectName = getSObjectName(o);
+		Map<String,List<String>> returnMap = getObjectToFieldMap(sObjectName);
+		return returnMap;
+	}
+	//Gets a map of an object's fields in the form: String object name, List<String> field names
+	public static Map<String,Schema.SObjectField> getFieldMap(String sObjectName) {
+		Map<String,Schema.SObjectField> returnMap = new Map<String,Schema.SObjectField>();
+		List<String> fieldList = new List<String>();
+		Schema.DescribeSObjectResult dsr = Schema.getGlobalDescribe().get(sObjectName).getDescribe();
+		returnMap = dsr.fields.getMap();
+		return returnMap;
+
+	}
+	public static Map<String,Schema.SObjectField> getFieldMap(SObject o) {
+		String sObjectName = getSObjectName(o);
+		Map<String,Schema.SObjectField> returnMap = getFieldMap(sObjectName);
+		return returnMap;
+	}
 }

@@ -12,11 +12,11 @@ public without sharing class PetitionTriggerHandler {
             recalculateInvestigations(newMap);
         }
         if(isBefore && isInsert) {
-            rollForwardNextBusinessDay(newList);
+            alertsOnDates(newList);
             calculatePetitionDates(newList);
         }
         if(isBefore && isUpdate) {
-            rollForwardNextBusinessDay(newList);
+            alertsOnDates(newList);
             calculatePetitionDates(newList);
         }
     }
@@ -41,10 +41,12 @@ public without sharing class PetitionTriggerHandler {
             }
         }
     }
-    @TestVisible private static void rollForwardNextBusinessDay(List<Petition__c> newList) {
+    @TestVisible private static void alertsOnDates(List<Petition__c> newList) {
         for (Petition__c p : newList) {
-            if(p.Actual_Initiation_Signature__c != null && !ADCVD_TollingDayUtility.isWorkingDay(p.Actual_Initiation_Signature__c)) {
-                p.Actual_Initiation_Signature__c.addError('The Actual Initiation Signature date is invalid.');
+            if(p.Actual_Initiation_Signature__c != null && !ADCVD_TollingDayUtility.isWeekday(p.Actual_Initiation_Signature__c)) {
+                p.Actual_Initiation_Signature__c.addError('The Actual Initiation Signature date cannot be on a weekend.');
+            } else if (p.Actual_Initiation_Signature__c != null && !ADCVD_TollingDayUtility.isWeekday(p.Actual_Initiation_Signature__c)) {
+                p.Actual_Initiation_Signature__c.addError('The Actual Initiation Signature date cannot be on a holiday');
             }
         }
     }

@@ -1,7 +1,7 @@
 public without sharing class SegmentTriggerHandler {
 	
 	//FINAL Segment Record Types
-	private static FINAL String ADMIN_REVIEW = segmentCalcOffsets().get('Admin_Review_Calc_Amen_Final_Sig').Record_Type_Name__c;
+	private static FINAL String ADMIN_REVIEW = segmentCalcOffsets().get('Admin_Review_Calc_Prelim_Sig').Record_Type_Name__c;
 	private static FINAL String ANTI_CIRCUMVENTION_REVIEW = '';
 	private static FINAL String CHANGED_CIRCUMSTANCES_REVIEW = '';
 	private static FINAL String EXPEDITED_REVIEW = '';
@@ -54,7 +54,7 @@ public without sharing class SegmentTriggerHandler {
     }
 
     @TestVisible private static Map<Id,String> recordTypeNameMap = new Map<Id,String>();
-    @TestVisible private static Map<Id,Federal_Register__c> segmentIdToFRMap = new Map<Id,Federal_Register__c>();
+    @TestVisible private static Map<Id,List<Federal_Register__c>> segmentIdToFRMap = new Map<Id,List<Federal_Register__c>>();
 
     @TestVisible private static void calculateSegmentDates(List<Segment__c> newList) {
     	for (Segment__c s : newList) {
@@ -74,19 +74,13 @@ public without sharing class SegmentTriggerHandler {
     @TestVisible private static void initialize(List<Segment__c> newList, Map<Id,Segment__c> newMap) {
         //petitionsInScopeMap = findPetitionsInScopeMap(newList);
         recordTypeNameMap = utils.getRecordTypeDeveloperNameMap(newList[0]);
-        if (newMap != null) {
-           segmentIdToFRMap = segmentIdToFRMap(newMap);
+        if(newMap != null) {
+            segmentIdToFRMap = segmentIdToFRMap(newMap.values());
         }
     }
     //returns a map of Federal Register objects in the form: key = Segment__c Id, value = Federal Register object
-    @TestVisible private static Map<Id,Federal_Register__c> segmentIdToFRMap(Map<Id, Segment__c> newMap) {
-    	Map<Id,Federal_Register__c> returnMap = new Map<Id,Federal_Register__c>();
-    	for (Federal_Register__c fr : [SELECT Id, Type__c, Published_Date__c, Segment__c 
-    									FROM Federal_Register__c WHERE Segment__c IN: newMap.keySet()]) {
-    		if (fr.Type__c == 'Preliminary') {
-    			returnMap.put(fr.Segment__c, fr);
-    		}
-    	}
+    @TestVisible private static Map<Id,List<Federal_Register__c>> segmentIdToFRMap(List<Segment__c> newList) {
+    	Map<Id,List<Federal_Register__c>> returnMap = ADCVD_FederalRegisterUtility.getParentIdToFRsMap(newList);
     	return returnMap;
     }
     //returns a map of <String,Integer> in the form: key = CMT Api name, CMT number value
@@ -122,6 +116,8 @@ public without sharing class SegmentTriggerHandler {
     //sets Calculated_Preliminary_Signature__c
     @TestVisible private static void setCalculatedPreliminarySignature(Segment__c s) {
     	Integer extension = s.Prelim_Extension__c == null ? 0 : (Integer)s.Prelim_Extension__c;//null check on extension, set to 0 if null
+        System.debug(recordTypeNameMap.get(s.RecordTypeId));
+        System.debug(ADMIN_REVIEW);
     	if(recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW) {
 				s.Calculated_Preliminary_Signature__c = s.Final_Date_of_Anniversary_Month__c.addDays(AR_CALC_PRELIM_SIG).addDays(extension);
 				s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Final_Date_of_Anniversary_Month__c, s.Calculated_Preliminary_Signature__c, true);
@@ -168,13 +164,18 @@ public without sharing class SegmentTriggerHandler {
 
     //sets Calculated_Final_Signature__c, requires Calculated_Preliminary_Signature__c to be set
     @TestVisible private static void setCalculatedFinalSignature(Segment__c s){
-    	Federal_Register__c fr = segmentIdToFRMap.get(s.Id);
+        Federal_Register__c fr = null;
+        String frType = '';
+        if(segmentIdToFRMap.get(s.Id) != null) {
+            fr = segmentIdToFRMap.get(s.Id)[0];
+            frType = fr.Type__c != null ? fr.Type__c : '';
+        }
         Integer extension = s.Final_Extension_of_days__c == null ? 0 : (Integer)s.Final_Extension_of_days__c;//null check on extension, set to 0 if null
     	if (recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW) {
-    		if (fr == null || fr.Published_Date__c == null) {
+    		if (fr == null || fr.Published_Date__c == null || frType != 'Preliminary') {
 				s.Calculated_Final_Signature__c = s.Calculated_Preliminary_Signature__c.addDays(AR_CALC_FINAL_SIG).addDays(extension);
 				s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Preliminary_Signature__c, s.Calculated_Final_Signature__c, true);
-    		} else if (fr.Published_Date__c != null) {
+    		} else if (fr.Published_Date__c != null && frType == 'Preliminary') {
     			s.Calculated_Final_Signature__c = fr.Published_Date__c.addDays(AR_CALC_FINAL_SIG).addDays(extension);
     			s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(fr.Published_Date__c, s.Calculated_Final_Signature__c, true);
     		}

@@ -22,7 +22,7 @@ public without sharing class SyncUtility {
 	@TestVisible private static Map<Id,List<SObject>> sourceIdToTargetObjectMap = new Map<Id,List<SObject>>();
 
 	//Object specific variables
-	//Sync Petition to Investigation
+	//Sync to Investigation
 	@TestVisible private static List<Investigation__c> investigationList = new List<Investigation__c>();
 	@TestVisible private static Set<String> allInvestigationSources = new Set<String>{'Petition__c', 'Investigation__c'};
 	@TestVisible private static List<Sync_Investigation__mdt> investigationCMT {
