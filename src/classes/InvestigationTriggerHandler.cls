@@ -70,7 +70,7 @@ public without sharing class InvestigationTriggerHandler {
         petitionsInScopeMap = findPetitionsInScopeMap(newList);
         recordTypeNameMap = utils.getRecordTypeDeveloperNameMap(newList[0]);
         if (newMap != null) {
-           investigationIdToFRMap = investigationIdToFRMap(newList);
+           investigationIdToFRMap = findInvestigationIdToFRMap(newMap);//pass newMap to only get Investigations with an Id
         }
     }
     //Syncs petition fields to investigation fields and AD to CVD if aligned
@@ -106,6 +106,12 @@ public without sharing class InvestigationTriggerHandler {
     		setTerminationofSuspensionGapPeriodBeg(i);
     	}
     }
+
+    /*******************************************************************************
+     * Methods in this section are used to set class level variables or 
+     * make it easier access to them in the class
+     ********************************************************************************/
+
     //returns a set of Petition Ids in scope of the Investigations in trigger
     @TestVisible private static Set<Id> findIdsInScope(List<Investigation__c> newList) {
     	Set<Id> petitionIdSet = new Set<Id>();
@@ -130,9 +136,9 @@ public without sharing class InvestigationTriggerHandler {
     	return returnMap;
     }
     //returns a map of Federal Register objects in the form: key = Investigation Id, value = Federal Register object
-    @TestVisible private static Map<Id,Map<String,List<Federal_Register__c>>> investigationIdToFRMap(List<Investigation__c> newList) {
-        Map<Id,Map<String,List<Federal_Register__c>>> returnMap = ADCVD_FederalRegisterUtility.getParentIdToFRsMap(newList);
-        for(Investigation__c i : newList) {
+    @TestVisible private static Map<Id,Map<String,List<Federal_Register__c>>> findInvestigationIdToFRMap(Map<Id,Investigation__c> newMap) {
+        Map<Id,Map<String,List<Federal_Register__c>>> returnMap = ADCVD_FederalRegisterUtility.getParentIdToFRsMap(newMap.values());
+        for(Investigation__c i : newMap.values()) {
             if(i != null && i.Id != null && returnMap.get(i.Id) != null) {
                 for(String frType : returnMap.get(i.Id).keySet()) {
                     if (returnMap.get(i.Id).get(frType) != null) {
@@ -217,11 +223,11 @@ public without sharing class InvestigationTriggerHandler {
     }
     
 
-    /***************************************************************
-    *These methods set the values for specific fields
+    /****************************************************************************************
+    *These methods set the values for specific dates as part of calculateInvestigationDates()
     *The naming convention is set<FieldAPIName>
     *All share the same params of a single Investigation object
-    ***************************************************************/
+    ****************************************************************************************/
 
     //checks that the petition has the values to proceed...this avoids NPEs on Petitions without dates to start calculations
     @TestVisible private static Boolean findCompletePetition(Investigation__c i){
@@ -304,22 +310,21 @@ public without sharing class InvestigationTriggerHandler {
 
     //sets Calculated_Final_Signature__c, requires Calculated_Preliminary_Signature__c to be set
     @TestVisible private static void setCalculatedFinalSignature(Investigation__c i){
-        Date postponement = frDate(i, 'Postponement_of_Final_Determination_FR__c', 'Preliminary');
         Date prelimpublished = frDate(i, 'Published_Date__c', 'Preliminary');
         Integer extension = i.Final_Extension_of_days__c == null ? 0 : (Integer)i.Final_Extension_of_days__c;//null check on extension, set to 0 if null
     	if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
-    		if (postponement == null) {
-    			if (i.Actual_Preliminary_Signature__c == null) {
-    				i.Calculated_Final_Signature__c = i.Calculated_Preliminary_Signature__c.addDays(AD_CALC_FINAL_SIGN);
-    				i.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Calculated_Preliminary_Signature__c, i.Calculated_Final_Signature__c, true);
-    			} else {
-    				i.Calculated_Final_Signature__c = i.Actual_Preliminary_Signature__c.addDays(AD_CALC_FINAL_SIGN);
-    				i.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Actual_Preliminary_Signature__c, i.Calculated_Final_Signature__c, true);
-    			}
-    		} else if (postponement != null && prelimpublished != null) {
-    			i.Calculated_Final_Signature__c = prelimpublished.addDays(AD_CALC_FINAL_SIGN).addDays(extension);
-    			i.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(prelimpublished, i.Calculated_Final_Signature__c, true);
-    		}
+    		if (extension > 0 && prelimpublished != null) {
+                i.Calculated_Final_Signature__c = prelimpublished.addDays(AD_CALC_FINAL_SIGN).addDays(extension);
+                i.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(prelimpublished, i.Calculated_Final_Signature__c, true);
+            } else {
+                if (i.Actual_Preliminary_Signature__c == null) {
+                    i.Calculated_Final_Signature__c = i.Calculated_Preliminary_Signature__c.addDays(AD_CALC_FINAL_SIGN);
+                    i.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Calculated_Preliminary_Signature__c, i.Calculated_Final_Signature__c, true);
+                } else {
+                    i.Calculated_Final_Signature__c = i.Actual_Preliminary_Signature__c.addDays(AD_CALC_FINAL_SIGN);
+                    i.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Actual_Preliminary_Signature__c, i.Calculated_Final_Signature__c, true);
+                }
+            }
     	} else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD && i.AD_Investigation_Aligned_To__c == null) {
             if (i.Actual_Preliminary_Signature__c == null) {
                 i.Calculated_Final_Signature__c = i.Calculated_Preliminary_Signature__c.addDays(CVD_CALC_FINAL_SIGN);

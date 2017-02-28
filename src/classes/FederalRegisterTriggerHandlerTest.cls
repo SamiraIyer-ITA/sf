@@ -33,17 +33,17 @@ public class FederalRegisterTriggerHandlerTest {
 
 	@isTest static void findInvestigationsInScope(){
 		Test.startTest();
-		Federal_Register__c fr = TestUtils.createFR(publishDate.addDays(200), false);
+		Federal_Register__c fr = TestUtils.createFR(publishDate.addDays(200), 'Preliminary', false);
 		fr.Investigation__c = investigationList[0].Id;
 		List<Federal_Register__c> frList = new List<Federal_Register__c>();
 		frList.add(fr);
 		//when given a fr list, the method returns an Investigation Id set
-		System.assert(FederalRegisterTriggerHandler.findInvestigationsInScope(frList, null).contains(investigationList[0].Id));
+		System.assert(FederalRegisterTriggerHandler.findParentsInScope(frList, null).contains(investigationList[0].Id));
 		Test.stopTest();
 	}
 	@isTest static void recalculateInvestigationFederalRegister(){
 		Test.startTest();
-		Federal_Register__c fr = TestUtils.createFR(publishDate.addDays(300), false);
+		Federal_Register__c fr = TestUtils.createFR(publishDate.addDays(300), 'Preliminary', false);
 		//curent Final Signature prior to fr insert
 		Date testCalculated_Final_Signature = investigationList[0].Calculated_Final_Signature__c;
 		fr.Investigation__c = investigationList[0].Id;
