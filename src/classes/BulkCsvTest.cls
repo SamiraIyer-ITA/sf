@@ -1,3 +1,4 @@
+//TODO - create user story on "has tolling days been applied" to an investigation / petition / segment
 @isTest
 public with sharing class BulkCsvTest {
   private static String           csvFile;
@@ -74,6 +75,8 @@ public with sharing class BulkCsvTest {
 
     public testRow(List<String> myCurrentRow, Integer rowNumber) {
       try {
+        system.debug('##DEBUG ' + myCurrentRow);
+        system.debug('##DEBUG ' + rowNumber);
         this.Description     = myCurrentRow[descriptionColumnIndex];
         this.ExternalId     = myCurrentRow[externalIdColumnIndex];
         this.ParentRecord     = myCurrentRow[parentRecordColIndex];
@@ -83,6 +86,7 @@ public with sharing class BulkCsvTest {
         this.RowNumber      = rowNumber;
 
         if(!String.isBlank(this.SObjectType)) {//if the object type is null, it is not a valid record
+          //TODO - if object does not exist, throws an error that the external id does not exist
           this.InputValueMap.put(EXTERNAL_ID_FIELD_NAME, this.ExternalId); //validate external Id exists on object
           for(Integer i = 0; i < myCurrentRow.size(); i++) { //iterate over row
             String cellValue = myCurrentRow[i];      //value of the cell in scope
@@ -142,7 +146,7 @@ public with sharing class BulkCsvTest {
   */
   @isTest
   private static void testad() {
-    runTestOnCsv('testad', 109);
+    runTestOnCsv('testad', 59);
   }
   @isTest
   private static void testcvd() {
@@ -165,9 +169,42 @@ public with sharing class BulkCsvTest {
     //}
   }
   private static void runOrderedOperation() {
-    
     for(Integer i: orderedTestRow.keySet()) { //loop through ordered set of operations
-      Map<String, Integer> externalIdToCurrentRow = new Map<String, Integer>();
+      if(i == 0 && Test.isRunningTest()) { //operation order 0 is for data setup
+        System.runAs(adminUser){
+          runOrderedRow(i);
+        } 
+      } else {
+        runOrderedRow(i);
+      }
+     } // end loop
+  }
+  private static User adminUser {
+    get {
+        if(adminUser == null) {
+            String uniqueString = String.ValueOf(System.Now().getTime());
+            Id adminProfileId = [SELECT Id FROM Profile WHERE Name=: 'System Administrator' LIMIT 1].Id;
+            adminUser = new User();
+            adminUser.ProfileId = adminProfileId;
+            adminUser.isActive = true;
+            adminUser.Alias = uniqueString.left(7);
+            adminUser.LocaleSidKey = 'en_US';
+            adminUser.LanguageLocaleKey='en_US';
+            adminUser.LastName = uniqueString;
+            adminUser.FirstName = uniqueString;
+            adminUser.EmailEncodingKey = 'ISO-8859-1';
+            adminUser.Email = uniqueString + '@' + uniqueString  +'.com';
+            adminUser.TimeZoneSidKey = 'America/New_York';
+            adminUser.CommunityNickname = uniqueString;
+            adminUser.UserName = uniqueString + '@' + uniqueString  +'.com';
+            insert adminUser;
+
+          }
+        return adminUser;
+      } 
+    set;}
+  private static void runOrderedRow(Integer i) {
+     Map<String, Integer> externalIdToCurrentRow = new Map<String, Integer>();
       List<sObject> sObjectListToInsert = new List<sObject>();//list of records to insert
       List<sObject> sObjectListToUpdate = new List<sObject>();//list of records to update
       Set<Id> idsToQuery = new Set<Id>();           //set of IDs to query once validation is complete
@@ -224,9 +261,17 @@ public with sharing class BulkCsvTest {
         List<sObject> objectsToValidate = database.query(soqlQuery);
         //validate fields are as expected
         for(sObject sObj: objectsToValidate) {
+          system.debug('### Debug ' + sObj);
           String sObjExternalId = (String)sObj.get(EXTERNAL_ID_FIELD_NAME);
+          system.debug('### Debug ' + sObjExternalId);
           Integer rowNumber = externalIdToCurrentRow.get(sObjExternalId);
+          system.debug('### Debug ' + rowNumber);
           TestRow externalRow = externalIdToTestRow.get(sObjExternalId); //pull back existing related row
+          system.debug('### Debug ' + externalRow);
+            if(externalRow == null) {
+                system.debug('V&A Error - row not found:' + sObjExternalId);
+                continue;
+            }
           ExternalRow.SfdcId = (Id)sObj.get('Id'); 
           TestRow relatedRow = rowNumberToTestRow.get(rowNumber);
           relatedRow.SfdcId = (Id)sObj.get('Id'); 
@@ -239,15 +284,13 @@ public with sharing class BulkCsvTest {
               relatedRow.RecordErrors.add('Unexpected value for field:' + field + '. Actual value: ' + sObj.get(field) + ' --- Expected Value: ' + expectedValues.get(field));
           }
               } catch (exception e) {
-              	relatedRow.RecordErrors.add('Failed to test input value - error:' + e.getMessage());
+                relatedRow.RecordErrors.add('Failed to test input value - error:' + e.getMessage());
 
             }
           }
         }
       }
-    }
   }
-
   //map key = sObject name, returns map of object (key) to relationship name (value)
   public static Map<String, Map<String, String>> sObjectToParentMap = new Map<String, Map<String, String>>();
   public static Map<String, Schema.SObjectType> gd { 
@@ -406,8 +449,11 @@ public with sharing class BulkCsvTest {
   }
   /* initialize the file */ 
   private static void initializeFile(String myCsvFileString) {
+    myCsvFileString += (Parser.CRLF + ',,'); //hack to resolve last row issue
+    
     //split csv into an array
     //does not handle intra cell line breaks
+
     csvArray = myCsvFileString.split('\n');
     //read the header & populate maps
 
