@@ -6,10 +6,10 @@ public without sharing class ADCVD_FederalRegisterUtility {
 
  	//Object agnostic variables
 	@TestVisible private static String parentObjectName = '';
-	@TestVisible private static Map<Id,List<Federal_Register__c>> parentIdToFRsMap = new Map<Id,List<Federal_Register__c>>();
+	@TestVisible private static Map<Id,Map<String,List<Federal_Register__c>>> parentIdToFRsMap = new Map<Id,Map<String,List<Federal_Register__c>>>();
 
 	//accepts list of SObjects, returns map of parent SObject to list of child Federal_Register__c
-	public static Map<Id,List<Federal_Register__c>> getParentIdToFRsMap(List<SObject> parentObjectList) {
+	public static Map<Id,Map<String,List<Federal_Register__c>>> getParentIdToFRsMap(List<SObject> parentObjectList) {
 		initialize(parentObjectList);
 		System.debug(parentObjectName);
 		if (parentIdToFRsMap.size() < 1) {
@@ -57,14 +57,18 @@ public without sharing class ADCVD_FederalRegisterUtility {
 		System.debug('*** frList: ' + frList);
 		for (Federal_Register__c fr : frList) {
 			Id tempId = (Id)fr.get(lookupFieldName);
-			if(parentIdToFRsMap.get(tempId) == null) {
+			if (parentIdToFRsMap.get(tempId) != null && parentIdToFRsMap.get(tempId).get(fr.Type__c) != null) {//add new Fr to existing map
+				Map<String,List<Federal_Register__c>> tempMap = parentIdToFRsMap.get(tempId);
+				List<Federal_Register__c> tempList = tempMap.get(fr.Type__c);
+				tempList.add(fr);
+				tempMap.put(fr.Type__c, tempList);
+				parentIdToFRsMap.put(tempId, tempMap);
+			} else {//new type or new Id
+				Map<String,List<Federal_Register__c>> tempMap = new Map<String,List<Federal_Register__c>>();
 				List<Federal_Register__c> tempList = new List<Federal_Register__c>();
 				tempList.add(fr);
-				parentIdToFRsMap.put(tempId, tempList);
-			} else {
-				List<Federal_Register__c> tempList = parentIdToFRsMap.get(tempId);
-				tempList.add(fr);
-				parentIdToFRsMap.put(tempId, tempList);
+				tempMap.put(fr.Type__c, tempList);
+				parentIdToFRsMap.put(tempId, tempMap);
 			}
 		}
 	}

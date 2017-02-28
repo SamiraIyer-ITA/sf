@@ -23,37 +23,37 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>Administrative Review</fullName>
+                    <fullName>Administrative_Review</fullName>
                     <default>true</default>
                     <label>Administrative Review</label>
                 </value>
                 <value>
-                    <fullName>Anti-Circumvention Review</fullName>
+                    <fullName>Anti_Circumvention_Review</fullName>
                     <default>false</default>
                     <label>Anti-Circumvention Review</label>
                 </value>
                 <value>
-                    <fullName>Changed Circumstances Review</fullName>
+                    <fullName>Changed_Circumstances_Review</fullName>
                     <default>false</default>
                     <label>Changed Circumstances Review</label>
                 </value>
                 <value>
-                    <fullName>Expedited Review</fullName>
+                    <fullName>Expedited_Review</fullName>
                     <default>false</default>
                     <label>Expedited Review</label>
                 </value>
                 <value>
-                    <fullName>New Shipper Review</fullName>
+                    <fullName>New_Shipper_Review</fullName>
                     <default>false</default>
                     <label>New Shipper Review</label>
                 </value>
                 <value>
-                    <fullName>Scope Inquiry</fullName>
+                    <fullName>Scope_Inquiry</fullName>
                     <default>false</default>
                     <label>Scope Inquiry</label>
                 </value>
                 <value>
-                    <fullName>Sunset Review</fullName>
+                    <fullName>Sunset_Review</fullName>
                     <default>false</default>
                     <label>Sunset Review</label>
                 </value>

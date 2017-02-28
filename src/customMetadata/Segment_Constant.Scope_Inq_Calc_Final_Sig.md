@@ -8,7 +8,7 @@
     </values>
     <values>
         <field>Record_Type_Name__c</field>
-        <value xsi:type="xsd:string">Scope Inquiry</value>
+        <value xsi:type="xsd:string">Scope_Inquiry</value>
     </values>
     <values>
         <field>Segment_Calculation_Offset__c</field>
