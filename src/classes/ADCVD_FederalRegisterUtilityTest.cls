@@ -87,8 +87,8 @@ public class ADCVD_FederalRegisterUtilityTest {
 		testParentIdToFRsMap.put(iList[0].Id, tempMap);//create map in memory
 		ADCVD_FederalRegisterUtility.initialize(iList);
 		ADCVD_FederalRegisterUtility.addFRsToMap(iList);//create map in utility
-		System.assertEquals(testParentIdToFRsMap.get(iList[0].Id).get('Preliminary'), 
-							ADCVD_FederalRegisterUtility.parentIdToFRsMap.get(iList[0].Id).get('Preliminary'));
+		System.assertEquals(testParentIdToFRsMap.get(iList[0].Id).get('Preliminary').size(), 
+							ADCVD_FederalRegisterUtility.parentIdToFRsMap.get(iList[0].Id).get('Preliminary').size());
 	}
 	@testSetup static void dataSetup() {
 		Test.startTest();
