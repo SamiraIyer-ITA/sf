@@ -6,31 +6,40 @@ public without sharing class FederalRegisterTriggerHandler {
         if(preventRecursion) {return;}
 
         if(isAfter && isInsert) {
-            recalculateInvestigationFederalRegister(newList,oldMap);
+            recalculateParentsOfFederalRegister(newList,oldMap);
         }
         if(isAfter && isUpdate) {
-            recalculateInvestigationFederalRegister(newList,oldMap);
+            recalculateParentsOfFederalRegister(newList,oldMap);
         }
         if(isBefore && isDelete) {
             calculateInvestigationsOnDelete(oldMap);
         }
     }
-    @TestVisible private static Set<Id> findInvestigationsInScope(List<Federal_Register__c> newList, Map<Id,Federal_Register__c> oldMap) {
-        Set<Id> investigationIdSet = new Set<Id>();
+    @TestVisible private static Set<Id> findParentsInScope(List<Federal_Register__c> newList, Map<Id,Federal_Register__c> oldMap) {
+        Set<Id> parentIdSet = new Set<Id>();
         for(Federal_Register__c fr : newList) {
-            if((fr.Type__c == 'Preliminary' ||(oldMap != null && oldMap.get(fr.Id).Type__c == 'Preliminary')) && fr.Investigation__c != null) {
-                investigationIdSet.add(fr.Investigation__c);
+            if(fr.Investigation__c != null) {
+                parentIdSet.add(fr.Investigation__c);
             }
+            if(fr.Segment__c != null) {
+                parentIdSet.add(fr.Segment__c);
+            } 
         }
-        return investigationIdSet;
+        return parentIdSet;
         
     }
-    @TestVisible private static void recalculateInvestigationFederalRegister(List<Federal_Register__c> newList, Map<Id,Federal_Register__c> oldMap) {
-        calculateInvestigations(findInvestigationsInScope(newList, oldMap));
+    @TestVisible private static void recalculateParentsOfFederalRegister(List<Federal_Register__c> newList, Map<Id,Federal_Register__c> oldMap) {
+        Set<Id> parentIdSet = findParentsInScope(newList, oldMap);
+        calculateInvestigations(parentIdSet);
+        calculateSegments(parentIdSet);
     }
-    @TestVisible private static void calculateInvestigations(Set<Id> investigationIdSet) {
-        List<Investigation__c> investigationsToUpdate = [SELECT Id FROM Investigation__c WHERE Id IN: investigationIdSet];
+    @TestVisible private static void calculateInvestigations(Set<Id> parentIdSet) {
+        List<Investigation__c> investigationsToUpdate = [SELECT Id FROM Investigation__c WHERE Id IN: parentIdSet];
         database.update(investigationsToUpdate, false);
+    }
+    @TestVisible private static void calculateSegments(Set<Id> parentIdSet) {
+        List<Segment__c> segmentsToUpdate = [SELECT Id FROM Segment__c WHERE Id IN: parentIdSet];
+        database.update(segmentsToUpdate, false);
     }
     @TestVisible private static void calculateInvestigationsOnDelete(Map<Id,Federal_Register__c> oldMap) {
         List<Federal_Register__c> frList = [SELECT Id FROM Federal_Register__c WHERE Id IN: oldMap.keySet()];

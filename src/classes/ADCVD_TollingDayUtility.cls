@@ -80,7 +80,7 @@ public without sharing class ADCVD_TollingDayUtility {
 		return isWeekday(dt) && !isHoliday(dt) && !isTollingDay(dt);
 	}
 	/* method returns true if date entered is a weekday */
-	@TestVisible private static Boolean isWeekday(Date dt) {
+	public static Boolean isWeekday(Date dt) {
 		String dayOfWeek = dayOfWeek(dt);
 		if(dayOfWeek == 'Sun' || dayOfWeek == 'Sat') {
 		    return false;
@@ -101,7 +101,7 @@ public without sharing class ADCVD_TollingDayUtility {
 		return dayOfWeek(dateTimeToCompare);
 	}
 	/* method returns true if date entered is a holiday */
-	@TestVisible private static Boolean isHoliday(Date dt) {
+	public static Boolean isHoliday(Date dt) {
 		return holidaySet.contains(dt);
 	}
 	/* method returns true if the date is a tolling day */

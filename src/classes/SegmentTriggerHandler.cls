@@ -1,7 +1,7 @@
 public without sharing class SegmentTriggerHandler {
 	
 	//FINAL Segment Record Types
-	private static FINAL String ADMIN_REVIEW = segmentCalcOffsets().get('Admin_Review_Calc_Amen_Final_Sig').Record_Type_Name__c;
+	private static FINAL String ADMIN_REVIEW = segmentCalcOffsets().get('Admin_Review_Calc_Prelim_Sig').Record_Type_Name__c;
 	private static FINAL String ANTI_CIRCUMVENTION_REVIEW = '';
 	private static FINAL String CHANGED_CIRCUMSTANCES_REVIEW = '';
 	private static FINAL String EXPEDITED_REVIEW = '';
@@ -54,7 +54,7 @@ public without sharing class SegmentTriggerHandler {
     }
 
     @TestVisible private static Map<Id,String> recordTypeNameMap = new Map<Id,String>();
-    @TestVisible private static Map<Id,Federal_Register__c> segmentIdToFRMap = new Map<Id,Federal_Register__c>();
+    @TestVisible private static Map<Id,Map<String,List<Federal_Register__c>>> segmentIdToFRMap = new Map<Id,Map<String,List<Federal_Register__c>>>();
 
     @TestVisible private static void calculateSegmentDates(List<Segment__c> newList) {
     	for (Segment__c s : newList) {
@@ -74,19 +74,13 @@ public without sharing class SegmentTriggerHandler {
     @TestVisible private static void initialize(List<Segment__c> newList, Map<Id,Segment__c> newMap) {
         //petitionsInScopeMap = findPetitionsInScopeMap(newList);
         recordTypeNameMap = utils.getRecordTypeDeveloperNameMap(newList[0]);
-        if (newMap != null) {
-           segmentIdToFRMap = segmentIdToFRMap(newMap);
+        if(newMap != null) {
+            segmentIdToFRMap = segmentIdToFRMap(newMap.values());
         }
     }
     //returns a map of Federal Register objects in the form: key = Segment__c Id, value = Federal Register object
-    @TestVisible private static Map<Id,Federal_Register__c> segmentIdToFRMap(Map<Id, Segment__c> newMap) {
-    	Map<Id,Federal_Register__c> returnMap = new Map<Id,Federal_Register__c>();
-    	for (Federal_Register__c fr : [SELECT Id, Type__c, Published_Date__c, Segment__c 
-    									FROM Federal_Register__c WHERE Segment__c IN: newMap.keySet()]) {
-    		if (fr.Type__c == 'Preliminary') {
-    			returnMap.put(fr.Segment__c, fr);
-    		}
-    	}
+    @TestVisible private static Map<Id,Map<String,List<Federal_Register__c>>> segmentIdToFRMap(List<Segment__c> newList) {
+    	Map<Id,Map<String,List<Federal_Register__c>>> returnMap = ADCVD_FederalRegisterUtility.getParentIdToFRsMap(newList);
     	return returnMap;
     }
     //returns a map of <String,Integer> in the form: key = CMT Api name, CMT number value
@@ -99,6 +93,59 @@ public without sharing class SegmentTriggerHandler {
             returnMap.put(sc.QualifiedAPIName, sc);
         }
         return returnMap;
+    }
+    /**
+     * [fr returns a Federal_Register__c from the map, doing proper null checks]
+     * @param  s      [Segment__c]
+     * @param  frType [Type__c from Federal_Register__c]
+     * @return        [returns a Federal_Register__c object or null if it is not found]
+     */
+    @TestVisible private static Federal_Register__c fr (Segment__c s, String frType) {
+        Federal_Register__c returnFR = null;
+        if(s.Id != null && segmentIdToFRMap.get(s.Id) != null && segmentIdToFRMap.get(s.Id).get(frType) != null) {//check for nulls prior to referencing the next deeper layer
+            if (segmentIdToFRMap.get(s.Id).get(frType).size() == 1) {
+                returnFR = segmentIdToFRMap.get(s.Id).get(frType)[0];
+            } else {
+                //TODO logic for multiple FRs with same parent (Amended FRs)
+                return null;
+            }
+        }
+        return returnFR;
+    }
+    /**
+     * [frField returns the requested field as an object which will need to be type cast to field data type]
+     * @param  s         [Segment__c]
+     * @param  fieldName [name of Federal_Register__c field to be retrieved]
+     * @param  frType    [Type__c from Federal_Register__c]
+     * @return           [returns a Federal_Register__c field as an object or null if it is not found]
+     */
+    @TestVisible private static Object frField(Segment__c s, String fieldName, String frType) {
+        if(s.Id != null && segmentIdToFRMap.get(s.Id) != null && segmentIdToFRMap.get(s.Id).get(frType) != null) {//check for nulls prior to referencing the next deeper layer
+            if (segmentIdToFRMap.get(s.Id).get(frType).size() == 1) {//only one to return
+                if (segmentIdToFRMap.get(s.Id).get(frType)[0].get(fieldName) != null) {
+                    return segmentIdToFRMap.get(s.Id).get(frType)[0].get(fieldName);
+                } else {
+                    return null;
+                }
+            } else {
+                return null;
+                //TODO logic for multiple FRs with same parent (Amended FRs)
+            }
+        } else {
+            return null;
+        }
+    }
+    /**
+     * [frDate calls frField to get a date field from a Federal_Register__c, checks if its null and type casts it to date]
+     * @param  s         [Segment__c]
+     * @param  fieldName [name of Federal_Register__c date field to be retrieved]
+     * @param  frType    [Type__c from Federal_Register__c]
+     * @return           [returns a Federal_Register__c field as a date or null if it is not found]
+     */
+    @TestVisible private static Date frDate(Segment__c s, String fieldName, String frType) {
+        Object tempObject = frField(s, fieldName, frType) != null ? frField(s, fieldName, frType) : null;
+        Date returnDate = tempObject != null ? (Date) tempObject : null;
+        return returnDate;
     }
 
     /*********************************************************************************
@@ -122,6 +169,8 @@ public without sharing class SegmentTriggerHandler {
     //sets Calculated_Preliminary_Signature__c
     @TestVisible private static void setCalculatedPreliminarySignature(Segment__c s) {
     	Integer extension = s.Prelim_Extension__c == null ? 0 : (Integer)s.Prelim_Extension__c;//null check on extension, set to 0 if null
+        System.debug(recordTypeNameMap.get(s.RecordTypeId));
+        System.debug(ADMIN_REVIEW);
     	if(recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW) {
 				s.Calculated_Preliminary_Signature__c = s.Final_Date_of_Anniversary_Month__c.addDays(AR_CALC_PRELIM_SIG).addDays(extension);
 				s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Final_Date_of_Anniversary_Month__c, s.Calculated_Preliminary_Signature__c, true);
@@ -168,21 +217,21 @@ public without sharing class SegmentTriggerHandler {
 
     //sets Calculated_Final_Signature__c, requires Calculated_Preliminary_Signature__c to be set
     @TestVisible private static void setCalculatedFinalSignature(Segment__c s){
-    	Federal_Register__c fr = segmentIdToFRMap.get(s.Id);
+        Date prelimPublished = frDate(s, 'Published_Date__c', 'Preliminary');
         Integer extension = s.Final_Extension_of_days__c == null ? 0 : (Integer)s.Final_Extension_of_days__c;//null check on extension, set to 0 if null
     	if (recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW) {
-    		if (fr == null || fr.Published_Date__c == null) {
+    		if (prelimPublished == null) {
 				s.Calculated_Final_Signature__c = s.Calculated_Preliminary_Signature__c.addDays(AR_CALC_FINAL_SIG).addDays(extension);
 				s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Preliminary_Signature__c, s.Calculated_Final_Signature__c, true);
-    		} else if (fr.Published_Date__c != null) {
-    			s.Calculated_Final_Signature__c = fr.Published_Date__c.addDays(AR_CALC_FINAL_SIG).addDays(extension);
-    			s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(fr.Published_Date__c, s.Calculated_Final_Signature__c, true);
+    		} else {
+    			s.Calculated_Final_Signature__c = prelimPublished.addDays(AR_CALC_FINAL_SIG).addDays(extension);
+    			s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(prelimPublished, s.Calculated_Final_Signature__c, true);
     		}
     	} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
-            if (s.Actual_Preliminary_Signature__c == null) {
+            if (s.Actual_Preliminary_Signature__c == null && s.Calculated_Preliminary_Signature__c != null) {
                 s.Calculated_Final_Signature__c = s.Calculated_Preliminary_Signature__c.addDays(NS_CALC_FINAL_SIG).addDays(extension);
                 s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Preliminary_Signature__c, s.Calculated_Final_Signature__c, true);
-            } else {
+            } else if (s.Calculated_Preliminary_Signature__c != null) {
                 s.Calculated_Final_Signature__c = s.Actual_Preliminary_Signature__c.addDays(NS_CALC_FINAL_SIG).addDays(extension);
                 s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Preliminary_Signature__c, s.Calculated_Final_Signature__c, true);
             }
