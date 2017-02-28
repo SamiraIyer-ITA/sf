@@ -272,6 +272,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>SegmentTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SegmentTriggerHandlerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>SeriesType_Controller</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -4112,6 +4120,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Petition__c.Actual_Initiation_Sig_After_Calculated__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Petition__c.Actual_Initiation_Signature__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -4478,6 +4491,31 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Section__c.MicroSite_Public_URL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment_Constant__mdt.Number_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment_Constant__mdt.Record_Type_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment_Constant__mdt.Segment_Calculation_Offset__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment_Constant__mdt.String_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment_Constant__mdt.Used_with_Field_Named__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6832,6 +6870,9 @@
     <layoutAssignments>
         <layout>Section__c-Section Layout</layout>
         <recordType>Section__c.Service</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Segment_Constant__mdt-Segment Constant Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Segment__c-Administrative Review</layout>

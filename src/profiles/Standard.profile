@@ -272,6 +272,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>SegmentTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SegmentTriggerHandlerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>SeriesType_Controller</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -6858,6 +6866,9 @@
     <layoutAssignments>
         <layout>Section__c-Section Layout</layout>
         <recordType>Section__c.Service</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Segment_Constant__mdt-Segment Constant Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Segment__c-Administrative Review</layout>

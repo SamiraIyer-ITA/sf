@@ -350,6 +350,41 @@
                     <default>false</default>
                     <label>Post Litigation</label>
                 </value>
+                <value>
+                    <fullName>Admin Review Opportunity Notice</fullName>
+                    <default>false</default>
+                    <label>Admin Review Opportunity Notice</label>
+                </value>
+                <value>
+                    <fullName>Rescission</fullName>
+                    <default>false</default>
+                    <label>Rescission</label>
+                </value>
+                <value>
+                    <fullName>Correction</fullName>
+                    <default>false</default>
+                    <label>Correction</label>
+                </value>
+                <value>
+                    <fullName>Revocation</fullName>
+                    <default>false</default>
+                    <label>Revocation</label>
+                </value>
+                <value>
+                    <fullName>Initiation/Prelim</fullName>
+                    <default>false</default>
+                    <label>Initiation/Prelim</label>
+                </value>
+                <value>
+                    <fullName>Quarterly Scope</fullName>
+                    <default>false</default>
+                    <label>Quarterly Scope</label>
+                </value>
+                <value>
+                    <fullName>Suspension Agreement</fullName>
+                    <default>false</default>
+                    <label>Suspension Agreement</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
