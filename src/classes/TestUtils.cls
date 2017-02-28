@@ -157,7 +157,8 @@ public with sharing class TestUtils {
     // create test order
     public static ADCVD_Order__c createOrder(Boolean doInsert) {
         ADCVD_Order__c o = new ADCVD_Order__c();
-        o.Anniversary_Month__c = 'January';
+        Datetime tempDatetime = System.now();
+        o.Anniversary_Month__c = tempDatetime.format('MMMMM');
         if(doInsert) {
             insert o;
         }
@@ -193,6 +194,9 @@ public with sharing class TestUtils {
         if(ord != null && ord.Id != null) {
             seg.ADCVD_Order__c = ord.Id;
         }
+        //added for testing purposes
+        Date tempDate = System.today();
+        seg.Final_Date_of_Anniversary_Month__c = tempDate.toStartOfMonth().addDays(Date.daysInMonth(tempDate.year(), tempDate.month()) - 1);
         if(doInsert) {
             insert seg;
         }

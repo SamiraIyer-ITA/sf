@@ -30,7 +30,7 @@ public class InvestigationTriggerHandlerTest {
 		List<Investigation__c> iList = new List<Investigation__c>();
 		iList.add(i);
 		InvestigationTriggerHandler.initialize(iList, null);
-		System.assertEquals(p, InvestigationTriggerHandler.petitionsInScopeMap.get(p.Id));
+		System.assertEquals(p.Id, InvestigationTriggerHandler.petitionsInScopeMap.get(p.Id).Id);
 		System.assertEquals('AD', InvestigationTriggerHandler.recordTypeNameMap.get(i.RecordTypeId));
 	}
 

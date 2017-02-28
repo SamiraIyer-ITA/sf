@@ -133,7 +133,7 @@ public without sharing class InvestigationTriggerHandler {
     @TestVisible private static Map<Id,Map<String,List<Federal_Register__c>>> investigationIdToFRMap(List<Investigation__c> newList) {
         Map<Id,Map<String,List<Federal_Register__c>>> returnMap = ADCVD_FederalRegisterUtility.getParentIdToFRsMap(newList);
         for(Investigation__c i : newList) {
-            if(i.Id != null) {
+            if(i != null && i.Id != null && returnMap.get(i.Id) != null) {
                 for(String frType : returnMap.get(i.Id).keySet()) {
                     if (returnMap.get(i.Id).get(frType) != null) {
                         for(Federal_Register__c fr : returnMap.get(i.Id).get(frType)) {//should be only one in list for all FRs except Amended
