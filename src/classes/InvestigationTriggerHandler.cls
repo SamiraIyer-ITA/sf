@@ -5,37 +5,37 @@ public without sharing class InvestigationTriggerHandler {
 	private static FINAL String CVDRECORD = 'CVD';
 
 	//FINAL AD Record Type Offsets
-    private static FINAL Integer AD_CALC_AMEND_PRELIM_SIGN = ((Integer)investigationCalcOffsets().get('AD_Calc_Amend_Prelim_Det_Sig').Number_Value__c);//Calc_Amended_Prelim_Determination_Sig__c
-    private static FINAL Integer AD_CALC_PRELIM_SIGN = ((Integer)investigationCalcOffsets().get('AD_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature __c
-    private static FINAL Integer AD_CALC_FINAL_SIGN = ((Integer)investigationCalcOffsets().get('AD_Calc_Final_Sig').Number_Value__c);//Calculated_Final_Signature__c
-    private static FINAL Integer AD_CALC_ITC_PRELIM_DET = ((Integer)investigationCalcOffsets().get('AD_Calc_ITC_Prelim_Det').Number_Value__c);//Calculated_ITC_Prelim_Determination__c
-    private static FINAL Integer AD_CALC_PRELIM_EXT_REQ_FILE = ((Integer)investigationCalcOffsets().get('AD_Calc_Prelim_Ext_Request_File').Number_Value__c);//Calculated_Prelim_Extension_Request_File__c
-    private static FINAL Integer AD_CALC_POSTPONE_PRELIM_DET_FR = ((Integer)investigationCalcOffsets().get('AD_Calc_Postpone_Prelim_Det_FR').Number_Value__c);//Calculated_Postponement_of_PrelimDeterFR__c
-    private static FINAL Integer AD_PRELIM_TEAM_MEETING_DEADLINE = ((Integer)investigationCalcOffsets().get('AD_Prelim_Team_Meeting_Deadline').Number_Value__c);//Prelim_Team_Meeting_Deadline__c
-    private static FINAL Integer AD_TERM_SUSP_GAP_PERIOD_BEG_W_EXT = ((Integer)investigationCalcOffsets().get('AD_Term_Susp_Gap_Period_Beg_w_FinExt').Number_Value__c);//Termination_of_Suspension_Gap_Period_Beg__c with Final Extension of days
-    private static FINAL Integer AD_TERM_SUSP_GAP_PERIOD_BEG_W_O_EXT = ((Integer)investigationCalcOffsets().get('AD_Term_Susp_Gap_Period_Beg_w_o_FinExt').Number_Value__c);//Termination_of_Suspension_Gap_Period_Beg__c without Final Extension of days
-    private static FINAL Integer AD_FINAL_TEAM_MEETING_DEADLINE = ((Integer)investigationCalcOffsets().get('AD_Final_Team_Meeting_Deadline').Number_Value__c);//Final_Team_Meeting_Deadline__c
-    private static FINAL Integer AD_CALC_AMENDED_FINAL_SIGNATURE = ((Integer)investigationCalcOffsets().get('AD_Calc_Amend_Final_Sig').Number_Value__c);//Calculated_Amended_Final_Signature__c
-    private static FINAL Integer AD_EST_ITC_NOTIF_DOC_FINAL_DET = ((Integer)investigationCalcOffsets().get('AD_Est_ITC_Note_of_DOC_to_Final_Det').Number_Value__c);//Est_ITC_Notification_to_DOC_of_Final_Det__c
-    private static FINAL Integer AD_CALC_ORDER_FR_SIGNATURE = ((Integer)investigationCalcOffsets().get('AD_Calc_Order_FR_Sig').Number_Value__c);//Calculated_Order_FR_Signature__c
-    private static FINAL Integer AD_CALC_ITC_FINAL_FR_PUBLISHED = ((Integer)investigationCalcOffsets().get('AD_Calc_ITC_Final_FR_Published').Number_Value__c);//Calculated_ITC_Final_FR_Published__c
-    private static FINAL Integer AD_EST_ORDER_FR_PUBLISHED = ((Integer)investigationCalcOffsets().get('AD_Est_Order_FR_Published').Number_Value__c);//Estimated_Order_FR_Published__c
+    private static FINAL Integer AD_CALC_AMEND_PRELIM_SIGN = ((Integer)setInvestigationApiToConstants().get('AD_Calc_Amend_Prelim_Det_Sig').Number_Value__c);//Calc_Amended_Prelim_Determination_Sig__c
+    private static FINAL Integer AD_CALC_PRELIM_SIGN = ((Integer)setInvestigationApiToConstants().get('AD_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature __c
+    private static FINAL Integer AD_CALC_FINAL_SIGN = ((Integer)setInvestigationApiToConstants().get('AD_Calc_Final_Sig').Number_Value__c);//Calculated_Final_Signature__c
+    private static FINAL Integer AD_CALC_ITC_PRELIM_DET = ((Integer)setInvestigationApiToConstants().get('AD_Calc_ITC_Prelim_Det').Number_Value__c);//Calculated_ITC_Prelim_Determination__c
+    private static FINAL Integer AD_CALC_PRELIM_EXT_REQ_FILE = ((Integer)setInvestigationApiToConstants().get('AD_Calc_Prelim_Ext_Request_File').Number_Value__c);//Calculated_Prelim_Extension_Request_File__c
+    private static FINAL Integer AD_CALC_POSTPONE_PRELIM_DET_FR = ((Integer)setInvestigationApiToConstants().get('AD_Calc_Postpone_Prelim_Det_FR').Number_Value__c);//Calculated_Postponement_of_PrelimDeterFR__c
+    private static FINAL Integer AD_PRELIM_TEAM_MEETING_DEADLINE = ((Integer)setInvestigationApiToConstants().get('AD_Prelim_Team_Meeting_Deadline').Number_Value__c);//Prelim_Team_Meeting_Deadline__c
+    private static FINAL Integer AD_TERM_SUSP_GAP_PERIOD_BEG_W_EXT = ((Integer)setInvestigationApiToConstants().get('AD_Term_Susp_Gap_Period_Beg_w_FinExt').Number_Value__c);//Termination_of_Suspension_Gap_Period_Beg__c with Final Extension of days
+    private static FINAL Integer AD_TERM_SUSP_GAP_PERIOD_BEG_W_O_EXT = ((Integer)setInvestigationApiToConstants().get('AD_Term_Susp_Gap_Period_Beg_w_o_FinExt').Number_Value__c);//Termination_of_Suspension_Gap_Period_Beg__c without Final Extension of days
+    private static FINAL Integer AD_FINAL_TEAM_MEETING_DEADLINE = ((Integer)setInvestigationApiToConstants().get('AD_Final_Team_Meeting_Deadline').Number_Value__c);//Final_Team_Meeting_Deadline__c
+    private static FINAL Integer AD_CALC_AMENDED_FINAL_SIGNATURE = ((Integer)setInvestigationApiToConstants().get('AD_Calc_Amend_Final_Sig').Number_Value__c);//Calculated_Amended_Final_Signature__c
+    private static FINAL Integer AD_EST_ITC_NOTIF_DOC_FINAL_DET = ((Integer)setInvestigationApiToConstants().get('AD_Est_ITC_Note_of_DOC_to_Final_Det').Number_Value__c);//Est_ITC_Notification_to_DOC_of_Final_Det__c
+    private static FINAL Integer AD_CALC_ORDER_FR_SIGNATURE = ((Integer)setInvestigationApiToConstants().get('AD_Calc_Order_FR_Sig').Number_Value__c);//Calculated_Order_FR_Signature__c
+    private static FINAL Integer AD_CALC_ITC_FINAL_FR_PUBLISHED = ((Integer)setInvestigationApiToConstants().get('AD_Calc_ITC_Final_FR_Published').Number_Value__c);//Calculated_ITC_Final_FR_Published__c
+    private static FINAL Integer AD_EST_ORDER_FR_PUBLISHED = ((Integer)setInvestigationApiToConstants().get('AD_Est_Order_FR_Published').Number_Value__c);//Estimated_Order_FR_Published__c
 
     //FINAL CVD Record Type Offsets
-    private static FINAL Integer CVD_CALC_AMEND_PRELIM_SIGN = ((Integer)investigationCalcOffsets().get('CVD_Calc_Amend_Prelim_Det_Sig').Number_Value__c);//Calc_Amended_Prelim_Determination_Sig__c
-    private static FINAL Integer CVD_CALC_PRELIM_SIGN = ((Integer)investigationCalcOffsets().get('CVD_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature __c
-    private static FINAL Integer CVD_CALC_FINAL_SIGN = ((Integer)investigationCalcOffsets().get('CVD_Calc_Final_Sig').Number_Value__c);//Calculated_Final_Signature__c
-    private static FINAL Integer CVD_CALC_ITC_PRELIM_DET = ((Integer)investigationCalcOffsets().get('CVD_Calc_ITC_Prelim_Det').Number_Value__c);//Calculated_ITC_Prelim_Determination__c
-    private static FINAL Integer CVD_CALC_PRELIM_EXT_REQ_FILE = ((Integer)investigationCalcOffsets().get('CVD_Calc_Prelim_Ext_Request_File').Number_Value__c);//Calculated_Prelim_Extension_Request_File__c
-    private static FINAL Integer CVD_CALC_POSTPONE_PRELIM_DET_FR = ((Integer)investigationCalcOffsets().get('CVD_Calc_Postpone_Prelim_Det_FR').Number_Value__c);//Calculated_Postponement_of_PrelimDeterFR__c
-    private static FINAL Integer CVD_PRELIM_TEAM_MEETING_DEADLINE = ((Integer)investigationCalcOffsets().get('CVD_Prelim_Team_Meeting_Deadline').Number_Value__c);//Prelim_Team_Meeting_Deadline__c
-    private static FINAL Integer CVD_TERM_SUSP_GAP_PERIOD_BEG = ((Integer)investigationCalcOffsets().get('CVD_Term_Susp_Gap_Period_Beg').Number_Value__c);//Termination_of_Suspension_Gap_Period_Beg__c
-    private static FINAL Integer CVD_FINAL_TEAM_MEETING_DEADLINE = ((Integer)investigationCalcOffsets().get('CVD_Final_Team_Meeting_Deadline').Number_Value__c);//Final_Team_Meeting_Deadline__c
-    private static FINAL Integer CVD_CALC_AMENDED_FINAL_SIGNATURE = ((Integer)investigationCalcOffsets().get('CVD_Calc_Amend_Final_Sig').Number_Value__c);//Calculated_Amended_Final_Signature__c
-    private static FINAL Integer CVD_EST_ITC_NOTIF_DOC_FINAL_DET = ((Integer)investigationCalcOffsets().get('CVD_Est_ITC_Note_to_DOC_of_Final_Det').Number_Value__c);//Est_ITC_Notification_to_DOC_of_Final_Det__c
-    private static FINAL Integer CVD_CALC_ORDER_FR_SIGNATURE = ((Integer)investigationCalcOffsets().get('CVD_Calc_Order_FR_Sig').Number_Value__c);//Calculated_Order_FR_Signature__c
-    private static FINAL Integer CVD_CALC_ITC_FINAL_FR_PUBLISHED = ((Integer)investigationCalcOffsets().get('CVD_Calc_ITC_Final_FR_Published').Number_Value__c);//Calculated_ITC_Final_FR_Published__c
-    private static FINAL Integer CVD_EST_ORDER_FR_PUBLISHED = ((Integer)investigationCalcOffsets().get('CVD_Est_Order_FR_Published').Number_Value__c);//Estimated_Order_FR_Published__c
+    private static FINAL Integer CVD_CALC_AMEND_PRELIM_SIGN = ((Integer)setInvestigationApiToConstants().get('CVD_Calc_Amend_Prelim_Det_Sig').Number_Value__c);//Calc_Amended_Prelim_Determination_Sig__c
+    private static FINAL Integer CVD_CALC_PRELIM_SIGN = ((Integer)setInvestigationApiToConstants().get('CVD_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature __c
+    private static FINAL Integer CVD_CALC_FINAL_SIGN = ((Integer)setInvestigationApiToConstants().get('CVD_Calc_Final_Sig').Number_Value__c);//Calculated_Final_Signature__c
+    private static FINAL Integer CVD_CALC_ITC_PRELIM_DET = ((Integer)setInvestigationApiToConstants().get('CVD_Calc_ITC_Prelim_Det').Number_Value__c);//Calculated_ITC_Prelim_Determination__c
+    private static FINAL Integer CVD_CALC_PRELIM_EXT_REQ_FILE = ((Integer)setInvestigationApiToConstants().get('CVD_Calc_Prelim_Ext_Request_File').Number_Value__c);//Calculated_Prelim_Extension_Request_File__c
+    private static FINAL Integer CVD_CALC_POSTPONE_PRELIM_DET_FR = ((Integer)setInvestigationApiToConstants().get('CVD_Calc_Postpone_Prelim_Det_FR').Number_Value__c);//Calculated_Postponement_of_PrelimDeterFR__c
+    private static FINAL Integer CVD_PRELIM_TEAM_MEETING_DEADLINE = ((Integer)setInvestigationApiToConstants().get('CVD_Prelim_Team_Meeting_Deadline').Number_Value__c);//Prelim_Team_Meeting_Deadline__c
+    private static FINAL Integer CVD_TERM_SUSP_GAP_PERIOD_BEG = ((Integer)setInvestigationApiToConstants().get('CVD_Term_Susp_Gap_Period_Beg').Number_Value__c);//Termination_of_Suspension_Gap_Period_Beg__c
+    private static FINAL Integer CVD_FINAL_TEAM_MEETING_DEADLINE = ((Integer)setInvestigationApiToConstants().get('CVD_Final_Team_Meeting_Deadline').Number_Value__c);//Final_Team_Meeting_Deadline__c
+    private static FINAL Integer CVD_CALC_AMENDED_FINAL_SIGNATURE = ((Integer)setInvestigationApiToConstants().get('CVD_Calc_Amend_Final_Sig').Number_Value__c);//Calculated_Amended_Final_Signature__c
+    private static FINAL Integer CVD_EST_ITC_NOTIF_DOC_FINAL_DET = ((Integer)setInvestigationApiToConstants().get('CVD_Est_ITC_Note_to_DOC_of_Final_Det').Number_Value__c);//Est_ITC_Notification_to_DOC_of_Final_Det__c
+    private static FINAL Integer CVD_CALC_ORDER_FR_SIGNATURE = ((Integer)setInvestigationApiToConstants().get('CVD_Calc_Order_FR_Sig').Number_Value__c);//Calculated_Order_FR_Signature__c
+    private static FINAL Integer CVD_CALC_ITC_FINAL_FR_PUBLISHED = ((Integer)setInvestigationApiToConstants().get('CVD_Calc_ITC_Final_FR_Published').Number_Value__c);//Calculated_ITC_Final_FR_Published__c
+    private static FINAL Integer CVD_EST_ORDER_FR_PUBLISHED = ((Integer)setInvestigationApiToConstants().get('CVD_Est_Order_FR_Published').Number_Value__c);//Estimated_Order_FR_Published__c
     
 	public static boolean preventRecursion = false;
     public static void mainEntry(List<Investigation__c> newList, List<Investigation__c> oldList, Map<Id, Investigation__c> newMap, 
@@ -63,7 +63,10 @@ public without sharing class InvestigationTriggerHandler {
     @TestVisible private static Map<Id,Petition__c> petitionsInScopeMap = new Map<Id,Petition__c>();
     @TestVisible private static Set<Id> unfinishedPetitions = new Set<Id>();
     @TestVisible private static Map<Id,String> recordTypeNameMap = new Map<Id,String>();
+    @TestVisible private static Map<String,Investigation_Constant__mdt> investigationApiToConstants = new Map<String,Investigation_Constant__mdt>();
     @TestVisible private static Map<Id,Map<String,List<Federal_Register__c>>> investigationIdToFRMap = new Map<Id,Map<String,List<Federal_Register__c>>>();
+    @TestVisible private static List<Object> frFields = new List<Object>();
+    @TestVisible private static Object frField = null;
 
     //Setup Methods used to set class level variables
     @TestVisible private static void initialize(List<Investigation__c> newList, Map<Id,Investigation__c> newMap) {
@@ -77,7 +80,7 @@ public without sharing class InvestigationTriggerHandler {
     @TestVisible private static void syncToInvestigation(List<Investigation__c> newList) {
             SyncUtility.syncObject(newList, null, true);
     }
-
+    //Primary calculation method for Trigger Handler
     @TestVisible private static void calculateInvestigationDates(List<Investigation__c> newList) {
         Boolean completePetition = false;
     	for (Investigation__c i : newList) {
@@ -105,6 +108,11 @@ public without sharing class InvestigationTriggerHandler {
             setCalculatedITCPrelimDetermination(i);
     		setTerminationofSuspensionGapPeriodBeg(i);
     	}
+    }
+    //returns a list of CVD Investigations to update if the aligned AD Investigation is updated
+    @TestVisible private static void recalculateCVDinvestigations(Map<Id,Investigation__c> newMap) {
+        List<Investigation__c> CVDinvestigations = [SELECT Id FROM Investigation__c WHERE AD_Investigation_Aligned_To__c IN: newMap.keySet()];
+        update CVDinvestigations;
     }
 
     /*******************************************************************************
@@ -135,7 +143,23 @@ public without sharing class InvestigationTriggerHandler {
     	}
     	return returnMap;
     }
-    //returns a map of Federal Register objects in the form: key = Investigation Id, value = Federal Register object
+    //returns a map of <String,Integer> in the form: key = CMT Api name, CMT number value
+    //used to set Offset Variables
+    @TestVisible private static Map<String,Investigation_Constant__mdt> setInvestigationApiToConstants() {
+        Map<String,Investigation_Constant__mdt> returnMap = new Map<String,Investigation_Constant__mdt>();
+        List<Investigation_Constant__mdt> tempList = [SELECT QualifiedAPIName, Used_with_Field_Named__c, Record_Type_Name__c, Number_Value__c FROM Investigation_Constant__mdt 
+                                                        WHERE Investigation_Calculation_Offset__c =: true];
+        for(Investigation_Constant__mdt ic : tempList) {
+            returnMap.put(ic.QualifiedAPIName, ic);
+        }
+        return returnMap;
+    }
+    /**
+     * Uses the ADCVD_FederalRegisterUtility to retrieve a Map in this form: Investigation__c Id -> Federal_Register__c Type__c -> List <Federal_Register__c>
+     * The methods following this method are used to make accessing values in the map easier
+     * @param  newMap Uses the newMap param so all Investigations will have an Id, also does logic to set FRs being deleted to null for recalculation
+     * @return        [description]
+     */
     @TestVisible private static Map<Id,Map<String,List<Federal_Register__c>>> findInvestigationIdToFRMap(Map<Id,Investigation__c> newMap) {
         Map<Id,Map<String,List<Federal_Register__c>>> returnMap = ADCVD_FederalRegisterUtility.getParentIdToFRsMap(newMap.values());
         for(Investigation__c i : newMap.values()) {
@@ -150,79 +174,61 @@ public without sharing class InvestigationTriggerHandler {
             }
         }
         
-    	return returnMap;
-    }
-    //returns a map of <String,Integer> in the form: key = CMT Api name, CMT number value
-    //used to set Offset Variables
-    @TestVisible private static Map<String,Investigation_Constant__mdt> investigationCalcOffsets() {
-        Map<String,Investigation_Constant__mdt> returnMap = new Map<String,Investigation_Constant__mdt>();
-        List<Investigation_Constant__mdt> tempList = [SELECT QualifiedAPIName, Used_with_Field_Named__c, Record_Type_Name__c, Number_Value__c FROM Investigation_Constant__mdt 
-                                                        WHERE Investigation_Calculation_Offset__c =: true];
-        for(Investigation_Constant__mdt ic : tempList) {
-            returnMap.put(ic.QualifiedAPIName, ic);
-        }
         return returnMap;
     }
-    //returns a list of CVD Investigations to update if the aligned AD Investigation is updated
-    @TestVisible private static void recalculateCVDinvestigations(Map<Id,Investigation__c> newMap) {
-        List<Investigation__c> CVDinvestigations = [SELECT Id FROM Investigation__c WHERE AD_Investigation_Aligned_To__c IN: newMap.keySet()];
-        update CVDinvestigations;
-    }
     /**
-     * [fr returns a Federal_Register__c from the map, doing proper null checks]
-     * @param  i      [Investigation__c]
-     * @param  frType [Type__c from Federal_Register__c]
-     * @return        [returns a Federal_Register__c object or null if it is not found]
-     */
-    @TestVisible private static Federal_Register__c fr (Investigation__c i, String frType) {
-        Federal_Register__c returnFR = null;
-        if(i.Id != null && investigationIdToFRMap.get(i.Id) != null && investigationIdToFRMap.get(i.Id).get(frType) != null) {//check for nulls prior to referencing the next deeper layer
-            if (investigationIdToFRMap.get(i.Id).get(frType).size() == 1) {
-                returnFR = investigationIdToFRMap.get(i.Id).get(frType)[0];
-            } else {
-                //TODO logic for multiple FRs with same parent (Amended FRs)
-                return null;
-            }
-        }
-        return returnFR;
-    }
-    /**
-     * [frField returns the requested field as an object which will need to be type cast to field data type]
+     * [getFrFields sets class level Object and List<Object> variables from investigationIdToFRMap]
      * @param  i         [Investigation__c]
-     * @param  fieldName [name of Federal_Register__c field to be retrieved]
+     * @param  fieldName [name of Federal_Register__c fields to be retrieved]
      * @param  frType    [Type__c from Federal_Register__c]
-     * @return           [returns a Federal_Register__c field as an object or null if it is not found]
+     * @return           [returns a list of Federal_Register__c fields as list of objects or null if it is not found]
      */
-    @TestVisible private static Object frField(Investigation__c i, String fieldName, String frType) {
-        if(i.Id != null && investigationIdToFRMap.get(i.Id) != null && investigationIdToFRMap.get(i.Id).get(frType) != null) {//check for nulls prior to referencing the next deeper layer
-            if (investigationIdToFRMap.get(i.Id).get(frType).size() == 1) {//only one to return
-                if (investigationIdToFRMap.get(i.Id).get(frType)[0].get(fieldName) != null) {
-                    return investigationIdToFRMap.get(i.Id).get(frType)[0].get(fieldName);
-                } else {
-                    return null;
+    @TestVisible private static void getFrFields(Investigation__c i, String frType, String fieldName) {
+        Integer frCount = frCount(i, frType);
+        frField = null;
+        frFields.clear();
+        if (frCount == 1 && investigationIdToFRMap.get(i.Id).get(frType)[0].get(fieldName) != null) {//frCount and field level null check
+            frField = investigationIdToFRMap.get(i.Id).get(frType)[0].get(fieldName);
+        } else if (frCount > 1) {
+            for (Federal_Register__c fr : investigationIdToFRMap.get(i.Id).get(frType)) {//get list of Federal Registers for the Investigation that are of frType
+                if (fr.get(fieldName) != null) {//field level null check
+                    frFields.add(fr.get(fieldName));
                 }
-            } else {
-                return null;
-                //TODO logic for multiple FRs with same parent (Amended FRs)
             }
-        } else {
-            return null;
         }
     }
     /**
-     * [frDate calls frField to get a date field from a Federal_Register__c, checks if its null and type casts it to date]
+     * [frDates calls frFields to get a list of date fields from a Federal_Register__c, checks if its null and type casts it to date]
      * @param  i         [Investigation__c]
-     * @param  fieldName [name of Federal_Register__c date field to be retrieved]
+     * @param  fieldName [name of Federal_Register__c date fields to be retrieved]
      * @param  frType    [Type__c from Federal_Register__c]
-     * @return           [returns a Federal_Register__c field as a date or null if it is not found]
+     * @return           [returns a list of Federal_Register__c fields as a dates or null if it is not found]
      */
-    @TestVisible private static Date frDate(Investigation__c i, String fieldName, String frType) {
-        Object tempObject = frField(i, fieldName, frType) != null ? frField(i, fieldName, frType) : null;
-        Date returnDate = tempObject != null ? (Date) tempObject : null;
-        return returnDate;
+    @TestVisible private static List<Date> frDates(Investigation__c i, String frType, String fieldName) {
+        getFrFields(i, frType, fieldName);
+        List<Date> returnDates = (List<Date>)frFields;
+        return returnDates;
+    }
+    @TestVisible private static Date frDate(Investigation__c i, String frType, String fieldName) {
+        getFrFields(i, frType, fieldName);
+        Date tempDate = (Date)frField;
+        return tempDate;
+    }
+    //This returns the number of Federal_Register__c objects in a given list for cases where multiple have the same type.  This also performs all null checks except field level
+    @TestVisible private static Integer frCount(Investigation__c i, String frType) {
+        Integer frCount = i.Id != null && investigationIdToFRMap.get(i.Id) != null && investigationIdToFRMap.get(i.Id).get(frType) != null
+                            && investigationIdToFRMap.get(i.Id).get(frType).size() > 0 ? 
+                            investigationIdToFRMap.get(i.Id).get(frType).size() : 0;
+        return frCount;
+    }
+    //This returns a specific FR, cannot be used when multiple FRs are the same type and have the same parent Investigation
+    @TestVisible private static Federal_Register__c getFR(Investigation__c i, String frType) {
+        Federal_Register__c fr = i.Id != null && investigationIdToFRMap.get(i.Id) != null && investigationIdToFRMap.get(i.Id).get(frType) != null 
+                                    && investigationIdToFRMap.get(i.Id).get(frType).size() > 0 ?  
+                                    investigationIdToFRMap.get(i.Id).get(frType)[0] : null;
+        return fr;
     }
     
-
     /****************************************************************************************
     *These methods set the values for specific dates as part of calculateInvestigationDates()
     *The naming convention is set<FieldAPIName>
@@ -271,7 +277,7 @@ public without sharing class InvestigationTriggerHandler {
    //sets Calc_Amended_Prelim_Determination_Sig__c, requires Calculated_Preliminary_Signature__c to be set
     @TestVisible private static void setCalcAmendedPrelimDeterminationSig(Investigation__c i) {
         if (i.Amend_the_Preliminary_Determination__c == 'No') {
-            i.Calculated_Preliminary_Signature__c = null;
+            i.Calc_Amended_Prelim_Determination_Sig__c = null;
         } else {
         	if(recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
     			if (i.Actual_Preliminary_Signature__c == null && i.Calculated_Preliminary_Signature__c != null) {
@@ -310,9 +316,10 @@ public without sharing class InvestigationTriggerHandler {
 
     //sets Calculated_Final_Signature__c, requires Calculated_Preliminary_Signature__c to be set
     @TestVisible private static void setCalculatedFinalSignature(Investigation__c i){
-        Date prelimpublished = frDate(i, 'Published_Date__c', 'Preliminary');
         Integer extension = i.Final_Extension_of_days__c == null ? 0 : (Integer)i.Final_Extension_of_days__c;//null check on extension, set to 0 if null
     	if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
+            Date prelimpublished = frDate(i, 'Preliminary', 'Published_Date__c');
+            System.debug(prelimpublished);
     		if (extension > 0 && prelimpublished != null) {
                 i.Calculated_Final_Signature__c = prelimpublished.addDays(AD_CALC_FINAL_SIGN).addDays(extension);
                 i.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(prelimpublished, i.Calculated_Final_Signature__c, true);
@@ -339,7 +346,7 @@ public without sharing class InvestigationTriggerHandler {
     //sets Calculated_Amended_Final_Signature__c
     @TestVisible private static void setCalculatedAmendedFinalSignature(Investigation__c i){
         if (i.Will_you_Amend_the_Final__c == 'No') {
-            i.Calculated_Preliminary_Signature__c = null;
+            i.Calculated_Amended_Final_Signature__c = null;
         } else {
             if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
                 if (i.Actual_Final_Signature__c != null) {
@@ -524,8 +531,8 @@ public without sharing class InvestigationTriggerHandler {
 
     //sets Termination_of_Suspension_Gap_Period_Beg__c
     @TestVisible private static void setTerminationofSuspensionGapPeriodBeg(Investigation__c i){
-        Federal_Register__c fr = fr(i, 'Preliminary');
-    	Date prelimpublished = frDate(i, 'Published_Date__c', 'Preliminary');
+        Federal_Register__c fr = getFR(i, 'Preliminary');
+    	Date prelimpublished = frDate(i, 'Preliminary', 'Published_Date__c');
     	if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
 	    	if (prelimpublished != null) {
 		    	i.Termination_of_Suspension_Gap_Period_Beg__c = i.Final_Extension_of_days__c == null ? 

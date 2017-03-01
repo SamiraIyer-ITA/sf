@@ -11,19 +11,30 @@ public class FederalRegisterTriggerHandlerTest {
 			return u;
 		}
 	}
-	private static List<Investigation__c> investigationList {
+	private static List<Investigation__c> iList {
 		get {
-			if(investigationList == null) {
-				investigationList = [SELECT Id, Calculated_Final_Signature__c FROM Investigation__c];
+			if(iList == null) {
+				iList = [SELECT Id, Calculated_Final_Signature__c FROM Investigation__c];
 			}
-			return investigationList;
+			return iList;
 		}
+	}
+	private static Investigation__c iAD {
+		get {
+			if(iAD == null) {
+				Id recordType = utils.getRecordTypeIdMap('Investigation__c').get('AD');
+				iAD = [SELECT Id, RecordTypeId, Prelim_Extension_of_days__c, AD_Investigation_Aligned_To__c, 
+							Calculated_Final_Signature__c, Petition__c 
+						FROM Investigation__c WHERE RecordTypeId =: recordType LIMIT 1];
+			}
+			return iAD;
+		}	
 	}
 	private static Set<Id> investigationIdSet {
 		get {
 			if(investigationIdSet == null) {
 				investigationIdSet = new Set<Id>();
-				for(Investigation__c i : investigationList) {
+				for(Investigation__c i : iList) {
 					investigationIdSet.add(i.Id);
 				}
 			}
@@ -33,23 +44,22 @@ public class FederalRegisterTriggerHandlerTest {
 
 	@isTest static void findInvestigationsInScope(){
 		Test.startTest();
-		Federal_Register__c fr = TestUtils.createFR(publishDate.addDays(200), 'Preliminary', false);
-		fr.Investigation__c = investigationList[0].Id;
+		Federal_Register__c fr = TestUtils.createFR(iAD.Id, 'Investigation__c', publishDate.addDays(200), 'Preliminary', false);
 		List<Federal_Register__c> frList = new List<Federal_Register__c>();
 		frList.add(fr);
 		//when given a fr list, the method returns an Investigation Id set
-		System.assert(FederalRegisterTriggerHandler.findParentsInScope(frList, null).contains(investigationList[0].Id));
+		System.assert(FederalRegisterTriggerHandler.findParentsInScope(frList, null).contains(iAD.Id));
 		Test.stopTest();
 	}
 	@isTest static void recalculateInvestigationFederalRegister(){
 		Test.startTest();
-		Federal_Register__c fr = TestUtils.createFR(publishDate.addDays(300), 'Preliminary', false);
-		//curent Final Signature prior to fr insert
-		Date testCalculated_Final_Signature = investigationList[0].Calculated_Final_Signature__c;
-		fr.Investigation__c = investigationList[0].Id;
-		insert fr;
-		//date in database should have increased based on future fr.Preliminary_FR_Published__c
-		System.assert(testCalculated_Final_Signature < [SELECT Calculated_Final_Signature__c FROM Investigation__c WHERE Id =: investigationList[0].Id].Calculated_Final_Signature__c);
+		//current Final Signature prior to fr insert
+		Date testCalculated_Final_Signature = iAD.Calculated_Final_Signature__c;
+		iAD.Final_Extension_of_days__c = 1;//Final_Extension_of_days__c must be set to calculate based on an FR
+		update iAD;
+		Federal_Register__c fr = TestUtils.createFR(iAD.Id, 'Investigation__c', publishDate.addDays(300), 'Preliminary', true);
+		//date in database should have increased based on future fr.Published_Date__c of type Preliminary
+		System.assert(testCalculated_Final_Signature < [SELECT Calculated_Final_Signature__c FROM Investigation__c WHERE Id =: iAD.Id].Calculated_Final_Signature__c);
 		Test.stopTest();
 	}
 	@testSetup static void dataSetup() {

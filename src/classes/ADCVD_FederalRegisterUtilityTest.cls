@@ -97,11 +97,7 @@ public class ADCVD_FederalRegisterUtilityTest {
 		Investigation__c testInv = TestUtils.createInvestigation('AD', testPet, true);
 		ADCVD_Order__c testOrder = TestUtils.createOrder(true);
 		Segment__c testSeg = TestUtils.createSegment(testOrder, 'Administrative_Review', true);
-		Federal_Register__c testInvFR = TestUtils.createFR(ADCVD_TollingDayUtility.getCalculatedDate(petitionDate, petitionDate.addDays(210), true), 'Preliminary', false);
-		testInvFR.Investigation__c = testInv.Id;
-		Federal_Register__c testSegFR = TestUtils.createFR(ADCVD_TollingDayUtility.getCalculatedDate(petitionDate, petitionDate.addDays(210), true), 'Preliminary', false);
-		testSegFR.Segment__c = testSeg.Id;
-		List<Federal_Register__c> insertList = new List<Federal_Register__c>{testInvFR, testSegFR};
-		insert insertList;
+		Federal_Register__c testInvFR = TestUtils.createFR(testInv.Id, 'Investigation__c', ADCVD_TollingDayUtility.getCalculatedDate(petitionDate, petitionDate.addDays(210), true), 'Preliminary', true);
+		Federal_Register__c testSegFR = TestUtils.createFR(testSeg.Id, 'Segment__c', ADCVD_TollingDayUtility.getCalculatedDate(petitionDate, petitionDate.addDays(210), true), 'Preliminary', true);
 	}
 }
