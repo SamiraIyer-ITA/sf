@@ -16,6 +16,14 @@
         <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
+        <apexClass>ADCVD_FederalRegisterUtility</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ADCVD_FederalRegisterUtilityTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ADCVD_TollingDayUtility</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -2607,6 +2615,11 @@
         <editable>false</editable>
         <field>Federal_Register__c.Initiation_Prelim_FR_published__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Federal_Register__c.Investigation__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>

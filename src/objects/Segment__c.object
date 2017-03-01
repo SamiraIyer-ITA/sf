@@ -6262,23 +6262,6 @@ SR = Sunset Review</description>
         <errorMessage>Preliminary Extension can only range from 1-120 days.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>AR_Prelim_Extension_Exceed</fullName>
-        <active>true</active>
-        <description>Legend to the Initials Placed on each rule name
-AR = Admin Review
-ACR = Anti-Circumvention Review
-CCR = Changed Circumstances Review
-ER = Expedited Review
-NSR = New Shipper Review
-SI = Scope Inquiry
-SR = Sunset Review</description>
-        <errorConditionFormula>And (
- $RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
- Prelim_Extension__c &gt; 120
-)</errorConditionFormula>
-        <errorMessage>Preliminary Extension cannot exceed more than 120 days</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>AR_Prelim_Extension_Neg</fullName>
         <active>true</active>
         <description>Legend to the Initials Placed on each rule name
@@ -6323,7 +6306,7 @@ SI = Scope Inquiry
 SR = Sunset Review</description>
         <errorConditionFormula>And (
  $RecordType.DeveloperName = &quot;Expedited_Review&quot;, 
- Prelim_Extension__c &gt; 120 || Prelim_Extension__c != 120
+ Prelim_Extension__c &gt; 120 || Prelim_Extension__c &lt; 0
 )</errorConditionFormula>
         <errorMessage>Cannot exceed more than 120 days</errorMessage>
     </validationRules>
