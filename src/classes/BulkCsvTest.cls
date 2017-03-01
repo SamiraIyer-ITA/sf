@@ -1,4 +1,4 @@
-//TODO - create user story on "has tolling days been applied" to an investigation / petition / segment
+//TODO - create user story on "has tolling days been applied" to an investigation / petition / segment//
 @isTest
 public with sharing class BulkCsvTest {
   private static String           csvFile;
@@ -32,7 +32,7 @@ public with sharing class BulkCsvTest {
   private static Integer           expectedDMLcolumnIndex;
   private static Map<Integer, List<String>>   orderedMapList   = new Map<Integer, List<String>>(); //map of unparsed rows grouped by operation order
   private static Map<String, Set<String>> objectQuerySet    = new Map<String, Set<String>>();
-
+  private static Set<String> sObjectToExcludeFromValidation = new Set<String>{'Holiday'};
   private static String       outputCSVfile         = '';
 
 
@@ -75,8 +75,6 @@ public with sharing class BulkCsvTest {
 
     public testRow(List<String> myCurrentRow, Integer rowNumber) {
       try {
-        system.debug('##DEBUG ' + myCurrentRow);
-        system.debug('##DEBUG ' + rowNumber);
         this.Description     = myCurrentRow[descriptionColumnIndex];
         this.ExternalId     = myCurrentRow[externalIdColumnIndex];
         this.ParentRecord     = myCurrentRow[parentRecordColIndex];
@@ -87,7 +85,12 @@ public with sharing class BulkCsvTest {
 
         if(!String.isBlank(this.SObjectType)) {//if the object type is null, it is not a valid record
           //TODO - if object does not exist, throws an error that the external id does not exist
-          this.InputValueMap.put(EXTERNAL_ID_FIELD_NAME, this.ExternalId); //validate external Id exists on object
+          if(!sObjectToExcludeFromValidation.contains(this.SObjectType)){
+            this.InputValueMap.put(EXTERNAL_ID_FIELD_NAME, this.ExternalId); //validate external Id exists on object
+          } else {
+            this.ExpectedDML = false; // dont validate if they are setup objects?
+          }
+          
           for(Integer i = 0; i < myCurrentRow.size(); i++) { //iterate over row
             String cellValue = myCurrentRow[i];      //value of the cell in scope
             String columnName = headerColIndexMap.get(i);  //the name of the column
@@ -149,8 +152,20 @@ public with sharing class BulkCsvTest {
     runTestOnCsv('testad', 59);
   }
   @isTest
+  private static void testadholiday() {
+    runTestOnCsv('testadholiday', 65);
+  }
+  @isTest
   private static void testcvd() {
     runTestOnCsv('testcvd', 85);
+  }
+  @isTest
+  private static void testnegative() {
+    runTestOnCsv('testnegative', 85);
+  }
+  @isTest
+  private static void testtolling() {
+    runTestOnCsv('testtolling', 85);
   }
   public static void runTestOnCsv(String fileName, Integer expectedCount) {
     //try {
@@ -160,10 +175,11 @@ public with sharing class BulkCsvTest {
       initializeFile(csvFile);
       
       runOrderedOperation();
+      
+      system.debug('V&A CPU Time:' + LIMITS.getCpuTime());
+      system.debug('V&A DML Rows:' + LIMITS.getDmlRows());
+      system.debug('V&A SOQL Cnt:' + LIMITS.getQueries());
       system.assertEquals(expectedCount, validateAndAssert(), 'Wrong expected count');
-      system.debug('CPU Time:' + LIMITS.getCpuTime());
-      system.debug('DML Rows:' + LIMITS.getDmlRows());
-      system.debug('SOQL Cnt:' + LIMITS.getQueries());
     //} catch (exception e) {
     //  system.assert(false, 'Test Failed to process correctly' + e.getMessage());
     //}
@@ -252,7 +268,7 @@ public with sharing class BulkCsvTest {
       }
       //loop through fields to query and build dynamic query
       for(String sObjToQuery : sObjectFieldsToQuery.keySet()) { 
-        if(sObjToQuery == '') {continue;}
+        if(sObjToQuery == '' || sObjectToExcludeFromValidation.contains(sObjToQuery)) {continue;}
         String soqlQuery = 'SELECT Id, ' + EXTERNAL_ID_FIELD_NAME +' '; //build dynamic SOQL query
         for(String fieldToQuery: sObjectFieldsToQuery.get(sObjToQuery)) {
           soqlQuery += ', ' + fieldToQuery;
@@ -261,13 +277,9 @@ public with sharing class BulkCsvTest {
         List<sObject> objectsToValidate = database.query(soqlQuery);
         //validate fields are as expected
         for(sObject sObj: objectsToValidate) {
-          system.debug('### Debug ' + sObj);
           String sObjExternalId = (String)sObj.get(EXTERNAL_ID_FIELD_NAME);
-          system.debug('### Debug ' + sObjExternalId);
           Integer rowNumber = externalIdToCurrentRow.get(sObjExternalId);
-          system.debug('### Debug ' + rowNumber);
           TestRow externalRow = externalIdToTestRow.get(sObjExternalId); //pull back existing related row
-          system.debug('### Debug ' + externalRow);
             if(externalRow == null) {
                 system.debug('V&A Error - row not found:' + sObjExternalId);
                 continue;
@@ -305,10 +317,11 @@ public with sharing class BulkCsvTest {
   public static void buildParentsObjectMap(Set<String> sObjectSet) {
     for(String sObjName: sObjectSet) {
       if(String.isBlank(sObjName)) { continue; }
-      system.debug(sObjName);
 
       //blows up if no external ID name is found?
-      system.assert(validFieldName(sObjName, EXTERNAL_ID_FIELD_NAME), 'Expected external Id: ' + EXTERNAL_ID_FIELD_NAME + ' on object ' + sObjName + '. Please create the unique external ID field on the object.');
+      if(!sObjectToExcludeFromValidation.contains(sObjName)) {
+        system.assert(validFieldName(sObjName, EXTERNAL_ID_FIELD_NAME), 'Expected external Id: ' + EXTERNAL_ID_FIELD_NAME + ' on object ' + sObjName + '. Please create the unique external ID field on the object.');
+      }
       Map<String, String> objNameToRelationshipName = new Map<String, String>();
       Schema.SObjectType sObjType = gd.get(sObjName); //dynamic binding of sObject name to schema
       for(Schema.SobjectField strFld: sObjType.getDescribe().fields.getMap().Values()) {
@@ -376,7 +389,9 @@ public with sharing class BulkCsvTest {
       for(String inputField: tr.InputValueMap.keySet()) {
 
         Schema.DisplayType fieldType = getDataType(tr.SObjectType, inputField);
+
         sObj.put(inputField, stringToDisplayType(tr.InputValueMap.get(inputField), fieldType));
+
         
       }
     } catch (exception e) {
@@ -397,7 +412,7 @@ public with sharing class BulkCsvTest {
       return null;
   }
 
-  private static Schema.DisplayType getDataType(String sObjectName, String fieldName) {
+  public static Schema.DisplayType getDataType(String sObjectName, String fieldName) {
     return getFieldsForSObject(sObjectName).get(fieldName).getDescribe().getType();
   } 
 
@@ -416,7 +431,6 @@ public with sharing class BulkCsvTest {
     for(Integer i = 0; i < headerRow.size(); i++) {
 
       String s = headerRow[i].trim();
-      system.debug(s);
       if(s == DESCRIPTION_COL) {
         descriptionColumnIndex = i;  
       } else if (s == EXTERNAL_ID_COL) {
@@ -450,7 +464,7 @@ public with sharing class BulkCsvTest {
   /* initialize the file */ 
   private static void initializeFile(String myCsvFileString) {
     myCsvFileString += (Parser.CRLF + ',,'); //hack to resolve last row issue
-    
+
     //split csv into an array
     //does not handle intra cell line breaks
 
