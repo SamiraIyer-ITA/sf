@@ -322,7 +322,7 @@ public without sharing class BulkCsvTest {
 						Schema.DisplayType fieldType = getDataType(relatedRow.SObjectType, field);
 						try{ 
 							if(sObj.get(field) != stringToDisplayType(expectedValues.get(field), fieldType)) {
-								relatedRow.RecordErrors.add('V&A: Row ' + rowNumber + PARSER.CRLF + 'Unexpected value for field:' + field + PARSER.CRLF + ' Actual value: ' + sObj.get(field) + ' - Expected Value: ' + expectedValues.get(field));
+								relatedRow.RecordErrors.add('V&A: Row ' + rowNumber + 'Unexpected value for field:' + field + ' Actual value: ' + sObj.get(field) + ' - Expected Value: ' + expectedValues.get(field));
 							}
 						} catch (exception e) {
 							relatedRow.RecordErrors.add('Failed to test input value - error:' + e.getMessage());
@@ -394,11 +394,11 @@ public without sharing class BulkCsvTest {
 			o = Decimal.ValueOf(s);
 
 		} else if (fieldType == Schema.DisplayType.Reference) {
-			//TODO - later 
+			system.debug('##Reference:' + s);
 		} else if (fieldType == Schema.DisplayType.Time) {
-			//TODO - later 
+			system.debug('##Time:' + s);
 		} else if (fieldType == Schema.DisplayType.DataCategoryGroupReference) {
-			//TODO - later
+			system.debug('##DataCategoryGroupReference:' + s);
 		} else if (fieldType == Schema.DisplayType.Boolean) {
 			o = Boolean.ValueOf(s);
 		} else if (fieldType == Schema.DisplayType.DOUBLE) {
