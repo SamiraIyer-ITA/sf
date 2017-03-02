@@ -1,6 +1,5 @@
 //TODO - create user story on "has tolling days been applied" to an investigation / petition / segment//
-@isTest
-public without sharing class BulkCsvTest {
+
   private static String           	csvFile;
   private static List<String>       csvArray       = new List<String>();       //an array for CSV file lines. Each entry is a new line. 
   private static Map<String, Integer>   headerFieldIndexMap= new Map<String, Integer>();
