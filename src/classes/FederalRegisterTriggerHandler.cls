@@ -20,10 +20,14 @@ public without sharing class FederalRegisterTriggerHandler {
         for(Federal_Register__c fr : newList) {
             if(fr.Investigation__c != null) {
                 parentIdSet.add(fr.Investigation__c);
+            } else if (oldMap != null && oldMap.get(fr.Id).Investigation__c != null) {
+                parentIdSet.add(oldMap.get(fr.Id).Investigation__c);
             }
             if(fr.Segment__c != null) {
                 parentIdSet.add(fr.Segment__c);
-            } 
+            } else if (oldMap != null && oldMap.get(fr.Id).Segment__c != null) {
+                parentIdSet.add(oldMap.get(fr.Id).Segment__c);
+            }
         }
         return parentIdSet;
         

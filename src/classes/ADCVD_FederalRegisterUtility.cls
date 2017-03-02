@@ -21,9 +21,11 @@ public without sharing class ADCVD_FederalRegisterUtility {
 	@TestVisible private static void initialize(List<SObject> parentObjectList) {
 		if(String.isBlank(parentObjectName)) {
 			parentObjectName = utils.getSObjectName(parentObjectList[0]);//parentObjectName specifies fields to query and the lookup field to use for Investigation__c and Segment__c
-		} else if(parentObjectName != utils.getSObjectName(parentObjectList[0])) {
+		} else if(parentObjectName != utils.getSObjectName(parentObjectList[0])) {//switched to a new object
 			parentIdToFRsMap.clear();
 			parentObjectName = utils.getSObjectName(parentObjectList[0]);
+		} else {//same object, but a new cascading update
+			parentIdToFRsMap.clear();
 		}
 	}
 	//get Id set from parentObjectList for query
