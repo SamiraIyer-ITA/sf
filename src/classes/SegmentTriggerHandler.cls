@@ -80,7 +80,9 @@ public without sharing class SegmentTriggerHandler {
     }
     //returns a map of Federal Register objects in the form: key = Segment__c Id, value = Federal Register object
     @TestVisible private static Map<Id,Map<String,List<Federal_Register__c>>> segmentIdToFRMap(List<Segment__c> newList) {
-    	Map<Id,Map<String,List<Federal_Register__c>>> returnMap = ADCVD_FederalRegisterUtility.getParentIdToFRsMap(newList);
+    	Map<Id,Map<String,List<Federal_Register__c>>> returnMap = new Map<Id,Map<String,List<Federal_Register__c>>>();
+        ADCVD_FederalRegisterUtility frUtil = ADCVD_FederalRegisterUtility.getInstance(newList);
+        returnMap = frUtil.parentIdToFRsMap;
     	return returnMap;
     }
     //returns a map of <String,Integer> in the form: key = CMT Api name, CMT number value

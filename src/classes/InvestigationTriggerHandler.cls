@@ -161,7 +161,9 @@ public without sharing class InvestigationTriggerHandler {
      * @return        [description]
      */
     @TestVisible private static Map<Id,Map<String,List<Federal_Register__c>>> findInvestigationIdToFRMap(Map<Id,Investigation__c> newMap) {
-        Map<Id,Map<String,List<Federal_Register__c>>> returnMap = ADCVD_FederalRegisterUtility.getParentIdToFRsMap(newMap.values());
+        Map<Id,Map<String,List<Federal_Register__c>>> returnMap = new Map<Id,Map<String,List<Federal_Register__c>>>();
+        ADCVD_FederalRegisterUtility frUtil = ADCVD_FederalRegisterUtility.getInstance(newMap.values());
+       returnMap = frUtil.parentIdToFRsMap;
         for(Investigation__c i : newMap.values()) {
             if(i != null && i.Id != null && returnMap.get(i.Id) != null) {
                 for(String frType : returnMap.get(i.Id).keySet()) {
