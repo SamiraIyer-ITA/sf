@@ -17,10 +17,12 @@
   private static FINAL String       DESCRIPTION_COL    = 'Test_Description';
   private static FINAL String       EXTERNAL_ID_COL    = 'External ID';
   private static FINAL String       PARENT_RECORD_COL  = 'Parent Record';
+  private static FINAL String 		RECORD_TYPE			= 'RecordType.Name';
   private static FINAL String       OBJECT_COL      = 'ObjectName';
   private static FINAL String       OPERATION_COL    = 'Operation Order';
   private static FINAL String       EXPECTED_DML_COL  = 'DMLSuccess';
   private static Integer           	operationColIndex;                  //index of the operation order column
+  private static Integer 			recordTypeColumnIndex;
   private static Integer           	parentRecordColIndex;                //index of the parent record column
   private static Integer           	objectColumnIndex;                  //index of the object column 
   private static Integer           	externalIdColumnIndex;                //index of the external ID
@@ -37,7 +39,7 @@
 		public Map<String, String> InputValueMap   = new Map<String, String>();
 		public Map<String, String> AssrtValueMap   = new Map<String, String>(); //String of assert field, value of assert field
 		public List<String> RecordErrors       = new List<String>();
-
+		public Id RecordType 			= null;
 		public Boolean ExpectedDML           = true;
 		public String Description           = '';
 		public String ExternalId            = ''; 
@@ -78,6 +80,10 @@
 				this.OperationOrder   = String.isBlank(myCurrentRow[operationColIndex]) ? 0 : Integer.valueOf(myCurrentRow[operationColIndex]);
 				this.ExpectedDML     = String.isBlank(myCurrentRow[expectedDMLcolumnIndex]) ? TRUE : Boolean.valueOf(myCurrentRow[expectedDMLcolumnIndex]);
 				this.RowNumber      = rowNumber;
+				
+				if(!String.isBlank(myCurrentRow[recordTypeColumnIndex])) {
+					this.RecordType = getRecordTypeIdByName(this.sObjectType, myCurrentRow[recordTypeColumnIndex]);
+				}
 
 				if(!String.isBlank(this.SObjectType)) {//if the object type is null, it is not a valid record
 					//TODO - if object does not exist, throws an error that the external id does not exist
@@ -153,13 +159,11 @@
 	}
 	@isTest
 	private static void testcvd() {
-		RecordType rt = [SELECT Id FROM RecordType WHERE Name = 'CVD'];
-		system.debug(rt);
-		runTestOnCsv('testcvd', 85);
+		runTestOnCsv('testcvd', 55);
 	}
 	@isTest
 	private static void testnegative() {
-		runTestOnCsv('testnegative', 85);
+		runTestOnCsv('testnegative', 59);
 	}
 	@isTest
 	private static void testtolling() {
@@ -247,6 +251,7 @@
 			//TODO - if same row occurs twice and has different assertions it will fail
 			//sObject list do not support upsert
 			if(createsObjectFromTestRow(tr) != null) {
+				system.debug('V&A creating sObject from row' + tr);
 				if(relatedRow.SfdcId == null) { //insert record if it has not been populated already
 					sObjectListToInsert.add(createsObjectFromTestRow(tr));
 				} else {             //update record if it exists already
@@ -340,7 +345,17 @@
 			return gd;
 		} set;
 	}
-
+	private static Id getRecordTypeIdByName(String sObjName, String recordTypeName) {
+		if(String.isBlank(sObjName) 
+			|| String.isBlank(recordTypeName)
+			|| gd.get(sObjName) == null
+			|| gd.get(sObjName).getDescribe().getRecordTypeInfosByName() == null
+			|| gd.get(sObjName).getDescribe().getRecordTypeInfosByName().get(recordTypeName) == null
+			) {
+			return null;
+		}
+		return gd.get(sObjName).getDescribe().getRecordTypeInfosByName().get(recordTypeName).getRecordTypeId();
+	}
 	//TODO - KNOWN LIMITATION - cannot handle / differentiate multiple parents of same sObjectType
 	public static void buildParentsObjectMap(Set<String> sObjectSet) {
 		for(String sObjName: sObjectSet) {
@@ -420,8 +435,14 @@
 			if(!String.IsBlank(tr.ParentRecord)) { //associate to a parent if needed
 				setParentByExternalId(tr, sObj);
 			}
+			if(tr.RecordType != null) {
+				sObj.put('RecordTypeId', tr.RecordType);
+			}
 			/* loop through input fields and set the correct values in the sObject */ 
 			for(String inputField: tr.InputValueMap.keySet()) {
+				if(tr.SfdcId != null) {
+					sObj.put('Id', tr.SfdcId);
+				}
 				Schema.DisplayType fieldType = getDataType(tr.SObjectType, inputField);
 				sObj.put(inputField, stringToDisplayType(tr.InputValueMap.get(inputField), fieldType));
 			}
@@ -479,6 +500,8 @@
 			String s = headerRow[i].trim();
 			if(s == DESCRIPTION_COL) {
 				descriptionColumnIndex = i;	
+			} else if (s == RECORD_TYPE) {
+				recordTypeColumnIndex = i;
 			} else if (s == EXTERNAL_ID_COL) {
 				externalIdColumnIndex = i;
 			} else if (s == PARENT_RECORD_COL) {
@@ -489,9 +512,7 @@
 				operationColIndex = i;
 			} else if (s == EXPECTED_DML_COL) {
 				expectedDMLcolumnIndex = i;
-			}
-			
-			if(s.startsWith(PREFIX_ASSERT)) {
+			} else if(s.startsWith(PREFIX_ASSERT)) {
 				s = s.remove(PREFIX_ASSERT);
 				assrtionsColIndexMap.put(i, s.trim());
 			} else if (s.startsWith(PREFIX_INPUT)) {
