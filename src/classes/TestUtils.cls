@@ -107,11 +107,11 @@ public with sharing class TestUtils {
     }
 
     //create Federal Register
-    public static Federal_Register__c createFR(Date publishedDate, String frType, Boolean doInsert) {
+    public static Federal_Register__c createFR(Id parentId, String parentLookupField, Date publishedDate, String frType, Boolean doInsert) {
         Federal_Register__c fr = new Federal_Register__c();
+        fr.put(parentLookupField, parentId);
         fr.Type__c = frType;
         fr.Published_Date__c = publishedDate;
-        fr.Postponement_of_Final_Determination_FR__c = publishedDate;
         if(doInsert) {
             insert fr;
         }
