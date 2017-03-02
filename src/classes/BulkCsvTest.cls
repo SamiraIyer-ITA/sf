@@ -394,7 +394,7 @@ public without sharing class BulkCsvTest {
 			o = Decimal.ValueOf(s);
 
 		} else if (fieldType == Schema.DisplayType.Reference) {
-			system.debug('##Reference:' + s);
+			o = Id.ValueOf(s);
 		} else if (fieldType == Schema.DisplayType.Time) {
 			system.debug('##Time:' + s);
 		} else if (fieldType == Schema.DisplayType.DataCategoryGroupReference) {
