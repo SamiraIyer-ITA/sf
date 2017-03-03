@@ -6316,7 +6316,7 @@ SI = Scope Inquiry
 SR = Sunset Review</description>
         <errorConditionFormula>And (
  $RecordType.DeveloperName = &quot;New_Shipper_Review&quot;, 
- Prelim_Extension__c &gt; 120 || Prelim_Extension__c &lt; 0
+ Final_Extension_of_days__c &gt; 60 || Final_Extension_of_days__c &lt; 0
 )</errorConditionFormula>
         <errorMessage>The bound for Final Extension # of Days is 1 to 60 days.</errorMessage>
     </validationRules>
