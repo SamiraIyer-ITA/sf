@@ -81,7 +81,7 @@
 				this.ExpectedDML     = String.isBlank(myCurrentRow[expectedDMLcolumnIndex]) ? TRUE : Boolean.valueOf(myCurrentRow[expectedDMLcolumnIndex]);
 				this.RowNumber      = rowNumber;
 				
-				if(!String.isBlank(myCurrentRow[recordTypeColumnIndex])) {
+				if(recordTypeColumnIndex != null && !String.isBlank(myCurrentRow[recordTypeColumnIndex])) {
 					this.RecordType = getRecordTypeIdByName(this.sObjectType, myCurrentRow[recordTypeColumnIndex]);
 				}
 
@@ -251,7 +251,7 @@
 			//TODO - if same row occurs twice and has different assertions it will fail
 			//sObject list do not support upsert
 			if(createsObjectFromTestRow(tr) != null) {
-				system.debug('V&A creating sObject from row' + tr);
+				system.debug('Creating sObject from row' + tr);
 				if(relatedRow.SfdcId == null) { //insert record if it has not been populated already
 					sObjectListToInsert.add(createsObjectFromTestRow(tr));
 				} else {             //update record if it exists already
@@ -266,7 +266,7 @@
 				if(sr.isSuccess()) {
 					idsToQuery.add(sr.getId());
 				} else {
-					system.debug('V&A DML error' + sr.getErrors());
+					system.debug('DML Failure' + sr.getErrors());
 				}
 			}
 		}
