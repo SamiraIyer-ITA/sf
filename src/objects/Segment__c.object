@@ -6262,40 +6262,6 @@ SR = Sunset Review</description>
         <errorMessage>Preliminary Extension can only range from 1-120 days.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>AR_Prelim_Extension_Exceed</fullName>
-        <active>true</active>
-        <description>Legend to the Initials Placed on each rule name
-AR = Admin Review
-ACR = Anti-Circumvention Review
-CCR = Changed Circumstances Review
-ER = Expedited Review
-NSR = New Shipper Review
-SI = Scope Inquiry
-SR = Sunset Review</description>
-        <errorConditionFormula>And (
- $RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
- Prelim_Extension__c &gt; 120
-)</errorConditionFormula>
-        <errorMessage>Preliminary Extension cannot exceed more than 120 days</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>AR_Prelim_Extension_Neg</fullName>
-        <active>true</active>
-        <description>Legend to the Initials Placed on each rule name
-AR = Admin Review
-ACR = Anti-Circumvention Review
-CCR = Changed Circumstances Review
-ER = Expedited Review
-NSR = New Shipper Review
-SI = Scope Inquiry
-SR = Sunset Review</description>
-        <errorConditionFormula>And (
- $RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
- Prelim_Extension__c &lt; 0
-)</errorConditionFormula>
-        <errorMessage>Preliminary Extension must be greater than zero days.</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>AR_max_180_days_if_prelim_extend_is_null</fullName>
         <active>true</active>
         <description>Legend to the Initials Placed on each rule name
@@ -6307,25 +6273,35 @@ NSR = New Shipper Review
 SI = Scope Inquiry
 SR = Sunset Review</description>
         <errorConditionFormula>AND($RecordType.DeveloperName = &quot;Administrative Review&quot;,
-OR(AND(NOT(ISBLANK( Prelim_Extension__c)),  Final_Extension_of_days__c  &gt; 60),AND(ISBLANK( Prelim_Extension__c ),  Final_Extension_of_days__c &gt; 180)))</errorConditionFormula>
+  OR(
+    AND(
+      NOT(ISBLANK( Prelim_Extension__c)),  
+      Final_Extension_of_days__c  &gt; 60
+    ),
+    AND(
+      ISBLANK( Prelim_Extension__c ),
+      OR(
+        Final_Extension_of_days__c &gt; 180,
+        Final_Extension_of_days__c &lt; 0
+      )
+    )
+  )
+)</errorConditionFormula>
         <errorMessage>Final extension # of days can only range from 0-180 days.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>ER_Prelim_Extension</fullName>
+        <fullName>Bound_If_Prelim_Extension_Exists</fullName>
         <active>true</active>
-        <description>Legend to the Initials Placed on each rule name
-AR = Admin Review
-ACR = Anti-Circumvention Review
-CCR = Changed Circumstances Review
-ER = Expedited Review
-NSR = New Shipper Review
-SI = Scope Inquiry
-SR = Sunset Review</description>
-        <errorConditionFormula>And (
- $RecordType.DeveloperName = &quot;Expedited_Review&quot;, 
- Prelim_Extension__c &gt; 120 || Prelim_Extension__c != 120
-)</errorConditionFormula>
-        <errorMessage>Cannot exceed more than 120 days</errorMessage>
+        <errorConditionFormula>AND($RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
+NOT(ISBLANK( Prelim_Extension__c)), OR(Final_Extension_of_days__c &gt; 60, Final_Extension_of_days__c &lt; 0))</errorConditionFormula>
+        <errorMessage>If there is a value in preliminary extension # of days, the bound for final extension is 1-60 days.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Bound_If_Prelim_Extension_Not_Exists</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
+ISBLANK( Prelim_Extension__c), OR(Final_Extension_of_days__c &gt; 180, Final_Extension_of_days__c &lt; 0))</errorConditionFormula>
+        <errorMessage>If there is no value in preliminary extension # of days, the bound of final extension is 1-180 days.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>NSR_Final_Extension</fullName>
@@ -6345,29 +6321,33 @@ SR = Sunset Review</description>
         <errorMessage>The bound for Final Extension # of Days is 1 to 60 days.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>NSR_Prelim_Extension</fullName>
+        <fullName>Prelim_Extension_for_Admin_Review_Bound</fullName>
         <active>true</active>
         <errorConditionFormula>And (
- $RecordType.DeveloperName = &quot;New_Shipper_Review&quot;, 
- Prelim_Extension__c &gt; 120 || Prelim_Extension__c &lt; 0
+ $RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
+ OR(Prelim_Extension__c &gt; 120, Prelim_Extension__c &lt; 0)
 )</errorConditionFormula>
-        <errorMessage>The bound for Preliminary Extension # of Days is 1 to 120 days.</errorMessage>
+        <errorMessage>Preliminary Extension can only range from 1-120 days.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>SI_Access_Barcode</fullName>
+        <fullName>Prelim_Extension_for_Admin_Review_Exceed</fullName>
         <active>true</active>
-        <description>Legend to the Initials Placed on each rule name
-AR = Admin Review
-ACR = Anti-Circumvention Review
-CCR = Changed Circumstances Review
-ER = Expedited Review
-NSR = New Shipper Review
-SI = Scope Inquiry
-SR = Sunset Review</description>
-        <errorConditionFormula>And( 
-$RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Reject&quot;),NOT(ISBLANK(Access_Barcode__c))
+        <description>Preliminary Extension cannot exceed more than 120 days</description>
+        <errorConditionFormula>And (
+ $RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
+ Prelim_Extension__c &gt; 120
 )</errorConditionFormula>
-        <errorMessage>&quot;Access Barcode&quot; is required only if &quot;Decision on How to Proceed&quot; is either &quot;Formal&quot; or &quot;Informal&quot;.</errorMessage>
+        <errorMessage>Preliminary Extension cannot exceed more than 120 days</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Prelim_Extension_for_Admin_Review_Neg</fullName>
+        <active>true</active>
+        <description>Preliminary Extension must be greater than zero days.</description>
+        <errorConditionFormula>And (
+ $RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
+ Prelim_Extension__c &lt; 0
+)</errorConditionFormula>
+        <errorMessage>Preliminary Extension must be greater than zero days.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>SI_Actual_Date_of_Decision_on_HOP_Bound</fullName>
@@ -6392,22 +6372,6 @@ $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_Ho
         <errorMessage>&quot;Actual Final Signature&quot; cannot be after &quot;Calculated Final Signature&quot;.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>SI_Actual_Final_Signature_NF</fullName>
-        <active>true</active>
-        <description>Legend to the Initials Placed on each rule name
-AR = Admin Review
-ACR = Anti-Circumvention Review
-CCR = Changed Circumstances Review
-ER = Expedited Review
-NSR = New Shipper Review
-SI = Scope Inquiry
-SR = Sunset Review</description>
-        <errorConditionFormula>And ( 
-$RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, NOT(ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;)),NOT(AND(ISBLANK( Actual_Final_Signature__c ))) 
-)</errorConditionFormula>
-        <errorMessage>&quot;Actual Final Signature&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>SI_Actual_Prelim_Signature</fullName>
         <active>true</active>
         <description>Legend to the Initials Placed on each rule name
@@ -6421,54 +6385,6 @@ SR = Sunset Review</description>
         <errorConditionFormula>AND( 
 $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;),  Actual_Preliminary_Signature__c &gt;  Calculated_Preliminary_Signature__c)</errorConditionFormula>
         <errorMessage>&quot;Actual Preliminary Signature&quot; cannot be after &quot;Calculated Preliminary Signature&quot;.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>SI_Actual_Prelim_Signature_NF</fullName>
-        <active>true</active>
-        <description>Legend to the Initials Placed on each rule name
-AR = Admin Review
-ACR = Anti-Circumvention Review
-CCR = Changed Circumstances Review
-ER = Expedited Review
-NSR = New Shipper Review
-SI = Scope Inquiry
-SR = Sunset Review</description>
-        <errorConditionFormula>And (
-$RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, NOT(ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;)),NOT(AND(ISBLANK(Actual_Preliminary_Signature__c)))
-)</errorConditionFormula>
-        <errorMessage>&quot;Actual Preliminary Signature&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>SI_Final_Extension_NF</fullName>
-        <active>true</active>
-        <description>Legend to the Initials Placed on each rule name
-AR = Admin Review
-ACR = Anti-Circumvention Review
-CCR = Changed Circumstances Review
-ER = Expedited Review
-NSR = New Shipper Review
-SI = Scope Inquiry
-SR = Sunset Review</description>
-        <errorConditionFormula>And ( 
-$RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, NOT(ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;)),NOT(AND(ISBLANK( Final_Extension_of_days__c))) 
-)</errorConditionFormula>
-        <errorMessage>&quot;Final Extension (# of days)&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>SI_Final_Team_Meeting_Deadline</fullName>
-        <active>true</active>
-        <description>Legend to the Initials Placed on each rule name
-AR = Admin Review
-ACR = Anti-Circumvention Review
-CCR = Changed Circumstances Review
-ER = Expedited Review
-NSR = New Shipper Review
-SI = Scope Inquiry
-SR = Sunset Review</description>
-        <errorConditionFormula>AND( 
-$RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, NOT(ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;)),NOT(AND(ISBLANK( Final_Team_Meeting_Deadline__c))) 
-)</errorConditionFormula>
-        <errorMessage>&quot;Final Team Meeting Deadline&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>SI_Prelim_Extension</fullName>
@@ -6488,22 +6404,6 @@ OR(Prelim_Extension__c &gt; 120, Prelim_Extension__c &lt; 0)
         <errorMessage>The bound for &quot;Preliminary Extension (#of days)&quot; is 1 to 120 days.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>SI_Prelim_Extension_NF</fullName>
-        <active>true</active>
-        <description>Legend to the Initials Placed on each rule name
-AR = Admin Review
-ACR = Anti-Circumvention Review
-CCR = Changed Circumstances Review
-ER = Expedited Review
-NSR = New Shipper Review
-SI = Scope Inquiry
-SR = Sunset Review</description>
-        <errorConditionFormula>And(
-$RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, NOT(ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;)),NOT(AND(ISBLANK( Prelim_Extension__c ))) 
-)</errorConditionFormula>
-        <errorMessage>&quot;Preliminary Extension (# of days)&quot;  is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>SI_Product_Determined_To_Be_In_Scope</fullName>
         <active>true</active>
         <description>Legend to the Initials Placed on each rule name
@@ -6520,84 +6420,11 @@ $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_Ho
         <errorMessage>If Decision on How to Proceed is Reject, then Was Product Determined to be in Scope should be null.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>SI_Product_P_Determine_to_be_in_Scope_NF</fullName>
+        <fullName>max_180_days_if_prelim_extend_is_blank</fullName>
         <active>true</active>
-        <description>Legend to the Initials Placed on each rule name
-AR = Admin Review
-ACR = Anti-Circumvention Review
-CCR = Changed Circumstances Review
-ER = Expedited Review
-NSR = New Shipper Review
-SI = Scope Inquiry
-SR = Sunset Review</description>
-        <errorConditionFormula>And( 
-$RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, NOT(ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;)),OR(ISPICKVAL( Was_Product_Prelim_Determine_on_Scope__c, &quot;Yes&quot;),ISPICKVAL( Was_Product_Prelim_Determine_on_Scope__c, &quot;No&quot;))
-)</errorConditionFormula>
-        <errorMessage>&quot;Was the Product Preliminary Determined to be in Scope?&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>SI_Scope_Changes_HTS</fullName>
-        <active>true</active>
-        <description>Legend to the Initials Placed on each rule name
-AR = Admin Review
-ACR = Anti-Circumvention Review
-CCR = Changed Circumstances Review
-ER = Expedited Review
-NSR = New Shipper Review
-SI = Scope Inquiry
-SR = Sunset Review</description>
-        <errorConditionFormula>And( 
-$RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Reject&quot;),NOT(ISBLANK(HTS_Changes__c))
-)</errorConditionFormula>
-        <errorMessage>&quot;HTS Changes&quot; is required only if &quot;Decision on How to Proceed&quot; is either &quot;Formal&quot; or &quot;Informal&quot;.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>SI_Scope_Changes_Language</fullName>
-        <active>true</active>
-        <description>Legend to the Initials Placed on each rule name
-AR = Admin Review
-ACR = Anti-Circumvention Review
-CCR = Changed Circumstances Review
-ER = Expedited Review
-NSR = New Shipper Review
-SI = Scope Inquiry
-SR = Sunset Review</description>
-        <errorConditionFormula>And( 
-$RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Reject&quot;),NOT(ISBLANK(Scope_Language_Changes__c))
-)</errorConditionFormula>
-        <errorMessage>&quot;Scope Language Change(s)&quot; is required only if &quot;Decision on How to Proceed&quot; is either &quot;Formal&quot; or &quot;Informal&quot;.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>SI_Scope_Segment_Termination</fullName>
-        <active>true</active>
-        <description>Legend to the Initials Placed on each rule name
-AR = Admin Review
-ACR = Anti-Circumvention Review
-CCR = Changed Circumstances Review
-ER = Expedited Review
-NSR = New Shipper Review
-SI = Scope Inquiry
-SR = Sunset Review</description>
-        <errorConditionFormula>And( 
-$RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, NOT(ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Reject&quot;)),NOT(ISBLANK(TEXT( Scope_Segment_Termination__c)))
-)</errorConditionFormula>
-        <errorMessage>&quot;Scope Segment Termination&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Reject&apos;.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>SI_Was_Product_Determined_To_Be_In_Scope</fullName>
-        <active>true</active>
-        <description>Legend to the Initials Placed on each rule name
-AR = Admin Review
-ACR = Anti-Circumvention Review
-CCR = Changed Circumstances Review
-ER = Expedited Review
-NSR = New Shipper Review
-SI = Scope Inquiry
-SR = Sunset Review</description>
-        <errorConditionFormula>And( 
-$RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Reject&quot;),NOT(ISBLANK(TEXT(  Was_product_determined_to_be_in_scope__c )))
-)</errorConditionFormula>
-        <errorMessage>&quot;Was the Product Determined to be in Scope?&quot; is required only if &quot;Decision on How to Proceed&quot; is either &quot;Formal&quot; or &quot;Informal&quot;.</errorMessage>
+        <errorConditionFormula>AND($RecordType.DeveloperName = &quot;Administrative Review&quot;,
+OR(AND(NOT(ISBLANK( Prelim_Extension__c)),  Final_Extension_of_days__c  &gt; 60),AND(ISBLANK( Prelim_Extension__c ),  Final_Extension_of_days__c &gt; 180)))</errorConditionFormula>
+        <errorMessage>Final extension # of days can only range from 0-180 days.</errorMessage>
     </validationRules>
     <visibility>Public</visibility>
 </CustomObject>
