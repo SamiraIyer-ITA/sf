@@ -397,8 +397,9 @@
 	/* method used to convert CSV string to the correct data type */
 	public static object stringToDisplayType(String s, Schema.DisplayType fieldType) {
 		object o;
+		s = s.trim();
 		if(fieldType == Schema.DisplayType.Date) {
-			o = Date.Parse(s);  
+			o = Date.Parse(s);
 		} else if(fieldType == Schema.DisplayType.DateTime) {
 			o = DateTime.Parse(s);  
 
