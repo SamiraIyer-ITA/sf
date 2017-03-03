@@ -6439,30 +6439,6 @@ $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, NOT(ISPICKVAL( Decision_o
         <errorMessage>&quot;Actual Preliminary Signature&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>SI_Calculated_Final_Signature_NF</fullName>
-        <active>true</active>
-        <description>Legend to the Initials Placed on each rule name
-AR = Admin Review
-ACR = Anti-Circumvention Review
-CCR = Changed Circumstances Review
-ER = Expedited Review
-NSR = New Shipper Review
-SI = Scope Inquiry
-SR = Sunset Review</description>
-        <errorConditionFormula>And( 
-$RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, NOT(ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;)),NOT(AND(ISBLANK( Calculated_Final_Signature__c))) 
-)</errorConditionFormula>
-        <errorMessage>&quot;Calculated Final Signature&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>SI_Calculated_Preliminary_Signature</fullName>
-        <active>true</active>
-        <errorConditionFormula>And( 
-$RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,NOT(ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;)),NOT(AND(ISBLANK(Calculated_Preliminary_Signature__c))) 
-)</errorConditionFormula>
-        <errorMessage>&quot;Calculated Preliminary Signature&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>SI_Final_Extension_NF</fullName>
         <active>true</active>
         <description>Legend to the Initials Placed on each rule name
@@ -6493,24 +6469,6 @@ SR = Sunset Review</description>
 $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, NOT(ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;)),NOT(AND(ISBLANK( Final_Team_Meeting_Deadline__c))) 
 )</errorConditionFormula>
         <errorMessage>&quot;Final Team Meeting Deadline&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>SI_If_Decision_on_HOP_NF</fullName>
-        <active>true</active>
-        <description>Legend to the Initials Placed on each rule name
-AR = Admin Review
-ACR = Anti-Circumvention Review
-CCR = Changed Circumstances Review
-ER = Expedited Review
-NSR = New Shipper Review
-SI = Scope Inquiry
-SR = Sunset Review</description>
-        <errorConditionFormula>AND ( 
-$RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, NOT( 
-ISPICKVAL(Decision_on_How_to_Proceed__c,&quot;Formal&quot;)), 
-NOT(AND(ISBLANK(Calculated_Preliminary_Signature__c))) 
-)</errorConditionFormula>
-        <errorMessage>Calculated Preliminary Signature is null if Decision on How to Proceed is either Informal or Reject on Scope Inquiry form</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>SI_Prelim_Extension</fullName>
@@ -6544,22 +6502,6 @@ SR = Sunset Review</description>
 $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, NOT(ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;)),NOT(AND(ISBLANK( Prelim_Extension__c ))) 
 )</errorConditionFormula>
         <errorMessage>&quot;Preliminary Extension (# of days)&quot;  is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>SI_Prelim_Team_Meet_Deadline_NF</fullName>
-        <active>true</active>
-        <description>Legend to the Initials Placed on each rule name
-AR = Admin Review
-ACR = Anti-Circumvention Review
-CCR = Changed Circumstances Review
-ER = Expedited Review
-NSR = New Shipper Review
-SI = Scope Inquiry
-SR = Sunset Review</description>
-        <errorConditionFormula>And( 
-$RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, NOT(ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;)),NOT(AND(ISBLANK( Prelim_Team_Meeting_Deadline__c ))) 
-)</errorConditionFormula>
-        <errorMessage>&quot;Preliminary Team Meeting Deadline&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>SI_Product_Determined_To_Be_In_Scope</fullName>
