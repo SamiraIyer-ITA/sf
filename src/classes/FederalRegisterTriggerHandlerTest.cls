@@ -60,7 +60,8 @@ public class FederalRegisterTriggerHandlerTest {
 		Federal_Register__c fr = TestUtils.createFR(iAD.Id, 'Investigation__c', publishDate.addDays(300), 'Preliminary', true);
 		//date in database should have increased based on future fr.Published_Date__c of type Preliminary
 		System.assert(testCalculated_Final_Signature < [SELECT Calculated_Final_Signature__c FROM Investigation__c WHERE Id =: iAD.Id].Calculated_Final_Signature__c);
-		Test.stopTest();
+		delete fr;
+		Test.stopTest();		
 	}
 	@testSetup static void dataSetup() {
 		Test.startTest();

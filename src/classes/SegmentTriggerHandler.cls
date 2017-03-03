@@ -54,7 +54,6 @@ public without sharing class SegmentTriggerHandler {
     }
 
     @TestVisible private static Map<Id,String> recordTypeNameMap = new Map<Id,String>();
-    @TestVisible private static Map<Id,Map<String,List<Federal_Register__c>>> segmentIdToFRMap = new Map<Id,Map<String,List<Federal_Register__c>>>();
 
     @TestVisible private static void calculateSegmentDates(List<Segment__c> newList) {
     	for (Segment__c s : newList) {
@@ -75,15 +74,8 @@ public without sharing class SegmentTriggerHandler {
         //petitionsInScopeMap = findPetitionsInScopeMap(newList);
         recordTypeNameMap = utils.getRecordTypeDeveloperNameMap(newList[0]);
         if(newMap != null) {
-            segmentIdToFRMap = segmentIdToFRMap(newMap.values());
+            ADCVD_FederalRegisterUtility frMapUtil = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get segments with an Id
         }
-    }
-    //returns a map of Federal Register objects in the form: key = Segment__c Id, value = Federal Register object
-    @TestVisible private static Map<Id,Map<String,List<Federal_Register__c>>> segmentIdToFRMap(List<Segment__c> newList) {
-    	Map<Id,Map<String,List<Federal_Register__c>>> returnMap = new Map<Id,Map<String,List<Federal_Register__c>>>();
-        ADCVD_FederalRegisterUtility frUtil = ADCVD_FederalRegisterUtility.getInstance(newList);
-        returnMap = frUtil.parentIdToFRsMap;
-    	return returnMap;
     }
     //returns a map of <String,Integer> in the form: key = CMT Api name, CMT number value
     //used to set Offset Variables
@@ -95,59 +87,6 @@ public without sharing class SegmentTriggerHandler {
             returnMap.put(sc.QualifiedAPIName, sc);
         }
         return returnMap;
-    }
-    /**
-     * [fr returns a Federal_Register__c from the map, doing proper null checks]
-     * @param  s      [Segment__c]
-     * @param  frType [Type__c from Federal_Register__c]
-     * @return        [returns a Federal_Register__c object or null if it is not found]
-     */
-    @TestVisible private static Federal_Register__c fr (Segment__c s, String frType) {
-        Federal_Register__c returnFR = null;
-        if(s.Id != null && segmentIdToFRMap.get(s.Id) != null && segmentIdToFRMap.get(s.Id).get(frType) != null) {//check for nulls prior to referencing the next deeper layer
-            if (segmentIdToFRMap.get(s.Id).get(frType).size() == 1) {
-                returnFR = segmentIdToFRMap.get(s.Id).get(frType)[0];
-            } else {
-                //TODO logic for multiple FRs with same parent (Amended FRs)
-                return null;
-            }
-        }
-        return returnFR;
-    }
-    /**
-     * [frField returns the requested field as an object which will need to be type cast to field data type]
-     * @param  s         [Segment__c]
-     * @param  fieldName [name of Federal_Register__c field to be retrieved]
-     * @param  frType    [Type__c from Federal_Register__c]
-     * @return           [returns a Federal_Register__c field as an object or null if it is not found]
-     */
-    @TestVisible private static Object frField(Segment__c s, String fieldName, String frType) {
-        if(s.Id != null && segmentIdToFRMap.get(s.Id) != null && segmentIdToFRMap.get(s.Id).get(frType) != null) {//check for nulls prior to referencing the next deeper layer
-            if (segmentIdToFRMap.get(s.Id).get(frType).size() == 1) {//only one to return
-                if (segmentIdToFRMap.get(s.Id).get(frType)[0].get(fieldName) != null) {
-                    return segmentIdToFRMap.get(s.Id).get(frType)[0].get(fieldName);
-                } else {
-                    return null;
-                }
-            } else {
-                return null;
-                //TODO logic for multiple FRs with same parent (Amended FRs)
-            }
-        } else {
-            return null;
-        }
-    }
-    /**
-     * [frDate calls frField to get a date field from a Federal_Register__c, checks if its null and type casts it to date]
-     * @param  s         [Segment__c]
-     * @param  fieldName [name of Federal_Register__c date field to be retrieved]
-     * @param  frType    [Type__c from Federal_Register__c]
-     * @return           [returns a Federal_Register__c field as a date or null if it is not found]
-     */
-    @TestVisible private static Date frDate(Segment__c s, String fieldName, String frType) {
-        Object tempObject = frField(s, fieldName, frType) != null ? frField(s, fieldName, frType) : null;
-        Date returnDate = tempObject != null ? (Date) tempObject : null;
-        return returnDate;
     }
 
     /*********************************************************************************
@@ -172,7 +111,6 @@ public without sharing class SegmentTriggerHandler {
     @TestVisible private static void setCalculatedPreliminarySignature(Segment__c s) {
     	Integer extension = s.Prelim_Extension__c == null ? 0 : (Integer)s.Prelim_Extension__c;//null check on extension, set to 0 if null
         System.debug(recordTypeNameMap.get(s.RecordTypeId));
-        System.debug(ADMIN_REVIEW);
     	if(recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW) {
             if(s.Final_Date_of_Anniversary_Month__c != null) {
                 s.Calculated_Preliminary_Signature__c = s.Final_Date_of_Anniversary_Month__c.addDays(AR_CALC_PRELIM_SIG).addDays(extension);
@@ -221,7 +159,8 @@ public without sharing class SegmentTriggerHandler {
 
     //sets Calculated_Final_Signature__c, requires Calculated_Preliminary_Signature__c to be set
     @TestVisible private static void setCalculatedFinalSignature(Segment__c s){
-        Date prelimPublished = frDate(s, 'Published_Date__c', 'Preliminary');
+        ADCVD_FederalRegisterUtility frUtil = ADCVD_FederalRegisterUtility.getInstance(s);
+        Date prelimpublished = frUtil != null ? frUtil.preliminaryPublishedDate : null;
         Integer extension = s.Final_Extension_of_days__c == null ? 0 : (Integer)s.Final_Extension_of_days__c;//null check on extension, set to 0 if null
     	if (recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW) {
     		if (prelimPublished == null) {
