@@ -6262,6 +6262,19 @@ SR = Sunset Review</description>
         <errorMessage>Preliminary Extension can only range from 1-120 days.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>AR_max_180_days_if_prelim_extend_is_null</fullName>
+        <active>true</active>
+        <description>Legend to the Initials Placed on each rule name
+AR = Admin Review
+ACR = Anti-Circumvention Review
+CCR = Changed Circumstances Review
+ER = Expedited Review
+NSR = New Shipper Review
+SI = Scope Inquiry
+SR = Sunset Review</description>
+        <errorConditionFormula>AND($RecordType.DeveloperName = &quot;Administrative Review&quot;,
+  OR(
+    AND(
       NOT(ISBLANK( Prelim_Extension__c)),  
       Final_Extension_of_days__c  &gt; 60
     ),
@@ -6273,6 +6286,10 @@ SR = Sunset Review</description>
       )
     )
   )
+)</errorConditionFormula>
+        <errorMessage>Final extension # of days can only range from 0-180 days.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Bound_If_Prelim_Extension_Exists</fullName>
         <active>true</active>
         <errorConditionFormula>AND($RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
