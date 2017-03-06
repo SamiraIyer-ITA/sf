@@ -24,7 +24,7 @@
                 <sorted>false</sorted>
                 <value>
                     <fullName>Administrative_Review</fullName>
-                    <default>true</default>
+                    <default>false</default>
                     <label>Administrative Review</label>
                 </value>
                 <value>
