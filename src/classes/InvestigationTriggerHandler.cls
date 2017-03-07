@@ -64,16 +64,13 @@ public without sharing class InvestigationTriggerHandler {
     @TestVisible private static Set<Id> unfinishedPetitions = new Set<Id>();
     @TestVisible private static Map<Id,String> recordTypeNameMap = new Map<Id,String>();
     @TestVisible private static Map<String,Investigation_Constant__mdt> investigationApiToConstants = new Map<String,Investigation_Constant__mdt>();
-    @TestVisible private static Map<Id,Map<String,List<Federal_Register__c>>> investigationIdToFRMap = new Map<Id,Map<String,List<Federal_Register__c>>>();
-    @TestVisible private static List<Object> frFields = new List<Object>();
-    @TestVisible private static Object frField = null;
 
     //Setup Methods used to set class level variables
     @TestVisible private static void initialize(List<Investigation__c> newList, Map<Id,Investigation__c> newMap) {
         petitionsInScopeMap = findPetitionsInScopeMap(newList);
         recordTypeNameMap = utils.getRecordTypeDeveloperNameMap(newList[0]);
         if (newMap != null) {
-           investigationIdToFRMap = findInvestigationIdToFRMap(newMap);//pass newMap to only get Investigations with an Id
+            ADCVD_FederalRegisterUtility frMapUtil = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get Investigations with an Id
         }
     }
     //Syncs petition fields to investigation fields and AD to CVD if aligned
@@ -153,82 +150,6 @@ public without sharing class InvestigationTriggerHandler {
             returnMap.put(ic.QualifiedAPIName, ic);
         }
         return returnMap;
-    }
-    /**
-     * Uses the ADCVD_FederalRegisterUtility to retrieve a Map in this form: Investigation__c Id -> Federal_Register__c Type__c -> List <Federal_Register__c>
-     * The methods following this method are used to make accessing values in the map easier
-     * @param  newMap Uses the newMap param so all Investigations will have an Id, also does logic to set FRs being deleted to null for recalculation
-     * @return        [description]
-     */
-    @TestVisible private static Map<Id,Map<String,List<Federal_Register__c>>> findInvestigationIdToFRMap(Map<Id,Investigation__c> newMap) {
-        Map<Id,Map<String,List<Federal_Register__c>>> returnMap = new Map<Id,Map<String,List<Federal_Register__c>>>();
-        ADCVD_FederalRegisterUtility frUtil = ADCVD_FederalRegisterUtility.getInstance(newMap.values());
-       returnMap = frUtil.parentIdToFRsMap;
-        for(Investigation__c i : newMap.values()) {
-            if(i != null && i.Id != null && returnMap.get(i.Id) != null) {
-                for(String frType : returnMap.get(i.Id).keySet()) {
-                    if (returnMap.get(i.Id).get(frType) != null) {
-                        for(Federal_Register__c fr : returnMap.get(i.Id).get(frType)) {//should be only one in list for all FRs except Amended
-                            fr = fr.Do_Delete__c ? null : fr;
-                        }
-                    } 
-                }
-            }
-        }
-        
-        return returnMap;
-    }
-    /**
-     * [getFrFields sets class level Object and List<Object> variables from investigationIdToFRMap]
-     * @param  i         [Investigation__c]
-     * @param  fieldName [name of Federal_Register__c fields to be retrieved]
-     * @param  frType    [Type__c from Federal_Register__c]
-     * @return           [returns a list of Federal_Register__c fields as list of objects or null if it is not found]
-     */
-    @TestVisible private static void getFrFields(Investigation__c i, String frType, String fieldName) {
-        Integer frCount = frCount(i, frType);
-        frField = null;
-        frFields.clear();
-        if (frCount == 1 && investigationIdToFRMap.get(i.Id).get(frType)[0].get(fieldName) != null) {//frCount and field level null check
-            frField = investigationIdToFRMap.get(i.Id).get(frType)[0].get(fieldName);
-        } else if (frCount > 1) {
-            for (Federal_Register__c fr : investigationIdToFRMap.get(i.Id).get(frType)) {//get list of Federal Registers for the Investigation that are of frType
-                if (fr.get(fieldName) != null) {//field level null check
-                    frFields.add(fr.get(fieldName));
-                }
-            }
-        }
-    }
-    /**
-     * [frDates calls frFields to get a list of date fields from a Federal_Register__c, checks if its null and type casts it to date]
-     * @param  i         [Investigation__c]
-     * @param  fieldName [name of Federal_Register__c date fields to be retrieved]
-     * @param  frType    [Type__c from Federal_Register__c]
-     * @return           [returns a list of Federal_Register__c fields as a dates or null if it is not found]
-     */
-    @TestVisible private static List<Date> frDates(Investigation__c i, String frType, String fieldName) {
-        getFrFields(i, frType, fieldName);
-        List<Date> returnDates = (List<Date>)frFields;
-        return returnDates;
-    }
-    @TestVisible private static Date frDate(Investigation__c i, String frType, String fieldName) {
-        getFrFields(i, frType, fieldName);
-        Date tempDate = (Date)frField;
-        return tempDate;
-    }
-    //This returns the number of Federal_Register__c objects in a given list for cases where multiple have the same type.  This also performs all null checks except field level
-    @TestVisible private static Integer frCount(Investigation__c i, String frType) {
-        Integer frCount = i.Id != null && investigationIdToFRMap.get(i.Id) != null && investigationIdToFRMap.get(i.Id).get(frType) != null
-                            && investigationIdToFRMap.get(i.Id).get(frType).size() > 0 ? 
-                            investigationIdToFRMap.get(i.Id).get(frType).size() : 0;
-        return frCount;
-    }
-    //This returns a specific FR, cannot be used when multiple FRs are the same type and have the same parent Investigation
-    @TestVisible private static Federal_Register__c getFR(Investigation__c i, String frType) {
-        Federal_Register__c fr = i.Id != null && investigationIdToFRMap.get(i.Id) != null && investigationIdToFRMap.get(i.Id).get(frType) != null 
-                                    && investigationIdToFRMap.get(i.Id).get(frType).size() > 0 ?  
-                                    investigationIdToFRMap.get(i.Id).get(frType)[0] : null;
-        return fr;
     }
     
     /****************************************************************************************
@@ -320,7 +241,8 @@ public without sharing class InvestigationTriggerHandler {
     @TestVisible private static void setCalculatedFinalSignature(Investigation__c i){
         Integer extension = i.Final_Extension_of_days__c == null ? 0 : (Integer)i.Final_Extension_of_days__c;//null check on extension, set to 0 if null
     	if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
-            Date prelimpublished = frDate(i, 'Preliminary', 'Published_Date__c');
+            ADCVD_FederalRegisterUtility frUtil = ADCVD_FederalRegisterUtility.getInstance(i);
+            Date prelimpublished = frUtil != null ? frUtil.preliminaryPublishedDate : null;
             System.debug(prelimpublished);
     		if (extension > 0 && prelimpublished != null) {
                 i.Calculated_Final_Signature__c = prelimpublished.addDays(AD_CALC_FINAL_SIGN).addDays(extension);
@@ -533,8 +455,9 @@ public without sharing class InvestigationTriggerHandler {
 
     //sets Termination_of_Suspension_Gap_Period_Beg__c
     @TestVisible private static void setTerminationofSuspensionGapPeriodBeg(Investigation__c i){
-        Federal_Register__c fr = getFR(i, 'Preliminary');
-    	Date prelimpublished = frDate(i, 'Preliminary', 'Published_Date__c');
+        ADCVD_FederalRegisterUtility frUtil = ADCVD_FederalRegisterUtility.getInstance(i);
+        Federal_Register__c fr = frUtil != null ? frUtil.preliminaryFR : null;
+    	Date prelimpublished = frUtil != null ? frUtil.preliminaryPublishedDate : null;
     	if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
 	    	if (prelimpublished != null) {
 		    	i.Termination_of_Suspension_Gap_Period_Beg__c = i.Final_Extension_of_days__c == null ? 

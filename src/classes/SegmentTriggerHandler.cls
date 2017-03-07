@@ -54,7 +54,6 @@ public without sharing class SegmentTriggerHandler {
     }
 
     @TestVisible private static Map<Id,String> recordTypeNameMap = new Map<Id,String>();
-    @TestVisible private static Map<Id,Map<String,List<Federal_Register__c>>> segmentIdToFRMap = new Map<Id,Map<String,List<Federal_Register__c>>>();
 
     @TestVisible private static void calculateSegmentDates(List<Segment__c> newList) {
     	for (Segment__c s : newList) {
@@ -75,15 +74,8 @@ public without sharing class SegmentTriggerHandler {
         //petitionsInScopeMap = findPetitionsInScopeMap(newList);
         recordTypeNameMap = utils.getRecordTypeDeveloperNameMap(newList[0]);
         if(newMap != null) {
-            segmentIdToFRMap = segmentIdToFRMap(newMap.values());
+            ADCVD_FederalRegisterUtility frMapUtil = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get segments with an Id
         }
-    }
-    //returns a map of Federal Register objects in the form: key = Segment__c Id, value = Federal Register object
-    @TestVisible private static Map<Id,Map<String,List<Federal_Register__c>>> segmentIdToFRMap(List<Segment__c> newList) {
-    	Map<Id,Map<String,List<Federal_Register__c>>> returnMap = new Map<Id,Map<String,List<Federal_Register__c>>>();
-        ADCVD_FederalRegisterUtility frUtil = ADCVD_FederalRegisterUtility.getInstance(newList);
-        returnMap = frUtil.parentIdToFRsMap;
-    	return returnMap;
     }
     //returns a map of <String,Integer> in the form: key = CMT Api name, CMT number value
     //used to set Offset Variables
@@ -95,59 +87,6 @@ public without sharing class SegmentTriggerHandler {
             returnMap.put(sc.QualifiedAPIName, sc);
         }
         return returnMap;
-    }
-    /**
-     * [fr returns a Federal_Register__c from the map, doing proper null checks]
-     * @param  s      [Segment__c]
-     * @param  frType [Type__c from Federal_Register__c]
-     * @return        [returns a Federal_Register__c object or null if it is not found]
-     */
-    @TestVisible private static Federal_Register__c fr (Segment__c s, String frType) {
-        Federal_Register__c returnFR = null;
-        if(s.Id != null && segmentIdToFRMap.get(s.Id) != null && segmentIdToFRMap.get(s.Id).get(frType) != null) {//check for nulls prior to referencing the next deeper layer
-            if (segmentIdToFRMap.get(s.Id).get(frType).size() == 1) {
-                returnFR = segmentIdToFRMap.get(s.Id).get(frType)[0];
-            } else {
-                //TODO logic for multiple FRs with same parent (Amended FRs)
-                return null;
-            }
-        }
-        return returnFR;
-    }
-    /**
-     * [frField returns the requested field as an object which will need to be type cast to field data type]
-     * @param  s         [Segment__c]
-     * @param  fieldName [name of Federal_Register__c field to be retrieved]
-     * @param  frType    [Type__c from Federal_Register__c]
-     * @return           [returns a Federal_Register__c field as an object or null if it is not found]
-     */
-    @TestVisible private static Object frField(Segment__c s, String fieldName, String frType) {
-        if(s.Id != null && segmentIdToFRMap.get(s.Id) != null && segmentIdToFRMap.get(s.Id).get(frType) != null) {//check for nulls prior to referencing the next deeper layer
-            if (segmentIdToFRMap.get(s.Id).get(frType).size() == 1) {//only one to return
-                if (segmentIdToFRMap.get(s.Id).get(frType)[0].get(fieldName) != null) {
-                    return segmentIdToFRMap.get(s.Id).get(frType)[0].get(fieldName);
-                } else {
-                    return null;
-                }
-            } else {
-                return null;
-                //TODO logic for multiple FRs with same parent (Amended FRs)
-            }
-        } else {
-            return null;
-        }
-    }
-    /**
-     * [frDate calls frField to get a date field from a Federal_Register__c, checks if its null and type casts it to date]
-     * @param  s         [Segment__c]
-     * @param  fieldName [name of Federal_Register__c date field to be retrieved]
-     * @param  frType    [Type__c from Federal_Register__c]
-     * @return           [returns a Federal_Register__c field as a date or null if it is not found]
-     */
-    @TestVisible private static Date frDate(Segment__c s, String fieldName, String frType) {
-        Object tempObject = frField(s, fieldName, frType) != null ? frField(s, fieldName, frType) : null;
-        Date returnDate = tempObject != null ? (Date) tempObject : null;
-        return returnDate;
     }
 
     /*********************************************************************************
@@ -187,14 +126,12 @@ public without sharing class SegmentTriggerHandler {
 				s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Initiation_Signature__c, s.Calculated_Preliminary_Signature__c, true);
 			}
 		} else if (recordTypeNameMap.get(s.RecordTypeId) == SCOPE_INQUIRY) {
-//TODO  Are we sure Actual_Date_of_Decision_on_HoP__c won't be null?  Seems like it is user input with a VR.
-			if(s.Actual_Date_of_Decision_on_HoP__c == null && s.Deadline_for_Decision_on_How_to_Proceed__c != null) {
-				s.Calculated_Preliminary_Signature__c = s.Deadline_for_Decision_on_How_to_Proceed__c.addDays(SI_CALC_PRELIM_SIG).addDays(extension);
-				s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Deadline_for_Decision_on_How_to_Proceed__c, s.Calculated_Preliminary_Signature__c, true);
-			} else if (s.Actual_Date_of_Decision_on_HoP__c != null) {
+			if (s.Decision_on_How_to_Proceed__c == 'Formal' && s.Actual_Date_of_Decision_on_HoP__c != null) {
 				s.Calculated_Preliminary_Signature__c = s.Actual_Date_of_Decision_on_HoP__c.addDays(SI_CALC_PRELIM_SIG).addDays(extension);
 				s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Date_of_Decision_on_HoP__c, s.Calculated_Preliminary_Signature__c, true);
-			}
+			} else if (s.Decision_on_How_to_Proceed__c != 'Formal') {
+                s.Calculated_Preliminary_Signature__c = null;
+            }
 		}
     }
 
@@ -203,7 +140,6 @@ public without sharing class SegmentTriggerHandler {
         if(recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW) {
         	if (s.Calculated_Preliminary_Signature__c != null) {
         		s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(AR_PRELIM_TEAM_MEET_DEADLINE);
- //TODO     team meetings use a negative offset, which will never account for a tolling/weekend/holiday.
         		s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Preliminary_Signature__c, s.Prelim_Team_Meeting_Deadline__c, true);
         	}
         } else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
@@ -212,22 +148,25 @@ public without sharing class SegmentTriggerHandler {
                 s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Preliminary_Signature__c, s.Prelim_Team_Meeting_Deadline__c, true);
             }
         } else if (recordTypeNameMap.get(s.RecordTypeId) == SCOPE_INQUIRY) {
-        	if (s.Calculated_Preliminary_Signature__c != null) {
+        	if (s.Decision_on_How_to_Proceed__c == 'Formal' && s.Calculated_Preliminary_Signature__c != null) {
                 s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(SI_PRELIM_TEAM_MEET_DEADLINE);
                 s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Preliminary_Signature__c, s.Prelim_Team_Meeting_Deadline__c, true);
+            } else if (s.Decision_on_How_to_Proceed__c != 'Formal') {
+                s.Prelim_Team_Meeting_Deadline__c = null;
             }
 		}
     }
 
     //sets Calculated_Final_Signature__c, requires Calculated_Preliminary_Signature__c to be set
     @TestVisible private static void setCalculatedFinalSignature(Segment__c s){
-        Date prelimPublished = frDate(s, 'Published_Date__c', 'Preliminary');
+        ADCVD_FederalRegisterUtility frUtil = ADCVD_FederalRegisterUtility.getInstance(s);
+        Date prelimpublished = frUtil != null ? frUtil.preliminaryPublishedDate : null;
         Integer extension = s.Final_Extension_of_days__c == null ? 0 : (Integer)s.Final_Extension_of_days__c;//null check on extension, set to 0 if null
     	if (recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW) {
-    		if (prelimPublished == null) {
+    		if (prelimPublished == null && s.Calculated_Preliminary_Signature__c != null) {
 				s.Calculated_Final_Signature__c = s.Calculated_Preliminary_Signature__c.addDays(AR_CALC_FINAL_SIG).addDays(extension);
 				s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Preliminary_Signature__c, s.Calculated_Final_Signature__c, true);
-    		} else {
+    		} else if (prelimPublished != null) {
     			s.Calculated_Final_Signature__c = prelimPublished.addDays(AR_CALC_FINAL_SIG).addDays(extension);
     			s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(prelimPublished, s.Calculated_Final_Signature__c, true);
     		}
@@ -235,23 +174,23 @@ public without sharing class SegmentTriggerHandler {
             if (s.Actual_Preliminary_Signature__c == null && s.Calculated_Preliminary_Signature__c != null) {
                 s.Calculated_Final_Signature__c = s.Calculated_Preliminary_Signature__c.addDays(NS_CALC_FINAL_SIG).addDays(extension);
                 s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Preliminary_Signature__c, s.Calculated_Final_Signature__c, true);
-            } else if (s.Calculated_Preliminary_Signature__c != null) {
+            } else if (s.Actual_Preliminary_Signature__c != null) {
                 s.Calculated_Final_Signature__c = s.Actual_Preliminary_Signature__c.addDays(NS_CALC_FINAL_SIG).addDays(extension);
                 s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Preliminary_Signature__c, s.Calculated_Final_Signature__c, true);
             }
     	} else if (recordTypeNameMap.get(s.RecordTypeId) == SCOPE_INQUIRY) {
-    		if(s.Actual_Date_of_Decision_on_HoP__c == null && s.Deadline_for_Decision_on_How_to_Proceed__c != null) {
-				s.Calculated_Preliminary_Signature__c = s.Deadline_for_Decision_on_How_to_Proceed__c.addDays(SI_CALC_FINAL_SIG).addDays(extension);
-				s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Deadline_for_Decision_on_How_to_Proceed__c, s.Calculated_Preliminary_Signature__c, true);
-			} else if (s.Actual_Date_of_Decision_on_HoP__c != null) {
-				s.Calculated_Preliminary_Signature__c = s.Actual_Date_of_Decision_on_HoP__c.addDays(SI_CALC_FINAL_SIG).addDays(extension);
-				s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Date_of_Decision_on_HoP__c, s.Calculated_Preliminary_Signature__c, true);
-			}
+    		if (s.Decision_on_How_to_Proceed__c == 'Formal' && s.Actual_Date_of_Decision_on_HoP__c != null) {
+				s.Calculated_Final_Signature__c = s.Actual_Date_of_Decision_on_HoP__c.addDays(SI_CALC_FINAL_SIG).addDays(extension);
+				s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Date_of_Decision_on_HoP__c, s.Calculated_Final_Signature__c, true);
+			} else if (s.Decision_on_How_to_Proceed__c != 'Formal') {
+                s.Calculated_Final_Signature__c = null;
+            }
 		}
     }
 
     //sets Final_Team_Meeting_Deadline__c, requires Calculated_Final_Signature__c to be set
     @TestVisible private static void setFinalTeamMeetingDeadline(Segment__c s) {
+
     	if (recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW) {
 	    	if (s.Calculated_Final_Signature__c != null) {
 	    		s.Final_Team_Meeting_Deadline__c = s.Calculated_Final_Signature__c.addDays(AR_FINAL_TEAM_MEET_DEADLINE);
@@ -263,9 +202,11 @@ public without sharing class SegmentTriggerHandler {
                 s.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Final_Signature__c, s.Final_Team_Meeting_Deadline__c, true);
             }
 	    } else if (recordTypeNameMap.get(s.RecordTypeId) == SCOPE_INQUIRY) {
-	    	if (s.Calculated_Final_Signature__c != null) {
+	    	if (s.Decision_on_How_to_Proceed__c == 'Formal' && s.Calculated_Final_Signature__c != null) {
                 s.Final_Team_Meeting_Deadline__c = s.Calculated_Final_Signature__c.addDays(SI_FINAL_TEAM_MEET_DEADLINE);
                 s.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Final_Signature__c, s.Final_Team_Meeting_Deadline__c, true);
+            } else if (s.Decision_on_How_to_Proceed__c != 'Formal') {
+                s.Final_Team_Meeting_Deadline__c = null;
             }
 		}
     }
@@ -279,7 +220,7 @@ public without sharing class SegmentTriggerHandler {
 	        }
         } else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
         	if(s.Calculated_Final_Signature__c != null){
-	            s.Calculated_Amended_Final_Signature__c = s.Calculated_Final_Signature__c.addDays(0);
+	            s.Calculated_Amended_Final_Signature__c = s.Calculated_Final_Signature__c.addDays(NS_CALC_AMEN_FINAL_SIG);
 	            s.Calculated_Amended_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Final_Signature__c, s.Calculated_Amended_Final_Signature__c, true);
 	        }
         }
