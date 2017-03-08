@@ -1,13 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-	<types>
-		<members>Segment__c.SI_Calculated_Final_Signature_NF</members>
-		<members>Segment__c.SI_Calculated_Preliminary_Signature</members>
-		<members>Segment__c.SI_Final_Team_Meeting_Deadline</members>
-		<members>Segment__c.SI_If_Decision_on_HOP_NF</members>
-		<members>Segment__c.SI_Prelim_Team_Meet_Deadline_NF</members>
-		<members>Investigation__c.Calc_Amended_Prelim_Determination_Null</members>
-		<name>ValidationRule</name>
-	</types>
     <version>39.0</version>
 </Package>
