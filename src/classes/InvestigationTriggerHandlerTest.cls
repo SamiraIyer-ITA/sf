@@ -11,7 +11,6 @@ public class InvestigationTriggerHandlerTest {
 								Email, EmailEncodingKey, TimeZoneSidKey, CommunityNickname, Username 
 							FROM User WHERE LastName =: 'LastName1' LIMIT 1];
 			}
-			System.debug('User u: ' + u);
 			return u;
 		}
 	}
@@ -77,7 +76,6 @@ public class InvestigationTriggerHandlerTest {
 			if (p == null) {
 				p = [SELECT Id, Petition_Filed__c, Actual_Initiation_Signature__c, Calculated_Initiation_Signature__c FROM Petition__c LIMIT 1];
 			}
-			System.System.debug('Petition p: ' + p);
 			return p;
 		}
 	}

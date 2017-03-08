@@ -64,13 +64,16 @@ public without sharing class InvestigationTriggerHandler {
     @TestVisible private static Set<Id> unfinishedPetitions = new Set<Id>();
     @TestVisible private static Map<Id,String> recordTypeNameMap = new Map<Id,String>();
     @TestVisible private static Map<String,Investigation_Constant__mdt> investigationApiToConstants = new Map<String,Investigation_Constant__mdt>();
+    @TestVisible private static Map<Id,ADCVD_FederalRegisterUtility> frUtilMap = new Map<Id,ADCVD_FederalRegisterUtility>();
 
     //Setup Methods used to set class level variables
     @TestVisible private static void initialize(List<Investigation__c> newList, Map<Id,Investigation__c> newMap) {
         petitionsInScopeMap = findPetitionsInScopeMap(newList);
         recordTypeNameMap = utils.getRecordTypeDeveloperNameMap(newList[0]);
         if (newMap != null) {
-            ADCVD_FederalRegisterUtility frMapUtil = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get Investigations with an Id
+            ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get Investigations with an Id
+            frUtilMap = listInstance.utilMap;
+
         }
     }
     //Syncs petition fields to investigation fields and AD to CVD if aligned
@@ -241,9 +244,10 @@ public without sharing class InvestigationTriggerHandler {
     @TestVisible private static void setCalculatedFinalSignature(Investigation__c i){
         Integer extension = i.Final_Extension_of_days__c == null ? 0 : (Integer)i.Final_Extension_of_days__c;//null check on extension, set to 0 if null
     	if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
-            ADCVD_FederalRegisterUtility frUtil = ADCVD_FederalRegisterUtility.getInstance(i);
-            Date prelimpublished = frUtil != null ? frUtil.preliminaryPublishedDate : null;
-            System.debug(prelimpublished);
+            Date prelimpublished = null;
+            if(i.Id != null && frUtilMap != null) {
+                prelimpublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).preliminaryPublishedDate : null;
+            }
     		if (extension > 0 && prelimpublished != null) {
                 i.Calculated_Final_Signature__c = prelimpublished.addDays(AD_CALC_FINAL_SIGN).addDays(extension);
                 i.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(prelimpublished, i.Calculated_Final_Signature__c, true);
@@ -455,9 +459,12 @@ public without sharing class InvestigationTriggerHandler {
 
     //sets Termination_of_Suspension_Gap_Period_Beg__c
     @TestVisible private static void setTerminationofSuspensionGapPeriodBeg(Investigation__c i){
-        ADCVD_FederalRegisterUtility frUtil = ADCVD_FederalRegisterUtility.getInstance(i);
-        Federal_Register__c fr = frUtil != null ? frUtil.preliminaryFR : null;
-    	Date prelimpublished = frUtil != null ? frUtil.preliminaryPublishedDate : null;
+        Federal_Register__c fr = null; 
+    	Date prelimpublished = null;
+        if(i.Id != null && frUtilMap != null) {
+            prelimpublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).preliminaryPublishedDate : null;
+            fr = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).preliminaryFR : null;
+        }
     	if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
 	    	if (prelimpublished != null) {
 		    	i.Termination_of_Suspension_Gap_Period_Beg__c = i.Final_Extension_of_days__c == null ? 

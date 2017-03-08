@@ -15,8 +15,13 @@ public without sharing class FederalRegisterTriggerHandler {
             calculateInvestigationsOnDelete(oldMap);
         }
     }
+
+    @TestVisible private static Map<Id,ADCVD_FederalRegisterUtility> frUtilMap = new Map<Id,ADCVD_FederalRegisterUtility>();
+
     @TestVisible private static Set<Id> findParentsInScope(List<Federal_Register__c> newList, Map<Id,Federal_Register__c> oldMap) {
         Set<Id> parentIdSet = new Set<Id>();
+        Set<Id> frIdSet = new Set<Id>();
+        List<Federal_Register__c> listForFrUtilMap = new List<Federal_Register__c>();
         for(Federal_Register__c fr : newList) {
             if(fr.Investigation__c != null) {
                 parentIdSet.add(fr.Investigation__c);
@@ -28,7 +33,20 @@ public without sharing class FederalRegisterTriggerHandler {
             } else if (oldMap != null && oldMap.get(fr.Id).Segment__c != null) {
                 parentIdSet.add(oldMap.get(fr.Id).Segment__c);
             }
+            if(fr.Id != null) {
+                listForFrUtilMap.add(fr);
+                frIdSet.add(fr.Id);
+            }
         }
+        if(oldMap != null) {
+            for(Federal_Register__c fr : oldMap.values()) {
+                if(!frIdSet.contains(fr.Id)) {
+                    listForFrUtilMap.add(fr);
+                }
+            }
+        }
+        ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(listForFrUtilMap);
+        frUtilMap = listInstance.utilMap;
         return parentIdSet;
         
     }

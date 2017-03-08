@@ -10,7 +10,6 @@ public class SegmentTriggerHandlerTest {
 								Email, EmailEncodingKey, TimeZoneSidKey, CommunityNickname, Username 
 							FROM User WHERE LastName =: 'LastName1' LIMIT 1];
 			}
-			System.debug('User u: ' + u);
 			return u;
 		}
 	}
@@ -169,12 +168,10 @@ public class SegmentTriggerHandlerTest {
 	//setCalculatedFinalSignature
 	@isTest static void setCalculatedFinalSignature(){
 		Test.startTest();
-
 		//setup start dates
 		setStartDates();
 		setExtensions();
 		getNewSegs();
-
 		//Administrative Review
 		//Based on Calculated
 		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(adminSeg.Calculated_Preliminary_Signature__c.addDays(120).addDays(7));
@@ -184,6 +181,7 @@ public class SegmentTriggerHandlerTest {
 
 		//Based on FR Preliminary Published Date
 		setFR(adminSeg.Id);
+		update adminSeg;
 		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(fr.Published_Date__c.addDays(120).addDays(7));
 		//compare fr.Published_Date__c + Final_Extension_of_days__c
 		System.assertEquals(testCalculated,
@@ -290,7 +288,6 @@ public class SegmentTriggerHandlerTest {
 				segsToInsert.add(testSeg);
 			}
 			insert segsToInsert;
-			System.debug(segsToInsert);
 		}
 	}
 
