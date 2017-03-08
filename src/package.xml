@@ -92,6 +92,7 @@
         <members>Segment_Constant__mdt</members>
         <members>Segment__c</members>
         <members>Series__c</members>
+        <members>Service__mdt</members>
         <members>Site__c</members>
         <members>Social_Icons__c</members>
         <members>Survey_Result__c</members>
