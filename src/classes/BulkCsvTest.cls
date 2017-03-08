@@ -1,7 +1,7 @@
 //TODO - create user story on "has tolling days been applied" to an investigation / petition / segment//
 @isTest
 public without sharing class BulkCsvTest {
-    @isTest
+    /*@isTest
     private static void testad() {
         runTestOnCsv('testad', 59);
     }
@@ -40,7 +40,7 @@ public without sharing class BulkCsvTest {
     @isTest
     private static void Mario_CVD_unitTest_2TdBetweenSDandED(){
         runTestOnCsv('Mario_CVD_unitTest_2TdBetweenSDandED', 55);
-    }
+    }*/
     private static String               csvFile;
     private static List<String>       csvArray       = new List<String>();       //an array for CSV file lines. Each entry is a new line. 
     private static Map<String, Integer>   headerFieldIndexMap= new Map<String, Integer>();
