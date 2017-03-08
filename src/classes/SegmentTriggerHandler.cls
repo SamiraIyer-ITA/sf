@@ -54,6 +54,7 @@ public without sharing class SegmentTriggerHandler {
     }
 
     @TestVisible private static Map<Id,String> recordTypeNameMap = new Map<Id,String>();
+    @TestVisible private static Map<Id,ADCVD_FederalRegisterUtility> frUtilMap = new Map<Id,ADCVD_FederalRegisterUtility>();
 
     @TestVisible private static void calculateSegmentDates(List<Segment__c> newList) {
     	for (Segment__c s : newList) {
@@ -74,7 +75,8 @@ public without sharing class SegmentTriggerHandler {
         //petitionsInScopeMap = findPetitionsInScopeMap(newList);
         recordTypeNameMap = utils.getRecordTypeDeveloperNameMap(newList[0]);
         if(newMap != null) {
-            ADCVD_FederalRegisterUtility frMapUtil = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get segments with an Id
+            ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get Segments with an Id
+            frUtilMap = listInstance.utilMap;
         }
     }
     //returns a map of <String,Integer> in the form: key = CMT Api name, CMT number value
@@ -99,7 +101,6 @@ public without sharing class SegmentTriggerHandler {
     //sets Deadline_for_Decision_for_HoP__c for Scope Inquiry Segments
     @TestVisible private static void setDeadlineForDecisionForHoP(Segment__c s) {
     	if (recordTypeNameMap.get(s.RecordTypeId) == SCOPE_INQUIRY) {
-//TODO is Initiation_Extension_of_days__c correct?
     		Integer extension = s.Initiation_Extension_of_days__c == null ? 0 : (Integer)s.Initiation_Extension_of_days__c;//null check on extension, set to 0 if null
     		if(s.Request_Filed__c != null) {
     			s.Deadline_for_Decision_on_How_to_Proceed__c = s.Request_Filed__c.addDays(SI_DEADLINE_FOR_DECISION_HOP).addDays(extension);
@@ -110,8 +111,6 @@ public without sharing class SegmentTriggerHandler {
     //sets Calculated_Preliminary_Signature__c
     @TestVisible private static void setCalculatedPreliminarySignature(Segment__c s) {
     	Integer extension = s.Prelim_Extension__c == null ? 0 : (Integer)s.Prelim_Extension__c;//null check on extension, set to 0 if null
-        System.debug(recordTypeNameMap.get(s.RecordTypeId));
-        System.debug(ADMIN_REVIEW);
     	if(recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW) {
             if(s.Final_Date_of_Anniversary_Month__c != null) {
                 s.Calculated_Preliminary_Signature__c = s.Final_Date_of_Anniversary_Month__c.addDays(AR_CALC_PRELIM_SIG).addDays(extension);
@@ -159,8 +158,10 @@ public without sharing class SegmentTriggerHandler {
 
     //sets Calculated_Final_Signature__c, requires Calculated_Preliminary_Signature__c to be set
     @TestVisible private static void setCalculatedFinalSignature(Segment__c s){
-        ADCVD_FederalRegisterUtility frUtil = ADCVD_FederalRegisterUtility.getInstance(s);
-        Date prelimpublished = frUtil != null ? frUtil.preliminaryPublishedDate : null;
+        Date prelimpublished = null;
+        if(s.Id != null && frUtilMap != null) {
+            prelimpublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).preliminaryPublishedDate : null;
+        }
         Integer extension = s.Final_Extension_of_days__c == null ? 0 : (Integer)s.Final_Extension_of_days__c;//null check on extension, set to 0 if null
     	if (recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW) {
     		if (prelimPublished == null && s.Calculated_Preliminary_Signature__c != null) {
@@ -190,7 +191,6 @@ public without sharing class SegmentTriggerHandler {
 
     //sets Final_Team_Meeting_Deadline__c, requires Calculated_Final_Signature__c to be set
     @TestVisible private static void setFinalTeamMeetingDeadline(Segment__c s) {
-
     	if (recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW) {
 	    	if (s.Calculated_Final_Signature__c != null) {
 	    		s.Final_Team_Meeting_Deadline__c = s.Calculated_Final_Signature__c.addDays(AR_FINAL_TEAM_MEET_DEADLINE);
@@ -214,15 +214,21 @@ public without sharing class SegmentTriggerHandler {
     //sets Calculated_Amended_Final_Signature__c
     @TestVisible private static void setCalculatedAmendedFinalSignature(Segment__c s){
         if (recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW) {
-        	if(s.Calculated_Final_Signature__c != null){
+        	if(s.Actual_Final_Signature__c == null && s.Calculated_Final_Signature__c != null){
 	            s.Calculated_Amended_Final_Signature__c = s.Calculated_Final_Signature__c.addDays(AR_CALC_AMEN_FINAL_SIG);
 	            s.Calculated_Amended_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Final_Signature__c, s.Calculated_Amended_Final_Signature__c, true);
-	        }
+	        } else if (s.Actual_Final_Signature__c != null) {
+                s.Calculated_Amended_Final_Signature__c = s.Actual_Final_Signature__c.addDays(AR_CALC_AMEN_FINAL_SIG);
+                s.Calculated_Amended_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Final_Signature__c, s.Calculated_Amended_Final_Signature__c, true);
+            }
         } else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
-        	if(s.Calculated_Final_Signature__c != null){
+        	if(s.Actual_Final_Signature__c == null && s.Calculated_Final_Signature__c != null){
 	            s.Calculated_Amended_Final_Signature__c = s.Calculated_Final_Signature__c.addDays(NS_CALC_AMEN_FINAL_SIG);
 	            s.Calculated_Amended_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Final_Signature__c, s.Calculated_Amended_Final_Signature__c, true);
-	        }
+	        } else if (s.Actual_Final_Signature__c != null) {
+                s.Calculated_Amended_Final_Signature__c = s.Actual_Final_Signature__c.addDays(NS_CALC_AMEN_FINAL_SIG);
+                s.Calculated_Amended_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Final_Signature__c, s.Calculated_Amended_Final_Signature__c, true);
+            }
         }
     }
 }

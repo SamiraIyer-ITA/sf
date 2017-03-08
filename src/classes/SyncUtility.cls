@@ -125,16 +125,13 @@ public without sharing class SyncUtility {
 			soQuery += sourceQueryFieldNames.get(sourceObjectName);//add query fields based on this source object
 			soQuery = soQuery.removeEnd(', ');
 			soQuery += ' FROM ' + sourceObjectName + ' WHERE Id IN: tempIdSet';//limit by the Ids gathered from the current set
-			System.debug('*** soQuery: ' + soQuery);
 			soList = (List<SObject>)Database.Query(soQuery);
-			System.debug('*** soList: ' + soList);
 			addSourceListToSourceObjectsMap(sourceObjectName);//add soList to sourceObjectMap
 		}
 	}
 
 	//sync the source values to the target object
 	@TestVisible private static void setTargetObjectValues() {
-		System.debug(sourceObjectsMap.values());
 		for (SObject sourceObject : sourceObjectsMap.values()) {//iterate through the source objects that were queried
 			Map<String,String> targetApiToSourceApiMap = syncFieldMap.get(sourceObjectsTypeMap.get(sourceObject.Id));//set the field api's from CMT to the source object type
 			if(sourceIdToTargetObjectMap.get(sourceObject.Id) != null && sourceIdToTargetObjectMap.get(sourceObject.Id).size() > 0) {

@@ -1,27 +1,57 @@
 public without sharing class ADCVD_FederalRegisterUtility {
 	/*************************************************************
-	This utility provides object agnostic methods to query the
-	Federal Register Object for use in other object triggers.
+	This utility accepts a list of SObjects from a trigger handler.
+    It has 3 constructors.  One is public and empty for setting 
+    a class level variable in the trigger handler.  The second 
+    is private and accepts a map of FR Types to a list of FRs.
+    This one is used to set the variables for each FR and creates
+    an instance of this class with just that FRs values.  The third
+    calls the query of all parents from the Cascade utility and calls
+    the second constructor to place the returned FRs into class
+    instances.  It then returns a map of all parent Ids to an instance
+    of this class with their child FR values populated to the public
+    variables. For cascading updates on the same FR hierarchy, the map 
+    of all parent Ids to class instances of a single FR means no new 
+    query should be needed.
 	 ************************************************************/
 	//Object agnostic variables
+   //holds the name of the original object type being updated, passed to CascadeUtility to query the correct FR parents //
 	@TestVisible private static String parentObjectName = '';
+    //used to hold the values from the CascadeUtility that have been type casted to FR and remapped with their Type as the middle
 	@TestVisible private static Map<Id,Map<String,List<Federal_Register__c>>> parentIdToFRsMap = new Map<Id,Map<String,List<Federal_Register__c>>>();
+    //used in class to hold a list of fields from multiple FRs of the same type from the same parent object...(Amended* types)
 	@TestVisible private static List<Object> frFields = new List<Object>();
+    //used in class to hold a single field from a single FR...(!Amended* types)
     @TestVisible private static Object frField = null;
+    //used to hold the instances created by the single object constructor 
+    @TestVisible private static Map<Id,ADCVD_FederalRegisterUtility> frIdToInstanceMap = new Map<Id,ADCVD_FederalRegisterUtility>();
+    @TestVisible private static Set<Id> parentIdSet = new Set<Id>();
+    //incoming list of parent objects from the original update
     public List<SObject> parentObjectList {get; set;}
+    //the map that is used in trigger handlers to access an FR within an ADCVD_FederalRegisterUtility instance
+    public Map<Id,ADCVD_FederalRegisterUtility> utilMap {get; private set;}
 
 	//Singleton Implementation
 	@TestVisible private static ADCVD_FederalRegisterUtility objectTypeInstance = null;
 	@TestVisible private static ADCVD_FederalRegisterUtility objectInstance = null;
+
+    //used many times to create instances of every child FR for each of its parents
+    @TestVisible private static ADCVD_FederalRegisterUtility getInstance(SObject parentObject) {
+        if(parentIdToFRsMap.get(parentObject.Id) != null) objectInstance = new ADCVD_FederalRegisterUtility(parentIdToFRsMap.get(parentObject.Id));
+        return objectInstance;
+    }
+    //used once for the query via CascadeUtility and creating the parent Id to Instance map
 	public static ADCVD_FederalRegisterUtility getInstance(List<SObject> parentObjectList) {
-		Boolean newInstance = !String.isBlank(parentObjectName) && parentObjectName == utils.getSObjectName(parentObjectList[0]) ? true: false;
-		parentObjectName = utils.getSObjectName(parentObjectList[0]);
-		if(objectTypeInstance == null || newInstance) objectTypeInstance = new ADCVD_FederalRegisterUtility(parentObjectList);
-		return objectTypeInstance;
-	}
-	public static ADCVD_FederalRegisterUtility getInstance(SObject parentObject) {
-		if(parentIdToFRsMap.get(parentObject.Id) != null) objectInstance = new ADCVD_FederalRegisterUtility(parentIdToFRsMap.get(parentObject.Id));
-		return objectInstance;
+        parentObjectName = utils.getSObjectName(parentObjectList[0]);
+        Boolean newIds = false;
+        for(SObject so : parentObjectList) {
+            if(so.Id != null && !parentIdSet.contains(so.Id)) {
+                parentIdSet.add(so.Id);
+                newIds = true;
+            }
+        }
+        if(objectTypeInstance == null || newIds || parentObjectName == 'Federal_Register__c') objectTypeInstance = new ADCVD_FederalRegisterUtility(parentObjectList);
+        return objectTypeInstance;
 	}
 
 	//FR Variables (holds an FR of a specific type for a specific parent SObject)
@@ -65,21 +95,16 @@ public without sharing class ADCVD_FederalRegisterUtility {
 	public Date suspensionAgreementPublishedDate {get; private set;}
 
 
+
+    //empy constructor in case a trigger handler needs to instantiate a class level variable
+    public ADCVD_FederalRegisterUtility() {}
 	
 	/**
-	 * Called in a trigger handler during the initialize phase for list of object being updated
-	 * @param  parentObjectList List of parent SObjects being updated
-	 * @return                  sets the in utility map
-	 */
-	private ADCVD_FederalRegisterUtility(List<SObject> parentObjectList) {
-		parentIdToFRsMap = setParentIdToFRsMap(parentObjectList);
-	}
-	/**
-	 * Override of the previous method. If the first method is initialized, this will set the values in utility for a specific parent SObject
+	 * called by the getInstance method to create one instantiation of the class for one FR
 	 * @param  typeToFrMap the String (Type__c) to List of FRs for a specific parent SObject
 	 * @return             sets the in utility variables
 	 */
-	private ADCVD_FederalRegisterUtility(Map<String,List<Federal_Register__c>> typeToFrMap) {
+	@TestVisible private ADCVD_FederalRegisterUtility(Map<String,List<Federal_Register__c>> typeToFrMap) {
 
 		//FR variables
 		initiationFR 						= setInitiationFR(typeToFrMap);
@@ -121,16 +146,51 @@ public without sharing class ADCVD_FederalRegisterUtility {
 		quarterlyScopePublishedDate 				= setQuarterlyScopePublishedDate(typeToFrMap);
 		suspensionAgreementPublishedDate 			= setSuspensionAgreementPublishedDate(typeToFrMap);
 	}
+    /**
+     * Called in a trigger handler to create the utilMap that will map all parent ids to all their child registers
+     * @param  parentObjectList List of parent SObjects being updated
+     * @return                  sets the in utility map
+     */
+    @TestVisible private ADCVD_FederalRegisterUtility(List<SObject> parentObjectList) {
+        Map<Id,List<SObject>> cuFrMap = new Map<Id,List<SObject>>();
+        CascadeUtility cu = new CascadeUtility('Federal_Register__c');
+        cuFrMap = cu.getParentIdToObjectsMap(parentObjectName, parentIdSet);
+        if(cuFrMap.size() > 0) {
+            parentIdToFRsMap = setFRsByTypeToMap(cuFrMap);
+        }
+        if(parentIdToFRsMap.size() > 0) {
+            setFrIdToInstanceMap(cuFrMap);
+            utilMap = setUtilMap();
+        }
+    }
 
+    //used to create the class instances for each FR and place them in a static class level map
+    @TestVisible private static void setFrIdToInstanceMap(Map<Id,List<SObject>> cuFrMap) {
+        for (Id parentId : cuFrMap.keySet()) {
+            List<SObject> soList = cuFrMap.get(parentId);
+            for(SObject so : soList) {
+                objectInstance = ADCVD_FederalRegisterUtility.getInstance(so);
+                if(parentId != null && objectInstance != null) {
+                    frIdToInstanceMap.put(parentId, objectInstance);
+                }
+            }
+        }
+    }
+    //used to populate the values from the class map to one that can be used in the trigger handlers
+    @TestVisible private static Map<Id,ADCVD_FederalRegisterUtility> setUtilMap() {
+        Map<Id,ADCVD_FederalRegisterUtility>returnMap = new Map<Id,ADCVD_FederalRegisterUtility>();
+        returnMap = frIdToInstanceMap;
+        return returnMap;
+    }
 
-
-	//accepts list of SObjects, returns map of parent SObject to list of child Federal_Register__c
-	private static Map<Id,Map<String,List<Federal_Register__c>>> setParentIdToFRsMap(List<SObject> parentObjectList) {
+/*TODO...no longer needed	
+    //accepts list of SObjects, returns map of parent SObject to list of child Federal_Register__c
+	@TestVisible private static Map<Id,Map<String,List<Federal_Register__c>>> setParentIdToFRsMap(List<SObject> parentObjectList) {
 		Map<Id,Map<String,List<Federal_Register__c>>> returnMap = new Map<Id,Map<String,List<Federal_Register__c>>>();
 		returnMap = addFRsToMap(parentObjectList);
 		return returnMap;
 	}
-	/*******************************************************************
+*/	/*******************************************************************
 	 * Date setter methods
 	 *******************************************************************/
 
@@ -311,7 +371,7 @@ public without sharing class ADCVD_FederalRegisterUtility {
      /**********************************************************
       * Methods to set parentIdToFRsMap
       **********************************************************/    
-
+/* TODO no longer needed
 	//get Id set from parentObjectList for query
 	@TestVisible private static Set<Id> setParentObjectIdSet(List<SObject> parentObjectList) {
 		Set<Id> returnSet = new Set<Id>();
@@ -360,6 +420,40 @@ public without sharing class ADCVD_FederalRegisterUtility {
 		}
 		return returnMap;
 	}
+*/
+    //query all fields from Federal_Register__c where the Id dynamic lookup field stored in parentObjectName is in the Id set created from parentObjectList
+    @TestVisible private static Map<Id,Map<String,List<Federal_Register__c>>> setFRsByTypeToMap(Map<Id,List<SObject>> soMap) {
+        Map<Id,Map<String,List<Federal_Register__c>>> returnMap = new Map<Id,Map<String,List<Federal_Register__c>>>();
+        for (Id parentId : soMap.keySet()) {
+            for(SObject so : soMap.get(parentId)) {
+                Federal_Register__c fr = (Federal_Register__c)so;
+                if (returnMap.get(parentId) != null && returnMap.get(parentId).get(fr.Type__c) != null) {//add new Fr to existing map
+                    Map<String,List<Federal_Register__c>> tempMap = returnMap.get(parentId);
+                    List<Federal_Register__c> tempList = tempMap.get(fr.Type__c);
+                    Boolean inList = false;
+                    for(Federal_Register__c frInList : tempList) {
+                        if(frInList.Id != null && frInList.Id == fr.Id) {
+                            frInList = fr;
+                            inList = true;
+                        }
+                    }
+                    if(inList == false) {
+                        tempList.add(fr);
+                    }
+                    tempMap.put(fr.Type__c, tempList);
+                    returnMap.put(parentId, tempMap);
+                } else {//new type or new Id
+                    Map<String,List<Federal_Register__c>> tempMap = new Map<String,List<Federal_Register__c>>();
+                    List<Federal_Register__c> tempList = new List<Federal_Register__c>();
+                    tempList.add(fr);
+                    tempMap.put(fr.Type__c, tempList);
+                    returnMap.put(parentId, tempMap);
+                }
+            }
+            
+        }
+        return returnMap;
+    }
 
 	/************************************************************************
 	 *  Helper methods to get values from map
@@ -376,7 +470,7 @@ public without sharing class ADCVD_FederalRegisterUtility {
         Integer frCount = frCount(typeToFrMap, frType);
         frField = null;
         frFields.clear();
-        if (frCount == 1 && typeToFrMap.get(frType)[0].get(fieldName) != null) {//frCount and field level null check
+        if (frCount == 1 && typeToFrMap != null && typeToFrMap.get(frType)[0].get(fieldName) != null) {//frCount and field level null check
             frField = typeToFrMap.get(frType)[0].get(fieldName);
         } else if (frCount > 1) {
             for (Federal_Register__c fr : typeToFrMap.get(frType)) {//get list of Federal Registers for the Object that are of frType
@@ -388,17 +482,23 @@ public without sharing class ADCVD_FederalRegisterUtility {
     }
     //This returns the number of Federal_Register__c objects in a given list for cases where multiple have the same type.  This also performs all null checks except field level
     @TestVisible private static Integer frCount(Map<String,List<Federal_Register__c>> typeToFrMap, String frType) {
-        Integer frCount = typeToFrMap.get(frType) != null && typeToFrMap.get(frType).size() > 0 ? typeToFrMap.get(frType).size() : 0;
+        Integer frCount = typeToFrMap != null && typeToFrMap.keySet().contains(frType) && 
+                            typeToFrMap.get(frType) != null && typeToFrMap.get(frType).size() > 0 ? 
+                            typeToFrMap.get(frType).size() : 0;
         return frCount;
     }
     //This returns a specific FR, cannot be used when multiple FRs are the same type and have the same parent Object
     @TestVisible private static Federal_Register__c setFR(Map<String,List<Federal_Register__c>> typeToFrMap, String frType) {
-        Federal_Register__c fr = typeToFrMap.get(frType) != null  && typeToFrMap.get(frType).size() > 0 ? typeToFrMap.get(frType)[0] : null;
+        Federal_Register__c fr = typeToFrMap != null && typeToFrMap.keySet().contains(frType) && 
+                                    typeToFrMap.get(frType) != null  && typeToFrMap.get(frType).size() > 0 ? 
+                                    typeToFrMap.get(frType)[0] : null;
         return fr;
     }
     //This returns a list of FRs
     @TestVisible private static List<Federal_Register__c> setFrList(Map<String,List<Federal_Register__c>> typeToFrMap, String frType) {
-        List<Federal_Register__c> frList = typeToFrMap.get(frType) != null && typeToFrMap.get(frType).size() > 0 ? typeToFrMap.get(frType) : null;
+        List<Federal_Register__c> frList = typeToFrMap != null && typeToFrMap.keySet().contains(frType) && 
+                                            typeToFrMap.get(frType) != null && typeToFrMap.get(frType).size() > 0 ? 
+                                            typeToFrMap.get(frType) : null;
         return frList;
     }
 }
