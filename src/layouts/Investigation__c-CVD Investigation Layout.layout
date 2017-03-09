@@ -16,23 +16,23 @@
                 <field>Next_Due_to_DAS_Deadline_and_Timeline__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Petition_Case_Number__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Petition_Case_Type__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Petition_Commodity__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Petition_Country__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Petition_Product__c</field>
             </layoutItems>
         </layoutColumns>
@@ -82,11 +82,11 @@
         <label>Preliminary Phase</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Calculated_ITC_Prelim_Determination__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Calculated_Prelim_Extension_Request_File__c</field>
             </layoutItems>
             <layoutItems>
@@ -94,7 +94,7 @@
                 <field>Prelim_Extension_of_days__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Calculated_Preliminary_Signature__c</field>
             </layoutItems>
             <layoutItems>
@@ -104,7 +104,7 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Prelim_Team_Meeting_Deadline__c</field>
             </layoutItems>
             <layoutItems>
@@ -133,7 +133,7 @@
         <label>Amended Preliminary Phase</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Calc_Amended_Prelim_Determination_Sig__c</field>
             </layoutItems>
             <layoutItems>
@@ -176,18 +176,14 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Investigation_Aligned_with_the_AD_Invest__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>AD_Investigation_Aligned_To__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Final_Team_Meeting_Deadline__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Calculated_Final_Signature__c</field>
             </layoutItems>
             <layoutItems>
@@ -197,11 +193,7 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>If_Aligned_Input_AD_Final_Determin_Sig__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Termination_of_Suspension_Gap_Period_Beg__c</field>
             </layoutItems>
             <layoutItems>
@@ -226,7 +218,7 @@
         <label>Amended Final Phase</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Calculated_Amended_Final_Signature__c</field>
             </layoutItems>
             <layoutItems>
@@ -249,7 +241,7 @@
         <label>Order Phase</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Est_ITC_Notification_to_DOC_of_Final_Det__c</field>
             </layoutItems>
             <layoutItems>
@@ -257,7 +249,7 @@
                 <field>ITC_Finding__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Calculated_Order_FR_Signature__c</field>
             </layoutItems>
         </layoutColumns>
@@ -267,11 +259,11 @@
                 <field>ITC_Notification_to_DOC_of_Final_Determ__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Calculated_ITC_Final_FR_Published__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Estimated_Order_FR_Published__c</field>
             </layoutItems>
         </layoutColumns>
@@ -417,7 +409,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h35000000N4zi</masterLabel>
+        <masterLabel>00hr0000002ALYT</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

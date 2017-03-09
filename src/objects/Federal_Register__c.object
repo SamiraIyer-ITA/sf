@@ -53,42 +53,6 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
-        <fullName>Actual_ITC_Final_FR_Published__c</fullName>
-        <externalId>false</externalId>
-        <label>Actual ITC Final FR Published</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Alignment_Postponement_of_Final_FR_Pub__c</fullName>
-        <description>Alignment (Postponement of Final) FR Published</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Alignment (Postponement of Final) FR Published</inlineHelpText>
-        <label>Alignment (Postponement of Final) FR Pub</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Amended_Final_FR_Published__c</fullName>
-        <description>Amended Final FR Published</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Amended Final FR Published</inlineHelpText>
-        <label>Amended Final FR Published</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Amended_Preliminary_Determination_FR_Pub__c</fullName>
-        <externalId>false</externalId>
-        <label>Amended Preliminary Determination FR Pub</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Cite_Number__c</fullName>
         <externalId>false</externalId>
         <label>Cite Number</label>
@@ -153,42 +117,12 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Final_FR_Published__c</fullName>
-        <description>Final FR Published</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Final FR Published</inlineHelpText>
-        <label>Final FR Published</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>IDM_URL__c</fullName>
         <externalId>false</externalId>
         <label>IDM URL</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Url</type>
-    </fields>
-    <fields>
-        <fullName>Initiation_FR_Published__c</fullName>
-        <description>Initiation FR Published</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Initiation FR Published</inlineHelpText>
-        <label>Initiation FR Published</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Initiation_Prelim_FR_published__c</fullName>
-        <description>Initiation/Prelim FR published</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Initiation/Prelim FR published</inlineHelpText>
-        <label>Initiation/Prelim FR published</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
     </fields>
     <fields>
         <fullName>Investigation__c</fullName>
@@ -203,16 +137,6 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Opportunity_Notice_FR_Published__c</fullName>
-        <description>Opportunity Notice FR Published</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Opportunity Notice FR Published</inlineHelpText>
-        <label>Opportunity Notice FR Published</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Petition__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -225,49 +149,9 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Post_Litigation_Amended_Final_FR_Publish__c</fullName>
-        <description>Post Litigation Amended Final FR Publish</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Post Litigation Amended Final FR Publish</inlineHelpText>
-        <label>Post Litigation Amended Final FR Publish</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Postponement_of_Final_Determination_FR__c</fullName>
-        <description>Postponement of Final Determination FR Published</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Postponement of Final Determination FR Published</inlineHelpText>
-        <label>Postponement of Final Determination FR</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Preliminary_FR_Published__c</fullName>
-        <description>Preliminary FR Published</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Preliminary FR Published</inlineHelpText>
-        <label>Preliminary FR Published</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Published_Date__c</fullName>
         <externalId>false</externalId>
         <label>Published Date</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Rescission_FR_Published__c</fullName>
-        <description>Rescission FR Published</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Rescission FR Published</inlineHelpText>
-        <label>Rescission FR Published</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>

@@ -16,6 +16,10 @@
         <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
+        <apexClass>ADCVD_CascadeService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ADCVD_FederalRegisterUtility</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -53,6 +57,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>CSVIterator</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CascadeUtility</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -137,6 +145,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>FederalRegisterTriggerHandlerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Federal_RegisterCS</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -2548,26 +2560,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Federal_Register__c.Actual_ITC_Final_FR_Published__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Federal_Register__c.Alignment_Postponement_of_Final_FR_Pub__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Federal_Register__c.Amended_Final_FR_Published__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Federal_Register__c.Amended_Preliminary_Determination_FR_Pub__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Federal_Register__c.Cite_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2598,22 +2590,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Federal_Register__c.Final_FR_Published__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Federal_Register__c.IDM_URL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Federal_Register__c.Initiation_FR_Published__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Federal_Register__c.Initiation_Prelim_FR_published__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2623,37 +2600,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Federal_Register__c.Opportunity_Notice_FR_Published__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Federal_Register__c.Petition__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Federal_Register__c.Post_Litigation_Amended_Final_FR_Publish__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Federal_Register__c.Postponement_of_Final_Determination_FR__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Federal_Register__c.Preliminary_FR_Published__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Federal_Register__c.Published_Date__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Federal_Register__c.Rescission_FR_Published__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3008,17 +2960,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Investigation__c.If_Aligned_Input_AD_Final_Determin_Sig__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Investigation__c.Input_Date_of_Post_Prelim_Determ_Sig__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Investigation__c.Investigation_Aligned_with_the_AD_Invest__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5072,6 +5014,16 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Service__mdt.Service_Object_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Service__mdt.Service_Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Site__c.Default_Page__c</field>
         <readable>true</readable>
@@ -6917,6 +6869,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Series__c-Series Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Service__mdt-Service Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Site__c-Site Layout</layout>

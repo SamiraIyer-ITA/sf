@@ -32,7 +32,7 @@
                 <field>Type_of_Circumvention_Inquiry__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Calculated_Initiation_Signature__c</field>
             </layoutItems>
             <layoutItems>
@@ -154,11 +154,6 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
-        <fields>Opportunity_Notice_FR_Published__c</fields>
-        <fields>Initiation_FR_Published__c</fields>
-        <fields>Preliminary_FR_Published__c</fields>
-        <fields>Rescission_FR_Published__c</fields>
-        <fields>Post_Litigation_Amended_Final_FR_Publish__c</fields>
         <relatedList>Federal_Register__c.Segment__c</relatedList>
     </relatedLists>
     <relatedLists>

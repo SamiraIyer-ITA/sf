@@ -459,9 +459,9 @@
     <tab>standard-home</tab>
     <tab>Petition__c</tab>
     <tab>Investigation__c</tab>
+    <tab>ADCVD_Order__c</tab>
     <tab>Segment__c</tab>
     <tab>Suspension_Agreement__c</tab>
-    <tab>ADCVD_Order__c</tab>
     <tab>Litigation__c</tab>
     <tab>standard-report</tab>
     <tab>standard-Dashboard</tab>

@@ -78,7 +78,7 @@
                 <field>Application_Accepted__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Calculated_Initiation_Signature__c</field>
             </layoutItems>
         </layoutColumns>
@@ -107,7 +107,7 @@
                 <field>Prelim_Team_Meeting_Deadline__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Calculated_Preliminary_Signature__c</field>
             </layoutItems>
             <layoutItems>
@@ -138,7 +138,7 @@
                 <field>Final_Team_Meeting_Deadline__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Calculated_Final_Signature__c</field>
             </layoutItems>
         </layoutColumns>
@@ -240,11 +240,6 @@
         <relatedList>Issue__c.Segment__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>Opportunity_Notice_FR_Published__c</fields>
-        <fields>Initiation_FR_Published__c</fields>
-        <fields>Preliminary_FR_Published__c</fields>
-        <fields>Rescission_FR_Published__c</fields>
-        <fields>Post_Litigation_Amended_Final_FR_Publish__c</fields>
         <relatedList>Federal_Register__c.Segment__c</relatedList>
     </relatedLists>
     <relatedLists>

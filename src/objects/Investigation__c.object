@@ -796,17 +796,6 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>If_Aligned_Input_AD_Final_Determin_Sig__c</fullName>
-        <description>If Aligned, Input AD Final Determination Signature</description>
-        <externalId>false</externalId>
-        <inlineHelpText>If Aligned, Input AD Final Determination Signature</inlineHelpText>
-        <label>If Aligned, Input AD Final Determin Sig</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Input_Date_of_Post_Prelim_Determ_Sig__c</fullName>
         <description>Input Date of Post Preliminary Determination Signature</description>
         <externalId>false</externalId>
@@ -816,21 +805,6 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Investigation_Aligned_with_the_AD_Invest__c</fullName>
-        <description>Is this Investigation Aligned with the AD Investigation?</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Is this Investigation Aligned with the AD Investigation?</inlineHelpText>
-        <label>Investigation Aligned with the AD Invest</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>YesNo</valueSetName>
-        </valueSet>
     </fields>
     <fields>
         <fullName>Investigation_Outcome__c</fullName>
@@ -1751,17 +1725,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Investigation_Aligned_with_the_AD_Invest__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Investigation_Outcome__c</picklist>
             <values>
                 <fullName>DOC_Negative_Final_Termination_of_Investigation</fullName>
@@ -2308,17 +2271,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Investigation_Aligned_with_the_AD_Invest__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Investigation_Outcome__c</picklist>
             <values>
                 <fullName>DOC_Negative_Final_Termination_of_Investigation</fullName>
@@ -2520,26 +2472,6 @@
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
-        <fullName>Actual_Amended_Prelim_Determ_Sig_Null</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND ( 
-$RecordType.DeveloperName = &quot;AD&quot;, 
-ISPICKVAL(Amend_the_Preliminary_Determination__c , &quot;No&quot;), 
-NOT(AND(ISBLANK( Actual_Amended_Prelim_Determination_Sig__c))) 
-)</errorConditionFormula>
-        <errorMessage>If Amend the Preliminary Determination is &quot;No&quot;, then there should be null for Actual Amended Preliminary Determination Signature field.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Actual_Amended_Prelim_Determination_Null</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND ( 
-$RecordType.DeveloperName = &quot;CVD&quot;, 
-ISPICKVAL(Amend_the_Preliminary_Determination__c , &quot;No&quot;), 
-NOT(AND(ISBLANK(  Actual_Amended_Prelim_Determination_Sig__c))) 
-)</errorConditionFormula>
-        <errorMessage>If Amend the Preliminary Determination is &quot;No&quot;, then there should be null for Actual Amended Preliminary Determination Signature field.</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>Bounded_Days_For_AD_Final_Extension</fullName>
         <active>true</active>
         <errorConditionFormula>And (
@@ -2594,34 +2526,6 @@ $RecordType.DeveloperName = &quot;CVD&quot;,
  NOT(AND(ISBLANK( Final_Extension_of_days__c)))
 )</errorConditionFormula>
         <errorMessage>If upstream subsidy allegation is &quot;No&quot; , then final extensions of day must be null.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Final_extension_cannot_be_less_than_0</fullName>
-        <active>true</active>
-        <errorConditionFormula>And (
-$RecordType.DeveloperName = &quot;CVD&quot;, 
-Final_Extension_of_days__c &lt; 0
-)</errorConditionFormula>
-        <errorMessage>Final extension cannot be less than 0 days when applicable.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Final_extension_cannot_exceed_90_days</fullName>
-        <active>true</active>
-        <errorConditionFormula>And (
-$RecordType.DeveloperName = &quot;CVD&quot;, 
-Final_Extension_of_days__c &gt; 90
-)</errorConditionFormula>
-        <errorMessage>Final extension cannot exceed 90 days when applicable.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Input_AD_Final_Determination_Sig_Null</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND ( 
-$RecordType.DeveloperName = &quot;CVD&quot;, 
-ISPICKVAL( Investigation_Aligned_with_the_AD_Invest__c , &quot;No&quot;), 
-NOT(AND(ISBLANK( If_Aligned_Input_AD_Final_Determin_Sig__c ))) 
-)</errorConditionFormula>
-        <errorMessage>If Investigation Aligned with AD Investigation is &quot;No&quot;, then there should be null for If Aligned Input AD Final Determination Signature field.</errorMessage>
     </validationRules>
     <visibility>Public</visibility>
 </CustomObject>

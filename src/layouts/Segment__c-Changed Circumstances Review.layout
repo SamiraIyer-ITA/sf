@@ -82,7 +82,7 @@
                 <field>Request_Filed__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Calculated_Initiation_Signature__c</field>
             </layoutItems>
         </layoutColumns>
@@ -109,7 +109,7 @@
                 <field>Prelim_Extension__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Calculated_Preliminary_Signature__c</field>
             </layoutItems>
         </layoutColumns>
@@ -132,7 +132,7 @@
                 <field>Final_Extension_of_days__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Calculated_Final_Signature__c</field>
             </layoutItems>
         </layoutColumns>

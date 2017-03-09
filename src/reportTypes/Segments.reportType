@@ -824,17 +824,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Order__c.Investigation__c.If_Aligned_Input_AD_Final_Determin_Sig__c</field>
-            <table>Segment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Order__c.Investigation__c.Input_Date_of_Post_Prelim_Determ_Sig__c</field>
-            <table>Segment__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Order__c.Investigation__c.Investigation_Aligned_with_the_AD_Invest__c</field>
             <table>Segment__c</table>
         </columns>
         <columns>
