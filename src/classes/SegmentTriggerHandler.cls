@@ -213,22 +213,26 @@ public without sharing class SegmentTriggerHandler {
 
     //sets Calculated_Amended_Final_Signature__c
     @TestVisible private static void setCalculatedAmendedFinalSignature(Segment__c s){
-        if (recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW) {
-        	if(s.Actual_Final_Signature__c == null && s.Calculated_Final_Signature__c != null){
-	            s.Calculated_Amended_Final_Signature__c = s.Calculated_Final_Signature__c.addDays(AR_CALC_AMEN_FINAL_SIG);
-	            s.Calculated_Amended_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Final_Signature__c, s.Calculated_Amended_Final_Signature__c, true);
-	        } else if (s.Actual_Final_Signature__c != null) {
-                s.Calculated_Amended_Final_Signature__c = s.Actual_Final_Signature__c.addDays(AR_CALC_AMEN_FINAL_SIG);
-                s.Calculated_Amended_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Final_Signature__c, s.Calculated_Amended_Final_Signature__c, true);
-            }
-        } else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
-        	if(s.Actual_Final_Signature__c == null && s.Calculated_Final_Signature__c != null){
-	            s.Calculated_Amended_Final_Signature__c = s.Calculated_Final_Signature__c.addDays(NS_CALC_AMEN_FINAL_SIG);
-	            s.Calculated_Amended_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Final_Signature__c, s.Calculated_Amended_Final_Signature__c, true);
-	        } else if (s.Actual_Final_Signature__c != null) {
-                s.Calculated_Amended_Final_Signature__c = s.Actual_Final_Signature__c.addDays(NS_CALC_AMEN_FINAL_SIG);
-                s.Calculated_Amended_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Final_Signature__c, s.Calculated_Amended_Final_Signature__c, true);
-            }
-        }
+    	if(s.Will_you_Amend_the_Final__c == 'Yes') {
+	        if (recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW) {
+	        	if(s.Actual_Final_Signature__c == null && s.Calculated_Final_Signature__c != null){
+		            s.Calculated_Amended_Final_Signature__c = s.Calculated_Final_Signature__c.addDays(AR_CALC_AMEN_FINAL_SIG);
+		            s.Calculated_Amended_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Final_Signature__c, s.Calculated_Amended_Final_Signature__c, true);
+		        } else if (s.Actual_Final_Signature__c != null) {
+	                s.Calculated_Amended_Final_Signature__c = s.Actual_Final_Signature__c.addDays(AR_CALC_AMEN_FINAL_SIG);
+	                s.Calculated_Amended_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Final_Signature__c, s.Calculated_Amended_Final_Signature__c, true);
+	            }
+	        } else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
+	        	if(s.Actual_Final_Signature__c == null && s.Calculated_Final_Signature__c != null){
+		            s.Calculated_Amended_Final_Signature__c = s.Calculated_Final_Signature__c.addDays(NS_CALC_AMEN_FINAL_SIG);
+		            s.Calculated_Amended_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Final_Signature__c, s.Calculated_Amended_Final_Signature__c, true);
+		        } else if (s.Actual_Final_Signature__c != null) {
+	                s.Calculated_Amended_Final_Signature__c = s.Actual_Final_Signature__c.addDays(NS_CALC_AMEN_FINAL_SIG);
+	                s.Calculated_Amended_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Final_Signature__c, s.Calculated_Amended_Final_Signature__c, true);
+	            }
+	        }
+	    } else {
+	    	s.Calculated_Amended_Final_Signature__c = null;
+	    }
     }
 }
