@@ -150,7 +150,27 @@
         <name>ReportType</name>
     </types>
     <types>
-        <members>*</members>
+        <members>testCsvFile1</members>
+        <members>testad</members>
+        <members>testad_final_extension_bound</members>
+        <members>testad_holiday</members>
+        <members>testad_initiation_extension_bound</members>
+        <members>testad_preliminary_extension_bound</members>
+        <members>testad_tolling_day_after_end_date</members>
+        <members>testad_tolling_day_before_start_date</members>
+        <members>testad_tolling_day_between_both_dates</members>
+        <members>testad_tolling_day_between_end_date</members>
+        <members>testad_tolling_day_between_start_date</members>
+        <members>testcvd</members>
+        <members>testcvd_final_extension_bound</members>
+        <members>testcvd_holiday</members>
+        <members>testcvd_initiation_extension_bound</members>
+        <members>testcvd_preliminary_extension_bound</members>
+        <members>testcvd_tolling_day_after_end_date</members>
+        <members>testcvd_tolling_day_before_start_date</members>
+        <members>testcvd_tolling_day_between_both_dates</members>
+        <members>testcvd_tolling_day_between_end_date</members>
+        <members>testcvd_tolling_day_between_start_date</members>
         <name>StaticResource</name>
     </types>
     <version>39.0</version>
