@@ -116,7 +116,13 @@ public without sharing class SegmentTriggerHandler {
                 s.Calculated_Preliminary_Signature__c = s.Final_Date_of_Anniversary_Month__c.addDays(AR_CALC_PRELIM_SIG).addDays(extension);
                 s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Final_Date_of_Anniversary_Month__c, s.Calculated_Preliminary_Signature__c, true);
             }
-		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
+		}   
+        else if(recordTypeNameMap.get(s.RecordTypeId)== EXPEDITED_REVIEW){
+            if(s.Final_Date_of_Anniversary_Month__c != null) {
+                s.Calculated_Preliminary_Signature__c = s.Final_Date_of_Anniversary_Month__c.addDays(ER_CALC_PRELIM_SIG).addDays(extension);
+                s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Final_Date_of_Anniversary_Month__c, s.Calculated_Preliminary_Signature__c, true);
+            }
+        } else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
 			if (s.Actual_Initiation_Signature__c == null && s.Calculated_Initiation_Signature__c != null) {
                 s.Calculated_Preliminary_Signature__c = s.Calculated_Initiation_Signature__c.addDays(NS_CALC_PRELIM_SIG).addDays(extension);
 				s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Initiation_Signature__c, s.Calculated_Preliminary_Signature__c, true);
@@ -141,6 +147,11 @@ public without sharing class SegmentTriggerHandler {
         		s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(AR_PRELIM_TEAM_MEET_DEADLINE);
         		s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Preliminary_Signature__c, s.Prelim_Team_Meeting_Deadline__c, true);
         	}
+        } else if (recordTypeNameMap.get(s.RecordTypeId) == EXPEDITED_REVIEW){
+            if (s.Calculated_Preliminary_Signature__c != null) {
+                s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(ER_PRELIM_TEAM_MEET_DEADLINE);
+                s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Preliminary_Signature__c, s.Prelim_Team_Meeting_Deadline__c, true);
+            }
         } else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
             if (s.Calculated_Preliminary_Signature__c != null) {
                 s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(NS_PRELIM_TEAM_MEET_DEADLINE);
@@ -171,7 +182,15 @@ public without sharing class SegmentTriggerHandler {
     			s.Calculated_Final_Signature__c = prelimPublished.addDays(AR_CALC_FINAL_SIG).addDays(extension);
     			s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(prelimPublished, s.Calculated_Final_Signature__c, true);
     		}
-    	} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
+    	} else if (recordTypeNameMap.get(s.RecordTypeId) == EXPEDITED_REVIEW){
+            if (prelimPublished == null && s.Calculated_Preliminary_Signature__c != null) {
+                s.Calculated_Final_Signature__c = s.Calculated_Preliminary_Signature__c.addDays(ER_CALC_FINAL_SIG).addDays(extension);
+                s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Preliminary_Signature__c, s.Calculated_Final_Signature__c, true);
+            } else if (prelimPublished != null) {
+                s.Calculated_Final_Signature__c = prelimPublished.addDays(ER_CALC_FINAL_SIG).addDays(extension);
+                s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(prelimPublished, s.Calculated_Final_Signature__c, true);
+            }
+        } else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
             if (s.Actual_Preliminary_Signature__c == null && s.Calculated_Preliminary_Signature__c != null) {
                 s.Calculated_Final_Signature__c = s.Calculated_Preliminary_Signature__c.addDays(NS_CALC_FINAL_SIG).addDays(extension);
                 s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Preliminary_Signature__c, s.Calculated_Final_Signature__c, true);
@@ -196,7 +215,12 @@ public without sharing class SegmentTriggerHandler {
 	    		s.Final_Team_Meeting_Deadline__c = s.Calculated_Final_Signature__c.addDays(AR_FINAL_TEAM_MEET_DEADLINE);
 	    		s.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Final_Signature__c, s.Final_Team_Meeting_Deadline__c, true);
 	    	}
-	    } else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
+	    } else if(recordTypeNameMap.get(s.RecordTypeId) == EXPEDITED_REVIEW){
+            if (s.Calculated_Final_Signature__c != null) {
+                s.Final_Team_Meeting_Deadline__c = s.Calculated_Final_Signature__c.addDays(ER_FINAL_TEAM_MEET_DEADLINE);
+                s.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Final_Signature__c, s.Final_Team_Meeting_Deadline__c, true);
+            }            
+        } else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
 	    	if (s.Calculated_Final_Signature__c != null) {
                 s.Final_Team_Meeting_Deadline__c = s.Calculated_Final_Signature__c.addDays(NS_FINAL_TEAM_MEET_DEADLINE);
                 s.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Final_Signature__c, s.Final_Team_Meeting_Deadline__c, true);
@@ -222,7 +246,15 @@ public without sharing class SegmentTriggerHandler {
 	                s.Calculated_Amended_Final_Signature__c = s.Actual_Final_Signature__c.addDays(AR_CALC_AMEN_FINAL_SIG);
 	                s.Calculated_Amended_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Final_Signature__c, s.Calculated_Amended_Final_Signature__c, true);
 	            }
-	        } else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
+	        } else if (recordTypeNameMap.get(s.RecordTypeId) == EXPEDITED_REVIEW) {
+                if(s.Actual_Final_Signature__c == null && s.Calculated_Final_Signature__c != null){
+                    s.Calculated_Amended_Final_Signature__c = s.Calculated_Final_Signature__c.addDays(ER_CALC_AMEN_FINAL_SIG);
+                    s.Calculated_Amended_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Final_Signature__c, s.Calculated_Amended_Final_Signature__c, true);
+                } else if (s.Actual_Final_Signature__c != null) {
+                    s.Calculated_Amended_Final_Signature__c = s.Actual_Final_Signature__c.addDays(ER_CALC_AMEN_FINAL_SIG);
+                    s.Calculated_Amended_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Final_Signature__c, s.Calculated_Amended_Final_Signature__c, true);
+                }
+            } else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
 	        	if(s.Actual_Final_Signature__c == null && s.Calculated_Final_Signature__c != null){
 		            s.Calculated_Amended_Final_Signature__c = s.Calculated_Final_Signature__c.addDays(NS_CALC_AMEN_FINAL_SIG);
 		            s.Calculated_Amended_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Final_Signature__c, s.Calculated_Amended_Final_Signature__c, true);
