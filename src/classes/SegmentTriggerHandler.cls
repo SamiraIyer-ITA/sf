@@ -4,7 +4,7 @@ public without sharing class SegmentTriggerHandler {
 	private static FINAL String ADMIN_REVIEW = segmentCalcOffsets().get('Admin_Review_Calc_Prelim_Sig').Record_Type_Name__c;
 	private static FINAL String ANTI_CIRCUMVENTION_REVIEW = '';
 	private static FINAL String CHANGED_CIRCUMSTANCES_REVIEW = '';
-	private static FINAL String EXPEDITED_REVIEW = '';
+	private static FINAL String EXPEDITED_REVIEW = segmentCalcOffsets().get('Exped_Review_Calc_Prelim_Sig').Record_Type_Name__c;
 	private static FINAL String NEW_SHIPPER_REVIEW = segmentCalcOffsets().get('New_Shipper_Calc_Prelim_Sig').Record_Type_Name__c;
 	private static FINAL String SCOPE_INQUIRY = segmentCalcOffsets().get('Scope_Inq_Calc_Prelim_Sig').Record_Type_Name__c;
 	private static FINAL String SUNSET_REVIEW = '';
