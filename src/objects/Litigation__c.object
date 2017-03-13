@@ -579,5 +579,32 @@
     </recordTypes>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>International_Litigation_Final_Extension</fullName>
+        <active>true</active>
+        <errorConditionFormula>And (
+$RecordType.DeveloperName = &quot;International_Litigation&quot;, 
+  Final_Extension_of_days__c  &lt; 0
+)</errorConditionFormula>
+        <errorMessage>Final Extension cannot be less than zero.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>International_Litigation_Preli_Extension</fullName>
+        <active>true</active>
+        <errorConditionFormula>And (
+$RecordType.DeveloperName = &quot;International_Litigation&quot;, 
+   Prelim_Extension_of_days__c  &lt; 0
+)</errorConditionFormula>
+        <errorMessage>Preliminary Extension cannot be less than zero.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Remand_Final_Extension</fullName>
+        <active>true</active>
+        <errorConditionFormula>And (
+$RecordType.DeveloperName = &quot;Remand&quot;, 
+  Final_Extension_of_days__c  &lt; 0
+)</errorConditionFormula>
+        <errorMessage>Final Extension cannot be less than zero.</errorMessage>
+    </validationRules>
     <visibility>Public</visibility>
 </CustomObject>
