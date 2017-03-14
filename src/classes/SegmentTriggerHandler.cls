@@ -96,7 +96,6 @@ public without sharing class SegmentTriggerHandler {
 
     //Setup Methods used to set class level variables
     @TestVisible private static void initialize(List<Segment__c> newList, Map<Id,Segment__c> newMap) {
-        //petitionsInScopeMap = findPetitionsInScopeMap(newList);
         recordTypeNameMap = utils.getRecordTypeDeveloperNameMap(newList[0]);
         if(newMap != null) {
             ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get Segments with an Id

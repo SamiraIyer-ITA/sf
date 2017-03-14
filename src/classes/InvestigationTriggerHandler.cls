@@ -230,12 +230,12 @@ public without sharing class InvestigationTriggerHandler {
         if(recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
         	if (i.Calculated_Preliminary_Signature__c != null) {
         		i.Prelim_Team_Meeting_Deadline__c = i.Calculated_Preliminary_Signature__c.addDays(AD_PRELIM_TEAM_MEETING_DEADLINE);
-        		i.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Calculated_Preliminary_Signature__c, i.Prelim_Team_Meeting_Deadline__c, true);
+        		i.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Prelim_Team_Meeting_Deadline__c, i.Prelim_Team_Meeting_Deadline__c, true);
         	}
         } else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD) {
             if (i.Calculated_Preliminary_Signature__c != null) {
                 i.Prelim_Team_Meeting_Deadline__c = i.Calculated_Preliminary_Signature__c.addDays(CVD_PRELIM_TEAM_MEETING_DEADLINE);
-                i.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Calculated_Preliminary_Signature__c, i.Prelim_Team_Meeting_Deadline__c, true);
+                i.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Prelim_Team_Meeting_Deadline__c, i.Prelim_Team_Meeting_Deadline__c, true);
             }
         }
     }
@@ -301,12 +301,12 @@ public without sharing class InvestigationTriggerHandler {
     	if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
 	    	if (i.Calculated_Final_Signature__c != null) {
 	    		i.Final_Team_Meeting_Deadline__c = i.Calculated_Final_Signature__c.addDays(AD_FINAL_TEAM_MEETING_DEADLINE);
-	    		i.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Calculated_Final_Signature__c, i.Final_Team_Meeting_Deadline__c, true);
+	    		i.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Final_Team_Meeting_Deadline__c, i.Final_Team_Meeting_Deadline__c, true);
 	    	}
 	    } else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD && i.AD_Investigation_Aligned_To__c == null) {
 	    	if (i.Calculated_Final_Signature__c != null) {
                 i.Final_Team_Meeting_Deadline__c = i.Calculated_Final_Signature__c.addDays(CVD_FINAL_TEAM_MEETING_DEADLINE);
-                i.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Calculated_Final_Signature__c, i.Final_Team_Meeting_Deadline__c, true);
+                i.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Final_Team_Meeting_Deadline__c, i.Final_Team_Meeting_Deadline__c, true);
             }
 	    }
     }

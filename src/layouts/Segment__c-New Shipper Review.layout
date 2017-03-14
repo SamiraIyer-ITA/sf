@@ -273,6 +273,7 @@
         <relatedList>Issue__c.Segment__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <fields>NAME</fields>
         <relatedList>Federal_Register__c.Segment__c</relatedList>
     </relatedLists>
     <relatedLists>
