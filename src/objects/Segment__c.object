@@ -454,6 +454,17 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>External_Id__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>External Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
         <fullName>Final_Date_of_Anniversary_Month__c</fullName>
         <description>Final Date of Anniversary Month</description>
         <externalId>false</externalId>
@@ -6215,6 +6226,57 @@
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
+        <fullName>ACR_Final_Extension</fullName>
+        <active>true</active>
+        <description>Legend to the Initials Placed on each rule name
+AR = Admin Review
+ACR = Anti-Circumvention Review
+CCR = Changed Circumstances Review
+ER = Expedited Review
+NSR = New Shipper Review
+SI = Scope Inquiry
+SR = Sunset Review</description>
+        <errorConditionFormula>And (
+ $RecordType.DeveloperName = &quot;Anti_Circumvention_Review&quot;, 
+ OR(Final_Extension_of_days__c &gt; 180,Final_Extension_of_days__c    &lt; 0)
+)</errorConditionFormula>
+        <errorMessage>Final Extension can only range from 1 to 180 days.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ACR_Initiation_Extension</fullName>
+        <active>true</active>
+        <description>Legend to the Initials Placed on each rule name
+AR = Admin Review
+ACR = Anti-Circumvention Review
+CCR = Changed Circumstances Review
+ER = Expedited Review
+NSR = New Shipper Review
+SI = Scope Inquiry
+SR = Sunset Review</description>
+        <errorConditionFormula>And (
+ $RecordType.DeveloperName = &quot;Anti_Circumvention_Review&quot;, 
+ OR(Initiation_Extension_of_days__c &gt; 45,  Initiation_Extension_of_days__c  &lt; 0)
+)</errorConditionFormula>
+        <errorMessage>Initiation Extension can only range from 1-45 days.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ACR_Prelim_Extension</fullName>
+        <active>true</active>
+        <description>Legend to the Initials Placed on each rule name
+AR = Admin Review
+ACR = Anti-Circumvention Review
+CCR = Changed Circumstances Review
+ER = Expedited Review
+NSR = New Shipper Review
+SI = Scope Inquiry
+SR = Sunset Review</description>
+        <errorConditionFormula>And (
+ $RecordType.DeveloperName = &quot;Anti_Circumvention_Review&quot;, 
+ Prelim_Extension__c &lt; 0
+)</errorConditionFormula>
+        <errorMessage>Preliminary Extension cannot be less than zero days.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>AR_Bound_If_Prelim_Extension_Exists</fullName>
         <active>true</active>
         <description>Legend to the Initials Placed on each rule name
@@ -6319,6 +6381,74 @@ NOT(ISBLANK( Prelim_Extension__c)), OR(Final_Extension_of_days__c &gt; 60, Final
         <errorConditionFormula>AND($RecordType.DeveloperName = &quot;Administrative_Review&quot;, 
 ISBLANK( Prelim_Extension__c), OR(Final_Extension_of_days__c &gt; 180, Final_Extension_of_days__c &lt; 0))</errorConditionFormula>
         <errorMessage>If there is no value in preliminary extension # of days, the bound of final extension is 1-180 days.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CCR_Final_Extension</fullName>
+        <active>true</active>
+        <description>Legend to the Initials Placed on each rule name
+AR = Admin Review
+ACR = Anti-Circumvention Review
+CCR = Changed Circumstances Review
+ER = Expedited Review
+NSR = New Shipper Review
+SI = Scope Inquiry
+SR = Sunset Review</description>
+        <errorConditionFormula>And (
+ $RecordType.DeveloperName = &quot;Changed_Circumstances_Review&quot;, 
+  Final_Extension_of_days__c  &lt; 0
+)</errorConditionFormula>
+        <errorMessage>Final Extension cannot be less than zero days.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CCR_Initiation_Extension</fullName>
+        <active>true</active>
+        <description>Legend to the Initials Placed on each rule name
+AR = Admin Review
+ACR = Anti-Circumvention Review
+CCR = Changed Circumstances Review
+ER = Expedited Review
+NSR = New Shipper Review
+SI = Scope Inquiry
+SR = Sunset Review</description>
+        <errorConditionFormula>And (
+ $RecordType.DeveloperName = &quot;Changed_Circumstances_Review&quot;, 
+ OR( Initiation_Extension_of_days__c &gt; 45,  Initiation_Extension_of_days__c &lt; 0)
+)</errorConditionFormula>
+        <errorMessage>Initiation Extension can only range from 1-45 days.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>CCR_Prelim_Extension</fullName>
+        <active>true</active>
+        <description>Legend to the Initials Placed on each rule name
+AR = Admin Review
+ACR = Anti-Circumvention Review
+CCR = Changed Circumstances Review
+ER = Expedited Review
+NSR = New Shipper Review
+SI = Scope Inquiry
+SR = Sunset Review</description>
+        <errorConditionFormula>And (
+ $RecordType.DeveloperName = &quot;Changed_Circumstances_Review&quot;, 
+ Prelim_Extension__c &lt; 0
+)</errorConditionFormula>
+        <errorMessage>Preliminary Extension cannot be less than zero days.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ER_Final_Extension</fullName>
+        <active>true</active>
+        <description>Legend to the Initials Placed on each rule name
+AR = Admin Review
+ACR = Anti-Circumvention Review
+CCR = Changed Circumstances Review
+ER = Expedited Review
+NSR = New Shipper Review
+SI = Scope Inquiry
+SR = Sunset Review</description>
+        <errorConditionFormula>And (
+ $RecordType.DeveloperName = &quot;Expedited_Review&quot;, 
+ Final_Extension_of_days__c &gt; 60 || Final_Extension_of_days__c &lt; 0
+)</errorConditionFormula>
+        <errorMessage>Final Extension (# of days) cannot exceed more than 60 days</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>ER_Prelim_Extension</fullName>
