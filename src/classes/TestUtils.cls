@@ -140,6 +140,17 @@ public with sharing class TestUtils {
         }
         return lead;
     }
+
+    //create litigation
+    public static Litigation__c createLitigation(Date requestFiled, String recordTypeName, Boolean doInsert) {
+        Litigation__c lit = new Litigation__c();
+        lit.RecordTypeId = utils.getRecordTypeIdMap('Litigation__c').get(recordTypeName);
+        lit.Request_Filed__c = requestFiled;
+        if(doInsert) {
+            insert lit;
+        }
+        return lit;
+    }
             
     // create test Opportunity
     public static Opportunity createOpportunity(String accId, String conId, boolean isInsert){
