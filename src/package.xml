@@ -65,7 +65,7 @@
         <members>KnowledgeMap__c</members>
         <members>KnowledgeSearch__c</members>
         <members>Level__c</members>
-        <members>Litigation_Constant__c</members>
+        <members>Litigation_Constant__mdt</members>
         <members>Litigation_Respondent__c</members>
         <members>Litigation__c</members>
         <members>Master_CongressionalDistrict__c</members>
