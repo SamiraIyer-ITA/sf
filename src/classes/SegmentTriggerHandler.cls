@@ -166,7 +166,7 @@ public without sharing class SegmentTriggerHandler {
                 s.Calculated_Preliminary_Signature__c = s.Calculated_Initiation_Signature__c.addDays(ACR_CALC_PRELIM_SIG).addDays(extension);
                 s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Initiation_Signature__c, s.Calculated_Preliminary_Signature__c, true);       
             }
-            else{
+            else if (s.Actual_Initiation_Signature__c != null){
                 s.Calculated_Preliminary_Signature__c = s.Actual_Initiation_Signature__c.addDays(ACR_CALC_PRELIM_SIG).addDays(extension);
                 s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Initiation_Signature__c, s.Calculated_Preliminary_Signature__c, true);
             }
