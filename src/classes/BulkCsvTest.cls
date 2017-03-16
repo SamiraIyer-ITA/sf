@@ -118,6 +118,10 @@ public without sharing class BulkCsvTest {
         runTestOnCsv('testcvd', 55);
     }
     @isTest
+    private static void test_scope_inquiry() {
+        runTestOnCsv('test_scope_inquiry', 125);
+    }
+    @isTest
     private static void testcvd_initiation_extension_bound() {
         runTestOnCsv('testcvd_initiation_extension_bound', 55);
     }
@@ -153,6 +157,18 @@ public without sharing class BulkCsvTest {
     private static void testcvd_holiday() {
         runTestOnCsv('testcvd_holiday', 46);
     }
+    @isTest
+    private static void test_newshipper() {
+        runTestOnCsv('testnsr', 125);
+    }
+        @isTest
+    private static void testcvd_alignment() {
+        runTestOnCsv('testcvd_alignment', 94);
+    }
+    @isTest
+    private static void testcvd_holiday_alignment() {
+        runTestOnCsv('testcvd_holiday_alignment', 110);
+    }   
 
 
   /* could have the same record as two different test rows, each with a different operation order */ 
