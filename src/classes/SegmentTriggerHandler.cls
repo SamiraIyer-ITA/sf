@@ -483,12 +483,12 @@ public without sharing class SegmentTriggerHandler {
                 s.Calculated_Revocation_or_Continuation_FR__c = finalPublished.addDays(SSR_CALC_REVO_OR_CONT_FR);
                 s.Calculated_Revocation_or_Continuation_FR__c = ADCVD_TollingDayUtility.getCalculatedDate(finalPublished, s.Calculated_Revocation_or_Continuation_FR__c, true);
             }
-        } else if (recordTypeNameMap.get(s.RecordTypeId) == CHANGED_CIRCUMSTANCES_REVIEW){
+        } /* else if (recordTypeNameMap.get(s.RecordTypeId) == CHANGED_CIRCUMSTANCES_REVIEW){
             if (s.Request_Filed__c != null){
                 s.Calculated_Initiation_Signature__c = s.Request_Filed__c.addDays(CCR_CALC_INIT_SIG).addDays(extension);
                 s.Calculated_Initiation_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Request_Filed__c, s.Calculated_Initiation_Signature__c, true);
             }
-        }  
+        }  */
     }
 
     //sets Update_ACE_Customs_Module__c
