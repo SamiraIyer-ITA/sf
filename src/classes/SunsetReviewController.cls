@@ -1,5 +1,6 @@
 public class SunsetReviewController {
     public Id recordId {get; set;}
+    @AuraEnabled
     public Segment__c ssReview {
     	get { 
 	        if(ssReview == null) {
@@ -43,6 +44,7 @@ public class SunsetReviewController {
     	}
     	set;
     }
+    public String fDate {get; set;}
 
     //constructor for controller
     public SunsetReviewController() {
@@ -132,7 +134,19 @@ public class SunsetReviewController {
             }
         }
     }
-
+    public PageReference checkRecordType() {
+    	Id i = ApexPages.currentPage().getParameters().get('Id');
+        if(i != null) {
+            Id recordTypeId = [SELECT RecordTypeId FROM Segment__c WHERE Id =: i LIMIT 1].RecordTypeId;
+            Map<Id,String> recordIdMap = utils.getRecordTypeDeveloperNameMap('Segment__c');
+            if(recordIdMap.get(recordTypeId) != 'Sunset_Review') {
+                PageReference standardPage = new PageReference('/' + i + '?nooverride=1');
+                return (standardPage);
+            }
+        }
+        
+    	return null;
+    }
     public String getReturnUrl() {
         return ApexPages.currentPage().getParameters().get('retURL');
     }
@@ -149,7 +163,7 @@ public class SunsetReviewController {
             return null;
         }
         //  After successful Save, navigate to the default view page
-        PageReference redirectSuccess = new PageReference(getReturnUrl());
+        PageReference redirectSuccess = new PageReference('/' + recordId);
         return (redirectSuccess);
         //return null;
     }

@@ -266,34 +266,34 @@ public without sharing class SegmentTriggerHandler {
         if(recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW) {
         	if (s.Calculated_Preliminary_Signature__c != null) {
         		s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(AR_PRELIM_TEAM_MEET_DEADLINE);
-        		s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Preliminary_Signature__c, s.Prelim_Team_Meeting_Deadline__c, true);
+        		s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Prelim_Team_Meeting_Deadline__c, s.Prelim_Team_Meeting_Deadline__c, true);
         	}
         } else if (recordTypeNameMap.get(s.RecordTypeId) == EXPEDITED_REVIEW){
             if (s.Calculated_Preliminary_Signature__c != null) {
                 s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(ER_PRELIM_TEAM_MEET_DEADLINE);
-                s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Preliminary_Signature__c, s.Prelim_Team_Meeting_Deadline__c, true);
+                s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Prelim_Team_Meeting_Deadline__c, s.Prelim_Team_Meeting_Deadline__c, true);
             }
         } else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
             if (s.Calculated_Preliminary_Signature__c != null) {
                 s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(NS_PRELIM_TEAM_MEET_DEADLINE);
-                s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Preliminary_Signature__c, s.Prelim_Team_Meeting_Deadline__c, true);
+                s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Prelim_Team_Meeting_Deadline__c, s.Prelim_Team_Meeting_Deadline__c, true);
             }
         } else if (recordTypeNameMap.get(s.RecordTypeId) == SCOPE_INQUIRY) {
         	if (s.Decision_on_How_to_Proceed__c == 'Formal' && s.Calculated_Preliminary_Signature__c != null) {
                 s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(SI_PRELIM_TEAM_MEET_DEADLINE);
-                s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Preliminary_Signature__c, s.Prelim_Team_Meeting_Deadline__c, true);
+                s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Prelim_Team_Meeting_Deadline__c, s.Prelim_Team_Meeting_Deadline__c, true);
             } else if (s.Decision_on_How_to_Proceed__c != 'Formal') {
                 s.Prelim_Team_Meeting_Deadline__c = null;
             }
 		} else if(recordTypeNameMap.get(s.RecordTypeId) == ANTI_CIRCUMVENTION_REVIEW){
             if (s.Calculated_Preliminary_Signature__c != null) {
                 s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(ACR_PRELIM_TEAM_MEET_DEADLINE);
-                s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Preliminary_Signature__c, s.Prelim_Team_Meeting_Deadline__c, true);
+                s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Prelim_Team_Meeting_Deadline__c, s.Prelim_Team_Meeting_Deadline__c, true);
             }
         } else if (recordTypeNameMap.get(s.RecordTypeId) == CHANGED_CIRCUMSTANCES_REVIEW){
             if (s.Calculated_Preliminary_Signature__c != null){
                 s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(CCR_PRELIM_TEAM_MEET_DEADLINE);
-                s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Preliminary_Signature__c, s.Prelim_Team_Meeting_Deadline__c, true);
+                s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Prelim_Team_Meeting_Deadline__c, s.Prelim_Team_Meeting_Deadline__c, true);
             }
         }
     }
@@ -334,12 +334,12 @@ public without sharing class SegmentTriggerHandler {
     			s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(prelimPublished, s.Calculated_Final_Signature__c, true);
     		}
     	} else if (recordTypeNameMap.get(s.RecordTypeId) == EXPEDITED_REVIEW){
-            if (prelimPublished == null && s.Calculated_Preliminary_Signature__c != null) {
+            if (s.Actual_Preliminary_Signature__c == null && s.Calculated_Preliminary_Signature__c != null) {
                 s.Calculated_Final_Signature__c = s.Calculated_Preliminary_Signature__c.addDays(ER_CALC_FINAL_SIG).addDays(extension);
                 s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Preliminary_Signature__c, s.Calculated_Final_Signature__c, true);
-            } else if (prelimPublished != null) {
-                s.Calculated_Final_Signature__c = prelimPublished.addDays(ER_CALC_FINAL_SIG).addDays(extension);
-                s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(prelimPublished, s.Calculated_Final_Signature__c, true);
+            } else if (s.Actual_Preliminary_Signature__c != null) {
+                s.Calculated_Final_Signature__c = s.Actual_Preliminary_Signature__c.addDays(ER_CALC_FINAL_SIG).addDays(extension);
+                s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Preliminary_Signature__c, s.Calculated_Final_Signature__c, true);
             }
         } else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
             if (s.Actual_Preliminary_Signature__c == null && s.Calculated_Preliminary_Signature__c != null) {
@@ -407,34 +407,34 @@ public without sharing class SegmentTriggerHandler {
     	if (recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW) {
 	    	if (s.Calculated_Final_Signature__c != null) {
 	    		s.Final_Team_Meeting_Deadline__c = s.Calculated_Final_Signature__c.addDays(AR_FINAL_TEAM_MEET_DEADLINE);
-	    		s.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Final_Signature__c, s.Final_Team_Meeting_Deadline__c, true);
+	    		s.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Final_Team_Meeting_Deadline__c, s.Final_Team_Meeting_Deadline__c, true);
 	    	}
 	    } else if(recordTypeNameMap.get(s.RecordTypeId) == EXPEDITED_REVIEW){
             if (s.Calculated_Final_Signature__c != null) {
                 s.Final_Team_Meeting_Deadline__c = s.Calculated_Final_Signature__c.addDays(ER_FINAL_TEAM_MEET_DEADLINE);
-                s.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Final_Signature__c, s.Final_Team_Meeting_Deadline__c, true);
+                s.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Final_Team_Meeting_Deadline__c, s.Final_Team_Meeting_Deadline__c, true);
             }            
         } else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
 	    	if (s.Calculated_Final_Signature__c != null) {
                 s.Final_Team_Meeting_Deadline__c = s.Calculated_Final_Signature__c.addDays(NS_FINAL_TEAM_MEET_DEADLINE);
-                s.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Final_Signature__c, s.Final_Team_Meeting_Deadline__c, true);
+                s.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Final_Team_Meeting_Deadline__c, s.Final_Team_Meeting_Deadline__c, true);
             }
 	    } else if (recordTypeNameMap.get(s.RecordTypeId) == SCOPE_INQUIRY) {
 	    	if (s.Decision_on_How_to_Proceed__c == 'Formal' && s.Calculated_Final_Signature__c != null) {
                 s.Final_Team_Meeting_Deadline__c = s.Calculated_Final_Signature__c.addDays(SI_FINAL_TEAM_MEET_DEADLINE);
-                s.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Final_Signature__c, s.Final_Team_Meeting_Deadline__c, true);
+                s.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Final_Team_Meeting_Deadline__c, s.Final_Team_Meeting_Deadline__c, true);
             } else if (s.Decision_on_How_to_Proceed__c != 'Formal') {
                 s.Final_Team_Meeting_Deadline__c = null;
             }
 		} else if (recordTypeNameMap.get(s.RecordTypeId) == ANTI_CIRCUMVENTION_REVIEW) {
             if (s.Calculated_Final_Signature__c != null) {
                 s.Final_Team_Meeting_Deadline__c = s.Calculated_Final_Signature__c.addDays(ACR_FINAL_TEAM_MEET_DEADLINE);
-                s.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Final_Signature__c, s.Final_Team_Meeting_Deadline__c, true);
+                s.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Final_Team_Meeting_Deadline__c, s.Final_Team_Meeting_Deadline__c, true);
             }
         } else if (recordTypeNameMap.get(s.RecordTypeId) == CHANGED_CIRCUMSTANCES_REVIEW){
             if (s.Calculated_Final_Signature__c != null){
                 s.Final_Team_Meeting_Deadline__c = s.Calculated_Final_Signature__c;
-                s.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Final_Signature__c, s.Final_Team_Meeting_Deadline__c, true);
+                s.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Final_Team_Meeting_Deadline__c, s.Final_Team_Meeting_Deadline__c, true);
             }
         }
     }
@@ -483,12 +483,7 @@ public without sharing class SegmentTriggerHandler {
                 s.Calculated_Revocation_or_Continuation_FR__c = finalPublished.addDays(SSR_CALC_REVO_OR_CONT_FR);
                 s.Calculated_Revocation_or_Continuation_FR__c = ADCVD_TollingDayUtility.getCalculatedDate(finalPublished, s.Calculated_Revocation_or_Continuation_FR__c, true);
             }
-        } /* else if (recordTypeNameMap.get(s.RecordTypeId) == CHANGED_CIRCUMSTANCES_REVIEW){
-            if (s.Request_Filed__c != null){
-                s.Calculated_Initiation_Signature__c = s.Request_Filed__c.addDays(CCR_CALC_INIT_SIG).addDays(extension);
-                s.Calculated_Initiation_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Request_Filed__c, s.Calculated_Initiation_Signature__c, true);
-            }
-        }  */
+        }
     }
 
     //sets Update_ACE_Customs_Module__c
@@ -503,7 +498,7 @@ public without sharing class SegmentTriggerHandler {
             if (ssrType == '90') {
                 if(finalPublished != null) {
                     s.Update_ACE_Customs_Module__c = finalPublished.addDays(SSR_90_FIN_FR_UPDATE_ACE_CUS_MOD);//negative
-                    s.Update_ACE_Customs_Module__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Update_ACE_Customs_Module__c, s.Update_ACE_Customs_Module__c, false);//offset is -1
+                    s.Update_ACE_Customs_Module__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Update_ACE_Customs_Module__c, s.Update_ACE_Customs_Module__c, true);//offset is -1
                 } else if (s.Actual_Final_Signature__c == null && s.Calculated_Final_Signature__c != null){
                     s.Update_ACE_Customs_Module__c = s.Calculated_Final_Signature__c.addDays(SSR_90_FIN_SIG_UPDATE_ACE_CUS_MOD);
                     s.Update_ACE_Customs_Module__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Final_Signature__c, s.Update_ACE_Customs_Module__c, true);
@@ -514,7 +509,7 @@ public without sharing class SegmentTriggerHandler {
             } else if (ssrType == '120' && s.Continuation_or_Revocation__c == 'Revocation') {
                 if(revoPublished != null) {
                     s.Update_ACE_Customs_Module__c = revoPublished.addDays(SSR_120_REVO_FR_UPDATE_ACE_CUS_MOD);//negative
-                    s.Update_ACE_Customs_Module__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Update_ACE_Customs_Module__c, s.Update_ACE_Customs_Module__c, false);//offset is -1
+                    s.Update_ACE_Customs_Module__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Update_ACE_Customs_Module__c, s.Update_ACE_Customs_Module__c, true);//offset is -1
                 } else if (s.Actual_Revocation_or_Continuation_FR__c == null && s.Calculated_Revocation_or_Continuation_FR__c != null){
                     s.Update_ACE_Customs_Module__c = s.Calculated_Revocation_or_Continuation_FR__c.addDays(SSR_120_REVO_SIG_UPDATE_ACE_CUS_MOD);
                     s.Update_ACE_Customs_Module__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Revocation_or_Continuation_FR__c, s.Update_ACE_Customs_Module__c, true);
@@ -525,7 +520,7 @@ public without sharing class SegmentTriggerHandler {
             } else if (ssrType == '240' && s.Continuation_or_Revocation__c == 'Revocation') {
                 if(revoPublished != null) {
                     s.Update_ACE_Customs_Module__c = revoPublished.addDays(SSR_240_REVO_FR_UPDATE_ACE_CUS_MOD);//negative
-                    s.Update_ACE_Customs_Module__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Update_ACE_Customs_Module__c, s.Update_ACE_Customs_Module__c, false);//offset is -1
+                    s.Update_ACE_Customs_Module__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Update_ACE_Customs_Module__c, s.Update_ACE_Customs_Module__c, true);//offset is -1
                 } else if (s.Actual_Revocation_or_Continuation_FR__c == null && s.Calculated_Revocation_or_Continuation_FR__c != null){
                     s.Update_ACE_Customs_Module__c = s.Calculated_Revocation_or_Continuation_FR__c.addDays(SSR_240_REVO_SIG_UPDATE_ACE_CUS_MOD);
                     s.Update_ACE_Customs_Module__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Revocation_or_Continuation_FR__c, s.Update_ACE_Customs_Module__c, true);
@@ -549,7 +544,7 @@ public without sharing class SegmentTriggerHandler {
             if (ssrType == '90') {
                 if(finalPublished != null) {
                     s.Issue_Liquidation_Revocation_Instruction__c = finalPublished.addDays(SSR_90_FIN_FR_ISSUE_LIQ_REVO_INSTR);
-                    s.Issue_Liquidation_Revocation_Instruction__c = ADCVD_TollingDayUtility.getCalculatedDate(finalPublished, s.Issue_Liquidation_Revocation_Instruction__c, false);
+                    s.Issue_Liquidation_Revocation_Instruction__c = ADCVD_TollingDayUtility.getCalculatedDate(finalPublished, s.Issue_Liquidation_Revocation_Instruction__c, true);
                 } else if (s.Actual_Final_Signature__c == null && s.Calculated_Final_Signature__c != null){
                     s.Issue_Liquidation_Revocation_Instruction__c = s.Calculated_Final_Signature__c.addDays(SSR_90_FIN_SIG_ISSUE_LIQ_REVO_INSTR);
                     s.Issue_Liquidation_Revocation_Instruction__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Final_Signature__c, s.Issue_Liquidation_Revocation_Instruction__c, true);
@@ -560,7 +555,7 @@ public without sharing class SegmentTriggerHandler {
             } else if (ssrType == '120' && s.Continuation_or_Revocation__c == 'Revocation') {
                 if(revoPublished != null) {
                     s.Issue_Liquidation_Revocation_Instruction__c = revoPublished.addDays(SSR_120_REVO_FR_ISSUE_LIQ_REVO_INS);
-                    s.Issue_Liquidation_Revocation_Instruction__c = ADCVD_TollingDayUtility.getCalculatedDate(revoPublished, s.Issue_Liquidation_Revocation_Instruction__c, false);
+                    s.Issue_Liquidation_Revocation_Instruction__c = ADCVD_TollingDayUtility.getCalculatedDate(revoPublished, s.Issue_Liquidation_Revocation_Instruction__c, true);
                 } else if (s.Actual_Revocation_or_Continuation_FR__c == null && s.Calculated_Revocation_or_Continuation_FR__c != null){
                     s.Issue_Liquidation_Revocation_Instruction__c = s.Calculated_Revocation_or_Continuation_FR__c.addDays(SSR_120_REVO_SIG_ISSUE_LIQ_REVO_INS);
                     s.Issue_Liquidation_Revocation_Instruction__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Revocation_or_Continuation_FR__c, s.Issue_Liquidation_Revocation_Instruction__c, true);
@@ -571,7 +566,7 @@ public without sharing class SegmentTriggerHandler {
             } else if (ssrType == '240' && s.Continuation_or_Revocation__c == 'Revocation') {
                 if(revoPublished != null) {
                     s.Issue_Liquidation_Revocation_Instruction__c = revoPublished.addDays(SSR_240_REVO_FR_ISSUE_LIQ_REVO_INS);
-                    s.Issue_Liquidation_Revocation_Instruction__c = ADCVD_TollingDayUtility.getCalculatedDate(revoPublished, s.Issue_Liquidation_Revocation_Instruction__c, false);
+                    s.Issue_Liquidation_Revocation_Instruction__c = ADCVD_TollingDayUtility.getCalculatedDate(revoPublished, s.Issue_Liquidation_Revocation_Instruction__c, true);
                 } else if (s.Actual_Revocation_or_Continuation_FR__c == null && s.Calculated_Revocation_or_Continuation_FR__c != null){
                     s.Issue_Liquidation_Revocation_Instruction__c = s.Calculated_Revocation_or_Continuation_FR__c.addDays(SSR_240_REVO_SIG_ISSUE_LIQ_REVO_INS);
                     s.Issue_Liquidation_Revocation_Instruction__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Revocation_or_Continuation_FR__c, s.Issue_Liquidation_Revocation_Instruction__c, true);
@@ -604,7 +599,7 @@ public without sharing class SegmentTriggerHandler {
         }
     }
 
-    //sets Adequacy_Determination_and_Letter_to_ITC__c
+    //sets Adequacy_Determination_Letter_120_day__c or Adequacy_Determination_Letter_240_day__c
     @TestVisible private static void setAdequacyDeterminationandLetterToITC(Segment__c s) {
         if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW) {
             Date initPublished = null;
@@ -719,7 +714,7 @@ public without sharing class SegmentTriggerHandler {
         }
     }
 
-    //sets Substantive_Response_Due_For_All_Parties__c 
+    //sets Substantive_Response_Due_For_All_Parties__c
     @TestVisible private static void setSubstantiveResponseDueForAllParties(Segment__c s) {
         if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW) {
             Date initPublished = null;
