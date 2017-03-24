@@ -56,6 +56,191 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
+    <fieldSets>
+        <fullName>Is_120_Day</fullName>
+        <description>SunsetReviewVF</description>
+        <displayedFields>
+            <field>Adequacy_of_Respondents_Submission__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Calculated_Final_Signature__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Final_Signature__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Update_ACE_Customs_Module__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Issue_Liquidation_Revocation_Instruction__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Rebuttal_Comments_Due__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Adequacy_Determination_Letter_120_day__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Comments_on_Adequacy_Determination_Filed__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Memorandum_on_Adequacy_Determination__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Is 120 Day</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Is_240_Day</fullName>
+        <description>SunsetReviewVF</description>
+        <displayedFields>
+            <field>Adequacy_of_Respondents_Submission__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Calculated_Final_Signature__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Final_Signature__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Update_ACE_Customs_Module__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Issue_Liquidation_Revocation_Instruction__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Rebuttal_Comments_Due__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Adequacy_Determination_Letter_240_day__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Is 240 Day</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Is_90_Day</fullName>
+        <description>SunsetReviewVF</description>
+        <displayedFields>
+            <field>Notify_ITC_of_No_Domestic_Interest__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Inadequate_Domestic_Response_note_to_ITC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Calculated_Final_Signature__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Final_Signature__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Update_ACE_Customs_Module__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Issue_Liquidation_Revocation_Instruction__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Is 90 Day</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Review_Information</fullName>
+        <description>SunsetReviewVF</description>
+        <displayedFields>
+            <field>Notice_of_Intent_to_Participate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Notice_of_intent_to_participate_Ips__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Notify_Cluster_Coordinator_No_Interest__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Substantive_Response_Due_For_All_Parties__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Inform_Cluster_Coordinator_if_No_Respons__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Domestic_Party_File_Substan_Response__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Respondent_File_Substantive_Response__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Continuation_or_Revocation__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Revocation_or_Continuation_FR__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Calculated_Revocation_or_Continuation_FR__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Review_to_address_zeroing_in_Segments__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Review Information</label>
+    </fieldSets>
     <fields>
         <fullName>ADCVD_Order__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -151,6 +336,30 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Adequacy_of_Respondents_Submission__c</fullName>
+        <externalId>false</externalId>
+        <label>Adequacy of Respondents Submission</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Inadequate or Non-Substantive</fullName>
+                    <default>false</default>
+                    <label>Inadequate or Non-Substantive</label>
+                </value>
+                <value>
+                    <fullName>Adequate or Substantive</fullName>
+                    <default>false</default>
+                    <label>Adequate or Substantive</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Adequate_after_Determination__c</fullName>
@@ -1181,7 +1390,7 @@
         <label>Type of Circumvention Inquiry</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>MultiselectPicklist</type>
+        <type>Picklist</type>
         <valueSet>
             <restricted>true</restricted>
             <valueSetDefinition>
@@ -1208,7 +1417,6 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
-        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>Type_of_Requestor__c</fullName>
@@ -1418,6 +1626,17 @@
         <fullName>Administrative_Review</fullName>
         <active>true</active>
         <label>Administrative Review</label>
+        <picklistValues>
+            <picklist>Adequacy_of_Respondents_Submission__c</picklist>
+            <values>
+                <fullName>Adequate or Substantive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inadequate or Non-Substantive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Adequate_after_Determination__c</picklist>
             <values>
@@ -2106,6 +2325,17 @@
         <active>true</active>
         <label>Anti-Circumvention Review</label>
         <picklistValues>
+            <picklist>Adequacy_of_Respondents_Submission__c</picklist>
+            <values>
+                <fullName>Adequate or Substantive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inadequate or Non-Substantive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Adequate_after_Determination__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -2792,6 +3022,17 @@
         <fullName>Changed_Circumstances_Review</fullName>
         <active>true</active>
         <label>Changed Circumstances Review</label>
+        <picklistValues>
+            <picklist>Adequacy_of_Respondents_Submission__c</picklist>
+            <values>
+                <fullName>Adequate or Substantive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inadequate or Non-Substantive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Adequate_after_Determination__c</picklist>
             <values>
@@ -3480,6 +3721,17 @@
         <active>true</active>
         <label>Expedited Review</label>
         <picklistValues>
+            <picklist>Adequacy_of_Respondents_Submission__c</picklist>
+            <values>
+                <fullName>Adequate or Substantive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inadequate or Non-Substantive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Adequate_after_Determination__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -4166,6 +4418,17 @@
         <fullName>New_Shipper_Review</fullName>
         <active>true</active>
         <label>New Shipper Review</label>
+        <picklistValues>
+            <picklist>Adequacy_of_Respondents_Submission__c</picklist>
+            <values>
+                <fullName>Adequate or Substantive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inadequate or Non-Substantive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Adequate_after_Determination__c</picklist>
             <values>
@@ -4854,6 +5117,17 @@
         <active>true</active>
         <label>Scope Inquiry</label>
         <picklistValues>
+            <picklist>Adequacy_of_Respondents_Submission__c</picklist>
+            <values>
+                <fullName>Adequate or Substantive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inadequate or Non-Substantive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Adequate_after_Determination__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -5540,6 +5814,17 @@
         <fullName>Sunset_Review</fullName>
         <active>true</active>
         <label>Sunset Review</label>
+        <picklistValues>
+            <picklist>Adequacy_of_Respondents_Submission__c</picklist>
+            <values>
+                <fullName>Adequate or Substantive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inadequate or Non-Substantive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Adequate_after_Determination__c</picklist>
             <values>

@@ -183,6 +183,14 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Expected_Final_Signature_Before_Ext__c</fullName>
+        <externalId>false</externalId>
+        <label>Expected Final Signature Before Ext</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Final_Extension_of_days__c</fullName>
         <externalId>false</externalId>
         <label>Final Extension (# of days)</label>
@@ -433,8 +441,9 @@
         <label>All</label>
     </listViews>
     <nameField>
+        <displayFormat>L-{000000}</displayFormat>
         <label>Litigation Name</label>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Litigation</pluralLabel>
     <recordTypes>

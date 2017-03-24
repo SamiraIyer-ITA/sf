@@ -1,0 +1,63 @@
+<apex:page standardController="Segment__c" extensions="SunsetReviewController">
+    <apex:form id="form">
+        <apex:pageMessages id="pm"/>
+        <apex:pageBlock > 
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!toggleEdit}" value="Edit" id="editButton" reRender="form, pm" rendered="{!NOT(edit)}" />
+                <apex:commandButton action="{!save}" value="Save" id="saveButton"  reRender="form, pm" rendered="{!edit}" />
+                <apex:commandButton action="{!cancel}" value="Cancel" id="cancelButton"  reRender="form, pm" rendered="{!edit}" styleClass="saveCancelButton" immediate="true"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection id="reviewInfo" title="Review Information" collapsible="false" >
+                <apex:repeat value="{!$ObjectType.Segment__c.FieldSets.Review_Information}" var="f">
+                    <apex:outputField value="{!ssReview[f]}" rendered="{!NOT(edit) || CONTAINS(f.fieldPath, '__r')}">
+                        <!--     <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" hideOnEdit="editButton" event="ondblclick" /> -->
+                    </apex:outputField>
+                    <apex:inputField value="{!ssReview[f.fieldPath]}" rendered="{!edit && NOT(CONTAINS(f.fieldPath, '__r'))}" required="{!OR(f.required, f.dbrequired)}" >
+                        <apex:actionSupport event="onchange" reRender="dynamicSection, reviewInfo" />
+                    </apex:inputField>
+                </apex:repeat>
+            </apex:pageBlockSection>
+            <apex:pageBlock id="dynamicSection" >
+                <apex:pageBlockSection title="90 Day" rendered="{!is90day}" collapsible="false" >
+                    <apex:repeat value="{!$ObjectType.Segment__c.FieldSets.Is_90_Day}" var="f">
+                        <apex:outputField value="{!ssReview[f]}" rendered="{!NOT(edit) || CONTAINS(f.fieldPath, '__r')}">
+                            <!--     <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" hideOnEdit="editButton" event="ondblclick" /> -->
+                        </apex:outputField>
+                        <apex:inputField value="{!ssReview[f.fieldPath]}" rendered="{!edit && NOT(CONTAINS(f.fieldPath, '__r'))}" required="{!OR(f.required, f.dbrequired)}" >
+                        	<apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection, hiddenBlock" >
+                            	<apex:param name="ssReviewType" value="90" assignTo="{!ssReviewType}"/>
+                            </apex:actionSupport>
+                        </apex:inputField>
+                    </apex:repeat>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="120 Day" rendered="{!is120day}" collapsible="false" >
+                    <apex:repeat value="{!$ObjectType.Segment__c.FieldSets.Is_120_Day}" var="f">
+                        <apex:outputField value="{!ssReview[f]}" rendered="{!NOT(edit) || CONTAINS(f.fieldPath, '__r')}">
+                            <!--     <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" hideOnEdit="editButton" event="ondblclick" /> -->
+                        </apex:outputField>
+                        <apex:inputField value="{!ssReview[f.fieldPath]}" rendered="{!edit && NOT(CONTAINS(f.fieldPath, '__r'))}" required="{!OR(f.required, f.dbrequired)}" >
+                        	<apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection, hiddenBlock" >
+                            	<apex:param name="ssReviewType" value="120" assignTo="{!ssReviewType}"/>
+                            </apex:actionSupport>
+                        </apex:inputfield>
+                    </apex:repeat>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="240 Day" rendered="{!is240day}" collapsible="false" >
+                    <apex:repeat value="{!$ObjectType.Segment__c.FieldSets.Is_240_Day}" var="f">
+                        <apex:outputField value="{!ssReview[f]}" rendered="{!NOT(edit) || CONTAINS(f.fieldPath, '__r')}">
+                            <!--     <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" hideOnEdit="editButton" event="ondblclick" /> -->
+                        </apex:outputField>
+                        <apex:inputField value="{!ssReview[f.fieldPath]}" rendered="{!edit && NOT(CONTAINS(f.fieldPath, '__r'))}" required="{!OR(f.required, f.dbrequired)}" >
+                            <apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection, hiddenBlock" >
+                            	<apex:param name="ssReviewType" value="240" assignTo="{!ssReviewType}"/>
+                            </apex:actionSupport>
+                    </apex:inputField>
+                    </apex:repeat>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+        </apex:pageBlock>
+        <apex:pageBlock id="hiddenBlock" rendered="false">
+        	<apex:outputText id="hiddentext" value="{!ssReviewType}"/>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

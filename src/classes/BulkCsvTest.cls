@@ -118,6 +118,10 @@ public without sharing class BulkCsvTest {
         runTestOnCsv('testcvd', 55);
     }
     @isTest
+    private static void test_scope_inquiry() {
+        runTestOnCsv('test_scope_inquiry', 125);
+    }
+    @isTest
     private static void testcvd_initiation_extension_bound() {
         runTestOnCsv('testcvd_initiation_extension_bound', 55);
     }
@@ -154,6 +158,7 @@ public without sharing class BulkCsvTest {
         runTestOnCsv('testcvd_holiday', 46);
     }
     @isTest
+
     private static void testar() {
         runTestOnCsv('testar', 80);
     }
@@ -243,6 +248,7 @@ public without sharing class BulkCsvTest {
         runTestOnCsv('testsi_tolling_day_between_end_date', 125);
     }
     //will add acr, ccr, sunset when they are ready.
+
   /* could have the same record as two different test rows, each with a different operation order */ 
     public class testRow {
         public Map<String, String> InputValueMap   = new Map<String, String>();

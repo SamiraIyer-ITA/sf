@@ -15,26 +15,6 @@
                 <behavior>Edit</behavior>
                 <field>Next_Office_PM_Deadline_and_Timeline__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Petition_Case_Number__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Petition_Case_Type__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Petition_Commodity__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Petition_Country__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Petition_Product__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -55,19 +35,35 @@
         <label>Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Office__c</field>
+                <behavior>Readonly</behavior>
+                <field>Petition_Case_Number__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Petition_Product__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Petition_Commodity__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Period_Covered_Start_Date__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Choose_Following_Respondent_Selection__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Petition_Case_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Petition_Country__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Office__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Period_Covered_End_Date__c</field>
@@ -82,8 +78,8 @@
         <label>Preliminary Phase</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Calculated_ITC_Prelim_Determination__c</field>
+                <behavior>Edit</behavior>
+                <field>Choose_Following_Respondent_Selection__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -101,8 +97,16 @@
                 <behavior>Edit</behavior>
                 <field>Range_of_Rates_Prelim__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Ministerial_Error_for_Prelim__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Calculated_ITC_Prelim_Determination__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Prelim_Team_Meeting_Deadline__c</field>
@@ -116,8 +120,7 @@
                 <field>Actual_Preliminary_Signature__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Ministerial_Error_for_Prelim__c</field>
+                <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -164,12 +167,12 @@
                 <field>Calculated_Final_Signature__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Range_of_Rates_Final__c</field>
+                <behavior>Readonly</behavior>
+                <field>Termination_of_Suspension_Gap_Period_Beg__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Will_you_Amend_the_Final__c</field>
+                <field>Ministerial_Error_for_final__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -182,12 +185,12 @@
                 <field>Actual_Final_Signature__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Termination_of_Suspension_Gap_Period_Beg__c</field>
+                <behavior>Edit</behavior>
+                <field>Range_of_Rates_Final__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Ministerial_Error_for_final__c</field>
+                <field>Will_you_Amend_the_Final__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

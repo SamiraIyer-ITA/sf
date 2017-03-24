@@ -162,8 +162,7 @@ public class SegmentTriggerHandlerTest {
 			[SELECT Id, Calculated_Preliminary_Signature__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Calculated_Preliminary_Signature__c);
 
 		//Based on Not Formal
-		siSeg.Decision_on_How_to_Proceed__c = '';
-		update siSeg;
+		clearFormal();
 		System.assertEquals(null,
 			[SELECT Id, Calculated_Preliminary_Signature__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Calculated_Preliminary_Signature__c);
 
@@ -230,8 +229,7 @@ public class SegmentTriggerHandlerTest {
 			[SELECT Id, Prelim_Team_Meeting_Deadline__c FROM  Segment__c WHERE Id =: siSeg.Id LIMIT 1].Prelim_Team_Meeting_Deadline__c);
 		
 		//Based on Not Formal
-		siSeg.Decision_on_How_to_Proceed__c = '';
-		update siSeg;
+		clearFormal();
 		System.assertEquals(null,
 			[SELECT Id, Prelim_Team_Meeting_Deadline__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Prelim_Team_Meeting_Deadline__c);
 
@@ -298,8 +296,7 @@ public class SegmentTriggerHandlerTest {
 			[SELECT Id, Calculated_Final_Signature__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Calculated_Final_Signature__c);
 
 		//Based on Not Formal
-		siSeg.Decision_on_How_to_Proceed__c = '';
-		update siSeg;
+		clearFormal();
 		System.assertEquals(null,
 			[SELECT Id, Calculated_Final_Signature__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Calculated_Final_Signature__c);
 
@@ -409,8 +406,7 @@ public class SegmentTriggerHandlerTest {
 			[SELECT Id, Final_Team_Meeting_Deadline__c FROM  Segment__c WHERE Id =: siSeg.Id LIMIT 1].Final_Team_Meeting_Deadline__c);
 
 		//Based on Not Formal
-		siSeg.Decision_on_How_to_Proceed__c = '';
-		update siSeg;
+		clearFormal();
 		System.assertEquals(null,
 			[SELECT Id, Final_Team_Meeting_Deadline__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Final_Team_Meeting_Deadline__c);
 
@@ -535,12 +531,15 @@ public class SegmentTriggerHandlerTest {
 	private static void setStartDates() {
 		List<Segment__c> segsToUpdate = new List<Segment__c>();
 		adminSeg.Final_Date_of_Anniversary_Month__c = segmentDate;
+		adminSeg.Will_you_Amend_the_Final__c = 'Yes';
 		segsToUpdate.add(adminSeg);
 		nsSeg.Calculated_Initiation_Signature__c = segmentDate;
+		nsSeg.Will_you_Amend_the_Final__c = 'Yes';
 		segsToUpdate.add(nsSeg);
 		siSeg.Request_Filed__c = segmentDate;
 		siSeg.Actual_Date_of_Decision_on_HoP__c = segmentDate.addDays(21);
 		siSeg.Decision_on_How_to_Proceed__c = 'Formal';
+		siSeg.Will_you_Amend_the_Final__c = 'Yes';
 		segsToUpdate.add(siSeg);
 
 		update segsToUpdate;
@@ -560,6 +559,14 @@ public class SegmentTriggerHandlerTest {
 		segsToUpdate.add(siSeg);
 
 		update segsToUpdate;
+	}
+
+	private static void clearFormal() {
+		siSeg.Decision_on_How_to_Proceed__c = '';
+		siSeg.Prelim_Extension__c = siSeg.Prelim_Extension__c = null;
+		siSeg.Final_Extension_of_days__c = siSeg.Final_Extension_of_days__c = null;
+		siSeg.Initiation_Extension_of_days__c = siSeg.Initiation_Extension_of_days__c = null;
+		update siSeg;
 	}
 
 	private static void setFR(Id parentId) {
