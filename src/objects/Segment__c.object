@@ -1390,7 +1390,7 @@
         <label>Type of Circumvention Inquiry</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>MultiselectPicklist</type>
+        <type>Picklist</type>
         <valueSet>
             <restricted>true</restricted>
             <valueSetDefinition>
@@ -1417,7 +1417,6 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
-        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>Type_of_Requestor__c</fullName>

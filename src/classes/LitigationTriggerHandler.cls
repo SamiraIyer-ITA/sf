@@ -102,8 +102,8 @@ public without sharing class LitigationTriggerHandler {
     //sets Calculated_Draft_Remand_release_to_party__c, requires Calculated_Final_Signature__c to be set by user input in Expected_Final_Signature_Before_Ext__c
     @TestVisible private static void setCalculatedDraftRemandReleaseToParty(Litigation__c l) {
         if (recordTypeNameMap.get(l.RecordTypeId) == REMAND) {
-            if (l.Calculated_Final_Signature__c != null) {
-                l.Calculated_Draft_Remand_release_to_party__c = l.Calculated_Final_Signature__c.addDays(RE_CALC_DRAFT_REMAND_RELEASE);
+            if (l.Expected_Final_Signature_Before_Ext__c != null) {
+                l.Calculated_Draft_Remand_release_to_party__c = l.Expected_Final_Signature_Before_Ext__c.addDays(RE_CALC_DRAFT_REMAND_RELEASE);
                 l.Calculated_Draft_Remand_release_to_party__c = ADCVD_TollingDayUtility.getCalculatedDate(l.Calculated_Draft_Remand_release_to_party__c, l.Calculated_Draft_Remand_release_to_party__c, true);
             }
         }
