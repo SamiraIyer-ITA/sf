@@ -50,10 +50,6 @@
                 <behavior>Edit</behavior>
                 <field>Final_Date_of_Anniversary_Month__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>End_Anniversary_Date__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -72,10 +68,15 @@
                 <behavior>Edit</behavior>
                 <field>Period_Covered_End_Date__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>What_to_Use_For_Respondent_Selection__c</field>
-            </layoutItems>
+        </layoutColumns>
+        <style>TwoColumnsLeftToRight</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Respondent Selection</label>
+        <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Choose_Following_Respondent_Selection__c</field>
@@ -83,6 +84,12 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Receive_Request_to_Consider_Sampling__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>What_to_Use_For_Respondent_Selection__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -145,9 +152,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Actual_Final_Signature__c</field>
-            </layoutItems>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -273,6 +277,7 @@
         <relatedList>Issue__c.Segment__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <fields>NAME</fields>
         <relatedList>Federal_Register__c.Segment__c</relatedList>
     </relatedLists>
     <relatedLists>

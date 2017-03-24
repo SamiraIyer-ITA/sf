@@ -15,10 +15,6 @@
                 <behavior>Edit</behavior>
                 <field>Next_Due_to_DAS_Deadline_and_Timeline__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Initiation_Extension_of_days__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -71,10 +67,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Application_Properly_Filed_and_Served__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Application_Accepted__c</field>
             </layoutItems>
             <layoutItems>
@@ -84,10 +76,12 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <emptySpace>true</emptySpace>
+                <behavior>Edit</behavior>
+                <field>Application_Properly_Filed_and_Served__c</field>
             </layoutItems>
             <layoutItems>
-                <emptySpace>true</emptySpace>
+                <behavior>Edit</behavior>
+                <field>Initiation_Extension_of_days__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -240,6 +234,7 @@
         <relatedList>Issue__c.Segment__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <fields>NAME</fields>
         <relatedList>Federal_Register__c.Segment__c</relatedList>
     </relatedLists>
     <relatedLists>

@@ -235,6 +235,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Actual_Revocation_or_Continuation_FR__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Revocation_or_Continuation_to_DAS__c</field>
             </layoutItems>
             <layoutItems>

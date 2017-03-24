@@ -15,26 +15,6 @@
                 <behavior>Edit</behavior>
                 <field>Next_Due_to_DAS_Deadline_and_Timeline__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Petition_Case_Number__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Petition_Case_Type__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Petition_Commodity__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Petition_Country__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Petition_Product__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -55,8 +35,16 @@
         <label>Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Office__c</field>
+                <behavior>Readonly</behavior>
+                <field>Petition_Case_Number__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Petition_Product__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Petition_Commodity__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -65,8 +53,16 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Petition_Case_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Petition_Country__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Upstream_Subsidy_Allegation__c</field>
+                <field>Office__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -82,8 +78,8 @@
         <label>Preliminary Phase</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Calculated_ITC_Prelim_Determination__c</field>
+                <behavior>Edit</behavior>
+                <field>Upstream_Subsidy_Allegation__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -101,23 +97,30 @@
                 <behavior>Edit</behavior>
                 <field>Range_of_Rates_Prelim__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Ministerial_Error_for_Prelim__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Prelim_Team_Meeting_Deadline__c</field>
+                <field>Calculated_ITC_Prelim_Determination__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Signature_of_Prelim_Postponement_FR__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Prelim_Team_Meeting_Deadline__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Actual_Preliminary_Signature__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Ministerial_Error_for_Prelim__c</field>
+                <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -180,21 +183,21 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Final_Team_Meeting_Deadline__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
                 <field>Calculated_Final_Signature__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Termination_of_Suspension_Gap_Period_Beg__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Range_of_Rates_Final__c</field>
+                <field>Ministerial_Error_for_final__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Termination_of_Suspension_Gap_Period_Beg__c</field>
+                <field>Final_Team_Meeting_Deadline__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -202,7 +205,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Ministerial_Error_for_final__c</field>
+                <field>Range_of_Rates_Final__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
