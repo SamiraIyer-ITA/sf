@@ -291,14 +291,22 @@ public without sharing class SegmentTriggerHandler {
                 s.Prelim_Team_Meeting_Deadline__c = null;
             }
 		} else if(recordTypeNameMap.get(s.RecordTypeId) == ANTI_CIRCUMVENTION_REVIEW){
-            if (s.Type_of_Circumvention_Inquiry__c != 'Later-Developed Merchandise' && s.Type_of_Circumvention_Inquiry__c != null 
-                && s.Preliminary_Determination__c == 'Yes' && s.Calculated_Preliminary_Signature__c != null){
-                s.Calculated_Preliminary_Signature__c.addDays(ACR_PRELIM_TEAM_MEET_DEADLINE);
-                s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Prelim_Team_Meeting_Deadline__c, s.Prelim_Team_Meeting_Deadline__c, true);
-            } else if (s.Type_of_Circumvention_Inquiry__c == 'Later-Developed Merchandise' && s.Calculated_Preliminary_Signature__c != null){
-                s.Calculated_Preliminary_Signature__c.addDays(ACR_PRELIM_TEAM_MEET_DEADLINE);
+            /*updated this date logic accordingly to Paul's new calculation.  Original (stale) statement is provided below commented. */
+            //check for null to convert to 'None'... no longer necessary
+          //  String emptyStringCheck = s.Type_of_Circumvention_Inquiry == null ? 'None': s.Type_of_Circumvention_Inquiry__c;
+            if (s.Type_of_Circumvention_Inquiry__c == 'Later-Developed Merchandise'){
+                s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(ACR_PRELIM_TEAM_MEET_DEADLINE);
                 s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Prelim_Team_Meeting_Deadline__c, s.Prelim_Team_Meeting_Deadline__c, true);
             }
+            else if (s.Type_of_Circumvention_Inquiry__c != 'Later-Developed Merchandise' && s.Type_of_Circumvention_Inquiry__c != null && s.Preliminary_Determination__c == 'Yes'){
+                s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(ACR_PRELIM_TEAM_MEET_DEADLINE);
+                s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Prelim_Team_Meeting_Deadline__c, s.Prelim_Team_Meeting_Deadline__c, true); 
+            }
+            /*
+            if (s.Calculated_Preliminary_Signature__c != null) {
+                s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(ACR_PRELIM_TEAM_MEET_DEADLINE);
+                s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Prelim_Team_Meeting_Deadline__c, s.Prelim_Team_Meeting_Deadline__c, true);
+            }*/
         } else if (recordTypeNameMap.get(s.RecordTypeId) == CHANGED_CIRCUMSTANCES_REVIEW){
             if (s.Calculated_Preliminary_Signature__c != null){
                 s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(CCR_PRELIM_TEAM_MEET_DEADLINE);
@@ -375,24 +383,17 @@ public without sharing class SegmentTriggerHandler {
                 s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Initiation_Signature__c, s.Calculated_Final_Signature__c, true);
             }
         } else if (recordTypeNameMap.get(s.RecordTypeId) == CHANGED_CIRCUMSTANCES_REVIEW){
-            if (s.Is_this_review_expedited__c == 'Yes' && s.Actual_Initiation_Signature__c == null && s.Calculated_Initiation_Signature__c != null){
-                s.Calculated_Final_Signature__c = s.Calculated_Initiation_Signature__c.addDays(CCR_CALC_FINAL_SIG_FORTYFIVE).addDays(extension);
-                s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Initiation_Signature__c, s.Calculated_Final_Signature__c, true);
-            } else if (s.Is_this_review_expedited__c == 'Yes' && s.Actual_Initiation_Signature__c != null){
-                s.Calculated_Final_Signature__c = s.Actual_Initiation_Signature__c.addDays(CCR_CALC_FINAL_SIG_FORTYFIVE).addDays(extension);
-                s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Initiation_Signature__c, s.Calculated_Final_Signature__c, true);
-            } else if (s.Is_this_review_expedited__c == 'No' && s.All_parties_in_agreement_to_the_outcome__c == 'Yes' && s.Actual_Initiation_Signature__c == null && s.Calculated_Initiation_Signature__c != null){
-                s.Calculated_Final_Signature__c = s.Calculated_Initiation_Signature__c.addDays(CCR_CALC_FINAL_SIG_FORTYFIVE).addDays(extension);
-                s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Initiation_Signature__c, s.Calculated_Final_Signature__c, true);                    
-            } else if (s.Is_this_review_expedited__c == 'No' && s.All_parties_in_agreement_to_the_outcome__c == 'Yes' && s.Actual_Initiation_Signature__c != null){
-                s.Calculated_Final_Signature__c = s.Actual_Initiation_Signature__c.addDays(CCR_CALC_FINAL_SIG_FORTYFIVE).addDays(extension);
-                s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Initiation_Signature__c, s.Calculated_Final_Signature__c, true);
-            } else if (s.Is_this_review_expedited__c == 'No' && s.All_parties_in_agreement_to_the_outcome__c == 'No' && s.Actual_Initiation_Signature__c == null && s.Calculated_Initiation_Signature__c != null){
-                s.Calculated_Final_Signature__c = s.Calculated_Initiation_Signature__c.addDays(CCR_CALC_FINAL_SIG_TWOSEVENTY).addDays(extension);
-                s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Initiation_Signature__c, s.Calculated_Final_Signature__c, true);  
-            } else if (s.Is_this_review_expedited__c == 'No' && s.All_parties_in_agreement_to_the_outcome__c == 'No' && s.Actual_Initiation_Signature__c != null){
-                s.Calculated_Final_Signature__c = s.Actual_Initiation_Signature__c.addDays(CCR_CALC_FINAL_SIG_TWOSEVENTY).addDays(extension);
-                s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Initiation_Signature__c, s.Calculated_Final_Signature__c, true);                        
+            Integer ccrCalcFinal = (s.Is_this_review_expedited__c != null && s.All_parties_in_agreement_to_the_outcome__c != null
+                                    && s.Is_this_review_expedited__c == 'No' && s.All_parties_in_agreement_to_the_outcome__c == 'No') ? 
+                                    CCR_CALC_FINAL_SIG_TWOSEVENTY : CCR_CALC_FINAL_SIG_FORTYFIVE;
+            if(ccrCalcFinal != null) {
+                if (s.Actual_Initiation_Signature__c == null && s.Calculated_Initiation_Signature__c != null){
+                    s.Calculated_Final_Signature__c = s.Calculated_Initiation_Signature__c.addDays(ccrCalcFinal).addDays(extension);
+                    s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Initiation_Signature__c, s.Calculated_Final_Signature__c, true);
+                } else if (s.Actual_Initiation_Signature__c != null) {
+                    s.Calculated_Final_Signature__c = s.Actual_Initiation_Signature__c.addDays(ccrCalcFinal).addDays(extension);
+                    s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Initiation_Signature__c, s.Calculated_Final_Signature__c, true);                    
+                }
             }
         } else if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW){    
             Integer prelimExtension = s.Prelim_Extension__c == null ? 0 : (Integer)s.Prelim_Extension__c;
