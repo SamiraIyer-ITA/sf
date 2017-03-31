@@ -9,7 +9,7 @@
             <meta http-equiv="x-ua-compatible" content="ie=edge" />
             <title>Sunset Review</title>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <apex:include pageName="UIThemeUtilsInclude"/>
+            <!--<apex:include pageName="UIThemeUtilsInclude"/>-->
             <!-- Import the Design System style sheet -->
             <apex:variable var="uiTheme" value="lightningDesktop" rendered="{!isLightningExperience || isSalesforce1}">
                 <apex:slds />
