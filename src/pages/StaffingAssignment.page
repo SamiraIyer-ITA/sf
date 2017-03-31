@@ -37,6 +37,9 @@
                     <!-- ACTION BUTTONS -->
                         <div class="slds-col slds-no-flex slds-grid slds-align-top slds-align-middle">
                           <div class="slds-button-group" role="group">
+                            <apex:commandButton styleClass="slds-button slds-button--neutral" action="{!addrow}" value="Add New Assignment" id="newAssignment-ltng">
+                            	<apex:actionSupport event="oncomplete" reRender="staffing-assignment"/>
+                            </apex:commandButton>
                             <apex:commandButton styleClass="slds-button slds-button--neutral" action="{!save}" value="Save" id="saveButton-ltng"  reRender="form-ltng, pm-ltng" oncomplete="navInLEX();"/>
                             <apex:commandButton styleClass="slds-button slds-button--neutral" action="{!cancel}" value="Cancel" id="cancelButton-ltng"  reRender="form-ltng, pm-ltng" immediate="true" oncomplete="navInLEX();"/>
                           </div>
@@ -54,14 +57,14 @@
             <!-- PRIMARY CONTENT WRAPPER -->
             <div class="myapp slds-p-horizontal--medium">
             <ul id="staffing-assignment" class="slds-has-dividers--bottom-space"></ul>
-                <apex:outputPanel > 
-                    <apex:outputPanel id="sa-ltng">
+                <apex:outputPanel  id="sa-ltng"> 
+                    <apex:outputPanel>
                         <div class="slds-section">
                             <table>
                                 <apex:repeat value="{!staffWrapperList}" var="saw" >
                                     <div class="slds-form-element__group">
                                         <tr class="slds-form-element__row slds-p-left--xx-large">
-                                            <td class="slds-form-element slds-size--1-of-3 slds-p-around--small slds-p-left--xx-large">
+                                            <td class="slds-form-element slds-size--1-of-3 slds-p-around--xx-small slds-p-left--xx-large">
 	                                            <label class="slds-form-element__label">
 	                                            	Title
 	                                            </label>
@@ -69,7 +72,7 @@
 													<apex:actionSupport event="onchange" reRender="user-ltng" />
 												</apex:inputField>
 											</td>
-											<td class="slds-form-element slds-size--1-of-3 slds-p-around--small">
+											<td class="slds-form-element slds-size--1-of-3 slds-p-around--xx-small">
 												<label class="slds-form-element__label">
 	                                            	User
 	                                            </label>
@@ -89,9 +92,17 @@
                                     </div>
                                 </apex:repeat>
                                 <br/>
-                                <br/>
                             </table>
                         </div>                      
+                    </apex:outputPanel>
+                    <apex:outputPanel id = "options-ltng" rendered="{!parentObjectType == 'ADCVD_Order__c'}">
+                    	<div class=" slds-has-dividers--bottom-space slds-p-left--xx-large">
+	                    	<p class="slds-section-title--divider slds-size--2-of-2 slds-form-element__label slds-text-title--caps slds-p-top--large">Options</p>
+	                    	<div class="slds-section slds-p-around--xx-small">
+			                    <apex:outputLabel for="overwriteSegments" title="Push this Staffing Assignment to related segments and overwrite existing assignments?" value="Push this Staffing Assignment to related segments and overwrite existing assignments?" styleClass="slds-output slds-p-around--xx-small"/>
+								<apex:inputCheckbox value="{!overwriteSegments}" id="overwriteSegments" rendered="{!parentObjectType == 'ADCVD_Order__c'}" styleClass="slds-checkbox slds-p-around--xx-small"/>
+							</div>
+						</div>
                     </apex:outputPanel>
                 </apex:outputPanel>
             </div>
@@ -117,13 +128,9 @@
     </html>
 	<apex:form rendered="{!isSalesforceClassic}">
 	<apex:pageMessages />
-		<apex:pageBlock >
+		<apex:pageBlock id = "pb">
 			<apex:repeat value="{!staffWrapperList}" var="saw" >
 			<apex:pageBlockSection columns="2"> 
-			<!-- todo - convert lookup to picklist -- change bindings 
-				<apex:selectList value="{!SA.User__c}" id="autocompleteNode" multiselect="false" size="1" styleClass="ui-autocomplete selector">
-					<apex:selectOptions value="{!availableSelectOptions}"/>
-				</apex:selectList>-->
 				<apex:inputField value="{!saw.sa.Title__c}" >
 					<apex:actionSupport event="onchange" reRender="user" />
 				</apex:inputField>
@@ -133,19 +140,15 @@
 				<apex:inputCheckbox label="Override Standard User" value="{!saw.overrideRole}">
 					<apex:actionSupport event="onchange" reRender="user" />
 				</apex:inputCheckbox>
-				<!--<apex:inputField  id="user" value="{!SA.User__c}"/><!--  disabled="{!SA.Title__c == null}" multiselect="false" size="1">
-					<apex:selectOptions value="{!if(SA.Title__c == null, '', userSelectOptions[SA.Title__c])}"/>
-				</apex:selectList>
-				<apex:inputField value="{!SA.User__r.Staffing_Role__c}"/>-->
 			</apex:pageBlockSection>
 		</apex:repeat>
 		<apex:pageBlockButtons > 
 			<apex:commandButton action="{!addrow}" reRender="pb" title="Add New Assignment" value="Add New Assignment"/>
 		</apex:pageBlockButtons>
-			<apex:pageBlockSection title="Options"  rendered="{!navigatedBysObjectType == 'ADCVD_Order__c'}" >
+			<apex:pageBlockSection title="Options"  rendered="{!parentObjectType == 'ADCVD_Order__c'}" >
 				<apex:pageBlockSectionItem >
 					<apex:outputLabel for="overwriteSegments" title="Push this Staffing Assignment to related segments and overwrite existing assignments?" value="Push this Staffing Assignment to related segments and overwrite existing assignments?" />
-					<apex:inputCheckbox value="{!overwriteSegments}" id="overwriteSegments" rendered="{!navigatedBysObjectType == 'ADCVD_Order__c'}" />
+					<apex:inputCheckbox value="{!overwriteSegments}" id="overwriteSegments" rendered="{!parentObjectType == 'ADCVD_Order__c'}" />
 				</apex:pageBlockSectionItem>
 			</apex:pageBlockSection>
 			<apex:pageBlockButtons >

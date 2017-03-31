@@ -76,7 +76,7 @@
                                                     </label>
                                                 </div>
                                                 <div class="slds-form-element slds-size--1-of-2">
-                                                    <apex:outputField id="infoOutput" value="{!ssReview[f]}" rendered="{!NOT(edit) || CONTAINS(f.fieldPath, '__r')}"  styleClass="slds-output-"/>
+                                                    <apex:outputField id="infoOutput" value="{!ssReview[f]}" rendered="{!NOT(edit) || CONTAINS(f.fieldPath, '__r')}"  styleClass="slds-output"/>
                                                     <apex:inputField id="infoInput" value="{!ssReview[f.fieldPath]}" rendered="{!edit && NOT(CONTAINS(f.fieldPath, '__r'))}" required="{!OR(f.required, f.dbrequired)}" styleClass="slds-input" showDatePicker="false">
                                                         <apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection-ltng, reviewInfo-ltng, hiddenBlock" >
                                                             <apex:param name="ssReviewType" value="" assignTo="{!ssReviewType}"/>

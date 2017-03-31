@@ -73,6 +73,8 @@ public without sharing class StaffingAssignmentExtension {
 		} set;
 	}
 
+	public Boolean overwriteSegments {get; set;}
+
     /***********************************
      * Variables for Staffing Assigment
      ***********************************/
@@ -129,8 +131,6 @@ public without sharing class StaffingAssignmentExtension {
 	    } set;
 	}
 	
-	public Boolean overwriteSegments {get; set;}
-	public String navigatedBysObjectType {get; set;}
 //TODO: this needs to pull from current SA records
 	@TestVisible 
 	private static Set<String> userRolesSet = new Set<String>{'Accounting Director', 'Accounting PM', 'Assistant Secretary', 'Associate DAS', 
@@ -160,9 +160,6 @@ public without sharing class StaffingAssignmentExtension {
 		overwriteSegments = false;
 		staffList = getstaffList(parentId, parentObjectType);
 		staffWrapperList = addStaffWrapper(parentId, parentObjectType, staffList);
-		if(!isSalesforceClassic) {
-			staffWrapperList = sortStaffWrapperListForLEX(staffWrapperList);
-		}
 		System.debug(staffWrapperList);
 	}
 
@@ -252,7 +249,7 @@ public without sharing class StaffingAssignmentExtension {
 	private List<Staffing_Assignment__c> getStaffList(Id parentId, String parentObjectType) {
 		if(staffList == null || staffList.isEmpty()) {
 			//specify base query
-			String soqlQuery = 'SELECT Id, User__c, Title__c, User__r.Staffing_Role_Filter_Field__c , User__r.Staffing_Role__c FROM Staffing_Assignment__c WHERE ';
+			String soqlQuery = 'SELECT Id, User__c, Title__c, User__r.Staffing_Role__c FROM Staffing_Assignment__c WHERE ';
 			//specify object specific clause and query object, add to wrapper
 			soqlQuery += parentObjectType + ' =: parentId LIMIT 1000 ';	
 			System.debug(soqlQuery);
@@ -293,38 +290,6 @@ public without sharing class StaffingAssignmentExtension {
 		}
 		allUserSelectOptions.add(0,new SelectOption('','--Select a User--'));
 	}
-
-	private List<StaffingAssignmentWrapper> sortStaffWrapperListForLEX (List<StaffingAssignmentWrapper> apexRepeatOrderedList) {
-    	List<StaffingAssignmentWrapper> htmlOrderedList = new List<StaffingAssignmentWrapper>();
-    	List<StaffingAssignmentWrapper> tempList1 = new List<StaffingAssignmentWrapper>();
-    	List<StaffingAssignmentWrapper> tempList2 = new List<StaffingAssignmentWrapper>();
-    	Boolean oddNumber = false;
-    	Boolean switchList = true;
-    	StaffingAssignmentWrapper oddObject;
-    	Integer totalCount = apexRepeatOrderedList.size();
-    	Decimal halfCount = Decimal.valueOf(Math.floor(totalCount / 2));
-    	Integer compareTotal = (Integer)halfCount * 2;
-    	if(compareTotal != totalCount){
-    		oddObject = apexRepeatOrderedList.get(totalCount-1);
-    		apexRepeatOrderedList.remove(totalCount-1);
-    		oddNumber = true;
-    	}
-    	for(StaffingAssignmentWrapper o : apexRepeatOrderedList) {
-    		if(switchList) {
-    			tempList1.add(o);
-    			switchList = false;
-    		} else {
-    			tempList2.add(o);
-    			switchList = true;
-    		}
-    	}
-    	if(oddNumber) {
-    		tempList1.add(oddObject);
-    	}
-    	htmlOrderedList.addAll(tempList1);
-    	htmlOrderedList.addAll(tempList2);
-    	return htmlOrderedList;
-    }
 
 	//wrapper class for rendering the list(s) of staffing assignments
 	public class StaffingAssignmentWrapper {
