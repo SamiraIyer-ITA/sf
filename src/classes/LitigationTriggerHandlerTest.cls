@@ -95,7 +95,7 @@ public class LitigationTriggerHandlerTest {
 		remand = null;
 
 		//Remand
-		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(remand.Calculated_Final_Signature__c.addDays(-30));
+		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(remand.Expected_Final_Signature_Before_Ext__c.addDays(-30));
 		System.assertEquals(testCalculated,
 			[SELECT Id, Calculated_Draft_Remand_release_to_party__c FROM Litigation__c WHERE Id =:remand.Id  LIMIT 1].Calculated_Draft_Remand_release_to_party__c);
 
