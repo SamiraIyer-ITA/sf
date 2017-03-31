@@ -146,7 +146,7 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Petitioner__c.Petition__c</relatedList>
+        <relatedList>Related_Organization__c.Petition__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -159,6 +159,10 @@
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>Investigation__c.Petition__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Staffing_Assignment__c.Petition__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>TASK.SUBJECT</fields>

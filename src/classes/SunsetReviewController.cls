@@ -1,5 +1,6 @@
 public class SunsetReviewController {
     public Id recordId {get; set;}
+    @AuraEnabled
     public Segment__c ssReview {
     	get { 
 	        if(ssReview == null) {
@@ -14,6 +15,55 @@ public class SunsetReviewController {
     	set;
     }
     public String ssReviewType {get; set;}
+    public List<Schema.FieldSetMember> reviewInfoFieldsList {get {
+        if(reviewInfoFieldsList == null) {
+            reviewInfoFieldsList = Schema.SObjectType.Segment__c.FieldSets.Review_Information.getFields();
+            reviewInfoFieldsList = uiUtils.sortFieldSetListForHTML(reviewInfoFieldsList);
+        }
+        return reviewInfoFieldsList;
+        } set;
+    } 
+    public List<Schema.FieldSetMember> fieldsList90 {get {
+        if(fieldsList90 == null) {
+            fieldsList90 = Schema.SObjectType.Segment__c.FieldSets.Is_90_Day.getFields();
+            fieldsList90 = uiUtils.sortFieldSetListForHTML(fieldsList90);
+        }
+        return fieldsList90;
+        } set;
+    } 
+    public List<Schema.FieldSetMember> fieldsList120 {get {
+        if(fieldsList120 == null) {
+            fieldsList120 = Schema.SObjectType.Segment__c.FieldSets.Is_120_Day.getFields();
+            fieldsList120 = uiUtils.sortFieldSetListForHTML(fieldsList120);
+        }
+        return fieldsList120;
+        } set;
+    } 
+    public List<Schema.FieldSetMember> fieldsList240 {get {
+        if(fieldsList240 == null) {
+            fieldsList240 = Schema.SObjectType.Segment__c.FieldSets.Is_240_Day.getFields();
+            fieldsList240 = uiUtils.sortFieldSetListForHTML(fieldsList240);
+        }
+        return fieldsList240;
+        } set;
+    } 
+    public Boolean isSalesforce1 {get {
+        isSalesforce1 =uiUtils.isSalesforce1();
+        return isSalesforce1;
+        } set;
+    }
+
+    public Boolean isLightningExperience {get {
+        isLightningExperience =uiUtils.isLightningExperience();
+        return isLightningExperience;
+        } set;
+    }
+
+    public Boolean isSalesforceClassic {get {
+        isSalesforceClassic =uiUtils.isSalesforceClassic();
+        return isSalesforceClassic;
+        } set;
+    }
 
     public PageReference toggleEdit() {
         if (recordId != null) {
@@ -43,6 +93,7 @@ public class SunsetReviewController {
     	}
     	set;
     }
+    public String fDate {get; set;}
 
     //constructor for controller
     public SunsetReviewController() {
@@ -132,7 +183,19 @@ public class SunsetReviewController {
             }
         }
     }
-
+    public PageReference checkRecordType() {
+    	Id i = ApexPages.currentPage().getParameters().get('Id');
+        if(i != null) {
+            Id recordTypeId = [SELECT RecordTypeId FROM Segment__c WHERE Id =: i LIMIT 1].RecordTypeId;
+            Map<Id,String> recordIdMap = utils.getRecordTypeDeveloperNameMap('Segment__c');
+            if(recordIdMap.get(recordTypeId) != 'Sunset_Review') {
+                PageReference standardPage = new PageReference('/' + i + '?nooverride=1');
+                return (standardPage);
+            }
+        }
+        
+    	return null;
+    }
     public String getReturnUrl() {
         return ApexPages.currentPage().getParameters().get('retURL');
     }
@@ -149,7 +212,7 @@ public class SunsetReviewController {
             return null;
         }
         //  After successful Save, navigate to the default view page
-        PageReference redirectSuccess = new PageReference(getReturnUrl());
+        PageReference redirectSuccess = new PageReference('/' + recordId);
         return (redirectSuccess);
         //return null;
     }

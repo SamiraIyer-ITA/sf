@@ -6,6 +6,10 @@
     </types>
     <types>
         <members>*</members>
+        <name>ApexComponent</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>ApexPage</name>
     </types>
     <types>
@@ -86,6 +90,7 @@
         <members>Refund__c</members>
         <members>RelatedCountries__c</members>
         <members>Related_Cases_and_Orgs__c</members>
+        <members>Related_Organization__c</members>
         <members>Renewing_Product__c</members>
         <members>Respondent__c</members>
         <members>Row__c</members>
@@ -96,6 +101,9 @@
         <members>Service__mdt</members>
         <members>Site__c</members>
         <members>Social_Icons__c</members>
+        <members>Staffing_Assignment__c</members>
+        <members>Staffing_Object_Record_Set__mdt</members>
+        <members>Staffing_Object_Setting__mdt</members>
         <members>Survey_Result__c</members>
         <members>Suspension_Agreement__c</members>
         <members>Sync_Investigation__mdt</members>
@@ -106,6 +114,7 @@
         <members>Third_Party__c</members>
         <members>Tolling_Day__c</members>
         <members>URL__c</members>
+        <members>User</members>
         <members>WIN_Contributor__c</members>
         <members>WIN__c</members>
         <name>CustomObject</name>
