@@ -102,8 +102,6 @@
         <members>Site__c</members>
         <members>Social_Icons__c</members>
         <members>Staffing_Assignment__c</members>
-        <members>Staffing_Object_Record_Set__mdt</members>
-        <members>Staffing_Object_Setting__mdt</members>
         <members>Survey_Result__c</members>
         <members>Suspension_Agreement__c</members>
         <members>Sync_Investigation__mdt</members>
