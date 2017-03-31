@@ -20,6 +20,6 @@
     </values>
     <values>
         <field>Used_with_Field_Named__c</field>
-        <value xsi:type="xsd:string">Adequacy_Determination_and_Letter_to_ITC__c</value>
+        <value xsi:type="xsd:string">Adequacy_Determination_Letter_240_day__c</value>
     </values>
 </CustomMetadata>

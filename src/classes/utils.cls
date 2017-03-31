@@ -1,4 +1,44 @@
 public without sharing class utils {
+	//use this reference for Global Describe to store in cache memory
+	public static Map<String,Schema.SObjectType> cachedGD {
+		get{
+			if(cachedGD == null || cachedGD.isEmpty()) {
+				cachedGD = Schema.getGlobalDescribe();
+			}
+			return cachedGD;
+		}
+		set;
+	}
+	private static void setCachedGD() {
+		if(cachedGD.isEmpty()) {
+			cachedGD = Schema.getGlobalDescribe();
+		}
+	}
+
+	public static String findObjectNameFromRecordIdPrefix(String recordIdOrPrefix){
+		String objectName = '';
+		try{
+			//Get prefix from record ID
+			//This assumes that you have passed at least 3 characters
+			String myIdPrefix = String.valueOf(recordIdOrPrefix).substring(0,3);
+			//setCachedGD();
+			//Loop through all the sObject types returned by Schema
+			for(Schema.SObjectType soType : cachedGD.values()){
+				Schema.DescribeSObjectResult r = soType.getDescribe();
+				String prefix = r.getKeyPrefix();
+				 
+				//Check if the prefix matches with requested prefix
+				if(prefix!=null && prefix.equals(myIdPrefix)){
+					objectName = r.getName();
+					System.debug('Object Name! ' + objectName);
+					break;
+				}
+			}
+		}catch(Exception e){
+			System.debug(e);
+		}
+		return objectName;
+	}
 
 	//Gets API name of the passed Object
 	public static String getSObjectName(SObject o) {
@@ -36,7 +76,7 @@ public without sharing class utils {
 	public static Map<String,List<String>> getObjectToFieldMap(String sObjectName) {
 		Map<String,List<String>> returnMap = new Map<String,List<String>>();
 		List<String> fieldList = new List<String>();
-		Schema.DescribeSObjectResult dsr = Schema.getGlobalDescribe().get(sObjectName).getDescribe();
+		Schema.DescribeSObjectResult dsr = cachedGD.get(sObjectName).getDescribe();
 		Map<String,Schema.SObjectField> tempFieldMap = dsr.fields.getMap();
 		for(String fieldName : tempFieldMap.keySet()) {
 			fieldList.add(fieldName);
@@ -54,7 +94,7 @@ public without sharing class utils {
 	public static Map<String,Schema.SObjectField> getFieldMap(String sObjectName) {
 		Map<String,Schema.SObjectField> returnMap = new Map<String,Schema.SObjectField>();
 		List<String> fieldList = new List<String>();
-		Schema.DescribeSObjectResult dsr = Schema.getGlobalDescribe().get(sObjectName).getDescribe();
+		Schema.DescribeSObjectResult dsr = cachedGD.get(sObjectName).getDescribe();
 		returnMap = dsr.fields.getMap();
 		return returnMap;
 
@@ -63,5 +103,19 @@ public without sharing class utils {
 		String sObjectName = getSObjectName(o);
 		Map<String,Schema.SObjectField> returnMap = getFieldMap(sObjectName);
 		return returnMap;
+	}
+
+	//Visualforce Page Utilities
+	
+	public static String parseUrlForId(String retUrl) {
+		if(!String.isBlank(retUrl)){
+			retUrl = retUrl.replaceAll('/', '');
+			system.debug(retUrl);
+			if(retUrl.contains('?')) {
+				List<String> urlSplit = retUrl.split('\\?');
+				retUrl = urlSplit[0];
+			}
+		}
+		return retUrl;
 	}
 }

@@ -45,6 +45,14 @@ public class SegmentTriggerHandlerTest {
 			return finalFR;
 		}
 	}
+	private static Federal_Register__c itcFinalFR{
+		get{
+			if (itcFinalFR == null) {
+				itcFinalFR = [SELECT Id, Segment__c, Type__c, Published_Date__c FROM Federal_Register__c WHERE Type__c =: 'ITC Final' LIMIT 1];
+			}
+			return itcFinalFR;
+		}
+	}
 	private static Federal_Register__c revoFR{
 		get{
 			if (revoFR == null) {
@@ -586,10 +594,10 @@ public class SegmentTriggerHandlerTest {
 		Test.startTest();
 
 		//setup start dates
-		setFR(ssSeg.Id, 'Final');
+		setFR(ssSeg.Id, 'ITC Final');
 		getNewSegs();
 
-		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(finalFR.Published_Date__c.addDays(7));
+		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(itcFinalFR.Published_Date__c.addDays(7));
 		//compare Calculated_Revocation_or_Continuation_FR__c
 		System.assertEquals(testCalculated,
 			[SELECT Id, Calculated_Revocation_or_Continuation_FR__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Calculated_Revocation_or_Continuation_FR__c);
@@ -719,6 +727,7 @@ public class SegmentTriggerHandlerTest {
 
 		//120 Day Calculations for Calculated_Revocation_or_Continuation_FR__c
 		ssSeg.Continuation_or_Revocation__c = 'Revocation';
+		setFR(ssSeg.Id, 'ITC Final');
 		ss120();
 		getNewSegs();
 		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(ssSeg.Calculated_Revocation_or_Continuation_FR__c.addDays(22));

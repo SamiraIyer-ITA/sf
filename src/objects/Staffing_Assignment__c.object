@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>StaffingAssignment</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>StaffingAssignment</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>ADCVD_Order__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>ADCVD Order</label>
+        <referenceTo>ADCVD_Order__c</referenceTo>
+        <relationshipLabel>Staffing Assignments</relationshipLabel>
+        <relationshipName>Staffing_Assignments</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Investigation__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Investigation</label>
+        <referenceTo>Investigation__c</referenceTo>
+        <relationshipLabel>Staffing Assignments</relationshipLabel>
+        <relationshipName>Staffing_Assignments</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Petition__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Petition</label>
+        <referenceTo>Petition__c</referenceTo>
+        <relationshipLabel>Staffing Assignments</relationshipLabel>
+        <relationshipName>Staffing_Assignments</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Related_Organization__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Related Organization</label>
+        <referenceTo>Related_Organization__c</referenceTo>
+        <relationshipLabel>Staffing Assignments</relationshipLabel>
+        <relationshipName>Staffing_Assignments</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Segment__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Segment</label>
+        <referenceTo>Segment__c</referenceTo>
+        <relationshipLabel>Staffing Assignments</relationshipLabel>
+        <relationshipName>Staffing_Assignments</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Title__c</fullName>
+        <externalId>false</externalId>
+        <label>Title</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Accounting Director</fullName>
+                    <default>false</default>
+                    <label>Accounting Director</label>
+                </value>
+                <value>
+                    <fullName>Accounting PM</fullName>
+                    <default>false</default>
+                    <label>Accounting PM</label>
+                </value>
+                <value>
+                    <fullName>Assistant Secretary</fullName>
+                    <default>false</default>
+                    <label>Assistant Secretary</label>
+                </value>
+                <value>
+                    <fullName>Associate DAS</fullName>
+                    <default>false</default>
+                    <label>Associate DAS</label>
+                </value>
+                <value>
+                    <fullName>DAS</fullName>
+                    <default>false</default>
+                    <label>DAS</label>
+                </value>
+                <value>
+                    <fullName>DAS Assistant</fullName>
+                    <default>false</default>
+                    <label>DAS Assistant</label>
+                </value>
+                <value>
+                    <fullName>Office Director</fullName>
+                    <default>false</default>
+                    <label>Office Director</label>
+                </value>
+                <value>
+                    <fullName>Program Manager</fullName>
+                    <default>false</default>
+                    <label>Program Manager</label>
+                </value>
+                <value>
+                    <fullName>Senior Legal</fullName>
+                    <default>false</default>
+                    <label>Senior Legal</label>
+                </value>
+                <value>
+                    <fullName>Senior Policy</fullName>
+                    <default>false</default>
+                    <label>Senior Policy</label>
+                </value>
+                <value>
+                    <fullName>Staff Legal</fullName>
+                    <default>false</default>
+                    <label>Staff Legal</label>
+                </value>
+                <value>
+                    <fullName>Staff Policy</fullName>
+                    <default>false</default>
+                    <label>Staff Policy</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>User</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>User.Staffing_Role__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.Title__c</valueField>
+            </filterItems>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Staffing_Assignments</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Staffing Assignment</label>
+    <nameField>
+        <displayFormat>SA-{000000}</displayFormat>
+        <label>Staffing Assignment Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Staffing Assignments</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Title__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>User__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Petition__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Investigation__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ADCVD_Order__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Segment__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Related_Organization__c</lookupDialogsAdditionalFields>
+        <lookupFilterFields>Title__c</lookupFilterFields>
+        <lookupFilterFields>User__c</lookupFilterFields>
+        <lookupFilterFields>Related_Organization__c</lookupFilterFields>
+        <searchFilterFields>Title__c</searchFilterFields>
+        <searchFilterFields>User__c</searchFilterFields>
+        <searchFilterFields>Related_Organization__c</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Require_a_parent_value</fullName>
+        <active>true</active>
+        <description>Require a parent value for all staffing assignments</description>
+        <errorConditionFormula>ISBLANK( ADCVD_Order__c )&amp;&amp;
+ISBLANK(  Investigation__c )&amp;&amp;
+ISBLANK(  Petition__c )&amp;&amp;
+ISBLANK(  Related_Organization__c )&amp;&amp;
+ISBLANK(  Segment__c )</errorConditionFormula>
+        <errorMessage>Please select a parent for this staffing assignment</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>
