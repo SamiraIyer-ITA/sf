@@ -255,24 +255,11 @@
                 </apex:pageBlockSection>
             </apex:pageBlock>
         </apex:pageBlock>
+        <!--variables will sometimes not pass to the controller without rerendering the value back on the page.  This does that, but is hidden from the user-->
         <apex:pageBlock id="hiddenBlock" rendered="false">
             <apex:outputText id="hiddentext" value="{!ssReviewType}"/>
         </apex:pageBlock>
     </apex:form>
-    <div id="isSalesforce1JS" rendered="false" hidden="true" />
-    <div id="isLightningExperienceJS" rendered="false" hidden="true" />
-    <div id="isSalesforceClassicJS" rendered="false" hidden="true" />
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function(event){
-            // Instead, use these utility methods
-            document.getElementById('isSalesforce1JS').innerHTML = 
-                ForceUI.isSalesforce1();
-            document.getElementById('isLightningExperienceJS').innerHTML = 
-                ForceUI.isLightningExperience();
-            document.getElementById('isSalesforceClassicJS').innerHTML = 
-                ForceUI.isSalesforceClassic();
-        });
-    </script>
 <!--    <script type="text/javascript">
         $Lightning.use("c:TestDatePickerApp", function () {
             $Lightning.createComponent("c:TestDatePicker", 

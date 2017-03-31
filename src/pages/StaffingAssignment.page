@@ -2,20 +2,20 @@
 	showHeader="{!isSalesforceClassic}" standardStylesheets="{!isSalesforceClassic}" 
 	applyHtmlTag="{!isSalesforceClassic}" applyBodyTag="{!isSalesforceClassic}"
 	docType="html-5.0">
-	<apex:includeLightning />
+	<!--For VF pages that are shared in Lightning, conditionally set page attributes based on user experience context-->
+	<apex:includeLightning /><!--Always include lightning scripts-->
     <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
-        <head>
+        <head><!--when possible, use the standard page setup from slds available on their website-->
             <meta charset="utf-8" />
             <meta http-equiv="x-ua-compatible" content="ie=edge" />
             <title>Staffing Assignment</title>
             <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <!--<apex:include pageName="UIThemeUtilsInclude"/>-->
-            <!-- Import the Design System style sheet -->
+            <!-- Conditionally import the Design System style sheet -->
             <apex:variable var="uiTheme" value="lightningDesktop" rendered="{!isLightningExperience || isSalesforce1}">
                 <apex:slds />
             </apex:variable>
         </head>
-        <body>
+        <body><!--conditionally display form based on user context-->
             <apex:form id="form-ltng" rendered="{!isLightningExperience || isSalesforce1}">
             <apex:pageMessages id="pm-ltng"/>
             <!-- REQUIRED SLDS WRAPPER -->
@@ -38,7 +38,7 @@
                         <div class="slds-col slds-no-flex slds-grid slds-align-top slds-align-middle">
                           <div class="slds-button-group" role="group">
                             <apex:commandButton styleClass="slds-button slds-button--neutral" action="{!addrow}" value="Add New Assignment" id="newAssignment-ltng">
-                            	<apex:actionSupport event="oncomplete" reRender="staffing-assignment"/>
+                            	<apex:actionSupport event="oncomplete" reRender="sa-ltng"/>
                             </apex:commandButton>
                             <apex:commandButton styleClass="slds-button slds-button--neutral" action="{!save}" value="Save" id="saveButton-ltng"  reRender="form-ltng, pm-ltng" oncomplete="navInLEX();"/>
                             <apex:commandButton styleClass="slds-button slds-button--neutral" action="{!cancel}" value="Cancel" id="cancelButton-ltng"  reRender="form-ltng, pm-ltng" immediate="true" oncomplete="navInLEX();"/>
@@ -56,11 +56,12 @@
             <!-- / PAGE HEADER -->
             <!-- PRIMARY CONTENT WRAPPER -->
             <div class="myapp slds-p-horizontal--medium">
+            <div id="sa-ltng">
             <ul id="staffing-assignment" class="slds-has-dividers--bottom-space"></ul>
-                <apex:outputPanel  id="sa-ltng"> 
+                <apex:outputPanel> <!--pageBlocks are not supported in LEX, use outputPanels-->
                     <apex:outputPanel>
                         <div class="slds-section">
-                            <table>
+                            <table><!--for multi-column displays, use uiUtils methods to resort the fields displayed-->
                                 <apex:repeat value="{!staffWrapperList}" var="saw" >
                                     <div class="slds-form-element__group">
                                         <tr class="slds-form-element__row slds-p-left--xx-large">
@@ -106,12 +107,14 @@
                     </apex:outputPanel>
                 </apex:outputPanel>
             </div>
+            </div>
             <!-- FOOTER -->
             <!-- / FOOTER -->
             </div>
             <!-- / REQUIRED SLDS WRAPPER -->    
 
   <!-- JAVASCRIPT -->
+  			<!--standard script to navigate to an sObject in LEX or SF1-->
   			<script type="text/javascript">
   			function navInLEX() {
 	  			var parentId = "{!parentId}"
