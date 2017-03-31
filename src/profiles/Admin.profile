@@ -7925,10 +7925,6 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>SunsetReview2</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>TradeEvent</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
