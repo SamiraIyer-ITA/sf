@@ -28,6 +28,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ADCVD_RecusalUtility</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ADCVD_TollingDayUtility</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -289,6 +293,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>REST_CONTENT</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>RecusalCS</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -6080,6 +6088,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>User.Region__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.Staffing_Role__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
