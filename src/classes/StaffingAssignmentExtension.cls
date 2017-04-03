@@ -319,7 +319,9 @@ public without sharing class StaffingAssignmentExtension {
 			}
 			userSelectOptions.put(s, userSelect);//Staffing Role and list of users in map
 		}
+		if(userIdSet.size() > 0) {
 		allUserSelectOptions.add(0,new SelectOption('','--Select a User--'));//add the default the list of all users only once
+	}
 	}
 
 	//method used to create initial Staffing Assignments, includes setting titles from defauls

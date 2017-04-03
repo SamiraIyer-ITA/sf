@@ -76,7 +76,7 @@ public without sharing class ADCVD_RecusalUtility {
 	        for (Id parentId : parentIdToRecusalListMap.keySet()) {//each instance maps are by parent object
 	            for(Recusal__c r : parentIdToRecusalListMap.get(parentId)) {//each map has a list of recusals
 	                ADCVD_RecusalUtility tempInstance = new ADCVD_RecusalUtility();
-	                if (r.User__c != null && r.Primary_Recusal_Aligned_To__c != null) {//recusal is a related recusal and has a user
+	                if (r.User_Id_from_primary__c != null && r.Primary_Recusal_Aligned_To__c != null) {//recusal is a related recusal and has a user
 	                    tempInstance = userIdToInstanceMap.get(userId) != null ? userIdToInstanceMap.get(userId) : tempInstance;//get current instance if it exists
 	                    tempInstance = setTempInstance(r, userId, parentId, parentIdToRecusalListMap, tempInstance);
 	                }
