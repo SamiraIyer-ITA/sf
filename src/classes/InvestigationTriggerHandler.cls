@@ -3,6 +3,7 @@ public without sharing class InvestigationTriggerHandler {
 	//FINAL Investigation Record Type Developer Names
 	private static FINAL String ADRECORD = 'AD';
 	private static FINAL String CVDRECORD = 'CVD';
+	private static FINAL String INVESTIGATION = 'Investigation__c';
 
     private static Map<String,Investigation_Constant__mdt> investigationApiToConstants = setInvestigationApiToConstants();
 	//FINAL AD Record Type Offsets
@@ -46,6 +47,7 @@ public without sharing class InvestigationTriggerHandler {
 
         if (isBefore && isInsert) {
             initialize(newList, newMap);
+            setRecordType(newList);
             syncToInvestigation(newList);
         	calculateInvestigationDates(newList);
         }
@@ -74,6 +76,18 @@ public without sharing class InvestigationTriggerHandler {
             ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get Investigations with an Id
             frUtilMap = listInstance.utilMap;
 
+        }
+    }
+    private static void setRecordType(List<Investigation__c> newList) {
+        for(Investigation__c i: newList) {
+            if(petitionsInScopeMap.get(i.Petition__c) != null) {
+                String petitionType = petitionsInScopeMap.get(i.Petition__c).Case_Type__c;    
+                if(petitionType.contains('CVD')) {
+                    i.RecordTypeId = MetadataHelper.getRecordTypeIdByName(INVESTIGATION, 'CVD');
+                } else if(petitionType.contains('AD')) {
+                    i.RecordTypeId = MetadataHelper.getRecordTypeIdByName(INVESTIGATION, 'AD');
+                }
+            }
         }
     }
     //Syncs petition fields to investigation fields and AD to CVD if aligned
@@ -134,7 +148,7 @@ public without sharing class InvestigationTriggerHandler {
     	Map<Id,Petition__c> returnMap = new Map<Id,Petition__c>();
     	Set<Id> petitionIdSet = findIdsInScope(newList);
     	for (Petition__c p : [SELECT Id, Petition_Filed__c, Initiation_Extension_of_days__c, Actual_Initiation_Signature__c, 
-    									Calculated_Initiation_Signature__c
+    									Calculated_Initiation_Signature__c, Case_Type__c
     								FROM Petition__c WHERE Id IN: petitionIdSet]) {
     		returnMap.put(p.Id, p);
             if(p.Actual_Initiation_Signature__c == null && p.Calculated_Initiation_Signature__c == null) {

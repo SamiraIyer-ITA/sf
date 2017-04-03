@@ -1,0 +1,163 @@
+<apex:page standardController="Staffing_Assignment__c" extensions="StaffingAssignmentExtension" id="page" 
+	showHeader="{!isSalesforceClassic}" standardStylesheets="{!isSalesforceClassic}" 
+	applyHtmlTag="{!isSalesforceClassic}" applyBodyTag="{!isSalesforceClassic}"
+	docType="html-5.0">
+	<!--For VF pages that are shared in Lightning, conditionally set page attributes based on user experience context-->
+	<apex:includeLightning /><!--Always include lightning scripts-->
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+        <head><!--when possible, use the standard page setup from slds available on their website-->
+            <meta charset="utf-8" />
+            <meta http-equiv="x-ua-compatible" content="ie=edge" />
+            <title>Staffing Assignment</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <!-- Conditionally import the Design System style sheet -->
+            <apex:variable var="uiTheme" value="lightningDesktop" rendered="{!isLightningExperience || isSalesforce1}">
+                <apex:slds />
+            </apex:variable>
+        </head>
+        <body><!--conditionally display form based on user context-->
+            <apex:form id="form-ltng" rendered="{!isLightningExperience || isSalesforce1}">
+            <apex:pageMessages id="pm-ltng"/>
+            <!-- REQUIRED SLDS WRAPPER -->
+            <div class="slds-scope">
+
+            <!-- PAGE HEADER -->
+                <div class="slds-page-header">
+                  <!-- LAYOUT GRID -->
+                  <div class="slds-grid">
+
+                    <!-- GRID COL -->
+                    <div class="slds-col slds-has-flexi-truncate">
+                      <!-- HEADING AREA -->
+                      <!--<p class="slds-text-title--caps slds-line-height--reset">Segment</p>-->
+                      <h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate" title="Staffing_Assignment">Staffing Assignment</h1>
+                      <!-- / HEADING AREA -->
+                    </div>
+
+                    <!-- ACTION BUTTONS -->
+                        <div class="slds-col slds-no-flex slds-grid slds-align-top slds-align-middle">
+                          <div class="slds-button-group" role="group">
+                            <apex:commandButton styleClass="slds-button slds-button--neutral" action="{!addrow}" value="Add New Assignment" id="newAssignment-ltng">
+                            	<apex:actionSupport event="oncomplete" reRender="sa-ltng"/>
+                            </apex:commandButton>
+                            <apex:commandButton styleClass="slds-button slds-button--neutral" action="{!save}" value="Save" id="saveButton-ltng"  reRender="form-ltng, pm-ltng" oncomplete="navInLEX();"/>
+                            <apex:commandButton styleClass="slds-button slds-button--neutral" action="{!cancel}" value="Cancel" id="cancelButton-ltng"  reRender="form-ltng, pm-ltng" immediate="true" oncomplete="navInLEX();"/>
+                          </div>
+                        </div>
+                    <!-- / ACTION BUTTONS -->
+
+                  </div>
+                  <!-- / LAYOUT GRID -->
+
+                  <!-- PAGE HEADER DETAIL ROW -->
+                  <!-- / PAGE HEADER DETAIL ROW -->
+
+                </div>
+            <!-- / PAGE HEADER -->
+            <!-- PRIMARY CONTENT WRAPPER -->
+            <div class="myapp slds-p-horizontal--medium">
+            <div id="sa-ltng">
+            <ul id="staffing-assignment" class="slds-has-dividers--bottom-space"></ul>
+                <apex:outputPanel> <!--pageBlocks are not supported in LEX, use outputPanels-->
+                    <apex:outputPanel>
+                        <div class="slds-section">
+                            <table><!--for multi-column displays, use uiUtils methods to resort the fields displayed-->
+                                <apex:repeat value="{!staffWrapperList}" var="saw" >
+                                    <div class="slds-form-element__group">
+                                        <tr class="slds-form-element__row slds-p-left--xx-large">
+                                            <td class="slds-form-element slds-size--1-of-3 slds-p-around--xx-small slds-p-left--xx-large">
+	                                            <label class="slds-form-element__label">
+	                                            	Title
+	                                            </label>
+                                                <apex:inputField value="{!saw.sa.Title__c}" styleClass="slds-input">
+													<apex:actionSupport event="onchange" reRender="user-ltng" />
+												</apex:inputField>
+											</td>
+											<td class="slds-form-element slds-size--1-of-3 slds-p-around--xx-small">
+												<label class="slds-form-element__label">
+	                                            	User
+	                                            </label>
+												<apex:selectList value="{!saw.sa.User__c}"  disabled="{!saw.sa.Title__c == null && !saw.overrideRole}" multiselect="false" size="1" id="user-ltng" styleClass="slds-input">
+													<apex:selectOptions value="{!if(saw.overrideRole, allUserSelectOptions, if (saw.sa.Title__c == null, '',userSelectOptions[saw.sa.Title__c]))}"/>
+												</apex:selectList>
+											</td>
+											<td class="slds-form-element slds-size--1-of-3 slds-p-top--large">
+												<label class="slds-form-element__label">
+	                                            	Override Standard User?
+	                                            </label>
+												<apex:inputCheckbox label="Override Standard User" value="{!saw.overrideRole}" styleClass="slds-checkbox">
+													<apex:actionSupport event="onchange" reRender="user-ltng" />
+												</apex:inputCheckbox>
+                                            </td>
+                                        </tr>
+                                    </div>
+                                </apex:repeat>
+                                <br/>
+                            </table>
+                        </div>                      
+                    </apex:outputPanel>
+                    <apex:outputPanel id = "options-ltng" rendered="{!parentObjectType == 'ADCVD_Order__c'}">
+                    	<div class=" slds-has-dividers--bottom-space slds-p-left--xx-large">
+	                    	<p class="slds-section-title--divider slds-size--2-of-2 slds-form-element__label slds-text-title--caps slds-p-top--large">Options</p>
+	                    	<div class="slds-section slds-p-around--xx-small">
+			                    <apex:outputLabel for="overwriteSegments" title="Push this Staffing Assignment to related segments and overwrite existing assignments?" value="Push this Staffing Assignment to related segments and overwrite existing assignments?" styleClass="slds-output slds-p-around--xx-small"/>
+								<apex:inputCheckbox value="{!overwriteSegments}" id="overwriteSegments" rendered="{!parentObjectType == 'ADCVD_Order__c'}" styleClass="slds-checkbox slds-p-around--xx-small"/>
+							</div>
+						</div>
+                    </apex:outputPanel>
+                </apex:outputPanel>
+            </div>
+            </div>
+            <!-- FOOTER -->
+            <!-- / FOOTER -->
+            </div>
+            <!-- / REQUIRED SLDS WRAPPER -->    
+
+  <!-- JAVASCRIPT -->
+  			<!--standard script to navigate to an sObject in LEX or SF1-->
+  			<script type="text/javascript">
+  			function navInLEX() {
+	  			var parentId = "{!parentId}"
+	  			if (parentId != null) {
+	  				if (sforce.one) {
+	  					window.location.href = 'javascript:sforce.one.navigateToSObject(\'' + parentId + '\')';
+	  				}
+	  			}
+	  		}
+  			</script>
+  <!-- / JAVASCRIPT -->
+        </apex:form>
+        </body>
+    </html>
+	<apex:form rendered="{!isSalesforceClassic}">
+	<apex:pageMessages />
+		<apex:pageBlock id = "pb">
+			<apex:repeat value="{!staffWrapperList}" var="saw" >
+			<apex:pageBlockSection columns="2"> 
+				<apex:inputField value="{!saw.sa.Title__c}" >
+					<apex:actionSupport event="onchange" reRender="user" />
+				</apex:inputField>
+				<apex:selectList value="{!saw.sa.User__c}"  disabled="{!saw.sa.Title__c == null && !saw.overrideRole}" multiselect="false" size="1" id="user">
+					<apex:selectOptions value="{!if(saw.overrideRole, allUserSelectOptions, if (saw.sa.Title__c == null, '',userSelectOptions[saw.sa.Title__c]))}"/>
+				</apex:selectList>
+				<apex:inputCheckbox label="Override Standard User" value="{!saw.overrideRole}">
+					<apex:actionSupport event="onchange" reRender="user" />
+				</apex:inputCheckbox>
+			</apex:pageBlockSection>
+		</apex:repeat>
+		<apex:pageBlockButtons > 
+			<apex:commandButton action="{!addrow}" reRender="pb" title="Add New Assignment" value="Add New Assignment"/>
+		</apex:pageBlockButtons>
+			<apex:pageBlockSection title="Options"  rendered="{!parentObjectType == 'ADCVD_Order__c'}" >
+				<apex:pageBlockSectionItem >
+					<apex:outputLabel for="overwriteSegments" title="Push this Staffing Assignment to related segments and overwrite existing assignments?" value="Push this Staffing Assignment to related segments and overwrite existing assignments?" />
+					<apex:inputCheckbox value="{!overwriteSegments}" id="overwriteSegments" rendered="{!parentObjectType == 'ADCVD_Order__c'}" />
+				</apex:pageBlockSectionItem>
+			</apex:pageBlockSection>
+			<apex:pageBlockButtons >
+				<apex:commandButton action="{!save}" reRender="page" title="Save" value="Save"/>
+				<apex:commandButton action="{!cancel}" title="Cancel" value="Cancel"/>
+			</apex:pageBlockButtons>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>
