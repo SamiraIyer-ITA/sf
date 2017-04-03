@@ -87,6 +87,7 @@
         <members>Petitioner__c</members>
         <members>Program__c</members>
         <members>Publication_Template__c</members>
+        <members>Recusal__c</members>
         <members>Refund__c</members>
         <members>RelatedCountries__c</members>
         <members>Related_Cases_and_Orgs__c</members>
