@@ -70,6 +70,10 @@
                 <behavior>Edit</behavior>
                 <field>Deactivated_Date__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Staffing_Role__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsLeftToRight</style>

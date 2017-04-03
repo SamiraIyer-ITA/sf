@@ -441,8 +441,9 @@
         <label>All</label>
     </listViews>
     <nameField>
+        <displayFormat>L-{000000}</displayFormat>
         <label>Litigation Name</label>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Litigation</pluralLabel>
     <recordTypes>

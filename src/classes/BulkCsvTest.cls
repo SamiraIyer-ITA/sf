@@ -158,18 +158,96 @@ public without sharing class BulkCsvTest {
         runTestOnCsv('testcvd_holiday', 46);
     }
     @isTest
-    private static void test_newshipper() {
-        runTestOnCsv('testnsr', 125);
+
+    private static void testar() {
+        runTestOnCsv('testar', 80);
     }
-        @isTest
-    private static void testcvd_alignment() {
-        runTestOnCsv('testcvd_alignment', 94);
+/*-----------------------Test Cases for Segment Record Type (Reviews)-----------------------------*/
+//Administrative Review
+    @isTest
+    private static void testar_tolling_day_after_end_date() {
+        runTestOnCsv('testar_tolling_day_after_end_date', 124);
     }
     @isTest
-    private static void testcvd_holiday_alignment() {
-        runTestOnCsv('testcvd_holiday_alignment', 110);
-    }   
-
+    private static void testar_tolling_day_before_start_date() {
+        runTestOnCsv('testar_tolling_day_before_start_date', 124);
+    }
+    @isTest
+    private static void testar_tolling_day_between_both_dates() {
+        runTestOnCsv('testar_tolling_day_between_both_dates', 124);
+    }
+    @isTest
+    private static void testar_tolling_day_between_start_date() {
+        runTestOnCsv('testar_tolling_day_between_start_date', 124);
+    }
+    @isTest
+    private static void testar_tolling_day_between_end_date() {
+        runTestOnCsv('testar_tolling_day_between_end_date', 124);
+    }
+//New Shipper Review
+    @isTest
+    private static void testnsr_tolling_day_after_end_date() {
+        runTestOnCsv('testnsr_tolling_day_after_end_date', 123);
+    }
+    @isTest
+    private static void testnsr_tolling_day_before_start_date() {
+        runTestOnCsv('testnsr_tolling_day_before_start_date', 123);
+    }
+    @isTest
+    private static void testnsr_tolling_day_between_both_dates() {
+        runTestOnCsv('testnsr_tolling_day_between_both_dates', 123);
+    }
+    @isTest
+    private static void testnsr_tolling_day_between_start_date() {
+        runTestOnCsv('testnsr_tolling_day_between_start_date', 123);
+    }
+    @isTest
+    private static void testnsr_tolling_day_between_end_date() {
+        runTestOnCsv('testnsr_tolling_day_between_end_date', 123);
+    }
+//Expedited Review
+    @isTest
+    private static void tester_tolling_day_after_end_date() {
+        runTestOnCsv('tester_tolling_day_after_end_date', 123);
+    }
+    @isTest
+    private static void tester_tolling_day_before_start_date() {
+        runTestOnCsv('tester_tolling_day_before_start_date', 123);
+    }
+    @isTest
+    private static void tester_tolling_day_between_both_dates() {
+        runTestOnCsv('tester_tolling_day_between_both_dates', 123);
+    }
+    @isTest
+    private static void tester_tolling_day_between_start_date() {
+        runTestOnCsv('tester_tolling_day_between_start_date', 123);
+    }
+    @isTest
+    private static void tester_tolling_day_between_end_date() {
+        runTestOnCsv('tester_tolling_day_between_end_date', 123);
+    }
+//Scope Inquiry
+    @isTest
+    private static void testsi_tolling_day_after_end_date() {
+        runTestOnCsv('testsi_tolling_day_after_end_date', 125);
+    }
+    @isTest
+    private static void testsi_tolling_day_before_start_date() {
+        runTestOnCsv('testsi_tolling_day_before_start_date', 125);
+    }
+    @isTest
+    private static void testsi_tolling_day_between_both_dates() {
+        runTestOnCsv('testsi_tolling_day_between_both_dates', 125);
+    }
+    @isTest
+    private static void testsi_tolling_day_between_start_date() {
+        runTestOnCsv('testsi_tolling_day_between_start_date', 125);
+    }
+    @isTest
+    private static void testsi_tolling_day_between_end_date() {
+        runTestOnCsv('testsi_tolling_day_between_end_date', 125);
+    }
+    //will add acr, ccr, sunset when they are ready.
 
   /* could have the same record as two different test rows, each with a different operation order */ 
     public class testRow {

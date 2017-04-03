@@ -4,6 +4,7 @@ public without sharing class InvestigationTriggerHandler {
 	private static FINAL String ADRECORD = 'AD';
 	private static FINAL String CVDRECORD = 'CVD';
 	private static FINAL String INVESTIGATION = 'Investigation__c';
+
     private static Map<String,Investigation_Constant__mdt> investigationApiToConstants = setInvestigationApiToConstants();
 	//FINAL AD Record Type Offsets
     private static FINAL Integer AD_CALC_AMEND_PRELIM_SIGN = ((Integer)investigationApiToConstants.get('AD_Calc_Amend_Prelim_Det_Sig').Number_Value__c);//Calc_Amended_Prelim_Determination_Sig__c

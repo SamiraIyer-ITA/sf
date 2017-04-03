@@ -75,13 +75,12 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Percent_of_Domestic_Industry__c</field>
+                <field>Import_Volume_or_Value__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Import_Volume_or_Value__c</field>
+                <emptySpace>true</emptySpace>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -147,7 +146,7 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Petitioner__c.Petition__c</relatedList>
+        <relatedList>Related_Organization__c.Petition__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -160,6 +159,10 @@
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>Investigation__c.Petition__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Staffing_Assignment__c.Petition__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>TASK.SUBJECT</fields>
