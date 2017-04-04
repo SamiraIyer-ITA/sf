@@ -112,11 +112,13 @@ public without sharing class ADCVD_RecusalUtility {
     	}
     	//Set primaryRecusalMap to parentId to 
     	System.debug(classPrimaryRecusalMap.values());
+    	if(tempInstance.primaryRecusalList == null || tempInstance.primaryRecusalList.size() < 1) {
     	for(Recusal__c primaryRecusal : classPrimaryRecusalMap.values()) {
     		if (primaryRecusal.User__c == userId) {
     			tempInstance.primaryRecusalList.add(primaryRecusal);
     		}
     	}
+	    }
     	return tempInstance;
     }
 
@@ -127,7 +129,7 @@ public without sharing class ADCVD_RecusalUtility {
     	if(classPrimaryRecusalMap == null || classPrimaryRecusalMap.size() < 1) {
     		Id recordTypeId = utils.getRecordTypeIdMap('Recusal__c').get('Primary');
 	    	Date today = System.today();
-	    	for(Recusal__c r : [SELECT Id, Actor__c, Actor_Start_Date__c, Actor_End_Date__c, Start_Date__c, End_Date__c, Reason_for_Recusal__c, 
+	    	for(Recusal__c r : [SELECT Id, Name, Actor__c, Actor_Start_Date__c, Actor_End_Date__c, Start_Date__c, End_Date__c, Reason_for_Recusal__c, 
 									User__c FROM Recusal__c WHERE RecordTypeId =: recordTypeId 
 	    		AND User__c IN: userIdSet AND Start_Date__c <=: today AND End_Date__c >=: today]) {
 	    		classPrimaryRecusalMap.put(r.Id, r);

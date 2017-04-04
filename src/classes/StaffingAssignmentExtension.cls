@@ -37,7 +37,7 @@ public without sharing class StaffingAssignmentExtension {
     }
     //Get the parentId by checking the parent fields on the Staffing Assignment
     public Id parentId {get {
-    	if(sa != null) {
+    	if(sa != null && parentId == null) {
 	    	if (sa.Petition__c != null) {
 				parentId = sa.Petition__c;
 			} else if (sa.Investigation__c != null) {
@@ -57,7 +57,7 @@ public without sharing class StaffingAssignmentExtension {
     }
     //Get the parentSObjectType name by checking the parent fields on the Staffing Assignment
     public String parentSObjectType {get {
-    	if(sa != null) {
+    	if(sa != null && parentSObjectType == null) {
 	    	if (sa.Petition__c != null) {
 				parentSObjectType = 'Petition__c';
 			} else if (sa.Investigation__c != null) {
@@ -68,8 +68,6 @@ public without sharing class StaffingAssignmentExtension {
 				parentSObjectType = 'Segment__c';
 			} else if (sa.Related_Organization__c != null) {
 				parentSObjectType = 'Related_Organization__c';
-			} else {
-				parentSObjectType = 'Staffing_Assignment__c';
 			}
 		}
 		return parentSObjectType;
@@ -84,9 +82,17 @@ public without sharing class StaffingAssignmentExtension {
     //Record created by constructor. Will hold a parentId in one of the lookup fields
     public Staffing_Assignment__c sa {get { 
         if(sa == null) {
-            sa = querySA();
+            sa = new Staffing_Assignment__c();
         }
         return sa;
+    	} set;
+    }
+    public StaffingAssignmentWrapper sawOuterInstance {get; set;}
+    public Integer addWrapper {get {
+    	if(addWrapper == null) {
+    		addWrapper = 1;
+    	}
+    	return addWrapper;
     	} set;
     }
 
@@ -127,15 +133,16 @@ public without sharing class StaffingAssignmentExtension {
 	}
 	//map of userId to class instance with recusal information
 	public Map<Id,ADCVD_RecusalUtility> recUtil{get {
+		recUtil = staticRecUtil;
 		if(recUtil == null) {
 			populateRecusalMap(userIdSet);
+			recUtil = staticRecUtil;
 		}
 		return recUtil;
 		} set;
 	}
 
-	public Map<Id,List<Recusal__c>> primaryRecusalMap {get; set;}
-	public List<Recusal__c> recusalListForModal {get; set;}
+	private static Map<Id,ADCVD_RecusalUtility> staticRecUtil = new Map<Id,ADCVD_RecusalUtility>();
 	/**********************************************
 	 * Variables for Staff Assignments and Wrapper
 	 *********************************************/
@@ -163,47 +170,53 @@ public without sharing class StaffingAssignmentExtension {
 																'Senior Policy', 'Staff Legal', 'Staff Policy'};
 
 	/*********************
-	 * Constructor
+	 * Constructors
 	 *********************/
-	
 	public StaffingAssignmentExtension (ApexPages.StandardController stdController) {
 		stdController.addFields(parentFieldNames);//add fields that will be referenced to avoid "field not retrieved by soql" error
-        sa = (Staffing_Assignment__c)stdController.getRecord();
-        init(sa);
+		if (ApexPages.currentPage().getParameters() != null && ApexPages.currentPage().getParameters().get('parentId') != null) {
+            parentId = ApexPages.currentPage().getParameters().get('parentId');
+            parentSObjectType = utils.findObjectNameFromRecordIdPrefix(parentId);
+            if(ApexPages.currentPage().getParameters().get('addWrapper') != null) {
+            	addWrapper = Integer.valueOf(ApexPages.currentPage().getParameters().get('addWrapper'));
+            }
+            sa = setSaParent(parentId, parentSObjectType);
+	    	System.debug('sa '+ sa);
+            init(sa, addWrapper);
+        } else {
+        	System.debug('parentId '+ parentId);
+	        sa = (Staffing_Assignment__c)stdController.getRecord();
+	    	System.debug('sa '+ sa);
+	        init(sa);
+	    }
+	    System.debug('parentId '+ parentId);
+	    System.debug('sa '+ sa);
 	}
 	//Primary method to initialize data on page load
 	private void init(Staffing_Assignment__c sa){
 		overwriteSegments = false;
 		staffList = getstaffList(parentId, parentSObjectType);
 		populateRecusalMap(userIdSet);
-		staffWrapperList = addStaffWrapper(parentId, parentSObjectType, staffList, userIdSet);
+		staffWrapperList = addStaffWrapper(parentId, parentSObjectType, staffList, userIdSet, null);
+		System.debug(staffWrapperList);
+	}
+	private void init(Staffing_Assignment__c sa, Integer addWrapper) {
+		overwriteSegments = false;
+		staffList = getstaffList(parentId, parentSObjectType);
+		populateRecusalMap(userIdSet);
+		staffWrapperList = addStaffWrapper(parentId, parentSObjectType, staffList, userIdSet, addWrapper);
 		System.debug(staffWrapperList);
 	}
 	//method mapped to "Add Staff Assignment" button
 	public PageReference addRow(){
+		System.debug(staffWrapperList.size());
 		Staffing_Assignment__c sa = createNewStaffingAssignment(parentId);//create a Staffing Assignment record with the parent Id field populated
-		StaffingAssignmentWrapper saw = new StaffingAssignmentWrapper(sa);//create a wrapper, adding that Staffing Assignment
+		StaffingAssignmentWrapper saw = new staffingAssignmentWrapper(parentId, parentSObjectType, sa, sawOuterInstance.recusalStatusMap, 
+																		sawOuterInstance.recusalLinkMap, sawOuterInstance.recusalLinkTextMap);//create a wrapper, adding that Staffing Assignment
 		staffWrapperList.add(saw);
+		System.debug(staffWrapperList.size());
 		return null;
 	}
-
-	//method mapped to "Review Recusals"
-	public PageReference reviewRecusals(Id oneUserId) {
-		recusalListForModal = new List<Recusal__c>();
-		Set<Id> tempIdSet = new Set<Id>();
-		for(staffingAssignmentWrapper saw: staffWrapperList) {
-			if(saw.sa != null && saw.sa.User__c != null && saw.reviewRecusal != null && saw.reviewRecusal){
-				tempIdSet.add(saw.sa.User__c);
-			}
-		}
-		for(Id userId : tempIdSet) {
-			if(primaryRecusalMap.get(userId) != null) {
-				recusalListForModal.addAll(primaryRecusalMap.get(userId));
-			}
-		}
-		return null;
-	}
-
 	//method mapped to "Save"
 	public PageReference save() {
 		List<Staffing_Assignment__c> staffListToUpsert = new List<Staffing_Assignment__c>();
@@ -258,9 +271,8 @@ public without sharing class StaffingAssignmentExtension {
 	}
 	//if existing, return matching Staffing Assignment. Else return a new one
 	private Staffing_Assignment__c querySA(){
-		Staffing_Assignment__c returnSA = new Staffing_Assignment__c();
 		if(parentId != null) {
-            returnSA = [SELECT Id, ADCVD_Order__c, Investigation__c, Petition__c, 
+            sa = [SELECT Id, ADCVD_Order__c, Investigation__c, Petition__c, 
 				 				Related_Organization__c, Segment__c FROM Staffing_Assignment__c 
 				 				WHERE Id =: parentId
 				 				OR ADCVD_Order__c =:parentId
@@ -269,9 +281,9 @@ public without sharing class StaffingAssignmentExtension {
 				 				OR Related_Organization__c =:parentId
 				 				OR Segment__c =:parentId  LIMIT 1];
         } else {
-            returnSA = new Staffing_Assignment__c();
+            sa = new Staffing_Assignment__c();
         }
-        return returnSA;
+        return sa;
     }
     //Returns list of all Staffing Assignments for the parent
 	private List<Staffing_Assignment__c> getStaffList(Id parentId, String parentSObjectType) {
@@ -320,8 +332,8 @@ public without sharing class StaffingAssignmentExtension {
 			userSelectOptions.put(s, userSelect);//Staffing Role and list of users in map
 		}
 		if(userIdSet.size() > 0) {
-		allUserSelectOptions.add(0,new SelectOption('','--Select a User--'));//add the default the list of all users only once
-	}
+			allUserSelectOptions.add(0,new SelectOption('','--Select a User--'));//add the default the list of all users only once
+		}
 	}
 
 	//method used to create initial Staffing Assignments, includes setting titles from defauls
@@ -354,7 +366,7 @@ public without sharing class StaffingAssignmentExtension {
 	}
 
 	//method to add a list of staffing assignments to the wrapper - prepopulates blank values
-	public List<StaffingAssignmentWrapper> addStaffWrapper(Id parentId, String parentSObjectType, List<Staffing_Assignment__c> staffList, Set<Id> userIdSet) {
+	public List<StaffingAssignmentWrapper> addStaffWrapper(Id parentId, String parentSObjectType, List<Staffing_Assignment__c> staffList, Set<Id> userIdSet, Integer addWrapper) {
 		//create a map to determine if the User Title is already specified
 		List<StaffingAssignmentWrapper> returnList = new List<StaffingAssignmentWrapper>();
 		Map<String, Boolean> userTitleExistsMap = new Map<String, Boolean>();
@@ -374,19 +386,42 @@ public without sharing class StaffingAssignmentExtension {
 			}
 		}
 		//for all the Staffing Assignments with and without users, create the wrappers
-		StaffingAssignmentWrapper sawOuterInstance = new StaffingAssignmentWrapper(parentId, parentSObjectType, staffList, recUtil, userIdSet);
+		sawOuterInstance = new StaffingAssignmentWrapper(parentId, parentSObjectType, staffList, recUtil, userIdSet);
 		returnList = sawOuterInstance.innerWrapperList.clone();
-		primaryRecusalMap = sawOuterInstance.wrapperPrimaryRecusalMap;
+		if(addWrapper != null) {
+			for(Integer i = 0; i < addWrapper; i++) {
+				Staffing_Assignment__c sa = createNewStaffingAssignment(parentId);//create a Staffing Assignment record with the parent Id field populated
+				StaffingAssignmentWrapper saw = new staffingAssignmentWrapper(parentId, parentSObjectType, sa, sawOuterInstance.recusalStatusMap, 
+																				sawOuterInstance.recusalLinkMap, sawOuterInstance.recusalLinkTextMap);//create a wrapper, adding that Staffing Assignment
+				returnList.add(saw);
+			}
+		}
 		return returnList;
 	}
 
 	//populate Recusal Utility map
 	private void populateRecusalMap(Set<Id> userIdSet) {
-		recUtil = new Map<Id,ADCVD_RecusalUtility>();
-		if (recUtil.isEmpty()) {
+		if (staticRecUtil.isEmpty()) {
 			ADCVD_RecusalUtility listInstance = ADCVD_RecusalUtility.getInstance(userIdSet, null);
-			recUtil = listInstance.utilMap;
+			staticRecUtil = listInstance.utilMap;
 		}
+	}
+
+	private Staffing_Assignment__c setSaParent(Id parentId, String parentSObjectType) {
+		if(parentSObjectType != null && parentId != null) {
+			if(parentSObjectType == 'Petition__c') {
+				sa.Petition__c = parentId;
+			} else if(parentSObjectType == 'Investigation__c') {
+				sa.Investigation__c = parentId;
+			} else if(parentSObjectType == 'ADCVD_Order__c') {
+				sa.ADCVD_Order__c = parentId;
+			} else if(parentSObjectType == 'Segment__c') {
+				sa.Segment__c = parentId;
+			} else if(parentSObjectType == 'Related_Organization__c') {
+				sa.Related_Organization__c = parentId;
+			}
+		}
+		return sa;
 	}
 
 	//wrapper class for rendering the list(s) of staffing assignments
@@ -401,10 +436,10 @@ public without sharing class StaffingAssignmentExtension {
 		//variables for page and outer extension class access
 		public Staffing_Assignment__c sa {get; set;}
 		public Boolean overrideRole {get; set;}//data does not exist on Staffing Assignment record, only used to toggle SelectOption lists
-		public Boolean reviewRecusal {get; set;}
 		public Map<Id,String> recusalStatusMap {get; set;}
-		public Map<Id,List<Recusal__c>> wrapperPrimaryRecusalMap {get; set;}
 		public ADCVD_RecusalUtility userInstance {get; set;}
+		public Map<Id,String> recusalLinkMap {get; set;}
+		public Map<Id,String> recusalLinkTextMap {get; set;}
 		//List of staffing assignment wrapper objects that will display in page
 	    public List<StaffingAssignmentWrapper> innerWrapperList {get {
 	        if(innerWrapperList == null) {
@@ -413,27 +448,27 @@ public without sharing class StaffingAssignmentExtension {
 	        return innerWrapperList;
 		    } set;
 		}
-		//constructor used in initial creation called by outer class
+		//constructor used to create a class instance for holding repeated variables
 		public StaffingAssignmentWrapper(Id parentId, String parentSObjectType, List<Staffing_Assignment__c> staffList, Map<Id,ADCVD_RecusalUtility> recUtil, Set<Id> userIdSet) {
 			this.parentId = parentId;
 			this.parentSObjectType = parentSObjectType;
 			this.staffList = staffList;
 			this.recUtil = recUtil;
 			this.userIdSet = userIdSet;
-			this.reviewRecusal = false;
 			populateRecusalStatus(parentId, userIdSet, recUtil);
 			//for all the Staffing Assignments with and without users, create the wrappers
 			for(Staffing_Assignment__c sa : staffList) {
 				if(sa != null && sa.User__c != null && recUtil != null) {
 					userInstance = recUtil.get(sa.User__c);
 				}
-				StaffingAssignmentWrapper saw = new staffingAssignmentWrapper(parentId, parentSObjectType, sa, recusalStatusMap);
+				StaffingAssignmentWrapper saw = new staffingAssignmentWrapper(parentId, parentSObjectType, sa, recusalStatusMap, recusalLinkMap, recusalLinkTextMap);
 				innerWrapperList.add(saw);
 			}
 		}
 
-		//constructor used in initial creation for each wrapper object
-		private StaffingAssignmentWrapper(Id parentId, String parentSObjectType, Staffing_Assignment__c sa, Map<Id,String> recusalStatusMap) {
+		//constructor used to create each wrapper in the staffWrapperList
+		private StaffingAssignmentWrapper(Id parentId, String parentSObjectType, Staffing_Assignment__c sa, 
+											Map<Id,String> recusalStatusMap, Map<Id,String> recusalLinkMap, Map<Id,String> recusalLinkTextMap) {
 			//Staffing Assignment variables
 			this.sa = sa;
 			this.parentId = parentId;
@@ -441,11 +476,8 @@ public without sharing class StaffingAssignmentExtension {
 			this.overrideRole = initialOverrideRole(this.sa);
 			//Recusal variables
 			this.recusalStatusMap = recusalStatusMap;
-		}
-		//constructor used in "add row" method
-		private StaffingAssignmentWrapper(Staffing_Assignment__c sa) {
-			this.sa = sa;
-			this.overrideRole = initialOverrideRole(this.sa);
+			this.recusalLinkMap = recusalLinkMap;
+			this.recusalLinkTextMap = recusalLinkTextMap;
 		}
 		//sets the default override for each wrapper object
 		private Boolean initialOverrideRole(Staffing_Assignment__c sa) {
@@ -455,7 +487,8 @@ public without sharing class StaffingAssignmentExtension {
 		//Initializes SelectOption lists
 		private void populateRecusalStatus(Id parentId, Set<Id> userIdSet, Map<Id,ADCVD_RecusalUtility> recUtil){
 			recusalStatusMap = new Map<Id,String>();
-			wrapperPrimaryRecusalMap = new Map<Id,List<Recusal__c>>();
+			recusalLinkMap = new Map<Id,String>();
+			recusalLinkTextMap = new Map<Id,String>();
 			for (Id userId : userIdSet) {
 				String recusalStatus = '';
 				if (recUtil != null && recUtil.get(userId) != null) {
@@ -463,7 +496,6 @@ public without sharing class StaffingAssignmentExtension {
 				}
 				if (userInstance.primaryRecusalList != null && !userInstance.primaryRecusalList.isEmpty()) {
 					recusalStatus += 'This user has active recusals.' + '<br/>';
-					wrapperPrimaryRecusalMap.put(userId, userInstance.primaryRecusalList);
 				}
 				if (userInstance.recusalsInRecordHierarchyMap != null && userInstance.recusalsInRecordHierarchyMap.get(parentId) != null 
 					&& userInstance.recusalsInRecordHierarchyMap.get(parentId) == true) {//clarity that this is a map to a boolean
@@ -478,6 +510,12 @@ public without sharing class StaffingAssignmentExtension {
 					recusalStatus += 'This user does not have any active recusals.';
 				}
 				recusalStatusMap.put(userId, recusalStatus);
+
+				String recusalLink = '/apex/ReviewRecusalPage?userId=' + userId + '&parentId=' + parentId;
+				recusalLinkMap.put(userId, recusalLink);
+
+				String recusalLinkText = recusalStatus.contains('This user does not') ? '' : 'Review Recusals';
+				recusalLinkTextMap.put(userId, recusalLinkText);
 			}
 		}
 	}
