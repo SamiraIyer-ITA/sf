@@ -87,6 +87,7 @@
         <members>Petitioner__c</members>
         <members>Program__c</members>
         <members>Publication_Template__c</members>
+        <members>Recusal__c</members>
         <members>Refund__c</members>
         <members>RelatedCountries__c</members>
         <members>Related_Cases_and_Orgs__c</members>
@@ -105,6 +106,7 @@
         <members>Survey_Result__c</members>
         <members>Suspension_Agreement__c</members>
         <members>Sync_Investigation__mdt</members>
+        <members>Sync_Utility__mdt</members>
         <members>Template_Page_Content__c</members>
         <members>Template_Page__c</members>
         <members>Template_Row__c</members>

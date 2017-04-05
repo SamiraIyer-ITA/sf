@@ -51,4 +51,7 @@ public without sharing class CascadeUtility {
 	public Map<Id,List<SObject>> getParentIdToObjectsMap(String parentObjectName, Set<Id> parentIdSet) {
 		return cs.getParentIdToObjectsMap(parentObjectName, parentIdSet);
 	}
+	public Map<Id,Set<Id>> getIdToHierarchyIdSetMap() {
+		return cs.getIdToHierarchyIdSetMap();
+	}
 }

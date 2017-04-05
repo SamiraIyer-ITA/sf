@@ -77,9 +77,6 @@ public without sharing class ADCVD_FederalRegisterUtility {
         return objectTypeInstance;
 	}
 
-    //empy constructor in case a trigger handler needs to instantiate a class level variable
-    public ADCVD_FederalRegisterUtility() {}
-	
     /**
      * Called in a trigger handler to create the utilMap that will map all parent ids to all their child registers
      * @param  parentObjectList List of parent SObjects being updated
@@ -97,6 +94,10 @@ public without sharing class ADCVD_FederalRegisterUtility {
             utilMap = setUtilMap();
         }
     }
+
+    //empty constructor for tempInstance creation and in case a trigger handler needs to instantiate a class level variable
+    public ADCVD_FederalRegisterUtility() {}
+    
 
     //used to populate the values from the class map to one that can be used in the trigger handlers
     @TestVisible private static Map<Id,ADCVD_FederalRegisterUtility> setUtilMap() {

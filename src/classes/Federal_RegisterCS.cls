@@ -11,6 +11,10 @@ public without sharing class Federal_RegisterCS implements ADCVD_CascadeService 
 		return new Map<Id,SObject>();
 	}
 
+	public Map<Id,Set<Id>> getIdToHierarchyIdSetMap(){
+		return new Map<Id,Set<Id>>();
+	}
+
 	/**
 	 * Implements the ADCVD_CascadeService for Federal_Register__c objects
 	 * @param  parentObjectName Not needed currently, but is in place in case special logic applies to different parent SObject types
