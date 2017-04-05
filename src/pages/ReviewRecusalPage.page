@@ -1,0 +1,180 @@
+<apex:page standardController="Recusal__c" extensions="ReviewRecusalExtension" id="page" 
+	showHeader="{!isSalesforceClassic}" standardStylesheets="{!isSalesforceClassic}" 
+	applyHtmlTag="{!isSalesforceClassic}" applyBodyTag="{!isSalesforceClassic}"
+	docType="html-5.0">
+	<!--For VF pages that are shared in Lightning, conditionally set page attributes based on user experience context-->
+	<apex:includeLightning /><!--Always include lightning scripts-->
+	<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+		<head><!--when possible, use the standard page setup from slds available on their website-->
+			<meta charset="utf-8" />
+			<meta http-equiv="x-ua-compatible" content="ie=edge" />
+			<title>Recusals</title>
+			<meta name="viewport" content="width=device-width, initial-scale=1" />
+			<!-- Conditionally import the Design System style sheet -->
+			<apex:variable var="uiTheme" value="lightningDesktop" rendered="{!isLightningExperience || isSalesforce1}">
+				<apex:slds />
+			</apex:variable>
+		</head>
+		<body><!--conditionally display form based on user context-->
+			<apex:form id="form-ltng" rendered="{!isLightningExperience || isSalesforce1}">
+			<apex:pageMessages id="pm-ltng"/>
+			<!-- REQUIRED SLDS WRAPPER -->
+			<div class="slds-scope">
+
+			<!-- PAGE HEADER -->
+				<div class="slds-page-header">
+				  <!-- LAYOUT GRID -->
+				  <div class="slds-grid">
+
+					<!-- GRID COL -->
+					<div class="slds-col slds-has-flexi-truncate">
+					  <!-- HEADING AREA -->
+					  <!--<p class="slds-text-title--caps slds-line-height--reset">Segment</p>-->
+					  <h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate" title="Recusals">Recusals</h1>
+					  <!-- / HEADING AREA -->
+					</div>
+
+					<!-- ACTION BUTTONS -->
+						<div class="slds-col slds-no-flex slds-grid slds-align-top slds-align-middle">
+						  <div class="slds-button-group" role="group">
+							<apex:commandButton styleClass="slds-button slds-button--neutral" action="{!cancel}" value="Cancel" id="cancelButton-ltng"  reRender="form-ltng, pm-ltng" immediate="true" oncomplete="navInLEX();"/>
+						  </div>
+						</div>
+					<!-- / ACTION BUTTONS -->
+
+				  </div>
+				  <!-- / LAYOUT GRID -->
+
+				  <!-- PAGE HEADER DETAIL ROW -->
+				  <!-- / PAGE HEADER DETAIL ROW -->
+
+				</div>
+			<!-- / PAGE HEADER -->
+			<!-- PRIMARY CONTENT WRAPPER -->
+			<div class="myapp slds-p-horizontal--medium">
+			<div id="sa-ltng">
+			<ul id="staffing-assignment" class="slds-has-dividers--bottom-space"></ul>
+				<apex:outputPanel > <!--pageBlocks are not supported in LEX, use outputPanels-->
+					<apex:outputPanel >
+						<div class="slds-section">
+							<table class="slds-table slds-table--bordered slds-table--cell-buffer slds-table--striped"><!--for multi-column displays, use uiUtils methods to re-sort the fields displayed-->
+								<thead>
+								  <tr class="slds-text-title--caps">
+								  <th scope="col">
+									  <div class="slds-truncate" title="Recusal Name">Recusal Name</div>
+									</th>
+									<th scope="col">
+									  <div class="slds-truncate" title="Start Date">Start Date</div>
+									</th>
+									<th scope="col">
+									  <div class="slds-truncate" title="End Date">End Date</div>
+									</th>
+									<th scope="col">
+									  <div class="slds-truncate" title="Actor">Actor</div>
+									</th>
+									<th scope="col">
+									  <div class="slds-truncate" title="Actor Start Date">Actor Start Date</div>
+									</th>
+									<th scope="col">
+									  <div class="slds-truncate" title="Actor End Date">Actor End Date</div>
+									</th>
+									<th scope="col">
+									  <div class="slds-truncate" title="Reason for Recusal">Reason for Recusal</div>
+									</th>
+								  </tr>
+								</thead>
+								<apex:repeat value="{!primaryRecusalList}" var="prl" >
+									<div class="slds-form-element__group">
+										<tr class="slds-form-element__row">
+											<td class="slds-form-element slds-size--1-of-5 slds-p-around--xx-small">
+											  	<apex:outputLink value="/{!prl.Id}" styleClass="slds-input">{!prl.Name}</apex:outputLink>
+  											</td>
+											<td class="slds-form-element slds-size--1-of-9 slds-p-top--large">
+											  <apex:outputField label="Start Date" value="{!prl.Start_Date__c}" styleClass="slds-output"/>
+											</td>
+											<td class="slds-form-element slds-size--1-of-5 slds-p-around--xx-small">
+											  <apex:outputField label="End Date" value="{!prl.End_Date__c}" styleClass="slds-output"/>
+  											</td>
+  											<td class="slds-form-element slds-size--1-of-4 slds-p-around--xx-small">
+  												<apex:outputField label="Actor" value="{!prl.Actor__c}" styleClass="slds-output"/>
+					  						</td>
+											<td class="slds-form-element slds-size--1-of-5 slds-p-top--large slds-p-around--xx-small slds-p-right--xx-large" style="">
+											  <apex:outputField label="Actor Start Date" value="{!prl.Actor_Start_Date__c}" styleClass="slds-output"/>
+											</td>
+											<td class="slds-form-element slds-size--1-of-5 slds-p-top--large slds-p-around--xx-small">
+											  <apex:outputField label="Actor End Date" value="{!prl.Actor_End_Date__c}" styleClass="slds-output"/>
+											</td>
+											<td class="slds-form-element slds-size--1-of-5 slds-p-top--large slds-p-around--xx-small">
+											  <apex:outputField label="Reason for Recusal" value="{!prl.Reason_for_Recusal__c}" styleClass="slds-output"/>
+											</td>
+										</tr>
+									</div>
+								</apex:repeat>
+								<br/>
+							</table>
+						</div>					  
+					</apex:outputPanel>
+				</apex:outputPanel>
+			</div>
+			</div>
+			<!-- FOOTER -->
+			<!-- / FOOTER -->
+			</div>
+			<!-- / REQUIRED SLDS WRAPPER -->	
+
+  <!-- JAVASCRIPT -->
+  			<!--standard script to navigate the parent Record-->
+  			<script type="text/javascript">
+  			function navInLEX() {
+	  			var parentId = "{!parentId}"
+	  			var url = '/apex/StaffingAssignment?parentId=' + parentId;
+	            if (sforce.one) {
+	              window.location.href = 'javascript:sforce.one.navigateToURL(\''+url+'\')';
+	            }
+	  		}
+  			</script>
+  <!-- / JAVASCRIPT -->
+		</apex:form>
+		</body>
+	</html>
+	<apex:form rendered="{!isSalesforceClassic}">
+	<apex:pageMessages />
+		<apex:pageBlock id="pb" title="Active Primary Recusals for {!User.Name}">
+		  	<apex:outputPanel >
+				<apex:dataTable value="{!primaryRecusalList}" var="prl" align="left" cellspacing="20" columns="7" title="Primary Recusals">					
+					<apex:column >
+						<apex:facet name="header" >Recusal Name</apex:facet>
+						<apex:outputLink value="/{!prl.Id}">{!prl.Name}</apex:outputLink>
+					</apex:column>
+					<apex:column >
+						<apex:facet name="header" >Start Date</apex:facet>
+						<apex:outputField label="Start Date" value="{!prl.Start_Date__c}"/>
+					</apex:column>
+					<apex:column >
+						<apex:facet name="header" >End Date</apex:facet>
+						<apex:outputField label="End Date" value="{!prl.End_Date__c}"/>
+					</apex:column>
+					<apex:column >
+						<apex:facet name="header" >Actor</apex:facet>
+						<apex:outputField label="Actor" value="{!prl.Actor__c}"/>
+					</apex:column>
+					<apex:column >
+						<apex:facet name="header" >Actor Start Date</apex:facet>
+						<apex:outputField label="Actor Start Date" value="{!prl.Actor_Start_Date__c}"/>
+					</apex:column>
+					<apex:column >
+						<apex:facet name="header" >Actor End Date</apex:facet>
+						<apex:outputField label="Actor End Date" value="{!prl.Actor_End_Date__c}"/>
+					</apex:column>
+					<apex:column >
+						<apex:facet name="header" >Reason For Recusal</apex:facet>
+						<apex:outputField label="Reason for Recusal" value="{!prl.Reason_for_Recusal__c}"/>
+					</apex:column>
+				</apex:dataTable>
+		  	</apex:outputPanel>
+		  	<apex:pageBlockButtons >
+				<apex:commandButton action="{!cancel}" title="Cancel" value="Cancel"/>
+			</apex:pageBlockButtons>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

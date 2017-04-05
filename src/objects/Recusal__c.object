@@ -105,16 +105,6 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>End_Date_from_Primary__c</fullName>
-        <externalId>false</externalId>
-        <formula>Primary_Recusal_Aligned_To__r.End_Date__c</formula>
-        <label>End Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Investigation__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -221,38 +211,6 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Start_Date_from_primary__c</fullName>
-        <externalId>false</externalId>
-        <formula>Primary_Recusal_Aligned_To__r.Start_Date__c</formula>
-        <label>Start Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>User_Id_from_primary__c</fullName>
-        <externalId>false</externalId>
-        <formula>Primary_Recusal_Aligned_To__r.User__c</formula>
-        <label>User Id</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>User_Name_from_primary__c</fullName>
-        <externalId>false</externalId>
-        <formula>User__r.FirstName + &apos; &apos; +  User__r.LastName</formula>
-        <label>User</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>User__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -267,6 +225,7 @@
     <label>Recusal</label>
     <listViews>
         <fullName>All</fullName>
+        <columns>NAME</columns>
         <columns>RECORDTYPE</columns>
         <columns>User__c</columns>
         <columns>Start_Date__c</columns>

@@ -44,14 +44,15 @@ public without sharing class ADCVD_RecusalUtility {
     @TestVisible private ADCVD_RecusalUtility(Set<Id> userIdSet, List<SObject> parentObjectList) {
         Map<Id,List<SObject>> cuRecMap = new Map<Id,List<SObject>>();
         CascadeUtility cu = new CascadeUtility('Recusal__c');
-        cuRecMap = cu.getParentIdToObjectsMap(parentObjectName, userIdSet);
-        parentIdToHierarchyIdSetMap = cu.getIdToHierarchyIdSetMap();
-        setClassPrimaryRecusalMap(userIdSet, parentObjectList);
+        cuRecMap = cu.getParentIdToObjectsMap(parentObjectName, userIdSet);//get the big map of parentIds to Recusals list, scope is users with Staffing roles
+        parentIdToHierarchyIdSetMap = cu.getIdToHierarchyIdSetMap();//bring the map in class
+        setClassPrimaryRecusalMap(userIdSet, parentObjectList);//set the in class primary recusal map
+		setParentsInScope(parentObjectList);//get Ids from the parentObjectList
         if(cuRecMap.size() > 0) {
-            setParentIdToInstanceMap(userIdSet, cuRecMap);
+            setParentIdToInstanceMap(userIdSet, cuRecMap);//create an instance per user with the 3 public maps
         }
         if(userIdToInstanceMap.size() > 0) {
-            utilMap = setUtilMap();
+            utilMap = setUtilMap();//copy class static map to public non-static one
         }
     }
 
@@ -69,14 +70,22 @@ public without sharing class ADCVD_RecusalUtility {
       * Methods to set userIdToInstanceMap
       **********************************************************/    
 
-    //query all fields from Federal_Register__c where the Id dynamic lookup field stored in parentObjectName is in the Id set created from saList
+    /**
+     * iterates through users with Staffing Roles, creates an instance for each.
+     * Then iterates through the parent Ids received from calling method (parentObjectList).
+     * Lastly, it uses those parent Ids to get its list of recusals to process
+     * @param  userIdSet users with Staffing Roles
+     * @param  soMap     parent Ids mapped to Lists of Recusals
+     * @return           [description]
+     */
     @TestVisible private static void setParentIdToInstanceMap(Set<Id> userIdSet, Map<Id,List<SObject>> soMap) {
     	Map<Id,List<Recusal__c>> parentIdToRecusalListMap = (Map<Id,List<Recusal__c>>) soMap;
+    	parentIdSet.addAll(parentIdToRecusalListMap.keySet());
     	for (Id userId : userIdSet) {//instance per user
-	        for (Id parentId : parentIdToRecusalListMap.keySet()) {//each instance maps are by parent object
-	            for(Recusal__c r : parentIdToRecusalListMap.get(parentId)) {//each map has a list of recusals
-	                ADCVD_RecusalUtility tempInstance = new ADCVD_RecusalUtility();
-	                if (r.User_Id_from_primary__c != null && r.Primary_Recusal_Aligned_To__c != null) {//recusal is a related recusal and has a user
+    		ADCVD_RecusalUtility tempInstance = new ADCVD_RecusalUtility();
+	        for (Id parentId : parentIdSet) {//in each instance, maps are created by parent object Id
+	            for(Recusal__c r : parentIdToRecusalListMap.get(parentId)) {//each map has a list of recusals in which multiple users recused themselves from a single record
+	                if (r.User__c != null && r.Primary_Recusal_Aligned_To__c != null) {//recusal is a related recusal and has a user (probably don't need this anymore)
 	                    tempInstance = userIdToInstanceMap.get(userId) != null ? userIdToInstanceMap.get(userId) : tempInstance;//get current instance if it exists
 	                    tempInstance = setTempInstance(r, userId, parentId, parentIdToRecusalListMap, tempInstance);
 	                }
@@ -87,44 +96,63 @@ public without sharing class ADCVD_RecusalUtility {
 	    }
     }
 
+    /**
+     * Sets the three temp instance maps.  Because this is called within nested loops, all three pieces of logic have checks to avoid unnecessary
+     * resource spends.  The first determines if the current parent Id (from parentObjectList) has records in it's hierarchy that have
+     * recusals.  If that changes to true at any point, it is skips for remaining iterations.  The second determines if this user has recused 
+     * themselves from the current record.  Skipped on iterations where Recusal user is not current userId or parentId is not the direct parent.
+     * Also skips remaining iterations if it ever evaluates to true.  The third creates a List of primary recusals for the user.  It also skips
+     * remaining iterations once it is set.
+     * @param  r                        Recusal__c
+     * @param  userId                   User for this instance
+     * @param  parentId                 An Id from the parentObjectList
+     * @param  parentIdToRecusalListMap Big map of Lists of Recusals mapped to all hierarchy Ids
+     * @param  tempInstance             This user's instance
+     * @return                          [description]
+     */
     @TestVisible private static ADCVD_RecusalUtility setTempInstance(Recusal__c r, Id userId, Id parentId, Map<Id,List<Recusal__c>> parentIdToRecusalListMap, ADCVD_RecusalUtility tempInstance) {
     	List<Recusal__c> tempList = new List<Recusal__c>();
     	Set<Id> tempSet = new Set<id>();
 
     	//Set boolean for recusalsInRecordHierarchyMap
     	tempSet = parentIdToHierarchyIdSetMap.get(parentId);
-    	tempInstance.recusalsInRecordHierarchyMap.put(parentId, false);
-    	if (tempSet != null && !tempSet.isEmpty()) {
-    		for (Id tempId : tempSet) {
-    			for(Recusal__c rec : parentIdToRecusalListMap.get(tempId)) {
-    				if(rec != null && rec.User_Id_from_primary__c != null && rec.User_Id_from_primary__c == userId && validateRecusalParent(rec) == tempId) {
-    					tempInstance.recusalsInRecordHierarchyMap.put(parentId, true);
-    					break;
-    				}
-    			}
-    		}
+    	if(tempInstance.recusalsInRecordHierarchyMap.get(parentId) != true) {//don't overwrite if already true
+    		tempInstance.recusalsInRecordHierarchyMap.put(parentId, false);//set to false, eliminating null or overwriting false
+	    	if (tempSet != null && !tempSet.isEmpty()) {//if this parent record has parents, continue
+	    		for (Id tempId : tempSet) {//hierarchy Id above the current record
+	    			for(Recusal__c rec : parentIdToRecusalListMap.get(tempId)) {//find the recusal (grandchild) mapped to hierarchyId
+	    				if(rec != null && rec.User__c != null && rec.User__c == userId 
+	    				&& validateRecusalParent(rec) == tempId) {//make sure the recusal belongs to this user and that it's direct parent is in context
+	    					tempInstance.recusalsInRecordHierarchyMap.put(parentId, true);//current parent record has at least one parent record that has a recusal for this user
+	    					break;//don't overwrite once it's set to true
+	    				}
+	    			}
+	    		}
+	    	}
     	}
     	//Set boolean for recusedFromThisRecordMap
-    	if (r.User_Id_from_primary__c == userId && validateRecusalParent(r) == parentId) {//this recusal is for this user and this recusal's parent is the current parentId
-    		tempInstance.recusedFromThisRecordMap.put(parentId, true);
-    	} else if (tempInstance.recusedFromThisRecordMap.get(parentId) != true) {//don't overwrite true, but don't allow nulls
+    	if (tempInstance.recusedFromThisRecordMap.get(parentId) != true) {//don't overwrite true, but don't allow nulls
     		tempInstance.recusedFromThisRecordMap.put(parentId, false);
+	    	if (r.User__c == userId && validateRecusalParent(r) == parentId) {//this recusal is for this user and this recusal's parent is the current parentId
+	    		tempInstance.recusedFromThisRecordMap.put(parentId, true);
+	    	}
     	}
     	//Set primaryRecusalMap to parentId to 
-    	System.debug(classPrimaryRecusalMap.values());
     	if(tempInstance.primaryRecusalList == null || tempInstance.primaryRecusalList.size() < 1) {
-    	for(Recusal__c primaryRecusal : classPrimaryRecusalMap.values()) {
-    		if (primaryRecusal.User__c == userId) {
-    			tempInstance.primaryRecusalList.add(primaryRecusal);
-    		}
-    	}
+	    	for(Recusal__c primaryRecusal : classPrimaryRecusalMap.values()) {
+	    		if (primaryRecusal.User__c == userId) {
+	    			tempInstance.primaryRecusalList.add(primaryRecusal);
+	    		}
+	    	}
 	    }
     	return tempInstance;
     }
 
     @TestVisible private static void setClassPrimaryRecusalMap(Set<Id> userIdSet, List<SObject> parentObjectList) {
     	if(userIdSet == null || userIdSet.isEmpty()) {
-//TODO: if a parentObjectList is passed, need to get a userIdSet
+    		for(User u : [SELECT Id FROM User WHERE Staffing_Role__c != null]) {
+    			userIdSet.add(u.Id);
+    		}
     	}
     	if(classPrimaryRecusalMap == null || classPrimaryRecusalMap.size() < 1) {
     		Id recordTypeId = utils.getRecordTypeIdMap('Recusal__c').get('Primary');
@@ -159,13 +187,11 @@ public without sharing class ADCVD_RecusalUtility {
 		return parentId;
     }
 
-/*    @TestVisible private static void validateParentObjectName(List<SObject> parentObjectList) {
-		if(parentObjectName == 'Recusal__c') {
-			rList = (Recusal__c) parentObjectList;
-			for(Recusal__c r : rList) {
-
+    @TestVisible private static void setParentsInScope(List<SObject> parentObjectList) {
+    	if(parentObjectList != null) {
+    		for(SObject so : parentObjectList) {
+				parentIdSet.add(so.Id);
 			}
-		}
+    	}
 	}
-*/
 }

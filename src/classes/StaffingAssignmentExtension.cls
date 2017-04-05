@@ -133,16 +133,13 @@ public without sharing class StaffingAssignmentExtension {
 	}
 	//map of userId to class instance with recusal information
 	public Map<Id,ADCVD_RecusalUtility> recUtil{get {
-		recUtil = staticRecUtil;
 		if(recUtil == null) {
-			populateRecusalMap(userIdSet);
-			recUtil = staticRecUtil;
+			populateRecusalMap(userIdSet, parentId, parentSObjectType);
 		}
 		return recUtil;
 		} set;
 	}
 
-	private static Map<Id,ADCVD_RecusalUtility> staticRecUtil = new Map<Id,ADCVD_RecusalUtility>();
 	/**********************************************
 	 * Variables for Staff Assignments and Wrapper
 	 *********************************************/
@@ -174,47 +171,41 @@ public without sharing class StaffingAssignmentExtension {
 	 *********************/
 	public StaffingAssignmentExtension (ApexPages.StandardController stdController) {
 		stdController.addFields(parentFieldNames);//add fields that will be referenced to avoid "field not retrieved by soql" error
+		//If this is a page reload, there will be parameters, not a record
 		if (ApexPages.currentPage().getParameters() != null && ApexPages.currentPage().getParameters().get('parentId') != null) {
             parentId = ApexPages.currentPage().getParameters().get('parentId');
             parentSObjectType = utils.findObjectNameFromRecordIdPrefix(parentId);
-            if(ApexPages.currentPage().getParameters().get('addWrapper') != null) {
-            	addWrapper = Integer.valueOf(ApexPages.currentPage().getParameters().get('addWrapper'));
+            if(ApexPages.currentPage().getParameters().get('addWrapper') != null) {//adding a wrapper
+            	addWrapper = ApexPages.currentPage().getParameters().get('addWrapper') != null ? Integer.valueOf(ApexPages.currentPage().getParameters().get('addWrapper')) : 0;
             }
             sa = setSaParent(parentId, parentSObjectType);
-	    	System.debug('sa '+ sa);
             init(sa, addWrapper);
         } else {
-        	System.debug('parentId '+ parentId);
 	        sa = (Staffing_Assignment__c)stdController.getRecord();
-	    	System.debug('sa '+ sa);
 	        init(sa);
 	    }
-	    System.debug('parentId '+ parentId);
-	    System.debug('sa '+ sa);
 	}
 	//Primary method to initialize data on page load
 	private void init(Staffing_Assignment__c sa){
 		overwriteSegments = false;
 		staffList = getstaffList(parentId, parentSObjectType);
-		populateRecusalMap(userIdSet);
+		populateRecusalMap(userIdSet, parentId, parentSObjectType);
 		staffWrapperList = addStaffWrapper(parentId, parentSObjectType, staffList, userIdSet, null);
 		System.debug(staffWrapperList);
 	}
 	private void init(Staffing_Assignment__c sa, Integer addWrapper) {
 		overwriteSegments = false;
 		staffList = getstaffList(parentId, parentSObjectType);
-		populateRecusalMap(userIdSet);
+		populateRecusalMap(userIdSet, parentId, parentSObjectType);
 		staffWrapperList = addStaffWrapper(parentId, parentSObjectType, staffList, userIdSet, addWrapper);
 		System.debug(staffWrapperList);
 	}
 	//method mapped to "Add Staff Assignment" button
 	public PageReference addRow(){
-		System.debug(staffWrapperList.size());
 		Staffing_Assignment__c sa = createNewStaffingAssignment(parentId);//create a Staffing Assignment record with the parent Id field populated
 		StaffingAssignmentWrapper saw = new staffingAssignmentWrapper(parentId, parentSObjectType, sa, sawOuterInstance.recusalStatusMap, 
 																		sawOuterInstance.recusalLinkMap, sawOuterInstance.recusalLinkTextMap);//create a wrapper, adding that Staffing Assignment
 		staffWrapperList.add(saw);
-		System.debug(staffWrapperList.size());
 		return null;
 	}
 	//method mapped to "Save"
@@ -400,10 +391,14 @@ public without sharing class StaffingAssignmentExtension {
 	}
 
 	//populate Recusal Utility map
-	private void populateRecusalMap(Set<Id> userIdSet) {
-		if (staticRecUtil.isEmpty()) {
-			ADCVD_RecusalUtility listInstance = ADCVD_RecusalUtility.getInstance(userIdSet, null);
-			staticRecUtil = listInstance.utilMap;
+	private void populateRecusalMap(Set<Id> userIdSet, Id parentId, String parentSObjectType) {
+		recUtil = new Map<Id,ADCVD_RecusalUtility>();
+		if (recUtil.isEmpty()) {
+			SObject so = utils.cachedGD.get(parentSObjectType).newSObject(parentId);
+			List<SObject> soList = new List<SObject>();
+			soList.add(so);
+			ADCVD_RecusalUtility listInstance = ADCVD_RecusalUtility.getInstance(userIdSet, soList);
+			recUtil = listInstance.utilMap;
 		}
 	}
 
@@ -499,7 +494,6 @@ public without sharing class StaffingAssignmentExtension {
 				}
 				if (userInstance.recusalsInRecordHierarchyMap != null && userInstance.recusalsInRecordHierarchyMap.get(parentId) != null 
 					&& userInstance.recusalsInRecordHierarchyMap.get(parentId) == true) {//clarity that this is a map to a boolean
-					System.debug(userInstance.recusalsInRecordHierarchyMap.get(parentId));
 					recusalStatus += 'This user has been recused from some of this record\'s parents.' + '<br/>';
 				}
 				if (userInstance.recusedFromThisRecordMap != null && userInstance.recusedFromThisRecordMap.get(parentId) != null 

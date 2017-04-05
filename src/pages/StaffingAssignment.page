@@ -202,7 +202,7 @@
         <apex:facet name="header" >Recusal Status</apex:facet>
 				<apex:outputText value="{!if (saw.sa.User__c == null, '', saw.recusalStatusMap[saw.sa.User__c])}" escape="false" label="Recusal Status" id="recusalStatus"/>
 				</apex:column>
-        <apex:column>
+        <apex:column >
         <apex:facet name="header" >Recusal Links</apex:facet>
           <apex:outputLink id="link" value="{!if (saw.sa.User__c == null, '', saw.recusalLinkMap[saw.sa.User__c])}" style="background-color: #ff9999" >{!if (saw.sa.User__c == null, '', saw.recusalLinkTextMap[saw.sa.User__c])}</apex:outputLink>
         </apex:column>

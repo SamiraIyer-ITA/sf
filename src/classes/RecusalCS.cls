@@ -27,8 +27,8 @@ public without sharing class RecusalCS implements ADCVD_CascadeService {
 		Map<Id,List<Recusal__c>> returnMap = new Map<Id,List<Recusal__c>>();
 		Date today = System.today();
 		//query all potential parents for the Recusals whose parent is in the parentIdSet
-		for(Recusal__c r : [SELECT Id, Actor__c, Actor_Start_Date__c, Actor_End_Date__c, Start_Date_from_primary__c, End_Date_from_Primary__c, User_Id_from_primary__c,
-								Petition__c, Investigation__c, ADCVD_Order__c, Segment__c, Litigation__c, Related_Organization__c, Primary_Recusal_Aligned_To__c,
+		for(Recusal__c r : [SELECT Id, Actor__c, Actor_Start_Date__c, Actor_End_Date__c, Start_Date__c, End_Date__c, User__c, Primary_Recusal_Aligned_To__c, 
+								Petition__c, Investigation__c, ADCVD_Order__c, Segment__c, Litigation__c, Related_Organization__c,
 								Investigation__r.AD_Investigation_Aligned_To__c, Investigation__r.Petition__c,
 								Investigation__r.AD_Investigation_Aligned_To__r.Petition__c,
 								ADCVD_Order__r.Investigation__c, ADCVD_Order__r.Investigation__r.Petition__c,
@@ -61,7 +61,7 @@ public without sharing class RecusalCS implements ADCVD_CascadeService {
 								Related_Organization__r.Segment__r.ADCVD_Order__r.Investigation__r.Petition__c,
 								Related_Organization__r.Segment__r.ADCVD_Order__r.Investigation__r.AD_Investigation_Aligned_To__c
 							FROM Recusal__c 
-							WHERE User__c IN: parentIdSet AND Primary_Recusal_Aligned_To__c !=: null AND Start_Date_from_primary__c <=: today AND End_Date_from_Primary__c >=: today
+							WHERE User__c IN: parentIdSet AND Primary_Recusal_Aligned_To__c !=: null AND Start_Date__c <=: today AND End_Date__c >=: today
 							]) {
 			//create sets for each hierarchy to be mapped to the direct parent
 			Set<Id> tempInvestigationSet = new Set<Id>{r.Investigation__r.AD_Investigation_Aligned_To__c, 
@@ -107,10 +107,8 @@ public without sharing class RecusalCS implements ADCVD_CascadeService {
 					List<Recusal__c> tempList = new List<Recusal__c>();
 					if (returnMap.get(tempId) != null) {
 						tempList.addAll(returnMap.get(tempId));
-						tempList.add(r);
-					} else {
-						tempList.add(r);
 					}
+					tempList.add(r);
 					returnMap.put(tempId, tempList);
 				}
 				Set<Id> tempHierarchySet = new Set<Id>();
@@ -126,8 +124,6 @@ public without sharing class RecusalCS implements ADCVD_CascadeService {
 					}
 					tempHierarchySet.addAll(tempOrderSet);
 					idToHierarchyIdSetMap.put(r.ADCVD_Order__c, tempHierarchySet);
-					System.debug(idToHierarchyIdSetMap.keySet());
-					System.debug(idToHierarchyIdSetMap.get(r.ADCVD_Order__c));
 				} else if (tempId == r.Segment__c) {
 					if(idToHierarchyIdSetMap.get(r.Segment__c) != null) {
 						tempHierarchySet = idToHierarchyIdSetMap.get(r.Segment__c);
@@ -161,7 +157,6 @@ public without sharing class RecusalCS implements ADCVD_CascadeService {
 				}
 			}	
 		}
-		System.debug(idToHierarchyIdSetMap);
 		return (Map<Id,List<SObject>>)returnMap;
 	}
 }
