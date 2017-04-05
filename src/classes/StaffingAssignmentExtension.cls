@@ -176,7 +176,8 @@ public without sharing class StaffingAssignmentExtension {
             parentId = ApexPages.currentPage().getParameters().get('parentId');
             parentSObjectType = utils.findObjectNameFromRecordIdPrefix(parentId);
             if(ApexPages.currentPage().getParameters().get('addWrapper') != null) {//adding a wrapper
-            	addWrapper = ApexPages.currentPage().getParameters().get('addWrapper') != null ? Integer.valueOf(ApexPages.currentPage().getParameters().get('addWrapper')) : 0;
+            	addWrapper = ApexPages.currentPage().getParameters().get('addWrapper') != null ? 
+            	Integer.valueOf(ApexPages.currentPage().getParameters().get('addWrapper')) : 0;
             }
             sa = setSaParent(parentId, parentSObjectType);
             init(sa, addWrapper);

@@ -106,6 +106,7 @@
         <members>Survey_Result__c</members>
         <members>Suspension_Agreement__c</members>
         <members>Sync_Investigation__mdt</members>
+        <members>Sync_Utility__mdt</members>
         <members>Template_Page_Content__c</members>
         <members>Template_Page__c</members>
         <members>Template_Row__c</members>
