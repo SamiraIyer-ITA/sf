@@ -348,7 +348,11 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Respondent__c.Investigation__c</relatedList>
+        <relatedList>Related_Organization__c.Investigation__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Staffing_Assignment__c.Investigation__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -380,6 +384,10 @@
         <relatedList>Suspension_Agreement__c.Investigation__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Investigation__c.AD_Investigation_Aligned_To__c</relatedList>
+    </relatedLists>
+    <relatedLists>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
@@ -387,10 +395,6 @@
         <fields>CORE.USERS.FULL_NAME</fields>
         <fields>TASK.LAST_UPDATE</fields>
         <relatedList>RelatedHistoryList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Investigation__c.AD_Investigation_Aligned_To__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

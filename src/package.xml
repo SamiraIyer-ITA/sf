@@ -35,6 +35,7 @@
         <name>CustomMetadata</name>
     </types>
     <types>
+        <members>ADCVD_Objects__mdt</members>
         <members>ADCVD_Order__c</members>
         <members>Artifact__c</members>
         <members>BatchJobScheduler__c</members>
@@ -46,6 +47,7 @@
         <members>Chapter_Section__c</members>
         <members>Chapter__c</members>
         <members>Clean_URL__c</members>
+        <members>Constant__mdt</members>
         <members>Content_Container__c</members>
         <members>Content_Override__c</members>
         <members>Content_Version__c</members>

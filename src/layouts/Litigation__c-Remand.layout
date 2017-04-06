@@ -172,7 +172,7 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Litigation_Respondent__c.Litigation__c</relatedList>
+        <relatedList>Related_Organization__c.Litigation__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
