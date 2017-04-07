@@ -1,0 +1,6 @@
+<apex:component controller="VideoController">
+    <apex:attribute name="YouTubeId" type="string" assignTo="{!endpoint}" required="true" description="YouTube Id of the video to embed."/>
+    <div class="embed-responsive embed-responsive-16by9">
+        <apex:iframe width="560" height="315" src="https://www.youtube.com/embed/{!endpoint}" frameborder="0"/>
+    </div>
+</apex:component>
