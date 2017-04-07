@@ -84,14 +84,15 @@ public without sharing class ADCVD_RecusalUtility {
     	for (Id userId : userIdSet) {//instance per user
     		ADCVD_RecusalUtility tempInstance = new ADCVD_RecusalUtility();
 	        for (Id parentId : parentIdSet) {//in each instance, maps are created by parent object Id
-	            for(Recusal__c r : parentIdToRecusalListMap.get(parentId)) {//each map has a list of recusals in which multiple users recused themselves from a single record
-	                if (r.User__c != null && r.Primary_Recusal_Aligned_To__c != null) {//recusal is a related recusal and has a user (probably don't need this anymore)
-	                    tempInstance = userIdToInstanceMap.get(userId) != null ? userIdToInstanceMap.get(userId) : tempInstance;//get current instance if it exists
-	                    tempInstance = setTempInstance(r, userId, parentId, parentIdToRecusalListMap, tempInstance);
-	                }
-	                userIdToInstanceMap.put(userId, tempInstance);
-	            }
-	            
+                if(parentId != null && parentIdToRecusalListMap.get(parentId) != null) {
+                    for(Recusal__c r : parentIdToRecusalListMap.get(parentId)) {//each map has a list of recusals in which multiple users recused themselves from a single record
+                        if (r.User__c != null && r.Primary_Recusal_Aligned_To__c != null) {//recusal is a related recusal and has a user (probably don't need this anymore)
+                            tempInstance = userIdToInstanceMap.get(userId) != null ? userIdToInstanceMap.get(userId) : tempInstance;//get current instance if it exists
+                            tempInstance = setTempInstance(r, userId, parentId, parentIdToRecusalListMap, tempInstance);
+                        }
+                        userIdToInstanceMap.put(userId, tempInstance);
+                    }
+                }
 	        }
 	    }
     }

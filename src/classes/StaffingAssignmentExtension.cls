@@ -296,8 +296,9 @@ public without sharing class StaffingAssignmentExtension {
 		allUserSelectOptions = new List<SelectOption>();
 		userIdSet = new Set<Id>();
 		//add all users to lists that are mapped to Staffing Roles
-		for(User u: [SELECT Id, Name, Staffing_Role__c FROM User WHERE Staffing_Role__c != null]) {
+		for(User u: [SELECT Id, Name, Staffing_Role__c FROM User WHERE Staffing_Role__c != null ORDER BY Name Asc]) {
 			userIdSet.add(u.Id);
+			allUserSelectOptions.add(new SelectOption(u.Id, u.Name));
 			List<User> userList = new List<User>();
 			//if the map already contains a list - use the list from the map
 			if(userRoleMap.get(u.Staffing_Role__c) != null) {
@@ -314,7 +315,6 @@ public without sharing class StaffingAssignmentExtension {
 				for(User u: userList) {
 					userSelect.add(new SelectOption(u.Id, u.Name));//create a SelectOption
 				}
-				allUserSelectOptions.addAll(userSelect);//add them to our list of all users
 				if(userList.size() > 0) {
 					userSelect.add(0,new SelectOption('', '--Select a User--'));//add the default if no user selected
 				}
@@ -490,17 +490,19 @@ public without sharing class StaffingAssignmentExtension {
 				if (recUtil != null && recUtil.get(userId) != null) {
 					userInstance = recUtil.get(userId);
 				}
-				if (userInstance.primaryRecusalList != null && !userInstance.primaryRecusalList.isEmpty()) {
-					recusalStatus += 'This user has active recusals.' + '<br/>';
-				}
-				if (userInstance.recusalsInRecordHierarchyMap != null && userInstance.recusalsInRecordHierarchyMap.get(parentId) != null 
-					&& userInstance.recusalsInRecordHierarchyMap.get(parentId) == true) {//clarity that this is a map to a boolean
-					recusalStatus += 'This user has been recused from some of this record\'s parents.' + '<br/>';
-				}
-				if (userInstance.recusedFromThisRecordMap != null && userInstance.recusedFromThisRecordMap.get(parentId) != null 
-					&& userInstance.recusedFromThisRecordMap.get(parentId) == true) {//clarity that this is a map to a boolean
-					recusalStatus += 'This user has been recused from this record.' + '<br/>';
-				}
+                if(userInstance != null) {
+                    if (userInstance.primaryRecusalList != null && !userInstance.primaryRecusalList.isEmpty()) {
+                        recusalStatus += 'This user has active recusals.' + '<br/>';
+                    }
+                    if (userInstance.recusalsInRecordHierarchyMap != null && userInstance.recusalsInRecordHierarchyMap.get(parentId) != null 
+                        && userInstance.recusalsInRecordHierarchyMap.get(parentId) == true) {//clarity that this is a map to a boolean
+                        recusalStatus += 'This user has been recused from some of this record\'s parents.' + '<br/>';
+                    }
+                    if (userInstance.recusedFromThisRecordMap != null && userInstance.recusedFromThisRecordMap.get(parentId) != null 
+                        && userInstance.recusedFromThisRecordMap.get(parentId) == true) {//clarity that this is a map to a boolean
+                        recusalStatus += 'This user has been recused from this record.' + '<br/>';
+                    }
+                }
 				if (recusalStatus == null || String.isBlank(recusalStatus)) {
 					recusalStatus += 'This user does not have any active recusals.';
 				}

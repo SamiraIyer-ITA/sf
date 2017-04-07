@@ -59,7 +59,7 @@
         <externalId>false</externalId>
         <label>AD Investigation Aligned To</label>
         <lookupFilter>
-            <active>true</active>
+            <active>false</active>
             <booleanFilter>1 AND 2 AND 3</booleanFilter>
             <filterItems>
                 <field>Investigation__c.RecordType.DeveloperName</field>

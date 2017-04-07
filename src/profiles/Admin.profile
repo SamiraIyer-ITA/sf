@@ -196,6 +196,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MetadataHelper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MyOrdersComponentController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -761,6 +765,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>ADCVD_Order__c.Estimated_Order_FR_Published__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ADCVD_Order__c.External_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2325,6 +2334,21 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>DAS__c.Concurrence_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DAS__c.Issues_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DAS__c.Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Decision_Log__c.Justification__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3406,6 +3430,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Litigation__c.Expected_Final_Signature_Before_Ext__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Litigation__c.External_Id__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4835,6 +4864,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Segment__c.External_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Segment__c.Final_Date_of_Anniversary_Month__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5056,6 +5090,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Segment__c.Preliminary_Decision_Memorandum_URL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Segment__c.Preliminary_Determination__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6194,6 +6233,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>User.Staffing_Role_Filter_Field__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>User.Staffing_Role__c</field>
         <readable>true</readable>
@@ -6206,6 +6250,46 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>User.User_One__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.agf__External_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.agf__GUS_User_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.agf__Notification_Level__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.agf__Show_All_Work_Comments__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.agf__Summary__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.agf__Team_Member_Allocation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.agf__Wall_Preference__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.agf__Work_User_Interface__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6819,6 +6903,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Covered_Entity__c-Covered Entity Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>DAS__c-DAS Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>DandBCompany-D%26B Company Layout</layout>
@@ -8685,6 +8772,10 @@
     <tabVisibilities>
         <tab>Site__c</tab>
         <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Staffing_Assignment__c</tab>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Survey_Result__c</tab>

@@ -146,6 +146,8 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Account__c</fields>
+        <fields>Type__c</fields>
         <relatedList>Related_Organization__c.Petition__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -162,6 +164,8 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Title__c</fields>
+        <fields>User__c</fields>
         <relatedList>Staffing_Assignment__c.Petition__c</relatedList>
     </relatedLists>
     <relatedLists>

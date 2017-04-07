@@ -1,0 +1,52 @@
+<apex:component controller="PrivacyPolicyComponentController" allowDML="true">
+
+<link href="{!URLFor($Resource.ps, 'ps/application.css')}" rel="stylesheet" />
+
+    <apex:attribute type="Artifact__c[]" name="artifacts" required="true" description="The artifacts to display in the Privacy Policy" assignTo="{!ArtifactList}" />
+    <apex:attribute type="String" name="theParticipantId" required="true" description="The ID of the parent participant" assignTo="{!participantId}" />
+    
+    <h1 class="steps">Privacy Policies</h1><hr/>
+    <p class="ppParagraph">
+    <b>Note regarding privacy policies applicable to personal data other than human resources data: </b>If your organization has a public website, provide the relevant web address where the privacy policy is available.  If your organization does not have a public website, provide information regarding where the privacy policy is available for viewing by the general public and upload a copy of the relevant privacy policy, which will be made available on the Privacy Shield website</p>
+    <p class="ppParagraph"><b>Note regarding privacy policies applicable to human resources data: </b>Although an organization that covers human resources data under its self-certification is not required to make available to the general public the relevant privacy policy that exclusively covers that human resources data, it must provide information regarding where the privacy policy is available for viewing by affected employees and provide a copy of that privacy policy to the Department of Commerce by uploading a copy of that policy.  The uploaded copy of that privacy policy will not be made available on the Privacy Shield website. </p>
+
+    <apex:outputpanel layout="block" id="ArtifactPanel" >
+        <apex:commandLink styleClass="btn btn-gray btn-sm" action="{!addArtifact}" reRender="ArtifactPanel" >New Policy</apex:commandlink>
+        <br /><br />
+        <apex:outputPanel layout="block" styleClass="col-md-12 contactWrapper" id="PolicyDetail" rendered="{!AND(showArtEditScreen, selectedArtifact.Id == null)}">
+        <br/>
+            <c:PrivacyPolicyEditComponent theArtifact="{!selectedArtifact}" cancelMethod="{!cancelArtifact}" />
+         <br/>
+        </apex:outputPanel>
+        <apex:repeat value="{!ArtifactList}" var="art">
+            <apex:outputPanel layout="block" styleClass="col-md-12 contactWrapper ppName">
+                <apex:outputPanel layout="block" styleClass="col-md-12 col-xs-10 pad-left-zero pad-right-zero policyname">
+                    <apex:commandLink reRender="ArtifactPanel" action="{!editArtifact}">
+                        <apex:param name="editArtId" value="{!art.Id}" assignTo="{!editArtId}" />
+                        <i class="fa fa-pencil-square-o" style="editIconColor" aria-hidden="true"></i>
+                    </apex:commandLink>
+                    {!art.Name}
+                </apex:outputPanel>
+                <apex:outputPanel styleClass="ppNotCurrent pull-right" rendered="{!!art.isCurrent__c}" >
+                    Not Current 
+                </apex:outputPanel>
+               <!-- <apex:outputPanel layout="block" styleClass="col-md-1 col-xs-2">
+                    <apex:commandLink action="{!deleteArtifact}" rerender="ArtifactPanel">
+                        <apex:param name="contactId" value="{!art.Id}" assignTo="{!editArtId}"/>
+                        <span ><i class="fa fa-times fa-1x" aria-hidden="true" ></i></span>
+                    </apex:commandlink> 
+                </apex:outputPanel>-->      
+                <apex:repeat value="{!art.attachments}" var="attachements" >
+                  <apex:outputPanel styleClass="attachments">
+                    Attached policy: <a href="/servlet/servlet.FileDownload?file={!attachements.id}" target="_blank" download="{!attachements.name}">{!attachements.name}</a>
+                  </apex:outputPanel>
+                </apex:repeat>
+                <br />
+                <apex:outputPanel id="PolicyDetail" rendered="{!AND(showArtEditScreen, selectedArtifact.Id == art.Id)}">
+                    <c:PrivacyPolicyEditComponent theArtifact="{!selectedArtifact}" cancelMethod="{!cancelArtifact}" />
+                </apex:outputPanel>
+            </apex:outputPanel>
+        </apex:repeat>
+        <br/>
+    </apex:outputpanel>
+</apex:component>
