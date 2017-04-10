@@ -258,7 +258,7 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Litigation__c.Segment__c</relatedList>
+        <relatedList>Related_Organization__c.Segment__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

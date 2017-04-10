@@ -653,6 +653,21 @@
     </classAccesses>
     <custom>false</custom>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>ADCVD_Objects__mdt.Object_API_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ADCVD_Objects__mdt.Record_Type_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ADCVD_Objects__mdt.Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>ADCVD_Order__c.Actual_Amended_Final_Signature__c</field>
         <readable>true</readable>
@@ -2026,6 +2041,41 @@
         <editable>true</editable>
         <field>Clean_URL__c.Site__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Constant__mdt.ADCVD_Objects__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Constant__mdt.Number_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Constant__mdt.Record_Description__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Constant__mdt.Staffing_Assignment_Default__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Constant__mdt.Staffing_Role__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Constant__mdt.String_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Constant__mdt.Used_with_Field_Named__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -6778,6 +6828,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
+        <layout>ADCVD_Objects__mdt-ADCVD Objects Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>ADCVD_Order__c-Order</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -6835,6 +6888,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>CollaborationGroup-Group Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Constant__mdt-Constant Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Contact-Admin Layout</layout>

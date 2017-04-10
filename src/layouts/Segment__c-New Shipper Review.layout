@@ -258,19 +258,15 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Respondent__c.Segment__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
         <relatedList>Issue__c.Segment__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Federal_Register__c.Segment__c</relatedList>
+        <relatedList>Related_Organization__c.Segment__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Litigation__c.Segment__c</relatedList>
+        <relatedList>Staffing_Assignment__c.Segment__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

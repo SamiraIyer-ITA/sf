@@ -372,7 +372,11 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Respondent__c.Investigation__c</relatedList>
+        <relatedList>Related_Organization__c.Investigation__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Staffing_Assignment__c.Investigation__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

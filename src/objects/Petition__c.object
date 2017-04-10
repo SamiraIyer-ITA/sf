@@ -623,7 +623,7 @@ C-###-### for CVD</inlineHelpText>
                 <sorted>false</sorted>
                 <value>
                     <fullName>Deficient Petition/Did Not Initiate</fullName>
-                    <default>false</default>
+                    <default>true</default>
                     <label>Deficient Petition/Did Not Initiate</label>
                 </value>
                 <value>

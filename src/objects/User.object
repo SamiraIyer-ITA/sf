@@ -2460,6 +2460,16 @@
                     <label>Accounting PM</label>
                 </value>
                 <value>
+                    <fullName>Analyst</fullName>
+                    <default>false</default>
+                    <label>Analyst</label>
+                </value>
+                <value>
+                    <fullName>AS Assistant</fullName>
+                    <default>false</default>
+                    <label>AS Assistant</label>
+                </value>
+                <value>
                     <fullName>Assistant Secretary</fullName>
                     <default>false</default>
                     <label>Assistant Secretary</label>
@@ -2498,6 +2508,11 @@
                     <fullName>Senior Policy</fullName>
                     <default>false</default>
                     <label>Senior Policy</label>
+                </value>
+                <value>
+                    <fullName>Staff Accountant</fullName>
+                    <default>false</default>
+                    <label>Staff Accountant</label>
                 </value>
                 <value>
                     <fullName>Staff Legal</fullName>

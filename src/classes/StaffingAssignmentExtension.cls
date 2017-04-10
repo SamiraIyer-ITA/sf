@@ -160,11 +160,32 @@ public without sharing class StaffingAssignmentExtension {
 	    } set;
 	}
 	
-//TODO: this needs to pull from current SA records
-	@TestVisible 
-	private static Set<String> userRolesSet = new Set<String>{'Accounting Director', 'Accounting PM', 'Assistant Secretary', 'Associate DAS', 
-																'DAS', 'DAS Assistant', 'Office Director', 'Program Manager', 'Senior Legal', 
-																'Senior Policy', 'Staff Legal', 'Staff Policy'};
+    @TestVisible 
+    private Map<String,Integer> defaultUserRolesMap {get {
+    	if (defaultUserRolesMap == null) {
+    		defaultUserRolesMap = new Map<String,Integer>();
+    		for(Constant__mdt c : [SELECT Staffing_Role__c, Number_Value__c, ADCVD_Objects__r.Object_API_Name__c 
+    								FROM Constant__mdt WHERE Staffing_Assignment_Default__c =: true]) {
+    			if (c.Staffing_Role__c != null && c.Number_Value__c != null && c.ADCVD_Objects__r.Object_API_Name__c == parentSObjectType) {
+    				defaultUserRolesMap.put(c.Staffing_Role__c, (Integer)c.Number_Value__c);
+    			}
+	    	}
+    	}
+    	System.debug(defaultUserRolesMap);
+    	return defaultUserRolesMap;
+    	} set;
+    }
+	private Set<String> allUserRolesSet {get {
+		if(allUserRolesSet == null) {
+			allUserRolesSet = new Set<String>();
+			List<Schema.PicklistEntry> pleList = Schema.Constant__mdt.Staffing_Role__c.getDescribe().getPicklistValues();
+			for(Schema.PicklistEntry ple : pleList) {//add all titles from default list to title map
+				allUserRolesSet.add(ple.getValue());
+			}
+		}  
+       return allUserRolesSet;
+    } set;} 
+
 
 	/*********************
 	 * Constructors
@@ -307,12 +328,12 @@ public without sharing class StaffingAssignmentExtension {
 			userList.add(u);
 			userRoleMap.put(u.Staffing_Role__c, userList);
 		}
-		for(String s: userRolesSet) {//Create Staffing Assignments for defaults
+		for (String s: allUserRolesSet) {//Create Staffing Assignments for defaults
 			List<User> userList = userRoleMap.get(s);//for each default Staffing Role, get the matching list of users
 			List<SelectOption> userSelect = new List<SelectOption>();
 			
 			if(userList != null) {//for each user in this list (they all share same Staffing Role)
-				for(User u: userList) {
+				for(User u : userList) {
 					userSelect.add(new SelectOption(u.Id, u.Name));//create a SelectOption
 				}
 				if(userList.size() > 0) {
@@ -363,8 +384,10 @@ public without sharing class StaffingAssignmentExtension {
 		List<StaffingAssignmentWrapper> returnList = new List<StaffingAssignmentWrapper>();
 		Map<String, Boolean> userTitleExistsMap = new Map<String, Boolean>();
 		ADCVD_RecusalUtility userInstance = new ADCVD_RecusalUtility();
-		for(String s: userRolesSet) {//add all titles from default list to title map
-			userTitleExistsMap.put(s, false);
+		for(String s: defaultUserRolesMap.keySet()) {//add all titles from default list to title map
+			for(Integer i = 0; i < defaultUserRolesMap.get(s); i++) {
+				userTitleExistsMap.put(s, false);
+			}
 		}
 		//add existing user titles to the map, overwriting any defaults that have usersfor them
 		for(Staffing_Assignment__c sa: staffList) {
