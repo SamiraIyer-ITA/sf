@@ -53,6 +53,7 @@
         <members>Content_Version__c</members>
         <members>Content__c</members>
         <members>Covered_Entity__c</members>
+        <members>DAS__c</members>
         <members>Decision_Log__c</members>
         <members>Department_Taxonomy__c</members>
         <members>Federal_Register__c</members>

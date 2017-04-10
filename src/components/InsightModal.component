@@ -1,0 +1,97 @@
+<apex:component controller="Insight" allowDML="true" >
+<apex:attribute name="TitleText" type="String" assignTo="{!Title}" required="true" description="Title/Name of the Content Dipsplayed" />
+<apex:attribute name="SummaryText" type="String" assignTo="{!Summary}" required="true" description="Description/Summary of the Content" />
+<apex:attribute name="PinId" type="String" assignTo="{!RecordId}" required="true" description="Id of the Record that is to be pinned" />
+
+<apex:messages />
+<!-- Modal -->
+<apex:form >
+
+
+<div id="insightModal" class="ita-modal" aria-hidden="true">
+<div class="modal-dialog-insight">
+  <div class="modal-content">
+  <button type="button" class="close" style="padding-right:10px;" onclick="$('#insightModal').hide();" aria-hidden="true">×</button>
+      <div class="row" style="padding-left:10px;padding-right:10px;">
+      
+      <apex:outputpanel >
+      
+         <div class="row nopad" style="padding-left:0px;padding-right:0px;">
+          
+          <div class="col-md-7">
+            
+                
+                 
+                      <div class="modal-header"> <h4>{!title}</h4></div>
+                      <div class="itaModalSummary"><apex:outputText escape="true" value="{!Summary}" /></div>
+          </div>
+          <div class="col-md-5">
+                             
+              <div class="InsightList">
+             
+                  <div class="modal-header"> <h4>Pick a Board </h4></div>
+                        <!-- div class="table-responsive">          
+                            <table class="table table-hover itaModalLinks">
+                                  <apex:repeat value="{!MostRecent}" var="item">
+                                  <tr>
+                                    <th><a onclick="PinArticle('{!item}');">{!MostRecent[item]}</a></th>
+                                  </tr>
+                                  </apex:repeat>
+                            </table>
+                          </div -->
+                        <div class="form-group"><input type="text" placeholder="Search" id="PinToBoardText" class="ModalInput form-control" style="border-radius: 0;"/></div>
+                       
+                          <apex:outputpanel id="InsightList">
+                              <div id="PinToBoardList" class="table-responsive">          
+                                <table class="table table-hover itaModalLinks">
+                                  <apex:repeat value="{!records}" var="ins">
+                                  <tr class="BoardsListTr" SearchText = "{!ins.Name__c}">
+                                    <th><a onclick="PinArticle('{!ins.id}');">{!ins.Name__c}</a></th>
+                                  </tr>
+                                  </apex:repeat>
+                            </table>
+                          </div>
+                          </apex:outputpanel>
+                          <center>
+                          <p><a class="primary-btn-ita" onclick="$('.newInsight').show(); $('.InsightList').hide();">Create a Board</a></p>
+                          </center>
+                </div>
+            <apex:outputpanel styleclass="newInsight" id="NewInsight">
+                
+                <div class="modal-header ModalSectionHeader"> <h4>Create a Board </h4></div>
+              <div class="itaBr"></div>
+              <label for="InsightName">Name </label><apex:inputField value="{!record.Name__c}" styleclass="ModalInput PinInsightName" id="InsightName" html-placeholder="Board Name"  />
+              <div class="itaBr"></div>
+                <hr />
+                <p><strong>Owner:</strong>  {!$User.FirstName} {!$User.LastName} </p>
+              <p> <button type="button" class="primary-btn-ita" onclick="if(!checkInsightRequiredField('PinInsightName')){alert('Board Name is a required field.');}else{NewInsight();}">Create</button>&nbsp;
+              <button type="button" class="secondary-btn-ita" onclick="$('.newInsight').hide(); $('.InsightList').show();">Cancel</button></p>
+            </apex:outputpanel>
+          </div>
+          </div>
+      </apex:outputpanel>
+      </div>
+  </div>
+</div>  
+</div>
+<apex:actionFunction action="{!pin}" immediate="true" name="PinArticle" rerender="SelectedBoard" oncomplete="$('#insightModal').hide();">
+    <apex:param name="selectedBoard" assignTo="{!SelectedBoard}" value="" />
+</apex:actionFunction>
+<apex:actionFunction action="{!create}" name="NewInsight" reRender="InsightList, NewInsight" oncomplete="$('.newInsight').hide(); $('.InsightList').show();"/>
+</apex:form>
+<script language="javascript">
+$('#PinToBoardText').keyup(function(){
+    var that = this, $allListElements = $('.BoardsListTr');
+
+    var $matchingListElements = $allListElements.filter(function(i, li){
+        var listItemText = $(li).text().toUpperCase(), 
+            searchText = that.value.toUpperCase();
+        return ~listItemText.indexOf(searchText);
+    });
+
+    $allListElements.hide();
+    $matchingListElements.show();
+});
+</script>
+
+</apex:component>

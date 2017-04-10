@@ -1,0 +1,41 @@
+<apex:page sidebar="false" showHeader="false" controller="article_controller" applyBodyTag="false" applyHtmlTag="false">
+ <apex:composition template="Site_Template">
+     <apex:define name="page">
+
+    <head>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,300" rel="stylesheet"/>
+    <link href="{!URLFor($Resource.envirotechwidget, 'envirotechwidget/all.css')}" rel="stylesheet" />
+    <link href="{!URLFor($Resource.envirotechwidget, 'envirotechwidget/extra.css')}" rel="stylesheet" />
+  </head>
+  <body>
+  
+  <div class="main" id="content">
+<div style="background-image: url('https://ajsingh273.github.io/testsf/images/envirotech_toolkit.jpg'); background-repeat:no-repeat; background-size: cover;">
+                <div class="section clearfix secondary-bg-ita-img">
+
+                    <div class="row content">
+                         <div class="containerInternal enforceHeight" >
+                                    <div class="col-md-12" >  
+                                        <div class="">
+                                                <h1 class="text-center">U.S. Environmental Solutions Toolkit</h1>
+                                        <p class="text-center lead">Buyer's Guide to U.S. Enviromental Technologies and Service Providers</p>
+
+       </div> 
+                        
+     </div>   
+    </div>
+   </div>
+  </div>
+  </div>
+  </div>
+  
+  <div id="estContent" class="estContent"></div>  
+
+  <script type="text/javascript" src="{!URLFor($Resource.envirotechwidget, 'envirotechwidget/jquery.min.js')}"></script>
+  <script type="text/javascript" src="{!URLFor($Resource.envirotechwidget, 'envirotechwidget/est.min.js')}"></script>
+  </body>
+
+
+     </apex:define>
+ </apex:composition>
+</apex:page>

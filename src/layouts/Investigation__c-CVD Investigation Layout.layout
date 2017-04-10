@@ -355,6 +355,12 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
+        <fields>NAME</fields>
+        <fields>Account__c</fields>
+        <fields>Type__c</fields>
+        <relatedList>Related_Organization__c.Investigation__c</relatedList>
+    </relatedLists>
+    <relatedLists>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>ACTIVITY.TASK</fields>
@@ -400,6 +406,12 @@
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>Suspension_Agreement__c.Investigation__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Title__c</fields>
+        <fields>User__c</fields>
+        <relatedList>Staffing_Assignment__c.Investigation__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>TASK.SUBJECT</fields>

@@ -2429,6 +2429,16 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Staffing_Role_Filter_Field__c</fullName>
+        <externalId>false</externalId>
+        <label>Staffing Role Filter Field</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Staffing_Role__c</fullName>
         <externalId>false</externalId>
         <label>Staffing Role</label>
@@ -2753,7 +2763,7 @@ The Whole Enchilada: All notifications (Default)</inlineHelpText>
         <lookupDialogsAdditionalFields>RH_Lev_6_Office__c</lookupDialogsAdditionalFields>
         <lookupFilterFields>FULL_NAME</lookupFilterFields>
         <lookupFilterFields>CORE.USER_ROLE.NAME</lookupFilterFields>
-        <lookupFilterFields>00Nt0000000ZXWg</lookupFilterFields>
+        <lookupFilterFields>RH_Lev_6_Office__c</lookupFilterFields>
         <lookupPhoneDialogsAdditionalFields>FULL_NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CORE.USER_ROLE.NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CORE.USERS.PHONE</lookupPhoneDialogsAdditionalFields>

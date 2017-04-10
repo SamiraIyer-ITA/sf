@@ -10,4 +10,5 @@
     <tab>Litigation__c</tab>
     <tab>Tolling_Day__c</tab>
     <tab>standard-report</tab>
+    <tab>Staffing_Assignment__c</tab>
 </CustomApplication>

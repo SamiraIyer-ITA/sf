@@ -288,6 +288,17 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>External_Id__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>External Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
         <fullName>Final_Extension_of_days__c</fullName>
         <externalId>false</externalId>
         <label>Final Extension (# of days)</label>

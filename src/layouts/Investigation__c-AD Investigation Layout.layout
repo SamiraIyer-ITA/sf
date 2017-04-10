@@ -348,14 +348,6 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Related_Organization__c.Investigation__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Staffing_Assignment__c.Investigation__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
         <fields>Type__c</fields>
         <fields>Policy_Status__c</fields>
         <fields>Legal_Status__c</fields>
@@ -381,11 +373,19 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Account__c</fields>
+        <fields>Type__c</fields>
+        <relatedList>Related_Organization__c.Investigation__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
         <relatedList>Suspension_Agreement__c.Investigation__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Investigation__c.AD_Investigation_Aligned_To__c</relatedList>
+        <fields>Title__c</fields>
+        <fields>User__c</fields>
+        <relatedList>Staffing_Assignment__c.Investigation__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>TASK.SUBJECT</fields>
