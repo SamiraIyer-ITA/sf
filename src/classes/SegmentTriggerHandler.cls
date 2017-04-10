@@ -293,22 +293,14 @@ public without sharing class SegmentTriggerHandler {
                 s.Prelim_Team_Meeting_Deadline__c = null;
             }
 		} else if(recordTypeNameMap.get(s.RecordTypeId) == ANTI_CIRCUMVENTION_REVIEW){
-            /*updated this date logic accordingly to Paul's new calculation.  Original (stale) statement is provided below commented. */
-            //check for null to convert to 'None'... no longer necessary
+            if (s.Type_of_Circumvention_Inquiry__c != 'Later-Developed Merchandise' && s.Type_of_Circumvention_Inquiry__c != null 
+                && s.Preliminary_Determination__c == 'Yes' && s.Calculated_Preliminary_Signature__c != null){
                 s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(ACR_PRELIM_TEAM_MEET_DEADLINE);
-            if (s.Type_of_Circumvention_Inquiry__c == 'Later-Developed Merchandise'){
+                s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Prelim_Team_Meeting_Deadline__c, s.Prelim_Team_Meeting_Deadline__c, true);
+            } else if (s.Type_of_Circumvention_Inquiry__c == 'Later-Developed Merchandise' && s.Calculated_Preliminary_Signature__c != null){
                 s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(ACR_PRELIM_TEAM_MEET_DEADLINE);
                 s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Prelim_Team_Meeting_Deadline__c, s.Prelim_Team_Meeting_Deadline__c, true);
             }
-                s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(ACR_PRELIM_TEAM_MEET_DEADLINE);
-                s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(ACR_PRELIM_TEAM_MEET_DEADLINE);
-                s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Prelim_Team_Meeting_Deadline__c, s.Prelim_Team_Meeting_Deadline__c, true); 
-            }
-            /*
-            if (s.Calculated_Preliminary_Signature__c != null) {
-                s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(ACR_PRELIM_TEAM_MEET_DEADLINE);
-                s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Prelim_Team_Meeting_Deadline__c, s.Prelim_Team_Meeting_Deadline__c, true);
-            }*/
         } else if (recordTypeNameMap.get(s.RecordTypeId) == CHANGED_CIRCUMSTANCES_REVIEW){
             if (s.Calculated_Preliminary_Signature__c != null){
                 s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(CCR_PRELIM_TEAM_MEET_DEADLINE);
