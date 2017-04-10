@@ -62,6 +62,19 @@ public class LitigationTriggerHandlerTest {
 		Test.stopTest();
 	}
 
+	//setPrelimTeamMeetingDeadline
+	@isTest static void setPrelimTeamMeetingDeadline(){
+		Test.startTest();
+		remand.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(litigationDate.addDays(35));
+		update remand;
+		remand = null;
+		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(remand.Calculated_Final_Signature__c.addDays(7));
+		System.assertEquals(testCalculated,
+			[SELECT Id, Prelim_Team_Meeting_Deadline__c FROM Litigation__c WHERE Id =: remand.Id LIMIT 1].Prelim_Team_Meeting_Deadline__c);
+		Test.stopTest();
+
+	}
+
 	//setCalculatedFinalSignature
 	@isTest static void setCalculatedFinalSignature(){
 		Test.startTest();
