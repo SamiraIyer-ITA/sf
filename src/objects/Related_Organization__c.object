@@ -97,7 +97,7 @@
         <externalId>false</externalId>
         <label>Legal Representation</label>
         <referenceTo>Related_Organization__c</referenceTo>
-        <relationshipLabel>Related Organizations</relationshipLabel>
+        <relationshipLabel>Legal Representation</relationshipLabel>
         <relationshipName>Related_Organizations</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>

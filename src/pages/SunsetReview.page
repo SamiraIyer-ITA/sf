@@ -58,12 +58,6 @@
                 <apex:outputPanel > 
                     <apex:outputPanel id="reviewInfo-ltng">
                         <div class="slds-section">
-                        <apex:inputField id="actualFinal" value="{!ssReview.Actual_Final_Signature__c}" showDatePicker="false" />
-                        <!--<div id="lightning"/>-->
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
                             <fieldset class="slds-form--compound">
                                 <legend class="slds-section-title--divider slds-size--2-of-2 slds-form-element__label slds-text-title--caps">Review Information</legend>
                                 <ol class="columns" data-columns="2" style="column-count: 2">

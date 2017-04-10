@@ -22,4 +22,7 @@ public interface ADCVD_CascadeService {
  	 * @return                   Map of parentId to List of child SObjects
  	 */
 	Map<Id,List<SObject>> getParentIdToObjectsMap(String currentObjectName, Set<Id> parentIdSet);
+
+
+	Map<Id,Set<Id>> getIdToHierarchyIdSetMap();
 }
