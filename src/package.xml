@@ -35,7 +35,6 @@
         <name>CustomMetadata</name>
     </types>
     <types>
-        <members>ADCVD_Objects__mdt</members>
         <members>ADCVD_Order__c</members>
         <members>Artifact__c</members>
         <members>BatchJobScheduler__c</members>
