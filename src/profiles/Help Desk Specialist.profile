@@ -1465,11 +1465,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Contact.ResearcherHIDDEN__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Contact.SharePoint_ID__c</field>
         <readable>false</readable>
     </fieldPermissions>
