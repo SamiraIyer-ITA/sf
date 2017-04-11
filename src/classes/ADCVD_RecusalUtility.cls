@@ -13,6 +13,8 @@ public without sharing class ADCVD_RecusalUtility {
     @TestVisible private static ADCVD_RecusalUtility objectTypeInstance = null;
     //Map of parentIds to hierarchyIdSet from cascade utility
     @TestVisible private static Map<Id,Set<Id>> parentIdToHierarchyIdSetMap = new Map<Id,Set<Id>>();
+    //Map of direct parent object to a boolean set if this parent object has a related org from which this user has recused
+    @TestVisible private static Map<Id,Set<Id>> idToRelOrgIdSetMap = new Map<Id,Set<Id>>();
     //Map of Primary Recusals from userIdSet
     @TestVisible private static Map<Id,Recusal__c> classPrimaryRecusalMap = new Map<Id,Recusal__c>();
 
@@ -27,8 +29,8 @@ public without sharing class ADCVD_RecusalUtility {
     public Map<Id,Boolean> recusalsInRecordHierarchyMap = new Map<Id,Boolean>();
     //Map of direct parent object to a boolean set if this parent object has a linked recusal for this user's instance
     public Map<Id,Boolean> recusedFromThisRecordMap = new Map<Id,Boolean>();
-    //Map of direct parent object to List of parent Object's hierarchy's linke recusals for this user's instance
-    //public Map<Id,List<Recusal__c>> relatedRecusalMap = new Map<Id,List<Recusal__c>>();//not needed at this time
+    //Map of direct parent object to a boolean set if this parent object has a related org from which this user has recused
+    public Map<Id,Boolean> recusedFromRelatedOrgMap = new Map<Id,Boolean>();
     
     
 
@@ -48,6 +50,7 @@ public without sharing class ADCVD_RecusalUtility {
         parentIdToHierarchyIdSetMap = cu.getIdToHierarchyIdSetMap();//bring the map in class
         setClassPrimaryRecusalMap(userIdSet, parentObjectList);//set the in class primary recusal map
 		setParentsInScope(parentObjectList);//get Ids from the parentObjectList
+		getRelatedOrgsInScope();
         if(cuRecMap.size() > 0) {
             setParentIdToInstanceMap(userIdSet, cuRecMap);//create an instance per user with the 3 public maps
         }
@@ -131,6 +134,16 @@ public without sharing class ADCVD_RecusalUtility {
 	    		}
 	    	}
     	}
+    	//Set boolean for recusedFromRelatedOrgMap
+    	if (tempInstance.recusedFromRelatedOrgMap.get(parentId) != true) {//don't overwrite true, but don't allow nulls
+    		tempInstance.recusedFromRelatedOrgMap.put(parentId, false);
+	    	if (r.User__c == userId && validateRecusalParent(r) == parentId) {//this recusal is for this user and this recusal's parent is the current parentId
+	    		if(idToRelOrgIdSetMap.get(parentId) != null && idToRelOrgIdSetMap.size() > 0) {
+		    		tempInstance.recusedFromRelatedOrgMap.put(parentId, true);
+		    	}
+	    	}
+    	}
+		    	
     	//Set boolean for recusedFromThisRecordMap
     	if (tempInstance.recusedFromThisRecordMap.get(parentId) != true) {//don't overwrite true, but don't allow nulls
     		tempInstance.recusedFromThisRecordMap.put(parentId, false);
@@ -194,5 +207,57 @@ public without sharing class ADCVD_RecusalUtility {
 				parentIdSet.add(so.Id);
 			}
     	}
+	}
+
+	@TestVisible private static void getRelatedOrgsInScope() {
+		if(parentIdSet != null) {
+			for (Related_Organization__c ro : [SELECT Id, Legal_Representation__c, Petition__c, Investigation__c, ADCVD_Order__c, Segment__c, Litigation__c
+												FROM Related_Organization__c 
+												WHERE Legal_Representation__c IN: parentIdSet
+												OR Petition__c IN: parentIdSet
+												OR Investigation__c IN: parentIdSet
+												OR ADCVD_Order__c IN: parentIdSet
+												OR Segment__c IN: parentIdSet
+												OR Litigation__c IN: parentIdSet]) {
+				Set<Id> tempSet = new Set<Id>();
+				if(ro.Legal_Representation__c != null) {
+					if(idToRelOrgIdSetMap.get(ro.Legal_Representation__c) != null) {
+						tempSet = idToRelOrgIdSetMap.get(ro.Legal_Representation__c);
+					}
+					tempSet.add(ro.Id);
+					idToRelOrgIdSetMap.put(ro.Legal_Representation__c, tempSet);
+				} else if(ro.Petition__c != null) {
+					if(idToRelOrgIdSetMap.get(ro.Petition__c) != null) {
+						tempSet = idToRelOrgIdSetMap.get(ro.Petition__c);
+					}
+					tempSet.add(ro.Id);
+					idToRelOrgIdSetMap.put(ro.Petition__c, tempSet);
+				} else if(ro.Investigation__c != null) {
+					if(idToRelOrgIdSetMap.get(ro.Investigation__c) != null) {
+						tempSet = idToRelOrgIdSetMap.get(ro.Investigation__c);
+					}
+					tempSet.add(ro.Id);
+					idToRelOrgIdSetMap.put(ro.Investigation__c, tempSet);
+				} else if(ro.ADCVD_Order__c != null) {
+					if(idToRelOrgIdSetMap.get(ro.ADCVD_Order__c) != null) {
+						tempSet = idToRelOrgIdSetMap.get(ro.ADCVD_Order__c);
+					}
+					tempSet.add(ro.Id);
+					idToRelOrgIdSetMap.put(ro.ADCVD_Order__c, tempSet);
+				} else if(ro.Segment__c != null) {
+					if(idToRelOrgIdSetMap.get(ro.Segment__c) != null) {
+						tempSet = idToRelOrgIdSetMap.get(ro.Segment__c);
+					}
+					tempSet.add(ro.Id);
+					idToRelOrgIdSetMap.put(ro.Segment__c, tempSet);
+				} else if(ro.Litigation__c != null) {
+					if(idToRelOrgIdSetMap.get(ro.Litigation__c) != null) {
+						tempSet = idToRelOrgIdSetMap.get(ro.Litigation__c);
+					}
+					tempSet.add(ro.Id);
+					idToRelOrgIdSetMap.put(ro.Litigation__c, tempSet);
+				} 
+			}
+		}
 	}
 }
