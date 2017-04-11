@@ -49,7 +49,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -131,7 +131,6 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
@@ -219,43 +218,6 @@
         <type>Lookup</type>
     </fields>
     <label>Staffing Assignment</label>
-    <listViews>
-        <fullName>All</fullName>
-        <columns>NAME</columns>
-        <columns>ADCVD_Order__c</columns>
-        <columns>Title__c</columns>
-        <columns>User__c</columns>
-        <filterScope>Everything</filterScope>
-        <label>All</label>
-    </listViews>
-    <listViews>
-        <fullName>Order_Account_Staffing</fullName>
-        <booleanFilter>2 AND 4 AND  (3 OR 1)</booleanFilter>
-        <columns>NAME</columns>
-        <columns>ADCVD_Order__c</columns>
-        <columns>Related_Organization__c</columns>
-        <columns>Title__c</columns>
-        <columns>User__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>ADCVD_Order__c</field>
-            <operation>notEqual</operation>
-        </filters>
-        <filters>
-            <field>Title__c</field>
-            <operation>equals</operation>
-            <value>Accounting Director,Accounting PM</value>
-        </filters>
-        <filters>
-            <field>Related_Organization__c</field>
-            <operation>notEqual</operation>
-        </filters>
-        <filters>
-            <field>User__c</field>
-            <operation>equals</operation>
-        </filters>
-        <label>Order-Account Staffing</label>
-    </listViews>
     <nameField>
         <displayFormat>SA-{000000}</displayFormat>
         <label>Staffing Assignment Name</label>
@@ -271,9 +233,6 @@
         <lookupDialogsAdditionalFields>ADCVD_Order__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Segment__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Related_Organization__c</lookupDialogsAdditionalFields>
-        <lookupFilterFields>Title__c</lookupFilterFields>
-        <lookupFilterFields>User__c</lookupFilterFields>
-        <lookupFilterFields>Related_Organization__c</lookupFilterFields>
         <searchFilterFields>Title__c</searchFilterFields>
         <searchFilterFields>User__c</searchFilterFields>
         <searchFilterFields>Related_Organization__c</searchFilterFields>
