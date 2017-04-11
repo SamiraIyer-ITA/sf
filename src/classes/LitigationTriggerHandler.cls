@@ -1,4 +1,4 @@
-public without sharing class LitigationTriggerHandler {
+\public without sharing class LitigationTriggerHandler {
 
     //FINAL Litigation Record Types
     private static FINAL String INT_LITIGATION = litigationCalcOffsets().get('Int_Lit_Calc_Initiation_Sig').Record_Type_Name__c;
@@ -13,8 +13,9 @@ public without sharing class LitigationTriggerHandler {
     //FINAL Litigation Remand Offsets
     private static FINAL Integer RE_CALC_DRAFT_REMAND_RELEASE = ((Integer)litigationCalcOffsets().get('Remand_Calc_Draft_Remand_Release').Number_Value__c);//Calculated_Preliminary_Signature__c  
     private static FINAL Integer RE_CALC_AMEND_FINAL_SIG = ((Integer)litigationCalcOffsets().get('Remand_Calc_Amended_Final_Sig').Number_Value__c);//Calculated_Amended_Final_Signature__c
+    private static FINAL Integer RE_PRELIM_TEAM_MEET = ((Integer)litigationCalcOffsets().get('Remand_Prelim_Team_Meeting_Deadine').Number_Value__c); //Prelim Team Meeting Deadline__c
 
-	public static boolean preventRecursion = false;
+    public static boolean preventRecursion = false;
     public static void mainEntry(List<Litigation__c> newList, List<Litigation__c> oldList, Map<Id, Litigation__c> newMap, 
         Map<Id, Litigation__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete, 
         Boolean isBefore, Boolean isAfter) {
@@ -60,6 +61,16 @@ public without sharing class LitigationTriggerHandler {
             returnMap.put(lc.QualifiedAPIName, lc);
         }
         return returnMap;
+    }
+
+    //sets Prelim_Team_Meeting_Deadline__c, requires Calculated_Preliminary_Signature__c to be set
+    @TestVisible private static void setPrelimTeamMeetingDeadline(Litigation__c l){
+        if(recordTypeNameMap.get(l.recordTypeId) == REMAND){
+            if (l.Calculated_Final_Signature__c != null){
+                l.Prelim_Team_Meeting_Deadline__c = l.Calculated_Final_Signature__c.addDays(RE_PRELIM_TEAM_MEET);
+                l.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(l.Calculated_Final_Signature__c, l.Prelim_Team_Meeting_Deadline__c, true);
+            }
+        }
     }
 
     //sets Calculated_Initiation_Signature__c, requires Request_Filed__c to be set

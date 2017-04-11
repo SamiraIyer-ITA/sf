@@ -465,5 +465,7 @@
     <tab>Litigation__c</tab>
     <tab>standard-report</tab>
     <tab>standard-Dashboard</tab>
+    <tab>Staffing_Assignment__c</tab>
+    <tab>Recusal__c</tab>
     <uiType>Lightning</uiType>
 </CustomApplication>

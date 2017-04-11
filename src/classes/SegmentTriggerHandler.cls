@@ -382,10 +382,11 @@ public without sharing class SegmentTriggerHandler {
             if(ccrCalcFinal != null) {
                 if (s.Actual_Initiation_Signature__c == null && s.Calculated_Initiation_Signature__c != null){
                     s.Calculated_Final_Signature__c = s.Calculated_Initiation_Signature__c.addDays(ccrCalcFinal).addDays(extension);
-                s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Initiation_Signature__c, s.Calculated_Final_Signature__c, true);  
+                    s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Initiation_Signature__c, s.Calculated_Final_Signature__c, true);
                 } else if (s.Actual_Initiation_Signature__c != null) {
                     s.Calculated_Final_Signature__c = s.Actual_Initiation_Signature__c.addDays(ccrCalcFinal).addDays(extension);
-                s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Initiation_Signature__c, s.Calculated_Final_Signature__c, true);                        
+                    s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Initiation_Signature__c, s.Calculated_Final_Signature__c, true);                    
+                }
             }
             }
         } else if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW){    

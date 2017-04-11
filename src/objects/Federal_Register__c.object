@@ -53,6 +53,18 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
+        <fullName>ADCVD_Order__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>ADCVD Order</label>
+        <referenceTo>ADCVD_Order__c</referenceTo>
+        <relationshipLabel>Federal Registers</relationshipLabel>
+        <relationshipName>Federal_Register</relationshipName>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Cite_Number__c</fullName>
         <externalId>false</externalId>
         <label>Cite Number</label>
@@ -172,7 +184,7 @@
         <fullName>Type__c</fullName>
         <externalId>false</externalId>
         <label>Type</label>
-        <required>false</required>
+        <required>true</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
