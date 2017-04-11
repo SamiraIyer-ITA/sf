@@ -108,7 +108,7 @@
                 <field>Calculated_ITC_Prelim_Determination__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Signature_of_Prelim_Postponement_FR__c</field>
             </layoutItems>
             <layoutItems>
@@ -372,11 +372,7 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Related_Organization__c.Investigation__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Staffing_Assignment__c.Investigation__c</relatedList>
+        <relatedList>Respondent__c.Investigation__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -421,6 +417,10 @@
         <fields>CORE.USERS.FULL_NAME</fields>
         <fields>TASK.LAST_UPDATE</fields>
         <relatedList>RelatedHistoryList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Related_Issue__c.Investigation__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

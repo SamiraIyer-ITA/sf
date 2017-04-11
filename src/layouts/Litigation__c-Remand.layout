@@ -69,6 +69,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Calculated_Preliminary_Signature__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Actual_Draft_Remand_released_to_party__c</field>
             </layoutItems>
         </layoutColumns>
@@ -172,7 +176,7 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Related_Organization__c.Litigation__c</relatedList>
+        <relatedList>Litigation_Respondent__c.Litigation__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -181,6 +185,10 @@
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>Issue__c.Issue__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Related_Issue__c.Litigation__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

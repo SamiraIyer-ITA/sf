@@ -152,15 +152,18 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <relatedList>Related_Organization__c.Petition__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Staffing_Assignment__c.Petition__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
+        <fields>Type__c</fields>
+        <fields>Concurrence_to_DAS__c</fields>
+        <fields>Issues_to_DAS__c</fields>
         <relatedList>Issue__c.Petition__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Federal_Register__c.Petition__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Investigation__c.Petition__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -176,6 +179,10 @@
         <fields>CORE.USERS.FULL_NAME</fields>
         <fields>TASK.LAST_UPDATE</fields>
         <relatedList>RelatedHistoryList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Related_Issue__c.Petition__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
