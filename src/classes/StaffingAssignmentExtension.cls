@@ -551,4 +551,4 @@ public without sharing class StaffingAssignmentExtension {
 			}
 		}
 	}
-}
+}	
