@@ -198,6 +198,7 @@ public without sharing class SegmentTriggerHandler {
     //sets Calculated_Initiation_Signature__c
     @TestVisible private static void setCalculatedInitationSignature(Segment__c s){
         Integer extension = s.Initiation_Extension_of_days__c == null ? 0 : (Integer)s.Initiation_Extension_of_days__c;
+        System.debug(recordTypeNameMap.get(s.RecordTypeId));
         if (recordTypeNameMap.get(s.RecordTypeId) == ANTI_CIRCUMVENTION_REVIEW){
             if(s.Application_Accepted__c != null){
                 s.Calculated_Initiation_Signature__c = s.Application_Accepted__c.addDays(ACR_CALC_INIT_SIG).addDays(extension);
@@ -208,7 +209,7 @@ public without sharing class SegmentTriggerHandler {
                 s.Calculated_Initiation_Signature__c = s.Request_Filed__c.addDays(CCR_CALC_INIT_SIG).addDays(extension);
                 s.Calculated_Initiation_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Request_Filed__c, s.Calculated_Initiation_Signature__c, true);
             }
-        }  
+        }
     }
 
     //sets Calculated_Preliminary_Signature__c
@@ -253,20 +254,15 @@ public without sharing class SegmentTriggerHandler {
                 s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Initiation_Signature__c, s.Calculated_Preliminary_Signature__c, true);
             }
         } else if(recordTypeNameMap.get(s.RecordTypeId) == CHANGED_CIRCUMSTANCES_REVIEW){
-             Integer ccrCalcFinal = (s.Is_this_review_expedited__c != null && s.All_parties_in_agreement_to_the_outcome__c != null
-                                   && s.Is_this_review_expedited__c == 'No' && s.All_parties_in_agreement_to_the_outcome__c == 'No') ?
-                                   CCR_CALC_FINAL_SIG_TWOSEVENTY : CCR_CALC_FINAL_SIG_FORTYFIVE;
-           if(ccrCalcFinal != null) {
-               if (s.Actual_Initiation_Signature__c == null && s.Calculated_Initiation_Signature__c != null){
-                   s.Calculated_Final_Signature__c = s.Calculated_Initiation_Signature__c.addDays(ccrCalcFinal).addDays(extension);
-                   s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Initiation_Signature__c, s.Calculated_Final_Signature__c, true);
-               } else if (s.Actual_Initiation_Signature__c != null) {
-                   s.Calculated_Final_Signature__c = s.Actual_Initiation_Signature__c.addDays(ccrCalcFinal).addDays(extension);
-                   s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Initiation_Signature__c, s.Calculated_Final_Signature__c, true);                    
-               }
-           }
+            if(s.All_parties_in_agreement_to_the_outcome__c == 'No' && s.Actual_Initiation_Signature__c == null && s.Calculated_Initiation_Signature__c != null){
+                s.Calculated_Preliminary_Signature__c = s.Calculated_Initiation_Signature__c.addDays(CCR_CALC_PRELIM_SIG).addDays(extension);
+                s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Initiation_Signature__c, s.Calculated_Preliminary_Signature__c, true);  
+            } else if (s.All_parties_in_agreement_to_the_outcome__c =='No' &&s.Actual_Initiation_Signature__c != null){
+                s.Calculated_Preliminary_Signature__c = s.Actual_Initiation_Signature__c.addDays(CCR_CALC_PRELIM_SIG).addDays(extension);
+                s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Initiation_Signature__c, s.Calculated_Preliminary_Signature__c, true);                 
+            }
+        }       
     }
-}
 
     //sets Prelim_Team_Meeting_Deadline__c, requires Calculated_Preliminary_Signature__c to be set
     @TestVisible private static void setPrelimTeamMeetingDeadline(Segment__c s){
@@ -310,13 +306,13 @@ public without sharing class SegmentTriggerHandler {
     }
 
     //sets Notify_ITC_if_Affirm_Prelim_is_Determine__c
-    @TestVisible private static void setNotifyItcIfAffirmPrelimIsDetermine(Segment__c s){
+    @TestVisible private static void setNotifyItcIfAffirmPrelimIsDetermine(Segment__c s) {
         Date prelimPublished = null;
-        if(s.Id != null && frUtilMap != null) {
+        if (s.Id != null && frUtilMap != null) {
             prelimPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).preliminaryPublishedDate : null;
         }
-        if (recordTypeNameMap.get(s.RecordTypeId) == ANTI_CIRCUMVENTION_REVIEW){
-            if (prelimPublished == null && s.Calculated_Preliminary_Signature__c != null){
+        if (recordTypeNameMap.get(s.RecordTypeId) == ANTI_CIRCUMVENTION_REVIEW) {
+            if (prelimPublished == null && s.Calculated_Preliminary_Signature__c != null) {
                 s.Notify_ITC_If_Affirmative_Prelim_Determ__c = s.Calculated_Preliminary_Signature__c.addDays(ACR_NOTIFY_ITC_TWO).addDays(ACR_NOTIFY_ITC_FIVE);
                 s.Notify_ITC_If_Affirmative_Prelim_Determ__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Preliminary_Signature__c, s.Notify_ITC_If_Affirmative_Prelim_Determ__c, true);
             } else if (prelimPublished != null) {
@@ -327,7 +323,7 @@ public without sharing class SegmentTriggerHandler {
     }
 
     //sets Calculated_Final_Signature__c, requires Calculated_Preliminary_Signature__c to be set
-    @TestVisible private static void setCalculatedFinalSignature(Segment__c s){
+    @TestVisible private static void setCalculatedFinalSignature(Segment__c s) {
         Date prelimPublished = null;
         Date initPublished = null;
         if(s.Id != null && frUtilMap != null) {
@@ -387,7 +383,6 @@ public without sharing class SegmentTriggerHandler {
                     s.Calculated_Final_Signature__c = s.Actual_Initiation_Signature__c.addDays(ccrCalcFinal).addDays(extension);
                     s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Initiation_Signature__c, s.Calculated_Final_Signature__c, true);                    
                 }
-            }
             }
         } else if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW){    
             Integer prelimExtension = s.Prelim_Extension__c == null ? 0 : (Integer)s.Prelim_Extension__c;
