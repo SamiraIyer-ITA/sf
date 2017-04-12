@@ -81,7 +81,8 @@ public without sharing class InvestigationTriggerHandler {
     private static void setRecordType(List<Investigation__c> newList) {
         for(Investigation__c i: newList) {
             if(petitionsInScopeMap.get(i.Petition__c) != null) {
-                String petitionType = petitionsInScopeMap.get(i.Petition__c).Case_Type__c;    
+                String petitionType = petitionsInScopeMap.get(i.Petition__c).Case_Type__c;
+		if(string.isBlank(petitionType)){return;}
                 if(petitionType.contains('CVD')) {
                     i.RecordTypeId = MetadataHelper.getRecordTypeIdByName(INVESTIGATION, 'CVD');
                 } else if(petitionType.contains('AD')) {
