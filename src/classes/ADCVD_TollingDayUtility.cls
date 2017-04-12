@@ -34,6 +34,25 @@ public without sharing class ADCVD_TollingDayUtility {
 			return holidaySet;
 		}
 	}
+
+	/**
+	 * Method used to determine Due to DAS deadline, counting only business days prior to a deadline
+	 * @param  startDate    Date that is passed in and used to calculate the deadline
+	 * @param  businessDays Integer that is passed in and used for the calculation
+	 * @return              The Due to DAS date that is <businessDays> before startDate
+	 */
+	public static Date getDasDate(Date startDate, Integer businessDays) {
+		Integer bizDayCounter = 0;
+		Date deadline = startDate;
+		while (bizDayCounter < businessDays) {
+			deadline = deadline.addDays(-1);
+			if (isWorkingDay(deadline)) {
+				bizDayCounter++;
+			}
+		}
+		return deadline;
+	}
+
 	/* Method used to determine the new value of the deadline tolling day, holiday and weekends accounted for
 	*  Input Params: 	startDate:  	should be passed in to determine how many of the days are in scope 
 	*					deadline: 	 	this is the current deadline (without tolling days in scope)
@@ -76,6 +95,7 @@ public without sharing class ADCVD_TollingDayUtility {
 		}
 		return deadline;
 	}
+
 	public static Boolean isWorkingDay(Date dt) {
 		return isWeekday(dt) && !isHoliday(dt) && !isTollingDay(dt);
 	}
