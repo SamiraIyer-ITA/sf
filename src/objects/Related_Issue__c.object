@@ -51,75 +51,76 @@
     <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ReadWrite</externalSharingModel>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
-        <fullName>Concurrence_to_DAS__c</fullName>
+        <fullName>Investigation__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Concurrence to DAS</label>
+        <label>Investigation</label>
+        <referenceTo>Investigation__c</referenceTo>
+        <relationshipLabel>Related Issues</relationshipLabel>
+        <relationshipName>Related_Issues</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>Date</type>
+        <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Issues_to_DAS__c</fullName>
+        <fullName>Issue__c</fullName>
         <externalId>false</externalId>
-        <label>Issues to DAS</label>
-        <required>false</required>
+        <label>Issue</label>
+        <referenceTo>Issue__c</referenceTo>
+        <relationshipLabel>Related Issues</relationshipLabel>
+        <relationshipName>Related_Issues</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackTrending>false</trackTrending>
-        <type>Date</type>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
-        <fullName>Type__c</fullName>
+        <fullName>Litigation__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Type</label>
+        <label>Litigation</label>
+        <referenceTo>Litigation__c</referenceTo>
+        <relationshipLabel>Related Issues</relationshipLabel>
+        <relationshipName>Related_Issues</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Initiation</fullName>
-                    <default>false</default>
-                    <label>Initiation</label>
-                </value>
-                <value>
-                    <fullName>Preliminary</fullName>
-                    <default>false</default>
-                    <label>Preliminary</label>
-                </value>
-                <value>
-                    <fullName>Amended Preliminary</fullName>
-                    <default>false</default>
-                    <label>Amended Preliminary</label>
-                </value>
-                <value>
-                    <fullName>Final</fullName>
-                    <default>false</default>
-                    <label>Final</label>
-                </value>
-                <value>
-                    <fullName>Amended Final</fullName>
-                    <default>false</default>
-                    <label>Amended Final</label>
-                </value>
-                <value>
-                    <fullName>Deadline for Decision on how to proceed</fullName>
-                    <default>false</default>
-                    <label>Deadline for Decision on how to proceed</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
+        <type>Lookup</type>
     </fields>
-    <label>DAS</label>
+    <fields>
+        <fullName>Petition__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Petition</label>
+        <referenceTo>Petition__c</referenceTo>
+        <relationshipLabel>Related Issues</relationshipLabel>
+        <relationshipName>Related_Issues</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Segment__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Segment</label>
+        <referenceTo>Segment__c</referenceTo>
+        <relationshipLabel>Related Issues</relationshipLabel>
+        <relationshipName>Related_Issues</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Related Issue</label>
     <nameField>
-        <displayFormat>A-{0000}</displayFormat>
-        <label>DAS ID</label>
+        <displayFormat>RI-{0000}</displayFormat>
+        <label>Related Issue Name</label>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>DAS</pluralLabel>
+    <pluralLabel>Related Issues</pluralLabel>
     <searchLayouts/>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

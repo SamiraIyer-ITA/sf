@@ -35,8 +35,8 @@
         <name>CustomMetadata</name>
     </types>
     <types>
-        <members>ADCVD_Order__c</members>
         <members>ADCVD_Objects__mdt</members>
+        <members>ADCVD_Order__c</members>
         <members>Artifact__c</members>
         <members>BatchJobScheduler__c</members>
         <members>BatchTriggerFlag__c</members>
@@ -94,6 +94,7 @@
         <members>Refund__c</members>
         <members>RelatedCountries__c</members>
         <members>Related_Cases_and_Orgs__c</members>
+        <members>Related_Issue__c</members>
         <members>Related_Organization__c</members>
         <members>Renewing_Product__c</members>
         <members>Respondent__c</members>
