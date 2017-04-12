@@ -1,11 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-	<types>
-        <members>AD_CVD_Lightning1</members>
-        <name>CustomApplication</name>
-    </types>
-	<types>
-		<members>DAS__c</members>
-		<name>CustomObject</name>
-	</types>
+
 </Package>
