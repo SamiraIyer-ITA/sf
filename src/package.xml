@@ -23,7 +23,6 @@
     <types>
         <members>AD_CVD</members>
         <members>AD_CVD_Lightning</members>
-        <members>AD_CVD_Lightning1</members>
         <name>CustomApplication</name>
     </types>
     <types>
