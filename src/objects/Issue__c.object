@@ -115,19 +115,6 @@
         <visibleLines>25</visibleLines>
     </fields>
     <fields>
-        <fullName>Issue__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Issue</label>
-        <referenceTo>Litigation__c</referenceTo>
-        <relationshipLabel>Issues</relationshipLabel>
-        <relationshipName>Issues</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Issues_to_DAS__c</fullName>
         <externalId>false</externalId>
         <label>Issues to DAS</label>
@@ -165,6 +152,19 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Litigation__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Litigation</label>
+        <referenceTo>Litigation__c</referenceTo>
+        <relationshipLabel>Litigations</relationshipLabel>
+        <relationshipName>Litigations</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Ops_Status__c</fullName>
