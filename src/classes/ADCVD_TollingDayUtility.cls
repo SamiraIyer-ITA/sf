@@ -36,12 +36,12 @@ public without sharing class ADCVD_TollingDayUtility {
 	}
 
 	/**
-	 * Method used to determine Due to DAS deadline, counting only business days prior to a deadline
+	 * Method used to determine deadlines that are set X number of days before, counting only business days prior to a deadline
 	 * @param  startDate    Date that is passed in and used to calculate the deadline
-	 * @param  businessDays Integer that is passed in and used for the calculation
-	 * @return              The Due to DAS date that is <businessDays> before startDate
+	 * @param  businessDays A positive integer that is passed in and used for the calculation
+	 * @return              The deadline that is <businessDays> before startDate
 	 */
-	public static Date getDasDate(Date startDate, Integer businessDays) {
+	public static Date countBackBusinessDays(Date startDate, Integer businessDays) {
 		Integer bizDayCounter = 0;
 		Date deadline = startDate;
 		while (bizDayCounter < businessDays) {

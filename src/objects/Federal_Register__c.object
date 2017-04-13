@@ -60,7 +60,7 @@
         <referenceTo>ADCVD_Order__c</referenceTo>
         <relationshipLabel>Federal Registers</relationshipLabel>
         <relationshipName>Federal_Register</relationshipName>
-        <required>true</required>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -301,5 +301,12 @@
     <pluralLabel>Federal Registers</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Ensure_there_is_a_parent</fullName>
+        <active>true</active>
+        <description>This validation rule makes sure you cannot create a federal register without a Investigation, Petition or Segment attached to it. If all three of these lookup fields are empty, the validation error message will trigger.</description>
+        <errorConditionFormula>AND( ISBLANK( Investigation__c ) , ISBLANK( Segment__c ) , ISBLANK( Petition__c ))</errorConditionFormula>
+        <errorMessage>You must have a Petition, Investigation, or Segment associated to this Federal Register.</errorMessage>
+    </validationRules>
     <visibility>Public</visibility>
 </CustomObject>
