@@ -83,6 +83,15 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Concurrence_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Concurrence to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Investigation__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -117,6 +126,15 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Issues_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Issues to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Legal_Status__c</fullName>
@@ -265,6 +283,18 @@
                     <fullName>Amended Final</fullName>
                     <default>false</default>
                     <label>Amended Final</label>
+                </value>
+                <value>
+                    <fullName>Deadline for Decision on how to proceed</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Deadline for Decision on how to proceed</label>
+                </value>
+                <value>
+                    <fullName>Initiation</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Initiation</label>
                 </value>
             </valueSetDefinition>
         </valueSet>

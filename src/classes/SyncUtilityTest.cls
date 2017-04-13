@@ -115,6 +115,7 @@ public class SyncUtilityTest {
 	@testSetup static void dataSetup() {
 		Test.startTest();
 		User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
+//TODO: update for AD petition to AD Investigation and CVD Petition to CVD Investigation...see InvestigationTriggerHandler
 		Petition__c testPetition = TestUtils.createPetition(petitionDate, 'AD ME', false);
 		testPetition.Commodity__c = 'Foodstuffs';
 		insert testPetition;

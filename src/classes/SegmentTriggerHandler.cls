@@ -1,24 +1,24 @@
 public without sharing class SegmentTriggerHandler {
 	
-    private static Map<String,Segment_Constant__mdt> segmentCalcOffsets = segmentCalcOffsets();
+    private static Map<String,Constant__mdt> segmentCalcOffsets = segmentCalcOffsets();
 	//FINAL Segment Record Types
-	private static FINAL String ADMIN_REVIEW = segmentCalcOffsets.get('Admin_Review_Calc_Prelim_Sig').Record_Type_Name__c;
-	private static FINAL String ANTI_CIRCUMVENTION_REVIEW = segmentCalcOffsets.get('Anti_Circ_Calc_Prelim_Sig').Record_Type_Name__c;
-	private static FINAL String CHANGED_CIRCUMSTANCES_REVIEW = segmentCalcOffsets.get('Changed_Circ_Calc_Prelim_Sig').Record_Type_Name__c;
-	private static FINAL String EXPEDITED_REVIEW = segmentCalcOffsets.get('Exped_Review_Calc_Prelim_Sig').Record_Type_Name__c;
-	private static FINAL String NEW_SHIPPER_REVIEW = segmentCalcOffsets.get('New_Shipper_Calc_Prelim_Sig').Record_Type_Name__c;
-	private static FINAL String SCOPE_INQUIRY = segmentCalcOffsets.get('Scope_Inq_Calc_Prelim_Sig').Record_Type_Name__c;
-	private static FINAL String SUNSET_REVIEW = segmentCalcOffsets.get('SS_Rev_Notice_Intent_Participate').Record_Type_Name__c;
+	private static FINAL String ADMIN_REVIEW = segmentCalcOffsets.get('Admin_Review_Calc_Prelim_Sig').ADCVD_Objects__r.Record_Type_Name__c;
+	private static FINAL String ANTI_CIRCUMVENTION_REVIEW = segmentCalcOffsets.get('Anti_Circ_Calc_Prelim_Sig').ADCVD_Objects__r.Record_Type_Name__c;
+	private static FINAL String CHANGED_CIRCUMSTANCES_REVIEW = segmentCalcOffsets.get('Changed_Circ_Calc_Prelim_Sig').ADCVD_Objects__r.Record_Type_Name__c;
+	private static FINAL String EXPEDITED_REVIEW = segmentCalcOffsets.get('Exped_Review_Calc_Prelim_Sig').ADCVD_Objects__r.Record_Type_Name__c;
+	private static FINAL String NEW_SHIPPER_REVIEW = segmentCalcOffsets.get('New_Shipper_Calc_Prelim_Sig').ADCVD_Objects__r.Record_Type_Name__c;
+	private static FINAL String SCOPE_INQUIRY = segmentCalcOffsets.get('Scope_Inq_Calc_Prelim_Sig').ADCVD_Objects__r.Record_Type_Name__c;
+	private static FINAL String SUNSET_REVIEW = segmentCalcOffsets.get('SS_Rev_Notice_Intent_Participate').ADCVD_Objects__r.Record_Type_Name__c;
 
 	//FINAL Segment Administrative Review Offsets
-	private static FINAL Integer AR_CALC_PRELIM_SIG = ((Integer)segmentCalcOffsets.get('Admin_Review_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature __c	
+	private static FINAL Integer AR_CALC_PRELIM_SIG = ((Integer)segmentCalcOffsets.get('Admin_Review_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature__c	
 	private static FINAL Integer AR_PRELIM_TEAM_MEET_DEADLINE = ((Integer)segmentCalcOffsets.get('Admin_Review_Prelim_Team_Meet_Deadline').Number_Value__c);//Prelim_Team_Meeting_Deadline__c	
 	private static FINAL Integer AR_CALC_FINAL_SIG = ((Integer)segmentCalcOffsets.get('Admin_Review_Calc_Final_Sig').Number_Value__c);//Calculated_Final_Signature__c
 	private static FINAL Integer AR_FINAL_TEAM_MEET_DEADLINE = ((Integer)segmentCalcOffsets.get('Admin_Review_Final_Team_Meet_Deadline').Number_Value__c);//Final_Team_Meeting_Deadline__c
 	private static FINAL Integer AR_CALC_AMEN_FINAL_SIG = ((Integer)segmentCalcOffsets.get('Admin_Review_Calc_Amen_Final_Sig').Number_Value__c);//Calculated_Amended_Final_Signature__c
 
     //FINAL Segment Expedited Review Offsets
-    private static FINAL Integer ER_CALC_PRELIM_SIG = ((Integer)segmentCalcOffsets.get('Exped_Review_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature __c    
+    private static FINAL Integer ER_CALC_PRELIM_SIG = ((Integer)segmentCalcOffsets.get('Exped_Review_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature__c   
     private static FINAL Integer ER_PRELIM_TEAM_MEET_DEADLINE = ((Integer)segmentCalcOffsets.get('Exped_Review_Prelim_Team_Meet_Deadline').Number_Value__c);//Prelim_Team_Meeting_Deadline__c 
     private static FINAL Integer ER_CALC_FINAL_SIG = ((Integer)segmentCalcOffsets.get('Exped_Review_Calc_Final_Sig').Number_Value__c);//Calculated_Final_Signature__c
     private static FINAL Integer ER_FINAL_TEAM_MEET_DEADLINE = ((Integer)segmentCalcOffsets.get('Exped_Review_Final_Team_Meet_Deadline').Number_Value__c);//Final_Team_Meeting_Deadline__c
@@ -41,18 +41,18 @@ public without sharing class SegmentTriggerHandler {
     //FINAL Segment Anti-Circumvention Review Offsets
     private static FINAL Integer ACR_PRELIM_TEAM_MEET_DEADLINE = ((Integer)segmentCalcOffsets.get('Anti_Circ_Prelim_Team_Meet_Deadline').Number_Value__c);//Prelim_Team_Meeting_Deadline__c
     private static FINAL Integer ACR_CALC_FINAL_SIG = ((Integer)segmentCalcOffsets.get('Anti_Circ_Calc_Final_Sig').Number_Value__c);//Calculated_Final_Signature__c
-    private static FINAL Integer ACR_CALC_INIT_SIG = ((Integer)segmentCalcOffsets.get('Anti_Circ_Init_Signature').Number_Value__c);//Calculated_Initiation_Signature__c
+    private static FINAL Integer ACR_CALC_INIT_SIG = ((Integer)segmentCalcOffsets.get('Anti_Circ_Initiation_Signature').Number_Value__c);//Calculated_Initiation_Signature__c
     private static FINAL Integer ACR_FINAL_TEAM_MEET_DEADLINE = ((Integer)segmentCalcOffsets.get('Anti_Circ_Final_Team_Meet_Deadline').Number_Value__c);//Final_Team_Meeting_Deadline__c
     private static FINAL Integer ACR_CALC_PRELIM_SIG = ((Integer)segmentCalcOffsets.get('Anti_Circ_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature__c  
-    private static FINAL Integer ACR_NOTIFY_ITC_FIVE = ((Integer)segmentCalcOffsets.get('Anti_Circ_Notify_ITC_Five').Number_Value__c);//Notify_ITC_If_Affirmative_Prelim_Determ__c
-    private static FINAL Integer ACR_NOTIFY_ITC_TWO = ((Integer)segmentCalcOffsets.get('Anti_Circ_Notify_ITC_Two').Number_Value__c);//Notify_ITC_If_Affirmative_Prelim_Determ__c
+    private static FINAL Integer ACR_NOTIFY_ITC_NO_PRELIM_FR = ((Integer)segmentCalcOffsets.get('Anti_Circ_Notify_ITC_No_Prelim_FR').Number_Value__c);//Notify_ITC_If_Affirmative_Prelim_Determ__c
+    private static FINAL Integer ACR_NOTIFY_ITC_WITH_PRELIM_FR = ((Integer)segmentCalcOffsets.get('Anti_Circ_Notify_ITC_With_Prelim_FR').Number_Value__c);//Notify_ITC_If_Affirmative_Prelim_Determ__c
     
     //FINAL Segment Changed-Circumstances Review Offsets
     private static FINAL Integer CCR_CALC_INIT_SIG = ((Integer)segmentCalcOffsets.get('Changed_Circ_Calc_Init_Sig').Number_Value__c);//Calculated_Initiation_Signature__c
     private static FINAL Integer CCR_CALC_PRELIM_SIG = ((Integer)segmentCalcOffsets.get('Changed_Circ_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature__c  
     private static FINAL Integer CCR_PRELIM_TEAM_MEET_DEADLINE = ((Integer)segmentCalcOffsets.get('Changed_Circ_Prelim_Team_Meet_Deadline').Number_Value__c);//Prelim_Team_Meeting_Deadline__c
-    private static FINAL Integer CCR_CALC_FINAL_SIG_FORTYFIVE = ((Integer)segmentCalcOffsets.get('Changed_Circ_Calc_Final_Sig_Fortyfive').Number_Value__c);//Calculated_Final_Signature__c for 45 days
-    private static FINAL Integer CCR_CALC_FINAL_SIG_TWOSEVENTY = ((Integer)segmentCalcOffsets.get('Changed_Circ_Calc_Final_Sig_Twoseventy').Number_Value__c);//Calculated_Final_Signature__c for 270 days
+    private static FINAL Integer CCR_CALC_FINAL_SIG_EXPEDITE = ((Integer)segmentCalcOffsets.get('Changed_Circ_Calc_Final_Sig_Expedite').Number_Value__c);//Calculated_Final_Signature__c for 45 days
+    private static FINAL Integer CCR_CALC_FINAL_SIG_NO_EXPEDITE = ((Integer)segmentCalcOffsets.get('Changed_Circ_Calc_Final_Sig_NoExpedite').Number_Value__c);//Calculated_Final_Signature__c for 270 days
     private static FINAL Integer CCR_FINAL_TEAM_MEET_DEADLINE = ((Integer)segmentCalcOffsets.get('Changed_Circ_Final_Team_Meet_Deadline').Number_Value__c);//Final_Team_Meeting_Deadline__c
 
     //FINAL Segment Sunset Review Offsets
@@ -162,12 +162,14 @@ public without sharing class SegmentTriggerHandler {
     }
     //returns a map of <String,Integer> in the form: key = CMT Api name, CMT number value
     //used to set Offset Variables
-    @TestVisible private static Map<String,Segment_Constant__mdt> segmentCalcOffsets() {
+    @TestVisible private static Map<String,Constant__mdt> segmentCalcOffsets() {
         if(segmentCalcOffsets == null || segmentCalcOffsets.size() < 1) {
-            Map<String,Segment_Constant__mdt> returnMap = new Map<String,Segment_Constant__mdt>();
-            List<Segment_Constant__mdt> tempList = [SELECT QualifiedAPIName, Used_with_Field_Named__c, Record_Type_Name__c, Number_Value__c FROM Segment_Constant__mdt 
-                                                            WHERE Segment_Calculation_Offset__c =: true];
-            for(Segment_Constant__mdt sc : tempList) {
+            Map<String,Constant__mdt> returnMap = new Map<String,Constant__mdt>();
+            List<Constant__mdt> tempList = [SELECT QualifiedAPIName, Used_with_Field_Named__c, Number_Value__c, 
+                                                    ADCVD_Objects__r.Object_API_Name__c, ADCVD_Objects__r.Record_Type_Name__c 
+                                            FROM Constant__mdt 
+                                            WHERE Segment_Calculation_Offset__c =: true];
+            for(Constant__mdt sc : tempList) {
                 returnMap.put(sc.QualifiedAPIName, sc);
             }
             return returnMap;
@@ -313,10 +315,10 @@ public without sharing class SegmentTriggerHandler {
         }
         if (recordTypeNameMap.get(s.RecordTypeId) == ANTI_CIRCUMVENTION_REVIEW) {
             if (prelimPublished == null && s.Calculated_Preliminary_Signature__c != null) {
-                s.Notify_ITC_If_Affirmative_Prelim_Determ__c = s.Calculated_Preliminary_Signature__c.addDays(ACR_NOTIFY_ITC_TWO).addDays(ACR_NOTIFY_ITC_FIVE);
+                s.Notify_ITC_If_Affirmative_Prelim_Determ__c = s.Calculated_Preliminary_Signature__c.addDays(ACR_NOTIFY_ITC_NO_PRELIM_FR);
                 s.Notify_ITC_If_Affirmative_Prelim_Determ__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Preliminary_Signature__c, s.Notify_ITC_If_Affirmative_Prelim_Determ__c, true);
             } else if (prelimPublished != null) {
-                s.Notify_ITC_If_Affirmative_Prelim_Determ__c = prelimPublished.addDays(ACR_NOTIFY_ITC_TWO);
+                s.Notify_ITC_If_Affirmative_Prelim_Determ__c = prelimPublished.addDays(ACR_NOTIFY_ITC_WITH_PRELIM_FR);
                 s.Notify_ITC_If_Affirmative_Prelim_Determ__c = ADCVD_TollingDayUtility.getCalculatedDate(prelimPublished, s.Notify_ITC_If_Affirmative_Prelim_Determ__c, true);
             }
         }  
@@ -374,7 +376,7 @@ public without sharing class SegmentTriggerHandler {
         } else if (recordTypeNameMap.get(s.RecordTypeId) == CHANGED_CIRCUMSTANCES_REVIEW){
             Integer ccrCalcFinal = (s.Is_this_review_expedited__c != null && s.All_parties_in_agreement_to_the_outcome__c != null
                                     && s.Is_this_review_expedited__c == 'No' && s.All_parties_in_agreement_to_the_outcome__c == 'No') ? 
-                                    CCR_CALC_FINAL_SIG_TWOSEVENTY : CCR_CALC_FINAL_SIG_FORTYFIVE;
+                                    CCR_CALC_FINAL_SIG_NO_EXPEDITE : CCR_CALC_FINAL_SIG_EXPEDITE;
             if(ccrCalcFinal != null) {
                 if (s.Actual_Initiation_Signature__c == null && s.Calculated_Initiation_Signature__c != null){
                     s.Calculated_Final_Signature__c = s.Calculated_Initiation_Signature__c.addDays(ccrCalcFinal).addDays(extension);
@@ -432,7 +434,7 @@ public without sharing class SegmentTriggerHandler {
             }
         } else if (recordTypeNameMap.get(s.RecordTypeId) == CHANGED_CIRCUMSTANCES_REVIEW){
             if (s.Calculated_Final_Signature__c != null){
-                s.Final_Team_Meeting_Deadline__c = s.Calculated_Final_Signature__c;
+                s.Final_Team_Meeting_Deadline__c = s.Calculated_Final_Signature__c.addDays(CCR_FINAL_TEAM_MEET_DEADLINE);
                 s.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Final_Team_Meeting_Deadline__c, s.Final_Team_Meeting_Deadline__c, true);
             }
         }

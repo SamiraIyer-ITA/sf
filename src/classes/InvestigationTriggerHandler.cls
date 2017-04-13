@@ -1,11 +1,12 @@
 public without sharing class InvestigationTriggerHandler {
 	
-	//FINAL Investigation Record Type Developer Names
-	private static FINAL String ADRECORD = 'AD';
-	private static FINAL String CVDRECORD = 'CVD';
-	private static FINAL String INVESTIGATION = 'Investigation__c';
+    private static Map<String,Constant__mdt> investigationApiToConstants = setInvestigationApiToConstants();
 
-    private static Map<String,Investigation_Constant__mdt> investigationApiToConstants = setInvestigationApiToConstants();
+	//FINAL Investigation Record Type Developer Names
+	private static FINAL String ADRECORD = investigationApiToConstants.get('AD_Calc_Final_Sig').ADCVD_Objects__r.Record_Type_Name__c;
+	private static FINAL String CVDRECORD = investigationApiToConstants.get('CVD_Calc_Final_Sig').ADCVD_Objects__r.Record_Type_Name__c;
+	private static FINAL String INVESTIGATION = investigationApiToConstants.get('AD_Calc_Final_Sig').ADCVD_Objects__r.Object_API_Name__c;
+
 	//FINAL AD Record Type Offsets
     private static FINAL Integer AD_CALC_AMEND_PRELIM_SIGN = ((Integer)investigationApiToConstants.get('AD_Calc_Amend_Prelim_Det_Sig').Number_Value__c);//Calc_Amended_Prelim_Determination_Sig__c
     private static FINAL Integer AD_CALC_PRELIM_SIGN = ((Integer)investigationApiToConstants.get('AD_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature __c
@@ -81,8 +82,7 @@ public without sharing class InvestigationTriggerHandler {
     private static void setRecordType(List<Investigation__c> newList) {
         for(Investigation__c i: newList) {
             if(petitionsInScopeMap.get(i.Petition__c) != null) {
-                String petitionType = petitionsInScopeMap.get(i.Petition__c).Case_Type__c;
-		if(string.isBlank(petitionType)){return;}
+                String petitionType = petitionsInScopeMap.get(i.Petition__c).Case_Type__c;    
                 if(petitionType.contains('CVD')) {
                     i.RecordTypeId = MetadataHelper.getRecordTypeIdByName(INVESTIGATION, 'CVD');
                 } else if(petitionType.contains('AD')) {
@@ -160,12 +160,14 @@ public without sharing class InvestigationTriggerHandler {
     }
     //returns a map of <String,Integer> in the form: key = CMT Api name, CMT number value
     //used to set Offset Variables
-    @TestVisible private static Map<String,Investigation_Constant__mdt> setInvestigationApiToConstants() {
+    @TestVisible private static Map<String,Constant__mdt> setInvestigationApiToConstants() {
         if(investigationApiToConstants == null || investigationApiToConstants.size() < 1) {
-            Map<String,Investigation_Constant__mdt> returnMap = new Map<String,Investigation_Constant__mdt>();
-            List<Investigation_Constant__mdt> tempList = [SELECT QualifiedAPIName, Used_with_Field_Named__c, Record_Type_Name__c, Number_Value__c FROM Investigation_Constant__mdt 
-                                                            WHERE Investigation_Calculation_Offset__c =: true];
-            for(Investigation_Constant__mdt ic : tempList) {
+            Map<String,Constant__mdt> returnMap = new Map<String,Constant__mdt>();
+            List<Constant__mdt> tempList = [SELECT QualifiedAPIName, Used_with_Field_Named__c, Number_Value__c, 
+                                                    ADCVD_Objects__r.Object_API_Name__c, ADCVD_Objects__r.Record_Type_Name__c 
+                                            FROM Constant__mdt 
+                                            WHERE Investigation_Calculation_Offset__c =: true];
+            for(Constant__mdt ic : tempList) {
                 returnMap.put(ic.QualifiedAPIName, ic);
             }
             return returnMap;
