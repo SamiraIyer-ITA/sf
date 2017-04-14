@@ -265,6 +265,11 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
+                    <fullName>Initiation</fullName>
+                    <default>false</default>
+                    <label>Initiation</label>
+                </value>
+                <value>
                     <fullName>Preliminary</fullName>
                     <default>false</default>
                     <label>Preliminary</label>
@@ -287,14 +292,12 @@
                 <value>
                     <fullName>Deadline for Decision on how to proceed</fullName>
                     <default>false</default>
-                    <isActive>false</isActive>
                     <label>Deadline for Decision on how to proceed</label>
                 </value>
                 <value>
-                    <fullName>Initiation</fullName>
+                    <fullName>Continuation or Revocation</fullName>
                     <default>false</default>
-                    <isActive>false</isActive>
-                    <label>Initiation</label>
+                    <label>Continuation or Revocation</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
