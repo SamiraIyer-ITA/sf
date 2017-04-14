@@ -223,9 +223,7 @@ public without sharing class InvestigationTriggerHandler {
 
    //sets Calc_Amended_Prelim_Determination_Sig__c, requires Calculated_Preliminary_Signature__c to be set
     @TestVisible private static void setCalcAmendedPrelimDeterminationSig(Investigation__c i) {
-        if (i.Amend_the_Preliminary_Determination__c == 'No') {
-            i.Calc_Amended_Prelim_Determination_Sig__c = null;
-        } else {
+        if (i.Amend_the_Preliminary_Determination__c == 'Yes') {
         	if(recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
     			if (i.Actual_Preliminary_Signature__c == null && i.Calculated_Preliminary_Signature__c != null) {
     	    		i.Calc_Amended_Prelim_Determination_Sig__c = i.Calculated_Preliminary_Signature__c.addDays(AD_CALC_AMEND_PRELIM_SIGN);
@@ -243,7 +241,9 @@ public without sharing class InvestigationTriggerHandler {
                     i.Calc_Amended_Prelim_Determination_Sig__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Actual_Preliminary_Signature__c, i.Calc_Amended_Prelim_Determination_Sig__c, true);
                 }
     		}
-        }
+        } else {
+            i.Calc_Amended_Prelim_Determination_Sig__c = null;
+        } 
     }
 
     //sets Prelim_Team_Meeting_Deadline__c, requires Calculated_Preliminary_Signature__c to be set
@@ -294,9 +294,7 @@ public without sharing class InvestigationTriggerHandler {
 
     //sets Calculated_Amended_Final_Signature__c
     @TestVisible private static void setCalculatedAmendedFinalSignature(Investigation__c i){
-        if (i.Will_you_Amend_the_Final__c == 'No') {
-            i.Calculated_Amended_Final_Signature__c = null;
-        } else {
+        if (i.Will_you_Amend_the_Final__c == 'Yes') {
             if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
                 if (i.Actual_Final_Signature__c != null) {
                     i.Calculated_Amended_Final_Signature__c = i.Actual_Final_Signature__c.addDays(AD_CALC_AMENDED_FINAL_SIGNATURE);
@@ -314,7 +312,10 @@ public without sharing class InvestigationTriggerHandler {
                     i.Calculated_Amended_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Calculated_Final_Signature__c, i.Calculated_Amended_Final_Signature__c, true);
                 }
             }
+        } else {
+            i.Calculated_Amended_Final_Signature__c = null;
         }
+            
     }
 
     //sets Final_Team_Meeting_Deadline__c, requires Calculated_Final_Signature__c to be set

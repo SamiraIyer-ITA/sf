@@ -13,34 +13,9 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>Petition__c</fullName>
-                    <default>true</default>
-                    <label>Petition__c</label>
-                </value>
-                <value>
-                    <fullName>Investigation__c</fullName>
-                    <default>false</default>
-                    <label>Investigation__c</label>
-                </value>
-                <value>
                     <fullName>ADCVD_Order__c</fullName>
                     <default>false</default>
                     <label>ADCVD_Order__c</label>
-                </value>
-                <value>
-                    <fullName>Segment__c</fullName>
-                    <default>false</default>
-                    <label>Segment__c</label>
-                </value>
-                <value>
-                    <fullName>Litigation__c</fullName>
-                    <default>false</default>
-                    <label>Litigation__c</label>
-                </value>
-                <value>
-                    <fullName>Related_Organization__c</fullName>
-                    <default>false</default>
-                    <label>Related_Organization__c</label>
                 </value>
                 <value>
                     <fullName>Federal_Register__c</fullName>
@@ -48,9 +23,39 @@
                     <label>Federal_Register__c</label>
                 </value>
                 <value>
+                    <fullName>Investigation__c</fullName>
+                    <default>false</default>
+                    <label>Investigation__c</label>
+                </value>
+                <value>
+                    <fullName>Issue__c</fullName>
+                    <default>false</default>
+                    <label>Issue__c</label>
+                </value>
+                <value>
+                    <fullName>Litigation__c</fullName>
+                    <default>false</default>
+                    <label>Litigation__c</label>
+                </value>
+                <value>
+                    <fullName>Petition__c</fullName>
+                    <default>false</default>
+                    <label>Petition__c</label>
+                </value>
+                <value>
                     <fullName>Recusal__c</fullName>
                     <default>false</default>
                     <label>Recusal__c</label>
+                </value>
+                <value>
+                    <fullName>Related_Organization__c</fullName>
+                    <default>false</default>
+                    <label>Related_Organization__c</label>
+                </value>
+                <value>
+                    <fullName>Segment__c</fullName>
+                    <default>false</default>
+                    <label>Segment__c</label>
                 </value>
                 <value>
                     <fullName>Staffing_Assignment__c</fullName>
@@ -73,7 +78,7 @@
                 <sorted>false</sorted>
                 <value>
                     <fullName>AD</fullName>
-                    <default>true</default>
+                    <default>false</default>
                     <label>AD</label>
                 </value>
                 <value>
@@ -171,9 +176,19 @@
                     <label>Continuation</label>
                 </value>
                 <value>
+                    <fullName>Continuation or Revocation</fullName>
+                    <default>false</default>
+                    <label>Continuation or Revocation</label>
+                </value>
+                <value>
                     <fullName>Correction</fullName>
                     <default>false</default>
                     <label>Correction</label>
+                </value>
+                <value>
+                    <fullName>Deadline for Decision on how to proceed</fullName>
+                    <default>false</default>
+                    <label>Deadline for Decision on how to proceed</label>
                 </value>
                 <value>
                     <fullName>Final</fullName>

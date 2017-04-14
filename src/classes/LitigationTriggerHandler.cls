@@ -1,13 +1,14 @@
 public without sharing class LitigationTriggerHandler {
 
+    private static Map<String,Constant__mdt> litigationCalcOffsets = litigationCalcOffsets();
     //FINAL Litigation Record Types
-    private static FINAL String INT_LITIGATION = litigationCalcOffsets().get('Int_Lit_Calc_Initiation_Sig').Record_Type_Name__c;
-    private static FINAL String REMAND = litigationCalcOffsets().get('Remand_Calc_Draft_Remand_Release').Record_Type_Name__c;
+    private static FINAL String INT_LITIGATION = litigationCalcOffsets.get('Int_Lit_Calc_Initiation_Sig').ADCVD_Objects__r.Record_Type_Name__c;
+    private static FINAL String REMAND = litigationCalcOffsets.get('Remand_Calc_Draft_Remand_Release').ADCVD_Objects__r.Record_Type_Name__c;
 
     //FINAL Litigation International Litigation Offsets
-    private static FINAL Integer IL_CALC_INIT_SIGN = ((Integer)litigationCalcOffsets().get('Int_Lit_Calc_Initiation_Sig').Number_Value__c);//Calculated_Initiation_Signature__c    
-    private static FINAL Integer IL_CALC_PRELIM_SIG = ((Integer)litigationCalcOffsets().get('Int_Lit_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature__c
-    private static FINAL Integer IL_CALC_FINAL_SIG = ((Integer)litigationCalcOffsets().get('Int_Lit_Calc_Final_Sig').Number_Value__c);//Calculated_Final_Signature__c
+    private static FINAL Integer IL_CALC_INIT_SIGN = ((Integer)litigationCalcOffsets.get('Int_Lit_Calc_Initiation_Sig').Number_Value__c);//Calculated_Initiation_Signature__c    
+    private static FINAL Integer IL_CALC_PRELIM_SIG = ((Integer)litigationCalcOffsets.get('Int_Lit_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature__c
+    private static FINAL Integer IL_CALC_FINAL_SIG = ((Integer)litigationCalcOffsets.get('Int_Lit_Calc_Final_Sig').Number_Value__c);//Calculated_Final_Signature__c
     
 
     //FINAL Litigation Remand Offsets
@@ -52,11 +53,13 @@ public without sharing class LitigationTriggerHandler {
 
     //returns a map of <String,Integer> in the form: key = CMT Api name, CMT number value
     //used to set Offset Variables
-    @TestVisible private static Map<String,Litigation_Constant__mdt> litigationCalcOffsets() {
-        Map<String,Litigation_Constant__mdt> returnMap = new Map<String,Litigation_Constant__mdt>();
-        List<Litigation_Constant__mdt> tempList = [SELECT QualifiedAPIName, Used_with_Field_Named__c, Record_Type_Name__c, Number_Value__c FROM Litigation_Constant__mdt 
-                                                        WHERE Litigation_Calculation_Offset__c =: true];
-        for(Litigation_Constant__mdt lc : tempList) {
+    @TestVisible private static Map<String,Constant__mdt> litigationCalcOffsets() {
+        Map<String,Constant__mdt> returnMap = new Map<String,Constant__mdt>();
+        List<Constant__mdt> tempList = [SELECT QualifiedAPIName, Used_with_Field_Named__c, Number_Value__c, 
+                                                ADCVD_Objects__r.Object_API_Name__c, ADCVD_Objects__r.Record_Type_Name__c 
+                                        FROM Constant__mdt 
+                                        WHERE Litigation_Calculation_Offset__c =: true];
+        for(Constant__mdt lc : tempList) {
             returnMap.put(lc.QualifiedAPIName, lc);
         }
         return returnMap;
