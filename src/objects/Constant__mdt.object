@@ -68,7 +68,7 @@
         <fullName>Segment_Calculation_Offset__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <fieldManageability>DeveloperControlled</fieldManageability>
+        <fieldManageability>SubscriberControlled</fieldManageability>
         <label>Segment Calculation Offset</label>
         <type>Checkbox</type>
     </fields>
@@ -172,7 +172,7 @@
     <fields>
         <fullName>String_Value__c</fullName>
         <externalId>false</externalId>
-        <fieldManageability>DeveloperControlled</fieldManageability>
+        <fieldManageability>SubscriberControlled</fieldManageability>
         <label>String Value</label>
         <length>255</length>
         <required>false</required>
