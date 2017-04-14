@@ -13,6 +13,7 @@ public without sharing class LitigationTriggerHandler {
 
     //FINAL Litigation Remand Offsets
     private static FINAL Integer RE_CALC_DRAFT_REMAND_RELEASE = ((Integer)litigationCalcOffsets().get('Remand_Calc_Draft_Remand_Release').Number_Value__c);//Calculated_Preliminary_Signature__c  
+    private static FINAL Integer RE_PRELIM_TEAM_MEETING_DEADLINE = ((Integer)litigationCalcOffsets().get('Remand_Prelim_Team_Meeting_Deadline').Number_Value__c);//Prelim_Team_Meeting_Deadline__c  
     private static FINAL Integer RE_CALC_AMEND_FINAL_SIG = ((Integer)litigationCalcOffsets().get('Remand_Calc_Amended_Final_Sig').Number_Value__c);//Calculated_Amended_Final_Signature__c
 
 	public static boolean preventRecursion = false;
@@ -42,6 +43,7 @@ public without sharing class LitigationTriggerHandler {
             setCalculatedPreliminarySignature(l);//Int_Lit: Request_Filed__c
             setCalculatedFinalSignature(l);//Int_Lit: Request_Filed__c ... Remand: Expected_Final_Signature_Before_Ext__c
             setCalculatedDraftRemandReleaseToParty(l);//Remand: Calculated_Final_Signature__c
+            setPrelimTeamMeetingDeadline(l);//Remand: Calculated_Draft_Remand_release_to_party__c
             setCalculatedAmendedFinalSignature(l);//Remand: Court_of_Panel_s_Ruling__c
         }
     }
@@ -82,6 +84,16 @@ public without sharing class LitigationTriggerHandler {
             if(l.Request_Filed__c != null) {
                 l.Calculated_Preliminary_Signature__c = l.Request_Filed__c.addDays(IL_CALC_PRELIM_SIG).addDays(extension);
                 l.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(l.Request_Filed__c, l.Calculated_Preliminary_Signature__c, true);
+            }
+        }
+    }
+
+    //sets Prelim_Team_Meeting_Deadline__c, requires Calculated_Draft_Remand_release_to_party__c to be set
+    @TestVisible private static void setPrelimTeamMeetingDeadline(Litigation__c l) {
+        if(recordTypeNameMap.get(l.RecordTypeId) == REMAND) {
+            if(l.Calculated_Draft_Remand_release_to_party__c != null) {
+                l.Prelim_Team_Meeting_Deadline__c = l.Calculated_Draft_Remand_release_to_party__c.addDays(RE_PRELIM_TEAM_MEETING_DEADLINE);
+                l.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(l.Prelim_Team_Meeting_Deadline__c, l.Prelim_Team_Meeting_Deadline__c, true);
             }
         }
     }

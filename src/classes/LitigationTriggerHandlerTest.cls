@@ -29,7 +29,7 @@ public class LitigationTriggerHandlerTest {
 			if (remand == null) {
 				Id recordTypeId = utils.getRecordTypeIdMap('Litigation__c').get('Remand');
 				remand = [SELECT Id, RecordTypeId, Final_Extension_of_days__c, Expected_Final_Signature_Before_Ext__c, Calculated_Amended_Final_Signature__c,
-								Calculated_Draft_Remand_release_to_party__c, Calculated_Final_Signature__c, Court_of_Panel_s_Ruling__c 
+								Calculated_Draft_Remand_release_to_party__c, Calculated_Final_Signature__c, Court_of_Panel_s_Ruling__c, Prelim_Team_Meeting_Deadline__c 
 							FROM Litigation__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
 			}
 			return remand;
@@ -98,6 +98,22 @@ public class LitigationTriggerHandlerTest {
 		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(remand.Expected_Final_Signature_Before_Ext__c.addDays(-30));
 		System.assertEquals(testCalculated,
 			[SELECT Id, Calculated_Draft_Remand_release_to_party__c FROM Litigation__c WHERE Id =:remand.Id  LIMIT 1].Calculated_Draft_Remand_release_to_party__c);
+
+		Test.stopTest();
+	}
+
+	//setPrelimTeamMeetingDeadline
+	@isTest static void setPrelimTeamMeetingDeadline(){
+		Test.startTest();
+
+		remand.Expected_Final_Signature_Before_Ext__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(litigationDate.addDays(35));
+		update remand;
+		remand = null;
+
+		//Remand
+		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(remand.Calculated_Draft_Remand_release_to_party__c.addDays(-21));
+		System.assertEquals(testCalculated,
+			[SELECT Id, Prelim_Team_Meeting_Deadline__c FROM Litigation__c WHERE Id =:remand.Id  LIMIT 1].Prelim_Team_Meeting_Deadline__c);
 
 		Test.stopTest();
 	}
