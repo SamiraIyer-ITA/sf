@@ -126,10 +126,17 @@ public without sharing class ADCVD_FederalRegisterUtility {
         }
     }
 
+    /**
+     * Sets the FR and published Date values from all FRs for a given parent.  Ternaries are used on FRs used in calculations to ensure the oldest
+     * FR is used
+     * @param  fr           A Federal Register
+     * @param  tempInstance An instance of this class that has FRs that exist mapped to a variable based on their type
+     * @return              The same instance is returned but with an additional FR and FR publishedDate variable mapped
+     */
     @TestVisible private static ADCVD_FederalRegisterUtility setTempInstance(Federal_Register__c fr, ADCVD_FederalRegisterUtility tempInstance) {
         if(fr.Type__c == 'Initiation') {
             tempInstance.initiationFR = tempInstance.initiationFR != null && fr.CreatedDate < tempInstance.initiationFR.CreatedDate ? 
-                                            tempInstance.initiationFR : fr;
+                                            tempInstance.initiationFR : fr;//set variable to new value if currently null or new FR is older than current variable
             tempInstance.initiationPublishedDate = tempInstance.initiationPublishedDate != null && fr.CreatedDate < tempInstance.initiationFR.CreatedDate ? 
                                             tempInstance.initiationPublishedDate : fr.Published_Date__c;
         } else if (fr.Type__c == 'Continuation') {
@@ -137,7 +144,7 @@ public without sharing class ADCVD_FederalRegisterUtility {
             tempInstance.continuationPublishedDate = fr.Published_Date__c;
         } else if (fr.Type__c == 'Preliminary') {
             tempInstance.preliminaryFR = tempInstance.preliminaryFR != null && fr.CreatedDate > tempInstance.preliminaryFR.CreatedDate ? 
-                                            tempInstance.preliminaryFR : fr;
+                                            tempInstance.preliminaryFR : fr;//set variable to new value if currently null or new FR is older than current variable
             tempInstance.preliminaryPublishedDate = tempInstance.preliminaryPublishedDate != null && fr.CreatedDate > tempInstance.preliminaryFR.CreatedDate ? 
                                             tempInstance.preliminaryPublishedDate : fr.Published_Date__c;
         } else if (fr.Type__c == 'Amended Preliminary') {
@@ -145,7 +152,7 @@ public without sharing class ADCVD_FederalRegisterUtility {
             tempInstance.amendedPreliminaryPublishedDate = fr.Published_Date__c;
         } else if (fr.Type__c == 'Final') {
             tempInstance.finalFR = tempInstance.finalFR != null && fr.CreatedDate < tempInstance.finalFR.CreatedDate ? 
-                                            tempInstance.finalFR : fr;
+                                            tempInstance.finalFR : fr;//set variable to new value if currently null or new FR is older than current variable
             tempInstance.finalPublishedDate = tempInstance.finalPublishedDate != null && fr.CreatedDate < tempInstance.finalFR.CreatedDate ? 
                                             tempInstance.finalPublishedDate : fr.Published_Date__c;
         } else if (fr.Type__c == 'Amended Final') {
@@ -156,7 +163,7 @@ public without sharing class ADCVD_FederalRegisterUtility {
             tempInstance.itcPreliminaryPublishedDate = fr.Published_Date__c;
         } else if (fr.Type__c == 'ITC Final') {
             tempInstance.itcFinalFR = tempInstance.itcFinalFR != null && fr.CreatedDate < tempInstance.itcFinalFR.CreatedDate ? 
-                                            tempInstance.itcFinalFR : fr;
+                                            tempInstance.itcFinalFR : fr;//set variable to new value if currently null or new FR is older than current variable
             tempInstance.itcFinalPublishedDate = tempInstance.itcFinalPublishedDate != null && fr.CreatedDate < tempInstance.itcFinalFR.CreatedDate ? 
                                             tempInstance.itcFinalPublishedDate : fr.Published_Date__c;
         } else if (fr.Type__c == 'Order') {
@@ -164,7 +171,7 @@ public without sharing class ADCVD_FederalRegisterUtility {
             tempInstance.orderPublishedDate = fr.Published_Date__c;
         } else if (fr.Type__c == 'Postponement') {
             tempInstance.postponementFR = tempInstance.postponementFR != null && fr.CreatedDate < tempInstance.postponementFR.CreatedDate ? 
-                                            tempInstance.postponementFR : fr;
+                                            tempInstance.postponementFR : fr;//set variable to new value if currently null or new FR is older than current variable
             tempInstance.postponementPublishedDate = tempInstance.postponementPublishedDate != null && fr.CreatedDate < tempInstance.postponementFR.CreatedDate ? 
                                             tempInstance.postponementPublishedDate : fr.Published_Date__c;
         } else if (fr.Type__c == 'Post Litigation') {
@@ -181,7 +188,7 @@ public without sharing class ADCVD_FederalRegisterUtility {
             tempInstance.correctionPublishedDate = fr.Published_Date__c;
         } else if (fr.Type__c == 'Revocation') {
             tempInstance.revocationFR = tempInstance.revocationFR != null && fr.CreatedDate < tempInstance.revocationFR.CreatedDate ? 
-                                            tempInstance.revocationFR : fr;
+                                            tempInstance.revocationFR : fr;//set variable to new value if currently null or new FR is older than current variable
             tempInstance.revocationPublishedDate = tempInstance.revocationPublishedDate != null && fr.CreatedDate < tempInstance.revocationFR.CreatedDate ? 
                                             tempInstance.revocationPublishedDate : fr.Published_Date__c;
         } else if (fr.Type__c == 'Initiation/Prelim') {
