@@ -61,6 +61,9 @@ public without sharing class InvestigationTriggerHandler {
             initialize(newList, newMap);
             recalculateCVDinvestigations(newMap);
         }
+        if (isAfter && isInsert) {
+            StaffingAssignmentExtension createStaff = new StaffingAssignmentExtension(newList);
+        }
     }
     
     //Maps used in multiple methods in calculateInvestigationDates regardless of record type

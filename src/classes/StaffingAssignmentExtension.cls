@@ -221,6 +221,19 @@ public without sharing class StaffingAssignmentExtension {
 	        init(sa);
 	    }
 	}
+
+	/*CONSTRUCTOR to be invoked from after insert triggers 
+		adds and inserts default values for staffing object
+	*/
+	public StaffingAssignmentExtension (List<sObject> newList) {
+        overwriteSegments = false;
+        for(sObject sobj : newList) {
+        	String parentId = (String)sObj.get('Id');
+        	parentSObjectType = utils.findObjectNameFromRecordIdPrefix(parentId);
+        	staffWrapperList.addAll(addStaffWrapper(parentId, parentSObjectType, new List<Staffing_Assignment__c>(), new Set<Id>(), null));
+        }
+        save();
+	}
 	//Primary method to initialize data on page load
 	private void init(Staffing_Assignment__c sa){
 		overwriteSegments = false;
