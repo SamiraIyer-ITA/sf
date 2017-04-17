@@ -225,7 +225,9 @@ public without sharing class StaffingAssignmentExtension {
 	/*CONSTRUCTOR to be invoked from after insert triggers 
 		adds and inserts default values for staffing object
 	*/
+	public boolean fromTrigger = false;
 	public StaffingAssignmentExtension (List<sObject> newList) {
+		fromTrigger = true;
         overwriteSegments = false;
         for(sObject sobj : newList) {
         	String parentId = (String)sObj.get('Id');
@@ -291,7 +293,7 @@ public without sharing class StaffingAssignmentExtension {
 		upsert staffListToUpsert;
 		delete staffListToDelete;
 		//if classic, use retURL
-		if(isSalesforceClassic) {
+		if(isSalesforceClassic  && !fromTrigger) {
 			return new PageReference(getReturnUrl());
 		} else {//else return null, allowing oncomplete JS to fire and redirect in LEX/SF1
 			return null;
@@ -300,7 +302,7 @@ public without sharing class StaffingAssignmentExtension {
 	}
 
 	public PageReference cancel() {
-		if(isSalesforceClassic) {
+		if(isSalesforceClassic && !fromTrigger) {
 			return new PageReference(getReturnUrl());
 		} else {
 			return null;
