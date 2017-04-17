@@ -1,11 +1,12 @@
 public without sharing class InvestigationTriggerHandler {
 	
-	//FINAL Investigation Record Type Developer Names
-	private static FINAL String ADRECORD = 'AD';
-	private static FINAL String CVDRECORD = 'CVD';
-	private static FINAL String INVESTIGATION = 'Investigation__c';
+    private static Map<String,Constant__mdt> investigationApiToConstants = setInvestigationApiToConstants();
 
-    private static Map<String,Investigation_Constant__mdt> investigationApiToConstants = setInvestigationApiToConstants();
+	//FINAL Investigation Record Type Developer Names
+	private static FINAL String ADRECORD = investigationApiToConstants.get('AD_Calc_Final_Sig').ADCVD_Objects__r.Record_Type_Name__c;
+	private static FINAL String CVDRECORD = investigationApiToConstants.get('CVD_Calc_Final_Sig').ADCVD_Objects__r.Record_Type_Name__c;
+	private static FINAL String INVESTIGATION = investigationApiToConstants.get('AD_Calc_Final_Sig').ADCVD_Objects__r.Object_API_Name__c;
+
 	//FINAL AD Record Type Offsets
     private static FINAL Integer AD_CALC_AMEND_PRELIM_SIGN = ((Integer)investigationApiToConstants.get('AD_Calc_Amend_Prelim_Det_Sig').Number_Value__c);//Calc_Amended_Prelim_Determination_Sig__c
     private static FINAL Integer AD_CALC_PRELIM_SIGN = ((Integer)investigationApiToConstants.get('AD_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature __c
@@ -159,12 +160,14 @@ public without sharing class InvestigationTriggerHandler {
     }
     //returns a map of <String,Integer> in the form: key = CMT Api name, CMT number value
     //used to set Offset Variables
-    @TestVisible private static Map<String,Investigation_Constant__mdt> setInvestigationApiToConstants() {
+    @TestVisible private static Map<String,Constant__mdt> setInvestigationApiToConstants() {
         if(investigationApiToConstants == null || investigationApiToConstants.size() < 1) {
-            Map<String,Investigation_Constant__mdt> returnMap = new Map<String,Investigation_Constant__mdt>();
-            List<Investigation_Constant__mdt> tempList = [SELECT QualifiedAPIName, Used_with_Field_Named__c, Record_Type_Name__c, Number_Value__c FROM Investigation_Constant__mdt 
-                                                            WHERE Investigation_Calculation_Offset__c =: true];
-            for(Investigation_Constant__mdt ic : tempList) {
+            Map<String,Constant__mdt> returnMap = new Map<String,Constant__mdt>();
+            List<Constant__mdt> tempList = [SELECT QualifiedAPIName, Used_with_Field_Named__c, Number_Value__c, 
+                                                    ADCVD_Objects__r.Object_API_Name__c, ADCVD_Objects__r.Record_Type_Name__c 
+                                            FROM Constant__mdt 
+                                            WHERE Investigation_Calculation_Offset__c =: true];
+            for(Constant__mdt ic : tempList) {
                 returnMap.put(ic.QualifiedAPIName, ic);
             }
             return returnMap;
@@ -220,9 +223,7 @@ public without sharing class InvestigationTriggerHandler {
 
    //sets Calc_Amended_Prelim_Determination_Sig__c, requires Calculated_Preliminary_Signature__c to be set
     @TestVisible private static void setCalcAmendedPrelimDeterminationSig(Investigation__c i) {
-        if (i.Amend_the_Preliminary_Determination__c == 'No') {
-            i.Calc_Amended_Prelim_Determination_Sig__c = null;
-        } else {
+        if (i.Amend_the_Preliminary_Determination__c == 'Yes') {
         	if(recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
     			if (i.Actual_Preliminary_Signature__c == null && i.Calculated_Preliminary_Signature__c != null) {
     	    		i.Calc_Amended_Prelim_Determination_Sig__c = i.Calculated_Preliminary_Signature__c.addDays(AD_CALC_AMEND_PRELIM_SIGN);
@@ -240,7 +241,9 @@ public without sharing class InvestigationTriggerHandler {
                     i.Calc_Amended_Prelim_Determination_Sig__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Actual_Preliminary_Signature__c, i.Calc_Amended_Prelim_Determination_Sig__c, true);
                 }
     		}
-        }
+        } else {
+            i.Calc_Amended_Prelim_Determination_Sig__c = null;
+        } 
     }
 
     //sets Prelim_Team_Meeting_Deadline__c, requires Calculated_Preliminary_Signature__c to be set
@@ -291,9 +294,7 @@ public without sharing class InvestigationTriggerHandler {
 
     //sets Calculated_Amended_Final_Signature__c
     @TestVisible private static void setCalculatedAmendedFinalSignature(Investigation__c i){
-        if (i.Will_you_Amend_the_Final__c == 'No') {
-            i.Calculated_Amended_Final_Signature__c = null;
-        } else {
+        if (i.Will_you_Amend_the_Final__c == 'Yes') {
             if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
                 if (i.Actual_Final_Signature__c != null) {
                     i.Calculated_Amended_Final_Signature__c = i.Actual_Final_Signature__c.addDays(AD_CALC_AMENDED_FINAL_SIGNATURE);
@@ -311,7 +312,10 @@ public without sharing class InvestigationTriggerHandler {
                     i.Calculated_Amended_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Calculated_Final_Signature__c, i.Calculated_Amended_Final_Signature__c, true);
                 }
             }
+        } else {
+            i.Calculated_Amended_Final_Signature__c = null;
         }
+            
     }
 
     //sets Final_Team_Meeting_Deadline__c, requires Calculated_Final_Signature__c to be set

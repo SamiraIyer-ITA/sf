@@ -83,6 +83,15 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Concurrence_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Concurrence to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Investigation__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -106,17 +115,13 @@
         <visibleLines>25</visibleLines>
     </fields>
     <fields>
-        <fullName>Issue__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
+        <fullName>Issues_to_DAS__c</fullName>
         <externalId>false</externalId>
-        <label>Issue</label>
-        <referenceTo>Litigation__c</referenceTo>
-        <relationshipLabel>Issues</relationshipLabel>
-        <relationshipName>Issues</relationshipName>
+        <label>Issues to DAS</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Lookup</type>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Legal_Status__c</fullName>
@@ -147,6 +152,19 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Litigation__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Litigation</label>
+        <referenceTo>Litigation__c</referenceTo>
+        <relationshipLabel>Litigations</relationshipLabel>
+        <relationshipName>Litigations</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Ops_Status__c</fullName>
@@ -235,6 +253,15 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Type__c</fullName>
         <externalId>false</externalId>
         <label>Type</label>
@@ -246,6 +273,11 @@
             <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
+                <value>
+                    <fullName>Initiation</fullName>
+                    <default>false</default>
+                    <label>Initiation</label>
+                </value>
                 <value>
                     <fullName>Preliminary</fullName>
                     <default>false</default>
@@ -265,6 +297,16 @@
                     <fullName>Amended Final</fullName>
                     <default>false</default>
                     <label>Amended Final</label>
+                </value>
+                <value>
+                    <fullName>Deadline for Decision on how to proceed</fullName>
+                    <default>false</default>
+                    <label>Deadline for Decision on how to proceed</label>
+                </value>
+                <value>
+                    <fullName>Continuation or Revocation</fullName>
+                    <default>false</default>
+                    <label>Continuation or Revocation</label>
                 </value>
             </valueSetDefinition>
         </valueSet>

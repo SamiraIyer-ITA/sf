@@ -7,12 +7,32 @@
         <value xsi:type="xsd:string">Inv_CVD</value>
     </values>
     <values>
+        <field>Investigation_Calculation_Offset__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Issue_Calculation_Offset__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>Litigation_Calculation_Offset__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
         <field>Number_Value__c</field>
         <value xsi:type="xsd:double">1.0</value>
     </values>
     <values>
+        <field>Petition_Calculation_Offset__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
         <field>Record_Description__c</field>
         <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Segment_Calculation_Offset__c</field>
+        <value xsi:type="xsd:boolean">false</value>
     </values>
     <values>
         <field>Staffing_Assignment_Default__c</field>

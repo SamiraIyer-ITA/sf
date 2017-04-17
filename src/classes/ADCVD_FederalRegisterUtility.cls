@@ -128,20 +128,26 @@ public without sharing class ADCVD_FederalRegisterUtility {
 
     @TestVisible private static ADCVD_FederalRegisterUtility setTempInstance(Federal_Register__c fr, ADCVD_FederalRegisterUtility tempInstance) {
         if(fr.Type__c == 'Initiation') {
-            tempInstance.initiationFR = fr;
-            tempInstance.initiationPublishedDate = fr.Published_Date__c;
+            tempInstance.initiationFR = tempInstance.initiationFR != null && fr.CreatedDate < tempInstance.initiationFR.CreatedDate ? 
+                                            tempInstance.initiationFR : fr;
+            tempInstance.initiationPublishedDate = tempInstance.initiationPublishedDate != null && fr.CreatedDate < tempInstance.initiationFR.CreatedDate ? 
+                                            tempInstance.initiationPublishedDate : fr.Published_Date__c;
         } else if (fr.Type__c == 'Continuation') {
             tempInstance.continuationFR = fr;
             tempInstance.continuationPublishedDate = fr.Published_Date__c;
         } else if (fr.Type__c == 'Preliminary') {
-            tempInstance.preliminaryFR = fr;
-            tempInstance.preliminaryPublishedDate = fr.Published_Date__c;
+            tempInstance.preliminaryFR = tempInstance.preliminaryFR != null && fr.CreatedDate > tempInstance.preliminaryFR.CreatedDate ? 
+                                            tempInstance.preliminaryFR : fr;
+            tempInstance.preliminaryPublishedDate = tempInstance.preliminaryPublishedDate != null && fr.CreatedDate > tempInstance.preliminaryFR.CreatedDate ? 
+                                            tempInstance.preliminaryPublishedDate : fr.Published_Date__c;
         } else if (fr.Type__c == 'Amended Preliminary') {
             tempInstance.amendedPreliminaryFR = fr;
             tempInstance.amendedPreliminaryPublishedDate = fr.Published_Date__c;
         } else if (fr.Type__c == 'Final') {
-            tempInstance.finalFR = fr;
-            tempInstance.finalPublishedDate = fr.Published_Date__c;
+            tempInstance.finalFR = tempInstance.finalFR != null && fr.CreatedDate < tempInstance.finalFR.CreatedDate ? 
+                                            tempInstance.finalFR : fr;
+            tempInstance.finalPublishedDate = tempInstance.finalPublishedDate != null && fr.CreatedDate < tempInstance.finalFR.CreatedDate ? 
+                                            tempInstance.finalPublishedDate : fr.Published_Date__c;
         } else if (fr.Type__c == 'Amended Final') {
             tempInstance.amendedFinalFR = fr;
             tempInstance.amendedFinalPublishedDate = fr.Published_Date__c;
@@ -149,14 +155,18 @@ public without sharing class ADCVD_FederalRegisterUtility {
             tempInstance.itcPreliminaryFR = fr;
             tempInstance.itcPreliminaryPublishedDate = fr.Published_Date__c;
         } else if (fr.Type__c == 'ITC Final') {
-            tempInstance.itcFinalFR = fr;
-            tempInstance.itcFinalPublishedDate = fr.Published_Date__c;
+            tempInstance.itcFinalFR = tempInstance.itcFinalFR != null && fr.CreatedDate < tempInstance.itcFinalFR.CreatedDate ? 
+                                            tempInstance.itcFinalFR : fr;
+            tempInstance.itcFinalPublishedDate = tempInstance.itcFinalPublishedDate != null && fr.CreatedDate < tempInstance.itcFinalFR.CreatedDate ? 
+                                            tempInstance.itcFinalPublishedDate : fr.Published_Date__c;
         } else if (fr.Type__c == 'Order') {
             tempInstance.orderFR = fr;
             tempInstance.orderPublishedDate = fr.Published_Date__c;
         } else if (fr.Type__c == 'Postponement') {
-            tempInstance.postponementFR = fr;
-            tempInstance.postponementPublishedDate = fr.Published_Date__c;
+            tempInstance.postponementFR = tempInstance.postponementFR != null && fr.CreatedDate < tempInstance.postponementFR.CreatedDate ? 
+                                            tempInstance.postponementFR : fr;
+            tempInstance.postponementPublishedDate = tempInstance.postponementPublishedDate != null && fr.CreatedDate < tempInstance.postponementFR.CreatedDate ? 
+                                            tempInstance.postponementPublishedDate : fr.Published_Date__c;
         } else if (fr.Type__c == 'Post Litigation') {
             tempInstance.postLitigationFR = fr;
             tempInstance.postLitigationPublishedDate = fr.Published_Date__c;
@@ -170,8 +180,10 @@ public without sharing class ADCVD_FederalRegisterUtility {
             tempInstance.correctionFR = fr;
             tempInstance.correctionPublishedDate = fr.Published_Date__c;
         } else if (fr.Type__c == 'Revocation') {
-            tempInstance.revocationFR = fr;
-            tempInstance.revocationPublishedDate = fr.Published_Date__c;
+            tempInstance.revocationFR = tempInstance.revocationFR != null && fr.CreatedDate < tempInstance.revocationFR.CreatedDate ? 
+                                            tempInstance.revocationFR : fr;
+            tempInstance.revocationPublishedDate = tempInstance.revocationPublishedDate != null && fr.CreatedDate < tempInstance.revocationFR.CreatedDate ? 
+                                            tempInstance.revocationPublishedDate : fr.Published_Date__c;
         } else if (fr.Type__c == 'Initiation/Prelim') {
             tempInstance.initiationPrelimFR = fr;
             tempInstance.initiationPrelimPublishedDate = fr.Published_Date__c;

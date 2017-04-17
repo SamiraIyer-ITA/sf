@@ -14,6 +14,30 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Investigation_Calculation_Offset__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Investigation Calculation Offset</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Issue_Calculation_Offset__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Issue Calculation Offset</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Litigation_Calculation_Offset__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Litigation Calculation Offset</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Number_Value__c</fullName>
         <externalId>false</externalId>
         <fieldManageability>SubscriberControlled</fieldManageability>
@@ -25,12 +49,28 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Petition_Calculation_Offset__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Petition Calculation Offset</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Record_Description__c</fullName>
         <externalId>false</externalId>
         <fieldManageability>SubscriberControlled</fieldManageability>
         <label>Record Description</label>
         <required>false</required>
         <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Segment_Calculation_Offset__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Segment Calculation Offset</label>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Staffing_Assignment_Default__c</fullName>
@@ -132,7 +172,7 @@
     <fields>
         <fullName>String_Value__c</fullName>
         <externalId>false</externalId>
-        <fieldManageability>DeveloperControlled</fieldManageability>
+        <fieldManageability>SubscriberControlled</fieldManageability>
         <label>String Value</label>
         <length>255</length>
         <required>false</required>

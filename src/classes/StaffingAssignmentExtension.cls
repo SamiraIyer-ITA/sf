@@ -1,5 +1,11 @@
 public without sharing class StaffingAssignmentExtension {
 
+	private static FINAL String PETITION = 'Petition__c';
+	private static FINAL String INVESTIGATION = 'Investigation__c';
+	private static FINAL String ORDER = 'ADCVD_Order__c';
+	private static FINAL String SEGMENT = 'Segment__c';
+	private static FINAL String RELATED_ORG = 'Related_Organization__c';
+
 	/*********************************
  	* Variables to manage UI
  	********************************/
@@ -27,11 +33,11 @@ public without sharing class StaffingAssignmentExtension {
     //Sets field names to add to the standard controller, making them available to reference for null checks
     public List<String> parentFieldNames {get {
     	parentFieldNames = new List<String>();
-    	parentFieldNames.add('Petition__c');
-    	parentFieldNames.add('Investigation__c');
-    	parentFieldNames.add('ADCVD_Order__c');
-    	parentFieldNames.add('Segment__c');
-    	parentFieldNames.add('Related_Organization__c');
+    	parentFieldNames.add(PETITION);
+    	parentFieldNames.add(INVESTIGATION);
+    	parentFieldNames.add(ORDER);
+    	parentFieldNames.add(SEGMENT);
+    	parentFieldNames.add(RELATED_ORG);
     	return parentFieldNames;
     	} set;
     }
@@ -59,15 +65,15 @@ public without sharing class StaffingAssignmentExtension {
     public String parentSObjectType {get {
     	if(sa != null && parentSObjectType == null) {
 	    	if (sa.Petition__c != null) {
-				parentSObjectType = 'Petition__c';
+				parentSObjectType = PETITION;
 			} else if (sa.Investigation__c != null) {
-				parentSObjectType = 'Investigation__c';
+				parentSObjectType = INVESTIGATION;
 			} else if (sa.ADCVD_Order__c != null) {
-				parentSObjectType = 'ADCVD_Order__c';
+				parentSObjectType = ORDER;
 			} else if (sa.Segment__c != null) {
-				parentSObjectType = 'Segment__c';
+				parentSObjectType = SEGMENT;
 			} else if (sa.Related_Organization__c != null) {
-				parentSObjectType = 'Related_Organization__c';
+				parentSObjectType = RELATED_ORG;
 			}
 		}
 		return parentSObjectType;
@@ -243,22 +249,23 @@ public without sharing class StaffingAssignmentExtension {
 		List<Staffing_Assignment__c> staffListToUpsert = new List<Staffing_Assignment__c>();
 		List<Staffing_Assignment__c> staffListToDelete = new List<Staffing_Assignment__c>();
 		for(staffingAssignmentWrapper saw: staffWrapperList) {
-			if(!String.isBlank(saw.sa.User__c)){
+			//AD-467
+            if(!String.isBlank(saw.sa.Title__c)){
 				staffListToUpsert.add(saw.sa);//If user field is populated, upsert
-			} else if (String.isBlank(saw.sa.User__c) && !String.isBlank(saw.sa.Id)) {
+			} else if (String.isBlank(saw.sa.Title__c)) {
 				staffListToDelete.add(saw.sa);//If user field is not populated and record exists(has id), delete
 			}
 		}
 		//propogate staffing assignment to child segments of the order
 		if(overwriteSegments) {
 			for(Segment__c s: [SELECT Id, (SELECT Id, User__c, Title__c FROM Staffing_Assignments__r) FROM Segment__c WHERE ADCVD_Order__c =: parentId]) {
-				if(s.Staffing_Assignments__r != null) {
+				/*if(s.Staffing_Assignments__r != null) {
 					//delete staffing assignments
 					staffListToDelete.addAll(s.Staffing_Assignments__r);
-				}
+				}*/
 				//add new staffing assignments to segments
 				for(staffingAssignmentWrapper saw: staffWrapperList) {
-					if(!String.isBlank(saw.sa.User__c)){
+					if(!String.isBlank(saw.sa.Title__c)){ 
 						Staffing_Assignment__c newSa = new Staffing_Assignment__c();
 						newSa.User__c = saw.sa.User__c;
 						newSa.Title__c = saw.sa.Title__c;
@@ -371,15 +378,15 @@ public without sharing class StaffingAssignmentExtension {
 			Id parentId = (Id)parentIdAsString;
 			//String exists only in this method
 			String parentSObjectType = parentId.getSObjectType().getDescribe().getName();
-			if(parentSObjectType == 'ADCVD_Order__c') {
+			if(parentSObjectType == ORDER) {
 				newSA.ADCVD_Order__c = parentId;
-			} else if (parentSObjectType == 'Investigation__c') {
+			} else if (parentSObjectType == INVESTIGATION) {
 				newSA.Investigation__c = parentId;
-			} else if (parentSObjectType == 'Petition__c') {
+			} else if (parentSObjectType == PETITION) {
 				newSA.Petition__c = parentId;
-			} else if (parentSObjectType == 'Related_Organization__c') {
+			} else if (parentSObjectType == RELATED_ORG) {
 				newSA.Related_Organization__c = parentId;
-			} else if (parentSObjectType == 'Segment__c') {
+			} else if (parentSObjectType == SEGMENT) {
 				newSA.Segment__c = parentId;
 			}
 		}
@@ -436,15 +443,15 @@ public without sharing class StaffingAssignmentExtension {
 
 	private Staffing_Assignment__c setSaParent(Id parentId, String parentSObjectType) {
 		if(parentSObjectType != null && parentId != null) {
-			if(parentSObjectType == 'Petition__c') {
+			if(parentSObjectType == PETITION) {
 				sa.Petition__c = parentId;
-			} else if(parentSObjectType == 'Investigation__c') {
+			} else if(parentSObjectType == INVESTIGATION) {
 				sa.Investigation__c = parentId;
-			} else if(parentSObjectType == 'ADCVD_Order__c') {
+			} else if(parentSObjectType == ORDER) {
 				sa.ADCVD_Order__c = parentId;
-			} else if(parentSObjectType == 'Segment__c') {
+			} else if(parentSObjectType == SEGMENT) {
 				sa.Segment__c = parentId;
-			} else if(parentSObjectType == 'Related_Organization__c') {
+			} else if(parentSObjectType == RELATED_ORG) {
 				sa.Related_Organization__c = parentId;
 			}
 		}
