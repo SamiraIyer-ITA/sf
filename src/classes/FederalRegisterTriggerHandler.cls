@@ -14,6 +14,9 @@ public without sharing class FederalRegisterTriggerHandler {
         if(isBefore && isDelete) {
             calculateInvestigationsOnDelete(oldMap);
         }
+        if(isAfter && isDelete) {
+            recalculateParentsOfFederalRegister(newlist, oldMap);
+        }
     }
 
     //Map to Federal Register Utility instances

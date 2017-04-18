@@ -73,7 +73,7 @@ public without sharing class ADCVD_FederalRegisterUtility {
                 newIds = true;
             }
         }
-        if(objectTypeInstance == null || newIds || parentObjectName == 'Federal_Register__c') objectTypeInstance = new ADCVD_FederalRegisterUtility(parentObjectList);
+        if(objectTypeInstance == null || newIds) objectTypeInstance = new ADCVD_FederalRegisterUtility(parentObjectList);
         return objectTypeInstance;
 	}
 
