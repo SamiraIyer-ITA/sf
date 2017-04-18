@@ -65,9 +65,9 @@ public without sharing class ADCVD_FederalRegisterUtility {
 
     //used once for the query via CascadeUtility and creating the parent Id to Instance map
 	public static ADCVD_FederalRegisterUtility getInstance(List<SObject> parentObjectList) {
-        if(parentObjectList.size() > 0) {
+		Boolean newIds = false;
+		if(parentObjectList.size() > 0) {
 		parentObjectName = utils.getSObjectName(parentObjectList[0]);
-        	Boolean newIds = false;
         	for(SObject so : parentObjectList) {
 		    if(so.Id != null && !parentIdSet.contains(so.Id)) {
 			parentIdSet.add(so.Id);
