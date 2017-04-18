@@ -117,10 +117,10 @@
         <type>Url</type>
     </fields>
     <fields>
-        <fullName>Federal_Register__c</fullName>
+        <fullName>Litigation__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Federal Register</label>
+        <label>Litigation</label>
         <referenceTo>Litigation__c</referenceTo>
         <relationshipLabel>Federal Registers</relationshipLabel>
         <relationshipName>Federal_Registers</relationshipName>
