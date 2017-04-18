@@ -195,7 +195,7 @@ public without sharing class IssueTriggerHandler {
     		Petition__c p = petitionParents.get(parentId);
     		if (p.Calculated_Initiation_Signature__c != null) {
     			i.Start_Date__c = p.Calculated_Initiation_Signature__c;
-    			i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(p.Calculated_Initiation_Signature__c, ISSUES_PETITION_INITIATION);
+    			i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, ISSUES_PETITION_INITIATION);
     		}
     	} else if (parentIdToObjectTypeMap.get(parentId) == SEGMENT) {
     		Segment__c s = segmentParents.get(parentId);
@@ -205,7 +205,7 @@ public without sharing class IssueTriggerHandler {
 				) {
     			if (s.Calculated_Initiation_Signature__c != null) {
     				i.Start_Date__c = s.Calculated_Initiation_Signature__c;
-	    			i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(s.Calculated_Initiation_Signature__c, ISSUES_INITIATION);
+	    			i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, ISSUES_INITIATION);
 	    		}
     		}
     	}
@@ -216,25 +216,25 @@ public without sharing class IssueTriggerHandler {
     		Investigation__c inv = investigationParents.get(parentId);
     		if (inv.Calculated_Preliminary_Signature__c != null) {
     			i.Start_Date__c = inv.Calculated_Preliminary_Signature__c;
-    			i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(inv.Calculated_Preliminary_Signature__c, ISSUES_PRELIMINARY);
+    			i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, ISSUES_PRELIMINARY);
     		}
     	} else if (parentIdToObjectTypeMap.get(parentId) == SEGMENT) {
     		Segment__c s = segmentParents.get(parentId);
     		if (s.Calculated_Preliminary_Signature__c != null) {
     			i.Start_Date__c = s.Calculated_Preliminary_Signature__c;
-    			i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(s.Calculated_Preliminary_Signature__c, ISSUES_PRELIMINARY);
+    			i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, ISSUES_PRELIMINARY);
     		}
     	} else if (parentIdToObjectTypeMap.get(parentId) == LITIGATION) {
     		Litigation__c l = litigationParents.get(parentId);
     		if (parentIdToRecordTypeNameMap.get(l.Id) == INT_LITIGATION) {
     			if (l.Calculated_Preliminary_Signature__c != null) {
     				i.Start_Date__c = l.Calculated_Preliminary_Signature__c;
-	    			i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(l.Calculated_Preliminary_Signature__c, ISSUES_PRELIMINARY);
+	    			i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, ISSUES_PRELIMINARY);
 	    		}
     		} else if (parentIdToRecordTypeNameMap.get(l.Id) == REMAND) {
     			if (l.Calculated_Draft_Remand_release_to_party__c != null) {
     				i.Start_Date__c = l.Calculated_Draft_Remand_release_to_party__c;
-	    			i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(l.Calculated_Draft_Remand_release_to_party__c, ISSUES_PRELIMINARY);
+	    			i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, ISSUES_PRELIMINARY);
 	    		}
     		}
     	}
@@ -245,7 +245,7 @@ public without sharing class IssueTriggerHandler {
     		Investigation__c inv = investigationParents.get(parentId);
     		if (inv.Calc_Amended_Prelim_Determination_Sig__c != null) {
     			i.Start_Date__c = inv.Calc_Amended_Prelim_Determination_Sig__c;
-    			i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(inv.Calc_Amended_Prelim_Determination_Sig__c, ISSUES_AMENDED_PRELIMINARY);
+    			i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, ISSUES_AMENDED_PRELIMINARY);
     		}
     	}
     }
@@ -255,19 +255,19 @@ public without sharing class IssueTriggerHandler {
     		Investigation__c inv = investigationParents.get(parentId);
     		if (inv.Calculated_Final_Signature__c != null) {
     			i.Start_Date__c = inv.Calculated_Final_Signature__c;
-    			i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(inv.Calculated_Final_Signature__c, ISSUES_FINAL);
+    			i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, ISSUES_FINAL);
     		}
     	} else if (parentIdToObjectTypeMap.get(parentId) == SEGMENT) {
     		Segment__c s = segmentParents.get(parentId);
     		if (s.Calculated_Final_Signature__c != null) {
     			i.Start_Date__c = s.Calculated_Final_Signature__c;
-    			i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(s.Calculated_Final_Signature__c, ISSUES_FINAL);
+    			i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, ISSUES_FINAL);
     		}
     	} else if (parentIdToObjectTypeMap.get(parentId) == LITIGATION) {
     		Litigation__c l = litigationParents.get(parentId);
     		if (l.Calculated_Final_Signature__c != null) {
     			i.Start_Date__c = l.Calculated_Final_Signature__c;
-    			i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(l.Calculated_Final_Signature__c, ISSUES_FINAL);
+    			i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, ISSUES_FINAL);
     		}
     	}
     }
@@ -277,7 +277,7 @@ public without sharing class IssueTriggerHandler {
     		Investigation__c inv = investigationParents.get(parentId);
     		if (inv.Calculated_Amended_Final_Signature__c != null) {
     			i.Start_Date__c = inv.Calculated_Amended_Final_Signature__c;
-    			i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(inv.Calculated_Amended_Final_Signature__c, ISSUES_AMENDED_FINAL);
+    			i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, ISSUES_AMENDED_FINAL);
     		}
     	} else if (parentIdToObjectTypeMap.get(parentId) == SEGMENT) {
     		Segment__c s = segmentParents.get(parentId);
@@ -287,7 +287,7 @@ public without sharing class IssueTriggerHandler {
     			) {
     			if (s.Calculated_Amended_Final_Signature__c != null) {
     				i.Start_Date__c = s.Calculated_Amended_Final_Signature__c;
-	    			i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(s.Calculated_Amended_Final_Signature__c, ISSUES_AMENDED_FINAL);
+	    			i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, ISSUES_AMENDED_FINAL);
 	    		}
     		}
     	}
@@ -299,7 +299,7 @@ public without sharing class IssueTriggerHandler {
     		if (parentIdToRecordTypeNameMap.get(s.Id) == SCOPE_INQUIRY) {
     			if (s.Deadline_for_Decision_on_How_to_Proceed__c != null) {
     				i.Start_Date__c = s.Deadline_for_Decision_on_How_to_Proceed__c;
-	    			i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(s.Deadline_for_Decision_on_How_to_Proceed__c, ISSUES_DEADLINE_FOR_HOP);
+	    			i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, ISSUES_DEADLINE_FOR_HOP);
 	    		}
     		}
     	}
@@ -313,7 +313,7 @@ public without sharing class IssueTriggerHandler {
     	if (parentIdToObjectTypeMap.get(parentId) == PETITION) {
     		Petition__c p = petitionParents.get(parentId);
     		if (p.Calculated_Initiation_Signature__c != null) {
-    			i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(p.Calculated_Initiation_Signature__c, CONCURRENCE_PETITION_INITIATION);
+    			i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, CONCURRENCE_PETITION_INITIATION);
     		}
     	} else if (parentIdToObjectTypeMap.get(parentId) == SEGMENT) {
     		Segment__c s = segmentParents.get(parentId);
@@ -321,14 +321,14 @@ public without sharing class IssueTriggerHandler {
 				|| parentIdToRecordTypeNameMap.get(s.Id) == CHANGED_CIRCUMSTANCES_REVIEW
 				) {
     			if (s.Calculated_Initiation_Signature__c != null) {
-	    			i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(s.Calculated_Initiation_Signature__c, CONCURRENCE_INITIATION);
+	    			i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, CONCURRENCE_INITIATION);
 	    		}
     		}
     	} else if (parentIdToObjectTypeMap.get(parentId) == LITIGATION) {
     		Litigation__c l = litigationParents.get(parentId);
     		if (parentIdToRecordTypeNameMap.get(l.Id) == INT_LITIGATION) {
     			if (l.Calculated_Initiation_Signature__c != null) {
-	    			i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(l.Calculated_Initiation_Signature__c, CONCURRENCE_INITIATION);
+	    			i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, CONCURRENCE_INITIATION);
 	    		}
     		}
     	}
@@ -338,22 +338,22 @@ public without sharing class IssueTriggerHandler {
     	if (parentIdToObjectTypeMap.get(parentId) == INVESTIGATION) {
     		Investigation__c inv = investigationParents.get(parentId);
     		if (inv.Calculated_Preliminary_Signature__c != null) {
-    			i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(inv.Calculated_Preliminary_Signature__c, CONCURRENCE_PRELIMINARY);
+    			i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, CONCURRENCE_PRELIMINARY);
     		}
     	} else if (parentIdToObjectTypeMap.get(parentId) == SEGMENT) {
     		Segment__c s = segmentParents.get(parentId);
     		if (s.Calculated_Preliminary_Signature__c != null) {
-    			i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(s.Calculated_Preliminary_Signature__c, CONCURRENCE_PRELIMINARY);
+    			i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, CONCURRENCE_PRELIMINARY);
     		}
     	} else if (parentIdToObjectTypeMap.get(parentId) == LITIGATION) {
     		Litigation__c l = litigationParents.get(parentId);
     		if (parentIdToRecordTypeNameMap.get(l.Id) == INT_LITIGATION) {
     			if (l.Calculated_Preliminary_Signature__c != null) {
-	    			i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(l.Calculated_Preliminary_Signature__c, CONCURRENCE_PRELIMINARY);
+	    			i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, CONCURRENCE_PRELIMINARY);
 	    		}
     		} else if (parentIdToRecordTypeNameMap.get(l.Id) == REMAND) {
     			if (l.Calculated_Draft_Remand_release_to_party__c != null) {
-	    			i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(l.Calculated_Draft_Remand_release_to_party__c, CONCURRENCE_PRELIMINARY);
+	    			i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, CONCURRENCE_PRELIMINARY);
 	    		}
     		}
     	}
@@ -363,7 +363,7 @@ public without sharing class IssueTriggerHandler {
     	if (parentIdToObjectTypeMap.get(parentId) == INVESTIGATION) {
     		Investigation__c inv = investigationParents.get(parentId);
     		if (inv.Calc_Amended_Prelim_Determination_Sig__c != null) {
-    			i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(inv.Calc_Amended_Prelim_Determination_Sig__c, CONCURRENCE_AMENDED_PRELIMINARY);
+    			i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, CONCURRENCE_AMENDED_PRELIMINARY);
     		}
     	}
     }
@@ -372,17 +372,17 @@ public without sharing class IssueTriggerHandler {
     	if (parentIdToObjectTypeMap.get(parentId) == INVESTIGATION) {
     		Investigation__c inv = investigationParents.get(parentId);
     		if (inv.Calculated_Final_Signature__c != null) {
-    			i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(inv.Calculated_Final_Signature__c, CONCURRENCE_FINAL);
+    			i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, CONCURRENCE_FINAL);
     		}
     	} else if (parentIdToObjectTypeMap.get(parentId) == SEGMENT) {
     		Segment__c s = segmentParents.get(parentId);
     		if (s.Calculated_Final_Signature__c != null) {
-    			i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(s.Calculated_Final_Signature__c, CONCURRENCE_FINAL);
+    			i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, CONCURRENCE_FINAL);
     		}
     	} else if (parentIdToObjectTypeMap.get(parentId) == LITIGATION) {
     		Litigation__c l = litigationParents.get(parentId);
     		if (l.Calculated_Final_Signature__c != null) {
-    			i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(l.Calculated_Final_Signature__c, CONCURRENCE_FINAL);
+    			i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, CONCURRENCE_FINAL);
     		}
     	}
     }
@@ -391,7 +391,7 @@ public without sharing class IssueTriggerHandler {
     	if (parentIdToObjectTypeMap.get(parentId) == INVESTIGATION) {
     		Investigation__c inv = investigationParents.get(parentId);
     		if (inv.Calculated_Amended_Final_Signature__c != null) {
-    			i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(inv.Calculated_Amended_Final_Signature__c, CONCURRENCE_AMENDED_FINAL);
+    			i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, CONCURRENCE_AMENDED_FINAL);
     		}
     	} else if (parentIdToObjectTypeMap.get(parentId) == SEGMENT) {
     		Segment__c s = segmentParents.get(parentId);
@@ -400,7 +400,7 @@ public without sharing class IssueTriggerHandler {
     			|| parentIdToRecordTypeNameMap.get(s.Id) == NEW_SHIPPER_REVIEW
     			) {
     			if (s.Calculated_Amended_Final_Signature__c != null) {
-	    			i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(s.Calculated_Amended_Final_Signature__c, CONCURRENCE_AMENDED_FINAL);
+	    			i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, CONCURRENCE_AMENDED_FINAL);
 	    		}
     		}
     	}
@@ -411,7 +411,7 @@ public without sharing class IssueTriggerHandler {
     		Segment__c s = segmentParents.get(parentId);
     		if (parentIdToRecordTypeNameMap.get(s.Id) == SCOPE_INQUIRY) {
     			if (s.Deadline_for_Decision_on_How_to_Proceed__c != null) {
-	    			i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(s.Deadline_for_Decision_on_How_to_Proceed__c, CONCURRENCE_DEADLINE_FOR_HOP);
+	    			i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, CONCURRENCE_DEADLINE_FOR_HOP);
 	    		}
     		}
     	}
@@ -423,7 +423,7 @@ public without sharing class IssueTriggerHandler {
     		if (parentIdToRecordTypeNameMap.get(s.Id) == SUNSET_REVIEW) {
     			if (s.Continuation_or_Revocation_FR_Notice_Pub__c != null) {
     				i.Start_Date__c = s.Continuation_or_Revocation_FR_Notice_Pub__c;
-	    			i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(s.Continuation_or_Revocation_FR_Notice_Pub__c, CONCURRENCE_CONT_OR_REVO);
+	    			i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, CONCURRENCE_CONT_OR_REVO);
 	    		}
     		}
     	}
