@@ -328,9 +328,11 @@ public without sharing class SegmentTriggerHandler {
 	@TestVisible private static void setCalculatedFinalSignature(Segment__c s) {
 		Date prelimPublished = null;
 		Date initPublished = null;
+		Federal_Register__c initFR = null;
 		if(s.Id != null && frUtilMap != null) {
 			prelimPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).preliminaryPublishedDate : null;
 			initPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).initiationPublishedDate : null;
+			initFR = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).initiationFR : null;
 		}
 		Integer extension = s.Final_Extension_of_days__c == null ? 0 : (Integer)s.Final_Extension_of_days__c;//null check on extension, set to 0 if null
 		if (recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW) {
@@ -399,7 +401,9 @@ public without sharing class SegmentTriggerHandler {
 						s.Calculated_Final_Signature__c = initPublished.addDays(SSR_240_CALC_FINAL_SIG).addDays(prelimExtension).addDays(extension);
 						s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(initPublished, s.Calculated_Final_Signature__c, true);
 				}
-			}
+			} else if (s.Calculated_Final_Signature__c != null && initFR == null) {
+                s.Calculated_Final_Signature__c = null;//after delete of fr
+            }
 		}
 	}
 
@@ -477,13 +481,17 @@ public without sharing class SegmentTriggerHandler {
 	@TestVisible private static void setCalculatedRevocationOrContinuationFR(Segment__c s) {
 		if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW) {
 			Date itcFinalPublished = null;
+			Federal_Register__c itcFinalFR = null;
 			if(s.Id != null && frUtilMap != null) {
 				itcFinalPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).itcFinalPublishedDate : null;
+				itcFinalFR = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).itcFinalFR : null;
 			}
 			if(itcFinalPublished != null) {
 				s.Calculated_Revocation_or_Continuation_FR__c = itcFinalPublished.addDays(SSR_CALC_REVO_OR_CONT_FR);
 				s.Calculated_Revocation_or_Continuation_FR__c = ADCVD_TollingDayUtility.getCalculatedDate(itcFinalPublished, s.Calculated_Revocation_or_Continuation_FR__c, true);
-			}
+			} else if (s.Calculated_Revocation_or_Continuation_FR__c != null && itcFinalFR == null) {
+                s.Calculated_Revocation_or_Continuation_FR__c = null;//after delete of fr
+            }
 		}
 	}
 
@@ -529,6 +537,8 @@ public without sharing class SegmentTriggerHandler {
 					s.Update_ACE_Customs_Module__c = s.Actual_Revocation_or_Continuation_FR__c.addDays(SSR_240_REVO_SIG_UPDATE_ACE_CUS_MOD);
 					s.Update_ACE_Customs_Module__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Revocation_or_Continuation_FR__c, s.Update_ACE_Customs_Module__c, true);
 				}
+			} else if ((ssrType == '120' || ssrType == '240') && s.Continuation_or_Revocation__c != 'Revocation' && s.Update_ACE_Customs_Module__c != null) {
+				s.Update_ACE_Customs_Module__c = null;
 			}
 		}
 	}
@@ -575,6 +585,8 @@ public without sharing class SegmentTriggerHandler {
 					s.Issue_Liquidation_Revocation_Instruction__c = s.Actual_Revocation_or_Continuation_FR__c.addDays(SSR_240_REVO_SIG_ISSUE_LIQ_REVO_INS);
 					s.Issue_Liquidation_Revocation_Instruction__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Revocation_or_Continuation_FR__c, s.Issue_Liquidation_Revocation_Instruction__c, true);
 				}
+			} else if ((ssrType == '120' || ssrType == '240') && s.Continuation_or_Revocation__c != 'Revocation' && s.Issue_Liquidation_Revocation_Instruction__c != null) {
+				s.Update_ACE_Customs_Module__c = null;
 			}
 		}
 	}
@@ -583,9 +595,11 @@ public without sharing class SegmentTriggerHandler {
 	@TestVisible private static void setRebuttalCommentsDue(Segment__c s) {
 		if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW) {
 			Date initPublished = null;
+			Federal_Register__c initFR = null;
 			if (ssrType != '') {
 				if(s.Id != null && frUtilMap != null) {
 					initPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).initiationPublishedDate : null;
+					initFR = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).initiationFR : null;
 				}
 			}
 			if (initPublished != null) {
@@ -596,7 +610,9 @@ public without sharing class SegmentTriggerHandler {
 						s.Rebuttal_Comments_Due__c = initPublished.addDays(SSR_240_REBUTTAL_COMMENTS_DUE);
 						s.Rebuttal_Comments_Due__c = ADCVD_TollingDayUtility.getCalculatedDate(initPublished, s.Rebuttal_Comments_Due__c, true);
 				}
-			}
+			} else if (s.Rebuttal_Comments_Due__c != null && initFR == null) {
+                s.Rebuttal_Comments_Due__c = null;//after delete of fr
+            }
 		}
 	}
 
@@ -604,9 +620,11 @@ public without sharing class SegmentTriggerHandler {
 	@TestVisible private static void setAdequacyDeterminationandLetterToITC(Segment__c s) {
 		if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW) {
 			Date initPublished = null;
+			Federal_Register__c initFR = null;
 			if (ssrType != '') {
 				if(s.Id != null && frUtilMap != null) {
 					initPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).initiationPublishedDate : null;
+					initFR = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).initiationFR : null;
 				}
 			}
 			if (initPublished != null) {
@@ -617,7 +635,9 @@ public without sharing class SegmentTriggerHandler {
 						s.Adequacy_Determination_Letter_240_day__c = initPublished.addDays(SSR_240_ADEQUACY_DET_AND_LET_TO_ITC);
 						s.Adequacy_Determination_Letter_240_day__c = ADCVD_TollingDayUtility.getCalculatedDate(initPublished, s.Adequacy_Determination_Letter_240_day__c, true);
 				}
-			}
+			} else if (s.Adequacy_Determination_Letter_240_day__c != null && initFR == null) {
+                s.Adequacy_Determination_Letter_240_day__c = null;//after delete of fr
+            }
 		}
 	}
 
@@ -625,9 +645,11 @@ public without sharing class SegmentTriggerHandler {
 	@TestVisible private static void setCommentsOnAdequacyDeterminationFiled(Segment__c s) {
 		if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW) {
 			Date initPublished = null;
+			Federal_Register__c initFR = null;
 			if (ssrType != '') {
 				if(s.Id != null && frUtilMap != null) {
 					initPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).initiationPublishedDate : null;
+					initFR = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).initiationFR : null;
 				}
 			}
 			if (initPublished != null) {
@@ -635,7 +657,9 @@ public without sharing class SegmentTriggerHandler {
 						s.Comments_on_Adequacy_Determination_Filed__c = initPublished.addDays(SSR_120_COMMENTS_ON_ADEQ_DET_FILED);
 						s.Comments_on_Adequacy_Determination_Filed__c = ADCVD_TollingDayUtility.getCalculatedDate(initPublished, s.Comments_on_Adequacy_Determination_Filed__c, true);
 				}
-			}
+			} else if (s.Comments_on_Adequacy_Determination_Filed__c != null && initFR == null) {
+                s.Comments_on_Adequacy_Determination_Filed__c = null;//after delete of fr
+            }
 		}
 	}
 
@@ -643,9 +667,11 @@ public without sharing class SegmentTriggerHandler {
 	@TestVisible private static void setMemorandumOnAdequacyDetermination(Segment__c s) {
 		if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW) {
 			Date initPublished = null;
+			Federal_Register__c initFR = null;
 			if (ssrType != '') {
 				if(s.Id != null && frUtilMap != null) {
 					initPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).initiationPublishedDate : null;
+					initFR = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).initiationFR : null;
 				}
 			}
 			if (initPublished != null) {
@@ -653,7 +679,9 @@ public without sharing class SegmentTriggerHandler {
 						s.Memorandum_on_Adequacy_Determination__c = initPublished.addDays(SSR_120_MEMO_ON_ADEQUACY_DET);
 						s.Memorandum_on_Adequacy_Determination__c = ADCVD_TollingDayUtility.getCalculatedDate(initPublished, s.Memorandum_on_Adequacy_Determination__c, true);
 				}
-			}
+			} else if (s.Memorandum_on_Adequacy_Determination__c != null && initFR == null) {
+                s.Memorandum_on_Adequacy_Determination__c = null;//after delete of fr
+            }
 		}
 	}
 
@@ -664,13 +692,17 @@ public without sharing class SegmentTriggerHandler {
 		if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW) {
 			if (ssrType == '90') {
 				Date initPublished = null;
+				Federal_Register__c initFR = null;
 				if(s.Id != null && frUtilMap != null) {
 					initPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).initiationPublishedDate : null;
+					initFR = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).initiationFR : null;
 				}
 				if(initPublished != null) {
 					s.Notify_ITC_of_No_Domestic_Interest__c = initPublished.addDays(SSR_90_NOTIFY_ITC_NO_DOMESTIC_INT);
 					s.Notify_ITC_of_No_Domestic_Interest__c = ADCVD_TollingDayUtility.getCalculatedDate(initPublished, s.Notify_ITC_of_No_Domestic_Interest__c, true);
-				}
+				} else if (s.Notify_ITC_of_No_Domestic_Interest__c != null && initFR == null) {
+	                s.Notify_ITC_of_No_Domestic_Interest__c = null;//after delete of fr
+	            }
 			}
 		}
 	}
@@ -680,13 +712,17 @@ public without sharing class SegmentTriggerHandler {
 		if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW) {
 			if (ssrType == '90') {
 				Date initPublished = null;
+				Federal_Register__c initFR = null;
 				if(s.Id != null && frUtilMap != null) {
 					initPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).initiationPublishedDate : null;
+					initFR = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).initiationFR : null;
 				}
 				if(initPublished != null) {
 					s.Inadequate_Domestic_Response_note_to_ITC__c = initPublished.addDays(SSR_90_INADEQUATE_DOM_RESP_TO_ITC);
 					s.Inadequate_Domestic_Response_note_to_ITC__c = ADCVD_TollingDayUtility.getCalculatedDate(initPublished, s.Inadequate_Domestic_Response_note_to_ITC__c, true);
-				}
+				} else if (s.Inadequate_Domestic_Response_note_to_ITC__c != null && initFR == null) {
+	                s.Inadequate_Domestic_Response_note_to_ITC__c = null;//after delete of fr
+	            }
 			}
 		}
 	}
@@ -695,13 +731,17 @@ public without sharing class SegmentTriggerHandler {
 	@TestVisible private static void setNoticeOfIntentToParticipate(Segment__c s) {
 		if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW) {
 			Date initPublished = null;
+			Federal_Register__c initFR = null;
 			if(s.Id != null && frUtilMap != null) {
 				initPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).initiationPublishedDate : null;
+				initFR = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).initiationFR : null;
 			}
 			if(initPublished != null) {
 				s.Notice_of_Intent_to_Participate__c = initPublished.addDays(SSR_NOTICE_INTENT_PARTICIPATE);
 				s.Notice_of_Intent_to_Participate__c = ADCVD_TollingDayUtility.getCalculatedDate(initPublished, s.Notice_of_Intent_to_Participate__c, true);
-			}
+			} else if (s.Notice_of_Intent_to_Participate__c != null && initFR == null) {
+                s.Notice_of_Intent_to_Participate__c = null;//after delete of fr
+            }
 		}
 	}
 
@@ -711,6 +751,8 @@ public without sharing class SegmentTriggerHandler {
 			if(s.Notice_of_Intent_to_Participate__c != null) {
 				s.Notify_Cluster_Coordinator_No_Interest__c = s.Notice_of_Intent_to_Participate__c.addDays(SSR_NOTIFY_CLUSTER_CDNTR_NO_INT);
 				s.Notify_Cluster_Coordinator_No_Interest__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Notice_of_Intent_to_Participate__c, s.Notify_Cluster_Coordinator_No_Interest__c, true);
+			} else if (s.Notice_of_Intent_to_Participate__c == null) {
+				s.Notify_Cluster_Coordinator_No_Interest__c = null;
 			}
 		}
 	}
@@ -719,13 +761,17 @@ public without sharing class SegmentTriggerHandler {
 	@TestVisible private static void setSubstantiveResponseDueForAllParties(Segment__c s) {
 		if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW) {
 			Date initPublished = null;
+			Federal_Register__c initFR = null;
 			if(s.Id != null && frUtilMap != null) {
 				initPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).initiationPublishedDate : null;
+				initFR = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).initiationFR : null;
 			}
 			if(initPublished != null) {
 				s.Substantive_Response_Due_For_All_Parties__c = initPublished.addDays(SSR_SUBSTAN_RESP_DUE_ALL_PARTIES);
 				s.Substantive_Response_Due_For_All_Parties__c = ADCVD_TollingDayUtility.getCalculatedDate(initPublished, s.Substantive_Response_Due_For_All_Parties__c, true);
-			}
+			} else if (s.Substantive_Response_Due_For_All_Parties__c != null && initFR == null) {
+                s.Substantive_Response_Due_For_All_Parties__c = null;//after delete of fr
+            }
 		}
 	}
 
@@ -735,6 +781,8 @@ public without sharing class SegmentTriggerHandler {
 			if(s.Substantive_Response_Due_For_All_Parties__c != null) {
 				s.Inform_Cluster_Coordinator_if_No_Respons__c = s.Substantive_Response_Due_For_All_Parties__c.addDays(SSR_REV_INFORM_CLUSTER_CDNTR_IF_NO_RESP);
 				s.Inform_Cluster_Coordinator_if_No_Respons__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Substantive_Response_Due_For_All_Parties__c, s.Inform_Cluster_Coordinator_if_No_Respons__c, true);
+			} else if (s.Substantive_Response_Due_For_All_Parties__c == null) {
+				s.Inform_Cluster_Coordinator_if_No_Respons__c = null;
 			}
 		}
 	}
