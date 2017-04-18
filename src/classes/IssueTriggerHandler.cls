@@ -234,7 +234,9 @@ public without sharing class IssueTriggerHandler {
 	    		}
     		}
     	}
-        i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, ISSUES_PRELIMINARY);
+        if (i.Start_Date__c != null) {
+            i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, ISSUES_PRELIMINARY);
+        }
     }
 
     @TestVisible private static void setAmendedPreliminaryIssuesToDAS(Id parentId, Issue__c i) {
@@ -264,7 +266,9 @@ public without sharing class IssueTriggerHandler {
     			i.Start_Date__c = l.Calculated_Final_Signature__c;
     		}
     	}
-        i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, ISSUES_FINAL);
+        if (i.Start_Date__c != null) {
+            i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, ISSUES_FINAL);
+        }
     }
 
     @TestVisible private static void setAmendedFinalIssuesToDAS(Id parentId, Issue__c i) {
@@ -284,7 +288,9 @@ public without sharing class IssueTriggerHandler {
 	    		}
     		}
     	}
-        i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, ISSUES_AMENDED_FINAL);
+        if (i.Start_Date__c != null) {
+            i.Issues_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, ISSUES_AMENDED_FINAL);
+        }
     }
 
     @TestVisible private static void setDeadlineForDecisionHOPIssuesToDAS(Id parentId, Issue__c i) {
@@ -327,7 +333,9 @@ public without sharing class IssueTriggerHandler {
 	    		}
     		}
     	}
-        i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, CONCURRENCE_INITIATION);
+        if (i.Start_Date__c != null) {
+            i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, CONCURRENCE_INITIATION);
+        }
     }
 
     @TestVisible private static void setPreliminaryConcurrenceToDAS(Id parentId, Issue__c i) {
@@ -353,7 +361,9 @@ public without sharing class IssueTriggerHandler {
 	    		}
     		}
     	}
-        i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, CONCURRENCE_PRELIMINARY);
+        if (i.Start_Date__c != null) {
+            i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, CONCURRENCE_PRELIMINARY);
+        }
     }
 
     @TestVisible private static void setAmendedPreliminaryConcurrenceToDAS(Id parentId, Issue__c i) {
@@ -382,7 +392,9 @@ public without sharing class IssueTriggerHandler {
                 i.Start_Date__c = l.Calculated_Final_Signature__c;
     		}
     	}
-        i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, CONCURRENCE_FINAL);
+        if (i.Start_Date__c != null) {
+            i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, CONCURRENCE_FINAL);
+        }
     }
 
     @TestVisible private static void setAmendedFinalConcurrenceToDAS(Id parentId, Issue__c i) {
@@ -402,7 +414,9 @@ public without sharing class IssueTriggerHandler {
 	    		}
     		}
     	}
-        i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, CONCURRENCE_AMENDED_FINAL);
+        if (i.Start_Date__c != null) {
+            i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, CONCURRENCE_AMENDED_FINAL);
+        }
     }
 
     @TestVisible private static void setDeadlineForDecisionHOPConcurrenceToDAS(Id parentId, Issue__c i) {
