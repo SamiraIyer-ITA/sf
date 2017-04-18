@@ -1745,7 +1745,7 @@
             </values>
             <values>
                 <fullName>In Progress</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Order</fullName>
@@ -2295,7 +2295,7 @@
             </values>
             <values>
                 <fullName>In Progress</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Order</fullName>

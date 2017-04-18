@@ -109,6 +109,9 @@ public without sharing class SegmentTriggerHandler {
 		if (isAfter && isUpdate) {
 
 		}
+		if(isAfter && isInsert) {
+            StaffingAssignmentExtension createStaff = new StaffingAssignmentExtension(newList);
+        }
 	}
 
 	@TestVisible private static Map<Id,String> recordTypeNameMap = new Map<Id,String>();

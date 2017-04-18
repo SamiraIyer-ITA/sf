@@ -6,7 +6,7 @@ public without sharing class PetitionTriggerHandler {
         if(preventRecursion) {return;}
 
         if(isAfter && isInsert) {
-
+            StaffingAssignmentExtension createStaff = new StaffingAssignmentExtension(newList);
         }
         if(isAfter && isUpdate) {
             recalculateInvestigations(newMap);

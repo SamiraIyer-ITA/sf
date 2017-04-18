@@ -11,6 +11,10 @@
         <visible>false</visible>
     </applicationVisibilities>
     <classAccesses>
+        <apexClass>ADCVDOrderTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ADCVD_CascadeService</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -171,11 +175,19 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>InvestigationOverride</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>InvestigationTriggerHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>InvestigationTriggerHandlerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IssueTriggerHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -304,6 +316,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>RefundController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>RelatedOrganizationTriggerHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -535,6 +551,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>VideoController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>WebServiceMockImpl</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -647,6 +667,21 @@
         <enabled>false</enabled>
     </classAccesses>
     <custom>true</custom>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ADCVD_Objects__mdt.Object_API_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ADCVD_Objects__mdt.Record_Type_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ADCVD_Objects__mdt.Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>ADCVD_Order__c.Actual_Amended_Final_Signature__c</field>
@@ -2024,6 +2059,66 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Constant__mdt.ADCVD_Objects__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Constant__mdt.Investigation_Calculation_Offset__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Constant__mdt.Issue_Calculation_Offset__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Constant__mdt.Litigation_Calculation_Offset__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Constant__mdt.Number_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Constant__mdt.Petition_Calculation_Offset__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Constant__mdt.Record_Description__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Constant__mdt.Segment_Calculation_Offset__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Constant__mdt.Staffing_Assignment_Default__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Constant__mdt.Staffing_Role__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Constant__mdt.String_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Constant__mdt.Used_with_Field_Named__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Contact.Active__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2154,6 +2249,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Content_Version__c.Approver__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Content_Version__c.Atom_Title__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2165,6 +2265,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Content_Version__c.Publishing_Status__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Content_Version__c.Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2181,6 +2286,11 @@
         <editable>false</editable>
         <field>Content__c.Alt_Text__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Content__c.Approver__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -2255,6 +2365,21 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Content__c.Version__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Content__c.Video_Description__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Content__c.Video_Download__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Content__c.Video_File_Size__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2599,6 +2724,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Federal_Register__c.ADCVD_Order__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Federal_Register__c.Cite_Number__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2624,11 +2754,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Federal_Register__c.Federal_Register__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Federal_Register__c.IDM_URL__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2636,6 +2761,11 @@
         <editable>true</editable>
         <field>Federal_Register__c.Investigation__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Federal_Register__c.Litigation__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3174,6 +3304,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Issue__c.Concurrence_to_DAS__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Issue__c.Investigation__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3189,7 +3324,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Issue__c.Issues_to_DAS__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Issue__c.Legal_Status__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Issue__c.Litigation__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3210,6 +3355,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Issue__c.Segment__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Issue__c.Start_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3584,6 +3734,91 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Market_Intelligence__kav.Approver__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Market_Intelligence__kav.Atom__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Market_Intelligence__kav.Citation_Source__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Market_Intelligence__kav.Citation__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Market_Intelligence__kav.Days_Since_Last_Published_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Market_Intelligence__kav.Draft_Complete__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Market_Intelligence__kav.Expiration_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Market_Intelligence__kav.Level_0__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Market_Intelligence__kav.Level_1__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Market_Intelligence__kav.Level_2__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Market_Intelligence__kav.Level_3__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Market_Intelligence__kav.Mobile_Title__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Market_Intelligence__kav.Public_URL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Market_Intelligence__kav.References__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Market_Intelligence__kav.Series__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Market_Intelligence__kav.Stage__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Market_Intelligence__kav.Video__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Master_CongressionalDistrict__c.Congressional_Dist__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3620,6 +3855,51 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Master_CongressionalDistrict__c.zip_Plus4__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meta_Tag__c.Application__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meta_Tag__c.Atom__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meta_Tag__c.Attribute__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meta_Tag__c.Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meta_Tag__c.Page__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meta_Tag__c.Property__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meta_Tag__c.Site__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meta_Tag__c.Tag__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meta_Tag__c.Use_Property_As_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3836,6 +4116,11 @@
         <editable>false</editable>
         <field>Page__c.Content__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Page__c.Description_Length__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -4520,6 +4805,26 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Related_Cases_and_Orgs__c.WIN_Organization__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Related_Issue__c.Investigation__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Related_Issue__c.Litigation__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Related_Issue__c.Petition__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Related_Issue__c.Segment__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6729,12 +7034,27 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>agf__ADM_Acceptance_Criterion__c.Pre_Conditions__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>agf__ADM_Build__c.Deployment_Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>agf__ADM_Build__c.Description__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>agf__ADM_Build__c.ParentBuild__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>agf__ADM_Build__c.Questions__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6757,603 +7077,6 @@
         <field>agf__ADM_Epic__c.Phase__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <layoutAssignments>
-        <layout>ADCVD_Order__c-Order</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>ADCVD_Order__c-Order</layout>
-        <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-Account Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Article__kav-Article Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Artifact__c-Artifact Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Artifact__c-Artifact Layout</layout>
-        <recordType>Artifact__c.Privacy_Policy</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Asset-Asset Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Basic_Guide_to_Exporting__kav-Basic Guide to Exporting Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>BatchJobScheduler__c-BatchJobScheduler Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Campaign-Campaign Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>CampaignMember-Campaign Member Page Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Carousel_Item__c-Carousel Item Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Case-Case Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>CaseClose-Close Case Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Case_Contributor__c-Case Contributor Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Case_Solution__kav-FAQ Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Chapter_Section__c-Chapter Section Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Chapter__c-Chapter Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Clean_URL__c-Clean URL Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>CollaborationGroup-Group Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Contact-ITA Contact Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Content_Container__c-Content Container Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Content_Container__c-Content Container Layout</layout>
-        <recordType>Content_Container__c.Admin_Only</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Content_Container__c-Content Container Layout</layout>
-        <recordType>Content_Container__c.Style</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Content_Override__c-Content Override Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Content_Version__c-Content Version Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Content_Version__c-Content Version Layout</layout>
-        <recordType>Content_Version__c.Content_Version</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Content_Version__c-Content Version Layout</layout>
-        <recordType>Content_Version__c.Published_Content_Version</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Content__c-API</layout>
-        <recordType>Content__c.API</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Content__c-Carousel</layout>
-        <recordType>Content__c.Carousel</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Content__c-Content Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Content__c-Content Layout</layout>
-        <recordType>Content__c.Draft_Generic_Content</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Content__c-Content Layout</layout>
-        <recordType>Content__c.RichText</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Content__c-Icon Layout</layout>
-        <recordType>Content__c.Icon</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Content__c-Series Layout</layout>
-        <recordType>Content__c.Series_List</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Content__c-Video</layout>
-        <recordType>Content__c.Video</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Contract-Contract Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Country_Commercial__kav-Country Commercial Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Covered_Entity__c-Covered Entity Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>DandBCompany-D%26B Company Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Decision_Log__c-Decision Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Department_Taxonomy__c-Department Taxonomy Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>DuplicateRecordItem-Duplicate Record Item Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>DuplicateRecordSet-Duplicate Record Set Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>EmailMessage-Email Message Layout - Email-to-Case</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Event-Event Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>FAQ__kav-FAQ Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>FAQlegacy__kav-FAQ Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Federal_Register__c-Federal Register Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>FeedItem-Feed Item Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Framework__c-Framework Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Global-Global Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Icon__c-Icon Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Idea-Idea Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Image__c-Image Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Inactive_Period__c-Inactive Period Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Inactive_Reason__c-Inactive Status Reason Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Industry__c-Taxonomy Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Insight_Atom__c-Insight Atom Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Insight_Chapter__c-Insight Chapter Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Insight__c-Insight Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Investigation_Constant__mdt-Constant Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Investigation__c-AD Investigation Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Investigation__c-AD Investigation Layout</layout>
-        <recordType>Investigation__c.AD</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Investigation__c-AD Investigation Layout</layout>
-        <recordType>Investigation__c.CVD</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Issue__c-Issue Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead-Lead Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Level__c-Level Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Litigation_Constant__mdt-Litigation Constant Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Litigation_Respondent__c-Litigation Respondent Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Litigation__c-InternationalLitigation</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Litigation__c-InternationalLitigation</layout>
-        <recordType>Litigation__c.International_Litigation</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Litigation__c-InternationalLitigation</layout>
-        <recordType>Litigation__c.Remand</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Macro-Macro Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Market_Insight__kav-Market Insight Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Master_CongressionalDistrict__c-Master CongressionalDistrict Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>My_Profile_Option__c-My Profile Option Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Navigation_Group__c-Navigation Group Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Navigation_Link__c-Navigation Link Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Navigation_Link__c-Navigation Link Layout</layout>
-        <recordType>Navigation_Link__c.Link</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Navigation_Link__c-Navigation Link Layout</layout>
-        <recordType>Navigation_Link__c.Section</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>ObjectTerritory2AssignmentRule-Object Territory Assignment Rule Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Opportunity-Opportunity Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>OpportunityLineItem-Opportunity Product Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Order-Order Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>OrderItem-Order Product Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Page_Content__c-Row Content Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Page_Content__c-Row Content Layout</layout>
-        <recordType>Page_Content__c.API</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Page_Content__c-Row Content Layout</layout>
-        <recordType>Page_Content__c.Carousel</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Page_Content__c-Row Content Layout</layout>
-        <recordType>Page_Content__c.Generic_Content</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Page_Content__c-Row Content Layout</layout>
-        <recordType>Page_Content__c.Icon</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Page_Content__c-Row Content Layout</layout>
-        <recordType>Page_Content__c.Series_List</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Page_Content__c-Row Content Layout</layout>
-        <recordType>Page_Content__c.Video</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Page__c-Generic Page</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Page__c-Generic Page</layout>
-        <recordType>Page__c.GenericPage</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Participant_Contact__c-Participant Contact Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Participant__c-Participation Status Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Participation__c-Participation Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Payment__c-Payment Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Petition__c-Petition Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Petitioner__c-Petitioner Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Platform__kav-Platform Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Pricebook2-Price Book Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>PricebookEntry-Price Book Entry</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Product2-Product Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Program__c-Mission Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Publication_Template__c-Publication Template Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Recusal__c-Primary Recusal Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Recusal__c-Primary Recusal Layout</layout>
-        <recordType>Recusal__c.Primary</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Recusal__c-Primary Recusal Layout</layout>
-        <recordType>Recusal__c.Related</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Refund__c-Refund Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>RelatedCountries__c-Countries Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Related_Cases_and_Orgs__c-Cases Associated to WIN Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Related_Cases_and_Orgs__c-Cases Associated to WIN Layout</layout>
-        <recordType>Related_Cases_and_Orgs__c.Related_Cases_and_Orgs</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Related_Organization__c-Related Organization Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Renewing_Product__c-Renewing Product Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Respondent__c-Respondent Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Row__c-Row Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>SearchPromotionRule-Promoted Search Term Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Section__c-Section Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Section__c-Section Layout</layout>
-        <recordType>Section__c.Initiative</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Section__c-Section Layout</layout>
-        <recordType>Section__c.Office</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Section__c-Section Layout</layout>
-        <recordType>Section__c.Program</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Section__c-Section Layout</layout>
-        <recordType>Section__c.Service</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Segment_Constant__mdt-Segment Constant Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Segment__c-Segment Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Segment__c-Segment Layout</layout>
-        <recordType>Segment__c.Administrative_Review</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Segment__c-Segment Layout</layout>
-        <recordType>Segment__c.Anti_Circumvention_Review</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Segment__c-Segment Layout</layout>
-        <recordType>Segment__c.Changed_Circumstances_Review</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Segment__c-Segment Layout</layout>
-        <recordType>Segment__c.Expedited_Review</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Segment__c-Segment Layout</layout>
-        <recordType>Segment__c.New_Shipper_Review</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Segment__c-Segment Layout</layout>
-        <recordType>Segment__c.Scope_Inquiry</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Segment__c-Segment Layout</layout>
-        <recordType>Segment__c.Sunset_Review</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Series__c-Series Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Service__mdt-Service Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Site__c-Site Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Social_Icons__c-Social Icon Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Solution-Solution Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Staffing_Assignment__c-Staffing Assignment Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>State_Report__kav-State Report Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Survey_Result__c-Annual Survey Result Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Survey_Result__c-Annual Survey Result Layout</layout>
-        <recordType>Survey_Result__c.Annual_Survey</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Survey_Result__c-Annual Survey Result Layout</layout>
-        <recordType>Survey_Result__c.Transactional_Survey</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Suspension_Agreement__c-Suspension Agreement Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Sync_Investigation__mdt-Sync Investigation Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Sync_Utility__mdt-Sync Utility Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Task-Task Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Template_Page_Content__c-_Page_Content Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Template_Page_Content__c-_Page_Content Layout</layout>
-        <recordType>Template_Page_Content__c.API</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Template_Page_Content__c-_Page_Content Layout</layout>
-        <recordType>Template_Page_Content__c.Call_to_Action</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Template_Page_Content__c-_Page_Content Layout</layout>
-        <recordType>Template_Page_Content__c.Carousel</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Template_Page_Content__c-_Page_Content Layout</layout>
-        <recordType>Template_Page_Content__c.Generic_Content</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Template_Page_Content__c-_Page_Content Layout</layout>
-        <recordType>Template_Page_Content__c.Video</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Template_Page__c-_Page Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Template_Row__c-Row Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Third_Party_Master_List__c-Third Party Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Third_Party_Master_List__c-Third Party Layout</layout>
-        <recordType>Third_Party_Master_List__c.Default</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Third_Party__c-Third Party Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Third_Party__c-Third Party Layout</layout>
-        <recordType>Third_Party__c.Resolution_Provider</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Third_Party__c-Third Party Layout</layout>
-        <recordType>Third_Party__c.Statutory_Body</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Third_Party__c-Third Party Layout</layout>
-        <recordType>Third_Party__c.Verification</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Tolling_Day__c-Tolling Day Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Top_Markets__kav-Top Markets Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Trade_Agreement__kav-Barrier Trade Agreement Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>URL__c-URL Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>User-User Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>UserAlt-User Profile Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>UserAppMenuItem-Application Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>WIN_Contributor__c-ITA POC Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>WIN__c-WIN Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>WIN__c-WIN Layout</layout>
-        <recordType>WIN__c.Advocacy</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>WIN__c-WIN Layout</layout>
-        <recordType>WIN__c.Advocacy_Locked</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>WIN__c-WIN Layout</layout>
-        <recordType>WIN__c.Commercial_Diplomacy</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>WIN__c-WIN Layout</layout>
-        <recordType>WIN__c.Commercial_Diplomacy_Locked</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>WIN__c-WIN Layout</layout>
-        <recordType>WIN__c.Export_Promotion</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>WIN__c-WIN Layout</layout>
-        <recordType>WIN__c.Export_Promotion_Locked</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>WIN__c-WIN Layout</layout>
-        <recordType>WIN__c.Investment_Promotion</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>WIN__c-WIN Layout</layout>
-        <recordType>WIN__c.Investment_Promotion_Locked</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>WIN__c-WIN Layout</layout>
-        <recordType>WIN__c.WIN_Standard_Record_Type</recordType>
-    </layoutAssignments>
     <objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
@@ -7562,6 +7285,10 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>InvestigationOverride</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>MyOrders</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -7690,6 +7417,10 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>consolidated_screening_list_doc</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>csl_search</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -7699,6 +7430,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>data</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>envirotech_toolkit</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
