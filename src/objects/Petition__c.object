@@ -619,11 +619,12 @@ C-###-### for CVD</inlineHelpText>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
+            <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
                     <fullName>Deficient Petition/Did Not Initiate</fullName>
-                    <default>true</default>
+                    <default>false</default>
                     <label>Deficient Petition/Did Not Initiate</label>
                 </value>
                 <value>
@@ -638,7 +639,7 @@ C-###-### for CVD</inlineHelpText>
                 </value>
                 <value>
                     <fullName>In Progress</fullName>
-                    <default>false</default>
+                    <default>true</default>
                     <label>In Progress</label>
                 </value>
             </valueSetDefinition>
