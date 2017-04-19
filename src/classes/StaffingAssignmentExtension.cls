@@ -232,6 +232,10 @@ public without sharing class StaffingAssignmentExtension {
         for(sObject sobj : newList) {
         	String parentId = (String)sObj.get('Id');
         	parentSObjectType = utils.findObjectNameFromRecordIdPrefix(parentId);
+        	if (parentSObjectType == RELATED_ORG) {
+        		List<Related_Organization__c> tempList = (List<Related_Organization__c>) newList;
+        		if (tempList[0].ADCVD_Order__c != null) {break;}
+        	}
         	staffWrapperList.addAll(addStaffWrapper(parentId, parentSObjectType, new List<Staffing_Assignment__c>(), new Set<Id>(), null));
         }
         save();
