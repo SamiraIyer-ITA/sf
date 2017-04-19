@@ -86,11 +86,14 @@
 																		<th scope="col">
 																			<div class="slds-truncate" title="Recusal Link">Recusal Link</div>
 																		</th>
+																		<th scope="col">
+																			<div class="slds-truncate" title="Related Organization">Related Organization</div>
+																		</th>
 																	</tr>
 																</thead>
-                                <div id="wrapperList-ltng">
+                                							<div id="wrapperList-ltng">
 																<apex:repeat value="{!staffWrapperList}" var="saw" >
-                                  <apex:outputPanel styleClass="slds-form-element__group">
+                                  									<apex:outputPanel styleClass="slds-form-element__group">
 																				<tr class="slds-form-element__row">
 																						<td class="slds-form-element slds-size--1-of-9 slds-p-top--large">
 																							<apex:inputCheckbox label="Override User" value="{!saw.overrideRole}" styleClass="slds-checkbox slds-align--absolute-center">
@@ -113,6 +116,11 @@
 																						</td>
 																						<td class="slds-form-element slds-size--1-of-5 slds-p-top--large slds-p-around--xx-small">
 																							<apex:outputLink id="link-ltng" value="{!if (saw.sa.User__c == null, '', saw.recusalLinkMap[saw.sa.User__c])}" styleClass="slds-text-link--reset slds-has-blur-focus" target="_blank" style="background-color: #ff9999" >{!if (saw.sa.User__c == null, '', saw.recusalLinkTextMap[saw.sa.User__c])}</apex:outputLink>
+																						</td>
+																						<td class="slds-form-element slds-size--1-of-5 slds-p-around--xx-small">
+																							<apex:outputText value="{!saw.relOrg}" styleClass="slds-output">
+																								<apex:actionSupport event="onchange" reRender="user-ltng" />
+																							</apex:outputText>
 																						</td>
 																				</tr>
                                   </apex:outputPanel>
@@ -178,7 +186,7 @@
 	<apex:pageMessages />
 		<apex:pageBlock id="pb">
 			<apex:outputPanel >
-				<apex:dataTable value="{!staffWrapperList}" var="saw" align="left" cellspacing="20" columns="5" >
+				<apex:dataTable value="{!staffWrapperList}" var="saw" align="left" cellspacing="20" columns="6" >
 				<apex:column >
           <apex:facet name="header" >Title</apex:facet>
 				<apex:inputField value="{!saw.sa.Title__c}" >
@@ -206,6 +214,10 @@
         <apex:facet name="header" >Recusal Links</apex:facet>
           <apex:outputLink id="link" value="{!if (saw.sa.User__c == null, '', saw.recusalLinkMap[saw.sa.User__c])}" style="background-color: #ff9999" >{!if (saw.sa.User__c == null, '', saw.recusalLinkTextMap[saw.sa.User__c])}</apex:outputLink>
         </apex:column>
+        <apex:column >
+          <apex:facet name="header" >Related Organization</apex:facet>
+				<apex:outputText value="{!saw.relOrg}" />
+				</apex:column>
 				</apex:dataTable>
 			</apex:outputPanel>
 		<apex:pageBlockButtons > 
