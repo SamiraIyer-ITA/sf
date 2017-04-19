@@ -338,8 +338,7 @@ public without sharing class StaffingAssignmentExtension {
 			Set<Id> parentIdSet = new Set<Id>{parentId};
 			if (parentSObjectType != ORDER) {
 			for (Related_Organization__c r : [SELECT Id FROM Related_Organization__c 
-												WHERE ADCVD_Order__c =: parentId
-												OR Investigation__c =: parentId
+													WHERE Investigation__c =: parentId
 												OR Petition__c =: parentId
 												OR Legal_Representation__c =: parentId
 												OR Segment__c =: parentId]) {
