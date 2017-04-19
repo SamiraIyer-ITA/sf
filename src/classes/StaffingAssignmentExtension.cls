@@ -332,6 +332,7 @@ public without sharing class StaffingAssignmentExtension {
 	private List<Staffing_Assignment__c> getStaffList(Id parentId, String parentSObjectType) {
 		if(staffList == null || staffList.isEmpty()) {
 			Set<Id> parentIdSet = new Set<Id>{parentId};
+			if (parentSObjectType != ORDER) {
 			for (Related_Organization__c r : [SELECT Id FROM Related_Organization__c 
 												WHERE ADCVD_Order__c =: parentId
 												OR Investigation__c =: parentId
@@ -339,6 +340,7 @@ public without sharing class StaffingAssignmentExtension {
 												OR Legal_Representation__c =: parentId
 												OR Segment__c =: parentId]) {
 				parentIdSet.add(r.Id);
+			}
 			}
 			//specify base query
 			String soqlQuery = 'SELECT Id, User__c, Title__c, User__r.Staffing_Role__c, Related_Organization__c, Related_Organization__r.Account__r.Name FROM Staffing_Assignment__c WHERE ';
