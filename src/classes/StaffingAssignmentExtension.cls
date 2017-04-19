@@ -272,16 +272,20 @@ public without sharing class StaffingAssignmentExtension {
             if(!String.isBlank(saw.sa.Title__c)){
 				staffListToUpsert.add(saw.sa);//If user field is populated, upsert
 			} else if (String.isBlank(saw.sa.Title__c)) {
-				staffListToDelete.add(saw.sa);//If user field is not populated and record exists(has id), delete
+				staffListToDelete.add(saw.sa);//If Title field is not populated, delete
 			}
 		}
 		//propogate staffing assignment to child segments of the order
 		if(overwriteSegments) {
 			for(Segment__c s: [SELECT Id, (SELECT Id, User__c, Title__c FROM Staffing_Assignments__r) FROM Segment__c WHERE ADCVD_Order__c =: parentId]) {
-				/*if(s.Staffing_Assignments__r != null) {
+				if(s.Staffing_Assignments__r != null) {
 					//delete staffing assignments
-					staffListToDelete.addAll(s.Staffing_Assignments__r);
-				}*/
+					for (Staffing_Assignment__c segStaff : s.Staffing_Assignments__r) {
+						if (defaultUserRolesMap.keySet().contains(segStaff.Title__c)) {
+							staffListToDelete.add(segStaff);
+						}
+					}
+				}
 				//add new staffing assignments to segments
 				for(staffingAssignmentWrapper saw: staffWrapperList) {
 					if(!String.isBlank(saw.sa.Title__c)){ 
