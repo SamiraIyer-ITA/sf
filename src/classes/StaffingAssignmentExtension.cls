@@ -331,12 +331,50 @@ public without sharing class StaffingAssignmentExtension {
     //Returns list of all Staffing Assignments for the parent
 	private List<Staffing_Assignment__c> getStaffList(Id parentId, String parentSObjectType) {
 		if(staffList == null || staffList.isEmpty()) {
+			Set<Id> parentIdSet = new Set<Id>{parentId};
+			for (Related_Organization__c r : [SELECT Id FROM Related_Organization__c 
+												WHERE ADCVD_Order__c =: parentId
+												OR Investigation__c =: parentId
+												OR Petition__c =: parentId
+												OR Legal_Representation__c =: parentId
+												OR Segment__c =: parentId]) {
+				parentIdSet.add(r.Id);
+			}
 			//specify base query
-			String soqlQuery = 'SELECT Id, User__c, Title__c, User__r.Staffing_Role__c FROM Staffing_Assignment__c WHERE ';
+			String soqlQuery = 'SELECT Id, User__c, Title__c, User__r.Staffing_Role__c, Related_Organization__c, Related_Organization__r.Account__r.Name FROM Staffing_Assignment__c WHERE ';
 			//specify object specific clause and query object, add to wrapper
-			soqlQuery += parentSObjectType + ' =: parentId LIMIT 1000 ';	
+			if (parentSObjectType != RELATED_ORG) {
+				soqlQuery += parentSObjectType + ' IN: parentIdSet OR Related_Organization__c IN: parentIdSet LIMIT 1000 ';
+			} else {
+				soqlQuery += parentSObjectType + ' IN: parentIdSet LIMIT 1000 ';
+			}
 			System.debug(soqlQuery);
-			staffList = database.query(soqlQuery);
+			List<Staffing_Assignment__c> queryList = database.query(soqlQuery);
+			List<Staffing_Assignment__c> relOrgList = new List<Staffing_Assignment__c>(queryList.size());
+			List<Staffing_Assignment__c> tempStaffList = new List<Staffing_Assignment__c>(queryList.size());
+			for (Staffing_Assignment__c s : queryList) {
+				if (s.Related_Organization__c == null || s.Related_Organization__c == parentId) {
+					Integer tempInt = tempStaffList != null ? tempStaffList.size() - 1 : 0;
+					if (s.User__c != null) {
+						tempStaffList.add(0, s);//staff assignments with Users to the top of the list
+					} else {
+						tempStaffList.add(tempInt, s);//staff assignments without Users to the end of the list
+					}
+				} else {
+					Integer tempInt = relOrgList != null ? relOrgList.size() - 1 : 0;
+					if (s.User__c != null) {
+						relOrgList.add(0, s);
+					} else {
+						relOrgList.add(tempInt, s);
+					}
+				}
+			}
+			tempStaffList.addAll(relOrgList);
+			for (Staffing_Assignment__c s : tempStaffList) {
+				if (s != null) {
+					staffList.add(s);
+				}
+			}
 		}
 		return staffList;
 	}
@@ -483,6 +521,7 @@ public without sharing class StaffingAssignmentExtension {
 		private Set<Id> userIdSet {get; set;}
 
 		//variables for page and outer extension class access
+		public String relOrg {get; set;}
 		public Staffing_Assignment__c sa {get; set;}
 		public Boolean overrideRole {get; set;}//data does not exist on Staffing Assignment record, only used to toggle SelectOption lists
 		public Map<Id,String> recusalStatusMap {get; set;}
@@ -527,6 +566,7 @@ public without sharing class StaffingAssignmentExtension {
 			this.recusalStatusMap = recusalStatusMap;
 			this.recusalLinkMap = recusalLinkMap;
 			this.recusalLinkTextMap = recusalLinkTextMap;
+			this.relOrg = sa.Related_Organization__r.Account__r.Name != null ? sa.Related_Organization__r.Account__r.Name : null;
 		}
 		//sets the default override for each wrapper object
 		private Boolean initialOverrideRole(Staffing_Assignment__c sa) {
