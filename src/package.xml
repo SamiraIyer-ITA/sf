@@ -5,7 +5,7 @@
         <name>ApexClass</name>
     </types>
     <types>
-        <members>*</members>
+        <members>ADCVD_Order__c-Order.layout</members>
         <name>Layout</name>
     </types>
     <types>
