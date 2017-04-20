@@ -839,6 +839,16 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Link__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK( LEFT($Api.Enterprise_Server_URL_390 , FIND(&apos;/services&apos;, $Api.Enterprise_Server_URL_390)) &amp; Id,  Segment_Name__c , &apos;_self&apos;)</formula>
+        <label>Link</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Litigation_Status__c</fullName>
         <externalId>false</externalId>
         <label>Litigation Status</label>
@@ -1332,6 +1342,16 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Segment_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Petition_Case_Number__c +&apos;--&apos;+ Name</formula>
+        <label>Segment Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Segment_Status__c</fullName>

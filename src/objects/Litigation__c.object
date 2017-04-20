@@ -299,6 +299,26 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Link__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK( LEFT($Api.Enterprise_Server_URL_390 , FIND(&apos;/services&apos;, $Api.Enterprise_Server_URL_390)) &amp; Id,  Litigation_Name__c , &apos;_self&apos;)</formula>
+        <label>Link</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Litigation_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Petition_Case_Number__c +&apos;--&apos;+ Name</formula>
+        <label>Litigation Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Lotus_Notes_History_Data__c</fullName>
         <externalId>false</externalId>
         <label>Lotus Notes History Data</label>
@@ -346,6 +366,19 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Petition_Case_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Investigation__c != null,  Investigation__r.Petition_Case_Number__c , 
+IF( Segment__c != null,  Segment__r.Petition_Case_Number__c , 
+&apos;&apos;
+) )</formula>
+        <label>Petition Case Number</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Prelim_Extension_of_days__c</fullName>
@@ -453,7 +486,7 @@
     </listViews>
     <nameField>
         <displayFormat>L-{000000}</displayFormat>
-        <label>Litigation Name</label>
+        <label>Litigation Number</label>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Litigation</pluralLabel>
