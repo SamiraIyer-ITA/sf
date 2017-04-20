@@ -105,6 +105,17 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Link__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK( LEFT($Api.Enterprise_Server_URL_390 , FIND(&apos;/services&apos;, $Api.Enterprise_Server_URL_390)) &amp; Id,  Related_Organization_Name__c , &apos;_self&apos;)</formula>
+        <label>Link</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Litigation__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -118,6 +129,17 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Parent_Id__c</fullName>
+        <externalId>false</externalId>
+        <formula>ADCVD_Order__c</formula>
+        <label>Parent Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Petition__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -129,6 +151,17 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Related_Organization_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.Name +&apos;--&apos;+ Name</formula>
+        <label>Related Organization Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Segment__c</fullName>
