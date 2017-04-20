@@ -75,7 +75,6 @@
         <members>KnowledgeSearch__c</members>
         <members>Level__c</members>
         <members>Litigation_Constant__mdt</members>
-        <members>Litigation_Respondent__c</members>
         <members>Litigation__c</members>
         <members>Master_CongressionalDistrict__c</members>
         <members>My_Profile_Option__c</members>
@@ -89,7 +88,6 @@
         <members>PaymentSettings__c</members>
         <members>Payment__c</members>
         <members>Petition__c</members>
-        <members>Petitioner__c</members>
         <members>Program__c</members>
         <members>Publication_Template__c</members>
         <members>Recusal__c</members>
@@ -99,7 +97,6 @@
         <members>Related_Issue__c</members>
         <members>Related_Organization__c</members>
         <members>Renewing_Product__c</members>
-        <members>Respondent__c</members>
         <members>Row__c</members>
         <members>Section__c</members>
         <members>Segment_Constant__mdt</members>
