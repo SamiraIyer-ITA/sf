@@ -338,28 +338,30 @@ public without sharing class StaffingAssignmentExtension {
     }
     //Returns list of all Staffing Assignments for the parent
 	private List<Staffing_Assignment__c> getStaffList(Id parentId, String parentSObjectType) {
+		List<Related_Organization__c> relOrgList = new List<Related_Organization__c>();
+		relOrgList = parentSObjectType == RELATED_ORG ? getRelOrgList(parentId) : null;
 		if(staffList == null || staffList.isEmpty()) {
 			Set<Id> parentIdSet = new Set<Id>{parentId};
 			if (parentSObjectType != ORDER) {
-			for (Related_Organization__c r : [SELECT Id FROM Related_Organization__c 
-													WHERE Investigation__c =: parentId
+				for (Related_Organization__c r : [SELECT Id FROM Related_Organization__c 
+												WHERE Investigation__c =: parentId
 												OR Petition__c =: parentId
 												OR Legal_Representation__c =: parentId
 												OR Segment__c =: parentId]) {
-				parentIdSet.add(r.Id);
-			}
+					parentIdSet.add(r.Id);
+				}
 			}
 			//specify base query
 			String soqlQuery = 'SELECT Id, User__c, Title__c, User__r.Staffing_Role__c, Related_Organization__c, Related_Organization__r.Account__r.Name FROM Staffing_Assignment__c WHERE ';
 			//specify object specific clause and query object, add to wrapper
 			if (parentSObjectType != RELATED_ORG) {
-				soqlQuery += parentSObjectType + ' IN: parentIdSet OR Related_Organization__c IN: parentIdSet LIMIT 1000 ';
+				soqlQuery += parentSObjectType + ' IN: parentIdSet OR Related_Organization__c IN: parentIdSet ';
 			} else {
-				soqlQuery += parentSObjectType + ' IN: parentIdSet LIMIT 1000 ';
+				soqlQuery += parentSObjectType + ' IN: parentIdSet ';
 			}
 			System.debug(soqlQuery);
 			List<Staffing_Assignment__c> queryList = database.query(soqlQuery);
-			List<Staffing_Assignment__c> relOrgList = new List<Staffing_Assignment__c>(queryList.size());
+			List<Staffing_Assignment__c> tempRelOrgList = new List<Staffing_Assignment__c>(queryList.size());
 			List<Staffing_Assignment__c> tempStaffList = new List<Staffing_Assignment__c>(queryList.size());
 			for (Staffing_Assignment__c s : queryList) {
 				if (s.Related_Organization__c == null || s.Related_Organization__c == parentId) {
@@ -370,22 +372,35 @@ public without sharing class StaffingAssignmentExtension {
 						tempStaffList.add(tempInt, s);//staff assignments without Users to the end of the list
 					}
 				} else {
-					Integer tempInt = relOrgList != null ? relOrgList.size() - 1 : 0;
+					Integer tempInt = tempRelOrgList != null ? tempRelOrgList.size() - 1 : 0;
 					if (s.User__c != null) {
-						relOrgList.add(0, s);
+						tempRelOrgList.add(0, s);
 					} else {
-						relOrgList.add(tempInt, s);
+						tempRelOrgList.add(tempInt, s);
 					}
 				}
 			}
-			tempStaffList.addAll(relOrgList);
+			tempStaffList.addAll(tempRelOrgList);
+			Integer staffListCounter = 0;
 			for (Staffing_Assignment__c s : tempStaffList) {
-				if (s != null) {
+				if (s != null && staffListCounter < 950) {
+					s = setSaRelatedOrgParentId(relOrgList, s);
 					staffList.add(s);
+					staffListCounter++;
 				}
 			}
 		}
 		return staffList;
+	}
+
+	private List<Related_Organization__c> getRelOrgList(Id parentId) {
+		List<Related_Organization__c> returnList = new List<Related_Organization__c>();
+		for(Related_Organization__c r : [SELECT ADCVD_Order__c, ADCVD_Order__r.ADCVD_Order_Name__c, Investigation__c, Investigation__r.Investigation_Name__c, 
+												Litigation__c, Litigation__r.Litigation_Name__c, Petition__c, Petition__r.Petition_Name__c, Segment__c, Segment__r.Segment_Name__c
+											FROM Related_Organization__c WHERE Id =: parentId]) {
+			returnList.add(r);
+		}
+		return returnList;
 	}
 	//Initializes SelectOption lists
 	private void populateUserLists(){
@@ -461,6 +476,8 @@ public without sharing class StaffingAssignmentExtension {
 		List<StaffingAssignmentWrapper> returnList = new List<StaffingAssignmentWrapper>();
 		Map<String, Boolean> userTitleExistsMap = new Map<String, Boolean>();
 		ADCVD_RecusalUtility userInstance = new ADCVD_RecusalUtility();
+		List<Related_Organization__c> relOrgList = new List<Related_Organization__c>();
+		relOrgList = parentSObjectType == RELATED_ORG ? getRelOrgList(parentId) : null;
 		for(String s: defaultUserRolesMap.keySet()) {//add all titles from default list to title map
 			for(Integer i = 0; i < defaultUserRolesMap.get(s); i++) {
 				userTitleExistsMap.put(s, false);
@@ -474,6 +491,7 @@ public without sharing class StaffingAssignmentExtension {
 		for(String s: userTitleExistsMap.keySet()) {
 			if(userTitleExistsMap.get(s) == false) {
 				Staffing_Assignment__c sa = createNewStaffingAssignment(parentId, s);
+				sa = setSaRelatedOrgParentId(relOrgList, sa);
 				staffList.add(sa);
 			}
 		}
@@ -515,6 +533,30 @@ public without sharing class StaffingAssignmentExtension {
 				sa.Segment__c = parentId;
 			} else if(parentSObjectType == RELATED_ORG) {
 				sa.Related_Organization__c = parentId;
+			}
+		}
+		return sa;
+	}
+
+	private Staffing_Assignment__c setSaRelatedOrgParentId(List<Related_Organization__c> relOrgList, Staffing_Assignment__c sa) {
+		if (relOrgList != null) {
+			for(Related_Organization__c r : relOrgList) {
+				if (r.ADCVD_Order__c != null) {
+					sa.Related_Org_Parent_Id__c = r.ADCVD_Order__c;
+					sa.Related_Org_Parent_Name__c = r.ADCVD_Order__r.ADCVD_Order_Name__c;
+				} else if (r.Investigation__c != null) {
+					sa.Related_Org_Parent_Id__c = r.Investigation__c;
+					sa.Related_Org_Parent_Name__c = r.Investigation__r.Investigation_Name__c;
+				} else if (r.Litigation__c != null) {
+					sa.Related_Org_Parent_Id__c = r.Litigation__c;
+					sa.Related_Org_Parent_Name__c = r.Litigation__r.Litigation_Name__c;
+				} else if (r.Petition__c != null) {
+					sa.Related_Org_Parent_Id__c = r.Petition__c;
+					sa.Related_Org_Parent_Name__c = r.Petition__r.Petition_Name__c;
+				} else if (r.Segment__c != null) {
+					sa.Related_Org_Parent_Id__c = r.Segment__c;
+					sa.Related_Org_Parent_Name__c = r.Segment__r.Segment_Name__c;
+				}
 			}
 		}
 		return sa;
