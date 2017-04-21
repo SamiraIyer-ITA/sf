@@ -333,7 +333,7 @@ public without sharing class IssueTriggerHandler {
 	    		}
     		}
     	}
-        if (i.Start_Date__c != null) {
+        if (i.Start_Date__c != null && parentIdToObjectTypeMap.get(parentId) != PETITION) {
             i.Concurrence_to_DAS__c = ADCVD_TollingDayUtility.countBackBusinessDays(i.Start_Date__c, CONCURRENCE_INITIATION);
         }
     }
