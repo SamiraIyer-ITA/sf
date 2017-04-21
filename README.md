@@ -27,8 +27,4 @@ Segment_Constant__mdt           ->  Constant__mdt
 
 Litigation_Constant__mdt        ->  Constant__mdt
 
-Petitioner__c                   ->  Related_Organization__c
 
-Respondent__c                   ->  Related_Organization__c
-
-Litigation__Respondent__c       ->  Related_Organization__c
