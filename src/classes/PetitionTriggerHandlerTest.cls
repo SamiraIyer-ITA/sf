@@ -95,11 +95,7 @@ public class PetitionTriggerHandlerTest {
 	//Business Day Calculation without Tolling Day Consideration - Scenario 3
 	@isTest static void weekendDayFollowedByHolidayCalcWithoutTolling(){
 		Test.startTest();
-		if(ADCVD_TollingDayUtility.dayOfWeek(petitionDate) != 'Fri'){//if today is not Friday, move the petition filed date ahead to the next Friday, which puts Calculated Initiation on Saturday
-			petitionDate = petitionDate.toStartOfWeek().addDays(5);
-		}
-		Holiday h = new Holiday(ActivityDate = petitionDate.addDays(24), Name = 'Every day is a holiday');//Set Monday following Saturday of Calculated Initiation to a holiday
-		insert h;
+		petitionDate = date.parse('05/05/2017');//used to test agains Memorial Day 2017, cannot test based holiday creation in class; must pull from actual org data
 		System.runAs(u){//change context because of holiday insert
 			Petition__c p = TestUtils.createPetition(petitionDate, 'AD ME', false);
 			p.Initiation_Extension_of_days__c = 2;//20+2 will set Calculated Initiation Signature to day of week after Petition Filed
@@ -119,11 +115,7 @@ public class PetitionTriggerHandlerTest {
 	//Business Day Calculation without Tolling Day Consideration - Scenario 4
 	@isTest static void holidayCalcWithoutTolling(){
 		Test.startTest();
-		if(ADCVD_TollingDayUtility.dayOfWeek(petitionDate) != 'Mon'){//If not a Monday, roll forward to the next Monday
-			petitionDate = petitionDate.toStartOfWeek().addDays(1);
-		}
-		Holiday h = new Holiday(ActivityDate = petitionDate.addDays(21), Name = 'Every day is a holiday');//Set Monday following Saturday of Calculated Initiation to a holiday
-		insert h;
+		petitionDate = date.parse('5/8/2017');
 		System.runAs(u){
 			Petition__c p = TestUtils.createPetition(petitionDate, 'AD ME', false);
 			p.Initiation_Extension_of_days__c = 1;//20+1 will set Calculated Initiation Signature to same day as Petition Filed

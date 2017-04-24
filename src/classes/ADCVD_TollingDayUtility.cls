@@ -38,7 +38,7 @@ public without sharing class ADCVD_TollingDayUtility {
 	@TestVisible private static Id bizHoursId {
 		get {
 			if (bizHoursId == null) {
-				for (BusinessHours bh : [SELECT Id FROM BusinessHours WHERE isDefault =: true]) {
+				for (BusinessHours bh : [SELECT Id FROM BusinessHours WHERE Name =: 'Business Hours - 24 hrs']) {
 					bizHoursId = bh.Id;
 				}
 			}
