@@ -23,7 +23,7 @@ public without sharing class ADCVD_TollingDayUtility {
 		}
 	}
 
-	@TestVisible private static Set<Date> holidaySet {
+/*	@TestVisible private static Set<Date> holidaySet {
 		get {
 			if(holidaySet == null) {
 				holidaySet = new Set<Date>();
@@ -33,6 +33,17 @@ public without sharing class ADCVD_TollingDayUtility {
 			}
 			return holidaySet;
 		}
+	}
+*/
+	@TestVisible private static Id bizHoursId {
+		get {
+			if (bizHoursId == null) {
+				for (BusinessHours bh : [SELECT Id FROM BusinessHours WHERE isDefault =: true]) {
+					bizHoursId = bh.Id;
+				}
+			}
+			return bizHoursId;
+		} set;
 	}
 
 	/**
@@ -120,9 +131,22 @@ public without sharing class ADCVD_TollingDayUtility {
 		DateTime dateTimeToCompare = datetime.newInstanceGmt(dt, mytime);
 		return dayOfWeek(dateTimeToCompare);
 	}
-	/* method returns true if date entered is a holiday */
-	public static Boolean isHoliday(Date dt) {
+	
+/*	public static Boolean isHoliday(Date dt) {
 		return holidaySet.contains(dt);
+	}
+*/
+	/**
+	 * method to check for a holiday.  This accepts a date, then converts to a datetime for the call to BusinessHours. 
+	 * That call retrieves the default business hours, sets the start date, then adds one millisecond to it, then 
+	 * gets the day that is returned.  If the returned day != the start date, then the start 
+	 * date was out of business hours.  (addition of one millisecond triggered an entire day change)
+	 * @param  dt date to check
+	 * @return    true if out of business hours (isHoliday) or false if in business hours (!isHoliday)
+	 */
+	public static Boolean isHoliday(Date dt) {
+		Datetime d = datetime.newInstance(dt.year(), dt.month(), dt.day());
+		return (BusinessHours.add(bizHoursId, d, 1).day() != d.day());
 	}
 	/* method returns true if the date is a tolling day */
 	@TestVisible private static Boolean isTollingDay(Date dt) {
