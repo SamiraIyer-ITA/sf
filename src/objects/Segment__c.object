@@ -7129,6 +7129,14 @@ $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_Ho
         <errorMessage>&quot;Was the Product Determined to be in Scope?&quot; is required only if &quot;Decision on How to Proceed&quot; is either &quot;Formal&quot; or &quot;Informal&quot;.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Segment_must_have_a_parent</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND ( ISBLANK(ADCVD_Order__c ),
+ ISBLANK( Suspension_Agreement__c )
+)</errorConditionFormula>
+        <errorMessage>Every Segment must have a ADCVD Order or a Suspension Agreement</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>max_180_days_if_prelim_extend_is_blank</fullName>
         <active>true</active>
         <errorConditionFormula>AND($RecordType.DeveloperName = &quot;Administrative Review&quot;,

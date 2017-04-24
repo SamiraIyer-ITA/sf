@@ -159,8 +159,8 @@
         <externalId>false</externalId>
         <label>Litigation</label>
         <referenceTo>Litigation__c</referenceTo>
-        <relationshipLabel>Litigations</relationshipLabel>
-        <relationshipName>Litigations</relationshipName>
+        <relationshipLabel>Issues</relationshipLabel>
+        <relationshipName>Issues</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>

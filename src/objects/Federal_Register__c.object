@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata"> 
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
         <type>Default</type>
@@ -117,18 +117,6 @@
         <type>Url</type>
     </fields>
     <fields>
-        <fullName>Litigation__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Litigation</label>
-        <referenceTo>Litigation__c</referenceTo>
-        <relationshipLabel>Federal Registers</relationshipLabel>
-        <relationshipName>Federal_Registers</relationshipName>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>IDM_URL__c</fullName>
         <externalId>false</externalId>
         <label>IDM URL</label>
@@ -142,6 +130,18 @@
         <externalId>false</externalId>
         <label>Investigation</label>
         <referenceTo>Investigation__c</referenceTo>
+        <relationshipLabel>Federal Registers</relationshipLabel>
+        <relationshipName>Federal_Registers</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Litigation__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Litigation</label>
+        <referenceTo>Litigation__c</referenceTo>
         <relationshipLabel>Federal Registers</relationshipLabel>
         <relationshipName>Federal_Registers</relationshipName>
         <required>false</required>

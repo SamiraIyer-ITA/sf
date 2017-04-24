@@ -178,7 +178,7 @@ public without sharing class IssueTriggerHandler {
     		segmentParents.put(s.Id, s);
     		parentIdToRecordTypeNameMap.put(s.Id, tempSegmentRecordTypeMap.get(s.RecordTypeId));
     	}
-    	for (Litigation__c l : [SELECT Id, Calculated_Initiation_Signature__c, Calculated_Draft_Remand_release_to_party__c, 
+    	for (Litigation__c l : [SELECT Id, Calculated_Initiation_Signature__c, Calculated_Preliminary_Signature__c, Calculated_Draft_Remand_release_to_party__c, 
     									Calculated_Final_Signature__c, RecordTypeId 
     								FROM Litigation__c WHERE Id IN: parentIdToIssueMap.keySet()]) {
     		litigationParents.put(l.Id, l);

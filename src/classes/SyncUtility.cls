@@ -2,7 +2,7 @@ public without sharing class SyncUtility {
 	/*******************************************************************
 	* This utility class uses custom metadata to sync objects.  To setup 
 	* a new object to sync, create a custom metadata object with the same 
-	* fields as in Sync_Investigation__mdt. Every record added must have values 
+	* fields as in Sync_Utility__mdt. Every record added must have values 
 	* for source object, source field, destination field, and sync field.
 	* In this class, methods are either completely object agnostic and 
 	* perform logic on SObjects, or they qualify their operations based
@@ -14,7 +14,7 @@ public without sharing class SyncUtility {
 	* add a new CMT object as described above, then add a set of all 
 	* potential sources for that object and add an else if clause to all 
 	* the methods with comments to do so. Lastly, add target object specific
-	* methods similar to the two Investigation methods at the bottom.
+	* dynamic method using dynamic soql at the bottom.
 	********************************************************************/
 
 	//Object agnostic variables
