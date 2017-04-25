@@ -308,6 +308,11 @@
                     <default>false</default>
                     <label>Continuation or Revocation</label>
                 </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
