@@ -49,8 +49,14 @@ public without sharing class utils {
 	//Gets a map of Record Type Ids to Developer Names for the object name
 	public static Map<Id,String> getRecordTypeDeveloperNameMap(String sObjectName){
 		Map<Id,String> returnMap = new Map<Id,String>();
-		for(RecordType rt : [SELECT Id, DeveloperName FROM RecordType WHERE SObjectType =: sObjectName]){
-			returnMap.put(rt.Id, rt.DeveloperName);
+		if (sObjectName != null) {
+			for(RecordType rt : [SELECT Id, DeveloperName FROM RecordType WHERE SObjectType =: sObjectName]){
+				returnMap.put(rt.Id, rt.DeveloperName);
+			}
+		} else {
+			for(RecordType rt : [SELECT Id, DeveloperName FROM RecordType]){
+				returnMap.put(rt.Id, rt.DeveloperName);
+			}
 		}
 		return returnMap;
 	}

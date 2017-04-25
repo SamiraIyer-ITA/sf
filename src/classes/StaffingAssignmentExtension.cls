@@ -271,7 +271,7 @@ public without sharing class StaffingAssignmentExtension {
 			//AD-467
             if(!String.isBlank(saw.sa.Title__c)){
 				staffListToUpsert.add(saw.sa);//If user field is populated, upsert
-			} else if (String.isBlank(saw.sa.Title__c)) {
+			} else if (String.isBlank(saw.sa.Title__c) && saw.sa.Id != null) {
 				staffListToDelete.add(saw.sa);//If Title field is not populated, delete
 			}
 		}
@@ -355,9 +355,9 @@ public without sharing class StaffingAssignmentExtension {
 			String soqlQuery = 'SELECT Id, User__c, Title__c, User__r.Staffing_Role__c, Related_Organization__c, Related_Organization__r.Account__r.Name FROM Staffing_Assignment__c WHERE ';
 			//specify object specific clause and query object, add to wrapper
 			if (parentSObjectType != RELATED_ORG) {
-				soqlQuery += parentSObjectType + ' IN: parentIdSet OR Related_Organization__c IN: parentIdSet ';
+				soqlQuery += parentSObjectType + ' IN: parentIdSet OR Related_Organization__c IN: parentIdSet LIMIT 1000 ORDER BY User__c ASC NULLS LAST';
 			} else {
-				soqlQuery += parentSObjectType + ' IN: parentIdSet ';
+				soqlQuery += parentSObjectType + ' IN: parentIdSet LIMIT 1000 ORDER BY User__c ASC NULLS LAST';
 			}
 			System.debug(soqlQuery);
 			List<Staffing_Assignment__c> queryList = database.query(soqlQuery);
@@ -381,13 +381,9 @@ public without sharing class StaffingAssignmentExtension {
 				}
 			}
 			tempStaffList.addAll(tempRelOrgList);
-			Integer staffListCounter = 0;
 			for (Staffing_Assignment__c s : tempStaffList) {
-				if (s != null && staffListCounter < 950) {
-					s = setSaRelatedOrgParentId(relOrgList, s);
-					staffList.add(s);
-					staffListCounter++;
-				}
+				s = setSaRelatedOrgParentId(relOrgList, s);
+				staffList.add(s);
 			}
 		}
 		return staffList;
