@@ -81,6 +81,7 @@ public without sharing class SegmentTriggerHandler {
 	private static FINAL Integer SSR_120_COMMENTS_ON_ADEQ_DET_FILED	    = ((Integer)segmentCalcOffsets.get('SS_Rev_120_Comments_on_Adeq_Det_Filed').Number_Value__c);//Comments_on_Adequacy_Determination_Filed__c
 	private static FINAL Integer SSR_120_MEMO_ON_ADEQUACY_DET			= ((Integer)segmentCalcOffsets.get('SS_Rev_120_Memo_on_Adequacy_Det').Number_Value__c);//Memorandum_on_Adequacy_Determination__c
 	//240 Day Sunset Review
+	private static FINAL Integer SSR_240_CALC_PRELIM_SIG				= ((Integer)segmentCalcOffsets.get('SS_Rev_240_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature__c
 	private static FINAL Integer SSR_240_CALC_FINAL_SIG				    = ((Integer)segmentCalcOffsets.get('SS_Rev_240_Calc_Final_Sig').Number_Value__c);//Calculated_Final_Signature__c
 	private static FINAL Integer SSR_240_REVO_SIG_UPDATE_ACE_CUS_MOD	= ((Integer)segmentCalcOffsets.get('SS_Rev_240_Revo_Sig_Update_ACE_Cus_Mod').Number_Value__c);//Update_ACE_Customs_Module__c based on NO Revocation FR
 	private static FINAL Integer SSR_240_REVO_FR_UPDATE_ACE_CUS_MOD	    = ((Integer)segmentCalcOffsets.get('SS_Rev_240_Revo_FR_Update_ACE_Cus_Mod').Number_Value__c);//Update_ACE_Customs_Module__c based on Revocation FR
@@ -219,6 +220,12 @@ public without sharing class SegmentTriggerHandler {
 
 	//sets Calculated_Preliminary_Signature__c
 	@TestVisible private static void setCalculatedPreliminarySignature(Segment__c s) {
+		Date initPublished = null;
+		Federal_Register__c initFR = null;
+		if(s.Id != null && frUtilMap != null) {
+			initPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).initiationPublishedDate : null;
+			initFR = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).initiationFR : null;
+		}
 		Integer extension = s.Prelim_Extension__c == null ? 0 : (Integer)s.Prelim_Extension__c;//null check on extension, set to 0 if null
 		if(recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW) {
 			if(s.Final_Date_of_Anniversary_Month__c != null) {
@@ -266,7 +273,17 @@ public without sharing class SegmentTriggerHandler {
 				s.Calculated_Preliminary_Signature__c = s.Actual_Initiation_Signature__c.addDays(CCR_CALC_PRELIM_SIG).addDays(extension);
 				s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Initiation_Signature__c, s.Calculated_Preliminary_Signature__c, true);				 
 			}
-		}	   
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW){	
+			Integer prelimExtension = s.Prelim_Extension__c == null ? 0 : (Integer)s.Prelim_Extension__c;
+			if (initPublished != null) {
+				if (ssrType == '240') {
+						s.Calculated_Preliminary_Signature__c = initPublished.addDays(SSR_240_CALC_PRELIM_SIG).addDays(prelimExtension).addDays(extension);
+						s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(initPublished, s.Calculated_Preliminary_Signature__c, true);
+				}
+			} else if (s.Calculated_Preliminary_Signature__c != null && initFR == null) {
+                s.Calculated_Preliminary_Signature__c = null;//after delete of fr
+            }
+		}
 	}
 
 	//sets Prelim_Team_Meeting_Deadline__c, requires Calculated_Preliminary_Signature__c to be set
@@ -820,6 +837,7 @@ public without sharing class SegmentTriggerHandler {
 			ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(new List<Segment__c>{s});
 			frUtilMap = listInstance.utilMap;
 			ssrType = ssReviewType;
+			setCalculatedPreliminarySignature(s);
 			setCalculatedFinalSignature(s);
 			//dependent on setCalculatedFinalSignature
 			setCalculatedRevocationOrContinuationFR(s);
