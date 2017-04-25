@@ -3330,11 +3330,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Issue__c.Issue__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Issue__c.Issues_to_DAS__c</field>
         <readable>true</readable>
     </fieldPermissions>
