@@ -136,6 +136,11 @@
         <name>GlobalValueSet</name>
     </types>
     <types>
+        <members>Constant__mdt-Constant Layout</members>
+        <members>Sync_Utility__mdt-Sync Utility Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
         <members>*</members>
         <name>Profile</name>
     </types>

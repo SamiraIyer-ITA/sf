@@ -60,17 +60,26 @@ public without sharing class InvestigationTriggerHandler {
         if (isAfter && isUpdate) {
             initialize(newList, newMap);
             recalculateCVDinvestigations(newMap);
+            recalculateIssues(newMap, oldMap);
         }
         if (isAfter && isInsert) {
             StaffingAssignmentExtension createStaff = new StaffingAssignmentExtension(newList);
         }
     }
     
-    //Maps used in multiple methods in calculateInvestigationDates regardless of record type
+    /****************************************
+    * Class Level Variables
+    ****************************************/
+
     @TestVisible private static Map<Id,Petition__c> petitionsInScopeMap = new Map<Id,Petition__c>();
     @TestVisible private static Set<Id> unfinishedPetitions = new Set<Id>();
     @TestVisible private static Map<Id,String> recordTypeNameMap = new Map<Id,String>();
     @TestVisible private static Map<Id,ADCVD_FederalRegisterUtility> frUtilMap = new Map<Id,ADCVD_FederalRegisterUtility>();
+
+
+    /*****************************************
+    * Methods called directly by mainEntry()
+    *****************************************/
 
     //Setup Methods used to set class level variables
     @TestVisible private static void initialize(List<Investigation__c> newList, Map<Id,Investigation__c> newMap) {
@@ -132,11 +141,26 @@ public without sharing class InvestigationTriggerHandler {
         List<Investigation__c> CVDinvestigations = [SELECT Id FROM Investigation__c WHERE AD_Investigation_Aligned_To__c IN: newMap.keySet()];
         update CVDinvestigations;
     }
+    /**
+     * Method to calculate Issues
+     * @param  newMap [description]
+     * @param  oldMap [description]
+     * @return        [description]
+     */
+    @TestVisible private static void recalculateIssues(Map<Id,Investigation__c> newMap, Map<Id,Investigation__c> oldMap) {
+        Set<Id> parentIds = getIssueParentIds(newMap, oldMap);
+        List<Issue__c> issuesToUpdate = new List<Issue__c>();
 
-    /*******************************************************************************
-     * Methods in this section are used to set class level variables or 
-     * make it easier access to them in the class
-     ********************************************************************************/
+        for (Issue__c i : [SELECT Id, Type__c, Issues_to_DAS__c, Concurrence_to_DAS__c FROM Issue__c WHERE Investigation__c IN: parentIds]) {
+            issuesToUpdate.add(i);
+        }
+        if (!issuesToUpdate.isEmpty()) update issuesToUpdate;
+    }
+
+
+    /***********************************
+    * Helper Methods
+    ***********************************/
 
     //returns a set of Petition Ids in scope of the Investigations in trigger
     @TestVisible private static Set<Id> findIdsInScope(List<Investigation__c> newList) {
@@ -161,6 +185,23 @@ public without sharing class InvestigationTriggerHandler {
     	}
     	return returnMap;
     }
+
+    @TestVisible private static Set<Id> getIssueParentIds(Map<Id,Investigation__c> newMap, Map<Id,Investigation__c> oldMap) {
+        Set<Id> returnIdSet = new Set<Id>();
+        for (Investigation__c i : newMap.values()) {
+            if (oldMap.get(i.Id) == null) {
+                returnIdSet.add(i.Id);
+            } else if (oldMap.get(i.Id) != null && (
+                oldMap.get(i.Id).Calculated_Preliminary_Signature__c != i.Calculated_Preliminary_Signature__c ||
+                oldMap.get(i.Id).Calc_Amended_Prelim_Determination_Sig__c != i.Calc_Amended_Prelim_Determination_Sig__c ||
+                oldMap.get(i.Id).Calculated_Final_Signature__c != i.Calculated_Final_Signature__c ||
+                oldMap.get(i.Id).Calculated_Amended_Final_Signature__c != i.Calculated_Amended_Final_Signature__c
+                )) {
+                returnIdSet.add(i.Id);
+            }
+        }
+        return returnIdSet;
+    }
     //returns a map of <String,Integer> in the form: key = CMT Api name, CMT number value
     //used to set Offset Variables
     @TestVisible private static Map<String,Constant__mdt> setInvestigationApiToConstants() {
@@ -179,13 +220,13 @@ public without sharing class InvestigationTriggerHandler {
         }
     }
     
-    /****************************************************************************************
-    *These methods set the values for specific dates as part of calculateInvestigationDates()
-    *The naming convention is set<FieldAPIName>
-    *All share the same params of a single Investigation object
-    ****************************************************************************************/
+
+    /**************************************
+    * Date Calculations
+    ***************************************/
 
     //checks that the petition has the values to proceed...this avoids NPEs on Petitions without dates to start calculations
+    //This could need to be updated for self-initiated Investigations if self-initiation is not added at the Petition
     @TestVisible private static Boolean findCompletePetition(Investigation__c i){
         Boolean returnBoolean = false;
         Petition__c p = petitionsInScopeMap.get(i.Petition__c);

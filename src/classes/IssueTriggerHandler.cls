@@ -66,6 +66,11 @@ public without sharing class IssueTriggerHandler {
         }
     }
 
+
+    /****************************************
+    * Class Level Variables
+    ****************************************/
+
     //Parent maps
     @TestVisible private static Map<Id,Petition__c> petitionParents = new Map<Id,Petition__c>();
     @TestVisible private static Map<Id,Investigation__c> investigationParents = new Map<Id,Investigation__c>();
@@ -74,6 +79,11 @@ public without sharing class IssueTriggerHandler {
     @TestVisible private static Map<Id,List<Issue__c>> parentIdToIssueMap = new Map<Id,List<Issue__c>>();
     @TestVisible private static Map<Id,String> parentIdToObjectTypeMap = new Map<Id,String>();
     @TestVisible private static Map<Id,String> parentIdToRecordTypeNameMap = new Map<Id,String>();
+
+
+    /*****************************************
+    * Methods called directly by mainEntry()
+    *****************************************/
 
     @TestVisible private static void calculateIssueDates(List<Issue__c> newList) {
     	setParentMaps(newList);
@@ -107,15 +117,11 @@ public without sharing class IssueTriggerHandler {
 			}
 		}
 	}
-
-    //TODO: Load mdt into class as finals
-    //TODO: Identify parent object type
-    //TODO: Identify segment and litigation record types
-    //TODO: Query parent for starting dates
-    //TODO: Method for each type of Date, branching based on parent record
-    //TODO: Set parent Next Deadline Date
-  	//TODO: Set prevent recursion and update parents in after context
     
+
+    /***********************************
+    * Helper Methods
+    ***********************************/
 
     //used to set Offset Variables
     @TestVisible private static Map<String,Constant__mdt> issueCalcOffsets() {
@@ -136,6 +142,11 @@ public without sharing class IssueTriggerHandler {
         }
     }
 
+    /**
+     * Method to set the parent Maps.  All logic branches based on Issue parent.  Parents are mutually exclusive so only one query should run per transaction
+     * @param  newList Issues in scope
+     * @return         void
+     */
     @TestVisible private static void setParentMaps(List<Issue__c> newList) {
     	Map<Id,String> tempSegmentRecordTypeMap = utils.getRecordTypeDeveloperNameMap(SEGMENT);
     	Map<Id,String> tempLitigationRecordTypeMap = utils.getRecordTypeDeveloperNameMap(LITIGATION);
@@ -186,10 +197,12 @@ public without sharing class IssueTriggerHandler {
     	}
     }
 
-    /**************************************
-    * All Issues To DAS Calculations
-    **************************************/
 
+    /**************************************
+    * Date Calculations
+    ***************************************/
+
+    //All Issues To DAS Calculations
     @TestVisible private static void setInitiationIssuesToDAS(Id parentId, Issue__c i) {
     	if (parentIdToObjectTypeMap.get(parentId) == PETITION) {
     		Petition__c p = petitionParents.get(parentId);
@@ -305,10 +318,7 @@ public without sharing class IssueTriggerHandler {
     	}
     }
 
-    /**************************************
-    * All Concurrence To DAS Calculations
-    **************************************/
-
+    //All Concurrence To DAS Calculations
     @TestVisible private static void setInitiationConcurrenceToDAS(Id parentId, Issue__c i) {
     	if (parentIdToObjectTypeMap.get(parentId) == PETITION) {
     		Petition__c p = petitionParents.get(parentId);

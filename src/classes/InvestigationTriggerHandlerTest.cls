@@ -143,7 +143,7 @@ public class InvestigationTriggerHandlerTest {
 		Test.startTest();
 		//AD investigation
 		//AD based on calculated
-		System.assertNotEquals(null, iAD.Calc_Amended_Prelim_Determination_Sig__c);
+		System.assertEquals(null, iAD.Calc_Amended_Prelim_Determination_Sig__c);
 		iAD.Amend_the_Preliminary_Determination__c = 'No';
 		update iAD;
 		System.assertEquals(null, [SELECT Id, Calc_Amended_Prelim_Determination_Sig__c FROM  Investigation__c WHERE Id =: iAD.Id LIMIT 1].Calc_Amended_Prelim_Determination_Sig__c);
@@ -166,7 +166,7 @@ public class InvestigationTriggerHandlerTest {
 
 		//CVD investigation
 		//CVD based on calculated
-		System.assertNotEquals(null, iCVD.Calc_Amended_Prelim_Determination_Sig__c);
+		System.assertEquals(null, iCVD.Calc_Amended_Prelim_Determination_Sig__c);
 		iCVD.Amend_the_Preliminary_Determination__c = 'No';
 		update iCVD;
 		System.assertEquals(null, [SELECT Id, Calc_Amended_Prelim_Determination_Sig__c FROM  Investigation__c WHERE Id =: iCVD.Id LIMIT 1].Calc_Amended_Prelim_Determination_Sig__c);
@@ -277,7 +277,7 @@ public class InvestigationTriggerHandlerTest {
 		Test.startTest();
 		//AD investigation
 		//AD based on calculated
-		System.assertNotEquals(null, iAD.Calculated_Amended_Final_Signature__c);
+		System.assertEquals(null, iAD.Calculated_Amended_Final_Signature__c);
 		iAD.Will_you_Amend_the_Final__c = 'No';
 		update iAD;
 		System.assertEquals(null, [SELECT Id, Calculated_Amended_Final_Signature__c FROM  Investigation__c WHERE Id =: iAD.Id LIMIT 1].Calculated_Amended_Final_Signature__c);
@@ -300,7 +300,7 @@ public class InvestigationTriggerHandlerTest {
 
 		//CVD investigation
 		//CVD based on calculated
-		System.assertNotEquals(null, iCVD.Calculated_Amended_Final_Signature__c);
+		System.assertEquals(null, iCVD.Calculated_Amended_Final_Signature__c);
 		iCVD.Will_you_Amend_the_Final__c = 'No';
 		update iCVD;
 		System.assertEquals(null, [SELECT Id, Calculated_Amended_Final_Signature__c FROM  Investigation__c WHERE Id =: iCVD.Id LIMIT 1].Calculated_Amended_Final_Signature__c);

@@ -108,16 +108,35 @@ public without sharing class SegmentTriggerHandler {
 
 		}
 		if (isAfter && isUpdate) {
-
+			recalculateIssues(newMap, oldMap);
 		}
 		if(isAfter && isInsert) {
             StaffingAssignmentExtension createStaff = new StaffingAssignmentExtension(newList);
         }
 	}
 
+
+	/****************************************
+    * Class Level Variables
+    ****************************************/
+
 	@TestVisible private static Map<Id,String> recordTypeNameMap = new Map<Id,String>();
 	@TestVisible private static Map<Id,ADCVD_FederalRegisterUtility> frUtilMap = new Map<Id,ADCVD_FederalRegisterUtility>();
 	@TestVisible private static String ssrType = '';
+
+
+	/*****************************************
+    * Methods called directly by mainEntry()
+    *****************************************/
+
+	//Setup Methods used to set class level variables
+	@TestVisible private static void initialize(List<Segment__c> newList, Map<Id,Segment__c> newMap) {
+		recordTypeNameMap = utils.getRecordTypeDeveloperNameMap(newList[0]);
+		if(newMap != null) {
+			ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get Segments with an Id
+			frUtilMap = listInstance.utilMap;
+		}
+	}
 
 	@TestVisible private static void calculateSegmentDates(List<Segment__c> newList) {
 		for (Segment__c s : newList) {
@@ -155,15 +174,26 @@ public without sharing class SegmentTriggerHandler {
 			setInformClusterCoordinatorIfNoRespons(s);
 		}
 	}
+	/**
+     * Method to calculate Issues
+     * @param  newMap [description]
+     * @param  oldMap [description]
+     * @return        [description]
+     */
+    @TestVisible private static void recalculateIssues(Map<Id,Segment__c> newMap, Map<Id,Segment__c> oldMap) {
+        Set<Id> parentIds = getIssueParentIds(newMap, oldMap);
+        List<Issue__c> issuesToUpdate = new List<Issue__c>();
 
-	//Setup Methods used to set class level variables
-	@TestVisible private static void initialize(List<Segment__c> newList, Map<Id,Segment__c> newMap) {
-		recordTypeNameMap = utils.getRecordTypeDeveloperNameMap(newList[0]);
-		if(newMap != null) {
-			ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get Segments with an Id
-			frUtilMap = listInstance.utilMap;
-		}
-	}
+        for (Issue__c i : [SELECT Id, Type__c, Issues_to_DAS__c, Concurrence_to_DAS__c FROM Issue__c WHERE Segment__c IN: parentIds]) {
+            issuesToUpdate.add(i);
+        }
+        if (!issuesToUpdate.isEmpty()) update issuesToUpdate;
+    }
+
+
+	/***********************************
+    * Helper Methods
+    ***********************************/
 
 	//used to set Offset Variables
 	@TestVisible private static Map<String,Constant__mdt> segmentCalcOffsets() {
@@ -180,14 +210,30 @@ public without sharing class SegmentTriggerHandler {
 		} else {
 			return segmentCalcOffsets;
 		}
-		
 	}
 
-	/*********************************************************************************
-	*These methods set the values for specific fields
-	*The naming convention is set<FieldAPIName>
-	*All share the same params of a single Segment__c object
-	*********************************************************************************/
+	@TestVisible private static Set<Id> getIssueParentIds(Map<Id,Segment__c> newMap, Map<Id,Segment__c> oldMap) {
+        Set<Id> returnIdSet = new Set<Id>();
+        for (Segment__c s : newMap.values()) {
+            if (oldMap.get(s.Id) == null) {
+                returnIdSet.add(s.Id);
+            } else if (oldMap.get(s.Id) != null && (
+            	oldMap.get(s.Id).Calculated_Initiation_Signature__c != s.Calculated_Initiation_Signature__c ||
+                oldMap.get(s.Id).Calculated_Preliminary_Signature__c != s.Calculated_Preliminary_Signature__c ||
+                oldMap.get(s.Id).Calculated_Final_Signature__c != s.Calculated_Final_Signature__c ||
+                oldMap.get(s.Id).Calculated_Amended_Final_Signature__c != s.Calculated_Amended_Final_Signature__c ||
+                oldMap.get(s.Id).Deadline_for_Decision_on_how_to_proceed__c != s.Deadline_for_Decision_on_how_to_proceed__c ||
+                oldMap.get(s.Id).Continuation_or_Revocation__c != s.Continuation_or_Revocation__c
+                )) {
+                returnIdSet.add(s.Id);
+            }
+        }
+        return returnIdSet;
+    }
+
+	/**************************************
+    * Date Calculations
+    ***************************************/
 
 	//Ordered Methods
 	//sets Deadline_for_Decision_for_HoP__c for Scope Inquiry Segments
