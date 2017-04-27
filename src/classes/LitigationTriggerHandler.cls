@@ -30,9 +30,27 @@ public without sharing class LitigationTriggerHandler {
             initialize(newList);
             calculateLitigationDates(newList);
         }
+        if (isAfter && isUpdate) {
+            recalculateIssues(newMap, oldMap);
+        }
     }
 
+
+    /****************************************
+    * Class Level Variables
+    ****************************************/
+
     @TestVisible private static Map<Id,String> recordTypeNameMap = new Map<Id,String>();
+
+
+    /*****************************************
+    * Methods called directly by mainEntry()
+    *****************************************/
+
+    //Setup Methods used to set class level variables
+    @TestVisible private static void initialize(List<Litigation__c> newList) {
+        recordTypeNameMap = utils.getRecordTypeDeveloperNameMap(newList[0]);
+    }
 
     @TestVisible private static void calculateLitigationDates(List<Litigation__c> newList) {
         for (Litigation__c l : newList) {
@@ -47,11 +65,26 @@ public without sharing class LitigationTriggerHandler {
             setCalculatedAmendedFinalSignature(l);//Remand: Court_of_Panel_s_Ruling__c
         }
     }
+    /**
+     * Method to calculate Issues
+     * @param  newMap [description]
+     * @param  oldMap [description]
+     * @return        [description]
+     */
+    @TestVisible private static void recalculateIssues(Map<Id,Litigation__c> newMap, Map<Id,Litigation__c> oldMap) {
+        Set<Id> parentIds = getIssueParentIds(newMap, oldMap);
+        List<Issue__c> issuesToUpdate = new List<Issue__c>();
 
-    //Setup Methods used to set class level variables
-    @TestVisible private static void initialize(List<Litigation__c> newList) {
-        recordTypeNameMap = utils.getRecordTypeDeveloperNameMap(newList[0]);
+        for (Issue__c i : [SELECT Id, Type__c, Issues_to_DAS__c, Concurrence_to_DAS__c FROM Issue__c WHERE Litigation__c IN: parentIds]) {
+            issuesToUpdate.add(i);
+        }
+        if (!issuesToUpdate.isEmpty()) update issuesToUpdate;
     }
+
+
+    /***********************************
+    * Helper Methods
+    ***********************************/
 
     //returns a map of <String,Integer> in the form: key = CMT Api name, CMT number value
     //used to set Offset Variables
@@ -67,6 +100,28 @@ public without sharing class LitigationTriggerHandler {
         return returnMap;
     }
 
+    @TestVisible private static Set<Id> getIssueParentIds(Map<Id,Litigation__c> newMap, Map<Id,Litigation__c> oldMap) {
+        Set<Id> returnIdSet = new Set<Id>();
+        for (Litigation__c l : newMap.values()) {
+            if (oldMap.get(l.Id) == null) {
+                returnIdSet.add(l.Id);
+            } else if (oldMap.get(l.Id) != null && (
+                oldMap.get(l.Id).Calculated_Initiation_Signature__c != l.Calculated_Initiation_Signature__c ||
+                oldMap.get(l.Id).Calculated_Preliminary_Signature__c != l.Calculated_Preliminary_Signature__c ||
+                oldMap.get(l.Id).Calculated_Draft_Remand_release_to_party__c != l.Calculated_Draft_Remand_release_to_party__c ||
+                oldMap.get(l.Id).Calculated_Final_Signature__c != l.Calculated_Final_Signature__c
+                )) {
+                returnIdSet.add(l.Id);
+            }
+        }
+        return returnIdSet;
+    }
+
+
+    /**************************************
+    * Date Calculations
+    ***************************************/
+    
     //sets Calculated_Initiation_Signature__c, requires Request_Filed__c to be set
     @TestVisible private static void setCalculatedInitiationSignature(Litigation__c l){
         if(recordTypeNameMap.get(l.RecordTypeId) == INT_LITIGATION) {

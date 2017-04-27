@@ -115,12 +115,16 @@ public class SyncUtilityTest {
 	@testSetup static void dataSetup() {
 		Test.startTest();
 		User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
-//TODO: update for AD petition to AD Investigation and CVD Petition to CVD Investigation...see InvestigationTriggerHandler
-		Petition__c testPetition = TestUtils.createPetition(petitionDate, 'AD ME', false);
-		testPetition.Commodity__c = 'Foodstuffs';
-		insert testPetition;
-		Investigation__c testADinvestigation = TestUtils.createInvestigation('AD', testPetition, true);
-		Investigation__c testCVDinvestigation = TestUtils.createInvestigation('CVD', testPetition, false);
+		List<Petition__c> petitionsToInsert = new List<Petition__c>();
+		Petition__c testAdPetition = TestUtils.createPetition(petitionDate, 'AD ME', false);
+		testAdPetition.Commodity__c = 'Foodstuffs';
+		petitionsToInsert.add(testAdPetition);
+		Petition__c testCvdPetition = TestUtils.createPetition(petitionDate, 'CVD', false);
+		testCvdPetition.Commodity__c = 'Foodstuffs';
+		petitionsToInsert.add(testCvdPetition);
+		insert petitionsToInsert;
+		Investigation__c testADinvestigation = TestUtils.createInvestigation('AD', testAdPetition, true);
+		Investigation__c testCVDinvestigation = TestUtils.createInvestigation('CVD', testCvdPetition, false);
 		testCVDinvestigation.AD_Investigation_Aligned_To__c = testADinvestigation.Id;
 		insert testCVDinvestigation;
 	}
