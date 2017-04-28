@@ -64,13 +64,11 @@
         <members>Insight_Atom__c</members>
         <members>Insight_Chapter__c</members>
         <members>Insight__c</members>
-        <members>Investigation_Constant__mdt</members>
         <members>Investigation__c</members>
         <members>Issue__c</members>
         <members>KnowledgeMap__c</members>
         <members>KnowledgeSearch__c</members>
         <members>Level__c</members>
-        <members>Litigation_Constant__mdt</members>
         <members>Litigation__c</members>
         <members>Master_CongressionalDistrict__c</members>
         <members>My_Profile_Option__c</members>
@@ -95,7 +93,6 @@
         <members>Renewing_Product__c</members>
         <members>Row__c</members>
         <members>Section__c</members>
-        <members>Segment_Constant__mdt</members>
         <members>Segment__c</members>
         <members>Series__c</members>
         <members>Service__mdt</members>
@@ -104,7 +101,6 @@
         <members>Staffing_Assignment__c</members>
         <members>Survey_Result__c</members>
         <members>Suspension_Agreement__c</members>
-        <members>Sync_Investigation__mdt</members>
         <members>Sync_Utility__mdt</members>
         <members>Template_Page_Content__c</members>
         <members>Template_Page__c</members>
