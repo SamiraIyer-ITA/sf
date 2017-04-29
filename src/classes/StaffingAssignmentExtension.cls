@@ -355,9 +355,9 @@ public without sharing class StaffingAssignmentExtension {
 			String soqlQuery = 'SELECT Id, User__c, Title__c, User__r.Staffing_Role__c, Related_Organization__c, Related_Organization__r.Account__r.Name FROM Staffing_Assignment__c WHERE ';
 			//specify object specific clause and query object, add to wrapper
 			if (parentSObjectType != RELATED_ORG) {
-				soqlQuery += parentSObjectType + ' IN: parentIdSet OR Related_Organization__c IN: parentIdSet LIMIT 1000 ORDER BY User__c ASC NULLS LAST';
+				soqlQuery += parentSObjectType + ' IN: parentIdSet OR Related_Organization__c IN: parentIdSet ORDER BY User__c ASC NULLS LAST LIMIT 1000';
 			} else {
-				soqlQuery += parentSObjectType + ' IN: parentIdSet LIMIT 1000 ORDER BY User__c ASC NULLS LAST';
+				soqlQuery += parentSObjectType + ' IN: parentIdSet ORDER BY User__c ASC NULLS LAST LIMIT 1000';
 			}
 			System.debug(soqlQuery);
 			List<Staffing_Assignment__c> queryList = database.query(soqlQuery);
@@ -382,8 +382,10 @@ public without sharing class StaffingAssignmentExtension {
 			}
 			tempStaffList.addAll(tempRelOrgList);
 			for (Staffing_Assignment__c s : tempStaffList) {
-				s = setSaRelatedOrgParentId(relOrgList, s);
-				staffList.add(s);
+				if (s != null) {
+					s = setSaRelatedOrgParentId(relOrgList, s);
+					staffList.add(s);
+				}
 			}
 		}
 		return staffList;
