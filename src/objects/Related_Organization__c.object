@@ -79,6 +79,29 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Custom_Instruction__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Custom Instruction</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>This record&apos;s Segment does not match the Custom Instruction&apos;s Segment.</errorMessage>
+            <filterItems>
+                <field>Custom_Instruction__c.Segment__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.Segment__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Custom_Instruction__c</referenceTo>
+        <relationshipLabel>Related Organizations</relationshipLabel>
+        <relationshipName>Related_Organizations</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Investigation__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -211,5 +234,12 @@
     <pluralLabel>Related Organizations</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Segment_must_be_populated_if_ci_is</fullName>
+        <active>true</active>
+        <description>Segment must be populated if Custom Instruction is</description>
+        <errorConditionFormula>AND(NOT(ISBLANK( Custom_Instruction__c )), ISBLANK( Segment__c ))</errorConditionFormula>
+        <errorMessage>You must have a segment if you have custom instructions.</errorMessage>
+    </validationRules>
     <visibility>Public</visibility>
 </CustomObject>

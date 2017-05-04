@@ -302,6 +302,14 @@
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
+        <fullName>Cannot_reparent_a_federal_register</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND( $Profile.Name != &apos;System Administrator&apos;,
+        OR( ISCHANGED( Investigation__c ) , ISCHANGED( 
+Petition__c ) , ISCHANGED( Segment__c ) ) )</errorConditionFormula>
+        <errorMessage>Cannot re-parent a federal register.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Ensure_there_is_a_parent</fullName>
         <active>true</active>
         <description>This validation rule makes sure you cannot create a federal register without a Investigation, Petition or Segment attached to it. If all three of these lookup fields are empty, the validation error message will trigger.</description>
