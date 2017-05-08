@@ -591,6 +591,15 @@ C-###-### for CVD</inlineHelpText>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Next_Due_to_DAS_Deadline_and_Timeline__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Due to DAS Deadline and Timeline</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Percent_of_Domestic_Industry__c</fullName>
         <externalId>false</externalId>
         <label>% of Domestic Industry</label>

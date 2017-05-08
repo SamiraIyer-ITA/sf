@@ -2429,16 +2429,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Staffing_Role_Filter_Field__c</fullName>
-        <externalId>false</externalId>
-        <label>Staffing Role Filter Field</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Staffing_Role__c</fullName>
         <externalId>false</externalId>
         <label>Staffing Role</label>

@@ -79,6 +79,38 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Custom_Instruction__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Custom Instruction</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>This record&apos;s Segment does not match the Custom Instruction&apos;s Segment.</errorMessage>
+            <filterItems>
+                <field>Custom_Instruction__c.Segment__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.Segment__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Custom_Instruction__c</referenceTo>
+        <relationshipLabel>Related Organizations</relationshipLabel>
+        <relationshipName>Related_Organizations</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Exporter__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Exporter</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Investigation__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -153,6 +185,15 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Producer__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Producer</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Related_Organization_Name__c</fullName>
         <externalId>false</externalId>
         <formula>Account__r.Name +&apos;--&apos;+ Name</formula>
@@ -177,6 +218,67 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Type__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Individually Examined</fullName>
+                    <default>false</default>
+                    <label>Individually Examined</label>
+                </value>
+                <value>
+                    <fullName>Non-Selected</fullName>
+                    <default>false</default>
+                    <label>Non-Selected</label>
+                </value>
+                <value>
+                    <fullName>Separate Rule</fullName>
+                    <default>false</default>
+                    <label>Separate Rule</label>
+                </value>
+                <value>
+                    <fullName>No Shipments/No Shipment Claim</fullName>
+                    <default>false</default>
+                    <label>No Shipments/No Shipment Claim</label>
+                </value>
+                <value>
+                    <fullName>Rescinded</fullName>
+                    <default>false</default>
+                    <label>Rescinded</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Respondent</controllingFieldValue>
+                <valueName>Individually Examined</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Respondent</controllingFieldValue>
+                <valueName>Non-Selected</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Respondent</controllingFieldValue>
+                <valueName>Separate Rule</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Respondent</controllingFieldValue>
+                <valueName>No Shipments/No Shipment Claim</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Respondent</controllingFieldValue>
+                <valueName>Rescinded</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Type__c</fullName>
         <externalId>false</externalId>
         <label>Type</label>
@@ -198,6 +300,11 @@
                     <default>false</default>
                     <label>Respondent</label>
                 </value>
+                <value>
+                    <fullName>Customs Instructions</fullName>
+                    <default>false</default>
+                    <label>Customs Instructions</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -209,7 +316,89 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Related Organizations</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Customs_Instructions_Only</fullName>
+        <active>true</active>
+        <label>Customs Instructions Only</label>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Individually Examined</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Shipments%2FNo Shipment Claim</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Selected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rescinded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Separate Rule</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Customs Instructions</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Petitioner_Respondent</fullName>
+        <active>true</active>
+        <label>Petitioner/Respondent</label>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Individually Examined</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Shipments%2FNo Shipment Claim</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Selected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rescinded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Separate Rule</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Petitioner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Respondent</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Custom_Instructions_must_have_a_parent</fullName>
+        <active>true</active>
+        <description>Custom Instructions must have a parent (ADCVD Order, Investigation, Petition, Segment, or Suspension Agreement)</description>
+        <errorConditionFormula>AND(NOT(ISBLANK(Custom_Instruction__c)), ISBLANK( Segment__c ),  ISBLANK( ADCVD_Order__c ), ISBLANK( Petition__c ),  ISBLANK( Investigation__c ),  ISBLANK( Segment__r.Suspension_Agreement__c ))</errorConditionFormula>
+        <errorMessage>Custom Instructions must have a parent.</errorMessage>
+    </validationRules>
     <visibility>Public</visibility>
 </CustomObject>
