@@ -12,7 +12,7 @@ public without sharing class FederalRegisterTriggerHandler {
             recalculateParentsOfFederalRegister(newList,oldMap);
         }
         if(isBefore && isDelete) {
-            calculateInvestigationsOnDelete(oldMap);
+            calculateParentsOnDelete(oldMap);
         }
         if(isAfter && isDelete) {
             recalculateParentsOfFederalRegister(newlist, oldMap);
@@ -21,16 +21,18 @@ public without sharing class FederalRegisterTriggerHandler {
 
     //Map to Federal Register Utility instances
     @TestVisible private static Map<Id,ADCVD_FederalRegisterUtility> frUtilMap = new Map<Id,ADCVD_FederalRegisterUtility>();
+    
 
     /**
      * Method for getting the parents of FRs and adding FRs to a list to instantiate FRUtility instances for
      * @param  newList new FRs in scope
      * @param  oldMap  the version of new FRs prior to update, used for updating parents on delete
-     * @return         Set of Ids from Investigations, Segments, or FRs
+     * @return         Set of Ids from Investigations, Segments, ADCVD Orders or FRs
      */
     @TestVisible private static Set<Id> findParentsInScope(List<Federal_Register__c> newList, Map<Id,Federal_Register__c> oldMap) {
         Set<Id> parentIdSet = new Set<Id>();
         Set<Id> frIdSet = new Set<Id>();
+        Set<Id> tempSet = new Set<Id>();
         for(Federal_Register__c fr : newList) {
             if(fr.Investigation__c != null) {
                 parentIdSet.add(fr.Investigation__c);
@@ -42,7 +44,23 @@ public without sharing class FederalRegisterTriggerHandler {
             } else if (oldMap != null && oldMap.get(fr.Id).Segment__c != null) {
                 parentIdSet.add(oldMap.get(fr.Id).Segment__c);
             }
+            if(fr.ADCVD_Order__c != null) {
+                parentIdSet.add(fr.ADCVD_Order__c);
+                tempSet.add(fr.ADCVD_Order__c);
+            } else if (oldMap != null && oldMap.get(fr.Id).ADCVD_Order__c != null) {
+                parentIdSet.add(oldMap.get(fr.Id).ADCVD_Order__c);
+                tempSet.add(oldMap.get(fr.Id).ADCVD_Order__c);
+            }
+            if(fr.Suspension_Agreement__c != null) {
+                parentIdSet.add(fr.Suspension_Agreement__c);
+            } else if (oldMap != null && oldMap.get(fr.Id).Suspension_Agreement__c != null) {
+                parentIdSet.add(oldMap.get(fr.Id).Suspension_Agreement__c);
+            }
         }
+        for (Segment__c s : [SELECT Id FROM Segment__c WHERE ADCVD_Order__c IN: tempSet]) {
+            parentIdSet.add(s.Id);
+        }
+
 
         return parentIdSet;
         
@@ -55,7 +73,8 @@ public without sharing class FederalRegisterTriggerHandler {
      */
     @TestVisible private static void setFrUtilMap(Set<Id> parentIdSet) {
         List<Federal_Register__c> listForFrUtilMap = new List<Federal_Register__c>();
-        for (Federal_Register__c fr : [SELECT Id FROM Federal_Register__c WHERE Investigation__c IN: parentIdSet OR Segment__c IN: parentIdSet]) {
+        for (Federal_Register__c fr : [SELECT Id FROM Federal_Register__c WHERE Investigation__c IN: parentIdSet OR Segment__c IN: parentIdSet 
+                                        OR ADCVD_Order__c IN: parentIdSet OR Suspension_Agreement__c IN: parentIdSet]) {
             listForFrUtilMap.add(fr);
         }
 
@@ -64,7 +83,7 @@ public without sharing class FederalRegisterTriggerHandler {
     }
 
     /**
-     * Gets parents in scope, then updates them based on new FR values
+     * Gets parents in scope, then updates them based on new FR values.  In most cases only one update will run, except Segments and ADCVD Orders which will both run when either is updated.
      * @param  newList new FRs in scope
      * @param  oldMap  the version of new FRs prior to update, used for updating parents on delete
      * @return         void
@@ -73,12 +92,14 @@ public without sharing class FederalRegisterTriggerHandler {
         Set<Id> parentIdSet = findParentsInScope(newList, oldMap);
         setFrUtilMap(parentIdSet);
         calculateInvestigations(parentIdSet);
+        calculateOrders(parentIdSet);
+        calculateSuspensionAgreements(parentIdSet);
         calculateSegments(parentIdSet);
     }
 
     /**
      * Updates the Investigations after FRs have been updated
-     * @param  parentIdSet Set of Ids from Investigations, Segments, or FRs
+     * @param  parentIdSet Set of Ids from Investigations, ADCVD Orders, Suspension Agreements, Segments or FRs
      * @return             void
      */
     @TestVisible private static void calculateInvestigations(Set<Id> parentIdSet) {
@@ -87,8 +108,28 @@ public without sharing class FederalRegisterTriggerHandler {
     }
 
     /**
+     * Updates the Suspension Agreements after FRs have been updated
+     * @param  parentIdSet Set of Ids from Investigations, ADCVD Orders, Suspension Agreements, Segments or FRs
+     * @return             void
+     */
+    @TestVisible private static void calculateSuspensionAgreements(Set<Id> parentIdSet) {
+        List<Suspension_Agreement__c> suspAgrToUpdate = [SELECT Id FROM Suspension_Agreement__c WHERE Id IN: parentIdSet];
+        database.update(suspAgrToUpdate, false);
+    }
+
+    /**
+     * Updates the ADCVD Orders after FRs have been updated
+     * @param  parentIdSet Set of Ids from Investigations, ADCVD Orders, Suspension Agreements, Segments or FRs
+     * @return             void
+     */
+    @TestVisible private static void calculateOrders(Set<Id> parentIdSet) {
+        List<ADCVD_Order__c> ordersToUpdate = [SELECT Id FROM ADCVD_Order__c WHERE Id IN: parentIdSet];
+        database.update(ordersToUpdate, false);
+    }
+
+    /**
      * Updates the Segments after FRs have been updated
-     * @param  parentIdSet Set of Ids from Investigations, Segments, or FRs
+     * @param  parentIdSet Set of Ids from Investigations, ADCVD Orders, Suspension Agreements, Segments or FRs
      * @return             void
      */
     @TestVisible private static void calculateSegments(Set<Id> parentIdSet) {
@@ -102,7 +143,7 @@ public without sharing class FederalRegisterTriggerHandler {
      * @param  oldMap [description]
      * @return        [description]
      */
-    @TestVisible private static void calculateInvestigationsOnDelete(Map<Id,Federal_Register__c> oldMap) {
+    @TestVisible private static void calculateParentsOnDelete(Map<Id,Federal_Register__c> oldMap) {
         List<Federal_Register__c> frList = [SELECT Id FROM Federal_Register__c WHERE Id IN: oldMap.keySet()];
         for(Federal_Register__c fr : frList) {
             fr.Do_Delete__c = true;

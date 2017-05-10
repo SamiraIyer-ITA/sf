@@ -134,6 +134,10 @@
     </types>
     <types>
         <members>*</members>
+        <name>PathAssistant</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>Profile</name>
     </types>
     <types>
@@ -174,6 +178,11 @@
         <members>testcvd_tolling_day_between_end_date</members>
         <members>testcvd_tolling_day_between_start_date</members>
         <name>StaticResource</name>
+    </types>
+    <types>
+        <members>BusinessHours</members>
+        <members>PathAssistant</members>
+        <name>Settings</name>
     </types>
     <version>39.0</version>
 </Package>

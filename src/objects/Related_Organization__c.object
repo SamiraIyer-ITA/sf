@@ -400,5 +400,12 @@
         <errorConditionFormula>AND(NOT(ISBLANK(Custom_Instruction__c)), ISBLANK( Segment__c ),  ISBLANK( ADCVD_Order__c ), ISBLANK( Petition__c ),  ISBLANK( Investigation__c ),  ISBLANK( Segment__r.Suspension_Agreement__c ))</errorConditionFormula>
         <errorMessage>Custom Instructions must have a parent.</errorMessage>
     </validationRules>
+    <validationRules>
+        <fullName>Segment_must_be_populated_if_ci_is</fullName>
+        <active>true</active>
+        <description>Segment must be populated if Custom Instruction is</description>
+        <errorConditionFormula>AND(NOT(ISBLANK( Custom_Instruction__c )), ISBLANK( Segment__c ))</errorConditionFormula>
+        <errorMessage>You must have a segment if you have custom instructions.</errorMessage>
+    </validationRules>
     <visibility>Public</visibility>
 </CustomObject>

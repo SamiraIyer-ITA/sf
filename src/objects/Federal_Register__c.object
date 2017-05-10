@@ -181,6 +181,18 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Suspension_Agreement__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Suspension Agreement</label>
+        <referenceTo>Suspension_Agreement__c</referenceTo>
+        <relationshipLabel>Federal Registers</relationshipLabel>
+        <relationshipName>Federal_Registers</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Type__c</fullName>
         <externalId>false</externalId>
         <label>Type</label>
@@ -312,9 +324,11 @@ Petition__c ) , ISCHANGED( Segment__c ) ) )</errorConditionFormula>
     <validationRules>
         <fullName>Ensure_there_is_a_parent</fullName>
         <active>true</active>
-        <description>This validation rule makes sure you cannot create a federal register without a Investigation, Petition or Segment attached to it. If all three of these lookup fields are empty, the validation error message will trigger.</description>
-        <errorConditionFormula>AND( ISBLANK( Investigation__c ) , ISBLANK( Segment__c ) , ISBLANK( Petition__c ))</errorConditionFormula>
-        <errorMessage>You must have a Petition, Investigation, or Segment associated to this Federal Register.</errorMessage>
+        <description>This validation rule makes sure you cannot create a federal register without a Investigation, Petition, Orders, Suspension Agreement or Segment attached to it. If all three of these lookup fields are empty, the validation error message will trigger.</description>
+        <errorConditionFormula>AND( ISBLANK( Investigation__c ) , ISBLANK( Segment__c ),
+ISBLANK( Petition__c ), ISBLANK(Suspension_Agreement__c ),
+ISBLANK( ADCVD_Order__c ))</errorConditionFormula>
+        <errorMessage>You must have a Petition, Investigation,  Orders, Suspension Agreement or Segment associated to this Federal Register.</errorMessage>
     </validationRules>
     <visibility>Public</visibility>
 </CustomObject>
