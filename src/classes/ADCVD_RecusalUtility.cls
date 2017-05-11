@@ -11,10 +11,6 @@ public without sharing class ADCVD_RecusalUtility {
     @TestVisible private static Set<Id> parentIdSet = new Set<Id>();
     //used for Singleton
     @TestVisible private static ADCVD_RecusalUtility objectTypeInstance = null;
-    //Map of parentIds to hierarchyIdSet from cascade utility
-    @TestVisible private static Map<Id,Set<Id>> parentIdToHierarchyIdSetMap = new Map<Id,Set<Id>>();
-    //Map of direct parent object to a boolean set if this parent object has a related org from which this user has recused
-    @TestVisible private static Map<Id,Set<Id>> idToRelOrgIdSetMap = new Map<Id,Set<Id>>();
     //Map of Primary Recusals from userIdSet
     @TestVisible private static Map<Id,Recusal__c> classPrimaryRecusalMap = new Map<Id,Recusal__c>();
 
@@ -25,13 +21,8 @@ public without sharing class ADCVD_RecusalUtility {
     //Recusal Variables
     //Map of direct parent object to recusals for this user's instance
     public List<Recusal__c> primaryRecusalList = new List<Recusal__c>();
-    //Map of direct parent object to a boolean set if this parent Object's hierarchy objects have recusals for this user's instance
-    public Map<Id,Boolean> recusalsInRecordHierarchyMap = new Map<Id,Boolean>();
     //Map of direct parent object to a boolean set if this parent object has a linked recusal for this user's instance
-    public Map<Id,Boolean> recusedFromThisRecordMap = new Map<Id,Boolean>();
-    //Map of direct parent object to a boolean set if this parent object has a related org from which this user has recused
-    public Map<Id,Boolean> recusedFromRelatedOrgMap = new Map<Id,Boolean>();
-    
+    public Map<Id,Boolean> recusedFromThisRecordMap = new Map<Id,Boolean>(); 
     
 
     //used once for the query via CascadeUtility and creating the parent Id to Instance map
@@ -47,10 +38,8 @@ public without sharing class ADCVD_RecusalUtility {
         Map<Id,List<SObject>> cuRecMap = new Map<Id,List<SObject>>();
         CascadeUtility cu = new CascadeUtility('Recusal__c');
         cuRecMap = cu.getParentIdToObjectsMap(parentObjectName, userIdSet);//get the big map of parentIds to Recusals list, scope is users with Staffing roles
-        parentIdToHierarchyIdSetMap = cu.getIdToHierarchyIdSetMap();//bring the map in class
         setClassPrimaryRecusalMap(userIdSet, parentObjectList);//set the in class primary recusal map
 		setParentsInScope(parentObjectList);//get Ids from the parentObjectList
-		getRelatedOrgsInScope();
         if(cuRecMap.size() > 0) {
             setParentIdToInstanceMap(userIdSet, cuRecMap);//create an instance per user with the 3 public maps
         }
@@ -89,7 +78,7 @@ public without sharing class ADCVD_RecusalUtility {
 	        for (Id parentId : parentIdSet) {//in each instance, maps are created by parent object Id
                 if(parentId != null && parentIdToRecusalListMap.get(parentId) != null) {
                     for(Recusal__c r : parentIdToRecusalListMap.get(parentId)) {//each map has a list of recusals in which multiple users recused themselves from a single record
-                        if (r.User__c != null && r.Primary_Recusal_Aligned_To__c != null) {//recusal is a related recusal and has a user (probably don't need this anymore)
+                        if (r.User__c != null) {//has a user
                             tempInstance = userIdToInstanceMap.get(userId) != null ? userIdToInstanceMap.get(userId) : tempInstance;//get current instance if it exists
                             tempInstance = setTempInstance(r, userId, parentId, parentIdToRecusalListMap, tempInstance);
                         }
@@ -115,34 +104,6 @@ public without sharing class ADCVD_RecusalUtility {
      * @return                          [description]
      */
     @TestVisible private static ADCVD_RecusalUtility setTempInstance(Recusal__c r, Id userId, Id parentId, Map<Id,List<Recusal__c>> parentIdToRecusalListMap, ADCVD_RecusalUtility tempInstance) {
-    	List<Recusal__c> tempList = new List<Recusal__c>();
-    	Set<Id> tempSet = new Set<id>();
-
-    	//Set boolean for recusalsInRecordHierarchyMap
-    	tempSet = parentIdToHierarchyIdSetMap.get(parentId);
-    	if(tempInstance.recusalsInRecordHierarchyMap.get(parentId) != true) {//don't overwrite if already true
-    		tempInstance.recusalsInRecordHierarchyMap.put(parentId, false);//set to false, eliminating null or overwriting false
-	    	if (tempSet != null && !tempSet.isEmpty()) {//if this parent record has parents, continue
-	    		for (Id tempId : tempSet) {//hierarchy Id above the current record
-	    			for(Recusal__c rec : parentIdToRecusalListMap.get(tempId)) {//find the recusal (grandchild) mapped to hierarchyId
-	    				if(rec != null && rec.User__c != null && rec.User__c == userId 
-	    				&& validateRecusalParent(rec) == tempId) {//make sure the recusal belongs to this user and that it's direct parent is in context
-	    					tempInstance.recusalsInRecordHierarchyMap.put(parentId, true);//current parent record has at least one parent record that has a recusal for this user
-	    					break;//don't overwrite once it's set to true
-	    				}
-	    			}
-	    		}
-	    	}
-    	}
-    	//Set boolean for recusedFromRelatedOrgMap
-    	if (tempInstance.recusedFromRelatedOrgMap.get(parentId) != true) {//don't overwrite true, but don't allow nulls
-    		tempInstance.recusedFromRelatedOrgMap.put(parentId, false);
-	    	if (r.User__c == userId && validateRecusalParent(r) == parentId) {//this recusal is for this user and this recusal's parent is the current parentId
-	    		if(idToRelOrgIdSetMap.get(parentId) != null && idToRelOrgIdSetMap.size() > 0) {
-		    		tempInstance.recusedFromRelatedOrgMap.put(parentId, true);
-		    	}
-	    	}
-    	}
 		    	
     	//Set boolean for recusedFromThisRecordMap
     	if (tempInstance.recusedFromThisRecordMap.get(parentId) != true) {//don't overwrite true, but don't allow nulls
@@ -207,57 +168,5 @@ public without sharing class ADCVD_RecusalUtility {
 				parentIdSet.add(so.Id);
 			}
     	}
-	}
-
-	@TestVisible private static void getRelatedOrgsInScope() {
-		if(parentIdSet != null) {
-			for (Related_Organization__c ro : [SELECT Id, Legal_Representation__c, Petition__c, Investigation__c, ADCVD_Order__c, Segment__c, Litigation__c
-												FROM Related_Organization__c 
-												WHERE Legal_Representation__c IN: parentIdSet
-												OR Petition__c IN: parentIdSet
-												OR Investigation__c IN: parentIdSet
-												OR ADCVD_Order__c IN: parentIdSet
-												OR Segment__c IN: parentIdSet
-												OR Litigation__c IN: parentIdSet]) {
-				Set<Id> tempSet = new Set<Id>();
-				if(ro.Legal_Representation__c != null) {
-					if(idToRelOrgIdSetMap.get(ro.Legal_Representation__c) != null) {
-						tempSet = idToRelOrgIdSetMap.get(ro.Legal_Representation__c);
-					}
-					tempSet.add(ro.Id);
-					idToRelOrgIdSetMap.put(ro.Legal_Representation__c, tempSet);
-				} else if(ro.Petition__c != null) {
-					if(idToRelOrgIdSetMap.get(ro.Petition__c) != null) {
-						tempSet = idToRelOrgIdSetMap.get(ro.Petition__c);
-					}
-					tempSet.add(ro.Id);
-					idToRelOrgIdSetMap.put(ro.Petition__c, tempSet);
-				} else if(ro.Investigation__c != null) {
-					if(idToRelOrgIdSetMap.get(ro.Investigation__c) != null) {
-						tempSet = idToRelOrgIdSetMap.get(ro.Investigation__c);
-					}
-					tempSet.add(ro.Id);
-					idToRelOrgIdSetMap.put(ro.Investigation__c, tempSet);
-				} else if(ro.ADCVD_Order__c != null) {
-					if(idToRelOrgIdSetMap.get(ro.ADCVD_Order__c) != null) {
-						tempSet = idToRelOrgIdSetMap.get(ro.ADCVD_Order__c);
-					}
-					tempSet.add(ro.Id);
-					idToRelOrgIdSetMap.put(ro.ADCVD_Order__c, tempSet);
-				} else if(ro.Segment__c != null) {
-					if(idToRelOrgIdSetMap.get(ro.Segment__c) != null) {
-						tempSet = idToRelOrgIdSetMap.get(ro.Segment__c);
-					}
-					tempSet.add(ro.Id);
-					idToRelOrgIdSetMap.put(ro.Segment__c, tempSet);
-				} else if(ro.Litigation__c != null) {
-					if(idToRelOrgIdSetMap.get(ro.Litigation__c) != null) {
-						tempSet = idToRelOrgIdSetMap.get(ro.Litigation__c);
-					}
-					tempSet.add(ro.Id);
-					idToRelOrgIdSetMap.put(ro.Litigation__c, tempSet);
-				} 
-			}
-		}
 	}
 }

@@ -636,14 +636,6 @@ public without sharing class StaffingAssignmentExtension {
 					if (userInstance.primaryRecusalList != null && !userInstance.primaryRecusalList.isEmpty()) {
 						recusalStatus += 'This user has active recusals.' + '<br/>';
 					}
-					if (userInstance.recusalsInRecordHierarchyMap != null && userInstance.recusalsInRecordHierarchyMap.get(parentId) != null 
-						&& userInstance.recusalsInRecordHierarchyMap.get(parentId) == true) {//clarity that this is a map to a boolean
-						recusalStatus += 'This user has been recused from some of this record\'s parents.' + '<br/>';
-					}
-					if (userInstance.recusedFromRelatedOrgMap != null && userInstance.recusedFromRelatedOrgMap.get(parentId) != null 
-						&& userInstance.recusedFromRelatedOrgMap.get(parentId) == true) {//clarity that this is a map to a boolean
-						recusalStatus += 'This user has been recused from organization(s) related to this record.' + '<br/>';
-					}
 					if (userInstance.recusedFromThisRecordMap != null && userInstance.recusedFromThisRecordMap.get(parentId) != null 
 						&& userInstance.recusedFromThisRecordMap.get(parentId) == true) {//clarity that this is a map to a boolean
 						recusalStatus += 'This user has been recused from this record.' + '<br/>';

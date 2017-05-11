@@ -23,6 +23,4 @@ public interface ADCVD_CascadeService {
  	 */
 	Map<Id,List<SObject>> getParentIdToObjectsMap(String currentObjectName, Set<Id> parentIdSet);
 
-
-	Map<Id,Set<Id>> getIdToHierarchyIdSetMap();
 }
