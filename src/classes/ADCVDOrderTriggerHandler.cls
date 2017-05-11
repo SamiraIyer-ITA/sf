@@ -157,7 +157,7 @@ public without sharing class ADCVDOrderTriggerHandler {
 
     @TestVisible private static void setSegmentStatus(List<ADCVD_Order__c> newList) {
 		for (ADCVD_Order__c o : newList) {
-			if (o.Id != null && orderIdToSegmentStatusMap.get(o.Id) == 'Active') {
+			if (o.Id != null && orderIdToSegmentStatusMap.get(o.Id) != null && orderIdToSegmentStatusMap.get(o.Id) == 'Active') {
 				o.Segment_Status__c = 'Active';
 			} else {
 				o.Segment_Status__c = 'Inactive';
