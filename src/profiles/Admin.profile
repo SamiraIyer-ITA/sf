@@ -15,6 +15,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ADCVDOrderTriggerHandlerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ADCVD_CascadeService</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -3693,6 +3697,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Litigation__c.Petition__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Litigation__c.Prelim_Extension_of_days__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3719,6 +3728,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Litigation__c.Segment__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Litigation__c.Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4413,6 +4427,21 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Petition__c.Litigation_Resolved__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Petition__c.Litigation_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Petition__c.Litigation_YesNo__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Petition__c.Percent_of_Domestic_Industry__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4439,6 +4468,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Petition__c.Product__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Petition__c.Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5338,7 +5372,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Segment__c.Segment_Status__c</field>
+        <field>Segment__c.Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

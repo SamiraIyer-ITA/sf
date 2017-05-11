@@ -381,6 +381,18 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Petition__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Petition</label>
+        <referenceTo>Petition__c</referenceTo>
+        <relationshipLabel>Litigation</relationshipLabel>
+        <relationshipName>Litigation</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Prelim_Extension_of_days__c</fullName>
         <externalId>false</externalId>
         <label>Prelim Extension (# of days)</label>
@@ -471,6 +483,25 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                    <label>Active</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>USTR_Notification_to_Implement_Final_Res__c</fullName>
         <externalId>false</externalId>
         <label>USTR Notification to Implement Final Res</label>
@@ -559,6 +590,13 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>Remand</fullName>
@@ -626,6 +664,13 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
             </values>
             <values>
                 <fullName>Suspended</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
