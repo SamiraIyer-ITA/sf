@@ -32,26 +32,48 @@ public without sharing class ADCVDOrderTriggerHandler {
     }
 
     /*****************************
-     * Class Level Variables
+    * Class Level Variables
     *****************************/
     @TestVisible private static Map<Id,List<Segment__c>> orderIdToSegmentMap = new Map<Id,List<Segment__c>>();
     @TestVisible private static Map<Id,String> orderIdToSegmentStatusMap = new Map<Id,String>();
     @TestVisible private static Map<Id,ADCVD_FederalRegisterUtility> frUtilMap = new Map<Id,ADCVD_FederalRegisterUtility>();
 
+
+    /*****************************************
+    * Methods called directly by mainEntry()
+    *****************************************/
+
+    /**
+     * Sets class level variables
+     * @param  newList new Orders in scope, available before insert
+     * @param  newMap  new Orders in scope, null before insert
+     * @return         [description]
+     */
     @TestVisible private static void initialize(List<ADCVD_Order__c> newList, Map<Id,ADCVD_Order__c> newMap) {
         if(newMap != null) {
-        	setOrderToSegmentMaps(newMap.keySet());
+        	setOrderIdToSegmentMap(newMap.keySet());
+            setOrderIdToSegmentStatusMap();
             ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get Segments with an Id
             frUtilMap = listInstance.utilMap;
         }
     }
 
+    /**
+     * Primary method to order and call all date calculations.  Restricted to only logical order, not specific field calculations
+     * @param  newList [description]
+     * @return         [description]
+     */
     @TestVisible private static void calculateOrderDates(List<ADCVD_Order__c> newList) {
 		for (ADCVD_Order__c o : newList) {
 			setNextSunsetInitiationDate(o);
 		}
 	}
 
+    /**
+     * Primary method to order and call all status calculations. Restricted to only logical order, not specific field calculations
+     * @param  newList [description]
+     * @return         [description]
+     */
 	@TestVisible private static void calculateOrderStatuses(List<ADCVD_Order__c> newList) {
 		setSegmentStatus(newList);
 		setStatus(newList);
@@ -80,7 +102,13 @@ public without sharing class ADCVDOrderTriggerHandler {
 		}
 	}
 
-	@TestVisible private static void setOrderToSegmentMaps(Set<Id> orderIdSet) {
+    /**
+     * Sets map of order Ids in scope to all of their Segments.
+     * Segment Status
+     * @param  orderIdSet [description]
+     * @return            [description]
+     */
+	@TestVisible private static void setOrderIdToSegmentMap(Set<Id> orderIdSet) {
         for (Segment__c s : [SELECT Id, ADCVD_Order__c, Status__c FROM Segment__c WHERE ADCVD_Order__c IN: orderIdSet]) {
         	List<Segment__c> tempList = new List<Segment__c>();
         	if (orderIdToSegmentMap.get(s.ADCVD_Order__c) != null) {
@@ -89,12 +117,17 @@ public without sharing class ADCVDOrderTriggerHandler {
         	tempList.add(s);
         	orderIdToSegmentMap.put(s.ADCVD_Order__c, tempList);
         }
-        for (Id orderId : orderIdToSegmentMap.keySet()) {
-        	for (Segment__c s : orderIdToSegmentMap.get(orderId)) {
-        		if (orderIdToSegmentStatusMap.get(orderId) == null || orderIdToSegmentStatusMap.get(orderId) != 'Active') {
-	                orderIdToSegmentStatusMap.put(orderId, s.Status__c);
-	            }
-        	}
+    }
+
+    @TestVisible private static void setOrderIdToSegmentStatusMap() {
+        if (orderIdToSegmentMap != null && !orderIdToSegmentMap.isEmpty()) {
+            for (Id orderId : orderIdToSegmentMap.keySet()) {
+                for (Segment__c s : orderIdToSegmentMap.get(orderId)) {
+                    if (orderIdToSegmentStatusMap.get(orderId) == null || orderIdToSegmentStatusMap.get(orderId) != 'Active') {
+                        orderIdToSegmentStatusMap.put(orderId, s.Status__c);
+                    }
+                }
+            }
         }
     }
 
