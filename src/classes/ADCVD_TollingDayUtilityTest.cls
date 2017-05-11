@@ -1,14 +1,6 @@
 @isTest
 public with sharing class ADCVD_TollingDayUtilityTest {
-	private static Date holidayDate {get 
-		{
-			if(holidayDate == null) {
-				String yr = String.valueOf(System.today().year());
-				holidayDate = date.parse('12/25/' + yr);
-			}
-			return holidayDate;
-		} set;
-	}
+	private static Date holidayDate = System.today();
 	private static Date tollingDateStart = System.today().addDays(-10);
 	private static Date tollingDateEnd = System.today().addDays(-4);
 	@isTest static void tollingDayList(){
@@ -111,8 +103,8 @@ public with sharing class ADCVD_TollingDayUtilityTest {
 	@testSetup static void dataSetup() {
 		Test.startTest();
 		User u = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
-		//Holiday h = new Holiday(ActivityDate = holidayDate, Name = 'Every day is a holiday');
-		//insert h;
+		Holiday h = new Holiday(ActivityDate = holidayDate, Name = 'Every day is a holiday');
+		insert h;
 		Tolling_Day__c td = TestUtils.createTollingDay(tollingDateStart, tollingDateEnd, u, true);
 	}
 }

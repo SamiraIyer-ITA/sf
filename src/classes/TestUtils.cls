@@ -190,7 +190,7 @@ public with sharing class TestUtils {
         petition.Commodity__c = 'Foodstuffs'; 
         petition.Petition_Filed__c = petitionDate;
         //added for testing purposes
-        petition.Petition_Outcome__c = 'Initiated';
+        petition.Petition_Outcome__c = 'In Progress';
         petition.Initiation_Extension_of_days__c = 3;
         if(doInsert){
             insert petition;
