@@ -1367,6 +1367,22 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
                     <fullName>Active</fullName>
                     <default>false</default>
                     <label>Active</label>
@@ -2233,7 +2249,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Segment_Status__c</picklist>
+            <picklist>Status__c</picklist>
             <values>
                 <fullName>Active</fullName>
                 <default>false</default>
@@ -2942,7 +2958,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Segment_Status__c</picklist>
+            <picklist>Status__c</picklist>
             <values>
                 <fullName>Active</fullName>
                 <default>false</default>
@@ -3651,7 +3667,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Segment_Status__c</picklist>
+            <picklist>Status__c</picklist>
             <values>
                 <fullName>Active</fullName>
                 <default>false</default>
@@ -4360,7 +4376,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Segment_Status__c</picklist>
+            <picklist>Status__c</picklist>
             <values>
                 <fullName>Active</fullName>
                 <default>false</default>
@@ -5069,7 +5085,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Segment_Status__c</picklist>
+            <picklist>Status__c</picklist>
             <values>
                 <fullName>Active</fullName>
                 <default>false</default>
@@ -5778,7 +5794,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Segment_Status__c</picklist>
+            <picklist>Status__c</picklist>
             <values>
                 <fullName>Active</fullName>
                 <default>false</default>
@@ -6487,7 +6503,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Segment_Status__c</picklist>
+            <picklist>Status__c</picklist>
             <values>
                 <fullName>Active</fullName>
                 <default>false</default>

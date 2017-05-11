@@ -789,23 +789,32 @@ IF ((MONTH(Next_Sunset_Initiation_Date__c)) == 12,
                     <label>Active</label>
                 </value>
                 <value>
-                    <fullName>Litigation Hold</fullName>
+                    <fullName>Inactive</fullName>
                     <default>false</default>
-                    <label>Litigation Hold</label>
-                </value>
-                <value>
-                    <fullName>Litigation</fullName>
-                    <default>false</default>
-                    <label>Litigation</label>
+                    <label>Inactive</label>
                 </value>
                 <value>
                     <fullName>Closed</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>Closed</label>
+                </value>
+                <value>
+                    <fullName>Litigation</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Litigation</label>
+                </value>
+                <value>
+                    <fullName>Litigation Hold</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Litigation Hold</label>
                 </value>
                 <value>
                     <fullName>Suspended</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>Suspended</label>
                 </value>
             </valueSetDefinition>
@@ -1125,22 +1134,6 @@ IF ((MONTH(Next_Sunset_Initiation_Date__c)) == 12,
             <picklist>Segment_Status__c</picklist>
             <values>
                 <fullName>Active</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Closed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Litigation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Litigation Hold</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Suspended</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

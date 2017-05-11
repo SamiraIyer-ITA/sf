@@ -65,7 +65,6 @@
                 <value>
                     <fullName>Suspension_Agreement__c</fullName>
                     <default>false</default>
-                    <isActive>false</isActive>
                     <label>Suspension_Agreement__c</label>
                 </value>
             </valueSetDefinition>

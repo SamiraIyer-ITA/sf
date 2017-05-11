@@ -16,10 +16,12 @@ public without sharing class ADCVDOrderTriggerHandler {
         if (isBefore && isInsert) {
             initialize(newList,newMap);
             calculateOrderDates(newList);
+            calculateOrderStatuses(newList);
         }
         if (isBefore && isUpdate) {
             initialize(newList,newMap);
             calculateOrderDates(newList);
+            calculateOrderStatuses(newList);
         }
         if (isAfter && isUpdate) {
 
@@ -32,13 +34,13 @@ public without sharing class ADCVDOrderTriggerHandler {
     /*****************************
      * Class Level Variables
     *****************************/
-
+    @TestVisible private static Map<Id,List<Segment__c>> orderIdToSegmentMap = new Map<Id,List<Segment__c>>();
     @TestVisible private static Map<Id,String> orderIdToSegmentStatusMap = new Map<Id,String>();
     @TestVisible private static Map<Id,ADCVD_FederalRegisterUtility> frUtilMap = new Map<Id,ADCVD_FederalRegisterUtility>();
 
     @TestVisible private static void initialize(List<ADCVD_Order__c> newList, Map<Id,ADCVD_Order__c> newMap) {
         if(newMap != null) {
-        	setOrderIdToSegmentStatusMap(newMap.keySet());
+        	setOrderToSegmentMaps(newMap.keySet());
             ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get Segments with an Id
             frUtilMap = listInstance.utilMap;
         }
@@ -49,30 +51,11 @@ public without sharing class ADCVDOrderTriggerHandler {
 			setNextSunsetInitiationDate(o);
 		}
 	}
-/*    @TestVisible private static void setStatus(List<ADCVD_Order__c> newList){        
-        for (ADCVD_Order__c o : newList){
-        	if (o.Status__c != "Revoked Complete") {
-        		o.Status__c = 'Order FR Needed';
-	            Date orderPublishedDate = null;
-	            Federal_Register__c revocationFR = null;
-	            if (o.Id != null) {
-		            if (frUtilMap != null) {
-		            	revocationFR = ternary
-		                orderPublishedDate = frUtilMap.get(o.Id) != null ? frUtilMap.get(o.Id).orderPublishedDate : null;
-		            }
-		            if (orderPublishedDate == null){
-		                o.Status__c = 'Order FR Needed';
-		            } else if (orderIdToSegmentStatusMap.get(o.Id) == 'Active'){
-		                o.Status__c = 'Current-Active';
-		            } else if (orderIdToSegmentStatusMap.get(o.Id) != 'Active') {
-		            	o.Status__c = 'Current-Inactive';
-		            } else if (revocationFR != null) {
-		            	revoked-incomplete
-		            }
-		        }
-        	}
-        }
-    }
+
+	@TestVisible private static void calculateOrderStatuses(List<ADCVD_Order__c> newList) {
+		setSegmentStatus(newList);
+		setStatus(newList);
+	}
 
 
 
@@ -97,12 +80,22 @@ public without sharing class ADCVDOrderTriggerHandler {
 		}
 	}
 
-    @TestVisible private static void setOrderIdToSegmentStatusMap(Set<Id> orderIdSet) {
-    	for (Segment__c s : [SELECT ADCVD_Order__c, Segment_Status__c FROM Segment__c WHERE ADCVD_Order__c IN: orderIdSet]) {
-    		if (orderIdToSegmentStatusMap.get(s.ADCVD_Order__c) != 'Active') {
-    			orderIdToSegmentStatusMap.put(s.ADCVD_Order__c, s.Segment_Status__c);
-    		}
-    	}
+	@TestVisible private static void setOrderToSegmentMaps(Set<Id> orderIdSet) {
+        for (Segment__c s : [SELECT Id, ADCVD_Order__c, Status__c FROM Segment__c WHERE ADCVD_Order__c IN: orderIdSet]) {
+        	List<Segment__c> tempList = new List<Segment__c>();
+        	if (orderIdToSegmentMap.get(s.ADCVD_Order__c) != null) {
+        		tempList = orderIdToSegmentMap.get(s.ADCVD_Order__c);
+        	}
+        	tempList.add(s);
+        	orderIdToSegmentMap.put(s.ADCVD_Order__c, tempList);
+        }
+        for (Id orderId : orderIdToSegmentMap.keySet()) {
+        	for (Segment__c s : orderIdToSegmentMap.get(orderId)) {
+        		if (orderIdToSegmentStatusMap.get(orderId) == null || orderIdToSegmentStatusMap.get(orderId) != 'Active') {
+	                orderIdToSegmentStatusMap.put(orderId, s.Status__c);
+	            }
+        	}
+        }
     }
 
 
@@ -122,6 +115,46 @@ public without sharing class ADCVDOrderTriggerHandler {
     		o.Next_Sunset_Initiation_Date__c = nextSSR.toStartOfMonth().addYears(SUNSET_INIT_YEARS).addMonths(SUNSET_INIT_MONTHS);
     	} else {
             o.Next_Sunset_Initiation_Date__c = null;
+        }
+    }
+
+    /******************************
+    * Status Calculations
+    ******************************/
+
+    @TestVisible private static void setSegmentStatus(List<ADCVD_Order__c> newList) {
+		for (ADCVD_Order__c o : newList) {
+			if (o.Id != null && orderIdToSegmentStatusMap.get(o.Id) == 'Active') {
+				o.Segment_Status__c = 'Active';
+			} else {
+				o.Segment_Status__c = 'Inactive';
+			}
+		}
+	}
+
+    @TestVisible private static void setStatus(List<ADCVD_Order__c> newList){        
+        for (ADCVD_Order__c o : newList){
+        	if (o.Status__c != 'Revoked-Complete') {//skip if already Revoked-Complete
+        		o.Status__c = 'Order FR Needed';//set for before insert context
+	            Date orderPublishedDate = null;
+	            Date revocationPublishedDate = null;
+	            if (o.Id != null) {
+		            if (frUtilMap != null) {
+		            	revocationPublishedDate = frUtilMap.get(o.Id) != null ? frUtilMap.get(o.Id).revocationPublishedDate : null;
+		                orderPublishedDate = frUtilMap.get(o.Id) != null ? frUtilMap.get(o.Id).orderPublishedDate : null;
+		            }
+		            if (orderPublishedDate == null) {//set if updated and still does not have an Order FR
+		                o.Status__c = 'Order FR Needed';
+		            } else if (o.Segment_Status__c == 'Active') {//set based on Segment Status
+		                o.Status__c = 'Current-Active';
+		            } else if (o.Segment_Status__c != 'Active') {
+		            	o.Status__c = 'Current-Inactive';
+		            }
+		            if (revocationPublishedDate != null) {
+		            	o.Status__c = 'Revoked-Incomplete';
+		            }
+		        }
+        	}
         }
     }
 }
