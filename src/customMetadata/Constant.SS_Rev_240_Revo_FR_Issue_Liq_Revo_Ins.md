@@ -7,6 +7,10 @@
         <value xsi:type="xsd:string">Seg_SSR</value>
     </values>
     <values>
+        <field>ADCVD_Order_Calculation_Offset__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
         <field>Investigation_Calculation_Offset__c</field>
         <value xsi:type="xsd:boolean">false</value>
     </values>
@@ -45,6 +49,10 @@
     <values>
         <field>String_Value__c</field>
         <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Suspension_Agreement_Calculation_Offset__c</field>
+        <value xsi:type="xsd:boolean">false</value>
     </values>
     <values>
         <field>Used_with_Field_Named__c</field>

@@ -1,4 +1,3 @@
-//TODO - create user story on "has tolling days been applied" to an investigation / petition / segment//
 @isTest
 public without sharing class BulkCsvTest {
     /*@isTest
@@ -444,7 +443,7 @@ public without sharing class BulkCsvTest {
             sObjectFieldsToQuery.put(tr.SObjectType, assrtFieldSet);
             
             TestRow relatedRow = externalIdToTestRow.get(tr.ExternalId); //pull back existing related row
-            //TODO - if same row occurs twice and has different assertions it will fail
+            //Known Limitation - if same row occurs twice and has different assertions it will fail
             //sObject list do not support upsert
             if(createsObjectFromTestRow(tr) != null) {
                 system.debug('Creating sObject from row' + tr);
@@ -485,7 +484,7 @@ public without sharing class BulkCsvTest {
 
         //loop through each object that was part of the operation order and build dynamic query
         for(String sObjToQuery : sObjectFieldsToQuery.keySet()) {
-            //TODO skip certain objects ? ... should we query setup records?
+            //Information: this is used for setup objects that should not be validated like Holidays
             if(sObjectToExcludeFromValidation.contains(sObjToQuery)) {continue;}
             //skip blank objects
             if(sObjToQuery == '') {continue;}
@@ -729,11 +728,11 @@ public without sharing class BulkCsvTest {
     }
     /* initializes the file - takes a CSV string*/ 
     private static void initializeFile(String myCsvFileString) {
-        /* TODO - fix bug where if the last row is blank - the last row fails to get inserted correctly */
+        /* FIXED - fix bug where if the last row is blank - the last row fails to get inserted correctly */
         myCsvFileString += (Parser.CRLF + ',,'); //hack to resolve last row issue
         
         //split csv into an array
-        //TODO - handle intra cell line breaks
+        //Known Limitation - handle intra cell line breaks, currently cannot handle
         csvArray = myCsvFileString.split('\n');
 
         //read the header & populate maps

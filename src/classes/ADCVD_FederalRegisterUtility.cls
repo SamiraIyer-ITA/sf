@@ -130,7 +130,7 @@ public without sharing class ADCVD_FederalRegisterUtility {
 
     /**
      * Sets the FR and published Date values from all FRs for a given parent.  Ternaries are used on FRs used in calculations to ensure the oldest
-     * FR is used
+     * FR is used, except in the case of Continuation where the newest is used
      * @param  fr           A Federal Register
      * @param  tempInstance An instance of this class that has FRs that exist mapped to a variable based on their type
      * @return              The same instance is returned but with an additional FR and FR publishedDate variable mapped
@@ -142,8 +142,10 @@ public without sharing class ADCVD_FederalRegisterUtility {
             tempInstance.initiationPublishedDate = tempInstance.initiationPublishedDate != null && fr.CreatedDate > tempInstance.initiationFR.CreatedDate ? 
                                             tempInstance.initiationPublishedDate : fr.Published_Date__c;
         } else if (fr.Type__c == 'Continuation') {
-            tempInstance.continuationFR = fr;
-            tempInstance.continuationPublishedDate = fr.Published_Date__c;
+            tempInstance.continuationFR = tempInstance.continuationFR != null && fr.CreatedDate < tempInstance.continuationFR.CreatedDate ? 
+                                            tempInstance.continuationFR : fr;//set variable to new value if currently null or new FR is newer than current variable
+            tempInstance.continuationPublishedDate = tempInstance.continuationPublishedDate != null && fr.CreatedDate < tempInstance.continuationFR.CreatedDate ? 
+                                            tempInstance.continuationPublishedDate : fr.Published_Date__c;
         } else if (fr.Type__c == 'Preliminary') {
             tempInstance.preliminaryFR = tempInstance.preliminaryFR != null && fr.CreatedDate > tempInstance.preliminaryFR.CreatedDate ? 
                                             tempInstance.preliminaryFR : fr;//set variable to new value if currently null or new FR is older than current variable
@@ -169,8 +171,10 @@ public without sharing class ADCVD_FederalRegisterUtility {
             tempInstance.itcFinalPublishedDate = tempInstance.itcFinalPublishedDate != null && fr.CreatedDate > tempInstance.itcFinalFR.CreatedDate ? 
                                             tempInstance.itcFinalPublishedDate : fr.Published_Date__c;
         } else if (fr.Type__c == 'Order') {
-            tempInstance.orderFR = fr;
-            tempInstance.orderPublishedDate = fr.Published_Date__c;
+            tempInstance.orderFR = tempInstance.orderFR != null && fr.CreatedDate > tempInstance.orderFR.CreatedDate ? 
+                                            tempInstance.orderFR : fr;//set variable to new value if currently null or new FR is older than current variable
+            tempInstance.orderPublishedDate = tempInstance.orderPublishedDate != null && fr.CreatedDate > tempInstance.orderFR.CreatedDate ? 
+                                            tempInstance.orderPublishedDate : fr.Published_Date__c;
         } else if (fr.Type__c == 'Postponement') {
             tempInstance.postponementFR = tempInstance.postponementFR != null && fr.CreatedDate > tempInstance.postponementFR.CreatedDate ? 
                                             tempInstance.postponementFR : fr;//set variable to new value if currently null or new FR is older than current variable
@@ -200,8 +204,10 @@ public without sharing class ADCVD_FederalRegisterUtility {
             tempInstance.quarterlyScopeFR = fr;
             tempInstance.quarterlyScopePublishedDate = fr.Published_Date__c;
         } else if (fr.Type__c == 'Suspension Agreement') {
-            tempInstance.suspensionAgreementFR = fr;
-            tempInstance.suspensionAgreementPublishedDate = fr.Published_Date__c;
+            tempInstance.suspensionAgreementFR = tempInstance.suspensionAgreementFR != null && fr.CreatedDate > tempInstance.suspensionAgreementFR.CreatedDate ? 
+                                            tempInstance.suspensionAgreementFR : fr;//set variable to new value if currently null or new FR is older than current variable
+            tempInstance.suspensionAgreementPublishedDate = tempInstance.suspensionAgreementPublishedDate != null && fr.CreatedDate > tempInstance.suspensionAgreementFR.CreatedDate ? 
+                                            tempInstance.suspensionAgreementPublishedDate : fr.Published_Date__c;
         }
         return tempInstance;
     }

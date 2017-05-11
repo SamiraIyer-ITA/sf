@@ -62,6 +62,11 @@
                     <default>false</default>
                     <label>Staffing_Assignment__c</label>
                 </value>
+                <value>
+                    <fullName>Suspension_Agreement__c</fullName>
+                    <default>false</default>
+                    <label>Suspension_Agreement__c</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>

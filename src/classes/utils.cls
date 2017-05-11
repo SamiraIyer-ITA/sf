@@ -9,6 +9,16 @@ public without sharing class utils {
 		}
 		set;
 	}
+	public static Map<Id,RecordType> recordTypeDeveloperNameMap {get {
+		if(recordTypeDeveloperNameMap == null) {
+			recordTypeDeveloperNameMap = new Map<Id,RecordType>();
+			for (RecordType rt : [SELECT Id, DeveloperName, SObjectType FROM RecordType]) {
+				recordTypeDeveloperNameMap.put(rt.Id, rt);
+			}
+		}
+		return recordTypeDeveloperNameMap;
+		} set;
+	}
 	private static void setCachedGD() {
 		if(cachedGD.isEmpty()) {
 			cachedGD = Schema.getGlobalDescribe();
@@ -50,12 +60,10 @@ public without sharing class utils {
 	public static Map<Id,String> getRecordTypeDeveloperNameMap(String sObjectName){
 		Map<Id,String> returnMap = new Map<Id,String>();
 		if (sObjectName != null) {
-			for(RecordType rt : [SELECT Id, DeveloperName FROM RecordType WHERE SObjectType =: sObjectName]){
-				returnMap.put(rt.Id, rt.DeveloperName);
-			}
-		} else {
-			for(RecordType rt : [SELECT Id, DeveloperName FROM RecordType]){
-				returnMap.put(rt.Id, rt.DeveloperName);
+			for(RecordType rt : recordTypeDeveloperNameMap.values()){
+				if (rt.SObjectType == sObjectName) {
+					returnMap.put(rt.Id, rt.DeveloperName);
+				}
 			}
 		}
 		return returnMap;

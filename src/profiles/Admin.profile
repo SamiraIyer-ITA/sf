@@ -375,6 +375,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>SuspensionAgreementTriggerHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>SyncUtility</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -893,6 +897,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>ADCVD_Order__c.Next_Sunset_Initiation_Date_UI__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>ADCVD_Order__c.Next_Sunset_Initiation_Date__c</field>
         <readable>true</readable>
@@ -910,6 +919,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>ADCVD_Order__c.Number_of_Mandatory_Companies__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ADCVD_Order__c.Office_Assignment__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -980,6 +994,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>ADCVD_Order__c.Segment_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ADCVD_Order__c.Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2074,6 +2093,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Constant__mdt.ADCVD_Order_Calculation_Offset__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Constant__mdt.Investigation_Calculation_Offset__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2120,6 +2144,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Constant__mdt.String_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Constant__mdt.Suspension_Agreement_Calculation_Offset__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2840,6 +2869,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Federal_Register__c.Segment__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Federal_Register__c.Suspension_Agreement__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5878,8 +5912,23 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Suspension_Agreement__c.Next_Sunset_Initiation_Date_UI__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Suspension_Agreement__c.Next_Sunset_Initiation_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Suspension_Agreement__c.Notations_Amendments__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Suspension_Agreement__c.Office_Assignment__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

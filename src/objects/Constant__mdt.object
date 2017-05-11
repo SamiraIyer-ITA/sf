@@ -14,6 +14,14 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>ADCVD_Order_Calculation_Offset__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>ADCVD Order Calculation Offset</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Investigation_Calculation_Offset__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -178,6 +186,14 @@
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Suspension_Agreement_Calculation_Offset__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Suspension Agreement Calculation Offset</label>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Used_with_Field_Named__c</fullName>

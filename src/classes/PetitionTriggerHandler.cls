@@ -107,7 +107,7 @@ public without sharing class PetitionTriggerHandler {
     ********************************/
 
     @TestVisible private static void setCalculatedInitiationSignature(Petition__c p) {
-        if((p.Petition_Outcome__c == 'Initiated' || p.Petition_Outcome__c == 'In Progress') && p.Petition_Filed__c != null){
+        if((p.Petition_Outcome__c.contains('Initiate') || p.Petition_Outcome__c == 'In Progress') && p.Petition_Filed__c != null){
             Integer maximumDays = 40;
             p.Calculated_Initiation_Signature__c = p.Petition_Filed__c.addDays(CALC_INIT_SIG);
             if(p.Initiation_Extension_of_days__c != null) {
