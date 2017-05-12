@@ -725,9 +725,9 @@ C-###-### for CVD</inlineHelpText>
                     <label>In Progress</label>
                 </value>
                 <value>
-                    <fullName>Self-Initiate Without a Petition</fullName>
+                    <fullName>Self-Initiate In Progress</fullName>
                     <default>false</default>
-                    <label>Self-Initiate Without a Petition</label>
+                    <label>Self-Initiate In Progress</label>
                 </value>
                 <value>
                     <fullName>Self-Initiated</fullName>
