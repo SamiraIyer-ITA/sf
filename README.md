@@ -7,24 +7,3 @@ Don't add Layouts to the package to avoid deploying over changes made in Mario b
 
 
 
----Deprecated---
-
-
-Apps:
-
-AD_CVD_Lightning1
-
-
-Objects:
-
-DAS__c                          ->  Issue__c
-
-Sync_Investigation__mdt         ->  Sync_Utility__mdt
-
-Investigation_Constant__mdt     ->  Constant__mdt
-
-Segment_Constant__mdt           ->  Constant__mdt
-
-Litigation_Constant__mdt        ->  Constant__mdt
-
-
