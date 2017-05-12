@@ -1,5 +1,6 @@
 public without sharing class PetitionTriggerHandler {
 
+    @TestVisible private static Set<String> outcomesThatStartCalculations = new Set<String>();
     private static Map<String,Constant__mdt> petitionConstants = setPetitionConstants();
 
     //FINAL AD Record Type Offsets
@@ -12,12 +13,16 @@ public without sharing class PetitionTriggerHandler {
         if(preventRecursion) {return;}
 
         if(isBefore && isInsert) {
+            initialize(newList, newMap);
             alertsOnDates(newList);
             calculatePetitionDates(newList);
+            calculatePetitionStatuses(newList);
         }
         if(isBefore && isUpdate) {
+            initialize(newList, newMap);
             alertsOnDates(newList);
             calculatePetitionDates(newList);
+            calculatePetitionStatuses(newList);
         }
         if(isAfter && isInsert) {
             StaffingAssignmentExtension createStaff = new StaffingAssignmentExtension(newList);
@@ -29,9 +34,40 @@ public without sharing class PetitionTriggerHandler {
     }
 
 
+    /**************************
+    * Class Level Variables
+    **************************/
+
+    @TestVisible private static Map<Id,List<Litigation__c>> petitionIdToLitigationMap = new Map<Id,List<Litigation__c>>();
+    @TestVisible private static Map<Id,String> petitionIdToLitigationStatusMap = new Map<Id,String>();
+
+
     /*****************************************
     * Methods called directly by mainEntry()
     *****************************************/
+
+    /**
+     * Sets class level variables
+     * @param  newList new Petitions in scope, available before insert
+     * @param  newMap  new Petitions in scope, null before insert
+     * @return         [description]
+     */
+    @TestVisible private static void initialize(List<Petition__c> newList, Map<Id,Petition__c> newMap) {
+        if(newMap != null) {
+            setPetitionIdToLitigationMap(newMap.keySet());
+            setPetitionIdToLitigationStatusMap();
+        }
+    }
+
+    @TestVisible private static void alertsOnDates(List<Petition__c> newList) {
+        for (Petition__c p : newList) {
+            if(p.Actual_Initiation_Signature__c != null && !ADCVD_TollingDayUtility.isWeekday(p.Actual_Initiation_Signature__c)) {
+                p.Actual_Initiation_Signature__c.addError('The Actual Initiation Signature date cannot be on a weekend.');
+            } else if (p.Actual_Initiation_Signature__c != null && ADCVD_TollingDayUtility.isHoliday(p.Actual_Initiation_Signature__c)) {
+                p.Actual_Initiation_Signature__c.addError('The Actual Initiation Signature date cannot be on a holiday');
+            }
+        }
+    }
 
     /**
      * Primary method to call all date calculations.
@@ -44,19 +80,21 @@ public without sharing class PetitionTriggerHandler {
         }
     }
 
-    @TestVisible private static void alertsOnDates(List<Petition__c> newList) {
-        for (Petition__c p : newList) {
-            if(p.Actual_Initiation_Signature__c != null && !ADCVD_TollingDayUtility.isWeekday(p.Actual_Initiation_Signature__c)) {
-                p.Actual_Initiation_Signature__c.addError('The Actual Initiation Signature date cannot be on a weekend.');
-            } else if (p.Actual_Initiation_Signature__c != null && !ADCVD_TollingDayUtility.isWeekday(p.Actual_Initiation_Signature__c)) {
-                p.Actual_Initiation_Signature__c.addError('The Actual Initiation Signature date cannot be on a holiday');
-            }
-        }
+    /**
+     * Primary method to call all status calculations.
+     * @param  newList List of Petitions in scope
+     * @return         void
+     */
+    @TestVisible private static void calculatePetitionStatuses(List<Petition__c> newList) {
+        setLitigationStatus(newList);
+        setStatus(newList);
     }
+
     @TestVisible private static void recalculateInvestigations(Map<Id,Petition__c> newMap) {
         List<Investigation__c> investigations = [SELECT Id FROM Investigation__c WHERE Petition__c IN: newMap.keySet()];
         update investigations;
     }
+
     @TestVisible private static void recalculateIssues(Map<Id,Petition__c> newMap, Map<Id,Petition__c> oldMap) {
         Set<Id> parentIds = getIssueParentIds(newMap, oldMap);
         List<Issue__c> issuesToUpdate = new List<Issue__c>();
@@ -76,11 +114,17 @@ public without sharing class PetitionTriggerHandler {
     @TestVisible private static Map<String,Constant__mdt> setPetitionConstants() {
         if(petitionConstants == null || petitionConstants.size() < 1) {
             Map<String,Constant__mdt> returnMap = new Map<String,Constant__mdt>();
-            List<Constant__mdt> tempList = [SELECT QualifiedAPIName, Used_with_Field_Named__c, Number_Value__c, 
+            /*List<Constant__mdt> tempList = [SELECT QualifiedAPIName, Used_with_Field_Named__c, Number_Value__c, 
                                                     ADCVD_Objects__r.Object_API_Name__c, ADCVD_Objects__r.Record_Type_Name__c 
                                             FROM Constant__mdt 
-                                            WHERE Petition_Calculation_Offset__c =: true];
-            for(Constant__mdt ic : tempList) {
+                                            WHERE Petition_Calculation_Offset__c =: true];*/
+            for(Constant__mdt ic : [SELECT QualifiedAPIName, Used_with_Field_Named__c, Number_Value__c, String_Value__c, 
+                                                    ADCVD_Objects__r.Object_API_Name__c, ADCVD_Objects__r.Record_Type_Name__c 
+                                            FROM Constant__mdt 
+                                            WHERE Petition_Calculation_Offset__c =: true]) {
+                if (ic.Used_with_Field_Named__c == 'Petition_Outcome__c') {
+                    outcomesThatStartCalculations.add(ic.String_Value__c);
+                }
                 returnMap.put(ic.QualifiedAPIName, ic);
             }
             return returnMap;
@@ -101,13 +145,40 @@ public without sharing class PetitionTriggerHandler {
         return returnIdSet;
     }
 
+    /**
+     * Sets map of Petition Ids in scope to all of their Litigations.
+     * @param  petitionIdSet [description]
+     * @return            [description]
+     */
+    @TestVisible private static void setPetitionIdToLitigationMap(Set<Id> petitionIdSet) {
+        for (Litigation__c l : [SELECT Id, Petition__c, Status__c FROM Litigation__c WHERE Petition__c IN: petitionIdSet]) {
+            List<Litigation__c> tempList = new List<Litigation__c>();
+            if (petitionIdToLitigationMap.get(l.Petition__c) != null) {
+                tempList = petitionIdToLitigationMap.get(l.Petition__c);
+            }
+            tempList.add(l);
+            petitionIdToLitigationMap.put(l.Petition__c, tempList);
+        }
+    }
+
+    @TestVisible private static void setPetitionIdToLitigationStatusMap() {
+        if (petitionIdToLitigationMap != null && !petitionIdToLitigationMap.isEmpty()) {
+            for (Id petitionId : petitionIdToLitigationMap.keySet()) {
+                for (Litigation__c l : petitionIdToLitigationMap.get(petitionId)) {
+                    if (petitionIdToLitigationStatusMap.get(petitionId) == null || petitionIdToLitigationStatusMap.get(petitionId) != 'Active') {
+                        petitionIdToLitigationStatusMap.put(petitionId, l.Status__c);
+                    }
+                }
+            }
+        }
+    }
 
     /********************************
     * Date Calculations
     ********************************/
 
     @TestVisible private static void setCalculatedInitiationSignature(Petition__c p) {
-        if((p.Petition_Outcome__c.contains('Initiate') || p.Petition_Outcome__c == 'In Progress') && p.Petition_Filed__c != null){
+        if(outcomesThatStartCalculations.contains(p.Petition_Outcome__c) && p.Petition_Filed__c != null){
             Integer maximumDays = 40;
             p.Calculated_Initiation_Signature__c = p.Petition_Filed__c.addDays(CALC_INIT_SIG);
             if(p.Initiation_Extension_of_days__c != null) {
@@ -123,6 +194,67 @@ public without sharing class PetitionTriggerHandler {
             }
 */
             p.Calculated_Initiation_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(p.Petition_Filed__c, p.Calculated_Initiation_Signature__c, rollforward);
+        }
+    }
+
+
+    /*****************************
+    * Status Calculations
+    *****************************/
+
+    @TestVisible private static void setLitigationStatus(List<Petition__c> newList) {
+        for (Petition__c p : newList) {
+            if (p.Id != null && petitionIdToLitigationStatusMap.get(p.Id) != null && petitionIdToLitigationStatusMap.get(p.Id) == 'Active') {
+                p.Litigation_Status__c = 'Active';
+            } else {
+                p.Litigation_Status__c = 'Inactive';
+            }
+        }
+    }
+
+    @TestVisible private static void setStatus(List<Petition__c> newList) {
+        for (Petition__c p : newList) {
+            setInitialStatus(p);
+            setLitigationStatus(p);
+            setClosedStatus(p);
+
+        }
+    }
+
+    @TestVisible private static void setInitialStatus(Petition__c p) {
+        if (p.Petition_Outcome__c == 'In Progress') {
+                p.Status__c = 'Filed';
+                if (p.Actual_Initiation_Signature__c != null) {
+                    p.Petition_Outcome__c = 'Initiated from Petition';
+                }
+            }
+        if (p.Petition_Outcome__c == 'Self-Initiate In Progress') { 
+            p.Status__c = 'Self Initiating';
+            if (p.Actual_Initiation_Signature__c != null) {
+                p.Petition_Outcome__c = 'Self-Initiated'; 
+            }
+        }
+    }
+
+    @TestVisible private static void setLitigationStatus(Petition__c p) {
+        if (p.Litigation_YesNo__c == 'Yes' && p.Litigation_Resolved__c == 'No' && p.Litigation_Status__c != 'Active') {
+            p.Status__c = 'With the Court';
+        } else if (p.Litigation_YesNo__c == 'Yes' && p.Litigation_Resolved__c == 'No' && p.Litigation_Status__c == 'Active') {
+            p.Status__c = 'Remand/International Litigation';
+        }
+    }
+
+    @TestVisible private static void setClosedStatus(Petition__c p) {
+        if (p.Litigation_YesNo__c == 'No' || (p.Litigation_YesNo__c == 'Yes' && p.Litigation_Resolved__c == 'Yes')) {
+            if (p.Petition_Outcome__c == 'Petition Withdrawn/Did Not Initiate') {
+                p.Status__c = 'Withdrawn/Rescinded';
+            }
+            if (p.Petition_Outcome__c == 'Deficient Petition/Did Not Initiate') {
+                p.Status__c = 'Rejected/Deficient/Negative Finding';
+            }
+            if (p.Petition_Outcome__c == 'Initiated from Petition' || p.Petition_Outcome__c == 'Self-Initiated') {
+                p.Status__c = 'Completed';
+            }
         }
     }
 }

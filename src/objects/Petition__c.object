@@ -591,6 +591,57 @@ C-###-### for CVD</inlineHelpText>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Litigation_Resolved__c</fullName>
+        <externalId>false</externalId>
+        <label>Litigation Resolved</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Litigation_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Litigation Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                    <label>Active</label>
+                </value>
+                <value>
+                    <fullName>Inactive</fullName>
+                    <default>false</default>
+                    <label>Inactive</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Litigation_YesNo__c</fullName>
+        <externalId>false</externalId>
+        <label>Litigation</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Next_Due_to_DAS_Deadline_and_Timeline__c</fullName>
         <externalId>false</externalId>
         <label>Next Due to DAS Deadline and Timeline</label>
@@ -659,19 +710,35 @@ C-###-### for CVD</inlineHelpText>
                     <label>Deficient Petition/Did Not Initiate</label>
                 </value>
                 <value>
-                    <fullName>Initiated</fullName>
+                    <fullName>Initiated from Petition</fullName>
                     <default>false</default>
-                    <label>Initiated</label>
+                    <label>Initiated from Petition</label>
                 </value>
                 <value>
-                    <fullName>Petition_Withdrawn_Did_Not_Initiate</fullName>
+                    <fullName>Petition Withdrawn/Did Not Initiate</fullName>
                     <default>false</default>
-                    <label>Petition Withdrawn / Did Not Initiate</label>
+                    <label>Petition Withdrawn/Did Not Initiate</label>
                 </value>
                 <value>
                     <fullName>In Progress</fullName>
                     <default>true</default>
                     <label>In Progress</label>
+                </value>
+                <value>
+                    <fullName>Self-Initiate In Progress</fullName>
+                    <default>false</default>
+                    <label>Self-Initiate In Progress</label>
+                </value>
+                <value>
+                    <fullName>Self-Initiated</fullName>
+                    <default>false</default>
+                    <label>Self-Initiated</label>
+                </value>
+                <value>
+                    <fullName>Initiated</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Initiated</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -687,6 +754,56 @@ C-###-### for CVD</inlineHelpText>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Filed</fullName>
+                    <default>false</default>
+                    <label>Filed</label>
+                </value>
+                <value>
+                    <fullName>Self Initiating</fullName>
+                    <default>false</default>
+                    <label>Self Initiating</label>
+                </value>
+                <value>
+                    <fullName>With the Court</fullName>
+                    <default>false</default>
+                    <label>With the Court</label>
+                </value>
+                <value>
+                    <fullName>Remand/International Litigation</fullName>
+                    <default>false</default>
+                    <label>Remand/International Litigation</label>
+                </value>
+                <value>
+                    <fullName>Withdrawn/Rescinded</fullName>
+                    <default>false</default>
+                    <label>Withdrawn/Rescinded</label>
+                </value>
+                <value>
+                    <fullName>Rejected/Deficient/Negative Finding</fullName>
+                    <default>false</default>
+                    <label>Rejected/Deficient/Negative Finding</label>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                    <label>Completed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Total_Imports_Domestic_Consumption__c</fullName>
