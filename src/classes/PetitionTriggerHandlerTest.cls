@@ -244,7 +244,7 @@ public class PetitionTriggerHandlerTest {
 
 		//From Petition
 		//Initial Status
-		System.assertEquals('Self-Initiate Without a Petition', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Petition_Outcome__c);//default on Insert
+		System.assertEquals('Self-Initiate In Progress', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Petition_Outcome__c);//default on Insert
 		System.assertEquals('Self Initiating', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);//default on Insert
 
 		//Initial Status with Actual Initiation Signature
@@ -281,7 +281,7 @@ public class PetitionTriggerHandlerTest {
 		System.assertEquals('Rejected/Deficient/Negative Finding', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
 
 		//Closed Status - Completed
-		p.Petition_Outcome__c = 'Self-Initiate Without a Petition';
+		p.Petition_Outcome__c = 'Self-Initiate In Progress';
 		update p;
 		System.assertEquals('Completed', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
 		Test.stopTest();

@@ -228,7 +228,7 @@ public without sharing class PetitionTriggerHandler {
                     p.Petition_Outcome__c = 'Initiated from Petition';
                 }
             }
-        if (p.Petition_Outcome__c == 'Self-Initiate Without a Petition') { 
+        if (p.Petition_Outcome__c == 'Self-Initiate In Progress') { 
             p.Status__c = 'Self Initiating';
             if (p.Actual_Initiation_Signature__c != null) {
                 p.Petition_Outcome__c = 'Self-Initiated'; 
