@@ -293,6 +293,11 @@
                     <default>false</default>
                     <label>Suspension Agreement</label>
                 </value>
+                <value>
+                    <fullName>Termination</fullName>
+                    <default>false</default>
+                    <label>Termination</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
