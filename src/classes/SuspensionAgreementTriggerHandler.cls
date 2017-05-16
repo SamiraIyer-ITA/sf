@@ -86,7 +86,7 @@ public without sharing class SuspensionAgreementTriggerHandler {
     	if (sa.Id != null && frUtilMap != null) {
     		nextSSR = frUtilMap.get(sa.Id) != null ? frUtilMap.get(sa.Id).suspensionAgreementPublishedDate : null;//set to suspensionAgreementPublishedDate if populated
     		nextSSR = frUtilMap.get(sa.Id) != null && frUtilMap.get(sa.Id).continuationPublishedDate != null ? frUtilMap.get(sa.Id).continuationPublishedDate : nextSSR;//overwrite to continuationPublishedDate if populated
-    		nextSSR = frUtilMap.get(sa.Id) != null && frUtilMap.get(sa.Id).revocationPublishedDate != null ? null : nextSSR;//overwrite to null if revocationPublishedDate is populated
+    		nextSSR = frUtilMap.get(sa.Id) != null && frUtilMap.get(sa.Id).terminationPublishedDate != null ? null : nextSSR;//overwrite to null if revocationPublishedDate is populated
     	}
     	if (nextSSR != null) {
     		sa.Next_Sunset_Initiation_Date__c = nextSSR.toStartOfMonth().addYears(SUNSET_INIT_YEARS).addMonths(SUNSET_INIT_MONTHS);
