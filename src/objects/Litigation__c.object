@@ -498,6 +498,21 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
                     <default>false</default>
                     <label>Active</label>
                 </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                    <label>Completed</label>
+                </value>
+                <value>
+                    <fullName>Preliminary</fullName>
+                    <default>false</default>
+                    <label>Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Final</fullName>
+                    <default>false</default>
+                    <label>Final</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -593,7 +608,15 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
-                <fullName>Active</fullName>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Final</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Preliminary</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -670,7 +693,15 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
-                <fullName>Active</fullName>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Final</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Preliminary</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
