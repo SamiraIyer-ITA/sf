@@ -18,7 +18,7 @@ public class LitigationTriggerHandlerTest {
 			if (intLit == null) {
 				Id recordTypeId = utils.getRecordTypeIdMap('Litigation__c').get('International_Litigation');
 				intLit = [SELECT Id, RecordTypeId, Request_Filed__c, Calculated_Initiation_Signature__c, Calculated_Preliminary_Signature__c,
-									Calculated_Final_Signature__c, Prelim_Extension_of_days__c, Final_Extension_of_days__c 
+									Calculated_Final_Signature__c, Prelim_Extension_of_days__c, Status__c, Final_Extension_of_days__c 
 								FROM Litigation__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
 			}
 			return intLit;
@@ -29,7 +29,7 @@ public class LitigationTriggerHandlerTest {
 			if (remand == null) {
 				Id recordTypeId = utils.getRecordTypeIdMap('Litigation__c').get('Remand');
 				remand = [SELECT Id, RecordTypeId, Final_Extension_of_days__c, Expected_Final_Signature_Before_Ext__c, Calculated_Amended_Final_Signature__c,
-								Calculated_Draft_Remand_release_to_party__c, Calculated_Final_Signature__c, Court_of_Panel_s_Ruling__c, Prelim_Team_Meeting_Deadline__c 
+								Calculated_Draft_Remand_release_to_party__c, Calculated_Final_Signature__c, Court_of_Panel_s_Ruling__c, Status__c, Prelim_Team_Meeting_Deadline__c 
 							FROM Litigation__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
 			}
 			return remand;
@@ -131,6 +131,33 @@ public class LitigationTriggerHandlerTest {
 		System.assertEquals(testCalculated,
 			[SELECT Id, Calculated_Amended_Final_Signature__c FROM Litigation__c WHERE Id =:remand.Id  LIMIT 1].Calculated_Amended_Final_Signature__c);
 
+		Test.stopTest();
+	}
+
+	//setPreliminaryStatus, setFinalStatus, setClosedStatus
+	@isTest static void setStatus() {
+		Test.startTest();
+
+		System.assertEquals('Preliminary', [SELECT Id, Status__c FROM Litigation__c WHERE Id =: intLit.Id LIMIT 1].Status__c);
+		intLit.Actual_Preliminary_Signature__c = litigationDate.addDays(14);
+		update intLit;
+
+		System.assertEquals('Preliminary', [SELECT Id, Status__c FROM Litigation__c WHERE Id =: remand.Id LIMIT 1].Status__c);
+		remand.Actual_Preliminary_Signature__c = litigationDate.addDays(14);
+		update remand;
+
+		System.assertEquals('Final', [SELECT Id, Status__c FROM Litigation__c WHERE Id =: intLit.Id LIMIT 1].Status__c);
+		intLit.Actual_Final_Signature__c = litigationDate.addDays(20);
+		update intLit;
+
+		System.assertEquals('Final', [SELECT Id, Status__c FROM Litigation__c WHERE Id =: remand.Id LIMIT 1].Status__c);
+		remand.Actual_Final_Signature__c = litigationDate.addDays(20);
+		update remand;
+
+		System.assertEquals('Completed', [SELECT Id, Status__c FROM Litigation__c WHERE Id =: intLit.Id LIMIT 1].Status__c);
+		
+		System.assertEquals('Completed', [SELECT Id, Status__c FROM Litigation__c WHERE Id =: remand.Id LIMIT 1].Status__c);
+	
 		Test.stopTest();
 	}
 

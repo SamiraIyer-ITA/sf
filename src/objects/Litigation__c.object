@@ -598,6 +598,15 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
                 <fullName>Preliminary</fullName>
                 <default>false</default>
             </values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Final</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Preliminary</fullName>
         </picklistValues>
     </recordTypes>
     <recordTypes>
