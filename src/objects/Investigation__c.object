@@ -796,6 +796,19 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Injunction__c</fullName>
+        <externalId>false</externalId>
+        <label>Injunction</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Input_Date_of_Post_Prelim_Determ_Sig__c</fullName>
         <description>Input Date of Post Preliminary Determination Signature</description>
         <externalId>false</externalId>
@@ -877,6 +890,19 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Investigation_YesNo__c</fullName>
+        <externalId>false</externalId>
+        <label>Investigation</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Issues_to_DAS__c</fullName>
         <externalId>false</externalId>
         <label>Issues to DAS</label>
@@ -897,35 +923,30 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Litigation_Status__c</fullName>
+        <fullName>Litigation_Resolved__c</fullName>
         <externalId>false</externalId>
-        <label>Litigation Status</label>
+        <label>Litigation Resolved</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>MultiselectPicklist</type>
+        <type>Picklist</type>
         <valueSet>
             <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Injunction</fullName>
-                    <default>false</default>
-                    <label>Injunction</label>
-                </value>
-                <value>
-                    <fullName>Litigation</fullName>
-                    <default>false</default>
-                    <label>Litigation</label>
-                </value>
-                <value>
-                    <fullName>None</fullName>
-                    <default>false</default>
-                    <label>None</label>
-                </value>
-            </valueSetDefinition>
+            <valueSetName>YesNo</valueSetName>
         </valueSet>
-        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Litigation_YesNo__c</fullName>
+        <externalId>false</externalId>
+        <label>Litigation</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Lotus_Notes_History_Data__c</fullName>
@@ -936,6 +957,17 @@
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Lotus_Notes_Litigation_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Lotus Notes Litigation ID</label>
+        <length>250</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Ministerial_Error_for_Prelim__c</fullName>
@@ -1761,6 +1793,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Injunction__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Investigation_Outcome__c</picklist>
             <values>
                 <fullName>DOC_Negative_Final_Termination_of_Investigation</fullName>
@@ -1792,17 +1835,35 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Litigation_Status__c</picklist>
+            <picklist>Investigation_YesNo__c</picklist>
             <values>
-                <fullName>Injunction</fullName>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Litigation</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Litigation_Resolved__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>None</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Litigation_YesNo__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2311,6 +2372,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Injunction__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Investigation_Outcome__c</picklist>
             <values>
                 <fullName>DOC_Negative_Final_Termination_of_Investigation</fullName>
@@ -2342,17 +2414,35 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Litigation_Status__c</picklist>
+            <picklist>Investigation_YesNo__c</picklist>
             <values>
-                <fullName>Injunction</fullName>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Litigation</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Litigation_Resolved__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>None</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Litigation_YesNo__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2515,8 +2605,8 @@
     </recordTypes>
     <searchLayouts>
         <excludedStandardButtons>Accept</excludedStandardButtons>
-        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
         <excludedStandardButtons>Forward</excludedStandardButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
         <lookupDialogsAdditionalFields>Petition_Case_Number__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Petition_Commodity__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Petition_Country__c</lookupDialogsAdditionalFields>

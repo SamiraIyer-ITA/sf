@@ -16,7 +16,7 @@ public without sharing class LitigationTriggerHandler {
     private static FINAL Integer RE_PRELIM_TEAM_MEETING_DEADLINE = ((Integer)litigationCalcOffsets().get('Remand_Prelim_Team_Meeting_Deadline').Number_Value__c);//Prelim_Team_Meeting_Deadline__c  
     private static FINAL Integer RE_CALC_AMEND_FINAL_SIG = ((Integer)litigationCalcOffsets().get('Remand_Calc_Amended_Final_Sig').Number_Value__c);//Calculated_Amended_Final_Signature__c
 
-	public static boolean preventRecursion = false;
+    public static boolean preventRecursion = false;
     public static void mainEntry(List<Litigation__c> newList, List<Litigation__c> oldList, Map<Id, Litigation__c> newMap, 
         Map<Id, Litigation__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete, 
         Boolean isBefore, Boolean isAfter) {
@@ -25,10 +25,12 @@ public without sharing class LitigationTriggerHandler {
         if (isBefore && isInsert) {
             initialize(newList);
             calculateLitigationDates(newList);
+            calculateLitigationStatuses(newList);
         }
         if (isBefore && isUpdate) {
             initialize(newList);
             calculateLitigationDates(newList);
+            calculateLitigationStatuses(newList);
         }
         if (isAfter && isUpdate) {
             recalculateIssues(newMap, oldMap);
@@ -65,6 +67,11 @@ public without sharing class LitigationTriggerHandler {
             setCalculatedAmendedFinalSignature(l);//Remand: Court_of_Panel_s_Ruling__c
         }
     }
+
+    @TestVisible private static void calculateLitigationStatuses(List<Litigation__c> newList) {
+        setStatus(newList);
+    }
+
     /**
      * Method to calculate Issues
      * @param  newMap [description]
@@ -185,6 +192,55 @@ public without sharing class LitigationTriggerHandler {
             if(l.Court_of_Panel_s_Ruling__c != null){
                 l.Calculated_Amended_Final_Signature__c = l.Court_of_Panel_s_Ruling__c.addDays(RE_CALC_AMEND_FINAL_SIG);
                 l.Calculated_Amended_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(l.Court_of_Panel_s_Ruling__c, l.Calculated_Amended_Final_Signature__c, true);
+            }
+        }
+    }
+
+
+    /****************************
+    * Status Calculations
+    ****************************/
+    //calls the setPreliminaryStatus, setFinalStatus, setClosedStatus methods
+    @TestVisible private static void setStatus(List<Litigation__c> newList) {
+        for(Litigation__c l : newList) {
+            setPreliminaryStatus(l);
+            setFinalStatus(l);
+            setClosedStatus(l);
+        }
+    }
+    //sets Litigation Status to Preliminary if  both Actual_Preliminary_Signature__c and Actual_Final_Signature__c are null
+    @TestVisible private static void setPreliminaryStatus(Litigation__c l){
+        if (recordTypeNameMap.get(l.RecordTypeId) == INT_LITIGATION) {
+            if(l.Actual_Preliminary_Signature__c == null && l.Actual_Final_Signature__c == null ) {
+                l.Status__c = 'Preliminary';
+            }
+        } else if (recordTypeNameMap.get(l.RecordTypeId) == REMAND) {
+            if(l.Actual_Draft_Remand_released_to_party__c == null && l.Actual_Final_Signature__c == null) {
+                l.Status__c = 'Preliminary';
+            }
+        }   
+    }
+    //sets Litigation Status to Final if Actual_Final_Signature__c is null and Actual_Preliminary_Signature__c is not null
+    @TestVisible private static void setFinalStatus(Litigation__c l){
+        if (recordTypeNameMap.get(l.RecordTypeId) == INT_LITIGATION) {
+            if(l.Actual_Preliminary_Signature__c != null && l.Actual_Final_Signature__c == null){
+                l.Status__c = 'Final';
+            } 
+        } else if (recordTypeNameMap.get(l.RecordTypeId) == REMAND) {
+            if(l.Actual_Draft_Remand_released_to_party__c != null && l.Actual_Final_Signature__c == null){
+                l.Status__c = 'Final';
+            }  
+        }
+    }    
+    //sets Litigation Status to Completed if both Actual_Preliminary_Signature__c and Actual_Final_Signature__c are not null
+    @TestVisible private static void setClosedStatus(Litigation__c l) {
+        if (recordTypeNameMap.get(l.RecordTypeId) == INT_LITIGATION) {
+            if(l.Actual_Final_Signature__c != null && l.Actual_Preliminary_Signature__c != null) {
+                l.Status__c = 'Completed';
+            }
+        } else if (recordTypeNameMap.get(l.RecordTypeId) == REMAND) {
+            if(l.Actual_Final_Signature__c != null && l.Actual_Draft_Remand_released_to_party__c != null) {
+                l.Status__c = 'Completed';
             }
         }
     }
