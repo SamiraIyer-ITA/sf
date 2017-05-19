@@ -3,7 +3,7 @@
     <backgroundEndColor>#FFFFFF</backgroundEndColor>
     <backgroundFadeDirection>Diagonal</backgroundFadeDirection>
     <backgroundStartColor>#FFFFFF</backgroundStartColor>
-    <dashboardType>SpecifiedUser</dashboardType>
+    <dashboardType>MyTeamUser</dashboardType>
     <isGridLayout>false</isGridLayout>
     <leftSection>
         <columnSize>Medium</columnSize>
@@ -54,7 +54,7 @@
     <rightSection>
         <columnSize>Medium</columnSize>
     </rightSection>
-    <runningUser>tim.barsotti@trade.gov</runningUser>
+    <runningUser>joshua.moody@trade.gov</runningUser>
     <textColor>#000000</textColor>
     <title>ADCVD Orders By Commodities</title>
     <titleColor>#000000</titleColor>

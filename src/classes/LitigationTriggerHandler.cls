@@ -227,7 +227,7 @@ public without sharing class LitigationTriggerHandler {
                 l.Status__c = 'Final';
             } 
         } else if (recordTypeNameMap.get(l.RecordTypeId) == REMAND) {
-            if(l.Actual_Preliminary_Signature__c != null && l.Actual_Final_Signature__c == null){
+            if(l.Actual_Draft_Remand_released_to_party__c != null && l.Actual_Final_Signature__c == null){
                 l.Status__c = 'Final';
             }  
         }
@@ -239,7 +239,7 @@ public without sharing class LitigationTriggerHandler {
                 l.Status__c = 'Completed';
             }
         } else if (recordTypeNameMap.get(l.RecordTypeId) == REMAND) {
-            if(l.Actual_Final_Signature__c != null && l.Actual_Preliminary_Signature__c != null) {
+            if(l.Actual_Final_Signature__c != null && l.Actual_Draft_Remand_released_to_party__c != null) {
                 l.Status__c = 'Completed';
             }
         }
