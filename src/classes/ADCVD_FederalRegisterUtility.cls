@@ -42,7 +42,6 @@ public without sharing class ADCVD_FederalRegisterUtility {
     public Federal_Register__c initiationPrelimFR {get; private set;}
     public Federal_Register__c quarterlyScopeFR {get; private set;}
     public Federal_Register__c suspensionAgreementFR {get; private set;}
-    public Federal_Register__c terminationFR {get; private set;}
     
     //Published Date Variables
     public Date initiationPublishedDate {get; private set;}
@@ -63,7 +62,6 @@ public without sharing class ADCVD_FederalRegisterUtility {
     public Date initiationPrelimPublishedDate {get; private set;}
     public Date quarterlyScopePublishedDate {get; private set;}
     public Date suspensionAgreementPublishedDate {get; private set;}
-    public Date terminationPublishedDate {get; private set;}
 
     //used once for the query via CascadeUtility and creating the parent Id to Instance map
 	public static ADCVD_FederalRegisterUtility getInstance(List<SObject> parentObjectList) {
@@ -210,11 +208,6 @@ public without sharing class ADCVD_FederalRegisterUtility {
                                             tempInstance.suspensionAgreementFR : fr;//set variable to new value if currently null or new FR is older than current variable
             tempInstance.suspensionAgreementPublishedDate = tempInstance.suspensionAgreementPublishedDate != null && fr.CreatedDate > tempInstance.suspensionAgreementFR.CreatedDate ? 
                                             tempInstance.suspensionAgreementPublishedDate : fr.Published_Date__c;
-        } else if (fr.Type__c == 'Termination') {
-            tempInstance.terminationFR = tempInstance.terminationFR != null && fr.CreatedDate > tempInstance.terminationFR.CreatedDate ? 
-                                            tempInstance.terminationFR : fr;//set variable to new value if currently null or new FR is older than current variable
-            tempInstance.terminationPublishedDate = tempInstance.terminationPublishedDate != null && fr.CreatedDate > tempInstance.terminationFR.CreatedDate ? 
-                                            tempInstance.terminationPublishedDate : fr.Published_Date__c;
         }
         return tempInstance;
     }
