@@ -580,19 +580,6 @@ C-###-### for CVD</inlineHelpText>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Injunction__c</fullName>
-        <externalId>false</externalId>
-        <label>Injunction</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>YesNo</valueSetName>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Link__c</fullName>
         <externalId>false</externalId>
         <formula>HYPERLINK( LEFT($Api.Enterprise_Server_URL_390 , FIND(&apos;/services&apos;, $Api.Enterprise_Server_URL_390)) &amp; Id,  Petition_Name__c , &apos;_self&apos;)</formula>
@@ -653,17 +640,6 @@ C-###-### for CVD</inlineHelpText>
             <restricted>true</restricted>
             <valueSetName>YesNo</valueSetName>
         </valueSet>
-    </fields>
-    <fields>
-        <fullName>Lotus_Notes_Litigation_ID__c</fullName>
-        <externalId>false</externalId>
-        <label>Lotus Notes Litigation ID</label>
-        <length>250</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Next_Due_to_DAS_Deadline_and_Timeline__c</fullName>
@@ -744,39 +720,25 @@ C-###-### for CVD</inlineHelpText>
                     <label>Petition Withdrawn/Did Not Initiate</label>
                 </value>
                 <value>
+                    <fullName>In Progress</fullName>
+                    <default>true</default>
+                    <label>In Progress</label>
+                </value>
+                <value>
+                    <fullName>Self-Initiate In Progress</fullName>
+                    <default>false</default>
+                    <label>Self-Initiate In Progress</label>
+                </value>
+                <value>
                     <fullName>Self-Initiated</fullName>
                     <default>false</default>
                     <label>Self-Initiated</label>
-                </value>
-                <value>
-                    <fullName>In Progress</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>In Progress</label>
                 </value>
                 <value>
                     <fullName>Initiated</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
                     <label>Initiated</label>
-                </value>
-                <value>
-                    <fullName>Petition_Withdrawn_Did_Not_Initiate</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>Petition_Withdrawn_Did_Not_Initiate</label>
-                </value>
-                <value>
-                    <fullName>Self Initiate in Progress</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>Self Initiate in Progress</label>
-                </value>
-                <value>
-                    <fullName>Self-Initiate In Progress</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>Self-Initiate In Progress</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -839,24 +801,6 @@ C-###-### for CVD</inlineHelpText>
                     <fullName>Completed</fullName>
                     <default>false</default>
                     <label>Completed</label>
-                </value>
-                <value>
-                    <fullName>Closed</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>Closed</label>
-                </value>
-                <value>
-                    <fullName>In Progress</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>In Progress</label>
-                </value>
-                <value>
-                    <fullName>Litigation</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>Litigation</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
