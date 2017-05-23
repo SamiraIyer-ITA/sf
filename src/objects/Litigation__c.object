@@ -46,8 +46,8 @@
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
-    <enableHistory>true</enableHistory>
-    <enableReports>true</enableReports>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
@@ -57,7 +57,6 @@
         <externalId>false</externalId>
         <label>Actual Draft Remand (released to party)</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -66,7 +65,6 @@
         <externalId>false</externalId>
         <label>Actual Final Signature</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -75,7 +73,6 @@
         <externalId>false</externalId>
         <label>Actual Initiation Signature</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -84,7 +81,6 @@
         <externalId>false</externalId>
         <label>Actual Preliminary Signature</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -93,7 +89,6 @@
         <externalId>false</externalId>
         <label>Calculated Amended Final Signature</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -102,7 +97,6 @@
         <externalId>false</externalId>
         <label>Calculated Draft Remand release to party</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -111,7 +105,6 @@
         <externalId>false</externalId>
         <label>Calculated Final Signature</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -120,7 +113,6 @@
         <externalId>false</externalId>
         <label>Calculated Initiation Signature</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -129,7 +121,6 @@
         <externalId>false</externalId>
         <label>Calculated Preliminary Signature</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -138,7 +129,6 @@
         <externalId>false</externalId>
         <label>Choose Following Respondent Selection:</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -173,7 +163,6 @@
         <externalId>false</externalId>
         <label>Concurrence to DAS</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -182,7 +171,6 @@
         <externalId>false</externalId>
         <label>Court of Panel&apos;s Ruling</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -191,7 +179,6 @@
         <externalId>false</externalId>
         <label>Date Remand Issued by Court or Panel</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -200,7 +187,6 @@
         <externalId>false</externalId>
         <label>Expected Final Signature Before Ext</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -211,7 +197,6 @@
         <label>External Id</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>true</unique>
@@ -223,7 +208,6 @@
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -233,7 +217,6 @@
         <externalId>false</externalId>
         <label>Final Remand</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
@@ -242,7 +225,6 @@
         <externalId>false</externalId>
         <label>Final Team Meeting Deadline</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
@@ -253,7 +235,6 @@
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -263,7 +244,6 @@
         <externalId>false</externalId>
         <label>International Litigation Type</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -307,7 +287,6 @@
         <relationshipLabel>Litigation</relationshipLabel>
         <relationshipName>Litigation</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -316,7 +295,6 @@
         <externalId>false</externalId>
         <label>Issues to DAS</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -326,7 +304,6 @@
         <formula>HYPERLINK( LEFT($Api.Enterprise_Server_URL_390 , FIND(&apos;/services&apos;, $Api.Enterprise_Server_URL_390)) &amp; Id,  Litigation_Name__c , &apos;_self&apos;)</formula>
         <label>Link</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -337,7 +314,6 @@
         <formula>Petition_Case_Number__c +&apos;--&apos;+ Name</formula>
         <label>Litigation Name</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -347,7 +323,6 @@
         <externalId>false</externalId>
         <label>Lotus Notes History Data</label>
         <length>32768</length>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>4</visibleLines>
@@ -357,7 +332,6 @@
         <externalId>false</externalId>
         <label>Next Due to DAS Deadline and Timeline</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -366,7 +340,6 @@
         <externalId>false</externalId>
         <label>Next Major AS/DAS Deadline and Timeline</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
@@ -375,7 +348,6 @@
         <externalId>false</externalId>
         <label>Next Office/PM Deadline and Timeline</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -384,7 +356,6 @@
         <externalId>false</externalId>
         <label>Period Covered - End Date</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -393,7 +364,6 @@
         <externalId>false</externalId>
         <label>Period Covered - Start Date</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -406,7 +376,6 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
 ) )</formula>
         <label>Petition Case Number</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -420,7 +389,6 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
         <relationshipLabel>Litigation</relationshipLabel>
         <relationshipName>Litigation</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -431,7 +399,6 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -441,7 +408,6 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
         <externalId>false</externalId>
         <label>Prelim Team Meeting Deadline</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -450,7 +416,6 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
         <externalId>false</externalId>
         <label>Request Filed</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -463,29 +428,14 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
         <relationshipLabel>Litigations</relationshipLabel>
         <relationshipName>Litigations</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Segment__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
+        <fullName>Segment_Status__c</fullName>
         <externalId>false</externalId>
-        <label>Segment</label>
-        <referenceTo>Segment__c</referenceTo>
-        <relationshipLabel>Litigation</relationshipLabel>
-        <relationshipName>Litigation</relationshipName>
+        <label>Segment Status</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Status__c</fullName>
-        <externalId>false</externalId>
-        <label>Status</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -498,6 +448,62 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
                     <label>Active</label>
                 </value>
                 <value>
+                    <fullName>Litigation Hold</fullName>
+                    <default>false</default>
+                    <label>Litigation Hold</label>
+                </value>
+                <value>
+                    <fullName>Litigation</fullName>
+                    <default>false</default>
+                    <label>Litigation</label>
+                </value>
+                <value>
+                    <fullName>Closed</fullName>
+                    <default>false</default>
+                    <label>Closed</label>
+                </value>
+                <value>
+                    <fullName>Suspended</fullName>
+                    <default>false</default>
+                    <label>Suspended</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Segment__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Segment</label>
+        <referenceTo>Segment__c</referenceTo>
+        <relationshipLabel>Litigation</relationshipLabel>
+        <relationshipName>Litigation</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                    <label>Active</label>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                    <label>Completed</label>
+                </value>
+                <value>
                     <fullName>Preliminary</fullName>
                     <default>false</default>
                     <label>Preliminary</label>
@@ -507,11 +513,6 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
                     <default>false</default>
                     <label>Final</label>
                 </value>
-                <value>
-                    <fullName>Completed</fullName>
-                    <default>false</default>
-                    <label>Completed</label>
-                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -520,7 +521,6 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
         <externalId>false</externalId>
         <label>USTR Notification to Implement Final Res</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -533,11 +533,9 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
     <nameField>
         <displayFormat>L-{000000}</displayFormat>
         <label>Litigation Number</label>
-        <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Litigation</pluralLabel>
-    <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>International_Litigation</fullName>
         <active>true</active>
@@ -585,6 +583,29 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Segment_Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Litigation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Litigation Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suspended</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Status__c</picklist>
             <values>
                 <fullName>Completed</fullName>
@@ -598,15 +619,6 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
                 <fullName>Preliminary</fullName>
                 <default>false</default>
             </values>
-                <fullName>Completed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Final</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Preliminary</fullName>
         </picklistValues>
     </recordTypes>
     <recordTypes>
@@ -652,6 +664,29 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
             </values>
             <values>
                 <fullName>464</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Segment_Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Litigation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Litigation Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suspended</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
