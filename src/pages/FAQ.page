@@ -12,7 +12,7 @@ font-size:40px;
         <div class="containerITA nopad">
             <div class="row nopad">
                 <nav id="subnav">
-                <h4 id="sectionName">Questions</h4>
+                <h4 id="sectionName">FAQs</h4>
                     <span>
                 <!-- Button trigger modal -->
                     <!-- c:boardSave /-->
