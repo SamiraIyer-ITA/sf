@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Segment__c</entityName>
+    <fieldName>Status__c</fieldName>
+    <masterLabel>Administrative Review Status</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Actual_Amended_Final_Signature__c</fieldNames>
+        <picklistValueName>Amend Final</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Have_Custom_Instructions_been_sent__c</fieldNames>
+        <picklistValueName>Customs</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Actual_Final_Signature__c</fieldNames>
+        <picklistValueName>Final</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Litigation_YesNo__c</fieldNames>
+        <fieldNames>Litigation_Resolved__c</fieldNames>
+        <picklistValueName>Hold</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Actual_Preliminary_Signature__c</fieldNames>
+        <picklistValueName>Prelim</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>Administrative_Review</recordTypeName>
+</PathAssistant>

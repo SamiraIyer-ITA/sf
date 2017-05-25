@@ -580,6 +580,19 @@ C-###-### for CVD</inlineHelpText>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Injunction__c</fullName>
+        <externalId>false</externalId>
+        <label>Injunction</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Link__c</fullName>
         <externalId>false</externalId>
         <formula>HYPERLINK( LEFT($Api.Enterprise_Server_URL_390 , FIND(&apos;/services&apos;, $Api.Enterprise_Server_URL_390)) &amp; Id,  Petition_Name__c , &apos;_self&apos;)</formula>
@@ -640,6 +653,17 @@ C-###-### for CVD</inlineHelpText>
             <restricted>true</restricted>
             <valueSetName>YesNo</valueSetName>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Lotus_Notes_Litigation_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Lotus Notes Litigation ID</label>
+        <length>250</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Next_Due_to_DAS_Deadline_and_Timeline__c</fullName>
@@ -740,6 +764,18 @@ C-###-### for CVD</inlineHelpText>
                     <isActive>false</isActive>
                     <label>Initiated</label>
                 </value>
+                <value>
+                    <fullName>Petition_Withdrawn_Did_Not_Initiate</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Petition_Withdrawn_Did_Not_Initiate</label>
+                </value>
+                <value>
+                    <fullName>Self Initiate in Progress</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Self Initiate in Progress</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -768,39 +804,61 @@ C-###-### for CVD</inlineHelpText>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                    <label>In Progress</label>
+                </value>
+                <value>
+                    <fullName>Litigation</fullName>
+                    <default>false</default>
+                    <label>Litigation</label>
+                </value>
+                <value>
+                    <fullName>Closed</fullName>
+                    <default>false</default>
+                    <label>Closed</label>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Completed</label>
+                </value>
+                <value>
                     <fullName>Filed</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>Filed</label>
+                </value>
+                <value>
+                    <fullName>Rejected/Deficient/Negative Finding</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Rejected/Deficient/Negative Finding</label>
+                </value>
+                <value>
+                    <fullName>Remand/International Litigation</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Remand/International Litigation</label>
                 </value>
                 <value>
                     <fullName>Self Initiating</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>Self Initiating</label>
                 </value>
                 <value>
                     <fullName>With the Court</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>With the Court</label>
-                </value>
-                <value>
-                    <fullName>Remand/International Litigation</fullName>
-                    <default>false</default>
-                    <label>Remand/International Litigation</label>
                 </value>
                 <value>
                     <fullName>Withdrawn/Rescinded</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>Withdrawn/Rescinded</label>
-                </value>
-                <value>
-                    <fullName>Rejected/Deficient/Negative Finding</fullName>
-                    <default>false</default>
-                    <label>Rejected/Deficient/Negative Finding</label>
-                </value>
-                <value>
-                    <fullName>Completed</fullName>
-                    <default>false</default>
-                    <label>Completed</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -844,7 +902,36 @@ C-###-### for CVD</inlineHelpText>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Petitions</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts>
+        <customTabListAdditionalFields>Case_Number__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Country__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Case_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Product__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Commodity__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Case_Number__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Country__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Case_Type__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Product__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Commodity__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Case_Number__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Country__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Case_Type__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Product__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>Case_Number__c</searchFilterFields>
+        <searchFilterFields>Country__c</searchFilterFields>
+        <searchFilterFields>Case_Type__c</searchFilterFields>
+        <searchFilterFields>Product__c</searchFilterFields>
+        <searchFilterFields>Commodity__c</searchFilterFields>
+        <searchFilterFields>Status__c</searchFilterFields>
+        <searchResultsAdditionalFields>Case_Number__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Country__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Case_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Product__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Commodity__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
         <fullName>Case_number_for_AD_and_CVD_Format</fullName>
