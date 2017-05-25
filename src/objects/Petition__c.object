@@ -744,15 +744,19 @@ C-###-### for CVD</inlineHelpText>
                     <label>Petition Withdrawn/Did Not Initiate</label>
                 </value>
                 <value>
+                    <fullName>In Progress</fullName>
+                    <default>true</default>
+                    <label>In Progress</label>
+                </value>
+                <value>
+                    <fullName>Self-Initiate In Progress</fullName>
+                    <default>false</default>
+                    <label>Self-Initiate In Progress</label>
+                </value>
+                <value>
                     <fullName>Self-Initiated</fullName>
                     <default>false</default>
                     <label>Self-Initiated</label>
-                </value>
-                <value>
-                    <fullName>In Progress</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>In Progress</label>
                 </value>
                 <value>
                     <fullName>Initiated</fullName>
@@ -771,12 +775,6 @@ C-###-### for CVD</inlineHelpText>
                     <default>false</default>
                     <isActive>false</isActive>
                     <label>Self Initiate in Progress</label>
-                </value>
-                <value>
-                    <fullName>Self-Initiate In Progress</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>Self-Initiate In Progress</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -806,57 +804,61 @@ C-###-### for CVD</inlineHelpText>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>Filed</fullName>
-                    <default>false</default>
-                    <label>Filed</label>
-                </value>
-                <value>
-                    <fullName>Self Initiating</fullName>
-                    <default>false</default>
-                    <label>Self Initiating</label>
-                </value>
-                <value>
-                    <fullName>With the Court</fullName>
-                    <default>false</default>
-                    <label>With the Court</label>
-                </value>
-                <value>
-                    <fullName>Remand/International Litigation</fullName>
-                    <default>false</default>
-                    <label>Remand/International Litigation</label>
-                </value>
-                <value>
-                    <fullName>Withdrawn/Rescinded</fullName>
-                    <default>false</default>
-                    <label>Withdrawn/Rescinded</label>
-                </value>
-                <value>
-                    <fullName>Rejected/Deficient/Negative Finding</fullName>
-                    <default>false</default>
-                    <label>Rejected/Deficient/Negative Finding</label>
-                </value>
-                <value>
-                    <fullName>Completed</fullName>
-                    <default>false</default>
-                    <label>Completed</label>
-                </value>
-                <value>
-                    <fullName>Closed</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>Closed</label>
-                </value>
-                <value>
                     <fullName>In Progress</fullName>
                     <default>false</default>
-                    <isActive>false</isActive>
                     <label>In Progress</label>
                 </value>
                 <value>
                     <fullName>Litigation</fullName>
                     <default>false</default>
-                    <isActive>false</isActive>
                     <label>Litigation</label>
+                </value>
+                <value>
+                    <fullName>Closed</fullName>
+                    <default>false</default>
+                    <label>Closed</label>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Completed</label>
+                </value>
+                <value>
+                    <fullName>Filed</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Filed</label>
+                </value>
+                <value>
+                    <fullName>Rejected/Deficient/Negative Finding</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Rejected/Deficient/Negative Finding</label>
+                </value>
+                <value>
+                    <fullName>Remand/International Litigation</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Remand/International Litigation</label>
+                </value>
+                <value>
+                    <fullName>Self Initiating</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Self Initiating</label>
+                </value>
+                <value>
+                    <fullName>With the Court</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>With the Court</label>
+                </value>
+                <value>
+                    <fullName>Withdrawn/Rescinded</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Withdrawn/Rescinded</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -900,7 +902,36 @@ C-###-### for CVD</inlineHelpText>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Petitions</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts>
+        <customTabListAdditionalFields>Case_Number__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Country__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Case_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Product__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Commodity__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Case_Number__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Country__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Case_Type__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Product__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Commodity__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Case_Number__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Country__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Case_Type__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Product__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>Case_Number__c</searchFilterFields>
+        <searchFilterFields>Country__c</searchFilterFields>
+        <searchFilterFields>Case_Type__c</searchFilterFields>
+        <searchFilterFields>Product__c</searchFilterFields>
+        <searchFilterFields>Commodity__c</searchFilterFields>
+        <searchFilterFields>Status__c</searchFilterFields>
+        <searchResultsAdditionalFields>Case_Number__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Country__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Case_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Product__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Commodity__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
         <fullName>Case_number_for_AD_and_CVD_Format</fullName>
