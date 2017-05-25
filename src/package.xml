@@ -132,11 +132,6 @@
         <name>Profile</name>
     </types>
     <types>
-        <members>BusinessHours</members>
-        <members>PathAssistant</members>
-        <name>Settings</name>
-    </types>
-    <types>
         <members>testCsvFile1</members>
         <members>testad</members>
         <members>testad_final_extension_bound</members>
@@ -159,6 +154,11 @@
         <members>testcvd_tolling_day_between_end_date</members>
         <members>testcvd_tolling_day_between_start_date</members>
         <name>StaticResource</name>
+    </types>
+    <types>
+        <members>BusinessHours</members>
+        <members>PathAssistant</members>
+        <name>Settings</name>
     </types>
     <version>39.0</version>
 </Package>

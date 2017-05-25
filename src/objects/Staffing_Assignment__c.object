@@ -311,34 +311,6 @@ IF( Segment__c != null, Segment__r.Link__c ,
         <label>All</label>
     </listViews>
     <listViews>
-        <fullName>Order_Account_Staffing</fullName>
-        <booleanFilter>2 AND 4 AND  (3 OR 1)</booleanFilter>
-        <columns>NAME</columns>
-        <columns>ADCVD_Order__c</columns>
-        <columns>Related_Organization__c</columns>
-        <columns>Title__c</columns>
-        <columns>User__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>ADCVD_Order__c</field>
-            <operation>notEqual</operation>
-        </filters>
-        <filters>
-            <field>Title__c</field>
-            <operation>equals</operation>
-            <value>Accounting Director,Accounting PM</value>
-        </filters>
-        <filters>
-            <field>Related_Organization__c</field>
-            <operation>notEqual</operation>
-        </filters>
-        <filters>
-            <field>User__c</field>
-            <operation>equals</operation>
-        </filters>
-        <label>Order-Account Staffing</label>
-    </listViews>
-    <listViews>
         <fullName>Unfilled_Staff</fullName>
         <columns>Parent__c</columns>
         <columns>Title__c</columns>

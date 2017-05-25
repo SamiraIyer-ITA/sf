@@ -10,6 +10,662 @@
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
+    <classAccesses>
+        <apexClass>ADCVDOrderTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ADCVD_CascadeService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ADCVD_FederalRegisterUtility</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ADCVD_FederalRegisterUtilityTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ADCVD_RecusalUtility</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ADCVD_TollingDayUtility</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ADCVD_TollingDayUtilityTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AttachmentWriterController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AttachmentWriterControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BatchJobExecutionTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BulkCsvTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CSPArticles</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CSVIterator</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CascadeUtility</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CaseList</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ChangePasswordController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ChangePasswordControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CommunitiesLandingController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CommunitiesLandingControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CommunitiesLoginController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CommunitiesLoginControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CommunitiesSelfRegConfirmController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CommunitiesSelfRegConfirmControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CommunitiesSelfRegController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CommunitiesSelfRegControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ConnectionHelper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CreateTaxonomyOnUserHelper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DB_Custom_Case_Contributor_c</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DB_Custom_Industry_c</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DB_Custom_RelatedCountries_c</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DB_Custom_Related_Cases_and_Orgs_c</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>DB_Custom_WIN_Contributor_c</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ExceptionHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>FederalRegisterTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>FederalRegisterTriggerHandlerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Federal_RegisterCS</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ForgotPasswordController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ForgotPasswordControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Group_Controller</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Insight</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>InsightsController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>InvestigationOverride</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>InvestigationTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>InvestigationTriggerHandlerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>IssueTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Landing_Controller</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LitigationTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LitigationTriggerHandlerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MetadataHelper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MyOrdersComponentController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MyOrdersPageController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MyProfilePageController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MyProfilePageControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Opportunity_Events_Controller</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Order_Events_Controller</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PageBuilder_Controller</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PageMessaging</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Page_Events_Controller</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Page_Section_Controller</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Parser</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PayGovTCSOnline</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PayGovTCSSingleQueryService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PayGovTCSSingleService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Payment</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PaymentConfirmationController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PaymentController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PaymentDetailsController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PaymentTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PetitionTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PetitionTriggerHandlerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PrivacyPolicyComponentController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Profile_Controller</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PublishArticles</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>REST_CONTENT</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>RecusalCS</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>RecusalTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>RefundController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>RelatedOrganizationTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ReviewRecusalExtension</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SafeDMLHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SegmentTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SegmentTriggerHandlerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SeriesType_Controller</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SiteLoginController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SiteLoginControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SiteMap_Controller</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SiteRegisterController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SiteRegisterControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Site_Template_Controller</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>StaffingAssignmentExtension</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SunsetReviewController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SyncUtility</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SyncUtilityTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TEST_CMS</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TEST_Chatter_Pages</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TEST_ECOMM</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TEST_Insight</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TEST_InsightsController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TEST_Knowledge_Management</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TEST_Knowledge_Management2</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TEST_MyOrders</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TEST_PayGovSingleQueryAchMockImpl</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TEST_PayGovSingleQueryCCMockImpl</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TEST_PayGovTCSOnlineCallout</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TEST_PayGovTCSOnlineCalloutTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TEST_PayGovTCSOnlineMockImpl</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TEST_PayGovTCSSingleQueryCallout</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TEST_PayGovTCSSingleQueryCalloutTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TEST_PayGovTCSSingleQueryMockImpl</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TEST_PayGovTCSSingleServiceCallout</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TEST_PayGovTCSSingleServiceCalloutTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TEST_PayGovTCSSingleServiceMockImpl</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TEST_PaymentDetailsController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TEST_PaymentDetailsControllerCallout</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TEST_PaymentDetailsControllerMockImpl</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TEST_PaymentTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TEST_PrivacyPolicyComponentController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TEST_URLRewriter</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TEST_activitytrigger</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TestCreateHierarchy</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TestUtils</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Test_CaseList</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Test_PayGovWsdl</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Test_PaymentController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Test_REST_Content</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Test_caseEmailHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Test_teamController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Test_tradeRegistration_Controller</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TollingDayTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TollingDayTriggerHandlerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>USTaxIdFldCleanTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UnpublishArticles</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UpdateCCDLookupIdTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UserTriggerHelper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UserTriggerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>VideoController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>WebServiceMockImpl</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>activityTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>article_controller</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>carouselController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>caseEmailHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dlrs_IndustryTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dlrs_RelatedCountriesTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dlrs_Related_Cases_and_OrgsTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>dlrs_WIN_ContributorTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>file_upload_controller</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>imageManager_Controller</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>km_atom_controller</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>mccdBatchProcess</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>mccdBatchProcessTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>orderTriggerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>participant_search_controller</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>print_article_controller</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ps_controller</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>redirect_controller</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>runOnce</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>san_test</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>sendToConnection</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>teamController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>tradeRegistration_Controller</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>uiUtils</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>urlRewriter</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>utils</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>utilsTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <custom>true</custom>
     <fieldPermissions>
         <editable>false</editable>
@@ -238,11 +894,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>ADCVD_Order__c.Next_Sunset_Initiation_Date_UI__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>ADCVD_Order__c.Next_Sunset_Initiation_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -259,11 +910,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>ADCVD_Order__c.Number_of_Mandatory_Companies__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>ADCVD_Order__c.Office_Assignment__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -334,11 +980,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>ADCVD_Order__c.Segment_Status__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>ADCVD_Order__c.Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1433,11 +2074,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Constant__mdt.ADCVD_Order_Calculation_Offset__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Constant__mdt.Investigation_Calculation_Offset__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -1484,11 +2120,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Constant__mdt.String_Value__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Constant__mdt.Suspension_Agreement_Calculation_Offset__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2213,11 +2844,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Federal_Register__c.Suspension_Agreement__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Federal_Register__c.Type__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2538,11 +3164,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Investigation__c.Injunction__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Investigation__c.Input_Date_of_Post_Prelim_Determ_Sig__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2553,12 +3174,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Investigation__c.Investigation_Outcome__c</field>
+        <field>Investigation__c.Investigation_Number__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Investigation__c.Investigation_YesNo__c</field>
+        <field>Investigation__c.Investigation_Outcome__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2573,27 +3194,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Investigation__c.Litigation_Resolved__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Investigation__c.Litigation_Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Investigation__c.Litigation_YesNo__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Investigation__c.Lotus_Notes_History_Data__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Investigation__c.Lotus_Notes_Litigation_ID__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2713,12 +3319,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Investigation__c.Signature_of_Prelim_Postponement_FR__c</field>
+        <field>Investigation__c.Segment_Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Investigation__c.Status__c</field>
+        <field>Investigation__c.Signature_of_Prelim_Postponement_FR__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3053,11 +3659,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Litigation__c.Petition__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Litigation__c.Prelim_Extension_of_days__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3078,12 +3679,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Litigation__c.Segment__c</field>
+        <field>Litigation__c.Segment_Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Litigation__c.Status__c</field>
+        <field>Litigation__c.Segment__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3773,37 +4374,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Petition__c.Injunction__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Petition__c.Link__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Petition__c.Litigation_Resolved__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Petition__c.Litigation_Status__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Petition__c.Litigation_YesNo__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Petition__c.Lotus_Notes_Litigation_ID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Petition__c.Next_Due_to_DAS_Deadline_and_Timeline__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3835,11 +4406,6 @@
         <editable>true</editable>
         <field>Petition__c.Product__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Petition__c.Status__c</field>
-        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -4193,11 +4759,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Related_Organization__c.Status__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Related_Organization__c.Type__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -4488,11 +5049,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Segment__c.Injunction__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Segment__c.Intent_to_Participate_by_Domestic_IPs__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -4513,17 +5069,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Segment__c.Issues_to_DAS__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Segment__c.Link__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Segment__c.Litigation_Hold_Expiration_Date__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Segment__c.Litigation_Resolved__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4533,17 +5084,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Segment__c.Litigation_YesNo__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Segment__c.Lotus_Notes_History_Data__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Segment__c.Lotus_Notes_Litigation_ID__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4763,17 +5304,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Segment__c.Segment_Outcome__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Segment__c.Segment_Status__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Segment__c.Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5348,22 +5879,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Suspension_Agreement__c.Next_Sunset_Initiation_Date_UI__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Suspension_Agreement__c.Next_Sunset_Initiation_Date__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Suspension_Agreement__c.Notations_Amendments__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Suspension_Agreement__c.Office_Assignment__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6396,605 +6912,6 @@
         <field>agf__ADM_Epic__c.Phase__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <layoutAssignments>
-        <layout>ADCVD_Objects__mdt-ADCVD Objects Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>ADCVD_Order__c-Order</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>ADCVD_Order__c-Order</layout>
-        <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-Account Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Article__kav-Article Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Artifact__c-Artifact Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Artifact__c-Artifact Layout</layout>
-        <recordType>Artifact__c.Privacy_Policy</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Asset-Asset Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Basic_Guide_to_Exporting__kav-Basic Guide to Exporting Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>BatchJobScheduler__c-BatchJobScheduler Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Campaign-Campaign Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>CampaignMember-Campaign Member Page Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Carousel_Item__c-Carousel Item Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Case-Case Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>CaseClose-Close Case Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Case_Contributor__c-Case Contributor Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Case_Solution__kav-FAQ Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Chapter_Section__c-Chapter Section Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Chapter__c-Chapter Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Clean_URL__c-Clean URL Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>CollaborationGroup-Group Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Constant__mdt-Constant Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Contact-ITA Contact Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>ContentAsset-Asset File Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Content_Container__c-Content Container Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Content_Container__c-Content Container Layout</layout>
-        <recordType>Content_Container__c.Admin_Only</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Content_Container__c-Content Container Layout</layout>
-        <recordType>Content_Container__c.Style</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Content_Override__c-Content Override Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Content_Version__c-Content Version Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Content_Version__c-Content Version Layout</layout>
-        <recordType>Content_Version__c.Content_Version</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Content_Version__c-Content Version Layout</layout>
-        <recordType>Content_Version__c.Published_Content_Version</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Content__c-API</layout>
-        <recordType>Content__c.API</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Content__c-API</layout>
-        <recordType>Content__c.Video</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Content__c-Carousel</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Content__c-Carousel</layout>
-        <recordType>Content__c.Carousel</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Content__c-Carousel</layout>
-        <recordType>Content__c.Draft_Generic_Content</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Content__c-Content Layout</layout>
-        <recordType>Content__c.RichText</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Content__c-Icon Layout</layout>
-        <recordType>Content__c.Icon</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Content__c-Series Layout</layout>
-        <recordType>Content__c.Series_List</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Contract-Contract Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Country_Commercial__kav-Country Commercial Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Covered_Entity__c-Covered Entity Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Custom_Instruction__c-Custom Instruction Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>DandBCompany-D%26B Company Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Decision_Log__c-Decision Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Department_Taxonomy__c-Department Taxonomy Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>DuplicateRecordItem-Duplicate Record Item Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>DuplicateRecordSet-Duplicate Record Set Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>EmailMessage-Email Message Layout - Email-to-Case</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Event-Event Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>FAQ__kav-FAQ Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>FAQlegacy__kav-FAQ Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Federal_Register__c-Federal Register Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>FeedItem-Feed Item Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Framework__c-Framework Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Global-Global Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Icon__c-Icon Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Idea-Idea Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Image__c-Image Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Inactive_Period__c-Inactive Period Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Inactive_Reason__c-Inactive Status Reason Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Industry__c-Taxonomy Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Insight_Atom__c-Insight Atom Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Insight_Chapter__c-Insight Chapter Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Insight__c-Insight Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Investigation__c-AD Investigation Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Investigation__c-AD Investigation Layout</layout>
-        <recordType>Investigation__c.AD</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Investigation__c-AD Investigation Layout</layout>
-        <recordType>Investigation__c.CVD</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Issue__c-Issue Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead-Lead Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Level__c-Level Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Litigation__c-InternationalLitigation</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Litigation__c-InternationalLitigation</layout>
-        <recordType>Litigation__c.International_Litigation</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Litigation__c-InternationalLitigation</layout>
-        <recordType>Litigation__c.Remand</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Macro-Macro Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Market_Insight__kav-Market Insight Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Master_CongressionalDistrict__c-Master CongressionalDistrict Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>My_Profile_Option__c-My Profile Option Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Navigation_Group__c-Navigation Group Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Navigation_Link__c-Navigation Link Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Navigation_Link__c-Navigation Link Layout</layout>
-        <recordType>Navigation_Link__c.Link</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Navigation_Link__c-Navigation Link Layout</layout>
-        <recordType>Navigation_Link__c.Section</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>ObjectTerritory2AssignmentRule-Object Territory Assignment Rule Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Opportunity-Opportunity Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>OpportunityLineItem-Opportunity Product Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Order-Order Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>OrderItem-Order Product Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Page_Content__c-Row Content Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Page_Content__c-Row Content Layout</layout>
-        <recordType>Page_Content__c.API</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Page_Content__c-Row Content Layout</layout>
-        <recordType>Page_Content__c.Carousel</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Page_Content__c-Row Content Layout</layout>
-        <recordType>Page_Content__c.Generic_Content</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Page_Content__c-Row Content Layout</layout>
-        <recordType>Page_Content__c.Icon</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Page_Content__c-Row Content Layout</layout>
-        <recordType>Page_Content__c.Series_List</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Page_Content__c-Row Content Layout</layout>
-        <recordType>Page_Content__c.Video</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Page__c-Generic Page</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Page__c-Generic Page</layout>
-        <recordType>Page__c.GenericPage</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Participant_Contact__c-Participant Contact Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Participant__c-Participation Status Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Participation__c-Participation Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Payment__c-Payment Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Petition__c-Petition Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Platform__kav-Platform Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Pricebook2-Price Book Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>PricebookEntry-Price Book Entry</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Product2-Product Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Program__c-Mission Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Publication_Template__c-Publication Template Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Recusal__c-Primary Recusal Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Recusal__c-Primary Recusal Layout</layout>
-        <recordType>Recusal__c.Primary</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Recusal__c-Primary Recusal Layout</layout>
-        <recordType>Recusal__c.Related</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Refund__c-Refund Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>RelatedCountries__c-Countries Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Related_Cases_and_Orgs__c-Cases Associated to WIN Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Related_Cases_and_Orgs__c-Cases Associated to WIN Layout</layout>
-        <recordType>Related_Cases_and_Orgs__c.Related_Cases_and_Orgs</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Related_Issue__c-Related Issue Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Related_Organization__c-Related Organization Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Related_Organization__c-Related Organization Layout</layout>
-        <recordType>Related_Organization__c.Customs_Instructions_Only</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Related_Organization__c-Related Organization Layout</layout>
-        <recordType>Related_Organization__c.Petitioner_Respondent</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Renewing_Product__c-Renewing Product Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Row__c-Row Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>SearchPromotionRule-Promoted Search Term Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Section__c-Section Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Section__c-Section Layout</layout>
-        <recordType>Section__c.Initiative</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Section__c-Section Layout</layout>
-        <recordType>Section__c.Office</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Section__c-Section Layout</layout>
-        <recordType>Section__c.Program</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Section__c-Section Layout</layout>
-        <recordType>Section__c.Service</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Segment__c-Administrative Review</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Segment__c-Administrative Review</layout>
-        <recordType>Segment__c.Administrative_Review</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Segment__c-Administrative Review</layout>
-        <recordType>Segment__c.Anti_Circumvention_Review</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Segment__c-Administrative Review</layout>
-        <recordType>Segment__c.Changed_Circumstances_Review</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Segment__c-Administrative Review</layout>
-        <recordType>Segment__c.Expedited_Review</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Segment__c-Administrative Review</layout>
-        <recordType>Segment__c.New_Shipper_Review</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Segment__c-Administrative Review</layout>
-        <recordType>Segment__c.Scope_Inquiry</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Segment__c-Administrative Review</layout>
-        <recordType>Segment__c.Sunset_Review</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Series__c-Series Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Service__mdt-Service Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Site__c-Site Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Social_Icons__c-Social Icon Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Solution-Solution Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Staffing_Assignment__c-Staffing Assignment Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>State_Report__kav-State Report Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Survey_Result__c-Annual Survey Result Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Survey_Result__c-Annual Survey Result Layout</layout>
-        <recordType>Survey_Result__c.Annual_Survey</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Survey_Result__c-Annual Survey Result Layout</layout>
-        <recordType>Survey_Result__c.Transactional_Survey</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Suspension_Agreement__c-Suspension Agreement Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Sync_Utility__mdt-Sync Utility Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Task-Task Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Template_Page_Content__c-_Page_Content Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Template_Page_Content__c-_Page_Content Layout</layout>
-        <recordType>Template_Page_Content__c.API</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Template_Page_Content__c-_Page_Content Layout</layout>
-        <recordType>Template_Page_Content__c.Call_to_Action</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Template_Page_Content__c-_Page_Content Layout</layout>
-        <recordType>Template_Page_Content__c.Carousel</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Template_Page_Content__c-_Page_Content Layout</layout>
-        <recordType>Template_Page_Content__c.Generic_Content</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Template_Page_Content__c-_Page_Content Layout</layout>
-        <recordType>Template_Page_Content__c.Video</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Template_Page__c-_Page Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Template_Row__c-Row Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Third_Party_Master_List__c-Third Party Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Third_Party_Master_List__c-Third Party Layout</layout>
-        <recordType>Third_Party_Master_List__c.Default</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Third_Party__c-Third Party Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Third_Party__c-Third Party Layout</layout>
-        <recordType>Third_Party__c.Resolution_Provider</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Third_Party__c-Third Party Layout</layout>
-        <recordType>Third_Party__c.Statutory_Body</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Third_Party__c-Third Party Layout</layout>
-        <recordType>Third_Party__c.Verification</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Tolling_Day__c-Tolling Day Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Top_Markets__kav-Top Markets Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Trade_Agreement__kav-Barrier Trade Agreement Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>URL__c-URL Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>User-User Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>UserAlt-User Profile Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>UserAppMenuItem-Application Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>WIN_Contributor__c-ITA POC Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>WIN__c-WIN Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>WIN__c-WIN Layout</layout>
-        <recordType>WIN__c.Advocacy</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>WIN__c-WIN Layout</layout>
-        <recordType>WIN__c.Advocacy_Locked</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>WIN__c-WIN Layout</layout>
-        <recordType>WIN__c.Commercial_Diplomacy</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>WIN__c-WIN Layout</layout>
-        <recordType>WIN__c.Commercial_Diplomacy_Locked</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>WIN__c-WIN Layout</layout>
-        <recordType>WIN__c.Export_Promotion</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>WIN__c-WIN Layout</layout>
-        <recordType>WIN__c.Export_Promotion_Locked</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>WIN__c-WIN Layout</layout>
-        <recordType>WIN__c.Investment_Promotion</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>WIN__c-WIN Layout</layout>
-        <recordType>WIN__c.Investment_Promotion_Locked</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>WIN__c-WIN Layout</layout>
-        <recordType>WIN__c.WIN_Standard_Record_Type</recordType>
-    </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
@@ -7274,6 +7191,342 @@
         <object>URL__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
+    <pageAccesses>
+        <apexPage>AnswersHome</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>BandwidthExceeded</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>ChangePassword</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>CommunitiesLanding</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>CommunitiesLogin</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>CommunitiesSelfReg</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>CommunitiesSelfRegConfirm</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>CommunitiesTemplate</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>Exception</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>FAQ</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>FileNotFound</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>ForgotPassword</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>ForgotPasswordConfirm</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>IPR_Assistance</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>IPR_Assitance</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>IdeasHome</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>InMaintenance</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>Insights</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>InvestigationOverride</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>MyOrders</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>MyProfilePage</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>MyTrackedOrgs</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>OrderAttachmentWriter</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>PageBuilder</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>Payment</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>PaymentConfirmation</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>PaymentDetails</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>PaymentRefund</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>Registration</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>RegistrationConfirmation</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>ReviewRecusalPage</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>Robots</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>SiteLogin</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>SiteRegister</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>SiteRegisterConfirm</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>SiteTemplate</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>Site_Template</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>StaffingAssignment</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>StdExceptionTemplate</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>SunsetReview</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>TradeEvent</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>TradeLead</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>Unauthorized</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>UnderConstruction</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>about</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>article</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>article2</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>assistance</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>carouselManager</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>community</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>consolidated_screening_list</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>csl_search</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>dashboard</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>data</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>federal_incentives</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>file_upload</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>fta_tariff_search</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>group</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>imageManager</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>ipr_training</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>landing</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>mrlsearch</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>my_boards</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>page</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>pageforbidden</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>pagenotfound</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>participant</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>participant_search</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>printarticle</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>privacyshield_search</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>ps</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>redirect</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>search</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>search_export</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>sitemap</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>stateincentives</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>status</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>stopfakes_search</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>susa_events</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>susa_past_events</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>susa_reading_room</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>susa_social_media</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>team</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>tpp_rates</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
@@ -7417,16 +7670,6 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Related_Cases_and_Orgs__c.Related_Cases_and_Orgs</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Related_Organization__c.Customs_Instructions_Only</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Related_Organization__c.Petitioner_Respondent</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

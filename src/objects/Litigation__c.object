@@ -493,6 +493,11 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                    <label>Active</label>
+                </value>
+                <value>
                     <fullName>Preliminary</fullName>
                     <default>false</default>
                     <label>Preliminary</label>
@@ -506,12 +511,6 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
                     <fullName>Completed</fullName>
                     <default>false</default>
                     <label>Completed</label>
-                </value>
-                <value>
-                    <fullName>Active</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>Active</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -599,6 +598,15 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
                 <fullName>Preliminary</fullName>
                 <default>false</default>
             </values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Final</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Preliminary</fullName>
         </picklistValues>
     </recordTypes>
     <recordTypes>
@@ -663,14 +671,7 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
             </values>
         </picklistValues>
     </recordTypes>
-    <searchLayouts>
-        <customTabListAdditionalFields>Petition_Case_Number__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
-        <searchResultsAdditionalFields>Petition_Case_Number__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
-    </searchLayouts>
+    <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
         <fullName>International_Litigation_Final_Extension</fullName>

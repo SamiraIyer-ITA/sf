@@ -3,20 +3,20 @@
     <actionOverrides>
         <actionName>View</actionName>
         <comment>Action override created by Lightning App Builder during activation.</comment>
-        <content>ADCVD_Lightning_Layout</content>
-        <formFactor>Large</formFactor>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Flexipage</type>
-        <pageOrSobjectType>ADCVD_Order__c</pageOrSobjectType>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>View</actionName>
-        <comment>Action override created by Lightning App Builder during activation.</comment>
         <content>ADCVD_Investigation_Record</content>
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>
         <pageOrSobjectType>Investigation__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>ADCVD_Lightning_Layout</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>ADCVD_Order__c</pageOrSobjectType>
     </actionOverrides>
     <brand>
         <headerColor>#1589EE</headerColor>
@@ -28,114 +28,6 @@
     <navType>Standard</navType>
     <profileActionOverrides>
         <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Anti_Circumvention_Review</recordType>
-        <type>Flexipage</type>
-        <profile>GM Commercial Service</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Anti_Circumvention_Review</recordType>
-        <type>Flexipage</type>
-        <profile>GM SelectUSA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Anti_Circumvention_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Help Desk Administration</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Anti_Circumvention_Review</recordType>
-        <type>Flexipage</type>
-        <profile>I&amp;A</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Anti_Circumvention_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Salesforce Developer</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Anti_Circumvention_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Trade Community Profile</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Anti_Circumvention_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Test Profile</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Anti_Circumvention_Review</recordType>
-        <type>Flexipage</type>
-        <profile>ITA User Read Only</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Anti_Circumvention_Review</recordType>
-        <type>Flexipage</type>
-        <profile>ITA OPA/OLIA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Changed_Circumstances_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Data Team Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Changed_Circumstances_Review</recordType>
-        <type>Flexipage</type>
-        <profile>E&amp;C TANC</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Changed_Circumstances_Review</recordType>
-        <type>Flexipage</type>
-        <profile>GM Advocacy</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
         <content>ADCVD_Petition_Record</content>
         <formFactor>Large</formFactor>
         <pageOrSobjectType>Petition__c</pageOrSobjectType>
@@ -232,491 +124,6 @@
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
-        <content>ADCVD_Petition_Record</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Petition__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>GM Commercial Service</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Administrative_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Anti_Circumvention_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Changed_Circumstances_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Expedited_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.New_Shipper_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Scope_Inquiry</recordType>
-        <type>Flexipage</type>
-        <profile>Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Administrative_Review</recordType>
-        <type>Flexipage</type>
-        <profile>E&amp;C TANC</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Administrative_Review</recordType>
-        <type>Flexipage</type>
-        <profile>GM Advocacy</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Administrative_Review</recordType>
-        <type>Flexipage</type>
-        <profile>GM Commercial Service</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Administrative_Review</recordType>
-        <type>Flexipage</type>
-        <profile>GM SelectUSA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Administrative_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Help Desk Administration</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Administrative_Review</recordType>
-        <type>Flexipage</type>
-        <profile>I&amp;A</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Administrative_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Salesforce Developer</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Administrative_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Trade Community Profile</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Administrative_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Data Team Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Administrative_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Test Profile</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Administrative_Review</recordType>
-        <type>Flexipage</type>
-        <profile>ITA User Read Only</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Administrative_Review</recordType>
-        <type>Flexipage</type>
-        <profile>ITA OPA/OLIA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Anti_Circumvention_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Data Team Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Anti_Circumvention_Review</recordType>
-        <type>Flexipage</type>
-        <profile>E&amp;C TANC</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Anti_Circumvention_Review</recordType>
-        <type>Flexipage</type>
-        <profile>GM Advocacy</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Expedited_Review</recordType>
-        <type>Flexipage</type>
-        <profile>E&amp;C TANC</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Expedited_Review</recordType>
-        <type>Flexipage</type>
-        <profile>GM Advocacy</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Expedited_Review</recordType>
-        <type>Flexipage</type>
-        <profile>GM Commercial Service</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Expedited_Review</recordType>
-        <type>Flexipage</type>
-        <profile>GM SelectUSA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Expedited_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Help Desk Administration</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Expedited_Review</recordType>
-        <type>Flexipage</type>
-        <profile>I&amp;A</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Expedited_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Salesforce Developer</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Expedited_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Trade Community Profile</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Expedited_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Test Profile</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Expedited_Review</recordType>
-        <type>Flexipage</type>
-        <profile>ITA User Read Only</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Expedited_Review</recordType>
-        <type>Flexipage</type>
-        <profile>ITA OPA/OLIA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.New_Shipper_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Data Team Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.New_Shipper_Review</recordType>
-        <type>Flexipage</type>
-        <profile>E&amp;C TANC</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.New_Shipper_Review</recordType>
-        <type>Flexipage</type>
-        <profile>GM Advocacy</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.New_Shipper_Review</recordType>
-        <type>Flexipage</type>
-        <profile>GM Commercial Service</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.New_Shipper_Review</recordType>
-        <type>Flexipage</type>
-        <profile>GM SelectUSA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.New_Shipper_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Help Desk Administration</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.New_Shipper_Review</recordType>
-        <type>Flexipage</type>
-        <profile>I&amp;A</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.New_Shipper_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Salesforce Developer</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.New_Shipper_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Trade Community Profile</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.New_Shipper_Review</recordType>
-        <type>Flexipage</type>
-        <profile>Test Profile</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.New_Shipper_Review</recordType>
-        <type>Flexipage</type>
-        <profile>ITA User Read Only</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.New_Shipper_Review</recordType>
-        <type>Flexipage</type>
-        <profile>ITA OPA/OLIA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Scope_Inquiry</recordType>
-        <type>Flexipage</type>
-        <profile>Data Team Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Scope_Inquiry</recordType>
-        <type>Flexipage</type>
-        <profile>E&amp;C TANC</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Scope_Inquiry</recordType>
-        <type>Flexipage</type>
-        <profile>GM Advocacy</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Scope_Inquiry</recordType>
-        <type>Flexipage</type>
-        <profile>GM Commercial Service</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Scope_Inquiry</recordType>
-        <type>Flexipage</type>
-        <profile>GM SelectUSA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Scope_Inquiry</recordType>
-        <type>Flexipage</type>
-        <profile>Help Desk Administration</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Scope_Inquiry</recordType>
-        <type>Flexipage</type>
-        <profile>I&amp;A</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Scope_Inquiry</recordType>
-        <type>Flexipage</type>
-        <profile>Salesforce Developer</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>ADCVD_Lightning_Layout1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Segment__c</pageOrSobjectType>
-        <recordType>Segment__c.Scope_Inquiry</recordType>
-        <type>Flexipage</type>
-        <profile>Trade Community Profile</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
         <content>ADCVD_Suspension_Agreement_Record</content>
         <formFactor>Large</formFactor>
         <pageOrSobjectType>Suspension_Agreement__c</pageOrSobjectType>
@@ -1043,6 +450,311 @@
     </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
+        <content>ADCVD_Petition_Record</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Petition__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>GM Commercial Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Administrative_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Anti_Circumvention_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Changed_Circumstances_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Expedited_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.New_Shipper_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Scope_Inquiry</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Administrative_Review</recordType>
+        <type>Flexipage</type>
+        <profile>E&amp;C TANC</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Administrative_Review</recordType>
+        <type>Flexipage</type>
+        <profile>GM Advocacy</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Administrative_Review</recordType>
+        <type>Flexipage</type>
+        <profile>GM Commercial Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Administrative_Review</recordType>
+        <type>Flexipage</type>
+        <profile>GM SelectUSA</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Administrative_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Help Desk Administration</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Administrative_Review</recordType>
+        <type>Flexipage</type>
+        <profile>I&amp;A</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Administrative_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Salesforce Developer</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Administrative_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Trade Community Profile</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Administrative_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Data Team Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Administrative_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Test Profile</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Administrative_Review</recordType>
+        <type>Flexipage</type>
+        <profile>ITA User Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Administrative_Review</recordType>
+        <type>Flexipage</type>
+        <profile>ITA OPA/OLIA</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Anti_Circumvention_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Data Team Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Anti_Circumvention_Review</recordType>
+        <type>Flexipage</type>
+        <profile>E&amp;C TANC</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Anti_Circumvention_Review</recordType>
+        <type>Flexipage</type>
+        <profile>GM Advocacy</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Anti_Circumvention_Review</recordType>
+        <type>Flexipage</type>
+        <profile>GM Commercial Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Anti_Circumvention_Review</recordType>
+        <type>Flexipage</type>
+        <profile>GM SelectUSA</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Anti_Circumvention_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Help Desk Administration</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Anti_Circumvention_Review</recordType>
+        <type>Flexipage</type>
+        <profile>I&amp;A</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Anti_Circumvention_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Salesforce Developer</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Anti_Circumvention_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Trade Community Profile</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Anti_Circumvention_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Test Profile</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Anti_Circumvention_Review</recordType>
+        <type>Flexipage</type>
+        <profile>ITA User Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Anti_Circumvention_Review</recordType>
+        <type>Flexipage</type>
+        <profile>ITA OPA/OLIA</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Changed_Circumstances_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Data Team Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Changed_Circumstances_Review</recordType>
+        <type>Flexipage</type>
+        <profile>E&amp;C TANC</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Changed_Circumstances_Review</recordType>
+        <type>Flexipage</type>
+        <profile>GM Advocacy</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
         <content>ADCVD_Lightning_Layout1</content>
         <formFactor>Large</formFactor>
         <pageOrSobjectType>Segment__c</pageOrSobjectType>
@@ -1136,6 +848,294 @@
         <content>ADCVD_Lightning_Layout1</content>
         <formFactor>Large</formFactor>
         <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Expedited_Review</recordType>
+        <type>Flexipage</type>
+        <profile>E&amp;C TANC</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Expedited_Review</recordType>
+        <type>Flexipage</type>
+        <profile>GM Advocacy</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Expedited_Review</recordType>
+        <type>Flexipage</type>
+        <profile>GM Commercial Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Expedited_Review</recordType>
+        <type>Flexipage</type>
+        <profile>GM SelectUSA</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Expedited_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Help Desk Administration</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Expedited_Review</recordType>
+        <type>Flexipage</type>
+        <profile>I&amp;A</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Expedited_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Salesforce Developer</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Expedited_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Trade Community Profile</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Expedited_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Test Profile</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Expedited_Review</recordType>
+        <type>Flexipage</type>
+        <profile>ITA User Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Expedited_Review</recordType>
+        <type>Flexipage</type>
+        <profile>ITA OPA/OLIA</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.New_Shipper_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Data Team Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.New_Shipper_Review</recordType>
+        <type>Flexipage</type>
+        <profile>E&amp;C TANC</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.New_Shipper_Review</recordType>
+        <type>Flexipage</type>
+        <profile>GM Advocacy</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.New_Shipper_Review</recordType>
+        <type>Flexipage</type>
+        <profile>GM Commercial Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.New_Shipper_Review</recordType>
+        <type>Flexipage</type>
+        <profile>GM SelectUSA</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.New_Shipper_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Help Desk Administration</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.New_Shipper_Review</recordType>
+        <type>Flexipage</type>
+        <profile>I&amp;A</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.New_Shipper_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Salesforce Developer</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.New_Shipper_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Trade Community Profile</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.New_Shipper_Review</recordType>
+        <type>Flexipage</type>
+        <profile>Test Profile</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.New_Shipper_Review</recordType>
+        <type>Flexipage</type>
+        <profile>ITA User Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.New_Shipper_Review</recordType>
+        <type>Flexipage</type>
+        <profile>ITA OPA/OLIA</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Scope_Inquiry</recordType>
+        <type>Flexipage</type>
+        <profile>Data Team Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Scope_Inquiry</recordType>
+        <type>Flexipage</type>
+        <profile>E&amp;C TANC</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Scope_Inquiry</recordType>
+        <type>Flexipage</type>
+        <profile>GM Advocacy</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Scope_Inquiry</recordType>
+        <type>Flexipage</type>
+        <profile>GM Commercial Service</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Scope_Inquiry</recordType>
+        <type>Flexipage</type>
+        <profile>GM SelectUSA</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Scope_Inquiry</recordType>
+        <type>Flexipage</type>
+        <profile>Help Desk Administration</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Scope_Inquiry</recordType>
+        <type>Flexipage</type>
+        <profile>I&amp;A</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Scope_Inquiry</recordType>
+        <type>Flexipage</type>
+        <profile>Salesforce Developer</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
+        <recordType>Segment__c.Scope_Inquiry</recordType>
+        <type>Flexipage</type>
+        <profile>Trade Community Profile</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ADCVD_Lightning_Layout1</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Segment__c</pageOrSobjectType>
         <recordType>Segment__c.Scope_Inquiry</recordType>
         <type>Flexipage</type>
         <profile>Test Profile</profile>
@@ -1157,600 +1157,6 @@
         <recordType>Segment__c.Scope_Inquiry</recordType>
         <type>Flexipage</type>
         <profile>ITA OPA/OLIA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>Chatter External User</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>Chatter Free User</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>Chatter Moderator User</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>ContractManager</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>Core Team</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>Customer Community Login User</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>Customer Community User</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>Customer Trade Community User</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>Data Team Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>Delete Profile</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>Delete2 Profile</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>E&amp;C TANC</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>GM Advocacy</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>GM Commercial Service</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>Guest License User</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>Help Desk Administration</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>I&amp;A</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>Integrated User Profile</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>ITA OPA/OLIA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>ITA User Read Only</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>Librarian</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>MarketingProfile</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>Platform Profile</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>Premier Support User</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>ReadOnly</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>Salesforce Developer</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>Security Review</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>SolutionManager</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>Standard</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>Test Profile</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>Trade Community Profile</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>International_Litigation_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.International_Litigation</recordType>
-        <type>Flexipage</type>
-        <profile>GM SelectUSA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>Chatter External User</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>Chatter Free User</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>Chatter Moderator User</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>ContractManager</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>Core Team</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>Customer Community Login User</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>Customer Community User</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>Customer Trade Community User</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>Data Team Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>Delete Profile</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>Delete2 Profile</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>E&amp;C TANC</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>GM Advocacy</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>GM Commercial Service</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>GM SelectUSA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>Guest License User</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>Help Desk Administration</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>I&amp;A</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>Integrated User Profile</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>ITA OPA/OLIA</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>ITA User Read Only</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>Librarian</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>MarketingProfile</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>Platform Profile</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>Premier Support User</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>Salesforce Developer</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>ReadOnly</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>Security Review</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>SolutionManager</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>Standard</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>Test Profile</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Remand_Litigation_Record_Page1</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Litigation__c</pageOrSobjectType>
-        <recordType>Litigation__c.Remand</recordType>
-        <type>Flexipage</type>
-        <profile>Trade Community Profile</profile>
     </profileActionOverrides>
     <tab>standard-home</tab>
     <tab>Petition__c</tab>
