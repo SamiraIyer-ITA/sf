@@ -120,15 +120,6 @@
         <name>CustomTab</name>
     </types>
     <types>
-        <members>ADCVD</members>
-        <members>ADCVD/ADCVD_Orders_By_Commodities</members>
-        <name>Dashboard</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>FlexiPage</name>
-    </types>
-    <types>
         <members>*</members>
         <name>GlobalValueSet</name>
     </types>
@@ -141,19 +132,9 @@
         <name>Profile</name>
     </types>
     <types>
-        <members>ADCVD</members>
-        <members>ADCVD/ADCVD_Order_By_Commodities</members>
-        <members>ADCVD/ADCVD_Order_By_Commodities1</members>
-        <members>ADCVD/Petition_Actual_Signature_After_Deadline</members>
-        <name>Report</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Report</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ReportType</name>
+        <members>BusinessHours</members>
+        <members>PathAssistant</members>
+        <name>Settings</name>
     </types>
     <types>
         <members>testCsvFile1</members>
@@ -178,11 +159,6 @@
         <members>testcvd_tolling_day_between_end_date</members>
         <members>testcvd_tolling_day_between_start_date</members>
         <name>StaticResource</name>
-    </types>
-    <types>
-        <members>BusinessHours</members>
-        <members>PathAssistant</members>
-        <name>Settings</name>
     </types>
     <version>39.0</version>
 </Package>
