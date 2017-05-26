@@ -2684,6 +2684,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Investigation__c.Petition_Withdrawn__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Investigation__c.Prelim_Extension_of_days__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4454,7 +4459,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Segment__c.Have_Custom_Instructions_been_sent__c</field>
+        <field>Segment__c.Have_Custom_Instruction_been_sent__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4511,6 +4516,11 @@
         <editable>true</editable>
         <field>Segment__c.Issue_Liquidation_Revocation_Instruction__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.Issues_to_DAS__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>

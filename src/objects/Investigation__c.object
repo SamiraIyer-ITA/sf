@@ -843,32 +843,27 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>DOC_Negative_Final_Termination_of_Investigation</fullName>
+                    <fullName>DOC Negative Final</fullName>
                     <default>false</default>
-                    <label>DOC Negative Final -- Termination of Investigation</label>
+                    <label>DOC Negative Final</label>
                 </value>
                 <value>
-                    <fullName>ITC_Negative_Final_Termination_of_Investigation</fullName>
+                    <fullName>ITC Negative Final</fullName>
                     <default>false</default>
-                    <label>ITC Negative Final -- Termination of Investigation</label>
+                    <label>ITC Negative Final</label>
                 </value>
                 <value>
-                    <fullName>ITC_Negative_Prelim_Termination_of_Investigation</fullName>
+                    <fullName>ITC Negative Prelim</fullName>
                     <default>false</default>
-                    <label>ITC_Negative Prelim -- Termination of Investigation</label>
+                    <label>ITC Negative Prelim</label>
                 </value>
                 <value>
-                    <fullName>In Progress</fullName>
-                    <default>true</default>
-                    <label>In Progress</label>
-                </value>
-                <value>
-                    <fullName>Petition_Withdrawn_After_Initiation</fullName>
+                    <fullName>Petition Withdrawn After Initiation</fullName>
                     <default>false</default>
                     <label>Petition Withdrawn After Initiation</label>
                 </value>
                 <value>
-                    <fullName>Suspension_Agreement</fullName>
+                    <fullName>Suspension Agreement</fullName>
                     <default>false</default>
                     <label>Suspension Agreement</label>
                 </value>
@@ -876,6 +871,12 @@
                     <fullName>Order</fullName>
                     <default>false</default>
                     <label>Order</label>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>In Progress</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1245,6 +1246,15 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Petition_Withdrawn__c</fullName>
+        <externalId>false</externalId>
+        <label>Petition Withdrawn</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Petition__c</fullName>
@@ -1842,31 +1852,27 @@
         <picklistValues>
             <picklist>Investigation_Outcome__c</picklist>
             <values>
-                <fullName>DOC_Negative_Final_Termination_of_Investigation</fullName>
+                <fullName>DOC Negative Final</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ITC_Negative_Final_Termination_of_Investigation</fullName>
+                <fullName>ITC Negative Final</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ITC_Negative_Prelim_Termination_of_Investigation</fullName>
+                <fullName>ITC Negative Prelim</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>In Progress</fullName>
-                <default>true</default>
             </values>
             <values>
                 <fullName>Order</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Petition_Withdrawn_After_Initiation</fullName>
+                <fullName>Petition Withdrawn After Initiation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Suspension_Agreement</fullName>
+                <fullName>Suspension Agreement</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2448,31 +2454,27 @@
         <picklistValues>
             <picklist>Investigation_Outcome__c</picklist>
             <values>
-                <fullName>DOC_Negative_Final_Termination_of_Investigation</fullName>
+                <fullName>DOC Negative Final</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ITC_Negative_Final_Termination_of_Investigation</fullName>
+                <fullName>ITC Negative Final</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ITC_Negative_Prelim_Termination_of_Investigation</fullName>
+                <fullName>ITC Negative Prelim</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>In Progress</fullName>
-                <default>true</default>
             </values>
             <values>
                 <fullName>Order</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Petition_Withdrawn_After_Initiation</fullName>
+                <fullName>Petition Withdrawn After Initiation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Suspension_Agreement</fullName>
+                <fullName>Suspension Agreement</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2730,6 +2732,16 @@
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
+        <fullName>Actual_Final_Required_for_DOC_Neg</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+ISNULL(  Actual_Final_Signature__c ), 
+ ISPICKVAL( Investigation_Outcome__c , &apos;DOC Negative Final&apos;) 
+)</errorConditionFormula>
+        <errorDisplayField>Actual_Final_Signature__c</errorDisplayField>
+        <errorMessage>The Actual Final Signature date is required when Investigation Outcome is &quot;DOC Negative Final&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Bounded_Days_For_AD_Final_Extension</fullName>
         <active>true</active>
         <errorConditionFormula>And (
@@ -2784,6 +2796,27 @@ $RecordType.DeveloperName = &quot;CVD&quot;,
  NOT(AND(ISBLANK( Final_Extension_of_days__c)))
 )</errorConditionFormula>
         <errorMessage>If upstream subsidy allegation is &quot;No&quot; , then final extensions of day must be null.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Litigation_Resolved_Required</fullName>
+        <active>true</active>
+        <description>Litigation Resolved is required when Litigation is set to yes</description>
+        <errorConditionFormula>AND ( 
+  ISPICKVAL( Litigation_YesNo__c , &apos;Yes&apos;),
+  ISBLANK( TEXT( Litigation_Resolved__c ) )
+)</errorConditionFormula>
+        <errorDisplayField>Litigation_Resolved__c</errorDisplayField>
+        <errorMessage>Litigation Resolved cannot be blank when Litigation is &quot;Yes&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Petition_Withdrawn_Date_Required</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+ISNULL( Petition_Withdrawn__c ), 
+ ISPICKVAL( Investigation_Outcome__c , &apos;Petition Withdrawn After Initiation&apos;) 
+)</errorConditionFormula>
+        <errorDisplayField>Petition_Withdrawn__c</errorDisplayField>
+        <errorMessage>The Petition Withdrawn date is required when Investigation Outcome is &quot;Petition Withdrawn After Initiation&quot;</errorMessage>
     </validationRules>
     <visibility>Public</visibility>
 </CustomObject>
