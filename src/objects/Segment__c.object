@@ -1420,11 +1420,6 @@
                     <label>Full Rescission</label>
                 </value>
                 <value>
-                    <fullName>Partial Rescission</fullName>
-                    <default>false</default>
-                    <label>Partial Rescission</label>
-                </value>
-                <value>
                     <fullName>Withdrawn</fullName>
                     <default>false</default>
                     <label>Withdrawn</label>
@@ -1435,9 +1430,20 @@
                     <label>Deficient</label>
                 </value>
                 <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                    <label>Rejected</label>
+                </value>
+                <value>
                     <fullName>Completed</fullName>
                     <default>false</default>
                     <label>Completed</label>
+                </value>
+                <value>
+                    <fullName>Partial Rescission</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Partial Rescission</label>
                 </value>
                 <value>
                     <fullName>Rejected/Deficient/Negative Finding</fullName>
@@ -1460,6 +1466,16 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
+                    <fullName>Initiation</fullName>
+                    <default>false</default>
+                    <label>Initiation</label>
+                </value>
+                <value>
+                    <fullName>How To Proceed</fullName>
+                    <default>false</default>
+                    <label>How To Proceed</label>
+                </value>
+                <value>
                     <fullName>Prelim</fullName>
                     <default>false</default>
                     <label>Prelim</label>
@@ -1473,11 +1489,6 @@
                     <fullName>Amend Final</fullName>
                     <default>false</default>
                     <label>Amend Final</label>
-                </value>
-                <value>
-                    <fullName>How To Proceed</fullName>
-                    <default>false</default>
-                    <label>How To Proceed</label>
                 </value>
                 <value>
                     <fullName>Hold</fullName>
@@ -2432,10 +2443,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Partial Rescission</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Withdrawn</fullName>
                 <default>false</default>
             </values>
@@ -3201,10 +3208,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Partial Rescission</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Withdrawn</fullName>
                 <default>false</default>
             </values>
@@ -3225,6 +3228,10 @@
             </values>
             <values>
                 <fullName>Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Initiation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3963,10 +3970,6 @@
             </values>
             <values>
                 <fullName>Full Rescission</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partial Rescission</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4728,10 +4731,6 @@
             </values>
             <values>
                 <fullName>Full Rescission</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partial Rescission</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5500,10 +5499,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Partial Rescission</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Withdrawn</fullName>
                 <default>false</default>
             </values>
@@ -6261,19 +6256,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Deficient</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Full Rescission</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partial Rescission</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Withdrawn</fullName>
+                <fullName>Rejected</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7029,22 +7012,6 @@
                 <fullName>Completed</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Deficient</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Full Rescission</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partial Rescission</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Withdrawn</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Status__c</picklist>
@@ -7159,7 +7126,53 @@
             </values>
         </picklistValues>
     </recordTypes>
-    <searchLayouts/>
+    <searchLayouts>
+        <customTabListAdditionalFields>Petition_Case_Number__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Petition_Country__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Petition_Case_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Petition_Product__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Period_Covered_Start_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Period_Covered_End_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Requestor_Company_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Product_Description__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Petition_Case_Number__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Petition_Country__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Petition_Case_Type__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Petition_Product__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Period_Covered_Start_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Period_Covered_End_Date__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Requestor_Company_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Product_Description__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Petition_Case_Number__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Petition_Country__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Petition_Case_Type__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Petition_Product__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>RECORDTYPE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Period_Covered_Start_Date__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Period_Covered_End_Date__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Requestor_Company_Name__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>Petition_Case_Number__c</searchFilterFields>
+        <searchFilterFields>Petition_Country__c</searchFilterFields>
+        <searchFilterFields>Petition_Case_Type__c</searchFilterFields>
+        <searchFilterFields>Petition_Product__c</searchFilterFields>
+        <searchFilterFields>RECORDTYPE</searchFilterFields>
+        <searchFilterFields>Period_Covered_Start_Date__c</searchFilterFields>
+        <searchFilterFields>Period_Covered_End_Date__c</searchFilterFields>
+        <searchFilterFields>Requestor_Company_Name__c</searchFilterFields>
+        <searchFilterFields>Product_Description__c</searchFilterFields>
+        <searchFilterFields>Segment_Name__c</searchFilterFields>
+        <searchResultsAdditionalFields>Petition_Case_Number__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Petition_Country__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Petition_Case_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Petition_Product__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Period_Covered_Start_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Period_Covered_End_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Requestor_Company_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Product_Description__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
         <fullName>ACR_Final_Extension</fullName>
@@ -7370,6 +7383,16 @@ SR = Sunset Review</description>
         <errorMessage>Preliminary Extension cannot be less than zero days.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Custom_Instruction_Required</fullName>
+        <active>true</active>
+        <description>Cannot answer Have_Custom_Instruction_been_sent__c unless Litigation_YesNo__c is populated.</description>
+        <errorConditionFormula>AND (
+  ISBLANK(TEXT(Litigation_YesNo__c )),
+  NOT(ISBLANK(TEXT(Have_Custom_Instruction_been_sent__c)))
+)</errorConditionFormula>
+        <errorMessage>Litigation cannot be blank when Have Custom Instructions is populated</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>ER_Final_Extension</fullName>
         <active>true</active>
         <description>Legend to the Initials Placed on each rule name
@@ -7467,6 +7490,23 @@ SR = Sunset Review</description>
  Prelim_Extension__c &lt; 0
 )</errorConditionFormula>
         <errorMessage>Preliminary Extension must be greater than zero days.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Preliminary_Determination_Required</fullName>
+        <active>true</active>
+        <description>If type of Circumvention inquiry is equals to any of first three options and Preliminary Determination is null then throw an error.</description>
+        <errorConditionFormula>AND (
+OR (ISPICKVAL(Type_of_Circumvention_Inquiry__c, &apos;Merchandise Completed or Assembled in United States&apos;),
+
+ISPICKVAL(Type_of_Circumvention_Inquiry__c, &apos;Merchandise Completed or Assembled in other Foreign Countries&apos;),
+
+ISPICKVAL(Type_of_Circumvention_Inquiry__c, &apos;Minor Altercations of Merchandise&apos;)
+),
+
+ISBLANK(TEXT(Preliminary_Determination__c))
+
+)</errorConditionFormula>
+        <errorMessage>Preliminary Determination must have a value with the Type of Circumvention Inquiry selected</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>SI_Access_Barcode</fullName>
