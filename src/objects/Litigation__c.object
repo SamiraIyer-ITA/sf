@@ -503,9 +503,9 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
                     <label>Final</label>
                 </value>
                 <value>
-                    <fullName>Completed</fullName>
+                    <fullName>Closed</fullName>
                     <default>false</default>
-                    <label>Completed</label>
+                    <label>Closed</label>
                 </value>
                 <value>
                     <fullName>Active</fullName>
@@ -588,7 +588,7 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
-                <fullName>Completed</fullName>
+                <fullName>Closed</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -650,7 +650,7 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
-                <fullName>Completed</fullName>
+                <fullName>Closed</fullName>
                 <default>false</default>
             </values>
             <values>

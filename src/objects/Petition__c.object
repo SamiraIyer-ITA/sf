@@ -744,19 +744,15 @@ C-###-### for CVD</inlineHelpText>
                     <label>Petition Withdrawn/Did Not Initiate</label>
                 </value>
                 <value>
-                    <fullName>In Progress</fullName>
-                    <default>true</default>
-                    <label>In Progress</label>
-                </value>
-                <value>
-                    <fullName>Self-Initiate In Progress</fullName>
-                    <default>false</default>
-                    <label>Self-Initiate In Progress</label>
-                </value>
-                <value>
                     <fullName>Self-Initiated</fullName>
                     <default>false</default>
                     <label>Self-Initiated</label>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>In Progress</label>
                 </value>
                 <value>
                     <fullName>Initiated</fullName>
@@ -775,6 +771,12 @@ C-###-### for CVD</inlineHelpText>
                     <default>false</default>
                     <isActive>false</isActive>
                     <label>Self Initiate in Progress</label>
+                </value>
+                <value>
+                    <fullName>Self-Initiate In Progress</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Self-Initiate In Progress</label>
                 </value>
             </valueSetDefinition>
         </valueSet>

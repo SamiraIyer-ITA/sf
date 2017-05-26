@@ -715,10 +715,10 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Have_Custom_Instructions_been_sent__c</fullName>
+        <fullName>Have_Custom_Instruction_been_sent__c</fullName>
         <description>Have Custom Instructions been sent?</description>
         <externalId>false</externalId>
-        <label>Have Custom Instructions been sent?</label>
+        <label>Have Custom Instruction been sent?</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -777,6 +777,18 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Injunction__c</fullName>
+        <externalId>false</externalId>
+        <label>Injunction</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Intent_to_Participate_by_Domestic_IPs__c</fullName>
@@ -849,6 +861,26 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Litigation_Hold_Expiration_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Litigation Hold Expiration Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Litigation_Resolved__c</fullName>
+        <externalId>false</externalId>
+        <label>Litigation Resolved</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Litigation_Status__c</fullName>
         <externalId>false</externalId>
         <label>Litigation Status</label>
@@ -874,9 +906,33 @@
                     <default>false</default>
                     <label>None</label>
                 </value>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Active</label>
+                </value>
+                <value>
+                    <fullName>Inactive</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Inactive</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
         <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Litigation_YesNo__c</fullName>
+        <externalId>false</externalId>
+        <label>Litigation</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Lotus_Notes_History_Data__c</fullName>
@@ -888,6 +944,16 @@
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Lotus_Notes_Litigation_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Lotus Notes Litigation ID</label>
+        <length>250</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Memorandum_on_Adequacy_Determination__c</fullName>
@@ -1354,6 +1420,51 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Segment_Outcome__c</fullName>
+        <externalId>false</externalId>
+        <label>Segment Outcome</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Full Rescission</fullName>
+                    <default>false</default>
+                    <label>Full Rescission</label>
+                </value>
+                <value>
+                    <fullName>Partial Rescission</fullName>
+                    <default>false</default>
+                    <label>Partial Rescission</label>
+                </value>
+                <value>
+                    <fullName>Withdrawn</fullName>
+                    <default>false</default>
+                    <label>Withdrawn</label>
+                </value>
+                <value>
+                    <fullName>Deficient</fullName>
+                    <default>false</default>
+                    <label>Deficient</label>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                    <label>Completed</label>
+                </value>
+                <value>
+                    <fullName>Rejected/Deficient/Negative Finding</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Rejected/Deficient/Negative Finding</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Segment_Status__c</fullName>
         <description>Segment Status</description>
         <externalId>false</externalId>
@@ -1409,6 +1520,72 @@
                     <fullName>Suspended</fullName>
                     <default>false</default>
                     <label>Suspended</label>
+                </value>
+                <value>
+                    <fullName>Amend Final</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Amend Final</label>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Completed</label>
+                </value>
+                <value>
+                    <fullName>Customs</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Customs</label>
+                </value>
+                <value>
+                    <fullName>Final</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Final</label>
+                </value>
+                <value>
+                    <fullName>Hold</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Hold</label>
+                </value>
+                <value>
+                    <fullName>How To Proceed</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>How To Proceed</label>
+                </value>
+                <value>
+                    <fullName>Prelim</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Prelim</label>
+                </value>
+                <value>
+                    <fullName>Rejected/Deficient/Negative Finding</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Rejected/Deficient/Negative Finding</label>
+                </value>
+                <value>
+                    <fullName>Remand/International Litigation</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Remand/International Litigation</label>
+                </value>
+                <value>
+                    <fullName>With the Court</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>With the Court</label>
+                </value>
+                <value>
+                    <fullName>Withdrawn/Rescinded</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Withdrawn/Rescinded</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2097,7 +2274,18 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Have_Custom_Instructions_been_sent__c</picklist>
+            <picklist>Have_Custom_Instruction_been_sent__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Injunction__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -2141,6 +2329,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Litigation_Resolved__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Litigation_Status__c</picklist>
             <values>
                 <fullName>Injunction</fullName>
@@ -2152,6 +2351,17 @@
             </values>
             <values>
                 <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Litigation_YesNo__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2248,6 +2458,29 @@
             </values>
             <values>
                 <fullName>Scope not properly filed and served</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Segment_Outcome__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deficient</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Full Rescission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partial Rescission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2806,7 +3039,18 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Have_Custom_Instructions_been_sent__c</picklist>
+            <picklist>Have_Custom_Instruction_been_sent__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Injunction__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -2850,6 +3094,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Litigation_Resolved__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Litigation_Status__c</picklist>
             <values>
                 <fullName>Injunction</fullName>
@@ -2861,6 +3116,17 @@
             </values>
             <values>
                 <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Litigation_YesNo__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2957,6 +3223,29 @@
             </values>
             <values>
                 <fullName>Scope not properly filed and served</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Segment_Outcome__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deficient</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Full Rescission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partial Rescission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3515,7 +3804,18 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Have_Custom_Instructions_been_sent__c</picklist>
+            <picklist>Have_Custom_Instruction_been_sent__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Injunction__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -3559,6 +3859,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Litigation_Resolved__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Litigation_Status__c</picklist>
             <values>
                 <fullName>Injunction</fullName>
@@ -3570,6 +3881,17 @@
             </values>
             <values>
                 <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Litigation_YesNo__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3666,6 +3988,29 @@
             </values>
             <values>
                 <fullName>Scope not properly filed and served</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Segment_Outcome__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deficient</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Full Rescission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partial Rescission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4224,7 +4569,18 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Have_Custom_Instructions_been_sent__c</picklist>
+            <picklist>Have_Custom_Instruction_been_sent__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Injunction__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -4268,6 +4624,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Litigation_Resolved__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Litigation_Status__c</picklist>
             <values>
                 <fullName>Injunction</fullName>
@@ -4279,6 +4646,17 @@
             </values>
             <values>
                 <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Litigation_YesNo__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4375,6 +4753,29 @@
             </values>
             <values>
                 <fullName>Scope not properly filed and served</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Segment_Outcome__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deficient</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Full Rescission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partial Rescission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4933,7 +5334,18 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Have_Custom_Instructions_been_sent__c</picklist>
+            <picklist>Have_Custom_Instruction_been_sent__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Injunction__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -4977,6 +5389,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Litigation_Resolved__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Litigation_Status__c</picklist>
             <values>
                 <fullName>Injunction</fullName>
@@ -4988,6 +5411,17 @@
             </values>
             <values>
                 <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Litigation_YesNo__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5084,6 +5518,29 @@
             </values>
             <values>
                 <fullName>Scope not properly filed and served</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Segment_Outcome__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deficient</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Full Rescission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partial Rescission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5642,7 +6099,18 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Have_Custom_Instructions_been_sent__c</picklist>
+            <picklist>Have_Custom_Instruction_been_sent__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Injunction__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -5686,6 +6154,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Litigation_Resolved__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Litigation_Status__c</picklist>
             <values>
                 <fullName>Injunction</fullName>
@@ -5697,6 +6176,17 @@
             </values>
             <values>
                 <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Litigation_YesNo__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5793,6 +6283,29 @@
             </values>
             <values>
                 <fullName>Scope not properly filed and served</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Segment_Outcome__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deficient</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Full Rescission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partial Rescission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6351,7 +6864,18 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Have_Custom_Instructions_been_sent__c</picklist>
+            <picklist>Have_Custom_Instruction_been_sent__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Injunction__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -6395,6 +6919,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Litigation_Resolved__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Litigation_Status__c</picklist>
             <values>
                 <fullName>Injunction</fullName>
@@ -6406,6 +6941,17 @@
             </values>
             <values>
                 <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Litigation_YesNo__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6502,6 +7048,29 @@
             </values>
             <values>
                 <fullName>Scope not properly filed and served</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Segment_Outcome__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deficient</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Full Rescission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partial Rescission</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Withdrawn</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
