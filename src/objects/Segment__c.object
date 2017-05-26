@@ -841,16 +841,6 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Issues_to_DAS__c</fullName>
-        <description>Issues to DAS</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Issues to DAS</inlineHelpText>
-        <label>Issues to DAS</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Link__c</fullName>
         <externalId>false</externalId>
         <formula>HYPERLINK( LEFT($Api.Enterprise_Server_URL_390 , FIND(&apos;/services&apos;, $Api.Enterprise_Server_URL_390)) &amp; Id,  Segment_Name__c , &apos;_self&apos;)</formula>
@@ -886,41 +876,35 @@
         <label>Litigation Status</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>MultiselectPicklist</type>
+        <type>Picklist</type>
         <valueSet>
             <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>Injunction</fullName>
-                    <default>false</default>
-                    <label>Injunction</label>
-                </value>
-                <value>
-                    <fullName>Litigation</fullName>
-                    <default>false</default>
-                    <label>Litigation</label>
-                </value>
-                <value>
-                    <fullName>None</fullName>
-                    <default>false</default>
-                    <label>None</label>
-                </value>
-                <value>
                     <fullName>Active</fullName>
                     <default>false</default>
-                    <isActive>false</isActive>
                     <label>Active</label>
                 </value>
                 <value>
                     <fullName>Inactive</fullName>
                     <default>false</default>
-                    <isActive>false</isActive>
                     <label>Inactive</label>
+                </value>
+                <value>
+                    <fullName>Litigation</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Litigation</label>
+                </value>
+                <value>
+                    <fullName>None</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>None</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
-        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>Litigation_YesNo__c</fullName>
@@ -1465,27 +1449,6 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>Segment_Status__c</fullName>
-        <description>Segment Status</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Segment Status</inlineHelpText>
-        <label>Segment Status</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Completed</fullName>
-                    <default>false</default>
-                    <label>Completed</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Status__c</fullName>
         <externalId>false</externalId>
         <label>Status</label>
@@ -1497,14 +1460,29 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>Active</fullName>
+                    <fullName>Prelim</fullName>
                     <default>false</default>
-                    <label>Active</label>
+                    <label>Prelim</label>
                 </value>
                 <value>
-                    <fullName>Litigation Hold</fullName>
+                    <fullName>Final</fullName>
                     <default>false</default>
-                    <label>Litigation Hold</label>
+                    <label>Final</label>
+                </value>
+                <value>
+                    <fullName>Amend Final</fullName>
+                    <default>false</default>
+                    <label>Amend Final</label>
+                </value>
+                <value>
+                    <fullName>How To Proceed</fullName>
+                    <default>false</default>
+                    <label>How To Proceed</label>
+                </value>
+                <value>
+                    <fullName>Hold</fullName>
+                    <default>false</default>
+                    <label>Hold</label>
                 </value>
                 <value>
                     <fullName>Litigation</fullName>
@@ -1512,20 +1490,20 @@
                     <label>Litigation</label>
                 </value>
                 <value>
+                    <fullName>Customs</fullName>
+                    <default>false</default>
+                    <label>Customs</label>
+                </value>
+                <value>
                     <fullName>Closed</fullName>
                     <default>false</default>
                     <label>Closed</label>
                 </value>
                 <value>
-                    <fullName>Suspended</fullName>
-                    <default>false</default>
-                    <label>Suspended</label>
-                </value>
-                <value>
-                    <fullName>Amend Final</fullName>
+                    <fullName>Active</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
-                    <label>Amend Final</label>
+                    <label>Active</label>
                 </value>
                 <value>
                     <fullName>Completed</fullName>
@@ -1534,34 +1512,10 @@
                     <label>Completed</label>
                 </value>
                 <value>
-                    <fullName>Customs</fullName>
+                    <fullName>Litigation Hold</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
-                    <label>Customs</label>
-                </value>
-                <value>
-                    <fullName>Final</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>Final</label>
-                </value>
-                <value>
-                    <fullName>Hold</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>Hold</label>
-                </value>
-                <value>
-                    <fullName>How To Proceed</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>How To Proceed</label>
-                </value>
-                <value>
-                    <fullName>Prelim</fullName>
-                    <default>false</default>
-                    <isActive>false</isActive>
-                    <label>Prelim</label>
+                    <label>Litigation Hold</label>
                 </value>
                 <value>
                     <fullName>Rejected/Deficient/Negative Finding</fullName>
@@ -1574,6 +1528,12 @@
                     <default>false</default>
                     <isActive>false</isActive>
                     <label>Remand/International Litigation</label>
+                </value>
+                <value>
+                    <fullName>Suspended</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Suspended</label>
                 </value>
                 <value>
                     <fullName>With the Court</fullName>
@@ -2342,15 +2302,11 @@
         <picklistValues>
             <picklist>Litigation_Status__c</picklist>
             <values>
-                <fullName>Injunction</fullName>
+                <fullName>Active</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Litigation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>None</fullName>
+                <fullName>Inactive</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2487,7 +2443,7 @@
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
-                <fullName>Active</fullName>
+                <fullName>Amend Final</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2495,15 +2451,23 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Customs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Final</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Litigation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Litigation Hold</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Suspended</fullName>
+                <fullName>Prelim</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3107,15 +3071,11 @@
         <picklistValues>
             <picklist>Litigation_Status__c</picklist>
             <values>
-                <fullName>Injunction</fullName>
+                <fullName>Active</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Litigation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>None</fullName>
+                <fullName>Inactive</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3252,11 +3212,19 @@
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
-                <fullName>Active</fullName>
+                <fullName>Closed</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Closed</fullName>
+                <fullName>Customs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Final</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hold</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3264,11 +3232,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Litigation Hold</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Suspended</fullName>
+                <fullName>Prelim</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3872,15 +3836,11 @@
         <picklistValues>
             <picklist>Litigation_Status__c</picklist>
             <values>
-                <fullName>Injunction</fullName>
+                <fullName>Active</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Litigation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>None</fullName>
+                <fullName>Inactive</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4017,11 +3977,19 @@
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
-                <fullName>Active</fullName>
+                <fullName>Closed</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Closed</fullName>
+                <fullName>Customs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Final</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hold</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4029,11 +3997,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Litigation Hold</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Suspended</fullName>
+                <fullName>Prelim</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4637,15 +4601,11 @@
         <picklistValues>
             <picklist>Litigation_Status__c</picklist>
             <values>
-                <fullName>Injunction</fullName>
+                <fullName>Active</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Litigation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>None</fullName>
+                <fullName>Inactive</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4782,7 +4742,7 @@
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
-                <fullName>Active</fullName>
+                <fullName>Amend Final</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4790,15 +4750,23 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Customs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Final</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Litigation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Litigation Hold</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Suspended</fullName>
+                <fullName>Prelim</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5402,15 +5370,11 @@
         <picklistValues>
             <picklist>Litigation_Status__c</picklist>
             <values>
-                <fullName>Injunction</fullName>
+                <fullName>Active</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Litigation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>None</fullName>
+                <fullName>Inactive</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5547,7 +5511,7 @@
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
-                <fullName>Active</fullName>
+                <fullName>Amend Final</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5555,15 +5519,23 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Customs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Final</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Litigation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Litigation Hold</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Suspended</fullName>
+                <fullName>Prelim</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6167,15 +6139,11 @@
         <picklistValues>
             <picklist>Litigation_Status__c</picklist>
             <values>
-                <fullName>Injunction</fullName>
+                <fullName>Active</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Litigation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>None</fullName>
+                <fullName>Inactive</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6312,11 +6280,23 @@
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
-                <fullName>Active</fullName>
+                <fullName>Closed</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Closed</fullName>
+                <fullName>Customs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Final</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>How To Proceed</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6324,11 +6304,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Litigation Hold</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Suspended</fullName>
+                <fullName>Prelim</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6932,15 +6908,11 @@
         <picklistValues>
             <picklist>Litigation_Status__c</picklist>
             <values>
-                <fullName>Injunction</fullName>
+                <fullName>Active</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Litigation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>None</fullName>
+                <fullName>Inactive</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7077,23 +7049,7 @@
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
-                <fullName>Active</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Closed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Litigation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Litigation Hold</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Suspended</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7446,6 +7402,16 @@ SR = Sunset Review</description>
  Prelim_Extension__c &gt; 120 || Prelim_Extension__c &lt; 0
 )</errorConditionFormula>
         <errorMessage>Cannot exceed more than 120 days</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Litigation_Resolved_Required</fullName>
+        <active>true</active>
+        <description>Litigation Resolved cannot be blank if Litigation is &apos;Yes&apos;</description>
+        <errorConditionFormula>AND ( 
+ISPICKVAL( Litigation_YesNo__c , &apos;Yes&apos;), 
+ISBLANK( TEXT( Litigation_Resolved__c ) ) 
+)</errorConditionFormula>
+        <errorMessage>Litigation Resolved cannot be blank when Litigation is &quot;Yes&quot;</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>NSR_Final_Extension</fullName>

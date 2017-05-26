@@ -4519,11 +4519,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Segment__c.Issues_to_DAS__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Segment__c.Link__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4775,11 +4770,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Segment__c.Segment_Outcome__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Segment__c.Segment_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
