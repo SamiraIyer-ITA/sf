@@ -2788,6 +2788,16 @@ NOT(AND(ISBLANK( Calc_Amended_Prelim_Determination_Sig__c )))
         <errorMessage>If Amend the Preliminary Determination is &quot;No&quot;, then there should be null for Calculated Amended Preliminary Determination Signature field.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Custom_Instruction_Required</fullName>
+        <active>true</active>
+        <description>Cannot answer Have_Custom_Instruction_been_sent__c unless Litigation_YesNo__c is populated.</description>
+        <errorConditionFormula>AND (
+  ISBLANK(TEXT(Litigation_YesNo__c )),
+  NOT(ISBLANK(TEXT(Have_Custom_Instruction_been_sent__c)))
+)</errorConditionFormula>
+        <errorMessage>Litigation cannot be blank when Have Custom Instructions is populated</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Final_Extension_Null_If_False</fullName>
         <active>true</active>
         <errorConditionFormula>AND (
