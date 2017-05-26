@@ -27,6 +27,8 @@ public without sharing class StaffingAssignmentExtension {
         } set;
     }
 
+    public Boolean error {get; set;}
+
     /**********************************
      * Variables for a parent record
      *********************************/
@@ -215,9 +217,17 @@ public without sharing class StaffingAssignmentExtension {
             	Integer.valueOf(ApexPages.currentPage().getParameters().get('addWrapper')) : 0;
             }
             sa = setSaParent(parentId, parentSObjectType);
+            if (parentId == null || parentSObjectType == null) {
+            	checkParent();
+            	return;
+            }
             init(sa, addWrapper);
         } else {
 	        sa = (Staffing_Assignment__c)stdController.getRecord();
+	        if (parentId == null || parentSObjectType == null) {
+	        	checkParent();
+	        	return;
+	        }
 	        init(sa);
 	    }
 	}
@@ -316,6 +326,16 @@ public without sharing class StaffingAssignmentExtension {
 			return null;
 		}
 	}
+
+	public PageReference checkParent() {
+        if(parentId == null || parentSObjectType == null) {
+        	ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 
+			'New Staffing Assignments cannot be created from this page. ' + 
+			'Navigate to the record that you would like to add a Staffing Assignment to and click the "New Staffing Assignment" button on that record\'s related list'));
+			error = true;
+        }        
+    	return null;
+    }
 
 	private String getReturnUrl() {
 		return ApexPages.currentPage().getParameters().get('retURL');
