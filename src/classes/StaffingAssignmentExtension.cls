@@ -27,7 +27,7 @@ public without sharing class StaffingAssignmentExtension {
         } set;
     }
 
-    public Boolean error {get; set;}
+    public Boolean noParentError {get; set;}
 
     /**********************************
      * Variables for a parent record
@@ -332,7 +332,7 @@ public without sharing class StaffingAssignmentExtension {
         	ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 
 			'New Staffing Assignments cannot be created from this page. ' + 
 			'Navigate to the record that you would like to add a Staffing Assignment to and click the "New Staffing Assignment" button on that record\'s related list'));
-			error = true;
+			noParentError = true;
         }        
     	return null;
     }
