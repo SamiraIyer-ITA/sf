@@ -1,7 +1,8 @@
 public without sharing class PetitionTriggerHandler {
 
     @TestVisible private static Set<String> outcomesThatStartCalculations = new Set<String>();
-    private static Map<String,Constant__mdt> petitionConstants = setPetitionConstants();
+    @TestVisible private static Set<String> activeLitigationStatuses = new Set<String>();
+    @TestVisible private static Map<String,Constant__mdt> petitionConstants = setPetitionConstants();
 
     //FINAL AD Record Type Offsets
     private static FINAL Integer CALC_INIT_SIG = ((Integer)petitionConstants.get('Petition_Calc_Initiation_Sig').Number_Value__c);//Calculated_Initiation_Signature__c
@@ -119,11 +120,15 @@ public without sharing class PetitionTriggerHandler {
                                             FROM Constant__mdt 
                                             WHERE Petition_Calculation_Offset__c =: true];*/
             for(Constant__mdt ic : [SELECT QualifiedAPIName, Used_with_Field_Named__c, Number_Value__c, String_Value__c, 
-                                                    ADCVD_Objects__r.Object_API_Name__c, ADCVD_Objects__r.Record_Type_Name__c 
+                                                    ADCVD_Objects__r.Object_API_Name__c, ADCVD_Objects__r.Record_Type_Name__c,
+                                                    Litigation_Calculation_Offset__c 
                                             FROM Constant__mdt 
                                             WHERE Petition_Calculation_Offset__c =: true]) {
                 if (ic.Used_with_Field_Named__c == 'Petition_Outcome__c') {
                     outcomesThatStartCalculations.add(ic.String_Value__c);
+                }
+                if (ic.Used_with_Field_Named__c == 'Status__c' && ic.Litigation_Calculation_Offset__c && ic.String_Value__c != null) {
+                    activeLitigationStatuses.add(ic.String_Value__c);
                 }
                 returnMap.put(ic.QualifiedAPIName, ic);
             }
@@ -165,7 +170,7 @@ public without sharing class PetitionTriggerHandler {
         if (petitionIdToLitigationMap != null && !petitionIdToLitigationMap.isEmpty()) {
             for (Id petitionId : petitionIdToLitigationMap.keySet()) {
                 for (Litigation__c l : petitionIdToLitigationMap.get(petitionId)) {
-                    if (petitionIdToLitigationStatusMap.get(petitionId) == null || petitionIdToLitigationStatusMap.get(petitionId) != 'Active') {
+                    if (petitionIdToLitigationStatusMap.get(petitionId) == null || !activeLitigationStatuses.contains(petitionIdToLitigationStatusMap.get(petitionId))) {
                         petitionIdToLitigationStatusMap.put(petitionId, l.Status__c);
                     }
                 }
@@ -204,7 +209,7 @@ public without sharing class PetitionTriggerHandler {
 
     @TestVisible private static void setLitigationStatus(List<Petition__c> newList) {
         for (Petition__c p : newList) {
-            if (p.Id != null && petitionIdToLitigationStatusMap.get(p.Id) != null && petitionIdToLitigationStatusMap.get(p.Id) == 'Active') {
+            if (p.Id != null && petitionIdToLitigationStatusMap.get(p.Id) != null && activeLitigationStatuses.contains(petitionIdToLitigationStatusMap.get(p.Id))) {
                 p.Litigation_Status__c = 'Active';
             } else {
                 p.Litigation_Status__c = 'Inactive';
@@ -222,39 +227,25 @@ public without sharing class PetitionTriggerHandler {
     }
 
     @TestVisible private static void setInitialStatus(Petition__c p) {
-        if (p.Petition_Outcome__c == 'In Progress') {
-                p.Status__c = 'Filed';
-                if (p.Actual_Initiation_Signature__c != null) {
-                    p.Petition_Outcome__c = 'Initiated from Petition';
-                }
-            }
-        if (p.Petition_Outcome__c == 'Self-Initiate In Progress') { 
-            p.Status__c = 'Self Initiating';
-            if (p.Actual_Initiation_Signature__c != null) {
-                p.Petition_Outcome__c = 'Self-Initiated'; 
-            }
+        if ((p.Petition_Outcome__c == null || outcomesThatStartCalculations.contains(p.Petition_Outcome__c)) && p.Actual_Initiation_Signature__c == null) {
+            p.Status__c = 'In Progress';
         }
     }
 
     @TestVisible private static void setLitigationStatus(Petition__c p) {
-        if (p.Litigation_YesNo__c == 'Yes' && p.Litigation_Resolved__c == 'No' && p.Litigation_Status__c != 'Active') {
-            p.Status__c = 'With the Court';
-        } else if (p.Litigation_YesNo__c == 'Yes' && p.Litigation_Resolved__c == 'No' && p.Litigation_Status__c == 'Active') {
-            p.Status__c = 'Remand/International Litigation';
+        if (p.Litigation_YesNo__c == null) {
+            p.Litigation_YesNo__c = 'No';
+        }
+        if (p.Litigation_YesNo__c == 'Yes' && p.Litigation_Resolved__c == 'No' && p.Petition_Outcome__c != null) {
+            p.Status__c = 'Litigation';
         }
     }
 
     @TestVisible private static void setClosedStatus(Petition__c p) {
-        if (p.Litigation_YesNo__c == 'No' || (p.Litigation_YesNo__c == 'Yes' && p.Litigation_Resolved__c == 'Yes')) {
-            if (p.Petition_Outcome__c == 'Petition Withdrawn/Did Not Initiate') {
-                p.Status__c = 'Withdrawn/Rescinded';
-            }
-            if (p.Petition_Outcome__c == 'Deficient Petition/Did Not Initiate') {
-                p.Status__c = 'Rejected/Deficient/Negative Finding';
-            }
-            if (p.Petition_Outcome__c == 'Initiated from Petition' || p.Petition_Outcome__c == 'Self-Initiated') {
-                p.Status__c = 'Completed';
-            }
+        if ((p.Litigation_YesNo__c == 'No' || (p.Litigation_YesNo__c == 'Yes' && p.Litigation_Resolved__c == 'Yes')) && //not in Litigation status
+            ((outcomesThatStartCalculations.contains(p.Petition_Outcome__c) && p.Petition_Outcome__c != null && p.Actual_Initiation_Signature__c != null) || //initiated with Actual Signature
+            (!outcomesThatStartCalculations.contains(p.Petition_Outcome__c) && p.Petition_Outcome__c != null))) { //not initiated
+            p.Status__c = 'Closed';
         }
     }
 }
