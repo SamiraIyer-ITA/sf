@@ -37,10 +37,10 @@
 										<!-- ACTION BUTTONS -->
 												<div class="slds-col slds-no-flex slds-grid slds-align-top slds-align-middle">
 													<div class="slds-button-group" role="group">
-														<apex:commandButton styleClass="slds-button slds-button--neutral" action="{!save}" status="status" value="Add New Assignment" id="addNewSA-ltng" reRender="wrapperList-ltng" oncomplete="addRowLEX();"/>
-                            <apex:commandButton styleClass="slds-button slds-button--neutral" action="{!save}" status="status" value="Quick Save" id="saveButton-ltng" reRender="form-ltng, pm-ltng" oncomplete="refreshAfterQuickSave();"/>
-														<apex:commandButton styleClass="slds-button slds-button--neutral" action="{!save}" status="status" value="Save" id="QuickSaveButton-ltng" reRender="form-ltng, pm-ltng" oncomplete="navToParent();"/>
-														<apex:commandButton styleClass="slds-button slds-button--neutral" action="{!cancel}" status="status" value="Cancel" id="cancelButton-ltng" reRender="form-ltng, pm-ltng" immediate="true" oncomplete="navToParent();"/>
+														<apex:commandButton styleClass="slds-button slds-button--neutral" action="{!save}" status="status" value="Add New Assignment" id="addNewSA-ltng" reRender="wrapperList-ltng" oncomplete="addRowLEX();" rendered="{!!noParentError}"/>
+                            <apex:commandButton styleClass="slds-button slds-button--neutral" action="{!save}" status="status" value="Quick Save" id="saveButton-ltng" reRender="form-ltng, pm-ltng" oncomplete="refreshAfterQuickSave();" rendered="{!!noParentError}"/>
+														<apex:commandButton styleClass="slds-button slds-button--neutral" action="{!save}" status="status" value="Save" id="QuickSaveButton-ltng" reRender="form-ltng, pm-ltng" oncomplete="navToParent();" rendered="{!!noParentError}"/>
+														<apex:commandButton styleClass="slds-button slds-button--neutral" action="{!cancel}" status="status" value="Cancel" id="cancelButton-ltng" reRender="form-ltng, pm-ltng" immediate="true" oncomplete="navToParent();" rendered="{!!noParentError}"/>
 													</div>
 												</div>
 										<!-- / ACTION BUTTONS -->
@@ -221,18 +221,18 @@
 				</apex:dataTable>
 			</apex:outputPanel>
 		<apex:pageBlockButtons > 
-			<apex:commandButton action="{!addrow}" reRender="pb" title="Add New Assignment" value="Add New Assignment"/>
+			<apex:commandButton action="{!addrow}" reRender="pb" title="Add New Assignment" value="Add New Assignment" rendered="{!!noParentError}"/>
 		</apex:pageBlockButtons>
 		</apex:pageBlock>
 		<apex:pageBlock >
-			<apex:pageBlockSection title="Options"	rendered="{!parentSObjectType == 'ADCVD_Order__c'}" >
+			<apex:pageBlockSection title="Options"	rendered="{!parentSObjectType == 'ADCVD_Order__c'}">
 				<apex:pageBlockSectionItem >
 					<apex:outputLabel for="overwriteSegments" title="Push this Staffing Assignment to related segments and overwrite existing assignments?" value="Push this Staffing Assignment to related segments and overwrite existing assignments?" />
 					<apex:inputCheckbox value="{!overwriteSegments}" id="overwriteSegments" rendered="{!parentSObjectType == 'ADCVD_Order__c'}" />
 				</apex:pageBlockSectionItem>
 			</apex:pageBlockSection>
 			<apex:pageBlockButtons >
-				<apex:commandButton action="{!save}" reRender="page" title="Save" value="Save"/>
+				<apex:commandButton action="{!save}" reRender="page" title="Save" value="Save" rendered="{!!noParentError}"/>
 				<apex:commandButton action="{!cancel}" title="Cancel" value="Cancel"/>
 			</apex:pageBlockButtons>
 		</apex:pageBlock>
