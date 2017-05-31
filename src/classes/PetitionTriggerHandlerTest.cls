@@ -190,101 +190,37 @@ public class PetitionTriggerHandlerTest {
 
 		//From Petition
 		//Initial Status
-		System.assertEquals('In Progress', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Petition_Outcome__c);//default on Insert
-		System.assertEquals('Filed', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);//default on Insert
-
-		//Initial Status with Actual Initiation Signature
-		p.Actual_Initiation_Signature__c = petitionDate.addDays(14);
-		update p;
-		System.assertEquals('Initiated from Petition', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Petition_Outcome__c);
-		System.assertEquals('Filed', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
+		System.assertEquals('In Progress', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);//default on Insert
 
 		//Litigation Status - Inactive
 		p.Litigation_YesNo__c = 'Yes';
 		p.Litigation_Resolved__c = 'No';
+		p.Petition_Outcome__c = 'Initiated from Petition';
 		update p;
-		System.assertEquals('With the Court', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
-
-		//Litigation Status - Active
-		Litigation__c l = TestUtils.createLitigation(petitionDate.addDays(15), 'Remand', false);
-		l.Petition__c = p.Id;
-		l.Status__c = 'Active';
-		insert l;
-		update p;
-		System.assertEquals('Remand/International Litigation', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
+		System.assertEquals('Litigation', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
 
 		//Closed Status - Withdrawn
-		p.Litigation_Resolved__c = 'Yes';
 		p.Petition_Outcome__c = 'Petition Withdrawn/Did Not Initiate';
 		update p;
-		System.assertEquals('Withdrawn/Rescinded', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
+		System.assertEquals('Litigation', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
 
 		//Closed Status - Rejected
 		p.Litigation_YesNo__c = 'No';
 		p.Litigation_Resolved__c = '';
 		p.Petition_Outcome__c = 'Deficient Petition/Did Not Initiate';
 		update p;
-		System.assertEquals('Rejected/Deficient/Negative Finding', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
+		System.assertEquals('Closed', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
 
-		//Closed Status - Completed
-		p.Petition_Outcome__c = 'In Progress';
+		//Self-Initiated w/o Actual
+		p.Petition_Outcome__c = 'Self-Initiated';
 		update p;
-		System.assertEquals('Completed', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
+		System.assertEquals('In Progress', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
 		Test.stopTest();
-	}
-
-	@isTest static void setStatusSelfInitiating() {
-		Test.startTest();
-		if(ADCVD_TollingDayUtility.dayOfWeek(petitionDate) != 'Fri'){
-			petitionDate = petitionDate.toStartOfWeek().addDays(5);
-		}
-		Petition__c p = TestUtils.createPetition(petitionDate, 'AD ME', false);
-		p.Petition_Outcome__c = 'Self-Initiate Without a Petition';
-		insert p;
-
-		//From Petition
-		//Initial Status
-		System.assertEquals('Self-Initiate In Progress', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Petition_Outcome__c);//default on Insert
-		System.assertEquals('Self Initiating', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);//default on Insert
 
 		//Initial Status with Actual Initiation Signature
 		p.Actual_Initiation_Signature__c = petitionDate.addDays(14);
 		update p;
-		System.assertEquals('Self-Initiated', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Petition_Outcome__c);
-		System.assertEquals('Self Initiating', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
-
-		//Litigation Status - Inactive
-		p.Litigation_YesNo__c = 'Yes';
-		p.Litigation_Resolved__c = 'No';
-		update p;
-		System.assertEquals('With the Court', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
-
-		//Litigation Status - Active
-		Litigation__c l = TestUtils.createLitigation(petitionDate.addDays(15), 'Remand', false);
-		l.Petition__c = p.Id;
-		l.Status__c = 'Active';
-		insert l;
-		update p;
-		System.assertEquals('Remand/International Litigation', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
-
-		//Closed Status - Withdrawn
-		p.Litigation_Resolved__c = 'Yes';
-		p.Petition_Outcome__c = 'Petition Withdrawn/Did Not Initiate';
-		update p;
-		System.assertEquals('Withdrawn/Rescinded', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
-
-		//Closed Status - Rejected
-		p.Litigation_YesNo__c = 'No';
-		p.Litigation_Resolved__c = '';
-		p.Petition_Outcome__c = 'Deficient Petition/Did Not Initiate';
-		update p;
-		System.assertEquals('Rejected/Deficient/Negative Finding', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
-
-		//Closed Status - Completed
-		p.Petition_Outcome__c = 'Self-Initiate In Progress';
-		update p;
-		System.assertEquals('Completed', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
-		Test.stopTest();
+		System.assertEquals('Closed', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
 	}
 
 	@testSetup static void dataSetup() {
