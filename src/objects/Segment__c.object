@@ -619,6 +619,14 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Deficient_or_Withdrawn_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Deficient or Withdrawn Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Does_the_Review_Involve_CCR__c</fullName>
         <externalId>false</externalId>
         <label>Does the Review Involve CCR?</label>
