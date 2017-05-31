@@ -195,6 +195,7 @@ public class PetitionTriggerHandlerTest {
 		//Litigation Status - Inactive
 		p.Litigation_YesNo__c = 'Yes';
 		p.Litigation_Resolved__c = 'No';
+		p.Petition_Outcome__c = 'Initiated from Petition';
 		update p;
 		System.assertEquals('Litigation', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
 
