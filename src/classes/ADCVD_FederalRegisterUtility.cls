@@ -165,8 +165,10 @@ public without sharing class ADCVD_FederalRegisterUtility {
             tempInstance.amendedFinalFR = fr;
             tempInstance.amendedFinalPublishedDate = fr.Published_Date__c;
         } else if (fr.Type__c == 'ITC Preliminary') {
-            tempInstance.itcPreliminaryFR = fr;
-            tempInstance.itcPreliminaryPublishedDate = fr.Published_Date__c;
+            tempInstance.itcPreliminaryFR = tempInstance.itcPreliminaryFR != null && fr.CreatedDate > tempInstance.itcPreliminaryFR.CreatedDate ? 
+                                            tempInstance.itcPreliminaryFR : fr;//set variable to new value if currently null or new FR is older than current variable
+            tempInstance.itcPreliminaryPublishedDate = tempInstance.itcPreliminaryPublishedDate != null && fr.CreatedDate > tempInstance.itcPreliminaryFR.CreatedDate ? 
+                                            tempInstance.itcPreliminaryPublishedDate : fr.Published_Date__c;
         } else if (fr.Type__c == 'ITC Final') {
             tempInstance.itcFinalFR = tempInstance.itcFinalFR != null && fr.CreatedDate > tempInstance.itcFinalFR.CreatedDate ? 
                                             tempInstance.itcFinalFR : fr;//set variable to new value if currently null or new FR is older than current variable
@@ -189,8 +191,10 @@ public without sharing class ADCVD_FederalRegisterUtility {
             tempInstance.adminReviewOpportunityNoticeFR = fr;
             tempInstance.adminReviewOpportunityNoticePublishedDate = fr.Published_Date__c;
         } else if (fr.Type__c == 'Rescission') {
-            tempInstance.rescissionFR = fr;
-            tempInstance.rescissionPublishedDate = fr.Published_Date__c;
+            tempInstance.rescissionFR = tempInstance.rescissionFR != null && fr.CreatedDate > tempInstance.rescissionFR.CreatedDate ? 
+                                            tempInstance.rescissionFR : fr;//set variable to new value if currently null or new FR is older than current variable
+            tempInstance.rescissionPublishedDate = tempInstance.rescissionPublishedDate != null && fr.CreatedDate > tempInstance.rescissionFR.CreatedDate ? 
+                                            tempInstance.rescissionPublishedDate : fr.Published_Date__c;
         } else if (fr.Type__c == 'Correction') {
             tempInstance.correctionFR = fr;
             tempInstance.correctionPublishedDate = fr.Published_Date__c;

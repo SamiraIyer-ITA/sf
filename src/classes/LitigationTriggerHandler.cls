@@ -236,11 +236,11 @@ public without sharing class LitigationTriggerHandler {
     @TestVisible private static void setClosedStatus(Litigation__c l) {
         if (recordTypeNameMap.get(l.RecordTypeId) == INT_LITIGATION) {
             if(l.Actual_Final_Signature__c != null && l.Actual_Preliminary_Signature__c != null) {
-                l.Status__c = 'Completed';
+                l.Status__c = 'Closed';
             }
         } else if (recordTypeNameMap.get(l.RecordTypeId) == REMAND) {
             if(l.Actual_Final_Signature__c != null && l.Actual_Preliminary_Signature__c != null) {
-                l.Status__c = 'Completed';
+                l.Status__c = 'Closed';
             }
         }
     }

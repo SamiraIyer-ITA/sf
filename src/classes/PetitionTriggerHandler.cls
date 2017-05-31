@@ -183,7 +183,7 @@ public without sharing class PetitionTriggerHandler {
     ********************************/
 
     @TestVisible private static void setCalculatedInitiationSignature(Petition__c p) {
-        if(outcomesThatStartCalculations.contains(p.Petition_Outcome__c) && p.Petition_Filed__c != null){
+        if((p.Petition_Outcome__c == null || outcomesThatStartCalculations.contains(p.Petition_Outcome__c)) && p.Petition_Filed__c != null){
             Integer maximumDays = 40;
             p.Calculated_Initiation_Signature__c = p.Petition_Filed__c.addDays(CALC_INIT_SIG);
             if(p.Initiation_Extension_of_days__c != null) {
@@ -233,9 +233,6 @@ public without sharing class PetitionTriggerHandler {
     }
 
     @TestVisible private static void setLitigationStatus(Petition__c p) {
-        if (p.Litigation_YesNo__c == null) {
-            p.Litigation_YesNo__c = 'No';
-        }
         if (p.Litigation_YesNo__c == 'Yes' && p.Litigation_Resolved__c == 'No' && p.Petition_Outcome__c != null) {
             p.Status__c = 'Litigation';
         }
