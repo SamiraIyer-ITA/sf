@@ -20,10 +20,10 @@ public without sharing class ADCVD_FederalRegisterUtility {
     @TestVisible private static Set<Id> parentIdSet = new Set<Id>();
     //used for Singleton
     @TestVisible private static ADCVD_FederalRegisterUtility objectTypeInstance = null;
-    //the map that is used in trigger handlers to access a Federal Register within an ADCVD_FederalRegisterUtility instance
+    //the map that is used in trigger handlers to access an FR within an ADCVD_FederalRegisterUtility instance
     public Map<Id,ADCVD_FederalRegisterUtility> utilMap {get; private set;}
 
-    //Federal Register Variables (holds a Federal Register of a specific type for a specific parent SObject)
+    //FR Variables (holds an FR of a specific type for a specific parent SObject)
     public Federal_Register__c initiationFR {get; private set;}
     public Federal_Register__c continuationFR {get; private set;}
     public Federal_Register__c preliminaryFR {get; private set;}
@@ -131,58 +131,58 @@ public without sharing class ADCVD_FederalRegisterUtility {
     }
 
     /**
-     * Sets the Federal Register and published Date values from all Federal Registers for a given parent.  Ternaries are used on Federal Registers used in calculations to ensure the oldest
-     * Federal Register is used, except in the case of Continuation where the newest is used
+     * Sets the FR and published Date values from all FRs for a given parent.  Ternaries are used on FRs used in calculations to ensure the oldest
+     * FR is used, except in the case of Continuation where the newest is used
      * @param  fr           A Federal Register
-     * @param  tempInstance An instance of this class that has Federal Registers that exist mapped to a variable based on their type
-     * @return              The same instance is returned but with an additional Federal Register and Federal Register publishedDate variable mapped
+     * @param  tempInstance An instance of this class that has FRs that exist mapped to a variable based on their type
+     * @return              The same instance is returned but with an additional FR and FR publishedDate variable mapped
      */
     @TestVisible private static ADCVD_FederalRegisterUtility setTempInstance(Federal_Register__c fr, ADCVD_FederalRegisterUtility tempInstance) {
         if(fr.Type__c == 'Initiation') {
-            tempInstance.initiationFR = tempInstance.initiationFR != null && fr.CreatedDate > tempInstance.initiationFR.CreatedDate ? 
-                                            tempInstance.initiationFR : fr;//set variable to new value if currently null or new Federal Register is older than current variable
-            tempInstance.initiationPublishedDate = tempInstance.initiationPublishedDate != null && fr.CreatedDate > tempInstance.initiationFR.CreatedDate ? 
+            tempInstance.initiationFR = (tempInstance.initiationFR != null && fr.CreatedDate > tempInstance.initiationFR.CreatedDate) ? 
+                                            tempInstance.initiationFR : fr;//set variable to new value if currently null or new FR is older than current variable
+            tempInstance.initiationPublishedDate = (tempInstance.initiationPublishedDate != null && fr.CreatedDate > tempInstance.initiationFR.CreatedDate) ? 
                                             tempInstance.initiationPublishedDate : fr.Published_Date__c;
         } else if (fr.Type__c == 'Continuation') {
-            tempInstance.continuationFR = tempInstance.continuationFR != null && fr.CreatedDate < tempInstance.continuationFR.CreatedDate ? 
-                                            tempInstance.continuationFR : fr;//set variable to new value if currently null or new Federal Register is newer than current variable
-            tempInstance.continuationPublishedDate = tempInstance.continuationPublishedDate != null && fr.CreatedDate < tempInstance.continuationFR.CreatedDate ? 
+            tempInstance.continuationFR = (tempInstance.continuationFR != null && fr.CreatedDate < tempInstance.continuationFR.CreatedDate) ? 
+                                            tempInstance.continuationFR : fr;//set variable to new value if currently null or new FR is newer than current variable
+            tempInstance.continuationPublishedDate = (tempInstance.continuationPublishedDate != null && fr.CreatedDate < tempInstance.continuationFR.CreatedDate) ? 
                                             tempInstance.continuationPublishedDate : fr.Published_Date__c;
         } else if (fr.Type__c == 'Preliminary') {
-            tempInstance.preliminaryFR = tempInstance.preliminaryFR != null && fr.CreatedDate > tempInstance.preliminaryFR.CreatedDate ? 
-                                            tempInstance.preliminaryFR : fr;//set variable to new value if currently null or new Federal Register is older than current variable
-            tempInstance.preliminaryPublishedDate = tempInstance.preliminaryPublishedDate != null && fr.CreatedDate > tempInstance.preliminaryFR.CreatedDate ? 
+            tempInstance.preliminaryFR = (tempInstance.preliminaryFR != null && fr.CreatedDate > tempInstance.preliminaryFR.CreatedDate) ? 
+                                            tempInstance.preliminaryFR : fr;//set variable to new value if currently null or new FR is older than current variable
+            tempInstance.preliminaryPublishedDate = (tempInstance.preliminaryPublishedDate != null && fr.CreatedDate > tempInstance.preliminaryFR.CreatedDate) ? 
                                             tempInstance.preliminaryPublishedDate : fr.Published_Date__c;
         } else if (fr.Type__c == 'Amended Preliminary') {
             tempInstance.amendedPreliminaryFR = fr;
             tempInstance.amendedPreliminaryPublishedDate = fr.Published_Date__c;
         } else if (fr.Type__c == 'Final') {
-            tempInstance.finalFR = tempInstance.finalFR != null && fr.CreatedDate > tempInstance.finalFR.CreatedDate ? 
-                                            tempInstance.finalFR : fr;//set variable to new value if currently null or new Federal Register is older than current variable
-            tempInstance.finalPublishedDate = tempInstance.finalPublishedDate != null && fr.CreatedDate > tempInstance.finalFR.CreatedDate ? 
+            tempInstance.finalFR = (tempInstance.finalFR != null && fr.CreatedDate > tempInstance.finalFR.CreatedDate) ? 
+                                            tempInstance.finalFR : fr;//set variable to new value if currently null or new FR is older than current variable
+            tempInstance.finalPublishedDate = (tempInstance.finalPublishedDate != null && fr.CreatedDate > tempInstance.finalFR.CreatedDate) ? 
                                             tempInstance.finalPublishedDate : fr.Published_Date__c;
         } else if (fr.Type__c == 'Amended Final') {
             tempInstance.amendedFinalFR = fr;
             tempInstance.amendedFinalPublishedDate = fr.Published_Date__c;
         } else if (fr.Type__c == 'ITC Preliminary') {
-            tempInstance.itcPreliminaryFR = tempInstance.itcPreliminaryFR != null && fr.CreatedDate > tempInstance.itcPreliminaryFR.CreatedDate ? 
-                                            tempInstance.itcPreliminaryFR : fr;//set variable to new value if currently null or new Federal Register is older than current variable
-            tempInstance.itcPreliminaryPublishedDate = tempInstance.itcPreliminaryPublishedDate != null && fr.CreatedDate > tempInstance.itcPreliminaryFR.CreatedDate ? 
+            tempInstance.itcPreliminaryFR = (tempInstance.itcPreliminaryFR != null && fr.CreatedDate > tempInstance.itcPreliminaryFR.CreatedDate) ? 
+                                            tempInstance.itcPreliminaryFR : fr;//set variable to new value if currently null or new FR is older than current variable
+            tempInstance.itcPreliminaryPublishedDate = (tempInstance.itcPreliminaryPublishedDate != null && fr.CreatedDate > tempInstance.itcPreliminaryFR.CreatedDate) ? 
                                             tempInstance.itcPreliminaryPublishedDate : fr.Published_Date__c;
         } else if (fr.Type__c == 'ITC Final') {
-            tempInstance.itcFinalFR = tempInstance.itcFinalFR != null && fr.CreatedDate > tempInstance.itcFinalFR.CreatedDate ? 
-                                            tempInstance.itcFinalFR : fr;//set variable to new value if currently null or new Federal Register is older than current variable
-            tempInstance.itcFinalPublishedDate = tempInstance.itcFinalPublishedDate != null && fr.CreatedDate > tempInstance.itcFinalFR.CreatedDate ? 
+            tempInstance.itcFinalFR = (tempInstance.itcFinalFR != null && fr.CreatedDate > tempInstance.itcFinalFR.CreatedDate) ? 
+                                            tempInstance.itcFinalFR : fr;//set variable to new value if currently null or new FR is older than current variable
+            tempInstance.itcFinalPublishedDate = (tempInstance.itcFinalPublishedDate != null && fr.CreatedDate > tempInstance.itcFinalFR.CreatedDate) ? 
                                             tempInstance.itcFinalPublishedDate : fr.Published_Date__c;
         } else if (fr.Type__c == 'Order') {
-            tempInstance.orderFR = tempInstance.orderFR != null && fr.CreatedDate > tempInstance.orderFR.CreatedDate ? 
-                                            tempInstance.orderFR : fr;//set variable to new value if currently null or new Federal Register is older than current variable
-            tempInstance.orderPublishedDate = tempInstance.orderPublishedDate != null && fr.CreatedDate > tempInstance.orderFR.CreatedDate ? 
+            tempInstance.orderFR = (tempInstance.orderFR != null && fr.CreatedDate > tempInstance.orderFR.CreatedDate) ? 
+                                            tempInstance.orderFR : fr;//set variable to new value if currently null or new FR is older than current variable
+            tempInstance.orderPublishedDate = (tempInstance.orderPublishedDate != null && fr.CreatedDate > tempInstance.orderFR.CreatedDate) ? 
                                             tempInstance.orderPublishedDate : fr.Published_Date__c;
         } else if (fr.Type__c == 'Postponement') {
-            tempInstance.postponementFR = tempInstance.postponementFR != null && fr.CreatedDate > tempInstance.postponementFR.CreatedDate ? 
-                                            tempInstance.postponementFR : fr;//set variable to new value if currently null or new Federal Register is older than current variable
-            tempInstance.postponementPublishedDate = tempInstance.postponementPublishedDate != null && fr.CreatedDate > tempInstance.postponementFR.CreatedDate ? 
+            tempInstance.postponementFR = (tempInstance.postponementFR != null && fr.CreatedDate > tempInstance.postponementFR.CreatedDate) ? 
+                                            tempInstance.postponementFR : fr;//set variable to new value if currently null or new FR is older than current variable
+            tempInstance.postponementPublishedDate = (tempInstance.postponementPublishedDate != null && fr.CreatedDate > tempInstance.postponementFR.CreatedDate) ? 
                                             tempInstance.postponementPublishedDate : fr.Published_Date__c;
         } else if (fr.Type__c == 'Post Litigation') {
             tempInstance.postLitigationFR = fr;
@@ -191,17 +191,17 @@ public without sharing class ADCVD_FederalRegisterUtility {
             tempInstance.adminReviewOpportunityNoticeFR = fr;
             tempInstance.adminReviewOpportunityNoticePublishedDate = fr.Published_Date__c;
         } else if (fr.Type__c == 'Rescission') {
-            tempInstance.rescissionFR = tempInstance.rescissionFR != null && fr.CreatedDate > tempInstance.rescissionFR.CreatedDate ? 
-                                            tempInstance.rescissionFR : fr;//set variable to new value if currently null or new Federal Register is older than current variable
-            tempInstance.rescissionPublishedDate = tempInstance.rescissionPublishedDate != null && fr.CreatedDate > tempInstance.rescissionFR.CreatedDate ? 
+            tempInstance.rescissionFR = (tempInstance.rescissionFR != null && fr.CreatedDate > tempInstance.rescissionFR.CreatedDate) ? 
+                                            tempInstance.rescissionFR : fr;//set variable to new value if currently null or new FR is older than current variable
+            tempInstance.rescissionPublishedDate = (tempInstance.rescissionPublishedDate != null && fr.CreatedDate > tempInstance.rescissionFR.CreatedDate) ? 
                                             tempInstance.rescissionPublishedDate : fr.Published_Date__c;
         } else if (fr.Type__c == 'Correction') {
             tempInstance.correctionFR = fr;
             tempInstance.correctionPublishedDate = fr.Published_Date__c;
         } else if (fr.Type__c == 'Revocation') {
-            tempInstance.revocationFR = tempInstance.revocationFR != null && fr.CreatedDate > tempInstance.revocationFR.CreatedDate ? 
-                                            tempInstance.revocationFR : fr;//set variable to new value if currently null or new Federal Register is older than current variable
-            tempInstance.revocationPublishedDate = tempInstance.revocationPublishedDate != null && fr.CreatedDate > tempInstance.revocationFR.CreatedDate ? 
+            tempInstance.revocationFR = (tempInstance.revocationFR != null && fr.CreatedDate > tempInstance.revocationFR.CreatedDate) ? 
+                                            tempInstance.revocationFR : fr;//set variable to new value if currently null or new FR is older than current variable
+            tempInstance.revocationPublishedDate = (tempInstance.revocationPublishedDate != null && fr.CreatedDate > tempInstance.revocationFR.CreatedDate) ? 
                                             tempInstance.revocationPublishedDate : fr.Published_Date__c;
         } else if (fr.Type__c == 'Initiation/Prelim') {
             tempInstance.initiationPrelimFR = fr;
@@ -210,14 +210,14 @@ public without sharing class ADCVD_FederalRegisterUtility {
             tempInstance.quarterlyScopeFR = fr;
             tempInstance.quarterlyScopePublishedDate = fr.Published_Date__c;
         } else if (fr.Type__c == 'Suspension Agreement') {
-            tempInstance.suspensionAgreementFR = tempInstance.suspensionAgreementFR != null && fr.CreatedDate > tempInstance.suspensionAgreementFR.CreatedDate ? 
-                                            tempInstance.suspensionAgreementFR : fr;//set variable to new value if currently null or new Federal Register is older than current variable
-            tempInstance.suspensionAgreementPublishedDate = tempInstance.suspensionAgreementPublishedDate != null && fr.CreatedDate > tempInstance.suspensionAgreementFR.CreatedDate ? 
+            tempInstance.suspensionAgreementFR = (tempInstance.suspensionAgreementFR != null && fr.CreatedDate > tempInstance.suspensionAgreementFR.CreatedDate) ? 
+                                            tempInstance.suspensionAgreementFR : fr;//set variable to new value if currently null or new FR is older than current variable
+            tempInstance.suspensionAgreementPublishedDate = (tempInstance.suspensionAgreementPublishedDate != null && fr.CreatedDate > tempInstance.suspensionAgreementFR.CreatedDate) ? 
                                             tempInstance.suspensionAgreementPublishedDate : fr.Published_Date__c;
         } else if (fr.Type__c == 'Termination') {
-            tempInstance.terminationFR = tempInstance.terminationFR != null && fr.CreatedDate > tempInstance.terminationFR.CreatedDate ? 
-                                            tempInstance.terminationFR : fr;//set variable to new value if currently null or new Federal Register is older than current variable
-            tempInstance.terminationPublishedDate = tempInstance.terminationPublishedDate != null && fr.CreatedDate > tempInstance.terminationFR.CreatedDate ? 
+            tempInstance.terminationFR = (tempInstance.terminationFR != null && fr.CreatedDate > tempInstance.terminationFR.CreatedDate) ? 
+                                            tempInstance.terminationFR : fr;//set variable to new value if currently null or new FR is older than current variable
+            tempInstance.terminationPublishedDate = (tempInstance.terminationPublishedDate != null && fr.CreatedDate > tempInstance.terminationFR.CreatedDate) ? 
                                             tempInstance.terminationPublishedDate : fr.Published_Date__c;
         }
         return tempInstance;
