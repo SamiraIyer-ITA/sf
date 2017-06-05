@@ -1,5 +1,7 @@
 public without sharing class InvestigationTriggerHandler {
 	
+    @TestVisible private static Set<String> outcomesThatTermInvestigations = new Set<String>();
+    @TestVisible private static Set<String> activeLitigationStatuses = new Set<String>();
     private static Map<String,Constant__mdt> investigationApiToConstants = setInvestigationApiToConstants();
 
 	//FINAL Investigation Record Type Developer Names
@@ -39,6 +41,10 @@ public without sharing class InvestigationTriggerHandler {
     private static FINAL Integer CVD_CALC_ORDER_FR_SIGNATURE = ((Integer)investigationApiToConstants.get('CVD_Calc_Order_FR_Sig').Number_Value__c);//Calculated_Order_FR_Signature__c
     private static FINAL Integer CVD_CALC_ITC_FINAL_FR_PUBLISHED = ((Integer)investigationApiToConstants.get('CVD_Calc_ITC_Final_FR_Published').Number_Value__c);//Calculated_ITC_Final_FR_Published__c
     private static FINAL Integer CVD_EST_ORDER_FR_PUBLISHED = ((Integer)investigationApiToConstants.get('CVD_Est_Order_FR_Published').Number_Value__c);//Estimated_Order_FR_Published__c
+
+    //FINAL Status Offsets
+    private static FINAL Integer NAFTA_COUNTRY_HOLD = ((Integer)investigationApiToConstants.get('Inv_Hold_Status_NAFTA').Number_Value__c);//Litigation_Hold_Expiration_Date__c
+    private static FINAL Integer NON_NAFTA_COUNTRY_HOLD = ((Integer)investigationApiToConstants.get('Inv_Hold_Status_Non_NAFTA').Number_Value__c);//Litigation_Hold_Expiration_Date__c
     
 	public static boolean preventRecursion = false;
     public static void mainEntry(List<Investigation__c> newList, List<Investigation__c> oldList, Map<Id, Investigation__c> newMap, 
@@ -51,11 +57,13 @@ public without sharing class InvestigationTriggerHandler {
             setRecordType(newList);
             syncToInvestigation(newList);
         	calculateInvestigationDates(newList);
+            calculateInvestigationStatuses(newList);
         }
         if (isBefore && isUpdate) {
             initialize(newList, newMap);
             syncToInvestigation(newList);
             calculateInvestigationDates(newList);
+            calculateInvestigationStatuses(newList);
         }
         if (isAfter && isUpdate) {
             initialize(newList, newMap);
@@ -75,6 +83,8 @@ public without sharing class InvestigationTriggerHandler {
     @TestVisible private static Set<Id> unfinishedPetitions = new Set<Id>();
     @TestVisible private static Map<Id,String> recordTypeNameMap = new Map<Id,String>();
     @TestVisible private static Map<Id,ADCVD_FederalRegisterUtility> frUtilMap = new Map<Id,ADCVD_FederalRegisterUtility>();
+    @TestVisible private static Map<Id,List<Litigation__c>> investigationIdToLitigationMap = new Map<Id,List<Litigation__c>>();
+    @TestVisible private static Map<Id,String> investigationIdToLitigationStatusMap = new Map<Id,String>();
 
 
     /*****************************************
@@ -88,16 +98,18 @@ public without sharing class InvestigationTriggerHandler {
         if (newMap != null) {
             ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get Investigations with an Id
             frUtilMap = listInstance.utilMap;
+            setInvestigationIdToLitigationMap(newMap.keySet());
+            setInvestigationIdToLitigationStatusMap();
 
         }
     }
     private static void setRecordType(List<Investigation__c> newList) {
-        for(Investigation__c i: newList) {
-            if(petitionsInScopeMap.get(i.Petition__c) != null) {
+        for (Investigation__c i: newList) {
+            if (petitionsInScopeMap.get(i.Petition__c) != null) {
                 String petitionType = petitionsInScopeMap.get(i.Petition__c).Case_Type__c;    
-                if(petitionType.contains('CVD')) {
+                if (petitionType.contains('CVD')) {
                     i.RecordTypeId = MetadataHelper.getRecordTypeIdByName(INVESTIGATION, 'CVD');
-                } else if(petitionType.contains('AD')) {
+                } else if (petitionType.contains('AD')) {
                     i.RecordTypeId = MetadataHelper.getRecordTypeIdByName(INVESTIGATION, 'AD');
                 }
             }
@@ -112,7 +124,7 @@ public without sharing class InvestigationTriggerHandler {
         Boolean completePetition = false;
     	for (Investigation__c i : newList) {
             completePetition = findCompletePetition(i);
-            if(completePetition) {
+            if (completePetition) {
     			//Ordered Methods (must be done in a specific order)
         		setCalculatedPreliminarySignature(i);
         		//dependent on setCalculatedPreliminarySignature
@@ -123,6 +135,7 @@ public without sharing class InvestigationTriggerHandler {
                 setCalculatedAmendedFinalSignature(i);
         		setFinalTeamMeetingDeadline(i);
         		setEstITCNotificationtoDOCofFinalDet(i);
+                setLitigationHoldExpirationDate(i);
         		//dependent on setEstITCNotificationtoDOCofFinalDet
         		setCalculatedOrderFRSignature(i);
         		setCalculatedITCFinalFRPublished(i);
@@ -136,6 +149,17 @@ public without sharing class InvestigationTriggerHandler {
     		setTerminationofSuspensionGapPeriodBeg(i);
     	}
     }
+
+    /**
+     * Primary method to call all status calculations.
+     * @param  newList List of Investigations in scope
+     * @return         void
+     */
+    @TestVisible private static void calculateInvestigationStatuses(List<Investigation__c> newList) {
+        setLitigationStatus(newList);
+        setStatus(newList);
+    }
+
     //returns a list of CVD Investigations to update if the aligned AD Investigation is updated
     @TestVisible private static void recalculateCVDinvestigations(Map<Id,Investigation__c> newMap) {
         List<Investigation__c> CVDinvestigations = [SELECT Id FROM Investigation__c WHERE AD_Investigation_Aligned_To__c IN: newMap.keySet()];
@@ -179,7 +203,7 @@ public without sharing class InvestigationTriggerHandler {
     									Calculated_Initiation_Signature__c, Case_Type__c
     								FROM Petition__c WHERE Id IN: petitionIdSet]) {
     		returnMap.put(p.Id, p);
-            if(p.Actual_Initiation_Signature__c == null && p.Calculated_Initiation_Signature__c == null) {
+            if (p.Actual_Initiation_Signature__c == null && p.Calculated_Initiation_Signature__c == null) {
                 unfinishedPetitions.add(p.Id);
             }
     	}
@@ -205,18 +229,52 @@ public without sharing class InvestigationTriggerHandler {
     //returns a map of <String,Integer> in the form: key = CMT Api name, CMT number value
     //used to set Offset Variables
     @TestVisible private static Map<String,Constant__mdt> setInvestigationApiToConstants() {
-        if(investigationApiToConstants == null || investigationApiToConstants.size() < 1) {
+        if (investigationApiToConstants == null || investigationApiToConstants.size() < 1) {
             Map<String,Constant__mdt> returnMap = new Map<String,Constant__mdt>();
-            List<Constant__mdt> tempList = [SELECT QualifiedAPIName, Used_with_Field_Named__c, Number_Value__c, 
-                                                    ADCVD_Objects__r.Object_API_Name__c, ADCVD_Objects__r.Record_Type_Name__c 
+            for (Constant__mdt ic : [SELECT QualifiedAPIName, Used_with_Field_Named__c, Number_Value__c, String_Value__c, 
+                                                    ADCVD_Objects__r.Object_API_Name__c, ADCVD_Objects__r.Record_Type_Name__c, 
+                                                    Litigation_Calculation_Offset__c  
                                             FROM Constant__mdt 
-                                            WHERE Investigation_Calculation_Offset__c =: true];
-            for(Constant__mdt ic : tempList) {
+                                            WHERE Investigation_Calculation_Offset__c =: true]) {
+                if (ic.Used_with_Field_Named__c == 'Investigation_Outcome__c') {
+                    outcomesThatTermInvestigations.add(ic.String_Value__c);
+                }
+                if (ic.Used_with_Field_Named__c == 'Status__c' && ic.Litigation_Calculation_Offset__c && ic.String_Value__c != null) {
+                    activeLitigationStatuses.add(ic.String_Value__c);
+                }
                 returnMap.put(ic.QualifiedAPIName, ic);
             }
             return returnMap;
         } else {
             return investigationApiToConstants;
+        }
+    }
+
+    /**
+     * Sets map of Investigation Ids in scope to all of their Litigations.
+     * @param  petitionIdSet [description]
+     * @return            [description]
+     */
+    @TestVisible private static void setInvestigationIdToLitigationMap(Set<Id> investigationIdSet) {
+        for (Litigation__c l : [SELECT Id, Investigation__c, Status__c FROM Litigation__c WHERE Investigation__c IN: investigationIdSet]) {
+            List<Litigation__c> tempList = new List<Litigation__c>();
+            if (investigationIdToLitigationMap.get(l.Investigation__c) != null) {
+                tempList = investigationIdToLitigationMap.get(l.Investigation__c);
+            }
+            tempList.add(l);
+            investigationIdToLitigationMap.put(l.Investigation__c, tempList);
+        }
+    }
+
+    @TestVisible private static void setInvestigationIdToLitigationStatusMap() {
+        if (investigationIdToLitigationMap != null && !investigationIdToLitigationMap.isEmpty()) {
+            for (Id invId : investigationIdToLitigationMap.keySet()) {
+                for (Litigation__c l : investigationIdToLitigationMap.get(invId)) {
+                    if (investigationIdToLitigationStatusMap.get(invId) == null || !activeLitigationStatuses.contains(investigationIdToLitigationStatusMap.get(invId))) {
+                        investigationIdToLitigationStatusMap.put(invId, l.Status__c);
+                    }
+                }
+            }
         }
     }
     
@@ -227,10 +285,10 @@ public without sharing class InvestigationTriggerHandler {
 
     //checks that the petition has the values to proceed...this avoids NPEs on Petitions without dates to start calculations
     //This could need to be updated for self-initiated Investigations if self-initiation is not added at the Petition
-    @TestVisible private static Boolean findCompletePetition(Investigation__c i){
+    @TestVisible private static Boolean findCompletePetition(Investigation__c i) {
         Boolean returnBoolean = false;
         Petition__c p = petitionsInScopeMap.get(i.Petition__c);
-        if(!unfinishedPetitions.contains(p.Id)){
+        if (!unfinishedPetitions.contains(p.Id)) {
             returnBoolean = true;
         }
         return returnBoolean;
@@ -240,7 +298,7 @@ public without sharing class InvestigationTriggerHandler {
     //sets Calculated_Preliminary_Signature__c
     @TestVisible private static void setCalculatedPreliminarySignature(Investigation__c i) {
     	Petition__c p = petitionsInScopeMap.get(i.Petition__c);
-    	if(recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
+    	if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
     		Integer extension = i.Prelim_Extension_of_days__c == null ? 0 : (Integer)i.Prelim_Extension_of_days__c;//null check on extension, set to 0 if null
 			if (p != null && p.Actual_Initiation_Signature__c == null && p.Calculated_Initiation_Signature__c != null) {
                 i.Petition_Initiation_Signature__c = p.Calculated_Initiation_Signature__c;//used for CVD alignment lookup
@@ -268,7 +326,7 @@ public without sharing class InvestigationTriggerHandler {
    //sets Calc_Amended_Prelim_Determination_Sig__c, requires Calculated_Preliminary_Signature__c to be set
     @TestVisible private static void setCalcAmendedPrelimDeterminationSig(Investigation__c i) {
         if (i.Amend_the_Preliminary_Determination__c == 'Yes') {
-        	if(recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
+        	if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
     			if (i.Actual_Preliminary_Signature__c == null && i.Calculated_Preliminary_Signature__c != null) {
     	    		i.Calc_Amended_Prelim_Determination_Sig__c = i.Calculated_Preliminary_Signature__c.addDays(AD_CALC_AMEND_PRELIM_SIGN);
     	    		i.Calc_Amended_Prelim_Determination_Sig__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Calculated_Preliminary_Signature__c, i.Calc_Amended_Prelim_Determination_Sig__c, true);
@@ -291,8 +349,8 @@ public without sharing class InvestigationTriggerHandler {
     }
 
     //sets Prelim_Team_Meeting_Deadline__c, requires Calculated_Preliminary_Signature__c to be set
-    @TestVisible private static void setPrelimTeamMeetingDeadline(Investigation__c i){
-        if(recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
+    @TestVisible private static void setPrelimTeamMeetingDeadline(Investigation__c i) {
+        if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
         	if (i.Calculated_Preliminary_Signature__c != null) {
         		i.Prelim_Team_Meeting_Deadline__c = i.Calculated_Preliminary_Signature__c.addDays(AD_PRELIM_TEAM_MEETING_DEADLINE);
         		i.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Prelim_Team_Meeting_Deadline__c, i.Prelim_Team_Meeting_Deadline__c, true);
@@ -306,16 +364,16 @@ public without sharing class InvestigationTriggerHandler {
     }
 
     //sets Calculated_Final_Signature__c, requires Calculated_Preliminary_Signature__c to be set
-    @TestVisible private static void setCalculatedFinalSignature(Investigation__c i){
+    @TestVisible private static void setCalculatedFinalSignature(Investigation__c i) {
         Integer extension = i.Final_Extension_of_days__c == null ? 0 : (Integer)i.Final_Extension_of_days__c;//null check on extension, set to 0 if null
     	if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
-            Date prelimpublished = null;
-            if(i.Id != null && frUtilMap != null) {
-                prelimpublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).preliminaryPublishedDate : null;
+            Date prelimPublished = null;
+            if (i.Id != null && frUtilMap != null) {
+                prelimPublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).preliminaryPublishedDate : null;
             }
-    		if (extension > 0 && prelimpublished != null) {
-                i.Calculated_Final_Signature__c = prelimpublished.addDays(AD_CALC_FINAL_SIGN).addDays(extension);
-                i.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(prelimpublished, i.Calculated_Final_Signature__c, true);
+    		if (extension > 0 && prelimPublished != null) {
+                i.Calculated_Final_Signature__c = prelimPublished.addDays(AD_CALC_FINAL_SIGN).addDays(extension);
+                i.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(prelimPublished, i.Calculated_Final_Signature__c, true);
             } else {
                 if (i.Actual_Preliminary_Signature__c == null) {
                     i.Calculated_Final_Signature__c = i.Calculated_Preliminary_Signature__c.addDays(AD_CALC_FINAL_SIGN);
@@ -337,7 +395,7 @@ public without sharing class InvestigationTriggerHandler {
     }
 
     //sets Calculated_Amended_Final_Signature__c
-    @TestVisible private static void setCalculatedAmendedFinalSignature(Investigation__c i){
+    @TestVisible private static void setCalculatedAmendedFinalSignature(Investigation__c i) {
         if (i.Will_you_Amend_the_Final__c == 'Yes') {
             if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
                 if (i.Actual_Final_Signature__c != null) {
@@ -380,7 +438,7 @@ public without sharing class InvestigationTriggerHandler {
     //sets Est_ITC_Notification_to_DOC_of_Final_Det__c, requires Calculated_Final_Signature__c to be set
     @TestVisible private static void setEstITCNotificationtoDOCofFinalDet(Investigation__c i) {
     	if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
-    		if(i.Actual_Final_Signature__c == null) {
+    		if (i.Actual_Final_Signature__c == null) {
     			i.Est_ITC_Notification_to_DOC_of_Final_Det__c = i.Calculated_Final_Signature__c.addDays(AD_EST_ITC_NOTIF_DOC_FINAL_DET);
     			i.Est_ITC_Notification_to_DOC_of_Final_Det__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Calculated_Final_Signature__c, i.Est_ITC_Notification_to_DOC_of_Final_Det__c, true);
     		} else {
@@ -388,7 +446,7 @@ public without sharing class InvestigationTriggerHandler {
     			i.Est_ITC_Notification_to_DOC_of_Final_Det__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Actual_Final_Signature__c, i.Est_ITC_Notification_to_DOC_of_Final_Det__c, true);
     		}
     	} else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD && i.AD_Investigation_Aligned_To__c == null) {
-    		if(i.Actual_Final_Signature__c == null) {
+    		if (i.Actual_Final_Signature__c == null) {
                 i.Est_ITC_Notification_to_DOC_of_Final_Det__c = i.Calculated_Final_Signature__c.addDays(CVD_EST_ITC_NOTIF_DOC_FINAL_DET);
                 i.Est_ITC_Notification_to_DOC_of_Final_Det__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Calculated_Final_Signature__c, i.Est_ITC_Notification_to_DOC_of_Final_Det__c, true);
             } else {
@@ -398,10 +456,56 @@ public without sharing class InvestigationTriggerHandler {
     	}
     }
 
+    //sets Litigation_Hold_Expiration_Date__c, requires one of the following: ITC Prelim FR, ITC Final FR, Actual_Final_Signature__c, Date Petition was withdrawn
+    @TestVisible private static void setLitigationHoldExpirationDate(Investigation__c i) {
+        Integer holdTime = i.Petition_Country__c == 'Canada' || i.Petition_Country__c == 'Mexico' ? NAFTA_COUNTRY_HOLD : NON_NAFTA_COUNTRY_HOLD;
+        Date prelimPublished = null;
+        Date itcPrelim = null;
+        Date itcFinal = null;
+        if (i.Id != null && frUtilMap != null) {
+            prelimPublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).preliminaryPublishedDate : null;
+            itcPrelim = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).itcPreliminaryPublishedDate : null;
+            itcFinal = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).itcFinalPublishedDate : null;
+        }
+        if (i.AD_Investigation_Aligned_To__c == null) {
+            if (i.Investigation_Outcome__c == 'ITC Negative Prelim') {
+                if (itcPrelim != null) {
+                    i.Litigation_Hold_Expiration_Date__c = itcPrelim.addDays(holdTime);
+                    i.Litigation_Hold_Expiration_Date__c = ADCVD_TollingDayUtility.getCalculatedDate(itcPrelim, i.Litigation_Hold_Expiration_Date__c, true);
+                } else {
+                    i.addError('You must enter an ITC Preliminary FR to set Investigation Outcome to "ITC Negative Prelim".');
+                }
+                    
+            } else if (i.Investigation_Outcome__c == 'ITC Negative Final') {
+                if (itcFinal != null) {
+                    i.Litigation_Hold_Expiration_Date__c = itcFinal.addDays(holdTime);
+                    i.Litigation_Hold_Expiration_Date__c = ADCVD_TollingDayUtility.getCalculatedDate(itcFinal, i.Litigation_Hold_Expiration_Date__c, true);
+                } else {
+                    i.addError('You must enter an ITC Final FR to set Investigation Outcome to "ITC Negative Final".');
+                }
+            } else if (i.Investigation_Outcome__c == 'Order') {
+                if (itcFinal != null) {
+                    i.Litigation_Hold_Expiration_Date__c = itcFinal.addDays(holdTime);
+                    i.Litigation_Hold_Expiration_Date__c = ADCVD_TollingDayUtility.getCalculatedDate(itcFinal, i.Litigation_Hold_Expiration_Date__c, true);
+                } else {
+                    i.addError('You must enter an ITC Final FR to set Investigation Outcome to "Order".');
+                }
+            } else if (i.Investigation_Outcome__c == 'DOC Negative Final' && i.Actual_Final_Signature__c != null) {
+                i.Litigation_Hold_Expiration_Date__c = i.Actual_Final_Signature__c.addDays(holdTime);
+                i.Litigation_Hold_Expiration_Date__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Actual_Final_Signature__c, i.Litigation_Hold_Expiration_Date__c, true);
+            } else if (i.Investigation_Outcome__c == 'Petition Withdrawn After Initiation' && i.Petition_Withdrawn__c != null) {
+                i.Litigation_Hold_Expiration_Date__c = i.Petition_Withdrawn__c.addDays(holdTime);
+                i.Litigation_Hold_Expiration_Date__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Petition_Withdrawn__c, i.Litigation_Hold_Expiration_Date__c, true);
+            } else {
+                i.Litigation_Hold_Expiration_Date__c = null;
+            }
+        }
+    }
+
     //sets Calculated_Order_FR_Signature__c, requires Est_ITC_Notification_to_DOC_of_Final_Det__c to be set
     @TestVisible private static void setCalculatedOrderFRSignature(Investigation__c i) {
     	if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
-    		if(i.ITC_Notification_to_DOC_of_Final_Determ__c == null) {
+    		if (i.ITC_Notification_to_DOC_of_Final_Determ__c == null) {
     			i.Calculated_Order_FR_Signature__c = i.Est_ITC_Notification_to_DOC_of_Final_Det__c.addDays(AD_CALC_ORDER_FR_SIGNATURE);
     			i.Calculated_Order_FR_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Est_ITC_Notification_to_DOC_of_Final_Det__c, i.Calculated_Order_FR_Signature__c, true);
     		} else {
@@ -409,7 +513,7 @@ public without sharing class InvestigationTriggerHandler {
     			i.Calculated_Order_FR_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(i.ITC_Notification_to_DOC_of_Final_Determ__c, i.Calculated_Order_FR_Signature__c, true);
     		}
     	} else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD && i.AD_Investigation_Aligned_To__c == null) {
-    		if(i.ITC_Notification_to_DOC_of_Final_Determ__c == null) {
+    		if (i.ITC_Notification_to_DOC_of_Final_Determ__c == null) {
     			i.Calculated_Order_FR_Signature__c = i.Est_ITC_Notification_to_DOC_of_Final_Det__c.addDays(CVD_CALC_ORDER_FR_SIGNATURE);
     			i.Calculated_Order_FR_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(i.ITC_Notification_to_DOC_of_Final_Determ__c, i.Calculated_Order_FR_Signature__c, true);
     		} else {
@@ -422,7 +526,7 @@ public without sharing class InvestigationTriggerHandler {
     //sets Calculated_ITC_Final_FR_Published__c, requires Est_ITC_Notification_to_DOC_of_Final_Det__c to be set
     @TestVisible private static void setCalculatedITCFinalFRPublished(Investigation__c i) {
     	if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
-    		if(i.ITC_Notification_to_DOC_of_Final_Determ__c == null) {
+    		if (i.ITC_Notification_to_DOC_of_Final_Determ__c == null) {
     			i.Calculated_ITC_Final_FR_Published__c = i.Est_ITC_Notification_to_DOC_of_Final_Det__c.addDays(AD_CALC_ITC_FINAL_FR_PUBLISHED);
     			i.Calculated_ITC_Final_FR_Published__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Est_ITC_Notification_to_DOC_of_Final_Det__c, i.Calculated_ITC_Final_FR_Published__c, true);
     		} else {
@@ -430,7 +534,7 @@ public without sharing class InvestigationTriggerHandler {
     			i.Calculated_ITC_Final_FR_Published__c = ADCVD_TollingDayUtility.getCalculatedDate(i.ITC_Notification_to_DOC_of_Final_Determ__c, i.Calculated_ITC_Final_FR_Published__c, true);
     		}
     	} else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD && i.AD_Investigation_Aligned_To__c == null) {
-    		if(i.ITC_Notification_to_DOC_of_Final_Determ__c == null) {
+    		if (i.ITC_Notification_to_DOC_of_Final_Determ__c == null) {
     			i.Calculated_ITC_Final_FR_Published__c = i.Est_ITC_Notification_to_DOC_of_Final_Det__c.addDays(CVD_CALC_ITC_FINAL_FR_PUBLISHED);
     			i.Calculated_ITC_Final_FR_Published__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Est_ITC_Notification_to_DOC_of_Final_Det__c, i.Calculated_ITC_Final_FR_Published__c, true);
     		} else {
@@ -443,7 +547,7 @@ public without sharing class InvestigationTriggerHandler {
     //sets Estimated_Order_FR_Published__c, requires Est_ITC_Notification_to_DOC_of_Final_Det__c to be set
     @TestVisible private static void setEstimatedOrderFRPublished(Investigation__c i) {
     	if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
-    		if(i.ITC_Notification_to_DOC_of_Final_Determ__c == null) {
+    		if (i.ITC_Notification_to_DOC_of_Final_Determ__c == null) {
     			i.Estimated_Order_FR_Published__c = i.Est_ITC_Notification_to_DOC_of_Final_Det__c.addDays(AD_EST_ORDER_FR_PUBLISHED);
     			i.Estimated_Order_FR_Published__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Est_ITC_Notification_to_DOC_of_Final_Det__c, i.Estimated_Order_FR_Published__c, true);
     		} else {
@@ -451,7 +555,7 @@ public without sharing class InvestigationTriggerHandler {
     			i.Estimated_Order_FR_Published__c = ADCVD_TollingDayUtility.getCalculatedDate(i.ITC_Notification_to_DOC_of_Final_Determ__c, i.Estimated_Order_FR_Published__c, true);
     		}
     	} else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD && i.AD_Investigation_Aligned_To__c == null) {
-    		if(i.ITC_Notification_to_DOC_of_Final_Determ__c == null) {
+    		if (i.ITC_Notification_to_DOC_of_Final_Determ__c == null) {
     			i.Estimated_Order_FR_Published__c = i.Est_ITC_Notification_to_DOC_of_Final_Det__c.addDays(CVD_EST_ORDER_FR_PUBLISHED);
     			i.Estimated_Order_FR_Published__c = ADCVD_TollingDayUtility.getCalculatedDate(i.Est_ITC_Notification_to_DOC_of_Final_Det__c, i.Estimated_Order_FR_Published__c, true);
     		} else {
@@ -464,7 +568,7 @@ public without sharing class InvestigationTriggerHandler {
     //Unordered Methods
 
     //sets Calculated_Prelim_Extension_Request_File__c
-    @TestVisible private static void setCalculatedPrelimExtensionRequestFile(Investigation__c i){
+    @TestVisible private static void setCalculatedPrelimExtensionRequestFile(Investigation__c i) {
     	Petition__c p = petitionsInScopeMap.get(i.Petition__c);
     	if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
 	    	if (p != null && p.Actual_Initiation_Signature__c == null && p.Calculated_Initiation_Signature__c != null) {
@@ -486,7 +590,7 @@ public without sharing class InvestigationTriggerHandler {
     }
 
     //sets Calculated_Postponement_of_PrelimDeterFR__c
-    @TestVisible private static void setCalculatedPostponementOfPrelimDeterFR(Investigation__c i){
+    @TestVisible private static void setCalculatedPostponementOfPrelimDeterFR(Investigation__c i) {
     	Petition__c p = petitionsInScopeMap.get(i.Petition__c);
     	if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
 	    	if (p != null && p.Actual_Initiation_Signature__c == null && p.Calculated_Initiation_Signature__c != null) {
@@ -507,7 +611,7 @@ public without sharing class InvestigationTriggerHandler {
 		}
     }
     //sets Calculated_ITC_Prelim_Determination__c
-    @TestVisible private static void setCalculatedITCPrelimDetermination(Investigation__c i){
+    @TestVisible private static void setCalculatedITCPrelimDetermination(Investigation__c i) {
         Petition__c p = petitionsInScopeMap.get(i.Petition__c);
         Integer extension = i.Prelim_Extension_of_days__c == null ? 0 : (Integer)i.Prelim_Extension_of_days__c;//null check on extension, set to 0 if null
         if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
@@ -524,29 +628,172 @@ public without sharing class InvestigationTriggerHandler {
     }
 
     //sets Termination_of_Suspension_Gap_Period_Beg__c
-    @TestVisible private static void setTerminationofSuspensionGapPeriodBeg(Investigation__c i){
+    @TestVisible private static void setTerminationofSuspensionGapPeriodBeg(Investigation__c i) {
         Federal_Register__c fr = null; 
-    	Date prelimpublished = null;
-        if(i.Id != null && frUtilMap != null) {
-            prelimpublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).preliminaryPublishedDate : null;
+    	Date prelimPublished = null;
+        if (i.Id != null && frUtilMap != null) {
+            prelimPublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).preliminaryPublishedDate : null;
             fr = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).preliminaryFR : null;
         }
     	if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
-	    	if (prelimpublished != null) {
+	    	if (prelimPublished != null) {
 		    	i.Termination_of_Suspension_Gap_Period_Beg__c = i.Final_Extension_of_days__c == null ? 
-		    	prelimpublished.addDays(AD_TERM_SUSP_GAP_PERIOD_BEG_W_O_EXT) : 
-		    	prelimpublished.addDays(AD_TERM_SUSP_GAP_PERIOD_BEG_W_EXT);
-		    	i.Termination_of_Suspension_Gap_Period_Beg__c = ADCVD_TollingDayUtility.getCalculatedDate(prelimpublished, i.Termination_of_Suspension_Gap_Period_Beg__c, true);
+		    	prelimPublished.addDays(AD_TERM_SUSP_GAP_PERIOD_BEG_W_O_EXT) : 
+		    	prelimPublished.addDays(AD_TERM_SUSP_GAP_PERIOD_BEG_W_EXT);
+		    	i.Termination_of_Suspension_Gap_Period_Beg__c = ADCVD_TollingDayUtility.getCalculatedDate(prelimPublished, i.Termination_of_Suspension_Gap_Period_Beg__c, true);
 		    } else if (i.Termination_of_Suspension_Gap_Period_Beg__c != null && fr == null) {
                 i.Termination_of_Suspension_Gap_Period_Beg__c = null;//after delete of fr
             }
 		} else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD) {
-			if (prelimpublished != null) {
-                i.Termination_of_Suspension_Gap_Period_Beg__c = prelimpublished.addDays(CVD_TERM_SUSP_GAP_PERIOD_BEG);
-                i.Termination_of_Suspension_Gap_Period_Beg__c = ADCVD_TollingDayUtility.getCalculatedDate(prelimpublished, i.Termination_of_Suspension_Gap_Period_Beg__c, true);
+			if (prelimPublished != null) {
+                i.Termination_of_Suspension_Gap_Period_Beg__c = prelimPublished.addDays(CVD_TERM_SUSP_GAP_PERIOD_BEG);
+                i.Termination_of_Suspension_Gap_Period_Beg__c = ADCVD_TollingDayUtility.getCalculatedDate(prelimPublished, i.Termination_of_Suspension_Gap_Period_Beg__c, true);
             } else if (i.Termination_of_Suspension_Gap_Period_Beg__c != null && fr == null) {
                 i.Termination_of_Suspension_Gap_Period_Beg__c = null;//after delete of fr
             }
 		}
 	}
+
+
+    /*****************************
+    * Status Calculations
+    *****************************/
+
+    @TestVisible private static void setLitigationStatus(List<Investigation__c> newList) {
+        for (Investigation__c i : newList) {
+            if (i.Id != null && investigationIdToLitigationMap.get(i.Id) != null && activeLitigationStatuses.contains(investigationIdToLitigationStatusMap.get(i.Id))) {
+                i.Litigation_Status__c = 'Active';
+            } else {
+                i.Litigation_Status__c = 'Inactive';
+            }
+        }
+    }
+
+    @TestVisible private static void setStatus(List<Investigation__c> newList) {
+        for (Investigation__c i : newList) {
+            setSuspendedStatus(i);
+            if (i.Investigation_Outcome__c != 'Suspension Agreement') {
+                setPrelimStatus(i);
+                setAmendedPrelimStatus(i);
+                setFinalStatus(i);
+                setPendingOrderStatus(i);
+                setHoldStatus(i);
+                setLitigationStatus(i);
+                setCustomsStatus(i);
+                setClosedStatus(i);
+            }
+        }
+    }
+
+    @TestVisible private static void setSuspendedStatus(Investigation__c i) {
+        if (i.AD_Investigation_Aligned_To__c == null) {
+            if (i.Investigation_Outcome__c == 'Suspension Agreement') {
+                i.Status__c = 'Suspended';
+            }
+        }
+    }
+
+    @TestVisible private static void setPrelimStatus(Investigation__c i) {
+        Date prelimPublished = null;
+        if (i.Id != null && frUtilMap != null) {
+            prelimPublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).preliminaryPublishedDate : null;
+        }
+        if (i.AD_Investigation_Aligned_To__c == null) {
+            if ((i.Actual_Preliminary_Signature__c == null || prelimPublished == null) && !outcomesThatTermInvestigations.contains(i.Investigation_Outcome__c)) {
+                i.Status__c = 'Prelim';
+            }
+        }
+    }
+
+    @TestVisible private static void setAmendedPrelimStatus(Investigation__c i) {
+        Date prelimPublished = null;
+        if (i.Id != null && frUtilMap != null) {
+            prelimPublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).preliminaryPublishedDate : null;
+        }
+        if (i.AD_Investigation_Aligned_To__c == null) {
+            if (prelimPublished != null && 
+                i.Amend_the_Preliminary_Determination__c == 'Yes' && 
+                i.Actual_Amended_Prelim_Determination_Sig__c == null && 
+                !outcomesThatTermInvestigations.contains(i.Investigation_Outcome__c)) {
+                i.Status__c = 'Amend Prelim';
+            }
+        }  
+    }
+
+    @TestVisible private static void setFinalStatus(Investigation__c i) {
+        Date prelimPublished = null;
+        Date finalPublished = null;
+        if (i.Id != null && frUtilMap != null) {
+            prelimPublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).preliminaryPublishedDate : null;
+            finalPublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).finalPublishedDate : null;
+        }
+        if (i.AD_Investigation_Aligned_To__c == null) {
+            if (i.Actual_Preliminary_Signature__c != null &&
+                prelimPublished != null &&
+                (finalPublished == null || i.Actual_Final_Signature__c == null) 
+                && !outcomesThatTermInvestigations.contains(i.Investigation_Outcome__c) &&
+                (i.Amend_the_Preliminary_Determination__c != 'Yes' || i.Actual_Amended_Prelim_Determination_Sig__c != null)) {
+                i.Status__c = 'Final';
+            }
+        }
+    }
+
+    @TestVisible private static void setPendingOrderStatus(Investigation__c i) {
+        Date prelimPublished = null;
+        Date finalPublished = null;
+        if (i.Id != null && frUtilMap != null) {
+            prelimPublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).preliminaryPublishedDate : null;
+            finalPublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).finalPublishedDate : null;
+        }
+        if (i.AD_Investigation_Aligned_To__c == null) {
+            if (prelimPublished != null &&
+                finalPublished != null &&
+                i.Actual_Preliminary_Signature__c != null &&
+                i.Actual_Final_Signature__c != null &&
+                i.Investigation_Outcome__c == null) {
+                i.Status__c = 'Pending Order';
+            }
+            if ((i.Actual_Preliminary_Signature__c == null 
+                || i.Actual_Final_Signature__c == null
+                || prelimPublished == null
+                || finalPublished == null)
+                && i.Investigation_Outcome__c == 'Order') {
+                i.addError('Preliminary and final actual signatures and Federal Registers are required to set Investigation Outcome to Order.');
+            }
+        }
+    }
+
+    @TestVisible private static void setHoldStatus(Investigation__c i) {
+        if (i.AD_Investigation_Aligned_To__c == null) {
+            if (i.Litigation_Hold_Expiration_Date__c != null && i.Litigation_YesNo__c == null) {
+                i.Status__c = 'Hold';
+            }
+        }
+    }
+
+    @TestVisible private static void setLitigationStatus(Investigation__c i) {
+        if (i.AD_Investigation_Aligned_To__c == null) {
+            if (i.Litigation_YesNo__c == 'Yes' && i.Litigation_Resolved__c == 'No' && i.Investigation_Outcome__c != null) {
+                i.Status__c = 'Litigation';
+            }
+        }
+    }
+
+    @TestVisible private static void setCustomsStatus(Investigation__c i) {
+        if (i.AD_Investigation_Aligned_To__c == null) {
+            if ((i.Litigation_YesNo__c == 'No' || (i.Litigation_YesNo__c == 'Yes' && i.Litigation_Resolved__c == 'Yes')) && 
+                i.Have_Custom_Instruction_been_sent__c != 'Yes') { 
+                i.Status__c = 'Customs';
+            }
+        }
+    }
+
+    @TestVisible private static void setClosedStatus(Investigation__c i) {
+        if (i.AD_Investigation_Aligned_To__c == null) {
+            if ((i.Litigation_YesNo__c == 'No' || (i.Litigation_YesNo__c == 'Yes' && i.Litigation_Resolved__c == 'Yes')) && 
+                i.Have_Custom_Instruction_been_sent__c == 'Yes') { 
+                i.Status__c = 'Closed';
+            }
+        }
+    }
 }
