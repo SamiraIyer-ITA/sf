@@ -915,6 +915,15 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Litigation_Hold_Expiration_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Litigation Hold Expiration Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Litigation_Resolved__c</fullName>
         <externalId>false</externalId>
         <label>Litigation Resolved</label>
