@@ -1382,9 +1382,9 @@
                     <label>Prelim</label>
                 </value>
                 <value>
-                    <fullName>Amended Prelim</fullName>
+                    <fullName>Amend Prelim</fullName>
                     <default>false</default>
-                    <label>Amended Prelim</label>
+                    <label>Amend Prelim</label>
                 </value>
                 <value>
                     <fullName>Final</fullName>
@@ -2032,7 +2032,7 @@
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
-                <fullName>Amended Prelim</fullName>
+                <fullName>Amend Prelim</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2634,7 +2634,7 @@
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
-                <fullName>Amended Prelim</fullName>
+                <fullName>Amend Prelim</fullName>
                 <default>false</default>
             </values>
             <values>
