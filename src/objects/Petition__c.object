@@ -950,6 +950,34 @@ C-###-### for CVD</inlineHelpText>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
+        <fullName>Actual_Initiation_Signature_Not_Required</fullName>
+        <active>true</active>
+        <description>If type of Petition Segment is equals to any of those two options then Actual Initiation Signature must not be selected</description>
+        <errorConditionFormula>AND ( 
+OR (ISPICKVAL(Petition_Outcome__c, &apos;Deficient Petition/Did Not Initiate&apos;), 
+
+ISPICKVAL(Petition_Outcome__c, &apos;Petition Withdrawn/Did Not Initiate&apos;)), 
+
+NOT(ISBLANK(TEXT(Actual_Initiation_Signature__c))) 
+
+)</errorConditionFormula>
+        <errorMessage>Actual initiation Signature must not be selected with the Type of Petition Outcome selected</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Actual_Initiation_Signature_Required</fullName>
+        <active>true</active>
+        <description>If type of Petition Segment is equals to any of those two options then Actual Initiation Signature must be selected</description>
+        <errorConditionFormula>AND (
+OR (ISPICKVAL(Petition_Outcome__c, &apos;Initiated from Petition&apos;),
+
+ISPICKVAL(Petition_Outcome__c, &apos;Self-Initiated&apos;)),
+
+ISBLANK(TEXT(Actual_Initiation_Signature__c))
+
+)</errorConditionFormula>
+        <errorMessage>Actual initiation Signature must have a value with the Type of Petition Outcome selected</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Case_number_for_AD_and_CVD_Format</fullName>
         <active>true</active>
         <description>Case Number must be formatted specifically this way.</description>
@@ -965,6 +993,25 @@ C-###-### for CVD</inlineHelpText>
         <errorConditionFormula>Initiation_Extension_of_days__c &gt; 20 || Initiation_Extension_of_days__c &lt; 0</errorConditionFormula>
         <errorDisplayField>Initiation_Extension_of_days__c</errorDisplayField>
         <errorMessage>Initiation extension cannot exceed more than 20 days.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Litigation_Resolved_Required</fullName>
+        <active>true</active>
+        <description>Litigation Resolved cannot be blank if Litigation is &apos;Yes&apos;</description>
+        <errorConditionFormula>AND ( 
+ISPICKVAL( Litigation_YesNo__c , &apos;Yes&apos;), 
+ISBLANK( TEXT( Litigation_Resolved__c ) ) 
+)</errorConditionFormula>
+        <errorMessage>Litigation Resolved cannot be blank when Litigation is &quot;Yes&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Petition_Outcome_Required</fullName>
+        <active>true</active>
+        <description>IF Actual_Initiation_Signature__c is not blank THEN Petition_Outcome__c should be required</description>
+        <errorConditionFormula>AND (
+NOT(ISBLANK(TEXT(Actual_Initiation_Signature__c ))),
+ISPICKVAL(Petition_Outcome__c, &apos;&apos;))</errorConditionFormula>
+        <errorMessage>Petition Outcome is required in order to choose Actual Initiation Signature</errorMessage>
     </validationRules>
     <visibility>Public</visibility>
 </CustomObject>
