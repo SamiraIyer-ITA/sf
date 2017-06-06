@@ -151,6 +151,18 @@ public with sharing class TestUtils {
         }
         return lit;
     }
+
+    //create litigation with a parent
+    public static Litigation__c createLitigation(Id parentId, String parentLookupField, Date requestFiled, String recordTypeName, Boolean doInsert) {
+        Litigation__c lit = new Litigation__c();
+        lit.put(parentLookupField, parentId);
+        lit.RecordTypeId = utils.getRecordTypeIdMap('Litigation__c').get(recordTypeName);
+        lit.Request_Filed__c = requestFiled;
+        if(doInsert) {
+            insert lit;
+        }
+        return lit;
+    }
             
     // create test Opportunity
     public static Opportunity createOpportunity(String accId, String conId, boolean isInsert){
@@ -211,6 +223,33 @@ public with sharing class TestUtils {
             insert seg;
         }
         return seg;
+    }
+
+    //create test segment
+    public static Segment__c createSegment(Suspension_Agreement__c sa, String recordTypeName, Boolean doInsert) {
+        Segment__c seg = new Segment__c();
+        seg.RecordTypeId = utils.getRecordTypeIdMap('Segment__c').get(recordTypeName);
+        if(sa != null && sa.Id != null) {
+            seg.Suspension_Agreement__c = sa.Id;
+        }
+        //added for testing purposes
+        Date tempDate = System.today();
+        seg.Final_Date_of_Anniversary_Month__c = tempDate.toStartOfMonth().addDays(Date.daysInMonth(tempDate.year(), tempDate.month()) - 1);
+        if(doInsert) {
+            insert seg;
+        }
+        return seg;
+    }
+
+    // create test suspension agreement
+    public static Suspension_Agreement__c createSuspensionAgreement(Investigation__c i, Date suspensionDate, Boolean doInsert) {
+        Suspension_Agreement__c sa = new Suspension_Agreement__c(); 
+        sa.Suspension_Date__c = suspensionDate;
+        sa.Investigation__c = i.id; 
+        if(doInsert) {
+            insert sa;
+        }
+        return sa;
     }
 
     //create test Tolling Day
