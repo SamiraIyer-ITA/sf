@@ -7401,6 +7401,18 @@ SR = Sunset Review</description>
         <errorMessage>Litigation cannot be blank when Have Custom Instructions is populated</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Deficient_Or_Withdrawn_Date_Required</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND ( 
+ISNULL(Deficient_or_Withdrawn_Date__c), 
+OR( 
+ISPICKVAL(Segment_Outcome__c, &apos;Deficient&apos;), 
+ISPICKVAL(Segment_Outcome__c, &apos;Withdrawn&apos;)) 
+)</errorConditionFormula>
+        <errorDisplayField>Deficient_or_Withdrawn_Date__c</errorDisplayField>
+        <errorMessage>The Deficient or Withdrawn date is required when Segment Outcome is &quot;Deficient&quot; or &quot;Withdrawn&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>ER_Final_Extension</fullName>
         <active>true</active>
         <description>Legend to the Initials Placed on each rule name
