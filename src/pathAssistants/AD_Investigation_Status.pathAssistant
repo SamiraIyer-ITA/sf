@@ -10,7 +10,7 @@
         <fieldNames>Actual_Final_Signature__c</fieldNames>
         <fieldNames>Actual_Preliminary_Signature__c</fieldNames>
         <fieldNames>Investigation_Outcome__c</fieldNames>
-        <picklistValueName>Amended Prelim</picklistValueName>
+        <picklistValueName>Amend Prelim</picklistValueName>
     </pathAssistantSteps>
     <pathAssistantSteps>
         <fieldNames>Investigation_Outcome__c</fieldNames>
