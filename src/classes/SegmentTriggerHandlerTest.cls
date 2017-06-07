@@ -136,7 +136,7 @@ public class SegmentTriggerHandlerTest {
 		get{
 			if (ssSeg == null) {
 				Id recordTypeId = utils.getRecordTypeIdMap('Segment__c').get('Sunset_Review');
-				ssSeg = [SELECT Id, Calculated_Final_Signature__c, Update_ACE_Customs_Module__c, Adequacy_of_Respondents_Submission__c, 
+				ssSeg = [SELECT Id, RecordTypeId, Calculated_Final_Signature__c, Update_ACE_Customs_Module__c, Adequacy_of_Respondents_Submission__c, 
 							Actual_Final_Signature__c, Actual_Revocation_or_Continuation_FR__c, Calculated_Revocation_or_Continuation_FR__c, 
 							Issue_Liquidation_Revocation_Instruction__c, Rebuttal_Comments_Due__c, Adequacy_Determination_Letter_120_day__c, 
 							Adequacy_Determination_Letter_240_day__c, Comments_on_Adequacy_Determination_Filed__c, Memorandum_on_Adequacy_Determination__c, 
@@ -155,9 +155,23 @@ public class SegmentTriggerHandlerTest {
 		List<Segment__c> sList = new List<Segment__c>();
 		sList.add(adminSeg);
 		sList.add(acSeg);
+		sList.add(ccSeg);
+		sList.add(expedSeg);
+		sList.add(nsSeg);
+		sList.add(siSeg);
+		sList.add(ssSeg);
+
 		SegmentTriggerHandler.initialize(sList, null);
-		//TODO
 		Test.stopTest();
+		System.assertNotEquals(SegmentTriggerHandler.recordTypeNameMap.get(adminSeg.RecordTypeId),null);
+		System.assertNotEquals(SegmentTriggerHandler.recordTypeNameMap.get(acSeg.RecordTypeId),null);
+		System.assertNotEquals(SegmentTriggerHandler.recordTypeNameMap.get(ccSeg.RecordTypeId),null);
+		System.assertNotEquals(SegmentTriggerHandler.recordTypeNameMap.get(expedSeg.RecordTypeId),null);
+		System.assertNotEquals(SegmentTriggerHandler.recordTypeNameMap.get(adminSeg.RecordTypeId),null);
+		System.assertNotEquals(SegmentTriggerHandler.recordTypeNameMap.get(siSeg.RecordTypeId),null);
+		System.assertNotEquals(SegmentTriggerHandler.recordTypeNameMap.get(ssSeg.RecordTypeId),null);
+		//TODO
+		
 	}
 
 	//setDeadlineForDecisionForHoP
@@ -586,22 +600,28 @@ public class SegmentTriggerHandlerTest {
 		Test.stopTest();
 	}
 
-	@isTest static void setNotifyITCIfAffirmativePreliminaryDetermination(){
-		Test.startTest();
+@isTest static void setNotifyItcIfAffirmPrelimIsDetermine(){
+        Test.startTest();
 
-		//setup start dates
-		setStartDates();
-		setExtensions();
-		getNewSegs();
-		//Anti-Circumvention Review
-		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(acSeg.Calculated_Preliminary_Signature__c.addDays(5).addDays(2));
-		System.assertEquals(testCalculated,
-			[SELECT Id, Notify_ITC_If_Affirmative_Prelim_Determ__c FROM Segment__c WHERE Id =: acSeg.Id LIMIT 1].Notify_ITC_If_Affirmative_Prelim_Determ__c);
-		//setFR(acSeg.Id, 'Preliminary');
-		//update acSeg;
-//TODO			//I am stumped here. Date logic uses a field from FR to calculate this method. -- TT
-		Test.stopTest();
-	}	
+        //setup start dates
+        setStartDates();
+        //Anti-Circumvention Review
+        //based on Calculated_Preliminary_Signature__c
+        testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(acSeg.Calculated_Preliminary_Signature__c.addDays(7));
+        System.assertEquals(testCalculated,
+            [SELECT Id, Notify_ITC_If_Affirmative_Prelim_Determ__c FROM Segment__c WHERE Id =: acSeg.Id LIMIT 1].Notify_ITC_If_Affirmative_Prelim_Determ__c);
+        
+        //based on Preliminary FR
+        setFR(acSeg.Id, 'Preliminary');
+        update acSeg;
+        getNewSegs();
+        testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(prelimFR.Published_Date__c.addDays(2));
+        
+        Test.stopTest();
+        System.assertEquals(testCalculated,
+            [SELECT Id, Notify_ITC_If_Affirmative_Prelim_Determ__c FROM Segment__c WHERE Id =: acSeg.Id LIMIT 1].Notify_ITC_If_Affirmative_Prelim_Determ__c);
+    }	
+
 	@isTest static void setCalculatedInitiationSignature(){
 		Test.startTest();
 
@@ -1091,8 +1111,8 @@ public class SegmentTriggerHandlerTest {
 		adminSeg.Have_Custom_Instruction_been_sent__c = 'Yes';
 		update adminSeg;
 		getNewSegs();
-		System.assertEquals('Closed', [SELECT Id, Status__c FROM Segment__c WHERE Id =: adminSeg.Id LIMIT 1].Status__c);
-		Test.stopTest();	
+		Test.stopTest();
+		System.assertEquals('Closed', [SELECT Id, Status__c FROM Segment__c WHERE Id =: adminSeg.Id LIMIT 1].Status__c);	
 		
 	}
 
@@ -1147,8 +1167,8 @@ public class SegmentTriggerHandlerTest {
 		expedSeg.Have_Custom_Instruction_been_sent__c = 'Yes';
 		update expedSeg;
 		getNewSegs();
-		System.assertEquals('Closed', [SELECT Id, Status__c FROM Segment__c WHERE Id =: expedSeg.Id LIMIT 1].Status__c);
 		Test.stopTest();
+		System.assertEquals('Closed', [SELECT Id, Status__c FROM Segment__c WHERE Id =: expedSeg.Id LIMIT 1].Status__c);
 
 	}
 
@@ -1202,8 +1222,8 @@ public class SegmentTriggerHandlerTest {
 		nsSeg.Have_Custom_Instruction_been_sent__c = 'Yes';
 		update nsSeg;
 		getNewSegs();
-		System.assertEquals('Closed', [SELECT Id, Status__c FROM Segment__c WHERE Id =: nsSeg.Id LIMIT 1].Status__c);
 		Test.stopTest();
+		System.assertEquals('Closed', [SELECT Id, Status__c FROM Segment__c WHERE Id =: nsSeg.Id LIMIT 1].Status__c);
 
 	}
 
@@ -1255,8 +1275,8 @@ public class SegmentTriggerHandlerTest {
 		siSeg.Have_Custom_Instruction_been_sent__c = 'Yes';
 		update siSeg;
 		getNewSegs();
-		System.assertEquals('Closed', [SELECT Id, Status__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Status__c);
 		Test.stopTest();
+		System.assertEquals('Closed', [SELECT Id, Status__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Status__c);
 	}
 
 
