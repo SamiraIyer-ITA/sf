@@ -1145,7 +1145,6 @@ public class SegmentTriggerHandlerTest {
 		//Segment Hold Status
 		expedSeg.Segment_Outcome__c ='Completed';
 		expedSeg.Actual_Amended_Final_Signature__c = expedSeg.Actual_Final_Signature__c.addDays(14);
-		expedSeg.Actual_Amended_Final_Determination_Sig__c = expedSeg.Actual_Amended_Final_Signature__c.addDays(14);
 		update expedSeg;
 		getNewSegs();
 		System.assertEquals('Hold', [SELECT Id, Status__c FROM Segment__c WHERE Id =: expedSeg.Id LIMIT 1].Status__c);
