@@ -123,6 +123,7 @@ public class InvestigationTriggerHandlerTest {
 	@isTest static void initialize() {
 		Test.startTest();
 		InvestigationTriggerHandler.initialize(iList, null);
+		Test.stopTest();
 		System.assertEquals(adP.Id, InvestigationTriggerHandler.petitionsInScopeMap.get(adP.Id).Id);
 		System.assertEquals('AD', InvestigationTriggerHandler.recordTypeNameMap.get(iAD.RecordTypeId));
 	}
