@@ -474,13 +474,12 @@ public without sharing class SegmentTriggerHandler {
 				s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Preliminary_Signature__c, s.Calculated_Final_Signature__c, true);
 			}
 		} else if (recordTypeNameMap.get(s.RecordTypeId) == SCOPE_INQUIRY) {
-			if (s.Decision_on_How_to_Proceed__c == 'Formal' && s.Actual_Date_of_Decision_on_HoP__c != null) {
-				s.Calculated_Final_Signature__c = s.Actual_Date_of_Decision_on_HoP__c.addDays(SI_CALC_FINAL_SIG).addDays(extension);
-				s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Date_of_Decision_on_HoP__c, s.Calculated_Final_Signature__c, true);
-			} else if (s.Decision_on_How_to_Proceed__c != 'Formal') {
-				s.Calculated_Final_Signature__c = null;
-				s.Final_Extension_of_days__c = null;
-			}
+            if (s.Decision_on_How_to_Proceed__c == null || s.Decision_on_How_to_Proceed__c == 'Informal'){
+                s.Calculated_Final_Signature__c = s.Deadline_for_Decision_on_How_to_Proceed__c;
+            } else if (s.Decision_on_How_to_Proceed__c == 'Formal' && s.Actual_Date_of_Decision_on_HoP__c != null) {
+                s.Calculated_Final_Signature__c = s.Actual_Date_of_Decision_on_HoP__c.addDays(SI_CALC_FINAL_SIG).addDays(extension);
+                s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Date_of_Decision_on_HoP__c, s.Calculated_Final_Signature__c, true);
+            } 
 		} else if (recordTypeNameMap.get(s.RecordTypeId) == ANTI_CIRCUMVENTION_REVIEW){
 			if (s.Actual_Initiation_Signature__c == null && s.Calculated_Initiation_Signature__c != null){
 				s.Calculated_Final_Signature__c = s.Calculated_Initiation_Signature__c.addDays(ACR_CALC_FINAL_SIG).addDays(extension);

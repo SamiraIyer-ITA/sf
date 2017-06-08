@@ -114,7 +114,7 @@ public class SegmentTriggerHandlerTest {
 				Id recordTypeId = utils.getRecordTypeIdMap('Segment__c').get('Anti_Circumvention_Review');
 				acSeg = [SELECT Id, RecordTypeId, Prelim_Extension__c, Initiation_Extension_of_days__c, Calculated_Preliminary_Signature__c,
 									Calculated_Final_Signature__c , Actual_Initiation_Signature__c, Calculated_Initiation_Signature__c,
-									Application_Accepted__c
+									Application_Accepted__c, Notify_ITC_If_Affirmative_Prelim_Determ__c 
 								FROM Segment__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
 			}
 			return acSeg;
@@ -390,9 +390,13 @@ public class SegmentTriggerHandlerTest {
 			[SELECT Id, Calculated_Final_Signature__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Calculated_Final_Signature__c);
 
 		//Based on Not Formal
+		testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(siSeg.Actual_Date_of_Decision_on_HoP__c.addDays(120).addDays(7));
+		System.assertEquals(testActual,
+			[SELECT Id, Calculated_Final_Signature__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Calculated_Final_Signature__c);
 		clearFormal();
 		System.assertEquals(null,
-			[SELECT Id, Calculated_Final_Signature__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Calculated_Final_Signature__c);
+			[SELECT Id, Final_Extension_of_days__c, Calculated_Final_Signature__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Final_Extension_of_days__c);
+
 
 		//Expedited Review
 		//Based on Calculated
@@ -605,6 +609,7 @@ public class SegmentTriggerHandlerTest {
 
         //setup start dates
         setStartDates();
+        getNewSegs();
         //Anti-Circumvention Review
         //based on Calculated_Preliminary_Signature__c
         testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(acSeg.Calculated_Preliminary_Signature__c.addDays(7));
