@@ -737,9 +737,9 @@ public class InvestigationTriggerHandlerTest {
 
 		iAD.Investigation_Outcome__c = 'Order';
 		insufficientDataError = attemptUpsert(iAD);
-		System.assert(insufficientDataError.contains('You must enter an ITC Final FR'));
 
 		Test.stopTest();
+		System.assert(insufficientDataError.contains('You must enter an ITC Final FR'));
 	}
 
 	//setLitigationHoldExpirationDate
@@ -753,11 +753,11 @@ public class InvestigationTriggerHandlerTest {
 		Federal_Register__c adPrelimItcFR = setFR(iAD.Id, 'ITC Preliminary', true);
 		iAD.Investigation_Outcome__c = 'ITC Negative Prelim';
 		update iAD;
+
+		Test.stopTest();
 		System.assertEquals('Hold', [SELECT Status__c FROM Investigation__c WHERE Id =: iAD.Id LIMIT 1].Status__c);
 		System.assertEquals(ADCVD_TollingDayUtility.rollForwardNextBusinessDay(adPrelimItcFR.Published_Date__c.addDays(45)), 
 			[SELECT Litigation_Hold_Expiration_Date__c FROM Investigation__c WHERE Id =: iAD.Id LIMIT 1].Litigation_Hold_Expiration_Date__c);
-		
-		Test.stopTest();
 	}
 
 	//setLitigationHoldExpirationDate
@@ -771,11 +771,11 @@ public class InvestigationTriggerHandlerTest {
 		Federal_Register__c adFinalItcFR =  setFR(iAD.Id, 'ITC Final', true);
 		iAD.Investigation_Outcome__c = 'ITC Negative Final';
 		update iAD;
+
+		Test.stopTest();
 		System.assertEquals('Hold', [SELECT Status__c FROM Investigation__c WHERE Id =: iAD.Id LIMIT 1].Status__c);
 		System.assertEquals(ADCVD_TollingDayUtility.rollForwardNextBusinessDay(adFinalItcFR.Published_Date__c.addDays(45)), 
 			[SELECT Litigation_Hold_Expiration_Date__c FROM Investigation__c WHERE Id =: iAD.Id LIMIT 1].Litigation_Hold_Expiration_Date__c);
-		
-		Test.stopTest();
 	}
 
 	//setLitigationHoldExpirationDate
@@ -796,11 +796,11 @@ public class InvestigationTriggerHandlerTest {
 		iAD.Petition_Withdrawn__c = petitionDate.addDays(63);
 		iAD.Investigation_Outcome__c = 'Petition Withdrawn After Initiation';
 		update iAD;
+
+		Test.stopTest();
 		System.assertEquals('Hold', [SELECT Status__c FROM Investigation__c WHERE Id =: iAD.Id LIMIT 1].Status__c);
 		System.assertEquals(ADCVD_TollingDayUtility.rollForwardNextBusinessDay(iAD.Petition_Withdrawn__c.addDays(45)), 
 			[SELECT Litigation_Hold_Expiration_Date__c FROM Investigation__c WHERE Id =: iAD.Id LIMIT 1].Litigation_Hold_Expiration_Date__c);
-
-		Test.stopTest();
 	}
 
 	//setLitigationHoldExpirationDate
@@ -821,12 +821,11 @@ public class InvestigationTriggerHandlerTest {
 		iAd.Actual_Final_Signature__c = iAD.Calculated_Final_Signature__c.addDays(-7);
 		iAD.Investigation_Outcome__c = 'Order';
 		update iAD;
-		//
+		
+		Test.stopTest();
 		System.assertEquals('Hold', [SELECT Status__c FROM Investigation__c WHERE Id =: iAD.Id LIMIT 1].Status__c);
 		System.assertEquals(ADCVD_TollingDayUtility.rollForwardNextBusinessDay(adFinalItcFR.Published_Date__c.addDays(45)), 
 			[SELECT Litigation_Hold_Expiration_Date__c FROM Investigation__c WHERE Id =: iAD.Id LIMIT 1].Litigation_Hold_Expiration_Date__c);
-
-		Test.stopTest();
 	}
 
 	//setLitigationHoldExpirationDate
@@ -848,12 +847,12 @@ public class InvestigationTriggerHandlerTest {
 		iCVD.Actual_Final_Signature__c = iCVD.Calculated_Final_Signature__c.addDays(-7);
 		iCVD.Investigation_Outcome__c = 'Order';
 		update iCVD;
-		//
+		
+		Test.stopTest();
 		System.assertEquals('Hold', [SELECT Status__c FROM Investigation__c WHERE Id =: iCVD.Id LIMIT 1].Status__c);
 		System.assertEquals(ADCVD_TollingDayUtility.rollForwardNextBusinessDay(cvdFinalItcFR.Published_Date__c.addDays(30)), 
 			[SELECT Litigation_Hold_Expiration_Date__c FROM Investigation__c WHERE Id =: iCVD.Id LIMIT 1].Litigation_Hold_Expiration_Date__c);
 
-		Test.stopTest();
 	}
 
 	/********************************
@@ -868,8 +867,9 @@ public class InvestigationTriggerHandlerTest {
 		update iAD;
 
 		iAD = null;
-		System.assertEquals('Active', [SELECT Litigation_Status__c FROM Investigation__c WHERE Id =: iAD.Id LIMIT 1].Litigation_Status__c);
+
 		Test.stopTest();
+		System.assertEquals('Active', [SELECT Litigation_Status__c FROM Investigation__c WHERE Id =: iAD.Id LIMIT 1].Litigation_Status__c);
 	}
 
 	//
