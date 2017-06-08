@@ -459,11 +459,9 @@ public without sharing class InvestigationTriggerHandler {
     //sets Litigation_Hold_Expiration_Date__c, requires one of the following: ITC Prelim FR, ITC Final FR, Actual_Final_Signature__c, Date Petition was withdrawn
     @TestVisible private static void setLitigationHoldExpirationDate(Investigation__c i) {
         Integer holdTime = i.Petition_Country__c == 'Canada' || i.Petition_Country__c == 'Mexico' ? NAFTA_COUNTRY_HOLD : NON_NAFTA_COUNTRY_HOLD;
-        Date prelimPublished = null;
         Date itcPrelim = null;
         Date itcFinal = null;
         if (i.Id != null && frUtilMap != null) {
-            prelimPublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).preliminaryPublishedDate : null;
             itcPrelim = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).itcPreliminaryPublishedDate : null;
             itcFinal = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).itcFinalPublishedDate : null;
         }

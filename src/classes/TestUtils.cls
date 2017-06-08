@@ -151,6 +151,18 @@ public with sharing class TestUtils {
         }
         return lit;
     }
+
+    //create litigation with a parent
+    public static Litigation__c createLitigation(Id parentId, String parentLookupField, Date requestFiled, String recordTypeName, Boolean doInsert) {
+        Litigation__c lit = new Litigation__c();
+        lit.put(parentLookupField, parentId);
+        lit.RecordTypeId = utils.getRecordTypeIdMap('Litigation__c').get(recordTypeName);
+        lit.Request_Filed__c = requestFiled;
+        if(doInsert) {
+            insert lit;
+        }
+        return lit;
+    }
             
     // create test Opportunity
     public static Opportunity createOpportunity(String accId, String conId, boolean isInsert){
