@@ -981,9 +981,11 @@ public without sharing class SegmentTriggerHandler {
 			|| recordTypeNameMap.get(s.RecordTypeId)== ANTI_CIRCUMVENTION_REVIEW) {
 			if(s.Segment_Outcome__c == 'Full Rescission') {
 				if (rescissionPublished != null) {
+					s.Deficient_or_Withdrawn_Date__c = null;
 					s.Litigation_Hold_Expiration_Date__c = rescissionPublished.addDays(holdTime);
 					s.Litigation_Hold_Expiration_Date__c = ADCVD_TollingDayUtility.getCalculatedDate(rescissionPublished, s.Litigation_Hold_Expiration_Date__c, true);
 				} else {
+					s.Deficient_or_Withdrawn_Date__c = null;
 					s.Litigation_Hold_Expiration_Date__c = null;
 					s.addError('You must enter a Rescission FR to set Segment Outcome to "Full Rescission".');
 				}
@@ -993,6 +995,7 @@ public without sharing class SegmentTriggerHandler {
 					s.Litigation_Hold_Expiration_Date__c = s.Deficient_or_Withdrawn_Date__c.addDays(holdTime);
 					s.Litigation_Hold_Expiration_Date__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Deficient_or_Withdrawn_Date__c, s.Litigation_Hold_Expiration_Date__c, true);
 				} else {
+					s.Deficient_or_Withdrawn_Date__c = null;
 					s.Litigation_Hold_Expiration_Date__c = null;
 				}
 			} else if (s.Segment_Outcome__c == 'Completed') {
@@ -1004,12 +1007,15 @@ public without sharing class SegmentTriggerHandler {
 						|| recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW)
 						&& s.Will_you_Amend_the_Final__c == 'Yes' 
 						&& s.Actual_Amended_Final_Signature__c != null) {
+							s.Deficient_or_Withdrawn_Date__c = null;
 							s.Litigation_Hold_Expiration_Date__c = s.Actual_Final_Signature__c.addDays(holdTime);
 							s.Litigation_Hold_Expiration_Date__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Final_Signature__c, s.Litigation_Hold_Expiration_Date__c, true);
 				} else {
+					s.Deficient_or_Withdrawn_Date__c = null;
 					s.Litigation_Hold_Expiration_Date__c = null;
 				}
 			} else if (s.Segment_Outcome__c == null) {
+				s.Deficient_or_Withdrawn_Date__c = null;
 				s.Litigation_Hold_Expiration_Date__c = null;
 			}
 		} else if (recordTypeNameMap.get(s.RecordTypeId)== SCOPE_INQUIRY
