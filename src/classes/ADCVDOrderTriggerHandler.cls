@@ -1,5 +1,6 @@
 public without sharing class ADCVDOrderTriggerHandler {
 
+    @TestVisible private static Set<String> activeSegmentStatuses = new Set<String>();
 	private static Map<String,Constant__mdt> orderCalcOffsets = orderCalcOffsets();
 
 	//FINAL ADCVD Order Offsets
@@ -52,7 +53,7 @@ public without sharing class ADCVDOrderTriggerHandler {
     @TestVisible private static void initialize(List<ADCVD_Order__c> newList, Map<Id,ADCVD_Order__c> newMap) {
         if(newMap != null) {
         	setOrderIdToSegmentMap(newMap.keySet());
-            setOrderIdToSegmentStatusMap();
+            setOrderIdToSegmentStatusMap(newMap.keySet());
             ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get Segments with an Id
             frUtilMap = listInstance.utilMap;
         }
@@ -89,11 +90,14 @@ public without sharing class ADCVDOrderTriggerHandler {
 	@TestVisible private static Map<String,Constant__mdt> orderCalcOffsets() {
 		if(orderCalcOffsets == null || orderCalcOffsets.size() < 1) {
 			Map<String,Constant__mdt> returnMap = new Map<String,Constant__mdt>();
-			List<Constant__mdt> tempList = [SELECT QualifiedAPIName, Used_with_Field_Named__c, Number_Value__c, 
-													ADCVD_Objects__r.Object_API_Name__c, ADCVD_Objects__r.Record_Type_Name__c 
+			for (Constant__mdt sc : [SELECT QualifiedAPIName, Used_with_Field_Named__c, Number_Value__c, String_Value__c, 
+													ADCVD_Objects__r.Object_API_Name__c, ADCVD_Objects__r.Record_Type_Name__c,
+                                                    Segment_Calculation_Offset__c 
 											FROM Constant__mdt 
-											WHERE ADCVD_Order_Calculation_Offset__c =: true];
-			for(Constant__mdt sc : tempList) {
+											WHERE ADCVD_Order_Calculation_Offset__c =: true]) {
+                if (sc.Used_with_Field_Named__c == 'Status__c' && sc.Segment_Calculation_Offset__c && sc.String_Value__c != null) {
+                    activeSegmentStatuses.add(sc.String_Value__c);
+                }
 				returnMap.put(sc.QualifiedAPIName, sc);
 			}
 			return returnMap;
@@ -109,7 +113,7 @@ public without sharing class ADCVDOrderTriggerHandler {
      * @return            [description]
      */
 	@TestVisible private static void setOrderIdToSegmentMap(Set<Id> orderIdSet) {
-        for (Segment__c s : [SELECT Id, ADCVD_Order__c, Status__c FROM Segment__c WHERE ADCVD_Order__c IN: orderIdSet]) {
+        for (Segment__c s : [SELECT Id, ADCVD_Order__c, Status__c, Do_Delete__c FROM Segment__c WHERE ADCVD_Order__c IN: orderIdSet]) {
         	List<Segment__c> tempList = new List<Segment__c>();
         	if (orderIdToSegmentMap.get(s.ADCVD_Order__c) != null) {
         		tempList = orderIdToSegmentMap.get(s.ADCVD_Order__c);
@@ -119,14 +123,19 @@ public without sharing class ADCVDOrderTriggerHandler {
         }
     }
 
-    @TestVisible private static void setOrderIdToSegmentStatusMap() {
+    @TestVisible private static void setOrderIdToSegmentStatusMap(Set<Id> orderIdSet) {
         if (orderIdToSegmentMap != null && !orderIdToSegmentMap.isEmpty()) {
             for (Id orderId : orderIdToSegmentMap.keySet()) {
                 for (Segment__c s : orderIdToSegmentMap.get(orderId)) {
-                    if (orderIdToSegmentStatusMap.get(orderId) == null || orderIdToSegmentStatusMap.get(orderId) != 'Active') {
+                    if ((orderIdToSegmentStatusMap.get(orderId) == null || !activeSegmentStatuses.contains(orderIdToSegmentStatusMap.get(orderId))) && !s.Do_Delete__c) {
                         orderIdToSegmentStatusMap.put(orderId, s.Status__c);
                     }
                 }
+            }
+        }
+        for (Id orderId : orderIdSet) {
+            if (!orderIdToSegmentMap.keySet().contains(orderId)) {
+                orderIdToSegmentStatusMap.put(orderId, '');
             }
         }
     }
@@ -157,7 +166,7 @@ public without sharing class ADCVDOrderTriggerHandler {
 
     @TestVisible private static void setSegmentStatus(List<ADCVD_Order__c> newList) {
 		for (ADCVD_Order__c o : newList) {
-			if (o.Id != null && orderIdToSegmentStatusMap.get(o.Id) != null && orderIdToSegmentStatusMap.get(o.Id) == 'Active') {
+			if (o.Id != null && orderIdToSegmentStatusMap.get(o.Id) != null && activeSegmentStatuses.contains(orderIdToSegmentStatusMap.get(o.Id))){
 				o.Segment_Status__c = 'Active';
 			} else {
 				o.Segment_Status__c = 'Inactive';

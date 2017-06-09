@@ -627,6 +627,14 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Do_Delete__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Do Delete</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Does_the_Review_Involve_CCR__c</fullName>
         <externalId>false</externalId>
         <label>Does the Review Involve CCR?</label>

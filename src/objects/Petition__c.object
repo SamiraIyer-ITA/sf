@@ -995,6 +995,16 @@ ISBLANK(TEXT(Actual_Initiation_Signature__c))
         <errorMessage>Initiation extension cannot exceed more than 20 days.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Lit_Resolved_Required_If_Lit_Is_Yes</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+ ISPICKVAL( Litigation_YesNo__c , &apos;Yes&apos;) ,
+ ISPICKVAL( Litigation_Resolved__c , &apos;&apos;)
+)</errorConditionFormula>
+        <errorDisplayField>Litigation_Resolved__c</errorDisplayField>
+        <errorMessage>Litigation Resolved must cannot be blank if Litigation equals &quot;Yes&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Litigation_Resolved_Required</fullName>
         <active>true</active>
         <description>Litigation Resolved cannot be blank if Litigation is &apos;Yes&apos;</description>
@@ -1012,6 +1022,16 @@ ISBLANK( TEXT( Litigation_Resolved__c ) )
 NOT(ISBLANK(TEXT(Actual_Initiation_Signature__c ))),
 ISPICKVAL(Petition_Outcome__c, &apos;&apos;))</errorConditionFormula>
         <errorMessage>Petition Outcome is required in order to choose Actual Initiation Signature</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Petition_Outcome_Required_for_Actual_Sig</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+   NOT(ISNULL(Actual_Initiation_Signature__c)),
+   ISBLANK(TEXT(Petition_Outcome__c ))
+)</errorConditionFormula>
+        <errorDisplayField>Petition_Outcome__c</errorDisplayField>
+        <errorMessage>The Petition Outcome is required to enter an Actual Initiation Signature</errorMessage>
     </validationRules>
     <visibility>Public</visibility>
 </CustomObject>
