@@ -213,6 +213,33 @@ public with sharing class TestUtils {
         return seg;
     }
 
+    //create test segment
+    public static Segment__c createSegment(Suspension_Agreement__c sa, String recordTypeName, Boolean doInsert) {
+        Segment__c seg = new Segment__c();
+        seg.RecordTypeId = utils.getRecordTypeIdMap('Segment__c').get(recordTypeName);
+        if(sa != null && sa.Id != null) {
+            seg.Suspension_Agreement__c = sa.Id;
+        }
+        //added for testing purposes
+        Date tempDate = System.today();
+        seg.Final_Date_of_Anniversary_Month__c = tempDate.toStartOfMonth().addDays(Date.daysInMonth(tempDate.year(), tempDate.month()) - 1);
+        if(doInsert) {
+            insert seg;
+        }
+        return seg;
+    }
+
+    // create test suspension agreement
+    public static Suspension_Agreement__c createSuspensionAgreement(Investigation__c i, Date suspensionDate, Boolean doInsert) {
+        Suspension_Agreement__c sa = new Suspension_Agreement__c(); 
+        sa.Suspension_Date__c = suspensionDate;
+        sa.Investigation__c = i.id; 
+        if(doInsert) {
+            insert sa;
+        }
+        return sa;
+    }
+
     //create test Tolling Day
     public static Tolling_Day__c createTollingDay(Date startDate, Date endDate, User u, Boolean doInsert){
         Tolling_Day__c td = new Tolling_Day__c();
