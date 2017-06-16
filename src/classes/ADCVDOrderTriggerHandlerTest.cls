@@ -137,8 +137,9 @@ public class ADCVDOrderTriggerHandlerTest {
 		List<ADCVD_Order__c> aList = new List<ADCVD_Order__c>();
 		aList.add(o);
 		ADCVDOrderTriggerHandler.initialize(aList, null);
-		System.assertNotEquals(ADCVDOrderTriggerHandler.orderIdToSegmentMap, null);
+
 		Test.stopTest();
+		System.assertNotEquals(ADCVDOrderTriggerHandler.orderIdToSegmentMap, null);
 	}
 
 	@isTest static void setAnniversaryMonth() {
@@ -165,28 +166,46 @@ public class ADCVDOrderTriggerHandlerTest {
 		orderDate = orderDate.addMonths(1);
 		setFR(o.Id, 'Revocation');
 		o = null;
-		System.assertEquals(null, o.Next_Sunset_Initiation_Date__c);
+
 		Test.stopTest();
+		System.assertEquals(null, o.Next_Sunset_Initiation_Date__c);
 	}
 
 	@isTest static void setSegmentStatus1() {
 		Test.startTest();
-		System.assertNotEquals('Active', o.Segment_Status__c);
-		adminSeg.Status__c = 'Active';//Will need to refactor this once Segment status logic is set
-		update adminSeg;
-		update o;
-		o = null;
 		System.assertEquals('Active', o.Segment_Status__c);
+		List<Segment__c> deleteList = new List<Segment__c>();
+		deleteList.add(adminSeg);
+		deleteList.add(acSeg);
+		deleteList.add(ccSeg);
+		deleteList.add(expedSeg);
+		deleteList.add(nsSeg);
+		deleteList.add(siSeg);
+		deleteList.add(ssSeg);
+		delete deleteList;
+		o = null;
+
 		Test.stopTest();
+		System.assertEquals('Inactive', o.Segment_Status__c);
 	}
 	@isTest static void setSegmentStatus2() {
 		Test.startTest();
-		adminSeg.Status__c = 'Closed';
+		System.assertEquals('Active', o.Segment_Status__c);
+		List<Segment__c> deleteList = new List<Segment__c>();
+		deleteList.add(acSeg);
+		deleteList.add(ccSeg);
+		deleteList.add(expedSeg);
+		deleteList.add(nsSeg);
+		deleteList.add(siSeg);
+		deleteList.add(ssSeg);
+		delete deleteList;
+		adminSeg.Segment_Outcome__c = 'Withdrawn';
 		update adminSeg;
 		update o;
 		o = null;
-		System.assertNotEquals('Active', o.Segment_Status__c);
+
 		Test.stopTest();
+		System.assertEquals('Active', o.Segment_Status__c);
 	}
 
 	@isTest static void setStatus1() {
@@ -194,23 +213,17 @@ public class ADCVDOrderTriggerHandlerTest {
 		System.assertEquals('Order FR Needed', o.Status__c);//default on Insert
 		setFR(o.Id, 'Order');
 		o = null;
-		System.assertEquals('Current-Inactive', o.Status__c);//updated when Order FR is inserted
-		adminSeg.Status__c = 'Active';//Will need to refactor this once Segment status logic is set
-		update adminSeg;
-		update o;
-		o = null;
-		System.assertEquals('Current-Active', o.Status__c);//updated when any Segment is active
+
 		Test.stopTest();
+		System.assertEquals('Current-Active', o.Status__c);//updated when any Segment is active
 	}
 
 	@isTest static void setStatus2() {
 		Test.startTest();
+		System.assertEquals('Order FR Needed', o.Status__c);//default on Insert
 		setFR(o.Id, 'Order');
-		adminSeg.Status__c = 'Closed';
-		update adminSeg;
-		update o;
 		o = null;
-		System.assertEquals('Current-Inactive', o.Status__c);//updated when all Segments are not active
+		System.assertEquals('Current-Active', o.Status__c);//updated when at least one Segment is active
 		setFR(o.Id, 'Revocation');
 		o = null;
 		System.assertEquals('Revoked-Incomplete', o.Status__c);//updated when Revocation FR is inserted
@@ -218,8 +231,9 @@ public class ADCVDOrderTriggerHandlerTest {
 		update o;
 		delete revoFR;
 		o = null;
-		System.assertEquals('Revoked-Complete', o.Status__c);//does not overwrite when other changes happen
+
 		Test.stopTest();
+		System.assertEquals('Revoked-Complete', o.Status__c);//does not overwrite when other changes happen
 	}
 
 	@testSetup static void dataSetup() {

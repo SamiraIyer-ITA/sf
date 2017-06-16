@@ -1,5 +1,6 @@
 public without sharing class SegmentTriggerHandler {
 
+	@TestVisible private static Set<String> activeSegmentStatuses = new Set<String>();
 	private static Map<String,Constant__mdt> segmentCalcOffsets = segmentCalcOffsets();
 	//FINAL Segment Record Types
 	private static FINAL String ADMIN_REVIEW							= segmentCalcOffsets.get('Admin_Review_Calc_Prelim_Sig').ADCVD_Objects__r.Record_Type_Name__c;
@@ -113,11 +114,16 @@ public without sharing class SegmentTriggerHandler {
 			calculateSegmentStatuses(newList);
 
 		}
-		if (isAfter && isUpdate) {
-			recalculateIssues(newMap, oldMap);
+		if (isBefore && isDelete) {
+			recalculateOrdersOnSegmentDelete(oldMap);
 		}
 		if(isAfter && isInsert) {
 			StaffingAssignmentExtension createStaff = new StaffingAssignmentExtension(newList);
+			recalculateOrders(newMap, oldMap);
+		}
+		if (isAfter && isUpdate) {
+			recalculateIssues(newMap, oldMap);
+			recalculateOrders(newMap, oldMap);
 		}
 	}
 
@@ -194,6 +200,25 @@ public without sharing class SegmentTriggerHandler {
 		setStatus(newList);
 	}
 
+	@TestVisible private static void recalculateOrders(Map<Id,Segment__c> newMap, Map<Id,Segment__c> oldMap) {
+		Set<Id> orderIdSet = getOrderParentIds(newMap, oldMap);
+		List<ADCVD_Order__c> ordersToUpdate = new List<ADCVD_Order__c>();
+		System.debug('ordersToUpdate : ' + ordersToUpdate);
+		for (ADCVD_Order__c o : [SELECT Id FROM ADCVD_Order__c WHERE Id IN: orderIdSet]) {
+			ordersToUpdate.add(o);
+		}
+		if (!ordersToUpdate.isEmpty())  update ordersToUpdate;
+	}
+
+	@TestVisible private static void recalculateOrdersOnSegmentDelete(Map<Id,Segment__c> oldMap) {
+		List<Segment__c> segmentsToDelete = new List<Segment__c>();
+		for (Segment__c s : [SELECT Id, Segment_Outcome__c, Do_Delete__c FROM Segment__c WHERE Id IN: oldMap.keySet()]) {
+			s.Do_Delete__c = true;
+			segmentsToDelete.add(s);
+		}
+		if (!segmentsToDelete.isEmpty())  update segmentsToDelete;
+	}
+
 	/**
 	 * Method to calculate Issues
 	 * @param  newMap [description]
@@ -203,7 +228,6 @@ public without sharing class SegmentTriggerHandler {
 	@TestVisible private static void recalculateIssues(Map<Id,Segment__c> newMap, Map<Id,Segment__c> oldMap) {
 		Set<Id> parentIds = getIssueParentIds(newMap, oldMap);
 		List<Issue__c> issuesToUpdate = new List<Issue__c>();
-
 		for (Issue__c i : [SELECT Id, Type__c, Issues_to_DAS__c, Concurrence_to_DAS__c FROM Issue__c WHERE Segment__c IN: parentIds]) {
 			issuesToUpdate.add(i);
 		}
@@ -219,11 +243,13 @@ public without sharing class SegmentTriggerHandler {
 	@TestVisible private static Map<String,Constant__mdt> segmentCalcOffsets() {
 		if(segmentCalcOffsets == null || segmentCalcOffsets.size() < 1) {
 			Map<String,Constant__mdt> returnMap = new Map<String,Constant__mdt>();
-			List<Constant__mdt> tempList = [SELECT QualifiedAPIName, Used_with_Field_Named__c, Number_Value__c, 
+			for (Constant__mdt sc : [SELECT QualifiedAPIName, Used_with_Field_Named__c, Number_Value__c, String_Value__c, 
 													ADCVD_Objects__r.Object_API_Name__c, ADCVD_Objects__r.Record_Type_Name__c 
 											FROM Constant__mdt 
-											WHERE Segment_Calculation_Offset__c =: true];
-			for(Constant__mdt sc : tempList) {
+											WHERE Segment_Calculation_Offset__c =: true]) {
+				if (sc.Used_with_Field_Named__c == 'Status__c' && sc.String_Value__c != null) {
+                    activeSegmentStatuses.add(sc.String_Value__c);
+                }
 				returnMap.put(sc.QualifiedAPIName, sc);
 			}
 			return returnMap;
@@ -246,6 +272,20 @@ public without sharing class SegmentTriggerHandler {
 				oldMap.get(s.Id).Continuation_or_Revocation__c != s.Continuation_or_Revocation__c
 				)) {
 				returnIdSet.add(s.Id);
+			}
+		}
+		return returnIdSet;
+	}
+
+	@TestVisible private static Set<Id> getOrderParentIds(Map<Id,Segment__c> newMap, Map<Id,Segment__c> oldMap) {
+		Set<Id> returnIdSet = new Set<Id>();
+		if (newMap != null) {
+			for (Segment__c s : newMap.values()) {
+				returnIdSet.add(s.ADCVD_Order__c);
+			} 
+		} else if (oldMap != null) {
+			for (Segment__c s : oldMap.values()) {
+				returnIdSet.add(s.ADCVD_Order__c);
 			}
 		}
 		return returnIdSet;
@@ -276,6 +316,15 @@ public without sharing class SegmentTriggerHandler {
 					}
 				}
 			}
+		}
+	}
+
+	//sets Segment_Outcome__c
+	@TestVisible private static void setSegmentOutcome(Segment__c s) {
+		if (s.Actual_Final_Signature__c != null && s.Segment_Outcome__c == null) {
+			s.Segment_Outcome__c = 'Completed';
+		} else if (s.Actual_Final_Signature__c == null && s.Segment_Outcome__c == 'Completed') {
+			s.Segment_Outcome__c = null;
 		}
 	}
 
@@ -479,7 +528,7 @@ public without sharing class SegmentTriggerHandler {
             } else if (s.Decision_on_How_to_Proceed__c == 'Formal' && s.Actual_Date_of_Decision_on_HoP__c != null) {
                 s.Calculated_Final_Signature__c = s.Actual_Date_of_Decision_on_HoP__c.addDays(SI_CALC_FINAL_SIG).addDays(extension);
                 s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Date_of_Decision_on_HoP__c, s.Calculated_Final_Signature__c, true);
-            } 
+            }
 		} else if (recordTypeNameMap.get(s.RecordTypeId) == ANTI_CIRCUMVENTION_REVIEW){
 			if (s.Actual_Initiation_Signature__c == null && s.Calculated_Initiation_Signature__c != null){
 				s.Calculated_Final_Signature__c = s.Calculated_Initiation_Signature__c.addDays(ACR_CALC_FINAL_SIG).addDays(extension);
@@ -924,6 +973,7 @@ public without sharing class SegmentTriggerHandler {
 			rescissionPublished= frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).rescissionPublishedDate : null;
 		}
 		Integer holdTime = s.Petition_Country__c == 'Canada' || s.Petition_Country__c == 'Mexico' ? NAFTA_COUNTRY_HOLD: NON_NAFTA_COUNTRY_HOLD;
+		setSegmentOutcome(s);
 		if(recordTypeNameMap.get(s.RecordTypeId)== ADMIN_REVIEW 
 			|| recordTypeNameMap.get(s.RecordTypeId)== EXPEDITED_REVIEW
 			|| recordTypeNameMap.get(s.RecordTypeId)== NEW_SHIPPER_REVIEW
@@ -931,9 +981,11 @@ public without sharing class SegmentTriggerHandler {
 			|| recordTypeNameMap.get(s.RecordTypeId)== ANTI_CIRCUMVENTION_REVIEW) {
 			if(s.Segment_Outcome__c == 'Full Rescission') {
 				if (rescissionPublished != null) {
+					s.Deficient_or_Withdrawn_Date__c = null;
 					s.Litigation_Hold_Expiration_Date__c = rescissionPublished.addDays(holdTime);
 					s.Litigation_Hold_Expiration_Date__c = ADCVD_TollingDayUtility.getCalculatedDate(rescissionPublished, s.Litigation_Hold_Expiration_Date__c, true);
 				} else {
+					s.Deficient_or_Withdrawn_Date__c = null;
 					s.Litigation_Hold_Expiration_Date__c = null;
 					s.addError('You must enter a Rescission FR to set Segment Outcome to "Full Rescission".');
 				}
@@ -943,22 +995,29 @@ public without sharing class SegmentTriggerHandler {
 					s.Litigation_Hold_Expiration_Date__c = s.Deficient_or_Withdrawn_Date__c.addDays(holdTime);
 					s.Litigation_Hold_Expiration_Date__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Deficient_or_Withdrawn_Date__c, s.Litigation_Hold_Expiration_Date__c, true);
 				} else {
+					s.Deficient_or_Withdrawn_Date__c = null;
 					s.Litigation_Hold_Expiration_Date__c = null;
 				}
 			} else if (s.Segment_Outcome__c == 'Completed') {
 				if (s.Actual_Final_Signature__c != null && s.Will_you_Amend_the_Final__c != 'Yes') {
 					s.Litigation_Hold_Expiration_Date__c = s.Actual_Final_Signature__c.addDays(holdTime);
 					s.Litigation_Hold_Expiration_Date__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Final_Signature__c, s.Litigation_Hold_Expiration_Date__c, true);
-				} else if (recordTypeNameMap.get(s.RecordTypeId) != ANTI_CIRCUMVENTION_REVIEW 
-						&& recordTypeNameMap.get(s.RecordTypeId) != CHANGED_CIRCUMSTANCES_REVIEW
+				} else if ((recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW 
+						|| recordTypeNameMap.get(s.RecordTypeId) == EXPEDITED_REVIEW
+						|| recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW)
 						&& s.Will_you_Amend_the_Final__c == 'Yes' 
 						&& s.Actual_Amended_Final_Signature__c != null) {
+							s.Deficient_or_Withdrawn_Date__c = null;
 							s.Litigation_Hold_Expiration_Date__c = s.Actual_Final_Signature__c.addDays(holdTime);
 							s.Litigation_Hold_Expiration_Date__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Final_Signature__c, s.Litigation_Hold_Expiration_Date__c, true);
 				} else {
+					s.Deficient_or_Withdrawn_Date__c = null;
 					s.Litigation_Hold_Expiration_Date__c = null;
 				}
-			} 
+			} else if (s.Segment_Outcome__c == null) {
+				s.Deficient_or_Withdrawn_Date__c = null;
+				s.Litigation_Hold_Expiration_Date__c = null;
+			}
 		} else if (recordTypeNameMap.get(s.RecordTypeId)== SCOPE_INQUIRY
 			|| recordTypeNameMap.get(s.RecordTypeId)== SUNSET_REVIEW) {
 			s.Segment_Outcome__c = s.Decision_on_How_to_Proceed__c == 'Reject' ? 'Rejected' : s.Segment_Outcome__c;
@@ -977,6 +1036,8 @@ public without sharing class SegmentTriggerHandler {
 				} else {
 					s.Litigation_Hold_Expiration_Date__c = null;
 				}
+			} else if (s.Segment_Outcome__c == null) {
+				s.Litigation_Hold_Expiration_Date__c = null;
 			}
 		}
 	}
@@ -1011,7 +1072,7 @@ public without sharing class SegmentTriggerHandler {
 
 	@TestVisible private static void setLitigationStatus(List<Segment__c> newList) {
 		for (Segment__c s : newList) {
-			if (s.Id != null && segmentIdToLitigationStatusMap.get(s.Id) != null && segmentIdToLitigationStatusMap.get(s.Id) == 'Active') {
+			if (s.Id != null && segmentIdToLitigationStatusMap.get(s.Id) != null && activeSegmentStatuses.contains(segmentIdToLitigationStatusMap.get(s.Id))) {
 				s.Litigation_Status__c = 'Active';
 			} else {
 				s.Litigation_Status__c = 'Inactive';
@@ -1108,25 +1169,19 @@ public without sharing class SegmentTriggerHandler {
 		if (recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW) {
 			if (prelimPublished != null 
 				&& s.Actual_Preliminary_Signature__c != null 
-				&& prelimPublished != null 
-				&& (s.Actual_Final_Signature__c == null || finalPublished == null)
-				&& s.Segment_Outcome__c == null) {
+				&& (s.Actual_Final_Signature__c == null || finalPublished == null || s.Segment_Outcome__c == null)) {
 					s.Status__c = 'Final';
 			}
 		} else if (recordTypeNameMap.get(s.RecordTypeId) == EXPEDITED_REVIEW) {
 			if (prelimPublished != null 
 				&& s.Actual_Preliminary_Signature__c != null 
-				&& prelimPublished != null 
-				&& (s.Actual_Final_Signature__c == null || finalPublished == null)
-				&& s.Segment_Outcome__c == null) {
+				&& (s.Actual_Final_Signature__c == null || finalPublished == null || s.Segment_Outcome__c == null)) {
 					s.Status__c = 'Final';
 			}
 		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
 			if (prelimPublished != null 
 				&& s.Actual_Preliminary_Signature__c != null 
-				&& prelimPublished != null 
-				&& (s.Actual_Final_Signature__c == null || finalPublished == null)
-				&& s.Segment_Outcome__c == null) {
+				&& (s.Actual_Final_Signature__c == null || finalPublished == null || s.Segment_Outcome__c == null)) {
 					s.Status__c = 'Final';
 			}
 		} else if (recordTypeNameMap.get(s.RecordTypeId) == CHANGED_CIRCUMSTANCES_REVIEW) {
