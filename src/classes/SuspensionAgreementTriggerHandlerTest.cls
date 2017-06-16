@@ -16,7 +16,9 @@ public class SuspensionAgreementTriggerHandlerTest {
 	private static Suspension_Agreement__c sa{
 		get{
 			if (sa == null) {
-				sa = [SELECT Id, Suspension_Date__c, Investigation__c, Office_Assignment__c, Next_Sunset_Initiation_Date__c, Termination_Date__c FROM Suspension_Agreement__c LIMIT 1];
+				sa = [SELECT Id, Suspension_Date__c, Investigation__c, Office_Assignment__c, Anniversary_Month__c,
+							 Next_Sunset_Initiation_Date__c, Termination_Date__c 
+					 FROM Suspension_Agreement__c LIMIT 1];
 			}
 			return sa;
 		}
@@ -53,6 +55,16 @@ public class SuspensionAgreementTriggerHandlerTest {
 		SuspensionAgreementTriggerHandler.initialize(aList, null);
 		System.assert(SuspensionAgreementTriggerHandler.frUtilMap.isEmpty());
 		Test.stopTest();
+	}
+
+	
+	@isTest static void setAnniversaryMonth() {
+		Test.startTest();
+		testCalculated = suspDate.toStartOfMonth().addYears(4).addMonths(11);
+        Datetime dt = Datetime.newInstance(testCalculated, null);
+		String month = dt.format('MMMMM');
+		Test.stopTest();
+		System.assertEquals(month, sa.Anniversary_Month__c);
 	}
 
 	@isTest static void setNextSunsetInitiationDate() {
