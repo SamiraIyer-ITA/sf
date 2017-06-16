@@ -16,7 +16,8 @@ public class ADCVDOrderTriggerHandlerTest {
 	private static ADCVD_Order__c o{
 		get{
 			if (o == null) {
-				o = [SELECT Id, Anniversary_Month__c, Office_Assignment__c, Segment_Status__c, Status__c, Next_Sunset_Initiation_Date__c FROM ADCVD_Order__c LIMIT 1];
+				o = [SELECT Id, Anniversary_Month__c, Office_Assignment__c, Segment_Status__c, Status__c, Next_Sunset_Initiation_Date__c 
+					FROM ADCVD_Order__c LIMIT 1];
 			}
 			return o;
 		}
@@ -139,6 +140,15 @@ public class ADCVDOrderTriggerHandlerTest {
 
 		Test.stopTest();
 		System.assertNotEquals(ADCVDOrderTriggerHandler.orderIdToSegmentMap, null);
+	}
+
+	@isTest static void setAnniversaryMonth() {
+		Test.startTest();
+		testCalculated = orderDate.toStartOfMonth().addYears(4).addMonths(11);
+        Datetime dt = Datetime.newInstance(testCalculated, null);
+		String month = dt.format('MMMMM');
+		Test.stopTest();
+		System.assertEquals(month, o.Anniversary_Month__c);
 	}
 
 	@isTest static void setNextSunsetInitiationDate() {

@@ -24,9 +24,6 @@ public without sharing class ADCVDOrderTriggerHandler {
             calculateOrderDates(newList);
             calculateOrderStatuses(newList);
         }
-        if (isAfter && isUpdate) {
-
-        }
         if(isAfter && isInsert) {
             StaffingAssignmentExtension createStaff = new StaffingAssignmentExtension(newList);
         }
@@ -66,6 +63,7 @@ public without sharing class ADCVDOrderTriggerHandler {
      */
     @TestVisible private static void calculateOrderDates(List<ADCVD_Order__c> newList) {
 		for (ADCVD_Order__c o : newList) {
+            setAnniversaryMonth(o);
 			setNextSunsetInitiationDate(o);
 		}
 	}
@@ -140,10 +138,27 @@ public without sharing class ADCVDOrderTriggerHandler {
         }
     }
 
+    //Helper Method returns Month from a Date in String format
+    @TestVisible private static String getMonthFromDate(Date dt) {
+        Datetime tempDt = Datetime.newInstance(dt, null);
+        String monthString = tempDt.format('MMMMM');
+         return monthString;
+
+    }
+
 
     /*********************************
     * Date Calculations
     *********************************/
+
+    //Set Anniversary_Month__c
+    @TestVisible private static void setAnniversaryMonth(ADCVD_Order__c o) {
+        Date orderPublishedDate = null;
+        if (o.Id != null && frUtilMap != null) {
+            orderPublishedDate = frUtilMap.get(o.Id) != null ? frUtilMap.get(o.Id).orderPublishedDate : null;
+            o.Anniversary_Month__c = getMonthFromDate(orderPublishedDate);
+        }    
+    }
 
     //Next_Sunset_Initiation_Date__c
     @TestVisible private static void setNextSunsetInitiationDate(ADCVD_Order__c o) {
