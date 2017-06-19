@@ -140,10 +140,12 @@ public without sharing class ADCVDOrderTriggerHandler {
 
     //Helper Method returns Month from a Date in String format
     @TestVisible private static String getMonthFromDate(Date dt) {
-        Datetime tempDt = Datetime.newInstance(dt, null);
-        String monthString = tempDt.format('MMMMM');
-         return monthString;
-
+        String monthString = '';
+        if (dt != null) {
+            Datetime tempDt = Datetime.newInstance(dt, Time.newInstance(0,0,0,0));
+            monthString = tempDt.format('MMMMM');
+        }
+        return monthString;
     }
 
 
@@ -156,8 +158,12 @@ public without sharing class ADCVDOrderTriggerHandler {
         Date orderPublishedDate = null;
         if (o.Id != null && frUtilMap != null) {
             orderPublishedDate = frUtilMap.get(o.Id) != null ? frUtilMap.get(o.Id).orderPublishedDate : null;
+        }
+        if (orderPublishedDate != null) {
             o.Anniversary_Month__c = getMonthFromDate(orderPublishedDate);
-        }    
+        } else {
+            o.Anniversary_Month__c = null;
+        }
     }
 
     //Next_Sunset_Initiation_Date__c

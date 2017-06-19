@@ -4982,6 +4982,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Segment__c.Administrative_Review_Aligned_To__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Segment__c.All_parties_in_agreement_to_the_outcome__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5083,6 +5088,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Segment__c.Deficient_or_Withdrawn_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Segment__c.Do_Delete__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5233,6 +5243,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Segment__c.Minesterial_Error_for_final__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Segment__c.New_Shipper_Sync_Level__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6098,6 +6113,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Sync_Utility__mdt.Sync_This_Field__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Sync_Utility__mdt.Synced_for_Final__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

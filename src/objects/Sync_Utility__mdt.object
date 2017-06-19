@@ -48,6 +48,14 @@
         <label>Sync This Field</label>
         <type>Checkbox</type>
     </fields>
+    <fields>
+        <fullName>Synced_for_Final__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Synced for Final</label>
+        <type>Checkbox</type>
+    </fields>
     <label>Sync Utility</label>
     <pluralLabel>Sync Utilities</pluralLabel>
     <visibility>Public</visibility>

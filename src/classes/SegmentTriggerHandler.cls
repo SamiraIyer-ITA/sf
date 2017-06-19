@@ -105,14 +105,15 @@ public without sharing class SegmentTriggerHandler {
 
 		if (isBefore && isInsert) {
 			initialize(newList, newMap);
+			syncToAdministrativeReview(newList);
 			calculateSegmentDates(newList);
 			calculateSegmentStatuses(newList);
 		}
 		if (isBefore && isUpdate) {
 			initialize(newList, newMap);
+			syncToAdministrativeReview(newList);
 			calculateSegmentDates(newList);
 			calculateSegmentStatuses(newList);
-
 		}
 		if (isBefore && isDelete) {
 			recalculateOrdersOnSegmentDelete(oldMap);
@@ -123,6 +124,7 @@ public without sharing class SegmentTriggerHandler {
 		}
 		if (isAfter && isUpdate) {
 			recalculateIssues(newMap, oldMap);
+			recalculateNewShipperReviews(newMap);
 			recalculateOrders(newMap, oldMap);
 		}
 	}
@@ -151,6 +153,20 @@ public without sharing class SegmentTriggerHandler {
 			frUtilMap = listInstance.utilMap;
 		}
 	}
+
+	//Syncs New Shipper Reviews in scope to Administrative Reviews
+    @TestVisible private static void syncToAdministrativeReview(List<Segment__c> newList) {
+    	List<Segment__c> newShipperReviewsToSyncList = new List<Segment__c>();
+    	for (Segment__c s : newList) {
+    		if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
+    			setNewShipperSyncLevel(s);
+    			newShipperReviewsToSyncList.add(s);
+    		}
+    		if (!newShipperReviewsToSyncList.isEmpty()) {
+            	SyncUtility.syncObject(newShipperReviewsToSyncList, 'Segment__c');
+            }
+    	}
+    }
 
 	@TestVisible private static void calculateSegmentDates(List<Segment__c> newList) {
 		for (Segment__c s : newList) {
@@ -233,6 +249,12 @@ public without sharing class SegmentTriggerHandler {
 		}
 		if (!issuesToUpdate.isEmpty()) update issuesToUpdate;
 	}
+
+	//updates a list of New Shipper Reviews if they are aligned to a Administrative Review in scope that was updated
+    @TestVisible private static void recalculateNewShipperReviews(Map<Id,Segment__c> newMap) {
+        List<Segment__c> newShipperReviewsToSyncList = [SELECT Id FROM Segment__c WHERE Administrative_Review_Aligned_To__c IN: newMap.keySet()];
+        update newShipperReviewsToSyncList;
+    }
 
 
 	/***********************************
@@ -328,6 +350,16 @@ public without sharing class SegmentTriggerHandler {
 		}
 	}
 
+	@TestVisible private static void setNewShipperSyncLevel(Segment__c s) {
+		if (s.Administrative_Review_Aligned_To__c != null) {
+			if (s.New_Shipper_Sync_Level__c == null) {
+				s.New_Shipper_Sync_Level__c = (s.Actual_Preliminary_Signature__c == null) ? 'Preliminary' : 'Final';
+			}
+		} else {
+			s.New_Shipper_Sync_Level__c = '';
+		}
+	}
+
 	/**************************************
 	* Date Calculations
 	***************************************/
@@ -383,7 +415,7 @@ public without sharing class SegmentTriggerHandler {
 				s.Calculated_Preliminary_Signature__c = s.Actual_Initiation_Signature__c.addDays(ER_CALC_PRELIM_SIG).addDays(extension);
 				s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Initiation_Signature__c, s.Calculated_Preliminary_Signature__c, true);
 			}
-		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW && s.Administrative_Review_Aligned_To__c == null) {
 			if (s.Actual_Initiation_Signature__c == null && s.Calculated_Initiation_Signature__c != null) {
 				s.Calculated_Preliminary_Signature__c = s.Calculated_Initiation_Signature__c.addDays(NS_CALC_PRELIM_SIG).addDays(extension);
 				s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Initiation_Signature__c, s.Calculated_Preliminary_Signature__c, true);
@@ -441,7 +473,7 @@ public without sharing class SegmentTriggerHandler {
 				s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(ER_PRELIM_TEAM_MEET_DEADLINE);
 				s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Prelim_Team_Meeting_Deadline__c, s.Prelim_Team_Meeting_Deadline__c, true);
 			}
-		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW && s.Administrative_Review_Aligned_To__c == null) {
 			if (s.Calculated_Preliminary_Signature__c != null) {
 				s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(NS_PRELIM_TEAM_MEET_DEADLINE);
 				s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Prelim_Team_Meeting_Deadline__c, s.Prelim_Team_Meeting_Deadline__c, true);
@@ -514,7 +546,7 @@ public without sharing class SegmentTriggerHandler {
 				s.Calculated_Final_Signature__c = s.Actual_Preliminary_Signature__c.addDays(ER_CALC_FINAL_SIG).addDays(extension);
 				s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Preliminary_Signature__c, s.Calculated_Final_Signature__c, true);
 			}
-		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW && s.Administrative_Review_Aligned_To__c == null) {
 			if (s.Actual_Preliminary_Signature__c == null && s.Calculated_Preliminary_Signature__c != null) {
 				s.Calculated_Final_Signature__c = s.Calculated_Preliminary_Signature__c.addDays(NS_CALC_FINAL_SIG).addDays(extension);
 				s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Preliminary_Signature__c, s.Calculated_Final_Signature__c, true);
@@ -581,7 +613,7 @@ public without sharing class SegmentTriggerHandler {
 				s.Final_Team_Meeting_Deadline__c = s.Calculated_Final_Signature__c.addDays(ER_FINAL_TEAM_MEET_DEADLINE);
 				s.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Final_Team_Meeting_Deadline__c, s.Final_Team_Meeting_Deadline__c, true);
 			}
-		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW && s.Administrative_Review_Aligned_To__c == null) {
 			if (s.Calculated_Final_Signature__c != null) {
 				s.Final_Team_Meeting_Deadline__c = s.Calculated_Final_Signature__c.addDays(NS_FINAL_TEAM_MEET_DEADLINE);
 				s.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Final_Team_Meeting_Deadline__c, s.Final_Team_Meeting_Deadline__c, true);
@@ -625,7 +657,7 @@ public without sharing class SegmentTriggerHandler {
 					s.Calculated_Amended_Final_Signature__c = s.Actual_Final_Signature__c.addDays(ER_CALC_AMEN_FINAL_SIG);
 					s.Calculated_Amended_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Final_Signature__c, s.Calculated_Amended_Final_Signature__c, true);
 				}
-			} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
+			} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW && s.Administrative_Review_Aligned_To__c == null) {
 				if(s.Actual_Final_Signature__c == null && s.Calculated_Final_Signature__c != null){
 					s.Calculated_Amended_Final_Signature__c = s.Calculated_Final_Signature__c.addDays(NS_CALC_AMEN_FINAL_SIG);
 					s.Calculated_Amended_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Final_Signature__c, s.Calculated_Amended_Final_Signature__c, true);
@@ -976,7 +1008,7 @@ public without sharing class SegmentTriggerHandler {
 		setSegmentOutcome(s);
 		if(recordTypeNameMap.get(s.RecordTypeId)== ADMIN_REVIEW 
 			|| recordTypeNameMap.get(s.RecordTypeId)== EXPEDITED_REVIEW
-			|| recordTypeNameMap.get(s.RecordTypeId)== NEW_SHIPPER_REVIEW
+			|| (recordTypeNameMap.get(s.RecordTypeId)== NEW_SHIPPER_REVIEW && s.Administrative_Review_Aligned_To__c == null)
 			|| recordTypeNameMap.get(s.RecordTypeId)== CHANGED_CIRCUMSTANCES_REVIEW
 			|| recordTypeNameMap.get(s.RecordTypeId)== ANTI_CIRCUMVENTION_REVIEW) {
 			if(s.Segment_Outcome__c == 'Full Rescission') {
@@ -1004,7 +1036,7 @@ public without sharing class SegmentTriggerHandler {
 					s.Litigation_Hold_Expiration_Date__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Final_Signature__c, s.Litigation_Hold_Expiration_Date__c, true);
 				} else if ((recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW 
 						|| recordTypeNameMap.get(s.RecordTypeId) == EXPEDITED_REVIEW
-						|| recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW)
+						|| (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW && s.Administrative_Review_Aligned_To__c == null))
 						&& s.Will_you_Amend_the_Final__c == 'Yes' 
 						&& s.Actual_Amended_Final_Signature__c != null) {
 							s.Deficient_or_Withdrawn_Date__c = null;
@@ -1125,7 +1157,7 @@ public without sharing class SegmentTriggerHandler {
 			if ((prelimPublished == null || s.Actual_Preliminary_Signature__c == null) && s.Segment_Outcome__c == null) {
 				s.Status__c = 'Prelim';
 			}
-		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW && s.Administrative_Review_Aligned_To__c == null) {
 			if ((prelimPublished == null || s.Actual_Preliminary_Signature__c == null) && s.Segment_Outcome__c == null) {
 				s.Status__c = 'Prelim';
 			}
@@ -1178,7 +1210,7 @@ public without sharing class SegmentTriggerHandler {
 				&& (s.Actual_Final_Signature__c == null || finalPublished == null || s.Segment_Outcome__c == null)) {
 					s.Status__c = 'Final';
 			}
-		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW && s.Administrative_Review_Aligned_To__c == null) {
 			if (prelimPublished != null 
 				&& s.Actual_Preliminary_Signature__c != null 
 				&& (s.Actual_Final_Signature__c == null || finalPublished == null || s.Segment_Outcome__c == null)) {
@@ -1244,7 +1276,7 @@ public without sharing class SegmentTriggerHandler {
 		}
 		if (recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW
 			|| recordTypeNameMap.get(s.RecordTypeId) == EXPEDITED_REVIEW
-			|| recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
+			|| (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW && s.Administrative_Review_Aligned_To__c == null)) {
 			if (prelimPublished != null 
 				&& finalPublished != null 
 				&& s.Actual_Preliminary_Signature__c != null 
@@ -1258,11 +1290,13 @@ public without sharing class SegmentTriggerHandler {
 	}
 
 	@TestVisible private static void setHoldStatus(Segment__c s) {
-		if (s.Litigation_Hold_Expiration_Date__c != null 
-			&& s.Litigation_YesNo__c == null 
-			&& s.Segment_Outcome__c != null) {
-            	s.Status__c = 'Hold';
-        }
+		if (recordTypeNameMap.get(s.RecordTypeId) != NEW_SHIPPER_REVIEW || s.Administrative_Review_Aligned_To__c == null) {
+			if (s.Litigation_Hold_Expiration_Date__c != null 
+				&& s.Litigation_YesNo__c == null 
+				&& s.Segment_Outcome__c != null) {
+	            	s.Status__c = 'Hold';
+	        }
+	    }
 /*
 		if (recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW) {
 			if (s.Litigation_Hold_Expiration_Date__c != null 
@@ -1315,24 +1349,30 @@ public without sharing class SegmentTriggerHandler {
 	}
 
 	@TestVisible private static void setLitigationStatus(Segment__c s) {
-		if (s.Litigation_YesNo__c == 'Yes' && s.Litigation_Resolved__c == 'No' && s.Segment_Outcome__c != null) {
-			s.Status__c = 'Litigation';
+		if (recordTypeNameMap.get(s.RecordTypeId) != NEW_SHIPPER_REVIEW || s.Administrative_Review_Aligned_To__c == null) {
+			if (s.Litigation_YesNo__c == 'Yes' && s.Litigation_Resolved__c == 'No' && s.Segment_Outcome__c != null) {
+				s.Status__c = 'Litigation';
+			}
 		}
 	}
 
 	@TestVisible private static void setCustomsInstructionsStatus(Segment__c s) {
-		if ((s.Litigation_YesNo__c == 'No' 
-			|| (s.Litigation_YesNo__c == 'Yes' && s.Litigation_Resolved__c == 'Yes')) 
-			&& s.Have_Custom_Instruction_been_sent__c != 'Yes') { 
-                s.Status__c = 'Customs';
-        }
+		if (recordTypeNameMap.get(s.RecordTypeId) != NEW_SHIPPER_REVIEW || s.Administrative_Review_Aligned_To__c == null) {
+			if ((s.Litigation_YesNo__c == 'No' 
+				|| (s.Litigation_YesNo__c == 'Yes' && s.Litigation_Resolved__c == 'Yes')) 
+				&& s.Have_Custom_Instruction_been_sent__c != 'Yes') { 
+	                s.Status__c = 'Customs';
+	        }
+	    }
 	}
 
 	@TestVisible private static void setClosedStatus(Segment__c s) {
-		if ((s.Litigation_YesNo__c == 'No' || (s.Litigation_YesNo__c == 'Yes' && s.Litigation_Resolved__c == 'Yes')) 
-			&& s.Have_Custom_Instruction_been_sent__c == 'Yes') { 
-                s.Status__c = 'Closed';
-        }
+		if (recordTypeNameMap.get(s.RecordTypeId) != NEW_SHIPPER_REVIEW || s.Administrative_Review_Aligned_To__c == null) {
+			if ((s.Litigation_YesNo__c == 'No' || (s.Litigation_YesNo__c == 'Yes' && s.Litigation_Resolved__c == 'Yes')) 
+				&& s.Have_Custom_Instruction_been_sent__c == 'Yes') { 
+	                s.Status__c = 'Closed';
+	        }
+	    }
 	}
 
 
