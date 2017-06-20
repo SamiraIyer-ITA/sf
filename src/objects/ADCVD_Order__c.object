@@ -674,6 +674,17 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Petition_Product_Short_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Investigation__r.Petition__r.Product_Short_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Petition Product Short Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Petition_Product__c</fullName>
         <externalId>false</externalId>
         <formula>Investigation__r.Petition__r.Product__c</formula>

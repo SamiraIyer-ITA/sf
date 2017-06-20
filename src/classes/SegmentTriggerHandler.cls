@@ -163,7 +163,8 @@ public without sharing class SegmentTriggerHandler {
     			newShipperReviewsToSyncList.add(s);
     		}
     		if (!newShipperReviewsToSyncList.isEmpty()) {
-            	SyncUtility.syncObject(newShipperReviewsToSyncList, 'Segment__c');
+    			SyncUtility su = new SyncUtility();
+            	su.syncObject(newShipperReviewsToSyncList, 'Segment__c');
             }
     	}
     }

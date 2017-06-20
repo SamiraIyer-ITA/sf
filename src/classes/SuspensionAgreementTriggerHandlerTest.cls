@@ -1,4 +1,4 @@
-@isTest
+@isTest(seeAllData=false)
 public class SuspensionAgreementTriggerHandlerTest {
 	private static Date suspDate = System.today();
 	private static Date testActual = System.today();//reusable date variable for each test to add roll forward logic allowing data normalization
@@ -16,9 +16,7 @@ public class SuspensionAgreementTriggerHandlerTest {
 	private static Suspension_Agreement__c sa{
 		get{
 			if (sa == null) {
-				sa = [SELECT Id, Suspension_Date__c, Investigation__c, Office_Assignment__c, Anniversary_Month__c,
-							 Next_Sunset_Initiation_Date__c, Termination_Date__c 
-					 FROM Suspension_Agreement__c LIMIT 1];
+				sa = [SELECT Id, Suspension_Date__c, Investigation__c, Office_Assignment__c, Next_Sunset_Initiation_Date__c, Termination_Date__c FROM Suspension_Agreement__c LIMIT 1];
 			}
 			return sa;
 		}
@@ -53,37 +51,38 @@ public class SuspensionAgreementTriggerHandlerTest {
 		List<Suspension_Agreement__c> aList = new List<Suspension_Agreement__c>();
 		aList.add(sa);
 		SuspensionAgreementTriggerHandler.initialize(aList, null);
-		System.assert(SuspensionAgreementTriggerHandler.frUtilMap.isEmpty());
-		Test.stopTest();
-	}
 
-	
-	@isTest static void setAnniversaryMonth() {
-		Test.startTest();
-		testCalculated = suspDate.toStartOfMonth().addYears(4).addMonths(11);
-        Datetime dt = Datetime.newInstance(testCalculated, null);
-		String month = dt.format('MMMMM');
 		Test.stopTest();
-		System.assertEquals(month, sa.Anniversary_Month__c);
+		System.assert(SuspensionAgreementTriggerHandler.frUtilMap.isEmpty());
 	}
 
 	@isTest static void setNextSunsetInitiationDate() {
 		Test.startTest();
 		System.assertEquals(null, sa.Next_Sunset_Initiation_Date__c); 
-		setFR(sa.Id, 'Suspension Agreement'); 
+		setFR(sa.Id, 'Suspension Agreement', true); 
 		sa = null;
 		testCalculated = suspDate.toStartOfMonth().addYears(4).addMonths(11);
 		System.assertEquals(testCalculated, sa.Next_Sunset_Initiation_Date__c);
 		suspDate = suspDate.addMonths(1);
-		setFR(sa.Id, 'Continuation');
+		setFR(sa.Id, 'Continuation', true);
 		sa = null;
 		testCalculated = suspDate.toStartOfMonth().addYears(4).addMonths(11);
 		System.assertEquals(testCalculated, sa.Next_Sunset_Initiation_Date__c);
 		suspDate = suspDate.addMonths(1);
-		setFR(sa.Id, 'Termination');
+		setFR(sa.Id, 'Termination', true);
 		sa = null;
-		System.assertEquals(null, sa.Next_Sunset_Initiation_Date__c);
+
 		Test.stopTest();
+		System.assertEquals(null, sa.Next_Sunset_Initiation_Date__c);
+	}
+
+	@isTest static void setAnniversaryMonth() {
+		Test.startTest();
+		setFR(sa.Id, 'Suspension Agreement', true);
+		String month = utils.getMonthFromDate(suspDate);
+		
+		Test.stopTest();
+		System.assertEquals(month, sa.Anniversary_Month__c);
 	}
 
 	@testSetup static void dataSetup() {
@@ -92,21 +91,18 @@ public class SuspensionAgreementTriggerHandlerTest {
 		Petition__c testPet = TestUtils.createPetition(suspDate.addDays(-14),'AD ME', true);
 		Investigation__c testInv = TestUtils.createInvestigation('AD', testPet, true);
 		Suspension_Agreement__c testSuspAgr = TestUtils.createSuspensionAgreement(testInv, suspDate, true);
-		List<Segment__c> segsToInsert = new List<Segment__c>();
+		/*List<Segment__c> segsToInsert = new List<Segment__c>();
 		System.runAs(testUser) {
 			for(String segRecordTypeName : utils.getRecordTypeDeveloperNameMap('Segment__c').values()) {
 				Segment__c testSeg = TestUtils.createSegment(testSuspAgr, segRecordTypeName, false);
 				segsToInsert.add(testSeg);
 			}
 			insert segsToInsert;
-		}
+		}*/
 	}
 
-	private static void setFR(Id parentId, String frType) {
-		Federal_Register__c testFR = new Federal_Register__c();
-		testFR.Suspension_Agreement__c = parentId;
-		testFR.Type__c = frType;
-		testFR.Published_Date__c = suspDate;
-		insert testFR;
+	private static Federal_Register__c setFR(Id parentId, String frType, Boolean doInsert) {
+		Federal_Register__c testFR = TestUtils.createFR(parentId, 'Suspension_Agreement__c', suspDate, frType, doInsert);
+		return testFR;
 	}
 }

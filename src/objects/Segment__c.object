@@ -38,9 +38,7 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <content>SunsetReview</content>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Visualforce</type>
+        <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
@@ -391,6 +389,11 @@
         <lookupFilter>
             <active>true</active>
             <filterItems>
+                <field>$Source.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>New Shipper Review</value>
+            </filterItems>
+            <filterItems>
                 <field>Segment__c.RecordTypeId</field>
                 <operation>equals</operation>
                 <value>Administrative Review</value>
@@ -404,7 +407,7 @@
         </lookupFilter>
         <referenceTo>Segment__c</referenceTo>
         <relationshipLabel>Aligned New Shipper Reviews</relationshipLabel>
-        <relationshipName>Segments</relationshipName>
+        <relationshipName>Aligned_New_Shipper_Reviews</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
@@ -1224,6 +1227,17 @@
         <externalId>false</externalId>
         <formula>IF(NOT(ISNULL(ADCVD_Order__c)),  ADCVD_Order__r.Petition_Country__c  ,  Suspension_Agreement__r.Petition_Country__c  )</formula>
         <label>Petition Country</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Petition_Product_Short_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(NOT(ISNULL(ADCVD_Order__c)), ADCVD_Order__r.Petition_Product_Short_Name__c , Suspension_Agreement__r.Petition_Product_Short_Name__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Petition Product Short Name</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>

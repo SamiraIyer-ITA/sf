@@ -9,14 +9,14 @@ public without sharing class utils {
 		}
 		set;
 	}
-	public static Map<Id,RecordType> recordTypeDeveloperNameMap {get {
-		if(recordTypeDeveloperNameMap == null) {
-			recordTypeDeveloperNameMap = new Map<Id,RecordType>();
+	public static Map<Id,RecordType> recordTypeIdToRecordTypeMap {get {
+		if(recordTypeIdToRecordTypeMap == null) {
+			recordTypeIdToRecordTypeMap = new Map<Id,RecordType>();
 			for (RecordType rt : [SELECT Id, DeveloperName, SObjectType FROM RecordType]) {
-				recordTypeDeveloperNameMap.put(rt.Id, rt);
+				recordTypeIdToRecordTypeMap.put(rt.Id, rt);
 			}
 		}
-		return recordTypeDeveloperNameMap;
+		return recordTypeIdToRecordTypeMap;
 		} set;
 	}
 	private static void setCachedGD() {
@@ -60,7 +60,7 @@ public without sharing class utils {
 	public static Map<Id,String> getRecordTypeDeveloperNameMap(String sObjectName){
 		Map<Id,String> returnMap = new Map<Id,String>();
 		if (sObjectName != null) {
-			for(RecordType rt : recordTypeDeveloperNameMap.values()){
+			for(RecordType rt : recordTypeIdToRecordTypeMap.values()){
 				if (rt.SObjectType == sObjectName) {
 					returnMap.put(rt.Id, rt.DeveloperName);
 				}
@@ -76,7 +76,7 @@ public without sharing class utils {
 	//Gets a map of Record Type Developer Names to Record Type Ids for the object name
 	public static Map<String,Id> getRecordTypeIdMap(String sObjectName){
 		Map<String,Id> returnMap = new Map<String,Id>();
-		for(RecordType rt : [SELECT Id, DeveloperName FROM RecordType WHERE SObjectType =: sObjectName]){
+		for(RecordType rt : recordTypeIdToRecordTypeMap.values()){
 			returnMap.put(rt.DeveloperName, rt.Id);
 		}
 		return returnMap;
@@ -132,4 +132,14 @@ public without sharing class utils {
 		}
 		return retUrl;
 	}
+
+	//Helper Method returns Month from a Date in String format
+    public static String getMonthFromDate(Date dt) {
+        String monthString = '';
+        if (dt != null) {
+            Datetime tempDt = Datetime.newInstance(dt, Time.newInstance(0,0,0,0));
+            monthString = tempDt.format('MMMMM');
+        }
+        return monthString;
+    }
 }

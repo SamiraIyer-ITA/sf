@@ -147,7 +147,7 @@ public class LitigationTriggerHandlerTest {
 		intLit = null;
 
 		System.assertEquals('Preliminary', [SELECT Id, Status__c FROM Litigation__c WHERE Id =: remand.Id LIMIT 1].Status__c);
-		remand.Actual_Preliminary_Signature__c = litigationDate.addDays(14);
+		remand.Actual_Draft_Remand_released_to_party__c = litigationDate.addDays(14);
 		update remand;
 		remand = null;
 
@@ -162,8 +162,8 @@ public class LitigationTriggerHandlerTest {
 		remand = null;
 
 		Test.stopTest();
-		System.assertEquals('Completed', [SELECT Id, Status__c FROM Litigation__c WHERE Id =: intLit.Id LIMIT 1].Status__c);
-		System.assertEquals('Completed', [SELECT Id, Status__c FROM Litigation__c WHERE Id =: remand.Id LIMIT 1].Status__c);
+		System.assertEquals('Closed', [SELECT Id, Status__c FROM Litigation__c WHERE Id =: intLit.Id LIMIT 1].Status__c);
+		System.assertEquals('Closed', [SELECT Id, Status__c FROM Litigation__c WHERE Id =: remand.Id LIMIT 1].Status__c);
 	}
 
 	@testSetup static void dataSetup() {

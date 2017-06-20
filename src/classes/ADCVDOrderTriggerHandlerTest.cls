@@ -16,8 +16,7 @@ public class ADCVDOrderTriggerHandlerTest {
 	private static ADCVD_Order__c o{
 		get{
 			if (o == null) {
-				o = [SELECT Id, Anniversary_Month__c, Office_Assignment__c, Segment_Status__c, Status__c, Next_Sunset_Initiation_Date__c 
-					FROM ADCVD_Order__c LIMIT 1];
+				o = [SELECT Id, Anniversary_Month__c, Office_Assignment__c, Segment_Status__c, Status__c, Next_Sunset_Initiation_Date__c FROM ADCVD_Order__c LIMIT 1];
 			}
 			return o;
 		}
@@ -142,29 +141,20 @@ public class ADCVDOrderTriggerHandlerTest {
 		System.assertNotEquals(ADCVDOrderTriggerHandler.orderIdToSegmentMap, null);
 	}
 
-	@isTest static void setAnniversaryMonth() {
-		Test.startTest();
-		testCalculated = orderDate.toStartOfMonth().addYears(4).addMonths(11);
-        Datetime dt = Datetime.newInstance(testCalculated, null);
-		String month = dt.format('MMMMM');
-		Test.stopTest();
-		System.assertEquals(month, o.Anniversary_Month__c);
-	}
-
 	@isTest static void setNextSunsetInitiationDate() {
 		Test.startTest();
 		System.assertEquals(null, o.Next_Sunset_Initiation_Date__c);
-		setFR(o.Id, 'Order');
+		Federal_Register__c orderFR = setFR(o.Id, 'Order', true);
 		o = null;
 		testCalculated = orderDate.toStartOfMonth().addYears(4).addMonths(11);
 		System.assertEquals(testCalculated, o.Next_Sunset_Initiation_Date__c);
 		orderDate = orderDate.addMonths(1);
-		setFR(o.Id, 'Continuation');
+		Federal_Register__c continuationFR = setFR(o.Id, 'Continuation', true);
 		o = null;
 		testCalculated = orderDate.toStartOfMonth().addYears(4).addMonths(11);
 		System.assertEquals(testCalculated, o.Next_Sunset_Initiation_Date__c);
 		orderDate = orderDate.addMonths(1);
-		setFR(o.Id, 'Revocation');
+		Federal_Register__c revoFR = setFR(o.Id, 'Revocation', true);
 		o = null;
 
 		Test.stopTest();
@@ -211,7 +201,7 @@ public class ADCVDOrderTriggerHandlerTest {
 	@isTest static void setStatus1() {
 		Test.startTest();
 		System.assertEquals('Order FR Needed', o.Status__c);//default on Insert
-		setFR(o.Id, 'Order');
+		Federal_Register__c orderFR = setFR(o.Id, 'Order', true);
 		o = null;
 
 		Test.stopTest();
@@ -221,10 +211,10 @@ public class ADCVDOrderTriggerHandlerTest {
 	@isTest static void setStatus2() {
 		Test.startTest();
 		System.assertEquals('Order FR Needed', o.Status__c);//default on Insert
-		setFR(o.Id, 'Order');
+		Federal_Register__c orderFR = setFR(o.Id, 'Order', true);
 		o = null;
 		System.assertEquals('Current-Active', o.Status__c);//updated when at least one Segment is active
-		setFR(o.Id, 'Revocation');
+		Federal_Register__c revoFR = setFR(o.Id, 'Revocation', true);
 		o = null;
 		System.assertEquals('Revoked-Incomplete', o.Status__c);//updated when Revocation FR is inserted
 		o.Status__c = 'Revoked-Complete';//manually set to Revoked-Complete
@@ -234,6 +224,15 @@ public class ADCVDOrderTriggerHandlerTest {
 
 		Test.stopTest();
 		System.assertEquals('Revoked-Complete', o.Status__c);//does not overwrite when other changes happen
+	}
+
+	@isTest static void setAnniversaryMonth() {
+		Test.startTest();
+		setFR(o.Id, 'Order', true);
+		String month = utils.getMonthFromDate(orderDate);
+		
+		Test.stopTest();
+		System.assertEquals(month, o.Anniversary_Month__c);
 	}
 
 	@testSetup static void dataSetup() {
@@ -250,12 +249,9 @@ public class ADCVDOrderTriggerHandlerTest {
 		}
 	}
 
-	private static void setFR(Id parentId, String frType) {
-		Federal_Register__c testFR = new Federal_Register__c();
-		testFR.ADCVD_Order__c = parentId;
-		testFR.Type__c = frType;
-		testFR.Published_Date__c = orderDate;
-		insert testFR;
+	private static Federal_Register__c setFR(Id parentId, String frType, Boolean doInsert) {
+		Federal_Register__c testFR = TestUtils.createFR(parentId, 'ADCVD_Order__c', orderDate, frType, doInsert);
+		return testFR;
 	}
 
 	private static void getNewSegs() {
