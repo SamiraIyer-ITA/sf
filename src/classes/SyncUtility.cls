@@ -166,9 +166,8 @@ public without sharing class SyncUtility {
 				for(SObject target : sourceIdToTargetObjectMap.get(sourceObject.Id)) {//most are lists of one, but this is a list for loop in case multiple objects update from same source
 					Segment__c s = targetObjectName == 'Segment__c' ? (Segment__c) target : null;
 					for (String targetObjectField : targetApiToSourceApiMap.keySet()) {//iterate through the target object field api's
-						if (s == null 
-							|| (s != null && s.New_Shipper_Sync_Level__c == 'Final' && finalSyncLevelFieldSet.contains(targetObjectField))
-							|| (s != null && s.New_Shipper_Sync_Level__c == 'Preliminary')) {
+						if ((s != null && (s.New_Shipper_Sync_Level__c == 'Final' && finalSyncLevelFieldSet.contains(targetObjectField)) || s.New_Shipper_Sync_Level__c == 'Preliminary')
+							|| s == null) {
 							String sourceObjectField = targetApiToSourceApiMap.get(targetObjectField);//set the source field api that matches the target
 							Object sourceValue = sourceObject.get(sourceObjectField);//instantiate an instance of the value from the source object using the source field api
 							target.put(targetObjectField, sourceValue);//put the source value to the target object's target field
@@ -242,19 +241,15 @@ public without sharing class SyncUtility {
 					sourceObjectsTypeMap.put(p.Id, 'Petition__c');//set map of Id and object type name
 				}
 			}
-		} else if(targetObjectName == 'Recusal__c') {
-			if(sourceObjectName == 'Recusal__c') {
-				for(Recusal__c rec : recusalList) {//this is no longer the targetObjectList. In typeCastSObjectList, the queried Recusals replaced targetObjectList
-					sourceObjectsMap.put(rec.Id, rec);
-					sourceObjectsTypeMap.put(rec.Id, 'Recusal__c');//set map of Id and object type name, this is used to grab the correct fields from syncFieldMap
-				}
+		} else if(targetObjectName == 'Recusal__c' && sourceObjectName == 'Recusal__c') {
+			for(Recusal__c rec : recusalList) {//this is no longer the targetObjectList. In typeCastSObjectList, the queried Recusals replaced targetObjectList
+				sourceObjectsMap.put(rec.Id, rec);
+				sourceObjectsTypeMap.put(rec.Id, 'Recusal__c');//set map of Id and object type name, this is used to grab the correct fields from syncFieldMap
 			}
-		} else if(targetObjectName == 'Segment__c') {
-			if(sourceObjectName == 'Segment__c') {
-				for(Segment__c seg : segmentList) {
-					sourceObjectsMap.put(seg.Id, seg);
-					sourceObjectsTypeMap.put(seg.Id, 'Segment__c');
-				}
+		} else if(targetObjectName == 'Segment__c' && sourceObjectName == 'Segment__c') {
+			for(Segment__c seg : segmentList) {
+				sourceObjectsMap.put(seg.Id, seg);
+				sourceObjectsTypeMap.put(seg.Id, 'Segment__c');
 			}
 		} //add else if for a differenct target object
 	}
