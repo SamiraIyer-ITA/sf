@@ -384,6 +384,32 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Administrative_Review_Aligned_To__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Administrative Review Aligned To</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Segment__c.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Administrative Review</value>
+            </filterItems>
+            <filterItems>
+                <field>$Source.ADCVD_Order__c</field>
+                <operation>equals</operation>
+                <valueField>Segment__c.ADCVD_Order__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Segment__c</referenceTo>
+        <relationshipLabel>Aligned New Shipper Reviews</relationshipLabel>
+        <relationshipName>Segments</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>All_parties_in_agreement_to_the_outcome__c</fullName>
         <description>Are all parties in agreement as to the outcome?</description>
         <externalId>false</externalId>
@@ -975,6 +1001,30 @@
         <valueSet>
             <restricted>true</restricted>
             <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>New_Shipper_Sync_Level__c</fullName>
+        <externalId>false</externalId>
+        <label>New Shipper Sync Level</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Preliminary</fullName>
+                    <default>false</default>
+                    <label>Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Final</fullName>
+                    <default>false</default>
+                    <label>Final</label>
+                </value>
+            </valueSetDefinition>
         </valueSet>
     </fields>
     <fields>
@@ -2360,6 +2410,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>New_Shipper_Sync_Level__c</picklist>
+            <values>
+                <fullName>Final</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Preliminary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Notice_of_intent_to_participate_Ips__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -3121,6 +3182,17 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Shipper_Sync_Level__c</picklist>
+            <values>
+                <fullName>Final</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Preliminary</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3890,6 +3962,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>New_Shipper_Sync_Level__c</picklist>
+            <values>
+                <fullName>Final</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Preliminary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Notice_of_intent_to_participate_Ips__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -4647,6 +4730,17 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>New_Shipper_Sync_Level__c</picklist>
+            <values>
+                <fullName>Final</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Preliminary</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5416,6 +5510,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>New_Shipper_Sync_Level__c</picklist>
+            <values>
+                <fullName>Final</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Preliminary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Notice_of_intent_to_participate_Ips__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -6181,6 +6286,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>New_Shipper_Sync_Level__c</picklist>
+            <values>
+                <fullName>Final</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Preliminary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Notice_of_intent_to_participate_Ips__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -6938,6 +7054,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>New_Shipper_Sync_Level__c</picklist>
+            <values>
+                <fullName>Final</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Preliminary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Notice_of_intent_to_participate_Ips__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -7033,6 +7160,26 @@
             <picklist>Status__c</picklist>
             <values>
                 <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Final</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Litigation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prelim</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

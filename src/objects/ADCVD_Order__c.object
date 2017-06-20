@@ -118,7 +118,7 @@
         <fullName>Anniversary_Month__c</fullName>
         <externalId>false</externalId>
         <label>Anniversary Month</label>
-        <required>true</required>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
