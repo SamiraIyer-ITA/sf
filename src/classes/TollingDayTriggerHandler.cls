@@ -34,7 +34,7 @@ public without sharing class TollingDayTriggerHandler {
         setDatesInScope(tdList);
         Set<Id> petitionIdSet = new Set<Id>();
         system.debug(latestDate);
-        for(Petition__c p: [SELECT Id FROM Petition__c WHERE Petition_Filed__c <=: latestDate AND (Petition_Outcome__c = 'Initiated From Petition' OR Petition_Outcome__c = 'Self-Initiated')]) {
+        for(Petition__c p: [SELECT Id FROM Petition__c WHERE Petition_Filed__c <=: latestDate AND Petition_Outcome__c = null]) {
             petitionIdSet.add(p.Id);
         }
         return petitionIdSet;

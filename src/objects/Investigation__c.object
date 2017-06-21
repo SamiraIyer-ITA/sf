@@ -1246,6 +1246,18 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Petition_Product_Short_Name__c</fullName>
+        <description>Petition Product Short Name</description>
+        <externalId>false</externalId>
+        <label>Petition Product Short Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Petition_Product__c</fullName>
         <externalId>false</externalId>
         <label>Petition Product</label>
@@ -2712,8 +2724,8 @@
         <customTabListAdditionalFields>Petition_Commodity__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
         <excludedStandardButtons>Accept</excludedStandardButtons>
-        <excludedStandardButtons>Forward</excludedStandardButtons>
         <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <excludedStandardButtons>Forward</excludedStandardButtons>
         <lookupDialogsAdditionalFields>Petition_Case_Number__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Petition_Country__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Petition_Case_Type__c</lookupDialogsAdditionalFields>
@@ -2740,6 +2752,26 @@
         <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Actual_Amended_Final_Signature_Not_Blank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Amended Final Signature Date until the Calculate Amended Final Signature Date in not populated</description>
+        <errorConditionFormula>AND( 
+ISNULL( Calculated_Amended_Final_Signature__c ), 
+NOT( ISNULL( Actual_Amended_Final_Signature__c )) 
+)</errorConditionFormula>
+        <errorMessage>Calculated Amended Final Signature Date must be populated in order to enter Actual Amended Final Signature Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Actual_Amended_Prelim_Determ_Not_Blank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Amended Prelim Determination Date until the Calculate Amended Prelim Determination Date in not populated</description>
+        <errorConditionFormula>AND( 
+ISNULL( Calc_Amended_Prelim_Determination_Sig__c ), 
+NOT( ISNULL( Actual_Amended_Prelim_Determination_Sig__c )) 
+)</errorConditionFormula>
+        <errorMessage>Calculated Amended Prelim Determination Date must be populated in order to enter Actual Amended Prelim Determination Date</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Actual_Final_Required_for_DOC_Neg</fullName>
         <active>true</active>

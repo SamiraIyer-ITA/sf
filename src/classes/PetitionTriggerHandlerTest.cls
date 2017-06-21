@@ -195,11 +195,13 @@ public class PetitionTriggerHandlerTest {
 		//Litigation Status - Inactive
 		p.Litigation_YesNo__c = 'Yes';
 		p.Litigation_Resolved__c = 'No';
+		p.Actual_Initiation_Signature__c = petitionDate.addDays(14);
 		p.Petition_Outcome__c = 'Initiated from Petition';
 		update p;
 		System.assertEquals('Litigation', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
 
 		//Closed Status - Withdrawn
+		p.Actual_Initiation_Signature__c = null;
 		p.Petition_Outcome__c = 'Petition Withdrawn/Did Not Initiate';
 		update p;
 		System.assertEquals('Litigation', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
@@ -211,15 +213,12 @@ public class PetitionTriggerHandlerTest {
 		update p;
 		System.assertEquals('Closed', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
 
-		//Self-Initiated w/o Actual
+		//Self-Initiated
+		p.Actual_Initiation_Signature__c = petitionDate.addDays(14);
 		p.Petition_Outcome__c = 'Self-Initiated';
 		update p;
-		System.assertEquals('In Progress', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
-		Test.stopTest();
 
-		//Initial Status with Actual Initiation Signature
-		p.Actual_Initiation_Signature__c = petitionDate.addDays(14);
-		update p;
+		Test.stopTest();
 		System.assertEquals('Closed', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
 	}
 

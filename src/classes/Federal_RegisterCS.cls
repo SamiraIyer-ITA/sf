@@ -40,10 +40,8 @@ public without sharing class Federal_RegisterCS implements ADCVD_CascadeService 
 					List<Federal_Register__c> tempList = new List<Federal_Register__c>();
 					if(returnMap.get(tempId) != null) {
 						tempList.addAll(returnMap.get(tempId));
-						tempList.add(fr);
-					} else {
-						tempList.add(fr);
 					}
+					tempList.add(fr);
 					returnMap.put(tempId, tempList);
 				}
 			}

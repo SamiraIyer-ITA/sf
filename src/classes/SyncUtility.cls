@@ -62,11 +62,12 @@ public without sharing class SyncUtility {
 	 *******************************************************************/
 
 	//accepts object and String or null. If String is null, all sources is default
-	public static void syncObject(List<SObject> targetObjectList, String sourceObjectName) {
+	public void syncObject(List<SObject> targetObjectList, String sourceObjectName) {
+		Set<String> tempObjectNameSet = new Set<String>();
 		if (sourceObjectName != null) {
-			sourceObjectNames.add(sourceObjectName);
+			tempObjectNameSet.add(sourceObjectName);
 		}
-		syncObject(targetObjectList, sourceObjectNames, false);
+		syncObject(targetObjectList, tempObjectNameSet, false);
 	}
 	//accepts object List and set of object names or boolean true to use all sources
 	public static void syncObject(List<SObject> targetObjectList , Set<String> sourceObjects, Boolean allSources) {
@@ -166,8 +167,9 @@ public without sharing class SyncUtility {
 				for(SObject target : sourceIdToTargetObjectMap.get(sourceObject.Id)) {//most are lists of one, but this is a list for loop in case multiple objects update from same source
 					Segment__c s = targetObjectName == 'Segment__c' ? (Segment__c) target : null;
 					for (String targetObjectField : targetApiToSourceApiMap.keySet()) {//iterate through the target object field api's
-						if ((s != null && (s.New_Shipper_Sync_Level__c == 'Final' && finalSyncLevelFieldSet.contains(targetObjectField)) || s.New_Shipper_Sync_Level__c == 'Preliminary')
-							|| s == null) {
+						if (s == null 
+							|| (s != null && s.New_Shipper_Sync_Level__c == 'Final' && finalSyncLevelFieldSet.contains(targetObjectField))
+							|| (s != null && s.New_Shipper_Sync_Level__c == 'Preliminary')) {
 							String sourceObjectField = targetApiToSourceApiMap.get(targetObjectField);//set the source field api that matches the target
 							Object sourceValue = sourceObject.get(sourceObjectField);//instantiate an instance of the value from the source object using the source field api
 							target.put(targetObjectField, sourceValue);//put the source value to the target object's target field

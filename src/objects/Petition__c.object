@@ -656,19 +656,6 @@ C-###-### for CVD</inlineHelpText>
         </valueSet>
     </fields>
     <fields>
-        <fullName>Litigation__c</fullName>
-        <externalId>false</externalId>
-        <label>Litigation</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>YesNo</valueSetName>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Lotus_Notes_Litigation_ID__c</fullName>
         <externalId>false</externalId>
         <label>Lotus Notes Litigation ID</label>
@@ -794,6 +781,18 @@ C-###-### for CVD</inlineHelpText>
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Product_Short_Name__c</fullName>
+        <description>Product Short Name</description>
+        <externalId>false</externalId>
+        <label>Product Short Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Product__c</fullName>
@@ -949,6 +948,16 @@ C-###-### for CVD</inlineHelpText>
         <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Actual_Initiation_Signature_Not_Blank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Initiation Signature Date until the Calculate Initiation Signature Date in not populated</description>
+        <errorConditionFormula>AND( 
+ISNULL( Calculated_Initiation_Signature__c ), 
+NOT( ISNULL( Actual_Initiation_Signature__c )) 
+)</errorConditionFormula>
+        <errorMessage>Calculated Initiation Signature Date must be populated in order to enter Actual Initiation Signature Date</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Actual_Initiation_Signature_Not_Required</fullName>
         <active>true</active>

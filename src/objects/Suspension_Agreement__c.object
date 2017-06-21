@@ -62,6 +62,18 @@
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
+        <fullName>Anniversary_Month__c</fullName>
+        <externalId>false</externalId>
+        <label>Anniversary Month</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Months</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Date_Due__c</fullName>
         <externalId>false</externalId>
         <label>Date Due</label>
@@ -216,6 +228,17 @@
         <externalId>false</externalId>
         <formula>TEXT(  Investigation__r.Petition__r.Country__c  )</formula>
         <label>Petition Country</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Petition_Product_Short_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Investigation__r.Petition__r.Product_Short_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Petition Product Short Name</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
