@@ -5,6 +5,11 @@
         <default>false</default>
         <visible>true</visible>
     </applicationVisibilities>
+    <applicationVisibilities>
+        <application>AD_CVD_Lightning</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
     <classAccesses>
         <apexClass>ADCVDOrderTriggerHandler</apexClass>
         <enabled>true</enabled>
@@ -70,10 +75,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>CaseTriggerHandler</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>ChangePasswordController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -114,10 +115,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>ConcurrentSessionsPolicyCondition</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>ConnectionHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -143,10 +140,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>DB_Custom_WIN_Contributor_c</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>DataLoaderLeadExportCondition</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -262,10 +255,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>PartnerConnectionHelper</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>PayGovTCSOnline</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -311,10 +300,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>Profile_Controller</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>Profile_Controller_Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -506,15 +491,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TEST_PrivacyShield</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TEST_URLRewriter</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TEST_WebToLead</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -523,10 +500,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TestCreateHierarchy</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TestObjectFactory</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -598,10 +571,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>WebToLead</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>activityTriggerHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -667,10 +636,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ps_controller</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>ps_enhanced_controller</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1380,11 +1345,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Article__kav.Video__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Artifact__c.Description__c</field>
         <readable>false</readable>
@@ -1393,11 +1353,6 @@
         <editable>false</editable>
         <field>Artifact__c.External_Artifact_URL__c</field>
         <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Artifact__c.Participation_Profile__c</field>
-        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -1415,36 +1370,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Asset.Affirmation__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Asset.Confirm_HR_Compliance__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Asset.Framework__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Asset.HR_Data__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Asset.Inactive_Status_Reason__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Asset.Non_HR_Data__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Asset.Participant__c</field>
         <readable>false</readable>
@@ -1458,11 +1383,6 @@
         <editable>false</editable>
         <field>Asset.Program__c</field>
         <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Asset.Retains_Data__c</field>
-        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1525,11 +1445,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Basic_Guide_to_Exporting__kav.Video__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>BatchJobScheduler__c.Batch_End_Time__c</field>
         <readable>true</readable>
@@ -1562,16 +1477,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>BatchJobScheduler__c.Number_of_Success_Values__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Campaign.Program__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>CampaignMember.Campaign_Program_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1786,11 +1691,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Case.Contact_Email_Opt_Out__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Case.Contact_Full_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -1952,11 +1852,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.Owners_Office__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.Participation_Profile__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2176,11 +2071,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Case_Solution__kav.Video__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Chapter_Section__c.Chapter__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2285,11 +2175,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.Account_Record_Type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Contact.Active__c</field>
         <readable>true</readable>
@@ -2375,11 +2260,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.ResearcherHIDDEN__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Contact.SharePoint_ID__c</field>
         <readable>true</readable>
@@ -2426,11 +2306,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Content_Version__c.Approver__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Content_Version__c.Atom_Title__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2442,11 +2317,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Content_Version__c.Publishing_Status__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Content_Version__c.Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2463,11 +2333,6 @@
         <editable>false</editable>
         <field>Content__c.Alt_Text__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Content__c.Approver__c</field>
-        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -2545,21 +2410,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Content__c.Video_Description__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Content__c.Video_Download__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Content__c.Video_File_Size__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Content__c.api_type__c</field>
         <readable>true</readable>
@@ -2622,11 +2472,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Country_Commercial__kav.Stage__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Country_Commercial__kav.Video__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2936,11 +2781,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>FAQ__kav.Video__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>FAQlegacy__kav.Answer__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3113,11 +2953,6 @@
         <editable>false</editable>
         <field>Inactive_Period__c.Inactive_Status_Reason__c</field>
         <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Inactive_Period__c.Participation_Number__c</field>
-        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3676,11 +3511,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Lead.Campaign_ID__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Lead.DataPartnerType__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4021,96 +3851,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Market_Insight__kav.Video__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Market_Intelligence__kav.Approver__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.Atom__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.Citation_Source__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.Citation__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.Days_Since_Last_Published_Date__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.Draft_Complete__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Market_Intelligence__kav.Expiration_Date__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.Level_0__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.Level_1__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.Level_2__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.Level_3__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.Mobile_Title__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.Public_URL__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.References__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.Series__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.Stage__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Market_Intelligence__kav.Video__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Master_CongressionalDistrict__c.Congressional_Dist__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4147,51 +3887,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Master_CongressionalDistrict__c.zip_Plus4__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Meta_Tag__c.Application__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Meta_Tag__c.Atom__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Meta_Tag__c.Attribute__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Meta_Tag__c.Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Meta_Tag__c.Page__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Meta_Tag__c.Property__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Meta_Tag__c.Site__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Meta_Tag__c.Tag__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Meta_Tag__c.Use_Property_As_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4316,31 +4011,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>OrderItem.Affirmation__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>OrderItem.Confirm_HR_Compliance__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>OrderItem.Framework__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>OrderItem.HR_Data__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>OrderItem.Non_HR_Data__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Page_Content__c.Button_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4433,11 +4103,6 @@
         <editable>false</editable>
         <field>Page__c.Content__c</field>
         <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Page__c.Description_Length__c</field>
-        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -4555,11 +4220,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Participant__c.Affirmation_Confirmation__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Participant__c.Affirmation__c</field>
         <readable>true</readable>
@@ -4630,11 +4290,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Participant__c.Retains_Data__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Participant__c.Status__c</field>
         <readable>true</readable>
@@ -4656,11 +4311,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Participation__c.Claiming_Self_Verified__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Participation__c.Country__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4676,22 +4326,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Participation__c.Number_of_Covered_Entities__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Participation__c.Number_of_Employees__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Participation__c.Organization__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Participation__c.ParticipantNumber__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4706,22 +4346,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Participation__c.Privacy_Programs__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Participation__c.Program__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Participation__c.Public_Display_Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Participation__c.Purpose__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4767,11 +4392,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Payment__c.Payment_Date__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Payment__c.Payment_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4868,6 +4488,11 @@
         <editable>true</editable>
         <field>Petition__c.Litigation_YesNo__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Petition__c.Litigation__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -4972,11 +4597,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Platform__kav.Stage__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Platform__kav.Video__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5500,9 +5120,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Segment__c.Do_Delete__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -6166,11 +5786,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>State_Report__kav.Video__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Survey_Result__c.Ability_to_meet_your_objectives__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -6700,11 +6315,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Third_Party_Master_List__c.Framework__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Third_Party_Master_List__c.HR_Data__c</field>
         <readable>false</readable>
@@ -6721,27 +6331,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Third_Party__c.Asset__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Third_Party__c.HR_Data__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Third_Party__c.NonHR_Data__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Third_Party__c.Order_Product__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Third_Party__c.Participation__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6831,11 +6426,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Top_Markets__kav.Video__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Trade_Agreement__kav.Agreement_Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -6912,11 +6502,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Trade_Agreement__kav.TARA_Document_Title__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Trade_Agreement__kav.Video__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7007,11 +6592,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>User.Region__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>User.Registered_Domain__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7526,27 +7106,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>agf__ADM_Acceptance_Criterion__c.Pre_Conditions__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>agf__ADM_Build__c.Deployment_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>agf__ADM_Build__c.Description__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>agf__ADM_Build__c.ParentBuild__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>agf__ADM_Build__c.Questions__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7795,9 +7360,6 @@
         <layout>Level__c-Level Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>LinkedArticle-Linked Article Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Litigation__c-InternationalLitigation</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -7815,13 +7377,7 @@
         <layout>Market_Insight__kav-Market Insight Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Market_Intelligence__kav-Market Intelligence Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Master_CongressionalDistrict__c-Master CongressionalDistrict Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Meta_Tag__c-Meta Tag Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>My_Profile_Option__c-My Profile Option Layout</layout>
@@ -8091,9 +7647,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Template_Row__c-Row Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Third_Party_Master_List_Framework__c-Third Party Master List - Framework Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Third_Party_Master_List__c-Third Party Layout</layout>
@@ -8801,14 +8354,6 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>CN_MarketingPage</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>CN_MarketingPage_Thankyou</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>ChangePassword</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -8830,14 +8375,6 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>CommunitiesTemplate</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>ET_MarketingPage</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>ET_MarketingPage_Thankyou</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -8897,22 +8434,6 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>NG_MarketingPage</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>NG_MarketingPage_Thankyou</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>OG_MarketingPage</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>OG_MarketingPage_Thankyou</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>OrderAttachmentWriter</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -8937,14 +8458,6 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>RE_MarketingPage</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>RE_MarketingPage_Thankyou</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>Registration</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -8958,14 +8471,6 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>Robots</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>SG_MarketingPage</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>SG_MarketingPage_Thankyou</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -9045,10 +8550,6 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>consolidated_screening_list_doc</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>csl_search</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -9058,14 +8559,6 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>data</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>door</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>envirotech_toolkit</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -9137,19 +8630,7 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>ps_enhanced</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>redirect</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>safeharbor_eu</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>safeharbor_swiss</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -9200,10 +8681,13 @@
         <apexPage>tpp_rates</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
-    <pageAccesses>
-        <apexPage>trade_events_search</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>ADCVD_Home_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+    </profileActionOverrides>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>ADCVD_Order__c.Anti_Circumvention_Review</recordType>
@@ -9671,10 +9155,6 @@
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>Third_Party__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>Tolling_Day__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -10025,10 +9505,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>ManageEncryptionKeys</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>ManageExchangeConfig</name>
     </userPermissions>
     <userPermissions>
@@ -10169,10 +9645,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>RetainFieldHistory</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>RunReports</name>
     </userPermissions>
     <userPermissions>
@@ -10206,18 +9678,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>SubmitMacrosAllowed</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>SubscribeReportToOtherUsers</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>SubscribeReportsRunAsUser</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>SubscribeToLightningReports</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
