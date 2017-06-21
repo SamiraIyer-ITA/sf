@@ -1,4 +1,3 @@
-@isTest(seeAllData=false)
 public class SuspensionAgreementTriggerHandlerTest {
 	private static Date suspDate = System.today();
 	private static Date testActual = System.today();//reusable date variable for each test to add roll forward logic allowing data normalization
