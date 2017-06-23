@@ -7495,6 +7495,46 @@ SR = Sunset Review</description>
         <errorMessage>Final extension # of days can only range from 0-180 days.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Actual_Amended_Final_Determ_Not_Blank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Amended Final Signature Date until the Calculate Amended Final Signature Date is not populated</description>
+        <errorConditionFormula>AND( 
+ISNULL( Calculated_Amended_Final_Signature__c ), 
+NOT( ISNULL( Actual_Amended_Final_Signature__c )) 
+)</errorConditionFormula>
+        <errorMessage>Calculated Amended Final Signature Date must be populated in order to enter Actual Amended Final Signature Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Actual_Final_Signature_Not_Blank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Final Signature Date until the Calculate Final Signature Date is not populated</description>
+        <errorConditionFormula>AND( 
+ISNULL( Calculated_Final_Signature__c ), 
+NOT(ISNULL( Actual_Final_Signature__c )) 
+)</errorConditionFormula>
+        <errorMessage>Calculated Final Signature Date must be populated in order to enter Actual Final Signature Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Actual_Initiation_Signature_Not_Blank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Initiation Signature Date until the Calculate initiation Signature Date in not populated</description>
+        <errorConditionFormula>AND( 
+ISNULL( Calculated_Initiation_Signature__c ), 
+NOT( ISNULL( Actual_Initiation_Signature__c )) 
+)</errorConditionFormula>
+        <errorMessage>Calculated Initiation Signature Date must be populated in order to enter Actual Initiation Signature Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Actual_Preliminary_Signature_Not_Blank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Preliminary Signature Date until the Calculate Preliminary Signature Date in not populated</description>
+        <errorConditionFormula>AND( 
+ISNULL( Calculated_Preliminary_Signature__c ), 
+NOT( ISNULL( Actual_Preliminary_Signature__c )) 
+)</errorConditionFormula>
+        <errorMessage>Calculated Preliminary Signature Date must be populated in order to enter Actual Preliminary Signature Date</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Bound_If_Prelim_Extension_Exists</fullName>
         <active>true</active>
         <errorConditionFormula>AND($RecordType.DeveloperName = &quot;Administrative_Review&quot;, 

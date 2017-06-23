@@ -2755,7 +2755,7 @@
     <validationRules>
         <fullName>Actual_Amended_Final_Signature_Not_Blank</fullName>
         <active>true</active>
-        <description>You cannot enter an Actual Amended Final Signature Date until the Calculate Amended Final Signature Date in not populated</description>
+        <description>You cannot enter an Actual Amended Final Signature Date until the Calculate Amended Final Signature Date is not populated</description>
         <errorConditionFormula>AND( 
 ISNULL( Calculated_Amended_Final_Signature__c ), 
 NOT( ISNULL( Actual_Amended_Final_Signature__c )) 
@@ -2765,9 +2765,9 @@ NOT( ISNULL( Actual_Amended_Final_Signature__c ))
     <validationRules>
         <fullName>Actual_Amended_Prelim_Determ_Not_Blank</fullName>
         <active>true</active>
-        <description>You cannot enter an Actual Amended Prelim Determination Date until the Calculate Amended Prelim Determination Date in not populated</description>
+        <description>You cannot enter an Actual Amended Prelim Determination Date until the Calculate Amended Prelim Determination Date is not populated</description>
         <errorConditionFormula>AND( 
-ISNULL( Calc_Amended_Prelim_Determination_Sig__c ), 
+ISNULL(Calc_Amended_Prelim_Determination_Sig__c ), 
 NOT( ISNULL( Actual_Amended_Prelim_Determination_Sig__c )) 
 )</errorConditionFormula>
         <errorMessage>Calculated Amended Prelim Determination Date must be populated in order to enter Actual Amended Prelim Determination Date</errorMessage>
@@ -2781,6 +2781,26 @@ ISNULL(  Actual_Final_Signature__c ),
 )</errorConditionFormula>
         <errorDisplayField>Actual_Final_Signature__c</errorDisplayField>
         <errorMessage>The Actual Final Signature date is required when Investigation Outcome is &quot;DOC Negative Final&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Actual_Final_Signature_Not_Blank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Final Signature Date until the Calculate Final Signature Date is not populated</description>
+        <errorConditionFormula>AND( 
+ISNULL( Calculated_Final_Signature__c ), 
+NOT( ISNULL( Actual_Final_Signature__c )) 
+)</errorConditionFormula>
+        <errorMessage>Calculated Final Signature Date must be populated in order to enter Actual Final Signature Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Actual_Preliminary_Signature_Not_Blank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Preliminary Signature Date until the Calculate Preliminary Signature Date in not populated</description>
+        <errorConditionFormula>AND( 
+ISNULL( Calculated_Preliminary_Signature__c ), 
+NOT( ISNULL( Actual_Preliminary_Signature__c )) 
+)</errorConditionFormula>
+        <errorMessage>Calculated Preliminary Signature Date must be populated in order to enter Actual Preliminary Signature Date</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Bounded_Days_For_AD_Final_Extension</fullName>
