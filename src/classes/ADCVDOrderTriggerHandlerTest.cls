@@ -230,6 +230,7 @@ public class ADCVDOrderTriggerHandlerTest {
 		Test.startTest();
 		setFR(o.Id, 'Order', true);
 		String month = utils.getMonthFromDate(orderDate);
+		o = null;
 		
 		Test.stopTest();
 		System.assertEquals(month, o.Anniversary_Month__c);

@@ -133,7 +133,7 @@ public class SegmentTriggerHandlerTest {
 		get{
 			if (ssSeg == null) {
 				Id recordTypeId = utils.getRecordTypeIdMap('Segment__c').get('Sunset_Review');
-				ssSeg = [SELECT Id, RecordTypeId, Calculated_Final_Signature__c, Update_ACE_Customs_Module__c, Adequacy_of_Respondents_Submission__c, 
+				ssSeg = [SELECT Id, RecordTypeId, Calculated_Preliminary_Signature__c, Calculated_Final_Signature__c, Update_ACE_Customs_Module__c, Adequacy_of_Respondents_Submission__c, 
 							Actual_Final_Signature__c, Actual_Revocation_or_Continuation_FR__c, Calculated_Revocation_or_Continuation_FR__c, 
 							Issue_Liquidation_Revocation_Instruction__c, Rebuttal_Comments_Due__c, Adequacy_Determination_Letter_120_day__c, 
 							Adequacy_Determination_Letter_240_day__c, Comments_on_Adequacy_Determination_Filed__c, Memorandum_on_Adequacy_Determination__c, 
@@ -256,6 +256,9 @@ public class SegmentTriggerHandlerTest {
 			[SELECT Id, Calculated_Preliminary_Signature__c FROM Segment__c WHERE Id =: expedSeg.Id LIMIT 1].Calculated_Preliminary_Signature__c);
 
         //Anti-Circumvention Review
+        acSeg.Type_of_Circumvention_Inquiry__c = 'Later-Developed Merchandise';
+        update acSeg;
+        getNewSegs();
 		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(acSeg.Calculated_Initiation_Signature__c.addDays(120).addDays(7));
 		//compare Calculated_Initiation_Signature__c + Prelim_Extension__c
 		System.assertEquals(testCalculated,
@@ -328,6 +331,7 @@ public class SegmentTriggerHandlerTest {
 		//Anti-Circumvention Review
 		acSeg.Type_of_Circumvention_Inquiry__c = 'Later-Developed Merchandise';
 		update acSeg;
+		getNewSegs();
 		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(acSeg.Calculated_Preliminary_Signature__c.addDays(-21));
 		System.assertEquals(testCalculated,
 			[SELECT Id, Prelim_Team_Meeting_Deadline__c FROM  Segment__c WHERE Id =: acSeg.Id LIMIT 1].Prelim_Team_Meeting_Deadline__c);
@@ -682,6 +686,7 @@ public class SegmentTriggerHandlerTest {
         Test.startTest();
 
         //setup start dates
+        acSeg.Type_of_Circumvention_Inquiry__c = 'Later-Developed Merchandise';
         setStartDates();
         getNewSegs();
         //Anti-Circumvention Review
@@ -1198,6 +1203,463 @@ public class SegmentTriggerHandlerTest {
 		//compare Published_Date__c
 		System.assertEquals(testCalculated,
 			[SELECT Id, Inform_Cluster_Coordinator_if_No_Respons__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Inform_Cluster_Coordinator_if_No_Respons__c);
+	}
+
+	@isTest static void setStatusAdministrativeReview() {
+		Test.startTest();
+		Litigation__c l = TestUtils.createLitigation(testCalculated.addDays(15), 'Remand', true);
+
+		//Segment- Preliminary Status
+		System.assertEquals('Prelim', [SELECT Id, Segment_Outcome__c, Status__c FROM Segment__c WHERE Id =: adminSeg.Id LIMIT 1].Status__c);
+
+		//Segment Final Status
+		adminSeg.Actual_Preliminary_Signature__c = adminSeg.Calculated_Preliminary_Signature__c.addDays(-14);
+		setFR(adminSeg.Id, 'Preliminary');
+		update adminSeg;
+		getNewSegs();
+		System.assertEquals('Final' ,[SELECT Id, Status__c FROM Segment__c WHERE Id =: adminSeg.Id LIMIT 1].Status__c);
+
+		//Segment Amend Final Status
+		adminSeg.Actual_Final_Signature__c = adminSeg.Calculated_Final_Signature__c.addDays(-14);
+		setFR(adminSeg.Id, 'Final');
+		adminSeg.Will_you_Amend_the_Final__c = 'Yes';
+		adminSeg.Segment_Outcome__c = 'Completed';
+		update adminSeg;
+		getNewSegs();
+		System.assertEquals('Amend Final', [SELECT Id, Status__c FROM Segment__c WHERE Id =: adminSeg.Id LIMIT 1].Status__c);
+
+		//Segment Hold Status
+		adminSeg.Segment_Outcome__c ='Completed';
+		adminSeg.Actual_Amended_Final_Signature__c = adminSeg.Actual_Final_Signature__c.addDays(14);
+		update adminSeg;
+		getNewSegs();
+		System.assertEquals('Hold', [SELECT Id, Status__c FROM Segment__c WHERE Id =: adminSeg.Id LIMIT 1].Status__c);
+
+		//Segment Litigation Status
+		adminSeg.Litigation_YesNo__c = 'Yes';
+		adminSeg.Litigation_Resolved__c = 'No';
+		update adminSeg;
+		getNewSegs();
+		System.assertEquals('Litigation',[SELECT Id, Status__c FROM Segment__c WHERE Id =: adminSeg.Id LIMIT 1].Status__c);
+
+		//Segment Customs Segment
+		adminSeg.Litigation_Resolved__c = 'Yes';
+		update adminSeg;
+		getNewSegs();
+		System.assertEquals('Customs', [SELECT Id, Status__c FROM Segment__c WHERE Id =: adminSeg.Id LIMIT 1].Status__c);
+
+		//Segment Closed Status
+		adminSeg.Have_Custom_Instruction_been_sent__c = 'Yes';
+		update adminSeg;
+		getNewSegs();
+		
+		Test.stopTest();
+		System.assertEquals('Closed', [SELECT Id, Status__c FROM Segment__c WHERE Id =: adminSeg.Id LIMIT 1].Status__c);	
+	}
+
+	@isTest static void setStatusExpeditedReview() {
+		Test.startTest();
+		Litigation__c l = TestUtils.createLitigation(testCalculated.addDays(15), 'Remand', true);
+
+		//Segment- Preliminary Status
+		System.assertEquals('Prelim', [SELECT Id, Segment_Outcome__c, Status__c FROM Segment__c WHERE Id =: expedSeg.Id LIMIT 1].Status__c);
+
+		//Segment Final Status
+		setStartDates();
+		update expedSeg;
+		getNewSegs();
+		expedSeg.Actual_Preliminary_Signature__c = expedSeg.Calculated_Preliminary_Signature__c.addDays(-14);
+		setFR(expedSeg.Id, 'Preliminary');
+		update expedSeg;
+		getNewSegs();
+		System.assertEquals('Final' ,[SELECT Id, Status__c FROM Segment__c WHERE Id =: expedSeg.Id LIMIT 1].Status__c);
+
+		//Segment Amend Final Status
+		expedSeg.Actual_Final_Signature__c = expedSeg.Calculated_Final_Signature__c.addDays(-14);
+		setFR(expedSeg.Id, 'Final');
+		expedSeg.Will_you_Amend_the_Final__c = 'Yes';
+		expedSeg.Segment_Outcome__c = 'Completed';
+		update expedSeg;
+		getNewSegs();
+		System.assertEquals('Amend Final', [SELECT Id, Status__c FROM Segment__c WHERE Id =: expedSeg.Id LIMIT 1].Status__c);
+
+		//Segment Hold Status
+		expedSeg.Segment_Outcome__c ='Completed';
+		expedSeg.Actual_Amended_Final_Signature__c = expedSeg.Actual_Final_Signature__c.addDays(14);
+		update expedSeg;
+		getNewSegs();
+		System.assertEquals('Hold', [SELECT Id, Status__c FROM Segment__c WHERE Id =: expedSeg.Id LIMIT 1].Status__c);
+
+		//Segment Litigation Status
+		expedSeg.Litigation_YesNo__c = 'Yes';
+		expedSeg.Litigation_Resolved__c = 'No';
+		update expedSeg;
+		getNewSegs();
+		System.assertEquals('Litigation',[SELECT Id, Status__c FROM Segment__c WHERE Id =: expedSeg.Id LIMIT 1].Status__c);
+
+		//Segment Customs Segment
+		expedSeg.Litigation_Resolved__c = 'Yes';
+		update expedSeg;
+		getNewSegs();
+		System.assertEquals('Customs', [SELECT Id, Status__c FROM Segment__c WHERE Id =: expedSeg.Id LIMIT 1].Status__c);
+
+		//Segment Closed Status
+		expedSeg.Have_Custom_Instruction_been_sent__c = 'Yes';
+		update expedSeg;
+		getNewSegs();
+		
+		Test.stopTest();
+		System.assertEquals('Closed', [SELECT Id, Status__c FROM Segment__c WHERE Id =: expedSeg.Id LIMIT 1].Status__c);
+	}
+
+	@isTest static void setStatusNewShipperReview() {
+		Test.startTest();
+		Litigation__c l = TestUtils.createLitigation(testCalculated.addDays(15), 'Remand', true);
+
+		//Segment- Preliminary Status
+		System.assertEquals('Prelim', [SELECT Id, Segment_Outcome__c, Status__c FROM Segment__c WHERE Id =: nsSeg.Id LIMIT 1].Status__c);
+
+		//Segment Final Status
+		setStartDates();
+		update nsSeg;
+		getNewSegs();
+		nsSeg.Actual_Preliminary_Signature__c = nsSeg.Calculated_Preliminary_Signature__c.addDays(-14);
+		setFR(nsSeg.Id, 'Preliminary');
+		update nsSeg;
+		getNewSegs();
+		System.assertEquals('Final', [SELECT Id, Status__c FROM Segment__c WHERE Id =: nsSeg.Id LIMIT 1].Status__c);
+
+		//Segment Amend Final Status
+		nsSeg.Actual_Final_Signature__c = nsSeg.Calculated_Final_Signature__c.addDays(-14);
+		setFR(nsSeg.Id, 'Final');
+		nsSeg.Will_you_Amend_the_Final__c = 'Yes';
+		nsSeg.Segment_Outcome__c = 'Completed';
+		update nsSeg;
+		getNewSegs();
+		System.assertEquals('Amend Final', [SELECT Id, Status__c FROM Segment__c WHERE Id =: nsSeg.Id LIMIT 1].Status__c);
+
+		//Segment Hold Status
+		nsSeg.Segment_Outcome__c ='Completed';
+		nsSeg.Actual_Amended_Final_Signature__c = nsSeg.Actual_Final_Signature__c.addDays(14);
+		update nsSeg;
+		getNewSegs();
+		System.assertEquals('Hold', [SELECT Id, Status__c FROM Segment__c WHERE Id =: nsSeg.Id LIMIT 1].Status__c);
+
+		//Segment Litigation Status
+		nsSeg.Litigation_YesNo__c = 'Yes';
+		nsSeg.Litigation_Resolved__c = 'No';
+		update nsSeg;
+		getNewSegs();
+		System.assertEquals('Litigation',[SELECT Id, Status__c FROM Segment__c WHERE Id =: nsSeg.Id LIMIT 1].Status__c);
+
+		//Segment Customs Segment
+		nsSeg.Litigation_Resolved__c = 'Yes';
+		update nsSeg;
+		getNewSegs();
+		System.assertEquals('Customs', [SELECT Id, Status__c FROM Segment__c WHERE Id =: nsSeg.Id LIMIT 1].Status__c);
+
+		//Segment Closed Status
+		nsSeg.Have_Custom_Instruction_been_sent__c = 'Yes';
+		update nsSeg;
+		getNewSegs();
+		
+		Test.stopTest();
+		System.assertEquals('Closed', [SELECT Id, Status__c FROM Segment__c WHERE Id =: nsSeg.Id LIMIT 1].Status__c);
+	}
+
+	@isTest static void setStatusChangedCircumstancesReview() {
+		Test.startTest();
+
+		//Segment - Initiation Status
+		System.assertEquals('Initiation', [SELECT Id, Status__c FROM Segment__c WHERE Id =: ccSeg.Id LIMIT 1].Status__c);
+
+		//Segment - Preliminary Status
+		setFR(ccSeg.Id, 'Initiation');
+		ccSeg.All_parties_in_agreement_to_the_outcome__c = 'No';
+		ccSeg.Actual_Initiation_Signature__c = segmentDate;
+		setStartDates();
+		getNewSegs();
+		System.assertEquals('Prelim', [SELECT Id, Status__c FROM Segment__c WHERE Id =: ccSeg.Id LIMIT 1].Status__c);
+
+		//Segment - Final Statss
+		setFR(ccSeg.Id, 'Preliminary');
+		ccSeg.Actual_Preliminary_Signature__c = ccSeg.Calculated_Preliminary_Signature__c.addDays(-14);
+		update ccSeg;
+		getNewSegs();
+		System.assertEquals('Final', [SELECT Id, Status__c FROM Segment__c WHERE Id =: ccSeg.Id LIMIT 1].Status__c);
+
+		//Segment Hold Status
+		setFR(ccSeg.Id, 'Final');
+		ccSeg.Segment_Outcome__c ='Completed';
+		ccSeg.Actual_Final_Signature__c = ccSeg.Calculated_Final_Signature__c.addDays(14);
+		update ccSeg;
+		getNewSegs();
+		System.assertEquals('Hold', [SELECT Id, Status__c FROM Segment__c WHERE Id =: ccSeg.Id LIMIT 1].Status__c);
+
+		//Segment Litigation Status
+		ccSeg.Litigation_YesNo__c = 'Yes';
+		ccSeg.Litigation_Resolved__c = 'No';
+		update ccSeg;
+		getNewSegs();
+		System.assertEquals('Litigation',[SELECT Id, Status__c FROM Segment__c WHERE Id =: ccSeg.Id LIMIT 1].Status__c);
+
+		//Segment Customs Status
+		ccSeg.Litigation_Resolved__c = 'Yes';
+		ccSeg.Have_Custom_Instruction_been_sent__c = 'No';
+		update ccSeg;
+		getNewSegs();
+		System.assertEquals('Customs', [SELECT Id, Status__c FROM Segment__c WHERE Id =: ccSeg.Id LIMIT 1].Status__c);
+
+		//Segment Closed Status
+		ccSeg.Have_Custom_Instruction_been_sent__c = 'Yes';
+		update ccSeg;
+		getNewSegs();
+
+		Test.stopTest();
+		System.assertEquals('Closed', [SELECT Id, Status__c FROM Segment__c WHERE Id =: ccSeg.Id LIMIT 1].Status__c);
+	}
+
+	@isTest static void setStatusAntiCircumventionReview() {
+		Test.startTest();
+
+		setStartDates();
+		//Segment - Initiation Status
+		System.assertEquals('Initiation', [SELECT Id, Status__c FROM Segment__c WHERE Id =: acSeg.Id LIMIT 1].Status__c);
+
+		//Segment Prelim Status
+		setFR(acSeg.Id, 'Initiation');
+		acSeg.Actual_Initiation_Signature__c = segmentDate;
+		acSeg.Type_of_Circumvention_Inquiry__c = 'Later-Developed Merchandise';
+		update acSeg;
+		getNewSegs();
+		System.assertEquals('Prelim', [SELECT Id, Status__c FROM Segment__c WHERE Id =: acSeg.Id LIMIT 1].Status__c);
+
+		//Segment Final Status
+		setFR(acSeg.Id, 'Preliminary');
+		acSeg.Actual_Preliminary_Signature__c = acSeg.Calculated_Preliminary_Signature__c.addDays(-14);
+		update acSeg;
+		getNewSegs();
+		System.assertEquals('Final', [SELECT Id, Status__c FROM  Segment__c WHERE Id =: acSeg.Id LIMIT 1].Status__c);
+
+		//Segment Hold Status
+		setFR(acSeg.Id, 'Final');
+		acSeg.Segment_Outcome__c ='Completed';
+		acSeg.Actual_Final_Signature__c = acSeg.Calculated_Final_Signature__c.addDays(-14);
+		update acSeg;
+		getNewSegs();
+		System.assertEquals('Hold', [SELECT Id, Status__c FROM Segment__c WHERE Id =: acSeg.Id LIMIT 1].Status__c);
+
+		//Segment Litigation Status
+		acSeg.Litigation_YesNo__c = 'Yes';
+		acSeg.Litigation_Resolved__c = 'No';
+		update acSeg;
+		getNewSegs();
+		System.assertEquals('Litigation',[SELECT Id, Status__c FROM Segment__c WHERE Id =: acSeg.Id LIMIT 1].Status__c);
+
+		//Segment Customs Status
+		acSeg.Litigation_Resolved__c = 'Yes';
+		acSeg.Have_Custom_Instruction_been_sent__c = 'No';
+		update acSeg;
+		getNewSegs();
+		System.assertEquals('Customs', [SELECT Id, Status__c FROM Segment__c WHERE Id =: acSeg.Id LIMIT 1].Status__c);
+
+		//Segment Closed Status
+		acSeg.Have_Custom_Instruction_been_sent__c = 'Yes';
+		update acSeg;
+		getNewSegs();
+
+		Test.stopTest();
+		System.assertEquals('Closed', [SELECT Id, Status__c FROM Segment__c WHERE Id =: acSeg.Id LIMIT 1].Status__c);
+
+	}
+
+	@isTest static void setStatusScopeInquiry() {
+		Test.startTest();
+
+		//Segment- How To Proceed Status
+		System.assertEquals('How To Proceed', [SELECT Id, Status__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Status__c);
+
+		siSeg.Decision_on_How_to_Proceed__c = 'Informal';
+		update siSeg;
+		getNewSegs();
+		System.assertEquals('Final', [SELECT Id, Status__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Status__c);
+
+		//Segment -Prelim Status
+		setStartDates();
+		siSeg.Decision_on_How_to_Proceed__c = 'Formal';
+		update siSeg;
+		getNewSegs();
+		System.assertEquals('Prelim', [SELECT Id, Status__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Status__c);
+
+		//Segment- Final Status
+		siSeg.Actual_Preliminary_Signature__c = siSeg.Calculated_Preliminary_Signature__c.addDays(-14);
+		update siSeg;
+		getNewSegs();
+		System.assertEquals('Final', [SELECT Id, Status__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Status__c);
+
+		//Segment Hold Status
+		siSeg.Segment_Outcome__c ='Completed';
+		siSeg.Actual_Final_Signature__c = siSeg.Calculated_Final_Signature__c.addDays(-14);
+		update siSeg;
+		getNewSegs();
+		System.assertEquals('Hold', [SELECT Id, Status__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Status__c);
+
+		//Segment Litigation Status
+		siSeg.Litigation_YesNo__c = 'Yes';
+		siSeg.Litigation_Resolved__c = 'No';
+		update siSeg;
+		getNewSegs();
+		System.assertEquals('Litigation',[SELECT Id, Status__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Status__c);
+
+		//Segment Customs Segment
+		siSeg.Litigation_Resolved__c = 'Yes';
+		update siSeg;
+		getNewSegs();
+		System.assertEquals('Customs', [SELECT Id, Status__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Status__c);
+
+		//Segment Closed Status
+		siSeg.Have_Custom_Instruction_been_sent__c = 'Yes';
+		update siSeg;
+		getNewSegs();
+		
+		Test.stopTest();
+		System.assertEquals('Closed', [SELECT Id, Status__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Status__c);
+	}
+
+	@isTest static void setStatusSunsetReview90() {
+		Test.startTest();
+
+		//Segment - Initiation Status
+		System.assertEquals('Initiation', [SELECT Id, Status__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Status__c);
+
+		//Segment - Final Status
+		ss90();
+		setFR(ssSeg.Id, 'Initiation');
+		getNewSegs();
+		System.assertEquals('Final', [SELECT Id, Status__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Status__c);
+
+		//Segment - Hold Status
+		setFR(ssSeg.Id, 'Final');
+		ssSeg.Actual_Final_Signature__c = ssSeg.Calculated_Final_Signature__c;
+		ssSeg.Segment_Outcome__c = 'Completed';
+		update ssSeg;
+		getNewSegs();
+		System.assertEquals('Hold', [SELECT Id, Status__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Status__c);
+
+		//Segment Litigation Status
+		ssSeg.Litigation_YesNo__c = 'Yes';
+		ssSeg.Litigation_Resolved__c = 'No';
+		update ssSeg;
+		getNewSegs();
+		System.assertEquals('Litigation',[SELECT Id, Status__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Status__c);
+
+		//Segment Customs Segment
+		ssSeg.Litigation_Resolved__c = 'Yes';
+		update ssSeg;
+		getNewSegs();
+		System.assertEquals('Customs', [SELECT Id, Status__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Status__c);
+
+		//Segment Closed Status
+		ssSeg.Have_Custom_Instruction_been_sent__c = 'Yes';
+		update ssSeg;
+		getNewSegs();
+		
+		Test.stopTest();
+		System.assertEquals('Closed', [SELECT Id, Status__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Status__c);
+
+	}
+
+	@isTest static void setStatusSunsetReview120() {
+		Test.startTest();
+
+		//Segment - Initiation Status
+		System.assertEquals('Initiation', [SELECT Id, Status__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Status__c);
+
+		//Segment - Final Status
+		ss120();
+		setFR(ssSeg.Id, 'Initiation');
+		getNewSegs();
+		System.assertEquals('Final', [SELECT Id, Status__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Status__c);
+
+		//Segment - Hold Status
+		setFR(ssSeg.Id, 'Final');
+		ssSeg.Actual_Final_Signature__c = ssSeg.Calculated_Final_Signature__c;
+		ssSeg.Segment_Outcome__c = 'Completed';
+		update ssSeg;
+		getNewSegs();
+		System.assertEquals('Hold', [SELECT Id, Status__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Status__c);
+
+		//Segment Litigation Status
+		ssSeg.Litigation_YesNo__c = 'Yes';
+		ssSeg.Litigation_Resolved__c = 'No';
+		update ssSeg;
+		getNewSegs();
+		System.assertEquals('Litigation',[SELECT Id, Status__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Status__c);
+
+		//Segment Customs Segment
+		ssSeg.Litigation_Resolved__c = 'Yes';
+		update ssSeg;
+		getNewSegs();
+		System.assertEquals('Customs', [SELECT Id, Status__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Status__c);
+
+		//Segment Closed Status
+		ssSeg.Have_Custom_Instruction_been_sent__c = 'Yes';
+		update ssSeg;
+		getNewSegs();
+		
+		Test.stopTest();
+		System.assertEquals('Closed', [SELECT Id, Status__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Status__c);
+
+	}
+
+	@isTest static void setStatusSunsetReview240() {
+		Test.startTest();
+
+		//Segment - Initiation Status
+		System.assertEquals('Initiation', [SELECT Id, Status__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Status__c);
+
+		//Segment - Prelim Status
+		ss240();
+		setFR(ssSeg.Id, 'Initiation');
+		getNewSegs();
+		System.assertEquals('Prelim', [SELECT Id, Status__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Status__c);
+
+		//Segment - Final Status
+		setFR(ssSeg.Id, 'Preliminary');
+		ssSeg.Actual_Preliminary_Signature__c = ssSeg.Calculated_Preliminary_Signature__c;
+		update ssSeg;
+		getNewSegs();
+		System.assertEquals('Final', [SELECT Id, Status__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Status__c);
+
+		//Segment - Hold Status
+		setFR(ssSeg.Id, 'Final');
+		ssSeg.Actual_Final_Signature__c = ssSeg.Calculated_Final_Signature__c;
+		ssSeg.Segment_Outcome__c = 'Completed';
+		update ssSeg;
+		getNewSegs();
+		System.assertEquals('Hold', [SELECT Id, Status__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Status__c);
+
+		//Segment Litigation Status
+		ssSeg.Litigation_YesNo__c = 'Yes';
+		ssSeg.Litigation_Resolved__c = 'No';
+		update ssSeg;
+		getNewSegs();
+		System.assertEquals('Litigation',[SELECT Id, Status__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Status__c);
+
+		//Segment Customs Segment
+		ssSeg.Litigation_Resolved__c = 'Yes';
+		update ssSeg;
+		getNewSegs();
+		System.assertEquals('Customs', [SELECT Id, Status__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Status__c);
+
+		//Segment Closed Status
+		ssSeg.Have_Custom_Instruction_been_sent__c = 'Yes';
+		update ssSeg;
+		getNewSegs();
+		
+		Test.stopTest();
+		System.assertEquals('Closed', [SELECT Id, Status__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Status__c);
+
 	}
 
 	@testSetup static void dataSetup() {
