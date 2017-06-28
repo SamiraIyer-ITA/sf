@@ -811,6 +811,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>ADCVD_Order__c.Effective_Date_of_Revocation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>ADCVD_Order__c.Est_ITC_Notification_to_DOC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -6057,6 +6062,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Suspension_Agreement__c.Determination_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Suspension_Agreement__c.Effective_Date_of_Termination__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

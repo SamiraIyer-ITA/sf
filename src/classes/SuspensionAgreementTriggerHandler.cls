@@ -5,6 +5,8 @@ public without sharing class SuspensionAgreementTriggerHandler {
 	//FINAL ADCVD Order Offsets
 	private static FINAL Integer SUNSET_INIT_YEARS				    = ((Integer)saCalcOffsets.get('Susp_Agr_Sunset_Initiation_Years').Number_Value__c);//Next_Sunset_Initiation_Date__c
 	private static FINAL Integer SUNSET_INIT_MONTHS				    = ((Integer)saCalcOffsets.get('Susp_Agr_Sunset_Initiation_Months').Number_Value__c);//Next_Sunset_Initiation_Date__c
+    private static FINAL Integer EFFECTIVE_DATE_TERM_MONTHS         = ((Integer)saCalcOffsets.get('Susp_Agr_Effective_Termination_Months').Number_Value__c);//Effective_Date_of_Termination__c
+    private static FINAL Integer EFFECTIVE_DATE_TERM_YEARS          = ((Integer)saCalcOffsets.get('Susp_Agr_Effective_Termination_Years').Number_Value__c);//Effective_Date_of_Termination__c
 
 
     public static boolean preventRecursion = false;
@@ -16,10 +18,12 @@ public without sharing class SuspensionAgreementTriggerHandler {
         if (isBefore && isInsert) {
             initialize(newList,newMap);
             calculateDates(newList);
+            runCustomValidations(newList);
         }
         if (isBefore && isUpdate) {
             initialize(newList,newMap);
             calculateDates(newList);
+            runCustomValidations(newList);
         }
         if (isAfter && isUpdate) {
 
@@ -53,6 +57,12 @@ public without sharing class SuspensionAgreementTriggerHandler {
 			setNextSunsetInitiationDate(sa);
 		}
 	}
+
+    @TestVisible private static void runCustomValidations(List<Suspension_Agreement__c> newList) {
+        for (Suspension_Agreement__c sa : newList) {
+            validateEffectiveDateOfTermination(sa);
+        }
+    }
 
 
     /***********************************
@@ -106,6 +116,31 @@ public without sharing class SuspensionAgreementTriggerHandler {
     		sa.Next_Sunset_Initiation_Date__c = nextSSR.toStartOfMonth().addYears(SUNSET_INIT_YEARS).addMonths(SUNSET_INIT_MONTHS);
     	} else {
             sa.Next_Sunset_Initiation_Date__c = null;
+        }
+    }
+
+
+    /**************************
+    * Custom Validations
+    **************************/
+
+    //Effective_Date_of_Termination__c
+    @TestVisible private static void validateEffectiveDateOfTermination(Suspension_Agreement__c sa) {
+        String maxDateName = '';
+        Date maxDate = null;
+        if (sa.Id != null && frUtilMap != null && frUtilMap.get(sa.Id) != null && frUtilMap.get(sa.Id).terminationPublishedDate != null) {
+            if (frUtilMap.get(sa.Id).suspensionAgreementPublishedDate != null) {
+                maxDate = frUtilMap.get(sa.Id).suspensionAgreementPublishedDate;
+                maxDateName = 'Suspension Agreement Federal Register Published Date: ' + maxDate.format();
+            }
+            if (frUtilMap.get(sa.Id).continuationPublishedDate != null) {
+                maxDate = frUtilMap.get(sa.Id).continuationPublishedDate;
+                maxDateName = 'most recent Continuation Federal Register Published Date: ' + maxDate.format();
+            }
+            maxDate = maxDate != null ? maxDate.addYears(EFFECTIVE_DATE_TERM_YEARS).addMonths(EFFECTIVE_DATE_TERM_MONTHS) : null;
+        }
+        if (maxDate != null && sa != null && sa.Effective_Date_of_Termination__c != null && maxDate < sa.Effective_Date_of_Termination__c) {
+            sa.Effective_Date_of_Termination__c.addError('The Effective Date of Termination cannot be more than 5 years from the ' + maxDateName);
         }
     }
 }

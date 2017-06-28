@@ -6,6 +6,8 @@ public without sharing class ADCVDOrderTriggerHandler {
 	//FINAL ADCVD Order Offsets
 	private static FINAL Integer SUNSET_INIT_YEARS				    = ((Integer)orderCalcOffsets.get('Order_Sunset_Initiation_Years').Number_Value__c);//Next_Sunset_Initiation_Date__c
 	private static FINAL Integer SUNSET_INIT_MONTHS				    = ((Integer)orderCalcOffsets.get('Order_Sunset_Initiation_Months').Number_Value__c);//Next_Sunset_Initiation_Date__c
+    private static FINAL Integer EFFECTIVE_DATE_REVO_MONTHS         = ((Integer)orderCalcOffsets.get('Order_Effective_Revocation_Months').Number_Value__c);//Effective_Date_of_Revocation__c
+    private static FINAL Integer EFFECTIVE_DATE_REVO_YEARS          = ((Integer)orderCalcOffsets.get('Order_Effective_Revocation_Years').Number_Value__c);//Effective_Date_of_Revocation__c
 
 
     public static boolean preventRecursion = false;
@@ -18,11 +20,13 @@ public without sharing class ADCVDOrderTriggerHandler {
             initialize(newList,newMap);
             calculateOrderDates(newList);
             calculateOrderStatuses(newList);
+            runCustomValidations(newList);
         }
         if (isBefore && isUpdate) {
             initialize(newList,newMap);
             calculateOrderDates(newList);
             calculateOrderStatuses(newList);
+            runCustomValidations(newList);
         }
         if(isAfter && isInsert) {
             StaffingAssignmentExtension createStaff = new StaffingAssignmentExtension(newList);
@@ -77,6 +81,12 @@ public without sharing class ADCVDOrderTriggerHandler {
 		setSegmentStatus(newList);
 		setStatus(newList);
 	}
+
+    @TestVisible private static void runCustomValidations(List<ADCVD_Order__c> newList) {
+        for (ADCVD_Order__c o : newList) {
+            validateEffectiveDateOfRevocation(o);
+        }
+    }
 
 
 
@@ -208,6 +218,31 @@ public without sharing class ADCVDOrderTriggerHandler {
 		            }
 		        }
         	}
+        }
+    }
+
+
+    /**************************
+    * Custom Validations
+    **************************/
+
+    //Effective_Date_of_Revocation__c
+    @TestVisible private static void validateEffectiveDateOfRevocation(ADCVD_Order__c o) {
+        String maxDateName = '';
+        Date maxDate = null;
+        if (o.Id != null && frUtilMap != null && frUtilMap.get(o.Id) != null && frUtilMap.get(o.Id).revocationPublishedDate != null) {
+            if (frUtilMap.get(o.Id).orderPublishedDate != null) {
+                maxDate = frUtilMap.get(o.Id).orderPublishedDate;
+                maxDateName = 'Order Federal Register Published Date: ' + maxDate.format();
+            }
+            if (frUtilMap.get(o.Id).continuationPublishedDate != null) {
+                maxDate = frUtilMap.get(o.Id).continuationPublishedDate;
+                maxDateName = 'most recent Continuation Federal Register Published Date: ' + maxDate.format();
+            }
+            maxDate = maxDate != null ? maxDate.addYears(EFFECTIVE_DATE_REVO_YEARS).addMonths(EFFECTIVE_DATE_REVO_MONTHS) : null;
+        }
+        if (maxDate != null && o != null && o.Effective_Date_of_Revocation__c != null && maxDate < o.Effective_Date_of_Revocation__c) {
+            o.Effective_Date_of_Revocation__c.addError('The Effective Date of Revocation cannot be more than 5 years from the ' + maxDateName);
         }
     }
 }
