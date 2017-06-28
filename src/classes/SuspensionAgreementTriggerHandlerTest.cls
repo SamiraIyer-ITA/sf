@@ -86,6 +86,40 @@ public class SuspensionAgreementTriggerHandlerTest {
 		System.assertEquals(month, sa.Anniversary_Month__c);
 	}
 
+	@isTest static void validateEffectiveDateOfTermination() {
+		Test.startTest();
+
+		//add setup FRs
+		List<Federal_Register__c> frList = new List<Federal_Register__c>();
+		suspensionAgreementFR =  setFR(sa.Id, 'Suspension Agreement', false);
+		termFR = setFR(sa.Id, 'Termination', false);
+		frList.add(suspensionAgreementFR);
+		frList.add(termFR);
+		insert frList;
+
+		//test validation on order FR
+		sa.Effective_Date_of_Termination__c = suspDate.addYears(6);
+		String validationError = attemptUpsert(sa);
+		System.assert(validationError.contains('Suspension Agreement Federal Register Published Date:'));
+
+		//add continuation FR
+		continuationFR = setFR(sa.Id, 'Continuation', false);
+		continuationFR.Published_Date__c = continuationFR.Published_Date__c.addDays(14);
+		insert continuationFR;
+
+		//test validationon continuation FR
+		validationError = attemptUpsert(sa);
+		System.assert(validationError.contains('most recent Continuation Federal Register Published Date:'));
+
+		//test successful insert
+		sa.Effective_Date_of_Termination__c = suspDate.addYears(-2);
+		validationError = attemptUpsert(sa);
+
+		Test.stopTest();
+		System.assert(validationError.contains('Success'));
+
+	}
+
 	@testSetup static void dataSetup() {
 		Test.startTest();
 		User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
@@ -105,5 +139,16 @@ public class SuspensionAgreementTriggerHandlerTest {
 	private static Federal_Register__c setFR(Id parentId, String frType, Boolean doInsert) {
 		Federal_Register__c testFR = TestUtils.createFR(parentId, 'Suspension_Agreement__c', suspDate, frType, doInsert);
 		return testFR;
+	}
+
+	private static String attemptUpsert(SObject o){
+		String error = '';
+		try{
+			upsert o;
+			error = 'Success';
+		} catch (DmlException e) {
+			error = e.getMessage();
+		}
+		return error;
 	}
 }

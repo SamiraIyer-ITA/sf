@@ -93,6 +93,14 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Effective_Date_of_Termination__c</fullName>
+        <externalId>false</externalId>
+        <label>Effective Date of Termination</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Enforcement_Concerns__c</fullName>
         <externalId>false</externalId>
         <label>Enforcement Concerns</label>

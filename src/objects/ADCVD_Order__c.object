@@ -281,6 +281,14 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Effective_Date_of_Revocation__c</fullName>
+        <externalId>false</externalId>
+        <label>Effective Date of Revocation</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Est_ITC_Notification_to_DOC__c</fullName>
         <description>Estimate ITC Notification to DOC for Final Determination</description>
         <externalId>false</externalId>
