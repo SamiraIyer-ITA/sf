@@ -566,6 +566,30 @@ C-###-### for CVD</inlineHelpText>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Initiation_Announcement_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Initiation Announcement Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Initiation_Extension_Days_Remaining__c</fullName>
+        <description>Extension Number of days remaining for Initiation</description>
+        <externalId>false</externalId>
+        <formula>20 - Initiation_Extension_of_days__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Initiation Extension Days Remaining</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Initiation_Extension_of_days__c</fullName>
         <description>Initiation Extension (# of days)</description>
         <externalId>false</externalId>
@@ -656,6 +680,19 @@ C-###-### for CVD</inlineHelpText>
         </valueSet>
     </fields>
     <fields>
+        <fullName>Litigation__c</fullName>
+        <externalId>false</externalId>
+        <label>Litigation</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Lotus_Notes_Litigation_ID__c</fullName>
         <externalId>false</externalId>
         <label>Lotus Notes Litigation ID</label>
@@ -667,9 +704,36 @@ C-###-### for CVD</inlineHelpText>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Next_Announcement_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Announcement Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Next_Due_to_DAS_Deadline_and_Timeline__c</fullName>
         <externalId>false</externalId>
         <label>Next Due to DAS Deadline and Timeline</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Next_Major_AS_DAS_Deadline_and_Timeline__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Major AS/DAS Deadline and Timeline</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Next_Office_PM_Deadline_and_Timeline__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Office/PM Deadline and Timeline</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
