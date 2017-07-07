@@ -3111,6 +3111,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Investigation__c.Amended_Final_Announcement_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Investigation__c.Amended_Preliminary_Announcement_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Investigation__c.Applicable_CBP_Instructions_Category__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3192,6 +3202,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Investigation__c.External_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Investigation__c.Final_Announcement_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Investigation__c.Final_Extension_Days_Remaining__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3296,6 +3316,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Investigation__c.Next_Announcement_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Investigation__c.Next_Due_to_DAS_Deadline_and_Timeline__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3387,6 +3412,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Investigation__c.Prelim_Team_Meeting_Deadline__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Investigation__c.Preliminary_Announcement_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Investigation__c.Preliminary_Extension_Days_Remaining__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3717,6 +3752,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Litigation__c.Lotus_Notes_History_Data__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Litigation__c.Next_Announcement_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4466,6 +4506,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Petition__c.Initiation_Announcement_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Petition__c.Initiation_Extension_Days_Remaining__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Petition__c.Initiation_Extension_of_days__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4505,9 +4555,24 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Petition__c.Next_Announcement_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Petition__c.Next_Due_to_DAS_Deadline_and_Timeline__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Petition__c.Next_Major_AS_DAS_Deadline_and_Timeline__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Petition__c.Next_Office_PM_Deadline_and_Timeline__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -5282,6 +5347,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Segment__c.New_Shipper_Sync_Level__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Segment__c.Next_Announcement_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

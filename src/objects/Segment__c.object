@@ -1031,6 +1031,14 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Next_Announcement_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Announcement Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Next_Due_to_DAS_Deadline_and_Timeline__c</fullName>
         <description>Next Due to DAS Deadline and Timeline on Segment</description>
         <externalId>false</externalId>
