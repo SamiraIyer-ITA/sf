@@ -122,8 +122,23 @@ public with sharing class TestUtils {
     public static Investigation__c createInvestigation(String recordTypeName, Petition__c p, Boolean doInsert) {
         Investigation__c i = new Investigation__c();
         i.Petition__c = p.Id;
-        i.RecordTypeId = utils.getRecordTypeIdMap(i).get(recordTypeName);
+        if (p.Case_Number__c.indexOf('A') > -1) {
+            i.RecordTypeId = utils.getRecordTypeIdMap(i).get('AD');
+        } else if (p.Case_Number__c.indexOf('C') > -1) {
+            i.RecordTypeId = utils.getRecordTypeIdMap(i).get('CVD');
+        }
         if (doInsert) {
+            insert i;
+        }
+        return i;
+    }
+
+    //create Issue
+    public static Issue__c createIssue (Id parentId, String parentLookupField, String issueType, Boolean doInsert) {
+        Issue__c i = new Issue__c();
+        i.put(parentLookupField, parentId);
+        i.Type__c = issueType;
+        if(doInsert) {
             insert i;
         }
         return i;

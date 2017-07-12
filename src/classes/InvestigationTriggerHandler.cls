@@ -122,10 +122,23 @@ public without sharing class InvestigationTriggerHandler {
     //Primary calculation method for Trigger Handler
     @TestVisible private static void calculateInvestigationDates(List<Investigation__c> newList) {
         Boolean completePetition = false;
+        List<Investigation__c> adInvList = new List<Investigation__c>();
+        List<Investigation__c> cvdInvList = new List<Investigation__c>();
     	for (Investigation__c i : newList) {
             completePetition = findCompletePetition(i);
             if (completePetition) {
-    			//Ordered Methods (must be done in a specific order)
+                if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
+                    adInvList.add(i);
+                } else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD) {
+                    cvdInvList.add(i);
+                }
+            }
+        }
+        DateCalculationService adDcs = ADCVDServiceDispatcher.getDateCalculationServiceInstance(ADRECORD);
+        adDcs.getCalculatedDates(adInvList, 'Investigation__c', ADRECORD);
+        DateCalculationService cvdDcs = ADCVDServiceDispatcher.getDateCalculationServiceInstance(CVDRECORD);
+        cvdDcs.getCalculatedDates(cvdInvList, 'Investigation__c', CVDRECORD);
+/*    			//Ordered Methods (must be done in a specific order)
         		setCalculatedPreliminarySignature(i);
         		//dependent on setCalculatedPreliminarySignature
         		setCalcAmendedPrelimDeterminationSig(i);
@@ -148,6 +161,7 @@ public without sharing class InvestigationTriggerHandler {
             setCalculatedITCPrelimDetermination(i);
     		setTerminationofSuspensionGapPeriodBeg(i);
     	}
+*/
     }
 
     /**
@@ -162,8 +176,8 @@ public without sharing class InvestigationTriggerHandler {
 
     //returns a list of CVD Investigations to update if the aligned AD Investigation is updated
     @TestVisible private static void recalculateCVDinvestigations(Map<Id,Investigation__c> newMap) {
-        List<Investigation__c> CVDinvestigations = [SELECT Id FROM Investigation__c WHERE AD_Investigation_Aligned_To__c IN: newMap.keySet()];
-        update CVDinvestigations;
+        List<Investigation__c> cvdInvestigations = [SELECT Id FROM Investigation__c WHERE AD_Investigation_Aligned_To__c IN: newMap.keySet()];
+        update cvdInvestigations;
     }
     /**
      * Method to calculate Issues

@@ -53,6 +53,7 @@
         <members>Content__c</members>
         <members>Covered_Entity__c</members>
         <members>Custom_Instruction__c</members>
+        <members>Date_Calculation__mdt</members>
         <members>Decision_Log__c</members>
         <members>Department_Taxonomy__c</members>
         <members>Federal_Register__c</members>
