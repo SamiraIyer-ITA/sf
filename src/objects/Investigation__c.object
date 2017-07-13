@@ -926,19 +926,6 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>Investigation_YesNo__c</fullName>
-        <externalId>false</externalId>
-        <label>Investigation</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>YesNo</valueSetName>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Issues_to_DAS__c</fullName>
         <externalId>false</externalId>
         <label>Issues to DAS</label>
@@ -1075,33 +1062,33 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Next_Due_to_DAS_Deadline_and_Timeline__c</fullName>
+        <fullName>Next_Due_to_DAS_Deadline__c</fullName>
         <description>Next Due to DAS Deadline and Timeline</description>
         <externalId>false</externalId>
         <inlineHelpText>Next Due to DAS Deadline and Timeline</inlineHelpText>
-        <label>Next Due to DAS Deadline and Timeline</label>
+        <label>Next Due to DAS Deadline</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Next_Major_AS_DAS_Deadline_and_Timeline__c</fullName>
+        <fullName>Next_Major_Deadline__c</fullName>
         <description>Next Major AS/DAS Deadline and Timeline</description>
         <externalId>false</externalId>
         <inlineHelpText>Next Major AS/DAS Deadline and Timeline</inlineHelpText>
-        <label>Next Major AS/DAS Deadline and Timeline</label>
+        <label>Next Major Deadline</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Next_Office_PM_Deadline_and_Timeline__c</fullName>
+        <fullName>Next_Office_PM_Deadline__c</fullName>
         <description>Next Office/PM Deadline and Timeline</description>
         <externalId>false</externalId>
         <inlineHelpText>Next Office/PM Deadline and Timeline</inlineHelpText>
-        <label>Next Office/PM Deadline and Timeline</label>
+        <label>Next Office/PM Deadline</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1975,17 +1962,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Investigation_YesNo__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Litigation_Resolved__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -2573,17 +2549,6 @@
             </values>
             <values>
                 <fullName>Suspension Agreement</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Investigation_YesNo__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
