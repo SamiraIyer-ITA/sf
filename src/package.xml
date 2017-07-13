@@ -161,5 +161,9 @@
         <members>testcvd_tolling_day_between_start_date</members>
         <name>StaticResource</name>
     </types>
+    <types>
+        <members>*</members>
+        <name>Workflow</name>
+    </types>
     <version>39.0</version>
 </Package>

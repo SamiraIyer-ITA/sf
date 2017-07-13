@@ -885,6 +885,17 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>This_Investigation_has_an_Order__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <externalId>false</externalId>
+        <label>This Investigation has an Order</label>
+        <length>18</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
         <fullName>Upstream_Subsidy_Allegation__c</fullName>
         <externalId>false</externalId>
         <label>Upstream Subsidy Allegation?</label>
