@@ -64,81 +64,75 @@ public without sharing class DateCalculationConditionService {
     }
 
     @TestVisible private Boolean getConditionResult(Date recordFieldValue, Date cmtFieldValue, String operator) {
-		Boolean returnBoolean = false;
     	//Set Boolean Based on logic in cmt
     	if (operator == 'Equals') {
-    		returnBoolean = recordFieldValue == cmtFieldValue ? true : false;
+    		return (recordFieldValue == cmtFieldValue);
     	} else if (operator == 'Not Equals To') {
-    		returnBoolean = recordFieldValue != cmtFieldValue ? true : false;
+    		return (recordFieldValue != cmtFieldValue);
     	} else if (operator == 'Greater Than') {
-    		returnBoolean = recordFieldValue > cmtFieldValue ? true : false;
+    		return(recordFieldValue > cmtFieldValue);
     	} else if (operator == 'Less Than') {
-    		returnBoolean = recordFieldValue < cmtFieldValue ? true : false;
+    		return(recordFieldValue < cmtFieldValue);
     	} else if (operator == 'Greater Than Or Equals To') {
-    		returnBoolean = recordFieldValue >= cmtFieldValue ? true : false;
+    		return(recordFieldValue >= cmtFieldValue);
     	} else if (operator == 'Less Than Or Equals To') {
-    		returnBoolean = recordFieldValue <= cmtFieldValue ? true : false;
+    		return(recordFieldValue <= cmtFieldValue);
     	}
-    	return returnBoolean;
+    	return false;
     }
     @TestVisible private Boolean getConditionResult(Integer recordFieldValue, Integer cmtFieldValue, String operator) {
-		Boolean returnBoolean = false;
     	//Set Boolean Based on logic in cmt
     	if (operator == 'Equals') {
-    		returnBoolean = recordFieldValue == cmtFieldValue ? true : false;
+    		return (recordFieldValue == cmtFieldValue);
     	} else if (operator == 'Not Equals To') {
-    		returnBoolean = recordFieldValue != cmtFieldValue ? true : false;
+    		return (recordFieldValue != cmtFieldValue);
     	} else if (operator == 'Greater Than') {
-    		returnBoolean = recordFieldValue > cmtFieldValue ? true : false;
+    		return(recordFieldValue > cmtFieldValue);
     	} else if (operator == 'Less Than') {
-    		returnBoolean = recordFieldValue < cmtFieldValue ? true : false;
+    		return(recordFieldValue < cmtFieldValue);
     	} else if (operator == 'Greater Than Or Equals To') {
-    		returnBoolean = recordFieldValue >= cmtFieldValue ? true : false;
+    		return(recordFieldValue >= cmtFieldValue);
     	} else if (operator == 'Less Than Or Equals To') {
-    		returnBoolean = recordFieldValue <= cmtFieldValue ? true : false;
+    		return(recordFieldValue <= cmtFieldValue);
     	}
-    	return returnBoolean;
+    	return false;
     }
     @TestVisible private Boolean getConditionResult(String recordFieldValue, String cmtFieldValue, String operator) {
-		Boolean returnBoolean = false;
     	//Set Boolean Based on logic in cmt
     	if (operator == 'Equals') {
-    		returnBoolean = recordFieldValue == cmtFieldValue ? true : false;
+    		return (recordFieldValue == cmtFieldValue);
     	} else if (operator == 'Not Equals To') {
-    		returnBoolean = recordFieldValue != cmtFieldValue ? true : false;
+    		return (recordFieldValue != cmtFieldValue);
     	}
-    	return returnBoolean;
+    	return false;
     }
     @TestVisible private Boolean getConditionResult(String recordFieldValue, Set<String> cmtFieldValue, String operator) {
-		Boolean returnBoolean = false;
     	//Set Boolean Based on logic in cmt
     	if (operator == 'Equals') {
-    		returnBoolean = cmtFieldValue.contains(recordFieldValue) ? true : false;
+    		return (cmtFieldValue.contains(recordFieldValue));
     	} else if (operator == 'Not Equals To') {
-    		returnBoolean = !cmtFieldValue.contains(recordFieldValue) ? true : false;
+    		return (!cmtFieldValue.contains(recordFieldValue));
     	} else {
 //TODO: add exception handling new Exception('The operator selected for this Date Calculation is not valid. Please contact your administrator.');
     	}
-    	return returnBoolean;
+    	return false;
     }
 
     @TestVisible private Integer typeCastToInteger(Object o) {
-		Integer returnInt = null;
 		try {
-    		returnInt = Integer.valueOf(o);
+    		return Integer.valueOf(o);
 		} catch (Exception e) {
 
 		}
-		return returnInt;
+		return null;
 	}
 
 	@TestVisible private Date typeCastToDate(Object o) {
-		Date returnDate = null;
 		try {
-			returnDate = Date.parse(String.valueOf(o));
+			return Date.parse(String.valueOf(o));
 		} catch (Exception e) {
 
 		}
-		return returnDate;
+		return null;
 	}
 }

@@ -15,7 +15,7 @@ public without sharing class DateCalculationService {
 	}
     @TestVisible private void setDateCalculations(String soType, String recordTypeName) {
         if (dateCalculations == null || dateCalculations.isEmpty()) {
-        	dateCalculations = ADCVDSelector.getDateCalculationsMap(soType, recordTypeName);
+        	dateCalculations = DateCalculationSelector.getDateCalculationsMap(soType, recordTypeName);
         }
     }
 
@@ -98,7 +98,7 @@ public without sharing class DateCalculationService {
 	    		Integer i = Integer.valueOf(result.right(1));
 	    		String constant = 'Constant_' + String.valueOf(i) + '__c';
 	    		Id constantId = (Id) dc.get(constant);
-	    		tempObject = ADCVDSelector.getConstant(constantId).Number_Value__c;
+	    		tempObject = CustomMetadataSelector.getConstant(constantId).Number_Value__c;
 	    		returnMap.put('Integer', tempObject);
 	    	}
 	    }
@@ -187,7 +187,7 @@ public without sharing class DateCalculationService {
 	}
 
 	@TestVisible private void getFrUtilMap(List<SObject> soList) {
-		frUtilMap = ADCVDSelector.getFrUtilMap(soList);
+		frUtilMap = DateCalculationSelector.getFrUtilMap(soList);
 	}
 
 	@TestVisible private void getBaseObjectMap(List<SObject> soList) {
@@ -200,20 +200,13 @@ public without sharing class DateCalculationService {
 				for (Integer i = 1; i <=5; i++) {
 					String lookupFieldName = 'Base_Date_Field_' + String.valueOf(i) + '_Lookup_Field_Name__c';
 					String objectName = 'Base_Date_Field_' + String.valueOf(i) + '_Object__c';
-					//System.debug('*** dc: ' + dc);
-					//System.debug('*** lookupFieldName: ' + lookupFieldName);
-					//System.debug('*** objectName: ' + objectName);
 					lookupFieldNameToObjectNameMap.put(String.valueOf(dc.get(lookupFieldName)), String.valueOf(dc.get(objectName)));
 				}
 			}
 			System.debug('*** lookupFieldNameToObjectNameMap: ' + lookupFieldNameToObjectNameMap);
 			for (String lookupFieldName : lookupFieldNameToObjectNameMap.keySet()) {
 				String objectName = lookupFieldNameToObjectNameMap.get(lookupFieldName);
-				if (objectName == 'Petition__c') {
-					baseObjectMap.put('Petition__c', ADCVDSelector.getPetitionsInScope(soList, targetObjectName, lookupFieldName));
-				} else if (objectName == 'Issue__c') {
-					baseObjectMap.put('Issue__c', ADCVDSelector.getCompletedIssuesInScope(soList, targetObjectName, lookupFieldName));
-				}
+				baseObjectMap.put(objectName, DateCalculationSelector.getSObjectsInScope(soList, targetObjectName, lookupFieldName));
 			}
 			System.debug('*** baseObjectMap: ' + baseObjectMap);	
 		}

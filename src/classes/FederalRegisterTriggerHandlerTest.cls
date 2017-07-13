@@ -54,12 +54,12 @@ public class FederalRegisterTriggerHandlerTest {
 	@isTest static void recalculateInvestigationFederalRegister(){
 		Test.startTest();
 		//current Final Signature prior to fr insert
-		Date testCalculated_Final_Signature = iAD.Calculated_Final_Signature__c;
+		Date testCalculated = iAD.Calculated_Final_Signature__c;
 		iAD.Final_Extension_of_days__c = 1;//Final_Extension_of_days__c must be set to calculate based on an FR
 		Federal_Register__c fr = TestUtils.createFR(iAD.Id, 'Investigation__c', publishDate.addDays(300), 'Preliminary', true);
 		update iAD;
 		//date in database should have increased based on future fr.Published_Date__c of type Preliminary
-		System.assert(testCalculated_Final_Signature < [SELECT Calculated_Final_Signature__c FROM Investigation__c WHERE Id =: iAD.Id].Calculated_Final_Signature__c);
+		System.assert(testCalculated < [SELECT Calculated_Final_Signature__c FROM Investigation__c WHERE Id =: iAD.Id].Calculated_Final_Signature__c);
 		delete fr;
 		Test.stopTest();		
 	}

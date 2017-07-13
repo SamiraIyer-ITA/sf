@@ -134,9 +134,9 @@ public without sharing class InvestigationTriggerHandler {
                 }
             }
         }
-        DateCalculationService adDcs = ADCVDServiceDispatcher.getDateCalculationServiceInstance(ADRECORD);
+        DateCalculationService adDcs = DateCalculationServiceDispatcher.getDateCalculationServiceInstance(ADRECORD);
         adDcs.getCalculatedDates(adInvList, 'Investigation__c', ADRECORD);
-        DateCalculationService cvdDcs = ADCVDServiceDispatcher.getDateCalculationServiceInstance(CVDRECORD);
+        DateCalculationService cvdDcs = DateCalculationServiceDispatcher.getDateCalculationServiceInstance(CVDRECORD);
         cvdDcs.getCalculatedDates(cvdInvList, 'Investigation__c', CVDRECORD);
 /*    			//Ordered Methods (must be done in a specific order)
         		setCalculatedPreliminarySignature(i);

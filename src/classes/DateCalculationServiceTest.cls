@@ -6,7 +6,7 @@ public class DateCalculationServiceTest {
 		get {
 			if (petList == null) {
 				petList = new List<Petition__c>();
-				String query = ADCVDSelector.soqlBuilderAllFields('Petition__c', true);
+				String query = DateCalculationSelector.soqlBuilderAllFields('Petition__c', true);
 				petList = database.query(query);
 			}
 			return petList;
@@ -17,7 +17,7 @@ public class DateCalculationServiceTest {
 		get {
 			if (invList == null) {
 				invList = new List<Investigation__c>();
-				String query = ADCVDSelector.soqlBuilderAllFields('Investigation__c', true);
+				String query = DateCalculationSelector.soqlBuilderAllFields('Investigation__c', true);
 				invList = database.query(query);
 			}
 			return invList;
@@ -26,7 +26,7 @@ public class DateCalculationServiceTest {
 
 	@isTest static void setDateCalculations() {
 		Test.startTest();
-		DateCalculationService dcs = ADCVDServiceDispatcher.getDateCalculationServiceInstance('Investigation__c');
+		DateCalculationService dcs = DateCalculationServiceDispatcher.getDateCalculationServiceInstance('Investigation__c');
 		dcs.setDateCalculations('Investigation__c', 'AD');
 		Test.stopTest();
 		System.assertNotEquals(null, dcs.dateCalculations);
@@ -34,9 +34,9 @@ public class DateCalculationServiceTest {
 
 	@isTest static void getCalculatedDates() {
 		Test.startTest();
-		DateCalculationService petDcs = ADCVDServiceDispatcher.getDateCalculationServiceInstance('Petition__c');
+		DateCalculationService petDcs = DateCalculationServiceDispatcher.getDateCalculationServiceInstance('Petition__c');
 		petDcs.getCalculatedDates(petList, 'Petition__c', '');
-		DateCalculationService invDcs = ADCVDServiceDispatcher.getDateCalculationServiceInstance('Investigation__c');
+		DateCalculationService invDcs = DateCalculationServiceDispatcher.getDateCalculationServiceInstance('Investigation__c');
 		invDcs.getCalculatedDates(invList, 'Investigation__c', '');
 		Test.stopTest();
 		for (Petition__c p : petList) {

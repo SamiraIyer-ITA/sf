@@ -1,4 +1,4 @@
-public without sharing class utils {
+public without sharing class Utils {
 	//use this reference for Global Describe to store in cache memory
 	public static Map<String,Schema.SObjectType> cachedGD {
 		get{
@@ -142,4 +142,33 @@ public without sharing class utils {
         }
         return monthString;
     }
+
+    public static String soqlBuilderAllFields(String soType, Boolean finishSOQL) {
+        Map<String, Schema.SObjectType> schemaMap = utils.cachedGD;
+        Map<String, Schema.SObjectField> fieldMap = schemaMap.get(soType).getDescribe().fields.getMap();
+        Set<String> searchFields = new Set<String>();
+        String commaSeparatedFields = '';
+        for (String fieldName : fieldMap.keyset()){
+            searchFields.add(fieldName.toLowerCase());
+        }
+        for (String s: searchFields) {
+            if (commaSeparatedFields != '') {
+                commaSeparatedFields = commaSeparatedFields + ', ' + s;
+            } else {
+                commaSeparatedFields = s;
+            }
+        }
+        String query = 'SELECT ' + commaSeparatedFields;
+        if (finishSOQL) {
+        	query += ' FROM ' + soType;
+        }
+        return query;
+    }
+
+    public static List<SObject> castRecordsToType(List<SObject> records, String soType) {
+	    String listType = 'List<' + soType + '>';
+	    List<SObject> returnList = (List<SObject>)Type.forName(listType).newInstance();
+	    returnList.addAll(records);
+	    return returnList;
+	}
 }
