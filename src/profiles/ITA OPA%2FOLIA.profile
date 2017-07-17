@@ -3237,11 +3237,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Investigation__c.Investigation_YesNo__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Investigation__c.Issues_to_DAS__c</field>
         <readable>true</readable>
     </fieldPermissions>
