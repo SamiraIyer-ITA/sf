@@ -547,6 +547,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>UiUtils</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>UnpublishArticles</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -560,6 +564,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>UserTriggerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Utils</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UtilsTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -663,20 +675,8 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>uiUtils</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>urlRewriter</apexClass>
         <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>utils</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>utilsTest</apexClass>
-        <enabled>false</enabled>
     </classAccesses>
     <custom>true</custom>
     <description>Custom profile for Customer Community Users.</description>
