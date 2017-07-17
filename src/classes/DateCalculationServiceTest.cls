@@ -6,8 +6,7 @@ public class DateCalculationServiceTest {
 		get {
 			if (petList == null) {
 				petList = new List<Petition__c>();
-				String query = DateCalculationSelector.soqlBuilderAllFields('Petition__c', true);
-				petList = database.query(query);
+				petList = PetitionSelector.allPetitions;
 			}
 			return petList;
 		}
@@ -17,8 +16,7 @@ public class DateCalculationServiceTest {
 		get {
 			if (invList == null) {
 				invList = new List<Investigation__c>();
-				String query = DateCalculationSelector.soqlBuilderAllFields('Investigation__c', true);
-				invList = database.query(query);
+				invList = InvestigationSelector.allInvestigations;
 			}
 			return invList;
 		}
