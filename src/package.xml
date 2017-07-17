@@ -165,5 +165,10 @@
         <members>*</members>
         <name>Workflow</name>
     </types>
+    <types>
+        <members>ADCVD_Order__c</members>
+        <members>Investigation__c</members>
+        <name>Workflow</name>
+    </types>
     <version>39.0</version>
 </Package>
