@@ -4497,7 +4497,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Petition__c.Next_Due_to_DAS_Deadline_and_Timeline__c</field>
+        <field>Petition__c.Next_Announcement_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Petition__c.Next_Due_to_DAS_Deadline__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Petition__c.Next_Major_Deadline__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Petition__c.Next_Office_PM_Deadline__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5277,17 +5292,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Segment__c.Next_Due_to_DAS_Deadline_and_Timeline__c</field>
+        <field>Segment__c.Next_Announcement_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Segment__c.Next_Major_AS_DAS_Deadline_and_Timeline__c</field>
+        <field>Segment__c.Next_Due_to_DAS_Deadline__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Segment__c.Next_Office_PM_Deadline_and_Timeline__c</field>
+        <field>Segment__c.Next_Major_Deadline__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.Next_Office_PM_Deadline__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
