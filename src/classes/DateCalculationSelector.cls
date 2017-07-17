@@ -43,11 +43,11 @@ public without sharing class DateCalculationSelector {
 		Map<Id,Petition__c> returnMap = new Map<Id,Petition__c>();
 		System.debug('*** getPetitionsInScope soList: ' + soList);
 		Set<Id> tempIdSet = new Set<Id>();
-		List<SObject> castRecords = castRecordsToType(soList, soType);
-		for (SObject so : castRecordsToType(soList, soType)) {
+		List<SObject> castRecords = Utils.castRecordsToType(soList, soType);
+		for (SObject so : Utils.castRecordsToType(soList, soType)) {
 			tempIdSet.add((Id)so.get(lookupFieldName));
 		}
-		for (Petition__c p : allPetitions) {
+		for (Petition__c p : PetitionSelector.allPetitions) {
 			if (tempIdSet.contains(p.Id)) {
 				returnMap.put(p.Id, p);
 			}
@@ -58,11 +58,11 @@ public without sharing class DateCalculationSelector {
 	public static Map<Id,Investigation__c> getInvestigationsInScope(List<SObject> soList, String soType, String lookupFieldName) {
 		Map<Id,Investigation__c> returnMap = new Map<Id,Investigation__c>();
 		Set<Id> tempIdSet = new Set<Id>();
-		List<SObject> castRecords = castRecordsToType(soList, soType);
+		List<SObject> castRecords = Utils.castRecordsToType(soList, soType);
 		for (SObject so : castRecords) {
 			tempIdSet.add((Id)so.get(lookupFieldName));
 		}
-		for (Investigation__c i : allInvestigations) {
+		for (Investigation__c i : InvestigationSelector.allInvestigations) {
 			if (tempIdSet.contains(i.Id)) {
 				returnMap.put(i.Id, i);
 			}
