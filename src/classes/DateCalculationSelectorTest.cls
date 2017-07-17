@@ -36,7 +36,7 @@ public class DateCalculationSelectorTest {
 
 	@isTest static void getIssuesInScope() {
 		Test.startTest();
-		Map<Id,Issue__c> testMap = DateCalculationSelector.getIssuesInScope(invList, 'Investigation__c', 'Investigation__c');
+		Map<Id,List<SObject>> testMap = DateCalculationSelector.getIssuesInScope(invList, 'Investigation__c', 'Investigation__c');
 		Test.stopTest();
 		System.assertNotEquals(0, testMap.size());
 	}
