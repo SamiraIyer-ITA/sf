@@ -38,7 +38,7 @@ public without sharing class DateCalculationSelector {
 		}
 		return returnMap;
 	}
-/*
+
 	public static Map<Id,Petition__c> getPetitionsInScope(List<SObject> soList, String soType, String lookupFieldName) {
 		Map<Id,Petition__c> returnMap = new Map<Id,Petition__c>();
 		System.debug('*** getPetitionsInScope soList: ' + soList);
@@ -69,9 +69,9 @@ public without sharing class DateCalculationSelector {
 		}
 		return returnMap;
 	}
-*/
 	public static Map<Id,SObject> getIssuesInScope(List<SObject> soList, String soType, String lookupFieldName) {
 		Map<Id,SObject> returnMap = new Map<Id,SObject>();
+
 		Set<Id> tempIdSet = new Set<Id>();
 		List<SObject> castRecords = Utils.castRecordsToType(soList, soType);
 		for (SObject so : castRecords) {
