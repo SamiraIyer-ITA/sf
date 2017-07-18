@@ -24,31 +24,30 @@ public without sharing class DateCalculationConditionService {
     	System.debug('*** tempRecordFieldValue: ' + tempRecordFieldValue);
     	Object tempCmtFieldValue = dc.get(String.valueOf(conditionalFieldValue));
     	System.debug('*** tempCmtFieldValue: ' + tempCmtFieldValue);
-        //Boolean isDate = Pattern.matches('([0-9]{2})\\([0-9]{2})\\([0-9]{4})', String.valueOf(tempCmtFieldValue));
     	Integer cmtFieldIntegerValue = (!String.isBlank(String.valueOf(tempCmtFieldValue)) 
                                         && String.valueOf(tempCmtFieldValue).isNumeric()) ? 
                                         Integer.valueOf(tempCmtFieldValue) : null;
     	Date cmtFieldDateValue = (!String.isBlank(String.valueOf(tempCmtFieldValue)) 
-                                && cmtFieldIntegerValue == null && Pattern.matches('^[0-3]?[0-9]/[0-3]?[0-9]/(?:[0-9]{2})?[0-9]{2}$', String.valueOf(tempCmtFieldValue))) ? 
-                                Date.valueOf(tempCmtFieldValue) : null;
+                                && cmtFieldIntegerValue == null && Pattern.matches('^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$', String.valueOf(tempCmtFieldValue))) ? 
+                                Date.parse(String.valueOf(tempCmtFieldValue)) : null;
         Boolean cmtFieldBooleanValue = (!String.isBlank(String.valueOf(tempCmtFieldValue)) 
                                         && (String.valueOf(tempCmtFieldValue).equalsIgnoreCase('true') || String.valueOf(tempCmtFieldValue).equalsIgnoreCase('false'))) ? 
                                         Boolean.valueOf(tempCmtFieldValue) : null;
     	//Type cast to specific primitive data type
     	if (cmtFieldDateValue != null) {
     		Date recordFieldValue = tempRecordFieldValue != null ? (Date) tempRecordFieldValue : null;
-    		Date cmtFieldValue = (Date) tempCmtFieldValue;
+    		Date cmtFieldValue = cmtFieldDateValue;
     		returnBoolean = getConditionResult(recordFieldValue, cmtFieldValue, operator);
     	} else if (cmtFieldIntegerValue != null) {
     		Integer recordFieldValue = tempRecordFieldValue != null ? ((Integer)((Decimal) tempRecordFieldValue)) : 0;
     		System.debug('*** Integer recordFieldValue: ' + recordFieldValue);
-    		Integer cmtFieldValue = Integer.valueOf(tempCmtFieldValue);
+    		Integer cmtFieldValue = cmtFieldIntegerValue;
     		System.debug('*** Integer cmtFieldValue: ' + cmtFieldValue);
     		returnBoolean = getConditionResult(recordFieldValue, cmtFieldValue, operator);
     	} else if (cmtFieldBooleanValue != null) {
             Boolean recordFieldValue = tempRecordFieldValue != null ? Boolean.valueOf(tempRecordFieldValue) : null;
             System.debug('*** Boolean recordFieldValue: ' + recordFieldValue);
-            Boolean cmtFieldValue = tempCmtFieldValue != null ? Boolean.valueOf(tempCmtFieldValue) : null;
+            Boolean cmtFieldValue = cmtFieldBooleanValue;
             System.debug('*** Boolean cmtFieldValue: ' + cmtFieldValue);
             returnBoolean = getConditionResult(recordFieldValue, cmtFieldValue, operator);
         } else if (tempCmtFieldValue instanceOf String && ((String)tempCmtFieldValue).indexOf(';') < 0) {
