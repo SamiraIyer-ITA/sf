@@ -125,6 +125,10 @@
         <name>GlobalValueSet</name>
     </types>
     <types>
+        <members>Date_Calculation__mdt-Date Calculation Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
         <members>*</members>
         <name>PathAssistant</name>
     </types>
@@ -163,11 +167,6 @@
     </types>
     <types>
         <members>*</members>
-        <name>Workflow</name>
-    </types>
-    <types>
-        <members>ADCVD_Order__c</members>
-        <members>Investigation__c</members>
         <name>Workflow</name>
     </types>
     <version>39.0</version>
