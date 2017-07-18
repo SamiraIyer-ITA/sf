@@ -3,7 +3,6 @@ public without sharing class DateCalculationService {
 	@TestVisible private Map<String,Date_Calculation__mdt> dateCalculations = new Map<String,Date_Calculation__mdt>();
 	@TestVisible private Map<String,Map<Id,SObject>> baseObjectMap = new Map<String,Map<Id,SObject>>();
 	@TestVisible private Map<Id,ADCVD_FederalRegisterUtility> frUtilMap = new Map<Id,ADCVD_FederalRegisterUtility>();
-	@TestVisible private Map<Integer,Object> nextMajorDeadlineMap = new Map<Integer,Object>();
 
 	public void getCalculatedDates(List<SObject> soList, String soType, String recordTypeName) {
 		setDateCalculations(soType, recordTypeName);
@@ -20,9 +19,10 @@ public without sharing class DateCalculationService {
     }
 
     @TestVisible private void calculateDates(SObject record, String soType) {
-    	for (String calculatedDateName : dateCalculations.keySet()) {
+    	for (String key : dateCalculations.keySet()) {
+    		Date_Calculation__mdt dc = dateCalculations.get(key);
+    		String calculatedDateName = dc.Calculated_Date_Field_Name__c;
     		System.debug('*** calculatedDateName: ' + calculatedDateName);
-    		Date_Calculation__mdt dc = dateCalculations.get(calculatedDateName);
     		Integer numberOfBaseDates = (Integer) dc.Number_of_Base_Date_Fields__c;
     		Integer numberOfConditionals = (Integer) dc.Number_of_Conditionals__c;
     		Integer numberOfExtensions = (Integer) dc.Number_of_Extensions__c;
@@ -132,18 +132,18 @@ public without sharing class DateCalculationService {
     	String baseDateFieldObject = 'Base_Date_Field_'+ String.valueOf(i) + '_Object__c';
     	String baseDateFieldName = 'Base_Date_Field_'+ String.valueOf(i) + '_Name__c';
     	String baseDateFieldLookupFieldName = 'Base_Date_Field_'+ String.valueOf(i) + '_Lookup_Field_Name__c';
-    	String baseDateFieldType = 'Base_Date_Field_' + String.valueOf(i) + 'Type__c';
+    	String baseDateFieldType = 'Base_Date_Field_' + String.valueOf(i) + '_Type__c';
     	SObject so = null;
     	Date baseDate = null;
     	//if base field is not from the current object
     	if (dc.get(baseDateFieldObject) != null && String.valueOf(dc.get(baseDateFieldObject)) != soType) {
     		//get the base SObject (except Federal_Register__c) that has the base field we need
 			so = (String.valueOf(dc.get(baseDateFieldObject)) != 'Federal_Register__c' && String.valueOf(dc.get(baseDateFieldObject)) != 'Issue__c') ? 
-				getBaseObject(record, String.valueOf(dc.get(baseDateFieldLookupFieldName)), String.valueOf(dc.get(baseDateFieldObject))) : null;
+				getBaseObject(record, String.valueOf(dc.get(baseDateFieldLookupFieldName)), String.valueOf(dc.get(baseDateFieldObject))) : so;
 			so = (so == null && String.valueOf(dc.get(baseDateFieldObject)) == 'Issue__c') ? 
 				getBaseObject(record, String.valueOf(dc.get(baseDateFieldLookupFieldName)), String.valueOf(dc.get(baseDateFieldObject)), String.valueOf(dc.get(baseDateFieldType))) : so;
 			//get the base field from that SObject
-			baseDate = so != null && so.get(String.valueOf(dc.get(baseDateFieldName))) != null ? (Date) so.get(String.valueOf(dc.get(baseDateFieldName))) : null;
+			baseDate = so != null && so.get(String.valueOf(dc.get(baseDateFieldName))) != null ? (Date) so.get(String.valueOf(dc.get(baseDateFieldName))) : baseDate;
 			//if from a Federal_Register__c, get base field, else leave it as is
 			baseDate = (String.valueOf(dc.get(baseDateFieldObject)) == 'Federal_Register__c' && frUtilMap != null && record.get('Id') != null) ? getFrDate(record, dc, i) : baseDate;
 		} else if (String.valueOf(dc.get(baseDateFieldName)) != null && String.valueOf(dc.get(baseDateFieldObject)) == soType){//if base field is from the current object
@@ -165,14 +165,20 @@ public without sharing class DateCalculationService {
 	}
 
 	@TestVisible private SObject getBaseObject(SObject record, String lookupFieldName, String baseObjectName, String typeField) {
-		Id tempId = (Id)record.get(lookupFieldName);
+		Id tempId = (Id)record.get('Id');
 		Map<Id,SObject> tempMap = baseObjectMap.get(baseObjectName);
 		SObject so = null;
 		for (Id i : tempMap.keySet()) {
-			if ((Id)tempMap.get(i).get(lookupFieldName) == tempId && (tempMap.get(i).get('Type__c') == null || typeField == null || tempMap.get(i).get('Type__c') == typeField)) {
+			System.debug('*** (Id)tempMap.get(i).get(lookupFieldName) == tempId: ' + ((Id)tempMap.get(i).get(lookupFieldName) == tempId));
+			System.debug('*** tempMap.get(i).get(\'Type__c\') != null: ' + (tempMap.get(i).get('Type__c') != null));
+			System.debug('***typeField != null: ' + (typeField != null));
+			System.debug('***tempMap.get(i).get(\'Type__c\') == typeField: ' + (tempMap.get(i).get('Type__c') == typeField));
+			if ((Id)tempMap.get(i).get(lookupFieldName) == tempId && tempMap.get(i).get('Type__c') != null && typeField != null && tempMap.get(i).get('Type__c') == typeField) {
 				so = tempMap.get(i);
+				break;
 			}
 		}
+		System.debug('***so: ' + so);
 		return so;
 	}
 
@@ -206,7 +212,11 @@ public without sharing class DateCalculationService {
 			System.debug('*** lookupFieldNameToObjectNameMap: ' + lookupFieldNameToObjectNameMap);
 			for (String lookupFieldName : lookupFieldNameToObjectNameMap.keySet()) {
 				String objectName = lookupFieldNameToObjectNameMap.get(lookupFieldName);
-				baseObjectMap.put(objectName, DateCalculationSelector.getSObjectsInScope(soList, targetObjectName, lookupFieldName));
+				if (objectName == 'Petition__c') {
+					baseObjectMap.put('Petition__c', DateCalculationSelector.getPetitionsInScope(soList, targetObjectName, lookupFieldName));
+				} else if (objectName == 'Issue__c') {
+					baseObjectMap.put('Issue__c', DateCalculationSelector.getIncompleteIssuesInScope(soList, targetObjectName, lookupFieldName));
+				}
 			}
 			System.debug('*** baseObjectMap: ' + baseObjectMap);	
 		}

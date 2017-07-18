@@ -36,21 +36,22 @@ public class DateCalculationSelectorTest {
 
 	@isTest static void getIssuesInScope() {
 		Test.startTest();
-		Map<Id, SObject> testMap = DateCalculationSelector.getIssuesInScope(invList, 'Investigation__c', 'Investigation__c');
+		Map<Id,List<SObject>> testMap = DateCalculationSelector.getIssuesInScope(invList, 'Investigation__c', 'Investigation__c');
 		Test.stopTest();
 		System.assertNotEquals(0, testMap.size());
 	}
 
-	@isTest static void getCompletedIssuesInScope() {
+	@isTest static void getIncompleteIssuesInScope() {
 		Test.startTest();
-		Map<Id,Issue__c> testMap = DateCalculationSelector.getCompletedIssuesInScope(invList, 'Investigation__c', 'Investigation__c');
+		Map<Id,Issue__c> testMap = DateCalculationSelector.getIncompleteIssuesInScope(invList, 'Investigation__c', 'Investigation__c');
 		Test.stopTest();
 		System.assertEquals(0, testMap.size());
 	}
 
-	@isTest static void getCompletedIssues() {
+	@isTest static void getIncompleteIssues() {
 		Test.startTest();
-		Map<Id,Map<String,Boolean>> testMap = DateCalculationSelector.getCompletedIssues(invList, 'Investigation__c');
+		Map<Id,List<Issue__c>> issuesMap = (Map<Id,List<Issue__c>>)DateCalculationSelector.getIssuesInScope(invList, 'Investigation__c', 'Investigation__c');
+		Map<Id,Issue__c> testMap = DateCalculationSelector.getIncompleteIssues(invList, issuesMap, 'Investigation__c');
 		Test.stopTest();
 		System.assertNotEquals(0, testMap.size());
 	}

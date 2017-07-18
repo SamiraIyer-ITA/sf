@@ -13,6 +13,14 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Active_Calculation__c</fullName>
+        <defaultValue>true</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Active Calculation</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Base_Date_Field_1_Lookup_Field_Name__c</fullName>
         <externalId>false</externalId>
         <fieldManageability>SubscriberControlled</fieldManageability>
@@ -1345,6 +1353,11 @@
                     <default>false</default>
                     <label>Less Than Or Equals To</label>
                 </value>
+                <value>
+                    <fullName>Until Past</fullName>
+                    <default>false</default>
+                    <label>Until Past</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -1482,6 +1495,11 @@
                     <fullName>Less Than Or Equals To</fullName>
                     <default>false</default>
                     <label>Less Than Or Equals To</label>
+                </value>
+                <value>
+                    <fullName>Until Past</fullName>
+                    <default>false</default>
+                    <label>Until Past</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1621,6 +1639,11 @@
                     <default>false</default>
                     <label>Less Than Or Equals To</label>
                 </value>
+                <value>
+                    <fullName>Until Past</fullName>
+                    <default>false</default>
+                    <label>Until Past</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -1758,6 +1781,11 @@
                     <fullName>Less Than Or Equals To</fullName>
                     <default>false</default>
                     <label>Less Than Or Equals To</label>
+                </value>
+                <value>
+                    <fullName>Until Past</fullName>
+                    <default>false</default>
+                    <label>Until Past</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2733,38 +2761,12 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Next_Deadline_Field_Level__c</fullName>
+        <fullName>Next_Deadline_Calculation__c</fullName>
+        <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <fieldManageability>SubscriberControlled</fieldManageability>
-        <label>Next Deadline Field Level</label>
-        <required>false</required>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Next_Major_AS_DAS_Deadline_and_Timeline__c</fullName>
-                    <default>false</default>
-                    <label>Next_Major_AS_DAS_Deadline_and_Timeline__c</label>
-                </value>
-                <value>
-                    <fullName>Next_Due_to_DAS_Deadline_and_Timeline__c</fullName>
-                    <default>false</default>
-                    <label>Next_Due_to_DAS_Deadline_and_Timeline__c</label>
-                </value>
-                <value>
-                    <fullName>Next_Office_PM_Deadline_and_Timeline__c</fullName>
-                    <default>false</default>
-                    <label>Next_Office_PM_Deadline_and_Timeline__c</label>
-                </value>
-                <value>
-                    <fullName>Next_Announcement_Date__c</fullName>
-                    <default>false</default>
-                    <label>Next_Announcement_Date__c</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
+        <label>Next Deadline Calculation</label>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Next_Deadline_Order__c</fullName>

@@ -13,7 +13,7 @@ public without sharing class DateCalculationConditionService {
 	public Boolean checkCondition(SObject record, Date_Calculation__mdt dc, Integer condition) {
     	//Return value
     	Boolean returnBoolean = false;
-    	//Field Names from CMT to get
+    	//Field Names from custom metadata to get
     	String conditionalFieldName = 'Conditional_Field_' + String.valueOf(condition) + '_Name__c';
     	String conditionalFieldOperator = 'Conditional_Field_' + String.valueOf(condition) + '_Operator__c';
     	String conditionalFieldValue = 'Conditional_Field_' + String.valueOf(condition) + '_Value__c';
@@ -26,6 +26,7 @@ public without sharing class DateCalculationConditionService {
     	System.debug('*** tempCmtFieldValue: ' + tempCmtFieldValue);
     	Integer cmtFieldIntegerValue = typeCastToInteger(tempCmtFieldValue);
     	Date cmtFieldDateValue = typeCastToDate(tempCmtFieldValue);
+        Boolean cmtFieldBooleanValue = typeCastToBoolean(tempCmtFieldValue);
     	//Type cast to specific primitive data type
     	if (cmtFieldDateValue != null) {
     		Date recordFieldValue = tempRecordFieldValue != null ? (Date) tempRecordFieldValue : null;
@@ -37,7 +38,13 @@ public without sharing class DateCalculationConditionService {
     		Integer cmtFieldValue = Integer.valueOf(tempCmtFieldValue);
     		System.debug('*** Integer cmtFieldValue: ' + cmtFieldValue);
     		returnBoolean = getConditionResult(recordFieldValue, cmtFieldValue, operator);
-    	} else if (tempCmtFieldValue instanceOf String && ((String)tempCmtFieldValue).indexOf(';') < 0) {
+    	} else if (cmtFieldBooleanValue != null) {
+            Boolean recordFieldValue = tempRecordFieldValue != null ? Boolean.valueOf(tempRecordFieldValue) : null;
+            System.debug('*** Boolean recordFieldValue: ' + recordFieldValue);
+            Boolean cmtFieldValue = tempCmtFieldValue != null ? Boolean.valueOf(tempCmtFieldValue) : null;
+            System.debug('*** Boolean cmtFieldValue: ' + cmtFieldValue);
+            returnBoolean = getConditionResult(recordFieldValue, cmtFieldValue, operator);
+        } else if (tempCmtFieldValue instanceOf String && ((String)tempCmtFieldValue).indexOf(';') < 0) {
     		String recordFieldValue = tempRecordFieldValue != null ? String.valueOf(tempRecordFieldValue) : '';
     		System.debug('*** String recordFieldValue: ' + recordFieldValue);
     		String cmtFieldValue = (String) tempCmtFieldValue;
@@ -58,7 +65,9 @@ public without sharing class DateCalculationConditionService {
     			returnBoolean = tempRecordFieldValue == null ? true : false;
     		} else if (operator == 'Not Equals To') {
     			returnBoolean = tempRecordFieldValue != null ? true : false;
-    		}
+    		} else if (operator == 'Until Past') {
+                returnBoolean = ((Date) tempRecordFieldValue < System.today());
+            }
     	}
     	return returnBoolean;
     }
@@ -77,7 +86,9 @@ public without sharing class DateCalculationConditionService {
     		return(recordFieldValue >= cmtFieldValue);
     	} else if (operator == 'Less Than Or Equals To') {
     		return(recordFieldValue <= cmtFieldValue);
-    	}
+    	} else if (operator == 'Until Past') {
+            return(recordFieldValue > System.today());
+        }
     	return false;
     }
     @TestVisible private Boolean getConditionResult(Integer recordFieldValue, Integer cmtFieldValue, String operator) {
@@ -106,14 +117,21 @@ public without sharing class DateCalculationConditionService {
     	}
     	return false;
     }
+    @TestVisible private Boolean getConditionResult(Boolean recordFieldValue, Boolean cmtFieldValue, String operator) {
+        //Set Boolean Based on logic in cmt
+        if (operator == 'Equals') {
+            return (recordFieldValue == cmtFieldValue);
+        } else if (operator == 'Not Equals To') {
+            return (recordFieldValue != cmtFieldValue);
+        }
+        return false;
+    }
     @TestVisible private Boolean getConditionResult(String recordFieldValue, Set<String> cmtFieldValue, String operator) {
     	//Set Boolean Based on logic in cmt
     	if (operator == 'Equals') {
     		return (cmtFieldValue.contains(recordFieldValue));
     	} else if (operator == 'Not Equals To') {
     		return (!cmtFieldValue.contains(recordFieldValue));
-    	} else {
-//TODO: add exception handling new Exception('The operator selected for this Date Calculation is not valid. Please contact your administrator.');
     	}
     	return false;
     }
@@ -122,7 +140,7 @@ public without sharing class DateCalculationConditionService {
 		try {
     		return Integer.valueOf(o);
 		} catch (Exception e) {
-
+            return null;
 		}
 		return null;
 	}
@@ -131,8 +149,17 @@ public without sharing class DateCalculationConditionService {
 		try {
 			return Date.parse(String.valueOf(o));
 		} catch (Exception e) {
-
+            return null;
 		}
 		return null;
 	}
+
+    @TestVisible private Boolean typeCastToBoolean(Object o) {
+        try {
+            return Boolean.valueOf(o);
+        } catch (Exception e) {
+            return null;
+        }
+        return null;
+    }
 }

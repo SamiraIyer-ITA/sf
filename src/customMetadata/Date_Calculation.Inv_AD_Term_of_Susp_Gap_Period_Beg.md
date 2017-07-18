@@ -7,6 +7,10 @@
         <value xsi:type="xsd:string">Inv_AD</value>
     </values>
     <values>
+        <field>Active_Calculation__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
         <field>Base_Date_Field_1_Lookup_Field_Name__c</field>
         <value xsi:nil="true"/>
     </values>
@@ -84,6 +88,54 @@
     </values>
     <values>
         <field>Base_Date_Field_5_Type__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Base_Date_Field_6_Lookup_Field_Name__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Base_Date_Field_6_Name__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Base_Date_Field_6_Object__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Base_Date_Field_6_Type__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Base_Date_Field_7_Lookup_Field_Name__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Base_Date_Field_7_Name__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Base_Date_Field_7_Object__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Base_Date_Field_7_Type__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Base_Date_Field_8_Lookup_Field_Name__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Base_Date_Field_8_Name__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Base_Date_Field_8_Object__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Base_Date_Field_8_Type__c</field>
         <value xsi:nil="true"/>
     </values>
     <values>
@@ -268,11 +320,11 @@
     </values>
     <values>
         <field>Extension_Field_1_Name__c</field>
-        <value xsi:type="xsd:string">Final_Extension_of_days__c</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
-        <field>Next_Deadline_Field_Level__c</field>
-        <value xsi:nil="true"/>
+        <field>Next_Deadline_Calculation__c</field>
+        <value xsi:type="xsd:boolean">false</value>
     </values>
     <values>
         <field>Next_Deadline_Order__c</field>
@@ -292,7 +344,7 @@
     </values>
     <values>
         <field>Number_of_Extensions__c</field>
-        <value xsi:type="xsd:double">1.0</value>
+        <value xsi:type="xsd:double">0.0</value>
     </values>
     <values>
         <field>Order_of_Execution__c</field>

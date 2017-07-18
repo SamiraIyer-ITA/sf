@@ -2909,7 +2909,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Date_Calculation__mdt.Next_Deadline_Field_Level__c</field>
+        <field>Date_Calculation__mdt.Next_Deadline_Calculation__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
