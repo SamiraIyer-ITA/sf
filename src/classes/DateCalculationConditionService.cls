@@ -24,9 +24,16 @@ public without sharing class DateCalculationConditionService {
     	System.debug('*** tempRecordFieldValue: ' + tempRecordFieldValue);
     	Object tempCmtFieldValue = dc.get(String.valueOf(conditionalFieldValue));
     	System.debug('*** tempCmtFieldValue: ' + tempCmtFieldValue);
-    	Integer cmtFieldIntegerValue = typeCastToInteger(tempCmtFieldValue);
-    	Date cmtFieldDateValue = typeCastToDate(tempCmtFieldValue);
-        Boolean cmtFieldBooleanValue = typeCastToBoolean(tempCmtFieldValue);
+        //Boolean isDate = Pattern.matches('([0-9]{2})\\([0-9]{2})\\([0-9]{4})', String.valueOf(tempCmtFieldValue));
+    	Integer cmtFieldIntegerValue = (!String.isBlank(String.valueOf(tempCmtFieldValue)) 
+                                        && String.valueOf(tempCmtFieldValue).isNumeric()) ? 
+                                        Integer.valueOf(tempCmtFieldValue) : null;
+    	Date cmtFieldDateValue = (!String.isBlank(String.valueOf(tempCmtFieldValue)) 
+                                && cmtFieldIntegerValue == null && Pattern.matches('^[0-3]?[0-9]/[0-3]?[0-9]/(?:[0-9]{2})?[0-9]{2}$', String.valueOf(tempCmtFieldValue))) ? 
+                                Date.valueOf(tempCmtFieldValue) : null;
+        Boolean cmtFieldBooleanValue = (!String.isBlank(String.valueOf(tempCmtFieldValue)) 
+                                        && (String.valueOf(tempCmtFieldValue).equalsIgnoreCase('true') || String.valueOf(tempCmtFieldValue).equalsIgnoreCase('false'))) ? 
+                                        Boolean.valueOf(tempCmtFieldValue) : null;
     	//Type cast to specific primitive data type
     	if (cmtFieldDateValue != null) {
     		Date recordFieldValue = tempRecordFieldValue != null ? (Date) tempRecordFieldValue : null;
@@ -134,32 +141,5 @@ public without sharing class DateCalculationConditionService {
     		return (!cmtFieldValue.contains(recordFieldValue));
     	}
     	return false;
-    }
-
-    @TestVisible private Integer typeCastToInteger(Object o) {
-		try {
-    		return Integer.valueOf(o);
-		} catch (Exception e) {
-            return null;
-		}
-		return null;
-	}
-
-	@TestVisible private Date typeCastToDate(Object o) {
-		try {
-			return Date.parse(String.valueOf(o));
-		} catch (Exception e) {
-            return null;
-		}
-		return null;
-	}
-
-    @TestVisible private Boolean typeCastToBoolean(Object o) {
-        try {
-            return Boolean.valueOf(o);
-        } catch (Exception e) {
-            return null;
-        }
-        return null;
     }
 }
