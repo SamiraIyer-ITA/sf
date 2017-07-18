@@ -1,4 +1,4 @@
-public without sharing class uiUtils {
+public without sharing class UiUtils {
 	public static Boolean isSalesforce1() {
 		Boolean isSalesforce1;
         if(UserInfo.getUiThemeDisplayed() == 'Theme4t') {
