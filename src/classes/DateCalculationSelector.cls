@@ -69,51 +69,48 @@ public without sharing class DateCalculationSelector {
 		}
 		return returnMap;
 	}
-	public static Map<Id,SObject> getIssuesInScope(List<SObject> soList, String soType, String lookupFieldName) {
-		Map<Id,SObject> returnMap = new Map<Id,SObject>();
 
+	public static Map<Id,List<SObject>> getIssuesInScope(List<SObject> soList, String soType, String lookupFieldName) {
+		Map<Id,List<SObject>> returnMap = new Map<Id,List<SObject>>();
 		Set<Id> tempIdSet = new Set<Id>();
-		List<SObject> castRecords = Utils.castRecordsToType(soList, soType);
-		for (SObject so : castRecords) {
+		for (SObject so :  Utils.castRecordsToType(soList, soType)) {
 			tempIdSet.add((Id)so.get('Id'));
 		}
-		for (SObject so : castRecords) {
-			if (tempIdSet.contains((Id)so.get(lookupFieldName))) {
-				returnMap.put(so.Id, so);
-			}
-		}
-		return returnMap;
-	}
-
-	public static Map<Id,Issue__c> getCompletedIssuesInScope(List<SObject> soList, String soType, String lookupFieldName) {
-		Map<Id,Issue__c> returnMap = (Map<Id,Issue__c>)getIssuesInScope(soList, soType, lookupFieldName);
-		Map<Id,Map<String,Boolean>> parentIdToCompletedIssues = getCompletedIssues(soList, lookupFieldName);
-		for(Id i : returnMap.keySet()) {
-			if (!parentIdToCompletedIssues.containsKey(i) || !parentIdToCompletedIssues.get(i).get(returnMap.get(i).Type__c)) {
-				returnMap.remove(i);
-			}
-		}
-		return returnMap;
-	}
-
-	public static Map<Id,Map<String,Boolean>> getCompletedIssues(List<SObject> soList, String lookupFieldName) {
-		Map<Id,Map<String,Boolean>> parentIdToCompletedIssues = new Map<Id,Map<String,Boolean>>();
-		Set<Id> tempIdSet = new Set<Id>();
-		for (SObject so : soList) {
-			if (so.get('Id') != null) {
-				tempIdSet.add((Id)so.get('Id'));
-			}
-		}
 		for (Issue__c i : IssueSelector.allIssues) {
-			Map<String,Boolean> tempMap = new Map<String,Boolean>();
 			if (tempIdSet.contains((Id)i.get(lookupFieldName))) {
-				if (tempMap.get(i.Type__c) == null || tempMap.get(i.Type__c) == true) {
-					tempMap.put(i.Type__c, i.Completed_Issue__c);
-					parentIdToCompletedIssues.put((Id)i.get(lookupFieldName), tempMap);
+				List<SObject> tempList = new List<SObject>();
+				tempList = returnMap.get((Id)i.get(lookupFieldName)) != null ? returnMap.get((Id)i.get(lookupFieldName)) : tempList;
+				tempList.add(i);
+				returnMap.put((Id)i.get(lookupFieldName), tempList);
+			}
+		}
+		return returnMap;
+	}
+
+	public static Map<Id,Issue__c> getIncompleteIssuesInScope(List<SObject> soList, String soType, String lookupFieldName) {
+		Map<Id,List<Issue__c>> issuesMap = (Map<Id,List<Issue__c>>)getIssuesInScope(soList, soType, lookupFieldName);
+		Map<Id,Issue__c> returnMap = getIncompleteIssues(soList, issuesMap, lookupFieldName);
+		return returnMap;
+	}
+
+	public static Map<Id,Issue__c> getIncompleteIssues(List<SObject> soList, Map<Id,List<Issue__c>> issueListMap, String lookupFieldName) {
+		Map<Id,Issue__c> returnMap = new Map<Id,Issue__c>();
+		Map<Id,Map<String,Issue__c>> parentIdToCompletedIssues = new Map<Id,Map<String,Issue__c>>();
+		for (SObject so : soList) {
+			List<Issue__c> tempList = issueListMap.get(so.Id) != null ? issueListMap.get(so.Id) : new List<Issue__c>();
+			Map<String,Issue__c> tempMap = parentIdToCompletedIssues.get(so.Id) != null ? parentIdToCompletedIssues.get(so.Id) : new Map<String,Issue__c>();
+			for (Issue__c i : tempList) {
+				if ((tempMap.get(i.Type__c) == null || tempMap.get(i.Type__c).Completed_Issue__c)) {
+					tempMap.put(i.Type__c, i);
+				}
+			}
+			for (Issue__c i : tempMap.values()) {
+				if (!i.Completed_Issue__c) {
+					returnMap.put(i.Id, i);
 				}
 			}
 		}
-		return parentIdToCompletedIssues;
+		return returnMap;
 	}
 
 	public static Map<String,Date_Calculation__mdt> getDateCalculationsMap(String soType, String recordType) {
@@ -125,9 +122,9 @@ public without sharing class DateCalculationSelector {
 				tempMap.put((Integer)dc.Order_of_Execution__c, dc);
 			}
 		}
-		for (Integer i = 0; i < 100; i++) {
+		for (Integer i = 0; i <= 200; i++) {
 			if (tempMap.get(i) != null) {
-				returnMap.put(tempMap.get(i).Calculated_Date_Field_Name__c, tempMap.get(i));
+				returnMap.put(tempMap.get(i).QualifiedAPIName, tempMap.get(i));
 			}
 		}
 		return returnMap;

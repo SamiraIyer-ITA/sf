@@ -7,6 +7,10 @@
         <value xsi:type="xsd:string">Inv_AD</value>
     </values>
     <values>
+        <field>Active_Calculation__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
         <field>Base_Date_Field_1_Lookup_Field_Name__c</field>
         <value xsi:nil="true"/>
     </values>
@@ -84,6 +88,54 @@
     </values>
     <values>
         <field>Base_Date_Field_5_Type__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Base_Date_Field_6_Lookup_Field_Name__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Base_Date_Field_6_Name__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Base_Date_Field_6_Object__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Base_Date_Field_6_Type__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Base_Date_Field_7_Lookup_Field_Name__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Base_Date_Field_7_Name__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Base_Date_Field_7_Object__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Base_Date_Field_7_Type__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Base_Date_Field_8_Lookup_Field_Name__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Base_Date_Field_8_Name__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Base_Date_Field_8_Object__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Base_Date_Field_8_Type__c</field>
         <value xsi:nil="true"/>
     </values>
     <values>
@@ -232,7 +284,7 @@
     </values>
     <values>
         <field>Conditional_Field_8_Value__c</field>
-        <value xsi:type="xsd:string">Canada</value>
+        <value xsi:type="xsd:string">Canada;Mexico</value>
     </values>
     <values>
         <field>Conditional_Field_9_Name__c</field>
@@ -240,15 +292,15 @@
     </values>
     <values>
         <field>Conditional_Field_9_Operator__c</field>
-        <value xsi:type="xsd:string">Equals</value>
+        <value xsi:type="xsd:string">Not Equals To</value>
     </values>
     <values>
         <field>Conditional_Field_9_Result__c</field>
-        <value xsi:type="xsd:string">Use Constant 1</value>
+        <value xsi:type="xsd:string">Use Constant 2</value>
     </values>
     <values>
         <field>Conditional_Field_9_Value__c</field>
-        <value xsi:type="xsd:string">Mexico</value>
+        <value xsi:type="xsd:string">Canada;Mexico</value>
     </values>
     <values>
         <field>Constant_1__c</field>
@@ -271,8 +323,8 @@
         <value xsi:nil="true"/>
     </values>
     <values>
-        <field>Next_Deadline_Field_Level__c</field>
-        <value xsi:nil="true"/>
+        <field>Next_Deadline_Calculation__c</field>
+        <value xsi:type="xsd:boolean">false</value>
     </values>
     <values>
         <field>Next_Deadline_Order__c</field>
