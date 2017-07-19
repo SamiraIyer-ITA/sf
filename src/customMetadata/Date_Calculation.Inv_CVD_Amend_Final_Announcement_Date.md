@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <label>Inv CVD Final Team Meet</label>
+    <label>Inv CVD Amend Final Announcement Date</label>
     <protected>false</protected>
     <values>
         <field>ADCVD_Objects__c</field>
@@ -16,7 +16,7 @@
     </values>
     <values>
         <field>Base_Date_Field_1_Name__c</field>
-        <value xsi:type="xsd:string">Calculated_Final_Signature__c</value>
+        <value xsi:type="xsd:string">Actual_Amended_Final_Signature__c</value>
     </values>
     <values>
         <field>Base_Date_Field_1_Object__c</field>
@@ -32,11 +32,11 @@
     </values>
     <values>
         <field>Base_Date_Field_2_Name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Calculated_Amended_Final_Signature__c</value>
     </values>
     <values>
         <field>Base_Date_Field_2_Object__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Investigation__c</value>
     </values>
     <values>
         <field>Base_Date_Field_2_Type__c</field>
@@ -140,7 +140,7 @@
     </values>
     <values>
         <field>Calculated_Date_Field_Name__c</field>
-        <value xsi:type="xsd:string">Final_Team_Meeting_Deadline__c</value>
+        <value xsi:type="xsd:string">Amended_Final_Announcement_Date__c</value>
     </values>
     <values>
         <field>Conditional_Field_10_Name__c</field>
@@ -160,7 +160,7 @@
     </values>
     <values>
         <field>Conditional_Field_1_Name__c</field>
-        <value xsi:type="xsd:string">AD_Investigation_Aligned_To__c</value>
+        <value xsi:type="xsd:string">Will_you_Amend_the_Final__c</value>
     </values>
     <values>
         <field>Conditional_Field_1_Operator__c</field>
@@ -168,11 +168,11 @@
     </values>
     <values>
         <field>Conditional_Field_1_Result__c</field>
-        <value xsi:type="xsd:string">Align</value>
+        <value xsi:type="xsd:string">Skip</value>
     </values>
     <values>
         <field>Conditional_Field_1_Value__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Yes</value>
     </values>
     <values>
         <field>Conditional_Field_2_Name__c</field>
@@ -304,7 +304,7 @@
     </values>
     <values>
         <field>Constant_1__c</field>
-        <value xsi:type="xsd:string">CVD_Final_Team_Meeting_Deadline</value>
+        <value xsi:type="xsd:string">Inv_Announcement_Date</value>
     </values>
     <values>
         <field>Constant_2__c</field>
@@ -332,7 +332,7 @@
     </values>
     <values>
         <field>Number_of_Base_Date_Fields__c</field>
-        <value xsi:type="xsd:double">1.0</value>
+        <value xsi:type="xsd:double">2.0</value>
     </values>
     <values>
         <field>Number_of_Conditionals__c</field>
@@ -348,6 +348,6 @@
     </values>
     <values>
         <field>Order_of_Execution__c</field>
-        <value xsi:type="xsd:double">40.0</value>
+        <value xsi:type="xsd:double">36.0</value>
     </values>
 </CustomMetadata>

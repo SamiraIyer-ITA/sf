@@ -8,7 +8,7 @@
     </values>
     <values>
         <field>Active_Calculation__c</field>
-        <value xsi:type="xsd:boolean">false</value>
+        <value xsi:type="xsd:boolean">true</value>
     </values>
     <values>
         <field>Base_Date_Field_1_Lookup_Field_Name__c</field>
