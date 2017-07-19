@@ -15,7 +15,7 @@
             <name>Set_Investigation_ID</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <formula>OR( 
 ISNEW(), 
 ISBLANK( This_Investigation_has_a_Susp_Agreement__c ), 
