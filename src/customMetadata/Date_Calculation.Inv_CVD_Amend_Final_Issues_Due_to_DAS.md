@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <label>Petition Next DAS - Init Iss To DAS</label>
+    <label>Inv CVD Amend Final Issues Due to DAS</label>
     <protected>false</protected>
     <values>
         <field>ADCVD_Objects__c</field>
-        <value xsi:type="xsd:string">Petition</value>
+        <value xsi:type="xsd:string">Inv_CVD</value>
     </values>
     <values>
         <field>Active_Calculation__c</field>
@@ -16,11 +16,11 @@
     </values>
     <values>
         <field>Base_Date_Field_1_Name__c</field>
-        <value xsi:type="xsd:string">Initiation_Issues_Due_to_DAS__c</value>
+        <value xsi:type="xsd:string">Calculated_Amended_Final_Signature__c</value>
     </values>
     <values>
         <field>Base_Date_Field_1_Object__c</field>
-        <value xsi:type="xsd:string">Petition__c</value>
+        <value xsi:type="xsd:string">Investigation__c</value>
     </values>
     <values>
         <field>Base_Date_Field_1_Type__c</field>
@@ -140,11 +140,11 @@
     </values>
     <values>
         <field>Calculated_Date_Field_Name__c</field>
-        <value xsi:type="xsd:string">Next_Due_to_DAS_Deadline__c</value>
+        <value xsi:type="xsd:string">Amend_Final_Issues_Due_to_DAS__c</value>
     </values>
     <values>
         <field>Conditional_Field_1_Name__c</field>
-        <value xsi:type="xsd:string">Actual_Initiation_Signature__c</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_1_Object__c</field>
@@ -152,11 +152,11 @@
     </values>
     <values>
         <field>Conditional_Field_1_Operator__c</field>
-        <value xsi:type="xsd:string">Not Equals To</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_1_Result__c</field>
-        <value xsi:type="xsd:string">Skip</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_1_Type__c</field>
@@ -168,7 +168,7 @@
     </values>
     <values>
         <field>Conditional_Field_2_Name__c</field>
-        <value xsi:type="xsd:string">Actual_Initiation_Issues_to_DAS__c</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_2_Object__c</field>
@@ -176,11 +176,11 @@
     </values>
     <values>
         <field>Conditional_Field_2_Operator__c</field>
-        <value xsi:type="xsd:string">Not Equals To</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_2_Result__c</field>
-        <value xsi:type="xsd:string">Skip</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_2_Type__c</field>
@@ -360,7 +360,7 @@
     </values>
     <values>
         <field>Constant_1__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Issues_to_DAS_Amended_Final</value>
     </values>
     <values>
         <field>Constant_2__c</field>
@@ -384,18 +384,18 @@
     </values>
     <values>
         <field>Number_of_Conditionals__c</field>
-        <value xsi:type="xsd:double">2.0</value>
-    </values>
-    <values>
-        <field>Number_of_Constants__c</field>
         <value xsi:type="xsd:double">0.0</value>
     </values>
     <values>
+        <field>Number_of_Constants__c</field>
+        <value xsi:type="xsd:double">1.0</value>
+    </values>
+    <values>
         <field>Order_of_Execution__c</field>
-        <value xsi:type="xsd:double">150.0</value>
+        <value xsi:type="xsd:double">37.0</value>
     </values>
     <values>
         <field>Tolling_Service__c</field>
-        <value xsi:type="xsd:string">Get Calculated Date</value>
+        <value xsi:type="xsd:string">Count Back Business Days</value>
     </values>
 </CustomMetadata>

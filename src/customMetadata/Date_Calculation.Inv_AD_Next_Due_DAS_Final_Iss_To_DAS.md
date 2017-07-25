@@ -12,19 +12,19 @@
     </values>
     <values>
         <field>Base_Date_Field_1_Lookup_Field_Name__c</field>
-        <value xsi:type="xsd:string">Investigation__c</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Base_Date_Field_1_Name__c</field>
-        <value xsi:type="xsd:string">Issues_to_DAS__c</value>
+        <value xsi:type="xsd:string">Final_Issues_Due_to_DAS__c</value>
     </values>
     <values>
         <field>Base_Date_Field_1_Object__c</field>
-        <value xsi:type="xsd:string">Issue__c</value>
+        <value xsi:type="xsd:string">Investigation__c</value>
     </values>
     <values>
         <field>Base_Date_Field_1_Type__c</field>
-        <value xsi:type="xsd:string">Final</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Base_Date_Field_2_Lookup_Field_Name__c</field>
@@ -168,7 +168,7 @@
     </values>
     <values>
         <field>Conditional_Field_2_Name__c</field>
-        <value xsi:type="xsd:string">Next_Due_to_DAS_Deadline__c</value>
+        <value xsi:type="xsd:string">Actual_Final_Issues_to_DAS__c</value>
     </values>
     <values>
         <field>Conditional_Field_2_Object__c</field>
@@ -180,7 +180,7 @@
     </values>
     <values>
         <field>Conditional_Field_2_Result__c</field>
-        <value xsi:type="xsd:string">Align</value>
+        <value xsi:type="xsd:string">Skip</value>
     </values>
     <values>
         <field>Conditional_Field_2_Type__c</field>
@@ -192,7 +192,7 @@
     </values>
     <values>
         <field>Conditional_Field_3_Name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Next_Due_to_DAS_Deadline__c</value>
     </values>
     <values>
         <field>Conditional_Field_3_Object__c</field>
@@ -200,11 +200,11 @@
     </values>
     <values>
         <field>Conditional_Field_3_Operator__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Not Equals To</value>
     </values>
     <values>
         <field>Conditional_Field_3_Result__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Align</value>
     </values>
     <values>
         <field>Conditional_Field_3_Type__c</field>
@@ -384,7 +384,7 @@
     </values>
     <values>
         <field>Number_of_Conditionals__c</field>
-        <value xsi:type="xsd:double">2.0</value>
+        <value xsi:type="xsd:double">3.0</value>
     </values>
     <values>
         <field>Number_of_Constants__c</field>

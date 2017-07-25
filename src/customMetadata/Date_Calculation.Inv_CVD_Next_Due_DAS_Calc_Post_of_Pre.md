@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <label>Petition Next DAS - Init Iss To DAS</label>
+    <label>Inv CVD - Next Due DAS- Calc Post of Pre</label>
     <protected>false</protected>
     <values>
         <field>ADCVD_Objects__c</field>
-        <value xsi:type="xsd:string">Petition</value>
+        <value xsi:type="xsd:string">Inv_CVD</value>
     </values>
     <values>
         <field>Active_Calculation__c</field>
@@ -16,11 +16,11 @@
     </values>
     <values>
         <field>Base_Date_Field_1_Name__c</field>
-        <value xsi:type="xsd:string">Initiation_Issues_Due_to_DAS__c</value>
+        <value xsi:type="xsd:string">Calculated_Postponement_of_PrelimDeterFR__c</value>
     </values>
     <values>
         <field>Base_Date_Field_1_Object__c</field>
-        <value xsi:type="xsd:string">Petition__c</value>
+        <value xsi:type="xsd:string">Investigation__c</value>
     </values>
     <values>
         <field>Base_Date_Field_1_Type__c</field>
@@ -144,7 +144,7 @@
     </values>
     <values>
         <field>Conditional_Field_1_Name__c</field>
-        <value xsi:type="xsd:string">Actual_Initiation_Signature__c</value>
+        <value xsi:type="xsd:string">Actual_Preliminary_Signature__c</value>
     </values>
     <values>
         <field>Conditional_Field_1_Object__c</field>
@@ -168,7 +168,7 @@
     </values>
     <values>
         <field>Conditional_Field_2_Name__c</field>
-        <value xsi:type="xsd:string">Actual_Initiation_Issues_to_DAS__c</value>
+        <value xsi:type="xsd:string">Signature_of_Prelim_Postponement_FR__c</value>
     </values>
     <values>
         <field>Conditional_Field_2_Object__c</field>
@@ -192,7 +192,7 @@
     </values>
     <values>
         <field>Conditional_Field_3_Name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Calculated_Postponement_of_PrelimDeterFR__c</value>
     </values>
     <values>
         <field>Conditional_Field_3_Object__c</field>
@@ -200,11 +200,11 @@
     </values>
     <values>
         <field>Conditional_Field_3_Operator__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Until Past</value>
     </values>
     <values>
         <field>Conditional_Field_3_Result__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Skip</value>
     </values>
     <values>
         <field>Conditional_Field_3_Type__c</field>
@@ -384,7 +384,7 @@
     </values>
     <values>
         <field>Number_of_Conditionals__c</field>
-        <value xsi:type="xsd:double">2.0</value>
+        <value xsi:type="xsd:double">3.0</value>
     </values>
     <values>
         <field>Number_of_Constants__c</field>
@@ -392,7 +392,7 @@
     </values>
     <values>
         <field>Order_of_Execution__c</field>
-        <value xsi:type="xsd:double">150.0</value>
+        <value xsi:type="xsd:double">305.0</value>
     </values>
     <values>
         <field>Tolling_Service__c</field>
