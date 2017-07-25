@@ -25,7 +25,7 @@ public without sharing class CustomMetadataSelector {
 		get {
 			if (allDateCalculations == null) {
 				String query = Utils.soqlBuilderAllFields('Date_Calculation__mdt', false);
-				query += ', ADCVD_Objects__r.Object_API_Name__c, ADCVD_Objects__r.Record_Type_Name__c, ' +
+				query += ', ADCVD_Objects__r.Object_API_Name__c, ADCVD_Objects__r.Record_Type_Name__c, ADCVD_Objects__r.Number_of_Date_Calculations__c, ' +
 						'Constant_1__r.Number_Value__c, Constant_1__r.String_Value__c, ' +
 						'Constant_1__r.Used_with_Field_Named__c, Constant_2__r.Number_Value__c, Constant_2__r.String_Value__c, ' +
 						'Constant_2__r.Used_with_Field_Named__c, Constant_3__r.Number_Value__c, Constant_3__r.String_Value__c, ' +

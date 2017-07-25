@@ -858,7 +858,7 @@
                 <sorted>false</sorted>
                 <value>
                     <fullName>Admin Review Opportunity Notice</fullName>
-                    <default>true</default>
+                    <default>false</default>
                     <label>Admin Review Opportunity Notice</label>
                 </value>
                 <value>
@@ -1017,7 +1017,7 @@
                 <sorted>false</sorted>
                 <value>
                     <fullName>Admin Review Opportunity Notice</fullName>
-                    <default>true</default>
+                    <default>false</default>
                     <label>Admin Review Opportunity Notice</label>
                 </value>
                 <value>
@@ -1176,7 +1176,7 @@
                 <sorted>false</sorted>
                 <value>
                     <fullName>Admin Review Opportunity Notice</fullName>
-                    <default>true</default>
+                    <default>false</default>
                     <label>Admin Review Opportunity Notice</label>
                 </value>
                 <value>
@@ -1303,153 +1303,20 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Conditional_Field_10_Name__c</fullName>
-        <externalId>false</externalId>
-        <fieldManageability>SubscriberControlled</fieldManageability>
-        <label>Conditional Field 10 Name</label>
-        <length>80</length>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Conditional_Field_10_Operator__c</fullName>
-        <externalId>false</externalId>
-        <fieldManageability>SubscriberControlled</fieldManageability>
-        <label>Conditional Field 10 Operator</label>
-        <required>false</required>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Equals</fullName>
-                    <default>false</default>
-                    <label>Equals</label>
-                </value>
-                <value>
-                    <fullName>Not Equals To</fullName>
-                    <default>false</default>
-                    <label>Not Equals To</label>
-                </value>
-                <value>
-                    <fullName>Greater Than</fullName>
-                    <default>false</default>
-                    <label>Greater Than</label>
-                </value>
-                <value>
-                    <fullName>Less Than</fullName>
-                    <default>false</default>
-                    <label>Less Than</label>
-                </value>
-                <value>
-                    <fullName>Greater Than Or Equals To</fullName>
-                    <default>false</default>
-                    <label>Greater Than Or Equals To</label>
-                </value>
-                <value>
-                    <fullName>Less Than Or Equals To</fullName>
-                    <default>false</default>
-                    <label>Less Than Or Equals To</label>
-                </value>
-                <value>
-                    <fullName>Until Past</fullName>
-                    <default>false</default>
-                    <label>Until Past</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>Conditional_Field_10_Result__c</fullName>
-        <externalId>false</externalId>
-        <fieldManageability>SubscriberControlled</fieldManageability>
-        <label>Conditional Field 10 Result</label>
-        <required>false</required>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Skip</fullName>
-                    <default>false</default>
-                    <label>Skip</label>
-                </value>
-                <value>
-                    <fullName>Execute</fullName>
-                    <default>false</default>
-                    <label>Execute</label>
-                </value>
-                <value>
-                    <fullName>Align</fullName>
-                    <default>false</default>
-                    <label>Align</label>
-                </value>
-                <value>
-                    <fullName>Use Date 1</fullName>
-                    <default>false</default>
-                    <label>Use Date 1</label>
-                </value>
-                <value>
-                    <fullName>Use Date 2</fullName>
-                    <default>false</default>
-                    <label>Use Date 2</label>
-                </value>
-                <value>
-                    <fullName>Use Date 3</fullName>
-                    <default>false</default>
-                    <label>Use Date 3</label>
-                </value>
-                <value>
-                    <fullName>Use Date 4</fullName>
-                    <default>false</default>
-                    <label>Use Date 4</label>
-                </value>
-                <value>
-                    <fullName>Use Date 5</fullName>
-                    <default>false</default>
-                    <label>Use Date 5</label>
-                </value>
-                <value>
-                    <fullName>Use Constant 1</fullName>
-                    <default>false</default>
-                    <label>Use Constant 1</label>
-                </value>
-                <value>
-                    <fullName>Use Constant 2</fullName>
-                    <default>false</default>
-                    <label>Use Constant 2</label>
-                </value>
-                <value>
-                    <fullName>Use Constant 3</fullName>
-                    <default>false</default>
-                    <label>Use Constant 3</label>
-                </value>
-                <value>
-                    <fullName>Use Constant 4</fullName>
-                    <default>false</default>
-                    <label>Use Constant 4</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>Conditional_Field_10_Value__c</fullName>
-        <externalId>false</externalId>
-        <fieldManageability>SubscriberControlled</fieldManageability>
-        <label>Conditional Field 10 Value</label>
-        <length>80</length>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Conditional_Field_1_Name__c</fullName>
         <externalId>false</externalId>
         <fieldManageability>SubscriberControlled</fieldManageability>
         <label>Conditional Field 1 Name</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Conditional_Field_1_Object__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Conditional Field 1 Object</label>
         <length>80</length>
         <required>false</required>
         <type>Text</type>
@@ -1556,6 +1423,21 @@
                     <label>Use Date 5</label>
                 </value>
                 <value>
+                    <fullName>Use Date 6</fullName>
+                    <default>false</default>
+                    <label>Use Date 6</label>
+                </value>
+                <value>
+                    <fullName>Use Date 7</fullName>
+                    <default>false</default>
+                    <label>Use Date 7</label>
+                </value>
+                <value>
+                    <fullName>Use Date 8</fullName>
+                    <default>false</default>
+                    <label>Use Date 8</label>
+                </value>
+                <value>
                     <fullName>Use Constant 1</fullName>
                     <default>false</default>
                     <label>Use Constant 1</label>
@@ -1579,6 +1461,135 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Conditional_Field_1_Type__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Conditional Field 1 Type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Admin Review Opportunity Notice</fullName>
+                    <default>true</default>
+                    <label>Admin Review Opportunity Notice</label>
+                </value>
+                <value>
+                    <fullName>Amended Final</fullName>
+                    <default>false</default>
+                    <label>Amended Final</label>
+                </value>
+                <value>
+                    <fullName>Amended Preliminary</fullName>
+                    <default>false</default>
+                    <label>Amended Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Continuation</fullName>
+                    <default>false</default>
+                    <label>Continuation</label>
+                </value>
+                <value>
+                    <fullName>Continuation or Revocation</fullName>
+                    <default>false</default>
+                    <label>Continuation or Revocation</label>
+                </value>
+                <value>
+                    <fullName>Correction</fullName>
+                    <default>false</default>
+                    <label>Correction</label>
+                </value>
+                <value>
+                    <fullName>Deadline for Decision on how to proceed</fullName>
+                    <default>false</default>
+                    <label>Deadline for Decision on how to proceed</label>
+                </value>
+                <value>
+                    <fullName>Final</fullName>
+                    <default>false</default>
+                    <label>Final</label>
+                </value>
+                <value>
+                    <fullName>Initiation</fullName>
+                    <default>false</default>
+                    <label>Initiation</label>
+                </value>
+                <value>
+                    <fullName>Initiation/Prelim</fullName>
+                    <default>false</default>
+                    <label>Initiation/Prelim</label>
+                </value>
+                <value>
+                    <fullName>ITC Final</fullName>
+                    <default>false</default>
+                    <label>ITC Final</label>
+                </value>
+                <value>
+                    <fullName>ITC Preliminary</fullName>
+                    <default>false</default>
+                    <label>ITC Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Order</fullName>
+                    <default>false</default>
+                    <label>Order</label>
+                </value>
+                <value>
+                    <fullName>Petitioner</fullName>
+                    <default>false</default>
+                    <label>Petitioner</label>
+                </value>
+                <value>
+                    <fullName>Post Litigation</fullName>
+                    <default>false</default>
+                    <label>Post Litigation</label>
+                </value>
+                <value>
+                    <fullName>Postponement</fullName>
+                    <default>false</default>
+                    <label>Postponement</label>
+                </value>
+                <value>
+                    <fullName>Preliminary</fullName>
+                    <default>false</default>
+                    <label>Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Quarterly Scope</fullName>
+                    <default>false</default>
+                    <label>Quarterly Scope</label>
+                </value>
+                <value>
+                    <fullName>Rescission</fullName>
+                    <default>false</default>
+                    <label>Rescission</label>
+                </value>
+                <value>
+                    <fullName>Respondent</fullName>
+                    <default>false</default>
+                    <label>Respondent</label>
+                </value>
+                <value>
+                    <fullName>Revocation</fullName>
+                    <default>false</default>
+                    <label>Revocation</label>
+                </value>
+                <value>
+                    <fullName>Suspension Agreement</fullName>
+                    <default>false</default>
+                    <label>Suspension Agreement</label>
+                </value>
+                <value>
+                    <fullName>Termination</fullName>
+                    <default>false</default>
+                    <label>Termination</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Conditional_Field_1_Value__c</fullName>
         <externalId>false</externalId>
         <fieldManageability>SubscriberControlled</fieldManageability>
@@ -1593,6 +1604,16 @@
         <externalId>false</externalId>
         <fieldManageability>SubscriberControlled</fieldManageability>
         <label>Conditional Field 2 Name</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Conditional_Field_2_Object__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Conditional Field 2 Object</label>
         <length>80</length>
         <required>false</required>
         <type>Text</type>
@@ -1699,6 +1720,21 @@
                     <label>Use Date 5</label>
                 </value>
                 <value>
+                    <fullName>Use Date 6</fullName>
+                    <default>false</default>
+                    <label>Use Date 6</label>
+                </value>
+                <value>
+                    <fullName>Use Date 7</fullName>
+                    <default>false</default>
+                    <label>Use Date 7</label>
+                </value>
+                <value>
+                    <fullName>Use Date 8</fullName>
+                    <default>false</default>
+                    <label>Use Date 8</label>
+                </value>
+                <value>
                     <fullName>Use Constant 1</fullName>
                     <default>false</default>
                     <label>Use Constant 1</label>
@@ -1722,6 +1758,135 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Conditional_Field_2_Type__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Conditional Field 2 Type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Admin Review Opportunity Notice</fullName>
+                    <default>true</default>
+                    <label>Admin Review Opportunity Notice</label>
+                </value>
+                <value>
+                    <fullName>Amended Final</fullName>
+                    <default>false</default>
+                    <label>Amended Final</label>
+                </value>
+                <value>
+                    <fullName>Amended Preliminary</fullName>
+                    <default>false</default>
+                    <label>Amended Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Continuation</fullName>
+                    <default>false</default>
+                    <label>Continuation</label>
+                </value>
+                <value>
+                    <fullName>Continuation or Revocation</fullName>
+                    <default>false</default>
+                    <label>Continuation or Revocation</label>
+                </value>
+                <value>
+                    <fullName>Correction</fullName>
+                    <default>false</default>
+                    <label>Correction</label>
+                </value>
+                <value>
+                    <fullName>Deadline for Decision on how to proceed</fullName>
+                    <default>false</default>
+                    <label>Deadline for Decision on how to proceed</label>
+                </value>
+                <value>
+                    <fullName>Final</fullName>
+                    <default>false</default>
+                    <label>Final</label>
+                </value>
+                <value>
+                    <fullName>Initiation</fullName>
+                    <default>false</default>
+                    <label>Initiation</label>
+                </value>
+                <value>
+                    <fullName>Initiation/Prelim</fullName>
+                    <default>false</default>
+                    <label>Initiation/Prelim</label>
+                </value>
+                <value>
+                    <fullName>ITC Final</fullName>
+                    <default>false</default>
+                    <label>ITC Final</label>
+                </value>
+                <value>
+                    <fullName>ITC Preliminary</fullName>
+                    <default>false</default>
+                    <label>ITC Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Order</fullName>
+                    <default>false</default>
+                    <label>Order</label>
+                </value>
+                <value>
+                    <fullName>Petitioner</fullName>
+                    <default>false</default>
+                    <label>Petitioner</label>
+                </value>
+                <value>
+                    <fullName>Post Litigation</fullName>
+                    <default>false</default>
+                    <label>Post Litigation</label>
+                </value>
+                <value>
+                    <fullName>Postponement</fullName>
+                    <default>false</default>
+                    <label>Postponement</label>
+                </value>
+                <value>
+                    <fullName>Preliminary</fullName>
+                    <default>false</default>
+                    <label>Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Quarterly Scope</fullName>
+                    <default>false</default>
+                    <label>Quarterly Scope</label>
+                </value>
+                <value>
+                    <fullName>Rescission</fullName>
+                    <default>false</default>
+                    <label>Rescission</label>
+                </value>
+                <value>
+                    <fullName>Respondent</fullName>
+                    <default>false</default>
+                    <label>Respondent</label>
+                </value>
+                <value>
+                    <fullName>Revocation</fullName>
+                    <default>false</default>
+                    <label>Revocation</label>
+                </value>
+                <value>
+                    <fullName>Suspension Agreement</fullName>
+                    <default>false</default>
+                    <label>Suspension Agreement</label>
+                </value>
+                <value>
+                    <fullName>Termination</fullName>
+                    <default>false</default>
+                    <label>Termination</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Conditional_Field_2_Value__c</fullName>
         <externalId>false</externalId>
         <fieldManageability>SubscriberControlled</fieldManageability>
@@ -1736,6 +1901,16 @@
         <externalId>false</externalId>
         <fieldManageability>SubscriberControlled</fieldManageability>
         <label>Conditional Field 3 Name</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Conditional_Field_3_Object__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Conditional Field 3 Object</label>
         <length>80</length>
         <required>false</required>
         <type>Text</type>
@@ -1842,6 +2017,21 @@
                     <label>Use Date 5</label>
                 </value>
                 <value>
+                    <fullName>Use Date 6</fullName>
+                    <default>false</default>
+                    <label>Use Date 6</label>
+                </value>
+                <value>
+                    <fullName>Use Date 7</fullName>
+                    <default>false</default>
+                    <label>Use Date 7</label>
+                </value>
+                <value>
+                    <fullName>Use Date 8</fullName>
+                    <default>false</default>
+                    <label>Use Date 8</label>
+                </value>
+                <value>
                     <fullName>Use Constant 1</fullName>
                     <default>false</default>
                     <label>Use Constant 1</label>
@@ -1865,6 +2055,135 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Conditional_Field_3_Type__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Conditional Field 3 Type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Admin Review Opportunity Notice</fullName>
+                    <default>true</default>
+                    <label>Admin Review Opportunity Notice</label>
+                </value>
+                <value>
+                    <fullName>Amended Final</fullName>
+                    <default>false</default>
+                    <label>Amended Final</label>
+                </value>
+                <value>
+                    <fullName>Amended Preliminary</fullName>
+                    <default>false</default>
+                    <label>Amended Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Continuation</fullName>
+                    <default>false</default>
+                    <label>Continuation</label>
+                </value>
+                <value>
+                    <fullName>Continuation or Revocation</fullName>
+                    <default>false</default>
+                    <label>Continuation or Revocation</label>
+                </value>
+                <value>
+                    <fullName>Correction</fullName>
+                    <default>false</default>
+                    <label>Correction</label>
+                </value>
+                <value>
+                    <fullName>Deadline for Decision on how to proceed</fullName>
+                    <default>false</default>
+                    <label>Deadline for Decision on how to proceed</label>
+                </value>
+                <value>
+                    <fullName>Final</fullName>
+                    <default>false</default>
+                    <label>Final</label>
+                </value>
+                <value>
+                    <fullName>Initiation</fullName>
+                    <default>false</default>
+                    <label>Initiation</label>
+                </value>
+                <value>
+                    <fullName>Initiation/Prelim</fullName>
+                    <default>false</default>
+                    <label>Initiation/Prelim</label>
+                </value>
+                <value>
+                    <fullName>ITC Final</fullName>
+                    <default>false</default>
+                    <label>ITC Final</label>
+                </value>
+                <value>
+                    <fullName>ITC Preliminary</fullName>
+                    <default>false</default>
+                    <label>ITC Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Order</fullName>
+                    <default>false</default>
+                    <label>Order</label>
+                </value>
+                <value>
+                    <fullName>Petitioner</fullName>
+                    <default>false</default>
+                    <label>Petitioner</label>
+                </value>
+                <value>
+                    <fullName>Post Litigation</fullName>
+                    <default>false</default>
+                    <label>Post Litigation</label>
+                </value>
+                <value>
+                    <fullName>Postponement</fullName>
+                    <default>false</default>
+                    <label>Postponement</label>
+                </value>
+                <value>
+                    <fullName>Preliminary</fullName>
+                    <default>false</default>
+                    <label>Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Quarterly Scope</fullName>
+                    <default>false</default>
+                    <label>Quarterly Scope</label>
+                </value>
+                <value>
+                    <fullName>Rescission</fullName>
+                    <default>false</default>
+                    <label>Rescission</label>
+                </value>
+                <value>
+                    <fullName>Respondent</fullName>
+                    <default>false</default>
+                    <label>Respondent</label>
+                </value>
+                <value>
+                    <fullName>Revocation</fullName>
+                    <default>false</default>
+                    <label>Revocation</label>
+                </value>
+                <value>
+                    <fullName>Suspension Agreement</fullName>
+                    <default>false</default>
+                    <label>Suspension Agreement</label>
+                </value>
+                <value>
+                    <fullName>Termination</fullName>
+                    <default>false</default>
+                    <label>Termination</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Conditional_Field_3_Value__c</fullName>
         <externalId>false</externalId>
         <fieldManageability>SubscriberControlled</fieldManageability>
@@ -1879,6 +2198,16 @@
         <externalId>false</externalId>
         <fieldManageability>SubscriberControlled</fieldManageability>
         <label>Conditional Field 4 Name</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Conditional_Field_4_Object__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Conditional Field 4 Object</label>
         <length>80</length>
         <required>false</required>
         <type>Text</type>
@@ -1980,6 +2309,21 @@
                     <label>Use Date 5</label>
                 </value>
                 <value>
+                    <fullName>Use Date 6</fullName>
+                    <default>false</default>
+                    <label>Use Date 6</label>
+                </value>
+                <value>
+                    <fullName>Use Date 7</fullName>
+                    <default>false</default>
+                    <label>Use Date 7</label>
+                </value>
+                <value>
+                    <fullName>Use Date 8</fullName>
+                    <default>false</default>
+                    <label>Use Date 8</label>
+                </value>
+                <value>
                     <fullName>Use Constant 1</fullName>
                     <default>false</default>
                     <label>Use Constant 1</label>
@@ -2003,6 +2347,135 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Conditional_Field_4_Type__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Conditional Field 4 Type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Admin Review Opportunity Notice</fullName>
+                    <default>true</default>
+                    <label>Admin Review Opportunity Notice</label>
+                </value>
+                <value>
+                    <fullName>Amended Final</fullName>
+                    <default>false</default>
+                    <label>Amended Final</label>
+                </value>
+                <value>
+                    <fullName>Amended Preliminary</fullName>
+                    <default>false</default>
+                    <label>Amended Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Continuation</fullName>
+                    <default>false</default>
+                    <label>Continuation</label>
+                </value>
+                <value>
+                    <fullName>Continuation or Revocation</fullName>
+                    <default>false</default>
+                    <label>Continuation or Revocation</label>
+                </value>
+                <value>
+                    <fullName>Correction</fullName>
+                    <default>false</default>
+                    <label>Correction</label>
+                </value>
+                <value>
+                    <fullName>Deadline for Decision on how to proceed</fullName>
+                    <default>false</default>
+                    <label>Deadline for Decision on how to proceed</label>
+                </value>
+                <value>
+                    <fullName>Final</fullName>
+                    <default>false</default>
+                    <label>Final</label>
+                </value>
+                <value>
+                    <fullName>Initiation</fullName>
+                    <default>false</default>
+                    <label>Initiation</label>
+                </value>
+                <value>
+                    <fullName>Initiation/Prelim</fullName>
+                    <default>false</default>
+                    <label>Initiation/Prelim</label>
+                </value>
+                <value>
+                    <fullName>ITC Final</fullName>
+                    <default>false</default>
+                    <label>ITC Final</label>
+                </value>
+                <value>
+                    <fullName>ITC Preliminary</fullName>
+                    <default>false</default>
+                    <label>ITC Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Order</fullName>
+                    <default>false</default>
+                    <label>Order</label>
+                </value>
+                <value>
+                    <fullName>Petitioner</fullName>
+                    <default>false</default>
+                    <label>Petitioner</label>
+                </value>
+                <value>
+                    <fullName>Post Litigation</fullName>
+                    <default>false</default>
+                    <label>Post Litigation</label>
+                </value>
+                <value>
+                    <fullName>Postponement</fullName>
+                    <default>false</default>
+                    <label>Postponement</label>
+                </value>
+                <value>
+                    <fullName>Preliminary</fullName>
+                    <default>false</default>
+                    <label>Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Quarterly Scope</fullName>
+                    <default>false</default>
+                    <label>Quarterly Scope</label>
+                </value>
+                <value>
+                    <fullName>Rescission</fullName>
+                    <default>false</default>
+                    <label>Rescission</label>
+                </value>
+                <value>
+                    <fullName>Respondent</fullName>
+                    <default>false</default>
+                    <label>Respondent</label>
+                </value>
+                <value>
+                    <fullName>Revocation</fullName>
+                    <default>false</default>
+                    <label>Revocation</label>
+                </value>
+                <value>
+                    <fullName>Suspension Agreement</fullName>
+                    <default>false</default>
+                    <label>Suspension Agreement</label>
+                </value>
+                <value>
+                    <fullName>Termination</fullName>
+                    <default>false</default>
+                    <label>Termination</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Conditional_Field_4_Value__c</fullName>
         <externalId>false</externalId>
         <fieldManageability>SubscriberControlled</fieldManageability>
@@ -2017,6 +2490,16 @@
         <externalId>false</externalId>
         <fieldManageability>SubscriberControlled</fieldManageability>
         <label>Conditional Field 5 Name</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Conditional_Field_5_Object__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Conditional Field 5 Object</label>
         <length>80</length>
         <required>false</required>
         <type>Text</type>
@@ -2118,6 +2601,21 @@
                     <label>Use Date 5</label>
                 </value>
                 <value>
+                    <fullName>Use Date 6</fullName>
+                    <default>false</default>
+                    <label>Use Date 6</label>
+                </value>
+                <value>
+                    <fullName>Use Date 7</fullName>
+                    <default>false</default>
+                    <label>Use Date 7</label>
+                </value>
+                <value>
+                    <fullName>Use Date 8</fullName>
+                    <default>false</default>
+                    <label>Use Date 8</label>
+                </value>
+                <value>
                     <fullName>Use Constant 1</fullName>
                     <default>false</default>
                     <label>Use Constant 1</label>
@@ -2141,6 +2639,135 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Conditional_Field_5_Type__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Conditional Field 5 Type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Admin Review Opportunity Notice</fullName>
+                    <default>true</default>
+                    <label>Admin Review Opportunity Notice</label>
+                </value>
+                <value>
+                    <fullName>Amended Final</fullName>
+                    <default>false</default>
+                    <label>Amended Final</label>
+                </value>
+                <value>
+                    <fullName>Amended Preliminary</fullName>
+                    <default>false</default>
+                    <label>Amended Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Continuation</fullName>
+                    <default>false</default>
+                    <label>Continuation</label>
+                </value>
+                <value>
+                    <fullName>Continuation or Revocation</fullName>
+                    <default>false</default>
+                    <label>Continuation or Revocation</label>
+                </value>
+                <value>
+                    <fullName>Correction</fullName>
+                    <default>false</default>
+                    <label>Correction</label>
+                </value>
+                <value>
+                    <fullName>Deadline for Decision on how to proceed</fullName>
+                    <default>false</default>
+                    <label>Deadline for Decision on how to proceed</label>
+                </value>
+                <value>
+                    <fullName>Final</fullName>
+                    <default>false</default>
+                    <label>Final</label>
+                </value>
+                <value>
+                    <fullName>Initiation</fullName>
+                    <default>false</default>
+                    <label>Initiation</label>
+                </value>
+                <value>
+                    <fullName>Initiation/Prelim</fullName>
+                    <default>false</default>
+                    <label>Initiation/Prelim</label>
+                </value>
+                <value>
+                    <fullName>ITC Final</fullName>
+                    <default>false</default>
+                    <label>ITC Final</label>
+                </value>
+                <value>
+                    <fullName>ITC Preliminary</fullName>
+                    <default>false</default>
+                    <label>ITC Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Order</fullName>
+                    <default>false</default>
+                    <label>Order</label>
+                </value>
+                <value>
+                    <fullName>Petitioner</fullName>
+                    <default>false</default>
+                    <label>Petitioner</label>
+                </value>
+                <value>
+                    <fullName>Post Litigation</fullName>
+                    <default>false</default>
+                    <label>Post Litigation</label>
+                </value>
+                <value>
+                    <fullName>Postponement</fullName>
+                    <default>false</default>
+                    <label>Postponement</label>
+                </value>
+                <value>
+                    <fullName>Preliminary</fullName>
+                    <default>false</default>
+                    <label>Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Quarterly Scope</fullName>
+                    <default>false</default>
+                    <label>Quarterly Scope</label>
+                </value>
+                <value>
+                    <fullName>Rescission</fullName>
+                    <default>false</default>
+                    <label>Rescission</label>
+                </value>
+                <value>
+                    <fullName>Respondent</fullName>
+                    <default>false</default>
+                    <label>Respondent</label>
+                </value>
+                <value>
+                    <fullName>Revocation</fullName>
+                    <default>false</default>
+                    <label>Revocation</label>
+                </value>
+                <value>
+                    <fullName>Suspension Agreement</fullName>
+                    <default>false</default>
+                    <label>Suspension Agreement</label>
+                </value>
+                <value>
+                    <fullName>Termination</fullName>
+                    <default>false</default>
+                    <label>Termination</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Conditional_Field_5_Value__c</fullName>
         <externalId>false</externalId>
         <fieldManageability>SubscriberControlled</fieldManageability>
@@ -2155,6 +2782,16 @@
         <externalId>false</externalId>
         <fieldManageability>SubscriberControlled</fieldManageability>
         <label>Conditional Field 6 Name</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Conditional_Field_6_Object__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Conditional Field 6 Object</label>
         <length>80</length>
         <required>false</required>
         <type>Text</type>
@@ -2256,6 +2893,21 @@
                     <label>Use Date 5</label>
                 </value>
                 <value>
+                    <fullName>Use Date 6</fullName>
+                    <default>false</default>
+                    <label>Use Date 6</label>
+                </value>
+                <value>
+                    <fullName>Use Date 7</fullName>
+                    <default>false</default>
+                    <label>Use Date 7</label>
+                </value>
+                <value>
+                    <fullName>Use Date 8</fullName>
+                    <default>false</default>
+                    <label>Use Date 8</label>
+                </value>
+                <value>
                     <fullName>Use Constant 1</fullName>
                     <default>false</default>
                     <label>Use Constant 1</label>
@@ -2279,6 +2931,135 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Conditional_Field_6_Type__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Conditional Field 6 Type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Admin Review Opportunity Notice</fullName>
+                    <default>true</default>
+                    <label>Admin Review Opportunity Notice</label>
+                </value>
+                <value>
+                    <fullName>Amended Final</fullName>
+                    <default>false</default>
+                    <label>Amended Final</label>
+                </value>
+                <value>
+                    <fullName>Amended Preliminary</fullName>
+                    <default>false</default>
+                    <label>Amended Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Continuation</fullName>
+                    <default>false</default>
+                    <label>Continuation</label>
+                </value>
+                <value>
+                    <fullName>Continuation or Revocation</fullName>
+                    <default>false</default>
+                    <label>Continuation or Revocation</label>
+                </value>
+                <value>
+                    <fullName>Correction</fullName>
+                    <default>false</default>
+                    <label>Correction</label>
+                </value>
+                <value>
+                    <fullName>Deadline for Decision on how to proceed</fullName>
+                    <default>false</default>
+                    <label>Deadline for Decision on how to proceed</label>
+                </value>
+                <value>
+                    <fullName>Final</fullName>
+                    <default>false</default>
+                    <label>Final</label>
+                </value>
+                <value>
+                    <fullName>Initiation</fullName>
+                    <default>false</default>
+                    <label>Initiation</label>
+                </value>
+                <value>
+                    <fullName>Initiation/Prelim</fullName>
+                    <default>false</default>
+                    <label>Initiation/Prelim</label>
+                </value>
+                <value>
+                    <fullName>ITC Final</fullName>
+                    <default>false</default>
+                    <label>ITC Final</label>
+                </value>
+                <value>
+                    <fullName>ITC Preliminary</fullName>
+                    <default>false</default>
+                    <label>ITC Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Order</fullName>
+                    <default>false</default>
+                    <label>Order</label>
+                </value>
+                <value>
+                    <fullName>Petitioner</fullName>
+                    <default>false</default>
+                    <label>Petitioner</label>
+                </value>
+                <value>
+                    <fullName>Post Litigation</fullName>
+                    <default>false</default>
+                    <label>Post Litigation</label>
+                </value>
+                <value>
+                    <fullName>Postponement</fullName>
+                    <default>false</default>
+                    <label>Postponement</label>
+                </value>
+                <value>
+                    <fullName>Preliminary</fullName>
+                    <default>false</default>
+                    <label>Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Quarterly Scope</fullName>
+                    <default>false</default>
+                    <label>Quarterly Scope</label>
+                </value>
+                <value>
+                    <fullName>Rescission</fullName>
+                    <default>false</default>
+                    <label>Rescission</label>
+                </value>
+                <value>
+                    <fullName>Respondent</fullName>
+                    <default>false</default>
+                    <label>Respondent</label>
+                </value>
+                <value>
+                    <fullName>Revocation</fullName>
+                    <default>false</default>
+                    <label>Revocation</label>
+                </value>
+                <value>
+                    <fullName>Suspension Agreement</fullName>
+                    <default>false</default>
+                    <label>Suspension Agreement</label>
+                </value>
+                <value>
+                    <fullName>Termination</fullName>
+                    <default>false</default>
+                    <label>Termination</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Conditional_Field_6_Value__c</fullName>
         <externalId>false</externalId>
         <fieldManageability>SubscriberControlled</fieldManageability>
@@ -2293,6 +3074,16 @@
         <externalId>false</externalId>
         <fieldManageability>SubscriberControlled</fieldManageability>
         <label>Conditional Field 7 Name</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Conditional_Field_7_Object__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Conditional Field 7 Object</label>
         <length>80</length>
         <required>false</required>
         <type>Text</type>
@@ -2394,6 +3185,21 @@
                     <label>Use Date 5</label>
                 </value>
                 <value>
+                    <fullName>Use Date 6</fullName>
+                    <default>false</default>
+                    <label>Use Date 6</label>
+                </value>
+                <value>
+                    <fullName>Use Date 7</fullName>
+                    <default>false</default>
+                    <label>Use Date 7</label>
+                </value>
+                <value>
+                    <fullName>Use Date 8</fullName>
+                    <default>false</default>
+                    <label>Use Date 8</label>
+                </value>
+                <value>
                     <fullName>Use Constant 1</fullName>
                     <default>false</default>
                     <label>Use Constant 1</label>
@@ -2417,6 +3223,135 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Conditional_Field_7_Type__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Conditional Field 7 Type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Admin Review Opportunity Notice</fullName>
+                    <default>true</default>
+                    <label>Admin Review Opportunity Notice</label>
+                </value>
+                <value>
+                    <fullName>Amended Final</fullName>
+                    <default>false</default>
+                    <label>Amended Final</label>
+                </value>
+                <value>
+                    <fullName>Amended Preliminary</fullName>
+                    <default>false</default>
+                    <label>Amended Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Continuation</fullName>
+                    <default>false</default>
+                    <label>Continuation</label>
+                </value>
+                <value>
+                    <fullName>Continuation or Revocation</fullName>
+                    <default>false</default>
+                    <label>Continuation or Revocation</label>
+                </value>
+                <value>
+                    <fullName>Correction</fullName>
+                    <default>false</default>
+                    <label>Correction</label>
+                </value>
+                <value>
+                    <fullName>Deadline for Decision on how to proceed</fullName>
+                    <default>false</default>
+                    <label>Deadline for Decision on how to proceed</label>
+                </value>
+                <value>
+                    <fullName>Final</fullName>
+                    <default>false</default>
+                    <label>Final</label>
+                </value>
+                <value>
+                    <fullName>Initiation</fullName>
+                    <default>false</default>
+                    <label>Initiation</label>
+                </value>
+                <value>
+                    <fullName>Initiation/Prelim</fullName>
+                    <default>false</default>
+                    <label>Initiation/Prelim</label>
+                </value>
+                <value>
+                    <fullName>ITC Final</fullName>
+                    <default>false</default>
+                    <label>ITC Final</label>
+                </value>
+                <value>
+                    <fullName>ITC Preliminary</fullName>
+                    <default>false</default>
+                    <label>ITC Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Order</fullName>
+                    <default>false</default>
+                    <label>Order</label>
+                </value>
+                <value>
+                    <fullName>Petitioner</fullName>
+                    <default>false</default>
+                    <label>Petitioner</label>
+                </value>
+                <value>
+                    <fullName>Post Litigation</fullName>
+                    <default>false</default>
+                    <label>Post Litigation</label>
+                </value>
+                <value>
+                    <fullName>Postponement</fullName>
+                    <default>false</default>
+                    <label>Postponement</label>
+                </value>
+                <value>
+                    <fullName>Preliminary</fullName>
+                    <default>false</default>
+                    <label>Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Quarterly Scope</fullName>
+                    <default>false</default>
+                    <label>Quarterly Scope</label>
+                </value>
+                <value>
+                    <fullName>Rescission</fullName>
+                    <default>false</default>
+                    <label>Rescission</label>
+                </value>
+                <value>
+                    <fullName>Respondent</fullName>
+                    <default>false</default>
+                    <label>Respondent</label>
+                </value>
+                <value>
+                    <fullName>Revocation</fullName>
+                    <default>false</default>
+                    <label>Revocation</label>
+                </value>
+                <value>
+                    <fullName>Suspension Agreement</fullName>
+                    <default>false</default>
+                    <label>Suspension Agreement</label>
+                </value>
+                <value>
+                    <fullName>Termination</fullName>
+                    <default>false</default>
+                    <label>Termination</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Conditional_Field_7_Value__c</fullName>
         <externalId>false</externalId>
         <fieldManageability>SubscriberControlled</fieldManageability>
@@ -2431,6 +3366,16 @@
         <externalId>false</externalId>
         <fieldManageability>SubscriberControlled</fieldManageability>
         <label>Conditional Field 8 Name</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Conditional_Field_8_Object__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Conditional Field 8 Object</label>
         <length>80</length>
         <required>false</required>
         <type>Text</type>
@@ -2532,6 +3477,21 @@
                     <label>Use Date 5</label>
                 </value>
                 <value>
+                    <fullName>Use Date 6</fullName>
+                    <default>false</default>
+                    <label>Use Date 6</label>
+                </value>
+                <value>
+                    <fullName>Use Date 7</fullName>
+                    <default>false</default>
+                    <label>Use Date 7</label>
+                </value>
+                <value>
+                    <fullName>Use Date 8</fullName>
+                    <default>false</default>
+                    <label>Use Date 8</label>
+                </value>
+                <value>
                     <fullName>Use Constant 1</fullName>
                     <default>false</default>
                     <label>Use Constant 1</label>
@@ -2555,6 +3515,135 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Conditional_Field_8_Type__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Conditional Field 8 Type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Admin Review Opportunity Notice</fullName>
+                    <default>true</default>
+                    <label>Admin Review Opportunity Notice</label>
+                </value>
+                <value>
+                    <fullName>Amended Final</fullName>
+                    <default>false</default>
+                    <label>Amended Final</label>
+                </value>
+                <value>
+                    <fullName>Amended Preliminary</fullName>
+                    <default>false</default>
+                    <label>Amended Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Continuation</fullName>
+                    <default>false</default>
+                    <label>Continuation</label>
+                </value>
+                <value>
+                    <fullName>Continuation or Revocation</fullName>
+                    <default>false</default>
+                    <label>Continuation or Revocation</label>
+                </value>
+                <value>
+                    <fullName>Correction</fullName>
+                    <default>false</default>
+                    <label>Correction</label>
+                </value>
+                <value>
+                    <fullName>Deadline for Decision on how to proceed</fullName>
+                    <default>false</default>
+                    <label>Deadline for Decision on how to proceed</label>
+                </value>
+                <value>
+                    <fullName>Final</fullName>
+                    <default>false</default>
+                    <label>Final</label>
+                </value>
+                <value>
+                    <fullName>Initiation</fullName>
+                    <default>false</default>
+                    <label>Initiation</label>
+                </value>
+                <value>
+                    <fullName>Initiation/Prelim</fullName>
+                    <default>false</default>
+                    <label>Initiation/Prelim</label>
+                </value>
+                <value>
+                    <fullName>ITC Final</fullName>
+                    <default>false</default>
+                    <label>ITC Final</label>
+                </value>
+                <value>
+                    <fullName>ITC Preliminary</fullName>
+                    <default>false</default>
+                    <label>ITC Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Order</fullName>
+                    <default>false</default>
+                    <label>Order</label>
+                </value>
+                <value>
+                    <fullName>Petitioner</fullName>
+                    <default>false</default>
+                    <label>Petitioner</label>
+                </value>
+                <value>
+                    <fullName>Post Litigation</fullName>
+                    <default>false</default>
+                    <label>Post Litigation</label>
+                </value>
+                <value>
+                    <fullName>Postponement</fullName>
+                    <default>false</default>
+                    <label>Postponement</label>
+                </value>
+                <value>
+                    <fullName>Preliminary</fullName>
+                    <default>false</default>
+                    <label>Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Quarterly Scope</fullName>
+                    <default>false</default>
+                    <label>Quarterly Scope</label>
+                </value>
+                <value>
+                    <fullName>Rescission</fullName>
+                    <default>false</default>
+                    <label>Rescission</label>
+                </value>
+                <value>
+                    <fullName>Respondent</fullName>
+                    <default>false</default>
+                    <label>Respondent</label>
+                </value>
+                <value>
+                    <fullName>Revocation</fullName>
+                    <default>false</default>
+                    <label>Revocation</label>
+                </value>
+                <value>
+                    <fullName>Suspension Agreement</fullName>
+                    <default>false</default>
+                    <label>Suspension Agreement</label>
+                </value>
+                <value>
+                    <fullName>Termination</fullName>
+                    <default>false</default>
+                    <label>Termination</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Conditional_Field_8_Value__c</fullName>
         <externalId>false</externalId>
         <fieldManageability>SubscriberControlled</fieldManageability>
@@ -2569,6 +3658,16 @@
         <externalId>false</externalId>
         <fieldManageability>SubscriberControlled</fieldManageability>
         <label>Conditional Field 9 Name</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Conditional_Field_9_Object__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Conditional Field 9 Object</label>
         <length>80</length>
         <required>false</required>
         <type>Text</type>
@@ -2670,6 +3769,21 @@
                     <label>Use Date 5</label>
                 </value>
                 <value>
+                    <fullName>Use Date 6</fullName>
+                    <default>false</default>
+                    <label>Use Date 6</label>
+                </value>
+                <value>
+                    <fullName>Use Date 7</fullName>
+                    <default>false</default>
+                    <label>Use Date 7</label>
+                </value>
+                <value>
+                    <fullName>Use Date 8</fullName>
+                    <default>false</default>
+                    <label>Use Date 8</label>
+                </value>
+                <value>
                     <fullName>Use Constant 1</fullName>
                     <default>false</default>
                     <label>Use Constant 1</label>
@@ -2688,6 +3802,135 @@
                     <fullName>Use Constant 4</fullName>
                     <default>false</default>
                     <label>Use Constant 4</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Conditional_Field_9_Type__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Conditional Field 9 Type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Admin Review Opportunity Notice</fullName>
+                    <default>true</default>
+                    <label>Admin Review Opportunity Notice</label>
+                </value>
+                <value>
+                    <fullName>Amended Final</fullName>
+                    <default>false</default>
+                    <label>Amended Final</label>
+                </value>
+                <value>
+                    <fullName>Amended Preliminary</fullName>
+                    <default>false</default>
+                    <label>Amended Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Continuation</fullName>
+                    <default>false</default>
+                    <label>Continuation</label>
+                </value>
+                <value>
+                    <fullName>Continuation or Revocation</fullName>
+                    <default>false</default>
+                    <label>Continuation or Revocation</label>
+                </value>
+                <value>
+                    <fullName>Correction</fullName>
+                    <default>false</default>
+                    <label>Correction</label>
+                </value>
+                <value>
+                    <fullName>Deadline for Decision on how to proceed</fullName>
+                    <default>false</default>
+                    <label>Deadline for Decision on how to proceed</label>
+                </value>
+                <value>
+                    <fullName>Final</fullName>
+                    <default>false</default>
+                    <label>Final</label>
+                </value>
+                <value>
+                    <fullName>Initiation</fullName>
+                    <default>false</default>
+                    <label>Initiation</label>
+                </value>
+                <value>
+                    <fullName>Initiation/Prelim</fullName>
+                    <default>false</default>
+                    <label>Initiation/Prelim</label>
+                </value>
+                <value>
+                    <fullName>ITC Final</fullName>
+                    <default>false</default>
+                    <label>ITC Final</label>
+                </value>
+                <value>
+                    <fullName>ITC Preliminary</fullName>
+                    <default>false</default>
+                    <label>ITC Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Order</fullName>
+                    <default>false</default>
+                    <label>Order</label>
+                </value>
+                <value>
+                    <fullName>Petitioner</fullName>
+                    <default>false</default>
+                    <label>Petitioner</label>
+                </value>
+                <value>
+                    <fullName>Post Litigation</fullName>
+                    <default>false</default>
+                    <label>Post Litigation</label>
+                </value>
+                <value>
+                    <fullName>Postponement</fullName>
+                    <default>false</default>
+                    <label>Postponement</label>
+                </value>
+                <value>
+                    <fullName>Preliminary</fullName>
+                    <default>false</default>
+                    <label>Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Quarterly Scope</fullName>
+                    <default>false</default>
+                    <label>Quarterly Scope</label>
+                </value>
+                <value>
+                    <fullName>Rescission</fullName>
+                    <default>false</default>
+                    <label>Rescission</label>
+                </value>
+                <value>
+                    <fullName>Respondent</fullName>
+                    <default>false</default>
+                    <label>Respondent</label>
+                </value>
+                <value>
+                    <fullName>Revocation</fullName>
+                    <default>false</default>
+                    <label>Revocation</label>
+                </value>
+                <value>
+                    <fullName>Suspension Agreement</fullName>
+                    <default>false</default>
+                    <label>Suspension Agreement</label>
+                </value>
+                <value>
+                    <fullName>Termination</fullName>
+                    <default>false</default>
+                    <label>Termination</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2761,25 +4004,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Next_Deadline_Calculation__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <fieldManageability>SubscriberControlled</fieldManageability>
-        <label>Next Deadline Calculation</label>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Next_Deadline_Order__c</fullName>
-        <externalId>false</externalId>
-        <fieldManageability>SubscriberControlled</fieldManageability>
-        <label>Next Deadline Order</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Number_of_Base_Date_Fields__c</fullName>
         <externalId>false</externalId>
         <fieldManageability>SubscriberControlled</fieldManageability>
@@ -2813,17 +4037,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Number_of_Extensions__c</fullName>
-        <externalId>false</externalId>
-        <fieldManageability>SubscriberControlled</fieldManageability>
-        <label>Number of Extensions</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Order_of_Execution__c</fullName>
         <externalId>false</externalId>
         <fieldManageability>SubscriberControlled</fieldManageability>
@@ -2833,6 +4046,30 @@
         <scale>0</scale>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tolling_Service__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Tolling Service</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Get Calculated Date</fullName>
+                    <default>true</default>
+                    <label>Get Calculated Date</label>
+                </value>
+                <value>
+                    <fullName>Count Back Business Days</fullName>
+                    <default>false</default>
+                    <label>Count Back Business Days</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <label>Date Calculation</label>
     <pluralLabel>Date Calculations</pluralLabel>

@@ -1,5 +1,6 @@
 public without sharing class DateCalculationSelector {
 
+/*
 	public static Map<String,List<SObject>> allRecordsMap {
 		get {
 			if (allRecordsMap == null) {
@@ -11,19 +12,14 @@ public without sharing class DateCalculationSelector {
 			return allRecordsMap;
 		} set;
 	}
-
+*/
 	public static Map<ID,ADCVD_FederalRegisterUtility> getFrUtilMap(List<SObject> soList) {
 		ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(soList);
 		Map<ID,ADCVD_FederalRegisterUtility> frUtilMap = listInstance.utilMap;
 		return frUtilMap;
 	}
 
-	public static Map<String,Date> getFrDateMap(List<SObject> soList) {
-		ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(soList);
-		Map<String,Date> frDateMap = listInstance.varMap;
-		return frDateMap;
-	}
-
+/*
 	public static Map<Id,SObject> getSObjectsInScope(List<SObject> soList, String soType, String lookupFieldName) {
 		Map<Id,SObject> returnMap = new Map<Id,SObject>();
 		Set<Id> tempIdSet = new Set<Id>();
@@ -38,6 +34,7 @@ public without sharing class DateCalculationSelector {
 		}
 		return returnMap;
 	}
+*/
 
 	public static Map<Id,Petition__c> getPetitionsInScope(List<SObject> soList, String soType, String lookupFieldName) {
 		Map<Id,Petition__c> returnMap = new Map<Id,Petition__c>();
@@ -47,7 +44,7 @@ public without sharing class DateCalculationSelector {
 		for (SObject so : Utils.castRecordsToType(soList, soType)) {
 			tempIdSet.add((Id)so.get(lookupFieldName));
 		}
-		for (Petition__c p : PetitionSelector.allPetitions) {
+		for (Petition__c p : PetitionSelector.getPetitionsInContext(tempIdSet, Utils.allFieldsSet('Petition__c'), true)) {
 			if (tempIdSet.contains(p.Id)) {
 				returnMap.put(p.Id, p);
 			}
@@ -69,20 +66,18 @@ public without sharing class DateCalculationSelector {
 		}
 		return returnMap;
 	}
-
+/*
 	public static Map<Id,List<SObject>> getIssuesInScope(List<SObject> soList, String soType, String lookupFieldName) {
 		Map<Id,List<SObject>> returnMap = new Map<Id,List<SObject>>();
 		Set<Id> tempIdSet = new Set<Id>();
 		for (SObject so :  Utils.castRecordsToType(soList, soType)) {
 			tempIdSet.add((Id)so.get('Id'));
 		}
-		for (Issue__c i : IssueSelector.allIssues) {
-			if (tempIdSet.contains((Id)i.get(lookupFieldName))) {
-				List<SObject> tempList = new List<SObject>();
-				tempList = returnMap.get((Id)i.get(lookupFieldName)) != null ? returnMap.get((Id)i.get(lookupFieldName)) : tempList;
-				tempList.add(i);
-				returnMap.put((Id)i.get(lookupFieldName), tempList);
-			}
+		for (Issue__c i : IssueSelector.getIssuesInContext(tempIdSet, Utils.allFieldsSet('Issue__c'), true)) {
+			List<SObject> tempList = new List<SObject>();
+			tempList = returnMap.get((Id)i.get(lookupFieldName)) != null ? returnMap.get((Id)i.get(lookupFieldName)) : tempList;
+			tempList.add(i);
+			returnMap.put((Id)i.get(lookupFieldName), tempList);
 		}
 		return returnMap;
 	}
@@ -112,17 +107,19 @@ public without sharing class DateCalculationSelector {
 		}
 		return returnMap;
 	}
-
+*/
 	public static Map<String,Date_Calculation__mdt> getDateCalculationsMap(String soType, String recordType) {
 		Map<Integer, Date_Calculation__mdt> tempMap = new Map<Integer, Date_Calculation__mdt>();
 		Map<String,Date_Calculation__mdt> returnMap = new Map<String,Date_Calculation__mdt>();
+		Integer numberOfCalculations = 0;
 		for (Date_Calculation__mdt dc : CustomMetadataSelector.allDateCalculations) {
 			if (dc.ADCVD_Objects__r.Object_API_Name__c == soType && 
 				(String.isBlank(recordType) || dc.ADCVD_Objects__r.Record_Type_Name__c == recordType)) {
 				tempMap.put((Integer)dc.Order_of_Execution__c, dc);
+				numberOfCalculations = numberOfCalculations == 0 ? (Integer) dc.ADCVD_Objects__r.Number_of_Date_Calculations__c : numberOfCalculations;
 			}
 		}
-		for (Integer i = 0; i <= 200; i++) {
+		for (Integer i = 0; i <= numberOfCalculations; i++) {
 			if (tempMap.get(i) != null) {
 				returnMap.put(tempMap.get(i).QualifiedAPIName, tempMap.get(i));
 			}

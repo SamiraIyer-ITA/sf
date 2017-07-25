@@ -13,13 +13,6 @@ public class DateCalculationSelectorTest {
 		}
 	}
 
-	@isTest static void getFrDateMap() {
-		Test.startTest();
-		Map<String,Date> testMap = DateCalculationSelector.getFrDateMap(invList);
-		Test.stopTest();
-		System.assertNotEquals(0, testMap.size());
-	}
-
 	@isTest static void getFrUtilMap() {
 		Test.startTest();
 		Map<Id, ADCVD_FederalRegisterUtility> testMap = DateCalculationSelector.getFrUtilMap(invList);
@@ -33,7 +26,7 @@ public class DateCalculationSelectorTest {
 		Test.stopTest();
 		System.assertNotEquals(0, testMap.size());
 	}
-
+/*
 	@isTest static void getIssuesInScope() {
 		Test.startTest();
 		Map<Id,List<SObject>> testMap = DateCalculationSelector.getIssuesInScope(invList, 'Investigation__c', 'Investigation__c');
@@ -45,7 +38,7 @@ public class DateCalculationSelectorTest {
 		Test.startTest();
 		Map<Id,Issue__c> testMap = DateCalculationSelector.getIncompleteIssuesInScope(invList, 'Investigation__c', 'Investigation__c');
 		Test.stopTest();
-		System.assertEquals(0, testMap.size());
+		System.assertNotEquals(0, testMap.size());
 	}
 
 	@isTest static void getIncompleteIssues() {
@@ -55,7 +48,7 @@ public class DateCalculationSelectorTest {
 		Test.stopTest();
 		System.assertNotEquals(0, testMap.size());
 	}
-
+*/
 	@isTest static void getDateCalculationsMap() {
 		Test.startTest();
 		Map<String,Date_Calculation__mdt> testMap = DateCalculationSelector.getDateCalculationsMap('Investigation__c', 'AD');

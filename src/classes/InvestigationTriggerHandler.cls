@@ -724,6 +724,7 @@ public without sharing class InvestigationTriggerHandler {
         }
         if (i.AD_Investigation_Aligned_To__c == null) {
             if (prelimPublished != null && 
+                i.Actual_Preliminary_Signature__c != null &&
                 i.Amend_the_Preliminary_Determination__c == 'Yes' && 
                 i.Actual_Amended_Prelim_Determination_Sig__c == null && 
                 !outcomesThatTermInvestigations.contains(i.Investigation_Outcome__c)) {
