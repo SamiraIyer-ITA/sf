@@ -158,13 +158,13 @@ public without sharing class SegmentTriggerHandler {
     @TestVisible private static void syncToAdministrativeReview(List<Segment__c> newList) {
     	List<Segment__c> newShipperReviewsToSyncList = new List<Segment__c>();
     	for (Segment__c s : newList) {
-    		if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
+    		if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW && s.Administrative_Review_Aligned_To__c != null) {
     			setNewShipperSyncLevel(s);
     			newShipperReviewsToSyncList.add(s);
     		}
     		if (!newShipperReviewsToSyncList.isEmpty()) {
-    			SyncUtility su = new SyncUtility();
-            	su.syncObject(newShipperReviewsToSyncList, 'Segment__c');
+    			SyncUtility.syncObject(newShipperReviewsToSyncList, null, true);// su = ADCVDServiceDispatcher.getSyncUtilityInstance('Segment__c');
+        		//su.syncObject(newShipperReviewsToSyncList, 'Segment__c');
             }
     	}
     }

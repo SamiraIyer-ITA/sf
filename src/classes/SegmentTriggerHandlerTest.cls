@@ -401,6 +401,31 @@ public class SegmentTriggerHandlerTest {
 			[SELECT Id, Calculated_Final_Signature__c FROM Segment__c WHERE Id =: nsSeg.Id LIMIT 1].Calculated_Final_Signature__c);
 	}
 
+	//setCalculatedFinalSignature for the New Shipper Review
+	@isTest static void setCalculatedFinalSignatureNewShipperReviewSynced(){
+		Test.startTest();
+		
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		nsSeg.Administrative_Review_Aligned_To__c = adminSeg.Id;
+		update nsSeg;
+		getNewSegs();
+
+		//New Shipper Review
+		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(adminSeg.Calculated_Preliminary_Signature__c);
+		//compare Calculated_Preliminary_Signature__c + Final_Extension_of_days__c
+		System.assertEquals(testCalculated,
+			[SELECT Id, Calculated_Preliminary_Signature__c FROM Segment__c WHERE Id =: nsSeg.Id LIMIT 1].Calculated_Preliminary_Signature__c);
+
+		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(adminSeg.Calculated_Final_Signature__c);
+		//compare Actual_Preliminary_Signature__c + Final_Extension_of_days__c
+		
+		Test.stopTest();
+		System.assertEquals(testCalculated,
+			[SELECT Id, Calculated_Final_Signature__c FROM Segment__c WHERE Id =: nsSeg.Id LIMIT 1].Calculated_Final_Signature__c);
+	}
+
 	//setCalculatedFinalSignature for the Scope Inquiry
 	@isTest static void setCalculatedFinalSignatureScopeInquiry(){
 		Test.startTest();
@@ -1665,7 +1690,9 @@ public class SegmentTriggerHandlerTest {
 	@testSetup static void dataSetup() {
 		Test.startTest();
 		User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
-		ADCVD_Order__c testOrder = TestUtils.createOrder(true);
+		Petition__c testPet = TestUtils.createPetition(segmentDate.addDays(-350), 'AD', true);
+		Investigation__c testInvAd = TestUtils.createInvestigation('AD', testPet, true);
+		ADCVD_Order__c testOrder = TestUtils.createOrder(testInvAd, true);
 		List<Segment__c> segsToInsert = new List<Segment__c>();
 		System.runAs(testUser) {
 			for(String segRecordTypeName : utils.getRecordTypeDeveloperNameMap('Segment__c').values()) {
