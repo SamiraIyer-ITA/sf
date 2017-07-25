@@ -18,7 +18,7 @@ public without sharing class DateCalculationConditionService {
     	String conditionalFieldOperator = 'Conditional_Field_' + String.valueOf(condition) + '_Operator__c';
     	String conditionalFieldValue = 'Conditional_Field_' + String.valueOf(condition) + '_Value__c';
     	String operator = String.valueOf(dc.get(conditionalFieldOperator));
-    	System.debug('*** operator: ' + operator);
+    	System.debug('*** conditionalFieldName: ' + conditionalFieldName);
     	//Values of fields as objects
     	Object tempRecordFieldValue = record.get(String.valueOf(dc.get(conditionalFieldName)));
     	System.debug('*** tempRecordFieldValue: ' + tempRecordFieldValue);

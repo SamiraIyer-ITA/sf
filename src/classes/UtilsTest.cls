@@ -1,4 +1,4 @@
 @isTest
-public class utilsTest {
+public class UtilsTest {
 	//TODO
 }

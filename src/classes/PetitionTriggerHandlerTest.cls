@@ -48,7 +48,7 @@ public class PetitionTriggerHandlerTest {
 		System.assert(error.contains('extension cannot exceed more than 20 days'));
 		p.Initiation_Extension_of_days__c = 20;//in bounds
 		error = attemptInsert(p);
-		System.assertEquals(20, [SELECT Id, Initiation_Extension_of_days__c FROM  Petition__c WHERE Id =: p.Id].Initiation_Extension_of_days__c);
+		System.assertEquals(20, [SELECT Id, Initiation_Extension_of_days__c FROM Petition__c WHERE Id =: p.Id].Initiation_Extension_of_days__c);
 		Test.stopTest();
 	}
 
@@ -68,7 +68,7 @@ public class PetitionTriggerHandlerTest {
 		System.assertNotEquals(p.Id, null);
 		//Petition Filed Date in memory + 20(standard) + 1(extension) + 0(adjustment from trigger) == Calculated Initiation in database
 		System.assertEquals(petitionDate.addDays(20).addDays((Integer)(p.Initiation_Extension_of_days__c)), 
-			[SELECT Id, Calculated_Initiation_Signature__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Calculated_Initiation_Signature__c);
+			[SELECT Id, Calculated_Initiation_Signature__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Calculated_Initiation_Signature__c);
 		Test.stopTest();
 	}
 
@@ -88,7 +88,7 @@ public class PetitionTriggerHandlerTest {
 		System.assertNotEquals(p.Id, null);
 		//Petition Filed Date in memory + 20(standard) + 2(extension) + 2(Saturday and Sunday adjustment from trigger) == Calculated Initiation in database
 		System.assertEquals(petitionDate.addDays(20).addDays((Integer)p.Initiation_Extension_of_days__c).addDays(2), 
-			[SELECT Id, Calculated_Initiation_Signature__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Calculated_Initiation_Signature__c);
+			[SELECT Id, Calculated_Initiation_Signature__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Calculated_Initiation_Signature__c);
 		Test.stopTest();
 	}
 
@@ -111,7 +111,7 @@ public class PetitionTriggerHandlerTest {
 			System.assertNotEquals(p.Id, null);
 			//Petition Filed Date in memory + 20(standard) + 2(extension) + 3(Saturday, Sunday, and holiday Monday adjustment from trigger) == Calculated Initiation in database
 			System.assertEquals(petitionDate.addDays(20).addDays((Integer)p.Initiation_Extension_of_days__c).addDays(3), 
-				[SELECT Id, Calculated_Initiation_Signature__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Calculated_Initiation_Signature__c);
+				[SELECT Id, Calculated_Initiation_Signature__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Calculated_Initiation_Signature__c);
 		}
 		Test.stopTest();
 	}
@@ -135,7 +135,7 @@ public class PetitionTriggerHandlerTest {
 			System.assertNotEquals(p.Id, null);
 			//Petition Filed Date in memory + 20(standard) + 1(extension) + 1(Holiday adjustment from trigger) == Calculated Initiation in database
 			System.assertEquals(petitionDate.addDays(20).addDays((Integer)p.Initiation_Extension_of_days__c).addDays(1), 
-				[SELECT Id, Calculated_Initiation_Signature__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Calculated_Initiation_Signature__c);
+				[SELECT Id, Calculated_Initiation_Signature__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Calculated_Initiation_Signature__c);
 		}
 		Test.stopTest();
 	}
@@ -156,7 +156,7 @@ public class PetitionTriggerHandlerTest {
 		System.assertNotEquals(p.Id, null);
 		//Petition Filed Date in memory + 20(standard) + 20(extension) + 0(adjustment from trigger) == Calculated Initiation in database
 		System.assertEquals(petitionDate.addDays(20).addDays((Integer)(p.Initiation_Extension_of_days__c)), 
-			[SELECT Id, Calculated_Initiation_Signature__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Calculated_Initiation_Signature__c);
+			[SELECT Id, Calculated_Initiation_Signature__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Calculated_Initiation_Signature__c);
 		Test.stopTest();
 	}
 
@@ -177,7 +177,7 @@ public class PetitionTriggerHandlerTest {
 		System.assertNotEquals(p.Id, null);
 		//Petition Filed Date in memory + 20(standard) + 20(extension) - 2(Sat and Sun adjustment from trigger) == Calculated Initiation in database
 		System.assertEquals(petitionDate.addDays(20).addDays((Integer)(p.Initiation_Extension_of_days__c)).addDays(-2), 
-			[SELECT Id, Calculated_Initiation_Signature__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Calculated_Initiation_Signature__c);
+			[SELECT Id, Calculated_Initiation_Signature__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Calculated_Initiation_Signature__c);
 		Test.stopTest();
 	}*/
 
@@ -190,7 +190,7 @@ public class PetitionTriggerHandlerTest {
 
 		//From Petition
 		//Initial Status
-		System.assertEquals('In Progress', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);//default on Insert
+		System.assertEquals('In Progress', [SELECT Id, Petition_Outcome__c, Status__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);//default on Insert
 
 		//Litigation Status - Inactive
 		p.Litigation_YesNo__c = 'Yes';
@@ -198,20 +198,20 @@ public class PetitionTriggerHandlerTest {
 		p.Actual_Initiation_Signature__c = petitionDate.addDays(14);
 		p.Petition_Outcome__c = 'Initiated from Petition';
 		update p;
-		System.assertEquals('Litigation', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
+		System.assertEquals('Litigation', [SELECT Id, Petition_Outcome__c, Status__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
 
 		//Closed Status - Withdrawn
 		p.Actual_Initiation_Signature__c = null;
 		p.Petition_Outcome__c = 'Petition Withdrawn/Did Not Initiate';
 		update p;
-		System.assertEquals('Litigation', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
+		System.assertEquals('Litigation', [SELECT Id, Petition_Outcome__c, Status__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
 
 		//Closed Status - Rejected
 		p.Litigation_YesNo__c = 'No';
 		p.Litigation_Resolved__c = '';
 		p.Petition_Outcome__c = 'Deficient Petition/Did Not Initiate';
 		update p;
-		System.assertEquals('Closed', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
+		System.assertEquals('Closed', [SELECT Id, Petition_Outcome__c, Status__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
 
 		//Self-Initiated
 		p.Actual_Initiation_Signature__c = petitionDate.addDays(14);
@@ -219,7 +219,85 @@ public class PetitionTriggerHandlerTest {
 		update p;
 
 		Test.stopTest();
-		System.assertEquals('Closed', [SELECT Id, Petition_Outcome__c, Status__c FROM  Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
+		System.assertEquals('Closed', [SELECT Id, Petition_Outcome__c, Status__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Status__c);
+	}
+
+	@isTest static void setNextMajorDeadline() {
+		Test.startTest();
+		petitionDate = petitionDate.toStartOfWeek().addDays(-9);//need date in past for Actual to be set in past
+		Petition__c p = TestUtils.createPetition(petitionDate, 'AD ME', true);
+		System.assertEquals(p.Calculated_Initiation_Signature__c, p.Next_Major_Deadline__c);
+
+		p.Petition_Outcome__c = 'Initiated from Petition';
+		p.Actual_Initiation_Signature__c = System.today().addDays(-1);
+		update p;
+
+		Test.stopTest();
+		System.assertEquals(null, [SELECT Id, Next_Major_Deadline__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Next_Major_Deadline__c);
+	}
+
+	@isTest static void setNextAnnouncementDate() {
+		Test.startTest();
+		petitionDate = petitionDate.toStartOfWeek().addDays(-9);//need date in past for Actual to be set in past
+		Petition__c p = TestUtils.createPetition(petitionDate, 'AD ME', true);
+		System.assertEquals(p.Initiation_Announcement_Date__c, p.Next_Announcement_Date__c);
+
+		p.Petition_Outcome__c = 'Initiated from Petition';
+		p.Actual_Initiation_Signature__c = System.today().addDays(-1);
+		update p;
+
+		Test.stopTest();
+		System.assertEquals(null, [SELECT Id, Next_Announcement_Date__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Next_Announcement_Date__c);
+	}
+
+	@isTest static void setNextDueToDasDeadline() {
+		Test.startTest();
+		petitionDate = petitionDate.toStartOfWeek().addDays(-9);//need date in past for Actual to be set in past
+		Petition__c p = TestUtils.createPetition(petitionDate, 'AD ME', true);
+		System.assertEquals([SELECT Id, Initiation_Issues_Due_to_DAS__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Initiation_Issues_Due_to_DAS__c, 
+			[SELECT Id, Next_Due_to_DAS_Deadline__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Next_Due_to_DAS_Deadline__c);
+
+		p.Actual_Initiation_Issues_to_DAS__c = petitionDate.addDays(4);
+		update p;
+		System.assertEquals([SELECT Initiation_Concurrence_Due_to_DAS__c FROM Petition__c WHERE Id =: p.Id].Initiation_Concurrence_Due_to_DAS__c, 
+			[SELECT Id, Next_Due_to_DAS_Deadline__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Next_Due_to_DAS_Deadline__c);
+
+		p.Actual_Initiation_Concurrence_to_DAS__c = petitionDate.addDays(7);
+		update p;
+		System.assertEquals([SELECT Id, Calculated_Initiation_Signature__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Calculated_Initiation_Signature__c, 
+			[SELECT Id, Next_Due_to_DAS_Deadline__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Next_Due_to_DAS_Deadline__c);
+
+		p.Petition_Outcome__c = 'Initiated from Petition';
+		p.Actual_Initiation_Signature__c = System.today().addDays(-1);
+		update p;
+
+		Test.stopTest();
+		System.assertEquals(null, [SELECT Id, Next_Due_to_DAS_Deadline__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Next_Due_to_DAS_Deadline__c);
+	}
+
+	@isTest static void setNextOfficeDeadline() {
+		Test.startTest();
+		petitionDate = petitionDate.toStartOfWeek().addDays(-9);//need date in past for Actual to be set in past
+		Petition__c p = TestUtils.createPetition(petitionDate, 'AD ME', true);
+		System.assertEquals([SELECT Id, Initiation_Issues_Due_to_DAS__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Initiation_Issues_Due_to_DAS__c, 
+			[SELECT Id, Next_Office_Deadline__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Next_Office_Deadline__c);
+
+		p.Actual_Initiation_Issues_to_DAS__c = petitionDate.addDays(4);
+		update p;
+		System.assertEquals([SELECT Initiation_Concurrence_Due_to_DAS__c FROM Petition__c WHERE Id =: p.Id].Initiation_Concurrence_Due_to_DAS__c, 
+			[SELECT Id, Next_Office_Deadline__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Next_Office_Deadline__c);
+
+		p.Actual_Initiation_Concurrence_to_DAS__c = petitionDate.addDays(7);
+		update p;
+		System.assertEquals([SELECT Id, Calculated_Initiation_Signature__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Calculated_Initiation_Signature__c, 
+			[SELECT Id, Next_Office_Deadline__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Next_Office_Deadline__c);
+
+		p.Petition_Outcome__c = 'Initiated from Petition';
+		p.Actual_Initiation_Signature__c = System.today().addDays(-1);
+		update p;
+
+		Test.stopTest();
+		System.assertEquals(null, [SELECT Id, Next_Office_Deadline__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Next_Office_Deadline__c);
 	}
 
 	@testSetup static void dataSetup() {

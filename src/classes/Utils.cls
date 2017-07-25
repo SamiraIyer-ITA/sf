@@ -165,6 +165,30 @@ public without sharing class Utils {
         return query;
     }
 
+    public static Set<String> allFieldsSet(String soType) {
+        Map<String, Schema.SObjectType> schemaMap = utils.cachedGD;
+        Map<String, Schema.SObjectField> fieldMap = schemaMap.get(soType).getDescribe().fields.getMap();
+        Set<String> returnSet = new Set<String>();
+        for (String fieldName : fieldMap.keyset()){
+            returnSet.add(fieldName.toLowerCase());
+        }
+        return returnSet;
+    }
+
+    public static List<SObject> getSObjectsInContext(String sObjectName, Set<Id> sObjectIdSet, Set<String> fields) {
+		String query = '';
+		for (String fieldName : fields) {
+			if (String.isBlank(query)) {
+				query = 'SELECT ' + fieldName;
+			} else {
+				query += ', ' + fieldName;
+			}
+		}
+		query += ' FROM '+ sObjectName +' WHERE Id IN: sObjectIdSet';
+		System.debug('****** '+query);
+		return database.query(query);
+	}
+
     public static List<SObject> castRecordsToType(List<SObject> records, String soType) {
 	    String listType = 'List<' + soType + '>';
 	    List<SObject> returnList = (List<SObject>)Type.forName(listType).newInstance();

@@ -3,6 +3,10 @@
     <label>ADCVD Order</label>
     <protected>false</protected>
     <values>
+        <field>Number_of_Date_Calculations__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
         <field>Object_API_Name__c</field>
         <value xsi:type="xsd:string">ADCVD_Order__c</value>
     </values>

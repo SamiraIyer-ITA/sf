@@ -53,6 +53,24 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
+        <fullName>Actual_Initiation_Concurrence_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Initiation Concurrence to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Initiation_Issues_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Initiation Issues to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Actual_Initiation_Sig_After_Calculated__c</fullName>
         <externalId>false</externalId>
         <formula>Actual_Initiation_Signature__c &gt; Calculated_Initiation_Signature__c</formula>
@@ -575,6 +593,15 @@ C-###-### for CVD</inlineHelpText>
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Initiation_Concurrence_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Initiation Concurrence Due to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Initiation_Extension_Days_Remaining__c</fullName>
         <description>Extension Number of days remaining for Initiation</description>
         <externalId>false</externalId>
@@ -602,6 +629,15 @@ C-###-### for CVD</inlineHelpText>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Initiation_Issues_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Initiation Issues Due to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Injunction__c</fullName>
@@ -731,9 +767,9 @@ C-###-### for CVD</inlineHelpText>
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Next_Office_PM_Deadline__c</fullName>
+        <fullName>Next_Office_Deadline__c</fullName>
         <externalId>false</externalId>
-        <label>Next Office/PM Deadline</label>
+        <label>Next Office Deadline</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
