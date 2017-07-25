@@ -15,7 +15,7 @@ public class SyncUtilityTest {
 	private static List<Petition__c> pList {
 		get {
 			if(pList == null) {
-				pList = [SELECT Id, Commodity__c FROM Petition__c];
+				pList = [SELECT Id, Case_Number__c, Commodity__c FROM Petition__c];
 			}
 			return pList;
 		}

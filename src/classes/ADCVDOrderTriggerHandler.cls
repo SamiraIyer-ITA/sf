@@ -199,24 +199,22 @@ public without sharing class ADCVDOrderTriggerHandler {
         for (ADCVD_Order__c o : newList){
         	if (o.Status__c != 'Revoked-Complete') {//skip if already Revoked-Complete
         		o.Status__c = 'Order FR Needed';//set for before insert context
-	            Date orderPublishedDate = null;
-	            Date revocationPublishedDate = null;
-	            if (o.Id != null) {
-		            if (frUtilMap != null) {
-		            	revocationPublishedDate = frUtilMap.get(o.Id) != null ? frUtilMap.get(o.Id).revocationPublishedDate : null;
-		                orderPublishedDate = frUtilMap.get(o.Id) != null ? frUtilMap.get(o.Id).orderPublishedDate : null;
-		            }
-		            if (orderPublishedDate == null) {//set if updated and still does not have an Order FR
-		                o.Status__c = 'Order FR Needed';
-		            } else if (o.Segment_Status__c == 'Active') {//set based on Segment Status
-		                o.Status__c = 'Current-Active';
-		            } else if (o.Segment_Status__c != 'Active') {
-		            	o.Status__c = 'Current-Inactive';
-		            }
-		            if (revocationPublishedDate != null) {
-		            	o.Status__c = 'Revoked-Incomplete';
-		            }
+	            Date orderPublished = null;
+	            Date revocationPublished = null;
+	            if (o.Id != null && frUtilMap != null) {
+	            	revocationPublished = frUtilMap.get(o.Id) != null ? frUtilMap.get(o.Id).revocationPublishedDate : null;
+	                orderPublished = frUtilMap.get(o.Id) != null ? frUtilMap.get(o.Id).orderPublishedDate : null;
 		        }
+	            if (orderPublished == null) {//set if updated and still does not have an Order FR
+	                o.Status__c = 'Order FR Needed';
+	            } else if (o.Segment_Status__c == 'Active') {//set based on Segment Status
+	                o.Status__c = 'Current-Active';
+	            } else if (o.Segment_Status__c != 'Active') {
+	            	o.Status__c = 'Current-Inactive';
+	            }
+	            if (revocationPublished != null) {
+	            	o.Status__c = 'Revoked-Incomplete';
+	            }
         	}
         }
     }
