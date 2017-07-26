@@ -21,7 +21,12 @@ public class InvestigationTriggerHandlerTest {
 							Actual_Preliminary_Signature__c, Calculated_Final_Signature__c, Calc_Amended_Prelim_Determination_Sig__c, Petition__c, 
 							Prelim_Team_Meeting_Deadline__c, Calculated_Amended_Final_Signature__c, Actual_Final_Signature__c, Final_Team_Meeting_Deadline__c, 
 							Est_ITC_Notification_to_DOC_of_Final_Det__c, ITC_Notification_to_DOC_of_Final_Determ__c, Calculated_Order_FR_Signature__c, 
-							Calculated_ITC_Final_FR_Published__c, Estimated_Order_FR_Published__c, Calculated_Prelim_Extension_Request_File__c 
+							Calculated_ITC_Final_FR_Published__c, Estimated_Order_FR_Published__c, Calculated_Prelim_Extension_Request_File__c, 
+							Calculated_Postponement_of_PrelimDeterFR__c, 
+							Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, Amend_Prelim_Issues_Due_to_DAS__c, Amend_Prelim_Concurrence_Due_to_DAS__c, 
+							Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, Amend_Final_Issues_Due_to_DAS__c, Amend_Final_Concurrence_Due_to_DAS__c,
+							Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, 
+							Preliminary_Announcement_Date__c, Amended_Preliminary_Announcement_Date__c, Final_Announcement_Date__c, Amended_Final_Announcement_Date__c
 						FROM Investigation__c];
 			}
 			return iList;
@@ -35,7 +40,13 @@ public class InvestigationTriggerHandlerTest {
 							Actual_Preliminary_Signature__c, Calculated_Final_Signature__c, Calc_Amended_Prelim_Determination_Sig__c, Petition__c, 
 							Prelim_Team_Meeting_Deadline__c, Calculated_Amended_Final_Signature__c, Actual_Final_Signature__c, Final_Team_Meeting_Deadline__c, 
 							Est_ITC_Notification_to_DOC_of_Final_Det__c, ITC_Notification_to_DOC_of_Final_Determ__c, Calculated_Order_FR_Signature__c, 
-							Calculated_ITC_Final_FR_Published__c, Estimated_Order_FR_Published__c, Calculated_Prelim_Extension_Request_File__c 
+							Calculated_ITC_Final_FR_Published__c, Estimated_Order_FR_Published__c, Calculated_Prelim_Extension_Request_File__c, 
+							Calculated_Postponement_of_PrelimDeterFR__c, 
+							Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, Amend_Prelim_Issues_Due_to_DAS__c, Amend_Prelim_Concurrence_Due_to_DAS__c, 
+							Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, Amend_Final_Issues_Due_to_DAS__c, Amend_Final_Concurrence_Due_to_DAS__c, 
+							Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, 
+							Preliminary_Announcement_Date__c, Amended_Preliminary_Announcement_Date__c, Final_Announcement_Date__c, Amended_Final_Announcement_Date__c, 
+							Calculated_ITC_Prelim_Determination__c 
 						FROM Investigation__c WHERE RecordTypeId =: recordType LIMIT 1];
 			}
 			return iAD;
@@ -49,7 +60,13 @@ public class InvestigationTriggerHandlerTest {
 							Actual_Preliminary_Signature__c, Calculated_Final_Signature__c, Calc_Amended_Prelim_Determination_Sig__c, Petition__c, 
 							Prelim_Team_Meeting_Deadline__c, Calculated_Amended_Final_Signature__c, Actual_Final_Signature__c, Final_Team_Meeting_Deadline__c, 
 							Est_ITC_Notification_to_DOC_of_Final_Det__c, ITC_Notification_to_DOC_of_Final_Determ__c, Calculated_Order_FR_Signature__c, 
-							Calculated_ITC_Final_FR_Published__c, Estimated_Order_FR_Published__c, Calculated_Prelim_Extension_Request_File__c 
+							Calculated_ITC_Final_FR_Published__c, Estimated_Order_FR_Published__c, Calculated_Prelim_Extension_Request_File__c, 
+							Petition_Initiation_Signature__c, Calculated_Postponement_of_PrelimDeterFR__c, 
+							Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, Amend_Prelim_Issues_Due_to_DAS__c, Amend_Prelim_Concurrence_Due_to_DAS__c, 
+							Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, Amend_Final_Issues_Due_to_DAS__c, Amend_Final_Concurrence_Due_to_DAS__c, 
+							Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, 
+							Preliminary_Announcement_Date__c, Amended_Preliminary_Announcement_Date__c, Final_Announcement_Date__c, Amended_Final_Announcement_Date__c, 
+							Calculated_ITC_Prelim_Determination__c 
 						FROM Investigation__c WHERE RecordTypeId =: recordType LIMIT 1];
 			}
 			return iCVD;
@@ -870,6 +887,393 @@ public class InvestigationTriggerHandlerTest {
 
 	}
 
+	//Next Major Deadline
+	@isTest static void setNextMajorDeadlineAD() {
+		Test.startTest();
+		System.assertEquals(iAD.Calculated_Preliminary_Signature__c, iAD.Next_Major_Deadline__c);
+
+		iAD.Amend_the_Preliminary_Determination__c = 'Yes';
+		iAD.Actual_Preliminary_Signature__c = iAD.Calculated_Preliminary_Signature__c.addDays(-7);
+		update iAD;
+		iAD = null;
+		System.assertEquals(iAD.Calc_Amended_Prelim_Determination_Sig__c, iAD.Next_Major_Deadline__c);
+
+		iAD.Actual_Amended_Prelim_Determination_Sig__c = iAD.Calculated_Preliminary_Signature__c.addDays(7);
+		update iAD;
+		iAD = null;
+		System.assertEquals(iAD.Calculated_Final_Signature__c, iAD.Next_Major_Deadline__c);
+
+		iAD.Will_you_Amend_the_Final__c = 'Yes';
+		iAD.Actual_Final_Signature__c = iAD.Calculated_Final_Signature__c.addDays(-7);
+		update iAD;
+		iAD = null;
+		System.assertEquals(iAD.Calculated_Amended_Final_Signature__c, iAD.Next_Major_Deadline__c);
+
+		iAD.Actual_Amended_Final_Signature__c = iAD.Calculated_Amended_Final_Signature__c.addDays(7);
+		update iAD;
+		iAD = null;
+		System.assertEquals(iAD.Calculated_Order_FR_Signature__c, iAD.Next_Major_Deadline__c);
+
+		ADCVD_Order__c ao = TestUtils.createOrder(iAD, true);
+		Federal_Register__c orderFR = TestUtils.createFR(ao.Id, 'ADCVD_Order__c', System.today(), 'Order', true);
+		iAD = null;
+
+		Test.stopTest();
+		System.assertEquals(null, iAD.Next_Major_Deadline__c);
+	}
+
+	//Next Major Deadline
+	@isTest static void setNextMajorDeadlineCVD() {
+		Test.startTest();
+		System.assertEquals(iCVD.Calculated_Preliminary_Signature__c, iCVD.Next_Major_Deadline__c);
+
+		iCVD.Amend_the_Preliminary_Determination__c = 'Yes';
+		iCVD.Actual_Preliminary_Signature__c = iCVD.Calculated_Preliminary_Signature__c.addDays(-7);
+		update iCVD;
+		iCVD = null;
+		System.assertEquals(iCVD.Calc_Amended_Prelim_Determination_Sig__c, iCVD.Next_Major_Deadline__c);
+
+		iCVD.Actual_Amended_Prelim_Determination_Sig__c = iCVD.Calculated_Preliminary_Signature__c.addDays(7);
+		update iCVD;
+		iCVD = null;
+		System.assertEquals(iCVD.Calculated_Final_Signature__c, iCVD.Next_Major_Deadline__c);
+
+		iCVD.Will_you_Amend_the_Final__c = 'Yes';
+		iCVD.Actual_Final_Signature__c = iCVD.Calculated_Final_Signature__c.addDays(-7);
+		update iCVD;
+		iCVD = null;
+		System.assertEquals(iCVD.Calculated_Amended_Final_Signature__c, iCVD.Next_Major_Deadline__c);
+
+		iCVD.Actual_Amended_Final_Signature__c = iCVD.Calculated_Amended_Final_Signature__c.addDays(7);
+		update iCVD;
+		iCVD = null;
+		System.assertEquals(iCVD.Calculated_Order_FR_Signature__c, iCVD.Next_Major_Deadline__c);
+
+		ADCVD_Order__c ao = TestUtils.createOrder(iCVD, true);
+		Federal_Register__c orderFR = TestUtils.createFR(ao.Id, 'ADCVD_Order__c', System.today(), 'Order', true);
+		iCVD = null;
+
+		Test.stopTest();
+		System.assertEquals(null, iCVD.Next_Major_Deadline__c);
+	}
+
+	//Next Announcement Date
+	@isTest static void setNextAnnouncementDateAD() {
+		Test.startTest();
+		System.assertEquals(iAD.Preliminary_Announcement_Date__c, iAD.Next_Announcement_Date__c);
+
+		iAD.Amend_the_Preliminary_Determination__c = 'Yes';
+		iAD.Will_you_Amend_the_Final__c = 'Yes';
+		iAD.Actual_Preliminary_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update iAD;
+		iAD = null;
+		System.assertEquals(iAD.Amended_Preliminary_Announcement_Date__c, iAD.Next_Announcement_Date__c);
+
+		iAD.Actual_Amended_Prelim_Determination_Sig__c = System.today().toStartOfWeek().addDays(-4);
+		update iAD;
+		iAD = null;
+		System.assertEquals(iAD.Final_Announcement_Date__c, iAD.Next_Announcement_Date__c);
+
+		
+		iAD.Actual_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update iAD;
+		iAD = null;
+		System.assertEquals(iAD.Next_Announcement_Date__c, iAD.Next_Announcement_Date__c);
+
+		iAD.Actual_Amended_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update iAD;
+		iAD = null;
+
+		Test.stopTest();
+		System.assertEquals(null, iAD.Next_Announcement_Date__c);
+	}
+
+	//Next Announcement Date
+	@isTest static void setNextAnnouncementDateCVD() {
+		Test.startTest();
+		System.assertEquals(iCVD.Preliminary_Announcement_Date__c, iCVD.Next_Announcement_Date__c);
+
+		iCVD.Amend_the_Preliminary_Determination__c = 'Yes';
+		iCVD.Will_you_Amend_the_Final__c = 'Yes';
+		iCVD.Actual_Preliminary_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update iCVD;
+		iCVD = null;
+		System.assertEquals(iCVD.Amended_Preliminary_Announcement_Date__c, iCVD.Next_Announcement_Date__c);
+
+		iCVD.Actual_Amended_Prelim_Determination_Sig__c = System.today().toStartOfWeek().addDays(-4);
+		update iCVD;
+		iCVD = null;
+		System.assertEquals(iCVD.Final_Announcement_Date__c, iCVD.Next_Announcement_Date__c);
+
+		
+		iCVD.Actual_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update iCVD;
+		iCVD = null;
+		System.assertEquals(iCVD.Next_Announcement_Date__c, iCVD.Next_Announcement_Date__c);
+
+		iCVD.Actual_Amended_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update iCVD;
+		iCVD = null;
+
+		Test.stopTest();
+		System.assertEquals(null, iCVD.Next_Announcement_Date__c);
+	}
+
+	//Next Due to DAS Deadline
+	@isTest static void setNextDueToDasDeadlineADPrelim() {
+		Test.startTest();
+		System.assertEquals(iAD.Calculated_Postponement_of_PrelimDeterFR__c, iAD.Next_Due_to_DAS_Deadline__c);
+
+		iAD.Amend_the_Preliminary_Determination__c = 'Yes';
+		iAD.Will_you_Amend_the_Final__c = 'Yes';
+		iAD.Signature_of_Prelim_Postponement_FR__c = iAD.Calculated_Preliminary_Signature__c.addDays(-28);
+		update iAD;
+		iAD = null;
+		System.assertEquals(iAD.Prelim_Issues_Due_to_DAS__c, iAD.Next_Due_to_DAS_Deadline__c);
+
+		iAD.Actual_Prelim_Issues_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(-14);
+		update iAD;
+		iAD = null;
+		System.assertEquals(iAD.Prelim_Concurrence_Due_to_DAS__c, iAD.Next_Due_to_DAS_Deadline__c);
+
+		iAD.Actual_Prelim_Concurrence_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(-7);
+		update iAD;
+		iAD = null;
+		System.assertEquals(iAD.Calculated_Preliminary_Signature__c, iAD.Next_Due_to_DAS_Deadline__c);
+
+		iAD.Actual_Preliminary_Signature__c = iAD.Calculated_Preliminary_Signature__c;
+		update iAD;
+		iAD = null;
+
+		Test.stopTest();
+		System.assertEquals(iAD.Amend_Prelim_Issues_Due_to_DAS__c, iAD.Next_Due_to_DAS_Deadline__c);
+	}
+
+	//Next Due to DAS Deadline
+	@isTest static void setNextDueToDasDeadlineCVDPrelim() {
+		Test.startTest();
+		System.assertEquals(iCVD.Calculated_Postponement_of_PrelimDeterFR__c, iCVD.Next_Due_to_DAS_Deadline__c);
+
+		iCVD.Amend_the_Preliminary_Determination__c = 'Yes';
+		iCVD.Will_you_Amend_the_Final__c = 'Yes';
+		iCVD.Signature_of_Prelim_Postponement_FR__c = iCVD.Calculated_Preliminary_Signature__c.addDays(-28);
+		update iCVD;
+		iCVD = null;
+		System.assertEquals(iCVD.Prelim_Issues_Due_to_DAS__c, iCVD.Next_Due_to_DAS_Deadline__c);
+
+		iCVD.Actual_Prelim_Issues_to_DAS__c = iCVD.Calculated_Preliminary_Signature__c.addDays(-14);
+		update iCVD;
+		iCVD = null;
+		System.assertEquals(iCVD.Prelim_Concurrence_Due_to_DAS__c, iCVD.Next_Due_to_DAS_Deadline__c);
+
+		iCVD.Actual_Prelim_Concurrence_to_DAS__c = iCVD.Calculated_Preliminary_Signature__c.addDays(-7);
+		update iCVD;
+		iCVD = null;
+		System.assertEquals(iCVD.Calculated_Preliminary_Signature__c, iCVD.Next_Due_to_DAS_Deadline__c);
+
+		iCVD.Actual_Preliminary_Signature__c = iCVD.Calculated_Preliminary_Signature__c;
+		update iCVD;
+		iCVD = null;
+
+		Test.stopTest();
+		System.assertEquals(iCVD.Amend_Prelim_Issues_Due_to_DAS__c, iCVD.Next_Due_to_DAS_Deadline__c);
+	}
+
+	//Next Due to DAS Deadline
+	@isTest static void setNextDueToDasDeadlineADAmendPrelim() {
+		Test.startTest();
+
+		iAD.Amend_the_Preliminary_Determination__c = 'Yes';
+		iAD.Will_you_Amend_the_Final__c = 'Yes';
+		iAD.Signature_of_Prelim_Postponement_FR__c = iAD.Calculated_Preliminary_Signature__c.addDays(-28);
+		iAD.Actual_Prelim_Issues_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(-14);
+		iAD.Actual_Prelim_Concurrence_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(-7);
+		iAD.Actual_Preliminary_Signature__c = iAD.Calculated_Preliminary_Signature__c;
+		iAD.Actual_Amend_Prelim_Issues_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(7);
+		update iAD;
+		iAD = null;
+		System.assertEquals(iAD.Amend_Prelim_Concurrence_Due_to_DAS__c, iAD.Next_Due_to_DAS_Deadline__c);
+
+		iAD.Actual_Amend_Prelim_Concurrence_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(14);
+		update iAD;
+		iAD = null;
+		System.assertEquals(iAD.Calc_Amended_Prelim_Determination_Sig__c, iAD.Next_Due_to_DAS_Deadline__c);
+
+		iAD.Actual_Amended_Prelim_Determination_Sig__c = iAD.Calculated_Preliminary_Signature__c.addDays(21);
+		update iAD;
+		iAD = null;
+
+		Test.stopTest();
+		System.assertEquals(iAD.Final_Issues_Due_to_DAS__c, iAD.Next_Due_to_DAS_Deadline__c);
+	}
+
+	//Next Due to DAS Deadline
+	@isTest static void setNextDueToDasDeadlineCVDAmendPrelim() {
+		Test.startTest();
+
+		iCVD.Amend_the_Preliminary_Determination__c = 'Yes';
+		iCVD.Will_you_Amend_the_Final__c = 'Yes';
+		iCVD.Signature_of_Prelim_Postponement_FR__c = iCVD.Calculated_Preliminary_Signature__c.addDays(-28);
+		iCVD.Actual_Prelim_Issues_to_DAS__c = iCVD.Calculated_Preliminary_Signature__c.addDays(-14);
+		iCVD.Actual_Prelim_Concurrence_to_DAS__c = iCVD.Calculated_Preliminary_Signature__c.addDays(-7);
+		iCVD.Actual_Preliminary_Signature__c = iCVD.Calculated_Preliminary_Signature__c;
+		iCVD.Actual_Amend_Prelim_Issues_to_DAS__c = iCVD.Calculated_Preliminary_Signature__c.addDays(7);
+		update iCVD;
+		iCVD = null;
+		System.assertEquals(iCVD.Amend_Prelim_Concurrence_Due_to_DAS__c, iCVD.Next_Due_to_DAS_Deadline__c);
+
+		iCVD.Actual_Amend_Prelim_Concurrence_to_DAS__c = iCVD.Calculated_Preliminary_Signature__c.addDays(14);
+		update iCVD;
+		iCVD = null;
+		System.assertEquals(iCVD.Calc_Amended_Prelim_Determination_Sig__c, iCVD.Next_Due_to_DAS_Deadline__c);
+
+		iCVD.Actual_Amended_Prelim_Determination_Sig__c = iCVD.Calculated_Preliminary_Signature__c.addDays(21);
+		update iCVD;
+		iCVD = null;
+
+		Test.stopTest();
+		System.assertEquals(iCVD.Final_Issues_Due_to_DAS__c, iCVD.Next_Due_to_DAS_Deadline__c);
+	}
+
+	//Next Due to DAS Deadline
+	@isTest static void setNextDueToDasDeadlineADFinal() {
+		Test.startTest();
+
+		iAD.Amend_the_Preliminary_Determination__c = 'Yes';
+		iAD.Will_you_Amend_the_Final__c = 'Yes';
+		iAD.Signature_of_Prelim_Postponement_FR__c = iAD.Calculated_Preliminary_Signature__c.addDays(-28);
+		iAD.Actual_Prelim_Issues_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(-14);
+		iAD.Actual_Prelim_Concurrence_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(-7);
+		iAD.Actual_Preliminary_Signature__c = iAD.Calculated_Preliminary_Signature__c;
+		iAD.Actual_Amend_Prelim_Issues_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(7);
+		iAD.Actual_Amend_Prelim_Concurrence_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(14);
+		iAD.Actual_Amended_Prelim_Determination_Sig__c = iAD.Calculated_Preliminary_Signature__c.addDays(21);
+		iAD.Actual_Final_Issues_to_DAS__c = iAD.Calculated_Final_Signature__c.addDays(-14);
+		update iAD;
+		iAD = null;
+		System.assertEquals(iAD.Final_Concurrence_Due_to_DAS__c, iAD.Next_Due_to_DAS_Deadline__c);
+
+		iAD.Actual_Final_Concurrence_to_DAS__c = iAD.Calculated_Final_Signature__c.addDays(-7);
+		update iAD;
+		iAD = null;
+		System.assertEquals(iAD.Calculated_Final_Signature__c, iAD.Next_Due_to_DAS_Deadline__c);
+
+		iAD.Actual_Final_Signature__c = iAD.Calculated_Final_Signature__c;
+		update iAD;
+		iAD = null;
+
+		Test.stopTest();
+		System.assertEquals(iAD.Amend_Final_Issues_Due_to_DAS__c, iAD.Next_Due_to_DAS_Deadline__c);
+	}
+
+	//Next Due to DAS Deadline
+	@isTest static void setNextDueToDasDeadlineCVDFinal() {
+		Test.startTest();
+
+		iCVD.Amend_the_Preliminary_Determination__c = 'Yes';
+		iCVD.Will_you_Amend_the_Final__c = 'Yes';
+		iCVD.Signature_of_Prelim_Postponement_FR__c = iCVD.Calculated_Preliminary_Signature__c.addDays(-28);
+		iCVD.Actual_Prelim_Issues_to_DAS__c = iCVD.Calculated_Preliminary_Signature__c.addDays(-14);
+		iCVD.Actual_Prelim_Concurrence_to_DAS__c = iCVD.Calculated_Preliminary_Signature__c.addDays(-7);
+		iCVD.Actual_Preliminary_Signature__c = iCVD.Calculated_Preliminary_Signature__c;
+		iCVD.Actual_Amend_Prelim_Issues_to_DAS__c = iCVD.Calculated_Preliminary_Signature__c.addDays(7);
+		iCVD.Actual_Amend_Prelim_Concurrence_to_DAS__c = iCVD.Calculated_Preliminary_Signature__c.addDays(14);
+		iCVD.Actual_Amended_Prelim_Determination_Sig__c = iCVD.Calculated_Preliminary_Signature__c.addDays(21);
+		iCVD.Actual_Final_Issues_to_DAS__c = iCVD.Calculated_Final_Signature__c.addDays(-14);
+		update iCVD;
+		iCVD = null;
+		System.assertEquals(iCVD.Final_Concurrence_Due_to_DAS__c, iCVD.Next_Due_to_DAS_Deadline__c);
+
+		iCVD.Actual_Final_Concurrence_to_DAS__c = iCVD.Calculated_Final_Signature__c.addDays(-7);
+		update iCVD;
+		iCVD = null;
+		System.assertEquals(iCVD.Calculated_Final_Signature__c, iCVD.Next_Due_to_DAS_Deadline__c);
+
+		iCVD.Actual_Final_Signature__c = iCVD.Calculated_Final_Signature__c;
+		update iCVD;
+		iCVD = null;
+
+		Test.stopTest();
+		System.assertEquals(iCVD.Amend_Final_Issues_Due_to_DAS__c, iCVD.Next_Due_to_DAS_Deadline__c);
+	}
+
+	//Next Due to DAS Deadline
+	@isTest static void setNextDueToDasDeadlineADAmendFinal() {
+		Test.startTest();
+
+		iAD.Amend_the_Preliminary_Determination__c = 'Yes';
+		iAD.Will_you_Amend_the_Final__c = 'Yes';
+		iAD.Signature_of_Prelim_Postponement_FR__c = iAD.Calculated_Preliminary_Signature__c.addDays(-28);
+		iAD.Actual_Prelim_Issues_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(-14);
+		iAD.Actual_Prelim_Concurrence_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(-7);
+		iAD.Actual_Preliminary_Signature__c = iAD.Calculated_Preliminary_Signature__c;
+		iAD.Actual_Amend_Prelim_Issues_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(7);
+		iAD.Actual_Amend_Prelim_Concurrence_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(14);
+		iAD.Actual_Amended_Prelim_Determination_Sig__c = iAD.Calculated_Preliminary_Signature__c.addDays(21);
+		iAD.Actual_Final_Issues_to_DAS__c = iAD.Calculated_Final_Signature__c.addDays(-14);
+		iAD.Actual_Final_Concurrence_to_DAS__c = iAD.Calculated_Final_Signature__c.addDays(-7);
+		iAD.Actual_Final_Signature__c = iAD.Calculated_Final_Signature__c;
+		iAD.Actual_Amend_Final_Issues_to_DAS__c = iAD.Calculated_Final_Signature__c.addDays(7);
+		update iAD;
+		iAD = null;
+		System.assertEquals(iAD.Amend_Final_Concurrence_Due_to_DAS__c, iAD.Next_Due_to_DAS_Deadline__c);
+
+		iAD.Actual_Amend_Final_Concurrence_to_DAS__c = iAD.Calculated_Final_Signature__c.addDays(14);
+		update iAD;
+		iAD = null;
+		System.assertEquals(iAD.Calculated_Amended_Final_Signature__c, iAD.Next_Due_to_DAS_Deadline__c);
+
+		iAD.Actual_Amended_Final_Signature__c = iAD.Calculated_Final_Signature__c.addDays(21);
+		update iAD;
+		iAD = null;
+		System.assertEquals(iAD.Calculated_Order_FR_Signature__c, iAD.Next_Due_to_DAS_Deadline__c);
+
+		ADCVD_Order__c ao = TestUtils.createOrder(iAD, true);
+		Federal_Register__c orderFR = TestUtils.createFR(ao.Id, 'ADCVD_Order__c', System.today(), 'Order', true);
+		iAD = null;
+
+		Test.stopTest();
+		System.assertEquals(null, iAD.Next_Due_to_DAS_Deadline__c);
+	}
+
+	//Next Due to DAS Deadline
+	@isTest static void setNextDueToDasDeadlineCVDAmendFinal() {
+		Test.startTest();
+
+		iCVD.Amend_the_Preliminary_Determination__c = 'Yes';
+		iCVD.Will_you_Amend_the_Final__c = 'Yes';
+		iCVD.Signature_of_Prelim_Postponement_FR__c = iCVD.Calculated_Preliminary_Signature__c.addDays(-28);
+		iCVD.Actual_Prelim_Issues_to_DAS__c = iCVD.Calculated_Preliminary_Signature__c.addDays(-14);
+		iCVD.Actual_Prelim_Concurrence_to_DAS__c = iCVD.Calculated_Preliminary_Signature__c.addDays(-7);
+		iCVD.Actual_Preliminary_Signature__c = iCVD.Calculated_Preliminary_Signature__c;
+		iCVD.Actual_Amend_Prelim_Issues_to_DAS__c = iCVD.Calculated_Preliminary_Signature__c.addDays(7);
+		iCVD.Actual_Amend_Prelim_Concurrence_to_DAS__c = iCVD.Calculated_Preliminary_Signature__c.addDays(14);
+		iCVD.Actual_Amended_Prelim_Determination_Sig__c = iCVD.Calculated_Preliminary_Signature__c.addDays(21);
+		iCVD.Actual_Final_Issues_to_DAS__c = iCVD.Calculated_Final_Signature__c.addDays(-14);
+		iCVD.Actual_Final_Concurrence_to_DAS__c = iCVD.Calculated_Final_Signature__c.addDays(-7);
+		iCVD.Actual_Final_Signature__c = iCVD.Calculated_Final_Signature__c;
+		iCVD.Actual_Amend_Final_Issues_to_DAS__c = iCVD.Calculated_Final_Signature__c.addDays(7);
+		update iCVD;
+		iCVD = null;
+		System.assertEquals(iCVD.Amend_Final_Concurrence_Due_to_DAS__c, iCVD.Next_Due_to_DAS_Deadline__c);
+
+		iCVD.Actual_Amend_Final_Concurrence_to_DAS__c = iCVD.Calculated_Final_Signature__c.addDays(14);
+		update iCVD;
+		iCVD = null;
+		System.assertEquals(iCVD.Calculated_Amended_Final_Signature__c, iCVD.Next_Due_to_DAS_Deadline__c);
+
+		iCVD.Actual_Amended_Final_Signature__c = iCVD.Calculated_Final_Signature__c.addDays(21);
+		update iCVD;
+		iCVD = null;
+		System.assertEquals(iCVD.Calculated_Order_FR_Signature__c, iCVD.Next_Due_to_DAS_Deadline__c);
+
+		ADCVD_Order__c ao = TestUtils.createOrder(iCVD, true);
+		Federal_Register__c orderFR = TestUtils.createFR(ao.Id, 'ADCVD_Order__c', System.today(), 'Order', true);
+		iCVD = null;
+
+		Test.stopTest();
+		System.assertEquals(null, iCVD.Next_Due_to_DAS_Deadline__c);
+	}
 	/********************************
 	 * Tests for Status Calculations
 	*********************************/
