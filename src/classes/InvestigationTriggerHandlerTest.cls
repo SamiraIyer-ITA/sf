@@ -1274,6 +1274,327 @@ public class InvestigationTriggerHandlerTest {
 		Test.stopTest();
 		System.assertEquals(null, iCVD.Next_Due_to_DAS_Deadline__c);
 	}
+
+	//Next Office Deadline
+	@isTest static void setNextOfficeDeadlineADCalcITCPrelim() {
+		Test.startTest();
+		//45 day offset to Petition_Filed__c, 
+		//-3 adjustment days for weekends
+		adP.Petition_Filed__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(System.today().addDays(-42));
+		update adP;
+
+		Test.stopTest();
+		System.assertEquals(iAD.Calculated_ITC_Prelim_Determination__c, iAD.Next_Office_Deadline__c);
+	}
+
+	//Next Office Deadline
+	@isTest static void setNextOfficeDeadlineCVDCalcITCPrelim() {
+		Test.startTest();
+		//45 day offset to Petition_Filed__c, 
+		//-3 adjustment days for weekends
+		cvdP.Petition_Filed__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(System.today().addDays(-42));
+		update cvdP;
+
+		Test.stopTest();
+		System.assertEquals(iCVD.Calculated_ITC_Prelim_Determination__c, iCVD.Next_Office_Deadline__c);
+	}
+
+	//Next Office Deadline
+	@isTest static void setNextOfficeDeadlineADCalcPrelimExt() {
+		Test.startTest();
+		//115 day offset to Calculated_Initiation_Signature__c, 
+		//3 day Initiation_Extension_of_days__c, 
+		//20 day offset to Petition_Filed__c, 
+		//-3 adjustment days for weekends
+		adP.Petition_Filed__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(System.today().addDays(-135));
+		update adP;
+
+		Test.stopTest();
+		System.assertEquals(iAD.Calculated_Prelim_Extension_Request_File__c, iAD.Next_Office_Deadline__c);
+	}
+
+	//Next Office Deadline
+	@isTest static void setNextOfficeDeadlineCVDCalcPrelimExt() {
+		Test.startTest();
+		//40 day offset to Calculated_Initiation_Signature__c, 
+		//3 day Initiation_Extension_of_days__c, 
+		//20 day offset to Petition_Filed__c, 
+		//-3 adjustment days for weekends
+		cvdP.Petition_Filed__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(System.today().addDays(-60));
+		update cvdP;
+
+		Test.stopTest();
+		System.assertEquals(iCVD.Calculated_Prelim_Extension_Request_File__c, iCVD.Next_Office_Deadline__c);
+	}
+
+	//Next Office Deadline
+	@isTest static void setNextOfficeDeadlineADCalcPostponePrelimDeterFR() {
+		Test.startTest();
+		//120 day offset to Calculated_Initiation_Signature__c, 
+		//3 day Initiation_Extension_of_days__c, 
+		//20 day offset to Petition_Filed__c, 
+		//-3 adjustment days for weekends
+		adP.Petition_Filed__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(System.today().addDays(-140));
+		update adP;
+
+		Test.stopTest();
+		System.assertEquals(iAD.Calculated_Postponement_of_PrelimDeterFR__c, iAD.Next_Office_Deadline__c);
+	}
+
+	//Next Office Deadline
+	@isTest static void setNextOfficeDeadlineCVDCalcPostponePrelimDeterFR() {
+		Test.startTest();
+		//45 day offset to Calculated_Initiation_Signature__c, 
+		//3 day Initiation_Extension_of_days__c, 
+		//20 day offset to Petition_Filed__c, 
+		//-3 adjustment days for weekends
+		cvdP.Petition_Filed__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(System.today().addDays(-65));
+		update cvdP;
+
+		Test.stopTest();
+		System.assertEquals(iCVD.Calculated_Postponement_of_PrelimDeterFR__c, iCVD.Next_Office_Deadline__c);
+	}
+
+	//Next Office Deadline
+	@isTest static void setNextOfficeDeadlineADPrelimTeamMeeting() {
+		Test.startTest();
+		//-21 day offset to Calculated_Preliminary_Signature__c, 
+		//10 day Prelim_Extension_of_days__c, 
+		//140 day offset to Calculated_Initiation_Signature__c, 
+		//3 day Initiation_Extension_of_days__c, 
+		//20 day offset to Petition_Filed__c, 
+		//-3 adjustment days for weekends
+		adP.Petition_Filed__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(System.today().addDays(-149));
+		update adP;
+		
+		iAD.Prelim_Extension_of_days__c = 10;
+		update iAD;
+		iAD = null;
+		debugDates(iAD);
+		Test.stopTest();
+		System.assertEquals(iAD.Prelim_Team_Meeting_Deadline__c, iAD.Next_Office_Deadline__c);
+	}
+
+	//Next Office Deadline
+	@isTest static void setNextOfficeDeadlineCVDPrelimTeamMeeting() {
+		Test.startTest();
+		//-21 day offset to Calculated_Preliminary_Signature__c, 
+		//10 day Prelim_Extension_of_days__c, 
+		//65 day offset to Calculated_Initiation_Signature__c, 
+		//3 day Initiation_Extension_of_days__c, 
+		//20 day offset to Petition_Filed__c, 
+		//-3 adjustment days for weekends
+		cvdP.Petition_Filed__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(System.today().addDays(-74));
+		update cvdP;
+
+		iCVD.Prelim_Extension_of_days__c = 10;
+		update iCVD;
+		iCVD = null;
+		debugDates(iCVD);
+		Test.stopTest();
+		System.assertEquals(iCVD.Prelim_Team_Meeting_Deadline__c, iCVD.Next_Office_Deadline__c);
+	}
+
+	//Next Office Deadline
+	@isTest static void setNextOfficeDeadlineADPrelim() {
+		Test.startTest();
+		//10 day Prelim_Extension_of_days__c, 
+		//140 day offset to Calculated_Initiation_Signature__c, 
+		//3 day Initiation_Extension_of_days__c, 
+		//20 day offset to Petition_Filed__c, 
+		//-3 adjustment days for weekends
+		adP.Petition_Filed__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(System.today().addDays(-170));
+		update adP;
+		
+		iAD.Amend_the_Preliminary_Determination__c = 'Yes';
+		iAD.Will_you_Amend_the_Final__c = 'Yes';
+		iAD.Prelim_Extension_of_days__c = 10;
+		update iAD;
+		iAD = null;
+		debugDates(iAD);
+
+		System.assertEquals(iAD.Prelim_Issues_Due_to_DAS__c, iAD.Next_Office_Deadline__c);
+
+		iAD.Actual_Prelim_Issues_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(-14);
+		update iAD;
+		iAD = null;
+		System.assertEquals(iAD.Prelim_Concurrence_Due_to_DAS__c, iAD.Next_Office_Deadline__c);
+
+		iAD.Actual_Prelim_Concurrence_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(-7);
+		update iAD;
+		iAD = null;
+		System.assertEquals(iAD.Calculated_Preliminary_Signature__c, iAD.Next_Office_Deadline__c);
+
+		iAD.Actual_Preliminary_Signature__c = iAD.Calculated_Preliminary_Signature__c;
+		update iAD;
+		iAD = null;
+
+		Test.stopTest();
+		System.assertEquals(iAD.Amend_Prelim_Issues_Due_to_DAS__c, iAD.Next_Office_Deadline__c);
+	}
+
+	//Next Office Deadline
+	@isTest static void setNextOfficeDeadlineADAmendPrelim() {
+		Test.startTest();
+		//31 day offset to Calculated_Preliminary_Signature__c, 
+		//10 day Prelim_Extension_of_days__c, 
+		//140 day offset to Calculated_Initiation_Signature__c, 
+		//3 day Initiation_Extension_of_days__c, 
+		//20 day offset to Petition_Filed__c, 
+		//-3 adjustment days for weekends
+		adP.Petition_Filed__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(System.today().addDays(-201));
+		update adP;
+		
+		iAD.Amend_the_Preliminary_Determination__c = 'Yes';
+		iAD.Will_you_Amend_the_Final__c = 'Yes';
+		iAD.Prelim_Extension_of_days__c = 10;
+		iAD.Actual_Prelim_Issues_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(-14);
+		iAD.Actual_Prelim_Concurrence_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(-7);
+		iAD.Actual_Preliminary_Signature__c = iAD.Calculated_Preliminary_Signature__c;
+		iAD.Actual_Amend_Prelim_Issues_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(7);
+		update iAD;
+		iAD = null;
+		debugDates(iAD);
+
+		System.assertEquals(iAD.Amend_Prelim_Concurrence_Due_to_DAS__c, iAD.Next_Office_Deadline__c);
+
+		iAD.Actual_Amend_Prelim_Concurrence_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(14);
+		update iAD;
+		iAD = null;
+		System.assertEquals(iAD.Calc_Amended_Prelim_Determination_Sig__c, iAD.Next_Office_Deadline__c);
+
+		iAD.Actual_Amended_Prelim_Determination_Sig__c = iAD.Calculated_Preliminary_Signature__c.addDays(21);
+		update iAD;
+		iAD = null;
+
+		Test.stopTest();
+		System.assertEquals(iAD.Final_Team_Meeting_Deadline__c, iAD.Next_Office_Deadline__c);
+	}
+
+	//Next Office Deadline
+	@isTest static void setNextOfficeDeadlineADFinal() {
+		Test.startTest();
+		//75 day offset to Calculated_Preliminary_Signature__c, 
+		//10 day Prelim_Extension_of_days__c, 
+		//140 day offset to Calculated_Initiation_Signature__c, 
+		//3 day Initiation_Extension_of_days__c, 
+		//20 day offset to Petition_Filed__c, 
+		//-3 adjustment days for weekends
+		adP.Petition_Filed__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(System.today().addDays(-245));
+		update adP;
+
+		iAD.Amend_the_Preliminary_Determination__c = 'Yes';
+		iAD.Will_you_Amend_the_Final__c = 'Yes';
+		iAD.Actual_Prelim_Issues_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(-14);
+		iAD.Actual_Prelim_Concurrence_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(-7);
+		iAD.Actual_Preliminary_Signature__c = iAD.Calculated_Preliminary_Signature__c;
+		iAD.Actual_Amend_Prelim_Issues_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(7);
+		iAD.Actual_Amend_Prelim_Concurrence_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(14);
+		iAD.Actual_Amended_Prelim_Determination_Sig__c = iAD.Calculated_Preliminary_Signature__c.addDays(21);
+		update iAD;
+		iAD = null;
+		System.assertEquals(iAD.Final_Issues_Due_to_DAS__c, iAD.Next_Office_Deadline__c);
+		
+		iAD.Actual_Final_Issues_to_DAS__c = iAD.Calculated_Final_Signature__c.addDays(-14);
+		update iAD;
+		iAD = null;
+		System.assertEquals(iAD.Final_Concurrence_Due_to_DAS__c, iAD.Next_Office_Deadline__c);
+
+		iAD.Actual_Final_Concurrence_to_DAS__c = iAD.Calculated_Final_Signature__c.addDays(-7);
+		update iAD;
+		iAD = null;
+		System.assertEquals(iAD.Calculated_Final_Signature__c, iAD.Next_Office_Deadline__c);
+
+		iAD.Actual_Final_Signature__c = iAD.Calculated_Final_Signature__c;
+		update iAD;
+		iAD = null;
+
+		Test.stopTest();
+		System.assertEquals(iAD.Amend_Final_Issues_Due_to_DAS__c, iAD.Next_Office_Deadline__c);
+	}
+
+	//Next Office Deadline
+	@isTest static void setNextOfficeDeadlineADAmendFinal() {
+		Test.startTest();
+		//31 day offset to Calculated_Final_Signature__c, 
+		//75 day offset to Calculated_Preliminary_Signature__c, 
+		//10 day Prelim_Extension_of_days__c, 
+		//140 day offset to Calculated_Initiation_Signature__c, 
+		//3 day Initiation_Extension_of_days__c, 
+		//20 day offset to Petition_Filed__c, 
+		//-3 adjustment days for weekends
+		adP.Petition_Filed__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(System.today().addDays(-276));
+		update adP;
+
+		iAD.Amend_the_Preliminary_Determination__c = 'Yes';
+		iAD.Will_you_Amend_the_Final__c = 'Yes';
+		iAD.Actual_Prelim_Issues_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(-14);
+		iAD.Actual_Prelim_Concurrence_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(-7);
+		iAD.Actual_Preliminary_Signature__c = iAD.Calculated_Preliminary_Signature__c;
+		iAD.Actual_Amend_Prelim_Issues_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(7);
+		iAD.Actual_Amend_Prelim_Concurrence_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(14);
+		iAD.Actual_Amended_Prelim_Determination_Sig__c = iAD.Calculated_Preliminary_Signature__c.addDays(21);
+		iAD.Actual_Final_Issues_to_DAS__c = iAD.Calculated_Final_Signature__c.addDays(-14);
+		iAD.Actual_Final_Concurrence_to_DAS__c = iAD.Calculated_Final_Signature__c.addDays(-7);
+		iAD.Actual_Final_Signature__c = iAD.Calculated_Final_Signature__c;
+		iAD.Actual_Amend_Final_Issues_to_DAS__c = iAD.Calculated_Final_Signature__c.addDays(7);
+		update iAD;
+		iAD = null;
+		System.assertEquals(iAD.Amend_Final_Concurrence_Due_to_DAS__c, iAD.Next_Office_Deadline__c);
+
+		iAD.Actual_Amend_Final_Concurrence_to_DAS__c = iAD.Calculated_Final_Signature__c.addDays(14);
+		update iAD;
+		iAD = null;
+		System.assertEquals(iAD.Calculated_Amended_Final_Signature__c, iAD.Next_Office_Deadline__c);
+
+		iAD.Actual_Amended_Final_Signature__c = iAD.Calculated_Final_Signature__c.addDays(21);
+		update iAD;
+		iAD = null;
+
+		Test.stopTest();
+		System.assertEquals(iAD.Est_ITC_Notification_to_DOC_of_Final_Det__c, iAD.Next_Office_Deadline__c);
+	}
+
+	//Next Office Deadline
+	@isTest static void setNextOfficeDeadlineADCalcOrderFR() {
+		Test.startTest();
+		//45+ day offset to Calculated_Final_Signature__c, (used 55)
+		//75 day offset to Calculated_Preliminary_Signature__c, 
+		//10 day Prelim_Extension_of_days__c, 
+		//140 day offset to Calculated_Initiation_Signature__c, 
+		//3 day Initiation_Extension_of_days__c, 
+		//20 day offset to Petition_Filed__c, 
+		//-3 adjustment days for weekends
+		adP.Petition_Filed__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(System.today().addDays(-300));
+		update adP;
+
+		iAD.Amend_the_Preliminary_Determination__c = 'Yes';
+		iAD.Will_you_Amend_the_Final__c = 'Yes';
+		iAD.Actual_Prelim_Issues_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(-14);
+		iAD.Actual_Prelim_Concurrence_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(-7);
+		iAD.Actual_Preliminary_Signature__c = iAD.Calculated_Preliminary_Signature__c;
+		iAD.Actual_Amend_Prelim_Issues_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(7);
+		iAD.Actual_Amend_Prelim_Concurrence_to_DAS__c = iAD.Calculated_Preliminary_Signature__c.addDays(14);
+		iAD.Actual_Amended_Prelim_Determination_Sig__c = iAD.Calculated_Preliminary_Signature__c.addDays(21);
+		iAD.Actual_Final_Issues_to_DAS__c = iAD.Calculated_Final_Signature__c.addDays(-14);
+		iAD.Actual_Final_Concurrence_to_DAS__c = iAD.Calculated_Final_Signature__c.addDays(-7);
+		iAD.Actual_Final_Signature__c = iAD.Calculated_Final_Signature__c;
+		iAD.Actual_Amend_Final_Issues_to_DAS__c = iAD.Calculated_Final_Signature__c.addDays(7);
+		iAD.Actual_Amend_Final_Concurrence_to_DAS__c = iAD.Calculated_Final_Signature__c.addDays(14);
+		iAD.Actual_Amended_Final_Signature__c = iAD.Calculated_Final_Signature__c.addDays(21);
+		update iAD;
+		iAD = null;
+
+		System.assertEquals(iAD.Calculated_Order_FR_Signature__c, iAD.Next_Office_Deadline__c);
+
+		ADCVD_Order__c ao = TestUtils.createOrder(iAD, true);
+		Federal_Register__c orderFR = TestUtils.createFR(ao.Id, 'ADCVD_Order__c', System.today(), 'Order', true);
+		iAD = null;
+
+		Test.stopTest();
+		System.assertEquals(null, iAD.Next_Office_Deadline__c);
+	}
+
 	/********************************
 	 * Tests for Status Calculations
 	*********************************/
@@ -1318,5 +1639,24 @@ public class InvestigationTriggerHandlerTest {
 			error = e.getMessage();
 		}
 		return error;
+	}
+
+	private static void debugDates(SObject o) {
+		Set<String> fieldNames = new Set<String>{
+		'Prelim_Extension_of_days__c', 'Calculated_Preliminary_Signature__c', 
+		'Actual_Preliminary_Signature__c', 'Calculated_Final_Signature__c', 'Calc_Amended_Prelim_Determination_Sig__c', 
+		'Prelim_Team_Meeting_Deadline__c', 'Calculated_Amended_Final_Signature__c', 'Actual_Final_Signature__c', 'Final_Team_Meeting_Deadline__c', 
+		'Est_ITC_Notification_to_DOC_of_Final_Det__c', 'ITC_Notification_to_DOC_of_Final_Determ__c', 'Calculated_Order_FR_Signature__c', 
+		'Calculated_ITC_Final_FR_Published__c', 'Estimated_Order_FR_Published__c', 'Calculated_Prelim_Extension_Request_File__c', 
+		'Calculated_Postponement_of_PrelimDeterFR__c', 
+		'Prelim_Issues_Due_to_DAS__c', 'Prelim_Concurrence_Due_to_DAS__c', 'Amend_Prelim_Issues_Due_to_DAS__c', 'Amend_Prelim_Concurrence_Due_to_DAS__c', 
+		'Final_Issues_Due_to_DAS__c', 'Final_Concurrence_Due_to_DAS__c', 'Amend_Final_Issues_Due_to_DAS__c', 'Amend_Final_Concurrence_Due_to_DAS__c', 
+		'Next_Major_Deadline__c', 'Next_Office_Deadline__c', 'Next_Announcement_Date__c', 'Next_Due_to_DAS_Deadline__c', 
+		'Preliminary_Announcement_Date__c', 'Amended_Preliminary_Announcement_Date__c', 'Final_Announcement_Date__c', 'Amended_Final_Announcement_Date__c', 
+		'Calculated_ITC_Prelim_Determination__c'};
+
+		for (String field : fieldNames) {
+			System.debug(loggingLevel.Error, '***debugDates ' + field + ': ' + o.get(field));
+		}
 	}
 }
