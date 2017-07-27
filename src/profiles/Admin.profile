@@ -3822,7 +3822,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Investigation__c.Final_Extension_Days_Remaining__c</field>
+        <field>Investigation__c.Final_Extension_Remaining__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4042,8 +4042,8 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Investigation__c.Preliminary_Extension_Days_Remaining__c</field>
-        <readable>true</readable>
+        <field>Investigation__c.Preliminary_Extension_Remaining__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -5152,7 +5152,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Petition__c.Initiation_Extension_Days_Remaining__c</field>
+        <field>Petition__c.Initiation_Extension_Remaining__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

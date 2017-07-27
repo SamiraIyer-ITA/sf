@@ -861,14 +861,14 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Final_Extension_Days_Remaining__c</fullName>
+        <fullName>Final_Extension_Remaining__c</fullName>
         <externalId>false</externalId>
         <formula>CASE( RecordType.DeveloperName , 
 &apos;AD&apos;, 60 -  Final_Extension_of_days__c  , 
 &apos;CVD&apos;, 90 - Final_Extension_of_days__c, 
 0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Final Extension Days Remaining</label>
+        <label>Final Extension Remaining</label>
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
@@ -1506,14 +1506,14 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Preliminary_Extension_Days_Remaining__c</fullName>
+        <fullName>Preliminary_Extension_Remaining__c</fullName>
         <externalId>false</externalId>
         <formula>CASE( RecordType.DeveloperName , 
 &apos;AD&apos;, 50 -  Prelim_Extension_of_days__c , 
 &apos;CVD&apos;, 65 -  Prelim_Extension_of_days__c ,
 0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Preliminary Extension Days Remaining</label>
+        <label>Preliminary Extension Remaining</label>
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>

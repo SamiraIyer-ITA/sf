@@ -602,12 +602,12 @@ C-###-### for CVD</inlineHelpText>
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Initiation_Extension_Days_Remaining__c</fullName>
+        <fullName>Initiation_Extension_Remaining__c</fullName>
         <description>Extension Number of days remaining for Initiation</description>
         <externalId>false</externalId>
         <formula>20 - Initiation_Extension_of_days__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Initiation Extension Days Remaining</label>
+        <label>Initiation Extension Remaining</label>
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
