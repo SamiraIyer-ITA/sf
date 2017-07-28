@@ -1485,10 +1485,10 @@ public without sharing class SegmentTriggerHandler {
 	/***********************************
 	* Methods called by other classes
 	***********************************/
-/*
+
 	//called by Sunset Review Controller
 	public Segment__c calculateSegmentDates(String ssReviewType, Segment__c s) {
-		if (s != null && s.Id != null) {
+/*		if (s != null && s.Id != null) {
 			recordTypeNameMap = utils.getRecordTypeDeveloperNameMap(s);
 			ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(new List<Segment__c>{s});
 			frUtilMap = listInstance.utilMap;
@@ -1517,10 +1517,10 @@ public without sharing class SegmentTriggerHandler {
 			//dependent on setSubstantiveResponseDueForAllParties
 			setInformClusterCoordinatorIfNoRespons(s);
 		}
-
+*/
 		return s;
 	}
-*/
+
 	//sets the ssrType for a Sunset Review
 	@TestVisible private static void setSsrType(Segment__c s) {
 		if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW) {
