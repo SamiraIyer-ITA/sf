@@ -2,7 +2,7 @@ public without sharing class InvestigationTriggerHandler {
 	
     @TestVisible private static Set<String> outcomesThatTermInvestigations = new Set<String>();
     @TestVisible private static Set<String> activeLitigationStatuses = new Set<String>();
-//    private static Map<String,Constant__mdt> investigationApiToConstants = setInvestigationApiToConstants();
+    private static Map<String,Constant__mdt> investigationApiToConstants = setInvestigationApiToConstants();
 
 	//FINAL Investigation Record Type Developer Names
 	private static FINAL String ADRECORD = 'AD';//investigationApiToConstants.get('AD_Calc_Final_Sig').ADCVD_Objects__r.Record_Type_Name__c;
@@ -96,8 +96,8 @@ public without sharing class InvestigationTriggerHandler {
         petitionsInScopeMap = findPetitionsInScopeMap(newList);
         recordTypeNameMap = utils.getRecordTypeDeveloperNameMap(newList[0]);
         if (newMap != null) {
-            //ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get Investigations with an Id
-            //frUtilMap = listInstance.utilMap;
+            ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get Investigations with an Id
+            frUtilMap = listInstance.utilMap;
             setInvestigationIdToLitigationMap(newMap.keySet());
             setInvestigationIdToLitigationStatusMap();
 
@@ -240,6 +240,7 @@ public without sharing class InvestigationTriggerHandler {
         }
         return returnIdSet;
     }
+*/
     //returns a map of <String,Integer> in the form: key = CMT Api name, CMT number value
     //used to set Offset Variables
     @TestVisible private static Map<String,Constant__mdt> setInvestigationApiToConstants() {
@@ -263,7 +264,7 @@ public without sharing class InvestigationTriggerHandler {
             return investigationApiToConstants;
         }
     }
-*/
+
     /**
      * Sets map of Investigation Ids in scope to all of their Litigations.
      * @param  petitionIdSet [description]
