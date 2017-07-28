@@ -108,12 +108,14 @@ public without sharing class SegmentTriggerHandler {
 			syncToAdministrativeReview(newList);
 			calculateSegmentDates(newList);
 			calculateSegmentStatuses(newList);
+			runValidations(newList);
 		}
 		if (isBefore && isUpdate) {
 			initialize(newList, newMap);
 			syncToAdministrativeReview(newList);
 			calculateSegmentDates(newList);
 			calculateSegmentStatuses(newList);
+			runValidations(newList);
 		}
 		if (isBefore && isDelete) {
 			recalculateOrdersOnSegmentDelete(oldMap);
@@ -123,8 +125,8 @@ public without sharing class SegmentTriggerHandler {
 			recalculateOrders(newMap, oldMap);
 		}
 		if (isAfter && isUpdate) {
-			recalculateIssues(newMap, oldMap);
 			recalculateNewShipperReviews(newMap);
+			recalculateIssues(newMap, oldMap);
 			recalculateOrders(newMap, oldMap);
 		}
 	}
@@ -170,6 +172,45 @@ public without sharing class SegmentTriggerHandler {
     }
 
 	@TestVisible private static void calculateSegmentDates(List<Segment__c> newList) {
+
+		Map<String,List<Segment__c>> segmentListMap = new Map<String,List<Segment__c>>();
+		List<Segment__c> adminReviewList = new List<Segment__c>();
+        List<Segment__c> expeditedReviewList = new List<Segment__c>();
+        List<Segment__c> newShipperReviewList = new List<Segment__c>();
+        List<Segment__c> scopeInquiryList = new List<Segment__c>();
+        List<Segment__c> antiCircumventionReviewList = new List<Segment__c>();
+        List<Segment__c> changedCircumstancesReviewList = new List<Segment__c>();
+        List<Segment__c> sunsetReviewList = new List<Segment__c>();
+    	for (Segment__c s : newList) {
+            if (recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW) {
+                adminReviewList.add(s);
+                segmentListMap.put(ADMIN_REVIEW, adminReviewList);
+            } else if (recordTypeNameMap.get(s.RecordTypeId) == EXPEDITED_REVIEW) {
+                expeditedReviewList.add(s);
+                segmentListMap.put(EXPEDITED_REVIEW, expeditedReviewList);
+            } else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
+                newShipperReviewList.add(s);
+                segmentListMap.put(NEW_SHIPPER_REVIEW, newShipperReviewList);
+            } else if (recordTypeNameMap.get(s.RecordTypeId) == SCOPE_INQUIRY) {
+                scopeInquiryList.add(s);
+                segmentListMap.put(SCOPE_INQUIRY, scopeInquiryList);
+            } else if (recordTypeNameMap.get(s.RecordTypeId) == ANTI_CIRCUMVENTION_REVIEW) {
+                antiCircumventionReviewList.add(s);
+                segmentListMap.put(ANTI_CIRCUMVENTION_REVIEW, antiCircumventionReviewList);
+            } else if (recordTypeNameMap.get(s.RecordTypeId) == CHANGED_CIRCUMSTANCES_REVIEW) {
+                changedCircumstancesReviewList.add(s);
+                segmentListMap.put(CHANGED_CIRCUMSTANCES_REVIEW, changedCircumstancesReviewList);
+            } else if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW) {
+                sunsetReviewList.add(s);
+                segmentListMap.put(SUNSET_REVIEW, sunsetReviewList);
+            }
+        }
+        for (String recordTypeName : segmentListMap.keySet()) {
+        	DateCalculationService dcs = DateCalculationServiceDispatcher.getDateCalculationServiceInstance(recordTypeName);
+        	dcs.getCalculatedDates(segmentListMap.get(recordTypeName), 'Segment__c', recordTypeName);
+        }
+    }
+/*
 		for (Segment__c s : newList) {
 			//Ordered Methods (must be done in a specific order)
 			setSsrType(s);
@@ -206,7 +247,7 @@ public without sharing class SegmentTriggerHandler {
 			setInformClusterCoordinatorIfNoRespons(s);
 		}
 	}
-
+*/
 	/**
 	 * Primary method to call all status calculations.
 	 * @param  newList List of Segments in scope
@@ -216,6 +257,13 @@ public without sharing class SegmentTriggerHandler {
 		setLitigationStatus(newList);
 		setStatus(newList);
 	}
+
+	@TestVisible private static void runValidations(List<Segment__c> newList) {
+    	for (Segment__c s : newList) {
+    		validateRescissionOutcome(s);
+    		validateCompletedOutcome(s);
+    	}
+    }
 
 	@TestVisible private static void recalculateOrders(Map<Id,Segment__c> newMap, Map<Id,Segment__c> oldMap) {
 		Set<Id> orderIdSet = getOrderParentIds(newMap, oldMap);
@@ -733,6 +781,7 @@ public without sharing class SegmentTriggerHandler {
 		if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW) {
 			Date finalPublished = null;
 			Date revoPublished = null;
+			System.debug('frUtilMap: ' + frUtilMap);
 			if(s.Id != null && frUtilMap != null) {
 				finalPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).finalPublishedDate : null;
 				if (s.ADCVD_Order__c != null) {
@@ -1034,6 +1083,28 @@ public without sharing class SegmentTriggerHandler {
 			} else if (s.Substantive_Response_Due_For_All_Parties__c == null) {
 				s.Inform_Cluster_Coordinator_if_No_Respons__c = null;
 			}
+		}
+	}
+
+	@TestVisible private static void validateRescissionOutcome(Segment__c s) {
+		if (s.Segment_Outcome__c != 'Full Rescission') {return;}
+		Date rescissionPublished = null;
+		if(s.Id != null && frUtilMap != null) {
+			rescissionPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).rescissionPublishedDate : null;
+		}
+		if (rescissionPublished == null) {
+			s.addError('You must enter a Rescission Federal Register to set Segment Outcome to "Full Rescission".');
+		}
+	}
+
+	@TestVisible private static void validateCompletedOutcome(Segment__c s) {
+		if (s.Segment_Outcome__c != 'Completed') {return;}
+		Date finalPublished = null;
+		if(s.Id != null && frUtilMap != null) {
+			finalPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).finalPublishedDate : null;
+		}
+		if (finalPublished == null) {
+			s.addError('You must enter a Final Federal Register to set Segment Outcome to "Completed".');
 		}
 	}
 
@@ -1368,7 +1439,8 @@ public without sharing class SegmentTriggerHandler {
 	}
 
 	@TestVisible private static void setHoldStatus(Segment__c s) {
-		if (recordTypeNameMap.get(s.RecordTypeId) != NEW_SHIPPER_REVIEW || s.Administrative_Review_Aligned_To__c == null) {
+		if ((recordTypeNameMap.get(s.RecordTypeId) != NEW_SHIPPER_REVIEW || s.Administrative_Review_Aligned_To__c == null) 
+			&& (s.Will_you_Amend_the_Final__c != 'Yes' || s.Actual_Amended_Final_Signature__c != null)) {
 			if (s.Litigation_Hold_Expiration_Date__c != null 
 				&& s.Litigation_YesNo__c == null 
 				&& s.Segment_Outcome__c != null) {
