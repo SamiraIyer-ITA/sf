@@ -5672,6 +5672,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Segment__c.Actual_Amend_Final_Concurrence_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Segment__c.Actual_Amend_Final_Issues_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Segment__c.Actual_Amended_Final_Signature__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5682,12 +5692,42 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Segment__c.Actual_Final_Concurrence_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Segment__c.Actual_Final_Issues_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Segment__c.Actual_Final_Signature__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Segment__c.Actual_Initiation_Concurrence_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Segment__c.Actual_Initiation_Issues_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Segment__c.Actual_Initiation_Signature__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Segment__c.Actual_Prelim_Concurrence_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Segment__c.Actual_Prelim_Issues_to_DAS__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5733,6 +5773,21 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Segment__c.All_parties_in_agreement_to_the_outcome__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Segment__c.Amend_Final_Concurrence_Due_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Segment__c.Amend_Final_Issues_Due_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Segment__c.Amended_Final_Announcement_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5867,12 +5922,27 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Segment__c.Final_Announcement_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Segment__c.Final_Concurrence_Due_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Segment__c.Final_Date_of_Anniversary_Month__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Segment__c.Final_Extension_of_days__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Segment__c.Final_Issues_Due_to_DAS__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5912,7 +5982,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Segment__c.Initiation_Concurrence_Due_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Segment__c.Initiation_Extension_of_days__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Segment__c.Initiation_Issues_Due_to_DAS__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6012,7 +6092,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Segment__c.Next_Office_PM_Deadline__c</field>
+        <field>Segment__c.Next_Office_Deadline__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6112,7 +6192,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Segment__c.Prelim_Concurrence_Due_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Segment__c.Prelim_Extension__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Segment__c.Prelim_Issues_Due_to_DAS__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6123,6 +6213,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Segment__c.Prelim_Team_Meeting_Deadline__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Segment__c.Preliminary_Announcement_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

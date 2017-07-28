@@ -113,7 +113,7 @@ public without sharing class DateCalculationSelector {
 		Map<String,Date_Calculation__mdt> returnMap = new Map<String,Date_Calculation__mdt>();
 		Integer numberOfCalculations = 0;
 		for (Date_Calculation__mdt dc : CustomMetadataSelector.allDateCalculations) {
-			if (dc.ADCVD_Objects__r.Object_API_Name__c == soType && 
+			if (dc.ADCVD_Objects__r.Object_API_Name__c == soType && dc.Active_Calculation__c &&
 				(String.isBlank(recordType) || dc.ADCVD_Objects__r.Record_Type_Name__c == recordType)) {
 				tempMap.put((Integer)dc.Order_of_Execution__c, dc);
 				numberOfCalculations = numberOfCalculations == 0 ? (Integer) dc.ADCVD_Objects__r.Number_of_Date_Calculations__c : numberOfCalculations;

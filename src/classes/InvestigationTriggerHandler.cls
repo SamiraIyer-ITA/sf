@@ -2,13 +2,13 @@ public without sharing class InvestigationTriggerHandler {
 	
     @TestVisible private static Set<String> outcomesThatTermInvestigations = new Set<String>();
     @TestVisible private static Set<String> activeLitigationStatuses = new Set<String>();
-    private static Map<String,Constant__mdt> investigationApiToConstants = setInvestigationApiToConstants();
+//    private static Map<String,Constant__mdt> investigationApiToConstants = setInvestigationApiToConstants();
 
 	//FINAL Investigation Record Type Developer Names
-	private static FINAL String ADRECORD = investigationApiToConstants.get('AD_Calc_Final_Sig').ADCVD_Objects__r.Record_Type_Name__c;
-	private static FINAL String CVDRECORD = investigationApiToConstants.get('CVD_Calc_Final_Sig').ADCVD_Objects__r.Record_Type_Name__c;
-	private static FINAL String INVESTIGATION = investigationApiToConstants.get('AD_Calc_Final_Sig').ADCVD_Objects__r.Object_API_Name__c;
-
+	private static FINAL String ADRECORD = 'AD';//investigationApiToConstants.get('AD_Calc_Final_Sig').ADCVD_Objects__r.Record_Type_Name__c;
+	private static FINAL String CVDRECORD = 'CVD';//investigationApiToConstants.get('CVD_Calc_Final_Sig').ADCVD_Objects__r.Record_Type_Name__c;
+	private static FINAL String INVESTIGATION = 'Investigation__c';//investigationApiToConstants.get('AD_Calc_Final_Sig').ADCVD_Objects__r.Object_API_Name__c;
+/*
 	//FINAL AD Record Type Offsets
     private static FINAL Integer AD_CALC_AMEND_PRELIM_SIGN = ((Integer)investigationApiToConstants.get('AD_Calc_Amend_Prelim_Det_Sig').Number_Value__c);//Calc_Amended_Prelim_Determination_Sig__c
     private static FINAL Integer AD_CALC_PRELIM_SIGN = ((Integer)investigationApiToConstants.get('AD_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature __c
@@ -45,7 +45,7 @@ public without sharing class InvestigationTriggerHandler {
     //FINAL Status Offsets
     private static FINAL Integer NAFTA_COUNTRY_HOLD = ((Integer)investigationApiToConstants.get('Inv_Hold_Status_NAFTA').Number_Value__c);//Litigation_Hold_Expiration_Date__c
     private static FINAL Integer NON_NAFTA_COUNTRY_HOLD = ((Integer)investigationApiToConstants.get('Inv_Hold_Status_Non_NAFTA').Number_Value__c);//Litigation_Hold_Expiration_Date__c
-    
+*/    
 	public static boolean preventRecursion = false;
     public static void mainEntry(List<Investigation__c> newList, List<Investigation__c> oldList, Map<Id, Investigation__c> newMap, 
         Map<Id, Investigation__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete, 
@@ -68,7 +68,7 @@ public without sharing class InvestigationTriggerHandler {
         if (isAfter && isUpdate) {
             initialize(newList, newMap);
             recalculateCVDinvestigations(newMap);
-            recalculateIssues(newMap, oldMap);
+//            recalculateIssues(newMap, oldMap);
         }
         if (isAfter && isInsert) {
             StaffingAssignmentExtension createStaff = new StaffingAssignmentExtension(newList);
@@ -96,8 +96,8 @@ public without sharing class InvestigationTriggerHandler {
         petitionsInScopeMap = findPetitionsInScopeMap(newList);
         recordTypeNameMap = utils.getRecordTypeDeveloperNameMap(newList[0]);
         if (newMap != null) {
-            ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get Investigations with an Id
-            frUtilMap = listInstance.utilMap;
+            //ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get Investigations with an Id
+            //frUtilMap = listInstance.utilMap;
             setInvestigationIdToLitigationMap(newMap.keySet());
             setInvestigationIdToLitigationStatusMap();
 
@@ -185,7 +185,7 @@ public without sharing class InvestigationTriggerHandler {
      * @param  oldMap [description]
      * @return        [description]
      */
-    @TestVisible private static void recalculateIssues(Map<Id,Investigation__c> newMap, Map<Id,Investigation__c> oldMap) {
+/*    @TestVisible private static void recalculateIssues(Map<Id,Investigation__c> newMap, Map<Id,Investigation__c> oldMap) {
         Set<Id> parentIds = getIssueParentIds(newMap, oldMap);
         List<Issue__c> issuesToUpdate = new List<Issue__c>();
 
@@ -194,7 +194,7 @@ public without sharing class InvestigationTriggerHandler {
         }
         if (!issuesToUpdate.isEmpty()) update issuesToUpdate;
     }
-
+*/
 
     /***********************************
     * Helper Methods
@@ -223,7 +223,7 @@ public without sharing class InvestigationTriggerHandler {
     	}
     	return returnMap;
     }
-
+/*
     @TestVisible private static Set<Id> getIssueParentIds(Map<Id,Investigation__c> newMap, Map<Id,Investigation__c> oldMap) {
         Set<Id> returnIdSet = new Set<Id>();
         for (Investigation__c i : newMap.values()) {
@@ -263,7 +263,7 @@ public without sharing class InvestigationTriggerHandler {
             return investigationApiToConstants;
         }
     }
-
+*/
     /**
      * Sets map of Investigation Ids in scope to all of their Litigations.
      * @param  petitionIdSet [description]
@@ -307,7 +307,7 @@ public without sharing class InvestigationTriggerHandler {
         }
         return returnBoolean;
     }
-
+/*
     //Ordered Methods
     //sets Calculated_Preliminary_Signature__c
     @TestVisible private static void setCalculatedPreliminarySignature(Investigation__c i) {
@@ -665,7 +665,7 @@ public without sharing class InvestigationTriggerHandler {
             }
 		}
 	}
-
+*/
 
     /*****************************
     * Status Calculations

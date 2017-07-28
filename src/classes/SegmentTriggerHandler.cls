@@ -10,7 +10,7 @@ public without sharing class SegmentTriggerHandler {
 	private static FINAL String NEW_SHIPPER_REVIEW						= segmentCalcOffsets.get('New_Shipper_Calc_Prelim_Sig').ADCVD_Objects__r.Record_Type_Name__c;
 	private static FINAL String SCOPE_INQUIRY							= segmentCalcOffsets.get('Scope_Inq_Calc_Prelim_Sig').ADCVD_Objects__r.Record_Type_Name__c;
 	private static FINAL String SUNSET_REVIEW							= segmentCalcOffsets.get('SS_Rev_Notice_Intent_Participate').ADCVD_Objects__r.Record_Type_Name__c;
-
+/*
 	//FINAL Segment Administrative Review Offsets
 	private static FINAL Integer AR_CALC_PRELIM_SIG						= ((Integer)segmentCalcOffsets.get('Admin_Review_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature__c
 	private static FINAL Integer AR_PRELIM_TEAM_MEET_DEADLINE			= ((Integer)segmentCalcOffsets.get('Admin_Review_Prelim_Team_Meet_Deadline').Number_Value__c);//Prelim_Team_Meeting_Deadline__c
@@ -96,7 +96,7 @@ public without sharing class SegmentTriggerHandler {
 	//FINAL Status Offsets
 	private static FINAL Integer NAFTA_COUNTRY_HOLD = ((Integer)segmentCalcOffsets.get('Segment_Hold_Status_NAFTA').Number_Value__c);//Litigation_Hold_Expiration_Date__c
 	private static FINAL Integer NON_NAFTA_COUNTRY_HOLD = ((Integer)segmentCalcOffsets.get('Segment_Hold_Status_Non_NAFTA').Number_Value__c);//Litigation_Hold_Expiration_Date__c
-
+*/
 	public static boolean preventRecursion = false;
 	public static void mainEntry(List<Segment__c> newList, List<Segment__c> oldList, Map<Id, Segment__c> newMap, 
 		Map<Id, Segment__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete, 
@@ -108,12 +108,14 @@ public without sharing class SegmentTriggerHandler {
 			syncToAdministrativeReview(newList);
 			calculateSegmentDates(newList);
 			calculateSegmentStatuses(newList);
+			runValidations(newList);
 		}
 		if (isBefore && isUpdate) {
 			initialize(newList, newMap);
 			syncToAdministrativeReview(newList);
 			calculateSegmentDates(newList);
 			calculateSegmentStatuses(newList);
+			runValidations(newList);
 		}
 		if (isBefore && isDelete) {
 			recalculateOrdersOnSegmentDelete(oldMap);
@@ -123,8 +125,8 @@ public without sharing class SegmentTriggerHandler {
 			recalculateOrders(newMap, oldMap);
 		}
 		if (isAfter && isUpdate) {
-			recalculateIssues(newMap, oldMap);
 			recalculateNewShipperReviews(newMap);
+			//recalculateIssues(newMap, oldMap);
 			recalculateOrders(newMap, oldMap);
 		}
 	}
@@ -170,6 +172,20 @@ public without sharing class SegmentTriggerHandler {
     }
 
 	@TestVisible private static void calculateSegmentDates(List<Segment__c> newList) {
+		Map<String,List<Segment__c>> segmentListMap = new Map<String,List<Segment__c>>();
+    	for (Segment__c s : newList) {
+    		if (segmentListMap.get(recordTypeNameMap.get(s.RecordTypeId)) != null) {
+    			segmentListMap.get(recordTypeNameMap.get(s.RecordTypeId)).add(s);
+			} else {
+				segmentListMap.put(recordTypeNameMap.get(s.RecordTypeId), new List<Segment__c>{s});
+			}
+    	}
+        for (String recordTypeName : segmentListMap.keySet()) {
+        	DateCalculationService dcs = DateCalculationServiceDispatcher.getDateCalculationServiceInstance(recordTypeName);
+        	dcs.getCalculatedDates(segmentListMap.get(recordTypeName), 'Segment__c', recordTypeName);
+        }
+    }
+/*
 		for (Segment__c s : newList) {
 			//Ordered Methods (must be done in a specific order)
 			setSsrType(s);
@@ -206,7 +222,7 @@ public without sharing class SegmentTriggerHandler {
 			setInformClusterCoordinatorIfNoRespons(s);
 		}
 	}
-
+*/
 	/**
 	 * Primary method to call all status calculations.
 	 * @param  newList List of Segments in scope
@@ -216,6 +232,13 @@ public without sharing class SegmentTriggerHandler {
 		setLitigationStatus(newList);
 		setStatus(newList);
 	}
+
+	@TestVisible private static void runValidations(List<Segment__c> newList) {
+    	for (Segment__c s : newList) {
+    		validateRescissionOutcome(s);
+    		validateCompletedOutcome(s);
+    	}
+    }
 
 	@TestVisible private static void recalculateOrders(Map<Id,Segment__c> newMap, Map<Id,Segment__c> oldMap) {
 		Set<Id> orderIdSet = getOrderParentIds(newMap, oldMap);
@@ -242,7 +265,7 @@ public without sharing class SegmentTriggerHandler {
 	 * @param  oldMap [description]
 	 * @return		[description]
 	 */
-	@TestVisible private static void recalculateIssues(Map<Id,Segment__c> newMap, Map<Id,Segment__c> oldMap) {
+/*	@TestVisible private static void recalculateIssues(Map<Id,Segment__c> newMap, Map<Id,Segment__c> oldMap) {
 		Set<Id> parentIds = getIssueParentIds(newMap, oldMap);
 		List<Issue__c> issuesToUpdate = new List<Issue__c>();
 		for (Issue__c i : [SELECT Id, Type__c, Issues_to_DAS__c, Concurrence_to_DAS__c FROM Issue__c WHERE Segment__c IN: parentIds]) {
@@ -250,7 +273,7 @@ public without sharing class SegmentTriggerHandler {
 		}
 		if (!issuesToUpdate.isEmpty()) update issuesToUpdate;
 	}
-
+*/
 	//updates a list of New Shipper Reviews if they are aligned to a Administrative Review in scope that was updated
     @TestVisible private static void recalculateNewShipperReviews(Map<Id,Segment__c> newMap) {
         List<Segment__c> newShipperReviewsToSyncList = [SELECT Id FROM Segment__c WHERE Administrative_Review_Aligned_To__c IN: newMap.keySet()];
@@ -341,7 +364,7 @@ public without sharing class SegmentTriggerHandler {
 			}
 		}
 	}
-
+/*
 	//sets Segment_Outcome__c
 	@TestVisible private static void setSegmentOutcome(Segment__c s) {
 		if (s.Actual_Final_Signature__c != null && s.Segment_Outcome__c == null) {
@@ -350,7 +373,7 @@ public without sharing class SegmentTriggerHandler {
 			s.Segment_Outcome__c = null;
 		}
 	}
-
+*/
 	@TestVisible private static void setNewShipperSyncLevel(Segment__c s) {
 		if (s.Administrative_Review_Aligned_To__c != null) {
 			if (s.New_Shipper_Sync_Level__c == null) {
@@ -364,7 +387,7 @@ public without sharing class SegmentTriggerHandler {
 	/**************************************
 	* Date Calculations
 	***************************************/
-
+/*
 	//Ordered Methods
 	//sets Deadline_for_Decision_for_HoP__c for Scope Inquiry Segments
 	@TestVisible private static void setDeadlineForDecisionForHoP(Segment__c s) {
@@ -733,6 +756,7 @@ public without sharing class SegmentTriggerHandler {
 		if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW) {
 			Date finalPublished = null;
 			Date revoPublished = null;
+			System.debug('frUtilMap: ' + frUtilMap);
 			if(s.Id != null && frUtilMap != null) {
 				finalPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).finalPublishedDate : null;
 				if (s.ADCVD_Order__c != null) {
@@ -1127,27 +1151,30 @@ public without sharing class SegmentTriggerHandler {
 		}
 	}
 
-	//sets the ssrType for a Sunset Review
-	@TestVisible private static void setSsrType(Segment__c s) {
-		if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW) {
-			if ((s.Notice_of_intent_to_participate_Ips__c == 'No' || s.Domestic_Party_File_Substan_Response__c == 'No')  
-					&& s.Review_to_address_zeroing_in_Segments__c != 'Yes') {
-				ssrType = '90';
-			} else if (s.Notice_of_intent_to_participate_Ips__c == 'Yes' && s.Domestic_Party_File_Substan_Response__c == 'Yes' 
-					&& s.Respondent_File_Substantive_Response__c == 'No' && s.Review_to_address_zeroing_in_Segments__c != 'Yes') {
-				ssrType = '120';
-			} else if ((s.Notice_of_intent_to_participate_Ips__c == 'Yes' && s.Domestic_Party_File_Substan_Response__c == 'Yes'
-					&& s.Respondent_File_Substantive_Response__c == 'Yes') || s.Review_to_address_zeroing_in_Segments__c == 'Yes') {
-				ssrType = '240';
-			}
-			if(ssrType == '120' || ssrType == '240') {
-				if (s.Adequacy_of_Respondents_Submission__c =='Adequate or Substantive') {
-					ssrType = '240';
-				} else if(s.Adequacy_of_Respondents_Submission__c =='Inadequate or Non-Substantive' && s.Review_to_address_zeroing_in_Segments__c != 'Yes') {
-					ssrType = '120';
-				}
-			}
-		 }
+	/*****************************
+	* Validations
+	*****************************/
+
+	@TestVisible private static void validateRescissionOutcome(Segment__c s) {
+		if (s.Segment_Outcome__c != 'Full Rescission') {return;}
+		Date rescissionPublished = null;
+		if(s.Id != null && frUtilMap != null) {
+			rescissionPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).rescissionPublishedDate : null;
+		}
+		if (rescissionPublished == null) {
+			s.addError('You must enter a Rescission Federal Register to set Segment Outcome to "Full Rescission".');
+		}
+	}
+
+	@TestVisible private static void validateCompletedOutcome(Segment__c s) {
+		if (s.Segment_Outcome__c != 'Completed') {return;}
+		Date finalPublished = null;
+		if(s.Id != null && frUtilMap != null) {
+			finalPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).finalPublishedDate : null;
+		}
+		if (finalPublished == null) {
+			s.addError('You must enter a Final Federal Register to set Segment Outcome to "Completed".');
+		}
 	}
 
 
@@ -1368,7 +1395,8 @@ public without sharing class SegmentTriggerHandler {
 	}
 
 	@TestVisible private static void setHoldStatus(Segment__c s) {
-		if (recordTypeNameMap.get(s.RecordTypeId) != NEW_SHIPPER_REVIEW || s.Administrative_Review_Aligned_To__c == null) {
+		if ((recordTypeNameMap.get(s.RecordTypeId) != NEW_SHIPPER_REVIEW || s.Administrative_Review_Aligned_To__c == null) 
+			&& (s.Will_you_Amend_the_Final__c != 'Yes' || s.Actual_Amended_Final_Signature__c != null)) {
 			if (s.Litigation_Hold_Expiration_Date__c != null 
 				&& s.Litigation_YesNo__c == null 
 				&& s.Segment_Outcome__c != null) {
@@ -1457,7 +1485,7 @@ public without sharing class SegmentTriggerHandler {
 	/***********************************
 	* Methods called by other classes
 	***********************************/
-
+/*
 	//called by Sunset Review Controller
 	public Segment__c calculateSegmentDates(String ssReviewType, Segment__c s) {
 		if (s != null && s.Id != null) {
@@ -1491,5 +1519,28 @@ public without sharing class SegmentTriggerHandler {
 		}
 
 		return s;
+	}
+*/
+	//sets the ssrType for a Sunset Review
+	@TestVisible private static void setSsrType(Segment__c s) {
+		if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW) {
+			if ((s.Notice_of_intent_to_participate_Ips__c == 'No' || s.Domestic_Party_File_Substan_Response__c == 'No')  
+					&& s.Review_to_address_zeroing_in_Segments__c != 'Yes') {
+				ssrType = '90';
+			} else if (s.Notice_of_intent_to_participate_Ips__c == 'Yes' && s.Domestic_Party_File_Substan_Response__c == 'Yes' 
+					&& s.Respondent_File_Substantive_Response__c == 'No' && s.Review_to_address_zeroing_in_Segments__c != 'Yes') {
+				ssrType = '120';
+			} else if ((s.Notice_of_intent_to_participate_Ips__c == 'Yes' && s.Domestic_Party_File_Substan_Response__c == 'Yes'
+					&& s.Respondent_File_Substantive_Response__c == 'Yes') || s.Review_to_address_zeroing_in_Segments__c == 'Yes') {
+				ssrType = '240';
+			}
+			if(ssrType == '120' || ssrType == '240') {
+				if (s.Adequacy_of_Respondents_Submission__c =='Adequate or Substantive') {
+					ssrType = '240';
+				} else if(s.Adequacy_of_Respondents_Submission__c =='Inadequate or Non-Substantive' && s.Review_to_address_zeroing_in_Segments__c != 'Yes') {
+					ssrType = '120';
+				}
+			}
+		 }
 	}
 }

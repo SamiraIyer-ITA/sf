@@ -66,7 +66,10 @@ public class SegmentTriggerHandlerTest {
 			if (adminSeg == null) {
 				Id recordTypeId = utils.getRecordTypeIdMap('Segment__c').get('Administrative_Review');
 				adminSeg = [SELECT Id, RecordTypeId, Prelim_Extension__c, Final_Date_of_Anniversary_Month__c, Calculated_Preliminary_Signature__c,
-									Calculated_Final_Signature__c, Actual_Final_Signature__c 
+									Calculated_Final_Signature__c, Actual_Final_Signature__c, Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, 
+									Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, Amend_Final_Issues_Due_to_DAS__c, Amend_Final_Concurrence_Due_to_DAS__c, 
+									Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, 
+									Preliminary_Announcement_Date__c, Final_Announcement_Date__c, Amended_Final_Announcement_Date__c, Calculated_Amended_Final_Signature__c 
 								FROM Segment__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
 			}
 			return adminSeg;
@@ -77,7 +80,11 @@ public class SegmentTriggerHandlerTest {
 			if (nsSeg == null) {
 				Id recordTypeId = utils.getRecordTypeIdMap('Segment__c').get('New_Shipper_Review');
 				nsSeg = [SELECT Id, RecordTypeId, Prelim_Extension__c, Calculated_Preliminary_Signature__c, Calculated_Initiation_Signature__c,
-								Actual_Initiation_Signature__c, Calculated_Final_Signature__c, Actual_Preliminary_Signature__c, Actual_Final_Signature__c
+								Actual_Initiation_Signature__c, Calculated_Final_Signature__c, Actual_Preliminary_Signature__c, Actual_Final_Signature__c, 
+								Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, 
+								Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, Amend_Final_Issues_Due_to_DAS__c, Amend_Final_Concurrence_Due_to_DAS__c, 
+								Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, 
+								Preliminary_Announcement_Date__c, Final_Announcement_Date__c, Amended_Final_Announcement_Date__c, Calculated_Amended_Final_Signature__c 
 							FROM Segment__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
 			}
 			return nsSeg;
@@ -88,7 +95,11 @@ public class SegmentTriggerHandlerTest {
 			if (siSeg == null) {
 				Id recordTypeId = utils.getRecordTypeIdMap('Segment__c').get('Scope_Inquiry');
 				siSeg = [SELECT Id, Deadline_for_Decision_on_How_to_Proceed__c, Initiation_Extension_of_days__c, RecordTypeId, Request_Filed__c, 
-								Prelim_Extension__c, Calculated_Preliminary_Signature__c, Actual_Date_of_Decision_on_HoP__c, Calculated_Final_Signature__c 
+								Prelim_Extension__c, Calculated_Preliminary_Signature__c, Actual_Date_of_Decision_on_HoP__c, Calculated_Final_Signature__c, 
+								Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, 
+									Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, 
+									Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, 
+									Preliminary_Announcement_Date__c, Final_Announcement_Date__c
 							FROM Segment__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
 			}
 			return siSeg;
@@ -99,7 +110,11 @@ public class SegmentTriggerHandlerTest {
 			if (expedSeg == null) {
 				Id recordTypeId = utils.getRecordTypeIdMap('Segment__c').get('Expedited_Review');
 				expedSeg = [SELECT Id, RecordTypeId, Prelim_Extension__c, Calculated_Initiation_Signature__c, Calculated_Preliminary_Signature__c,
-									Calculated_Final_Signature__c, Actual_Final_Signature__c, Actual_Preliminary_Signature__c
+									Calculated_Final_Signature__c, Actual_Final_Signature__c, Actual_Preliminary_Signature__c, 
+									Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, 
+									Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, Amend_Final_Issues_Due_to_DAS__c, Amend_Final_Concurrence_Due_to_DAS__c, 
+									Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, 
+									Preliminary_Announcement_Date__c, Final_Announcement_Date__c, Amended_Final_Announcement_Date__c, Calculated_Amended_Final_Signature__c 
 								FROM Segment__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
 			}
 			return expedSeg;
@@ -109,9 +124,12 @@ public class SegmentTriggerHandlerTest {
 		get{
 			if (acSeg == null) {
 				Id recordTypeId = utils.getRecordTypeIdMap('Segment__c').get('Anti_Circumvention_Review');
-				acSeg = [SELECT Id, RecordTypeId, Prelim_Extension__c, Initiation_Extension_of_days__c, Calculated_Preliminary_Signature__c,
-									Calculated_Final_Signature__c , Actual_Initiation_Signature__c, Calculated_Initiation_Signature__c,
-									Application_Accepted__c
+				acSeg = [SELECT Id, RecordTypeId, Prelim_Extension__c, Initiation_Extension_of_days__c, Calculated_Preliminary_Signature__c, 
+									Calculated_Final_Signature__c, Actual_Initiation_Signature__c, Calculated_Initiation_Signature__c,
+									Application_Accepted__c, Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, 
+									Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, 
+									Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, 
+									Preliminary_Announcement_Date__c, Final_Announcement_Date__c 
 								FROM Segment__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
 			}
 			return acSeg;
@@ -123,7 +141,10 @@ public class SegmentTriggerHandlerTest {
 				Id recordTypeId = utils.getRecordTypeIdMap('Segment__c').get('Changed_Circumstances_Review');
 				ccSeg = [SELECT Id, RecordTypeId, Prelim_Extension__c, Calculated_Preliminary_Signature__c, Is_This_Review_Expedited__c,
 									Calculated_Final_Signature__c , Actual_Initiation_Signature__c, Calculated_Initiation_Signature__c,
-									All_parties_in_agreement_to_the_outcome__c, Request_Filed__c
+									All_parties_in_agreement_to_the_outcome__c, Request_Filed__c, Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, 
+									Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c,  
+									Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, 
+									Preliminary_Announcement_Date__c, Final_Announcement_Date__c
 								FROM Segment__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
 			}
 			return ccSeg;
@@ -140,7 +161,11 @@ public class SegmentTriggerHandlerTest {
 							Notify_ITC_of_No_Domestic_Interest__c, Inadequate_Domestic_Response_note_to_ITC__c, Notice_of_Intent_to_Participate__c, 
 							Notify_Cluster_Coordinator_No_Interest__c, Substantive_Response_Due_For_All_Parties__c, Inform_Cluster_Coordinator_if_No_Respons__c, 
 							Notice_of_intent_to_participate_Ips__c, Domestic_Party_File_Substan_Response__c, Review_to_address_zeroing_in_Segments__c, 
-							Respondent_File_Substantive_Response__c, Prelim_Extension__c, Initiation_Extension_of_days__c, Final_Extension_of_days__c
+							Respondent_File_Substantive_Response__c, Prelim_Extension__c, Initiation_Extension_of_days__c, 
+							Final_Extension_of_days__c, Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, 
+							Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, 
+							Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, 
+							Preliminary_Announcement_Date__c, Final_Announcement_Date__c 
 							FROM Segment__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
 			}
 			return ssSeg;
@@ -186,7 +211,7 @@ public class SegmentTriggerHandlerTest {
 	}
 
 	//setCalculatedInitationSignature
-	@isTest static void setCalculatedInitationSignature() {
+	@isTest static void setCalculatedInitationSignatureACR() {
 		Test.startTest();
 		//Setup start dates
 		setStartDates();
@@ -194,9 +219,19 @@ public class SegmentTriggerHandlerTest {
 		getNewSegs();
 		//Anti-Circumvention Review
 		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(acSeg.Application_Accepted__c.addDays(45).addDays(7));
+
+		Test.stopTest();
 		System.assertEquals(testCalculated,
 			[SELECT Id, Calculated_Initiation_Signature__c FROM Segment__c WHERE Id =: acSeg.Id LIMIT 1].Calculated_Initiation_Signature__c);
+	}
 
+		//setCalculatedInitationSignature
+	@isTest static void setCalculatedInitationSignatureCCR() {
+		Test.startTest();
+		//Setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
 		//Changed-Circumstances Reivew
 		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(ccSeg.Request_Filed__c.addDays(45).addDays(7));
 		
@@ -206,7 +241,7 @@ public class SegmentTriggerHandlerTest {
 	}
 
 	//setCalculatedPreliminarySignature
-	@isTest static void setCalculatedPreliminarySignature(){
+	@isTest static void setCalculatedPreliminarySignatureAdministrativeReview(){
 		Test.startTest();
 
 		//setup start dates
@@ -216,9 +251,21 @@ public class SegmentTriggerHandlerTest {
 
 		//Administrative Review
 		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(adminSeg.Final_Date_of_Anniversary_Month__c.addDays(245).addDays(7));
+
+		Test.stopTest();
 		//compare Final_Date_of_Anniversary_Month__c + Prelim_Extension__c
 		System.assertEquals(testCalculated,
 			[SELECT Id, Calculated_Preliminary_Signature__c FROM Segment__c WHERE Id =: adminSeg.Id LIMIT 1].Calculated_Preliminary_Signature__c);
+	}
+
+	//setCalculatedPreliminarySignature
+	@isTest static void setCalculatedPreliminarySignatureNewShipperReview(){
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
 
 		//New Shipper Review
 		//Based on Calculated
@@ -231,9 +278,21 @@ public class SegmentTriggerHandlerTest {
 		nsSeg.Actual_Initiation_Signature__c = nsSeg.Calculated_Initiation_Signature__c.addDays(-14);
 		update nsSeg;
 		testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(nsSeg.Actual_Initiation_Signature__c.addDays(180).addDays(7));
+
+		Test.stopTest();
 		//compare Actual_Initiation_Signature__c + Prelim_Extension__c
 		System.assertEquals(testActual,
 			[SELECT Id, Calculated_Preliminary_Signature__c FROM Segment__c WHERE Id =: nsSeg.Id LIMIT 1].Calculated_Preliminary_Signature__c);
+	}
+
+	//setCalculatedPreliminarySignature
+	@isTest static void setCalculatedPreliminarySignatureSI(){
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
 
 		//Scope Inquiry
 		//Based on Formal
@@ -247,13 +306,37 @@ public class SegmentTriggerHandlerTest {
 
 		//Based on Not Formal
 		clearFormal();
+
+		Test.stopTest();
 		System.assertEquals(null,
 			[SELECT Id, Calculated_Preliminary_Signature__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Calculated_Preliminary_Signature__c);
+	}
+
+	//setCalculatedPreliminarySignature
+	@isTest static void setCalculatedPreliminarySignatureExpeditedReview(){
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
 
 		//Expedited Review
 		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(expedSeg.Calculated_Initiation_Signature__c.addDays(180).addDays(7));
+
+		Test.stopTest();
 		System.assertEquals(testCalculated,
 			[SELECT Id, Calculated_Preliminary_Signature__c FROM Segment__c WHERE Id =: expedSeg.Id LIMIT 1].Calculated_Preliminary_Signature__c);
+	}
+
+	//setCalculatedPreliminarySignature
+	@isTest static void setCalculatedPreliminarySignatureACR(){
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
 
         //Anti-Circumvention Review
         acSeg.Type_of_Circumvention_Inquiry__c = 'Later-Developed Merchandise';
@@ -268,9 +351,21 @@ public class SegmentTriggerHandlerTest {
 		acSeg.Actual_Initiation_Signature__c = acSeg.Calculated_Initiation_Signature__c.addDays(-14);
 		update acSeg;
 		testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(acSeg.Actual_Initiation_Signature__c.addDays(120).addDays(7));
+
+		Test.stopTest();
 		//compare Actual_Initiation_Signature__c + Prelim_Extension__c
 		System.assertEquals(testActual,
 			[SELECT Id, Calculated_Preliminary_Signature__c FROM Segment__c WHERE Id =: acSeg.Id LIMIT 1].Calculated_Preliminary_Signature__c);
+	}
+
+	//setCalculatedPreliminarySignature
+	@isTest static void setCalculatedPreliminarySignatureCCR(){
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
 
         //Changed-Circumstances Review
         ccSeg.All_parties_in_agreement_to_the_outcome__c = 'No';
@@ -292,7 +387,7 @@ public class SegmentTriggerHandlerTest {
 	}
 
 	//setPrelimTeamMeetingDeadline
-	@isTest static void setPrelimTeamMeetingDeadline(){
+	@isTest static void setPrelimTeamMeetingDeadlineAdministrativeReview(){
 		Test.startTest();
 
 		//setup start dates
@@ -302,14 +397,36 @@ public class SegmentTriggerHandlerTest {
 		//Admin Review
 		//compare Calculated_Preliminary_Signature__c
 		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(adminSeg.Calculated_Preliminary_Signature__c.addDays(-21));
+
+		Test.stopTest();
 		System.assertEquals(testCalculated,
 			[SELECT Id, Prelim_Team_Meeting_Deadline__c FROM  Segment__c WHERE Id =: adminSeg.Id LIMIT 1].Prelim_Team_Meeting_Deadline__c);
+	}
+
+	//setPrelimTeamMeetingDeadline
+	@isTest static void setPrelimTeamMeetingDeadlineNewShipperReview(){
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		getNewSegs();
 
 		//New Shipper
 		//compare Calculated_Preliminary_Signature__c
 		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(nsSeg.Calculated_Preliminary_Signature__c.addDays(-21));
+
+		Test.stopTest();
 		System.assertEquals(testCalculated,
 			[SELECT Id, Prelim_Team_Meeting_Deadline__c FROM  Segment__c WHERE Id =: nsSeg.Id LIMIT 1].Prelim_Team_Meeting_Deadline__c);
+	}
+
+	//setPrelimTeamMeetingDeadline
+	@isTest static void setPrelimTeamMeetingDeadlineSI(){
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		getNewSegs();
 
 		//Scope Inquiry
 		////Based on Formal
@@ -320,21 +437,54 @@ public class SegmentTriggerHandlerTest {
 		
 		//Based on Not Formal
 		clearFormal();
+
+		Test.stopTest();
 		System.assertEquals(null,
 			[SELECT Id, Prelim_Team_Meeting_Deadline__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Prelim_Team_Meeting_Deadline__c);
+	}
+
+	//setPrelimTeamMeetingDeadline
+	@isTest static void setPrelimTeamMeetingDeadlineExpeditedReview(){
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		getNewSegs();
 
 		//Expedited Review
 		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(expedSeg.Calculated_Preliminary_Signature__c.addDays(-21));
+
+		Test.stopTest();
 		System.assertEquals(testCalculated,
 			[SELECT Id, Prelim_Team_Meeting_Deadline__c FROM  Segment__c WHERE Id =: expedSeg.Id LIMIT 1].Prelim_Team_Meeting_Deadline__c);
+	}
+
+	//setPrelimTeamMeetingDeadline
+	@isTest static void setPrelimTeamMeetingDeadlineACR(){
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		getNewSegs();
 
 		//Anti-Circumvention Review
 		acSeg.Type_of_Circumvention_Inquiry__c = 'Later-Developed Merchandise';
 		update acSeg;
 		getNewSegs();
 		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(acSeg.Calculated_Preliminary_Signature__c.addDays(-21));
+
+		Test.stopTest();
 		System.assertEquals(testCalculated,
 			[SELECT Id, Prelim_Team_Meeting_Deadline__c FROM  Segment__c WHERE Id =: acSeg.Id LIMIT 1].Prelim_Team_Meeting_Deadline__c);
+	}
+
+	//setPrelimTeamMeetingDeadline
+	@isTest static void setPrelimTeamMeetingDeadlineCCR(){
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		getNewSegs();
 
 		//Changed-Circumstances Review
 		ccSeg.All_parties_in_agreement_to_the_outcome__c = 'No';
@@ -601,7 +751,7 @@ public class SegmentTriggerHandlerTest {
 	}
 
 	//setFinalTeamMeetingDeadline
-	@isTest static void setFinalTeamMeetingDeadline(){
+	@isTest static void setFinalTeamMeetingDeadlineAdministrativeReview(){
 		Test.startTest();
 
 		//setup start dates
@@ -611,14 +761,36 @@ public class SegmentTriggerHandlerTest {
 		//Admin Review
 		//compare Calculated_Final_Signature__c
 		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(adminSeg.Calculated_Final_Signature__c.addDays(-21));
+
+		Test.stopTest();
 		System.assertEquals(testCalculated,
 			[SELECT Id, Final_Team_Meeting_Deadline__c FROM  Segment__c WHERE Id =: adminSeg.Id LIMIT 1].Final_Team_Meeting_Deadline__c);
+	}
+
+	//setFinalTeamMeetingDeadline
+	@isTest static void setFinalTeamMeetingDeadlineNewShipperReview(){
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		getNewSegs();
 
 		//New Shipper
 		//compare Calculated_Final_Signature__c
 		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(nsSeg.Calculated_Final_Signature__c.addDays(-21));
+
+		Test.stopTest();
 		System.assertEquals(testCalculated,
 			[SELECT Id, Final_Team_Meeting_Deadline__c FROM  Segment__c WHERE Id =: nsSeg.Id LIMIT 1].Final_Team_Meeting_Deadline__c);
+	}
+
+	//setFinalTeamMeetingDeadline
+	@isTest static void setFinalTeamMeetingDeadlineSI(){
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		getNewSegs();
 
 		//Scope Inquiry
 		//Based on Formal
@@ -629,20 +801,53 @@ public class SegmentTriggerHandlerTest {
 
 		//Based on Not Formal
 		clearFormal();
+
+		Test.stopTest();
 		System.assertEquals(null,
 			[SELECT Id, Final_Team_Meeting_Deadline__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Final_Team_Meeting_Deadline__c);
+	}
+
+	//setFinalTeamMeetingDeadline
+	@isTest static void setFinalTeamMeetingDeadlineExpeditedReview(){
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		getNewSegs();
 
 		//Expedited Review
 		//compare Calculated_Final_Signature__c
 		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(expedSeg.Calculated_Final_Signature__c.addDays(-21));
+
+		Test.stopTest();
 		System.assertEquals(testCalculated,
 			[SELECT Id, Final_Team_Meeting_Deadline__c FROM  Segment__c WHERE Id =: expedSeg.Id LIMIT 1].Final_Team_Meeting_Deadline__c);
+	}
+
+	//setFinalTeamMeetingDeadline
+	@isTest static void setFinalTeamMeetingDeadlineACR(){
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		getNewSegs();
 
 		//Anti-Circumvention Review
 		//compare Calculated_Final_Signature__c
 		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(acSeg.Calculated_Final_Signature__c.addDays(-21));
+
+		Test.stopTest();
 		System.assertEquals(testCalculated,
 			[SELECT Id, Final_Team_Meeting_Deadline__c FROM  Segment__c WHERE Id =: acSeg.Id LIMIT 1].Final_Team_Meeting_Deadline__c);
+	}
+
+	//setFinalTeamMeetingDeadline
+	@isTest static void setFinalTeamMeetingDeadlineCCR(){
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		getNewSegs();
 
 		//Changed-Circumstances Review
 		//compare Calculated_Final_Signature__c
@@ -654,7 +859,7 @@ public class SegmentTriggerHandlerTest {
 	}
 
 	//setCalculatedAmendedFinalSignature
-	@isTest static void setCalculatedAmendedFinalSignature(){
+	@isTest static void setCalculatedAmendedFinalSignatureAdministrativeReview(){
 		Test.startTest();
 
 		//setup start dates
@@ -672,9 +877,21 @@ public class SegmentTriggerHandlerTest {
 		adminSeg.Actual_Final_Signature__c = adminSeg.Calculated_Final_Signature__c.addDays(-14);
 		update adminSeg;
 		testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(adminSeg.Actual_Final_Signature__c.addDays(37));
+
+		Test.stopTest();
 		//compare Actual_Final_Signature__c +37 days
 		System.assertEquals(testActual,
 			[SELECT Id, Calculated_Amended_Final_Signature__c FROM Segment__c WHERE Id =: adminSeg.Id LIMIT 1].Calculated_Amended_Final_Signature__c);
+	}
+
+	//setCalculatedAmendedFinalSignature
+	@isTest static void setCalculatedAmendedFinalSignatureNewShipperReview(){
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
 
 		//New Shipper Review
 		//Calculated
@@ -686,9 +903,21 @@ public class SegmentTriggerHandlerTest {
 		nsSeg.Actual_Final_Signature__c = nsSeg.Calculated_Final_Signature__c.addDays(-14);
 		update nsSeg;
 		testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(nsSeg.Actual_Final_Signature__c.addDays(37));
+
+		Test.stopTest();
 		//compare Actual_Final_Signature__c +37 days
 		System.assertEquals(testActual,
 			[SELECT Id, Calculated_Amended_Final_Signature__c FROM Segment__c WHERE Id =: nsSeg.Id LIMIT 1].Calculated_Amended_Final_Signature__c);
+	}
+
+	//setCalculatedAmendedFinalSignature
+	@isTest static void setCalculatedAmendedFinalSignatureExpeditedReview(){
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
 
 		//Expedited Review
 		//Calculated
@@ -699,7 +928,7 @@ public class SegmentTriggerHandlerTest {
 		//Actual
 		expedSeg.Actual_Final_Signature__c = expedSeg.Calculated_Final_Signature__c.addDays(-14);
 		update expedSeg;
-		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(expedSeg.Actual_Final_Signature__c.addDays(37));
+		testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(expedSeg.Actual_Final_Signature__c.addDays(37));
 		//compare Actual_Final_Signature__c +37 days
 		
 		Test.stopTest();
@@ -730,27 +959,6 @@ public class SegmentTriggerHandlerTest {
         System.assertEquals(testCalculated,
             [SELECT Id, Notify_ITC_If_Affirmative_Prelim_Determ__c FROM Segment__c WHERE Id =: acSeg.Id LIMIT 1].Notify_ITC_If_Affirmative_Prelim_Determ__c);
     }
-
-	@isTest static void setCalculatedInitiationSignature(){
-		Test.startTest();
-
-		//New Method. Was unsure what values to put for Application_Accepted__c in Anti-Circumvention and Request_Filed__c in Changed-Circumstances.  I rolled back by a year. Can change if needed/. - TT
-		//setup start dates
-		setStartDates();
-		setExtensions();
-		getNewSegs();
-		//Anti-Circumvention Review
-		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(acSeg.Application_Accepted__c.addDays(45).addDays(7));
-		System.assertEquals(testCalculated,
-			[SELECT Id, Calculated_Initiation_Signature__c FROM Segment__c where Id =: acSeg.Id LIMIT 1].Calculated_Initiation_Signature__c);
-
-		//Changed-Circumstances Review
-		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(ccSeg.Request_Filed__c.addDays(45).addDays(7));
-		
-		Test.stopTest();
-		System.assertEquals(testCalculated,
-			[SELECT Id, Calculated_Initiation_Signature__c FROM Segment__c where Id =: ccSeg.Id LIMIT 1].Calculated_Initiation_Signature__c);
-	}
 	
 	//Sunset Review Fields
 	//setCalculatedRevocationOrContinuationFR
@@ -1230,6 +1438,54 @@ public class SegmentTriggerHandlerTest {
 			[SELECT Id, Inform_Cluster_Coordinator_if_No_Respons__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Inform_Cluster_Coordinator_if_No_Respons__c);
 	}
 
+	//setLitigationHoldExpirationDate
+	@isTest static void runValidationsAdministrativeReview() {
+		Test.startTest();
+
+		//Negative Tests for error on Outcome without FR
+		adminSeg.Segment_Outcome__c = 'Full Rescission';
+		String insufficientDataError = attemptUpsert(adminSeg);
+		System.assert(insufficientDataError.contains('You must enter a Rescission Federal Register'));
+
+		adminSeg.Segment_Outcome__c = 'Completed';
+		insufficientDataError = attemptUpsert(adminSeg);
+
+		Test.stopTest();
+		System.assert(insufficientDataError.contains('You must enter a Final Federal Register'));
+	}
+
+	//setLitigationHoldExpirationDate
+	@isTest static void runValidationsExpeditedReview() {
+		Test.startTest();
+
+		//Negative Tests for error on Outcome without FR
+		expedSeg.Segment_Outcome__c = 'Full Rescission';
+		String insufficientDataError = attemptUpsert(expedSeg);
+		System.assert(insufficientDataError.contains('You must enter a Rescission Federal Register'));
+
+		expedSeg.Segment_Outcome__c = 'Completed';
+		insufficientDataError = attemptUpsert(expedSeg);
+
+		Test.stopTest();
+		System.assert(insufficientDataError.contains('You must enter a Final Federal Register'));
+	}
+
+	//setLitigationHoldExpirationDate
+	@isTest static void runValidationsNewShipperReview() {
+		Test.startTest();
+
+		//Negative Tests for error on Outcome without FR
+		nsSeg.Segment_Outcome__c = 'Full Rescission';
+		String insufficientDataError = attemptUpsert(nsSeg);
+		System.assert(insufficientDataError.contains('You must enter a Rescission Federal Register'));
+
+		nsSeg.Segment_Outcome__c = 'Completed';
+		insufficientDataError = attemptUpsert(nsSeg);
+
+		Test.stopTest();
+		System.assert(insufficientDataError.contains('You must enter a Final Federal Register'));
+	}
+
 	@isTest static void setStatusAdministrativeReview() {
 		Test.startTest();
 		Litigation__c l = TestUtils.createLitigation(testCalculated.addDays(15), 'Remand', true);
@@ -1495,7 +1751,6 @@ public class SegmentTriggerHandlerTest {
 
 		Test.stopTest();
 		System.assertEquals('Closed', [SELECT Id, Status__c FROM Segment__c WHERE Id =: acSeg.Id LIMIT 1].Status__c);
-
 	}
 
 	@isTest static void setStatusScopeInquiry() {
@@ -1591,7 +1846,6 @@ public class SegmentTriggerHandlerTest {
 		
 		Test.stopTest();
 		System.assertEquals('Closed', [SELECT Id, Status__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Status__c);
-
 	}
 
 	@isTest static void setStatusSunsetReview120() {
@@ -1634,7 +1888,6 @@ public class SegmentTriggerHandlerTest {
 		
 		Test.stopTest();
 		System.assertEquals('Closed', [SELECT Id, Status__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Status__c);
-
 	}
 
 	@isTest static void setStatusSunsetReview240() {
@@ -1684,7 +1937,273 @@ public class SegmentTriggerHandlerTest {
 		
 		Test.stopTest();
 		System.assertEquals('Closed', [SELECT Id, Status__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Status__c);
+	}
 
+	//setPreliminaryAnnouncementDate
+	@isTest static void setPreliminaryAnnouncementDateAdministrativeReview() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(adminSeg.Calculated_Preliminary_Signature__c, adminSeg.Calculated_Preliminary_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, adminSeg.Preliminary_Announcement_Date__c);
+	}
+	//setPreliminaryAnnouncementDate
+	@isTest static void setPreliminaryAnnouncementDateExpeditedReview() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(expedSeg.Calculated_Preliminary_Signature__c, expedSeg.Calculated_Preliminary_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, expedSeg.Preliminary_Announcement_Date__c);
+	}
+	//setPreliminaryAnnouncementDate
+	@isTest static void setPreliminaryAnnouncementDateNewShipperReview() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(nsSeg.Calculated_Preliminary_Signature__c, nsSeg.Calculated_Preliminary_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, nsSeg.Preliminary_Announcement_Date__c);
+	}
+	//setPreliminaryAnnouncementDate
+	@isTest static void setPreliminaryAnnouncementDateAR() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(adminSeg.Calculated_Preliminary_Signature__c, adminSeg.Calculated_Preliminary_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, adminSeg.Preliminary_Announcement_Date__c);
+	}
+
+	//setFinalAnnouncementDate
+	@isTest static void setFinalAnnouncementDateAdministrativeReview() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(adminSeg.Calculated_Final_Signature__c, adminSeg.Calculated_Final_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, adminSeg.Final_Announcement_Date__c);
+	}
+	//setFinalAnnouncementDate
+	@isTest static void setFinalAnnouncementDateExpeditedReview() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(expedSeg.Calculated_Final_Signature__c, expedSeg.Calculated_Final_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, expedSeg.Final_Announcement_Date__c);
+	}
+	//setFinalAnnouncementDate
+	@isTest static void setFinalAnnouncementDateNewShipperReview() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(nsSeg.Calculated_Final_Signature__c, nsSeg.Calculated_Final_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, nsSeg.Final_Announcement_Date__c);
+	}
+	//setFinalAnnouncementDate
+	@isTest static void setFinalAnnouncementDateAR() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(adminSeg.Calculated_Final_Signature__c, adminSeg.Calculated_Final_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, adminSeg.Final_Announcement_Date__c);
+	}
+
+	//setAmendedFinalAnnouncementDate
+	@isTest static void setAmendedFinalAnnouncementDateAdministrativeReview() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(adminSeg.Calculated_Amended_Final_Signature__c, adminSeg.Calculated_Amended_Final_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, adminSeg.Amended_Final_Announcement_Date__c);
+	}
+	//setAmendedFinalAnnouncementDate
+	@isTest static void setAmendedFinalAnnouncementDateExpeditedReview() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(expedSeg.Calculated_Amended_Final_Signature__c, expedSeg.Calculated_Amended_Final_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, expedSeg.Amended_Final_Announcement_Date__c);
+	}
+	//setAmendedFinalAnnouncementDate
+	@isTest static void setAmendedFinalAnnouncementDateNewShipperReview() {
+		Test.startTest();
+		
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(nsSeg.Calculated_Amended_Final_Signature__c, nsSeg.Calculated_Amended_Final_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, nsSeg.Amended_Final_Announcement_Date__c);
+	}
+
+
+	//Next Announcement Date
+	@isTest static void setNextAnnouncementDateAdministrativeReview() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+
+		System.assertEquals(adminSeg.Preliminary_Announcement_Date__c, adminSeg.Next_Announcement_Date__c);
+
+		adminSeg.Actual_Preliminary_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update adminSeg;
+		getNewSegs();
+		System.assertEquals(adminSeg.Final_Announcement_Date__c, adminSeg.Next_Announcement_Date__c);
+
+		
+		adminSeg.Actual_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update adminSeg;
+		getNewSegs();
+		System.assertEquals(adminSeg.Amended_Final_Announcement_Date__c, adminSeg.Next_Announcement_Date__c);
+
+		adminSeg.Actual_Amended_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update adminSeg;
+		getNewSegs();
+
+		Test.stopTest();
+		System.assertEquals(null, adminSeg.Next_Announcement_Date__c);
+	}
+	//Next Announcement Date
+	@isTest static void setNextAnnouncementDateExpeditedReview() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+
+		System.assertEquals(expedSeg.Preliminary_Announcement_Date__c, expedSeg.Next_Announcement_Date__c);
+
+		expedSeg.Actual_Preliminary_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update expedSeg;
+		getNewSegs();
+		System.assertEquals(expedSeg.Final_Announcement_Date__c, expedSeg.Next_Announcement_Date__c);
+
+		
+		expedSeg.Actual_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update expedSeg;
+		getNewSegs();
+		System.assertEquals(expedSeg.Amended_Final_Announcement_Date__c, expedSeg.Next_Announcement_Date__c);
+
+		expedSeg.Actual_Amended_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update expedSeg;
+		getNewSegs();
+
+		Test.stopTest();
+		System.assertEquals(null, expedSeg.Next_Announcement_Date__c);
+	}
+	//Next Announcement Date
+	@isTest static void setNextAnnouncementDateNewShipperReview() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+
+		System.assertEquals(nsSeg.Preliminary_Announcement_Date__c, nsSeg.Next_Announcement_Date__c);
+
+		nsSeg.Actual_Preliminary_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update nsSeg;
+		getNewSegs();
+		System.assertEquals(nsSeg.Final_Announcement_Date__c, nsSeg.Next_Announcement_Date__c);
+
+		
+		nsSeg.Actual_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update nsSeg;
+		getNewSegs();
+		System.assertEquals(nsSeg.Amended_Final_Announcement_Date__c, nsSeg.Next_Announcement_Date__c);
+
+		nsSeg.Actual_Amended_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update nsSeg;
+		getNewSegs();
+
+		Test.stopTest();
+		System.assertEquals(null, nsSeg.Next_Announcement_Date__c);
+	}
+	//Next Announcement Date
+	@isTest static void setNextAnnouncementDateAR() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+
+		System.assertEquals(adminSeg.Preliminary_Announcement_Date__c, adminSeg.Next_Announcement_Date__c);
+
+		adminSeg.Actual_Preliminary_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update adminSeg;
+		getNewSegs();
+		System.assertEquals(adminSeg.Final_Announcement_Date__c, adminSeg.Next_Announcement_Date__c);
+
+		
+		adminSeg.Actual_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update adminSeg;
+		getNewSegs();
+		System.assertEquals(adminSeg.Amended_Final_Announcement_Date__c, adminSeg.Next_Announcement_Date__c);
+
+		adminSeg.Actual_Amended_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update adminSeg;
+		getNewSegs();
+
+		Test.stopTest();
+		System.assertEquals(null, adminSeg.Next_Announcement_Date__c);
 	}
 
 	@testSetup static void dataSetup() {
@@ -1703,23 +2222,34 @@ public class SegmentTriggerHandlerTest {
 		}
 	}
 
+	private static String attemptUpsert(SObject o){
+		String error = '';
+		try{
+			upsert o;
+			error = 'Success';
+		} catch (DmlException e) {
+			error = e.getMessage();
+		}
+		return error;
+	}
+
 	private static void setStartDates() {
 		List<Segment__c> segsToUpdate = new List<Segment__c>();
 		//ACR
 		acSeg.Application_Accepted__c = segmentDate;
 		segsToUpdate.add(acSeg);
-		//AR
+		//Administrative Review
 		adminSeg.Final_Date_of_Anniversary_Month__c = segmentDate;
 		adminSeg.Will_you_Amend_the_Final__c = 'Yes';
 		segsToUpdate.add(adminSeg);
 		//CCR
 		ccSeg.Request_Filed__c = segmentDate;
 		segsToUpdate.add(ccSeg);
-		//ER
+		//Expedited Review
 		expedSeg.Calculated_Initiation_Signature__c = segmentDate;
 		expedSeg.Will_you_Amend_the_Final__c = 'Yes';
 		segsToUpdate.add(expedSeg);
-		//NSR
+		//New Shipper Review
 		nsSeg.Calculated_Initiation_Signature__c = segmentDate;
 		nsSeg.Will_you_Amend_the_Final__c = 'Yes';
 		segsToUpdate.add(nsSeg);
@@ -1740,7 +2270,7 @@ public class SegmentTriggerHandlerTest {
 		acSeg.Prelim_Extension__c = acSeg.Prelim_Extension__c == null ? 7 : 7;
 		acSeg.Final_Extension_of_days__c = adminSeg.Final_Extension_of_days__c == null ? 7 : 7;
 		segsToUpdate.add(acSeg);
-		//AR
+		//Administrative Review
 		adminSeg.Prelim_Extension__c = adminSeg.Prelim_Extension__c == null ? 7 : 7;
 		adminSeg.Final_Extension_of_days__c = adminSeg.Final_Extension_of_days__c == null ? 7 : 7;
 		segsToUpdate.add(adminSeg);
@@ -1749,11 +2279,11 @@ public class SegmentTriggerHandlerTest {
 		ccSeg.Prelim_Extension__c = ccSeg.Prelim_Extension__c == null ? 7 : 7;
 		ccSeg.Final_Extension_of_days__c = ccSeg.Final_Extension_of_days__c == null ? 7 : 7;
 		segsToUpdate.add(ccSeg);
-		//ER
+		//Expedited Review
 		expedSeg.Prelim_Extension__c = expedSeg.Prelim_Extension__c == null ? 7 : 7;
 		expedSeg.Final_Extension_of_days__c = expedSeg.Final_Extension_of_days__c == null ? 7 : 7;
 		segsToUpdate.add(expedSeg);
-		//NSR
+		//New Shipper Review
 		nsSeg.Prelim_Extension__c = nsSeg.Prelim_Extension__c == null ? 7 : 7;
 		nsSeg.Final_Extension_of_days__c = nsSeg.Final_Extension_of_days__c == null ? 7 : 7;
 		segsToUpdate.add(nsSeg);

@@ -149,6 +149,8 @@ public without sharing class DateCalculationService {
 			baseDate = (String.valueOf(dc.get(baseDateFieldObject)) == 'Federal_Register__c' && frUtilMap != null && record.get('Id') != null) ? getFrDate(record, dc, baseDateFieldType) : baseDate;
 		} else if (String.valueOf(dc.get(baseDateFieldName)) != null && String.valueOf(dc.get(baseDateFieldObject)) == soType){//if base field is from the current object
 			baseDate = (Date) record.get(String.valueOf(dc.get(baseDateFieldName)));
+		} else if (String.valueOf(dc.get(baseDateFieldName)) == 'Today') {
+			baseDate = System.today();
 		}
 		return baseDate;
     }
