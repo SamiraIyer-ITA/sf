@@ -16,7 +16,7 @@ public class SuspensionAgreementTriggerHandlerTest {
 	private static Suspension_Agreement__c sa{
 		get{
 			if (sa == null) {
-				sa = [SELECT Id, Suspension_Date__c, Investigation__c, Office_Assignment__c, Next_Sunset_Initiation_Date__c, Termination_Date__c FROM Suspension_Agreement__c LIMIT 1];
+				sa = [SELECT Id, Anniversary_Month__c, Suspension_Date__c, Investigation__c, Office_Assignment__c, Next_Sunset_Initiation_Date__c, Termination_Date__c FROM Suspension_Agreement__c LIMIT 1];
 			}
 			return sa;
 		}
@@ -51,27 +51,73 @@ public class SuspensionAgreementTriggerHandlerTest {
 		List<Suspension_Agreement__c> aList = new List<Suspension_Agreement__c>();
 		aList.add(sa);
 		SuspensionAgreementTriggerHandler.initialize(aList, null);
-		System.assert(SuspensionAgreementTriggerHandler.frUtilMap.isEmpty());
+		System.assert(SuspensionAgreementTriggerHandler.frUtilMap.isEmpty():
 		Test.stopTest();
+		System.assert(SuspensionAgreementTriggerHandler.frUtilMap.isEmpty());
 	}
 
 	@isTest static void setNextSunsetInitiationDate() {
 		Test.startTest();
 		System.assertEquals(null, sa.Next_Sunset_Initiation_Date__c); 
-		setFR(sa.Id, 'Suspension Agreement'); 
+		setFR(sa.Id, 'Suspension Agreement', true); 
 		sa = null;
 		testCalculated = suspDate.toStartOfMonth().addYears(4).addMonths(11);
 		System.assertEquals(testCalculated, sa.Next_Sunset_Initiation_Date__c);
 		suspDate = suspDate.addMonths(1);
-		setFR(sa.Id, 'Continuation');
+		setFR(sa.Id, 'Continuation', true);
 		sa = null;
 		testCalculated = suspDate.toStartOfMonth().addYears(4).addMonths(11);
 		System.assertEquals(testCalculated, sa.Next_Sunset_Initiation_Date__c);
 		suspDate = suspDate.addMonths(1);
-		setFR(sa.Id, 'Termination');
+		setFR(sa.Id, 'Termination', true);
 		sa = null;
-		System.assertEquals(null, sa.Next_Sunset_Initiation_Date__c);
+
 		Test.stopTest();
+		System.assertEquals(null, sa.Next_Sunset_Initiation_Date__c);
+	}
+
+	@isTest static void setAnniversaryMonth() {
+		Test.startTest();
+		setFR(sa.Id, 'Suspension Agreement', true);
+		String month = utils.getMonthFromDate(suspDate);
+		sa = null;
+		
+		Test.stopTest();
+		System.assertEquals(month, sa.Anniversary_Month__c);
+	}
+
+	@isTest static void validateEffectiveDateOfTermination() {
+		Test.startTest();
+
+		//add setup FRs
+		List<Federal_Register__c> frList = new List<Federal_Register__c>();
+		suspensionAgreementFR =  setFR(sa.Id, 'Suspension Agreement', false);
+		termFR = setFR(sa.Id, 'Termination', false);
+		frList.add(suspensionAgreementFR);
+		frList.add(termFR);
+		insert frList;
+
+		//test validation on order FR
+		sa.Effective_Date_of_Termination__c = suspDate.addYears(6);
+		String validationError = attemptUpsert(sa);
+		System.assert(validationError.contains('Suspension Agreement Federal Register Published Date:'));
+
+		//add continuation FR
+		continuationFR = setFR(sa.Id, 'Continuation', false);
+		continuationFR.Published_Date__c = continuationFR.Published_Date__c.addDays(14);
+		insert continuationFR;
+
+		//test validationon continuation FR
+		validationError = attemptUpsert(sa);
+		System.assert(validationError.contains('most recent Continuation Federal Register Published Date:'));
+
+		//test successful insert
+		sa.Effective_Date_of_Termination__c = suspDate.addYears(-2);
+		validationError = attemptUpsert(sa);
+
+		Test.stopTest();
+		System.assert(validationError.contains('Success'));
+
 	}
 
 	@testSetup static void dataSetup() {
@@ -80,21 +126,30 @@ public class SuspensionAgreementTriggerHandlerTest {
 		Petition__c testPet = TestUtils.createPetition(suspDate.addDays(-14),'AD ME', true);
 		Investigation__c testInv = TestUtils.createInvestigation('AD', testPet, true);
 		Suspension_Agreement__c testSuspAgr = TestUtils.createSuspensionAgreement(testInv, suspDate, true);
-		List<Segment__c> segsToInsert = new List<Segment__c>();
+
+    /*List<Segment__c> segsToInsert = new List<Segment__c>();
 		System.runAs(testUser) {
 			for(String segRecordTypeName : utils.getRecordTypeDeveloperNameMap('Segment__c').values()) {
 				Segment__c testSeg = TestUtils.createSegment(testSuspAgr, segRecordTypeName, false);
 				segsToInsert.add(testSeg);
 			}
 			insert segsToInsert;
-		}
+		}*/
 	}
 
-	private static void setFR(Id parentId, String frType) {
-		Federal_Register__c testFR = new Federal_Register__c();
-		testFR.Suspension_Agreement__c = parentId;
-		testFR.Type__c = frType;
-		testFR.Published_Date__c = suspDate;
-		insert testFR;
+	private static Federal_Register__c setFR(Id parentId, String frType, Boolean doInsert) {
+		Federal_Register__c testFR = TestUtils.createFR(parentId, 'Suspension_Agreement__c', suspDate, frType, doInsert);
+		return testFR;
+	}
+
+	private static String attemptUpsert(SObject o){
+		String error = '';
+		try{
+			upsert o;
+			error = 'Success';
+		} catch (DmlException e) {
+			error = e.getMessage();
+		}
+		return error;
 	}
 }

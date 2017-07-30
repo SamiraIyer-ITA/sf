@@ -136,86 +136,146 @@ public class ADCVDOrderTriggerHandlerTest {
 		List<ADCVD_Order__c> aList = new List<ADCVD_Order__c>();
 		aList.add(o);
 		ADCVDOrderTriggerHandler.initialize(aList, null);
-		System.assertNotEquals(ADCVDOrderTriggerHandler.orderIdToSegmentMap, null);
+
 		Test.stopTest();
+		System.assertNotEquals(ADCVDOrderTriggerHandler.orderIdToSegmentMap, null);
 	}
 
 	@isTest static void setNextSunsetInitiationDate() {
 		Test.startTest();
 		System.assertEquals(null, o.Next_Sunset_Initiation_Date__c);
-		setFR(o.Id, 'Order');
+		Federal_Register__c orderFR = setFR(o.Id, 'Order', true);
 		o = null;
 		testCalculated = orderDate.toStartOfMonth().addYears(4).addMonths(11);
 		System.assertEquals(testCalculated, o.Next_Sunset_Initiation_Date__c);
 		orderDate = orderDate.addMonths(1);
-		setFR(o.Id, 'Continuation');
+		Federal_Register__c continuationFR = setFR(o.Id, 'Continuation', true);
 		o = null;
 		testCalculated = orderDate.toStartOfMonth().addYears(4).addMonths(11);
 		System.assertEquals(testCalculated, o.Next_Sunset_Initiation_Date__c);
 		orderDate = orderDate.addMonths(1);
-		setFR(o.Id, 'Revocation');
+		Federal_Register__c revoFR = setFR(o.Id, 'Revocation', true);
 		o = null;
-		System.assertEquals(null, o.Next_Sunset_Initiation_Date__c);
+
 		Test.stopTest();
+		System.assertEquals(null, o.Next_Sunset_Initiation_Date__c);
 	}
 
 	@isTest static void setSegmentStatus1() {
 		Test.startTest();
-		System.assertNotEquals('Active', o.Segment_Status__c);
-		adminSeg.Status__c = 'Active';//Will need to refactor this once Segment status logic is set
-		update adminSeg;
-		update o;
-		o = null;
 		System.assertEquals('Active', o.Segment_Status__c);
+		List<Segment__c> deleteList = new List<Segment__c>();
+		deleteList.add(adminSeg);
+		deleteList.add(acSeg);
+		deleteList.add(ccSeg);
+		deleteList.add(expedSeg);
+		deleteList.add(nsSeg);
+		deleteList.add(siSeg);
+		deleteList.add(ssSeg);
+		delete deleteList;
+		o = null;
+
 		Test.stopTest();
+		System.assertEquals('Inactive', o.Segment_Status__c);
 	}
 	@isTest static void setSegmentStatus2() {
 		Test.startTest();
-		adminSeg.Status__c = 'Closed';
+		System.assertEquals('Active', o.Segment_Status__c);
+		List<Segment__c> deleteList = new List<Segment__c>();
+		deleteList.add(acSeg);
+		deleteList.add(ccSeg);
+		deleteList.add(expedSeg);
+		deleteList.add(nsSeg);
+		deleteList.add(siSeg);
+		deleteList.add(ssSeg);
+		delete deleteList;
+		adminSeg.Segment_Outcome__c = 'Withdrawn';
 		update adminSeg;
 		update o;
 		o = null;
-		System.assertNotEquals('Active', o.Segment_Status__c);
+
 		Test.stopTest();
+		System.assertEquals('Active', o.Segment_Status__c);
 	}
 
 	@isTest static void setStatus1() {
 		Test.startTest();
 		System.assertEquals('Order FR Needed', o.Status__c);//default on Insert
-		setFR(o.Id, 'Order');
+		Federal_Register__c orderFR = setFR(o.Id, 'Order', true);
 		o = null;
-		System.assertEquals('Current-Inactive', o.Status__c);//updated when Order FR is inserted
-		adminSeg.Status__c = 'Active';//Will need to refactor this once Segment status logic is set
-		update adminSeg;
-		update o;
-		o = null;
-		System.assertEquals('Current-Active', o.Status__c);//updated when any Segment is active
+
 		Test.stopTest();
+		System.assertEquals('Current-Active', o.Status__c);//updated when any Segment is active
 	}
 
 	@isTest static void setStatus2() {
 		Test.startTest();
-		setFR(o.Id, 'Order');
-		adminSeg.Status__c = 'Closed';
-		update adminSeg;
-		update o;
+		System.assertEquals('Order FR Needed', o.Status__c);//default on Insert
+		Federal_Register__c orderFR = setFR(o.Id, 'Order', true);
 		o = null;
-		System.assertEquals('Current-Inactive', o.Status__c);//updated when all Segments are not active
-		setFR(o.Id, 'Revocation');
+		System.assertEquals('Current-Active', o.Status__c);//updated when at least one Segment is active
+		Federal_Register__c revoFR = setFR(o.Id, 'Revocation', true);
 		o = null;
 		System.assertEquals('Revoked-Incomplete', o.Status__c);//updated when Revocation FR is inserted
 		o.Status__c = 'Revoked-Complete';//manually set to Revoked-Complete
 		update o;
 		delete revoFR;
 		o = null;
-		System.assertEquals('Revoked-Complete', o.Status__c);//does not overwrite when other changes happen
+
 		Test.stopTest();
+		System.assertEquals('Revoked-Complete', o.Status__c);//does not overwrite when other changes happen
+	}
+
+	@isTest static void setAnniversaryMonth() {
+		Test.startTest();
+		setFR(o.Id, 'Order', true);
+		String month = utils.getMonthFromDate(orderDate);
+		o = null;
+		
+		Test.stopTest();
+		System.assertEquals(month, o.Anniversary_Month__c);
+	}
+
+	@isTest static void validateEffectiveDateOfRevocation() {
+		Test.startTest();
+
+		//add setup FRs
+		List<Federal_Register__c> frList = new List<Federal_Register__c>();
+		orderFR =  setFR(o.Id, 'Order', false);
+		revoFR = setFR(o.Id, 'Revocation', false);
+		frList.add(orderFR);
+		frList.add(revoFR);
+		insert frList;
+
+		//test validation on order FR
+		o.Effective_Date_of_Revocation__c = orderDate.addYears(6);
+		String validationError = attemptUpsert(o);
+		System.assert(validationError.contains('Order Federal Register Published Date:'));
+
+		//add continuation FR
+		continuationFR = setFR(o.Id, 'Continuation', false);
+		continuationFR.Published_Date__c = continuationFR.Published_Date__c.addDays(14);
+		insert continuationFR;
+
+		//test validationon continuation FR
+		validationError = attemptUpsert(o);
+		System.assert(validationError.contains('most recent Continuation Federal Register Published Date:'));
+
+		//test successful insert
+		o.Effective_Date_of_Revocation__c = orderDate.addYears(-2);
+		validationError = attemptUpsert(o);
+
+		Test.stopTest();
+		System.assert(validationError.contains('Success'));
+
 	}
 
 	@testSetup static void dataSetup() {
 		Test.startTest();
 		User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
-		ADCVD_Order__c testOrder = TestUtils.createOrder(true);
+		Petition__c testADPetition = TestUtils.createPetition(orderDate.addDays(-280), 'AD ME', true);
+		Investigation__c testADinvestigation = TestUtils.createInvestigation('AD', testADPetition, true);
+		ADCVD_Order__c testOrder = TestUtils.createOrder(testADinvestigation, true);
 		List<Segment__c> segsToInsert = new List<Segment__c>();
 		System.runAs(testUser) {
 			for(String segRecordTypeName : utils.getRecordTypeDeveloperNameMap('Segment__c').values()) {
@@ -226,12 +286,9 @@ public class ADCVDOrderTriggerHandlerTest {
 		}
 	}
 
-	private static void setFR(Id parentId, String frType) {
-		Federal_Register__c testFR = new Federal_Register__c();
-		testFR.ADCVD_Order__c = parentId;
-		testFR.Type__c = frType;
-		testFR.Published_Date__c = orderDate;
-		insert testFR;
+	private static Federal_Register__c setFR(Id parentId, String frType, Boolean doInsert) {
+		Federal_Register__c testFR = TestUtils.createFR(parentId, 'ADCVD_Order__c', orderDate, frType, doInsert);
+		return testFR;
 	}
 
 	private static void getNewSegs() {
@@ -242,5 +299,16 @@ public class ADCVDOrderTriggerHandlerTest {
 		acSeg = null;
 		ccSeg = null;
 		ssSeg = null;
+	}
+
+	private static String attemptUpsert(SObject o){
+		String error = '';
+		try{
+			upsert o;
+			error = 'Success';
+		} catch (DmlException e) {
+			error = e.getMessage();
+		}
+		return error;
 	}
 }

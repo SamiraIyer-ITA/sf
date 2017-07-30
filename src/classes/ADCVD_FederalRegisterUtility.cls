@@ -22,6 +22,13 @@ public without sharing class ADCVD_FederalRegisterUtility {
     @TestVisible private static ADCVD_FederalRegisterUtility objectTypeInstance = null;
     //the map that is used in trigger handlers to access an Federal Register within an ADCVD_FederalRegisterUtility instance
     public Map<Id,ADCVD_FederalRegisterUtility> utilMap {get; private set;}
+    public Map<String,Date> varMap {get {
+        if (varMap == null) {
+            varMap = new Map<String,Date>();
+        }
+        return varMap;
+    }set;
+    }
 
     //Federal Register Variables (holds an Federal Register of a specific type for a specific parent SObject)
     public Federal_Register__c initiationFR {get; private set;}
@@ -94,7 +101,6 @@ public without sharing class ADCVD_FederalRegisterUtility {
             setParentIdToInstanceMap(cuFrMap);
         }
         if(parentIdToInstanceMap.size() > 0) {
-            //setFrIdToInstanceMap(cuFrMap);
             utilMap = setUtilMap();
         }
     }
@@ -105,7 +111,7 @@ public without sharing class ADCVD_FederalRegisterUtility {
 
     //used to populate the values from the class map to one that can be used in the trigger handlers
     @TestVisible private static Map<Id,ADCVD_FederalRegisterUtility> setUtilMap() {
-        Map<Id,ADCVD_FederalRegisterUtility>returnMap = new Map<Id,ADCVD_FederalRegisterUtility>();
+        Map<Id,ADCVD_FederalRegisterUtility> returnMap = new Map<Id,ADCVD_FederalRegisterUtility>();
         returnMap = parentIdToInstanceMap;
         return returnMap;
     }
@@ -143,82 +149,101 @@ public without sharing class ADCVD_FederalRegisterUtility {
                                             tempInstance.initiationFR : fr;//set variable to new value if currently null or new Federal Register is older than current variable
             tempInstance.initiationPublishedDate = (tempInstance.initiationPublishedDate != null && fr.CreatedDate > tempInstance.initiationFR.CreatedDate) ? 
                                             tempInstance.initiationPublishedDate : fr.Published_Date__c;
+            tempInstance.varMap.put('Initiation', tempInstance.initiationPublishedDate);
         } else if (fr.Type__c == 'Continuation') {
             tempInstance.continuationFR = (tempInstance.continuationFR != null && fr.CreatedDate < tempInstance.continuationFR.CreatedDate) ? 
                                             tempInstance.continuationFR : fr;//set variable to new value if currently null or new Federal Register is newer than current variable
             tempInstance.continuationPublishedDate = (tempInstance.continuationPublishedDate != null && fr.CreatedDate < tempInstance.continuationFR.CreatedDate) ? 
                                             tempInstance.continuationPublishedDate : fr.Published_Date__c;
+            tempInstance.varMap.put('Continuation', tempInstance.continuationPublishedDate);
         } else if (fr.Type__c == 'Preliminary') {
             tempInstance.preliminaryFR = (tempInstance.preliminaryFR != null && fr.CreatedDate > tempInstance.preliminaryFR.CreatedDate) ? 
                                             tempInstance.preliminaryFR : fr;//set variable to new value if currently null or new Federal Register is older than current variable
             tempInstance.preliminaryPublishedDate = (tempInstance.preliminaryPublishedDate != null && fr.CreatedDate > tempInstance.preliminaryFR.CreatedDate) ? 
                                             tempInstance.preliminaryPublishedDate : fr.Published_Date__c;
+            tempInstance.varMap.put('Preliminary', tempInstance.preliminaryPublishedDate);
         } else if (fr.Type__c == 'Amended Preliminary') {
             tempInstance.amendedPreliminaryFR = fr;
             tempInstance.amendedPreliminaryPublishedDate = fr.Published_Date__c;
+            tempInstance.varMap.put('Amended Preliminary', tempInstance.amendedPreliminaryPublishedDate);
         } else if (fr.Type__c == 'Final') {
             tempInstance.finalFR = (tempInstance.finalFR != null && fr.CreatedDate > tempInstance.finalFR.CreatedDate) ? 
                                             tempInstance.finalFR : fr;//set variable to new value if currently null or new Federal Register is older than current variable
             tempInstance.finalPublishedDate = (tempInstance.finalPublishedDate != null && fr.CreatedDate > tempInstance.finalFR.CreatedDate) ? 
                                             tempInstance.finalPublishedDate : fr.Published_Date__c;
+            tempInstance.varMap.put('Final', tempInstance.finalPublishedDate);
         } else if (fr.Type__c == 'Amended Final') {
             tempInstance.amendedFinalFR = fr;
             tempInstance.amendedFinalPublishedDate = fr.Published_Date__c;
+            tempInstance.varMap.put('Amended Final', tempInstance.amendedFinalPublishedDate);
         } else if (fr.Type__c == 'ITC Preliminary') {
             tempInstance.itcPreliminaryFR = (tempInstance.itcPreliminaryFR != null && fr.CreatedDate > tempInstance.itcPreliminaryFR.CreatedDate) ? 
                                             tempInstance.itcPreliminaryFR : fr;//set variable to new value if currently null or new Federal Register is older than current variable
             tempInstance.itcPreliminaryPublishedDate = (tempInstance.itcPreliminaryPublishedDate != null && fr.CreatedDate > tempInstance.itcPreliminaryFR.CreatedDate) ? 
                                             tempInstance.itcPreliminaryPublishedDate : fr.Published_Date__c;
+            tempInstance.varMap.put('ITC Preliminary', tempInstance.itcPreliminaryPublishedDate);
         } else if (fr.Type__c == 'ITC Final') {
             tempInstance.itcFinalFR = (tempInstance.itcFinalFR != null && fr.CreatedDate > tempInstance.itcFinalFR.CreatedDate) ? 
                                             tempInstance.itcFinalFR : fr;//set variable to new value if currently null or new Federal Register is older than current variable
             tempInstance.itcFinalPublishedDate = (tempInstance.itcFinalPublishedDate != null && fr.CreatedDate > tempInstance.itcFinalFR.CreatedDate) ? 
                                             tempInstance.itcFinalPublishedDate : fr.Published_Date__c;
+            tempInstance.varMap.put('ITC Final', tempInstance.itcFinalPublishedDate);
         } else if (fr.Type__c == 'Order') {
             tempInstance.orderFR = (tempInstance.orderFR != null && fr.CreatedDate > tempInstance.orderFR.CreatedDate) ? 
                                             tempInstance.orderFR : fr;//set variable to new value if currently null or new Federal Register is older than current variable
             tempInstance.orderPublishedDate = (tempInstance.orderPublishedDate != null && fr.CreatedDate > tempInstance.orderFR.CreatedDate) ? 
                                             tempInstance.orderPublishedDate : fr.Published_Date__c;
+            tempInstance.varMap.put('Order', tempInstance.orderPublishedDate);
         } else if (fr.Type__c == 'Postponement') {
             tempInstance.postponementFR = (tempInstance.postponementFR != null && fr.CreatedDate > tempInstance.postponementFR.CreatedDate) ? 
                                             tempInstance.postponementFR : fr;//set variable to new value if currently null or new Federal Register is older than current variable
             tempInstance.postponementPublishedDate = (tempInstance.postponementPublishedDate != null && fr.CreatedDate > tempInstance.postponementFR.CreatedDate) ? 
                                             tempInstance.postponementPublishedDate : fr.Published_Date__c;
+            tempInstance.varMap.put('Postponement', tempInstance.postponementPublishedDate);
         } else if (fr.Type__c == 'Post Litigation') {
             tempInstance.postLitigationFR = fr;
             tempInstance.postLitigationPublishedDate = fr.Published_Date__c;
+            tempInstance.varMap.put('Post Litigation', tempInstance.postLitigationPublishedDate);
         } else if (fr.Type__c == 'Admin Review Opportunity Notice') {
             tempInstance.adminReviewOpportunityNoticeFR = fr;
             tempInstance.adminReviewOpportunityNoticePublishedDate = fr.Published_Date__c;
+            tempInstance.varMap.put('Admin Review Opportunity Notice', tempInstance.adminReviewOpportunityNoticePublishedDate);
         } else if (fr.Type__c == 'Rescission') {
             tempInstance.rescissionFR = (tempInstance.rescissionFR != null && fr.CreatedDate > tempInstance.rescissionFR.CreatedDate) ? 
                                             tempInstance.rescissionFR : fr;//set variable to new value if currently null or new Federal Register is older than current variable
             tempInstance.rescissionPublishedDate = (tempInstance.rescissionPublishedDate != null && fr.CreatedDate > tempInstance.rescissionFR.CreatedDate) ? 
                                             tempInstance.rescissionPublishedDate : fr.Published_Date__c;
+            tempInstance.varMap.put('Rescission', tempInstance.rescissionPublishedDate);
         } else if (fr.Type__c == 'Correction') {
             tempInstance.correctionFR = fr;
             tempInstance.correctionPublishedDate = fr.Published_Date__c;
+            tempInstance.varMap.put('Correction', tempInstance.correctionPublishedDate);
         } else if (fr.Type__c == 'Revocation') {
             tempInstance.revocationFR = (tempInstance.revocationFR != null && fr.CreatedDate > tempInstance.revocationFR.CreatedDate) ? 
                                             tempInstance.revocationFR : fr;//set variable to new value if currently null or new Federal Register is older than current variable
             tempInstance.revocationPublishedDate = (tempInstance.revocationPublishedDate != null && fr.CreatedDate > tempInstance.revocationFR.CreatedDate) ? 
                                             tempInstance.revocationPublishedDate : fr.Published_Date__c;
+            tempInstance.varMap.put('Revocation', tempInstance.revocationPublishedDate);
         } else if (fr.Type__c == 'Initiation/Prelim') {
             tempInstance.initiationPrelimFR = fr;
             tempInstance.initiationPrelimPublishedDate = fr.Published_Date__c;
+            tempInstance.varMap.put('Initiation/Prelim', tempInstance.initiationPrelimPublishedDate);
         } else if (fr.Type__c == 'Quarterly Scope') {
             tempInstance.quarterlyScopeFR = fr;
             tempInstance.quarterlyScopePublishedDate = fr.Published_Date__c;
+            tempInstance.varMap.put('Quarterly Scope', tempInstance.quarterlyScopePublishedDate);
         } else if (fr.Type__c == 'Suspension Agreement') {
             tempInstance.suspensionAgreementFR = (tempInstance.suspensionAgreementFR != null && fr.CreatedDate > tempInstance.suspensionAgreementFR.CreatedDate) ? 
                                             tempInstance.suspensionAgreementFR : fr;//set variable to new value if currently null or new Federal Register is older than current variable
             tempInstance.suspensionAgreementPublishedDate = (tempInstance.suspensionAgreementPublishedDate != null && fr.CreatedDate > tempInstance.suspensionAgreementFR.CreatedDate) ? 
                                             tempInstance.suspensionAgreementPublishedDate : fr.Published_Date__c;
+            tempInstance.varMap.put('Suspension Agreement', tempInstance.suspensionAgreementPublishedDate);
         } else if (fr.Type__c == 'Termination') {
             tempInstance.terminationFR = (tempInstance.terminationFR != null && fr.CreatedDate > tempInstance.terminationFR.CreatedDate) ? 
                                             tempInstance.terminationFR : fr;//set variable to new value if currently null or new Federal Register is older than current variable
             tempInstance.terminationPublishedDate = (tempInstance.terminationPublishedDate != null && fr.CreatedDate > tempInstance.terminationFR.CreatedDate) ? 
                                             tempInstance.terminationPublishedDate : fr.Published_Date__c;
+            tempInstance.varMap.put('Termination', tempInstance.terminationPublishedDate);
         }
         return tempInstance;
     }

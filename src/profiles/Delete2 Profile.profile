@@ -383,6 +383,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>SuspensionAgreementTriggerHandlerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>SyncUtility</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -543,6 +547,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>UiUtils</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>UnpublishArticles</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -556,6 +564,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>UserTriggerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Utils</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UtilsTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -659,19 +675,7 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>uiUtils</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>urlRewriter</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>utils</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>utilsTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <custom>true</custom>
@@ -724,6 +728,11 @@
         <editable>false</editable>
         <field>ADCVD_Order__c.Alignment_Postponement_of_Final_FR_Pub__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ADCVD_Order__c.Anniversary_Month__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -887,21 +896,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>ADCVD_Order__c.Next_Due_to_DAS_Deadline_and_Timeline__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>ADCVD_Order__c.Next_Major_AS_DAS_Deadline_and_Timeline__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>ADCVD_Order__c.Next_Office_PM_Deadline_and_Timeline__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>ADCVD_Order__c.Next_Sunset_Initiation_Date_UI__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -963,6 +957,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>ADCVD_Order__c.Petition_Filed__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ADCVD_Order__c.Petition_Product_Short_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3222,17 +3221,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Investigation__c.Investigation_YesNo__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Investigation__c.Issues_to_DAS__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Investigation__c.Link__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Investigation__c.Litigation_Hold_Expiration_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3272,17 +3271,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Investigation__c.Next_Due_to_DAS_Deadline_and_Timeline__c</field>
+        <field>Investigation__c.Next_Announcement_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Investigation__c.Next_Major_AS_DAS_Deadline_and_Timeline__c</field>
+        <field>Investigation__c.Next_Due_to_DAS_Deadline__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Investigation__c.Next_Office_PM_Deadline_and_Timeline__c</field>
+        <field>Investigation__c.Next_Major_Deadline__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Investigation__c.Next_Office_PM_Deadline__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3339,6 +3343,11 @@
         <editable>false</editable>
         <field>Investigation__c.Petition_Initiation_Signature__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Investigation__c.Petition_Product_Short_Name__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3692,17 +3701,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Litigation__c.Next_Due_to_DAS_Deadline_and_Timeline__c</field>
+        <field>Litigation__c.Next_Announcement_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Litigation__c.Next_Major_AS_DAS_Deadline_and_Timeline__c</field>
+        <field>Litigation__c.Next_Due_to_DAS_Deadline__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Litigation__c.Next_Office_PM_Deadline_and_Timeline__c</field>
+        <field>Litigation__c.Next_Major_Deadline__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Litigation__c.Next_Office_PM_Deadline__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4477,7 +4491,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Petition__c.Next_Due_to_DAS_Deadline_and_Timeline__c</field>
+        <field>Petition__c.Next_Announcement_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Petition__c.Next_Due_to_DAS_Deadline__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Petition__c.Next_Major_Deadline__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Petition__c.Next_Office_PM_Deadline__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4503,6 +4532,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Petition__c.Petition_Outcome__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Petition__c.Product_Short_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4982,6 +5016,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Segment__c.Administrative_Review_Aligned_To__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Segment__c.All_parties_in_agreement_to_the_outcome__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -5083,6 +5122,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Segment__c.Deficient_or_Withdrawn_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.Do_Delete__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5237,17 +5281,27 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Segment__c.Next_Due_to_DAS_Deadline_and_Timeline__c</field>
+        <field>Segment__c.New_Shipper_Sync_Level__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Segment__c.Next_Major_AS_DAS_Deadline_and_Timeline__c</field>
+        <field>Segment__c.Next_Announcement_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Segment__c.Next_Office_PM_Deadline_and_Timeline__c</field>
+        <field>Segment__c.Next_Due_to_DAS_Deadline__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.Next_Major_Deadline__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.Next_Office_PM_Deadline__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5333,6 +5387,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Segment__c.Petition_Country__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.Petition_Product_Short_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5997,6 +6056,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Suspension_Agreement__c.Anniversary_Month__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Suspension_Agreement__c.Date_Due__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -6062,6 +6126,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Suspension_Agreement__c.Petition_Product_Short_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Suspension_Agreement__c.Petition_Product__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -6098,6 +6167,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Sync_Utility__mdt.Sync_This_Field__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Sync_Utility__mdt.Synced_for_Final__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

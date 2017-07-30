@@ -1,10 +1,13 @@
 public without sharing class ADCVDOrderTriggerHandler {
 
+    @TestVisible private static Set<String> activeSegmentStatuses = new Set<String>();
 	private static Map<String,Constant__mdt> orderCalcOffsets = orderCalcOffsets();
 
 	//FINAL ADCVD Order Offsets
 	private static FINAL Integer SUNSET_INIT_YEARS				    = ((Integer)orderCalcOffsets.get('Order_Sunset_Initiation_Years').Number_Value__c);//Next_Sunset_Initiation_Date__c
 	private static FINAL Integer SUNSET_INIT_MONTHS				    = ((Integer)orderCalcOffsets.get('Order_Sunset_Initiation_Months').Number_Value__c);//Next_Sunset_Initiation_Date__c
+    private static FINAL Integer EFFECTIVE_DATE_REVO_MONTHS         = ((Integer)orderCalcOffsets.get('Order_Effective_Revocation_Months').Number_Value__c);//Effective_Date_of_Revocation__c
+    private static FINAL Integer EFFECTIVE_DATE_REVO_YEARS          = ((Integer)orderCalcOffsets.get('Order_Effective_Revocation_Years').Number_Value__c);//Effective_Date_of_Revocation__c
 
 
     public static boolean preventRecursion = false;
@@ -17,14 +20,13 @@ public without sharing class ADCVDOrderTriggerHandler {
             initialize(newList,newMap);
             calculateOrderDates(newList);
             calculateOrderStatuses(newList);
+            runCustomValidations(newList);
         }
         if (isBefore && isUpdate) {
             initialize(newList,newMap);
             calculateOrderDates(newList);
             calculateOrderStatuses(newList);
-        }
-        if (isAfter && isUpdate) {
-
+            runCustomValidations(newList);
         }
         if(isAfter && isInsert) {
             StaffingAssignmentExtension createStaff = new StaffingAssignmentExtension(newList);
@@ -52,7 +54,7 @@ public without sharing class ADCVDOrderTriggerHandler {
     @TestVisible private static void initialize(List<ADCVD_Order__c> newList, Map<Id,ADCVD_Order__c> newMap) {
         if(newMap != null) {
         	setOrderIdToSegmentMap(newMap.keySet());
-            setOrderIdToSegmentStatusMap();
+            setOrderIdToSegmentStatusMap(newMap.keySet());
             ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get Segments with an Id
             frUtilMap = listInstance.utilMap;
         }
@@ -65,6 +67,7 @@ public without sharing class ADCVDOrderTriggerHandler {
      */
     @TestVisible private static void calculateOrderDates(List<ADCVD_Order__c> newList) {
 		for (ADCVD_Order__c o : newList) {
+            setAnniversaryMonth(o);
 			setNextSunsetInitiationDate(o);
 		}
 	}
@@ -79,6 +82,12 @@ public without sharing class ADCVDOrderTriggerHandler {
 		setStatus(newList);
 	}
 
+    @TestVisible private static void runCustomValidations(List<ADCVD_Order__c> newList) {
+        for (ADCVD_Order__c o : newList) {
+            validateEffectiveDateOfRevocation(o);
+        }
+    }
+
 
 
     /***********************************
@@ -89,11 +98,14 @@ public without sharing class ADCVDOrderTriggerHandler {
 	@TestVisible private static Map<String,Constant__mdt> orderCalcOffsets() {
 		if(orderCalcOffsets == null || orderCalcOffsets.size() < 1) {
 			Map<String,Constant__mdt> returnMap = new Map<String,Constant__mdt>();
-			List<Constant__mdt> tempList = [SELECT QualifiedAPIName, Used_with_Field_Named__c, Number_Value__c, 
-													ADCVD_Objects__r.Object_API_Name__c, ADCVD_Objects__r.Record_Type_Name__c 
+			for (Constant__mdt sc : [SELECT QualifiedAPIName, Used_with_Field_Named__c, Number_Value__c, String_Value__c, 
+													ADCVD_Objects__r.Object_API_Name__c, ADCVD_Objects__r.Record_Type_Name__c,
+                                                    Segment_Calculation_Offset__c 
 											FROM Constant__mdt 
-											WHERE ADCVD_Order_Calculation_Offset__c =: true];
-			for(Constant__mdt sc : tempList) {
+											WHERE ADCVD_Order_Calculation_Offset__c =: true]) {
+                if (sc.Used_with_Field_Named__c == 'Status__c' && sc.Segment_Calculation_Offset__c && sc.String_Value__c != null) {
+                    activeSegmentStatuses.add(sc.String_Value__c);
+                }
 				returnMap.put(sc.QualifiedAPIName, sc);
 			}
 			return returnMap;
@@ -109,7 +121,7 @@ public without sharing class ADCVDOrderTriggerHandler {
      * @return            [description]
      */
 	@TestVisible private static void setOrderIdToSegmentMap(Set<Id> orderIdSet) {
-        for (Segment__c s : [SELECT Id, ADCVD_Order__c, Status__c FROM Segment__c WHERE ADCVD_Order__c IN: orderIdSet]) {
+        for (Segment__c s : [SELECT Id, ADCVD_Order__c, Status__c, Do_Delete__c FROM Segment__c WHERE ADCVD_Order__c IN: orderIdSet]) {
         	List<Segment__c> tempList = new List<Segment__c>();
         	if (orderIdToSegmentMap.get(s.ADCVD_Order__c) != null) {
         		tempList = orderIdToSegmentMap.get(s.ADCVD_Order__c);
@@ -119,14 +131,19 @@ public without sharing class ADCVDOrderTriggerHandler {
         }
     }
 
-    @TestVisible private static void setOrderIdToSegmentStatusMap() {
+    @TestVisible private static void setOrderIdToSegmentStatusMap(Set<Id> orderIdSet) {
         if (orderIdToSegmentMap != null && !orderIdToSegmentMap.isEmpty()) {
             for (Id orderId : orderIdToSegmentMap.keySet()) {
                 for (Segment__c s : orderIdToSegmentMap.get(orderId)) {
-                    if (orderIdToSegmentStatusMap.get(orderId) == null || orderIdToSegmentStatusMap.get(orderId) != 'Active') {
+                    if ((orderIdToSegmentStatusMap.get(orderId) == null || !activeSegmentStatuses.contains(orderIdToSegmentStatusMap.get(orderId))) && !s.Do_Delete__c) {
                         orderIdToSegmentStatusMap.put(orderId, s.Status__c);
                     }
                 }
+            }
+        }
+        for (Id orderId : orderIdSet) {
+            if (!orderIdToSegmentMap.keySet().contains(orderId)) {
+                orderIdToSegmentStatusMap.put(orderId, '');
             }
         }
     }
@@ -135,6 +152,19 @@ public without sharing class ADCVDOrderTriggerHandler {
     /*********************************
     * Date Calculations
     *********************************/
+
+    //Set Anniversary_Month__c
+    @TestVisible private static void setAnniversaryMonth(ADCVD_Order__c o) {
+        Date orderPublishedDate = null;
+        if (o.Id != null && frUtilMap != null) {
+            orderPublishedDate = frUtilMap.get(o.Id) != null ? frUtilMap.get(o.Id).orderPublishedDate : null;
+        }
+        if (orderPublishedDate != null) {
+            o.Anniversary_Month__c = utils.getMonthFromDate(orderPublishedDate);
+        } else {
+            o.Anniversary_Month__c = null;
+        }
+    }
 
     //Next_Sunset_Initiation_Date__c
     @TestVisible private static void setNextSunsetInitiationDate(ADCVD_Order__c o) {
@@ -157,7 +187,7 @@ public without sharing class ADCVDOrderTriggerHandler {
 
     @TestVisible private static void setSegmentStatus(List<ADCVD_Order__c> newList) {
 		for (ADCVD_Order__c o : newList) {
-			if (o.Id != null && orderIdToSegmentStatusMap.get(o.Id) != null && orderIdToSegmentStatusMap.get(o.Id) == 'Active') {
+			if (o.Id != null && orderIdToSegmentStatusMap.get(o.Id) != null && activeSegmentStatuses.contains(orderIdToSegmentStatusMap.get(o.Id))){
 				o.Segment_Status__c = 'Active';
 			} else {
 				o.Segment_Status__c = 'Inactive';
@@ -169,25 +199,48 @@ public without sharing class ADCVDOrderTriggerHandler {
         for (ADCVD_Order__c o : newList){
         	if (o.Status__c != 'Revoked-Complete') {//skip if already Revoked-Complete
         		o.Status__c = 'Order FR Needed';//set for before insert context
-	            Date orderPublishedDate = null;
-	            Date revocationPublishedDate = null;
-	            if (o.Id != null) {
-		            if (frUtilMap != null) {
-		            	revocationPublishedDate = frUtilMap.get(o.Id) != null ? frUtilMap.get(o.Id).revocationPublishedDate : null;
-		                orderPublishedDate = frUtilMap.get(o.Id) != null ? frUtilMap.get(o.Id).orderPublishedDate : null;
-		            }
-		            if (orderPublishedDate == null) {//set if updated and still does not have an Order FR
-		                o.Status__c = 'Order FR Needed';
-		            } else if (o.Segment_Status__c == 'Active') {//set based on Segment Status
-		                o.Status__c = 'Current-Active';
-		            } else if (o.Segment_Status__c != 'Active') {
-		            	o.Status__c = 'Current-Inactive';
-		            }
-		            if (revocationPublishedDate != null) {
-		            	o.Status__c = 'Revoked-Incomplete';
-		            }
+	            Date orderPublished = null;
+	            Date revocationPublished = null;
+	            if (o.Id != null && frUtilMap != null) {
+	            	revocationPublished = frUtilMap.get(o.Id) != null ? frUtilMap.get(o.Id).revocationPublishedDate : null;
+	                orderPublished = frUtilMap.get(o.Id) != null ? frUtilMap.get(o.Id).orderPublishedDate : null;
 		        }
+	            if (orderPublished == null) {//set if updated and still does not have an Order FR
+	                o.Status__c = 'Order FR Needed';
+	            } else if (o.Segment_Status__c == 'Active') {//set based on Segment Status
+	                o.Status__c = 'Current-Active';
+	            } else if (o.Segment_Status__c != 'Active') {
+	            	o.Status__c = 'Current-Inactive';
+	            }
+	            if (revocationPublished != null) {
+	            	o.Status__c = 'Revoked-Incomplete';
+	            }
         	}
+        }
+    }
+
+
+    /**************************
+    * Custom Validations
+    **************************/
+
+    //Effective_Date_of_Revocation__c
+    @TestVisible private static void validateEffectiveDateOfRevocation(ADCVD_Order__c o) {
+        String maxDateName = '';
+        Date maxDate = null;
+        if (o.Id != null && frUtilMap != null && frUtilMap.get(o.Id) != null && frUtilMap.get(o.Id).revocationPublishedDate != null) {
+            if (frUtilMap.get(o.Id).orderPublishedDate != null) {
+                maxDate = frUtilMap.get(o.Id).orderPublishedDate;
+                maxDateName = 'Order Federal Register Published Date: ' + maxDate.format();
+            }
+            if (frUtilMap.get(o.Id).continuationPublishedDate != null) {
+                maxDate = frUtilMap.get(o.Id).continuationPublishedDate;
+                maxDateName = 'most recent Continuation Federal Register Published Date: ' + maxDate.format();
+            }
+            maxDate = maxDate != null ? maxDate.addYears(EFFECTIVE_DATE_REVO_YEARS).addMonths(EFFECTIVE_DATE_REVO_MONTHS) : null;
+        }
+        if (maxDate != null && o != null && o.Effective_Date_of_Revocation__c != null && maxDate < o.Effective_Date_of_Revocation__c) {
+            o.Effective_Date_of_Revocation__c.addError('The Effective Date of Revocation cannot be more than 5 years from the ' + maxDateName);
         }
     }
 }

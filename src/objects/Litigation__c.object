@@ -353,27 +353,36 @@
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
-        <fullName>Next_Due_to_DAS_Deadline_and_Timeline__c</fullName>
+        <fullName>Next_Announcement_Date__c</fullName>
         <externalId>false</externalId>
-        <label>Next Due to DAS Deadline and Timeline</label>
+        <label>Next Announcement Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Next_Major_AS_DAS_Deadline_and_Timeline__c</fullName>
+        <fullName>Next_Due_to_DAS_Deadline__c</fullName>
         <externalId>false</externalId>
-        <label>Next Major AS/DAS Deadline and Timeline</label>
+        <label>Next Due to DAS Deadline</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>TextArea</type>
+        <type>Date</type>
     </fields>
     <fields>
-        <fullName>Next_Office_PM_Deadline_and_Timeline__c</fullName>
+        <fullName>Next_Major_Deadline__c</fullName>
         <externalId>false</externalId>
-        <label>Next Office/PM Deadline and Timeline</label>
+        <label>Next Major Deadline</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Next_Office_PM_Deadline__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Office/PM Deadline</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -672,6 +681,46 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
         <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Actual_Draft_Remand_released_Not_Blank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Draft Released Party Date until the Calculate Draft Released Party Date is not populated</description>
+        <errorConditionFormula>AND( 
+ISNULL( Calculated_Draft_Remand_release_to_party__c ), 
+NOT( ISNULL( Actual_Draft_Remand_released_to_party__c )) 
+)</errorConditionFormula>
+        <errorMessage>Calculated Draft Remand Released Date must be populated in order to enter Actual Draft Remand Released Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Actual_Final_Signature_Not_Blank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Final Signature Date until the Calculate Final Signature Date is not populated</description>
+        <errorConditionFormula>AND( 
+ISNULL( Calculated_Final_Signature__c ), 
+NOT( ISNULL( Actual_Final_Signature__c )) 
+)</errorConditionFormula>
+        <errorMessage>Calculated Final Signature Date must be populated in order to enter Actual Final Signature Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Actual_Initiation_Signature_Not_Blank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Initiation Signature Date until the Calculate Initiation Signature Date is not populated</description>
+        <errorConditionFormula>AND( 
+ISNULL( Calculated_Initiation_Signature__c ), 
+NOT( ISNULL( Actual_Initiation_Signature__c )) 
+)</errorConditionFormula>
+        <errorMessage>Calculated Initiation Signature Date must be populated in order to enter Actual Initiation Signature Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Actual_Preliminary_Signature_Not_Blank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Preliminary Signature Date until the Calculate Preliminary Signature Date is not populated</description>
+        <errorConditionFormula>AND( 
+ISNULL( Calculated_Preliminary_Signature__c ), 
+NOT( ISNULL( Actual_Preliminary_Signature__c )) 
+)</errorConditionFormula>
+        <errorMessage>Calculated Preliminary Signature Date must be populated in order to enter Actual Preliminary Signature Date</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>International_Litigation_Final_Extension</fullName>
         <active>true</active>
