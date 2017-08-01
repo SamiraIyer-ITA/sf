@@ -296,6 +296,22 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Actual_Decision_on_HOP_Concurrence_toDAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Decision on HOP Concurrence toDAS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Decision_on_HOP_Issues_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Decision on HOP Issues to DAS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Actual_Final_Concurrence_to_DAS__c</fullName>
         <externalId>false</externalId>
         <label>Actual Final Concurrence to DAS</label>
@@ -702,6 +718,22 @@
         <externalId>false</externalId>
         <inlineHelpText>Deadline for Decision on How to Proceed</inlineHelpText>
         <label>Deadline for Decision on How to Proceed</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Decision_on_HOP_Concurrence_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Decision on HOP Concurrence Due to DAS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Decision_on_HOP_Issues_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Decision on HOP Issues Due to DAS</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>

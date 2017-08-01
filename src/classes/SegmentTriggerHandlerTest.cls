@@ -1778,6 +1778,7 @@ public class SegmentTriggerHandlerTest {
 		System.assertEquals('Final', [SELECT Id, Status__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Status__c);
 
 		//Segment Hold Status
+		setFR(siSeg.Id, 'Final');
 		siSeg.Segment_Outcome__c ='Completed';
 		siSeg.Actual_Final_Signature__c = siSeg.Calculated_Final_Signature__c.addDays(-14);
 		update siSeg;
@@ -1979,6 +1980,19 @@ public class SegmentTriggerHandlerTest {
 		System.assertEquals(testCalculated, nsSeg.Preliminary_Announcement_Date__c);
 	}
 	//setPreliminaryAnnouncementDate
+	@isTest static void setPreliminaryAnnouncementDateScopeInquiry() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(siSeg.Calculated_Preliminary_Signature__c, siSeg.Calculated_Preliminary_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, siSeg.Preliminary_Announcement_Date__c);
+	}
+	//setPreliminaryAnnouncementDate
 	@isTest static void setPreliminaryAnnouncementDateAR() {
 		Test.startTest();
 
@@ -2030,6 +2044,19 @@ public class SegmentTriggerHandlerTest {
 
 		Test.stopTest();
 		System.assertEquals(testCalculated, nsSeg.Final_Announcement_Date__c);
+	}
+	//setFinalAnnouncementDate
+	@isTest static void setFinalAnnouncementDateScopeInquiry() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(siSeg.Calculated_Final_Signature__c, siSeg.Calculated_Final_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, siSeg.Final_Announcement_Date__c);
 	}
 	//setFinalAnnouncementDate
 	@isTest static void setFinalAnnouncementDateAR() {
@@ -2257,7 +2284,6 @@ public class SegmentTriggerHandlerTest {
 		siSeg.Request_Filed__c = segmentDate;
 		siSeg.Actual_Date_of_Decision_on_HoP__c = segmentDate.addDays(21);
 		siSeg.Decision_on_How_to_Proceed__c = 'Formal';
-		siSeg.Will_you_Amend_the_Final__c = 'Yes';
 		segsToUpdate.add(siSeg);
 
 		update segsToUpdate;

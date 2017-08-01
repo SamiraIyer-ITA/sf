@@ -5692,6 +5692,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Segment__c.Actual_Decision_on_HOP_Concurrence_toDAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Segment__c.Actual_Decision_on_HOP_Issues_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Segment__c.Actual_Final_Concurrence_to_DAS__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5878,6 +5888,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Segment__c.Deadline_for_Decision_on_How_to_Proceed__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Segment__c.Decision_on_HOP_Concurrence_Due_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Segment__c.Decision_on_HOP_Issues_Due_to_DAS__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

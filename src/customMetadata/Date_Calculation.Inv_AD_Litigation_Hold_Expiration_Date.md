@@ -56,7 +56,7 @@
     </values>
     <values>
         <field>Base_Date_Field_3_Type__c</field>
-        <value xsi:type="xsd:string">ITC Final</value>
+        <value xsi:type="xsd:string">Order</value>
     </values>
     <values>
         <field>Base_Date_Field_4_Lookup_Field_Name__c</field>
@@ -324,7 +324,7 @@
     </values>
     <values>
         <field>Conditional_Field_8_Result__c</field>
-        <value xsi:type="xsd:string">Use Date 2</value>
+        <value xsi:type="xsd:string">Use Constant 2</value>
     </values>
     <values>
         <field>Conditional_Field_8_Type__c</field>
@@ -380,7 +380,7 @@
     </values>
     <values>
         <field>Number_of_Base_Date_Fields__c</field>
-        <value xsi:type="xsd:double">5.0</value>
+        <value xsi:type="xsd:double">4.0</value>
     </values>
     <values>
         <field>Number_of_Conditionals__c</field>
