@@ -51,7 +51,7 @@ public class SuspensionAgreementTriggerHandlerTest {
 		List<Suspension_Agreement__c> aList = new List<Suspension_Agreement__c>();
 		aList.add(sa);
 		SuspensionAgreementTriggerHandler.initialize(aList, null);
-		System.assert(SuspensionAgreementTriggerHandler.frUtilMap.isEmpty():
+
 		Test.stopTest();
 		System.assert(SuspensionAgreementTriggerHandler.frUtilMap.isEmpty());
 	}
@@ -126,8 +126,7 @@ public class SuspensionAgreementTriggerHandlerTest {
 		Petition__c testPet = TestUtils.createPetition(suspDate.addDays(-14),'AD ME', true);
 		Investigation__c testInv = TestUtils.createInvestigation('AD', testPet, true);
 		Suspension_Agreement__c testSuspAgr = TestUtils.createSuspensionAgreement(testInv, suspDate, true);
-
-    /*List<Segment__c> segsToInsert = new List<Segment__c>();
+		/*List<Segment__c> segsToInsert = new List<Segment__c>();
 		System.runAs(testUser) {
 			for(String segRecordTypeName : utils.getRecordTypeDeveloperNameMap('Segment__c').values()) {
 				Segment__c testSeg = TestUtils.createSegment(testSuspAgr, segRecordTypeName, false);
