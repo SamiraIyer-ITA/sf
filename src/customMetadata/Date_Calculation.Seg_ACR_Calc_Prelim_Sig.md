@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <label>Seg SI - Deadline for Decision on HOP</label>
+    <label>Seg ACR Calc Prelim Sig</label>
     <protected>false</protected>
     <values>
         <field>ADCVD_Objects__c</field>
-        <value xsi:type="xsd:string">Seg_SI</value>
+        <value xsi:type="xsd:string">Seg_ACR</value>
     </values>
     <values>
         <field>Active_Calculation__c</field>
@@ -16,7 +16,7 @@
     </values>
     <values>
         <field>Base_Date_Field_1_Name__c</field>
-        <value xsi:type="xsd:string">Request_Filed__c</value>
+        <value xsi:type="xsd:string">Actual_Initiation_Signature__c</value>
     </values>
     <values>
         <field>Base_Date_Field_1_Object__c</field>
@@ -32,11 +32,11 @@
     </values>
     <values>
         <field>Base_Date_Field_2_Name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Calculated_Initiation_Signature__c</value>
     </values>
     <values>
         <field>Base_Date_Field_2_Object__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Segment__c</value>
     </values>
     <values>
         <field>Base_Date_Field_2_Type__c</field>
@@ -140,11 +140,11 @@
     </values>
     <values>
         <field>Calculated_Date_Field_Name__c</field>
-        <value xsi:type="xsd:string">Deadline_for_Decision_on_How_to_Proceed__c</value>
+        <value xsi:type="xsd:string">Calculated_Preliminary_Signature__c</value>
     </values>
     <values>
         <field>Conditional_Field_1_Name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Type_of_Circumvention_Inquiry__c</value>
     </values>
     <values>
         <field>Conditional_Field_1_Object__c</field>
@@ -152,11 +152,11 @@
     </values>
     <values>
         <field>Conditional_Field_1_Operator__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Equals</value>
     </values>
     <values>
         <field>Conditional_Field_1_Result__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Execute</value>
     </values>
     <values>
         <field>Conditional_Field_1_Type__c</field>
@@ -164,11 +164,11 @@
     </values>
     <values>
         <field>Conditional_Field_1_Value__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Later-Developed Merchandise</value>
     </values>
     <values>
         <field>Conditional_Field_2_Name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Preliminary_Determination__c</value>
     </values>
     <values>
         <field>Conditional_Field_2_Object__c</field>
@@ -176,11 +176,11 @@
     </values>
     <values>
         <field>Conditional_Field_2_Operator__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Equals</value>
     </values>
     <values>
         <field>Conditional_Field_2_Result__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Execute</value>
     </values>
     <values>
         <field>Conditional_Field_2_Type__c</field>
@@ -188,7 +188,7 @@
     </values>
     <values>
         <field>Conditional_Field_2_Value__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Yes</value>
     </values>
     <values>
         <field>Conditional_Field_3_Name__c</field>
@@ -360,7 +360,7 @@
     </values>
     <values>
         <field>Constant_1__c</field>
-        <value xsi:type="xsd:string">Scope_Inq_Deadline_for_Decision_HoP</value>
+        <value xsi:type="xsd:string">Anti_Circ_Calc_Prelim_Sig</value>
     </values>
     <values>
         <field>Constant_2__c</field>
@@ -376,15 +376,15 @@
     </values>
     <values>
         <field>Extension_Field_1_Name__c</field>
-        <value xsi:type="xsd:string">Initiation_Extension_of_days__c</value>
+        <value xsi:type="xsd:string">Prelim_Extension__c</value>
     </values>
     <values>
         <field>Number_of_Base_Date_Fields__c</field>
-        <value xsi:type="xsd:double">1.0</value>
+        <value xsi:type="xsd:double">2.0</value>
     </values>
     <values>
         <field>Number_of_Conditionals__c</field>
-        <value xsi:type="xsd:double">0.0</value>
+        <value xsi:type="xsd:double">2.0</value>
     </values>
     <values>
         <field>Number_of_Constants__c</field>
@@ -392,7 +392,7 @@
     </values>
     <values>
         <field>Order_of_Execution__c</field>
-        <value xsi:type="xsd:double">4.0</value>
+        <value xsi:type="xsd:double">10.0</value>
     </values>
     <values>
         <field>Tolling_Service__c</field>

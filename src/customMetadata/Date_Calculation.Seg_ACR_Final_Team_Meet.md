@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <label>Seg SI - Deadline for Decision on HOP</label>
+    <label>Seg ACR Final Team Meet</label>
     <protected>false</protected>
     <values>
         <field>ADCVD_Objects__c</field>
-        <value xsi:type="xsd:string">Seg_SI</value>
+        <value xsi:type="xsd:string">Seg_ACR</value>
     </values>
     <values>
         <field>Active_Calculation__c</field>
@@ -16,7 +16,7 @@
     </values>
     <values>
         <field>Base_Date_Field_1_Name__c</field>
-        <value xsi:type="xsd:string">Request_Filed__c</value>
+        <value xsi:type="xsd:string">Calculated_Final_Signature__c</value>
     </values>
     <values>
         <field>Base_Date_Field_1_Object__c</field>
@@ -140,7 +140,7 @@
     </values>
     <values>
         <field>Calculated_Date_Field_Name__c</field>
-        <value xsi:type="xsd:string">Deadline_for_Decision_on_How_to_Proceed__c</value>
+        <value xsi:type="xsd:string">Final_Team_Meeting_Deadline__c</value>
     </values>
     <values>
         <field>Conditional_Field_1_Name__c</field>
@@ -360,7 +360,7 @@
     </values>
     <values>
         <field>Constant_1__c</field>
-        <value xsi:type="xsd:string">Scope_Inq_Deadline_for_Decision_HoP</value>
+        <value xsi:type="xsd:string">Anti_Circ_Final_Team_Meet_Deadline</value>
     </values>
     <values>
         <field>Constant_2__c</field>
@@ -376,7 +376,7 @@
     </values>
     <values>
         <field>Extension_Field_1_Name__c</field>
-        <value xsi:type="xsd:string">Initiation_Extension_of_days__c</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Number_of_Base_Date_Fields__c</field>
@@ -392,7 +392,7 @@
     </values>
     <values>
         <field>Order_of_Execution__c</field>
-        <value xsi:type="xsd:double">4.0</value>
+        <value xsi:type="xsd:double">40.0</value>
     </values>
     <values>
         <field>Tolling_Service__c</field>

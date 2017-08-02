@@ -1993,6 +1993,20 @@ public class SegmentTriggerHandlerTest {
 		System.assertEquals(testCalculated, siSeg.Preliminary_Announcement_Date__c);
 	}
 	//setPreliminaryAnnouncementDate
+	@isTest static void setPreliminaryAnnouncementDateAntiCircumventionReview() {
+		Test.startTest();
+
+		//setup start dates
+		acSeg.Type_of_Circumvention_Inquiry__c = 'Later-Developed Merchandise';
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(acSeg.Calculated_Preliminary_Signature__c, acSeg.Calculated_Preliminary_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, acSeg.Preliminary_Announcement_Date__c);
+	}
+	//setPreliminaryAnnouncementDate
 	@isTest static void setPreliminaryAnnouncementDateAR() {
 		Test.startTest();
 
@@ -2057,6 +2071,19 @@ public class SegmentTriggerHandlerTest {
 
 		Test.stopTest();
 		System.assertEquals(testCalculated, siSeg.Final_Announcement_Date__c);
+	}
+	//setFinalAnnouncementDate
+	@isTest static void setFinalAnnouncementDateAntiCircumventionReview() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(acSeg.Calculated_Final_Signature__c, acSeg.Calculated_Final_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, acSeg.Final_Announcement_Date__c);
 	}
 	//setFinalAnnouncementDate
 	@isTest static void setFinalAnnouncementDateAR() {

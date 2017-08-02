@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <label>Seg SI - Deadline for Decision on HOP</label>
+    <label>Seg ACR Deficient or Withdrawn Date</label>
     <protected>false</protected>
     <values>
         <field>ADCVD_Objects__c</field>
-        <value xsi:type="xsd:string">Seg_SI</value>
+        <value xsi:type="xsd:string">Seg_ACR</value>
     </values>
     <values>
         <field>Active_Calculation__c</field>
@@ -16,11 +16,11 @@
     </values>
     <values>
         <field>Base_Date_Field_1_Name__c</field>
-        <value xsi:type="xsd:string">Request_Filed__c</value>
+        <value xsi:type="xsd:string">Today</value>
     </values>
     <values>
         <field>Base_Date_Field_1_Object__c</field>
-        <value xsi:type="xsd:string">Segment__c</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Base_Date_Field_1_Type__c</field>
@@ -140,11 +140,11 @@
     </values>
     <values>
         <field>Calculated_Date_Field_Name__c</field>
-        <value xsi:type="xsd:string">Deadline_for_Decision_on_How_to_Proceed__c</value>
+        <value xsi:type="xsd:string">Deficient_or_Withdrawn_Date__c</value>
     </values>
     <values>
         <field>Conditional_Field_1_Name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Segment_Outcome__c</value>
     </values>
     <values>
         <field>Conditional_Field_1_Object__c</field>
@@ -152,11 +152,11 @@
     </values>
     <values>
         <field>Conditional_Field_1_Operator__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Not Equals To</value>
     </values>
     <values>
         <field>Conditional_Field_1_Result__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Skip</value>
     </values>
     <values>
         <field>Conditional_Field_1_Type__c</field>
@@ -164,11 +164,11 @@
     </values>
     <values>
         <field>Conditional_Field_1_Value__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Deficient;Withdrawn</value>
     </values>
     <values>
         <field>Conditional_Field_2_Name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Deficient_or_Withdrawn_Date__c</value>
     </values>
     <values>
         <field>Conditional_Field_2_Object__c</field>
@@ -176,11 +176,11 @@
     </values>
     <values>
         <field>Conditional_Field_2_Operator__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Not Equals To</value>
     </values>
     <values>
         <field>Conditional_Field_2_Result__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Align</value>
     </values>
     <values>
         <field>Conditional_Field_2_Type__c</field>
@@ -360,7 +360,7 @@
     </values>
     <values>
         <field>Constant_1__c</field>
-        <value xsi:type="xsd:string">Scope_Inq_Deadline_for_Decision_HoP</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Constant_2__c</field>
@@ -376,7 +376,7 @@
     </values>
     <values>
         <field>Extension_Field_1_Name__c</field>
-        <value xsi:type="xsd:string">Initiation_Extension_of_days__c</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Number_of_Base_Date_Fields__c</field>
@@ -384,15 +384,15 @@
     </values>
     <values>
         <field>Number_of_Conditionals__c</field>
-        <value xsi:type="xsd:double">0.0</value>
+        <value xsi:type="xsd:double">2.0</value>
     </values>
     <values>
         <field>Number_of_Constants__c</field>
-        <value xsi:type="xsd:double">1.0</value>
+        <value xsi:type="xsd:double">0.0</value>
     </values>
     <values>
         <field>Order_of_Execution__c</field>
-        <value xsi:type="xsd:double">4.0</value>
+        <value xsi:type="xsd:double">60.0</value>
     </values>
     <values>
         <field>Tolling_Service__c</field>
