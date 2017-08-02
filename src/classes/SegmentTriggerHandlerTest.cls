@@ -662,13 +662,13 @@ public class SegmentTriggerHandlerTest {
 		Test.startTest();
 		
 		//setup start dates
+		ccSeg.Is_This_Review_Expedited__c = 'Yes';
 		setStartDates();
 		setExtensions();
 		getNewSegs();
 
 		//Changed-Circumstances Review
 		//Based on Calculated
-		ccSeg.Is_This_Review_Expedited__c = 'Yes';
 		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(ccSeg.Calculated_Initiation_Signature__c.addDays(45).addDays(7));
 		//compare Calculated_Initiation_Signature__c + Final_Extension_of_days__c
 		System.assertEquals(testCalculated,
@@ -677,6 +677,7 @@ public class SegmentTriggerHandlerTest {
 		//Based on Actual
 		ccSeg.Actual_Initiation_Signature__c = ccSeg.Calculated_Initiation_Signature__c.addDays(-14);
 		update ccSeg;
+		getNewSegs();
 		testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(ccSeg.Actual_Initiation_Signature__c.addDays(45).addDays(7));
 		//compare Actual_Initiation_Signature__c + Final_Extension_of_days__c
 		System.assertEquals(testActual,
@@ -686,20 +687,24 @@ public class SegmentTriggerHandlerTest {
 		ccSeg.All_parties_in_agreement_to_the_outcome__c = 'Yes';
 		ccSeg.Actual_Initiation_Signature__c = null;
 		update ccSeg;
-		testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(ccSeg.Calculated_Initiation_Signature__c.addDays(45).addDays(7));
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(ccSeg.Calculated_Initiation_Signature__c.addDays(45).addDays(7));
 		//compare Calculated_Initiation_Signature__c + Final_Extension_of_days__c
-		System.assertEquals(testActual,
+		System.assertEquals(testCalculated,
 			[SELECT Id, Calculated_Final_Signature__c FROM Segment__c WHERE Id =: ccSeg.Id LIMIT 1].Calculated_Final_Signature__c);	
 
 		ccSeg.All_parties_in_agreement_to_the_outcome__c = 'No';
 		update ccSeg;
-		testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(ccSeg.Calculated_Initiation_Signature__c.addDays(270).addDays(7));
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(ccSeg.Calculated_Initiation_Signature__c.addDays(270).addDays(7));
 		//compare Calculated_Initiation_Signature__c + Final_Extension_of_days__c
-		System.assertEquals(testActual,
+		System.assertEquals(testCalculated,
 			[SELECT Id, Calculated_Final_Signature__c FROM Segment__c WHERE Id =: ccSeg.Id LIMIT 1].Calculated_Final_Signature__c);	
 
+		//Based On Actual
 		ccSeg.Actual_Initiation_Signature__c = ccSeg.Calculated_Initiation_Signature__c.addDays(-14);
 		update ccSeg;
+		getNewSegs();
 		testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(ccSeg.Actual_Initiation_Signature__c.addDays(270).addDays(7));
 		//compare Actual_Initiation_Signature__c + Final_Extension_of_days__c
 		System.assertEquals(testActual,
@@ -2007,6 +2012,20 @@ public class SegmentTriggerHandlerTest {
 		System.assertEquals(testCalculated, acSeg.Preliminary_Announcement_Date__c);
 	}
 	//setPreliminaryAnnouncementDate
+	@isTest static void setPreliminaryAnnouncementDateChangedCircumstancesReview() {
+		Test.startTest();
+
+		//setup start dates
+		ccSeg.All_parties_in_agreement_to_the_outcome__c = 'No';
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(ccSeg.Calculated_Preliminary_Signature__c, ccSeg.Calculated_Preliminary_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, ccSeg.Preliminary_Announcement_Date__c);
+	}
+	//setPreliminaryAnnouncementDate
 	@isTest static void setPreliminaryAnnouncementDateAR() {
 		Test.startTest();
 
@@ -2084,6 +2103,19 @@ public class SegmentTriggerHandlerTest {
 
 		Test.stopTest();
 		System.assertEquals(testCalculated, acSeg.Final_Announcement_Date__c);
+	}
+	//setFinalAnnouncementDate
+	@isTest static void setFinalAnnouncementDateChangedCircumstancesReview() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(ccSeg.Calculated_Final_Signature__c, ccSeg.Calculated_Final_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, ccSeg.Final_Announcement_Date__c);
 	}
 	//setFinalAnnouncementDate
 	@isTest static void setFinalAnnouncementDateAR() {
