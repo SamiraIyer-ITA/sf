@@ -6002,6 +6002,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Segment__c.Initiation_Announcement_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Segment__c.Initiation_Concurrence_Due_to_DAS__c</field>
         <readable>true</readable>
     </fieldPermissions>

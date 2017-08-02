@@ -949,6 +949,14 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Initiation_Announcement_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Initiation Announcement Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Initiation_Concurrence_Due_to_DAS__c</fullName>
         <externalId>false</externalId>
         <label>Initiation Concurrence Due to DAS</label>
