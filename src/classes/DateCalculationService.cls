@@ -86,7 +86,8 @@ public without sharing class DateCalculationService {
     	for (String result : conditionalResults.keySet()) {
     		Object tempObject = null;
     		if (result == null || conditionalResults.get(result) == null) continue;
-	    	if (result == 'Skip' && conditionalResults.get(result)) {
+	    	if ((result == 'Skip' && conditionalResults.get(result)) || (conditionalResults.get('Execute') != null && !conditionalResults.get('Execute'))) {
+	    		returnMap.put('Skip', true);
 	    		return returnMap;
 	    	} else if (result.contains('Use Date') && conditionalResults.get(result) && returnMap.get('Date') == null) {
 	    		Integer i = Integer.valueOf(result.right(1));
