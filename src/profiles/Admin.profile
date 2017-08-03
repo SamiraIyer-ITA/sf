@@ -5956,6 +5956,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.Final_Extension_Remaining__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Segment__c.Final_Extension_of_days__c</field>
         <readable>true</readable>
@@ -6008,6 +6013,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Segment__c.Initiation_Concurrence_Due_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.Initiation_Extension_Remaining__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6253,6 +6263,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Segment__c.Preliminary_Determination__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.Preliminary_Extension_Remaining__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
