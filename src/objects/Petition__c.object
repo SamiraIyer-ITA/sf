@@ -53,6 +53,24 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
+        <fullName>Actual_Initiation_Concurrence_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Initiation Concurrence to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Initiation_Issues_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Initiation Issues to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Actual_Initiation_Sig_After_Calculated__c</fullName>
         <externalId>false</externalId>
         <formula>Actual_Initiation_Signature__c &gt; Calculated_Initiation_Signature__c</formula>
@@ -566,6 +584,39 @@ C-###-### for CVD</inlineHelpText>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Initiation_Announcement_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Initiation Announcement Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Initiation_Concurrence_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Initiation Concurrence Due to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Initiation_Extension_Remaining__c</fullName>
+        <description>Extension Number of days remaining for Initiation</description>
+        <externalId>false</externalId>
+        <formula>20 - Initiation_Extension_of_days__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Initiation Extension Remaining</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Initiation_Extension_of_days__c</fullName>
         <description>Initiation Extension (# of days)</description>
         <externalId>false</externalId>
@@ -578,6 +629,15 @@ C-###-### for CVD</inlineHelpText>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Initiation_Issues_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Initiation Issues Due to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Injunction__c</fullName>
@@ -680,9 +740,36 @@ C-###-### for CVD</inlineHelpText>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Next_Due_to_DAS_Deadline_and_Timeline__c</fullName>
+        <fullName>Next_Announcement_Date__c</fullName>
         <externalId>false</externalId>
-        <label>Next Due to DAS Deadline and Timeline</label>
+        <label>Next Announcement Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Next_Due_to_DAS_Deadline__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Due to DAS Deadline</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Next_Major_Deadline__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Major Deadline</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Next_Office_Deadline__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Office Deadline</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -794,6 +881,18 @@ C-###-### for CVD</inlineHelpText>
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Product_Short_Name__c</fullName>
+        <description>Product Short Name</description>
+        <externalId>false</externalId>
+        <label>Product Short Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Product__c</fullName>
@@ -950,6 +1049,16 @@ C-###-### for CVD</inlineHelpText>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
+        <fullName>Actual_Initiation_Signature_Not_Blank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Initiation Signature Date until the Calculate Initiation Signature Date in not populated</description>
+        <errorConditionFormula>AND( 
+ISNULL( Calculated_Initiation_Signature__c ), 
+NOT( ISNULL( Actual_Initiation_Signature__c )) 
+)</errorConditionFormula>
+        <errorMessage>Calculated Initiation Signature Date must be populated in order to enter Actual Initiation Signature Date</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Actual_Initiation_Signature_Not_Required</fullName>
         <active>true</active>
         <description>If type of Petition Segment is equals to any of those two options then Actual Initiation Signature must not be selected</description>
@@ -995,6 +1104,16 @@ ISBLANK(TEXT(Actual_Initiation_Signature__c))
         <errorMessage>Initiation extension cannot exceed more than 20 days.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Lit_Resolved_Required_If_Lit_Is_Yes</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+ ISPICKVAL( Litigation_YesNo__c , &apos;Yes&apos;) ,
+ ISPICKVAL( Litigation_Resolved__c , &apos;&apos;)
+)</errorConditionFormula>
+        <errorDisplayField>Litigation_Resolved__c</errorDisplayField>
+        <errorMessage>Litigation Resolved must cannot be blank if Litigation equals &quot;Yes&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Litigation_Resolved_Required</fullName>
         <active>true</active>
         <description>Litigation Resolved cannot be blank if Litigation is &apos;Yes&apos;</description>
@@ -1012,6 +1131,16 @@ ISBLANK( TEXT( Litigation_Resolved__c ) )
 NOT(ISBLANK(TEXT(Actual_Initiation_Signature__c ))),
 ISPICKVAL(Petition_Outcome__c, &apos;&apos;))</errorConditionFormula>
         <errorMessage>Petition Outcome is required in order to choose Actual Initiation Signature</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Petition_Outcome_Required_for_Actual_Sig</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( 
+   NOT(ISNULL(Actual_Initiation_Signature__c)),
+   ISBLANK(TEXT(Petition_Outcome__c ))
+)</errorConditionFormula>
+        <errorDisplayField>Petition_Outcome__c</errorDisplayField>
+        <errorMessage>The Petition Outcome is required to enter an Actual Initiation Signature</errorMessage>
     </validationRules>
     <visibility>Public</visibility>
 </CustomObject>

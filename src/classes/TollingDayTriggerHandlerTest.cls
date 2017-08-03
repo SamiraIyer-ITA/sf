@@ -52,17 +52,19 @@ public class TollingDayTriggerHandlerTest {
 		System.assertEquals(TollingDayTriggerHandler.latestDate, null);
 		Tolling_Day__c td = TestUtils.createTollingDay(tollingDateStart, tollingDateEnd, u, true);
 		TollingDayTriggerHandler.setDatesInScope(tdList);
+
+		Test.stopTest();
 		System.assertEquals(TollingDayTriggerHandler.earliestDate, tollingDateStart);//equal to the tolling day scope
 		System.assertEquals(TollingDayTriggerHandler.latestDate, tollingDateEnd);
-		Test.stopTest();
 	}
 	@isTest static void findPetitionsInScope(){
 		Test.startTest();
 		//create new Tolling Day List in memory for test
 		Tolling_Day__c td = TestUtils.createTollingDay(tollingDateStart, tollingDateEnd, u, false);//no insert needed
 		tdList.add(td);
-		System.assertEquals(TollingDayTriggerHandler.findPetitionsInScope(tdList),petitionSet);//compare petitions from method to inserted set
+
 		Test.stopTest();
+		System.assertEquals(TollingDayTriggerHandler.findPetitionsInScope(tdList),petitionSet);//compare petitions from method to inserted set
 	}
 	@isTest static void recalculatePetitionTollingDay(){
 		Test.startTest();

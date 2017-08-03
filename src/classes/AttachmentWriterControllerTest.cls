@@ -35,7 +35,9 @@ private class AttachmentWriterControllerTest {
 	}
 	
 	private static void setup(){
-		o = testUtils.createOrder(true);
+        Petition__c testADPetition = TestUtils.createPetition(System.today().addDays(-280), 'AD ME', true);
+        Investigation__c testADinvestigation = TestUtils.createInvestigation('AD', testADPetition, true);
+        o = TestUtils.createOrder(testADinvestigation, true);
 		pageRef = Page.OrderAttachmentWriter;
         pageRef.getParameters().put('id', o.id);
         test.setCurrentPage(pageRef);

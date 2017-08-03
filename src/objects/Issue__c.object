@@ -83,6 +83,19 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Completed_Issue__c</fullName>
+        <externalId>false</externalId>
+        <formula>AND (
+    ISPICKVAL( Ops_Status__c , &apos;Complete&apos;),
+    ISPICKVAL( Policy_Status__c , &apos;Complete&apos;),
+    ISPICKVAL( Legal_Status__c , &apos;Complete&apos;)
+)</formula>
+        <label>Completed Issue</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Concurrence_to_DAS__c</fullName>
         <externalId>false</externalId>
         <label>Concurrence to DAS</label>

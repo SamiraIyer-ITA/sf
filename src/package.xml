@@ -53,6 +53,7 @@
         <members>Content__c</members>
         <members>Covered_Entity__c</members>
         <members>Custom_Instruction__c</members>
+        <members>Date_Calculation__mdt</members>
         <members>Decision_Log__c</members>
         <members>Department_Taxonomy__c</members>
         <members>Federal_Register__c</members>
@@ -124,6 +125,10 @@
         <name>GlobalValueSet</name>
     </types>
     <types>
+        <members>Date_Calculation__mdt-Date Calculation Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
         <members>*</members>
         <name>PathAssistant</name>
     </types>
@@ -159,6 +164,14 @@
         <members>testcvd_tolling_day_between_end_date</members>
         <members>testcvd_tolling_day_between_start_date</members>
         <name>StaticResource</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Workflow</name>
+    </types>
+    <types>
+        <members>Date_Calculation__mdt.Correct_Date_Format</members>
+        <name>ValidationRule</name>
     </types>
     <version>39.0</version>
 </Package>

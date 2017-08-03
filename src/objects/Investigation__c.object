@@ -88,6 +88,42 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Actual_Amend_Final_Concurrence_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Amend Final Concurrence to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Amend_Final_Issues_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Amend Final Issues to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Amend_Prelim_Concurrence_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Amend Prelim Concurrence to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Amend_Prelim_Issues_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Amend Prelim Issues to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Actual_Amended_Final_Signature__c</fullName>
         <description>Actual Amended Final Signature</description>
         <externalId>false</externalId>
@@ -110,6 +146,24 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Actual_Final_Concurrence_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Final Concurrence to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Final_Issues_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Final Issues to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Actual_Final_Signature__c</fullName>
         <description>Actual Final Signature</description>
         <externalId>false</externalId>
@@ -121,11 +175,65 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Actual_Prelim_Concurrence_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Prelim Concurrence to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Prelim_Issues_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Prelim Issues to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Actual_Preliminary_Signature__c</fullName>
         <description>Actual Preliminary Signature</description>
         <externalId>false</externalId>
         <inlineHelpText>Actual Preliminary Signature</inlineHelpText>
         <label>Actual Preliminary Signature</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Amend_Final_Concurrence_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Amend Final Concurrence Due to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Amend_Final_Issues_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Amend Final Issues Due to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Amend_Prelim_Concurrence_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Amend Prelim Concurrence Due to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Amend_Prelim_Issues_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Amend Prelim Issues Due to DAS</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -145,6 +253,24 @@
             <restricted>true</restricted>
             <valueSetName>YesNo</valueSetName>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Amended_Final_Announcement_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Amended Final Announcement Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Amended_Preliminary_Announcement_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Amended Preliminary Announcement Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Applicable_CBP_Instructions_Category__c</fullName>
@@ -717,6 +843,41 @@
         <unique>true</unique>
     </fields>
     <fields>
+        <fullName>Final_Announcement_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Final Announcement Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Final_Concurrence_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Final Concurrence Due to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Final_Extension_Remaining__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE( RecordType.DeveloperName , 
+&apos;AD&apos;, 60 -  Final_Extension_of_days__c  , 
+&apos;CVD&apos;, 90 - Final_Extension_of_days__c, 
+0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Final Extension Remaining</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Final_Extension_of_days__c</fullName>
         <description>Final Extension (# of days)</description>
         <externalId>false</externalId>
@@ -729,6 +890,15 @@
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Final_Issues_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Final Issues Due to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Final_Team_Meeting_Deadline__c</fullName>
@@ -882,19 +1052,6 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>Investigation_YesNo__c</fullName>
-        <externalId>false</externalId>
-        <label>Investigation</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>YesNo</valueSetName>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Issues_to_DAS__c</fullName>
         <externalId>false</externalId>
         <label>Issues to DAS</label>
@@ -1022,35 +1179,42 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>Next_Due_to_DAS_Deadline_and_Timeline__c</fullName>
-        <description>Next Due to DAS Deadline and Timeline</description>
+        <fullName>Next_Announcement_Date__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>Next Due to DAS Deadline and Timeline</inlineHelpText>
-        <label>Next Due to DAS Deadline and Timeline</label>
+        <label>Next Announcement Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Next_Major_AS_DAS_Deadline_and_Timeline__c</fullName>
-        <description>Next Major AS/DAS Deadline and Timeline</description>
+        <fullName>Next_Due_to_DAS_Deadline__c</fullName>
+        <description>Next Due to DAS Deadline and Timeline</description>
         <externalId>false</externalId>
-        <inlineHelpText>Next Major AS/DAS Deadline and Timeline</inlineHelpText>
-        <label>Next Major AS/DAS Deadline and Timeline</label>
-        <length>255</length>
+        <inlineHelpText>Next Due to DAS Deadline and Timeline</inlineHelpText>
+        <label>Next Due to DAS Deadline</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Date</type>
     </fields>
     <fields>
-        <fullName>Next_Office_PM_Deadline_and_Timeline__c</fullName>
+        <fullName>Next_Major_Deadline__c</fullName>
+        <description>Next Major AS/DAS Deadline and Timeline</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Next Major AS/DAS Deadline and Timeline</inlineHelpText>
+        <label>Next Major Deadline</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Next_Office_Deadline__c</fullName>
         <description>Next Office/PM Deadline and Timeline</description>
         <externalId>false</externalId>
         <inlineHelpText>Next Office/PM Deadline and Timeline</inlineHelpText>
-        <label>Next Office/PM Deadline and Timeline</label>
+        <label>Next Office Deadline</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1246,6 +1410,18 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Petition_Product_Short_Name__c</fullName>
+        <description>Petition Product Short Name</description>
+        <externalId>false</externalId>
+        <label>Petition Product Short Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Petition_Product__c</fullName>
         <externalId>false</externalId>
         <label>Petition Product</label>
@@ -1280,6 +1456,15 @@
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
+        <fullName>Prelim_Concurrence_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Prelim Concurrence Due to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Prelim_Extension_of_days__c</fullName>
         <description>Prelim Extension (# of days)</description>
         <externalId>false</externalId>
@@ -1294,6 +1479,15 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Prelim_Issues_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Prelim Issues Due to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Prelim_Team_Meeting_Deadline__c</fullName>
         <externalId>false</externalId>
         <label>Prelim Team Meeting Deadline</label>
@@ -1301,6 +1495,32 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Preliminary_Announcement_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Preliminary Announcement Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Preliminary_Extension_Remaining__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE( RecordType.DeveloperName , 
+&apos;AD&apos;, 50 -  Prelim_Extension_of_days__c , 
+&apos;CVD&apos;, 65 -  Prelim_Extension_of_days__c ,
+0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Preliminary Extension Remaining</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Range_of_Rates_Final_Amended__c</fullName>
@@ -1429,6 +1649,18 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>This_Petition_Has_An_Investigation__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <externalId>false</externalId>
+        <label>This Petition Has An Investigation</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
     </fields>
     <fields>
         <fullName>Upstream_Subsidy_Allegation__c</fullName>
@@ -1882,17 +2114,6 @@
             </values>
             <values>
                 <fullName>Suspension Agreement</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Investigation_YesNo__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2488,17 +2709,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Investigation_YesNo__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Litigation_Resolved__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -2741,6 +2951,26 @@
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
+        <fullName>Actual_Amended_Final_Signature_Not_Blank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Amended Final Signature Date until the Calculate Amended Final Signature Date is not populated</description>
+        <errorConditionFormula>AND( 
+ISNULL( Calculated_Amended_Final_Signature__c ), 
+NOT( ISNULL( Actual_Amended_Final_Signature__c )) 
+)</errorConditionFormula>
+        <errorMessage>Calculated Amended Final Signature Date must be populated in order to enter Actual Amended Final Signature Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Actual_Amended_Prelim_Determ_Not_Blank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Amended Prelim Determination Date until the Calculate Amended Prelim Determination Date is not populated</description>
+        <errorConditionFormula>AND( 
+ISNULL(Calc_Amended_Prelim_Determination_Sig__c ), 
+NOT( ISNULL( Actual_Amended_Prelim_Determination_Sig__c )) 
+)</errorConditionFormula>
+        <errorMessage>Calculated Amended Prelim Determination Date must be populated in order to enter Actual Amended Prelim Determination Date</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Actual_Final_Required_for_DOC_Neg</fullName>
         <active>true</active>
         <errorConditionFormula>AND( 
@@ -2749,6 +2979,26 @@ ISNULL(  Actual_Final_Signature__c ),
 )</errorConditionFormula>
         <errorDisplayField>Actual_Final_Signature__c</errorDisplayField>
         <errorMessage>The Actual Final Signature date is required when Investigation Outcome is &quot;DOC Negative Final&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Actual_Final_Signature_Not_Blank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Final Signature Date until the Calculate Final Signature Date is not populated</description>
+        <errorConditionFormula>AND( 
+ISNULL( Calculated_Final_Signature__c ), 
+NOT( ISNULL( Actual_Final_Signature__c )) 
+)</errorConditionFormula>
+        <errorMessage>Calculated Final Signature Date must be populated in order to enter Actual Final Signature Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Actual_Preliminary_Signature_Not_Blank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Preliminary Signature Date until the Calculate Preliminary Signature Date in not populated</description>
+        <errorConditionFormula>AND( 
+ISNULL( Calculated_Preliminary_Signature__c ), 
+NOT( ISNULL( Actual_Preliminary_Signature__c )) 
+)</errorConditionFormula>
+        <errorMessage>Calculated Preliminary Signature Date must be populated in order to enter Actual Preliminary Signature Date</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Bounded_Days_For_AD_Final_Extension</fullName>

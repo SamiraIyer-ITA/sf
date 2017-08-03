@@ -57,8 +57,11 @@ public without sharing class FederalRegisterTriggerHandler {
                 parentIdSet.add(oldMap.get(fr.Id).Suspension_Agreement__c);
             }
         }
-        for (Segment__c s : [SELECT Id FROM Segment__c WHERE ADCVD_Order__c IN: tempSet]) {
-            parentIdSet.add(s.Id);
+        for (ADCVD_Order__c ao : [SELECT Investigation__c, (SELECT Id FROM Segments__r) FROM ADCVD_Order__c WHERE Id IN: tempSet]) {
+            parentIdSet.add(ao.Investigation__c);
+            for (Segment__c s : ao.Segments__r) {
+                parentIdSet.add(s.Id);
+            }
         }
 
 

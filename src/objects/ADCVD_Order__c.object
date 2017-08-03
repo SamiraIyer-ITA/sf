@@ -118,7 +118,7 @@
         <fullName>Anniversary_Month__c</fullName>
         <externalId>false</externalId>
         <label>Anniversary Month</label>
-        <required>true</required>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -276,6 +276,14 @@
         <fullName>Effective_Date_for_Most_Recent_SunsetFR__c</fullName>
         <externalId>false</externalId>
         <label>Effective Date for Most Recent SunsetFR</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Effective_Date_of_Revocation__c</fullName>
+        <externalId>false</externalId>
+        <label>Effective Date of Revocation</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -465,30 +473,6 @@
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
-        <fullName>Next_Due_to_DAS_Deadline_and_Timeline__c</fullName>
-        <externalId>false</externalId>
-        <label>Next Due to DAS Deadline and Timeline</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Next_Major_AS_DAS_Deadline_and_Timeline__c</fullName>
-        <externalId>false</externalId>
-        <label>Next Major AS/DAS Deadline and Timeline</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>TextArea</type>
-    </fields>
-    <fields>
-        <fullName>Next_Office_PM_Deadline_and_Timeline__c</fullName>
-        <externalId>false</externalId>
-        <label>Next Office/PM Deadline and Timeline</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Next_Sunset_Initiation_Date_UI__c</fullName>
         <externalId>false</externalId>
         <formula>TEXT(YEAR(Next_Sunset_Initiation_Date__c)) &amp; &apos;/&apos; &amp;
@@ -672,6 +656,17 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Petition_Product_Short_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Investigation__r.Petition__r.Product_Short_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Petition Product Short Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Petition_Product__c</fullName>
@@ -864,6 +859,17 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>This_Investigation_has_an_Order__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <externalId>false</externalId>
+        <label>This Investigation has an Order</label>
+        <length>18</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
     </fields>
     <fields>
         <fullName>Upstream_Subsidy_Allegation__c</fullName>

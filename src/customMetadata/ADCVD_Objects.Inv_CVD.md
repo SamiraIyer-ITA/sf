@@ -3,6 +3,10 @@
     <label>Inv CVD</label>
     <protected>false</protected>
     <values>
+        <field>Number_of_Date_Calculations__c</field>
+        <value xsi:type="xsd:double">400.0</value>
+    </values>
+    <values>
         <field>Object_API_Name__c</field>
         <value xsi:type="xsd:string">Investigation__c</value>
     </values>

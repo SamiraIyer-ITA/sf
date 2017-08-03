@@ -1,4 +1,4 @@
-public without sharing class utils {
+public without sharing class Utils {
 	//use this reference for Global Describe to store in cache memory
 	public static Map<String,Schema.SObjectType> cachedGD {
 		get{
@@ -9,14 +9,14 @@ public without sharing class utils {
 		}
 		set;
 	}
-	public static Map<Id,RecordType> recordTypeDeveloperNameMap {get {
-		if(recordTypeDeveloperNameMap == null) {
-			recordTypeDeveloperNameMap = new Map<Id,RecordType>();
+	public static Map<Id,RecordType> recordTypeIdToRecordTypeMap {get {
+		if(recordTypeIdToRecordTypeMap == null) {
+			recordTypeIdToRecordTypeMap = new Map<Id,RecordType>();
 			for (RecordType rt : [SELECT Id, DeveloperName, SObjectType FROM RecordType]) {
-				recordTypeDeveloperNameMap.put(rt.Id, rt);
+				recordTypeIdToRecordTypeMap.put(rt.Id, rt);
 			}
 		}
-		return recordTypeDeveloperNameMap;
+		return recordTypeIdToRecordTypeMap;
 		} set;
 	}
 	private static void setCachedGD() {
@@ -60,7 +60,7 @@ public without sharing class utils {
 	public static Map<Id,String> getRecordTypeDeveloperNameMap(String sObjectName){
 		Map<Id,String> returnMap = new Map<Id,String>();
 		if (sObjectName != null) {
-			for(RecordType rt : recordTypeDeveloperNameMap.values()){
+			for(RecordType rt : recordTypeIdToRecordTypeMap.values()){
 				if (rt.SObjectType == sObjectName) {
 					returnMap.put(rt.Id, rt.DeveloperName);
 				}
@@ -76,7 +76,7 @@ public without sharing class utils {
 	//Gets a map of Record Type Developer Names to Record Type Ids for the object name
 	public static Map<String,Id> getRecordTypeIdMap(String sObjectName){
 		Map<String,Id> returnMap = new Map<String,Id>();
-		for(RecordType rt : [SELECT Id, DeveloperName FROM RecordType WHERE SObjectType =: sObjectName]){
+		for(RecordType rt : recordTypeIdToRecordTypeMap.values()){
 			returnMap.put(rt.DeveloperName, rt.Id);
 		}
 		return returnMap;
@@ -131,5 +131,68 @@ public without sharing class utils {
 			}
 		}
 		return retUrl;
+	}
+
+	//Helper Method returns Month from a Date in String format
+    public static String getMonthFromDate(Date dt) {
+        String monthString = '';
+        if (dt != null) {
+            Datetime tempDt = Datetime.newInstance(dt, Time.newInstance(0,0,0,0));
+            monthString = tempDt.format('MMMMM');
+        }
+        return monthString;
+    }
+
+    public static String soqlBuilderAllFields(String soType, Boolean finishSOQL) {
+        Map<String, Schema.SObjectType> schemaMap = utils.cachedGD;
+        Map<String, Schema.SObjectField> fieldMap = schemaMap.get(soType).getDescribe().fields.getMap();
+        Set<String> searchFields = new Set<String>();
+        String commaSeparatedFields = '';
+        for (String fieldName : fieldMap.keyset()){
+            searchFields.add(fieldName.toLowerCase());
+        }
+        for (String s: searchFields) {
+            if (commaSeparatedFields != '') {
+                commaSeparatedFields = commaSeparatedFields + ', ' + s;
+            } else {
+                commaSeparatedFields = s;
+            }
+        }
+        String query = 'SELECT ' + commaSeparatedFields;
+        if (finishSOQL) {
+        	query += ' FROM ' + soType;
+        }
+        return query;
+    }
+
+    public static Set<String> allFieldsSet(String soType) {
+        Map<String, Schema.SObjectType> schemaMap = utils.cachedGD;
+        Map<String, Schema.SObjectField> fieldMap = schemaMap.get(soType).getDescribe().fields.getMap();
+        Set<String> returnSet = new Set<String>();
+        for (String fieldName : fieldMap.keyset()){
+            returnSet.add(fieldName.toLowerCase());
+        }
+        return returnSet;
+    }
+
+    public static List<SObject> getSObjectsInContext(String sObjectName, Set<Id> sObjectIdSet, Set<String> fields) {
+		String query = '';
+		for (String fieldName : fields) {
+			if (String.isBlank(query)) {
+				query = 'SELECT ' + fieldName;
+			} else {
+				query += ', ' + fieldName;
+			}
+		}
+		query += ' FROM '+ sObjectName +' WHERE Id IN: sObjectIdSet';
+		System.debug('****** '+query);
+		return database.query(query);
+	}
+
+    public static List<SObject> castRecordsToType(List<SObject> records, String soType) {
+	    String listType = 'List<' + soType + '>';
+	    List<SObject> returnList = (List<SObject>)Type.forName(listType).newInstance();
+	    returnList.addAll(records);
+	    return returnList;
 	}
 }

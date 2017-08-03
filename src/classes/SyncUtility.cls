@@ -25,11 +25,11 @@ public without sharing class SyncUtility {
 	@TestVisible private static Map<Id,SObject> sourceObjectsMap = new Map<Id,SObject>();
 	@TestVisible private static Map<Id,String> sourceObjectsTypeMap = new Map<Id,String>();
 	@TestVisible private static Map<Id,List<SObject>> sourceIdToTargetObjectMap = new Map<Id,List<SObject>>();
-	@TestVisible private static List<SObject> soList = new List<SObject>();
+	@TestVisible private static Map<String,List<SObject>> soListMap = new Map<String,List<SObject>>();
 	@TestVisible private static List<Sync_Utility__mdt> syncUtilityCMT {
 		get {
 			if(syncUtilityCMT == null) {
-				syncUtilityCMT = ([SELECT Source_Object__c, Source_Field__c, Destination_Field__c, Sync_This_Field__c
+				syncUtilityCMT = ([SELECT Source_Object__c, Source_Field__c, Destination_Field__c, Sync_This_Field__c, Synced_for_Final__c 
 										FROM Sync_Utility__mdt WHERE Destination_Object__c =: targetObjectName AND Source_Object__c IN: sourceObjectNames]);
 			}
 		return syncUtilityCMT;
@@ -44,6 +44,10 @@ public without sharing class SyncUtility {
 	//Sync to Recusal
 	@TestVisible private static List<Recusal__c> recusalList = new List<Recusal__c>();
 	@TestVisible private static Set<String> allRecusalSources = new Set<String>{'Recusal__c'};
+	//Sync to New Shipper Review
+	@TestVisible private static List<Segment__c> segmentList = new List<Segment__c>();
+	@TestVisible private static Set<String> allSegmentSources = new Set<String>{'Segment__c'};
+	@TestVisible private static Set<String> finalSyncLevelFieldSet = new Set<String>();
 	
 	
 	/*******************************************************************
@@ -58,11 +62,14 @@ public without sharing class SyncUtility {
 	 *******************************************************************/
 
 	//accepts object and String or null. If String is null, all sources is default
-	public static void syncObject(List<SObject> targetObjectList, String sourceObjectName) {
-		if (sourceObjectName != null) {
-			sourceObjectNames.add(sourceObjectName);
+	public void syncObject(List<SObject> targetObjectList, String sourceObjectName) {
+		Boolean allSources = true;
+		Set<String> tempObjectNameSet = new Set<String>();
+		if (!String.isBlank(sourceObjectName)) {
+			tempObjectNameSet.add(sourceObjectName);
+			allSources = false;
 		}
-		syncObject(targetObjectList, sourceObjectNames, false);
+		syncObject(targetObjectList, tempObjectNameSet, allSources);
 	}
 	//accepts object List and set of object names or boolean true to use all sources
 	public static void syncObject(List<SObject> targetObjectList , Set<String> sourceObjects, Boolean allSources) {
@@ -80,8 +87,10 @@ public without sharing class SyncUtility {
 	//type cast the targetObjectList to a targetObject type so specific fields can be referenced
 	@TestVisible private static void initialize(List<SObject> targetObjectList) {
 		targetObjectName = utils.getSObjectName(targetObjectList[0]);//targetObjectName specifies which parts of the methods to run
-		soList.clear();//clear the list if still populated from a cascading update
-		soList.addAll(targetObjectList);//add current targetList to it
+		if (soListMap.get(targetObjectName) != null && !soListMap.get(targetObjectName).isEmpty()) {
+			soListMap.get(targetObjectName).clear();//clear the list if still populated from a cascading update
+		}
+		soListMap.put(targetObjectName, targetObjectList);
 		typeCastSObjectList(targetObjectName);//type cast to the correct object so specific fields can be accessed
 	}
 
@@ -90,14 +99,19 @@ public without sharing class SyncUtility {
 		if(targetObjectName == 'Investigation__c') {
 			if(typeToCastTo == 'Investigation__c') {
 				investigationList.clear();//clear the list if it still populated from a cascading update or if it still has a target list & this is a CVD alignment operation
-				investigationList.addAll((List<Investigation__c>) soList);//typecast and add whatever is in soList
+				investigationList.addAll((List<Investigation__c>) soListMap.get(targetObjectName));//typecast and add whatever is in soList
 			} else if (typeToCastTo == 'Petition__c') {
-				petitionList = (List<Petition__c>) soList;
+				petitionList = (List<Petition__c>) soListMap.get(targetObjectName);
 			}
 		} else if (targetObjectName == 'Recusal__c') {
 			if(typeToCastTo == 'Recusal__c') {
 				recusalList.clear();
-				recusalList.addAll((List<Recusal__c>) soList);
+				recusalList.addAll((List<Recusal__c>) soListMap.get(targetObjectName));
+			}
+		} else if (targetObjectName == 'Segment__c') {
+			if(typeToCastTo == 'Segment__c') {
+				segmentList.clear();
+				segmentList.addAll((List<Segment__c>) soListMap.get(targetObjectName));
 			}
 		} //add else if to type cast to different sources from other target objects.  You will need a class level list to hold any object types not already listed.
 		//However, you can re-use in this method any class level lists that are already created
@@ -114,6 +128,12 @@ public without sharing class SyncUtility {
 		} else if(targetObjectName == 'Recusal__c') {
 			if(sourceObjects == null || sourceObjects.size() < 1 || allSources) {
 				sourceObjectNames.addAll(allRecusalSources);
+			} else {
+				sourceObjectNames.addAll(sourceObjects);
+			}
+		} else if(targetObjectName == 'Segment__c') {
+			if(sourceObjects == null || sourceObjects.size() < 1 || allSources) {
+				sourceObjectNames.addAll(allSegmentSources);
 			} else {
 				sourceObjectNames.addAll(sourceObjects);
 			}
@@ -138,7 +158,8 @@ public without sharing class SyncUtility {
 			soQuery += sourceQueryFieldNames.get(sourceObjectName);//add query fields based on this source object
 			soQuery = soQuery.removeEnd(', ');
 			soQuery += ' FROM ' + sourceObjectName + ' WHERE Id IN: tempIdSet';//limit by the Ids gathered from the current set
-			soList = (List<SObject>)Database.Query(soQuery);
+			List<SObject> tempList = (List<SObject>)Database.Query(soQuery);
+			soListMap.put(targetObjectName, tempList);
 			addSourceListToSourceObjectsMap(sourceObjectName);//add soList to sourceObjectMap
 		}
 	}
@@ -149,10 +170,15 @@ public without sharing class SyncUtility {
 			Map<String,String> targetApiToSourceApiMap = syncFieldMap.get(sourceObjectsTypeMap.get(sourceObject.Id));//set the field api's from CMT to the source object type
 			if(sourceIdToTargetObjectMap.get(sourceObject.Id) != null && sourceIdToTargetObjectMap.get(sourceObject.Id).size() > 0) {
 				for(SObject target : sourceIdToTargetObjectMap.get(sourceObject.Id)) {//most are lists of one, but this is a list for loop in case multiple objects update from same source
+					Segment__c s = targetObjectName == 'Segment__c' ? (Segment__c) target : null;
 					for (String targetObjectField : targetApiToSourceApiMap.keySet()) {//iterate through the target object field api's
-						String sourceObjectField = targetApiToSourceApiMap.get(targetObjectField);//set the source field api that matches the target
-						Object sourceValue = sourceObject.get(sourceObjectField);//instantiate an instance of the value from the source object using the source field api
-						target.put(targetObjectField, sourceValue);//put the source value to the target object's target field
+						if (s == null 
+							|| (s != null && s.New_Shipper_Sync_Level__c == 'Final' && finalSyncLevelFieldSet.contains(targetObjectField))
+							|| (s != null && s.New_Shipper_Sync_Level__c == 'Preliminary')) {
+							String sourceObjectField = targetApiToSourceApiMap.get(targetObjectField);//set the source field api that matches the target
+							Object sourceValue = sourceObject.get(sourceObjectField);//instantiate an instance of the value from the source object using the source field api
+							target.put(targetObjectField, sourceValue);//put the source value to the target object's target field
+						}
 					}
 				}
 			}	
@@ -166,6 +192,8 @@ public without sharing class SyncUtility {
 			investigationTargetObjectIdSet(returnMap);//get Investigation target Object Id Sets and add the lookup (source) Ids and target Investigations to sourceIdToTargetObjectMap
 		} else if (targetObjectName == 'Recusal__c') {
 			recusalTargetObjectIdSet(returnMap);
+		} else if (targetObjectName == 'Segment__c') {
+			segmentTargetObjectIdSet(returnMap);
 		} //add else if for a different target object
 		return returnMap;
 	}
@@ -186,17 +214,22 @@ public without sharing class SyncUtility {
 	}
 
 	@TestVisible private static void addFieldsToSyncFieldMap(String sourceObjectName) {
+		Set<String> tempFieldSet = new Set<String>();
 		Map<String,String> tempFieldMap = new Map<String,String>();
 		String tempString = '';
 		for (Sync_Utility__mdt su : syncUtilityCMT) {
 			if(su.Sync_This_Field__c && su.Source_Object__c == sourceObjectName) {
 				tempFieldMap.put(su.Destination_Field__c, su.Source_Field__c);
 				tempString += su.Source_Field__c + ', ';
+				if(targetObjectName == 'Segment__c' && su.Synced_for_Final__c) {
+					tempFieldSet.add(su.Destination_Field__c);
+				}
 			}
 		}
 		if(tempFieldMap.size() > 0) {
 			syncFieldMap.put(sourceObjectName, tempFieldMap);
 			sourceFieldQueries.put(sourceObjectName, tempString);
+			finalSyncLevelFieldSet.addAll(tempFieldSet);
 		}
 	}
 
@@ -215,12 +248,15 @@ public without sharing class SyncUtility {
 					sourceObjectsTypeMap.put(p.Id, 'Petition__c');//set map of Id and object type name
 				}
 			}
-		} else if(targetObjectName == 'Recusal__c') {
-			if(sourceObjectName == 'Recusal__c') {
-				for(Recusal__c rec : recusalList) {//this is no longer the targetObjectList. In typeCastSObjectList, the queried AD investigations replaced targetObjectList
-					sourceObjectsMap.put(rec.Id, rec);
-					sourceObjectsTypeMap.put(rec.Id, 'Recusal__c');//set map of Id and object type name, this is used to grab the correct fields from syncFieldMap
-				}
+		} else if(targetObjectName == 'Recusal__c' && sourceObjectName == 'Recusal__c') {
+			for(Recusal__c rec : recusalList) {//this is no longer the targetObjectList. In typeCastSObjectList, the queried Recusals replaced targetObjectList
+				sourceObjectsMap.put(rec.Id, rec);
+				sourceObjectsTypeMap.put(rec.Id, 'Recusal__c');//set map of Id and object type name, this is used to grab the correct fields from syncFieldMap
+			}
+		} else if(targetObjectName == 'Segment__c' && sourceObjectName == 'Segment__c') {
+			for(Segment__c seg : segmentList) {
+				sourceObjectsMap.put(seg.Id, seg);
+				sourceObjectsTypeMap.put(seg.Id, 'Segment__c');
 			}
 		} //add else if for a differenct target object
 	}
@@ -264,19 +300,18 @@ public without sharing class SyncUtility {
 	}
 
 	/**************************************************************************
-	*Methods specific to syncing Investigations
+	*Methods specific to syncing Recusals
 	* 1. To query the field APIs from CMT
-	* 2. To iterate through the Investigations to update (targets) and 
+	* 2. To iterate through the Recusals to update (targets) and 
 	* add the correct lookup fields to the Id sets that will be used
 	* in the query in setSourceObjectsMap.  Also maps the lookup
-	* field (source) Ids to their target Investigations.
+	* field (source) Ids to their target Recusals.
 	***************************************************************************/
 
 	@TestVisible private static void recusalTargetObjectIdSet(Map<String,Set<Id>> returnMap) {
-		//Set<Id> petitionIdSet = new Set<Id>();
 		Set<Id> primaryRecusalIdSet = new Set<Id>();
-		for(Recusal__c rec : recusalList) {//this is still the targetObjectList that has been typeCast to Investigation
-			if(rec.Primary_Recusal_Aligned_To__c != null) {//use if because the same Investigation could get updated by
+		for(Recusal__c rec : recusalList) {//this is still the targetObjectList that has been typeCast to Recusal
+			if(rec.Primary_Recusal_Aligned_To__c != null) {
 				if(sourceIdToTargetObjectMap.get(rec.Primary_Recusal_Aligned_To__c) != null) {
 					sourceIdToTargetObjectMap.get(rec.Primary_Recusal_Aligned_To__c).add(rec);//add target objects to the map that will be updated
 				} else {
@@ -287,7 +322,32 @@ public without sharing class SyncUtility {
 				primaryRecusalIdSet.add(rec.Primary_Recusal_Aligned_To__c);
 			}
 		}
-		//returnMap.put('Petition__c', petitionIdSet);
 		returnMap.put('Recusal__c', primaryRecusalIdSet);
+	}
+
+
+	/**************************************************************************
+	*Methods specific to syncing New Shipper Reviews
+	* 1. To query the field APIs from CMT
+	* 2. To iterate through the New Shipper Reviews to update (targets) and 
+	* add the correct lookup fields to the Id sets that will be used
+	* in the query in setSourceObjectsMap.  Also maps the Admin Review lookup
+	* field (source) Ids to their target New Shipper Reviews.
+	***************************************************************************/
+	@TestVisible private static void segmentTargetObjectIdSet(Map<String,Set<Id>> returnMap) {
+		Set<Id> adminReviewIdSet = new Set<Id>();
+		for (Segment__c s : segmentList) {
+			if (s.Administrative_Review_Aligned_To__c != null) {
+				if (sourceIdToTargetObjectMap.get(s.Administrative_Review_Aligned_To__c) != null) {
+					sourceIdToTargetObjectMap.get(s.Administrative_Review_Aligned_To__c).add(s);
+				} else {
+					List<SObject> tempList = new List<SObject>();
+					tempList.add(s);
+					sourceIdToTargetObjectMap.put(s.Administrative_Review_Aligned_To__c, tempList);
+				}
+				adminReviewIdSet.add(s.Administrative_Review_Aligned_To__c);
+			}
+		}
+		returnMap.put('Segment__c', adminReviewIdSet);
 	}
 }

@@ -122,8 +122,23 @@ public with sharing class TestUtils {
     public static Investigation__c createInvestigation(String recordTypeName, Petition__c p, Boolean doInsert) {
         Investigation__c i = new Investigation__c();
         i.Petition__c = p.Id;
-        i.RecordTypeId = utils.getRecordTypeIdMap(i).get(recordTypeName);
+        if (p.Case_Number__c.indexOf('A') > -1) {
+            i.RecordTypeId = utils.getRecordTypeIdMap(i).get('AD');
+        } else if (p.Case_Number__c.indexOf('C') > -1) {
+            i.RecordTypeId = utils.getRecordTypeIdMap(i).get('CVD');
+        }
         if (doInsert) {
+            insert i;
+        }
+        return i;
+    }
+
+    //create Issue
+    public static Issue__c createIssue (Id parentId, String parentLookupField, String issueType, Boolean doInsert) {
+        Issue__c i = new Issue__c();
+        i.put(parentLookupField, parentId);
+        i.Type__c = issueType;
+        if(doInsert) {
             insert i;
         }
         return i;
@@ -144,6 +159,22 @@ public with sharing class TestUtils {
     //create litigation
     public static Litigation__c createLitigation(Date requestFiled, String recordTypeName, Boolean doInsert) {
         Litigation__c lit = new Litigation__c();
+        lit.RecordTypeId = utils.getRecordTypeIdMap('Litigation__c').get(recordTypeName);
+        if (recordTypeName == 'Remand') {
+            lit.Expected_Final_Signature_Before_Ext__c = requestFiled;
+        } else {
+        lit.Request_Filed__c = requestFiled;
+        }
+        if(doInsert) {
+            insert lit;
+        }
+        return lit;
+    }
+
+    //create litigation with a parent
+    public static Litigation__c createLitigation(Id parentId, String parentLookupField, Date requestFiled, String recordTypeName, Boolean doInsert) {
+        Litigation__c lit = new Litigation__c();
+        lit.put(parentLookupField, parentId);
         lit.RecordTypeId = utils.getRecordTypeIdMap('Litigation__c').get(recordTypeName);
         lit.Request_Filed__c = requestFiled;
         if(doInsert) {
@@ -166,8 +197,9 @@ public with sharing class TestUtils {
     }
 
     // create test order
-    public static ADCVD_Order__c createOrder(Boolean doInsert) {
+    public static ADCVD_Order__c createOrder(Investigation__c i, Boolean doInsert) {
         ADCVD_Order__c o = new ADCVD_Order__c();
+        o.Investigation__c = i.Id;
         Datetime tempDatetime = System.now();
         o.Anniversary_Month__c = tempDatetime.format('MMMMM');
         if(doInsert) {
@@ -180,6 +212,7 @@ public with sharing class TestUtils {
     public static Petition__c createPetition(Date petitionDate, String caseType, Boolean doInsert){
         Petition__c petition = new Petition__c();
         petition.Product__c = 'tacos';
+        petition.Product_Short_Name__c = 'tacos';
         petition.Case_Type__c = caseType;
         if(caseType.substring(0, 1) == 'A'){
             petition.Case_Number__c = 'A-111-222';

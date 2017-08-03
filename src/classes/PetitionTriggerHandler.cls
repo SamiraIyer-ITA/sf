@@ -76,9 +76,11 @@ public without sharing class PetitionTriggerHandler {
      * @return         void
      */
     @TestVisible private static void calculatePetitionDates(List<Petition__c> newList) {
-        for (Petition__c p : newList){
+        DateCalculationService petDcs = DateCalculationServiceDispatcher.getDateCalculationServiceInstance('Petition__c');
+        petDcs.getCalculatedDates(newList, 'Petition__c', '');
+        /*for (Petition__c p : newList){
             setCalculatedInitiationSignature(p);
-        }
+        }*/
     }
 
     /**

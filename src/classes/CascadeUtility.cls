@@ -9,7 +9,7 @@ public without sharing class CascadeUtility {
 	//used for exceptions with the service name is not found from the Service_mdt
 	public class NameException extends Exception{}
 
-	public static FINAL Map<String,ADCVD_CascadeService> cascadeServices;
+	public static FINAL Map<String,ADCVD_CascadeService> CASCADESERVICES;
 
 	//Initiation code
 	static{
@@ -20,11 +20,11 @@ public without sharing class CascadeUtility {
 				cascadeServiceNames.add(sv.Service_Object_Name__c);
 			}
 		}
-		cascadeServices = new Map<String,ADCVD_CascadeService>();
+		CASCADESERVICES = new Map<String,ADCVD_CascadeService>();
 		//map the Cascade Service Name (Service_Object_Name__c value) to a class type of that name + CS
 		for(String name : cascadeServiceNames) {
 			try {
-				cascadeServices.put(name, (ADCVD_CascadeService)Type.forName(name + 'CS').newInstance());
+				CASCADESERVICES.put(name, (ADCVD_CascadeService)Type.forName(name + 'CS').newInstance());
 			} catch (Exception e) {
 				continue;
 			}
@@ -40,8 +40,8 @@ public without sharing class CascadeUtility {
 	public CascadeUtility(String objectName) {
 		//set string to match the Service_Object_Name from the Service__mdt query
 		objectName = objectName.removeEnd('__c');
-		if(!cascadeServices.containsKey(objectName)) throw new NameException(objectName);
-		cs = cascadeServices.get(objectName);
+		if(!CASCADESERVICES.containsKey(objectName)) throw new NameException(objectName);
+		cs = CASCADESERVICES.get(objectName);
 	}
 
 	//methods that can be called in class for a CascadeUtility instance.  Check the implementation for the object to see logic

@@ -1,58 +1,59 @@
 public without sharing class SegmentTriggerHandler {
-	
+
+	@TestVisible private static Set<String> activeSegmentStatuses = new Set<String>();
 	private static Map<String,Constant__mdt> segmentCalcOffsets = segmentCalcOffsets();
 	//FINAL Segment Record Types
 	private static FINAL String ADMIN_REVIEW							= segmentCalcOffsets.get('Admin_Review_Calc_Prelim_Sig').ADCVD_Objects__r.Record_Type_Name__c;
 	private static FINAL String ANTI_CIRCUMVENTION_REVIEW				= segmentCalcOffsets.get('Anti_Circ_Calc_Prelim_Sig').ADCVD_Objects__r.Record_Type_Name__c;
 	private static FINAL String CHANGED_CIRCUMSTANCES_REVIEW			= segmentCalcOffsets.get('Changed_Circ_Calc_Prelim_Sig').ADCVD_Objects__r.Record_Type_Name__c;
 	private static FINAL String EXPEDITED_REVIEW						= segmentCalcOffsets.get('Exped_Review_Calc_Prelim_Sig').ADCVD_Objects__r.Record_Type_Name__c;
-	private static FINAL String NEW_SHIPPER_REVIEW					    = segmentCalcOffsets.get('New_Shipper_Calc_Prelim_Sig').ADCVD_Objects__r.Record_Type_Name__c;
+	private static FINAL String NEW_SHIPPER_REVIEW						= segmentCalcOffsets.get('New_Shipper_Calc_Prelim_Sig').ADCVD_Objects__r.Record_Type_Name__c;
 	private static FINAL String SCOPE_INQUIRY							= segmentCalcOffsets.get('Scope_Inq_Calc_Prelim_Sig').ADCVD_Objects__r.Record_Type_Name__c;
 	private static FINAL String SUNSET_REVIEW							= segmentCalcOffsets.get('SS_Rev_Notice_Intent_Participate').ADCVD_Objects__r.Record_Type_Name__c;
-
+/*
 	//FINAL Segment Administrative Review Offsets
-	private static FINAL Integer AR_CALC_PRELIM_SIG					    = ((Integer)segmentCalcOffsets.get('Admin_Review_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature__c	
-	private static FINAL Integer AR_PRELIM_TEAM_MEET_DEADLINE			= ((Integer)segmentCalcOffsets.get('Admin_Review_Prelim_Team_Meet_Deadline').Number_Value__c);//Prelim_Team_Meeting_Deadline__c	
-	private static FINAL Integer AR_CALC_FINAL_SIG					    = ((Integer)segmentCalcOffsets.get('Admin_Review_Calc_Final_Sig').Number_Value__c);//Calculated_Final_Signature__c
+	private static FINAL Integer AR_CALC_PRELIM_SIG						= ((Integer)segmentCalcOffsets.get('Admin_Review_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature__c
+	private static FINAL Integer AR_PRELIM_TEAM_MEET_DEADLINE			= ((Integer)segmentCalcOffsets.get('Admin_Review_Prelim_Team_Meet_Deadline').Number_Value__c);//Prelim_Team_Meeting_Deadline__c
+	private static FINAL Integer AR_CALC_FINAL_SIG						= ((Integer)segmentCalcOffsets.get('Admin_Review_Calc_Final_Sig').Number_Value__c);//Calculated_Final_Signature__c
 	private static FINAL Integer AR_FINAL_TEAM_MEET_DEADLINE			= ((Integer)segmentCalcOffsets.get('Admin_Review_Final_Team_Meet_Deadline').Number_Value__c);//Final_Team_Meeting_Deadline__c
-	private static FINAL Integer AR_CALC_AMEN_FINAL_SIG				    = ((Integer)segmentCalcOffsets.get('Admin_Review_Calc_Amen_Final_Sig').Number_Value__c);//Calculated_Amended_Final_Signature__c
+	private static FINAL Integer AR_CALC_AMEN_FINAL_SIG					= ((Integer)segmentCalcOffsets.get('Admin_Review_Calc_Amen_Final_Sig').Number_Value__c);//Calculated_Amended_Final_Signature__c
 
 	//FINAL Segment Expedited Review Offsets
-	private static FINAL Integer ER_CALC_PRELIM_SIG					    = ((Integer)segmentCalcOffsets.get('Exped_Review_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature__c	
+	private static FINAL Integer ER_CALC_PRELIM_SIG						= ((Integer)segmentCalcOffsets.get('Exped_Review_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature__c
 	private static FINAL Integer ER_PRELIM_TEAM_MEET_DEADLINE			= ((Integer)segmentCalcOffsets.get('Exped_Review_Prelim_Team_Meet_Deadline').Number_Value__c);//Prelim_Team_Meeting_Deadline__c 
-	private static FINAL Integer ER_CALC_FINAL_SIG					    = ((Integer)segmentCalcOffsets.get('Exped_Review_Calc_Final_Sig').Number_Value__c);//Calculated_Final_Signature__c
+	private static FINAL Integer ER_CALC_FINAL_SIG						= ((Integer)segmentCalcOffsets.get('Exped_Review_Calc_Final_Sig').Number_Value__c);//Calculated_Final_Signature__c
 	private static FINAL Integer ER_FINAL_TEAM_MEET_DEADLINE			= ((Integer)segmentCalcOffsets.get('Exped_Review_Final_Team_Meet_Deadline').Number_Value__c);//Final_Team_Meeting_Deadline__c
-	private static FINAL Integer ER_CALC_AMEN_FINAL_SIG				    = ((Integer)segmentCalcOffsets.get('Exped_Review_Calc_Amen_Final_Sig').Number_Value__c);//Calculated_Amended_Final_Signature__c
+	private static FINAL Integer ER_CALC_AMEN_FINAL_SIG					= ((Integer)segmentCalcOffsets.get('Exped_Review_Calc_Amen_Final_Sig').Number_Value__c);//Calculated_Amended_Final_Signature__c
 
 	//FINAL Segment New Shipper Review Offsets
-	private static FINAL Integer NS_CALC_PRELIM_SIG					    = ((Integer)segmentCalcOffsets.get('New_Shipper_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature__c	
-	private static FINAL Integer NS_PRELIM_TEAM_MEET_DEADLINE			= ((Integer)segmentCalcOffsets.get('New_Shipper_Prelim_Team_Meet_Deadline').Number_Value__c);//Prelim_Team_Meeting_Deadline__c	
-	private static FINAL Integer NS_CALC_FINAL_SIG					    = ((Integer)segmentCalcOffsets.get('New_Shipper_Calc_Final_Sig').Number_Value__c);//Calculated_Final_Signature__c
+	private static FINAL Integer NS_CALC_PRELIM_SIG						= ((Integer)segmentCalcOffsets.get('New_Shipper_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature__c
+	private static FINAL Integer NS_PRELIM_TEAM_MEET_DEADLINE			= ((Integer)segmentCalcOffsets.get('New_Shipper_Prelim_Team_Meet_Deadline').Number_Value__c);//Prelim_Team_Meeting_Deadline__c
+	private static FINAL Integer NS_CALC_FINAL_SIG						= ((Integer)segmentCalcOffsets.get('New_Shipper_Calc_Final_Sig').Number_Value__c);//Calculated_Final_Signature__c
 	private static FINAL Integer NS_FINAL_TEAM_MEET_DEADLINE			= ((Integer)segmentCalcOffsets.get('New_Shipper_Final_Team_Meet_Deadline').Number_Value__c);//Final_Team_Meeting_Deadline__c
-	private static FINAL Integer NS_CALC_AMEN_FINAL_SIG				    = ((Integer)segmentCalcOffsets.get('New_Shipper_Calc_Amen_Final_Sig').Number_Value__c);//Calculated_Amended_Final_Signature__c
+	private static FINAL Integer NS_CALC_AMEN_FINAL_SIG					= ((Integer)segmentCalcOffsets.get('New_Shipper_Calc_Amen_Final_Sig').Number_Value__c);//Calculated_Amended_Final_Signature__c
 
 	//FINAL Segment Scope Inquiry Offsets
-	private static FINAL Integer SI_DEADLINE_FOR_DECISION_HOP			= ((Integer)segmentCalcOffsets.get('Scope_Inq_Deadline_for_Decision_HoP').Number_Value__c);//Scope_Inq_Deadline_for_Decision_HoP__c	
-	private static FINAL Integer SI_CALC_PRELIM_SIG					    = ((Integer)segmentCalcOffsets.get('Scope_Inq_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature__c	
-	private static FINAL Integer SI_PRELIM_TEAM_MEET_DEADLINE			= ((Integer)segmentCalcOffsets.get('Scope_Inq_Prelim_Team_Meet_Deadline').Number_Value__c);//Prelim_Team_Meeting_Deadline__c	
-	private static FINAL Integer SI_CALC_FINAL_SIG					    = ((Integer)segmentCalcOffsets.get('Scope_Inq_Calc_Final_Sig').Number_Value__c);//Calculated_Final_Signature__c
+	private static FINAL Integer SI_DEADLINE_FOR_DECISION_HOP			= ((Integer)segmentCalcOffsets.get('Scope_Inq_Deadline_for_Decision_HoP').Number_Value__c);//Scope_Inq_Deadline_for_Decision_HoP__c
+	private static FINAL Integer SI_CALC_PRELIM_SIG						= ((Integer)segmentCalcOffsets.get('Scope_Inq_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature__c
+	private static FINAL Integer SI_PRELIM_TEAM_MEET_DEADLINE			= ((Integer)segmentCalcOffsets.get('Scope_Inq_Prelim_Team_Meet_Deadline').Number_Value__c);//Prelim_Team_Meeting_Deadline__c
+	private static FINAL Integer SI_CALC_FINAL_SIG						= ((Integer)segmentCalcOffsets.get('Scope_Inq_Calc_Final_Sig').Number_Value__c);//Calculated_Final_Signature__c
 	private static FINAL Integer SI_FINAL_TEAM_MEET_DEADLINE			= ((Integer)segmentCalcOffsets.get('Scope_inq_Final_Team_Meet_Deadline').Number_Value__c);//Final_Team_Meeting_Deadline__c
-	
+
 	//FINAL Segment Anti-Circumvention Review Offsets
 	private static FINAL Integer ACR_PRELIM_TEAM_MEET_DEADLINE			= ((Integer)segmentCalcOffsets.get('Anti_Circ_Prelim_Team_Meet_Deadline').Number_Value__c);//Prelim_Team_Meeting_Deadline__c
-	private static FINAL Integer ACR_CALC_FINAL_SIG					    = ((Integer)segmentCalcOffsets.get('Anti_Circ_Calc_Final_Sig').Number_Value__c);//Calculated_Final_Signature__c
+	private static FINAL Integer ACR_CALC_FINAL_SIG						= ((Integer)segmentCalcOffsets.get('Anti_Circ_Calc_Final_Sig').Number_Value__c);//Calculated_Final_Signature__c
 	private static FINAL Integer ACR_CALC_INIT_SIG						= ((Integer)segmentCalcOffsets.get('Anti_Circ_Initiation_Signature').Number_Value__c);//Calculated_Initiation_Signature__c
 	private static FINAL Integer ACR_FINAL_TEAM_MEET_DEADLINE			= ((Integer)segmentCalcOffsets.get('Anti_Circ_Final_Team_Meet_Deadline').Number_Value__c);//Final_Team_Meeting_Deadline__c
-	private static FINAL Integer ACR_CALC_PRELIM_SIG					= ((Integer)segmentCalcOffsets.get('Anti_Circ_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature__c	
+	private static FINAL Integer ACR_CALC_PRELIM_SIG					= ((Integer)segmentCalcOffsets.get('Anti_Circ_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature__c
 	private static FINAL Integer ACR_NOTIFY_ITC_NO_PRELIM_FR			= ((Integer)segmentCalcOffsets.get('Anti_Circ_Notify_ITC_No_Prelim_FR').Number_Value__c);//Notify_ITC_If_Affirmative_Prelim_Determ__c
 	private static FINAL Integer ACR_NOTIFY_ITC_WITH_PRELIM_FR			= ((Integer)segmentCalcOffsets.get('Anti_Circ_Notify_ITC_With_Prelim_FR').Number_Value__c);//Notify_ITC_If_Affirmative_Prelim_Determ__c
-	
+
 	//FINAL Segment Changed-Circumstances Review Offsets
 	private static FINAL Integer CCR_CALC_INIT_SIG						= ((Integer)segmentCalcOffsets.get('Changed_Circ_Calc_Init_Sig').Number_Value__c);//Calculated_Initiation_Signature__c
-	private static FINAL Integer CCR_CALC_PRELIM_SIG					= ((Integer)segmentCalcOffsets.get('Changed_Circ_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature__c	
+	private static FINAL Integer CCR_CALC_PRELIM_SIG					= ((Integer)segmentCalcOffsets.get('Changed_Circ_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature__c
 	private static FINAL Integer CCR_PRELIM_TEAM_MEET_DEADLINE			= ((Integer)segmentCalcOffsets.get('Changed_Circ_Prelim_Team_Meet_Deadline').Number_Value__c);//Prelim_Team_Meeting_Deadline__c
 	private static FINAL Integer CCR_CALC_FINAL_SIG_EXPEDITE			= ((Integer)segmentCalcOffsets.get('Changed_Circ_Calc_Final_Sig_Expedite').Number_Value__c);//Calculated_Final_Signature__c for 45 days
-	private static FINAL Integer CCR_CALC_FINAL_SIG_NO_EXPEDITE		    = ((Integer)segmentCalcOffsets.get('Changed_Circ_Calc_Final_Sig_NoExpedite').Number_Value__c);//Calculated_Final_Signature__c for 270 days
+	private static FINAL Integer CCR_CALC_FINAL_SIG_NO_EXPEDITE			= ((Integer)segmentCalcOffsets.get('Changed_Circ_Calc_Final_Sig_NoExpedite').Number_Value__c);//Calculated_Final_Signature__c for 270 days
 	private static FINAL Integer CCR_FINAL_TEAM_MEET_DEADLINE			= ((Integer)segmentCalcOffsets.get('Changed_Circ_Final_Team_Meet_Deadline').Number_Value__c);//Final_Team_Meeting_Deadline__c
 
 	//FINAL Segment Sunset Review Offsets
@@ -69,29 +70,33 @@ public without sharing class SegmentTriggerHandler {
 	private static FINAL Integer SSR_90_FIN_SIG_UPDATE_ACE_CUS_MOD		= ((Integer)segmentCalcOffsets.get('SS_Rev_90_Fin_Sig_Update_ACE_Cus_Mod').Number_Value__c);//Update_ACE_Customs_Module__c based on NO Final FR
 	private static FINAL Integer SSR_90_FIN_FR_UPDATE_ACE_CUS_MOD		= ((Integer)segmentCalcOffsets.get('SS_Rev_90_Fin_FR_Update_ACE_Cus_Mod').Number_Value__c);//Update_ACE_Customs_Module__c based on Final FR
 	private static FINAL Integer SSR_90_FIN_SIG_ISSUE_LIQ_REVO_INSTR	= ((Integer)segmentCalcOffsets.get('SS_Rev_90_Fin_Sig_Issue_Liq_Revo_Instr').Number_Value__c);//Issue_Liquidation_Revocation_Instruction__c based on NO Final FR
-	private static FINAL Integer SSR_90_FIN_FR_ISSUE_LIQ_REVO_INSTR	    = ((Integer)segmentCalcOffsets.get('SS_Rev_90_Fin_FR_Issue_Liq_Revo_Instr').Number_Value__c);//Issue_Liquidation_Revocation_Instruction__c based on Final FR
+	private static FINAL Integer SSR_90_FIN_FR_ISSUE_LIQ_REVO_INSTR		= ((Integer)segmentCalcOffsets.get('SS_Rev_90_Fin_FR_Issue_Liq_Revo_Instr').Number_Value__c);//Issue_Liquidation_Revocation_Instruction__c based on Final FR
 	//120 Day Sunset Reviews
-	private static FINAL Integer SSR_120_CALC_FINAL_SIG				    = ((Integer)segmentCalcOffsets.get('SS_Rev_120_Calc_Final_Sig').Number_Value__c);//Calculated_Final_Signature__c
+	private static FINAL Integer SSR_120_CALC_FINAL_SIG					= ((Integer)segmentCalcOffsets.get('SS_Rev_120_Calc_Final_Sig').Number_Value__c);//Calculated_Final_Signature__c
 	private static FINAL Integer SSR_120_REVO_SIG_UPDATE_ACE_CUS_MOD	= ((Integer)segmentCalcOffsets.get('SS_Rev_120_Revo_Sig_Update_ACE_Cus_Mod').Number_Value__c);//Update_ACE_Customs_Module__c based on NO Revocation FR
-	private static FINAL Integer SSR_120_REVO_FR_UPDATE_ACE_CUS_MOD	    = ((Integer)segmentCalcOffsets.get('SS_Rev_120_Revo_FR_Update_ACE_Cus_Mod').Number_Value__c);//Update_ACE_Customs_Module__c based on Revocation FR
+	private static FINAL Integer SSR_120_REVO_FR_UPDATE_ACE_CUS_MOD		= ((Integer)segmentCalcOffsets.get('SS_Rev_120_Revo_FR_Update_ACE_Cus_Mod').Number_Value__c);//Update_ACE_Customs_Module__c based on Revocation FR
 	private static FINAL Integer SSR_120_REVO_SIG_ISSUE_LIQ_REVO_INS	= ((Integer)segmentCalcOffsets.get('SS_Rev_120_Revo_Sig_Issue_Liq_Revo_Ins').Number_Value__c);//Issue_Liquidation_Revocation_Instruction__c based on NO Revocation FR
-	private static FINAL Integer SSR_120_REVO_FR_ISSUE_LIQ_REVO_INS	    = ((Integer)segmentCalcOffsets.get('SS_Rev_120_Revo_FR_Issue_Liq_Revo_Ins').Number_Value__c);//Issue_Liquidation_Revocation_Instruction__c based on Revocation FR
+	private static FINAL Integer SSR_120_REVO_FR_ISSUE_LIQ_REVO_INS		= ((Integer)segmentCalcOffsets.get('SS_Rev_120_Revo_FR_Issue_Liq_Revo_Ins').Number_Value__c);//Issue_Liquidation_Revocation_Instruction__c based on Revocation FR
 	private static FINAL Integer SSR_120_REBUTTAL_COMMENTS_DUE			= ((Integer)segmentCalcOffsets.get('SS_Rev_120_Rebuttal_Comments_Due').Number_Value__c);//Rebuttal_Comments_Due__c
 	private static FINAL Integer SSR_120_ADEQUACY_DET_AND_LET_TO_ITC	= ((Integer)segmentCalcOffsets.get('SS_Rev_120_Adequacy_Det_and_Let_to_ITC').Number_Value__c);//Adequacy_Determination_and_Letter_to_ITC__c
-	private static FINAL Integer SSR_120_COMMENTS_ON_ADEQ_DET_FILED	    = ((Integer)segmentCalcOffsets.get('SS_Rev_120_Comments_on_Adeq_Det_Filed').Number_Value__c);//Comments_on_Adequacy_Determination_Filed__c
+	private static FINAL Integer SSR_120_COMMENTS_ON_ADEQ_DET_FILED		= ((Integer)segmentCalcOffsets.get('SS_Rev_120_Comments_on_Adeq_Det_Filed').Number_Value__c);//Comments_on_Adequacy_Determination_Filed__c
 	private static FINAL Integer SSR_120_MEMO_ON_ADEQUACY_DET			= ((Integer)segmentCalcOffsets.get('SS_Rev_120_Memo_on_Adequacy_Det').Number_Value__c);//Memorandum_on_Adequacy_Determination__c
 	//240 Day Sunset Review
 	private static FINAL Integer SSR_240_CALC_PRELIM_SIG				= ((Integer)segmentCalcOffsets.get('SS_Rev_240_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature__c
-	private static FINAL Integer SSR_240_CALC_FINAL_SIG				    = ((Integer)segmentCalcOffsets.get('SS_Rev_240_Calc_Final_Sig').Number_Value__c);//Calculated_Final_Signature__c
+	private static FINAL Integer SSR_240_CALC_FINAL_SIG					= ((Integer)segmentCalcOffsets.get('SS_Rev_240_Calc_Final_Sig').Number_Value__c);//Calculated_Final_Signature__c
 	private static FINAL Integer SSR_240_REVO_SIG_UPDATE_ACE_CUS_MOD	= ((Integer)segmentCalcOffsets.get('SS_Rev_240_Revo_Sig_Update_ACE_Cus_Mod').Number_Value__c);//Update_ACE_Customs_Module__c based on NO Revocation FR
-	private static FINAL Integer SSR_240_REVO_FR_UPDATE_ACE_CUS_MOD	    = ((Integer)segmentCalcOffsets.get('SS_Rev_240_Revo_FR_Update_ACE_Cus_Mod').Number_Value__c);//Update_ACE_Customs_Module__c based on Revocation FR
+	private static FINAL Integer SSR_240_REVO_FR_UPDATE_ACE_CUS_MOD		= ((Integer)segmentCalcOffsets.get('SS_Rev_240_Revo_FR_Update_ACE_Cus_Mod').Number_Value__c);//Update_ACE_Customs_Module__c based on Revocation FR
 	private static FINAL Integer SSR_240_REVO_SIG_ISSUE_LIQ_REVO_INS	= ((Integer)segmentCalcOffsets.get('SS_Rev_240_Revo_Sig_Issue_Liq_Revo_Ins').Number_Value__c);//Issue_Liquidation_Revocation_Instruction__c based on NO Revocation FR
-	private static FINAL Integer SSR_240_REVO_FR_ISSUE_LIQ_REVO_INS	    = ((Integer)segmentCalcOffsets.get('SS_Rev_240_Revo_FR_Issue_Liq_Revo_Ins').Number_Value__c);//Issue_Liquidation_Revocation_Instruction__c based on Revocation FR
+	private static FINAL Integer SSR_240_REVO_FR_ISSUE_LIQ_REVO_INS		= ((Integer)segmentCalcOffsets.get('SS_Rev_240_Revo_FR_Issue_Liq_Revo_Ins').Number_Value__c);//Issue_Liquidation_Revocation_Instruction__c based on Revocation FR
 	private static FINAL Integer SSR_240_REBUTTAL_COMMENTS_DUE			= ((Integer)segmentCalcOffsets.get('SS_Rev_240_Rebuttal_Comments_Due').Number_Value__c);//Rebuttal_Comments_Due__c
 	private static FINAL Integer SSR_240_ADEQUACY_DET_AND_LET_TO_ITC	= ((Integer)segmentCalcOffsets.get('SS_Rev_240_Adequacy_Det_and_Let_to_ITC').Number_Value__c);//Adequacy_Determination_and_Letter_to_ITC__c
-	private static FINAL Integer SSR_240_COMMENTS_ON_ADEQ_DET_FILED	    = ((Integer)segmentCalcOffsets.get('SS_Rev_240_Comments_on_Adeq_Det_Filed').Number_Value__c);//Comments_on_Adequacy_Determination_Filed__c
+	private static FINAL Integer SSR_240_COMMENTS_ON_ADEQ_DET_FILED		= ((Integer)segmentCalcOffsets.get('SS_Rev_240_Comments_on_Adeq_Det_Filed').Number_Value__c);//Comments_on_Adequacy_Determination_Filed__c
 	private static FINAL Integer SSR_240_MEMO_ON_ADEQUACY_DET			= ((Integer)segmentCalcOffsets.get('SS_Rev_240_Memo_on_Adequacy_Det').Number_Value__c);//Memorandum_on_Adequacy_Determination__c
-	
+
+	//FINAL Status Offsets
+	private static FINAL Integer NAFTA_COUNTRY_HOLD = ((Integer)segmentCalcOffsets.get('Segment_Hold_Status_NAFTA').Number_Value__c);//Litigation_Hold_Expiration_Date__c
+	private static FINAL Integer NON_NAFTA_COUNTRY_HOLD = ((Integer)segmentCalcOffsets.get('Segment_Hold_Status_Non_NAFTA').Number_Value__c);//Litigation_Hold_Expiration_Date__c
+*/
 	public static boolean preventRecursion = false;
 	public static void mainEntry(List<Segment__c> newList, List<Segment__c> oldList, Map<Id, Segment__c> newMap, 
 		Map<Id, Segment__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete, 
@@ -100,34 +105,47 @@ public without sharing class SegmentTriggerHandler {
 
 		if (isBefore && isInsert) {
 			initialize(newList, newMap);
+			syncToAdministrativeReview(newList);
 			calculateSegmentDates(newList);
+			calculateSegmentStatuses(newList);
+			runValidations(newList);
 		}
 		if (isBefore && isUpdate) {
 			initialize(newList, newMap);
+			syncToAdministrativeReview(newList);
 			calculateSegmentDates(newList);
-
+			calculateSegmentStatuses(newList);
+			runValidations(newList);
 		}
-		if (isAfter && isUpdate) {
-			recalculateIssues(newMap, oldMap);
+		if (isBefore && isDelete) {
+			recalculateOrdersOnSegmentDelete(oldMap);
 		}
 		if(isAfter && isInsert) {
-            StaffingAssignmentExtension createStaff = new StaffingAssignmentExtension(newList);
-        }
+			StaffingAssignmentExtension createStaff = new StaffingAssignmentExtension(newList);
+			recalculateOrders(newMap, oldMap);
+		}
+		if (isAfter && isUpdate) {
+			recalculateNewShipperReviews(newMap);
+			//recalculateIssues(newMap, oldMap);
+			recalculateOrders(newMap, oldMap);
+		}
 	}
 
 
 	/****************************************
-    * Class Level Variables
-    ****************************************/
+	* Class Level Variables
+	****************************************/
 
 	@TestVisible private static Map<Id,String> recordTypeNameMap = new Map<Id,String>();
 	@TestVisible private static Map<Id,ADCVD_FederalRegisterUtility> frUtilMap = new Map<Id,ADCVD_FederalRegisterUtility>();
 	@TestVisible private static String ssrType = '';
+	@TestVisible private static Map<Id,List<Litigation__c>> segmentIdToLitigationMap = new Map<Id,List<Litigation__c>>();
+	@TestVisible private static Map<Id,String> segmentIdToLitigationStatusMap = new Map<Id,String>();
 
 
 	/*****************************************
-    * Methods called directly by mainEntry()
-    *****************************************/
+	* Methods called directly by mainEntry()
+	*****************************************/
 
 	//Setup Methods used to set class level variables
 	@TestVisible private static void initialize(List<Segment__c> newList, Map<Id,Segment__c> newMap) {
@@ -138,7 +156,36 @@ public without sharing class SegmentTriggerHandler {
 		}
 	}
 
+	//Syncs New Shipper Reviews in scope to Administrative Reviews
+    @TestVisible private static void syncToAdministrativeReview(List<Segment__c> newList) {
+    	List<Segment__c> newShipperReviewsToSyncList = new List<Segment__c>();
+    	for (Segment__c s : newList) {
+    		if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW && s.Administrative_Review_Aligned_To__c != null) {
+    			setNewShipperSyncLevel(s);
+    			newShipperReviewsToSyncList.add(s);
+    		}
+    		if (!newShipperReviewsToSyncList.isEmpty()) {
+    			SyncUtility.syncObject(newShipperReviewsToSyncList, null, true);// su = ADCVDServiceDispatcher.getSyncUtilityInstance('Segment__c');
+        		//su.syncObject(newShipperReviewsToSyncList, 'Segment__c');
+            }
+    	}
+    }
+
 	@TestVisible private static void calculateSegmentDates(List<Segment__c> newList) {
+		Map<String,List<Segment__c>> segmentListMap = new Map<String,List<Segment__c>>();
+    	for (Segment__c s : newList) {
+    		if (segmentListMap.get(recordTypeNameMap.get(s.RecordTypeId)) != null) {
+    			segmentListMap.get(recordTypeNameMap.get(s.RecordTypeId)).add(s);
+			} else {
+				segmentListMap.put(recordTypeNameMap.get(s.RecordTypeId), new List<Segment__c>{s});
+			}
+    	}
+        for (String recordTypeName : segmentListMap.keySet()) {
+        	DateCalculationService dcs = DateCalculationServiceDispatcher.getDateCalculationServiceInstance(recordTypeName);
+        	dcs.getCalculatedDates(segmentListMap.get(recordTypeName), 'Segment__c', recordTypeName);
+        }
+    }
+/*
 		for (Segment__c s : newList) {
 			//Ordered Methods (must be done in a specific order)
 			setSsrType(s);
@@ -166,6 +213,7 @@ public without sharing class SegmentTriggerHandler {
 			setInadequateDomesticResponseNoteToITC(s);
 			setNoticeOfIntentToParticipate(s);
 			setSubstantiveResponseDueForAllParties(s);
+			setLitigationHoldExpirationDate(s);
 
 			//Individual Dependencies
 			//dependent on setNoticeOfIntentToParticipate
@@ -174,36 +222,80 @@ public without sharing class SegmentTriggerHandler {
 			setInformClusterCoordinatorIfNoRespons(s);
 		}
 	}
+*/
 	/**
-     * Method to calculate Issues
-     * @param  newMap [description]
-     * @param  oldMap [description]
-     * @return        [description]
-     */
-    @TestVisible private static void recalculateIssues(Map<Id,Segment__c> newMap, Map<Id,Segment__c> oldMap) {
-        Set<Id> parentIds = getIssueParentIds(newMap, oldMap);
-        List<Issue__c> issuesToUpdate = new List<Issue__c>();
+	 * Primary method to call all status calculations.
+	 * @param  newList List of Segments in scope
+	 * @return		 void
+	 */
+	@TestVisible private static void calculateSegmentStatuses(List<Segment__c> newList) {
+		setLitigationStatus(newList);
+		setStatus(newList);
+	}
 
-        for (Issue__c i : [SELECT Id, Type__c, Issues_to_DAS__c, Concurrence_to_DAS__c FROM Issue__c WHERE Segment__c IN: parentIds]) {
-            issuesToUpdate.add(i);
-        }
-        if (!issuesToUpdate.isEmpty()) update issuesToUpdate;
+	@TestVisible private static void runValidations(List<Segment__c> newList) {
+    	for (Segment__c s : newList) {
+    		validateRescissionOutcome(s);
+    		validateCompletedOutcome(s);
+    	}
+    }
+
+	@TestVisible private static void recalculateOrders(Map<Id,Segment__c> newMap, Map<Id,Segment__c> oldMap) {
+		Set<Id> orderIdSet = getOrderParentIds(newMap, oldMap);
+		List<ADCVD_Order__c> ordersToUpdate = new List<ADCVD_Order__c>();
+		System.debug('ordersToUpdate : ' + ordersToUpdate);
+		for (ADCVD_Order__c o : [SELECT Id FROM ADCVD_Order__c WHERE Id IN: orderIdSet]) {
+			ordersToUpdate.add(o);
+		}
+		if (!ordersToUpdate.isEmpty())  update ordersToUpdate;
+	}
+
+	@TestVisible private static void recalculateOrdersOnSegmentDelete(Map<Id,Segment__c> oldMap) {
+		List<Segment__c> segmentsToDelete = new List<Segment__c>();
+		for (Segment__c s : [SELECT Id, Segment_Outcome__c, Do_Delete__c FROM Segment__c WHERE Id IN: oldMap.keySet()]) {
+			s.Do_Delete__c = true;
+			segmentsToDelete.add(s);
+		}
+		if (!segmentsToDelete.isEmpty())  update segmentsToDelete;
+	}
+
+	/**
+	 * Method to calculate Issues
+	 * @param  newMap [description]
+	 * @param  oldMap [description]
+	 * @return		[description]
+	 */
+/*	@TestVisible private static void recalculateIssues(Map<Id,Segment__c> newMap, Map<Id,Segment__c> oldMap) {
+		Set<Id> parentIds = getIssueParentIds(newMap, oldMap);
+		List<Issue__c> issuesToUpdate = new List<Issue__c>();
+		for (Issue__c i : [SELECT Id, Type__c, Issues_to_DAS__c, Concurrence_to_DAS__c FROM Issue__c WHERE Segment__c IN: parentIds]) {
+			issuesToUpdate.add(i);
+		}
+		if (!issuesToUpdate.isEmpty()) update issuesToUpdate;
+	}
+*/
+	//updates a list of New Shipper Reviews if they are aligned to a Administrative Review in scope that was updated
+    @TestVisible private static void recalculateNewShipperReviews(Map<Id,Segment__c> newMap) {
+        List<Segment__c> newShipperReviewsToSyncList = [SELECT Id FROM Segment__c WHERE Administrative_Review_Aligned_To__c IN: newMap.keySet()];
+        update newShipperReviewsToSyncList;
     }
 
 
 	/***********************************
-    * Helper Methods
-    ***********************************/
+	* Helper Methods
+	***********************************/
 
 	//used to set Offset Variables
 	@TestVisible private static Map<String,Constant__mdt> segmentCalcOffsets() {
 		if(segmentCalcOffsets == null || segmentCalcOffsets.size() < 1) {
 			Map<String,Constant__mdt> returnMap = new Map<String,Constant__mdt>();
-			List<Constant__mdt> tempList = [SELECT QualifiedAPIName, Used_with_Field_Named__c, Number_Value__c, 
+			for (Constant__mdt sc : [SELECT QualifiedAPIName, Used_with_Field_Named__c, Number_Value__c, String_Value__c, 
 													ADCVD_Objects__r.Object_API_Name__c, ADCVD_Objects__r.Record_Type_Name__c 
 											FROM Constant__mdt 
-											WHERE Segment_Calculation_Offset__c =: true];
-			for(Constant__mdt sc : tempList) {
+											WHERE Segment_Calculation_Offset__c =: true]) {
+				if (sc.Used_with_Field_Named__c == 'Status__c' && sc.String_Value__c != null) {
+                    activeSegmentStatuses.add(sc.String_Value__c);
+                }
 				returnMap.put(sc.QualifiedAPIName, sc);
 			}
 			return returnMap;
@@ -213,28 +305,89 @@ public without sharing class SegmentTriggerHandler {
 	}
 
 	@TestVisible private static Set<Id> getIssueParentIds(Map<Id,Segment__c> newMap, Map<Id,Segment__c> oldMap) {
-        Set<Id> returnIdSet = new Set<Id>();
-        for (Segment__c s : newMap.values()) {
-            if (oldMap.get(s.Id) == null) {
-                returnIdSet.add(s.Id);
-            } else if (oldMap.get(s.Id) != null && (
-            	oldMap.get(s.Id).Calculated_Initiation_Signature__c != s.Calculated_Initiation_Signature__c ||
-                oldMap.get(s.Id).Calculated_Preliminary_Signature__c != s.Calculated_Preliminary_Signature__c ||
-                oldMap.get(s.Id).Calculated_Final_Signature__c != s.Calculated_Final_Signature__c ||
-                oldMap.get(s.Id).Calculated_Amended_Final_Signature__c != s.Calculated_Amended_Final_Signature__c ||
-                oldMap.get(s.Id).Deadline_for_Decision_on_how_to_proceed__c != s.Deadline_for_Decision_on_how_to_proceed__c ||
-                oldMap.get(s.Id).Continuation_or_Revocation__c != s.Continuation_or_Revocation__c
-                )) {
-                returnIdSet.add(s.Id);
-            }
-        }
-        return returnIdSet;
-    }
+		Set<Id> returnIdSet = new Set<Id>();
+		for (Segment__c s : newMap.values()) {
+			if (oldMap.get(s.Id) == null) {
+				returnIdSet.add(s.Id);
+			} else if (oldMap.get(s.Id) != null && (
+				oldMap.get(s.Id).Calculated_Initiation_Signature__c != s.Calculated_Initiation_Signature__c ||
+				oldMap.get(s.Id).Calculated_Preliminary_Signature__c != s.Calculated_Preliminary_Signature__c ||
+				oldMap.get(s.Id).Calculated_Final_Signature__c != s.Calculated_Final_Signature__c ||
+				oldMap.get(s.Id).Calculated_Amended_Final_Signature__c != s.Calculated_Amended_Final_Signature__c ||
+				oldMap.get(s.Id).Deadline_for_Decision_on_how_to_proceed__c != s.Deadline_for_Decision_on_how_to_proceed__c ||
+				oldMap.get(s.Id).Continuation_or_Revocation__c != s.Continuation_or_Revocation__c
+				)) {
+				returnIdSet.add(s.Id);
+			}
+		}
+		return returnIdSet;
+	}
+
+	@TestVisible private static Set<Id> getOrderParentIds(Map<Id,Segment__c> newMap, Map<Id,Segment__c> oldMap) {
+		Set<Id> returnIdSet = new Set<Id>();
+		if (newMap != null) {
+			for (Segment__c s : newMap.values()) {
+				returnIdSet.add(s.ADCVD_Order__c);
+			} 
+		} else if (oldMap != null) {
+			for (Segment__c s : oldMap.values()) {
+				returnIdSet.add(s.ADCVD_Order__c);
+			}
+		}
+		return returnIdSet;
+	}
+
+	/**
+	 * Sets map of Segment Ids in scope to all of their Litigations.
+	 * @param  petitionIdSet [description]
+	 * @return			[description]
+	 */
+	@TestVisible private static void setSegmentIdToLitigationMap(Set<Id> segmentIdSet) {
+		for (Litigation__c l : [SELECT Id, Segment__c, Status__c FROM Litigation__c WHERE Segment__c IN: segmentIdSet]) {
+			List<Litigation__c> tempList = new List<Litigation__c>();
+			if (segmentIdToLitigationMap.get(l.Segment__c) != null) {
+				tempList = segmentIdToLitigationMap.get(l.Segment__c);
+			}
+			tempList.add(l);
+			segmentIdToLitigationMap.put(l.Segment__c, tempList);
+		}
+	}
+
+	@TestVisible private static void setSegmentIdToLitigationStatusMap() {
+		if (segmentIdToLitigationMap != null && !segmentIdToLitigationMap.isEmpty()) {
+			for (Id segmentId : segmentIdToLitigationMap.keySet()) {
+				for (Litigation__c l : segmentIdToLitigationMap.get(segmentId)) {
+					if (segmentIdToLitigationStatusMap.get(segmentId) == null || segmentIdToLitigationStatusMap.get(segmentId) != 'Active') {
+						segmentIdToLitigationStatusMap.put(segmentId, l.Status__c);
+					}
+				}
+			}
+		}
+	}
+/*
+	//sets Segment_Outcome__c
+	@TestVisible private static void setSegmentOutcome(Segment__c s) {
+		if (s.Actual_Final_Signature__c != null && s.Segment_Outcome__c == null) {
+			s.Segment_Outcome__c = 'Completed';
+		} else if (s.Actual_Final_Signature__c == null && s.Segment_Outcome__c == 'Completed') {
+			s.Segment_Outcome__c = null;
+		}
+	}
+*/
+	@TestVisible private static void setNewShipperSyncLevel(Segment__c s) {
+		if (s.Administrative_Review_Aligned_To__c != null) {
+			if (s.New_Shipper_Sync_Level__c == null) {
+				s.New_Shipper_Sync_Level__c = (s.Actual_Preliminary_Signature__c == null) ? 'Preliminary' : 'Final';
+			}
+		} else {
+			s.New_Shipper_Sync_Level__c = '';
+		}
+	}
 
 	/**************************************
-    * Date Calculations
-    ***************************************/
-
+	* Date Calculations
+	***************************************/
+/*
 	//Ordered Methods
 	//sets Deadline_for_Decision_for_HoP__c for Scope Inquiry Segments
 	@TestVisible private static void setDeadlineForDecisionForHoP(Segment__c s) {
@@ -286,7 +439,7 @@ public without sharing class SegmentTriggerHandler {
 				s.Calculated_Preliminary_Signature__c = s.Actual_Initiation_Signature__c.addDays(ER_CALC_PRELIM_SIG).addDays(extension);
 				s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Initiation_Signature__c, s.Calculated_Preliminary_Signature__c, true);
 			}
-		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW && s.Administrative_Review_Aligned_To__c == null) {
 			if (s.Actual_Initiation_Signature__c == null && s.Calculated_Initiation_Signature__c != null) {
 				s.Calculated_Preliminary_Signature__c = s.Calculated_Initiation_Signature__c.addDays(NS_CALC_PRELIM_SIG).addDays(extension);
 				s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Initiation_Signature__c, s.Calculated_Preliminary_Signature__c, true);
@@ -303,13 +456,19 @@ public without sharing class SegmentTriggerHandler {
 				s.Prelim_Extension__c = null;
 			}
 		} else if (recordTypeNameMap.get(s.RecordTypeId) == ANTI_CIRCUMVENTION_REVIEW){
-			if(s.Actual_Initiation_Signature__c == null && s.Calculated_Initiation_Signature__c != null){
-				s.Calculated_Preliminary_Signature__c = s.Calculated_Initiation_Signature__c.addDays(ACR_CALC_PRELIM_SIG).addDays(extension);
-				s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Initiation_Signature__c, s.Calculated_Preliminary_Signature__c, true);	   
-			}
-			else if (s.Actual_Initiation_Signature__c != null){
-				s.Calculated_Preliminary_Signature__c = s.Actual_Initiation_Signature__c.addDays(ACR_CALC_PRELIM_SIG).addDays(extension);
-				s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Initiation_Signature__c, s.Calculated_Preliminary_Signature__c, true);
+			if (s.Type_of_Circumvention_Inquiry__c == 'Later-Developed Merchandise'
+				|| (s.Type_of_Circumvention_Inquiry__c != 'Later-Developed Merchandise' && s.Type_of_Circumvention_Inquiry__c != null && s.Preliminary_Determination__c == 'Yes')) {
+				if(s.Actual_Initiation_Signature__c == null && s.Calculated_Initiation_Signature__c != null){
+					s.Calculated_Preliminary_Signature__c = s.Calculated_Initiation_Signature__c.addDays(ACR_CALC_PRELIM_SIG).addDays(extension);
+					s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Initiation_Signature__c, s.Calculated_Preliminary_Signature__c, true);	   
+				} else if (s.Actual_Initiation_Signature__c != null){
+					s.Calculated_Preliminary_Signature__c = s.Actual_Initiation_Signature__c.addDays(ACR_CALC_PRELIM_SIG).addDays(extension);
+					s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Initiation_Signature__c, s.Calculated_Preliminary_Signature__c, true);
+				} else {
+					s.Calculated_Preliminary_Signature__c = null;
+				}
+			} else {
+				s.Calculated_Preliminary_Signature__c = null;
 			}
 		} else if(recordTypeNameMap.get(s.RecordTypeId) == CHANGED_CIRCUMSTANCES_REVIEW){
 			if(s.All_parties_in_agreement_to_the_outcome__c == 'No' && s.Actual_Initiation_Signature__c == null && s.Calculated_Initiation_Signature__c != null){
@@ -319,7 +478,7 @@ public without sharing class SegmentTriggerHandler {
 				s.Calculated_Preliminary_Signature__c = s.Actual_Initiation_Signature__c.addDays(CCR_CALC_PRELIM_SIG).addDays(extension);
 				s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Initiation_Signature__c, s.Calculated_Preliminary_Signature__c, true);				 
 			}
-		} else if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW){	
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW){
 			Integer prelimExtension = s.Prelim_Extension__c == null ? 0 : (Integer)s.Prelim_Extension__c;
 			if (initPublished != null) {
 				if (ssrType == '240') {
@@ -327,8 +486,8 @@ public without sharing class SegmentTriggerHandler {
 						s.Calculated_Preliminary_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(initPublished, s.Calculated_Preliminary_Signature__c, true);
 				}
 			} else if (s.Calculated_Preliminary_Signature__c != null && initFR == null) {
-                s.Calculated_Preliminary_Signature__c = null;//after delete of fr
-            }
+				s.Calculated_Preliminary_Signature__c = null;//after delete of fr
+			}
 		}
 	}
 
@@ -338,37 +497,50 @@ public without sharing class SegmentTriggerHandler {
 			if (s.Calculated_Preliminary_Signature__c != null) {
 				s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(AR_PRELIM_TEAM_MEET_DEADLINE);
 				s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Prelim_Team_Meeting_Deadline__c, s.Prelim_Team_Meeting_Deadline__c, true);
+			} else {
+				s.Prelim_Team_Meeting_Deadline__c = null;
 			}
 		} else if (recordTypeNameMap.get(s.RecordTypeId) == EXPEDITED_REVIEW){
 			if (s.Calculated_Preliminary_Signature__c != null) {
 				s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(ER_PRELIM_TEAM_MEET_DEADLINE);
 				s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Prelim_Team_Meeting_Deadline__c, s.Prelim_Team_Meeting_Deadline__c, true);
+			} else {
+				s.Prelim_Team_Meeting_Deadline__c = null;
 			}
-		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW && s.Administrative_Review_Aligned_To__c == null) {
 			if (s.Calculated_Preliminary_Signature__c != null) {
 				s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(NS_PRELIM_TEAM_MEET_DEADLINE);
 				s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Prelim_Team_Meeting_Deadline__c, s.Prelim_Team_Meeting_Deadline__c, true);
+			} else {
+				s.Prelim_Team_Meeting_Deadline__c = null;
 			}
 		} else if (recordTypeNameMap.get(s.RecordTypeId) == SCOPE_INQUIRY) {
 			if (s.Decision_on_How_to_Proceed__c == 'Formal' && s.Calculated_Preliminary_Signature__c != null) {
 				s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(SI_PRELIM_TEAM_MEET_DEADLINE);
 				s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Prelim_Team_Meeting_Deadline__c, s.Prelim_Team_Meeting_Deadline__c, true);
-			} else if (s.Decision_on_How_to_Proceed__c != 'Formal') {
+			} else {
 				s.Prelim_Team_Meeting_Deadline__c = null;
 			}
 		} else if(recordTypeNameMap.get(s.RecordTypeId) == ANTI_CIRCUMVENTION_REVIEW){
-			if (s.Type_of_Circumvention_Inquiry__c != 'Later-Developed Merchandise' && s.Type_of_Circumvention_Inquiry__c != null 
-				&& s.Preliminary_Determination__c == 'Yes' && s.Calculated_Preliminary_Signature__c != null){
-				s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(ACR_PRELIM_TEAM_MEET_DEADLINE);
+			if (s.Calculated_Preliminary_Signature__c != null) {
+				s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(NS_PRELIM_TEAM_MEET_DEADLINE);
 				s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Prelim_Team_Meeting_Deadline__c, s.Prelim_Team_Meeting_Deadline__c, true);
-			} else if (s.Type_of_Circumvention_Inquiry__c == 'Later-Developed Merchandise' && s.Calculated_Preliminary_Signature__c != null){
-				s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(ACR_PRELIM_TEAM_MEET_DEADLINE);
-				s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Prelim_Team_Meeting_Deadline__c, s.Prelim_Team_Meeting_Deadline__c, true);
+			} else {
+				s.Prelim_Team_Meeting_Deadline__c = null;
 			}
 		} else if (recordTypeNameMap.get(s.RecordTypeId) == CHANGED_CIRCUMSTANCES_REVIEW){
 			if (s.Calculated_Preliminary_Signature__c != null){
 				s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(CCR_PRELIM_TEAM_MEET_DEADLINE);
 				s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Prelim_Team_Meeting_Deadline__c, s.Prelim_Team_Meeting_Deadline__c, true);
+			} else {
+				s.Prelim_Team_Meeting_Deadline__c = null;
+			}
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW){
+			if (s.Calculated_Preliminary_Signature__c != null){
+				s.Prelim_Team_Meeting_Deadline__c = s.Calculated_Preliminary_Signature__c.addDays(CCR_PRELIM_TEAM_MEET_DEADLINE);
+				s.Prelim_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Prelim_Team_Meeting_Deadline__c, s.Prelim_Team_Meeting_Deadline__c, true);
+			} else {
+				s.Prelim_Team_Meeting_Deadline__c = null;
 			}
 		}
 	}
@@ -386,6 +558,8 @@ public without sharing class SegmentTriggerHandler {
 			} else if (prelimPublished != null) {
 				s.Notify_ITC_If_Affirmative_Prelim_Determ__c = prelimPublished.addDays(ACR_NOTIFY_ITC_WITH_PRELIM_FR);
 				s.Notify_ITC_If_Affirmative_Prelim_Determ__c = ADCVD_TollingDayUtility.getCalculatedDate(prelimPublished, s.Notify_ITC_If_Affirmative_Prelim_Determ__c, true);
+			} else {
+				s.Notify_ITC_If_Affirmative_Prelim_Determ__c = null;
 			}
 		}  
 	}
@@ -417,7 +591,7 @@ public without sharing class SegmentTriggerHandler {
 				s.Calculated_Final_Signature__c = s.Actual_Preliminary_Signature__c.addDays(ER_CALC_FINAL_SIG).addDays(extension);
 				s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Preliminary_Signature__c, s.Calculated_Final_Signature__c, true);
 			}
-		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW && s.Administrative_Review_Aligned_To__c == null) {
 			if (s.Actual_Preliminary_Signature__c == null && s.Calculated_Preliminary_Signature__c != null) {
 				s.Calculated_Final_Signature__c = s.Calculated_Preliminary_Signature__c.addDays(NS_CALC_FINAL_SIG).addDays(extension);
 				s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Preliminary_Signature__c, s.Calculated_Final_Signature__c, true);
@@ -426,13 +600,12 @@ public without sharing class SegmentTriggerHandler {
 				s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Preliminary_Signature__c, s.Calculated_Final_Signature__c, true);
 			}
 		} else if (recordTypeNameMap.get(s.RecordTypeId) == SCOPE_INQUIRY) {
-			if (s.Decision_on_How_to_Proceed__c == 'Formal' && s.Actual_Date_of_Decision_on_HoP__c != null) {
-				s.Calculated_Final_Signature__c = s.Actual_Date_of_Decision_on_HoP__c.addDays(SI_CALC_FINAL_SIG).addDays(extension);
-				s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Date_of_Decision_on_HoP__c, s.Calculated_Final_Signature__c, true);
-			} else if (s.Decision_on_How_to_Proceed__c != 'Formal') {
-				s.Calculated_Final_Signature__c = null;
-				s.Final_Extension_of_days__c = null;
-			}
+            if (s.Decision_on_How_to_Proceed__c == null || s.Decision_on_How_to_Proceed__c == 'Informal'){
+                s.Calculated_Final_Signature__c = s.Deadline_for_Decision_on_How_to_Proceed__c;
+            } else if (s.Decision_on_How_to_Proceed__c == 'Formal' && s.Actual_Date_of_Decision_on_HoP__c != null) {
+                s.Calculated_Final_Signature__c = s.Actual_Date_of_Decision_on_HoP__c.addDays(SI_CALC_FINAL_SIG).addDays(extension);
+                s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Date_of_Decision_on_HoP__c, s.Calculated_Final_Signature__c, true);
+            }
 		} else if (recordTypeNameMap.get(s.RecordTypeId) == ANTI_CIRCUMVENTION_REVIEW){
 			if (s.Actual_Initiation_Signature__c == null && s.Calculated_Initiation_Signature__c != null){
 				s.Calculated_Final_Signature__c = s.Calculated_Initiation_Signature__c.addDays(ACR_CALC_FINAL_SIG).addDays(extension);
@@ -451,10 +624,10 @@ public without sharing class SegmentTriggerHandler {
 					s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Initiation_Signature__c, s.Calculated_Final_Signature__c, true);
 				} else if (s.Actual_Initiation_Signature__c != null) {
 					s.Calculated_Final_Signature__c = s.Actual_Initiation_Signature__c.addDays(ccrCalcFinal).addDays(extension);
-					s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Initiation_Signature__c, s.Calculated_Final_Signature__c, true);					
+					s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Initiation_Signature__c, s.Calculated_Final_Signature__c, true);		
 				}
 			}
-		} else if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW){	
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW){
 			Integer prelimExtension = s.Prelim_Extension__c == null ? 0 : (Integer)s.Prelim_Extension__c;
 			if (initPublished != null) {
 				if (ssrType == '90') {
@@ -468,8 +641,8 @@ public without sharing class SegmentTriggerHandler {
 						s.Calculated_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(initPublished, s.Calculated_Final_Signature__c, true);
 				}
 			} else if (s.Calculated_Final_Signature__c != null && initFR == null) {
-                s.Calculated_Final_Signature__c = null;//after delete of fr
-            }
+				s.Calculated_Final_Signature__c = null;//after delete of fr
+			}
 		}
 	}
 
@@ -479,33 +652,50 @@ public without sharing class SegmentTriggerHandler {
 			if (s.Calculated_Final_Signature__c != null) {
 				s.Final_Team_Meeting_Deadline__c = s.Calculated_Final_Signature__c.addDays(AR_FINAL_TEAM_MEET_DEADLINE);
 				s.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Final_Team_Meeting_Deadline__c, s.Final_Team_Meeting_Deadline__c, true);
+			} else {
+				s.Final_Team_Meeting_Deadline__c = null;
 			}
 		} else if(recordTypeNameMap.get(s.RecordTypeId) == EXPEDITED_REVIEW){
 			if (s.Calculated_Final_Signature__c != null) {
 				s.Final_Team_Meeting_Deadline__c = s.Calculated_Final_Signature__c.addDays(ER_FINAL_TEAM_MEET_DEADLINE);
 				s.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Final_Team_Meeting_Deadline__c, s.Final_Team_Meeting_Deadline__c, true);
-			}			
-		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
+			} else {
+				s.Final_Team_Meeting_Deadline__c = null;
+			}
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW && s.Administrative_Review_Aligned_To__c == null) {
 			if (s.Calculated_Final_Signature__c != null) {
 				s.Final_Team_Meeting_Deadline__c = s.Calculated_Final_Signature__c.addDays(NS_FINAL_TEAM_MEET_DEADLINE);
 				s.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Final_Team_Meeting_Deadline__c, s.Final_Team_Meeting_Deadline__c, true);
+			} else {
+				s.Final_Team_Meeting_Deadline__c = null;
 			}
 		} else if (recordTypeNameMap.get(s.RecordTypeId) == SCOPE_INQUIRY) {
 			if (s.Decision_on_How_to_Proceed__c == 'Formal' && s.Calculated_Final_Signature__c != null) {
 				s.Final_Team_Meeting_Deadline__c = s.Calculated_Final_Signature__c.addDays(SI_FINAL_TEAM_MEET_DEADLINE);
 				s.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Final_Team_Meeting_Deadline__c, s.Final_Team_Meeting_Deadline__c, true);
-			} else if (s.Decision_on_How_to_Proceed__c != 'Formal') {
+			} else {
 				s.Final_Team_Meeting_Deadline__c = null;
 			}
 		} else if (recordTypeNameMap.get(s.RecordTypeId) == ANTI_CIRCUMVENTION_REVIEW) {
 			if (s.Calculated_Final_Signature__c != null) {
 				s.Final_Team_Meeting_Deadline__c = s.Calculated_Final_Signature__c.addDays(ACR_FINAL_TEAM_MEET_DEADLINE);
 				s.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Final_Team_Meeting_Deadline__c, s.Final_Team_Meeting_Deadline__c, true);
+			} else {
+				s.Final_Team_Meeting_Deadline__c = null;
 			}
 		} else if (recordTypeNameMap.get(s.RecordTypeId) == CHANGED_CIRCUMSTANCES_REVIEW){
 			if (s.Calculated_Final_Signature__c != null){
 				s.Final_Team_Meeting_Deadline__c = s.Calculated_Final_Signature__c.addDays(CCR_FINAL_TEAM_MEET_DEADLINE);
 				s.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Final_Team_Meeting_Deadline__c, s.Final_Team_Meeting_Deadline__c, true);
+			} else {
+				s.Final_Team_Meeting_Deadline__c = null;
+			}
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW){
+			if (s.Calculated_Final_Signature__c != null){
+				s.Final_Team_Meeting_Deadline__c = s.Calculated_Final_Signature__c.addDays(CCR_FINAL_TEAM_MEET_DEADLINE);
+				s.Final_Team_Meeting_Deadline__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Final_Team_Meeting_Deadline__c, s.Final_Team_Meeting_Deadline__c, true);
+			} else {
+				s.Final_Team_Meeting_Deadline__c = null;
 			}
 		}
 	}
@@ -529,7 +719,7 @@ public without sharing class SegmentTriggerHandler {
 					s.Calculated_Amended_Final_Signature__c = s.Actual_Final_Signature__c.addDays(ER_CALC_AMEN_FINAL_SIG);
 					s.Calculated_Amended_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Final_Signature__c, s.Calculated_Amended_Final_Signature__c, true);
 				}
-			} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
+			} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW && s.Administrative_Review_Aligned_To__c == null) {
 				if(s.Actual_Final_Signature__c == null && s.Calculated_Final_Signature__c != null){
 					s.Calculated_Amended_Final_Signature__c = s.Calculated_Final_Signature__c.addDays(NS_CALC_AMEN_FINAL_SIG);
 					s.Calculated_Amended_Final_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Calculated_Final_Signature__c, s.Calculated_Amended_Final_Signature__c, true);
@@ -556,8 +746,8 @@ public without sharing class SegmentTriggerHandler {
 				s.Calculated_Revocation_or_Continuation_FR__c = itcFinalPublished.addDays(SSR_CALC_REVO_OR_CONT_FR);
 				s.Calculated_Revocation_or_Continuation_FR__c = ADCVD_TollingDayUtility.getCalculatedDate(itcFinalPublished, s.Calculated_Revocation_or_Continuation_FR__c, true);
 			} else if (s.Calculated_Revocation_or_Continuation_FR__c != null && itcFinalFR == null) {
-                s.Calculated_Revocation_or_Continuation_FR__c = null;//after delete of fr
-            }
+				s.Calculated_Revocation_or_Continuation_FR__c = null;//after delete of fr
+			}
 		}
 	}
 
@@ -566,6 +756,7 @@ public without sharing class SegmentTriggerHandler {
 		if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW) {
 			Date finalPublished = null;
 			Date revoPublished = null;
+			System.debug('frUtilMap: ' + frUtilMap);
 			if(s.Id != null && frUtilMap != null) {
 				finalPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).finalPublishedDate : null;
 				if (s.ADCVD_Order__c != null) {
@@ -694,8 +885,8 @@ public without sharing class SegmentTriggerHandler {
 						s.Rebuttal_Comments_Due__c = ADCVD_TollingDayUtility.getCalculatedDate(initPublished, s.Rebuttal_Comments_Due__c, true);
 				}
 			} else if (s.Rebuttal_Comments_Due__c != null && initFR == null) {
-                s.Rebuttal_Comments_Due__c = null;//after delete of fr
-            }
+				s.Rebuttal_Comments_Due__c = null;//after delete of fr
+			}
 		}
 	}
 
@@ -719,8 +910,8 @@ public without sharing class SegmentTriggerHandler {
 						s.Adequacy_Determination_Letter_240_day__c = ADCVD_TollingDayUtility.getCalculatedDate(initPublished, s.Adequacy_Determination_Letter_240_day__c, true);
 				}
 			} else if (s.Adequacy_Determination_Letter_240_day__c != null && initFR == null) {
-                s.Adequacy_Determination_Letter_240_day__c = null;//after delete of fr
-            }
+				s.Adequacy_Determination_Letter_240_day__c = null;//after delete of fr
+			}
 		}
 	}
 
@@ -741,8 +932,8 @@ public without sharing class SegmentTriggerHandler {
 						s.Comments_on_Adequacy_Determination_Filed__c = ADCVD_TollingDayUtility.getCalculatedDate(initPublished, s.Comments_on_Adequacy_Determination_Filed__c, true);
 				}
 			} else if (s.Comments_on_Adequacy_Determination_Filed__c != null && initFR == null) {
-                s.Comments_on_Adequacy_Determination_Filed__c = null;//after delete of fr
-            }
+				s.Comments_on_Adequacy_Determination_Filed__c = null;//after delete of fr
+			}
 		}
 	}
 
@@ -763,12 +954,12 @@ public without sharing class SegmentTriggerHandler {
 						s.Memorandum_on_Adequacy_Determination__c = ADCVD_TollingDayUtility.getCalculatedDate(initPublished, s.Memorandum_on_Adequacy_Determination__c, true);
 				}
 			} else if (s.Memorandum_on_Adequacy_Determination__c != null && initFR == null) {
-                s.Memorandum_on_Adequacy_Determination__c = null;//after delete of fr
-            }
+				s.Memorandum_on_Adequacy_Determination__c = null;//after delete of fr
+			}
 		}
 	}
 
-	
+
 	//Unordered Methods
 	//sets Notify_ITC_of_No_Domestic_Interest__c
 	@TestVisible private static void setNotifyItcOfNoDomesticInterest(Segment__c s) {
@@ -784,8 +975,8 @@ public without sharing class SegmentTriggerHandler {
 					s.Notify_ITC_of_No_Domestic_Interest__c = initPublished.addDays(SSR_90_NOTIFY_ITC_NO_DOMESTIC_INT);
 					s.Notify_ITC_of_No_Domestic_Interest__c = ADCVD_TollingDayUtility.getCalculatedDate(initPublished, s.Notify_ITC_of_No_Domestic_Interest__c, true);
 				} else if (s.Notify_ITC_of_No_Domestic_Interest__c != null && initFR == null) {
-	                s.Notify_ITC_of_No_Domestic_Interest__c = null;//after delete of fr
-	            }
+					s.Notify_ITC_of_No_Domestic_Interest__c = null;//after delete of fr
+				}
 			}
 		}
 	}
@@ -804,8 +995,8 @@ public without sharing class SegmentTriggerHandler {
 					s.Inadequate_Domestic_Response_note_to_ITC__c = initPublished.addDays(SSR_90_INADEQUATE_DOM_RESP_TO_ITC);
 					s.Inadequate_Domestic_Response_note_to_ITC__c = ADCVD_TollingDayUtility.getCalculatedDate(initPublished, s.Inadequate_Domestic_Response_note_to_ITC__c, true);
 				} else if (s.Inadequate_Domestic_Response_note_to_ITC__c != null && initFR == null) {
-	                s.Inadequate_Domestic_Response_note_to_ITC__c = null;//after delete of fr
-	            }
+					s.Inadequate_Domestic_Response_note_to_ITC__c = null;//after delete of fr
+				}
 			}
 		}
 	}
@@ -823,8 +1014,8 @@ public without sharing class SegmentTriggerHandler {
 				s.Notice_of_Intent_to_Participate__c = initPublished.addDays(SSR_NOTICE_INTENT_PARTICIPATE);
 				s.Notice_of_Intent_to_Participate__c = ADCVD_TollingDayUtility.getCalculatedDate(initPublished, s.Notice_of_Intent_to_Participate__c, true);
 			} else if (s.Notice_of_Intent_to_Participate__c != null && initFR == null) {
-                s.Notice_of_Intent_to_Participate__c = null;//after delete of fr
-            }
+				s.Notice_of_Intent_to_Participate__c = null;//after delete of fr
+			}
 		}
 	}
 
@@ -853,8 +1044,8 @@ public without sharing class SegmentTriggerHandler {
 				s.Substantive_Response_Due_For_All_Parties__c = initPublished.addDays(SSR_SUBSTAN_RESP_DUE_ALL_PARTIES);
 				s.Substantive_Response_Due_For_All_Parties__c = ADCVD_TollingDayUtility.getCalculatedDate(initPublished, s.Substantive_Response_Due_For_All_Parties__c, true);
 			} else if (s.Substantive_Response_Due_For_All_Parties__c != null && initFR == null) {
-                s.Substantive_Response_Due_For_All_Parties__c = null;//after delete of fr
-            }
+				s.Substantive_Response_Due_For_All_Parties__c = null;//after delete of fr
+			}
 		}
 	}
 
@@ -870,32 +1061,434 @@ public without sharing class SegmentTriggerHandler {
 		}
 	}
 
-	//sets the ssrType for a Sunset Review
-	@TestVisible private static void setSsrType(Segment__c s) {
-		if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW) {
-			if ((s.Notice_of_intent_to_participate_Ips__c == 'No' || s.Domestic_Party_File_Substan_Response__c == 'No')  
-					&& s.Review_to_address_zeroing_in_Segments__c != 'Yes') {
-				ssrType = '90';
-			} else if (s.Notice_of_intent_to_participate_Ips__c == 'Yes' && s.Domestic_Party_File_Substan_Response__c == 'Yes' 
-					&& s.Respondent_File_Substantive_Response__c == 'No' && s.Review_to_address_zeroing_in_Segments__c != 'Yes') {
-				ssrType = '120';
-			} else if ((s.Notice_of_intent_to_participate_Ips__c == 'Yes' && s.Domestic_Party_File_Substan_Response__c == 'Yes'
-					&& s.Respondent_File_Substantive_Response__c == 'Yes') || s.Review_to_address_zeroing_in_Segments__c == 'Yes') {
-				ssrType = '240';
+	//sets the Litigation_Hold_Expiration_Date, requires either a Rescission FR or an Actual_Final_Signature__c
+	@TestVisible private static void setLitigationHoldExpirationDate(Segment__c s) {
+		Date finalPublished = null;
+		Date rescissionPublished = null;
+		if(s.Id != null && frUtilMap != null) {
+			rescissionPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).rescissionPublishedDate : null;
+			finalPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).finalPublishedDate : null;
+		}
+		Integer holdTime = s.Petition_Country__c == 'Canada' || s.Petition_Country__c == 'Mexico' ? NAFTA_COUNTRY_HOLD: NON_NAFTA_COUNTRY_HOLD;
+		//setSegmentOutcome(s);
+		if(recordTypeNameMap.get(s.RecordTypeId)== ADMIN_REVIEW 
+			|| recordTypeNameMap.get(s.RecordTypeId)== EXPEDITED_REVIEW
+			|| (recordTypeNameMap.get(s.RecordTypeId)== NEW_SHIPPER_REVIEW && s.Administrative_Review_Aligned_To__c == null)
+			|| recordTypeNameMap.get(s.RecordTypeId)== CHANGED_CIRCUMSTANCES_REVIEW
+			|| recordTypeNameMap.get(s.RecordTypeId)== ANTI_CIRCUMVENTION_REVIEW) {
+			if(s.Segment_Outcome__c == 'Full Rescission') {
+				if (rescissionPublished != null) {
+					s.Deficient_or_Withdrawn_Date__c = null;
+					s.Litigation_Hold_Expiration_Date__c = rescissionPublished.addDays(holdTime);
+					s.Litigation_Hold_Expiration_Date__c = ADCVD_TollingDayUtility.getCalculatedDate(rescissionPublished, s.Litigation_Hold_Expiration_Date__c, true);
+				} else {
+					s.Deficient_or_Withdrawn_Date__c = null;
+					s.Litigation_Hold_Expiration_Date__c = null;
+					s.addError('You must enter a Rescission FR to set Segment Outcome to "Full Rescission".');
+				}
+			} else if (s.Segment_Outcome__c == 'Deficient' || s.Segment_Outcome__c == 'Withdrawn') {
+				s.Deficient_or_Withdrawn_Date__c = s.Deficient_or_Withdrawn_Date__c == null ? System.today() : s.Deficient_or_Withdrawn_Date__c;
+				if (s.Deficient_or_Withdrawn_Date__c != null) {
+					s.Litigation_Hold_Expiration_Date__c = s.Deficient_or_Withdrawn_Date__c.addDays(holdTime);
+					s.Litigation_Hold_Expiration_Date__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Deficient_or_Withdrawn_Date__c, s.Litigation_Hold_Expiration_Date__c, true);
+				} else {
+					s.Deficient_or_Withdrawn_Date__c = null;
+					s.Litigation_Hold_Expiration_Date__c = null;
+				}
+			} else if (s.Segment_Outcome__c == 'Completed') {
+				if (finalPublished != null && s.Actual_Final_Signature__c != null && s.Will_you_Amend_the_Final__c != 'Yes') {
+					s.Litigation_Hold_Expiration_Date__c = s.Actual_Final_Signature__c.addDays(holdTime);
+					s.Litigation_Hold_Expiration_Date__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Final_Signature__c, s.Litigation_Hold_Expiration_Date__c, true);
+				} else if ((recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW 
+						|| recordTypeNameMap.get(s.RecordTypeId) == EXPEDITED_REVIEW
+						|| (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW && s.Administrative_Review_Aligned_To__c == null))
+						&& s.Will_you_Amend_the_Final__c == 'Yes' 
+						&& finalPublished != null
+						&& s.Actual_Final_Signature__c != null
+						&& s.Actual_Amended_Final_Signature__c != null) {
+							s.Deficient_or_Withdrawn_Date__c = null;
+							s.Litigation_Hold_Expiration_Date__c = s.Actual_Final_Signature__c.addDays(holdTime);
+							s.Litigation_Hold_Expiration_Date__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Final_Signature__c, s.Litigation_Hold_Expiration_Date__c, true);
+				} else {
+					s.Deficient_or_Withdrawn_Date__c = null;
+					s.Litigation_Hold_Expiration_Date__c = null;
+				}
+			} else if (s.Segment_Outcome__c == null) {
+				s.Deficient_or_Withdrawn_Date__c = null;
+				s.Litigation_Hold_Expiration_Date__c = null;
 			}
-			if(ssrType == '120' || ssrType == '240') {
-				if (s.Adequacy_of_Respondents_Submission__c =='Adequate or Substantive') {
-					ssrType = '240';
-				} else if(s.Adequacy_of_Respondents_Submission__c =='Inadequate or Non-Substantive') {
-					ssrType = '120';
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == SCOPE_INQUIRY) {
+			s.Segment_Outcome__c = s.Decision_on_How_to_Proceed__c == 'Reject' ? 'Rejected' : s.Segment_Outcome__c;
+			if (s.Segment_Outcome__c == 'Rejected') {
+				s.Deficient_or_Withdrawn_Date__c = s.Deficient_or_Withdrawn_Date__c == null ? System.today() : s.Deficient_or_Withdrawn_Date__c;
+				if (s.Deficient_or_Withdrawn_Date__c != null) {
+					s.Litigation_Hold_Expiration_Date__c = s.Deficient_or_Withdrawn_Date__c.addDays(holdTime);
+					s.Litigation_Hold_Expiration_Date__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Deficient_or_Withdrawn_Date__c, s.Litigation_Hold_Expiration_Date__c, true);
+				} else {
+					s.Litigation_Hold_Expiration_Date__c = null;
+				}
+			} else if (s.Segment_Outcome__c == 'Completed') {
+				if (s.Actual_Final_Signature__c != null) {
+					s.Litigation_Hold_Expiration_Date__c = s.Actual_Final_Signature__c.addDays(holdTime);
+					s.Litigation_Hold_Expiration_Date__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Final_Signature__c, s.Litigation_Hold_Expiration_Date__c, true);
+				} else {
+					s.Litigation_Hold_Expiration_Date__c = null;
+				}
+			} else if (s.Segment_Outcome__c == null) {
+				s.Litigation_Hold_Expiration_Date__c = null;
+			}
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW) {
+			if (s.Segment_Outcome__c == 'Completed') {
+				if (finalPublished != null && s.Actual_Final_Signature__c != null) {
+					s.Litigation_Hold_Expiration_Date__c = s.Actual_Final_Signature__c.addDays(holdTime);
+					s.Litigation_Hold_Expiration_Date__c = ADCVD_TollingDayUtility.getCalculatedDate(s.Actual_Final_Signature__c, s.Litigation_Hold_Expiration_Date__c, true);
+				} else {
+					s.Litigation_Hold_Expiration_Date__c = null;
+				}
+			} else if (s.Segment_Outcome__c == null) {
+				s.Litigation_Hold_Expiration_Date__c = null;
+			}
+		}
+	}
+
+	/*****************************
+	* Validations
+	*****************************/
+
+	@TestVisible private static void validateRescissionOutcome(Segment__c s) {
+		if (s.Segment_Outcome__c != 'Full Rescission') {return;}
+		Date rescissionPublished = null;
+		if(s.Id != null && frUtilMap != null) {
+			rescissionPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).rescissionPublishedDate : null;
+		}
+		if (rescissionPublished == null) {
+			s.addError('You must enter a Rescission Federal Register to set Segment Outcome to "Full Rescission".');
+		}
+	}
+
+	@TestVisible private static void validateCompletedOutcome(Segment__c s) {
+		if (s.Segment_Outcome__c != 'Completed') {return;}
+		Date finalPublished = null;
+		if(s.Id != null && frUtilMap != null) {
+			finalPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).finalPublishedDate : null;
+		}
+		if (finalPublished == null) {
+			s.addError('You must enter a Final Federal Register to set Segment Outcome to "Completed".');
+		}
+	}
+
+
+	/*****************************
+	* Status Calculations
+	*****************************/
+
+	@TestVisible private static void setLitigationStatus(List<Segment__c> newList) {
+		for (Segment__c s : newList) {
+			if (s.Id != null && segmentIdToLitigationStatusMap.get(s.Id) != null && activeSegmentStatuses.contains(segmentIdToLitigationStatusMap.get(s.Id))) {
+				s.Litigation_Status__c = 'Active';
+			} else {
+				s.Litigation_Status__c = 'Inactive';
+			}
+		}
+	}
+
+	@TestVisible private static void setStatus(List<Segment__c> newList) {
+		for (Segment__c s : newList) {
+			setSsrType(s);
+			setHowToProceedStatus(s);
+			setInitiationStatus(s);
+			setPreliminaryStatus(s);
+			setFinalStatus(s);
+			setAmendedFinalStatus(s);
+			setHoldStatus(s);
+			setLitigationStatus(s);
+			setCustomsInstructionsStatus(s);
+			setClosedStatus(s);
+
+		}
+	}
+
+	@TestVisible private static void setInitiationStatus(Segment__c s) {
+		Date initPublished = null;
+		if(s.Id != null && frUtilMap != null) {
+			initPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).initiationPublishedDate : null;
+		}
+		if (recordTypeNameMap.get(s.RecordTypeId) == ANTI_CIRCUMVENTION_REVIEW) {
+			if (initPublished == null || s.Actual_Initiation_Signature__c == null) {
+				s.Status__c = 'Initiation';
+			}
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == CHANGED_CIRCUMSTANCES_REVIEW) {
+			if (initPublished == null || s.Actual_Initiation_Signature__c == null || s.All_parties_in_agreement_to_the_outcome__c == null) {
+				s.Status__c = 'Initiation';
+			}
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW) {
+			if (initPublished == null || ssrType == '') {
+				s.Status__c = 'Initiation';
+			}
+		}
+	}
+
+	@TestVisible private static void setHowToProceedStatus(Segment__c s) {
+		if (recordTypeNameMap.get(s.RecordTypeId) == SCOPE_INQUIRY) {
+			if (s.Decision_on_How_to_Proceed__c == null) {
+				s.Status__c = 'How To Proceed';
+			}
+		}
+	}
+
+	@TestVisible private static void setPreliminaryStatus(Segment__c s) {
+		Date prelimPublished = null;
+		Date initPublished = null;
+		if(s.Id != null && frUtilMap != null) {
+			prelimPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).preliminaryPublishedDate : null;
+			initPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).initiationPublishedDate : null;
+		}
+		if (recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW) {		   
+			if ((prelimPublished == null || s.Actual_Preliminary_Signature__c == null) && s.Segment_Outcome__c == null) {
+				s.Status__c = 'Prelim';
+			}
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == EXPEDITED_REVIEW) {
+			if ((prelimPublished == null || s.Actual_Preliminary_Signature__c == null) && s.Segment_Outcome__c == null) {
+				s.Status__c = 'Prelim';
+			}
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW && s.Administrative_Review_Aligned_To__c == null) {
+			if ((prelimPublished == null || s.Actual_Preliminary_Signature__c == null) && s.Segment_Outcome__c == null) {
+				s.Status__c = 'Prelim';
+			}
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == CHANGED_CIRCUMSTANCES_REVIEW) {
+			if (s.All_parties_in_agreement_to_the_outcome__c == 'No' 
+				&& initPublished != null
+				&& s.Actual_Initiation_Signature__c != null
+				&& (prelimPublished == null || s.Actual_Preliminary_Signature__c == null)  
+				&& s.Segment_Outcome__c == null) {
+					s.Status__c = 'Prelim';
+			}
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == ANTI_CIRCUMVENTION_REVIEW) {
+			if (s.Type_of_Circumvention_Inquiry__c != null 
+				&& s.Type_of_Circumvention_Inquiry__c != 'Later-Developed Merchandise' 
+				&& s.Preliminary_Determination__c == 'Yes' 
+				&& (s.Actual_Initiation_Signature__c != null && initPublished != null)
+				&& (s.Actual_Preliminary_Signature__c == null || prelimPublished == null)
+				&& s.Segment_Outcome__c == null) {
+					s.Status__c = 'Prelim';
+			} else if (s.Type_of_Circumvention_Inquiry__c == 'Later-Developed Merchandise' 
+				&& (s.Actual_Initiation_Signature__c != null && initPublished != null)
+				&& (s.Actual_Preliminary_Signature__c == null || prelimPublished == null)
+			   	&& s.Segment_Outcome__c == null) {
+					s.Status__c = 'Prelim';
+			}
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == SCOPE_INQUIRY) {
+			if (s.Decision_on_How_to_Proceed__c == 'Formal' && s.Actual_Preliminary_Signature__c == null) {
+				 s.Status__c = 'Prelim';
+			}
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW) {
+			if (ssrType == '240') {
+				if(s.Actual_Preliminary_Signature__c == null || prelimPublished == null) {
+					s.Status__c = 'Prelim';
 				}
 			}
 		}
 	}
 
-	//for Sunset Review Controller
+	@TestVisible private static void setFinalStatus(Segment__c s) {
+		Date initPublished = null;
+		Date prelimPublished = null;
+		Date finalPublished = null;
+		if (s.Id != null && frUtilMap != null) {
+			initPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).initiationPublishedDate : null;
+			prelimPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).preliminaryPublishedDate : null;
+			finalPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).finalPublishedDate : null;
+		}
+		if (recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW) {
+			if (prelimPublished != null 
+				&& s.Actual_Preliminary_Signature__c != null 
+				&& (s.Actual_Final_Signature__c == null || finalPublished == null || s.Segment_Outcome__c == null)) {
+					s.Status__c = 'Final';
+			}
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == EXPEDITED_REVIEW) {
+			if (prelimPublished != null 
+				&& s.Actual_Preliminary_Signature__c != null 
+				&& (s.Actual_Final_Signature__c == null || finalPublished == null || s.Segment_Outcome__c == null)) {
+					s.Status__c = 'Final';
+			}
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW && s.Administrative_Review_Aligned_To__c == null) {
+			if (prelimPublished != null 
+				&& s.Actual_Preliminary_Signature__c != null 
+				&& (s.Actual_Final_Signature__c == null || finalPublished == null || s.Segment_Outcome__c == null)) {
+					s.Status__c = 'Final';
+			}
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == CHANGED_CIRCUMSTANCES_REVIEW) {
+			if ((s.Is_this_review_expedited__c == 'Yes' || s.All_parties_in_agreement_to_the_outcome__c == 'Yes')
+				&& initPublished != null
+				&& s.Actual_Initiation_Signature__c != null
+				&& (finalPublished == null || s.Actual_Final_Signature__c == null || s.Segment_Outcome__c == null)) {
+					s.Status__c = 'Final';
+			} else if ((s.Is_this_review_expedited__c == 'No' || s.All_parties_in_agreement_to_the_outcome__c == 'No')
+				&& initPublished != null
+				&& s.Actual_Initiation_Signature__c != null
+				&& prelimPublished != null
+				&& s.Actual_Preliminary_Signature__c != null 
+				&& (finalPublished == null || s.Actual_Final_Signature__c == null || s.Segment_Outcome__c == null)) {
+					s.Status__c = 'Final';
+			}
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == ANTI_CIRCUMVENTION_REVIEW) {
+			// if doing a prelim, require sig and fr to go to final
+			if (s.Type_of_Circumvention_Inquiry__c != null
+				&& s.Type_of_Circumvention_Inquiry__c != 'Later-Developed Merchandise' 
+				&& (s.Preliminary_Determination__c == 'No' || (s.Preliminary_Determination__c == 'Yes' && s.Actual_Preliminary_Signature__c != null && prelimPublished != null))
+				&& (s.Actual_Initiation_Signature__c != null && initPublished != null)
+				&& (s.Actual_Final_Signature__c == null || finalPublished == null || s.Segment_Outcome__c == null)) {
+					s.Status__c = 'Final';
+			} else if (s.Type_of_Circumvention_Inquiry__c == 'Later-Developed Merchandise' 
+				&& (s.Actual_Initiation_Signature__c != null && initPublished != null)
+				&& (s.Actual_Preliminary_Signature__c != null && prelimPublished != null) 
+				&& (s.Actual_Final_Signature__c == null || finalPublished == null || s.Segment_Outcome__c == null)) {
+					s.Status__c = 'Final';
+			}
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == SCOPE_INQUIRY) {
+			if (s.Decision_on_How_to_Proceed__c == 'Formal' 
+				&& s.Actual_Preliminary_Signature__c != null
+				&& s.Actual_Final_Signature__c == null) {
+					s.Status__c = 'Final';
+			}
+			if (s.Decision_on_How_to_Proceed__c == 'InFormal' 
+				&& s.Actual_Final_Signature__c == null) {
+					s.Status__c = 'Final';
+			}
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW) {
+			if (ssrType == '90' || ssrType == '120') {
+				if (initPublished != null 
+					&& (s.Actual_Final_Signature__c == null || finalPublished == null || s.Segment_Outcome__c == null)) {
+					s.Status__c = 'Final';
+				}
+			} else if (ssrType == '240') {
+				if (initPublished != null
+					&& s.Actual_Preliminary_Signature__c != null 
+					&& prelimPublished != null
+					&& (s.Actual_Final_Signature__c == null || finalPublished == null || s.Segment_Outcome__c == null)) {
+					s.Status__c = 'Final';
+				}
+			}
+		}
+	}
+
+	@TestVisible private static void setAmendedFinalStatus(Segment__c s) {
+		Date prelimPublished = null;
+		Date finalPublished = null;
+		if(s.Id != null && frUtilMap != null) {
+			prelimPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).preliminaryPublishedDate : null;
+			finalPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).finalPublishedDate : null;
+		}
+		if (recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW
+			|| recordTypeNameMap.get(s.RecordTypeId) == EXPEDITED_REVIEW
+			|| (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW && s.Administrative_Review_Aligned_To__c == null)) {
+			if (prelimPublished != null 
+				&& finalPublished != null 
+				&& s.Actual_Preliminary_Signature__c != null 
+				&& s.Actual_Final_Signature__c != null 
+				&& s.Will_you_Amend_the_Final__c == 'Yes'
+				&& s.Actual_Amended_Final_Signature__c == null 
+				&& (s.Segment_Outcome__c == null || s.Segment_Outcome__c == 'Completed')) {
+					s.Status__c = 'Amend Final';
+			}
+		}
+	}
+
+	@TestVisible private static void setHoldStatus(Segment__c s) {
+		if ((recordTypeNameMap.get(s.RecordTypeId) != NEW_SHIPPER_REVIEW || s.Administrative_Review_Aligned_To__c == null) 
+			&& (s.Will_you_Amend_the_Final__c != 'Yes' || s.Actual_Amended_Final_Signature__c != null)) {
+			if (s.Litigation_Hold_Expiration_Date__c != null 
+				&& s.Litigation_YesNo__c == null 
+				&& s.Segment_Outcome__c != null) {
+	            	s.Status__c = 'Hold';
+	        }
+	    }
+/*
+		if (recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW) {
+			if (s.Litigation_Hold_Expiration_Date__c != null 
+				&& s.Litigation_YesNo__c == null 
+				&& s.Segment_Outcome__c != null) {
+                	s.Status__c = 'Hold';
+            }
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == EXPEDITED_REVIEW) {
+			if (s.Litigation_Hold_Expiration_Date__c != null 
+				&& s.Litigation_YesNo__c == null 
+				&& s.Segment_Outcome__c != null) {
+                	s.Status__c = 'Hold';
+            } else if (s.Actual_Preliminary_Signature__c != null
+            	&& s.Actual_Final_Signature__c != null
+            	&& (s.Will_you_Amend_the_Final__c == 'No' || (s.Will_you_Amend_the_Final__c == 'Yes' && s.Actual_Amended_Final_Signature__c != null)) 
+            	&& s.Segment_Outcome__c == null) {
+            		s.Status__c = 'Hold';
+            }
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
+			if (s.Litigation_Hold_Expiration_Date__c != null 
+				&& s.Litigation_YesNo__c == null 
+				&& s.Segment_Outcome__c != null) {
+                	s.Status__c = 'Hold';
+            }
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == CHANGED_CIRCUMSTANCES_REVIEW) {
+			if (s.Litigation_Hold_Expiration_Date__c != null 
+				&& s.Litigation_YesNo__c == null) {
+                	s.Status__c = 'Hold';
+            }
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == ANTI_CIRCUMVENTION_REVIEW) {
+			if (s.Litigation_YesNo__c == null 
+				&& s.Litigation_Hold_Expiration_Date__c != null 
+				&& (s.Segment_Outcome__c == 'Full Rescission' || s.Actual_Final_Signature__c != null)) {
+					s.Status__c = 'Hold';
+			}
+	
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == SCOPE_INQUIRY) {
+			if (s.Litigation_Hold_Expiration_Date__c != null 
+				&& s.Litigation_YesNo__c == null) {
+                	s.Status__c = 'Hold';
+            }
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW) {
+			if (s.Litigation_Hold_Expiration_Date__c != null 
+				&& s.Litigation_YesNo__c == null
+				&& s.Actual_Final_Signature__c != null) {
+                	s.Status__c = 'Hold';
+            }
+		}
+*/
+	}
+
+	@TestVisible private static void setLitigationStatus(Segment__c s) {
+		if (recordTypeNameMap.get(s.RecordTypeId) != NEW_SHIPPER_REVIEW || s.Administrative_Review_Aligned_To__c == null) {
+			if (s.Litigation_YesNo__c == 'Yes' && s.Litigation_Resolved__c == 'No' && s.Segment_Outcome__c != null) {
+				s.Status__c = 'Litigation';
+			}
+		}
+	}
+
+	@TestVisible private static void setCustomsInstructionsStatus(Segment__c s) {
+		if (recordTypeNameMap.get(s.RecordTypeId) != NEW_SHIPPER_REVIEW || s.Administrative_Review_Aligned_To__c == null) {
+			if ((s.Litigation_YesNo__c == 'No' 
+				|| (s.Litigation_YesNo__c == 'Yes' && s.Litigation_Resolved__c == 'Yes')) 
+				&& s.Have_Custom_Instruction_been_sent__c != 'Yes') { 
+	                s.Status__c = 'Customs';
+	        }
+	    }
+	}
+
+	@TestVisible private static void setClosedStatus(Segment__c s) {
+		if (recordTypeNameMap.get(s.RecordTypeId) != NEW_SHIPPER_REVIEW || s.Administrative_Review_Aligned_To__c == null) {
+			if ((s.Litigation_YesNo__c == 'No' || (s.Litigation_YesNo__c == 'Yes' && s.Litigation_Resolved__c == 'Yes')) 
+				&& s.Have_Custom_Instruction_been_sent__c == 'Yes') { 
+	                s.Status__c = 'Closed';
+	        }
+	    }
+	}
+
+
+	/***********************************
+	* Methods called by other classes
+	***********************************/
+
+	//called by Sunset Review Controller
 	public Segment__c calculateSegmentDates(String ssReviewType, Segment__c s) {
-		if (s != null && s.Id != null) {
+/*		if (s != null && s.Id != null) {
 			recordTypeNameMap = utils.getRecordTypeDeveloperNameMap(s);
 			ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(new List<Segment__c>{s});
 			frUtilMap = listInstance.utilMap;
@@ -924,7 +1517,30 @@ public without sharing class SegmentTriggerHandler {
 			//dependent on setSubstantiveResponseDueForAllParties
 			setInformClusterCoordinatorIfNoRespons(s);
 		}
-		
+*/
 		return s;
+	}
+
+	//sets the ssrType for a Sunset Review
+	@TestVisible private static void setSsrType(Segment__c s) {
+		if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW) {
+			if ((s.Notice_of_intent_to_participate_Ips__c == 'No' || s.Domestic_Party_File_Substan_Response__c == 'No')  
+					&& s.Review_to_address_zeroing_in_Segments__c != 'Yes') {
+				ssrType = '90';
+			} else if (s.Notice_of_intent_to_participate_Ips__c == 'Yes' && s.Domestic_Party_File_Substan_Response__c == 'Yes' 
+					&& s.Respondent_File_Substantive_Response__c == 'No' && s.Review_to_address_zeroing_in_Segments__c != 'Yes') {
+				ssrType = '120';
+			} else if ((s.Notice_of_intent_to_participate_Ips__c == 'Yes' && s.Domestic_Party_File_Substan_Response__c == 'Yes'
+					&& s.Respondent_File_Substantive_Response__c == 'Yes') || s.Review_to_address_zeroing_in_Segments__c == 'Yes') {
+				ssrType = '240';
+			}
+			if(ssrType == '120' || ssrType == '240') {
+				if (s.Adequacy_of_Respondents_Submission__c =='Adequate or Substantive') {
+					ssrType = '240';
+				} else if(s.Adequacy_of_Respondents_Submission__c =='Inadequate or Non-Substantive' && s.Review_to_address_zeroing_in_Segments__c != 'Yes') {
+					ssrType = '120';
+				}
+			}
+		 }
 	}
 }
