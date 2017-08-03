@@ -863,6 +863,29 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Final_Extension_Remaining__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE( RecordType.DeveloperName , 
+&apos;Administrative_Review&apos;, 
+ IF( Prelim_Extension__c = 0 &amp;&amp;  ISNULL(Actual_Preliminary_Signature__c) , 
+     60 - Final_Extension_of_days__c, 
+     IF( Prelim_Extension__c = 0 &amp;&amp;  NOT(ISNULL(Actual_Preliminary_Signature__c)) , 
+         180 - Final_Extension_of_days__c, 
+         60 - Final_Extension_of_days__c)) ,
+&apos;Anti_Circumvention_Review&apos;, 180 - Final_Extension_of_days__c , 
+&apos;Expedited_Review&apos;, 60 - Final_Extension_of_days__c , 
+&apos;New_Shipper_Review&apos;, 60 - Final_Extension_of_days__c , 
+0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Final Extension Remaining</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Final_Extension_of_days__c</fullName>
         <description>Final Extension (# of days)</description>
         <externalId>false</externalId>
@@ -963,6 +986,22 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Initiation_Extension_Remaining__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE( RecordType.DeveloperName , 
+&apos;Anti_Circumvention_Review&apos;, 45 - Initiation_Extension_of_days__c ,
+&apos;Changed_Circumstances_Review&apos;, 45 - Initiation_Extension_of_days__c ,
+0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Initiation Extension Remaining</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Initiation_Extension_of_days__c</fullName>
@@ -1504,6 +1543,24 @@
             <restricted>true</restricted>
             <valueSetName>YesNo</valueSetName>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Preliminary_Extension_Remaining__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE( RecordType.DeveloperName ,
+ &apos;Administrative_Review&apos;, 120 - Prelim_Extension__c,
+ &apos;Expedited_Review&apos;, 120 - Prelim_Extension__c ,
+ &apos;New_Shipper_Review&apos;, 120 - Prelim_Extension__c ,
+ &apos;Sunset_Review&apos;, 90 - Prelim_Extension__c ,
+0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Preliminary Extension Remaining</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Product_Description__c</fullName>
