@@ -39,7 +39,8 @@ public without sharing class DateCalculationConditionService {
     		Date cmtFieldValue = cmtFieldDateValue;
     		returnBoolean = getConditionResult(recordFieldValue, cmtFieldValue, operator);
     	} else if (cmtFieldIntegerValue != null) {
-    		Integer recordFieldValue = tempRecordFieldValue != null ? ((Integer)((Decimal) tempRecordFieldValue)) : 0;
+    		Integer recordFieldValue = tempRecordFieldValue != null && !String.isBlank(String.valueOf(tempRecordFieldValue)) ? 
+                (Integer.valueOf(String.valueOf(tempRecordFieldValue))) : 0;
     		System.debug('*** Integer recordFieldValue: ' + recordFieldValue);
     		Integer cmtFieldValue = cmtFieldIntegerValue;
     		System.debug('*** Integer cmtFieldValue: ' + cmtFieldValue);
