@@ -2747,47 +2747,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Date_Calculation__mdt.Base_Date_Field_7_Lookup_Field_Name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Date_Calculation__mdt.Base_Date_Field_7_Name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Date_Calculation__mdt.Base_Date_Field_7_Object__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Date_Calculation__mdt.Base_Date_Field_7_Type__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Date_Calculation__mdt.Base_Date_Field_8_Lookup_Field_Name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Date_Calculation__mdt.Base_Date_Field_8_Name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Date_Calculation__mdt.Base_Date_Field_8_Object__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Date_Calculation__mdt.Base_Date_Field_8_Type__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Date_Calculation__mdt.Calculated_Date_Field_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Date_Calculation__mdt.Conditional_Field_1_Lookup_Field_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2822,6 +2787,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Date_Calculation__mdt.Conditional_Field_2_Lookup_Field_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Date_Calculation__mdt.Conditional_Field_2_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2848,6 +2818,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Date_Calculation__mdt.Conditional_Field_2_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Date_Calculation__mdt.Conditional_Field_3_Lookup_Field_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2882,6 +2857,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Date_Calculation__mdt.Conditional_Field_4_Lookup_Field_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Date_Calculation__mdt.Conditional_Field_4_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2908,6 +2888,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Date_Calculation__mdt.Conditional_Field_4_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Date_Calculation__mdt.Conditional_Field_5_Lookup_Field_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2942,6 +2927,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Date_Calculation__mdt.Conditional_Field_6_Lookup_Field_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Date_Calculation__mdt.Conditional_Field_6_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2968,6 +2958,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Date_Calculation__mdt.Conditional_Field_6_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Date_Calculation__mdt.Conditional_Field_7_Lookup_Field_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3002,6 +2997,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Date_Calculation__mdt.Conditional_Field_8_Lookup_Field_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Date_Calculation__mdt.Conditional_Field_8_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3028,36 +3028,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Date_Calculation__mdt.Conditional_Field_8_Value__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Date_Calculation__mdt.Conditional_Field_9_Name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Date_Calculation__mdt.Conditional_Field_9_Object__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Date_Calculation__mdt.Conditional_Field_9_Operator__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Date_Calculation__mdt.Conditional_Field_9_Result__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Date_Calculation__mdt.Conditional_Field_9_Type__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Date_Calculation__mdt.Conditional_Field_9_Value__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3093,11 +3063,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Date_Calculation__mdt.Number_of_Conditionals__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Date_Calculation__mdt.Number_of_Constants__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5752,12 +5717,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Segment__c.Adequacy_Determination_Letter_120_day__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Segment__c.Adequacy_Determination_Letter_240_day__c</field>
+        <field>Segment__c.Adequacy_Determination_Letter__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5911,9 +5871,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Segment__c.Do_Delete__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -6358,6 +6318,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Segment__c.Substantive_Response_Due_For_All_Parties__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Segment__c.Sunset_Review_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6993,6 +6958,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Suspension_Agreement__c.Termination_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Suspension_Agreement__c.This_Investigation_has_a_Susp_Agreement__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

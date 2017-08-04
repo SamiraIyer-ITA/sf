@@ -81,7 +81,7 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Adequacy_Determination_Letter_120_day__c</field>
+            <field>Adequacy_Determination_Letter__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -131,7 +131,7 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Adequacy_Determination_Letter_240_day__c</field>
+            <field>Adequacy_Determination_Letter__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -396,19 +396,10 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Adequacy_Determination_Letter_120_day__c</fullName>
-        <description>Adequacy determination and letter to ITC on 120 day if not adequate or if no adequate respondent.</description>
+        <fullName>Adequacy_Determination_Letter__c</fullName>
+        <description>Adequacy determination and letter to ITC if not adequate or if no adequate respondent.</description>
         <externalId>false</externalId>
-        <label>Adequacy Determination &amp; Letter(120 day)</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Adequacy_Determination_Letter_240_day__c</fullName>
-        <description>Adequacy Determination and Letter to ITC  on 120 day if not adequate or if no adequate respondent response.</description>
-        <externalId>false</externalId>
-        <label>Adequacy Determination &amp; Letter(240 day)</label>
+        <label>Adequacy Determination &amp; Letter</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -1905,6 +1896,34 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Sunset_Review_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Sunset Review Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>90</fullName>
+                    <default>false</default>
+                    <label>90</label>
+                </value>
+                <value>
+                    <fullName>120</fullName>
+                    <default>false</default>
+                    <label>120</label>
+                </value>
+                <value>
+                    <fullName>240</fullName>
+                    <default>false</default>
+                    <label>240</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Suspension_Agreement__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -2825,6 +2844,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Sunset_Review_Type__c</picklist>
+            <values>
+                <fullName>120</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>240</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Type_of_Circumvention_Inquiry__c</picklist>
             <values>
                 <fullName>Later-Developed Merchandise</fullName>
@@ -3597,6 +3631,21 @@
             </values>
             <values>
                 <fullName>Prelim</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sunset_Review_Type__c</picklist>
+            <values>
+                <fullName>120</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>240</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4377,6 +4426,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Sunset_Review_Type__c</picklist>
+            <values>
+                <fullName>120</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>240</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Type_of_Circumvention_Inquiry__c</picklist>
             <values>
                 <fullName>Later-Developed Merchandise</fullName>
@@ -5149,6 +5213,21 @@
             </values>
             <values>
                 <fullName>Prelim</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sunset_Review_Type__c</picklist>
+            <values>
+                <fullName>120</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>240</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5929,6 +6008,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Sunset_Review_Type__c</picklist>
+            <values>
+                <fullName>120</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>240</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Type_of_Circumvention_Inquiry__c</picklist>
             <values>
                 <fullName>Later-Developed Merchandise</fullName>
@@ -6697,6 +6791,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Sunset_Review_Type__c</picklist>
+            <values>
+                <fullName>120</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>240</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Type_of_Circumvention_Inquiry__c</picklist>
             <values>
                 <fullName>Later-Developed Merchandise</fullName>
@@ -7457,6 +7566,21 @@
             </values>
             <values>
                 <fullName>Prelim</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sunset_Review_Type__c</picklist>
+            <values>
+                <fullName>120</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>240</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

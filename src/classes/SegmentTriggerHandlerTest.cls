@@ -156,8 +156,8 @@ public class SegmentTriggerHandlerTest {
 				Id recordTypeId = utils.getRecordTypeIdMap('Segment__c').get('Sunset_Review');
 				ssSeg = [SELECT Id, RecordTypeId, Calculated_Preliminary_Signature__c, Calculated_Final_Signature__c, Update_ACE_Customs_Module__c, Adequacy_of_Respondents_Submission__c, 
 							Actual_Final_Signature__c, Actual_Revocation_or_Continuation_FR__c, Calculated_Revocation_or_Continuation_FR__c, 
-							Issue_Liquidation_Revocation_Instruction__c, Rebuttal_Comments_Due__c, Adequacy_Determination_Letter_120_day__c, 
-							Adequacy_Determination_Letter_240_day__c, Comments_on_Adequacy_Determination_Filed__c, Memorandum_on_Adequacy_Determination__c, 
+							Issue_Liquidation_Revocation_Instruction__c, Rebuttal_Comments_Due__c, Adequacy_Determination_Letter__c, 
+							Comments_on_Adequacy_Determination_Filed__c, Memorandum_on_Adequacy_Determination__c, 
 							Notify_ITC_of_No_Domestic_Interest__c, Inadequate_Domestic_Response_note_to_ITC__c, Notice_of_Intent_to_Participate__c, 
 							Notify_Cluster_Coordinator_No_Interest__c, Substantive_Response_Due_For_All_Parties__c, Inform_Cluster_Coordinator_if_No_Respons__c, 
 							Notice_of_intent_to_participate_Ips__c, Domestic_Party_File_Substan_Response__c, Review_to_address_zeroing_in_Segments__c, 
@@ -748,7 +748,7 @@ public class SegmentTriggerHandlerTest {
 
 		//240 Days
 		ss240();
-		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(initFR.Published_Date__c.addDays(240).addDays(7).addDays(7));
+		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(initFR.Published_Date__c.addDays(240));
 		
 		Test.stopTest();
 		System.assertEquals(testCalculated,
@@ -1080,8 +1080,8 @@ public class SegmentTriggerHandlerTest {
 		Test.startTest();
 
 		//120 Day Calculations for Published_Date__c
-		ssSeg.Continuation_or_Revocation__c = 'Revocation';
 		setFR(o.Id, 'Revocation');
+		ssSeg.Continuation_or_Revocation__c = 'Revocation';
 		ss120();
 		getNewSegs();
 		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(revoFR.Published_Date__c.addDays(-1));
@@ -1248,15 +1248,15 @@ public class SegmentTriggerHandlerTest {
 			[SELECT Id, Rebuttal_Comments_Due__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Rebuttal_Comments_Due__c);
 	}
 
-	//sets Adequacy_Determination_Letter_120_day__c or Adequacy_Determination_Letter_240_day__c
+	//sets Adequacy_Determination_Letter__c or Adequacy_Determination_Letter__c
 	@isTest static void setAdequacyDeterminationandLetterToITC(){
 		Test.startTest();
 
 		//date should not be set unless there is an Initial FR published date
 		System.assertEquals(null,
-			[SELECT Id, Adequacy_Determination_Letter_120_day__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Adequacy_Determination_Letter_120_day__c);
+			[SELECT Id, Adequacy_Determination_Letter__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Adequacy_Determination_Letter__c);
 		System.assertEquals(null,
-			[SELECT Id, Adequacy_Determination_Letter_240_day__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Adequacy_Determination_Letter_240_day__c);
+			[SELECT Id, Adequacy_Determination_Letter__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Adequacy_Determination_Letter__c);
 		
 		//setup start dates
 		setFR(ssSeg.Id, 'Initiation');
@@ -1266,7 +1266,7 @@ public class SegmentTriggerHandlerTest {
 		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(initFR.Published_Date__c.addDays(50));
 		//compare Published_Date__c
 		System.assertEquals(testCalculated,
-			[SELECT Id, Adequacy_Determination_Letter_120_day__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Adequacy_Determination_Letter_120_day__c);
+			[SELECT Id, Adequacy_Determination_Letter__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Adequacy_Determination_Letter__c);
 
 		//240 Day Calculations for Published_Date__c
 		ss240();
@@ -1276,7 +1276,7 @@ public class SegmentTriggerHandlerTest {
 		Test.stopTest();
 		//compare Published_Date__c
 		System.assertEquals(testCalculated,
-			[SELECT Id, Adequacy_Determination_Letter_240_day__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Adequacy_Determination_Letter_240_day__c);
+			[SELECT Id, Adequacy_Determination_Letter__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Adequacy_Determination_Letter__c);
 	}
 
 	//sets Comments_on_Adequacy_Determination_Filed__c
@@ -2026,17 +2026,19 @@ public class SegmentTriggerHandlerTest {
 		System.assertEquals(testCalculated, ccSeg.Preliminary_Announcement_Date__c);
 	}
 	//setPreliminaryAnnouncementDate
-	@isTest static void setPreliminaryAnnouncementDateAR() {
+	@isTest static void setPreliminaryAnnouncementDateSunsetReview() {
 		Test.startTest();
 
 		//setup start dates
+		ss240();
+		setFR(ssSeg.Id, 'Initiation');
 		setStartDates();
 		setExtensions();
 		getNewSegs();
-		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(adminSeg.Calculated_Preliminary_Signature__c, adminSeg.Calculated_Preliminary_Signature__c.addDays(1), true);
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(ssSeg.Calculated_Preliminary_Signature__c, ssSeg.Calculated_Preliminary_Signature__c.addDays(1), true);
 
 		Test.stopTest();
-		System.assertEquals(testCalculated, adminSeg.Preliminary_Announcement_Date__c);
+		System.assertEquals(testCalculated, ssSeg.Preliminary_Announcement_Date__c);
 	}
 
 	//setFinalAnnouncementDate
@@ -2118,17 +2120,29 @@ public class SegmentTriggerHandlerTest {
 		System.assertEquals(testCalculated, ccSeg.Final_Announcement_Date__c);
 	}
 	//setFinalAnnouncementDate
-	@isTest static void setFinalAnnouncementDateAR() {
+	@isTest static void setFinalAnnouncementDateSunsetReview() {
 		Test.startTest();
 
 		//setup start dates
+		ss90();
+		setFR(ssSeg.Id, 'Initiation');
 		setStartDates();
 		setExtensions();
 		getNewSegs();
-		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(adminSeg.Calculated_Final_Signature__c, adminSeg.Calculated_Final_Signature__c.addDays(1), true);
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(ssSeg.Calculated_Final_Signature__c, ssSeg.Calculated_Final_Signature__c.addDays(1), true);
+		System.assertEquals(testCalculated, ssSeg.Final_Announcement_Date__c);
+
+		ss120();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(ssSeg.Calculated_Final_Signature__c, ssSeg.Calculated_Final_Signature__c.addDays(1), true);
+		System.assertEquals(testCalculated, ssSeg.Final_Announcement_Date__c);
+
+		ss240();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(ssSeg.Calculated_Final_Signature__c, ssSeg.Calculated_Final_Signature__c.addDays(1), true);
 
 		Test.stopTest();
-		System.assertEquals(testCalculated, adminSeg.Final_Announcement_Date__c);
+		System.assertEquals(testCalculated, ssSeg.Final_Announcement_Date__c);
 	}
 
 	//setAmendedFinalAnnouncementDate
@@ -2378,10 +2392,10 @@ public class SegmentTriggerHandlerTest {
 		siSeg.Initiation_Extension_of_days__c = siSeg.Initiation_Extension_of_days__c == null ? 7 : 7;
 		segsToUpdate.add(siSeg);
 		//SSR
-		ssSeg.Prelim_Extension__c = ssSeg.Prelim_Extension__c == null ? 7 : 7;
-		ssSeg.Final_Extension_of_days__c = ssSeg.Final_Extension_of_days__c == null ? 7 : 7;
-		ssSeg.Initiation_Extension_of_days__c = ssSeg.Initiation_Extension_of_days__c == null ? 7 : 7;
-		segsToUpdate.add(ssSeg);
+		//ssSeg.Prelim_Extension__c = ssSeg.Prelim_Extension__c == null ? 7 : 7;
+		//ssSeg.Final_Extension_of_days__c = ssSeg.Final_Extension_of_days__c == null ? 7 : 7;
+		//ssSeg.Initiation_Extension_of_days__c = ssSeg.Initiation_Extension_of_days__c == null ? 7 : 7;
+		//segsToUpdate.add(ssSeg);
 
 		update segsToUpdate;
 	}

@@ -20,8 +20,9 @@ public without sharing class Federal_RegisterCS implements ADCVD_CascadeService 
 	public Map<Id,List<SObject>> getParentIdToObjectsMap(String parentObjectName, Set<Id> parentIdSet) {
 		Map<Id,List<Federal_Register__c>> returnMap = new Map<Id,List<Federal_Register__c>>();
 		if (parentObjectName == 'Segment__c') {
-			for (Segment__c s : [SELECT ADCVD_Order__c FROM Segment__c WHERE Id IN: parentIdSet]) {
+			for (Segment__c s : [SELECT ADCVD_Order__c, Suspension_Agreement__c FROM Segment__c WHERE Id IN: parentIdSet]) {
 				parentIdSet.add(s.ADCVD_Order__c);
+				parentIdSet.add(s.Suspension_Agreement__c);
 			}
 		}
 		if (parentObjectName == 'Investigation__c') {

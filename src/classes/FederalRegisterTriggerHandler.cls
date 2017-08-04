@@ -63,10 +63,7 @@ public without sharing class FederalRegisterTriggerHandler {
                 parentIdSet.add(s.Id);
             }
         }
-
-
-        return parentIdSet;
-        
+        return parentIdSet;  
     }
 
     /**
