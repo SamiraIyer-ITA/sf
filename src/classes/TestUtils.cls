@@ -160,7 +160,11 @@ public with sharing class TestUtils {
     public static Litigation__c createLitigation(Date requestFiled, String recordTypeName, Boolean doInsert) {
         Litigation__c lit = new Litigation__c();
         lit.RecordTypeId = utils.getRecordTypeIdMap('Litigation__c').get(recordTypeName);
+        if (recordTypeName == 'Remand') {
+            lit.Expected_Final_Signature_Before_Ext__c = requestFiled;
+        } else {
         lit.Request_Filed__c = requestFiled;
+        }
         if(doInsert) {
             insert lit;
         }
@@ -193,8 +197,9 @@ public with sharing class TestUtils {
     }
 
     // create test order
-    public static ADCVD_Order__c createOrder(Boolean doInsert) {
+    public static ADCVD_Order__c createOrder(Investigation__c i, Boolean doInsert) {
         ADCVD_Order__c o = new ADCVD_Order__c();
+        o.Investigation__c = i.Id;
         Datetime tempDatetime = System.now();
         o.Anniversary_Month__c = tempDatetime.format('MMMMM');
         if(doInsert) {

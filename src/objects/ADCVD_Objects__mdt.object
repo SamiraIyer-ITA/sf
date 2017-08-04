@@ -2,6 +2,17 @@
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <description>This holds the object types, record types, and a type field (if present) delineating a difference in records for the ADCVD app</description>
     <fields>
+        <fullName>Number_of_Date_Calculations__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Number of Date Calculations</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Object_API_Name__c</fullName>
         <externalId>false</externalId>
         <fieldManageability>SubscriberControlled</fieldManageability>

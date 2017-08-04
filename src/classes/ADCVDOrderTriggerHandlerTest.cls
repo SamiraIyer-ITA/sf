@@ -273,7 +273,9 @@ public class ADCVDOrderTriggerHandlerTest {
 	@testSetup static void dataSetup() {
 		Test.startTest();
 		User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
-		ADCVD_Order__c testOrder = TestUtils.createOrder(true);
+		Petition__c testADPetition = TestUtils.createPetition(orderDate.addDays(-280), 'AD ME', true);
+		Investigation__c testADinvestigation = TestUtils.createInvestigation('AD', testADPetition, true);
+		ADCVD_Order__c testOrder = TestUtils.createOrder(testADinvestigation, true);
 		List<Segment__c> segsToInsert = new List<Segment__c>();
 		System.runAs(testUser) {
 			for(String segRecordTypeName : utils.getRecordTypeDeveloperNameMap('Segment__c').values()) {

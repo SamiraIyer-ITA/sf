@@ -260,6 +260,22 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Actual_Amend_Final_Concurrence_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Amend Final Concurrence to DAS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Amend_Final_Issues_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Amend Final Issues to DAS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Actual_Amended_Final_Signature__c</fullName>
         <description>Actual Amended Final Signature</description>
         <externalId>false</externalId>
@@ -280,6 +296,38 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Actual_Decision_on_HOP_Concurrence_toDAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Decision on HOP Concurrence toDAS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Decision_on_HOP_Issues_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Decision on HOP Issues to DAS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Final_Concurrence_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Final Concurrence to DAS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Final_Issues_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Final Issues to DAS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Actual_Final_Signature__c</fullName>
         <description>Actual Final Signature</description>
         <externalId>false</externalId>
@@ -290,9 +338,41 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Actual_Initiation_Concurrence_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Initiation Concurrence to DAS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Initiation_Issues_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Initiation Issues to DAS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Actual_Initiation_Signature__c</fullName>
         <externalId>false</externalId>
         <label>Actual Initiation Signature</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Prelim_Concurrence_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Prelim Concurrence to DAS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Prelim_Issues_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Prelim Issues to DAS</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -425,6 +505,30 @@
             <restricted>true</restricted>
             <valueSetName>YesNo</valueSetName>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Amend_Final_Concurrence_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Amend Final Concurrence Due to DAS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Amend_Final_Issues_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Amend Final Issues Due to DAS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Amended_Final_Announcement_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Amended Final Announcement Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Amended_Prelim_Issues__c</fullName>
@@ -619,6 +723,22 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Decision_on_HOP_Concurrence_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Decision on HOP Concurrence Due to DAS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Decision_on_HOP_Issues_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Decision on HOP Issues Due to DAS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Decision_on_How_to_Proceed__c</fullName>
         <externalId>false</externalId>
         <label>Decision on How to Proceed</label>
@@ -717,6 +837,22 @@
         <unique>true</unique>
     </fields>
     <fields>
+        <fullName>Final_Announcement_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Final Announcement Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Final_Concurrence_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Final Concurrence Due to DAS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Final_Date_of_Anniversary_Month__c</fullName>
         <description>Final Date of Anniversary Month</description>
         <externalId>false</externalId>
@@ -725,6 +861,29 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Final_Extension_Remaining__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE( RecordType.DeveloperName , 
+&apos;Administrative_Review&apos;, 
+ IF( Prelim_Extension__c = 0 &amp;&amp;  ISNULL(Actual_Preliminary_Signature__c) , 
+     60 - Final_Extension_of_days__c, 
+     IF( Prelim_Extension__c = 0 &amp;&amp;  NOT(ISNULL(Actual_Preliminary_Signature__c)) , 
+         180 - Final_Extension_of_days__c, 
+         60 - Final_Extension_of_days__c)) ,
+&apos;Anti_Circumvention_Review&apos;, 180 - Final_Extension_of_days__c , 
+&apos;Expedited_Review&apos;, 60 - Final_Extension_of_days__c , 
+&apos;New_Shipper_Review&apos;, 60 - Final_Extension_of_days__c , 
+0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Final Extension Remaining</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Final_Extension_of_days__c</fullName>
@@ -738,6 +897,14 @@
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Final_Issues_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Final Issues Due to DAS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Final_Team_Meeting_Deadline__c</fullName>
@@ -805,6 +972,38 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Initiation_Announcement_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Initiation Announcement Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Initiation_Concurrence_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Initiation Concurrence Due to DAS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Initiation_Extension_Remaining__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE( RecordType.DeveloperName , 
+&apos;Anti_Circumvention_Review&apos;, 45 - Initiation_Extension_of_days__c ,
+&apos;Changed_Circumstances_Review&apos;, 45 - Initiation_Extension_of_days__c ,
+0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Initiation Extension Remaining</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Initiation_Extension_of_days__c</fullName>
         <externalId>false</externalId>
         <label>Initiation Extension (# of days)</label>
@@ -814,6 +1013,14 @@
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Initiation_Issues_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Initiation Issues Due to DAS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Initiation_Prelim_FR_Published__c</fullName>
@@ -1054,18 +1261,16 @@
         <externalId>false</externalId>
         <inlineHelpText>Next Major AS/DAS Deadline and Timeline on Segment</inlineHelpText>
         <label>Next Major Deadline</label>
-        <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Date</type>
     </fields>
     <fields>
-        <fullName>Next_Office_PM_Deadline__c</fullName>
+        <fullName>Next_Office_Deadline__c</fullName>
         <description>Next Office/PM Deadline and Timeline on Segment</description>
         <externalId>false</externalId>
         <inlineHelpText>Next Office/PM Deadline and Timeline on Segment</inlineHelpText>
-        <label>Next Office/PM Deadline</label>
+        <label>Next Office Deadline</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -1262,6 +1467,14 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Prelim_Concurrence_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Prelim Concurrence Due to DAS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Prelim_Extension__c</fullName>
         <externalId>false</externalId>
         <label>Prelim Extension (# of days)</label>
@@ -1271,6 +1484,14 @@
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Prelim_Issues_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Prelim Issues Due to DAS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Prelim_Issues__c</fullName>
@@ -1289,6 +1510,14 @@
         <externalId>false</externalId>
         <inlineHelpText>Prelim Team Meeting Deadline</inlineHelpText>
         <label>Prelim Team Meeting Deadline</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Preliminary_Announcement_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Preliminary Announcement Date</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -1314,6 +1543,24 @@
             <restricted>true</restricted>
             <valueSetName>YesNo</valueSetName>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Preliminary_Extension_Remaining__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE( RecordType.DeveloperName ,
+ &apos;Administrative_Review&apos;, 120 - Prelim_Extension__c,
+ &apos;Expedited_Review&apos;, 120 - Prelim_Extension__c ,
+ &apos;New_Shipper_Review&apos;, 120 - Prelim_Extension__c ,
+ &apos;Sunset_Review&apos;, 90 - Prelim_Extension__c ,
+0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Preliminary Extension Remaining</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Product_Description__c</fullName>

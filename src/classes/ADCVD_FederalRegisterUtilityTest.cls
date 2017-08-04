@@ -75,7 +75,7 @@ public class ADCVD_FederalRegisterUtilityTest {
 		petitionDate = ADCVD_TollingDayUtility.getCalculatedDate(petitionDate, petitionDate, true);
 		Petition__c testPet = TestUtils.createPetition(petitionDate, 'AD ME', true);
 		Investigation__c testInv = TestUtils.createInvestigation('AD', testPet, true);
-		ADCVD_Order__c testOrder = TestUtils.createOrder(true);
+		ADCVD_Order__c testOrder = TestUtils.createOrder(testInv, true);
 		Segment__c testSeg = TestUtils.createSegment(testOrder, 'Administrative_Review', true);
 		Integer days = 140;
 		List<Federal_Register__c> frsToInsert = new List<Federal_Register__c>();

@@ -3,7 +3,6 @@ public without sharing class DateCalculationService {
 	@TestVisible private Map<String,Date_Calculation__mdt> dateCalculations = new Map<String,Date_Calculation__mdt>();
 	@TestVisible private Map<String,Map<Id,SObject>> baseObjectMap = new Map<String,Map<Id,SObject>>();
 	@TestVisible private Map<Id,ADCVD_FederalRegisterUtility> frUtilMap = new Map<Id,ADCVD_FederalRegisterUtility>();
-	@TestVisible private Map<Integer,Object> nextMajorDeadlineMap = new Map<Integer,Object>();
 
 	public void getCalculatedDates(List<SObject> soList, String soType, String recordTypeName) {
 		setDateCalculations(soType, recordTypeName);
@@ -20,13 +19,14 @@ public without sharing class DateCalculationService {
     }
 
     @TestVisible private void calculateDates(SObject record, String soType) {
-    	for (String calculatedDateName : dateCalculations.keySet()) {
+    	for (String key : dateCalculations.keySet()) {
+    		Date_Calculation__mdt dc = dateCalculations.get(key);
+    		String calculatedDateName = dc.Calculated_Date_Field_Name__c;
     		System.debug('*** calculatedDateName: ' + calculatedDateName);
-    		Date_Calculation__mdt dc = dateCalculations.get(calculatedDateName);
     		Integer numberOfBaseDates = (Integer) dc.Number_of_Base_Date_Fields__c;
     		Integer numberOfConditionals = (Integer) dc.Number_of_Conditionals__c;
-    		Integer numberOfExtensions = (Integer) dc.Number_of_Extensions__c;
     		Integer numberOfConstants = (Integer) dc.Number_of_Constants__c;
+    		String tollingService = dc.Tolling_Service__c;
     		Integer offset = dc.Constant_1__r.Number_Value__c != null ? (Integer) dc.Constant_1__r.Number_Value__c : 0;
     		Integer extension = 0;
     		Date baseDate = null;
@@ -66,9 +66,11 @@ public without sharing class DateCalculationService {
 	    		if (!String.isBlank(dc.Extension_Field_1_Name__c)) {
 	    			extension = getExtension(record, dc);
 	    		}
-	    		if (baseDate != null) {
+	    		if (baseDate != null && tollingService == 'Get Calculated Date') {
 		    		tempDate = baseDate.addDays(offset).addDays(extension);
 		    		tempDate = ADCVD_TollingDayUtility.getCalculatedDate(baseDate, tempDate, true);
+		    	} else if (baseDate != null && tollingService == 'Count Back Business Days') {
+		    		tempDate = ADCVD_TollingDayUtility.countBackBusinessDays(baseDate, offset);
 		    	}
 	    		record.put(calculatedDateName, tempDate);
     		} else {
@@ -84,7 +86,8 @@ public without sharing class DateCalculationService {
     	for (String result : conditionalResults.keySet()) {
     		Object tempObject = null;
     		if (result == null || conditionalResults.get(result) == null) continue;
-	    	if (result == 'Skip' && conditionalResults.get(result)) {
+	    	if ((result == 'Skip' && conditionalResults.get(result)) || (conditionalResults.get('Execute') != null && !conditionalResults.get('Execute'))) {
+	    		returnMap.put('Skip', true);
 	    		return returnMap;
 	    	} else if (result.contains('Use Date') && conditionalResults.get(result) && returnMap.get('Date') == null) {
 	    		Integer i = Integer.valueOf(result.right(1));
@@ -116,12 +119,13 @@ public without sharing class DateCalculationService {
     @TestVisible private Map<String,Boolean> getConditionals(SObject record, Date_Calculation__mdt dc, Integer numberOfConditionals) {
     	Map<String,Boolean> returnMap = new Map<String,Boolean>();
     	for (Integer i = 1; i <= numberOfConditionals; i++) {
-    		String conditionalField = String.valueOf(dc.get('Conditional_Field_'+ String.valueOf(i) + '_Result__c'));
-    		System.debug('*** conditionalField: ' + conditionalField);
-    		DateCalculationConditionService dccs = new DateCalculationConditionService(record, dc, i);
-    		Boolean tempBoolean = dccs.checkCondition(record, dc, i);
+    		SObject baseRecord = !String.isBlank(String.valueOf(dc.get('Conditional_Field_'+ String.valueOf(i) + '_Object__c'))) ? getBaseConditionalObject(record, dc, i) : record;
+    		String conditionalFieldResult = String.valueOf(dc.get('Conditional_Field_'+ String.valueOf(i) + '_Result__c'));
+    		System.debug('*** conditionalFieldResult: ' + conditionalFieldResult);
+    		DateCalculationConditionService dccs = new DateCalculationConditionService(baseRecord, dc, i);
+    		Boolean tempBoolean = dccs.checkCondition(baseRecord, dc, i);
     		System.debug('*** tempBoolean: ' + tempBoolean);
-    		if (returnMap.get(conditionalField) != true) returnMap.put(conditionalField, tempBoolean);
+    		if (returnMap.get(conditionalFieldResult) != true) returnMap.put(conditionalFieldResult, tempBoolean);
     	}
     	return returnMap;
     }
@@ -132,22 +136,22 @@ public without sharing class DateCalculationService {
     	String baseDateFieldObject = 'Base_Date_Field_'+ String.valueOf(i) + '_Object__c';
     	String baseDateFieldName = 'Base_Date_Field_'+ String.valueOf(i) + '_Name__c';
     	String baseDateFieldLookupFieldName = 'Base_Date_Field_'+ String.valueOf(i) + '_Lookup_Field_Name__c';
-    	String baseDateFieldType = 'Base_Date_Field_' + String.valueOf(i) + 'Type__c';
+    	String baseDateFieldType = 'Base_Date_Field_' + String.valueOf(i) + '_Type__c';
     	SObject so = null;
     	Date baseDate = null;
     	//if base field is not from the current object
     	if (dc.get(baseDateFieldObject) != null && String.valueOf(dc.get(baseDateFieldObject)) != soType) {
     		//get the base SObject (except Federal_Register__c) that has the base field we need
-			so = (String.valueOf(dc.get(baseDateFieldObject)) != 'Federal_Register__c' && String.valueOf(dc.get(baseDateFieldObject)) != 'Issue__c') ? 
-				getBaseObject(record, String.valueOf(dc.get(baseDateFieldLookupFieldName)), String.valueOf(dc.get(baseDateFieldObject))) : null;
-			so = (so == null && String.valueOf(dc.get(baseDateFieldObject)) == 'Issue__c') ? 
-				getBaseObject(record, String.valueOf(dc.get(baseDateFieldLookupFieldName)), String.valueOf(dc.get(baseDateFieldObject)), String.valueOf(dc.get(baseDateFieldType))) : so;
+			so = (String.valueOf(dc.get(baseDateFieldObject)) != 'Federal_Register__c') ? 
+				getBaseObject(record, String.valueOf(dc.get(baseDateFieldLookupFieldName)), String.valueOf(dc.get(baseDateFieldObject))) : so;
 			//get the base field from that SObject
-			baseDate = so != null && so.get(String.valueOf(dc.get(baseDateFieldName))) != null ? (Date) so.get(String.valueOf(dc.get(baseDateFieldName))) : null;
+			baseDate = so != null && so.get(String.valueOf(dc.get(baseDateFieldName))) != null ? (Date) so.get(String.valueOf(dc.get(baseDateFieldName))) : baseDate;
 			//if from a Federal_Register__c, get base field, else leave it as is
-			baseDate = (String.valueOf(dc.get(baseDateFieldObject)) == 'Federal_Register__c' && frUtilMap != null && record.get('Id') != null) ? getFrDate(record, dc, i) : baseDate;
+			baseDate = (String.valueOf(dc.get(baseDateFieldObject)) == 'Federal_Register__c' && frUtilMap != null && record.get('Id') != null) ? getFrDate(record, dc, baseDateFieldType) : baseDate;
 		} else if (String.valueOf(dc.get(baseDateFieldName)) != null && String.valueOf(dc.get(baseDateFieldObject)) == soType){//if base field is from the current object
 			baseDate = (Date) record.get(String.valueOf(dc.get(baseDateFieldName)));
+		} else if (String.valueOf(dc.get(baseDateFieldName)) == 'Today') {
+			baseDate = System.today();
 		}
 		return baseDate;
     }
@@ -155,6 +159,25 @@ public without sharing class DateCalculationService {
     @TestVisible private Integer getExtension(SObject record, Date_Calculation__mdt dc) {
 		Integer extension = record.get(dc.Extension_Field_1_Name__c) == null ? 0 : Integer.valueOf(record.get(dc.Extension_Field_1_Name__c));
 		return extension;
+    }
+
+    @TestVisible private SObject getBaseConditionalObject(SObject record, Date_Calculation__mdt dc, Integer i) {
+    	String baseObjectName = 'Conditional_Field_'+ String.valueOf(i) + '_Object__c';
+    	String baseFieldName = 'Conditional_Field_'+ String.valueOf(i) + '_Name__c';
+    	String baseFieldType = 'Conditional_Field_'+ String.valueOf(i) + '_Type__c';
+    	Set<String> childSObjectNames = new Set<String> {''};
+
+    	if (String.valueOf(dc.get(baseObjectName)) == 'Federal_Register__c') {
+	    	Federal_Register__c tempFR = new Federal_Register__c ();
+	    	tempFR.Type__c = String.valueOf(dc.get(baseFieldType));
+	    	tempFR.Published_Date__c = getFrDate(record, dc, baseFieldType);
+    		return (SObject)tempFR;
+    	} else if (childSObjectNames.contains(baseObjectName)) {
+    		return getBaseObject(record, '', baseObjectName, baseFieldType);
+		} else {
+			return getBaseObject(record, '', baseObjectName);
+		}
+		return null;
     }
 
     @TestVisible private SObject getBaseObject(SObject record, String lookupFieldName, String baseObjectName) {
@@ -165,23 +188,24 @@ public without sharing class DateCalculationService {
 	}
 
 	@TestVisible private SObject getBaseObject(SObject record, String lookupFieldName, String baseObjectName, String typeField) {
-		Id tempId = (Id)record.get(lookupFieldName);
+		Id tempId = (Id)record.get('Id');
 		Map<Id,SObject> tempMap = baseObjectMap.get(baseObjectName);
 		SObject so = null;
 		for (Id i : tempMap.keySet()) {
-			if ((Id)tempMap.get(i).get(lookupFieldName) == tempId && (tempMap.get(i).get('Type__c') == null || typeField == null || tempMap.get(i).get('Type__c') == typeField)) {
+			if ((Id)tempMap.get(i).get(lookupFieldName) == tempId && tempMap.get(i).get('Type__c') != null && typeField != null && tempMap.get(i).get('Type__c') == typeField) {
 				so = tempMap.get(i);
+				break;
 			}
 		}
+		System.debug('***so: ' + so);
 		return so;
 	}
 
-	@TestVisible private Date getFrDate(SObject record, Date_Calculation__mdt dc, Integer i) {
-		String baseDateFieldType = 'Base_Date_Field_' + String.valueOf(i) + '_Type__c';
+	@TestVisible private Date getFrDate(SObject record, Date_Calculation__mdt dc, String fieldType) {
 		Date returnDate = null;
 		if (frUtilMap != null && record.get('Id') != null && frUtilMap.get((Id)record.get('Id')) != null) {
 			ADCVD_FederalRegisterUtility fru = frUtilMap.get((Id)record.get('Id'));
-			returnDate = fru.varMap != null ? fru.varMap.get(String.valueOf(dc.get(baseDateFieldType))) : null;
+			returnDate = fru.varMap != null ? fru.varMap.get(String.valueOf(dc.get(fieldType))) : null;
 		}
 		return returnDate;
 	}
@@ -206,7 +230,9 @@ public without sharing class DateCalculationService {
 			System.debug('*** lookupFieldNameToObjectNameMap: ' + lookupFieldNameToObjectNameMap);
 			for (String lookupFieldName : lookupFieldNameToObjectNameMap.keySet()) {
 				String objectName = lookupFieldNameToObjectNameMap.get(lookupFieldName);
-				baseObjectMap.put(objectName, DateCalculationSelector.getSObjectsInScope(soList, targetObjectName, lookupFieldName));
+				if (objectName == 'Petition__c') {
+					baseObjectMap.put('Petition__c', DateCalculationSelector.getPetitionsInScope(soList, targetObjectName, lookupFieldName));
+				}
 			}
 			System.debug('*** baseObjectMap: ' + baseObjectMap);	
 		}

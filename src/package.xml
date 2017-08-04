@@ -169,5 +169,9 @@
         <members>*</members>
         <name>Workflow</name>
     </types>
+    <types>
+        <members>Date_Calculation__mdt.Correct_Date_Format</members>
+        <name>ValidationRule</name>
+    </types>
     <version>39.0</version>
 </Package>
