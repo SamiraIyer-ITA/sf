@@ -58,12 +58,14 @@ public without sharing class InvestigationTriggerHandler {
             syncToInvestigation(newList);
         	calculateInvestigationDates(newList);
             calculateInvestigationStatuses(newList);
+            runValidations(newList);
         }
         if (isBefore && isUpdate) {
             initialize(newList, newMap);
             syncToInvestigation(newList);
             calculateInvestigationDates(newList);
             calculateInvestigationStatuses(newList);
+            runValidations(newList);
         }
         if (isAfter && isUpdate) {
             initialize(newList, newMap);
@@ -172,6 +174,14 @@ public without sharing class InvestigationTriggerHandler {
     @TestVisible private static void calculateInvestigationStatuses(List<Investigation__c> newList) {
         setLitigationStatus(newList);
         setStatus(newList);
+    }
+
+    @TestVisible private static void runValidations(List<Investigation__c> newList) {
+        for (Investigation__c i : newList) {
+            validateITCNegativePrelim(i);
+            validateITCNegativeFinal(i);
+            validateOrder(i);
+        }
     }
 
     //returns a list of CVD Investigations to update if the aligned AD Investigation is updated
@@ -667,6 +677,43 @@ public without sharing class InvestigationTriggerHandler {
 		}
 	}
 */
+
+    /*****************************
+    * Validations
+    *****************************/
+
+    @TestVisible private static void validateITCNegativePrelim(Investigation__c i) {
+        if (i.Investigation_Outcome__c != 'ITC Negative Prelim') {return;}
+        Date itcPrelim = null;
+        if(i.Id != null && frUtilMap != null) {
+            itcPrelim = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).itcPreliminaryPublishedDate : null;
+        }
+        if (itcPrelim == null) {
+            i.addError('You must enter a ITC Preliminary Federal Register to set Investigation Outcome to "ITC Negative Prelim".');
+        }
+    }
+
+    @TestVisible private static void validateITCNegativeFinal(Investigation__c i) {
+        if (i.Investigation_Outcome__c != 'ITC Negative Final') {return;}
+        Date itcFinal = null;
+        if(i.Id != null && frUtilMap != null) {
+            itcFinal = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).itcFinalPublishedDate : null;
+        }
+        if (itcFinal == null) {
+            i.addError('You must enter a ITC Final Federal Register to set Investigation Outcome to "ITC Negative Final".');
+        }
+    }
+
+    @TestVisible private static void validateOrder(Investigation__c i) {
+        if (i.Investigation_Outcome__c != 'Order') {return;}
+        Date orderFR = null;
+        if(i.Id != null && frUtilMap != null) {
+            orderFR = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).orderPublishedDate : null;
+        }
+        if (orderFR == null) {
+            i.addError('You must create an ADCVD Order for this Investigation and add an Order Federal Register to it to set Investigation Outcome to "Order".');
+        }
+    }
 
     /*****************************
     * Status Calculations
