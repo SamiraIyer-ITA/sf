@@ -256,7 +256,7 @@ public without sharing class SegmentTriggerHandler {
 	}
 
 	@TestVisible private static void validateCompletedOutcome(Segment__c s) {
-		if (s.Segment_Outcome__c != 'Completed') {return;}
+		if (s.Segment_Outcome__c != 'Completed' || recordTypeNameMap.get(s.RecordTypeId) == SCOPE_INQUIRY) {return;}
 		Date finalPublished = null;
 		if(s.Id != null && frUtilMap != null) {
 			finalPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).finalPublishedDate : null;
