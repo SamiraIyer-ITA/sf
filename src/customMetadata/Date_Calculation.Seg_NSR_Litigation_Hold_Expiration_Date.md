@@ -48,15 +48,15 @@
     </values>
     <values>
         <field>Base_Date_Field_3_Name__c</field>
-        <value xsi:type="xsd:string">Actual_Final_Signature__c</value>
+        <value xsi:type="xsd:string">Published_Date__c</value>
     </values>
     <values>
         <field>Base_Date_Field_3_Object__c</field>
-        <value xsi:type="xsd:string">Segment__c</value>
+        <value xsi:type="xsd:string">Federal_Register__c</value>
     </values>
     <values>
         <field>Base_Date_Field_3_Type__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Final</value>
     </values>
     <values>
         <field>Base_Date_Field_4_Lookup_Field_Name__c</field>
