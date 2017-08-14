@@ -116,7 +116,7 @@
     </values>
     <values>
         <field>Conditional_Field_1_Name__c</field>
-        <value xsi:type="xsd:string">Deadline_for_Decision_on_How_to_Proceed__c</value>
+        <value xsi:type="xsd:string">Actual_Date_of_Decision_on_HoP__c</value>
     </values>
     <values>
         <field>Conditional_Field_1_Object__c</field>
