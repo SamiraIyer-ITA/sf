@@ -144,7 +144,7 @@
     </values>
     <values>
         <field>Conditional_Field_2_Name__c</field>
-        <value xsi:type="xsd:string">Next_Announcement_Date__c</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_2_Object__c</field>
@@ -152,11 +152,11 @@
     </values>
     <values>
         <field>Conditional_Field_2_Operator__c</field>
-        <value xsi:type="xsd:string">Not Equals To</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_2_Result__c</field>
-        <value xsi:type="xsd:string">Align</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_2_Type__c</field>
@@ -360,7 +360,7 @@
     </values>
     <values>
         <field>Number_of_Conditionals__c</field>
-        <value xsi:type="xsd:double">2.0</value>
+        <value xsi:type="xsd:double">1.0</value>
     </values>
     <values>
         <field>Order_of_Execution__c</field>
