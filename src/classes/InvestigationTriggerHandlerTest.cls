@@ -96,6 +96,14 @@ public class InvestigationTriggerHandlerTest {
 			return adFinalItcFR;
 		}
 	}
+	private static Federal_Register__c adOrderFR {
+		get {
+			if(adOrderFR == null) {
+				adOrderFR = [SELECT Id, Published_Date__c, Type__c FROM Federal_Register__c WHERE ADCVD_Order__c =: adOrder.Id AND Type__c =: 'Order' LIMIT 1];
+			}
+			return adOrderFR;
+		}
+	}
 	private static Federal_Register__c cvdPrelimFR {
 		get {
 			if(cvdPrelimFR == null) {
@@ -120,6 +128,14 @@ public class InvestigationTriggerHandlerTest {
 			return cvdFinalItcFR;
 		}
 	}
+	private static Federal_Register__c cvdOrderFR {
+		get {
+			if(cvdOrderFR == null) {
+				cvdOrderFR = [SELECT Id, Published_Date__c, Type__c FROM Federal_Register__c WHERE ADCVD_Order__c =: cvdOrder.Id AND Type__c =: 'Order' LIMIT 1];
+			}
+			return cvdOrderFR;
+		}
+	}
 	private static Petition__c adP{
 		get{
 			if (adP == null) {
@@ -136,6 +152,23 @@ public class InvestigationTriggerHandlerTest {
 			return cvdP;
 		}
 	}
+	private static ADCVD_Order__c adOrder{
+		get{
+			if (adOrder == null) {
+				adOrder = [SELECT Id FROM ADCVD_Order__c WHERE Investigation__c =: iAD.Id LIMIT 1];
+			}
+			return adOrder;
+		}
+	}
+	private static ADCVD_Order__c cvdOrder{
+		get{
+			if (cvdOrder == null) {
+				cvdOrder = [SELECT Id FROM ADCVD_Order__c WHERE Investigation__c =: iCVD.Id LIMIT 1];
+			}
+			return cvdOrder;
+		}
+	}
+	
 
 	@isTest static void initialize() {
 		Test.startTest();
@@ -146,8 +179,7 @@ public class InvestigationTriggerHandlerTest {
 	}
 
 	//setCalculatedPreliminarySignature
-	//Test has 2 parts that test two dates each: AD and CVD
-	@isTest static void setCalculatedPreliminarySignature() {
+	@isTest static void setADCalculatedPreliminarySignature() {
 		Test.startTest();
 		//AD investigation
 		//AD based on calculated
@@ -164,26 +196,28 @@ public class InvestigationTriggerHandlerTest {
 		update iAD;//update iAD, adds Prelim_Extension_of_days__c
 		//adP.Actual_Initiation_Signature__c is set, so compare Actual_Initiation_Signature__c + Prelim_Extension_of_days__c
 		testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(adP.Actual_Initiation_Signature__c.addDays(140).addDays(7));
+
+		Test.stopTest();
 		System.assertEquals(testActual,
 			[SELECT Id, Calculated_Preliminary_Signature__c FROM Investigation__c WHERE Id =: iAD.Id LIMIT 1].Calculated_Preliminary_Signature__c);
+	}
 
+	//setCalculatedPreliminarySignature
+	@isTest static void setCVDCalculatedPreliminarySignature() {
+		Test.startTest();
 		//CVD investigation
 		//CVD based on calculated
-		cvdP.Actual_Initiation_Signature__c = null;
-		update cvdP;//reset for CVD logic
 		//cvdP.Actual_Initiation_Signature__c is null, so compare Calculated_Initiation_Signature__c
 		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(cvdP.Calculated_Initiation_Signature__c.addDays(65));
 		System.assertEquals(testCalculated, 
 			[SELECT Id, Calculated_Preliminary_Signature__c FROM Investigation__c WHERE Id =: iCVD.Id LIMIT 1].Calculated_Preliminary_Signature__c);
-
 		//CVD based on actual
 		cvdP.Petition_Outcome__c = 'Initiated from Petition';
 		cvdP.Actual_Initiation_Signature__c = cvdP.Calculated_Initiation_Signature__c.addDays(-14);//set cvdP.Actual_Initiation_Signature__c
-		iCVD.Prelim_Extension_of_days__c = iCVD.Prelim_Extension_of_days__c == null ? 7 : 7;//add Prelim_Extension_of_days__c and test avoiding an NPE in this test
-		update cvdP;//update cvdP
-		update iCVD;//update iCVD, adds Prelim_Extension_of_days__c
+		update cvdP;//update cvdP		
+		update iCVD;
 		//cvdP.Actual_Initiation_Signature__c is set, so compare Actual_Initiation_Signature__c + Prelim_Extension_of_days__c
-		testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(cvdP.Actual_Initiation_Signature__c.addDays(65).addDays(7));
+		testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(cvdP.Actual_Initiation_Signature__c.addDays(65));
 
 		Test.stopTest();
 		System.assertEquals(testActual,
@@ -227,6 +261,8 @@ public class InvestigationTriggerHandlerTest {
 		update iCVD;
 		iCVD = null;//trigger a new query to database
 		//iCVD.Actual_Preliminary_Signature__c is null, so compare Calculated_Preliminary_Signature__c
+		System.debug(iCVD);
+		System.debug(iCVD.Petition__c);
 		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(iCVD.Calculated_Preliminary_Signature__c.addDays(31));
 		System.assertEquals(testCalculated,
 			[SELECT Id, Calc_Amended_Prelim_Determination_Sig__c FROM Investigation__c WHERE Id =: iCVD.Id LIMIT 1].Calc_Amended_Prelim_Determination_Sig__c);
@@ -606,8 +642,7 @@ public class InvestigationTriggerHandlerTest {
 			[SELECT Id, Estimated_Order_FR_Published__c FROM Investigation__c WHERE Id =: iCVD.Id LIMIT 1].Estimated_Order_FR_Published__c);
 	}
 	//setCalculatedPrelimExtensionRequestFile
-	//Test has 2 parts that test two dates each: AD and CVD
-	@isTest static void setCalculatedPrelimExtensionRequestFile() {
+	@isTest static void setADCalculatedPrelimExtensionRequestFile() {
 		Test.startTest();
 		//AD investigation
 		//AD based on calculated
@@ -622,9 +657,15 @@ public class InvestigationTriggerHandlerTest {
 		update adP;//update adP
 		//adP.Actual_Initiation_Signature__c is set, so compare Actual_Initiation_Signature__c
 		testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(adP.Actual_Initiation_Signature__c.addDays(115));
+
+		Test.stopTest();
 		System.assertEquals(testActual,
 			[SELECT Id, Calculated_Prelim_Extension_Request_File__c FROM Investigation__c WHERE Id =: iAD.Id LIMIT 1].Calculated_Prelim_Extension_Request_File__c);
+	}
 
+	//setCalculatedPrelimExtensionRequestFile
+	@isTest static void setCVDCalculatedPrelimExtensionRequestFile() {
+		Test.startTest();
 		//CVD investigation
 		//CVD based on calculated
 		cvdP.Actual_Initiation_Signature__c = null;
@@ -646,8 +687,7 @@ public class InvestigationTriggerHandlerTest {
 			[SELECT Id, Calculated_Prelim_Extension_Request_File__c FROM Investigation__c WHERE Id =: iCVD.Id LIMIT 1].Calculated_Prelim_Extension_Request_File__c);
 	}
 	//setCalculatedPostponementOfPrelimDeterFR
-	//Test has 2 parts that test two dates each: AD and CVD
-	@isTest static void setCalculatedPostponementOfPrelimDeterFR() {
+	@isTest static void setADCalculatedPostponementOfPrelimDeterFR() {
 		Test.startTest();
 		//AD investigation
 		//AD based on calculated
@@ -662,9 +702,15 @@ public class InvestigationTriggerHandlerTest {
 		update adP;//update adP
 		//adP.Actual_Initiation_Signature__c is set, so compare Actual_Initiation_Signature__c
 		testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(adP.Actual_Initiation_Signature__c.addDays(120));
+
+		Test.stopTest();
 		System.assertEquals(testActual,
 			[SELECT Id, Calculated_Postponement_of_PrelimDeterFR__c FROM Investigation__c WHERE Id =: iAD.Id LIMIT 1].Calculated_Postponement_of_PrelimDeterFR__c);
+	}
 
+	//setCalculatedPostponementOfPrelimDeterFR
+	@isTest static void setCVDCalculatedPostponementOfPrelimDeterFR() {
+		Test.startTest();
 		//CVD investigation
 		//CVD based on calculated
 		cvdP.Actual_Initiation_Signature__c = null;
@@ -675,9 +721,15 @@ public class InvestigationTriggerHandlerTest {
 			[SELECT Id, Calculated_Postponement_of_PrelimDeterFR__c FROM Investigation__c WHERE Id =: iCVD.Id LIMIT 1].Calculated_Postponement_of_PrelimDeterFR__c);
 
 		//CVD based on actual
+		PetitionSelector.allPetitions = null;
 		cvdP.Petition_Outcome__c = 'Initiated from Petition';
+		System.debug(loggingLevel.Error, '*** iCVD.Petition_Initiation_Signature__c: ' + iCVD.Petition_Initiation_Signature__c);
+		System.debug(loggingLevel.Error, '*** cvdP.Actual_Initiation_Signature__c: ' + cvdP.Actual_Initiation_Signature__c);
 		cvdP.Actual_Initiation_Signature__c = cvdP.Calculated_Initiation_Signature__c.addDays(-14);//set cvdP.Actual_Initiation_Signature__c
+		System.debug(loggingLevel.Error, '*** cvdP.Actual_Initiation_Signature__c: ' + cvdP.Actual_Initiation_Signature__c);
 		update cvdP;//update cvdP
+		System.debug(loggingLevel.Error, '*** cvdP.Actual_Initiation_Signature__c: ' + cvdP.Actual_Initiation_Signature__c);
+		System.debug(loggingLevel.Error, '*** iCVD.Petition_Initiation_Signature__c: ' + iCVD.Petition_Initiation_Signature__c);
 		//cvdP.Actual_Initiation_Signature__c is set, so compare Actual_Initiation_Signature__c
 		testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(cvdP.Actual_Initiation_Signature__c.addDays(45));
 
@@ -710,8 +762,7 @@ public class InvestigationTriggerHandlerTest {
 			[SELECT Id, Calculated_ITC_Prelim_Determination__c FROM Investigation__c WHERE Id =: iCVD.Id LIMIT 1].Calculated_ITC_Prelim_Determination__c);
 	}
 	//setTerminationofSuspensionGapPeriodBeg
-	//Test has 2 parts: AD and CVD
-	@isTest static void setTerminationofSuspensionGapPeriodBeg() {
+	@isTest static void setADTerminationofSuspensionGapPeriodBeg() {
 		Test.startTest();
 		//AD based on FR Published_Date__c with Type__c Preliminary without Final_Extension_of_days__c
 		//adPrelimFR.Published_Date__c is set, so compare adPrelimFR.Published_Date__c
@@ -724,9 +775,14 @@ public class InvestigationTriggerHandlerTest {
 		iAD = null;//trigger a new query to database
 		//adPrelimFR.Published_Date__c is set, so compare adPrelimFR.Published_Date__c + 60 (which is in constant and triggered by existence of Final_Extension_of_days__c)
 		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(adPrelimFR.Published_Date__c.addDays(181));
+
+		Test.stopTest();
 		System.assertEquals(testCalculated,
 			[SELECT Id, Termination_of_Suspension_Gap_Period_Beg__c FROM Investigation__c WHERE Id =: iAD.Id LIMIT 1].Termination_of_Suspension_Gap_Period_Beg__c);
+	}
 
+	@isTest static void setCVDTerminationofSuspensionGapPeriodBeg() {
+		Test.startTest();
 		//CVD Investigation
 		//CVD based on FR Published_Date__c with Type__c Preliminary (Final_Extension_of_days__c does not matter)
 		//cvdPrelimFR.Published_Date__c is set, so compare cvdPrelimFR.Published_Date__c
@@ -734,7 +790,8 @@ public class InvestigationTriggerHandlerTest {
 
 		Test.stopTest();
 		System.assertEquals(testCalculated,
-			[SELECT Id, Termination_of_Suspension_Gap_Period_Beg__c FROM Investigation__c WHERE Id =: iCVD.Id LIMIT 1].Termination_of_Suspension_Gap_Period_Beg__c);	}
+			[SELECT Id, Termination_of_Suspension_Gap_Period_Beg__c FROM Investigation__c WHERE Id =: iCVD.Id LIMIT 1].Termination_of_Suspension_Gap_Period_Beg__c);
+	}
 
 	//setLitigationHoldExpirationDate
 	@isTest static void setLitigationHoldExpirationDateNegativeOutcomes() {
@@ -743,11 +800,11 @@ public class InvestigationTriggerHandlerTest {
 		//Negative Tests for error on Outcome without FR
 		iAD.Investigation_Outcome__c = 'ITC Negative Prelim';
 		String insufficientDataError = attemptUpsert(iAD);
-		System.assert(insufficientDataError.contains('You must enter an ITC Preliminary FR'));
+		System.assert(insufficientDataError.contains('You must enter a ITC Preliminary Federal Register'));
 
 		iAD.Investigation_Outcome__c = 'ITC Negative Final';
 		insufficientDataError = attemptUpsert(iAD);
-		System.assert(insufficientDataError.contains('You must enter an ITC Final FR'));
+		System.assert(insufficientDataError.contains('You must enter a ITC Final Federal Register'));
 
 		iAD.Investigation_Outcome__c = 'DOC Negative Final';
 		insufficientDataError = attemptUpsert(iAD);
@@ -762,8 +819,8 @@ public class InvestigationTriggerHandlerTest {
 		newFRList.add(setFR(iAD.Id, 'Final', false));
 		insert newFRList;
 
-		iAd.Actual_Preliminary_Signature__c = iAD.Calculated_Preliminary_Signature__c.addDays(-7);
-		iAd.Actual_Final_Signature__c = iAD.Calculated_Final_Signature__c.addDays(-7);
+		iAD.Actual_Preliminary_Signature__c = iAD.Calculated_Preliminary_Signature__c.addDays(-7);
+		iAD.Actual_Final_Signature__c = iAD.Calculated_Final_Signature__c.addDays(-7);
 		iAD.Investigation_Outcome__c = '';
 		update iAD;
 
@@ -771,7 +828,7 @@ public class InvestigationTriggerHandlerTest {
 		insufficientDataError = attemptUpsert(iAD);
 
 		Test.stopTest();
-		System.assert(insufficientDataError.contains('You must enter an ITC Final FR'));
+		System.assert(insufficientDataError.contains('You must create an ADCVD Order for this Investigation and add an Order Federal Register'));
 	}
 
 	//setLitigationHoldExpirationDate
@@ -847,16 +904,16 @@ public class InvestigationTriggerHandlerTest {
 		List<Federal_Register__c> newFRList = new List<Federal_Register__c>();
 		newFRList.add(setFR(iAD.Id, 'Preliminary', false));
 		newFRList.add(setFR(iAD.Id, 'Final', false));
-		newFRList.add(setFR(iAD.Id, 'ITC Final', false));
+		newFRList.add(TestUtils.createFR(adOrder.Id, 'ADCVD_Order__c', System.today(), 'Order', false));
 		insert newFRList;
-		iAd.Actual_Preliminary_Signature__c = iAD.Calculated_Preliminary_Signature__c.addDays(-7);
-		iAd.Actual_Final_Signature__c = iAD.Calculated_Final_Signature__c.addDays(-7);
+		iAD.Actual_Preliminary_Signature__c = iAD.Calculated_Preliminary_Signature__c.addDays(-7);
+		iAD.Actual_Final_Signature__c = iAD.Calculated_Final_Signature__c.addDays(-7);
 		iAD.Investigation_Outcome__c = 'Order';
 		update iAD;
 		
 		Test.stopTest();
 		System.assertEquals('Hold', [SELECT Status__c FROM Investigation__c WHERE Id =: iAD.Id LIMIT 1].Status__c);
-		System.assertEquals(ADCVD_TollingDayUtility.rollForwardNextBusinessDay(adFinalItcFR.Published_Date__c.addDays(45)), 
+		System.assertEquals(ADCVD_TollingDayUtility.rollForwardNextBusinessDay(adOrderFR.Published_Date__c.addDays(45)), 
 			[SELECT Litigation_Hold_Expiration_Date__c FROM Investigation__c WHERE Id =: iAD.Id LIMIT 1].Litigation_Hold_Expiration_Date__c);
 	}
 
@@ -868,7 +925,7 @@ public class InvestigationTriggerHandlerTest {
 		List<Federal_Register__c> newFRList = new List<Federal_Register__c>();
 		newFRList.add(setFR(iCVD.Id, 'Preliminary', false));
 		newFRList.add(setFR(iCVD.Id, 'Final', false));
-		newFRList.add(setFR(iCVD.Id, 'ITC Final', false));
+		newFRList.add(TestUtils.createFR(cvdOrder.Id, 'ADCVD_Order__c', System.today(), 'Order', false));
 		insert newFRList;
 
 		//Non-NAFTA Country Hold Time
@@ -882,7 +939,7 @@ public class InvestigationTriggerHandlerTest {
 		
 		Test.stopTest();
 		System.assertEquals('Hold', [SELECT Status__c FROM Investigation__c WHERE Id =: iCVD.Id LIMIT 1].Status__c);
-		System.assertEquals(ADCVD_TollingDayUtility.rollForwardNextBusinessDay(cvdFinalItcFR.Published_Date__c.addDays(30)), 
+		System.assertEquals(ADCVD_TollingDayUtility.rollForwardNextBusinessDay(cvdOrderFR.Published_Date__c.addDays(30)), 
 			[SELECT Litigation_Hold_Expiration_Date__c FROM Investigation__c WHERE Id =: iCVD.Id LIMIT 1].Litigation_Hold_Expiration_Date__c);
 
 	}
@@ -1623,6 +1680,8 @@ public class InvestigationTriggerHandlerTest {
 		Federal_Register__c testAdPrelimFR = TestUtils.createFR(testADinvestigation.Id, 'Investigation__c', testPublishedDate.addDays(210), 'Preliminary', true);
 		Investigation__c testCVDinvestigation = TestUtils.createInvestigation('CVD', testCVDPetition, true);
 		Federal_Register__c testCvdPrelimFR = TestUtils.createFR(testCVDinvestigation.Id, 'Investigation__c', testPublishedDate.addDays(140), 'Preliminary', true);
+		ADCVD_Order__c testAdOrder = TestUtils.createOrder(testADinvestigation, true);
+		ADCVD_Order__c testCvdOrder = TestUtils.createOrder(testCVDinvestigation, true);
 	}
 
 	private static Federal_Register__c setFR(Id parentId, String frType, Boolean doInsert) {
