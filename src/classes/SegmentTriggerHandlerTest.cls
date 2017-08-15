@@ -89,7 +89,7 @@ public class SegmentTriggerHandlerTest {
 				Id recordTypeId = utils.getRecordTypeIdMap('Segment__c').get('New_Shipper_Review');
 				nsSeg = [SELECT Id, RecordTypeId, Prelim_Extension__c, Calculated_Preliminary_Signature__c, Calculated_Initiation_Signature__c,
 								Actual_Initiation_Signature__c, Calculated_Final_Signature__c, Actual_Preliminary_Signature__c, Actual_Final_Signature__c, 
-								Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, 
+								Initiation_Issues_Due_to_DAS__c, Initiation_Concurrence_Due_to_DAS__c, Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, 
 								Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, Amend_Final_Issues_Due_to_DAS__c, Amend_Final_Concurrence_Due_to_DAS__c, 
 								Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, 
 								Preliminary_Announcement_Date__c, Final_Announcement_Date__c, Amended_Final_Announcement_Date__c, Calculated_Amended_Final_Signature__c 
@@ -104,7 +104,8 @@ public class SegmentTriggerHandlerTest {
 				Id recordTypeId = utils.getRecordTypeIdMap('Segment__c').get('Scope_Inquiry');
 				siSeg = [SELECT Id, Deadline_for_Decision_on_How_to_Proceed__c, Initiation_Extension_of_days__c, RecordTypeId, Request_Filed__c, 
 								Prelim_Extension__c, Calculated_Preliminary_Signature__c, Actual_Date_of_Decision_on_HoP__c, Calculated_Final_Signature__c, 
-								Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, Actual_Final_Signature__c, 
+								Decision_on_HOP_Issues_Due_to_DAS__c, Decision_on_HOP_Concurrence_Due_to_DAS__c, Prelim_Issues_Due_to_DAS__c, 
+								Prelim_Concurrence_Due_to_DAS__c, Actual_Final_Signature__c, 
 								Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, 
 								Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, 
 								Preliminary_Announcement_Date__c, Final_Announcement_Date__c
@@ -134,7 +135,8 @@ public class SegmentTriggerHandlerTest {
 				Id recordTypeId = utils.getRecordTypeIdMap('Segment__c').get('Anti_Circumvention_Review');
 				acSeg = [SELECT Id, RecordTypeId, Prelim_Extension__c, Initiation_Extension_of_days__c, Calculated_Preliminary_Signature__c, 
 									Calculated_Final_Signature__c, Actual_Initiation_Signature__c, Calculated_Initiation_Signature__c,
-									Application_Accepted__c, Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, 
+									Application_Accepted__c, Initiation_Issues_Due_to_DAS__c, Initiation_Concurrence_Due_to_DAS__c, 
+									Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, 
 									Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, Actual_Final_Signature__c, 
 									Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, 
 									Preliminary_Announcement_Date__c, Final_Announcement_Date__c 
@@ -149,7 +151,8 @@ public class SegmentTriggerHandlerTest {
 				Id recordTypeId = utils.getRecordTypeIdMap('Segment__c').get('Changed_Circumstances_Review');
 				ccSeg = [SELECT Id, RecordTypeId, Prelim_Extension__c, Calculated_Preliminary_Signature__c, Is_This_Review_Expedited__c,
 									Calculated_Final_Signature__c , Actual_Initiation_Signature__c, Calculated_Initiation_Signature__c,
-									All_parties_in_agreement_to_the_outcome__c, Request_Filed__c, Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, 
+									All_parties_in_agreement_to_the_outcome__c, Request_Filed__c, Initiation_Issues_Due_to_DAS__c, Initiation_Concurrence_Due_to_DAS__c, 
+									Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, 
 									Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, Actual_Final_Signature__c, 
 									Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, 
 									Preliminary_Announcement_Date__c, Final_Announcement_Date__c
@@ -2005,7 +2008,7 @@ public class SegmentTriggerHandlerTest {
 
 		//setup
 		setStartDates();
-		setExtensions();
+		siSeg.Actual_Date_of_Decision_on_HoP__c = null;
 		clearFormal();
 		getNewSegs();
 		System.assertEquals(siSeg.Deadline_for_Decision_on_How_to_Proceed__c, siSeg.Next_Major_Deadline__c);
@@ -2196,10 +2199,12 @@ public class SegmentTriggerHandlerTest {
 
 		//setup start dates
 		setStartDates();
-		setExtensions();
+		siSeg.Actual_Date_of_Decision_on_HoP__c = null;
+		siSeg.Decision_on_How_to_Proceed__c = '';
+		update siSeg;
 		getNewSegs();
 
-		System.assertEquals(siSeg.Deadline_for_Decision_on_How_to_Proceed__c, siSeg.Next_Announcement_Date__c);
+		System.assertEquals(null, siSeg.Next_Announcement_Date__c);
 
 		siSeg.Actual_Date_of_Decision_on_HoP__c = System.today().toStartOfWeek().addDays(-4);
 		siSeg.Decision_on_How_to_Proceed__c = 'Formal';
@@ -2371,6 +2376,21 @@ public class SegmentTriggerHandlerTest {
 		setStartDates();
 		setExtensions();
 		getNewSegs();
+		System.assertEquals(nsSeg.Initiation_Issues_Due_to_DAS__c, nsSeg.Next_Due_to_DAS_Deadline__c);
+
+		nsSeg.Actual_Initiation_Issues_to_DAS__c = nsSeg.Initiation_Issues_Due_to_DAS__c;
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Initiation_Concurrence_Due_to_DAS__c, nsSeg.Next_Due_to_DAS_Deadline__c);
+
+		nsSeg.Actual_Initiation_Concurrence_to_DAS__c = nsSeg.Initiation_Concurrence_Due_to_DAS__c;
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Calculated_Initiation_Signature__c, nsSeg.Next_Due_to_DAS_Deadline__c);
+
+		nsSeg.Actual_Initiation_Signature__c = nsSeg.Calculated_Initiation_Signature__c;
+		update nsSeg;
+		nsSeg = null;
 		System.assertEquals(nsSeg.Prelim_Issues_Due_to_DAS__c, nsSeg.Next_Due_to_DAS_Deadline__c);
 
 		nsSeg.Actual_Prelim_Issues_to_DAS__c = nsSeg.Prelim_Issues_Due_to_DAS__c;
@@ -2422,62 +2442,937 @@ public class SegmentTriggerHandlerTest {
 		System.assertEquals(null, nsSeg.Next_Due_to_DAS_Deadline__c);
 	}
 	//Next Due to DAS
-	@isTest static void setNextDueToDasAR() {
+	@isTest static void setNextDueToDasAntiCircReviewWithPrelim() {
 		Test.startTest();
 
 		//setup
 		setStartDates();
 		setExtensions();
 		getNewSegs();
-		System.assertEquals(adminSeg.Prelim_Issues_Due_to_DAS__c, adminSeg.Next_Due_to_DAS_Deadline__c);
+		System.assertEquals(acSeg.Initiation_Issues_Due_to_DAS__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Actual_Initiation_Issues_to_DAS__c = acSeg.Initiation_Issues_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Initiation_Concurrence_Due_to_DAS__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Actual_Initiation_Concurrence_to_DAS__c = acSeg.Initiation_Concurrence_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Calculated_Initiation_Signature__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Type_of_Circumvention_Inquiry__c = 'Later-Developed Merchandise';
+		acSeg.Actual_Initiation_Signature__c = acSeg.Calculated_Initiation_Signature__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Prelim_Issues_Due_to_DAS__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Type_of_Circumvention_Inquiry__c = 'Minor Altercations of Merchandise';
+		acSeg.Preliminary_Determination__c = 'Yes';
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Prelim_Issues_Due_to_DAS__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Actual_Prelim_Issues_to_DAS__c = acSeg.Prelim_Issues_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Prelim_Concurrence_Due_to_DAS__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Actual_Prelim_Concurrence_to_DAS__c = acSeg.Prelim_Concurrence_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Calculated_Preliminary_Signature__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Actual_Preliminary_Signature__c = acSeg.Calculated_Preliminary_Signature__c.addDays(-7);
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Final_Issues_Due_to_DAS__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Actual_Final_Issues_to_DAS__c = acSeg.Final_Issues_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Final_Concurrence_Due_to_DAS__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Actual_Final_Concurrence_to_DAS__c = acSeg.Final_Concurrence_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Calculated_Final_Signature__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Actual_Final_Signature__c = acSeg.Calculated_Final_Signature__c.addDays(-7);
+		update acSeg;
+		acSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, acSeg.Next_Due_to_DAS_Deadline__c);
+	}
+	//Next Due to DAS
+	@isTest static void setNextDueToDasAntiCircReviewWithoutPrelim() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(acSeg.Initiation_Issues_Due_to_DAS__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Actual_Initiation_Issues_to_DAS__c = acSeg.Initiation_Issues_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Initiation_Concurrence_Due_to_DAS__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Actual_Initiation_Concurrence_to_DAS__c = acSeg.Initiation_Concurrence_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Calculated_Initiation_Signature__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Type_of_Circumvention_Inquiry__c = 'Minor Altercations of Merchandise';
+		acSeg.Preliminary_Determination__c = 'No';
+		acSeg.Actual_Initiation_Signature__c = acSeg.Calculated_Initiation_Signature__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Final_Issues_Due_to_DAS__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Actual_Final_Issues_to_DAS__c = acSeg.Final_Issues_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Final_Concurrence_Due_to_DAS__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Actual_Final_Concurrence_to_DAS__c = acSeg.Final_Concurrence_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Calculated_Final_Signature__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Actual_Final_Signature__c = acSeg.Calculated_Final_Signature__c.addDays(-7);
+		update acSeg;
+		acSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, acSeg.Next_Due_to_DAS_Deadline__c);
+	}
+	//Next Due to DAS
+	@isTest static void setNextDueToDasChangedCircReviewWithPrelim() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(ccSeg.Initiation_Issues_Due_to_DAS__c, ccSeg.Next_Due_to_DAS_Deadline__c);
+
+		ccSeg.Actual_Initiation_Issues_to_DAS__c = ccSeg.Initiation_Issues_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Initiation_Concurrence_Due_to_DAS__c, ccSeg.Next_Due_to_DAS_Deadline__c);
+
+		ccSeg.Actual_Initiation_Concurrence_to_DAS__c = ccSeg.Initiation_Concurrence_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Calculated_Initiation_Signature__c, ccSeg.Next_Due_to_DAS_Deadline__c);
+
+		ccSeg.All_parties_in_agreement_to_the_outcome__c = 'No';
+		ccSeg.Actual_Initiation_Signature__c = ccSeg.Calculated_Initiation_Signature__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Prelim_Issues_Due_to_DAS__c, ccSeg.Next_Due_to_DAS_Deadline__c);
+
+		ccSeg.Actual_Prelim_Issues_to_DAS__c = ccSeg.Prelim_Issues_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Prelim_Concurrence_Due_to_DAS__c, ccSeg.Next_Due_to_DAS_Deadline__c);
+
+		ccSeg.Actual_Prelim_Concurrence_to_DAS__c = ccSeg.Prelim_Concurrence_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Calculated_Preliminary_Signature__c, ccSeg.Next_Due_to_DAS_Deadline__c);
+
+		ccSeg.Actual_Preliminary_Signature__c = ccSeg.Calculated_Preliminary_Signature__c.addDays(-7);
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Final_Issues_Due_to_DAS__c, ccSeg.Next_Due_to_DAS_Deadline__c);
+
+		ccSeg.Actual_Final_Issues_to_DAS__c = ccSeg.Final_Issues_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Final_Concurrence_Due_to_DAS__c, ccSeg.Next_Due_to_DAS_Deadline__c);
+
+		ccSeg.Actual_Final_Concurrence_to_DAS__c = ccSeg.Final_Concurrence_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Calculated_Final_Signature__c, ccSeg.Next_Due_to_DAS_Deadline__c);
+
+		ccSeg.Actual_Final_Signature__c = ccSeg.Calculated_Final_Signature__c.addDays(-7);
+		update ccSeg;
+		ccSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, ccSeg.Next_Due_to_DAS_Deadline__c);
+	}
+	//Next Due to DAS
+	@isTest static void setNextDueToDasChangedCircReviewWithoutPrelim() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(ccSeg.Initiation_Issues_Due_to_DAS__c, ccSeg.Next_Due_to_DAS_Deadline__c);
+
+		ccSeg.Actual_Initiation_Issues_to_DAS__c = ccSeg.Initiation_Issues_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Initiation_Concurrence_Due_to_DAS__c, ccSeg.Next_Due_to_DAS_Deadline__c);
+
+		ccSeg.Actual_Initiation_Concurrence_to_DAS__c = ccSeg.Initiation_Concurrence_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Calculated_Initiation_Signature__c, ccSeg.Next_Due_to_DAS_Deadline__c);
+
+		ccSeg.All_parties_in_agreement_to_the_outcome__c = 'Yes';
+		ccSeg.Actual_Initiation_Signature__c = ccSeg.Calculated_Initiation_Signature__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Final_Issues_Due_to_DAS__c, ccSeg.Next_Due_to_DAS_Deadline__c);
+
+		ccSeg.Actual_Final_Issues_to_DAS__c = ccSeg.Final_Issues_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Final_Concurrence_Due_to_DAS__c, ccSeg.Next_Due_to_DAS_Deadline__c);
+
+		ccSeg.Actual_Final_Concurrence_to_DAS__c = ccSeg.Final_Concurrence_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Calculated_Final_Signature__c, ccSeg.Next_Due_to_DAS_Deadline__c);
+
+		ccSeg.Actual_Final_Signature__c = ccSeg.Calculated_Final_Signature__c.addDays(-7);
+		update ccSeg;
+		ccSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, ccSeg.Next_Due_to_DAS_Deadline__c);
+	}
+	//Next Due to DAS
+	@isTest static void setNextDueToDasScopeInquiryWithPrelim() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		siSeg.Actual_Date_of_Decision_on_HoP__c = null;
+		siSeg.Decision_on_How_to_Proceed__c = '';
+		update siSeg;
+		getNewSegs();
+		System.assertEquals(siSeg.Decision_on_HOP_Issues_Due_to_DAS__c, siSeg.Next_Due_to_DAS_Deadline__c);
+
+		siSeg.Actual_Decision_on_HOP_Issues_to_DAS__c = siSeg.Decision_on_HOP_Issues_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Decision_on_HOP_Concurrence_Due_to_DAS__c, siSeg.Next_Due_to_DAS_Deadline__c);
+
+		siSeg.Actual_Decision_on_HOP_Concurrence_toDAS__c = siSeg.Decision_on_HOP_Concurrence_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Deadline_for_Decision_on_How_to_Proceed__c, siSeg.Next_Due_to_DAS_Deadline__c);
+
+		siSeg.Decision_on_How_to_Proceed__c = 'Formal';
+		siSeg.Actual_Date_of_Decision_on_HoP__c = siSeg.Deadline_for_Decision_on_How_to_Proceed__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Prelim_Issues_Due_to_DAS__c, siSeg.Next_Due_to_DAS_Deadline__c);
+
+		siSeg.Actual_Prelim_Issues_to_DAS__c = siSeg.Prelim_Issues_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Prelim_Concurrence_Due_to_DAS__c, siSeg.Next_Due_to_DAS_Deadline__c);
+
+		siSeg.Actual_Prelim_Concurrence_to_DAS__c = siSeg.Prelim_Concurrence_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Calculated_Preliminary_Signature__c, siSeg.Next_Due_to_DAS_Deadline__c);
+
+		siSeg.Actual_Preliminary_Signature__c = siSeg.Calculated_Preliminary_Signature__c.addDays(-7);
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Final_Issues_Due_to_DAS__c, siSeg.Next_Due_to_DAS_Deadline__c);
+
+		siSeg.Actual_Final_Issues_to_DAS__c = siSeg.Final_Issues_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Final_Concurrence_Due_to_DAS__c, siSeg.Next_Due_to_DAS_Deadline__c);
+
+		siSeg.Actual_Final_Concurrence_to_DAS__c = siSeg.Final_Concurrence_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Calculated_Final_Signature__c, siSeg.Next_Due_to_DAS_Deadline__c);
+
+		siSeg.Actual_Final_Signature__c = siSeg.Calculated_Final_Signature__c.addDays(-7);
+		update siSeg;
+		siSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, siSeg.Next_Due_to_DAS_Deadline__c);
+	}
+	//Next Due to DAS
+	@isTest static void setNextDueToDasScopeInquiryWithoutPrelim() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		siSeg.Actual_Date_of_Decision_on_HoP__c = null;
+		clearFormal();
+		getNewSegs();
+		System.assertEquals(siSeg.Decision_on_HOP_Issues_Due_to_DAS__c, siSeg.Next_Due_to_DAS_Deadline__c);
+
+		siSeg.Actual_Decision_on_HOP_Issues_to_DAS__c = siSeg.Decision_on_HOP_Issues_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Decision_on_HOP_Concurrence_Due_to_DAS__c, siSeg.Next_Due_to_DAS_Deadline__c);
+
+		siSeg.Actual_Decision_on_HOP_Concurrence_toDAS__c = siSeg.Decision_on_HOP_Concurrence_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Deadline_for_Decision_on_How_to_Proceed__c, siSeg.Next_Due_to_DAS_Deadline__c);
+
+		siSeg.Decision_on_How_to_Proceed__c = 'Informal';
+		siSeg.Actual_Date_of_Decision_on_HoP__c = siSeg.Deadline_for_Decision_on_How_to_Proceed__c;
+		update siSeg;
+		siSeg = null;
+		
+		Test.stopTest();
+		System.assertEquals(null, siSeg.Next_Due_to_DAS_Deadline__c);
+	}
+	//Next Due to DAS
+	@isTest static void setNextDueToDasSunsetReviewWithPrelim() {
+		Test.startTest();
+
+		//setup
+		setFR(ssSeg.Id, 'Initiation');
+		ss240();
+		getNewSegs();
+		System.assertEquals(ssSeg.Prelim_Issues_Due_to_DAS__c, ssSeg.Next_Due_to_DAS_Deadline__c);
+
+		ssSeg.Actual_Prelim_Issues_to_DAS__c = ssSeg.Prelim_Issues_Due_to_DAS__c;
+		update ssSeg;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Prelim_Concurrence_Due_to_DAS__c, ssSeg.Next_Due_to_DAS_Deadline__c);
+
+		ssSeg.Actual_Prelim_Concurrence_to_DAS__c = ssSeg.Prelim_Concurrence_Due_to_DAS__c;
+		update ssSeg;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Calculated_Preliminary_Signature__c, ssSeg.Next_Due_to_DAS_Deadline__c);
+
+		ssSeg.Actual_Preliminary_Signature__c = ssSeg.Calculated_Preliminary_Signature__c.addDays(-7);
+		update ssSeg;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Final_Issues_Due_to_DAS__c, ssSeg.Next_Due_to_DAS_Deadline__c);
+
+		ssSeg.Actual_Final_Issues_to_DAS__c = ssSeg.Final_Issues_Due_to_DAS__c;
+		update ssSeg;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Final_Concurrence_Due_to_DAS__c, ssSeg.Next_Due_to_DAS_Deadline__c);
+
+		ssSeg.Actual_Final_Concurrence_to_DAS__c = ssSeg.Final_Concurrence_Due_to_DAS__c;
+		update ssSeg;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Calculated_Final_Signature__c, ssSeg.Next_Due_to_DAS_Deadline__c);
+
+		ssSeg.Actual_Final_Signature__c = ssSeg.Calculated_Final_Signature__c.addDays(-7);
+		update ssSeg;
+		ssSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, ssSeg.Next_Due_to_DAS_Deadline__c);
+	}
+	//Next Due to DAS
+	@isTest static void setNextDueToDasSunsetReviewWithoutPrelim() {
+		Test.startTest();
+
+		//setup
+		setFR(ssSeg.Id, 'Initiation');
+		ss90();
+		getNewSegs();
+		System.assertEquals(ssSeg.Final_Issues_Due_to_DAS__c, ssSeg.Next_Due_to_DAS_Deadline__c);
+
+		ssSeg.Actual_Final_Issues_to_DAS__c = ssSeg.Final_Issues_Due_to_DAS__c;
+		update ssSeg;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Final_Concurrence_Due_to_DAS__c, ssSeg.Next_Due_to_DAS_Deadline__c);
+
+		ssSeg.Actual_Final_Concurrence_to_DAS__c = ssSeg.Final_Concurrence_Due_to_DAS__c;
+		update ssSeg;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Calculated_Final_Signature__c, ssSeg.Next_Due_to_DAS_Deadline__c);
+
+		ssSeg.Actual_Final_Signature__c = ssSeg.Calculated_Final_Signature__c.addDays(-7);
+		update ssSeg;
+		ssSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, ssSeg.Next_Due_to_DAS_Deadline__c);
+	}
+
+	//Next Office Deadline
+	@isTest static void setNextOfficeAdminReview() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(adminSeg.Prelim_Team_Meeting_Deadline__c, adminSeg.Next_Office_Deadline__c);
+
+		adminSeg.Final_Date_of_Anniversary_Month__c = System.today().addDays(-245);
+		update adminSeg;
+		adminSeg = null;
+		System.assertEquals(adminSeg.Prelim_Issues_Due_to_DAS__c, adminSeg.Next_Office_Deadline__c);
 
 		adminSeg.Actual_Prelim_Issues_to_DAS__c = adminSeg.Prelim_Issues_Due_to_DAS__c;
 		update adminSeg;
 		adminSeg = null;
-		System.assertEquals(adminSeg.Prelim_Concurrence_Due_to_DAS__c, adminSeg.Next_Due_to_DAS_Deadline__c);
+		System.assertEquals(adminSeg.Prelim_Concurrence_Due_to_DAS__c, adminSeg.Next_Office_Deadline__c);
 
 		adminSeg.Actual_Prelim_Concurrence_to_DAS__c = adminSeg.Prelim_Concurrence_Due_to_DAS__c;
 		update adminSeg;
 		adminSeg = null;
-		System.assertEquals(adminSeg.Calculated_Preliminary_Signature__c, adminSeg.Next_Due_to_DAS_Deadline__c);
+		System.assertEquals(adminSeg.Calculated_Preliminary_Signature__c, adminSeg.Next_Office_Deadline__c);
 
-		adminSeg.Actual_Preliminary_Signature__c = adminSeg.Calculated_Preliminary_Signature__c.addDays(-7);
+		adminSeg.Actual_Preliminary_Signature__c = System.today().addDays(-7);
 		update adminSeg;
 		adminSeg = null;
-		System.assertEquals(adminSeg.Final_Issues_Due_to_DAS__c, adminSeg.Next_Due_to_DAS_Deadline__c);
+		System.assertEquals(adminSeg.Final_Team_Meeting_Deadline__c, adminSeg.Next_Office_Deadline__c);
+
+		adminSeg.Actual_Preliminary_Signature__c = System.today().addDays(-28);
+		update adminSeg;
+		adminSeg = null;
+		System.assertEquals(adminSeg.Final_Issues_Due_to_DAS__c, adminSeg.Next_Office_Deadline__c);
 
 		adminSeg.Will_you_Amend_the_Final__c = 'Yes';
 		adminSeg.Actual_Final_Issues_to_DAS__c = adminSeg.Final_Issues_Due_to_DAS__c;
 		update adminSeg;
 		adminSeg = null;
-		System.assertEquals(adminSeg.Final_Concurrence_Due_to_DAS__c, adminSeg.Next_Due_to_DAS_Deadline__c);
+		System.assertEquals(adminSeg.Final_Concurrence_Due_to_DAS__c, adminSeg.Next_Office_Deadline__c);
 
 		adminSeg.Actual_Final_Concurrence_to_DAS__c = adminSeg.Final_Concurrence_Due_to_DAS__c;
 		update adminSeg;
 		adminSeg = null;
-		System.assertEquals(adminSeg.Calculated_Final_Signature__c, adminSeg.Next_Due_to_DAS_Deadline__c);
+		System.assertEquals(adminSeg.Calculated_Final_Signature__c, adminSeg.Next_Office_Deadline__c);
 
 		adminSeg.Actual_Final_Signature__c = adminSeg.Calculated_Final_Signature__c.addDays(-7);
 		update adminSeg;
 		adminSeg = null;
-		System.assertEquals(adminSeg.Amend_Final_Issues_Due_to_DAS__c, adminSeg.Next_Due_to_DAS_Deadline__c);
+		System.assertEquals(adminSeg.Amend_Final_Issues_Due_to_DAS__c, adminSeg.Next_Office_Deadline__c);
 
 		adminSeg.Actual_Amend_Final_Issues_to_DAS__c = adminSeg.Amend_Final_Issues_Due_to_DAS__c;
 		update adminSeg;
 		adminSeg = null;
-		System.assertEquals(adminSeg.Amend_Final_Concurrence_Due_to_DAS__c, adminSeg.Next_Due_to_DAS_Deadline__c);
+		System.assertEquals(adminSeg.Amend_Final_Concurrence_Due_to_DAS__c, adminSeg.Next_Office_Deadline__c);
 
 		adminSeg.Actual_Amend_Final_Concurrence_to_DAS__c = adminSeg.Amend_Final_Concurrence_Due_to_DAS__c;
 		update adminSeg;
 		adminSeg = null;
-		System.assertEquals(adminSeg.Calculated_Amended_Final_Signature__c, adminSeg.Next_Due_to_DAS_Deadline__c);
+		System.assertEquals(adminSeg.Calculated_Amended_Final_Signature__c, adminSeg.Next_Office_Deadline__c);
 
 		adminSeg.Actual_Amended_Final_Signature__c = adminSeg.Calculated_Amended_Final_Signature__c.addDays(7);
 		update adminSeg;
 		adminSeg = null;
 
 		Test.stopTest();
-		System.assertEquals(null, adminSeg.Next_Due_to_DAS_Deadline__c);
+		System.assertEquals(null, adminSeg.Next_Office_Deadline__c);
+	}
+	//Next Office Deadline
+	@isTest static void setNextOfficeExpeditedReview() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(expedSeg.Prelim_Issues_Due_to_DAS__c, expedSeg.Next_Office_Deadline__c);
+
+		expedSeg.Actual_Prelim_Issues_to_DAS__c = expedSeg.Prelim_Issues_Due_to_DAS__c;
+		update expedSeg;
+		expedSeg = null;
+		System.assertEquals(expedSeg.Prelim_Concurrence_Due_to_DAS__c, expedSeg.Next_Office_Deadline__c);
+
+		expedSeg.Actual_Prelim_Concurrence_to_DAS__c = expedSeg.Prelim_Concurrence_Due_to_DAS__c;
+		update expedSeg;
+		expedSeg = null;
+		System.assertEquals(expedSeg.Calculated_Preliminary_Signature__c, expedSeg.Next_Office_Deadline__c);
+
+		expedSeg.Actual_Preliminary_Signature__c = expedSeg.Calculated_Preliminary_Signature__c.addDays(-7);
+		update expedSeg;
+		expedSeg = null;
+		System.assertEquals(expedSeg.Final_Issues_Due_to_DAS__c, expedSeg.Next_Office_Deadline__c);
+
+		expedSeg.Will_you_Amend_the_Final__c = 'Yes';
+		expedSeg.Actual_Final_Issues_to_DAS__c = expedSeg.Final_Issues_Due_to_DAS__c;
+		update expedSeg;
+		expedSeg = null;
+		System.assertEquals(expedSeg.Final_Concurrence_Due_to_DAS__c, expedSeg.Next_Office_Deadline__c);
+
+		expedSeg.Actual_Final_Concurrence_to_DAS__c = expedSeg.Final_Concurrence_Due_to_DAS__c;
+		update expedSeg;
+		expedSeg = null;
+		System.assertEquals(expedSeg.Calculated_Final_Signature__c, expedSeg.Next_Office_Deadline__c);
+
+		expedSeg.Actual_Final_Signature__c = expedSeg.Calculated_Final_Signature__c.addDays(-7);
+		update expedSeg;
+		expedSeg = null;
+		System.assertEquals(expedSeg.Amend_Final_Issues_Due_to_DAS__c, expedSeg.Next_Office_Deadline__c);
+
+		expedSeg.Actual_Amend_Final_Issues_to_DAS__c = expedSeg.Amend_Final_Issues_Due_to_DAS__c;
+		update expedSeg;
+		expedSeg = null;
+		System.assertEquals(expedSeg.Amend_Final_Concurrence_Due_to_DAS__c, expedSeg.Next_Office_Deadline__c);
+
+		expedSeg.Actual_Amend_Final_Concurrence_to_DAS__c = expedSeg.Amend_Final_Concurrence_Due_to_DAS__c;
+		update expedSeg;
+		expedSeg = null;
+		System.assertEquals(expedSeg.Calculated_Amended_Final_Signature__c, expedSeg.Next_Office_Deadline__c);
+
+		expedSeg.Actual_Amended_Final_Signature__c = expedSeg.Calculated_Amended_Final_Signature__c.addDays(7);
+		update expedSeg;
+		expedSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, expedSeg.Next_Office_Deadline__c);
+	}
+//Next Office Deadline
+	@isTest static void setNextOfficeNewShipperReview() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(nsSeg.Initiation_Issues_Due_to_DAS__c, nsSeg.Next_Office_Deadline__c);
+
+		nsSeg.Actual_Initiation_Issues_to_DAS__c = nsSeg.Initiation_Issues_Due_to_DAS__c;
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Initiation_Concurrence_Due_to_DAS__c, nsSeg.Next_Office_Deadline__c);
+
+		nsSeg.Actual_Initiation_Concurrence_to_DAS__c = nsSeg.Initiation_Concurrence_Due_to_DAS__c;
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Calculated_Initiation_Signature__c, nsSeg.Next_Office_Deadline__c);
+
+		nsSeg.Actual_Initiation_Signature__c = nsSeg.Calculated_Initiation_Signature__c;
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Prelim_Issues_Due_to_DAS__c, nsSeg.Next_Office_Deadline__c);
+
+		nsSeg.Actual_Prelim_Issues_to_DAS__c = nsSeg.Prelim_Issues_Due_to_DAS__c;
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Prelim_Concurrence_Due_to_DAS__c, nsSeg.Next_Office_Deadline__c);
+
+		nsSeg.Actual_Prelim_Concurrence_to_DAS__c = nsSeg.Prelim_Concurrence_Due_to_DAS__c;
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Calculated_Preliminary_Signature__c, nsSeg.Next_Office_Deadline__c);
+
+		nsSeg.Actual_Preliminary_Signature__c = nsSeg.Calculated_Preliminary_Signature__c.addDays(-7);
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Final_Issues_Due_to_DAS__c, nsSeg.Next_Office_Deadline__c);
+
+		nsSeg.Will_you_Amend_the_Final__c = 'Yes';
+		nsSeg.Actual_Final_Issues_to_DAS__c = nsSeg.Final_Issues_Due_to_DAS__c;
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Final_Concurrence_Due_to_DAS__c, nsSeg.Next_Office_Deadline__c);
+
+		nsSeg.Actual_Final_Concurrence_to_DAS__c = nsSeg.Final_Concurrence_Due_to_DAS__c;
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Calculated_Final_Signature__c, nsSeg.Next_Office_Deadline__c);
+
+		nsSeg.Actual_Final_Signature__c = nsSeg.Calculated_Final_Signature__c.addDays(-7);
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Amend_Final_Issues_Due_to_DAS__c, nsSeg.Next_Office_Deadline__c);
+
+		nsSeg.Actual_Amend_Final_Issues_to_DAS__c = nsSeg.Amend_Final_Issues_Due_to_DAS__c;
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Amend_Final_Concurrence_Due_to_DAS__c, nsSeg.Next_Office_Deadline__c);
+
+		nsSeg.Actual_Amend_Final_Concurrence_to_DAS__c = nsSeg.Amend_Final_Concurrence_Due_to_DAS__c;
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Calculated_Amended_Final_Signature__c, nsSeg.Next_Office_Deadline__c);
+
+		nsSeg.Actual_Amended_Final_Signature__c = nsSeg.Calculated_Amended_Final_Signature__c.addDays(7);
+		update nsSeg;
+		nsSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, nsSeg.Next_Office_Deadline__c);
+	}
+	//Next Office Deadline
+	@isTest static void setNextOfficeAntiCircReviewWithPrelim() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(acSeg.Initiation_Issues_Due_to_DAS__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Actual_Initiation_Issues_to_DAS__c = acSeg.Initiation_Issues_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Initiation_Concurrence_Due_to_DAS__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Actual_Initiation_Concurrence_to_DAS__c = acSeg.Initiation_Concurrence_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Calculated_Initiation_Signature__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Type_of_Circumvention_Inquiry__c = 'Later-Developed Merchandise';
+		acSeg.Actual_Initiation_Signature__c = acSeg.Calculated_Initiation_Signature__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Prelim_Issues_Due_to_DAS__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Type_of_Circumvention_Inquiry__c = 'Minor Altercations of Merchandise';
+		acSeg.Preliminary_Determination__c = 'Yes';
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Prelim_Issues_Due_to_DAS__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Actual_Prelim_Issues_to_DAS__c = acSeg.Prelim_Issues_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Prelim_Concurrence_Due_to_DAS__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Actual_Prelim_Concurrence_to_DAS__c = acSeg.Prelim_Concurrence_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Calculated_Preliminary_Signature__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Actual_Preliminary_Signature__c = acSeg.Calculated_Preliminary_Signature__c.addDays(-7);
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Final_Issues_Due_to_DAS__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Actual_Final_Issues_to_DAS__c = acSeg.Final_Issues_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Final_Concurrence_Due_to_DAS__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Actual_Final_Concurrence_to_DAS__c = acSeg.Final_Concurrence_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Calculated_Final_Signature__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Actual_Final_Signature__c = acSeg.Calculated_Final_Signature__c.addDays(-7);
+		update acSeg;
+		acSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, acSeg.Next_Office_Deadline__c);
+	}
+	//Next Office Deadline
+	@isTest static void setNextOfficeAntiCircReviewWithoutPrelim() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(acSeg.Initiation_Issues_Due_to_DAS__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Actual_Initiation_Issues_to_DAS__c = acSeg.Initiation_Issues_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Initiation_Concurrence_Due_to_DAS__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Actual_Initiation_Concurrence_to_DAS__c = acSeg.Initiation_Concurrence_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Calculated_Initiation_Signature__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Type_of_Circumvention_Inquiry__c = 'Minor Altercations of Merchandise';
+		acSeg.Preliminary_Determination__c = 'No';
+		acSeg.Actual_Initiation_Signature__c = acSeg.Calculated_Initiation_Signature__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Final_Issues_Due_to_DAS__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Actual_Final_Issues_to_DAS__c = acSeg.Final_Issues_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Final_Concurrence_Due_to_DAS__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Actual_Final_Concurrence_to_DAS__c = acSeg.Final_Concurrence_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Calculated_Final_Signature__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Actual_Final_Signature__c = acSeg.Calculated_Final_Signature__c.addDays(-7);
+		update acSeg;
+		acSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, acSeg.Next_Office_Deadline__c);
+	}
+	//Next Office Deadline
+	@isTest static void setNextOfficeChangedCircReviewWithPrelim() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(ccSeg.Initiation_Issues_Due_to_DAS__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.Actual_Initiation_Issues_to_DAS__c = ccSeg.Initiation_Issues_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Initiation_Concurrence_Due_to_DAS__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.Actual_Initiation_Concurrence_to_DAS__c = ccSeg.Initiation_Concurrence_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Calculated_Initiation_Signature__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.All_parties_in_agreement_to_the_outcome__c = 'No';
+		ccSeg.Actual_Initiation_Signature__c = ccSeg.Calculated_Initiation_Signature__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Prelim_Issues_Due_to_DAS__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.Actual_Prelim_Issues_to_DAS__c = ccSeg.Prelim_Issues_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Prelim_Concurrence_Due_to_DAS__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.Actual_Prelim_Concurrence_to_DAS__c = ccSeg.Prelim_Concurrence_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Calculated_Preliminary_Signature__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.Actual_Preliminary_Signature__c = ccSeg.Calculated_Preliminary_Signature__c.addDays(-7);
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Final_Issues_Due_to_DAS__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.Actual_Final_Issues_to_DAS__c = ccSeg.Final_Issues_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Final_Concurrence_Due_to_DAS__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.Actual_Final_Concurrence_to_DAS__c = ccSeg.Final_Concurrence_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Calculated_Final_Signature__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.Actual_Final_Signature__c = ccSeg.Calculated_Final_Signature__c.addDays(-7);
+		update ccSeg;
+		ccSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, ccSeg.Next_Office_Deadline__c);
+	}
+	//Next Office Deadline
+	@isTest static void setNextOfficeChangedCircReviewWithoutPrelim() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(ccSeg.Initiation_Issues_Due_to_DAS__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.Actual_Initiation_Issues_to_DAS__c = ccSeg.Initiation_Issues_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Initiation_Concurrence_Due_to_DAS__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.Actual_Initiation_Concurrence_to_DAS__c = ccSeg.Initiation_Concurrence_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Calculated_Initiation_Signature__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.All_parties_in_agreement_to_the_outcome__c = 'Yes';
+		ccSeg.Actual_Initiation_Signature__c = ccSeg.Calculated_Initiation_Signature__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Final_Issues_Due_to_DAS__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.Actual_Final_Issues_to_DAS__c = ccSeg.Final_Issues_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Final_Concurrence_Due_to_DAS__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.Actual_Final_Concurrence_to_DAS__c = ccSeg.Final_Concurrence_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Calculated_Final_Signature__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.Actual_Final_Signature__c = ccSeg.Calculated_Final_Signature__c.addDays(-7);
+		update ccSeg;
+		ccSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, ccSeg.Next_Office_Deadline__c);
+	}
+	//Next Office Deadline
+	@isTest static void setNextOfficeScopeInquiryWithPrelim() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		clearFormal();
+		getNewSegs();
+		System.assertEquals(siSeg.Decision_on_HOP_Issues_Due_to_DAS__c, siSeg.Next_Office_Deadline__c);
+
+		siSeg.Actual_Decision_on_HOP_Issues_to_DAS__c = siSeg.Decision_on_HOP_Issues_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Decision_on_HOP_Concurrence_Due_to_DAS__c, siSeg.Next_Office_Deadline__c);
+
+		siSeg.Actual_Decision_on_HOP_Concurrence_toDAS__c = siSeg.Decision_on_HOP_Concurrence_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Deadline_for_Decision_on_How_to_Proceed__c, siSeg.Next_Office_Deadline__c);
+
+		siSeg.Decision_on_How_to_Proceed__c = 'Formal';
+		siSeg.Actual_Date_of_Decision_on_HoP__c = siSeg.Deadline_for_Decision_on_How_to_Proceed__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Prelim_Issues_Due_to_DAS__c, siSeg.Next_Office_Deadline__c);
+
+		siSeg.Actual_Prelim_Issues_to_DAS__c = siSeg.Prelim_Issues_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Prelim_Concurrence_Due_to_DAS__c, siSeg.Next_Office_Deadline__c);
+
+		siSeg.Actual_Prelim_Concurrence_to_DAS__c = siSeg.Prelim_Concurrence_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Calculated_Preliminary_Signature__c, siSeg.Next_Office_Deadline__c);
+
+		siSeg.Actual_Preliminary_Signature__c = siSeg.Calculated_Preliminary_Signature__c.addDays(-7);
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Final_Issues_Due_to_DAS__c, siSeg.Next_Office_Deadline__c);
+
+		siSeg.Actual_Final_Issues_to_DAS__c = siSeg.Final_Issues_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Final_Concurrence_Due_to_DAS__c, siSeg.Next_Office_Deadline__c);
+
+		siSeg.Actual_Final_Concurrence_to_DAS__c = siSeg.Final_Concurrence_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Calculated_Final_Signature__c, siSeg.Next_Office_Deadline__c);
+
+		siSeg.Actual_Final_Signature__c = siSeg.Calculated_Final_Signature__c.addDays(-7);
+		update siSeg;
+		siSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, siSeg.Next_Office_Deadline__c);
+	}
+	//Next Office Deadline
+	@isTest static void setNextOfficeScopeInquiryWithoutPrelim() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		clearFormal();
+		getNewSegs();
+		System.assertEquals(siSeg.Decision_on_HOP_Issues_Due_to_DAS__c, siSeg.Next_Office_Deadline__c);
+
+		siSeg.Actual_Decision_on_HOP_Issues_to_DAS__c = siSeg.Decision_on_HOP_Issues_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Decision_on_HOP_Concurrence_Due_to_DAS__c, siSeg.Next_Office_Deadline__c);
+
+		siSeg.Actual_Decision_on_HOP_Concurrence_toDAS__c = siSeg.Decision_on_HOP_Concurrence_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Deadline_for_Decision_on_How_to_Proceed__c, siSeg.Next_Office_Deadline__c);
+
+		siSeg.Decision_on_How_to_Proceed__c = 'Informal';
+		siSeg.Actual_Date_of_Decision_on_HoP__c = siSeg.Deadline_for_Decision_on_How_to_Proceed__c;
+		update siSeg;
+		siSeg = null;
+		
+		Test.stopTest();
+		System.assertEquals(null, siSeg.Next_Office_Deadline__c);
+	}
+	//Next Office Deadline
+	@isTest static void setNextOfficeSunsetReviewWithPrelim() {
+		Test.startTest();
+
+		//setup
+		setFR(ssSeg.Id, 'Initiation');
+		ss240();
+		getNewSegs();
+		System.assertEquals(ssSeg.Prelim_Issues_Due_to_DAS__c, ssSeg.Next_Office_Deadline__c);
+
+		ssSeg.Actual_Prelim_Issues_to_DAS__c = ssSeg.Prelim_Issues_Due_to_DAS__c;
+		update ssSeg;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Prelim_Concurrence_Due_to_DAS__c, ssSeg.Next_Office_Deadline__c);
+
+		ssSeg.Actual_Prelim_Concurrence_to_DAS__c = ssSeg.Prelim_Concurrence_Due_to_DAS__c;
+		update ssSeg;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Calculated_Preliminary_Signature__c, ssSeg.Next_Office_Deadline__c);
+
+		ssSeg.Actual_Preliminary_Signature__c = ssSeg.Calculated_Preliminary_Signature__c.addDays(-7);
+		update ssSeg;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Final_Issues_Due_to_DAS__c, ssSeg.Next_Office_Deadline__c);
+
+		ssSeg.Actual_Final_Issues_to_DAS__c = ssSeg.Final_Issues_Due_to_DAS__c;
+		update ssSeg;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Final_Concurrence_Due_to_DAS__c, ssSeg.Next_Office_Deadline__c);
+
+		ssSeg.Actual_Final_Concurrence_to_DAS__c = ssSeg.Final_Concurrence_Due_to_DAS__c;
+		update ssSeg;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Calculated_Final_Signature__c, ssSeg.Next_Office_Deadline__c);
+
+		ssSeg.Actual_Final_Signature__c = ssSeg.Calculated_Final_Signature__c.addDays(-7);
+		update ssSeg;
+		ssSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, ssSeg.Next_Office_Deadline__c);
+	}
+	//Next Office Deadline
+	@isTest static void setNextOfficeSunsetReviewWithoutPrelim() {
+		Test.startTest();
+
+		//setup
+		setFR(ssSeg.Id, 'Initiation');
+		ss90();
+		getNewSegs();
+		System.assertEquals(ssSeg.Final_Issues_Due_to_DAS__c, ssSeg.Next_Office_Deadline__c);
+
+		ssSeg.Actual_Final_Issues_to_DAS__c = ssSeg.Final_Issues_Due_to_DAS__c;
+		update ssSeg;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Final_Concurrence_Due_to_DAS__c, ssSeg.Next_Office_Deadline__c);
+
+		ssSeg.Actual_Final_Concurrence_to_DAS__c = ssSeg.Final_Concurrence_Due_to_DAS__c;
+		update ssSeg;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Calculated_Final_Signature__c, ssSeg.Next_Office_Deadline__c);
+
+		ssSeg.Actual_Final_Signature__c = ssSeg.Calculated_Final_Signature__c.addDays(-7);
+		update ssSeg;
+		ssSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, ssSeg.Next_Office_Deadline__c);
 	}
 
 	/**************************
