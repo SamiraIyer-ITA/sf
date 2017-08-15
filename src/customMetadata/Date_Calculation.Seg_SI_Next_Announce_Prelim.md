@@ -144,7 +144,7 @@
     </values>
     <values>
         <field>Conditional_Field_2_Name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Decision_on_How_to_Proceed__c</value>
     </values>
     <values>
         <field>Conditional_Field_2_Object__c</field>
@@ -152,11 +152,11 @@
     </values>
     <values>
         <field>Conditional_Field_2_Operator__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Not Equals To</value>
     </values>
     <values>
         <field>Conditional_Field_2_Result__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Skip</value>
     </values>
     <values>
         <field>Conditional_Field_2_Type__c</field>
@@ -164,7 +164,7 @@
     </values>
     <values>
         <field>Conditional_Field_2_Value__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Formal</value>
     </values>
     <values>
         <field>Conditional_Field_3_Lookup_Field_Name__c</field>
