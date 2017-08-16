@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>Holds Configuration data for applications that utilize triggers in the org. There should be a "default" config and a "testConfig" AppConfig list in an org. EnableTriggers to be checked for both. </description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>AppEnabled__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Whether the application is enabled for configuration</description>
+        <externalId>false</externalId>
+        <label>AppEnabled</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>EnableDiagnostics__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>We may add functionality for diagnostics. For now, it will be disabled. If added, changing this to true will enable the feature.</description>
+        <externalId>false</externalId>
+        <label>EnableDiagnostics</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>TriggersEnabled__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>All triggers are enabled by default</description>
+        <externalId>false</externalId>
+        <label>TriggersEnabled</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>AppConfig</label>
+    <visibility>Protected</visibility>
+</CustomObject>
