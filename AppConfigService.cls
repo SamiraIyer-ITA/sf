@@ -12,7 +12,7 @@ public with sharing class AppConfigService {
 
         AppConfig__c theobject = AppConfig__c.getInstance('default');
 
-        if(theobject==null && Test.isRunningTest())
+        if(theobject==null)
         {
             theobject = new AppConfig__c();
             theobject.Name = 'default';
