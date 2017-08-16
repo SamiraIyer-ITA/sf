@@ -116,7 +116,7 @@
     </values>
     <values>
         <field>Conditional_Field_1_Name__c</field>
-        <value xsi:type="xsd:string">Actual_Date_of_Decision_on_HoP__c</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_1_Object__c</field>
@@ -124,11 +124,11 @@
     </values>
     <values>
         <field>Conditional_Field_1_Operator__c</field>
-        <value xsi:type="xsd:string">Not Equals To</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_1_Result__c</field>
-        <value xsi:type="xsd:string">Skip</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_1_Type__c</field>
@@ -360,7 +360,7 @@
     </values>
     <values>
         <field>Number_of_Conditionals__c</field>
-        <value xsi:type="xsd:double">1.0</value>
+        <value xsi:type="xsd:double">0.0</value>
     </values>
     <values>
         <field>Order_of_Execution__c</field>
