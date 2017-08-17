@@ -2148,10 +2148,12 @@ public class SegmentTriggerHandlerTest {
 		//setup start dates
 		setStartDates();
 		setExtensions();
+		getNewSegs();
+		System.assertEquals(null, acSeg.Next_Announcement_Date__c);
+
+		acSeg.Actual_Initiation_Signature__c = System.today().toStartOfWeek().addDays(-4);
 		acSeg.Type_of_Circumvention_Inquiry__c = 'Later-Developed Merchandise';
 		update acSeg;
-		getNewSegs();
-
 		System.assertEquals(acSeg.Preliminary_Announcement_Date__c, acSeg.Next_Announcement_Date__c);
 
 		acSeg.Actual_Preliminary_Signature__c = System.today().toStartOfWeek().addDays(-4);
@@ -2174,10 +2176,12 @@ public class SegmentTriggerHandlerTest {
 		//setup start dates
 		setStartDates();
 		setExtensions();
+		getNewSegs();
+		System.assertEquals(null, ccSeg.Next_Announcement_Date__c);
+
+		ccSeg.Actual_Initiation_Signature__c = System.today().toStartOfWeek().addDays(-4);
 		ccSeg.All_parties_in_agreement_to_the_outcome__c = 'No';
 		update ccSeg;
-		getNewSegs();
-
 		System.assertEquals(ccSeg.Preliminary_Announcement_Date__c, ccSeg.Next_Announcement_Date__c);
 
 		ccSeg.Actual_Preliminary_Signature__c = System.today().toStartOfWeek().addDays(-4);
