@@ -13,7 +13,8 @@ public without sharing class SuspensionAgreementTriggerHandler {
     public static void mainEntry(List<Suspension_Agreement__c> newList, List<Suspension_Agreement__c> oldList, Map<Id, Suspension_Agreement__c> newMap, 
         Map<Id, Suspension_Agreement__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete, 
         Boolean isBefore, Boolean isAfter) {
-        if (preventRecursion) {return;}
+        
+        if (!AppConfigService.triggerEnabled) {return;}
 
         if (isBefore && isInsert) {
             initialize(newList,newMap);

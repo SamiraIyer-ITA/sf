@@ -15,7 +15,8 @@ public without sharing class SegmentTriggerHandler {
 	public static void mainEntry(List<Segment__c> newList, List<Segment__c> oldList, Map<Id, Segment__c> newMap, 
 		Map<Id, Segment__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete, 
 		Boolean isBefore, Boolean isAfter) {
-		if (preventRecursion) {return;}
+		
+		if (!AppConfigService.triggerEnabled) {return;}
 
 		if (isBefore && isInsert) {
 			initialize(newList, newMap);

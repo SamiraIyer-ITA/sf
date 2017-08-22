@@ -3,7 +3,8 @@ public without sharing class RecusalTriggerHandler {
 	public static void mainEntry(List<Recusal__c> newList, List<Recusal__c> oldList, Map<Id, Recusal__c> newMap, 
 		Map<Id, Recusal__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete, 
 		Boolean isBefore, Boolean isAfter){
-		if(preventRecursion) {return;}
+		
+        if (!AppConfigService.triggerEnabled) {return;}
 
 		if(isBefore && isInsert) {
 			syncToPrimary(newList);
