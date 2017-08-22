@@ -20,7 +20,8 @@ public without sharing class LitigationTriggerHandler {
     public static void mainEntry(List<Litigation__c> newList, List<Litigation__c> oldList, Map<Id, Litigation__c> newMap, 
         Map<Id, Litigation__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete, 
         Boolean isBefore, Boolean isAfter) {
-        if (preventRecursion) {return;}
+        
+        if (!AppConfigService.triggerEnabled) {return;}
 
         if (isBefore && isInsert) {
             initialize(newList);
