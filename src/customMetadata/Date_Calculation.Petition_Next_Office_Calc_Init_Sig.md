@@ -144,7 +144,7 @@
     </values>
     <values>
         <field>Conditional_Field_2_Name__c</field>
-        <value xsi:type="xsd:string">Next_Office_Deadline__c</value>
+        <value xsi:type="xsd:string">Petition_Outcome__c</value>
     </values>
     <values>
         <field>Conditional_Field_2_Object__c</field>
@@ -156,7 +156,7 @@
     </values>
     <values>
         <field>Conditional_Field_2_Result__c</field>
-        <value xsi:type="xsd:string">Align</value>
+        <value xsi:type="xsd:string">Skip</value>
     </values>
     <values>
         <field>Conditional_Field_2_Type__c</field>
@@ -172,7 +172,7 @@
     </values>
     <values>
         <field>Conditional_Field_3_Name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Next_Office_Deadline__c</value>
     </values>
     <values>
         <field>Conditional_Field_3_Object__c</field>
@@ -180,11 +180,11 @@
     </values>
     <values>
         <field>Conditional_Field_3_Operator__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Not Equals To</value>
     </values>
     <values>
         <field>Conditional_Field_3_Result__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Align</value>
     </values>
     <values>
         <field>Conditional_Field_3_Type__c</field>

@@ -24,7 +24,7 @@
     </values>
     <values>
         <field>Base_Date_Field_1_Type__c</field>
-        <value xsi:type="xsd:string">Initiation</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Base_Date_Field_2_Lookup_Field_Name__c</field>
