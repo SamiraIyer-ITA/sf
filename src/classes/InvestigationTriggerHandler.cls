@@ -124,23 +124,18 @@ public without sharing class InvestigationTriggerHandler {
     }
     //Primary calculation method for Trigger Handler
     @TestVisible private static void calculateInvestigationDates(List<Investigation__c> newList) {
-        Boolean completePetition = false;
-        List<Investigation__c> adInvList = new List<Investigation__c>();
-        List<Investigation__c> cvdInvList = new List<Investigation__c>();
-    	for (Investigation__c i : newList) {
-            completePetition = findCompletePetition(i);
-            if (completePetition) {
-                if (recordTypeNameMap.get(i.RecordTypeId) == ADRECORD) {
-                    adInvList.add(i);
-                } else if (recordTypeNameMap.get(i.RecordTypeId) == CVDRECORD) {
-                    cvdInvList.add(i);
-                }
+        Map<String,List<Investigation__c>> recordTypeNameToInvestigationListMap = new Map<String,List<Investigation__c>>();
+        for (Investigation__c i : newList) {
+            if (recordTypeNameToInvestigationListMap.get(recordTypeNameMap.get(i.RecordTypeId)) != null && findCompletePetition(i)) {
+                recordTypeNameToInvestigationListMap.get(recordTypeNameMap.get(i.RecordTypeId)).add(i);
+            } else if (findCompletePetition(i)) {
+                recordTypeNameToInvestigationListMap.put(recordTypeNameMap.get(i.RecordTypeId), new List<Investigation__c>{i});
             }
         }
-        DateCalculationService adDcs = DateCalculationServiceDispatcher.getDateCalculationServiceInstance(ADRECORD);
-        adDcs.getCalculatedDates(adInvList, 'Investigation__c', ADRECORD);
-        DateCalculationService cvdDcs = DateCalculationServiceDispatcher.getDateCalculationServiceInstance(CVDRECORD);
-        cvdDcs.getCalculatedDates(cvdInvList, 'Investigation__c', CVDRECORD);
+        for (String recordTypeName : recordTypeNameToInvestigationListMap.keySet()) {
+            DateCalculationService dcs = DateCalculationServiceDispatcher.getDateCalculationServiceInstance(recordTypeName);
+            dcs.getCalculatedDates(recordTypeNameToInvestigationListMap.get(recordTypeName), 'Investigation__c', recordTypeName);
+        }
     }
 
     /**

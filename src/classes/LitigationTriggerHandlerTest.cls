@@ -18,7 +18,9 @@ public class LitigationTriggerHandlerTest {
 			if (intLit == null) {
 				Id recordTypeId = utils.getRecordTypeIdMap('Litigation__c').get('International_Litigation');
 				intLit = [SELECT Id, RecordTypeId, Request_Filed__c, Calculated_Initiation_Signature__c, Calculated_Preliminary_Signature__c,
-									Calculated_Final_Signature__c, Prelim_Extension_of_days__c, Status__c, Final_Extension_of_days__c 
+								Calculated_Final_Signature__c, Prelim_Extension_of_days__c, Status__c, Final_Extension_of_days__c, 
+								Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, 
+								Next_Due_to_DAS_Deadline__c, Next_Major_Deadline__c, Next_Office_Deadline__c 
 								FROM Litigation__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
 			}
 			return intLit;
@@ -29,7 +31,9 @@ public class LitigationTriggerHandlerTest {
 			if (remand == null) {
 				Id recordTypeId = utils.getRecordTypeIdMap('Litigation__c').get('Remand');
 				remand = [SELECT Id, RecordTypeId, Final_Extension_of_days__c, Expected_Final_Signature_Before_Ext__c, Calculated_Amended_Final_Signature__c,
-								Calculated_Draft_Remand_release_to_party__c, Calculated_Final_Signature__c, Court_of_Panel_s_Ruling__c, Status__c, Prelim_Team_Meeting_Deadline__c 
+								Calculated_Draft_Remand_release_to_party__c, Calculated_Final_Signature__c, Court_of_Panel_s_Ruling__c, Status__c, Prelim_Team_Meeting_Deadline__c,
+								Draft_Remand_Concurrence_Due_to_DAS__c, Draft_Remand_Issues_Due_to_DAS__c, Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, 
+								Next_Due_to_DAS_Deadline__c, Next_Major_Deadline__c, Next_Office_Deadline__c 
 							FROM Litigation__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
 			}
 			return remand;
@@ -105,22 +109,6 @@ public class LitigationTriggerHandlerTest {
 			[SELECT Id, Calculated_Draft_Remand_release_to_party__c FROM Litigation__c WHERE Id =:remand.Id  LIMIT 1].Calculated_Draft_Remand_release_to_party__c);
 	}
 
-	//setPrelimTeamMeetingDeadline
-	@isTest static void setPrelimTeamMeetingDeadline(){
-		Test.startTest();
-
-		remand.Expected_Final_Signature_Before_Ext__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(litigationDate.addDays(35));
-		update remand;
-		remand = null;
-
-		//Remand
-		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(remand.Calculated_Draft_Remand_release_to_party__c.addDays(-21));
-
-		Test.stopTest();
-		System.assertEquals(testCalculated,
-			[SELECT Id, Prelim_Team_Meeting_Deadline__c FROM Litigation__c WHERE Id =:remand.Id  LIMIT 1].Prelim_Team_Meeting_Deadline__c);
-	}
-
 	//setCalculatedAmendedFinalSignature
 	@isTest static void setCalculatedAmendedFinalSignature(){
 		Test.startTest();
@@ -135,6 +123,200 @@ public class LitigationTriggerHandlerTest {
 		Test.stopTest();
 		System.assertEquals(testCalculated,
 			[SELECT Id, Calculated_Amended_Final_Signature__c FROM Litigation__c WHERE Id =:remand.Id  LIMIT 1].Calculated_Amended_Final_Signature__c);
+	}
+
+
+	/***************************
+	* Next Deadlines
+	***************************/
+
+	//Next Major Deadline
+	@isTest static void setNextMajorDeadlineIntLit() {
+		Test.startTest();
+
+		System.assertEquals(intLit.Calculated_Preliminary_Signature__c, intLit.Next_Major_Deadline__c);
+
+		intLit.Actual_Preliminary_Signature__c = intLit.Calculated_Preliminary_Signature__c.addDays(-7);
+		update intLit;
+		intLit = null;
+		System.assertEquals(intLit.Calculated_Final_Signature__c, intLit.Next_Major_Deadline__c);
+
+		intLit.Actual_Final_Signature__c = intLit.Calculated_Final_Signature__c.addDays(-7);
+		update intLit;
+		intLit = null;
+
+		Test.stopTest();
+		System.assertEquals(null, intLit.Next_Major_Deadline__c);
+	}
+	//Next Major Deadline
+	@isTest static void setNextMajorDeadlineRemand() {
+		Test.startTest();
+
+		System.assertEquals(remand.Calculated_Draft_Remand_release_to_party__c, remand.Next_Major_Deadline__c);
+
+		remand.Actual_Draft_Remand_released_to_party__c = remand.Calculated_Draft_Remand_release_to_party__c.addDays(-7);
+		update remand;
+		remand = null;
+		System.assertEquals(remand.Calculated_Final_Signature__c, remand.Next_Major_Deadline__c);
+
+		remand.Actual_Final_Signature__c = remand.Calculated_Final_Signature__c.addDays(-7);
+		update remand;
+		remand = null;
+
+		Test.stopTest();
+		System.assertEquals(null, remand.Next_Major_Deadline__c);
+	}
+	//Next Due to DAS
+	@isTest static void setNextDueToDasIntLit() {
+		Test.startTest();
+
+		System.assertEquals(intLit.Prelim_Issues_Due_to_DAS__c, intLit.Next_Due_to_DAS_Deadline__c);
+
+		intLit.Actual_Prelim_Issues_to_DAS__c = intLit.Prelim_Issues_Due_to_DAS__c;
+		update intLit;
+		intLit = null;
+		System.assertEquals(intLit.Prelim_Concurrence_Due_to_DAS__c, intLit.Next_Due_to_DAS_Deadline__c);
+
+		intLit.Actual_Prelim_Concurrence_to_DAS__c = intLit.Prelim_Concurrence_Due_to_DAS__c;
+		update intLit;
+		intLit = null;
+		System.assertEquals(intLit.Calculated_Preliminary_Signature__c, intLit.Next_Due_to_DAS_Deadline__c);
+
+		intLit.Actual_Preliminary_Signature__c = intLit.Calculated_Preliminary_Signature__c.addDays(-7);
+		update intLit;
+		intLit = null;
+		System.assertEquals(intLit.Final_Issues_Due_to_DAS__c, intLit.Next_Due_to_DAS_Deadline__c);
+
+		intLit.Actual_Final_Issues_to_DAS__c = intLit.Final_Issues_Due_to_DAS__c;
+		update intLit;
+		intLit = null;
+		System.assertEquals(intLit.Final_Concurrence_Due_to_DAS__c, intLit.Next_Due_to_DAS_Deadline__c);
+
+		intLit.Actual_Final_Concurrence_to_DAS__c = intLit.Final_Concurrence_Due_to_DAS__c;
+		update intLit;
+		intLit = null;
+		System.assertEquals(intLit.Calculated_Final_Signature__c, intLit.Next_Due_to_DAS_Deadline__c);
+
+		intLit.Actual_Final_Signature__c = intLit.Calculated_Final_Signature__c.addDays(-7);
+		update intLit;
+		intLit = null;
+
+		Test.stopTest();
+		System.assertEquals(null, intLit.Next_Due_to_DAS_Deadline__c);
+	}
+	//Next Due to DAS
+	@isTest static void setNextDueToDasRemand() {
+		Test.startTest();
+
+		System.assertEquals(remand.Draft_Remand_Issues_Due_to_DAS__c, remand.Next_Due_to_DAS_Deadline__c);
+
+		remand.Actual_Draft_Remand_Issues_to_DAS__c = remand.Draft_Remand_Issues_Due_to_DAS__c;
+		update remand;
+		remand = null;
+		System.assertEquals(remand.Draft_Remand_Concurrence_Due_to_DAS__c, remand.Next_Due_to_DAS_Deadline__c);
+
+		remand.Actual_Draft_Remand_Concurrence_to_DAS__c = remand.Draft_Remand_Concurrence_Due_to_DAS__c;
+		update remand;
+		remand = null;
+		System.assertEquals(remand.Calculated_Draft_Remand_release_to_party__c, remand.Next_Due_to_DAS_Deadline__c);
+
+		remand.Actual_Draft_Remand_released_to_party__c = remand.Calculated_Draft_Remand_release_to_party__c.addDays(-7);
+		update remand;
+		remand = null;
+		System.assertEquals(remand.Final_Issues_Due_to_DAS__c, remand.Next_Due_to_DAS_Deadline__c);
+
+		remand.Actual_Final_Issues_to_DAS__c = remand.Final_Issues_Due_to_DAS__c;
+		update remand;
+		remand = null;
+		System.assertEquals(remand.Final_Concurrence_Due_to_DAS__c, remand.Next_Due_to_DAS_Deadline__c);
+
+		remand.Actual_Final_Concurrence_to_DAS__c = remand.Final_Concurrence_Due_to_DAS__c;
+		update remand;
+		remand = null;
+		System.assertEquals(remand.Calculated_Final_Signature__c, remand.Next_Due_to_DAS_Deadline__c);
+
+		remand.Actual_Final_Signature__c = remand.Calculated_Final_Signature__c.addDays(-7);
+		update remand;
+		remand = null;
+
+		Test.stopTest();
+		System.assertEquals(null, remand.Next_Due_to_DAS_Deadline__c);
+	}
+	//Next Office Deadline
+	@isTest static void setNextOfficeDeadlineIntLit() {
+		Test.startTest();
+
+		System.assertEquals(intLit.Prelim_Issues_Due_to_DAS__c, intLit.Next_Office_Deadline__c);
+
+		intLit.Actual_Prelim_Issues_to_DAS__c = intLit.Prelim_Issues_Due_to_DAS__c;
+		update intLit;
+		intLit = null;
+		System.assertEquals(intLit.Prelim_Concurrence_Due_to_DAS__c, intLit.Next_Office_Deadline__c);
+
+		intLit.Actual_Prelim_Concurrence_to_DAS__c = intLit.Prelim_Concurrence_Due_to_DAS__c;
+		update intLit;
+		intLit = null;
+		System.assertEquals(intLit.Calculated_Preliminary_Signature__c, intLit.Next_Office_Deadline__c);
+
+		intLit.Actual_Preliminary_Signature__c = intLit.Calculated_Preliminary_Signature__c.addDays(-7);
+		update intLit;
+		intLit = null;
+		System.assertEquals(intLit.Final_Issues_Due_to_DAS__c, intLit.Next_Office_Deadline__c);
+
+		intLit.Actual_Final_Issues_to_DAS__c = intLit.Final_Issues_Due_to_DAS__c;
+		update intLit;
+		intLit = null;
+		System.assertEquals(intLit.Final_Concurrence_Due_to_DAS__c, intLit.Next_Office_Deadline__c);
+
+		intLit.Actual_Final_Concurrence_to_DAS__c = intLit.Final_Concurrence_Due_to_DAS__c;
+		update intLit;
+		intLit = null;
+		System.assertEquals(intLit.Calculated_Final_Signature__c, intLit.Next_Office_Deadline__c);
+
+		intLit.Actual_Final_Signature__c = intLit.Calculated_Final_Signature__c.addDays(-7);
+		update intLit;
+		intLit = null;
+
+		Test.stopTest();
+		System.assertEquals(null, intLit.Next_Office_Deadline__c);
+	}
+	//Next Office Deadline
+	@isTest static void setNextOfficeDeadlineRemand() {
+		Test.startTest();
+
+		System.assertEquals(remand.Draft_Remand_Issues_Due_to_DAS__c, remand.Next_Office_Deadline__c);
+
+		remand.Actual_Draft_Remand_Issues_to_DAS__c = remand.Draft_Remand_Issues_Due_to_DAS__c;
+		update remand;
+		remand = null;
+		System.assertEquals(remand.Draft_Remand_Concurrence_Due_to_DAS__c, remand.Next_Office_Deadline__c);
+
+		remand.Actual_Draft_Remand_Concurrence_to_DAS__c = remand.Draft_Remand_Concurrence_Due_to_DAS__c;
+		update remand;
+		remand = null;
+		System.assertEquals(remand.Calculated_Draft_Remand_release_to_party__c, remand.Next_Office_Deadline__c);
+
+		remand.Actual_Draft_Remand_released_to_party__c = remand.Calculated_Draft_Remand_release_to_party__c.addDays(-7);
+		update remand;
+		remand = null;
+		System.assertEquals(remand.Final_Issues_Due_to_DAS__c, remand.Next_Office_Deadline__c);
+
+		remand.Actual_Final_Issues_to_DAS__c = remand.Final_Issues_Due_to_DAS__c;
+		update remand;
+		remand = null;
+		System.assertEquals(remand.Final_Concurrence_Due_to_DAS__c, remand.Next_Office_Deadline__c);
+
+		remand.Actual_Final_Concurrence_to_DAS__c = remand.Final_Concurrence_Due_to_DAS__c;
+		update remand;
+		remand = null;
+		System.assertEquals(remand.Calculated_Final_Signature__c, remand.Next_Office_Deadline__c);
+
+		remand.Actual_Final_Signature__c = remand.Calculated_Final_Signature__c.addDays(-7);
+		update remand;
+		remand = null;
+
+		Test.stopTest();
+		System.assertEquals(null, remand.Next_Office_Deadline__c);
 	}
 
 	//setPreliminaryStatus, setFinalStatus, setClosedStatus
