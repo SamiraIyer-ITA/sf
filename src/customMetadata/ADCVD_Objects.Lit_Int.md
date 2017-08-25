@@ -4,7 +4,7 @@
     <protected>false</protected>
     <values>
         <field>Number_of_Date_Calculations__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:double">250.0</value>
     </values>
     <values>
         <field>Object_API_Name__c</field>

@@ -4222,7 +4222,27 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Litigation__c.Actual_Draft_Remand_Concurrence_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Litigation__c.Actual_Draft_Remand_Issues_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Litigation__c.Actual_Draft_Remand_released_to_party__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Litigation__c.Actual_Final_Concurrence_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Litigation__c.Actual_Final_Issues_to_DAS__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4233,6 +4253,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Litigation__c.Actual_Initiation_Signature__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Litigation__c.Actual_Prelim_Concurrence_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Litigation__c.Actual_Prelim_Issues_to_DAS__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4272,17 +4302,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Litigation__c.Concurrence_to_DAS__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Litigation__c.Court_of_Panel_s_Ruling__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Litigation__c.Date_Remand_Issued_by_Court_or_Panel__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Litigation__c.Draft_Remand_Concurrence_Due_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Litigation__c.Draft_Remand_Issues_Due_to_DAS__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4297,17 +4332,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Litigation__c.Final_Concurrence_Due_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Litigation__c.Final_Extension_of_days__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Litigation__c.Final_Remand__c</field>
+        <field>Litigation__c.Final_Issues_Due_to_DAS__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Litigation__c.Final_Team_Meeting_Deadline__c</field>
+        <field>Litigation__c.Final_Remand__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4323,11 +4363,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Litigation__c.Investigation__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Litigation__c.Issues_to_DAS__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4347,11 +4382,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Litigation__c.Next_Announcement_Date__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Litigation__c.Next_Due_to_DAS_Deadline__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4362,7 +4392,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Litigation__c.Next_Office_PM_Deadline__c</field>
+        <field>Litigation__c.Next_Office_Deadline__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4387,7 +4417,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Litigation__c.Prelim_Concurrence_Due_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Litigation__c.Prelim_Extension_of_days__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Litigation__c.Prelim_Issues_Due_to_DAS__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
