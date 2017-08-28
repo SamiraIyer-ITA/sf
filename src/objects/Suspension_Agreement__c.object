@@ -202,6 +202,16 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Petition_CBP_Case_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>Investigation__r.Petition_CBP_Case_Number__c</formula>
+        <label>Petition CBP Case Number</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Petition_Case_Number__c</fullName>
         <externalId>false</externalId>
         <formula>Investigation__r.Petition__r.Case_Number__c</formula>
