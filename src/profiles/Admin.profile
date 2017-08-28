@@ -1002,6 +1002,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>ADCVD_Order__c.Petition_CBP_Case_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>ADCVD_Order__c.Petition_Case_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3941,6 +3946,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Investigation__c.Petition_CBP_Case_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Investigation__c.Petition_Case_Number__c</field>
         <readable>true</readable>
@@ -6197,6 +6207,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Segment__c.Petition_CBP_Case_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Segment__c.Petition_Case_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -6958,6 +6973,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Suspension_Agreement__c.Office_Assignment__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Suspension_Agreement__c.Petition_CBP_Case_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
