@@ -53,6 +53,26 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
+        <fullName>ADCVD_Case_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>Investigation__r.Petition__r.ADCVD_Case_Number__c</formula>
+        <label>ADCVD Case Number</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ADCVD_Case_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT( Investigation__r.Petition__r.ADCVD_Case_Type__c )</formula>
+        <label>ADCVD Case Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Additional_Notes__c</fullName>
         <externalId>false</externalId>
         <label>Additional Notes</label>
@@ -72,6 +92,36 @@
             <restricted>true</restricted>
             <valueSetName>Months</valueSetName>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>CBP_Case_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>Investigation__r.CBP_Case_Number__c</formula>
+        <label>CBP Case Number</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Commodity__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT( Investigation__r.Petition__r.Commodity__c )</formula>
+        <label>Commodity</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Country__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(  Investigation__r.Petition__r.Country__c  )</formula>
+        <label>Country</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Date_Due__c</fullName>
@@ -202,71 +252,21 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>Petition_CBP_Case_Number__c</fullName>
-        <externalId>false</externalId>
-        <formula>Investigation__r.Petition_CBP_Case_Number__c</formula>
-        <label>Petition CBP Case Number</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Petition_Case_Number__c</fullName>
-        <externalId>false</externalId>
-        <formula>Investigation__r.Petition__r.Case_Number__c</formula>
-        <label>Petition Case Number</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Petition_Case_Type__c</fullName>
-        <externalId>false</externalId>
-        <formula>TEXT( Investigation__r.Petition__r.Case_Type__c )</formula>
-        <label>Petition Case Type</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Petition_Commodity__c</fullName>
-        <externalId>false</externalId>
-        <formula>TEXT( Investigation__r.Petition__r.Commodity__c )</formula>
-        <label>Petition Commodity</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Petition_Country__c</fullName>
-        <externalId>false</externalId>
-        <formula>TEXT(  Investigation__r.Petition__r.Country__c  )</formula>
-        <label>Petition Country</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Petition_Product_Short_Name__c</fullName>
+        <fullName>Product_Short_Name__c</fullName>
         <externalId>false</externalId>
         <formula>Investigation__r.Petition__r.Product_Short_Name__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Petition Product Short Name</label>
+        <label>Product Short Name</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Petition_Product__c</fullName>
+        <fullName>Product__c</fullName>
         <externalId>false</externalId>
         <formula>Investigation__r.Petition__r.Product__c</formula>
-        <label>Petition Product</label>
+        <label>Product</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>

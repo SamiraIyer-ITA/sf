@@ -238,6 +238,26 @@
         <label>Review Information</label>
     </fieldSets>
     <fields>
+        <fullName>ADCVD_Case_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(NOT(ISNULL(ADCVD_Order__c)),  ADCVD_Order__r.ADCVD_Case_Number__c  ,  Suspension_Agreement__r.ADCVD_Case_Number__c  )</formula>
+        <label>ADCVD Case Number</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ADCVD_Case_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(NOT(ISNULL(ADCVD_Order__c)),  ADCVD_Order__r.ADCVD_Case_Type__c  ,  Suspension_Agreement__r.ADCVD_Case_Type__c  )</formula>
+        <label>ADCVD Case Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>ADCVD_Order__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -561,6 +581,16 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>CBP_Case_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(NOT(ISNULL(ADCVD_Order__c)), ADCVD_Order__r.CBP_Case_Number__c , Suspension_Agreement__r.CBP_Case_Number__c )</formula>
+        <label>CBP Case Number</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Calculated_Amended_Final_Signature__c</fullName>
         <description>Calculated Amended Final Signature</description>
         <externalId>false</externalId>
@@ -637,6 +667,16 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Commodity__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(NOT(ISNULL(ADCVD_Order__c)),  ADCVD_Order__r.Commodity__c  ,  Suspension_Agreement__r.Commodity__c  )</formula>
+        <label>Commodity</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Concurrence_to_DAS__c</fullName>
         <description>Concurrence to DAS</description>
         <externalId>false</externalId>
@@ -688,6 +728,16 @@
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Country__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(NOT(ISNULL(ADCVD_Order__c)),  ADCVD_Order__r.Country__c  ,  Suspension_Agreement__r.Country__c  )</formula>
+        <label>Country</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Country_in_which_factors_were_valued__c</fullName>
@@ -1377,6 +1427,18 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Office__c</fullName>
+        <externalId>false</externalId>
+        <label>Office</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>ADCVD_Offices</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Period_Covered_End_Date__c</fullName>
         <description>Period Covered - End Date</description>
         <externalId>false</externalId>
@@ -1395,77 +1457,6 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Petition_CBP_Case_Number__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(NOT(ISNULL(ADCVD_Order__c)), ADCVD_Order__r.Petition_CBP_Case_Number__c , Suspension_Agreement__r.Petition_CBP_Case_Number__c )</formula>
-        <label>Petition CBP Case Number</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Petition_Case_Number__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(NOT(ISNULL(ADCVD_Order__c)),  ADCVD_Order__r.Petition_Case_Number__c  ,  Suspension_Agreement__r.Petition_Case_Number__c  )</formula>
-        <label>Petition Case Number</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Petition_Case_Type__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(NOT(ISNULL(ADCVD_Order__c)),  ADCVD_Order__r.Petition_Case_Type__c  ,  Suspension_Agreement__r.Petition_Case_Type__c  )</formula>
-        <label>Petition Case Type</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Petition_Commodity__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(NOT(ISNULL(ADCVD_Order__c)),  ADCVD_Order__r.Petition_Commodity__c  ,  Suspension_Agreement__r.Petition_Commodity__c  )</formula>
-        <label>Petition Commodity</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Petition_Country__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(NOT(ISNULL(ADCVD_Order__c)),  ADCVD_Order__r.Petition_Country__c  ,  Suspension_Agreement__r.Petition_Country__c  )</formula>
-        <label>Petition Country</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Petition_Product_Short_Name__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(NOT(ISNULL(ADCVD_Order__c)), ADCVD_Order__r.Petition_Product_Short_Name__c , Suspension_Agreement__r.Petition_Product_Short_Name__c )</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Petition Product Short Name</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Petition_Product__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(NOT(ISNULL(ADCVD_Order__c)),  ADCVD_Order__r.Petition_Product__c  ,  Suspension_Agreement__r.Petition_Product__c  )</formula>
-        <label>Petition Product</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Prelim_Concurrence_Due_to_DAS__c</fullName>
@@ -1568,6 +1559,27 @@
         <externalId>false</externalId>
         <label>Product Description</label>
         <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Short_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(NOT(ISNULL(ADCVD_Order__c)), ADCVD_Order__r.Product_Short_Name__c , Suspension_Agreement__r.Product_Short_Name__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Product Short Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(NOT(ISNULL(ADCVD_Order__c)),  ADCVD_Order__r.Product__c  ,  Suspension_Agreement__r.Product__c  )</formula>
+        <label>Product</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -1732,7 +1744,7 @@
     <fields>
         <fullName>Segment_Name__c</fullName>
         <externalId>false</externalId>
-        <formula>Petition_Case_Number__c +&apos;--&apos;+ Name</formula>
+        <formula>ADCVD_Case_Number__c +&apos;--&apos;+ Name</formula>
         <label>Segment Name</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -2148,12 +2160,12 @@
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
-        <columns>Petition_Country__c</columns>
-        <columns>Petition_Product__c</columns>
-        <columns>Petition_Case_Type__c</columns>
-        <columns>Petition_Case_Number__c</columns>
+        <columns>Country__c</columns>
+        <columns>Product__c</columns>
+        <columns>ADCVD_Case_Type__c</columns>
+        <columns>ADCVD_Case_Number__c</columns>
         <columns>RECORDTYPE</columns>
-        <columns>Petition_Commodity__c</columns>
+        <columns>Commodity__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
@@ -2726,6 +2738,41 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Office__c</picklist>
+            <values>
+                <fullName>I</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>II</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>III</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>V</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VII</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VIII</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3521,6 +3568,41 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Office__c</picklist>
+            <values>
+                <fullName>I</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>II</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>III</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>V</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VII</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VIII</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Preliminary_Determination__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -4308,6 +4390,41 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Office__c</picklist>
+            <values>
+                <fullName>I</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>II</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>III</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>V</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VII</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VIII</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5103,6 +5220,41 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Office__c</picklist>
+            <values>
+                <fullName>I</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>II</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>III</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>V</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VII</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VIII</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Preliminary_Determination__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -5890,6 +6042,41 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Office__c</picklist>
+            <values>
+                <fullName>I</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>II</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>III</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>V</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VII</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VIII</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6685,6 +6872,41 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Office__c</picklist>
+            <values>
+                <fullName>I</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>II</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>III</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>V</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VII</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VIII</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Preliminary_Determination__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -7468,6 +7690,41 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Office__c</picklist>
+            <values>
+                <fullName>I</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>II</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>III</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>V</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VII</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VIII</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Preliminary_Determination__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -7701,46 +7958,46 @@
         </picklistValues>
     </recordTypes>
     <searchLayouts>
-        <customTabListAdditionalFields>Petition_Case_Number__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Petition_Country__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Petition_Case_Type__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Petition_Product__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ADCVD_Case_Number__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Country__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ADCVD_Case_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Product__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
         <customTabListAdditionalFields>Period_Covered_Start_Date__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Period_Covered_End_Date__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Requestor_Company_Name__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Product_Description__c</customTabListAdditionalFields>
-        <lookupDialogsAdditionalFields>Petition_Case_Number__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Petition_Country__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Petition_Case_Type__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Petition_Product__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ADCVD_Case_Number__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Country__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ADCVD_Case_Type__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Product__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Period_Covered_Start_Date__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Period_Covered_End_Date__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Requestor_Company_Name__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Product_Description__c</lookupDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Petition_Case_Number__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Petition_Country__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Petition_Case_Type__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Petition_Product__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ADCVD_Case_Number__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Country__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ADCVD_Case_Type__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Product__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>RECORDTYPE</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Period_Covered_Start_Date__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Period_Covered_End_Date__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Requestor_Company_Name__c</lookupPhoneDialogsAdditionalFields>
-        <searchFilterFields>Petition_Case_Number__c</searchFilterFields>
-        <searchFilterFields>Petition_Country__c</searchFilterFields>
-        <searchFilterFields>Petition_Case_Type__c</searchFilterFields>
-        <searchFilterFields>Petition_Product__c</searchFilterFields>
+        <searchFilterFields>ADCVD_Case_Number__c</searchFilterFields>
+        <searchFilterFields>Country__c</searchFilterFields>
+        <searchFilterFields>ADCVD_Case_Type__c</searchFilterFields>
+        <searchFilterFields>Product__c</searchFilterFields>
         <searchFilterFields>RECORDTYPE</searchFilterFields>
         <searchFilterFields>Period_Covered_Start_Date__c</searchFilterFields>
         <searchFilterFields>Period_Covered_End_Date__c</searchFilterFields>
         <searchFilterFields>Requestor_Company_Name__c</searchFilterFields>
         <searchFilterFields>Product_Description__c</searchFilterFields>
         <searchFilterFields>Segment_Name__c</searchFilterFields>
-        <searchResultsAdditionalFields>Petition_Case_Number__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Petition_Country__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Petition_Case_Type__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Petition_Product__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADCVD_Case_Number__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Country__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADCVD_Case_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Product__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Period_Covered_Start_Date__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Period_Covered_End_Date__c</searchResultsAdditionalFields>
@@ -8174,7 +8431,7 @@ $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_Ho
     </validationRules>
     <validationRules>
         <fullName>SI_Actual_Final_Signature_NF</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Legend to the Initials Placed on each rule name
 AR = Admin Review
 ACR = Anti-Circumvention Review

@@ -122,9 +122,9 @@ public with sharing class TestUtils {
     public static Investigation__c createInvestigation(String recordTypeName, Petition__c p, Boolean doInsert) {
         Investigation__c i = new Investigation__c();
         i.Petition__c = p.Id;
-        if (p.Case_Number__c.indexOf('A') > -1) {
+        if (p.ADCVD_Case_Number__c.indexOf('A') > -1) {
             i.RecordTypeId = utils.getRecordTypeIdMap(i).get('AD');
-        } else if (p.Case_Number__c.indexOf('C') > -1) {
+        } else if (p.ADCVD_Case_Number__c.indexOf('C') > -1) {
             i.RecordTypeId = utils.getRecordTypeIdMap(i).get('CVD');
         }
         if (doInsert) {
@@ -213,11 +213,11 @@ public with sharing class TestUtils {
         Petition__c petition = new Petition__c();
         petition.Product__c = 'tacos';
         petition.Product_Short_Name__c = 'tacos';
-        petition.Case_Type__c = caseType;
+        petition.ADCVD_Case_Type__c = caseType;
         if(caseType.substring(0, 1) == 'A'){
-            petition.Case_Number__c = 'A-111-222';
+            petition.ADCVD_Case_Number__c = 'A-111-222';
         } else {
-            petition.Case_Number__c = 'C-111-222';
+            petition.ADCVD_Case_Number__c = 'C-111-222';
         }
         petition.Country__c = 'United States';
         petition.Commodity__c = 'Foodstuffs'; 

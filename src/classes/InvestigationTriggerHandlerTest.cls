@@ -139,7 +139,7 @@ public class InvestigationTriggerHandlerTest {
 	private static Petition__c adP{
 		get{
 			if (adP == null) {
-				adP = [SELECT Id, Petition_Filed__c, Actual_Initiation_Signature__c, Calculated_Initiation_Signature__c FROM Petition__c WHERE Case_Type__c LIKE 'AD%' LIMIT 1];
+				adP = [SELECT Id, Petition_Filed__c, Actual_Initiation_Signature__c, Calculated_Initiation_Signature__c FROM Petition__c WHERE ADCVD_Case_Type__c LIKE 'AD%' LIMIT 1];
 			}
 			return adP;
 		}
@@ -147,7 +147,7 @@ public class InvestigationTriggerHandlerTest {
 	private static Petition__c cvdP{
 		get{
 			if (cvdP == null) {
-				cvdP = [SELECT Id, Petition_Filed__c, Actual_Initiation_Signature__c, Calculated_Initiation_Signature__c FROM Petition__c WHERE Case_Type__c LIKE 'CVD%' LIMIT 1];
+				cvdP = [SELECT Id, Petition_Filed__c, Actual_Initiation_Signature__c, Calculated_Initiation_Signature__c FROM Petition__c WHERE ADCVD_Case_Type__c LIKE 'CVD%' LIMIT 1];
 			}
 			return cvdP;
 		}

@@ -53,6 +53,20 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
+        <fullName>ADCVD_Case_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Investigation__c != null,  Investigation__r.ADCVD_Case_Number__c , 
+IF( Segment__c != null,  Segment__r.ADCVD_Case_Number__c , 
+&apos;&apos;
+) )</formula>
+        <label>ADCVD Case Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Actual_Draft_Remand_Concurrence_to_DAS__c</fullName>
         <externalId>false</externalId>
         <label>Actual Draft Remand Concurrence to DAS</label>
@@ -397,7 +411,7 @@
     <fields>
         <fullName>Litigation_Name__c</fullName>
         <externalId>false</externalId>
-        <formula>Petition_Case_Number__c +&apos;--&apos;+ Name</formula>
+        <formula>ADCVD_Case_Number__c +&apos;--&apos;+ Name</formula>
         <label>Litigation Name</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -443,6 +457,15 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Next_Office_PM_Deadline__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Office/PM Deadline</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Period_Covered_End_Date__c</fullName>
         <externalId>false</externalId>
         <label>Period Covered - End Date</label>
@@ -459,20 +482,6 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Petition_Case_Number__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF( Investigation__c != null,  Investigation__r.Petition_Case_Number__c , 
-IF( Segment__c != null,  Segment__r.Petition_Case_Number__c , 
-&apos;&apos;
-) )</formula>
-        <label>Petition Case Number</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Petition__c</fullName>
@@ -745,10 +754,10 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
         </picklistValues>
     </recordTypes>
     <searchLayouts>
-        <customTabListAdditionalFields>Petition_Case_Number__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ADCVD_Case_Number__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
         <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
-        <searchResultsAdditionalFields>Petition_Case_Number__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADCVD_Case_Number__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
     </searchLayouts>

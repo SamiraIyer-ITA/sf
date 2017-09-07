@@ -53,6 +53,52 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
+        <fullName>ADCVD_Case_Number__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>Referenced from parent Petition case</description>
+        <externalId>false</externalId>
+        <label>ADCVD Case Number</label>
+        <length>28</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>ADCVD_Case_Type__c</fullName>
+        <description>Referenced from parent Petition case</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This should be in the following format:
+A-###-### for AD 
+C-###-### for CVD</inlineHelpText>
+        <label>ADCVD_Case Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AD ME</fullName>
+                    <default>false</default>
+                    <label>AD ME</label>
+                </value>
+                <value>
+                    <fullName>AD NME</fullName>
+                    <default>false</default>
+                    <label>AD NME</label>
+                </value>
+                <value>
+                    <fullName>CVD</fullName>
+                    <default>false</default>
+                    <label>CVD</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Actual_Initiation_Concurrence_to_DAS__c</fullName>
         <externalId>false</externalId>
         <label>Actual Initiation Concurrence to DAS</label>
@@ -110,52 +156,6 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Case_Number__c</fullName>
-        <caseSensitive>false</caseSensitive>
-        <description>Referenced from parent Petition case</description>
-        <externalId>false</externalId>
-        <label>Case Number</label>
-        <length>28</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>true</unique>
-    </fields>
-    <fields>
-        <fullName>Case_Type__c</fullName>
-        <description>Referenced from parent Petition case</description>
-        <externalId>false</externalId>
-        <inlineHelpText>This should be in the following format:
-A-###-### for AD 
-C-###-### for CVD</inlineHelpText>
-        <label>Case Type</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>AD ME</fullName>
-                    <default>false</default>
-                    <label>AD ME</label>
-                </value>
-                <value>
-                    <fullName>AD NME</fullName>
-                    <default>false</default>
-                    <label>AD NME</label>
-                </value>
-                <value>
-                    <fullName>CVD</fullName>
-                    <default>false</default>
-                    <label>CVD</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
     </fields>
     <fields>
         <fullName>Commodity__c</fullName>
@@ -788,6 +788,28 @@ C-###-### for CVD</inlineHelpText>
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Next_Office_PM_Deadline__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Office/PM Deadline</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Office__c</fullName>
+        <externalId>false</externalId>
+        <label>Office</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>ADCVD_Offices</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Percent_of_Domestic_Industry__c</fullName>
         <externalId>false</externalId>
         <label>% of Domestic Industry</label>
@@ -821,7 +843,7 @@ C-###-### for CVD</inlineHelpText>
     <fields>
         <fullName>Petition_Name__c</fullName>
         <externalId>false</externalId>
-        <formula>Case_Number__c +&apos;--&apos;+  Name</formula>
+        <formula>ADCVD_Case_Number__c +&apos;--&apos;+  Name</formula>
         <label>Petition Name</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1007,8 +1029,8 @@ C-###-### for CVD</inlineHelpText>
         <columns>NAME</columns>
         <columns>Country__c</columns>
         <columns>Product__c</columns>
-        <columns>Case_Type__c</columns>
-        <columns>Case_Number__c</columns>
+        <columns>ADCVD_Case_Type__c</columns>
+        <columns>ADCVD_Case_Number__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
@@ -1016,7 +1038,7 @@ C-###-### for CVD</inlineHelpText>
         <fullName>Demo_List_View</fullName>
         <columns>Country__c</columns>
         <columns>Product__c</columns>
-        <columns>Case_Number__c</columns>
+        <columns>ADCVD_Case_Number__c</columns>
         <columns>Commodity__c</columns>
         <columns>NAME</columns>
         <filterScope>Everything</filterScope>
@@ -1030,31 +1052,31 @@ C-###-### for CVD</inlineHelpText>
     </nameField>
     <pluralLabel>Petitions</pluralLabel>
     <searchLayouts>
-        <customTabListAdditionalFields>Case_Number__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ADCVD_Case_Number__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Country__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Case_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ADCVD_Case_Type__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Product__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Commodity__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
-        <lookupDialogsAdditionalFields>Case_Number__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ADCVD_Case_Number__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Country__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Case_Type__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ADCVD_Case_Type__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Product__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Commodity__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Case_Number__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ADCVD_Case_Number__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Country__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Case_Type__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ADCVD_Case_Type__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Product__c</lookupPhoneDialogsAdditionalFields>
-        <searchFilterFields>Case_Number__c</searchFilterFields>
+        <searchFilterFields>ADCVD_Case_Number__c</searchFilterFields>
         <searchFilterFields>Country__c</searchFilterFields>
-        <searchFilterFields>Case_Type__c</searchFilterFields>
+        <searchFilterFields>ADCVD_Case_Type__c</searchFilterFields>
         <searchFilterFields>Product__c</searchFilterFields>
         <searchFilterFields>Commodity__c</searchFilterFields>
         <searchFilterFields>Status__c</searchFilterFields>
-        <searchResultsAdditionalFields>Case_Number__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADCVD_Case_Number__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Country__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Case_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADCVD_Case_Type__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Product__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Commodity__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
@@ -1102,7 +1124,7 @@ ISBLANK(TEXT(Actual_Initiation_Signature__c))
         <fullName>CBP_Case_number_for_AD_and_CVD_Format</fullName>
         <active>true</active>
         <description>CBP Case Number must be formatted specifically this way.</description>
-        <errorConditionFormula>IF(TEXT(Case_Type__c) = &quot;CVD&quot;, 
+        <errorConditionFormula>IF(TEXT(ADCVD_Case_Type__c) = &quot;CVD&quot;, 
 (NOT(OR(ISBLANK( CBP_Case_Number__c ),REGEX( CBP_Case_Number__c ,&quot;C-[0-9]{3}-[0-9]{3}&quot;)))), 
 (NOT(OR(ISBLANK(CBP_Case_Number__c ),REGEX( CBP_Case_Number__c ,&quot;A-[0-9]{3}-[0-9]{3}&quot;)))) )</errorConditionFormula>
         <errorDisplayField>CBP_Case_Number__c</errorDisplayField>
@@ -1112,10 +1134,10 @@ ISBLANK(TEXT(Actual_Initiation_Signature__c))
         <fullName>Case_number_for_AD_and_CVD_Format</fullName>
         <active>true</active>
         <description>Case Number must be formatted specifically this way.</description>
-        <errorConditionFormula>IF(TEXT(Case_Type__c) = &quot;CVD&quot;, 
-(NOT(OR(ISBLANK(Case_Number__c),REGEX( Case_Number__c,&quot;C-[0-9]{3}-[0-9]{3}&quot;)))), 
-(NOT(OR(ISBLANK(Case_Number__c),REGEX( Case_Number__c,&quot;A-[0-9]{3}-[0-9]{3}&quot;)))) )</errorConditionFormula>
-        <errorDisplayField>Case_Number__c</errorDisplayField>
+        <errorConditionFormula>IF(TEXT(ADCVD_Case_Type__c) = &quot;CVD&quot;, 
+(NOT(OR(ISBLANK(ADCVD_Case_Number__c),REGEX( ADCVD_Case_Number__c,&quot;C-[0-9]{3}-[0-9]{3}&quot;)))), 
+(NOT(OR(ISBLANK(ADCVD_Case_Number__c),REGEX( ADCVD_Case_Number__c,&quot;A-[0-9]{3}-[0-9]{3}&quot;)))) )</errorConditionFormula>
+        <errorDisplayField>ADCVD_Case_Number__c</errorDisplayField>
         <errorMessage>Format should be A-###-### or C-###-###</errorMessage>
     </validationRules>
     <validationRules>
