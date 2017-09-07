@@ -31,7 +31,7 @@ public without sharing class PetitionTriggerHandler {
         }
         if(isAfter && isUpdate) {
             recalculateInvestigations(newMap);
-            recalculateIssues(newMap, oldMap);
+            //recalculateIssues(newMap, oldMap);
         }
     }
 

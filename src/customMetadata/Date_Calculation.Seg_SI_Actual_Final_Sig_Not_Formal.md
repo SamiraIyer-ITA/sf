@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <label>Seg SI Litigation Hold Expiration Date</label>
+    <label>Seg SI Actual Final Sig Not Formal</label>
     <protected>false</protected>
     <values>
         <field>ADCVD_Objects__c</field>
@@ -16,7 +16,7 @@
     </values>
     <values>
         <field>Base_Date_Field_1_Name__c</field>
-        <value xsi:type="xsd:string">Deficient_or_Withdrawn_Date__c</value>
+        <value xsi:type="xsd:string">Actual_Date_of_Decision_on_HoP__c</value>
     </values>
     <values>
         <field>Base_Date_Field_1_Object__c</field>
@@ -32,11 +32,11 @@
     </values>
     <values>
         <field>Base_Date_Field_2_Name__c</field>
-        <value xsi:type="xsd:string">Actual_Final_Signature__c</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Base_Date_Field_2_Object__c</field>
-        <value xsi:type="xsd:string">Segment__c</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Base_Date_Field_2_Type__c</field>
@@ -108,7 +108,7 @@
     </values>
     <values>
         <field>Calculated_Date_Field_Name__c</field>
-        <value xsi:type="xsd:string">Litigation_Hold_Expiration_Date__c</value>
+        <value xsi:type="xsd:string">Actual_Final_Signature__c</value>
     </values>
     <values>
         <field>Conditional_Field_1_Lookup_Field_Name__c</field>
@@ -116,7 +116,7 @@
     </values>
     <values>
         <field>Conditional_Field_1_Name__c</field>
-        <value xsi:type="xsd:string">Segment_Outcome__c</value>
+        <value xsi:type="xsd:string">Decision_on_How_to_Proceed__c</value>
     </values>
     <values>
         <field>Conditional_Field_1_Object__c</field>
@@ -124,7 +124,7 @@
     </values>
     <values>
         <field>Conditional_Field_1_Operator__c</field>
-        <value xsi:type="xsd:string">Equals</value>
+        <value xsi:type="xsd:string">Not Equals To</value>
     </values>
     <values>
         <field>Conditional_Field_1_Result__c</field>
@@ -136,7 +136,7 @@
     </values>
     <values>
         <field>Conditional_Field_1_Value__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Informal</value>
     </values>
     <values>
         <field>Conditional_Field_2_Lookup_Field_Name__c</field>
@@ -144,7 +144,7 @@
     </values>
     <values>
         <field>Conditional_Field_2_Name__c</field>
-        <value xsi:type="xsd:string">Segment_Outcome__c</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_2_Object__c</field>
@@ -152,11 +152,11 @@
     </values>
     <values>
         <field>Conditional_Field_2_Operator__c</field>
-        <value xsi:type="xsd:string">Equals</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_2_Result__c</field>
-        <value xsi:type="xsd:string">Use Date 1</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_2_Type__c</field>
@@ -164,7 +164,7 @@
     </values>
     <values>
         <field>Conditional_Field_2_Value__c</field>
-        <value xsi:type="xsd:string">Rejected</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_3_Lookup_Field_Name__c</field>
@@ -172,7 +172,7 @@
     </values>
     <values>
         <field>Conditional_Field_3_Name__c</field>
-        <value xsi:type="xsd:string">Segment_Outcome__c</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_3_Object__c</field>
@@ -180,11 +180,11 @@
     </values>
     <values>
         <field>Conditional_Field_3_Operator__c</field>
-        <value xsi:type="xsd:string">Equals</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_3_Result__c</field>
-        <value xsi:type="xsd:string">Use Date 2</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_3_Type__c</field>
@@ -192,7 +192,7 @@
     </values>
     <values>
         <field>Conditional_Field_3_Value__c</field>
-        <value xsi:type="xsd:string">Completed</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_4_Lookup_Field_Name__c</field>
@@ -200,7 +200,7 @@
     </values>
     <values>
         <field>Conditional_Field_4_Name__c</field>
-        <value xsi:type="xsd:string">Country__c</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_4_Object__c</field>
@@ -208,11 +208,11 @@
     </values>
     <values>
         <field>Conditional_Field_4_Operator__c</field>
-        <value xsi:type="xsd:string">Not Equals To</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_4_Result__c</field>
-        <value xsi:type="xsd:string">Use Constant 2</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_4_Type__c</field>
@@ -220,7 +220,7 @@
     </values>
     <values>
         <field>Conditional_Field_4_Value__c</field>
-        <value xsi:type="xsd:string">Canada;Mexico</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_5_Lookup_Field_Name__c</field>
@@ -336,11 +336,11 @@
     </values>
     <values>
         <field>Constant_1__c</field>
-        <value xsi:type="xsd:string">Segment_Hold_Status_NAFTA</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Constant_2__c</field>
-        <value xsi:type="xsd:string">Segment_Hold_Status_Non_NAFTA</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Constant_3__c</field>
@@ -356,15 +356,15 @@
     </values>
     <values>
         <field>Number_of_Base_Date_Fields__c</field>
-        <value xsi:type="xsd:double">2.0</value>
+        <value xsi:type="xsd:double">1.0</value>
     </values>
     <values>
         <field>Number_of_Conditionals__c</field>
-        <value xsi:type="xsd:double">4.0</value>
+        <value xsi:type="xsd:double">1.0</value>
     </values>
     <values>
         <field>Order_of_Execution__c</field>
-        <value xsi:type="xsd:double">65.0</value>
+        <value xsi:type="xsd:double">26.0</value>
     </values>
     <values>
         <field>Tolling_Service__c</field>

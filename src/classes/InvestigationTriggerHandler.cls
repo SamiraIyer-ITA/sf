@@ -109,7 +109,7 @@ public without sharing class InvestigationTriggerHandler {
     private static void setRecordType(List<Investigation__c> newList) {
         for (Investigation__c i: newList) {
             if (petitionsInScopeMap.get(i.Petition__c) != null) {
-                String petitionType = petitionsInScopeMap.get(i.Petition__c).Case_Type__c;    
+                String petitionType = petitionsInScopeMap.get(i.Petition__c).ADCVD_Case_Type__c;    
                 if (petitionType.contains('CVD')) {
                     i.RecordTypeId = MetadataHelper.getRecordTypeIdByName(INVESTIGATION, 'CVD');
                 } else if (petitionType.contains('AD')) {
@@ -180,7 +180,7 @@ public without sharing class InvestigationTriggerHandler {
     	Map<Id,Petition__c> returnMap = new Map<Id,Petition__c>();
     	Set<Id> petitionIdSet = findIdsInScope(newList);
     	for (Petition__c p : [SELECT Id, Petition_Filed__c, Initiation_Extension_of_days__c, Actual_Initiation_Signature__c, 
-    									Calculated_Initiation_Signature__c, Case_Type__c
+    									Calculated_Initiation_Signature__c, ADCVD_Case_Type__c
     								FROM Petition__c WHERE Id IN: petitionIdSet]) {
     		returnMap.put(p.Id, p);
             if (p.Actual_Initiation_Signature__c == null && p.Calculated_Initiation_Signature__c == null) {

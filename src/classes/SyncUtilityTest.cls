@@ -15,7 +15,7 @@ public class SyncUtilityTest {
 	private static List<Petition__c> pList {
 		get {
 			if(pList == null) {
-				pList = [SELECT Id, Case_Number__c, Commodity__c FROM Petition__c];
+				pList = [SELECT Id, ADCVD_Case_Number__c, Commodity__c FROM Petition__c];
 			}
 			return pList;
 		}
@@ -73,7 +73,7 @@ public class SyncUtilityTest {
 		SyncUtility.setSyncFieldMap();//grabs CMT for investigation
 		System.assertNotEquals(null, SyncUtility.syncFieldMap.get('Petition__c'));//syncFieldMap has Petition values
 		currentFieldMappings = SyncUtility.syncFieldMap.get('Petition__c');//map the Petition mappings to current
-		System.assertEquals(currentFieldMappings.get('Petition_Case_Number__c'), 'Case_Number__c');//confirm a mapping is correct
+		System.assertEquals(currentFieldMappings.get('ADCVD_Case_Number__c'), 'ADCVD_Case_Number__c');//confirm a mapping is correct
 		currentFieldMappings = SyncUtility.syncFieldMap.get('Investigation__c');//map the Investigation mappings to current
 		System.assertEquals(currentFieldMappings.get('Calculated_Final_Signature__c'),'Calculated_Final_Signature__c');//confirm a mapping is correct
 		Test.stopTest();
@@ -107,7 +107,7 @@ public class SyncUtilityTest {
 		SyncUtility.setSourceObjectsMap();//map source objects to source map
 		SyncUtility.setTargetObjectValues();//set the source value to the target value
 		System.assertEquals(i.Calculated_Final_Signature__c, iAD.Calculated_Final_Signature__c);//the CVD investigation is aligned to the AD
-		System.assertEquals(i.Petition_Commodity__c, pList[0].Commodity__c);//the Petition synced to Investigation
+		System.assertEquals(i.Commodity__c, pList[0].Commodity__c);//the Petition synced to Investigation
 		Test.stopTest();
 	}
 

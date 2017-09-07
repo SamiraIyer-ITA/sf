@@ -7,9 +7,9 @@ public without sharing class InvestigationOverride {
     public InvestigationOverride(ApexPages.StandardController stdController) {
         this.stdController = stdController;
         inv = (Investigation__c)stdController.getRecord();
-        List<Petition__c> petitionList = [SELECT Id, Case_Type__c FROM Petition__c WHERE Id =: inv.Petition__c];
+        List<Petition__c> petitionList = [SELECT Id, ADCVD_Case_Type__c FROM Petition__c WHERE Id =: inv.Petition__c];
         if(!petitionList.isEmpty()){
-            String petitionType = petitionList[0].Case_Type__c;
+            String petitionType = petitionList[0].ADCVD_Case_Type__c;
             if(petitionType.contains('CVD')) {
                 RecordTypeId = MetadataHelper.getRecordTypeIdByName(INVESTIGATION, 'CVD');
             } else if(petitionType.contains('AD')) {
