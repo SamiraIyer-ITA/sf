@@ -803,6 +803,16 @@ NOT( ISNULL( Actual_Preliminary_Signature__c ))
         <errorMessage>Calculated Preliminary Signature Date must be populated in order to enter Actual Preliminary Signature Date</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Every_Litigation_must_have_a_Parent</fullName>
+        <active>true</active>
+        <description>Every Litigation must have either a Petition, Investigation, or Segment</description>
+        <errorConditionFormula>AND( ISBLANK(Petition__c),
+     ISBLANK(Segment__c),  
+     ISBLANK(Investigation__c)
+)</errorConditionFormula>
+        <errorMessage>Every Litigation must have either a Petition, Investigation, or Segment. Please enter a  Petition, Investigation, or Segment.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>International_Litigation_Final_Extension</fullName>
         <active>true</active>
         <errorConditionFormula>And (
