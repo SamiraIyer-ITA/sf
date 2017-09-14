@@ -20,6 +20,7 @@ public without sharing class SegmentTriggerHandler {
 
 		if (isBefore && isInsert) {
 			initialize(newList, newMap);
+			syncToAdcvdOrder(newList, isInsert);
 			syncToAdministrativeReview(newList);
 			calculateSegmentDates(newList);
 			calculateSegmentStatuses(newList);
@@ -68,6 +69,11 @@ public without sharing class SegmentTriggerHandler {
 			ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get Segments with an Id
 			frUtilMap = listInstance.utilMap;
 		}
+	}
+
+	//Syncs Order Fields to Segment only on insert
+	@TestVisible private static void syncToAdcvdOrder(List<Segment__c> newList, Boolean isInsert) {
+		if (isInsert) SyncUtility.syncObject(newList, 'ADCVD_Order__c');
 	}
 
 	//Syncs New Shipper Reviews in scope to Administrative Reviews
