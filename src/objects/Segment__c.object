@@ -8606,12 +8606,45 @@ $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_Ho
         <errorMessage>&quot;Was the Product Determined to be in Scope?&quot; is required only if &quot;Decision on How to Proceed&quot; is either &quot;Formal&quot; or &quot;Informal&quot;.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Segment_Outcome_Required</fullName>
+        <active>true</active>
+        <description>Segment Outcome is required when Decision on How to Proceed is either &quot;Informal&quot; or &quot;Reject&quot;
+Record Type: Scope Inquiry</description>
+        <errorConditionFormula>CASE(RecordType.DeveloperName,
+&quot;Scope_Inquiry&quot;,
+IF (
+   AND (
+     OR (
+       ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Informal&apos;),
+       ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Reject&apos;)
+     ),
+     ISPICKVAL(Segment_Outcome__c, &apos;&apos;)
+   ),
+1,
+0),0) = 1</errorConditionFormula>
+        <errorMessage>Segment Outcome is required when Decision on How to Proceed is either &quot;Informal&quot; or &quot;Reject&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Segment_must_have_a_parent</fullName>
         <active>true</active>
         <errorConditionFormula>AND ( ISBLANK(ADCVD_Order__c ),
  ISBLANK( Suspension_Agreement__c )
 )</errorConditionFormula>
         <errorMessage>Every Segment must have a ADCVD Order or a Suspension Agreement</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Type_of_Circumvention_Inquiry_Required</fullName>
+        <active>true</active>
+        <description>Type of Circumvention Inquiry field value is required when Actual Initiation Signature is entered. 
+Record Type: Anti-Circumvention</description>
+        <errorConditionFormula>AND 
+(
+CASE
+  (RecordType.DeveloperName, &quot;Anti_Circumvention_Review&quot;, 1, 0) = 1,
+   ISPICKVAL(Type_of_Circumvention_Inquiry__c , &apos;&apos;), 
+   NOT(ISNULL( Actual_Initiation_Signature__c ))
+)</errorConditionFormula>
+        <errorMessage>Type of Circumvention Inquiry field value is required, when Actual Initiation Signature is populated.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>max_180_days_if_prelim_extend_is_blank</fullName>
