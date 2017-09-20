@@ -8,45 +8,7 @@ public without sharing class InvestigationTriggerHandler {
 	private static FINAL String ADRECORD = 'AD';//investigationApiToConstants.get('AD_Calc_Final_Sig').ADCVD_Objects__r.Record_Type_Name__c;
 	private static FINAL String CVDRECORD = 'CVD';//investigationApiToConstants.get('CVD_Calc_Final_Sig').ADCVD_Objects__r.Record_Type_Name__c;
 	private static FINAL String INVESTIGATION = 'Investigation__c';//investigationApiToConstants.get('AD_Calc_Final_Sig').ADCVD_Objects__r.Object_API_Name__c;
-/*
-	//FINAL AD Record Type Offsets
-    private static FINAL Integer AD_CALC_AMEND_PRELIM_SIGN = ((Integer)investigationApiToConstants.get('AD_Calc_Amend_Prelim_Det_Sig').Number_Value__c);//Calc_Amended_Prelim_Determination_Sig__c
-    private static FINAL Integer AD_CALC_PRELIM_SIGN = ((Integer)investigationApiToConstants.get('AD_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature __c
-    private static FINAL Integer AD_CALC_FINAL_SIGN = ((Integer)investigationApiToConstants.get('AD_Calc_Final_Sig').Number_Value__c);//Calculated_Final_Signature__c
-    private static FINAL Integer AD_CALC_ITC_PRELIM_DET = ((Integer)investigationApiToConstants.get('AD_Calc_ITC_Prelim_Det').Number_Value__c);//Calculated_ITC_Prelim_Determination__c
-    private static FINAL Integer AD_CALC_PRELIM_EXT_REQ_FILE = ((Integer)investigationApiToConstants.get('AD_Calc_Prelim_Ext_Request_File').Number_Value__c);//Calculated_Prelim_Extension_Request_File__c
-    private static FINAL Integer AD_CALC_POSTPONE_PRELIM_DET_FR = ((Integer)investigationApiToConstants.get('AD_Calc_Postpone_Prelim_Det_FR').Number_Value__c);//Calculated_Postponement_of_PrelimDeterFR__c
-    private static FINAL Integer AD_PRELIM_TEAM_MEETING_DEADLINE = ((Integer)investigationApiToConstants.get('AD_Prelim_Team_Meeting_Deadline').Number_Value__c);//Prelim_Team_Meeting_Deadline__c
-    private static FINAL Integer AD_TERM_SUSP_GAP_PERIOD_BEG_W_EXT = ((Integer)investigationApiToConstants.get('AD_Term_Susp_Gap_Period_Beg_w_FinExt').Number_Value__c);//Termination_of_Suspension_Gap_Period_Beg__c with Final Extension of days
-    private static FINAL Integer AD_TERM_SUSP_GAP_PERIOD_BEG_W_O_EXT = ((Integer)investigationApiToConstants.get('AD_Term_Susp_Gap_Period_Beg_w_o_FinExt').Number_Value__c);//Termination_of_Suspension_Gap_Period_Beg__c without Final Extension of days
-    private static FINAL Integer AD_FINAL_TEAM_MEETING_DEADLINE = ((Integer)investigationApiToConstants.get('AD_Final_Team_Meeting_Deadline').Number_Value__c);//Final_Team_Meeting_Deadline__c
-    private static FINAL Integer AD_CALC_AMENDED_FINAL_SIGNATURE = ((Integer)investigationApiToConstants.get('AD_Calc_Amend_Final_Sig').Number_Value__c);//Calculated_Amended_Final_Signature__c
-    private static FINAL Integer AD_EST_ITC_NOTIF_DOC_FINAL_DET = ((Integer)investigationApiToConstants.get('AD_Est_ITC_Note_of_DOC_to_Final_Det').Number_Value__c);//Est_ITC_Notification_to_DOC_of_Final_Det__c
-    private static FINAL Integer AD_CALC_ORDER_FR_SIGNATURE = ((Integer)investigationApiToConstants.get('AD_Calc_Order_FR_Sig').Number_Value__c);//Calculated_Order_FR_Signature__c
-    private static FINAL Integer AD_CALC_ITC_FINAL_FR_PUBLISHED = ((Integer)investigationApiToConstants.get('AD_Calc_ITC_Final_FR_Published').Number_Value__c);//Calculated_ITC_Final_FR_Published__c
-    private static FINAL Integer AD_EST_ORDER_FR_PUBLISHED = ((Integer)investigationApiToConstants.get('AD_Est_Order_FR_Published').Number_Value__c);//Estimated_Order_FR_Published__c
 
-    //FINAL CVD Record Type Offsets
-    private static FINAL Integer CVD_CALC_AMEND_PRELIM_SIGN = ((Integer)investigationApiToConstants.get('CVD_Calc_Amend_Prelim_Det_Sig').Number_Value__c);//Calc_Amended_Prelim_Determination_Sig__c
-    private static FINAL Integer CVD_CALC_PRELIM_SIGN = ((Integer)investigationApiToConstants.get('CVD_Calc_Prelim_Sig').Number_Value__c);//Calculated_Preliminary_Signature __c
-    private static FINAL Integer CVD_CALC_FINAL_SIGN = ((Integer)investigationApiToConstants.get('CVD_Calc_Final_Sig').Number_Value__c);//Calculated_Final_Signature__c
-    private static FINAL Integer CVD_CALC_ITC_PRELIM_DET = ((Integer)investigationApiToConstants.get('CVD_Calc_ITC_Prelim_Det').Number_Value__c);//Calculated_ITC_Prelim_Determination__c
-    private static FINAL Integer CVD_CALC_PRELIM_EXT_REQ_FILE = ((Integer)investigationApiToConstants.get('CVD_Calc_Prelim_Ext_Request_File').Number_Value__c);//Calculated_Prelim_Extension_Request_File__c
-    private static FINAL Integer CVD_CALC_POSTPONE_PRELIM_DET_FR = ((Integer)investigationApiToConstants.get('CVD_Calc_Postpone_Prelim_Det_FR').Number_Value__c);//Calculated_Postponement_of_PrelimDeterFR__c
-    private static FINAL Integer CVD_PRELIM_TEAM_MEETING_DEADLINE = ((Integer)investigationApiToConstants.get('CVD_Prelim_Team_Meeting_Deadline').Number_Value__c);//Prelim_Team_Meeting_Deadline__c
-    private static FINAL Integer CVD_TERM_SUSP_GAP_PERIOD_BEG = ((Integer)investigationApiToConstants.get('CVD_Term_Susp_Gap_Period_Beg').Number_Value__c);//Termination_of_Suspension_Gap_Period_Beg__c
-    private static FINAL Integer CVD_FINAL_TEAM_MEETING_DEADLINE = ((Integer)investigationApiToConstants.get('CVD_Final_Team_Meeting_Deadline').Number_Value__c);//Final_Team_Meeting_Deadline__c
-    private static FINAL Integer CVD_CALC_AMENDED_FINAL_SIGNATURE = ((Integer)investigationApiToConstants.get('CVD_Calc_Amend_Final_Sig').Number_Value__c);//Calculated_Amended_Final_Signature__c
-    private static FINAL Integer CVD_EST_ITC_NOTIF_DOC_FINAL_DET = ((Integer)investigationApiToConstants.get('CVD_Est_ITC_Note_to_DOC_of_Final_Det').Number_Value__c);//Est_ITC_Notification_to_DOC_of_Final_Det__c
-    private static FINAL Integer CVD_CALC_ORDER_FR_SIGNATURE = ((Integer)investigationApiToConstants.get('CVD_Calc_Order_FR_Sig').Number_Value__c);//Calculated_Order_FR_Signature__c
-    private static FINAL Integer CVD_CALC_ITC_FINAL_FR_PUBLISHED = ((Integer)investigationApiToConstants.get('CVD_Calc_ITC_Final_FR_Published').Number_Value__c);//Calculated_ITC_Final_FR_Published__c
-    private static FINAL Integer CVD_EST_ORDER_FR_PUBLISHED = ((Integer)investigationApiToConstants.get('CVD_Est_Order_FR_Published').Number_Value__c);//Estimated_Order_FR_Published__c
-
-    //FINAL Status Offsets
-    private static FINAL Integer NAFTA_COUNTRY_HOLD = ((Integer)investigationApiToConstants.get('Inv_Hold_Status_NAFTA').Number_Value__c);//Litigation_Hold_Expiration_Date__c
-    private static FINAL Integer NON_NAFTA_COUNTRY_HOLD = ((Integer)investigationApiToConstants.get('Inv_Hold_Status_Non_NAFTA').Number_Value__c);//Litigation_Hold_Expiration_Date__c
-*/    
-	public static boolean preventRecursion = false;
     public static void mainEntry(List<Investigation__c> newList, List<Investigation__c> oldList, Map<Id, Investigation__c> newMap, 
         Map<Id, Investigation__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete, 
         Boolean isBefore, Boolean isAfter) {
