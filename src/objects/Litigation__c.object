@@ -333,6 +333,15 @@ IF( Segment__c != null,  Segment__r.ADCVD_Case_Number__c ,
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Final_Team_Meeting_Deadline__c</fullName>
+        <externalId>false</externalId>
+        <label>Final Team Meeting Deadline</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Initiation_Extension_of_days__c</fullName>
         <externalId>false</externalId>
         <label>Initiation Extension (# of days)</label>
