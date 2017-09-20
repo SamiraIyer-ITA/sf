@@ -450,11 +450,6 @@ C-###-### for CVD</inlineHelpText>
                     <label>Pakistan</label>
                 </value>
                 <value>
-                    <fullName>People&apos;s Republic of China</fullName>
-                    <default>false</default>
-                    <label>People&apos;s Republic of China</label>
-                </value>
-                <value>
                     <fullName>Philippines</fullName>
                     <default>false</default>
                     <label>Philippines</label>
@@ -568,6 +563,11 @@ C-###-### for CVD</inlineHelpText>
                     <fullName>Vietnam</fullName>
                     <default>false</default>
                     <label>Vietnam</label>
+                </value>
+                <value>
+                    <fullName>China</fullName>
+                    <default>false</default>
+                    <label>China</label>
                 </value>
             </valueSetDefinition>
         </valueSet>

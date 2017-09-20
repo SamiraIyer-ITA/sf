@@ -56,37 +56,12 @@
         <fullName>Is_120_Day</fullName>
         <description>SunsetReviewVF</description>
         <displayedFields>
-            <field>Calculated_Final_Signature__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Adequacy_of_Respondents_Submission__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Actual_Final_Signature__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
             <field>Rebuttal_Comments_Due__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Update_ACE_Customs_Module__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
             <field>Adequacy_Determination_Letter__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Issue_Liquidation_Revocation_Instruction__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -100,18 +75,38 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-        <label>Is 120 Day</label>
-    </fieldSets>
-    <fieldSets>
-        <fullName>Is_240_Day</fullName>
-        <description>SunsetReviewVF</description>
         <displayedFields>
-            <field>Calculated_Final_Signature__c</field>
+            <field>Adequate_after_Reconsideration__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Adequacy_of_Respondents_Submission__c</field>
+            <field>Next_Due_to_DAS_Deadline__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Final_Issues_Due_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Final_Issues_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Final_Concurrence_Due_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Final_Concurrence_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Calculated_Final_Signature__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -121,7 +116,72 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Rebuttal_Comments_Due__c</field>
+            <field>Final_Announcement_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Preliminary_Decision_Memorandum_URL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Notify_ITC_of_Final_Results__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ITC_Vote_on_Continuation_or_Revocation__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Next_Announcement_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Next_Major_Deadline__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Next_Office_Deadline__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Revocation_or_Continuation_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Calculated_Revocation_or_Continuation_FR__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Revocation_or_Continuation_FR__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Continuation_or_Revocation_FR_Notice_Pub__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Continuation_or_Revocation__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Effective_Date_if_revoked__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Next_Sunset_Initiation_Date_Continued__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -131,7 +191,177 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
+            <field>Issue_Liquidation_Revocation_Instruction__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Is 120 Day</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Is_240_Day</fullName>
+        <description>SunsetReviewVF</description>
+        <displayedFields>
+            <field>Rebuttal_Comments_Due__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>Adequacy_Determination_Letter__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Adequate_after_Determination__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Preliminary_Extension_Remaining__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Prelim_Team_Meeting_Deadline__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Prelim_Issues_Due_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Prelim_Issues_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Prelim_Concurrence_Due_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Prelim_Concurrence_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Calculated_Preliminary_Signature__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Preliminary_Signature__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Preliminary_Decision_Memorandum_URL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Verification_if_needed__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Case_Briefs_Due__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Rebuttal_Briefs_Due__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Hearing_if_Requested__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Final_Extension_of_days__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Final_Team_Meeting_Deadline__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Final_Issues_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Final_Issues_Due_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Final_Concurrence_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Final_Concurrence_Due_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Calculated_Final_Signature__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Final_Signature__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Notify_ITC_of_Final_Results__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ITC_Vote_on_Continuation_or_Revocation__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Calculated_Revocation_or_Continuation_FR__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Revocation_or_Continuation_FR__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Effective_Date_if_revoked__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Continuation_or_Revocation__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Continuation_or_Revocation_FR_Notice_Pub__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Next_Sunset_Initiation_Date_Continued__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Update_ACE_Customs_Module__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -146,12 +376,42 @@
         <fullName>Is_90_Day</fullName>
         <description>SunsetReviewVF</description>
         <displayedFields>
-            <field>Calculated_Final_Signature__c</field>
+            <field>Notify_ITC_of_No_Domestic_Interest__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Notify_ITC_of_No_Domestic_Interest__c</field>
+            <field>Inadequate_Domestic_Response_note_to_ITC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Next_Due_to_DAS_Deadline__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Final_Issues_Due_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Final_Issues_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Final_Concurrence_Due_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Final_Concurrence_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Calculated_Final_Signature__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -161,7 +421,7 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Inadequate_Domestic_Response_note_to_ITC__c</field>
+            <field>Final_Announcement_Date__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -172,6 +432,26 @@
         </displayedFields>
         <displayedFields>
             <field>Issue_Liquidation_Revocation_Instruction__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Litigation_Hold_Expiration_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Next_Major_Deadline__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Next_Office_Deadline__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Next_Announcement_Date__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -2355,6 +2635,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>China</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Colombia</fullName>
                 <default>false</default>
             </values>
@@ -2484,10 +2768,6 @@
             </values>
             <values>
                 <fullName>Pakistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>People%27s Republic of China</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3181,6 +3461,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>China</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Colombia</fullName>
                 <default>false</default>
             </values>
@@ -3310,10 +3594,6 @@
             </values>
             <values>
                 <fullName>Pakistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>People%27s Republic of China</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4007,6 +4287,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>China</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Colombia</fullName>
                 <default>false</default>
             </values>
@@ -4136,10 +4420,6 @@
             </values>
             <values>
                 <fullName>Pakistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>People%27s Republic of China</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4833,6 +5113,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>China</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Colombia</fullName>
                 <default>false</default>
             </values>
@@ -4962,10 +5246,6 @@
             </values>
             <values>
                 <fullName>Pakistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>People%27s Republic of China</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5659,6 +5939,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>China</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Colombia</fullName>
                 <default>false</default>
             </values>
@@ -5788,10 +6072,6 @@
             </values>
             <values>
                 <fullName>Pakistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>People%27s Republic of China</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6485,6 +6765,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>China</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Colombia</fullName>
                 <default>false</default>
             </values>
@@ -6614,10 +6898,6 @@
             </values>
             <values>
                 <fullName>Pakistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>People%27s Republic of China</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7303,6 +7583,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>China</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Colombia</fullName>
                 <default>false</default>
             </values>
@@ -7432,10 +7716,6 @@
             </values>
             <values>
                 <fullName>Pakistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>People%27s Republic of China</fullName>
                 <default>false</default>
             </values>
             <values>
