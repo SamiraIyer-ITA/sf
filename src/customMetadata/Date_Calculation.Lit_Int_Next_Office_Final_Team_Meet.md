@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <label>Lit Int Next Office - Prelim Iss To DAS</label>
+    <label>Lit Int - Next Office - Final Team Meet</label>
     <protected>false</protected>
     <values>
         <field>ADCVD_Objects__c</field>
@@ -16,7 +16,7 @@
     </values>
     <values>
         <field>Base_Date_Field_1_Name__c</field>
-        <value xsi:type="xsd:string">Prelim_Issues_Due_to_DAS__c</value>
+        <value xsi:type="xsd:string">Final_Team_Meeting_Deadline__c</value>
     </values>
     <values>
         <field>Base_Date_Field_1_Object__c</field>
@@ -116,7 +116,7 @@
     </values>
     <values>
         <field>Conditional_Field_1_Name__c</field>
-        <value xsi:type="xsd:string">Actual_Preliminary_Signature__c</value>
+        <value xsi:type="xsd:string">Actual_Final_Signature__c</value>
     </values>
     <values>
         <field>Conditional_Field_1_Object__c</field>
@@ -144,7 +144,7 @@
     </values>
     <values>
         <field>Conditional_Field_2_Name__c</field>
-        <value xsi:type="xsd:string">Actual_Prelim_Issues_to_DAS__c</value>
+        <value xsi:type="xsd:string">Final_Team_Meeting_Deadline__c</value>
     </values>
     <values>
         <field>Conditional_Field_2_Object__c</field>
@@ -152,7 +152,7 @@
     </values>
     <values>
         <field>Conditional_Field_2_Operator__c</field>
-        <value xsi:type="xsd:string">Not Equals To</value>
+        <value xsi:type="xsd:string">Until Past</value>
     </values>
     <values>
         <field>Conditional_Field_2_Result__c</field>
@@ -360,11 +360,11 @@
     </values>
     <values>
         <field>Number_of_Conditionals__c</field>
-        <value xsi:type="xsd:double">2.0</value>
+        <value xsi:type="xsd:double">3.0</value>
     </values>
     <values>
         <field>Order_of_Execution__c</field>
-        <value xsi:type="xsd:double">215.0</value>
+        <value xsi:type="xsd:double">230.0</value>
     </values>
     <values>
         <field>Tolling_Service__c</field>

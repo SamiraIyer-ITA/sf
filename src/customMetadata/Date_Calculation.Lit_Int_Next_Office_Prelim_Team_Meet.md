@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <label>Lit Int Next Office - Prelim Iss To DAS</label>
+    <label>Lit Int - Next Office - Prelim Team Meet</label>
     <protected>false</protected>
     <values>
         <field>ADCVD_Objects__c</field>
@@ -16,7 +16,7 @@
     </values>
     <values>
         <field>Base_Date_Field_1_Name__c</field>
-        <value xsi:type="xsd:string">Prelim_Issues_Due_to_DAS__c</value>
+        <value xsi:type="xsd:string">Prelim_Team_Meeting_Deadline__c</value>
     </values>
     <values>
         <field>Base_Date_Field_1_Object__c</field>
@@ -144,7 +144,7 @@
     </values>
     <values>
         <field>Conditional_Field_2_Name__c</field>
-        <value xsi:type="xsd:string">Actual_Prelim_Issues_to_DAS__c</value>
+        <value xsi:type="xsd:string">Prelim_Team_Meeting_Deadline__c</value>
     </values>
     <values>
         <field>Conditional_Field_2_Object__c</field>
@@ -152,7 +152,7 @@
     </values>
     <values>
         <field>Conditional_Field_2_Operator__c</field>
-        <value xsi:type="xsd:string">Not Equals To</value>
+        <value xsi:type="xsd:string">Until Past</value>
     </values>
     <values>
         <field>Conditional_Field_2_Result__c</field>
@@ -172,7 +172,7 @@
     </values>
     <values>
         <field>Conditional_Field_3_Name__c</field>
-        <value xsi:type="xsd:string">Next_Office_Deadline__c</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_3_Object__c</field>
@@ -180,11 +180,11 @@
     </values>
     <values>
         <field>Conditional_Field_3_Operator__c</field>
-        <value xsi:type="xsd:string">Not Equals To</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_3_Result__c</field>
-        <value xsi:type="xsd:string">Align</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_3_Type__c</field>
@@ -364,7 +364,7 @@
     </values>
     <values>
         <field>Order_of_Execution__c</field>
-        <value xsi:type="xsd:double">215.0</value>
+        <value xsi:type="xsd:double">210.0</value>
     </values>
     <values>
         <field>Tolling_Service__c</field>
