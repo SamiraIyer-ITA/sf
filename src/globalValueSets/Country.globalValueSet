@@ -211,9 +211,9 @@
         <label>Pakistan</label>
     </customValue>
     <customValue>
-        <fullName>People&apos;s Republic of China</fullName>
+        <fullName>China</fullName>
         <default>false</default>
-        <label>People&apos;s Republic of China</label>
+        <label>China</label>
     </customValue>
     <customValue>
         <fullName>Philippines</fullName>
