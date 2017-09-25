@@ -1,5 +1,5 @@
-<apex:page id="page" standardController="Segment__c" extensions="SunsetReviewController" action="{!checkRecordType}" 
-    showHeader="false" standardStylesheets="{!isSalesforceClassic}" 
+<apex:page id="page" standardController="Segment__c" extensions="SunsetReviewController"
+    showHeader="false" sidebar="false" standardStylesheets="{!isSalesforceClassic}" 
     applyHtmlTag="{!isSalesforceClassic}" applyBodyTag="{!isSalesforceClassic}"
     docType="html-5.0">
     <apex:includeLightning />

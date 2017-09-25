@@ -84,14 +84,11 @@ public class SunsetReviewController {
         } 
     	set;
     }
-    private static SegmentTriggerHandler sth {
-    	get {
-    		if (sth == null) {
-    			sth = new SegmentTriggerHandler();
-    		}
-    		return sth;
-    	}
-    	set;
+    private DateCalculationService dcs {
+        get {
+            dcs = DateCalculationServiceDispatcher.getDateCalculationServiceInstance('Sunset_Review');
+            return dcs;
+        } set;
     }
     public String fDate {get; set;}
 
@@ -183,38 +180,19 @@ public class SunsetReviewController {
             }
         }
     }
-    public PageReference checkRecordType() {
-    	Id i = ApexPages.currentPage().getParameters().get('Id');
-        if(i != null) {
-            Id recordTypeId = [SELECT RecordTypeId FROM Segment__c WHERE Id =: i LIMIT 1].RecordTypeId;
-            Map<Id,String> recordIdMap = utils.getRecordTypeDeveloperNameMap('Segment__c');
-            if(recordIdMap.get(recordTypeId) != 'Sunset_Review') {
-                PageReference standardPage = new PageReference('/' + i + '?nooverride=1');
-                return (standardPage);
-            }
-        }
-        
-    	return null;
-    }
     public String getReturnUrl() {
         return ApexPages.currentPage().getParameters().get('retURL');
     }
     public PageReference save() {
         try {
             upsert(ssReview);
-            recordId = ssReview.Id;
-            if(ApexPages.currentPage().getParameters() == null || ApexPages.currentPage().getParameters().get('Id') == null) {
-                ApexPages.currentPage().getParameters().put('Id', ssReview.Id);
-            }
             //cancel(); //requeries and rerenders form
         } catch(System.DMLException e) {
             ApexPages.addMessages(e);
             return null;
         }
-        //  After successful Save, navigate to the default view page
-        PageReference redirectSuccess = new PageReference('/' + recordId);
-        return (redirectSuccess);
-        //return null;
+        toggleEdit();
+        return null;
     }
     public pageReference cancel() {
         toggleEdit();
@@ -230,7 +208,9 @@ public class SunsetReviewController {
     }
     private void updateSSReview (String ss) {
     	if(ssReview != null) {
-    		ssReview = sth.calculateSegmentDates(ss, ssReview);
+            System.debug('updateSSReview: ' + ss + ' ' + ssReview);
+    		ssReview.Sunset_Review_Type__c = ss;
+            dcs.getCalculatedDates(new List<Segment__c>{ssReview}, 'Segment__c', 'Sunset_Review');
     	}
     }
 
