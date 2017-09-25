@@ -509,7 +509,8 @@ private class DescriberTest {
 			}
 
 
-*/	
+*/
+/*
 			integer i = 0;
 			for(string key:con.pairFieldkey2FieldDescribe.keyset()){
 				//system.debug('pairFieldkey : ' + key.getName() );
@@ -526,7 +527,7 @@ private class DescriberTest {
 			}
 						
 	    	Test.stopTest();
-	    	
+*/
 			//system.debug('pairs size : ' + con.pairFields.size());
 				
 		/*	for(Describer.pair pairfield:con.pairFields){
