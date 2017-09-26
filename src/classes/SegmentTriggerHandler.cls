@@ -11,7 +11,6 @@ public without sharing class SegmentTriggerHandler {
 	private static FINAL String SCOPE_INQUIRY							= segmentCalcOffsets.get('Scope_Inq_Calc_Prelim_Sig').ADCVD_Objects__r.Record_Type_Name__c;
 	private static FINAL String SUNSET_REVIEW							= segmentCalcOffsets.get('SS_Rev_Notice_Intent_Participate').ADCVD_Objects__r.Record_Type_Name__c;
 
-	public static boolean preventRecursion = false;
 	public static void mainEntry(List<Segment__c> newList, List<Segment__c> oldList, Map<Id, Segment__c> newMap, 
 		Map<Id, Segment__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete, 
 		Boolean isBefore, Boolean isAfter) {
@@ -156,6 +155,35 @@ public without sharing class SegmentTriggerHandler {
 	* Helper Methods
 	***********************************/
 
+	//Called from mainEntry->calculateSegmentDates for lists
+	@TestVisible private static void setSsrType(List<Segment__c> newList) {
+		for (Segment__c s : newList) {
+			setSsrType(s);
+		}
+	}
+
+	//called from bulk and for status updates
+	@TestVisible private static void setSsrType(Segment__c s) {
+		if ((s.Notice_of_intent_to_participate_Ips__c == 'No' || s.Domestic_Party_File_Substan_Response__c == 'No')  
+				&& s.Review_to_address_zeroing_in_Segments__c != 'Yes') {
+			ssrType = '90';
+		} else if (s.Notice_of_intent_to_participate_Ips__c == 'Yes' && s.Domestic_Party_File_Substan_Response__c == 'Yes' 
+				&& s.Respondent_File_Substantive_Response__c != 'Yes' && s.Review_to_address_zeroing_in_Segments__c != 'Yes') {
+			ssrType = '120';
+		} else if ((s.Notice_of_intent_to_participate_Ips__c == 'Yes' && s.Domestic_Party_File_Substan_Response__c == 'Yes'
+				&& s.Respondent_File_Substantive_Response__c == 'Yes') || s.Review_to_address_zeroing_in_Segments__c == 'Yes') {
+			ssrType = '240';
+		}
+		if(ssrType == '120' || ssrType == '240') {
+			if (s.Adequacy_of_Respondents_Submission__c =='Adequate or Substantive') {
+				ssrType = '240';
+			} else if(s.Adequacy_of_Respondents_Submission__c =='Inadequate or Non-Substantive' && s.Review_to_address_zeroing_in_Segments__c != 'Yes') {
+				ssrType = '120';
+			}
+		}
+		s.Sunset_Review_Type__c = ssrType;
+	}
+
 	//used to set Offset Variables
 	@TestVisible private static Map<String,Constant__mdt> segmentCalcOffsets() {
 		if(segmentCalcOffsets == null || segmentCalcOffsets.size() < 1) {
@@ -173,25 +201,6 @@ public without sharing class SegmentTriggerHandler {
 		} else {
 			return segmentCalcOffsets;
 		}
-	}
-
-	@TestVisible private static Set<Id> getIssueParentIds(Map<Id,Segment__c> newMap, Map<Id,Segment__c> oldMap) {
-		Set<Id> returnIdSet = new Set<Id>();
-		for (Segment__c s : newMap.values()) {
-			if (oldMap.get(s.Id) == null) {
-				returnIdSet.add(s.Id);
-			} else if (oldMap.get(s.Id) != null && (
-				oldMap.get(s.Id).Calculated_Initiation_Signature__c != s.Calculated_Initiation_Signature__c ||
-				oldMap.get(s.Id).Calculated_Preliminary_Signature__c != s.Calculated_Preliminary_Signature__c ||
-				oldMap.get(s.Id).Calculated_Final_Signature__c != s.Calculated_Final_Signature__c ||
-				oldMap.get(s.Id).Calculated_Amended_Final_Signature__c != s.Calculated_Amended_Final_Signature__c ||
-				oldMap.get(s.Id).Deadline_for_Decision_on_how_to_proceed__c != s.Deadline_for_Decision_on_how_to_proceed__c ||
-				oldMap.get(s.Id).Continuation_or_Revocation__c != s.Continuation_or_Revocation__c
-				)) {
-				returnIdSet.add(s.Id);
-			}
-		}
-		return returnIdSet;
 	}
 
 	@TestVisible private static Set<Id> getOrderParentIds(Map<Id,Segment__c> newMap, Map<Id,Segment__c> oldMap) {
@@ -526,43 +535,5 @@ public without sharing class SegmentTriggerHandler {
 	                s.Status__c = 'Closed';
 	        }
 	    }
-	}
-
-
-	/***********************************
-	* Methods called by other classes
-	***********************************/
-
-	//called by Sunset Review Controller
-	public Segment__c calculateSegmentDates(String ssReviewType, Segment__c s) {
-		calculateSegmentDates(new List<Segment__c>{s});
-		return s;
-	}
-	@TestVisible private static void setSsrType(List<Segment__c> newList) {
-		for (Segment__c s : newList) {
-			setSsrType(s);
-		}
-	}
-
-	//sets the ssrType for a Sunset Review
-	@TestVisible private static void setSsrType(Segment__c s) {
-		if ((s.Notice_of_intent_to_participate_Ips__c == 'No' || s.Domestic_Party_File_Substan_Response__c == 'No')  
-				&& s.Review_to_address_zeroing_in_Segments__c != 'Yes') {
-			ssrType = '90';
-		} else if (s.Notice_of_intent_to_participate_Ips__c == 'Yes' && s.Domestic_Party_File_Substan_Response__c == 'Yes' 
-				&& s.Respondent_File_Substantive_Response__c != 'Yes' && s.Review_to_address_zeroing_in_Segments__c != 'Yes') {
-			ssrType = '120';
-		} else if ((s.Notice_of_intent_to_participate_Ips__c == 'Yes' && s.Domestic_Party_File_Substan_Response__c == 'Yes'
-				&& s.Respondent_File_Substantive_Response__c == 'Yes') || s.Review_to_address_zeroing_in_Segments__c == 'Yes') {
-			ssrType = '240';
-		}
-		if(ssrType == '120' || ssrType == '240') {
-			if (s.Adequacy_of_Respondents_Submission__c =='Adequate or Substantive') {
-				ssrType = '240';
-			} else if(s.Adequacy_of_Respondents_Submission__c =='Inadequate or Non-Substantive' && s.Review_to_address_zeroing_in_Segments__c != 'Yes') {
-				ssrType = '120';
-			}
-		}
-		s.Sunset_Review_Type__c = ssrType;
 	}
 }
