@@ -46,6 +46,11 @@
         <label>Chile</label>
     </customValue>
     <customValue>
+        <fullName>China</fullName>
+        <default>false</default>
+        <label>China</label>
+    </customValue>
+    <customValue>
         <fullName>Colombia</fullName>
         <default>false</default>
         <label>Colombia</label>
@@ -209,11 +214,6 @@
         <fullName>Pakistan</fullName>
         <default>false</default>
         <label>Pakistan</label>
-    </customValue>
-    <customValue>
-        <fullName>China</fullName>
-        <default>false</default>
-        <label>China</label>
     </customValue>
     <customValue>
         <fullName>Philippines</fullName>
