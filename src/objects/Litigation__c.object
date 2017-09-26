@@ -53,9 +53,59 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
+        <fullName>ADCVD_Case_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Investigation__c != null,  Investigation__r.ADCVD_Case_Number__c , 
+IF( Segment__c != null,  Segment__r.ADCVD_Case_Number__c , 
+&apos;&apos;
+) )</formula>
+        <label>ADCVD Case Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Actual_Draft_Remand_Concurrence_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Draft Remand Concurrence to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Draft_Remand_Issues_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Draft Remand Issues to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Actual_Draft_Remand_released_to_party__c</fullName>
         <externalId>false</externalId>
         <label>Actual Draft Remand (released to party)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Final_Concurrence_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Final Concurrence to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Final_Issues_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Final Issues to DAS</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -74,6 +124,24 @@
         <fullName>Actual_Initiation_Signature__c</fullName>
         <externalId>false</externalId>
         <label>Actual Initiation Signature</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Prelim_Concurrence_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Prelim Concurrence to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Prelim_Issues_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Prelim Issues to DAS</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -169,15 +237,6 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>Concurrence_to_DAS__c</fullName>
-        <externalId>false</externalId>
-        <label>Concurrence to DAS</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Court_of_Panel_s_Ruling__c</fullName>
         <externalId>false</externalId>
         <label>Court of Panel&apos;s Ruling</label>
@@ -190,6 +249,24 @@
         <fullName>Date_Remand_Issued_by_Court_or_Panel__c</fullName>
         <externalId>false</externalId>
         <label>Date Remand Issued by Court or Panel</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Draft_Remand_Concurrence_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Draft Remand Concurrence Due to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Draft_Remand_Issues_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Draft Remand Issues Due to DAS</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -217,6 +294,15 @@
         <unique>true</unique>
     </fields>
     <fields>
+        <fullName>Final_Concurrence_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Final Concurrence Due to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Final_Extension_of_days__c</fullName>
         <externalId>false</externalId>
         <label>Final Extension (# of days)</label>
@@ -227,6 +313,15 @@
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Final_Issues_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Final Issues Due to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Final_Remand__c</fullName>
@@ -244,7 +339,7 @@
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>TextArea</type>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Initiation_Extension_of_days__c</fullName>
@@ -312,15 +407,6 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Issues_to_DAS__c</fullName>
-        <externalId>false</externalId>
-        <label>Issues to DAS</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Link__c</fullName>
         <externalId>false</externalId>
         <formula>HYPERLINK( LEFT($Api.Enterprise_Server_URL_390 , FIND(&apos;/services&apos;, $Api.Enterprise_Server_URL_390)) &amp; Id,  Litigation_Name__c , &apos;_self&apos;)</formula>
@@ -334,7 +420,7 @@
     <fields>
         <fullName>Litigation_Name__c</fullName>
         <externalId>false</externalId>
-        <formula>Petition_Case_Number__c +&apos;--&apos;+ Name</formula>
+        <formula>ADCVD_Case_Number__c +&apos;--&apos;+ Name</formula>
         <label>Litigation Name</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -353,15 +439,6 @@
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
-        <fullName>Next_Announcement_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Next Announcement Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Next_Due_to_DAS_Deadline__c</fullName>
         <externalId>false</externalId>
         <label>Next Due to DAS Deadline</label>
@@ -374,6 +451,15 @@
         <fullName>Next_Major_Deadline__c</fullName>
         <externalId>false</externalId>
         <label>Next Major Deadline</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Next_Office_Deadline__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Office Deadline</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -407,20 +493,6 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Petition_Case_Number__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF( Investigation__c != null,  Investigation__r.Petition_Case_Number__c , 
-IF( Segment__c != null,  Segment__r.Petition_Case_Number__c , 
-&apos;&apos;
-) )</formula>
-        <label>Petition Case Number</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Petition__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -434,6 +506,15 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Prelim_Concurrence_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Prelim Concurrence Due to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Prelim_Extension_of_days__c</fullName>
         <externalId>false</externalId>
         <label>Prelim Extension (# of days)</label>
@@ -444,6 +525,15 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Prelim_Issues_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Prelim Issues Due to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Prelim_Team_Meeting_Deadline__c</fullName>
@@ -673,10 +763,10 @@ IF( Segment__c != null,  Segment__r.Petition_Case_Number__c ,
         </picklistValues>
     </recordTypes>
     <searchLayouts>
-        <customTabListAdditionalFields>Petition_Case_Number__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ADCVD_Case_Number__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
         <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
-        <searchResultsAdditionalFields>Petition_Case_Number__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADCVD_Case_Number__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
     </searchLayouts>
@@ -720,6 +810,16 @@ ISNULL( Calculated_Preliminary_Signature__c ),
 NOT( ISNULL( Actual_Preliminary_Signature__c )) 
 )</errorConditionFormula>
         <errorMessage>Calculated Preliminary Signature Date must be populated in order to enter Actual Preliminary Signature Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Every_Litigation_must_have_a_Parent</fullName>
+        <active>true</active>
+        <description>Every Litigation must have either a Petition, Investigation, or Segment</description>
+        <errorConditionFormula>AND( ISBLANK(Petition__c),
+     ISBLANK(Segment__c),  
+     ISBLANK(Investigation__c)
+)</errorConditionFormula>
+        <errorMessage>Every Litigation must have either a Petition, Investigation, or Segment. Please enter a  Petition, Investigation, or Segment.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>International_Litigation_Final_Extension</fullName>

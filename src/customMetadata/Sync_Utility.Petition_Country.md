@@ -4,7 +4,7 @@
     <protected>false</protected>
     <values>
         <field>Destination_Field__c</field>
-        <value xsi:type="xsd:string">Petition_Country__c</value>
+        <value xsi:type="xsd:string">Country__c</value>
     </values>
     <values>
         <field>Destination_Object__c</field>

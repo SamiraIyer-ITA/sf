@@ -36,6 +36,7 @@
     <types>
         <members>ADCVD_Objects__mdt</members>
         <members>ADCVD_Order__c</members>
+        <members>AppConfig__c</members>
         <members>Artifact__c</members>
         <members>BatchJobScheduler__c</members>
         <members>BatchTriggerFlag__c</members>

@@ -16,7 +16,7 @@ public class ADCVDOrderTriggerHandlerTest {
 	private static ADCVD_Order__c o{
 		get{
 			if (o == null) {
-				o = [SELECT Id, Anniversary_Month__c, Office_Assignment__c, Segment_Status__c, Status__c, Next_Sunset_Initiation_Date__c FROM ADCVD_Order__c LIMIT 1];
+				o = [SELECT Id, Anniversary_Month__c, Office__c, Segment_Status__c, Status__c, Next_Sunset_Initiation_Date__c FROM ADCVD_Order__c LIMIT 1];
 			}
 			return o;
 		}
@@ -119,8 +119,8 @@ public class ADCVDOrderTriggerHandlerTest {
 				Id recordTypeId = utils.getRecordTypeIdMap('Segment__c').get('Sunset_Review');
 				ssSeg = [SELECT Id, Status__c, Calculated_Final_Signature__c, Update_ACE_Customs_Module__c, Adequacy_of_Respondents_Submission__c, 
 							Actual_Final_Signature__c, Actual_Revocation_or_Continuation_FR__c, Calculated_Revocation_or_Continuation_FR__c, 
-							Issue_Liquidation_Revocation_Instruction__c, Rebuttal_Comments_Due__c, Adequacy_Determination_Letter_120_day__c, 
-							Adequacy_Determination_Letter_240_day__c, Comments_on_Adequacy_Determination_Filed__c, Memorandum_on_Adequacy_Determination__c, 
+							Issue_Liquidation_Revocation_Instruction__c, Rebuttal_Comments_Due__c, Adequacy_Determination_Letter__c, 
+							Comments_on_Adequacy_Determination_Filed__c, Memorandum_on_Adequacy_Determination__c, 
 							Notify_ITC_of_No_Domestic_Interest__c, Inadequate_Domestic_Response_note_to_ITC__c, Notice_of_Intent_to_Participate__c, 
 							Notify_Cluster_Coordinator_No_Interest__c, Substantive_Response_Due_For_All_Parties__c, Inform_Cluster_Coordinator_if_No_Respons__c, 
 							Notice_of_intent_to_participate_Ips__c, Domestic_Party_File_Substan_Response__c, Review_to_address_zeroing_in_Segments__c, 

@@ -1,5 +1,5 @@
 public class AttachmentWriterController {
-    private static string defaultName = 'Attachment Writer File.txt';
+    private static string defaultName = 'Scope.txt';
     public Id attachmentId {get; set;}
     public Id recordId {get; set;}
     public String attachmentBody {get; set;}
@@ -46,6 +46,9 @@ public class AttachmentWriterController {
         if(stdController.getRecord() InstanceOf ADCVD_Order__c) {
             ADCVD_Order__c o = (ADCVD_Order__c)stdController.getRecord();
             RecordId = o.Id;
+        } else if (stdController.getRecord() InstanceOf Suspension_Agreement__c) {
+            Suspension_Agreement__c s = (Suspension_Agreement__c)stdController.getRecord();
+            RecordId = s.Id;
         }
         init();
     }

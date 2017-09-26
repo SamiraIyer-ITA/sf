@@ -14,7 +14,8 @@ public without sharing class ADCVDOrderTriggerHandler {
     public static void mainEntry(List<ADCVD_Order__c> newList, List<ADCVD_Order__c> oldList, Map<Id, ADCVD_Order__c> newMap, 
         Map<Id, ADCVD_Order__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete, 
         Boolean isBefore, Boolean isAfter) {
-        if (preventRecursion) {return;}
+        
+        if (!AppConfigService.triggerEnabled) {return;}
 
         if (isBefore && isInsert) {
             initialize(newList,newMap);

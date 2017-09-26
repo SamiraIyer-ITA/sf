@@ -50,10 +50,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Number_of_Constants__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Tolling_Service__c</field>
             </layoutItems>
         </layoutColumns>
@@ -113,22 +109,6 @@
                 <behavior>Edit</behavior>
                 <field>Base_Date_Field_6_Lookup_Field_Name__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Base_Date_Field_7_Object__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Base_Date_Field_7_Lookup_Field_Name__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Base_Date_Field_8_Object__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Base_Date_Field_8_Lookup_Field_Name__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -179,22 +159,6 @@
                 <behavior>Edit</behavior>
                 <field>Base_Date_Field_6_Type__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Base_Date_Field_7_Name__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Base_Date_Field_7_Type__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Base_Date_Field_8_Name__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Base_Date_Field_8_Type__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -215,6 +179,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Conditional_Field_1_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Conditional_Field_1_Lookup_Field_Name__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -251,6 +219,10 @@
                 <behavior>Edit</behavior>
                 <field>Conditional_Field_2_Type__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Conditional_Field_2_Lookup_Field_Name__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -285,6 +257,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Conditional_Field_3_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Conditional_Field_3_Lookup_Field_Name__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -321,6 +297,10 @@
                 <behavior>Edit</behavior>
                 <field>Conditional_Field_4_Type__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Conditional_Field_4_Lookup_Field_Name__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -355,6 +335,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Conditional_Field_5_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Conditional_Field_5_Lookup_Field_Name__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -391,6 +375,10 @@
                 <behavior>Edit</behavior>
                 <field>Conditional_Field_6_Type__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Conditional_Field_6_Lookup_Field_Name__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -425,6 +413,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Conditional_Field_7_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Conditional_Field_7_Lookup_Field_Name__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -461,6 +453,10 @@
                 <behavior>Edit</behavior>
                 <field>Conditional_Field_8_Type__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Conditional_Field_8_Lookup_Field_Name__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -474,41 +470,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Conditional_Field_8_Result__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <style>TwoColumnsLeftToRight</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
-        <editHeading>true</editHeading>
-        <label>Condition 9</label>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Conditional_Field_9_Object__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Conditional_Field_9_Name__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Conditional_Field_9_Type__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Conditional_Field_9_Operator__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Conditional_Field_9_Value__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Conditional_Field_9_Result__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

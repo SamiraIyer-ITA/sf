@@ -57,9 +57,29 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
+        <fullName>ADCVD_Case_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>Investigation__r.ADCVD_Case_Number__c</formula>
+        <label>ADCVD Case Number</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ADCVD_Case_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Investigation__r.Petition__r.ADCVD_Case_Type__c)</formula>
+        <label>ADCVD Case Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>ADCVD_Order_Name__c</fullName>
         <externalId>false</externalId>
-        <formula>Petition_Case_Number__c +&apos;--&apos;+ Name</formula>
+        <formula>ADCVD_Case_Number__c +&apos;--&apos;+ Name</formula>
         <label>ADCVD Order Name</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -125,6 +145,16 @@
             <restricted>true</restricted>
             <valueSetName>Months</valueSetName>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>CBP_Case_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>Investigation__r.CBP_Case_Number__c</formula>
+        <label>CBP Case Number</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Calculated_Amended_Final_Signature__c</fullName>
@@ -241,12 +271,32 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Commodity__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(  Investigation__r.Petition__r.Commodity__c  )</formula>
+        <label>Commodity</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Concurrence_to_DAS__c</fullName>
         <externalId>false</externalId>
         <label>Concurrence to DAS</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Country__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(  Investigation__r.Petition__r.Country__c )</formula>
+        <label>Country</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Do_you_have_Ministerial_Error_for_Final__c</fullName>
@@ -538,57 +588,15 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Office_Assignment__c</fullName>
+        <fullName>Office__c</fullName>
         <externalId>false</externalId>
-        <label>Office Assignment</label>
+        <label>Office</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
             <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>I</fullName>
-                    <default>false</default>
-                    <label>I</label>
-                </value>
-                <value>
-                    <fullName>II</fullName>
-                    <default>false</default>
-                    <label>II</label>
-                </value>
-                <value>
-                    <fullName>III</fullName>
-                    <default>false</default>
-                    <label>III</label>
-                </value>
-                <value>
-                    <fullName>IV</fullName>
-                    <default>false</default>
-                    <label>IV</label>
-                </value>
-                <value>
-                    <fullName>V</fullName>
-                    <default>false</default>
-                    <label>V</label>
-                </value>
-                <value>
-                    <fullName>VI</fullName>
-                    <default>false</default>
-                    <label>VI</label>
-                </value>
-                <value>
-                    <fullName>VII</fullName>
-                    <default>false</default>
-                    <label>VII</label>
-                </value>
-                <value>
-                    <fullName>VIII</fullName>
-                    <default>false</default>
-                    <label>VIII</label>
-                </value>
-            </valueSetDefinition>
+            <valueSetName>ADCVD_Offices</valueSetName>
         </valueSet>
     </fields>
     <fields>
@@ -608,46 +616,6 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Petition_Case_Number__c</fullName>
-        <externalId>false</externalId>
-        <formula>Investigation__r.Petition_Case_Number__c</formula>
-        <label>Petition Case Number</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Petition_Case_Type__c</fullName>
-        <externalId>false</externalId>
-        <formula>TEXT(Investigation__r.Petition__r.Case_Type__c)</formula>
-        <label>Petition Case Type</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Petition_Commodity__c</fullName>
-        <externalId>false</externalId>
-        <formula>TEXT(  Investigation__r.Petition__r.Commodity__c  )</formula>
-        <label>Petition Commodity</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Petition_Country__c</fullName>
-        <externalId>false</externalId>
-        <formula>TEXT(  Investigation__r.Petition__r.Country__c )</formula>
-        <label>Petition Country</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Petition_Filed__c</fullName>
         <externalId>false</externalId>
         <formula>Investigation__r.Petition__r.Petition_Filed__c</formula>
@@ -656,27 +624,6 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Petition_Product_Short_Name__c</fullName>
-        <externalId>false</externalId>
-        <formula>Investigation__r.Petition__r.Product_Short_Name__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Petition Product Short Name</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Petition_Product__c</fullName>
-        <externalId>false</externalId>
-        <formula>Investigation__r.Petition__r.Product__c</formula>
-        <label>Petition Product</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Prelim_Extension_of_days__c</fullName>
@@ -696,6 +643,27 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Product_Short_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Investigation__r.Petition__r.Product_Short_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Product Short Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <externalId>false</externalId>
+        <formula>Investigation__r.Petition__r.Product__c</formula>
+        <label>Product</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Receive_Injunction_or_In_Litigation__c</fullName>
@@ -923,11 +891,11 @@
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
-        <columns>Petition_Country__c</columns>
-        <columns>Petition_Product__c</columns>
-        <columns>Petition_Case_Type__c</columns>
-        <columns>Petition_Case_Number__c</columns>
-        <columns>Petition_Commodity__c</columns>
+        <columns>Country__c</columns>
+        <columns>Product__c</columns>
+        <columns>ADCVD_Case_Type__c</columns>
+        <columns>ADCVD_Case_Number__c</columns>
+        <columns>Commodity__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
@@ -1060,7 +1028,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Office_Assignment__c</picklist>
+            <picklist>Office__c</picklist>
             <values>
                 <fullName>I</fullName>
                 <default>false</default>
@@ -1200,39 +1168,39 @@
         </picklistValues>
     </recordTypes>
     <searchLayouts>
-        <customTabListAdditionalFields>Petition_Case_Number__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Petition_Country__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Petition_Case_Type__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Petition_Product__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Petition_Commodity__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ADCVD_Case_Number__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Country__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ADCVD_Case_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Product__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Commodity__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Office_Assignment__c</customTabListAdditionalFields>
-        <lookupDialogsAdditionalFields>Petition_Case_Number__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Petition_Country__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Petition_Case_Type__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Petition_Product__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Petition_Commodity__c</lookupDialogsAdditionalFields>
+        <customTabListAdditionalFields>Office__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>ADCVD_Case_Number__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Country__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ADCVD_Case_Type__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Product__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Commodity__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Office_Assignment__c</lookupDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Petition_Case_Number__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Petition_Country__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Petition_Case_Type__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Petition_Product__c</lookupPhoneDialogsAdditionalFields>
-        <searchFilterFields>Petition_Case_Number__c</searchFilterFields>
-        <searchFilterFields>Petition_Case_Type__c</searchFilterFields>
-        <searchFilterFields>Petition_Country__c</searchFilterFields>
-        <searchFilterFields>Petition_Product__c</searchFilterFields>
-        <searchFilterFields>Petition_Commodity__c</searchFilterFields>
+        <lookupDialogsAdditionalFields>Office__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ADCVD_Case_Number__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Country__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ADCVD_Case_Type__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Product__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>ADCVD_Case_Number__c</searchFilterFields>
+        <searchFilterFields>ADCVD_Case_Type__c</searchFilterFields>
+        <searchFilterFields>Country__c</searchFilterFields>
+        <searchFilterFields>Product__c</searchFilterFields>
+        <searchFilterFields>Commodity__c</searchFilterFields>
         <searchFilterFields>Status__c</searchFilterFields>
-        <searchFilterFields>Office_Assignment__c</searchFilterFields>
+        <searchFilterFields>Office__c</searchFilterFields>
         <searchFilterFields>NAME</searchFilterFields>
-        <searchResultsAdditionalFields>Petition_Case_Number__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Petition_Country__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Petition_Case_Type__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Petition_Product__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Petition_Commodity__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADCVD_Case_Number__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Country__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADCVD_Case_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Product__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Commodity__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Office_Assignment__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Office__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>

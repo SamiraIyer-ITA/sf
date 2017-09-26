@@ -28,10 +28,8 @@ public without sharing class SyncUtility {
 	@TestVisible private static Map<String,List<SObject>> soListMap = new Map<String,List<SObject>>();
 	@TestVisible private static List<Sync_Utility__mdt> syncUtilityCMT {
 		get {
-			if(syncUtilityCMT == null) {
-				syncUtilityCMT = ([SELECT Source_Object__c, Source_Field__c, Destination_Field__c, Sync_This_Field__c, Synced_for_Final__c 
-										FROM Sync_Utility__mdt WHERE Destination_Object__c =: targetObjectName AND Source_Object__c IN: sourceObjectNames]);
-			}
+			syncUtilityCMT = ([SELECT Source_Object__c, Source_Field__c, Destination_Field__c, Sync_This_Field__c, Synced_for_Final__c 
+								FROM Sync_Utility__mdt WHERE Destination_Object__c =: targetObjectName AND Source_Object__c IN: sourceObjectNames]);
 		return syncUtilityCMT;
 		}
 	}
@@ -46,7 +44,8 @@ public without sharing class SyncUtility {
 	@TestVisible private static Set<String> allRecusalSources = new Set<String>{'Recusal__c'};
 	//Sync to New Shipper Review
 	@TestVisible private static List<Segment__c> segmentList = new List<Segment__c>();
-	@TestVisible private static Set<String> allSegmentSources = new Set<String>{'Segment__c'};
+	@TestVisible private static List<ADCVD_Order__c> orderList = new List<ADCVD_Order__c>();
+	@TestVisible private static Set<String> allSegmentSources = new Set<String>{'ADCVD_Order__c','Segment__c'};
 	@TestVisible private static Set<String> finalSyncLevelFieldSet = new Set<String>();
 	
 	
@@ -62,7 +61,7 @@ public without sharing class SyncUtility {
 	 *******************************************************************/
 
 	//accepts object and String or null. If String is null, all sources is default
-	public void syncObject(List<SObject> targetObjectList, String sourceObjectName) {
+	public static void syncObject(List<SObject> targetObjectList, String sourceObjectName) {
 		Boolean allSources = true;
 		Set<String> tempObjectNameSet = new Set<String>();
 		if (!String.isBlank(sourceObjectName)) {
@@ -112,6 +111,8 @@ public without sharing class SyncUtility {
 			if(typeToCastTo == 'Segment__c') {
 				segmentList.clear();
 				segmentList.addAll((List<Segment__c>) soListMap.get(targetObjectName));
+			} else if (typeToCastTo == 'ADCVD_Order__c') {
+				orderList = (List<ADCVD_Order__c>) soListMap.get(targetObjectName);
 			}
 		} //add else if to type cast to different sources from other target objects.  You will need a class level list to hold any object types not already listed.
 		//However, you can re-use in this method any class level lists that are already created
@@ -119,6 +120,7 @@ public without sharing class SyncUtility {
 
 	//sets source Objects to query, handles nulls from syncObject params
 	@TestVisible private static void setSourceObjectNames(Set<String> sourceObjects, Boolean allSources) {
+		sourceObjectNames.clear();
 		if(targetObjectName == 'Investigation__c') {
 			if(sourceObjects == null || sourceObjects.size() < 1 || allSources) {
 				sourceObjectNames.addAll(allInvestigationSources);
@@ -158,6 +160,7 @@ public without sharing class SyncUtility {
 			soQuery += sourceQueryFieldNames.get(sourceObjectName);//add query fields based on this source object
 			soQuery = soQuery.removeEnd(', ');
 			soQuery += ' FROM ' + sourceObjectName + ' WHERE Id IN: tempIdSet';//limit by the Ids gathered from the current set
+			System.debug('$$$$$$$$$$$$$$$$$$$ ' + soQuery);
 			List<SObject> tempList = (List<SObject>)Database.Query(soQuery);
 			soListMap.put(targetObjectName, tempList);
 			addSourceListToSourceObjectsMap(sourceObjectName);//add soList to sourceObjectMap
@@ -170,7 +173,7 @@ public without sharing class SyncUtility {
 			Map<String,String> targetApiToSourceApiMap = syncFieldMap.get(sourceObjectsTypeMap.get(sourceObject.Id));//set the field api's from CMT to the source object type
 			if(sourceIdToTargetObjectMap.get(sourceObject.Id) != null && sourceIdToTargetObjectMap.get(sourceObject.Id).size() > 0) {
 				for(SObject target : sourceIdToTargetObjectMap.get(sourceObject.Id)) {//most are lists of one, but this is a list for loop in case multiple objects update from same source
-					Segment__c s = targetObjectName == 'Segment__c' ? (Segment__c) target : null;
+					Segment__c s = (targetObjectName == 'Segment__c' && sourceObjectNames.contains('Segment__c')) ? (Segment__c) target : null;
 					for (String targetObjectField : targetApiToSourceApiMap.keySet()) {//iterate through the target object field api's
 						if (s == null 
 							|| (s != null && s.New_Shipper_Sync_Level__c == 'Final' && finalSyncLevelFieldSet.contains(targetObjectField))
@@ -221,7 +224,7 @@ public without sharing class SyncUtility {
 			if(su.Sync_This_Field__c && su.Source_Object__c == sourceObjectName) {
 				tempFieldMap.put(su.Destination_Field__c, su.Source_Field__c);
 				tempString += su.Source_Field__c + ', ';
-				if(targetObjectName == 'Segment__c' && su.Synced_for_Final__c) {
+				if(targetObjectName == 'Segment__c' && sourceObjectName == 'Segment__c' && su.Synced_for_Final__c) {
 					tempFieldSet.add(su.Destination_Field__c);
 				}
 			}
@@ -253,10 +256,17 @@ public without sharing class SyncUtility {
 				sourceObjectsMap.put(rec.Id, rec);
 				sourceObjectsTypeMap.put(rec.Id, 'Recusal__c');//set map of Id and object type name, this is used to grab the correct fields from syncFieldMap
 			}
-		} else if(targetObjectName == 'Segment__c' && sourceObjectName == 'Segment__c') {
-			for(Segment__c seg : segmentList) {
-				sourceObjectsMap.put(seg.Id, seg);
-				sourceObjectsTypeMap.put(seg.Id, 'Segment__c');
+		} else if(targetObjectName == 'Segment__c') {
+			if (sourceObjectName == 'Segment__c') {
+				for(Segment__c seg : segmentList) {
+					sourceObjectsMap.put(seg.Id, seg);
+					sourceObjectsTypeMap.put(seg.Id, 'Segment__c');
+				}
+			} else if (sourceObjectName == 'ADCVD_Order__c') {
+				for(ADCVD_Order__c o : orderList) {
+					sourceObjectsMap.put(o.Id, o);
+					sourceObjectsTypeMap.put(o.Id, 'ADCVD_Order__c');//set map of Id and object type name
+				}
 			}
 		} //add else if for a differenct target object
 	}
@@ -336,7 +346,18 @@ public without sharing class SyncUtility {
 	***************************************************************************/
 	@TestVisible private static void segmentTargetObjectIdSet(Map<String,Set<Id>> returnMap) {
 		Set<Id> adminReviewIdSet = new Set<Id>();
+		Set<Id> orderIdSet = new Set<Id>();
 		for (Segment__c s : segmentList) {
+			if(s.ADCVD_Order__c != null) {
+				if (sourceIdToTargetObjectMap.get(s.ADCVD_Order__c) != null) {
+					sourceIdToTargetObjectMap.get(s.ADCVD_Order__c).add(s);
+				} else {
+					List<SObject> tempList = new List<SObject>();
+					tempList.add(s);
+					sourceIdToTargetObjectMap.put(s.ADCVD_Order__c, tempList);
+				}
+				orderIdSet.add(s.ADCVD_Order__c);
+			}
 			if (s.Administrative_Review_Aligned_To__c != null) {
 				if (sourceIdToTargetObjectMap.get(s.Administrative_Review_Aligned_To__c) != null) {
 					sourceIdToTargetObjectMap.get(s.Administrative_Review_Aligned_To__c).add(s);
@@ -348,6 +369,7 @@ public without sharing class SyncUtility {
 				adminReviewIdSet.add(s.Administrative_Review_Aligned_To__c);
 			}
 		}
+		returnMap.put('ADCVD_Order__c', orderIdSet);
 		returnMap.put('Segment__c', adminReviewIdSet);
 	}
 }

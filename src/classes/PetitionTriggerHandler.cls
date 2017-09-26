@@ -11,7 +11,8 @@ public without sharing class PetitionTriggerHandler {
     public static void mainEntry(List<Petition__c> newList, List<Petition__c> oldList, Map<Id, Petition__c> newMap, 
         Map<Id, Petition__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete, 
         Boolean isBefore, Boolean isAfter){
-        if(preventRecursion) {return;}
+        
+        if (!AppConfigService.triggerEnabled) {return;}
 
         if(isBefore && isInsert) {
             initialize(newList, newMap);
@@ -30,7 +31,7 @@ public without sharing class PetitionTriggerHandler {
         }
         if(isAfter && isUpdate) {
             recalculateInvestigations(newMap);
-            recalculateIssues(newMap, oldMap);
+            //recalculateIssues(newMap, oldMap);
         }
     }
 

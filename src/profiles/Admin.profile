@@ -43,6 +43,14 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AppConfigService</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AppConfigServiceTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AttachmentWriterController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -757,6 +765,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>ADCVD_Order__c.ADCVD_Case_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ADCVD_Order__c.ADCVD_Case_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>ADCVD_Order__c.ADCVD_Order_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -793,6 +811,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>ADCVD_Order__c.Anniversary_Month__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ADCVD_Order__c.CBP_Case_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -851,8 +874,18 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>ADCVD_Order__c.Commodity__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>ADCVD_Order__c.Concurrence_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ADCVD_Order__c.Country__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -987,7 +1020,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>ADCVD_Order__c.Office_Assignment__c</field>
+        <field>ADCVD_Order__c.Office__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1002,37 +1035,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>ADCVD_Order__c.Petition_Case_Number__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>ADCVD_Order__c.Petition_Case_Type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>ADCVD_Order__c.Petition_Commodity__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>ADCVD_Order__c.Petition_Country__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>ADCVD_Order__c.Petition_Filed__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>ADCVD_Order__c.Petition_Product_Short_Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>ADCVD_Order__c.Petition_Product__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1043,6 +1046,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>ADCVD_Order__c.Prelim_Team_Meeting_Deadline__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ADCVD_Order__c.Product_Short_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ADCVD_Order__c.Product__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2747,47 +2760,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Date_Calculation__mdt.Base_Date_Field_7_Lookup_Field_Name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Date_Calculation__mdt.Base_Date_Field_7_Name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Date_Calculation__mdt.Base_Date_Field_7_Object__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Date_Calculation__mdt.Base_Date_Field_7_Type__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Date_Calculation__mdt.Base_Date_Field_8_Lookup_Field_Name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Date_Calculation__mdt.Base_Date_Field_8_Name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Date_Calculation__mdt.Base_Date_Field_8_Object__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Date_Calculation__mdt.Base_Date_Field_8_Type__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Date_Calculation__mdt.Calculated_Date_Field_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Date_Calculation__mdt.Conditional_Field_1_Lookup_Field_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2822,6 +2800,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Date_Calculation__mdt.Conditional_Field_2_Lookup_Field_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Date_Calculation__mdt.Conditional_Field_2_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2848,6 +2831,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Date_Calculation__mdt.Conditional_Field_2_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Date_Calculation__mdt.Conditional_Field_3_Lookup_Field_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2882,6 +2870,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Date_Calculation__mdt.Conditional_Field_4_Lookup_Field_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Date_Calculation__mdt.Conditional_Field_4_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2908,6 +2901,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Date_Calculation__mdt.Conditional_Field_4_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Date_Calculation__mdt.Conditional_Field_5_Lookup_Field_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2942,6 +2940,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Date_Calculation__mdt.Conditional_Field_6_Lookup_Field_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Date_Calculation__mdt.Conditional_Field_6_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2968,6 +2971,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Date_Calculation__mdt.Conditional_Field_6_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Date_Calculation__mdt.Conditional_Field_7_Lookup_Field_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3002,6 +3010,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Date_Calculation__mdt.Conditional_Field_8_Lookup_Field_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Date_Calculation__mdt.Conditional_Field_8_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3028,36 +3041,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Date_Calculation__mdt.Conditional_Field_8_Value__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Date_Calculation__mdt.Conditional_Field_9_Name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Date_Calculation__mdt.Conditional_Field_9_Object__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Date_Calculation__mdt.Conditional_Field_9_Operator__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Date_Calculation__mdt.Conditional_Field_9_Result__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Date_Calculation__mdt.Conditional_Field_9_Type__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Date_Calculation__mdt.Conditional_Field_9_Value__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3093,11 +3076,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Date_Calculation__mdt.Number_of_Conditionals__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Date_Calculation__mdt.Number_of_Constants__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3466,6 +3444,21 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Harmonized_Tariff_Schedule__c.ADCVD_Order__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Harmonized_Tariff_Schedule__c.HTS_Number_Formatted__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Harmonized_Tariff_Schedule__c.HTS_Number_Length__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Icon__c.Alt_Text__c</field>
         <readable>true</readable>
@@ -3627,6 +3620,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Investigation__c.ADCVD_Case_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Investigation__c.ADCVD_Case_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Investigation__c.AD_Investigation_Aligned_To__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3731,6 +3734,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Investigation__c.CBP_Case_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Investigation__c.Calc_Amended_Prelim_Determination_Sig__c</field>
         <readable>true</readable>
@@ -3782,12 +3790,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Investigation__c.Commodity__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Investigation__c.Concurrence_to_DAS__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Investigation__c.Countervailed_Programs__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Investigation__c.Country__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3823,7 +3841,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Investigation__c.Final_Extension_Remaining__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -3977,37 +3995,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Investigation__c.Petition_Case_Number__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Investigation__c.Petition_Case_Type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Investigation__c.Petition_Commodity__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Investigation__c.Petition_Country__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Investigation__c.Petition_Initiation_Signature__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Investigation__c.Petition_Product_Short_Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Investigation__c.Petition_Product__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4043,7 +4031,17 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Investigation__c.Preliminary_Extension_Remaining__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Investigation__c.Product_Short_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Investigation__c.Product__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -4256,8 +4254,33 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Litigation__c.ADCVD_Case_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Litigation__c.Actual_Draft_Remand_Concurrence_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Litigation__c.Actual_Draft_Remand_Issues_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Litigation__c.Actual_Draft_Remand_released_to_party__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Litigation__c.Actual_Final_Concurrence_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Litigation__c.Actual_Final_Issues_to_DAS__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4268,6 +4291,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Litigation__c.Actual_Initiation_Signature__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Litigation__c.Actual_Prelim_Concurrence_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Litigation__c.Actual_Prelim_Issues_to_DAS__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4307,17 +4340,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Litigation__c.Concurrence_to_DAS__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Litigation__c.Court_of_Panel_s_Ruling__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Litigation__c.Date_Remand_Issued_by_Court_or_Panel__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Litigation__c.Draft_Remand_Concurrence_Due_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Litigation__c.Draft_Remand_Issues_Due_to_DAS__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4332,7 +4370,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Litigation__c.Final_Concurrence_Due_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Litigation__c.Final_Extension_of_days__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Litigation__c.Final_Issues_Due_to_DAS__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4361,11 +4409,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Litigation__c.Issues_to_DAS__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Litigation__c.Link__c</field>
         <readable>true</readable>
@@ -4382,17 +4425,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Litigation__c.Next_Announcement_Date__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Litigation__c.Next_Due_to_DAS_Deadline__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Litigation__c.Next_Major_Deadline__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Litigation__c.Next_Office_Deadline__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4411,18 +4454,23 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Litigation__c.Petition_Case_Number__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Litigation__c.Petition__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Litigation__c.Prelim_Concurrence_Due_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Litigation__c.Prelim_Extension_of_days__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Litigation__c.Prelim_Issues_Due_to_DAS__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5087,6 +5135,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Petition__c.ADCVD_Case_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Petition__c.ADCVD_Case_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Petition__c.Actual_Initiation_Concurrence_to_DAS__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5107,17 +5165,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Petition__c.CBP_Case_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Petition__c.Calculated_Initiation_Signature__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Petition__c.Case_Number__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Petition__c.Case_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5153,7 +5206,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Petition__c.Initiation_Extension_Remaining__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -5218,6 +5271,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Petition__c.Next_Office_Deadline__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Petition__c.Office__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5547,12 +5605,32 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Related_Organization__c.ADCVD_Case_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Related_Organization__c.ADCVD_Case_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Related_Organization__c.ADCVD_Order__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Related_Organization__c.Account__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Related_Organization__c.CBP_Case_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Related_Organization__c.Country__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5598,6 +5676,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Related_Organization__c.Producer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Related_Organization__c.Product__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5658,6 +5741,16 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Section__c.MicroSite_Public_URL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.ADCVD_Case_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.ADCVD_Case_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5752,12 +5845,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Segment__c.Adequacy_Determination_Letter_120_day__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Segment__c.Adequacy_Determination_Letter_240_day__c</field>
+        <field>Segment__c.Adequacy_Determination_Letter__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5821,6 +5909,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.CBP_Case_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Segment__c.Calculated_Amended_Final_Signature__c</field>
         <readable>true</readable>
@@ -5861,6 +5954,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.Commodity__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Segment__c.Concurrence_to_DAS__c</field>
         <readable>true</readable>
@@ -5878,6 +5976,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Segment__c.Countervailed_Programs__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.Country__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5911,9 +6014,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Segment__c.Do_Delete__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -5953,6 +6056,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Segment__c.Final_Date_of_Anniversary_Month__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.Final_Extension_Remaining__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6008,6 +6116,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Segment__c.Initiation_Concurrence_Due_to_DAS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.Initiation_Extension_Remaining__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6177,42 +6290,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Segment__c.Office__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Segment__c.Period_Covered_End_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Segment__c.Period_Covered_Start_Date__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Segment__c.Petition_Case_Number__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Segment__c.Petition_Case_Type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Segment__c.Petition_Commodity__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Segment__c.Petition_Country__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Segment__c.Petition_Product_Short_Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Segment__c.Petition_Product__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6256,8 +6344,23 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.Preliminary_Extension_Remaining__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Segment__c.Product_Description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.Product_Short_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.Product__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6343,6 +6446,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Segment__c.Substantive_Response_Due_For_All_Parties__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Segment__c.Sunset_Review_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6881,6 +6989,16 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Suspension_Agreement__c.ADCVD_Case_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Suspension_Agreement__c.ADCVD_Case_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Suspension_Agreement__c.Additional_Notes__c</field>
         <readable>true</readable>
@@ -6888,6 +7006,21 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Suspension_Agreement__c.Anniversary_Month__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Suspension_Agreement__c.CBP_Case_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Suspension_Agreement__c.Commodity__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Suspension_Agreement__c.Country__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6942,32 +7075,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Suspension_Agreement__c.Petition_Case_Number__c</field>
+        <field>Suspension_Agreement__c.Product_Short_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Suspension_Agreement__c.Petition_Case_Type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Suspension_Agreement__c.Petition_Commodity__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Suspension_Agreement__c.Petition_Country__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Suspension_Agreement__c.Petition_Product_Short_Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Suspension_Agreement__c.Petition_Product__c</field>
+        <field>Suspension_Agreement__c.Product__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6978,6 +7091,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Suspension_Agreement__c.Termination_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Suspension_Agreement__c.This_Investigation_has_a_Susp_Agreement__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8747,6 +8865,15 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
+        <object>Harmonized_Tariff_Schedule__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
         <object>Icon__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
@@ -9887,6 +10014,10 @@
     <tabVisibilities>
         <tab>Department_Taxonomy__c</tab>
         <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Harmonized_Tariff_Schedule__c</tab>
+        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Home</tab>

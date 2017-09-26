@@ -32,6 +32,19 @@ public without sharing class StaffingAssignmentExtension {
     /**********************************
      * Variables for a parent record
      *********************************/
+    public SObject parentRecord {get {
+     	if (parentRecord == null && parentId != null) {
+     		String soqlQuery = 'SELECT Id, ADCVD_Case_Number__c, ADCVD_Case_Type__c, Country__c, Product__c FROM ';
+     		soqlQuery += parentSObjectType;
+     		soqlQuery += ' WHERE Id =: parentId';
+     		System.debug('soqlQuery: '+ soqlQuery);
+     		List<SObject> tempList = database.query(soqlQuery);
+     		parentRecord = tempList[0];
+     	}
+     	return parentRecord;
+     	} set;
+    }
+    public static Map<Id,SObject> parentRecordMap = new Map<Id,SObject>();
     //Sets field names to add to the standard controller, making them available to reference for null checks
     public List<String> parentFieldNames {get {
     	parentFieldNames = new List<String>();
@@ -45,20 +58,8 @@ public without sharing class StaffingAssignmentExtension {
     }
     //Get the parentId by checking the parent fields on the Staffing Assignment
     public Id parentId {get {
-    	if(sa != null && parentId == null) {
-	    	if (sa.Petition__c != null) {
-				parentId = sa.Petition__c;
-			} else if (sa.Investigation__c != null) {
-				parentId = sa.Investigation__c;
-			} else if (sa.ADCVD_Order__c != null) {
-				parentId = sa.ADCVD_Order__c;
-			} else if (sa.Segment__c != null) {
-				parentId = sa.Segment__c;
-			} else if (sa.Related_Organization__c != null) {
-				parentId = sa.Related_Organization__c;
-			} else {
-				parentId = sa.Id;
-			}
+    	if(sa != null && parentId == null && !String.isBlank(parentSObjectType)) {
+    		parentId = (Id)sa.get(parentSObjectType);
 		}
 		return parentId;
     	} set;
@@ -66,17 +67,8 @@ public without sharing class StaffingAssignmentExtension {
     //Get the parentSObjectType name by checking the parent fields on the Staffing Assignment
     public String parentSObjectType {get {
     	if(sa != null && parentSObjectType == null) {
-	    	if (sa.Petition__c != null) {
-				parentSObjectType = PETITION;
-			} else if (sa.Investigation__c != null) {
-				parentSObjectType = INVESTIGATION;
-			} else if (sa.ADCVD_Order__c != null) {
-				parentSObjectType = ORDER;
-			} else if (sa.Segment__c != null) {
-				parentSObjectType = SEGMENT;
-			} else if (sa.Related_Organization__c != null) {
-				parentSObjectType = RELATED_ORG;
-			}
+	    	ParentSortingService pss = new ParentSortingService();
+	    	parentSObjectType = pss.getParentSObjectType(sa, 'Staffing_Assignment__c');
 		}
 		return parentSObjectType;
 		} set;
@@ -195,12 +187,7 @@ public without sharing class StaffingAssignmentExtension {
        return allUserRolesSet;
 	    } set;
 	} 
-/* 		{'Accounting Director','Accounting PM','Analyst',
-		'AS Assistant','Assistant Secretary','Associate DAS',
-		'DAS','DAS Assistant','Office Director',
-		'Program Manager','Senior Legal','Senior Policy',
-		'Staff Accountant','Staff Legal','Staff Policy'};
-*/
+	private static Map<Id,Related_Organization__c> relOrgMap = new Map<Id,Related_Organization__c>();
 
 
 	/*********************
@@ -221,6 +208,7 @@ public without sharing class StaffingAssignmentExtension {
             	checkParent();
             	return;
             }
+            parentRecordMap.put(parentId, parentRecord);
             init(sa, addWrapper);
         } else {
 	        sa = (Staffing_Assignment__c)stdController.getRecord();
@@ -228,6 +216,7 @@ public without sharing class StaffingAssignmentExtension {
 	        	checkParent();
 	        	return;
 	        }
+	        parentRecordMap.put(parentId, parentRecord);
 	        init(sa);
 	    }
 	}
@@ -241,6 +230,7 @@ public without sharing class StaffingAssignmentExtension {
         overwriteSegments = false;
         for(sObject sobj : newList) {
         	String parentId = (String)sObj.get('Id');
+        	parentRecordMap.put(parentId, sobj);
         	parentSObjectType = utils.findObjectNameFromRecordIdPrefix(parentId);
         	if (parentSObjectType == RELATED_ORG) {
         		List<Related_Organization__c> tempList = (List<Related_Organization__c>) newList;
@@ -267,7 +257,7 @@ public without sharing class StaffingAssignmentExtension {
 	}
 	//method mapped to "Add Staff Assignment" button
 	public PageReference addRow(){
-		Staffing_Assignment__c sa = createNewStaffingAssignment(parentId);//create a Staffing Assignment record with the parent Id field populated
+		Staffing_Assignment__c sa = createNewStaffingAssignment(parentId, parentRecord);//create a Staffing Assignment record with the parent Id field populated
 		StaffingAssignmentWrapper saw = new staffingAssignmentWrapper(parentId, parentSObjectType, sa, sawOuterInstance.recusalStatusMap, 
 																		sawOuterInstance.recusalLinkMap, sawOuterInstance.recusalLinkTextMap);//create a wrapper, adding that Staffing Assignment
 		staffWrapperList.add(saw);
@@ -413,11 +403,14 @@ public without sharing class StaffingAssignmentExtension {
 
 	private List<Related_Organization__c> getRelOrgList(Id parentId) {
 		List<Related_Organization__c> returnList = new List<Related_Organization__c>();
-		for(Related_Organization__c r : [SELECT ADCVD_Order__c, ADCVD_Order__r.ADCVD_Order_Name__c, Investigation__c, Investigation__r.Investigation_Name__c, 
-												Litigation__c, Litigation__r.Litigation_Name__c, Petition__c, Petition__r.Petition_Name__c, Segment__c, Segment__r.Segment_Name__c
-											FROM Related_Organization__c WHERE Id =: parentId]) {
-			returnList.add(r);
+		if (relOrgMap.isEmpty()) {
+			for(Related_Organization__c r : [SELECT ADCVD_Order__c, ADCVD_Order__r.ADCVD_Order_Name__c, Investigation__c, Investigation__r.Investigation_Name__c, 
+													Litigation__c, Litigation__r.Litigation_Name__c, Petition__c, Petition__r.Petition_Name__c, Segment__c, Segment__r.Segment_Name__c
+												FROM Related_Organization__c WHERE Id IN: parentRecordMap.keySet()]) {
+				relOrgMap.put(r.Id, r);
+			}
 		}
+		returnList.add(relOrgMap.get(parentId));
 		return returnList;
 	}
 	//Initializes SelectOption lists
@@ -466,6 +459,15 @@ public without sharing class StaffingAssignmentExtension {
 		return newSA;
 	}
 	//method used to create Staffing Assignments via the "add row" method
+	public static Staffing_Assignment__c createNewStaffingAssignment(String parentIdAsString, SObject parentRecord) {
+		Staffing_Assignment__c newSA = createNewStaffingAssignment(parentIdAsString);
+		if (String.isBlank(newSA.ADCVD_Case_Number__c)) {
+			ParentValuesService pvs = new ParentValuesService();
+			newSA = (Staffing_Assignment__c)pvs.setCaseValuesFromParent(parentRecord, newSA);
+		}
+		return newSA;
+	}
+	
 	public static Staffing_Assignment__c createNewStaffingAssignment(String parentIdAsString) {
 		Staffing_Assignment__c newSA = new Staffing_Assignment__c();
 		if(!String.isBlank(parentIdAsString)) {
@@ -473,17 +475,11 @@ public without sharing class StaffingAssignmentExtension {
 			Id parentId = (Id)parentIdAsString;
 			//String exists only in this method
 			String parentSObjectType = parentId.getSObjectType().getDescribe().getName();
-			if(parentSObjectType == ORDER) {
-				newSA.ADCVD_Order__c = parentId;
-			} else if (parentSObjectType == INVESTIGATION) {
-				newSA.Investigation__c = parentId;
-			} else if (parentSObjectType == PETITION) {
-				newSA.Petition__c = parentId;
-			} else if (parentSObjectType == RELATED_ORG) {
-				newSA.Related_Organization__c = parentId;
-			} else if (parentSObjectType == SEGMENT) {
-				newSA.Segment__c = parentId;
-			}
+			newSA.put(parentSObjectType, parentId);
+		}
+		if (parentRecordMap != null && parentRecordMap.containsKey((Id)parentIdAsString)) {
+			ParentValuesService pvs = new ParentValuesService();
+			newSA = (Staffing_Assignment__c)pvs.setCaseValuesFromParent(parentRecordMap.get((Id)parentIdAsString), newSA);
 		}
 		return newSA;
 	}

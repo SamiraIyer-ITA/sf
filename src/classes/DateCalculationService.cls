@@ -25,7 +25,6 @@ public without sharing class DateCalculationService {
     		System.debug('*** calculatedDateName: ' + calculatedDateName);
     		Integer numberOfBaseDates = (Integer) dc.Number_of_Base_Date_Fields__c;
     		Integer numberOfConditionals = (Integer) dc.Number_of_Conditionals__c;
-    		Integer numberOfConstants = (Integer) dc.Number_of_Constants__c;
     		String tollingService = dc.Tolling_Service__c;
     		Integer offset = dc.Constant_1__r.Number_Value__c != null ? (Integer) dc.Constant_1__r.Number_Value__c : 0;
     		Integer extension = 0;
@@ -147,7 +146,8 @@ public without sharing class DateCalculationService {
 			//get the base field from that SObject
 			baseDate = so != null && so.get(String.valueOf(dc.get(baseDateFieldName))) != null ? (Date) so.get(String.valueOf(dc.get(baseDateFieldName))) : baseDate;
 			//if from a Federal_Register__c, get base field, else leave it as is
-			baseDate = (String.valueOf(dc.get(baseDateFieldObject)) == 'Federal_Register__c' && frUtilMap != null && record.get('Id') != null) ? getFrDate(record, dc, baseDateFieldType) : baseDate;
+			baseDate = (String.valueOf(dc.get(baseDateFieldObject)) == 'Federal_Register__c' && frUtilMap != null && record.get('Id') != null) ? 
+				getFrDate(record, dc, baseDateFieldLookupFieldName, baseDateFieldType) : baseDate;
 		} else if (String.valueOf(dc.get(baseDateFieldName)) != null && String.valueOf(dc.get(baseDateFieldObject)) == soType){//if base field is from the current object
 			baseDate = (Date) record.get(String.valueOf(dc.get(baseDateFieldName)));
 		} else if (String.valueOf(dc.get(baseDateFieldName)) == 'Today') {
@@ -164,13 +164,14 @@ public without sharing class DateCalculationService {
     @TestVisible private SObject getBaseConditionalObject(SObject record, Date_Calculation__mdt dc, Integer i) {
     	String baseObjectName = 'Conditional_Field_'+ String.valueOf(i) + '_Object__c';
     	String baseFieldName = 'Conditional_Field_'+ String.valueOf(i) + '_Name__c';
+    	String baseDateFieldLookupFieldName = 'Conditional_Field_'+ '3' + '_Lookup_Field_Name__c';
     	String baseFieldType = 'Conditional_Field_'+ String.valueOf(i) + '_Type__c';
     	Set<String> childSObjectNames = new Set<String> {''};
 
     	if (String.valueOf(dc.get(baseObjectName)) == 'Federal_Register__c') {
 	    	Federal_Register__c tempFR = new Federal_Register__c ();
 	    	tempFR.Type__c = String.valueOf(dc.get(baseFieldType));
-	    	tempFR.Published_Date__c = getFrDate(record, dc, baseFieldType);
+	    	tempFR.Published_Date__c = getFrDate(record, dc, baseDateFieldLookupFieldName, baseFieldType);
     		return (SObject)tempFR;
     	} else if (childSObjectNames.contains(baseObjectName)) {
     		return getBaseObject(record, '', baseObjectName, baseFieldType);
@@ -201,11 +202,18 @@ public without sharing class DateCalculationService {
 		return so;
 	}
 
-	@TestVisible private Date getFrDate(SObject record, Date_Calculation__mdt dc, String fieldType) {
+	@TestVisible private Date getFrDate(SObject record, Date_Calculation__mdt dc, String lookupFieldName, String fieldType) {
 		Date returnDate = null;
-		if (frUtilMap != null && record.get('Id') != null && frUtilMap.get((Id)record.get('Id')) != null) {
+		String cmtLookupFieldValue = String.valueOf(dc.get(lookupFieldName));
+		String cmtFieldTypeValue = String.valueOf(dc.get(fieldType));
+		System.debug(loggingLevel.Error, '*** cmtLookupFieldValue: ' + cmtLookupFieldValue);
+		System.debug(loggingLevel.Error, '*** cmtFieldTypeValue: ' + cmtFieldTypeValue);
+		if (String.isBlank(cmtLookupFieldValue) && frUtilMap != null && record.get('Id') != null && frUtilMap.get((Id)record.get('Id')) != null) {
 			ADCVD_FederalRegisterUtility fru = frUtilMap.get((Id)record.get('Id'));
-			returnDate = fru.varMap != null ? fru.varMap.get(String.valueOf(dc.get(fieldType))) : null;
+			returnDate = fru.varMap != null ? fru.varMap.get(cmtFieldTypeValue) : null;
+		} else if (!String.isBlank(cmtLookupFieldValue) && frUtilMap != null && record.get(cmtLookupFieldValue) != null && frUtilMap.get((Id)record.get(cmtLookupFieldValue)) != null) {
+			ADCVD_FederalRegisterUtility fru = frUtilMap.get((Id)record.get(cmtLookupFieldValue));
+			returnDate = fru != null && fru.varMap != null ? fru.varMap.get(cmtFieldTypeValue) : null;
 		}
 		return returnDate;
 	}

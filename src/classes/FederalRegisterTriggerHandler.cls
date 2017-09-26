@@ -3,7 +3,8 @@ public without sharing class FederalRegisterTriggerHandler {
     public static void mainEntry(List<Federal_Register__c> newList, List<Federal_Register__c> oldList, Map<Id, Federal_Register__c> newMap, 
         Map<Id, Federal_Register__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete, 
         Boolean isBefore, Boolean isAfter){
-        if(preventRecursion) {return;}
+        
+        if (!AppConfigService.triggerEnabled) {return;}
 
         if(isAfter && isInsert) {
             recalculateParentsOfFederalRegister(newList,oldMap);
@@ -63,10 +64,7 @@ public without sharing class FederalRegisterTriggerHandler {
                 parentIdSet.add(s.Id);
             }
         }
-
-
-        return parentIdSet;
-        
+        return parentIdSet;  
     }
 
     /**

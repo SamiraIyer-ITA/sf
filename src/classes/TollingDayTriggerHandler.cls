@@ -3,7 +3,8 @@ public without sharing class TollingDayTriggerHandler {
     public static void mainEntry(List<Tolling_Day__c> newList, List<Tolling_Day__c> oldList, Map<Id, Tolling_Day__c> newMap, 
         Map<Id, Tolling_Day__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete, 
         Boolean isBefore, Boolean isAfter){
-        if(preventRecursion) {return;}
+        
+        if (!AppConfigService.triggerEnabled) {return;}
 
         if(isAfter && isInsert) {
             recalculatePetitionTollingDay(newList);

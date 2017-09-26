@@ -16,11 +16,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>OR(
- ISNEW(),
- ISBLANK( This_Investigation_has_an_Order__c ),
- ISCHANGED( This_Investigation_has_an_Order__c )
-)</formula>
+        <formula>OR(  ISNEW(),  ISBLANK( This_Investigation_has_an_Order__c ),  ISCHANGED( This_Investigation_has_an_Order__c ) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

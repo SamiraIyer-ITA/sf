@@ -61,14 +61,22 @@ public class SegmentTriggerHandlerTest {
 			return revoFR;
 		}
 	}
+	private static Federal_Register__c rescFR{
+		get{
+			if (rescFR == null) {
+				rescFR = [SELECT Id, ADCVD_Order__c, Segment__c, Type__c, Published_Date__c FROM Federal_Register__c WHERE Type__c =: 'Rescission' LIMIT 1];
+			}
+			return rescFR;
+		}
+	}
 	private static Segment__c adminSeg{
 		get{
 			if (adminSeg == null) {
 				Id recordTypeId = utils.getRecordTypeIdMap('Segment__c').get('Administrative_Review');
-				adminSeg = [SELECT Id, RecordTypeId, Prelim_Extension__c, Final_Date_of_Anniversary_Month__c, Calculated_Preliminary_Signature__c,
+				adminSeg = [SELECT Id, RecordTypeId, Prelim_Extension__c, Final_Date_of_Anniversary_Month__c, Calculated_Preliminary_Signature__c, Final_Team_Meeting_Deadline__c, 
 									Calculated_Final_Signature__c, Actual_Final_Signature__c, Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, 
 									Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, Amend_Final_Issues_Due_to_DAS__c, Amend_Final_Concurrence_Due_to_DAS__c, 
-									Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, 
+									Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, Prelim_Team_Meeting_Deadline__c, 
 									Preliminary_Announcement_Date__c, Final_Announcement_Date__c, Amended_Final_Announcement_Date__c, Calculated_Amended_Final_Signature__c 
 								FROM Segment__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
 			}
@@ -79,11 +87,11 @@ public class SegmentTriggerHandlerTest {
 		get{
 			if (nsSeg == null) {
 				Id recordTypeId = utils.getRecordTypeIdMap('Segment__c').get('New_Shipper_Review');
-				nsSeg = [SELECT Id, RecordTypeId, Prelim_Extension__c, Calculated_Preliminary_Signature__c, Calculated_Initiation_Signature__c,
+				nsSeg = [SELECT Id, RecordTypeId, Prelim_Extension__c, Calculated_Preliminary_Signature__c, Calculated_Initiation_Signature__c, Final_Team_Meeting_Deadline__c, 
 								Actual_Initiation_Signature__c, Calculated_Final_Signature__c, Actual_Preliminary_Signature__c, Actual_Final_Signature__c, 
-								Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, 
+								Initiation_Issues_Due_to_DAS__c, Initiation_Concurrence_Due_to_DAS__c, Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, 
 								Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, Amend_Final_Issues_Due_to_DAS__c, Amend_Final_Concurrence_Due_to_DAS__c, 
-								Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, 
+								Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, Prelim_Team_Meeting_Deadline__c, 
 								Preliminary_Announcement_Date__c, Final_Announcement_Date__c, Amended_Final_Announcement_Date__c, Calculated_Amended_Final_Signature__c 
 							FROM Segment__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
 			}
@@ -96,10 +104,11 @@ public class SegmentTriggerHandlerTest {
 				Id recordTypeId = utils.getRecordTypeIdMap('Segment__c').get('Scope_Inquiry');
 				siSeg = [SELECT Id, Deadline_for_Decision_on_How_to_Proceed__c, Initiation_Extension_of_days__c, RecordTypeId, Request_Filed__c, 
 								Prelim_Extension__c, Calculated_Preliminary_Signature__c, Actual_Date_of_Decision_on_HoP__c, Calculated_Final_Signature__c, 
-								Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, 
-									Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, 
-									Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, 
-									Preliminary_Announcement_Date__c, Final_Announcement_Date__c
+								Decision_on_HOP_Issues_Due_to_DAS__c, Decision_on_HOP_Concurrence_Due_to_DAS__c, Prelim_Issues_Due_to_DAS__c, 
+								Prelim_Concurrence_Due_to_DAS__c, Actual_Final_Signature__c, Prelim_Team_Meeting_Deadline__c, 
+								Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, Final_Team_Meeting_Deadline__c, 
+								Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, 
+								Preliminary_Announcement_Date__c, Final_Announcement_Date__c
 							FROM Segment__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
 			}
 			return siSeg;
@@ -110,8 +119,8 @@ public class SegmentTriggerHandlerTest {
 			if (expedSeg == null) {
 				Id recordTypeId = utils.getRecordTypeIdMap('Segment__c').get('Expedited_Review');
 				expedSeg = [SELECT Id, RecordTypeId, Prelim_Extension__c, Calculated_Initiation_Signature__c, Calculated_Preliminary_Signature__c,
-									Calculated_Final_Signature__c, Actual_Final_Signature__c, Actual_Preliminary_Signature__c, 
-									Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, 
+									Calculated_Final_Signature__c, Actual_Final_Signature__c, Actual_Preliminary_Signature__c, Final_Team_Meeting_Deadline__c, 
+									Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, Prelim_Team_Meeting_Deadline__c, 
 									Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, Amend_Final_Issues_Due_to_DAS__c, Amend_Final_Concurrence_Due_to_DAS__c, 
 									Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, 
 									Preliminary_Announcement_Date__c, Final_Announcement_Date__c, Amended_Final_Announcement_Date__c, Calculated_Amended_Final_Signature__c 
@@ -126,8 +135,9 @@ public class SegmentTriggerHandlerTest {
 				Id recordTypeId = utils.getRecordTypeIdMap('Segment__c').get('Anti_Circumvention_Review');
 				acSeg = [SELECT Id, RecordTypeId, Prelim_Extension__c, Initiation_Extension_of_days__c, Calculated_Preliminary_Signature__c, 
 									Calculated_Final_Signature__c, Actual_Initiation_Signature__c, Calculated_Initiation_Signature__c,
-									Application_Accepted__c, Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, 
-									Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, 
+									Application_Accepted__c, Initiation_Issues_Due_to_DAS__c, Initiation_Concurrence_Due_to_DAS__c, 
+									Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, Prelim_Team_Meeting_Deadline__c, 
+									Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, Actual_Final_Signature__c, Final_Team_Meeting_Deadline__c, 
 									Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, 
 									Preliminary_Announcement_Date__c, Final_Announcement_Date__c 
 								FROM Segment__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
@@ -141,8 +151,9 @@ public class SegmentTriggerHandlerTest {
 				Id recordTypeId = utils.getRecordTypeIdMap('Segment__c').get('Changed_Circumstances_Review');
 				ccSeg = [SELECT Id, RecordTypeId, Prelim_Extension__c, Calculated_Preliminary_Signature__c, Is_This_Review_Expedited__c,
 									Calculated_Final_Signature__c , Actual_Initiation_Signature__c, Calculated_Initiation_Signature__c,
-									All_parties_in_agreement_to_the_outcome__c, Request_Filed__c, Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, 
-									Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c,  
+									All_parties_in_agreement_to_the_outcome__c, Request_Filed__c, Initiation_Issues_Due_to_DAS__c, Initiation_Concurrence_Due_to_DAS__c, 
+									Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, Prelim_Team_Meeting_Deadline__c, 
+									Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, Actual_Final_Signature__c, Final_Team_Meeting_Deadline__c, 
 									Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, 
 									Preliminary_Announcement_Date__c, Final_Announcement_Date__c
 								FROM Segment__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
@@ -156,14 +167,14 @@ public class SegmentTriggerHandlerTest {
 				Id recordTypeId = utils.getRecordTypeIdMap('Segment__c').get('Sunset_Review');
 				ssSeg = [SELECT Id, RecordTypeId, Calculated_Preliminary_Signature__c, Calculated_Final_Signature__c, Update_ACE_Customs_Module__c, Adequacy_of_Respondents_Submission__c, 
 							Actual_Final_Signature__c, Actual_Revocation_or_Continuation_FR__c, Calculated_Revocation_or_Continuation_FR__c, 
-							Issue_Liquidation_Revocation_Instruction__c, Rebuttal_Comments_Due__c, Adequacy_Determination_Letter_120_day__c, 
-							Adequacy_Determination_Letter_240_day__c, Comments_on_Adequacy_Determination_Filed__c, Memorandum_on_Adequacy_Determination__c, 
+							Issue_Liquidation_Revocation_Instruction__c, Rebuttal_Comments_Due__c, Adequacy_Determination_Letter__c, 
+							Comments_on_Adequacy_Determination_Filed__c, Memorandum_on_Adequacy_Determination__c, Prelim_Team_Meeting_Deadline__c, 
 							Notify_ITC_of_No_Domestic_Interest__c, Inadequate_Domestic_Response_note_to_ITC__c, Notice_of_Intent_to_Participate__c, 
 							Notify_Cluster_Coordinator_No_Interest__c, Substantive_Response_Due_For_All_Parties__c, Inform_Cluster_Coordinator_if_No_Respons__c, 
 							Notice_of_intent_to_participate_Ips__c, Domestic_Party_File_Substan_Response__c, Review_to_address_zeroing_in_Segments__c, 
 							Respondent_File_Substantive_Response__c, Prelim_Extension__c, Initiation_Extension_of_days__c, 
 							Final_Extension_of_days__c, Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, 
-							Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, 
+							Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, Final_Team_Meeting_Deadline__c, 
 							Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, 
 							Preliminary_Announcement_Date__c, Final_Announcement_Date__c 
 							FROM Segment__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
@@ -748,7 +759,7 @@ public class SegmentTriggerHandlerTest {
 
 		//240 Days
 		ss240();
-		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(initFR.Published_Date__c.addDays(240).addDays(7).addDays(7));
+		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(initFR.Published_Date__c.addDays(240));
 		
 		Test.stopTest();
 		System.assertEquals(testCalculated,
@@ -1080,8 +1091,8 @@ public class SegmentTriggerHandlerTest {
 		Test.startTest();
 
 		//120 Day Calculations for Published_Date__c
-		ssSeg.Continuation_or_Revocation__c = 'Revocation';
 		setFR(o.Id, 'Revocation');
+		ssSeg.Continuation_or_Revocation__c = 'Revocation';
 		ss120();
 		getNewSegs();
 		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(revoFR.Published_Date__c.addDays(-1));
@@ -1248,15 +1259,15 @@ public class SegmentTriggerHandlerTest {
 			[SELECT Id, Rebuttal_Comments_Due__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Rebuttal_Comments_Due__c);
 	}
 
-	//sets Adequacy_Determination_Letter_120_day__c or Adequacy_Determination_Letter_240_day__c
+	//sets Adequacy_Determination_Letter__c or Adequacy_Determination_Letter__c
 	@isTest static void setAdequacyDeterminationandLetterToITC(){
 		Test.startTest();
 
 		//date should not be set unless there is an Initial FR published date
 		System.assertEquals(null,
-			[SELECT Id, Adequacy_Determination_Letter_120_day__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Adequacy_Determination_Letter_120_day__c);
+			[SELECT Id, Adequacy_Determination_Letter__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Adequacy_Determination_Letter__c);
 		System.assertEquals(null,
-			[SELECT Id, Adequacy_Determination_Letter_240_day__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Adequacy_Determination_Letter_240_day__c);
+			[SELECT Id, Adequacy_Determination_Letter__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Adequacy_Determination_Letter__c);
 		
 		//setup start dates
 		setFR(ssSeg.Id, 'Initiation');
@@ -1266,7 +1277,7 @@ public class SegmentTriggerHandlerTest {
 		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(initFR.Published_Date__c.addDays(50));
 		//compare Published_Date__c
 		System.assertEquals(testCalculated,
-			[SELECT Id, Adequacy_Determination_Letter_120_day__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Adequacy_Determination_Letter_120_day__c);
+			[SELECT Id, Adequacy_Determination_Letter__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Adequacy_Determination_Letter__c);
 
 		//240 Day Calculations for Published_Date__c
 		ss240();
@@ -1276,7 +1287,7 @@ public class SegmentTriggerHandlerTest {
 		Test.stopTest();
 		//compare Published_Date__c
 		System.assertEquals(testCalculated,
-			[SELECT Id, Adequacy_Determination_Letter_240_day__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Adequacy_Determination_Letter_240_day__c);
+			[SELECT Id, Adequacy_Determination_Letter__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Adequacy_Determination_Letter__c);
 	}
 
 	//sets Comments_on_Adequacy_Determination_Filed__c
@@ -1444,6 +1455,1993 @@ public class SegmentTriggerHandlerTest {
 	}
 
 	//setLitigationHoldExpirationDate
+	@isTest static void setLitigationHoldExpirationDateAdminReview() {
+		Test.startTest();
+
+		//setup start dates
+		setFR(adminSeg.Id, 'Final');
+		setFR(adminSeg.Id, 'Rescission');
+		adminSeg.Segment_Outcome__c = 'Full Rescission';
+		setStartDates();
+		getNewSegs();
+
+		//Admin Review
+		//compare Full Rescission
+		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(rescFR.Published_Date__c.addDays(30));
+		System.assertEquals(testCalculated, [SELECT Litigation_Hold_Expiration_Date__c FROM Segment__c WHERE Id =: adminSeg.Id LIMIT 1].Litigation_Hold_Expiration_Date__c);
+
+		adminSeg.Segment_Outcome__c = 'Completed';
+		adminSeg.Actual_Final_Signature__c = segmentDate;
+		update adminSeg;
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(finalFR.Published_Date__c.addDays(30));
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, [SELECT Litigation_Hold_Expiration_Date__c FROM Segment__c WHERE Id =: adminSeg.Id LIMIT 1].Litigation_Hold_Expiration_Date__c);
+	}
+	//setLitigationHoldExpirationDate
+	@isTest static void setLitigationHoldExpirationDateExpeditedReview() {
+		Test.startTest();
+
+		//setup start dates
+		setFR(expedSeg.Id, 'Final');
+		setFR(expedSeg.Id, 'Rescission');
+		expedSeg.Segment_Outcome__c = 'Full Rescission';
+		setStartDates();
+		getNewSegs();
+
+		//Expedited Review
+		//compare Full Rescission
+		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(rescFR.Published_Date__c.addDays(30));
+		System.assertEquals(testCalculated, [SELECT Litigation_Hold_Expiration_Date__c FROM Segment__c WHERE Id =: expedSeg.Id LIMIT 1].Litigation_Hold_Expiration_Date__c);
+
+		expedSeg.Segment_Outcome__c = 'Completed';
+		expedSeg.Actual_Final_Signature__c = segmentDate;
+		update expedSeg;
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(finalFR.Published_Date__c.addDays(30));
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, [SELECT Litigation_Hold_Expiration_Date__c FROM Segment__c WHERE Id =: expedSeg.Id LIMIT 1].Litigation_Hold_Expiration_Date__c);
+	}
+	//setLitigationHoldExpirationDate
+	@isTest static void setLitigationHoldExpirationDateNewShipperReview() {
+		Test.startTest();
+
+		//setup start dates
+		setFR(nsSeg.Id, 'Final');
+		setFR(nsSeg.Id, 'Rescission');
+		nsSeg.Segment_Outcome__c = 'Full Rescission';
+		setStartDates();
+		getNewSegs();
+
+		//Admin Review
+		//compare Full Rescission
+		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(rescFR.Published_Date__c.addDays(30));
+		System.assertEquals(testCalculated, [SELECT Litigation_Hold_Expiration_Date__c FROM Segment__c WHERE Id =: nsSeg.Id LIMIT 1].Litigation_Hold_Expiration_Date__c);
+
+		nsSeg.Segment_Outcome__c = 'Completed';
+		nsSeg.Actual_Final_Signature__c = segmentDate;
+		update nsSeg;
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(finalFR.Published_Date__c.addDays(30));
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, [SELECT Litigation_Hold_Expiration_Date__c FROM Segment__c WHERE Id =: nsSeg.Id LIMIT 1].Litigation_Hold_Expiration_Date__c);
+	}
+	//setLitigationHoldExpirationDate
+	@isTest static void setLitigationHoldExpirationDateAntiCircReview() {
+		Test.startTest();
+
+		//setup start dates
+		setFR(acSeg.Id, 'Final');
+		setFR(acSeg.Id, 'Rescission');
+		acSeg.Segment_Outcome__c = 'Full Rescission';
+		setStartDates();
+		getNewSegs();
+
+		//Admin Review
+		//compare Full Rescission
+		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(rescFR.Published_Date__c.addDays(30));
+		System.assertEquals(testCalculated, [SELECT Litigation_Hold_Expiration_Date__c FROM Segment__c WHERE Id =: acSeg.Id LIMIT 1].Litigation_Hold_Expiration_Date__c);
+
+		acSeg.Segment_Outcome__c = 'Completed';
+		acSeg.Actual_Final_Signature__c = segmentDate;
+		update acSeg;
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(finalFR.Published_Date__c.addDays(30));
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, [SELECT Litigation_Hold_Expiration_Date__c FROM Segment__c WHERE Id =: acSeg.Id LIMIT 1].Litigation_Hold_Expiration_Date__c);
+	}
+	//setLitigationHoldExpirationDate
+	@isTest static void setLitigationHoldExpirationDateChangedCircReview() {
+		Test.startTest();
+
+		//setup start dates
+		setFR(ccSeg.Id, 'Final');
+		setFR(ccSeg.Id, 'Rescission');
+		ccSeg.Segment_Outcome__c = 'Full Rescission';
+		setStartDates();
+		getNewSegs();
+
+		//Admin Review
+		//compare Full Rescission
+		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(rescFR.Published_Date__c.addDays(30));
+		System.assertEquals(testCalculated, [SELECT Litigation_Hold_Expiration_Date__c FROM Segment__c WHERE Id =: ccSeg.Id LIMIT 1].Litigation_Hold_Expiration_Date__c);
+
+		ccSeg.Segment_Outcome__c = 'Completed';
+		ccSeg.Actual_Final_Signature__c = segmentDate;
+		update ccSeg;
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(finalFR.Published_Date__c.addDays(30));
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, [SELECT Litigation_Hold_Expiration_Date__c FROM Segment__c WHERE Id =: ccSeg.Id LIMIT 1].Litigation_Hold_Expiration_Date__c);
+	}
+	//setLitigationHoldExpirationDate
+	@isTest static void setLitigationHoldExpirationDateScopeInquiry() {
+		Test.startTest();
+
+		//setup start dates
+		siSeg.Decision_on_How_to_Proceed__c = 'Formal';
+		siSeg.Segment_Outcome__c = 'Completed';
+		siSeg.Actual_Final_Signature__c = segmentDate;
+		setStartDates();
+		getNewSegs();
+
+		//Scope Inquiry
+		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(siSeg.Actual_Final_Signature__c.addDays(30));
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, [SELECT Litigation_Hold_Expiration_Date__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Litigation_Hold_Expiration_Date__c);
+	}
+	//setLitigationHoldExpirationDate
+	@isTest static void setLitigationHoldExpirationDateSunsetReview() {
+		Test.startTest();
+
+		//setup start dates
+		setFR(ssSeg.Id, 'Initiation');
+		setFR(ssSeg.Id, 'Final');
+		ssSeg.Segment_Outcome__c = 'Completed';
+		ssSeg.Actual_Final_Signature__c = segmentDate;
+		ss90();
+		setStartDates();
+		getNewSegs();
+
+		//Sunset Review
+		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(finalFR.Published_Date__c.addDays(30));
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, [SELECT Litigation_Hold_Expiration_Date__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Litigation_Hold_Expiration_Date__c);
+	}
+	//setPreliminaryAnnouncementDate
+	@isTest static void setPreliminaryAnnouncementDateAdministrativeReview() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(adminSeg.Calculated_Preliminary_Signature__c, adminSeg.Calculated_Preliminary_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, adminSeg.Preliminary_Announcement_Date__c);
+	}
+	//setPreliminaryAnnouncementDate
+	@isTest static void setPreliminaryAnnouncementDateExpeditedReview() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(expedSeg.Calculated_Preliminary_Signature__c, expedSeg.Calculated_Preliminary_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, expedSeg.Preliminary_Announcement_Date__c);
+	}
+	//setPreliminaryAnnouncementDate
+	@isTest static void setPreliminaryAnnouncementDateNewShipperReview() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(nsSeg.Calculated_Preliminary_Signature__c, nsSeg.Calculated_Preliminary_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, nsSeg.Preliminary_Announcement_Date__c);
+	}
+	//setPreliminaryAnnouncementDate
+	@isTest static void setPreliminaryAnnouncementDateScopeInquiry() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(siSeg.Calculated_Preliminary_Signature__c, siSeg.Calculated_Preliminary_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, siSeg.Preliminary_Announcement_Date__c);
+	}
+	//setPreliminaryAnnouncementDate
+	@isTest static void setPreliminaryAnnouncementDateAntiCircumventionReview() {
+		Test.startTest();
+
+		//setup start dates
+		acSeg.Type_of_Circumvention_Inquiry__c = 'Later-Developed Merchandise';
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(acSeg.Calculated_Preliminary_Signature__c, acSeg.Calculated_Preliminary_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, acSeg.Preliminary_Announcement_Date__c);
+	}
+	//setPreliminaryAnnouncementDate
+	@isTest static void setPreliminaryAnnouncementDateChangedCircumstancesReview() {
+		Test.startTest();
+
+		//setup start dates
+		ccSeg.All_parties_in_agreement_to_the_outcome__c = 'No';
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(ccSeg.Calculated_Preliminary_Signature__c, ccSeg.Calculated_Preliminary_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, ccSeg.Preliminary_Announcement_Date__c);
+	}
+	//setPreliminaryAnnouncementDate
+	@isTest static void setPreliminaryAnnouncementDateSunsetReview() {
+		Test.startTest();
+
+		//setup start dates
+		ss240();
+		setFR(ssSeg.Id, 'Initiation');
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(ssSeg.Calculated_Preliminary_Signature__c, ssSeg.Calculated_Preliminary_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, ssSeg.Preliminary_Announcement_Date__c);
+	}
+
+	//setFinalAnnouncementDate
+	@isTest static void setFinalAnnouncementDateAdministrativeReview() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(adminSeg.Calculated_Final_Signature__c, adminSeg.Calculated_Final_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, adminSeg.Final_Announcement_Date__c);
+	}
+	//setFinalAnnouncementDate
+	@isTest static void setFinalAnnouncementDateExpeditedReview() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(expedSeg.Calculated_Final_Signature__c, expedSeg.Calculated_Final_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, expedSeg.Final_Announcement_Date__c);
+	}
+	//setFinalAnnouncementDate
+	@isTest static void setFinalAnnouncementDateNewShipperReview() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(nsSeg.Calculated_Final_Signature__c, nsSeg.Calculated_Final_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, nsSeg.Final_Announcement_Date__c);
+	}
+	//setFinalAnnouncementDate
+	@isTest static void setFinalAnnouncementDateScopeInquiry() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(siSeg.Calculated_Final_Signature__c, siSeg.Calculated_Final_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, siSeg.Final_Announcement_Date__c);
+	}
+	//setFinalAnnouncementDate
+	@isTest static void setFinalAnnouncementDateAntiCircumventionReview() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(acSeg.Calculated_Final_Signature__c, acSeg.Calculated_Final_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, acSeg.Final_Announcement_Date__c);
+	}
+	//setFinalAnnouncementDate
+	@isTest static void setFinalAnnouncementDateChangedCircumstancesReview() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(ccSeg.Calculated_Final_Signature__c, ccSeg.Calculated_Final_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, ccSeg.Final_Announcement_Date__c);
+	}
+	//setFinalAnnouncementDate
+	@isTest static void setFinalAnnouncementDateSunsetReview() {
+		Test.startTest();
+
+		//setup start dates
+		ss90();
+		setFR(ssSeg.Id, 'Initiation');
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(ssSeg.Calculated_Final_Signature__c, ssSeg.Calculated_Final_Signature__c.addDays(1), true);
+		System.assertEquals(testCalculated, ssSeg.Final_Announcement_Date__c);
+
+		ss120();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(ssSeg.Calculated_Final_Signature__c, ssSeg.Calculated_Final_Signature__c.addDays(1), true);
+		System.assertEquals(testCalculated, ssSeg.Final_Announcement_Date__c);
+
+		ss240();
+		getNewSegs();
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(ssSeg.Calculated_Final_Signature__c, ssSeg.Calculated_Final_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, ssSeg.Final_Announcement_Date__c);
+	}
+
+	//setAmendedFinalAnnouncementDate
+	@isTest static void setAmendedFinalAnnouncementDateAdministrativeReview() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(adminSeg.Calculated_Amended_Final_Signature__c, adminSeg.Calculated_Amended_Final_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, adminSeg.Amended_Final_Announcement_Date__c);
+	}
+	//setAmendedFinalAnnouncementDate
+	@isTest static void setAmendedFinalAnnouncementDateExpeditedReview() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(expedSeg.Calculated_Amended_Final_Signature__c, expedSeg.Calculated_Amended_Final_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, expedSeg.Amended_Final_Announcement_Date__c);
+	}
+	//setAmendedFinalAnnouncementDate
+	@isTest static void setAmendedFinalAnnouncementDateNewShipperReview() {
+		Test.startTest();
+		
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+
+		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(nsSeg.Calculated_Amended_Final_Signature__c, nsSeg.Calculated_Amended_Final_Signature__c.addDays(1), true);
+
+		Test.stopTest();
+		System.assertEquals(testCalculated, nsSeg.Amended_Final_Announcement_Date__c);
+	}
+
+	/**************************
+	* Next Deadlines
+	**************************/
+
+	//Next Major Deadline
+	@isTest static void setNextMajorDeadlineAdminReview() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(adminSeg.Calculated_Preliminary_Signature__c, adminSeg.Next_Major_Deadline__c);
+
+		adminSeg.Actual_Preliminary_Signature__c = adminSeg.Calculated_Preliminary_Signature__c.addDays(-7);
+		update adminSeg;
+		adminSeg = null;
+		System.assertEquals(adminSeg.Calculated_Final_Signature__c, adminSeg.Next_Major_Deadline__c);
+
+		adminSeg.Will_you_Amend_the_Final__c = 'Yes';
+		adminSeg.Actual_Final_Signature__c = adminSeg.Calculated_Final_Signature__c.addDays(-7);
+		update adminSeg;
+		adminSeg = null;
+		System.assertEquals(adminSeg.Calculated_Amended_Final_Signature__c, adminSeg.Next_Major_Deadline__c);
+
+		adminSeg.Actual_Amended_Final_Signature__c = adminSeg.Calculated_Amended_Final_Signature__c.addDays(7);
+		update adminSeg;
+		adminSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, adminSeg.Next_Major_Deadline__c);
+	}
+	//Next Major Deadline
+	@isTest static void setNextMajorDeadlineExpeditedReview() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(expedSeg.Calculated_Preliminary_Signature__c, expedSeg.Next_Major_Deadline__c);
+
+		expedSeg.Actual_Preliminary_Signature__c = expedSeg.Calculated_Preliminary_Signature__c.addDays(-7);
+		update expedSeg;
+		expedSeg = null;
+		System.assertEquals(expedSeg.Calculated_Final_Signature__c, expedSeg.Next_Major_Deadline__c);
+
+		expedSeg.Will_you_Amend_the_Final__c = 'Yes';
+		expedSeg.Actual_Final_Signature__c = expedSeg.Calculated_Final_Signature__c.addDays(-7);
+		update expedSeg;
+		expedSeg = null;
+		System.assertEquals(expedSeg.Calculated_Amended_Final_Signature__c, expedSeg.Next_Major_Deadline__c);
+
+		expedSeg.Actual_Amended_Final_Signature__c = expedSeg.Calculated_Amended_Final_Signature__c.addDays(7);
+		update expedSeg;
+		expedSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, expedSeg.Next_Major_Deadline__c);
+	}
+	//Next Major Deadline
+	@isTest static void setNextMajorDeadlineNewShipperReview() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(nsSeg.Calculated_Preliminary_Signature__c, nsSeg.Next_Major_Deadline__c);
+
+		nsSeg.Actual_Preliminary_Signature__c = nsSeg.Calculated_Preliminary_Signature__c.addDays(-7);
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Calculated_Final_Signature__c, nsSeg.Next_Major_Deadline__c);
+
+		nsSeg.Will_you_Amend_the_Final__c = 'Yes';
+		nsSeg.Actual_Final_Signature__c = nsSeg.Calculated_Final_Signature__c.addDays(-7);
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Calculated_Amended_Final_Signature__c, nsSeg.Next_Major_Deadline__c);
+
+		nsSeg.Actual_Amended_Final_Signature__c = nsSeg.Calculated_Amended_Final_Signature__c.addDays(7);
+		update nsSeg;
+		nsSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, nsSeg.Next_Major_Deadline__c);
+	}
+	//Next Major Deadline
+	@isTest static void setNextMajorDeadlineAntiCircReview() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(acSeg.Calculated_Initiation_Signature__c, acSeg.Next_Major_Deadline__c);
+
+		acSeg.Type_of_Circumvention_Inquiry__c = 'Later-Developed Merchandise';
+		acSeg.Actual_Initiation_Signature__c = acSeg.Calculated_Initiation_Signature__c.addDays(-7);
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Calculated_Preliminary_Signature__c, acSeg.Next_Major_Deadline__c);
+
+		acSeg.Actual_Preliminary_Signature__c = acSeg.Calculated_Preliminary_Signature__c.addDays(-7);
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Calculated_Final_Signature__c, acSeg.Next_Major_Deadline__c);
+
+		acSeg.Actual_Final_Signature__c = acSeg.Calculated_Final_Signature__c.addDays(-7);
+		update acSeg;
+		acSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, acSeg.Next_Major_Deadline__c);
+	}
+	//Next Major Deadline
+	@isTest static void setNextMajorDeadlineChangedCircReview() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(ccSeg.Calculated_Initiation_Signature__c, ccSeg.Next_Major_Deadline__c);
+
+		ccSeg.All_parties_in_agreement_to_the_outcome__c = 'No';
+		ccSeg.Actual_Initiation_Signature__c = ccSeg.Calculated_Initiation_Signature__c.addDays(-7);
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Calculated_Preliminary_Signature__c, ccSeg.Next_Major_Deadline__c);
+
+		ccSeg.Actual_Preliminary_Signature__c = ccSeg.Calculated_Preliminary_Signature__c.addDays(-7);
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Calculated_Final_Signature__c, ccSeg.Next_Major_Deadline__c);
+
+		ccSeg.Actual_Final_Signature__c = ccSeg.Calculated_Final_Signature__c.addDays(-7);
+		update ccSeg;
+		ccSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, ccSeg.Next_Major_Deadline__c);
+	}
+	//Next Major Deadline
+	@isTest static void setNextMajorDeadlineScopeInquiry() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		siSeg.Actual_Date_of_Decision_on_HoP__c = null;
+		clearFormal();
+		getNewSegs();
+		System.assertEquals(siSeg.Deadline_for_Decision_on_How_to_Proceed__c, siSeg.Next_Major_Deadline__c);
+
+		siSeg.Actual_Date_of_Decision_on_HoP__c = siSeg.Deadline_for_Decision_on_How_to_Proceed__c.addDays(-7);
+		siSeg.Decision_on_How_to_Proceed__c = 'Formal';
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Calculated_Preliminary_Signature__c, siSeg.Next_Major_Deadline__c);
+
+		siSeg.Actual_Preliminary_Signature__c = siSeg.Calculated_Preliminary_Signature__c.addDays(-7);
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Calculated_Final_Signature__c, siSeg.Next_Major_Deadline__c);
+
+		siSeg.Actual_Final_Signature__c = siSeg.Calculated_Final_Signature__c.addDays(-7);
+		update siSeg;
+		siSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, siSeg.Next_Major_Deadline__c);
+	}
+	//Next Major Deadline
+	@isTest static void setNextMajorDeadlineSunsetReview() {
+		Test.startTest();
+
+		//setup
+		setFR(ssSeg.Id, 'Initiation');
+		ss240();
+		getNewSegs();
+		System.assertEquals(ssSeg.Calculated_Preliminary_Signature__c, ssSeg.Next_Major_Deadline__c);
+
+		ssSeg.Actual_Preliminary_Signature__c = ssSeg.Calculated_Preliminary_Signature__c.addDays(-7);
+		update ssSeg;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Calculated_Final_Signature__c, ssSeg.Next_Major_Deadline__c);
+
+		ssSeg.Actual_Final_Signature__c = ssSeg.Calculated_Final_Signature__c.addDays(-7);
+		update ssSeg;
+		ssSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, ssSeg.Next_Major_Deadline__c);
+	}
+
+	//Next Announcement Date
+	@isTest static void setNextAnnouncementDateAdministrativeReview() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+
+		System.assertEquals(adminSeg.Preliminary_Announcement_Date__c, adminSeg.Next_Announcement_Date__c);
+
+		adminSeg.Actual_Preliminary_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update adminSeg;
+		getNewSegs();
+		System.assertEquals(adminSeg.Final_Announcement_Date__c, adminSeg.Next_Announcement_Date__c);
+
+		
+		adminSeg.Actual_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update adminSeg;
+		getNewSegs();
+		System.assertEquals(adminSeg.Amended_Final_Announcement_Date__c, adminSeg.Next_Announcement_Date__c);
+
+		adminSeg.Actual_Amended_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update adminSeg;
+		getNewSegs();
+
+		Test.stopTest();
+		System.assertEquals(null, adminSeg.Next_Announcement_Date__c);
+	}
+	//Next Announcement Date
+	@isTest static void setNextAnnouncementDateExpeditedReview() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+
+		System.assertEquals(expedSeg.Preliminary_Announcement_Date__c, expedSeg.Next_Announcement_Date__c);
+
+		expedSeg.Actual_Preliminary_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update expedSeg;
+		getNewSegs();
+		System.assertEquals(expedSeg.Final_Announcement_Date__c, expedSeg.Next_Announcement_Date__c);
+
+		
+		expedSeg.Actual_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update expedSeg;
+		getNewSegs();
+		System.assertEquals(expedSeg.Amended_Final_Announcement_Date__c, expedSeg.Next_Announcement_Date__c);
+
+		expedSeg.Actual_Amended_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update expedSeg;
+		getNewSegs();
+
+		Test.stopTest();
+		System.assertEquals(null, expedSeg.Next_Announcement_Date__c);
+	}
+	//Next Announcement Date
+	@isTest static void setNextAnnouncementDateNewShipperReview() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+
+		System.assertEquals(nsSeg.Preliminary_Announcement_Date__c, nsSeg.Next_Announcement_Date__c);
+
+		nsSeg.Actual_Preliminary_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update nsSeg;
+		getNewSegs();
+		System.assertEquals(nsSeg.Final_Announcement_Date__c, nsSeg.Next_Announcement_Date__c);
+
+		
+		nsSeg.Actual_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update nsSeg;
+		getNewSegs();
+		System.assertEquals(nsSeg.Amended_Final_Announcement_Date__c, nsSeg.Next_Announcement_Date__c);
+
+		nsSeg.Actual_Amended_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update nsSeg;
+		getNewSegs();
+
+		Test.stopTest();
+		System.assertEquals(null, nsSeg.Next_Announcement_Date__c);
+	}
+	//Next Announcement Date
+	@isTest static void setNextAnnouncementDateAntiCircReview() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(null, acSeg.Next_Announcement_Date__c);
+
+		acSeg.Actual_Initiation_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		acSeg.Type_of_Circumvention_Inquiry__c = 'Later-Developed Merchandise';
+		update acSeg;
+		System.assertEquals(acSeg.Preliminary_Announcement_Date__c, acSeg.Next_Announcement_Date__c);
+
+		acSeg.Actual_Preliminary_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update acSeg;
+		getNewSegs();
+		System.assertEquals(acSeg.Final_Announcement_Date__c, acSeg.Next_Announcement_Date__c);
+
+		
+		acSeg.Actual_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update acSeg;
+		getNewSegs();
+
+		Test.stopTest();
+		System.assertEquals(null, acSeg.Next_Announcement_Date__c);
+	}
+	//Next Announcement Date
+	@isTest static void setNextAnnouncementDateChangedCircReview() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(null, ccSeg.Next_Announcement_Date__c);
+
+		ccSeg.Actual_Initiation_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		ccSeg.All_parties_in_agreement_to_the_outcome__c = 'No';
+		update ccSeg;
+		System.assertEquals(ccSeg.Preliminary_Announcement_Date__c, ccSeg.Next_Announcement_Date__c);
+
+		ccSeg.Actual_Preliminary_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update ccSeg;
+		getNewSegs();
+		System.assertEquals(ccSeg.Final_Announcement_Date__c, ccSeg.Next_Announcement_Date__c);
+
+		
+		ccSeg.Actual_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update ccSeg;
+		getNewSegs();
+
+		Test.stopTest();
+		System.assertEquals(null, ccSeg.Next_Announcement_Date__c);
+	}
+	//Next Announcement Date
+	@isTest static void setNextAnnouncementDateScopeInquiry() {
+		Test.startTest();
+
+		//setup start dates
+		setStartDates();
+		siSeg.Actual_Date_of_Decision_on_HoP__c = null;
+		siSeg.Decision_on_How_to_Proceed__c = '';
+		update siSeg;
+		getNewSegs();
+
+		System.assertEquals(null, siSeg.Next_Announcement_Date__c);
+
+		siSeg.Actual_Date_of_Decision_on_HoP__c = System.today().toStartOfWeek().addDays(-4);
+		siSeg.Decision_on_How_to_Proceed__c = 'Formal';
+		update siSeg;
+		getNewSegs();
+		System.assertEquals(siSeg.Preliminary_Announcement_Date__c, siSeg.Next_Announcement_Date__c);
+
+		siSeg.Actual_Preliminary_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update siSeg;
+		getNewSegs();
+		System.assertEquals(siSeg.Final_Announcement_Date__c, siSeg.Next_Announcement_Date__c);
+
+		
+		siSeg.Actual_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update siSeg;
+		getNewSegs();
+
+		Test.stopTest();
+		System.assertEquals(null, siSeg.Next_Announcement_Date__c);
+	}
+	//Next Announcement Date
+	@isTest static void setNextAnnouncementDateSunsetReview() {
+		Test.startTest();
+
+		//setup start dates
+		setFR(ssSeg.Id, 'Initiation');
+		ss240();
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+
+		System.assertEquals(ssSeg.Preliminary_Announcement_Date__c, ssSeg.Next_Announcement_Date__c);
+
+		ssSeg.Actual_Preliminary_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update ssSeg;
+		getNewSegs();
+		System.assertEquals(ssSeg.Final_Announcement_Date__c, ssSeg.Next_Announcement_Date__c);
+
+		
+		ssSeg.Actual_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
+		update ssSeg;
+		getNewSegs();
+
+		Test.stopTest();
+		System.assertEquals(null, ssSeg.Next_Announcement_Date__c);
+	}
+
+	//Next Due to DAS
+	@isTest static void setNextDueToDasAdminReview() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(adminSeg.Prelim_Issues_Due_to_DAS__c, adminSeg.Next_Due_to_DAS_Deadline__c);
+
+		adminSeg.Actual_Prelim_Issues_to_DAS__c = adminSeg.Prelim_Issues_Due_to_DAS__c;
+		update adminSeg;
+		adminSeg = null;
+		System.assertEquals(adminSeg.Prelim_Concurrence_Due_to_DAS__c, adminSeg.Next_Due_to_DAS_Deadline__c);
+
+		adminSeg.Actual_Prelim_Concurrence_to_DAS__c = adminSeg.Prelim_Concurrence_Due_to_DAS__c;
+		update adminSeg;
+		adminSeg = null;
+		System.assertEquals(adminSeg.Calculated_Preliminary_Signature__c, adminSeg.Next_Due_to_DAS_Deadline__c);
+
+		adminSeg.Actual_Preliminary_Signature__c = adminSeg.Calculated_Preliminary_Signature__c.addDays(-7);
+		update adminSeg;
+		adminSeg = null;
+		System.assertEquals(adminSeg.Final_Issues_Due_to_DAS__c, adminSeg.Next_Due_to_DAS_Deadline__c);
+
+		adminSeg.Will_you_Amend_the_Final__c = 'Yes';
+		adminSeg.Actual_Final_Issues_to_DAS__c = adminSeg.Final_Issues_Due_to_DAS__c;
+		update adminSeg;
+		adminSeg = null;
+		System.assertEquals(adminSeg.Final_Concurrence_Due_to_DAS__c, adminSeg.Next_Due_to_DAS_Deadline__c);
+
+		adminSeg.Actual_Final_Concurrence_to_DAS__c = adminSeg.Final_Concurrence_Due_to_DAS__c;
+		update adminSeg;
+		adminSeg = null;
+		System.assertEquals(adminSeg.Calculated_Final_Signature__c, adminSeg.Next_Due_to_DAS_Deadline__c);
+
+		adminSeg.Actual_Final_Signature__c = adminSeg.Calculated_Final_Signature__c.addDays(-7);
+		update adminSeg;
+		adminSeg = null;
+		System.assertEquals(adminSeg.Amend_Final_Issues_Due_to_DAS__c, adminSeg.Next_Due_to_DAS_Deadline__c);
+
+		adminSeg.Actual_Amend_Final_Issues_to_DAS__c = adminSeg.Amend_Final_Issues_Due_to_DAS__c;
+		update adminSeg;
+		adminSeg = null;
+		System.assertEquals(adminSeg.Amend_Final_Concurrence_Due_to_DAS__c, adminSeg.Next_Due_to_DAS_Deadline__c);
+
+		adminSeg.Actual_Amend_Final_Concurrence_to_DAS__c = adminSeg.Amend_Final_Concurrence_Due_to_DAS__c;
+		update adminSeg;
+		adminSeg = null;
+		System.assertEquals(adminSeg.Calculated_Amended_Final_Signature__c, adminSeg.Next_Due_to_DAS_Deadline__c);
+
+		adminSeg.Actual_Amended_Final_Signature__c = adminSeg.Calculated_Amended_Final_Signature__c.addDays(7);
+		update adminSeg;
+		adminSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, adminSeg.Next_Due_to_DAS_Deadline__c);
+	}
+	//Next Due to DAS
+	@isTest static void setNextDueToDasExpeditedReview() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(expedSeg.Prelim_Issues_Due_to_DAS__c, expedSeg.Next_Due_to_DAS_Deadline__c);
+
+		expedSeg.Actual_Prelim_Issues_to_DAS__c = expedSeg.Prelim_Issues_Due_to_DAS__c;
+		update expedSeg;
+		expedSeg = null;
+		System.assertEquals(expedSeg.Prelim_Concurrence_Due_to_DAS__c, expedSeg.Next_Due_to_DAS_Deadline__c);
+
+		expedSeg.Actual_Prelim_Concurrence_to_DAS__c = expedSeg.Prelim_Concurrence_Due_to_DAS__c;
+		update expedSeg;
+		expedSeg = null;
+		System.assertEquals(expedSeg.Calculated_Preliminary_Signature__c, expedSeg.Next_Due_to_DAS_Deadline__c);
+
+		expedSeg.Actual_Preliminary_Signature__c = expedSeg.Calculated_Preliminary_Signature__c.addDays(-7);
+		update expedSeg;
+		expedSeg = null;
+		System.assertEquals(expedSeg.Final_Issues_Due_to_DAS__c, expedSeg.Next_Due_to_DAS_Deadline__c);
+
+		expedSeg.Will_you_Amend_the_Final__c = 'Yes';
+		expedSeg.Actual_Final_Issues_to_DAS__c = expedSeg.Final_Issues_Due_to_DAS__c;
+		update expedSeg;
+		expedSeg = null;
+		System.assertEquals(expedSeg.Final_Concurrence_Due_to_DAS__c, expedSeg.Next_Due_to_DAS_Deadline__c);
+
+		expedSeg.Actual_Final_Concurrence_to_DAS__c = expedSeg.Final_Concurrence_Due_to_DAS__c;
+		update expedSeg;
+		expedSeg = null;
+		System.assertEquals(expedSeg.Calculated_Final_Signature__c, expedSeg.Next_Due_to_DAS_Deadline__c);
+
+		expedSeg.Actual_Final_Signature__c = expedSeg.Calculated_Final_Signature__c.addDays(-7);
+		update expedSeg;
+		expedSeg = null;
+		System.assertEquals(expedSeg.Amend_Final_Issues_Due_to_DAS__c, expedSeg.Next_Due_to_DAS_Deadline__c);
+
+		expedSeg.Actual_Amend_Final_Issues_to_DAS__c = expedSeg.Amend_Final_Issues_Due_to_DAS__c;
+		update expedSeg;
+		expedSeg = null;
+		System.assertEquals(expedSeg.Amend_Final_Concurrence_Due_to_DAS__c, expedSeg.Next_Due_to_DAS_Deadline__c);
+
+		expedSeg.Actual_Amend_Final_Concurrence_to_DAS__c = expedSeg.Amend_Final_Concurrence_Due_to_DAS__c;
+		update expedSeg;
+		expedSeg = null;
+		System.assertEquals(expedSeg.Calculated_Amended_Final_Signature__c, expedSeg.Next_Due_to_DAS_Deadline__c);
+
+		expedSeg.Actual_Amended_Final_Signature__c = expedSeg.Calculated_Amended_Final_Signature__c.addDays(7);
+		update expedSeg;
+		expedSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, expedSeg.Next_Due_to_DAS_Deadline__c);
+	}
+//Next Due to DAS
+	@isTest static void setNextDueToDasNewShipperReview() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(nsSeg.Initiation_Issues_Due_to_DAS__c, nsSeg.Next_Due_to_DAS_Deadline__c);
+
+		nsSeg.Actual_Initiation_Issues_to_DAS__c = nsSeg.Initiation_Issues_Due_to_DAS__c;
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Initiation_Concurrence_Due_to_DAS__c, nsSeg.Next_Due_to_DAS_Deadline__c);
+
+		nsSeg.Actual_Initiation_Concurrence_to_DAS__c = nsSeg.Initiation_Concurrence_Due_to_DAS__c;
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Calculated_Initiation_Signature__c, nsSeg.Next_Due_to_DAS_Deadline__c);
+
+		nsSeg.Actual_Initiation_Signature__c = nsSeg.Calculated_Initiation_Signature__c;
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Prelim_Issues_Due_to_DAS__c, nsSeg.Next_Due_to_DAS_Deadline__c);
+
+		nsSeg.Actual_Prelim_Issues_to_DAS__c = nsSeg.Prelim_Issues_Due_to_DAS__c;
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Prelim_Concurrence_Due_to_DAS__c, nsSeg.Next_Due_to_DAS_Deadline__c);
+
+		nsSeg.Actual_Prelim_Concurrence_to_DAS__c = nsSeg.Prelim_Concurrence_Due_to_DAS__c;
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Calculated_Preliminary_Signature__c, nsSeg.Next_Due_to_DAS_Deadline__c);
+
+		nsSeg.Actual_Preliminary_Signature__c = nsSeg.Calculated_Preliminary_Signature__c.addDays(-7);
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Final_Issues_Due_to_DAS__c, nsSeg.Next_Due_to_DAS_Deadline__c);
+
+		nsSeg.Will_you_Amend_the_Final__c = 'Yes';
+		nsSeg.Actual_Final_Issues_to_DAS__c = nsSeg.Final_Issues_Due_to_DAS__c;
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Final_Concurrence_Due_to_DAS__c, nsSeg.Next_Due_to_DAS_Deadline__c);
+
+		nsSeg.Actual_Final_Concurrence_to_DAS__c = nsSeg.Final_Concurrence_Due_to_DAS__c;
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Calculated_Final_Signature__c, nsSeg.Next_Due_to_DAS_Deadline__c);
+
+		nsSeg.Actual_Final_Signature__c = nsSeg.Calculated_Final_Signature__c.addDays(-7);
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Amend_Final_Issues_Due_to_DAS__c, nsSeg.Next_Due_to_DAS_Deadline__c);
+
+		nsSeg.Actual_Amend_Final_Issues_to_DAS__c = nsSeg.Amend_Final_Issues_Due_to_DAS__c;
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Amend_Final_Concurrence_Due_to_DAS__c, nsSeg.Next_Due_to_DAS_Deadline__c);
+
+		nsSeg.Actual_Amend_Final_Concurrence_to_DAS__c = nsSeg.Amend_Final_Concurrence_Due_to_DAS__c;
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Calculated_Amended_Final_Signature__c, nsSeg.Next_Due_to_DAS_Deadline__c);
+
+		nsSeg.Actual_Amended_Final_Signature__c = nsSeg.Calculated_Amended_Final_Signature__c.addDays(7);
+		update nsSeg;
+		nsSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, nsSeg.Next_Due_to_DAS_Deadline__c);
+	}
+	//Next Due to DAS
+	@isTest static void setNextDueToDasAntiCircReviewWithPrelim() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(acSeg.Initiation_Issues_Due_to_DAS__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Actual_Initiation_Issues_to_DAS__c = acSeg.Initiation_Issues_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Initiation_Concurrence_Due_to_DAS__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Actual_Initiation_Concurrence_to_DAS__c = acSeg.Initiation_Concurrence_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Calculated_Initiation_Signature__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Type_of_Circumvention_Inquiry__c = 'Later-Developed Merchandise';
+		acSeg.Actual_Initiation_Signature__c = acSeg.Calculated_Initiation_Signature__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Prelim_Issues_Due_to_DAS__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Type_of_Circumvention_Inquiry__c = 'Minor Altercations of Merchandise';
+		acSeg.Preliminary_Determination__c = 'Yes';
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Prelim_Issues_Due_to_DAS__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Actual_Prelim_Issues_to_DAS__c = acSeg.Prelim_Issues_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Prelim_Concurrence_Due_to_DAS__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Actual_Prelim_Concurrence_to_DAS__c = acSeg.Prelim_Concurrence_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Calculated_Preliminary_Signature__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Actual_Preliminary_Signature__c = acSeg.Calculated_Preliminary_Signature__c.addDays(-7);
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Final_Issues_Due_to_DAS__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Actual_Final_Issues_to_DAS__c = acSeg.Final_Issues_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Final_Concurrence_Due_to_DAS__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Actual_Final_Concurrence_to_DAS__c = acSeg.Final_Concurrence_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Calculated_Final_Signature__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Actual_Final_Signature__c = acSeg.Calculated_Final_Signature__c.addDays(-7);
+		update acSeg;
+		acSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, acSeg.Next_Due_to_DAS_Deadline__c);
+	}
+	//Next Due to DAS
+	@isTest static void setNextDueToDasAntiCircReviewWithoutPrelim() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(acSeg.Initiation_Issues_Due_to_DAS__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Actual_Initiation_Issues_to_DAS__c = acSeg.Initiation_Issues_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Initiation_Concurrence_Due_to_DAS__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Actual_Initiation_Concurrence_to_DAS__c = acSeg.Initiation_Concurrence_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Calculated_Initiation_Signature__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Type_of_Circumvention_Inquiry__c = 'Minor Altercations of Merchandise';
+		acSeg.Preliminary_Determination__c = 'No';
+		acSeg.Actual_Initiation_Signature__c = acSeg.Calculated_Initiation_Signature__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Final_Issues_Due_to_DAS__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Actual_Final_Issues_to_DAS__c = acSeg.Final_Issues_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Final_Concurrence_Due_to_DAS__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Actual_Final_Concurrence_to_DAS__c = acSeg.Final_Concurrence_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Calculated_Final_Signature__c, acSeg.Next_Due_to_DAS_Deadline__c);
+
+		acSeg.Actual_Final_Signature__c = acSeg.Calculated_Final_Signature__c.addDays(-7);
+		update acSeg;
+		acSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, acSeg.Next_Due_to_DAS_Deadline__c);
+	}
+	//Next Due to DAS
+	@isTest static void setNextDueToDasChangedCircReviewWithPrelim() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(ccSeg.Initiation_Issues_Due_to_DAS__c, ccSeg.Next_Due_to_DAS_Deadline__c);
+
+		ccSeg.Actual_Initiation_Issues_to_DAS__c = ccSeg.Initiation_Issues_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Initiation_Concurrence_Due_to_DAS__c, ccSeg.Next_Due_to_DAS_Deadline__c);
+
+		ccSeg.Actual_Initiation_Concurrence_to_DAS__c = ccSeg.Initiation_Concurrence_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Calculated_Initiation_Signature__c, ccSeg.Next_Due_to_DAS_Deadline__c);
+
+		ccSeg.All_parties_in_agreement_to_the_outcome__c = 'No';
+		ccSeg.Actual_Initiation_Signature__c = ccSeg.Calculated_Initiation_Signature__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Prelim_Issues_Due_to_DAS__c, ccSeg.Next_Due_to_DAS_Deadline__c);
+
+		ccSeg.Actual_Prelim_Issues_to_DAS__c = ccSeg.Prelim_Issues_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Prelim_Concurrence_Due_to_DAS__c, ccSeg.Next_Due_to_DAS_Deadline__c);
+
+		ccSeg.Actual_Prelim_Concurrence_to_DAS__c = ccSeg.Prelim_Concurrence_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Calculated_Preliminary_Signature__c, ccSeg.Next_Due_to_DAS_Deadline__c);
+
+		ccSeg.Actual_Preliminary_Signature__c = ccSeg.Calculated_Preliminary_Signature__c.addDays(-7);
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Final_Issues_Due_to_DAS__c, ccSeg.Next_Due_to_DAS_Deadline__c);
+
+		ccSeg.Actual_Final_Issues_to_DAS__c = ccSeg.Final_Issues_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Final_Concurrence_Due_to_DAS__c, ccSeg.Next_Due_to_DAS_Deadline__c);
+
+		ccSeg.Actual_Final_Concurrence_to_DAS__c = ccSeg.Final_Concurrence_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Calculated_Final_Signature__c, ccSeg.Next_Due_to_DAS_Deadline__c);
+
+		ccSeg.Actual_Final_Signature__c = ccSeg.Calculated_Final_Signature__c.addDays(-7);
+		update ccSeg;
+		ccSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, ccSeg.Next_Due_to_DAS_Deadline__c);
+	}
+	//Next Due to DAS
+	@isTest static void setNextDueToDasChangedCircReviewWithoutPrelim() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(ccSeg.Initiation_Issues_Due_to_DAS__c, ccSeg.Next_Due_to_DAS_Deadline__c);
+
+		ccSeg.Actual_Initiation_Issues_to_DAS__c = ccSeg.Initiation_Issues_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Initiation_Concurrence_Due_to_DAS__c, ccSeg.Next_Due_to_DAS_Deadline__c);
+
+		ccSeg.Actual_Initiation_Concurrence_to_DAS__c = ccSeg.Initiation_Concurrence_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Calculated_Initiation_Signature__c, ccSeg.Next_Due_to_DAS_Deadline__c);
+
+		ccSeg.All_parties_in_agreement_to_the_outcome__c = 'Yes';
+		ccSeg.Actual_Initiation_Signature__c = ccSeg.Calculated_Initiation_Signature__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Final_Issues_Due_to_DAS__c, ccSeg.Next_Due_to_DAS_Deadline__c);
+
+		ccSeg.Actual_Final_Issues_to_DAS__c = ccSeg.Final_Issues_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Final_Concurrence_Due_to_DAS__c, ccSeg.Next_Due_to_DAS_Deadline__c);
+
+		ccSeg.Actual_Final_Concurrence_to_DAS__c = ccSeg.Final_Concurrence_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Calculated_Final_Signature__c, ccSeg.Next_Due_to_DAS_Deadline__c);
+
+		ccSeg.Actual_Final_Signature__c = ccSeg.Calculated_Final_Signature__c.addDays(-7);
+		update ccSeg;
+		ccSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, ccSeg.Next_Due_to_DAS_Deadline__c);
+	}
+	//Next Due to DAS
+	@isTest static void setNextDueToDasScopeInquiryWithPrelim() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		siSeg.Actual_Date_of_Decision_on_HoP__c = null;
+		siSeg.Decision_on_How_to_Proceed__c = '';
+		update siSeg;
+		getNewSegs();
+		System.assertEquals(siSeg.Decision_on_HOP_Issues_Due_to_DAS__c, siSeg.Next_Due_to_DAS_Deadline__c);
+
+		siSeg.Actual_Decision_on_HOP_Issues_to_DAS__c = siSeg.Decision_on_HOP_Issues_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Decision_on_HOP_Concurrence_Due_to_DAS__c, siSeg.Next_Due_to_DAS_Deadline__c);
+
+		siSeg.Actual_Decision_on_HOP_Concurrence_toDAS__c = siSeg.Decision_on_HOP_Concurrence_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Deadline_for_Decision_on_How_to_Proceed__c, siSeg.Next_Due_to_DAS_Deadline__c);
+
+		siSeg.Decision_on_How_to_Proceed__c = 'Formal';
+		siSeg.Actual_Date_of_Decision_on_HoP__c = siSeg.Deadline_for_Decision_on_How_to_Proceed__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Prelim_Issues_Due_to_DAS__c, siSeg.Next_Due_to_DAS_Deadline__c);
+
+		siSeg.Actual_Prelim_Issues_to_DAS__c = siSeg.Prelim_Issues_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Prelim_Concurrence_Due_to_DAS__c, siSeg.Next_Due_to_DAS_Deadline__c);
+
+		siSeg.Actual_Prelim_Concurrence_to_DAS__c = siSeg.Prelim_Concurrence_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Calculated_Preliminary_Signature__c, siSeg.Next_Due_to_DAS_Deadline__c);
+
+		siSeg.Actual_Preliminary_Signature__c = siSeg.Calculated_Preliminary_Signature__c.addDays(-7);
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Final_Issues_Due_to_DAS__c, siSeg.Next_Due_to_DAS_Deadline__c);
+
+		siSeg.Actual_Final_Issues_to_DAS__c = siSeg.Final_Issues_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Final_Concurrence_Due_to_DAS__c, siSeg.Next_Due_to_DAS_Deadline__c);
+
+		siSeg.Actual_Final_Concurrence_to_DAS__c = siSeg.Final_Concurrence_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Calculated_Final_Signature__c, siSeg.Next_Due_to_DAS_Deadline__c);
+
+		siSeg.Actual_Final_Signature__c = siSeg.Calculated_Final_Signature__c.addDays(-7);
+		update siSeg;
+		siSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, siSeg.Next_Due_to_DAS_Deadline__c);
+	}
+	//Next Due to DAS
+	@isTest static void setNextDueToDasScopeInquiryWithoutPrelim() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		siSeg.Actual_Date_of_Decision_on_HoP__c = null;
+		clearFormal();
+		getNewSegs();
+		System.assertEquals(siSeg.Decision_on_HOP_Issues_Due_to_DAS__c, siSeg.Next_Due_to_DAS_Deadline__c);
+
+		siSeg.Actual_Decision_on_HOP_Issues_to_DAS__c = siSeg.Decision_on_HOP_Issues_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Decision_on_HOP_Concurrence_Due_to_DAS__c, siSeg.Next_Due_to_DAS_Deadline__c);
+
+		siSeg.Actual_Decision_on_HOP_Concurrence_toDAS__c = siSeg.Decision_on_HOP_Concurrence_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Deadline_for_Decision_on_How_to_Proceed__c, siSeg.Next_Due_to_DAS_Deadline__c);
+
+		siSeg.Decision_on_How_to_Proceed__c = 'Informal';
+		siSeg.Actual_Date_of_Decision_on_HoP__c = siSeg.Deadline_for_Decision_on_How_to_Proceed__c;
+		update siSeg;
+		siSeg = null;
+		
+		Test.stopTest();
+		System.assertEquals(null, siSeg.Next_Due_to_DAS_Deadline__c);
+	}
+	//Next Due to DAS
+	@isTest static void setNextDueToDasSunsetReviewWithPrelim() {
+		Test.startTest();
+
+		//setup
+		setFR(ssSeg.Id, 'Initiation');
+		ss240();
+		getNewSegs();
+		System.assertEquals(ssSeg.Prelim_Issues_Due_to_DAS__c, ssSeg.Next_Due_to_DAS_Deadline__c);
+
+		ssSeg.Actual_Prelim_Issues_to_DAS__c = ssSeg.Prelim_Issues_Due_to_DAS__c;
+		update ssSeg;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Prelim_Concurrence_Due_to_DAS__c, ssSeg.Next_Due_to_DAS_Deadline__c);
+
+		ssSeg.Actual_Prelim_Concurrence_to_DAS__c = ssSeg.Prelim_Concurrence_Due_to_DAS__c;
+		update ssSeg;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Calculated_Preliminary_Signature__c, ssSeg.Next_Due_to_DAS_Deadline__c);
+
+		ssSeg.Actual_Preliminary_Signature__c = ssSeg.Calculated_Preliminary_Signature__c.addDays(-7);
+		update ssSeg;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Final_Issues_Due_to_DAS__c, ssSeg.Next_Due_to_DAS_Deadline__c);
+
+		ssSeg.Actual_Final_Issues_to_DAS__c = ssSeg.Final_Issues_Due_to_DAS__c;
+		update ssSeg;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Final_Concurrence_Due_to_DAS__c, ssSeg.Next_Due_to_DAS_Deadline__c);
+
+		ssSeg.Actual_Final_Concurrence_to_DAS__c = ssSeg.Final_Concurrence_Due_to_DAS__c;
+		update ssSeg;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Calculated_Final_Signature__c, ssSeg.Next_Due_to_DAS_Deadline__c);
+
+		ssSeg.Actual_Final_Signature__c = ssSeg.Calculated_Final_Signature__c.addDays(-7);
+		update ssSeg;
+		ssSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, ssSeg.Next_Due_to_DAS_Deadline__c);
+	}
+	//Next Due to DAS
+	@isTest static void setNextDueToDasSunsetReviewWithoutPrelim() {
+		Test.startTest();
+
+		//setup
+		setFR(ssSeg.Id, 'Initiation');
+		ss90();
+		getNewSegs();
+		System.assertEquals(ssSeg.Final_Issues_Due_to_DAS__c, ssSeg.Next_Due_to_DAS_Deadline__c);
+
+		ssSeg.Actual_Final_Issues_to_DAS__c = ssSeg.Final_Issues_Due_to_DAS__c;
+		update ssSeg;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Final_Concurrence_Due_to_DAS__c, ssSeg.Next_Due_to_DAS_Deadline__c);
+
+		ssSeg.Actual_Final_Concurrence_to_DAS__c = ssSeg.Final_Concurrence_Due_to_DAS__c;
+		update ssSeg;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Calculated_Final_Signature__c, ssSeg.Next_Due_to_DAS_Deadline__c);
+
+		ssSeg.Actual_Final_Signature__c = ssSeg.Calculated_Final_Signature__c.addDays(-7);
+		update ssSeg;
+		ssSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, ssSeg.Next_Due_to_DAS_Deadline__c);
+	}
+
+	//Next Office Deadline
+	@isTest static void setNextOfficeAdminReview() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(adminSeg.Prelim_Team_Meeting_Deadline__c, adminSeg.Next_Office_Deadline__c);
+
+		adminSeg.Final_Date_of_Anniversary_Month__c = System.today().addDays(-245);
+		update adminSeg;
+		adminSeg = null;
+		System.assertEquals(adminSeg.Prelim_Issues_Due_to_DAS__c, adminSeg.Next_Office_Deadline__c);
+
+		adminSeg.Actual_Prelim_Issues_to_DAS__c = adminSeg.Prelim_Issues_Due_to_DAS__c;
+		update adminSeg;
+		adminSeg = null;
+		System.assertEquals(adminSeg.Prelim_Concurrence_Due_to_DAS__c, adminSeg.Next_Office_Deadline__c);
+
+		adminSeg.Actual_Prelim_Concurrence_to_DAS__c = adminSeg.Prelim_Concurrence_Due_to_DAS__c;
+		update adminSeg;
+		adminSeg = null;
+		System.assertEquals(adminSeg.Calculated_Preliminary_Signature__c, adminSeg.Next_Office_Deadline__c);
+
+		adminSeg.Actual_Preliminary_Signature__c = System.today().addDays(-7);
+		update adminSeg;
+		adminSeg = null;
+		System.assertEquals(adminSeg.Final_Team_Meeting_Deadline__c, adminSeg.Next_Office_Deadline__c);
+
+		setFR(adminSeg.Id, 'Preliminary');
+		prelimFR.Published_Date__c = System.today().addDays(-120);
+		update prelimFR;
+		adminSeg = null;
+		System.assertEquals(adminSeg.Final_Issues_Due_to_DAS__c, adminSeg.Next_Office_Deadline__c);
+
+		adminSeg.Will_you_Amend_the_Final__c = 'Yes';
+		adminSeg.Actual_Final_Issues_to_DAS__c = adminSeg.Final_Issues_Due_to_DAS__c;
+		update adminSeg;
+		adminSeg = null;
+		System.assertEquals(adminSeg.Final_Concurrence_Due_to_DAS__c, adminSeg.Next_Office_Deadline__c);
+
+		adminSeg.Actual_Final_Concurrence_to_DAS__c = adminSeg.Final_Concurrence_Due_to_DAS__c;
+		update adminSeg;
+		adminSeg = null;
+		System.assertEquals(adminSeg.Calculated_Final_Signature__c, adminSeg.Next_Office_Deadline__c);
+
+		adminSeg.Actual_Final_Signature__c = adminSeg.Calculated_Final_Signature__c.addDays(-7);
+		update adminSeg;
+		adminSeg = null;
+		System.assertEquals(adminSeg.Amend_Final_Issues_Due_to_DAS__c, adminSeg.Next_Office_Deadline__c);
+
+		adminSeg.Actual_Amend_Final_Issues_to_DAS__c = adminSeg.Amend_Final_Issues_Due_to_DAS__c;
+		update adminSeg;
+		adminSeg = null;
+		System.assertEquals(adminSeg.Amend_Final_Concurrence_Due_to_DAS__c, adminSeg.Next_Office_Deadline__c);
+
+		adminSeg.Actual_Amend_Final_Concurrence_to_DAS__c = adminSeg.Amend_Final_Concurrence_Due_to_DAS__c;
+		update adminSeg;
+		adminSeg = null;
+		System.assertEquals(adminSeg.Calculated_Amended_Final_Signature__c, adminSeg.Next_Office_Deadline__c);
+
+		adminSeg.Actual_Amended_Final_Signature__c = adminSeg.Calculated_Amended_Final_Signature__c.addDays(7);
+		update adminSeg;
+		adminSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, adminSeg.Next_Office_Deadline__c);
+	}
+	//Next Office Deadline
+	@isTest static void setNextOfficeExpeditedReview() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(expedSeg.Prelim_Team_Meeting_Deadline__c, expedSeg.Next_Office_Deadline__c);
+
+		expedSeg.Actual_Initiation_Signature__c = System.today().addDays(-180);
+		update expedSeg;
+		expedSeg = null;
+		System.assertEquals(expedSeg.Prelim_Issues_Due_to_DAS__c, expedSeg.Next_Office_Deadline__c);
+
+		expedSeg.Actual_Prelim_Issues_to_DAS__c = expedSeg.Prelim_Issues_Due_to_DAS__c;
+		update expedSeg;
+		expedSeg = null;
+		System.assertEquals(expedSeg.Prelim_Concurrence_Due_to_DAS__c, expedSeg.Next_Office_Deadline__c);
+
+		expedSeg.Actual_Prelim_Concurrence_to_DAS__c = expedSeg.Prelim_Concurrence_Due_to_DAS__c;
+		update expedSeg;
+		expedSeg = null;
+		System.assertEquals(expedSeg.Calculated_Preliminary_Signature__c, expedSeg.Next_Office_Deadline__c);
+
+		expedSeg.Actual_Preliminary_Signature__c = System.today().addDays(-7);
+		update expedSeg;
+		expedSeg = null;
+		System.assertEquals(expedSeg.Final_Team_Meeting_Deadline__c, expedSeg.Next_Office_Deadline__c);
+
+		expedSeg.Actual_Preliminary_Signature__c = System.today().addDays(-90);
+		update expedSeg;
+		expedSeg = null;
+		System.assertEquals(expedSeg.Final_Issues_Due_to_DAS__c, expedSeg.Next_Office_Deadline__c);
+
+		expedSeg.Will_you_Amend_the_Final__c = 'Yes';
+		expedSeg.Actual_Final_Issues_to_DAS__c = expedSeg.Final_Issues_Due_to_DAS__c;
+		update expedSeg;
+		expedSeg = null;
+		System.assertEquals(expedSeg.Final_Concurrence_Due_to_DAS__c, expedSeg.Next_Office_Deadline__c);
+
+		expedSeg.Actual_Final_Concurrence_to_DAS__c = expedSeg.Final_Concurrence_Due_to_DAS__c;
+		update expedSeg;
+		expedSeg = null;
+		System.assertEquals(expedSeg.Calculated_Final_Signature__c, expedSeg.Next_Office_Deadline__c);
+
+		expedSeg.Actual_Final_Signature__c = expedSeg.Calculated_Final_Signature__c.addDays(-7);
+		update expedSeg;
+		expedSeg = null;
+		System.assertEquals(expedSeg.Amend_Final_Issues_Due_to_DAS__c, expedSeg.Next_Office_Deadline__c);
+
+		expedSeg.Actual_Amend_Final_Issues_to_DAS__c = expedSeg.Amend_Final_Issues_Due_to_DAS__c;
+		update expedSeg;
+		expedSeg = null;
+		System.assertEquals(expedSeg.Amend_Final_Concurrence_Due_to_DAS__c, expedSeg.Next_Office_Deadline__c);
+
+		expedSeg.Actual_Amend_Final_Concurrence_to_DAS__c = expedSeg.Amend_Final_Concurrence_Due_to_DAS__c;
+		update expedSeg;
+		expedSeg = null;
+		System.assertEquals(expedSeg.Calculated_Amended_Final_Signature__c, expedSeg.Next_Office_Deadline__c);
+
+		expedSeg.Actual_Amended_Final_Signature__c = expedSeg.Calculated_Amended_Final_Signature__c.addDays(7);
+		update expedSeg;
+		expedSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, expedSeg.Next_Office_Deadline__c);
+	}
+//Next Office Deadline
+	@isTest static void setNextOfficeNewShipperReview() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(nsSeg.Prelim_Team_Meeting_Deadline__c, nsSeg.Next_Office_Deadline__c);
+
+		nsSeg.Actual_Initiation_Signature__c = System.today().addDays(-180);
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Prelim_Issues_Due_to_DAS__c, nsSeg.Next_Office_Deadline__c);
+
+		nsSeg.Actual_Prelim_Issues_to_DAS__c = nsSeg.Prelim_Issues_Due_to_DAS__c;
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Prelim_Concurrence_Due_to_DAS__c, nsSeg.Next_Office_Deadline__c);
+
+		nsSeg.Actual_Prelim_Concurrence_to_DAS__c = nsSeg.Prelim_Concurrence_Due_to_DAS__c;
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Calculated_Preliminary_Signature__c, nsSeg.Next_Office_Deadline__c);
+
+		nsSeg.Actual_Preliminary_Signature__c = System.today().addDays(-7);
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Final_Team_Meeting_Deadline__c, nsSeg.Next_Office_Deadline__c);
+
+		nsSeg.Actual_Preliminary_Signature__c = System.today().addDays(-90);
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Final_Issues_Due_to_DAS__c, nsSeg.Next_Office_Deadline__c);
+
+		nsSeg.Will_you_Amend_the_Final__c = 'Yes';
+		nsSeg.Actual_Final_Issues_to_DAS__c = nsSeg.Final_Issues_Due_to_DAS__c;
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Final_Concurrence_Due_to_DAS__c, nsSeg.Next_Office_Deadline__c);
+
+		nsSeg.Actual_Final_Concurrence_to_DAS__c = nsSeg.Final_Concurrence_Due_to_DAS__c;
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Calculated_Final_Signature__c, nsSeg.Next_Office_Deadline__c);
+
+		nsSeg.Actual_Final_Signature__c = nsSeg.Calculated_Final_Signature__c.addDays(-7);
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Amend_Final_Issues_Due_to_DAS__c, nsSeg.Next_Office_Deadline__c);
+
+		nsSeg.Actual_Amend_Final_Issues_to_DAS__c = nsSeg.Amend_Final_Issues_Due_to_DAS__c;
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Amend_Final_Concurrence_Due_to_DAS__c, nsSeg.Next_Office_Deadline__c);
+
+		nsSeg.Actual_Amend_Final_Concurrence_to_DAS__c = nsSeg.Amend_Final_Concurrence_Due_to_DAS__c;
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Calculated_Amended_Final_Signature__c, nsSeg.Next_Office_Deadline__c);
+
+		nsSeg.Actual_Amended_Final_Signature__c = nsSeg.Calculated_Amended_Final_Signature__c.addDays(7);
+		update nsSeg;
+		nsSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, nsSeg.Next_Office_Deadline__c);
+	}
+	//Next Office Deadline
+	@isTest static void setNextOfficeAntiCircReviewWithPrelim() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(acSeg.Initiation_Issues_Due_to_DAS__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Actual_Initiation_Issues_to_DAS__c = acSeg.Initiation_Issues_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Initiation_Concurrence_Due_to_DAS__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Actual_Initiation_Concurrence_to_DAS__c = acSeg.Initiation_Concurrence_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Calculated_Initiation_Signature__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Type_of_Circumvention_Inquiry__c = 'Later-Developed Merchandise';
+		acSeg.Actual_Initiation_Signature__c = acSeg.Calculated_Initiation_Signature__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Prelim_Team_Meeting_Deadline__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Actual_Initiation_Signature__c = System.today().addDays(-120);
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Prelim_Issues_Due_to_DAS__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Actual_Prelim_Issues_to_DAS__c = acSeg.Prelim_Issues_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Prelim_Concurrence_Due_to_DAS__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Actual_Prelim_Concurrence_to_DAS__c = acSeg.Prelim_Concurrence_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Calculated_Preliminary_Signature__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Actual_Preliminary_Signature__c = System.today().addDays(-7);
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Final_Team_Meeting_Deadline__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Actual_Initiation_Signature__c = System.today().addDays(-300);
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Final_Issues_Due_to_DAS__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Actual_Final_Issues_to_DAS__c = acSeg.Final_Issues_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Final_Concurrence_Due_to_DAS__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Actual_Final_Concurrence_to_DAS__c = acSeg.Final_Concurrence_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Calculated_Final_Signature__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Actual_Final_Signature__c = acSeg.Calculated_Final_Signature__c.addDays(-7);
+		update acSeg;
+		acSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, acSeg.Next_Office_Deadline__c);
+	}
+	//Next Office Deadline
+	@isTest static void setNextOfficeAntiCircReviewWithoutPrelim() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(acSeg.Initiation_Issues_Due_to_DAS__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Actual_Initiation_Issues_to_DAS__c = acSeg.Initiation_Issues_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Initiation_Concurrence_Due_to_DAS__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Actual_Initiation_Concurrence_to_DAS__c = acSeg.Initiation_Concurrence_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Calculated_Initiation_Signature__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Type_of_Circumvention_Inquiry__c = 'Minor Altercations of Merchandise';
+		acSeg.Preliminary_Determination__c = 'No';
+		acSeg.Actual_Initiation_Signature__c = acSeg.Calculated_Initiation_Signature__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Final_Team_Meeting_Deadline__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Actual_Initiation_Signature__c = System.today().addDays(-300);
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Final_Issues_Due_to_DAS__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Actual_Final_Issues_to_DAS__c = acSeg.Final_Issues_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Final_Concurrence_Due_to_DAS__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Actual_Final_Concurrence_to_DAS__c = acSeg.Final_Concurrence_Due_to_DAS__c;
+		update acSeg;
+		acSeg = null;
+		System.assertEquals(acSeg.Calculated_Final_Signature__c, acSeg.Next_Office_Deadline__c);
+
+		acSeg.Actual_Final_Signature__c = acSeg.Calculated_Final_Signature__c.addDays(-7);
+		update acSeg;
+		acSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, acSeg.Next_Office_Deadline__c);
+	}
+	//Next Office Deadline
+	@isTest static void setNextOfficeChangedCircReviewWithPrelim() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(ccSeg.Initiation_Issues_Due_to_DAS__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.Actual_Initiation_Issues_to_DAS__c = ccSeg.Initiation_Issues_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Initiation_Concurrence_Due_to_DAS__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.Actual_Initiation_Concurrence_to_DAS__c = ccSeg.Initiation_Concurrence_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Calculated_Initiation_Signature__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.All_parties_in_agreement_to_the_outcome__c = 'No';
+		ccSeg.Actual_Initiation_Signature__c = System.today().addDays(-7);
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Prelim_Team_Meeting_Deadline__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.Actual_Initiation_Signature__c = System.today().addDays(-180);
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Prelim_Issues_Due_to_DAS__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.Actual_Prelim_Issues_to_DAS__c = ccSeg.Prelim_Issues_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Prelim_Concurrence_Due_to_DAS__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.Actual_Prelim_Concurrence_to_DAS__c = ccSeg.Prelim_Concurrence_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Calculated_Preliminary_Signature__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.Actual_Preliminary_Signature__c = System.today().addDays(-7);
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Final_Team_Meeting_Deadline__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.Actual_Initiation_Signature__c = System.today().addDays(-270);
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Final_Issues_Due_to_DAS__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.Actual_Final_Issues_to_DAS__c = ccSeg.Final_Issues_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Final_Concurrence_Due_to_DAS__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.Actual_Final_Concurrence_to_DAS__c = ccSeg.Final_Concurrence_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Calculated_Final_Signature__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.Actual_Final_Signature__c = ccSeg.Calculated_Final_Signature__c.addDays(-7);
+		update ccSeg;
+		ccSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, ccSeg.Next_Office_Deadline__c);
+	}
+	//Next Office Deadline
+	@isTest static void setNextOfficeChangedCircReviewWithoutPrelim() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		setExtensions();
+		getNewSegs();
+		System.assertEquals(ccSeg.Initiation_Issues_Due_to_DAS__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.Actual_Initiation_Issues_to_DAS__c = ccSeg.Initiation_Issues_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Initiation_Concurrence_Due_to_DAS__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.Actual_Initiation_Concurrence_to_DAS__c = ccSeg.Initiation_Concurrence_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Calculated_Initiation_Signature__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.All_parties_in_agreement_to_the_outcome__c = 'Yes';
+		ccSeg.Actual_Initiation_Signature__c = ccSeg.Calculated_Initiation_Signature__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Final_Team_Meeting_Deadline__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.Actual_Initiation_Signature__c = System.today().addDays(-270);
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Final_Issues_Due_to_DAS__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.Actual_Final_Issues_to_DAS__c = ccSeg.Final_Issues_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Final_Concurrence_Due_to_DAS__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.Actual_Final_Concurrence_to_DAS__c = ccSeg.Final_Concurrence_Due_to_DAS__c;
+		update ccSeg;
+		ccSeg = null;
+		System.assertEquals(ccSeg.Calculated_Final_Signature__c, ccSeg.Next_Office_Deadline__c);
+
+		ccSeg.Actual_Final_Signature__c = ccSeg.Calculated_Final_Signature__c.addDays(-7);
+		update ccSeg;
+		ccSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, ccSeg.Next_Office_Deadline__c);
+	}
+	//Next Office Deadline
+	@isTest static void setNextOfficeScopeInquiryWithPrelim() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		siSeg.Actual_Date_of_Decision_on_HoP__c = null;
+		siSeg.Decision_on_How_to_Proceed__c = '';
+		update siSeg;
+		getNewSegs();
+		System.assertEquals(siSeg.Decision_on_HOP_Issues_Due_to_DAS__c, siSeg.Next_Office_Deadline__c);
+
+		siSeg.Actual_Decision_on_HOP_Issues_to_DAS__c = siSeg.Decision_on_HOP_Issues_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Decision_on_HOP_Concurrence_Due_to_DAS__c, siSeg.Next_Office_Deadline__c);
+
+		siSeg.Actual_Decision_on_HOP_Concurrence_toDAS__c = siSeg.Decision_on_HOP_Concurrence_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Deadline_for_Decision_on_How_to_Proceed__c, siSeg.Next_Office_Deadline__c);
+
+		siSeg.Decision_on_How_to_Proceed__c = 'Formal';
+		siSeg.Actual_Date_of_Decision_on_HoP__c = siSeg.Deadline_for_Decision_on_How_to_Proceed__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Prelim_Team_Meeting_Deadline__c, siSeg.Next_Office_Deadline__c);
+
+		siSeg.Actual_Date_of_Decision_on_HoP__c = System.today().addDays(-75);
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Prelim_Issues_Due_to_DAS__c, siSeg.Next_Office_Deadline__c);
+
+		siSeg.Actual_Prelim_Issues_to_DAS__c = siSeg.Prelim_Issues_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Prelim_Concurrence_Due_to_DAS__c, siSeg.Next_Office_Deadline__c);
+
+		siSeg.Actual_Prelim_Concurrence_to_DAS__c = siSeg.Prelim_Concurrence_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Calculated_Preliminary_Signature__c, siSeg.Next_Office_Deadline__c);
+
+		siSeg.Actual_Preliminary_Signature__c = System.today().addDays(-7);
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Final_Team_Meeting_Deadline__c, siSeg.Next_Office_Deadline__c);
+
+		siSeg.Actual_Preliminary_Signature__c = System.today().addDays(-52);
+		siSeg.Actual_Date_of_Decision_on_HoP__c = System.today().addDays(-120);
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Final_Issues_Due_to_DAS__c, siSeg.Next_Office_Deadline__c);
+
+		siSeg.Actual_Final_Issues_to_DAS__c = siSeg.Final_Issues_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Final_Concurrence_Due_to_DAS__c, siSeg.Next_Office_Deadline__c);
+
+		siSeg.Actual_Final_Concurrence_to_DAS__c = siSeg.Final_Concurrence_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Calculated_Final_Signature__c, siSeg.Next_Office_Deadline__c);
+
+		siSeg.Actual_Final_Signature__c = siSeg.Calculated_Final_Signature__c.addDays(-7);
+		update siSeg;
+		siSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, siSeg.Next_Office_Deadline__c);
+	}
+	//Next Office Deadline
+	@isTest static void setNextOfficeScopeInquiryWithoutPrelim() {
+		Test.startTest();
+
+		//setup
+		setStartDates();
+		siSeg.Actual_Date_of_Decision_on_HoP__c = null;
+		siSeg.Decision_on_How_to_Proceed__c = '';
+		update siSeg;
+		getNewSegs();
+		System.assertEquals(siSeg.Decision_on_HOP_Issues_Due_to_DAS__c, siSeg.Next_Office_Deadline__c);
+
+		siSeg.Actual_Decision_on_HOP_Issues_to_DAS__c = siSeg.Decision_on_HOP_Issues_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Decision_on_HOP_Concurrence_Due_to_DAS__c, siSeg.Next_Office_Deadline__c);
+
+		siSeg.Actual_Decision_on_HOP_Concurrence_toDAS__c = siSeg.Decision_on_HOP_Concurrence_Due_to_DAS__c;
+		update siSeg;
+		siSeg = null;
+		System.assertEquals(siSeg.Deadline_for_Decision_on_How_to_Proceed__c, siSeg.Next_Office_Deadline__c);
+
+		siSeg.Decision_on_How_to_Proceed__c = 'Informal';
+		siSeg.Actual_Date_of_Decision_on_HoP__c = siSeg.Deadline_for_Decision_on_How_to_Proceed__c;
+		update siSeg;
+		siSeg = null;
+		
+		Test.stopTest();
+		System.assertEquals(null, siSeg.Next_Office_Deadline__c);
+	}
+	//Next Office Deadline
+	@isTest static void setNextOfficeSunsetReviewWithPrelim() {
+		Test.startTest();
+
+		//setup
+		setFR(ssSeg.Id, 'Initiation');
+		ss240();
+		getNewSegs();
+		System.assertEquals(ssSeg.Prelim_Team_Meeting_Deadline__c, ssSeg.Next_Office_Deadline__c);
+
+		initFR.Published_Date__c = System.today().addDays(-110);
+		update initFR;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Prelim_Issues_Due_to_DAS__c, ssSeg.Next_Office_Deadline__c);
+
+		ssSeg.Actual_Prelim_Issues_to_DAS__c = ssSeg.Prelim_Issues_Due_to_DAS__c;
+		update ssSeg;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Prelim_Concurrence_Due_to_DAS__c, ssSeg.Next_Office_Deadline__c);
+
+		ssSeg.Actual_Prelim_Concurrence_to_DAS__c = ssSeg.Prelim_Concurrence_Due_to_DAS__c;
+		update ssSeg;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Calculated_Preliminary_Signature__c, ssSeg.Next_Office_Deadline__c);
+
+		ssSeg.Actual_Preliminary_Signature__c = System.today().addDays(-7);
+		update ssSeg;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Final_Team_Meeting_Deadline__c, ssSeg.Next_Office_Deadline__c);
+
+		initFR.Published_Date__c = System.today().addDays(-240);
+		update initFR;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Final_Issues_Due_to_DAS__c, ssSeg.Next_Office_Deadline__c);
+
+		ssSeg.Actual_Final_Issues_to_DAS__c = ssSeg.Final_Issues_Due_to_DAS__c;
+		update ssSeg;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Final_Concurrence_Due_to_DAS__c, ssSeg.Next_Office_Deadline__c);
+
+		ssSeg.Actual_Final_Concurrence_to_DAS__c = ssSeg.Final_Concurrence_Due_to_DAS__c;
+		update ssSeg;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Calculated_Final_Signature__c, ssSeg.Next_Office_Deadline__c);
+
+		ssSeg.Actual_Final_Signature__c = ssSeg.Calculated_Final_Signature__c.addDays(-7);
+		update ssSeg;
+		ssSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, ssSeg.Next_Office_Deadline__c);
+	}
+	//Next Office Deadline
+	@isTest static void setNextOfficeSunsetReviewWithoutPrelim() {
+		Test.startTest();
+
+		//setup
+		setFR(ssSeg.Id, 'Initiation');
+		ss90();
+		getNewSegs();
+		System.assertEquals(ssSeg.Final_Team_Meeting_Deadline__c, ssSeg.Next_Office_Deadline__c);
+
+		initFR.Published_Date__c = System.today().addDays(-90);
+		update initFR;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Final_Issues_Due_to_DAS__c, ssSeg.Next_Office_Deadline__c);
+
+		ssSeg.Actual_Final_Issues_to_DAS__c = ssSeg.Final_Issues_Due_to_DAS__c;
+		update ssSeg;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Final_Concurrence_Due_to_DAS__c, ssSeg.Next_Office_Deadline__c);
+
+		ssSeg.Actual_Final_Concurrence_to_DAS__c = ssSeg.Final_Concurrence_Due_to_DAS__c;
+		update ssSeg;
+		ssSeg = null;
+		System.assertEquals(ssSeg.Calculated_Final_Signature__c, ssSeg.Next_Office_Deadline__c);
+
+		ssSeg.Actual_Final_Signature__c = ssSeg.Calculated_Final_Signature__c.addDays(-7);
+		update ssSeg;
+		ssSeg = null;
+
+		Test.stopTest();
+		System.assertEquals(null, ssSeg.Next_Office_Deadline__c);
+	}
+
+	/**************************
+	* Validation Methods
+	**************************/
+
+	//setLitigationHoldExpirationDate
 	@isTest static void runValidationsAdministrativeReview() {
 		Test.startTest();
 
@@ -1490,6 +3488,55 @@ public class SegmentTriggerHandlerTest {
 		Test.stopTest();
 		System.assert(insufficientDataError.contains('You must enter a Final Federal Register'));
 	}
+
+	//setLitigationHoldExpirationDate
+	@isTest static void runValidationsAntiCircReview() {
+		Test.startTest();
+
+		//Negative Tests for error on Outcome without FR
+		acSeg.Segment_Outcome__c = 'Full Rescission';
+		String insufficientDataError = attemptUpsert(acSeg);
+		System.assert(insufficientDataError.contains('You must enter a Rescission Federal Register'));
+
+		acSeg.Segment_Outcome__c = 'Completed';
+		insufficientDataError = attemptUpsert(acSeg);
+
+		Test.stopTest();
+		System.assert(insufficientDataError.contains('You must enter a Final Federal Register'));
+	}
+
+	//setLitigationHoldExpirationDate
+	@isTest static void runValidationsChangedCircReview() {
+		Test.startTest();
+
+		//Negative Tests for error on Outcome without FR
+		ccSeg.Segment_Outcome__c = 'Full Rescission';
+		String insufficientDataError = attemptUpsert(ccSeg);
+		System.assert(insufficientDataError.contains('You must enter a Rescission Federal Register'));
+
+		ccSeg.Segment_Outcome__c = 'Completed';
+		insufficientDataError = attemptUpsert(ccSeg);
+
+		Test.stopTest();
+		System.assert(insufficientDataError.contains('You must enter a Final Federal Register'));
+	}
+
+	//setLitigationHoldExpirationDate
+	@isTest static void runValidationsSunsetReview() {
+		Test.startTest();
+
+		//Negative Tests for error on Outcome without FR
+		ssSeg.Segment_Outcome__c = 'Completed';
+		String insufficientDataError = attemptUpsert(ssSeg);
+
+		Test.stopTest();
+		System.assert(insufficientDataError.contains('You must enter a Final Federal Register'));
+	}
+
+
+	/******************
+	* Status
+	******************/
 
 	@isTest static void setStatusAdministrativeReview() {
 		Test.startTest();
@@ -1945,352 +3992,6 @@ public class SegmentTriggerHandlerTest {
 		System.assertEquals('Closed', [SELECT Id, Status__c FROM Segment__c WHERE Id =: ssSeg.Id LIMIT 1].Status__c);
 	}
 
-	//setPreliminaryAnnouncementDate
-	@isTest static void setPreliminaryAnnouncementDateAdministrativeReview() {
-		Test.startTest();
-
-		//setup start dates
-		setStartDates();
-		setExtensions();
-		getNewSegs();
-		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(adminSeg.Calculated_Preliminary_Signature__c, adminSeg.Calculated_Preliminary_Signature__c.addDays(1), true);
-
-		Test.stopTest();
-		System.assertEquals(testCalculated, adminSeg.Preliminary_Announcement_Date__c);
-	}
-	//setPreliminaryAnnouncementDate
-	@isTest static void setPreliminaryAnnouncementDateExpeditedReview() {
-		Test.startTest();
-
-		//setup start dates
-		setStartDates();
-		setExtensions();
-		getNewSegs();
-		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(expedSeg.Calculated_Preliminary_Signature__c, expedSeg.Calculated_Preliminary_Signature__c.addDays(1), true);
-
-		Test.stopTest();
-		System.assertEquals(testCalculated, expedSeg.Preliminary_Announcement_Date__c);
-	}
-	//setPreliminaryAnnouncementDate
-	@isTest static void setPreliminaryAnnouncementDateNewShipperReview() {
-		Test.startTest();
-
-		//setup start dates
-		setStartDates();
-		setExtensions();
-		getNewSegs();
-		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(nsSeg.Calculated_Preliminary_Signature__c, nsSeg.Calculated_Preliminary_Signature__c.addDays(1), true);
-
-		Test.stopTest();
-		System.assertEquals(testCalculated, nsSeg.Preliminary_Announcement_Date__c);
-	}
-	//setPreliminaryAnnouncementDate
-	@isTest static void setPreliminaryAnnouncementDateScopeInquiry() {
-		Test.startTest();
-
-		//setup start dates
-		setStartDates();
-		setExtensions();
-		getNewSegs();
-		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(siSeg.Calculated_Preliminary_Signature__c, siSeg.Calculated_Preliminary_Signature__c.addDays(1), true);
-
-		Test.stopTest();
-		System.assertEquals(testCalculated, siSeg.Preliminary_Announcement_Date__c);
-	}
-	//setPreliminaryAnnouncementDate
-	@isTest static void setPreliminaryAnnouncementDateAntiCircumventionReview() {
-		Test.startTest();
-
-		//setup start dates
-		acSeg.Type_of_Circumvention_Inquiry__c = 'Later-Developed Merchandise';
-		setStartDates();
-		setExtensions();
-		getNewSegs();
-		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(acSeg.Calculated_Preliminary_Signature__c, acSeg.Calculated_Preliminary_Signature__c.addDays(1), true);
-
-		Test.stopTest();
-		System.assertEquals(testCalculated, acSeg.Preliminary_Announcement_Date__c);
-	}
-	//setPreliminaryAnnouncementDate
-	@isTest static void setPreliminaryAnnouncementDateChangedCircumstancesReview() {
-		Test.startTest();
-
-		//setup start dates
-		ccSeg.All_parties_in_agreement_to_the_outcome__c = 'No';
-		setStartDates();
-		setExtensions();
-		getNewSegs();
-		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(ccSeg.Calculated_Preliminary_Signature__c, ccSeg.Calculated_Preliminary_Signature__c.addDays(1), true);
-
-		Test.stopTest();
-		System.assertEquals(testCalculated, ccSeg.Preliminary_Announcement_Date__c);
-	}
-	//setPreliminaryAnnouncementDate
-	@isTest static void setPreliminaryAnnouncementDateAR() {
-		Test.startTest();
-
-		//setup start dates
-		setStartDates();
-		setExtensions();
-		getNewSegs();
-		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(adminSeg.Calculated_Preliminary_Signature__c, adminSeg.Calculated_Preliminary_Signature__c.addDays(1), true);
-
-		Test.stopTest();
-		System.assertEquals(testCalculated, adminSeg.Preliminary_Announcement_Date__c);
-	}
-
-	//setFinalAnnouncementDate
-	@isTest static void setFinalAnnouncementDateAdministrativeReview() {
-		Test.startTest();
-
-		//setup start dates
-		setStartDates();
-		setExtensions();
-		getNewSegs();
-		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(adminSeg.Calculated_Final_Signature__c, adminSeg.Calculated_Final_Signature__c.addDays(1), true);
-
-		Test.stopTest();
-		System.assertEquals(testCalculated, adminSeg.Final_Announcement_Date__c);
-	}
-	//setFinalAnnouncementDate
-	@isTest static void setFinalAnnouncementDateExpeditedReview() {
-		Test.startTest();
-
-		//setup start dates
-		setStartDates();
-		setExtensions();
-		getNewSegs();
-		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(expedSeg.Calculated_Final_Signature__c, expedSeg.Calculated_Final_Signature__c.addDays(1), true);
-
-		Test.stopTest();
-		System.assertEquals(testCalculated, expedSeg.Final_Announcement_Date__c);
-	}
-	//setFinalAnnouncementDate
-	@isTest static void setFinalAnnouncementDateNewShipperReview() {
-		Test.startTest();
-
-		//setup start dates
-		setStartDates();
-		setExtensions();
-		getNewSegs();
-		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(nsSeg.Calculated_Final_Signature__c, nsSeg.Calculated_Final_Signature__c.addDays(1), true);
-
-		Test.stopTest();
-		System.assertEquals(testCalculated, nsSeg.Final_Announcement_Date__c);
-	}
-	//setFinalAnnouncementDate
-	@isTest static void setFinalAnnouncementDateScopeInquiry() {
-		Test.startTest();
-
-		//setup start dates
-		setStartDates();
-		setExtensions();
-		getNewSegs();
-		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(siSeg.Calculated_Final_Signature__c, siSeg.Calculated_Final_Signature__c.addDays(1), true);
-
-		Test.stopTest();
-		System.assertEquals(testCalculated, siSeg.Final_Announcement_Date__c);
-	}
-	//setFinalAnnouncementDate
-	@isTest static void setFinalAnnouncementDateAntiCircumventionReview() {
-		Test.startTest();
-
-		//setup start dates
-		setStartDates();
-		setExtensions();
-		getNewSegs();
-		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(acSeg.Calculated_Final_Signature__c, acSeg.Calculated_Final_Signature__c.addDays(1), true);
-
-		Test.stopTest();
-		System.assertEquals(testCalculated, acSeg.Final_Announcement_Date__c);
-	}
-	//setFinalAnnouncementDate
-	@isTest static void setFinalAnnouncementDateChangedCircumstancesReview() {
-		Test.startTest();
-
-		//setup start dates
-		setStartDates();
-		setExtensions();
-		getNewSegs();
-		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(ccSeg.Calculated_Final_Signature__c, ccSeg.Calculated_Final_Signature__c.addDays(1), true);
-
-		Test.stopTest();
-		System.assertEquals(testCalculated, ccSeg.Final_Announcement_Date__c);
-	}
-	//setFinalAnnouncementDate
-	@isTest static void setFinalAnnouncementDateAR() {
-		Test.startTest();
-
-		//setup start dates
-		setStartDates();
-		setExtensions();
-		getNewSegs();
-		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(adminSeg.Calculated_Final_Signature__c, adminSeg.Calculated_Final_Signature__c.addDays(1), true);
-
-		Test.stopTest();
-		System.assertEquals(testCalculated, adminSeg.Final_Announcement_Date__c);
-	}
-
-	//setAmendedFinalAnnouncementDate
-	@isTest static void setAmendedFinalAnnouncementDateAdministrativeReview() {
-		Test.startTest();
-
-		//setup start dates
-		setStartDates();
-		setExtensions();
-		getNewSegs();
-
-		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(adminSeg.Calculated_Amended_Final_Signature__c, adminSeg.Calculated_Amended_Final_Signature__c.addDays(1), true);
-
-		Test.stopTest();
-		System.assertEquals(testCalculated, adminSeg.Amended_Final_Announcement_Date__c);
-	}
-	//setAmendedFinalAnnouncementDate
-	@isTest static void setAmendedFinalAnnouncementDateExpeditedReview() {
-		Test.startTest();
-
-		//setup start dates
-		setStartDates();
-		setExtensions();
-		getNewSegs();
-
-		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(expedSeg.Calculated_Amended_Final_Signature__c, expedSeg.Calculated_Amended_Final_Signature__c.addDays(1), true);
-
-		Test.stopTest();
-		System.assertEquals(testCalculated, expedSeg.Amended_Final_Announcement_Date__c);
-	}
-	//setAmendedFinalAnnouncementDate
-	@isTest static void setAmendedFinalAnnouncementDateNewShipperReview() {
-		Test.startTest();
-		
-		//setup start dates
-		setStartDates();
-		setExtensions();
-		getNewSegs();
-
-		testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(nsSeg.Calculated_Amended_Final_Signature__c, nsSeg.Calculated_Amended_Final_Signature__c.addDays(1), true);
-
-		Test.stopTest();
-		System.assertEquals(testCalculated, nsSeg.Amended_Final_Announcement_Date__c);
-	}
-
-
-	//Next Announcement Date
-	@isTest static void setNextAnnouncementDateAdministrativeReview() {
-		Test.startTest();
-
-		//setup start dates
-		setStartDates();
-		setExtensions();
-		getNewSegs();
-
-		System.assertEquals(adminSeg.Preliminary_Announcement_Date__c, adminSeg.Next_Announcement_Date__c);
-
-		adminSeg.Actual_Preliminary_Signature__c = System.today().toStartOfWeek().addDays(-4);
-		update adminSeg;
-		getNewSegs();
-		System.assertEquals(adminSeg.Final_Announcement_Date__c, adminSeg.Next_Announcement_Date__c);
-
-		
-		adminSeg.Actual_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
-		update adminSeg;
-		getNewSegs();
-		System.assertEquals(adminSeg.Amended_Final_Announcement_Date__c, adminSeg.Next_Announcement_Date__c);
-
-		adminSeg.Actual_Amended_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
-		update adminSeg;
-		getNewSegs();
-
-		Test.stopTest();
-		System.assertEquals(null, adminSeg.Next_Announcement_Date__c);
-	}
-	//Next Announcement Date
-	@isTest static void setNextAnnouncementDateExpeditedReview() {
-		Test.startTest();
-
-		//setup start dates
-		setStartDates();
-		setExtensions();
-		getNewSegs();
-
-		System.assertEquals(expedSeg.Preliminary_Announcement_Date__c, expedSeg.Next_Announcement_Date__c);
-
-		expedSeg.Actual_Preliminary_Signature__c = System.today().toStartOfWeek().addDays(-4);
-		update expedSeg;
-		getNewSegs();
-		System.assertEquals(expedSeg.Final_Announcement_Date__c, expedSeg.Next_Announcement_Date__c);
-
-		
-		expedSeg.Actual_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
-		update expedSeg;
-		getNewSegs();
-		System.assertEquals(expedSeg.Amended_Final_Announcement_Date__c, expedSeg.Next_Announcement_Date__c);
-
-		expedSeg.Actual_Amended_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
-		update expedSeg;
-		getNewSegs();
-
-		Test.stopTest();
-		System.assertEquals(null, expedSeg.Next_Announcement_Date__c);
-	}
-	//Next Announcement Date
-	@isTest static void setNextAnnouncementDateNewShipperReview() {
-		Test.startTest();
-
-		//setup start dates
-		setStartDates();
-		setExtensions();
-		getNewSegs();
-
-		System.assertEquals(nsSeg.Preliminary_Announcement_Date__c, nsSeg.Next_Announcement_Date__c);
-
-		nsSeg.Actual_Preliminary_Signature__c = System.today().toStartOfWeek().addDays(-4);
-		update nsSeg;
-		getNewSegs();
-		System.assertEquals(nsSeg.Final_Announcement_Date__c, nsSeg.Next_Announcement_Date__c);
-
-		
-		nsSeg.Actual_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
-		update nsSeg;
-		getNewSegs();
-		System.assertEquals(nsSeg.Amended_Final_Announcement_Date__c, nsSeg.Next_Announcement_Date__c);
-
-		nsSeg.Actual_Amended_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
-		update nsSeg;
-		getNewSegs();
-
-		Test.stopTest();
-		System.assertEquals(null, nsSeg.Next_Announcement_Date__c);
-	}
-	//Next Announcement Date
-	@isTest static void setNextAnnouncementDateAR() {
-		Test.startTest();
-
-		//setup start dates
-		setStartDates();
-		setExtensions();
-		getNewSegs();
-
-		System.assertEquals(adminSeg.Preliminary_Announcement_Date__c, adminSeg.Next_Announcement_Date__c);
-
-		adminSeg.Actual_Preliminary_Signature__c = System.today().toStartOfWeek().addDays(-4);
-		update adminSeg;
-		getNewSegs();
-		System.assertEquals(adminSeg.Final_Announcement_Date__c, adminSeg.Next_Announcement_Date__c);
-
-		
-		adminSeg.Actual_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
-		update adminSeg;
-		getNewSegs();
-		System.assertEquals(adminSeg.Amended_Final_Announcement_Date__c, adminSeg.Next_Announcement_Date__c);
-
-		adminSeg.Actual_Amended_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
-		update adminSeg;
-		getNewSegs();
-
-		Test.stopTest();
-		System.assertEquals(null, adminSeg.Next_Announcement_Date__c);
-	}
 
 	@testSetup static void dataSetup() {
 		Test.startTest();
@@ -2378,10 +4079,10 @@ public class SegmentTriggerHandlerTest {
 		siSeg.Initiation_Extension_of_days__c = siSeg.Initiation_Extension_of_days__c == null ? 7 : 7;
 		segsToUpdate.add(siSeg);
 		//SSR
-		ssSeg.Prelim_Extension__c = ssSeg.Prelim_Extension__c == null ? 7 : 7;
-		ssSeg.Final_Extension_of_days__c = ssSeg.Final_Extension_of_days__c == null ? 7 : 7;
-		ssSeg.Initiation_Extension_of_days__c = ssSeg.Initiation_Extension_of_days__c == null ? 7 : 7;
-		segsToUpdate.add(ssSeg);
+		//ssSeg.Prelim_Extension__c = ssSeg.Prelim_Extension__c == null ? 7 : 7;
+		//ssSeg.Final_Extension_of_days__c = ssSeg.Final_Extension_of_days__c == null ? 7 : 7;
+		//ssSeg.Initiation_Extension_of_days__c = ssSeg.Initiation_Extension_of_days__c == null ? 7 : 7;
+		//segsToUpdate.add(ssSeg);
 
 		update segsToUpdate;
 	}

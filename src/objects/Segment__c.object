@@ -56,37 +56,12 @@
         <fullName>Is_120_Day</fullName>
         <description>SunsetReviewVF</description>
         <displayedFields>
-            <field>Calculated_Final_Signature__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Adequacy_of_Respondents_Submission__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Actual_Final_Signature__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
             <field>Rebuttal_Comments_Due__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Update_ACE_Customs_Module__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Adequacy_Determination_Letter_120_day__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Issue_Liquidation_Revocation_Instruction__c</field>
+            <field>Adequacy_Determination_Letter__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -100,18 +75,38 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-        <label>Is 120 Day</label>
-    </fieldSets>
-    <fieldSets>
-        <fullName>Is_240_Day</fullName>
-        <description>SunsetReviewVF</description>
         <displayedFields>
-            <field>Calculated_Final_Signature__c</field>
+            <field>Adequate_after_Reconsideration__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Adequacy_of_Respondents_Submission__c</field>
+            <field>Next_Due_to_DAS_Deadline__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Final_Issues_Due_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Final_Issues_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Final_Concurrence_Due_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Final_Concurrence_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Calculated_Final_Signature__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -121,7 +116,72 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Rebuttal_Comments_Due__c</field>
+            <field>Final_Announcement_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Preliminary_Decision_Memorandum_URL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Notify_ITC_of_Final_Results__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ITC_Vote_on_Continuation_or_Revocation__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Next_Announcement_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Next_Major_Deadline__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Next_Office_Deadline__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Revocation_or_Continuation_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Calculated_Revocation_or_Continuation_FR__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Revocation_or_Continuation_FR__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Continuation_or_Revocation_FR_Notice_Pub__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Continuation_or_Revocation__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Effective_Date_if_revoked__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Next_Sunset_Initiation_Date_Continued__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -131,7 +191,177 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Adequacy_Determination_Letter_240_day__c</field>
+            <field>Issue_Liquidation_Revocation_Instruction__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Is 120 Day</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Is_240_Day</fullName>
+        <description>SunsetReviewVF</description>
+        <displayedFields>
+            <field>Rebuttal_Comments_Due__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Adequacy_Determination_Letter__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Adequate_after_Determination__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Preliminary_Extension_Remaining__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Prelim_Team_Meeting_Deadline__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Prelim_Issues_Due_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Prelim_Issues_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Prelim_Concurrence_Due_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Prelim_Concurrence_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Calculated_Preliminary_Signature__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Preliminary_Signature__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Preliminary_Decision_Memorandum_URL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Verification_if_needed__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Case_Briefs_Due__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Rebuttal_Briefs_Due__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Hearing_if_Requested__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Final_Extension_of_days__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Final_Team_Meeting_Deadline__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Final_Issues_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Final_Issues_Due_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Final_Concurrence_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Final_Concurrence_Due_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Calculated_Final_Signature__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Final_Signature__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Notify_ITC_of_Final_Results__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ITC_Vote_on_Continuation_or_Revocation__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Calculated_Revocation_or_Continuation_FR__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Revocation_or_Continuation_FR__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Effective_Date_if_revoked__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Continuation_or_Revocation__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Continuation_or_Revocation_FR_Notice_Pub__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Next_Sunset_Initiation_Date_Continued__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Update_ACE_Customs_Module__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -146,12 +376,42 @@
         <fullName>Is_90_Day</fullName>
         <description>SunsetReviewVF</description>
         <displayedFields>
-            <field>Calculated_Final_Signature__c</field>
+            <field>Notify_ITC_of_No_Domestic_Interest__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Notify_ITC_of_No_Domestic_Interest__c</field>
+            <field>Inadequate_Domestic_Response_note_to_ITC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Next_Due_to_DAS_Deadline__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Final_Issues_Due_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Final_Issues_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Final_Concurrence_Due_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Actual_Final_Concurrence_to_DAS__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Calculated_Final_Signature__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -161,7 +421,7 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Inadequate_Domestic_Response_note_to_ITC__c</field>
+            <field>Final_Announcement_Date__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -172,6 +432,26 @@
         </displayedFields>
         <displayedFields>
             <field>Issue_Liquidation_Revocation_Instruction__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Litigation_Hold_Expiration_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Next_Major_Deadline__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Next_Office_Deadline__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Next_Announcement_Date__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -237,6 +517,26 @@
         </displayedFields>
         <label>Review Information</label>
     </fieldSets>
+    <fields>
+        <fullName>ADCVD_Case_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(NOT(ISNULL(ADCVD_Order__c)),  ADCVD_Order__r.ADCVD_Case_Number__c  ,  Suspension_Agreement__r.ADCVD_Case_Number__c  )</formula>
+        <label>ADCVD Case Number</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ADCVD_Case_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(NOT(ISNULL(ADCVD_Order__c)),  ADCVD_Order__r.ADCVD_Case_Type__c  ,  Suspension_Agreement__r.ADCVD_Case_Type__c  )</formula>
+        <label>ADCVD Case Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>ADCVD_Order__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -396,19 +696,10 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Adequacy_Determination_Letter_120_day__c</fullName>
-        <description>Adequacy determination and letter to ITC on 120 day if not adequate or if no adequate respondent.</description>
+        <fullName>Adequacy_Determination_Letter__c</fullName>
+        <description>Adequacy determination and letter to ITC if not adequate or if no adequate respondent.</description>
         <externalId>false</externalId>
-        <label>Adequacy Determination &amp; Letter(120 day)</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Adequacy_Determination_Letter_240_day__c</fullName>
-        <description>Adequacy Determination and Letter to ITC  on 120 day if not adequate or if no adequate respondent response.</description>
-        <externalId>false</externalId>
-        <label>Adequacy Determination &amp; Letter(240 day)</label>
+        <label>Adequacy Determination &amp; Letter</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -570,6 +861,16 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>CBP_Case_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(NOT(ISNULL(ADCVD_Order__c)), ADCVD_Order__r.CBP_Case_Number__c , Suspension_Agreement__r.CBP_Case_Number__c )</formula>
+        <label>CBP Case Number</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Calculated_Amended_Final_Signature__c</fullName>
         <description>Calculated Amended Final Signature</description>
         <externalId>false</externalId>
@@ -646,6 +947,16 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Commodity__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(NOT(ISNULL(ADCVD_Order__c)),  ADCVD_Order__r.Commodity__c  ,  Suspension_Agreement__r.Commodity__c  )</formula>
+        <label>Commodity</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Concurrence_to_DAS__c</fullName>
         <description>Concurrence to DAS</description>
         <externalId>false</externalId>
@@ -697,6 +1008,16 @@
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Country__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(NOT(ISNULL(ADCVD_Order__c)),  ADCVD_Order__r.Country__c  ,  Suspension_Agreement__r.Country__c  )</formula>
+        <label>Country</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Country_in_which_factors_were_valued__c</fullName>
@@ -863,6 +1184,29 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Final_Extension_Remaining__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE( RecordType.DeveloperName , 
+&apos;Administrative_Review&apos;, 
+ IF( Prelim_Extension__c = 0 &amp;&amp;  ISNULL(Actual_Preliminary_Signature__c) , 
+     60 - Final_Extension_of_days__c, 
+     IF( Prelim_Extension__c = 0 &amp;&amp;  NOT(ISNULL(Actual_Preliminary_Signature__c)) , 
+         180 - Final_Extension_of_days__c, 
+         60 - Final_Extension_of_days__c)) ,
+&apos;Anti_Circumvention_Review&apos;, 180 - Final_Extension_of_days__c , 
+&apos;Expedited_Review&apos;, 60 - Final_Extension_of_days__c , 
+&apos;New_Shipper_Review&apos;, 60 - Final_Extension_of_days__c , 
+0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Final Extension Remaining</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Final_Extension_of_days__c</fullName>
         <description>Final Extension (# of days)</description>
         <externalId>false</externalId>
@@ -963,6 +1307,22 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Initiation_Extension_Remaining__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE( RecordType.DeveloperName , 
+&apos;Anti_Circumvention_Review&apos;, 45 - Initiation_Extension_of_days__c ,
+&apos;Changed_Circumstances_Review&apos;, 45 - Initiation_Extension_of_days__c ,
+0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Initiation Extension Remaining</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Initiation_Extension_of_days__c</fullName>
@@ -1347,6 +1707,18 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Office__c</fullName>
+        <externalId>false</externalId>
+        <label>Office</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>ADCVD_Offices</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Period_Covered_End_Date__c</fullName>
         <description>Period Covered - End Date</description>
         <externalId>false</externalId>
@@ -1365,67 +1737,6 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Petition_Case_Number__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(NOT(ISNULL(ADCVD_Order__c)),  ADCVD_Order__r.Petition_Case_Number__c  ,  Suspension_Agreement__r.Petition_Case_Number__c  )</formula>
-        <label>Petition Case Number</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Petition_Case_Type__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(NOT(ISNULL(ADCVD_Order__c)),  ADCVD_Order__r.Petition_Case_Type__c  ,  Suspension_Agreement__r.Petition_Case_Type__c  )</formula>
-        <label>Petition Case Type</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Petition_Commodity__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(NOT(ISNULL(ADCVD_Order__c)),  ADCVD_Order__r.Petition_Commodity__c  ,  Suspension_Agreement__r.Petition_Commodity__c  )</formula>
-        <label>Petition Commodity</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Petition_Country__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(NOT(ISNULL(ADCVD_Order__c)),  ADCVD_Order__r.Petition_Country__c  ,  Suspension_Agreement__r.Petition_Country__c  )</formula>
-        <label>Petition Country</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Petition_Product_Short_Name__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(NOT(ISNULL(ADCVD_Order__c)), ADCVD_Order__r.Petition_Product_Short_Name__c , Suspension_Agreement__r.Petition_Product_Short_Name__c )</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Petition Product Short Name</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Petition_Product__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(NOT(ISNULL(ADCVD_Order__c)),  ADCVD_Order__r.Petition_Product__c  ,  Suspension_Agreement__r.Petition_Product__c  )</formula>
-        <label>Petition Product</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Prelim_Concurrence_Due_to_DAS__c</fullName>
@@ -1506,10 +1817,49 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Preliminary_Extension_Remaining__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE( RecordType.DeveloperName ,
+ &apos;Administrative_Review&apos;, 120 - Prelim_Extension__c,
+ &apos;Expedited_Review&apos;, 120 - Prelim_Extension__c ,
+ &apos;New_Shipper_Review&apos;, 120 - Prelim_Extension__c ,
+ &apos;Sunset_Review&apos;, 90 - Prelim_Extension__c ,
+0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Preliminary Extension Remaining</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Product_Description__c</fullName>
         <externalId>false</externalId>
         <label>Product Description</label>
         <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Short_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(NOT(ISNULL(ADCVD_Order__c)), ADCVD_Order__r.Product_Short_Name__c , Suspension_Agreement__r.Product_Short_Name__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Product Short Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(NOT(ISNULL(ADCVD_Order__c)),  ADCVD_Order__r.Product__c  ,  Suspension_Agreement__r.Product__c  )</formula>
+        <label>Product</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -1674,7 +2024,7 @@
     <fields>
         <fullName>Segment_Name__c</fullName>
         <externalId>false</externalId>
-        <formula>Petition_Case_Number__c +&apos;--&apos;+ Name</formula>
+        <formula>ADCVD_Case_Number__c +&apos;--&apos;+ Name</formula>
         <label>Segment Name</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -1846,6 +2196,34 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Sunset_Review_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Sunset Review Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>90</fullName>
+                    <default>false</default>
+                    <label>90</label>
+                </value>
+                <value>
+                    <fullName>120</fullName>
+                    <default>false</default>
+                    <label>120</label>
+                </value>
+                <value>
+                    <fullName>240</fullName>
+                    <default>false</default>
+                    <label>240</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Suspension_Agreement__c</fullName>
@@ -2062,12 +2440,12 @@
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
-        <columns>Petition_Country__c</columns>
-        <columns>Petition_Product__c</columns>
-        <columns>Petition_Case_Type__c</columns>
-        <columns>Petition_Case_Number__c</columns>
+        <columns>Country__c</columns>
+        <columns>Product__c</columns>
+        <columns>ADCVD_Case_Type__c</columns>
+        <columns>ADCVD_Case_Number__c</columns>
         <columns>RECORDTYPE</columns>
-        <columns>Petition_Commodity__c</columns>
+        <columns>Commodity__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
@@ -2257,6 +2635,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>China</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Colombia</fullName>
                 <default>false</default>
             </values>
@@ -2386,10 +2768,6 @@
             </values>
             <values>
                 <fullName>Pakistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>People%27s Republic of China</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2644,6 +3022,41 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Office__c</picklist>
+            <values>
+                <fullName>I</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>II</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>III</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>V</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VII</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VIII</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Preliminary_Determination__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -2764,6 +3177,21 @@
             </values>
             <values>
                 <fullName>Prelim</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sunset_Review_Type__c</picklist>
+            <values>
+                <fullName>120</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>240</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3033,6 +3461,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>China</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Colombia</fullName>
                 <default>false</default>
             </values>
@@ -3162,10 +3594,6 @@
             </values>
             <values>
                 <fullName>Pakistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>People%27s Republic of China</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3420,6 +3848,41 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Office__c</picklist>
+            <values>
+                <fullName>I</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>II</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>III</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>V</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VII</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VIII</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Preliminary_Determination__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -3540,6 +4003,21 @@
             </values>
             <values>
                 <fullName>Prelim</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sunset_Review_Type__c</picklist>
+            <values>
+                <fullName>120</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>240</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3809,6 +4287,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>China</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Colombia</fullName>
                 <default>false</default>
             </values>
@@ -3938,10 +4420,6 @@
             </values>
             <values>
                 <fullName>Pakistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>People%27s Republic of China</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4196,6 +4674,41 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Office__c</picklist>
+            <values>
+                <fullName>I</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>II</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>III</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>V</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VII</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VIII</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Preliminary_Determination__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -4316,6 +4829,21 @@
             </values>
             <values>
                 <fullName>Prelim</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sunset_Review_Type__c</picklist>
+            <values>
+                <fullName>120</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>240</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4585,6 +5113,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>China</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Colombia</fullName>
                 <default>false</default>
             </values>
@@ -4714,10 +5246,6 @@
             </values>
             <values>
                 <fullName>Pakistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>People%27s Republic of China</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4972,6 +5500,41 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Office__c</picklist>
+            <values>
+                <fullName>I</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>II</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>III</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>V</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VII</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VIII</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Preliminary_Determination__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -5092,6 +5655,21 @@
             </values>
             <values>
                 <fullName>Prelim</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sunset_Review_Type__c</picklist>
+            <values>
+                <fullName>120</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>240</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5361,6 +5939,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>China</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Colombia</fullName>
                 <default>false</default>
             </values>
@@ -5490,10 +6072,6 @@
             </values>
             <values>
                 <fullName>Pakistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>People%27s Republic of China</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5748,6 +6326,41 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Office__c</picklist>
+            <values>
+                <fullName>I</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>II</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>III</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>V</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VII</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VIII</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Preliminary_Determination__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -5868,6 +6481,21 @@
             </values>
             <values>
                 <fullName>Prelim</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sunset_Review_Type__c</picklist>
+            <values>
+                <fullName>120</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>240</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6137,6 +6765,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>China</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Colombia</fullName>
                 <default>false</default>
             </values>
@@ -6266,10 +6898,6 @@
             </values>
             <values>
                 <fullName>Pakistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>People%27s Republic of China</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6524,6 +7152,41 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Office__c</picklist>
+            <values>
+                <fullName>I</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>II</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>III</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>V</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VII</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VIII</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Preliminary_Determination__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -6636,6 +7299,21 @@
             </values>
             <values>
                 <fullName>Prelim</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sunset_Review_Type__c</picklist>
+            <values>
+                <fullName>120</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>240</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6905,6 +7583,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>China</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Colombia</fullName>
                 <default>false</default>
             </values>
@@ -7034,10 +7716,6 @@
             </values>
             <values>
                 <fullName>Pakistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>People%27s Republic of China</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7292,6 +7970,41 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Office__c</picklist>
+            <values>
+                <fullName>I</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>II</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>III</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>V</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VII</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VIII</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Preliminary_Determination__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -7404,6 +8117,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Sunset_Review_Type__c</picklist>
+            <values>
+                <fullName>120</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>240</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Type_of_Circumvention_Inquiry__c</picklist>
             <values>
                 <fullName>Later-Developed Merchandise</fullName>
@@ -7510,46 +8238,46 @@
         </picklistValues>
     </recordTypes>
     <searchLayouts>
-        <customTabListAdditionalFields>Petition_Case_Number__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Petition_Country__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Petition_Case_Type__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Petition_Product__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ADCVD_Case_Number__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Country__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ADCVD_Case_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Product__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
         <customTabListAdditionalFields>Period_Covered_Start_Date__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Period_Covered_End_Date__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Requestor_Company_Name__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Product_Description__c</customTabListAdditionalFields>
-        <lookupDialogsAdditionalFields>Petition_Case_Number__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Petition_Country__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Petition_Case_Type__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Petition_Product__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ADCVD_Case_Number__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Country__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ADCVD_Case_Type__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Product__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Period_Covered_Start_Date__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Period_Covered_End_Date__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Requestor_Company_Name__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Product_Description__c</lookupDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Petition_Case_Number__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Petition_Country__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Petition_Case_Type__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Petition_Product__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ADCVD_Case_Number__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Country__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ADCVD_Case_Type__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Product__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>RECORDTYPE</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Period_Covered_Start_Date__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Period_Covered_End_Date__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Requestor_Company_Name__c</lookupPhoneDialogsAdditionalFields>
-        <searchFilterFields>Petition_Case_Number__c</searchFilterFields>
-        <searchFilterFields>Petition_Country__c</searchFilterFields>
-        <searchFilterFields>Petition_Case_Type__c</searchFilterFields>
-        <searchFilterFields>Petition_Product__c</searchFilterFields>
+        <searchFilterFields>ADCVD_Case_Number__c</searchFilterFields>
+        <searchFilterFields>Country__c</searchFilterFields>
+        <searchFilterFields>ADCVD_Case_Type__c</searchFilterFields>
+        <searchFilterFields>Product__c</searchFilterFields>
         <searchFilterFields>RECORDTYPE</searchFilterFields>
         <searchFilterFields>Period_Covered_Start_Date__c</searchFilterFields>
         <searchFilterFields>Period_Covered_End_Date__c</searchFilterFields>
         <searchFilterFields>Requestor_Company_Name__c</searchFilterFields>
         <searchFilterFields>Product_Description__c</searchFilterFields>
         <searchFilterFields>Segment_Name__c</searchFilterFields>
-        <searchResultsAdditionalFields>Petition_Case_Number__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Petition_Country__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Petition_Case_Type__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Petition_Product__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADCVD_Case_Number__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Country__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADCVD_Case_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Product__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Period_Covered_Start_Date__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Period_Covered_End_Date__c</searchResultsAdditionalFields>
@@ -7983,7 +8711,7 @@ $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_Ho
     </validationRules>
     <validationRules>
         <fullName>SI_Actual_Final_Signature_NF</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Legend to the Initials Placed on each rule name
 AR = Admin Review
 ACR = Anti-Circumvention Review
@@ -8158,12 +8886,45 @@ $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_Ho
         <errorMessage>&quot;Was the Product Determined to be in Scope?&quot; is required only if &quot;Decision on How to Proceed&quot; is either &quot;Formal&quot; or &quot;Informal&quot;.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Segment_Outcome_Required</fullName>
+        <active>true</active>
+        <description>Segment Outcome is required when Decision on How to Proceed is either &quot;Informal&quot; or &quot;Reject&quot;
+Record Type: Scope Inquiry</description>
+        <errorConditionFormula>CASE(RecordType.DeveloperName,
+&quot;Scope_Inquiry&quot;,
+IF (
+   AND (
+     OR (
+       ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Informal&apos;),
+       ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Reject&apos;)
+     ),
+     ISPICKVAL(Segment_Outcome__c, &apos;&apos;)
+   ),
+1,
+0),0) = 1</errorConditionFormula>
+        <errorMessage>Segment Outcome is required when Decision on How to Proceed is either &quot;Informal&quot; or &quot;Reject&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Segment_must_have_a_parent</fullName>
         <active>true</active>
         <errorConditionFormula>AND ( ISBLANK(ADCVD_Order__c ),
  ISBLANK( Suspension_Agreement__c )
 )</errorConditionFormula>
         <errorMessage>Every Segment must have a ADCVD Order or a Suspension Agreement</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Type_of_Circumvention_Inquiry_Required</fullName>
+        <active>true</active>
+        <description>Type of Circumvention Inquiry field value is required when Actual Initiation Signature is entered. 
+Record Type: Anti-Circumvention</description>
+        <errorConditionFormula>AND 
+(
+CASE
+  (RecordType.DeveloperName, &quot;Anti_Circumvention_Review&quot;, 1, 0) = 1,
+   ISPICKVAL(Type_of_Circumvention_Inquiry__c , &apos;&apos;), 
+   NOT(ISNULL( Actual_Initiation_Signature__c ))
+)</errorConditionFormula>
+        <errorMessage>Type of Circumvention Inquiry field value is required, when Actual Initiation Signature is populated.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>max_180_days_if_prelim_extend_is_blank</fullName>
