@@ -8861,6 +8861,16 @@ CASE
         <errorMessage>Type of Circumvention Inquiry field value is required, when Actual Initiation Signature is populated.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Type_of_Scope_Ruling_Required</fullName>
+        <active>true</active>
+        <description>Record Type: Scope Inquiry
+Type of Scope Ruling is required when value is set for Decision on How to Proceed.</description>
+        <errorConditionFormula>AND (
+NOT(ISBLANK(TEXT(Decision_on_How_to_Proceed__c))),
+ISPICKVAL(Type_of_Scope_Ruling__c, &apos;&apos;))</errorConditionFormula>
+        <errorMessage>Type of Scope Ruling is required when value is entered for Decision on How to Proceed</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>max_180_days_if_prelim_extend_is_blank</fullName>
         <active>true</active>
         <errorConditionFormula>AND($RecordType.DeveloperName = &quot;Administrative Review&quot;,
