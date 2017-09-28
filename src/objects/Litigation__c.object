@@ -628,7 +628,7 @@
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Requestor</label>
-        <referenceTo>Contact</referenceTo>
+        <referenceTo>Account</referenceTo>
         <relationshipLabel>Litigations</relationshipLabel>
         <relationshipName>Litigations</relationshipName>
         <required>false</required>
