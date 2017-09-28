@@ -285,6 +285,11 @@ C-###-### for CVD</inlineHelpText>
                     <label>Chile</label>
                 </value>
                 <value>
+                    <fullName>China</fullName>
+                    <default>false</default>
+                    <label>China</label>
+                </value>
+                <value>
                     <fullName>Colombia</fullName>
                     <default>false</default>
                     <label>Colombia</label>
@@ -510,6 +515,11 @@ C-###-### for CVD</inlineHelpText>
                     <label>Sweden</label>
                 </value>
                 <value>
+                    <fullName>Switzerland</fullName>
+                    <default>false</default>
+                    <label>Switzerland</label>
+                </value>
+                <value>
                     <fullName>Taiwan</fullName>
                     <default>false</default>
                     <label>Taiwan</label>
@@ -563,11 +573,6 @@ C-###-### for CVD</inlineHelpText>
                     <fullName>Vietnam</fullName>
                     <default>false</default>
                     <label>Vietnam</label>
-                </value>
-                <value>
-                    <fullName>China</fullName>
-                    <default>false</default>
-                    <label>China</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
