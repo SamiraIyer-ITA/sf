@@ -263,7 +263,7 @@
         <type>Picklist</type>
         <valueSet>
             <restricted>true</restricted>
-            <valueSetName>Country</valueSetName>
+            <valueSetName>Countries</valueSetName>
         </valueSet>
     </fields>
     <fields>
