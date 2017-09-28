@@ -1,8 +1,7 @@
 public without sharing class ParentSortingService {
 
-
 	static FINAL Set<String> staffingAssignmentParents = new Set<String> {'Petition__c', 'Investigation__c', 'ADCVD_Order__c', 'Segment__c', 'Related_Organization__c'};
-	static FINAL Set<String> relatedOrganizationParents = new Set<String> {'Petition__c', 'Investigation__c', 'ADCVD_Order__c', 'Segment__c', 'Litigation__c'};
+	static FINAL Set<String> relatedOrganizationParents = new Set<String> {'Petition__c', 'Investigation__c', 'ADCVD_Order__c', 'Segment__c', 'Litigation__c', 'Legal_Representation__c'};
 	static FINAL Set<String> litigationParents = new Set<String> {'Petition__c', 'Investigation__c', 'Segment__c'};
 	static Map<String, Set<String>> soTypeToParentSet = new Map<String, Set<String>>();
 	static {
