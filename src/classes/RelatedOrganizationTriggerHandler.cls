@@ -21,10 +21,9 @@ public without sharing class RelatedOrganizationTriggerHandler {
         }
 	}
 
-	private static List<Related_Organization__c> clonedList = new List<Related_Organization__c>();
-	private static Set<String> relatedOrganizationParentNames = new Set<String> {'Petition__c', 'Investigation__c', 'ADCVD_Order__c', 'Segment__c', 'Litigation__c'};
+	@TestVisible private static List<Related_Organization__c> clonedList = new List<Related_Organization__c>();
 
-	private static void setCaseValuesFromParent (List<Related_Organization__c> newList) {
+	@TestVisible private static void setCaseValuesFromParent (List<Related_Organization__c> newList) {
 		ParentValuesService pvs = new ParentValuesService();
 		Map<String,Map<Id,SObject>> parentTypeToChildToParentMap = getParentSObjects(newList);
 		for (Related_Organization__c r : newList) {
@@ -44,23 +43,24 @@ public without sharing class RelatedOrganizationTriggerHandler {
 	
 
 //TODO: Move to Selector
-	private static List<Related_Organization__c> getOrgsWithParentCaseValues(List<Related_Organization__c> newList) {
+	@TestVisible private static List<Related_Organization__c> getOrgsWithParentCaseValues(List<Related_Organization__c> newList) {
 		List<Related_Organization__c> returnList = new List<Related_Organization__c>();
-		for (Related_Organization__c r : [SELECT Id, Petition__c, Investigation__c, ADCVD_Order__c, Segment__c, Litigation__c, ADCVD_Case_Number__c, ADCVD_Case_Type__c, Country__c, Product__c, CBP_Case_Number__c, 
+		for (Related_Organization__c r : [SELECT Id, Petition__c, Investigation__c, ADCVD_Order__c, Segment__c, Litigation__c, Legal_Representation__c, ADCVD_Case_Number__c, ADCVD_Case_Type__c, Country__c, Product__c, CBP_Case_Number__c, 
 										Petition__r.ADCVD_Case_Number__c, Petition__r.ADCVD_Case_Type__c, Petition__r.Country__c, Petition__r.Product__c, Petition__r.CBP_Case_Number__c,
 										Investigation__r.ADCVD_Case_Number__c, Investigation__r.ADCVD_Case_Type__c, Investigation__r.Country__c, Investigation__r.Product__c, Investigation__r.CBP_Case_Number__c,
 										ADCVD_Order__r.ADCVD_Case_Number__c, ADCVD_Order__r.ADCVD_Case_Type__c, ADCVD_Order__r.Country__c, ADCVD_Order__r.Product__c, ADCVD_Order__r.CBP_Case_Number__c,
-										Segment__r.ADCVD_Case_Number__c, Segment__r.ADCVD_Case_Type__c, Segment__r.Country__c, Segment__r.Product__c, Segment__r.CBP_Case_Number__c,
+										Segment__r.ADCVD_Order__c, Segment__r.Suspension_Agreement__c, Segment__r.ADCVD_Case_Number__c, Segment__r.ADCVD_Case_Type__c, Segment__r.Country__c, Segment__r.Product__c, 
 										Litigation__r.Petition__r.ADCVD_Case_Number__c, Litigation__r.Petition__r.ADCVD_Case_Type__c, Litigation__r.Petition__r.Country__c, Litigation__r.Petition__r.Product__c, Litigation__r.Petition__r.CBP_Case_Number__c,
 										Litigation__r.Investigation__r.ADCVD_Case_Number__c, Litigation__r.Investigation__r.ADCVD_Case_Type__c, Litigation__r.Investigation__r.Country__c, Litigation__r.Investigation__r.Product__c, Litigation__r.Investigation__r.CBP_Case_Number__c,
-										Litigation__r.Segment__r.ADCVD_Case_Number__c, Litigation__r.Segment__r.ADCVD_Case_Type__c, Litigation__r.Segment__r.Country__c, Litigation__r.Segment__r.Product__c, Litigation__r.Segment__r.CBP_Case_Number__c
+										Litigation__r.Segment__r.ADCVD_Order__c, Litigation__r.Segment__r.Suspension_Agreement__c, Litigation__r.Segment__r.ADCVD_Case_Number__c, Litigation__r.Segment__r.ADCVD_Case_Type__c, Litigation__r.Segment__r.Country__c, Litigation__r.Segment__r.Product__c, 
+										Legal_Representation__r.ADCVD_Case_Number__c, Legal_Representation__r.ADCVD_Case_Type__c, Legal_Representation__r.Country__c, Legal_Representation__r.Product__c, Legal_Representation__r.CBP_Case_Number__c
 										FROM Related_Organization__c WHERE Id IN: newList]) {
 			returnList.add(r);
 		}
 		return returnList;
 	}
 
-	private static Map<String,Map<Id,SObject>> getParentSObjects(List<Related_Organization__c> newList) {
+	@TestVisible private static Map<String,Map<Id,SObject>> getParentSObjects(List<Related_Organization__c> newList) {
 		List<Related_Organization__c> orgsWithParentCaseValues = getOrgsWithParentCaseValues(newList);
 		Map<String,Map<Id,SObject>> returnMap = new Map<String,Map<Id,SObject>>();
 		for (Related_Organization__c r : orgsWithParentCaseValues) {
@@ -81,10 +81,12 @@ public without sharing class RelatedOrganizationTriggerHandler {
 			if (parentRelationshipField == 'Litigation__r') {
 				parent = r.getSObject(parentRelationshipField).getSObject(litParentRelationshipField);
 			}
-			parent.put('ADCVD_Case_Number__c', parent.get('ADCVD_Case_Number__c'));
-			parent.put('ADCVD_Case_Type__c', parent.get('ADCVD_Case_Type__c'));
-			parent.put('Country__c', parent.get('Country__c'));
-			parent.put('Product__c', parent.get('Product__c'));
+			if (parentRelationshipField == 'Segment__r') {
+				parent.put('ADCVD_Order__c', parent.get('ADCVD_Order__c'));
+				parent.put('Suspension_Agreement__c', parent.get('Suspension_Agreement__c'));
+			}
+			ParentValuesService pvs = new ParentValuesService();
+            pvs.setCaseValuesFromParent(parent, parent);
 			childIdToParentMap.put((Id)r.get('Id'),parent);
 			Map<Id,SObject> tempMap = new Map<Id,SObject>();
 			if (returnMap.get(parentType) != null) {

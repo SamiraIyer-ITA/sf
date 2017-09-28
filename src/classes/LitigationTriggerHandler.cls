@@ -21,6 +21,9 @@ public without sharing class LitigationTriggerHandler {
             calculateLitigationDates(newList);
             calculateLitigationStatuses(newList);
         }
+        if(isAfter && isInsert) {
+            setCaseValuesFromParent(newList);
+        }
     }
 
 
@@ -29,6 +32,7 @@ public without sharing class LitigationTriggerHandler {
     ****************************************/
 
     @TestVisible private static Map<Id,String> recordTypeNameMap = new Map<Id,String>();
+    @TestVisible private static List<Litigation__c> clonedList = new List<Litigation__c>();
 
 
     /*****************************************
@@ -59,6 +63,23 @@ public without sharing class LitigationTriggerHandler {
         setStatus(newList);
     }
 
+    @TestVisible private static void setCaseValuesFromParent (List<Litigation__c> newList) {
+        ParentValuesService pvs = new ParentValuesService();
+        Map<String,Map<Id,SObject>> parentTypeToChildToParentMap = getParentSObjects(newList);
+        for (Litigation__c l : newList) {
+            Litigation__c newLit = l.clone(true, false,false,true);
+            for (String parentType : parentTypeToChildToParentMap.keySet()) {
+                if (newLit.get(parentType) == null) {
+                    continue;
+                } else {
+                    pvs.setCaseValuesFromParent(parentTypeToChildToParentMap.get(parentType).get(newLit.Id), newLit);
+                }
+            }
+        clonedList.add(newLit);
+        }
+        update clonedList;
+    }
+
 
     /***********************************
     * Helper Methods
@@ -74,6 +95,53 @@ public without sharing class LitigationTriggerHandler {
                                         WHERE Litigation_Calculation_Offset__c =: true];
         for(Constant__mdt lc : tempList) {
             returnMap.put(lc.QualifiedAPIName, lc);
+        }
+        return returnMap;
+    }
+
+    //TODO: Move to Selector
+    @TestVisible private static List<Litigation__c> getLitWithParentCaseValues(List<Litigation__c> newList) {
+        List<Litigation__c> returnList = new List<Litigation__c>();
+        for (Litigation__c l : [SELECT Id, Petition__c, Investigation__c, Segment__c, ADCVD_Case_Number__c, ADCVD_Case_Type__c, Country__c, Product__c,
+                                        Petition__r.ADCVD_Case_Number__c, Petition__r.ADCVD_Case_Type__c, Petition__r.Country__c, Petition__r.Product__c,
+                                        Investigation__r.ADCVD_Case_Number__c, Investigation__r.ADCVD_Case_Type__c, Investigation__r.Country__c, Investigation__r.Product__c,
+                                        Segment__r.ADCVD_Order__c, Segment__r.Suspension_Agreement__c, Segment__r.ADCVD_Case_Number__c, Segment__r.ADCVD_Case_Type__c, Segment__r.Country__c, 
+                                        Segment__r.Product__c, Segment__r.Period_Covered_Start_Date__c, Segment__r.Period_Covered_End_Date__c, Segment__r.Requestor__c, Segment__r.Product_Description__c 
+                                        FROM Litigation__c WHERE Id IN: newList]) {
+            returnList.add(l);
+        }
+        return returnList;
+    }
+
+    @TestVisible private static Map<String,Map<Id,SObject>> getParentSObjects(List<Litigation__c> newList) {
+        List<Litigation__c> litWithParentCaseValues = getLitWithParentCaseValues(newList);
+        Map<String,Map<Id,SObject>> returnMap = new Map<String,Map<Id,SObject>>();
+        for (Litigation__c l : litWithParentCaseValues) {
+            Map<Id,SObject> childIdToParentMap = new Map<Id,SObject>();
+            SObject parent = null;
+            String parentType = '';
+            String parentRelationshipField = '';
+            ParentSortingService pss = new ParentSortingService();
+            parentType = pss.getParentSObjectType(l, 'Litigation__c');
+            System.debug('parentType: ' + parentType);
+            parentRelationshipField = parentType.replace('__c', '__r');
+            parent = l.getSObject(parentRelationshipField);
+            parent.put('Id', l.get(parentType));
+            if (parentRelationshipField == 'Segment__r') {
+                parent.put('ADCVD_Order__c', parent.get('ADCVD_Order__c'));
+                parent.put('Suspension_Agreement__c', parent.get('Suspension_Agreement__c'));
+            }
+            ParentValuesService pvs = new ParentValuesService();
+            pvs.setCaseValuesFromParent(parent, parent);
+            childIdToParentMap.put((Id)l.get('Id'),parent);
+            Map<Id,SObject> tempMap = new Map<Id,SObject>();
+            if (returnMap.get(parentType) != null) {
+                tempMap = returnMap.get(parentType);
+            }
+            for (Id childId : childIdToParentMap.keySet()) {
+                tempMap.put(childId, childIdToParentMap.get(childId));
+            }
+            returnMap.put(parentType,tempMap);
         }
         return returnMap;
     }
