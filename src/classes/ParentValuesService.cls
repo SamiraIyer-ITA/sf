@@ -6,6 +6,7 @@ public without sharing class ParentValuesService {
 			'ADCVD_Case_Type__c',
 			'Country__c',
 			'Product__c',
+			'Product_Short_Name__c',
 			'Period_Covered_Start_Date__c',
 			'Period_Covered_End_Date__c',
 			'Requestor__c',

@@ -135,13 +135,13 @@
         <name>Profile</name>
     </types>
     <types>
+        <members>*</members>
+        <name>Workflow</name>
+    </types>
+    <types>
         <members>BusinessHours</members>
         <members>PathAssistant</members>
         <name>Settings</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Workflow</name>
     </types>
     <version>39.0</version>
 </Package>

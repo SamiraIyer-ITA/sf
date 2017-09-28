@@ -233,9 +233,9 @@
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
-        <fullName>Office_Assignment__c</fullName>
+        <fullName>Office__c</fullName>
         <externalId>false</externalId>
-        <label>Office Assignment</label>
+        <label>Office</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>

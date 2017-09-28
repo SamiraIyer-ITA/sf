@@ -16,7 +16,7 @@ public class SuspensionAgreementTriggerHandlerTest {
 	private static Suspension_Agreement__c sa{
 		get{
 			if (sa == null) {
-				sa = [SELECT Id, Anniversary_Month__c, Suspension_Date__c, Investigation__c, Office_Assignment__c, Next_Sunset_Initiation_Date__c, Termination_Date__c FROM Suspension_Agreement__c LIMIT 1];
+				sa = [SELECT Id, Anniversary_Month__c, Suspension_Date__c, Investigation__c, Office__c, Next_Sunset_Initiation_Date__c, Termination_Date__c FROM Suspension_Agreement__c LIMIT 1];
 			}
 			return sa;
 		}

@@ -7110,7 +7110,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Suspension_Agreement__c.Office_Assignment__c</field>
+        <field>Suspension_Agreement__c.Office__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
