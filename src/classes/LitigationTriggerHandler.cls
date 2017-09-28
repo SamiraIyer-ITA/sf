@@ -102,10 +102,10 @@ public without sharing class LitigationTriggerHandler {
     //TODO: Move to Selector
     @TestVisible private static List<Litigation__c> getLitWithParentCaseValues(List<Litigation__c> newList) {
         List<Litigation__c> returnList = new List<Litigation__c>();
-        for (Litigation__c l : [SELECT Id, Petition__c, Investigation__c, Segment__c, ADCVD_Case_Number__c, ADCVD_Case_Type__c, Country__c, Product__c,
-                                        Petition__r.ADCVD_Case_Number__c, Petition__r.ADCVD_Case_Type__c, Petition__r.Country__c, Petition__r.Product__c,
-                                        Investigation__r.ADCVD_Case_Number__c, Investigation__r.ADCVD_Case_Type__c, Investigation__r.Country__c, Investigation__r.Product__c,
-                                        Segment__r.ADCVD_Order__c, Segment__r.Suspension_Agreement__c, Segment__r.ADCVD_Case_Number__c, Segment__r.ADCVD_Case_Type__c, Segment__r.Country__c, 
+        for (Litigation__c l : [SELECT Id, Petition__c, Investigation__c, Segment__c, ADCVD_Case_Number__c, ADCVD_Case_Type__c, Country__c, Product__c, Product_Short_Name__c, 
+                                        Petition__r.ADCVD_Case_Number__c, Petition__r.ADCVD_Case_Type__c, Petition__r.Country__c, Petition__r.Product__c, Petition__r.Product_Short_Name__c, 
+                                        Investigation__r.ADCVD_Case_Number__c, Investigation__r.ADCVD_Case_Type__c, Investigation__r.Country__c, Investigation__r.Product__c, Investigation__r.Product_Short_Name__c, 
+                                        Segment__r.ADCVD_Order__c, Segment__r.Suspension_Agreement__c, Segment__r.ADCVD_Case_Number__c, Segment__r.ADCVD_Case_Type__c, Segment__r.Country__c, Segment__r.Product_Short_Name__c, 
                                         Segment__r.Product__c, Segment__r.Period_Covered_Start_Date__c, Segment__r.Period_Covered_End_Date__c, Segment__r.Requestor__c, Segment__r.Product_Description__c 
                                         FROM Litigation__c WHERE Id IN: newList]) {
             returnList.add(l);
