@@ -276,6 +276,11 @@
         <label>Sweden</label>
     </customValue>
     <customValue>
+        <fullName>Switzerland</fullName>
+        <default>false</default>
+        <label>Switzerland</label>
+    </customValue>
+    <customValue>
         <fullName>Taiwan</fullName>
         <default>false</default>
         <label>Taiwan</label>
@@ -330,6 +335,6 @@
         <default>false</default>
         <label>Vietnam</label>
     </customValue>
-    <masterLabel>Country</masterLabel>
+    <masterLabel>Countries</masterLabel>
     <sorted>false</sorted>
 </GlobalValueSet>
