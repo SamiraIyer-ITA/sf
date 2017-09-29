@@ -8478,6 +8478,16 @@ SR = Sunset Review</description>
         <errorMessage>Litigation cannot be blank when Have Custom Instructions is populated</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Decision_on_How_to_Proceed_Required</fullName>
+        <active>true</active>
+        <description>Record Type: Scope Inquiry
+Decision on How to Proceed field is required when value is set for the field Actual Date of Decision on How to Proceed.</description>
+        <errorConditionFormula>AND(
+NOT(ISBLANK( Actual_Date_of_Decision_on_HoP__c)),
+ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;&apos;))</errorConditionFormula>
+        <errorMessage>&quot;Decision on How to Proceed&quot; field is required when value is entered for &quot;Actual Date of Decision - How to Proceed&quot; field</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Deficient_Or_Withdrawn_Date_Required</fullName>
         <active>true</active>
         <errorConditionFormula>AND ( 
