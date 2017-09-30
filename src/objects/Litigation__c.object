@@ -1427,12 +1427,21 @@ NOT( ISNULL( Actual_Preliminary_Signature__c ))
     <validationRules>
         <fullName>Every_Litigation_must_have_a_Parent</fullName>
         <active>true</active>
-        <description>Every Litigation must have either a Petition, Investigation, or Segment</description>
-        <errorConditionFormula>AND( ISBLANK(Petition__c),
-     ISBLANK(Segment__c),  
-     ISBLANK(Investigation__c)
-)</errorConditionFormula>
-        <errorMessage>Every Litigation must have either a Petition, Investigation, or Segment. Please enter a  Petition, Investigation, or Segment.</errorMessage>
+        <description>Every Litigation must ONLY have either a Petition, an Investigation, or a Segment.</description>
+        <errorConditionFormula>OR(
+    (
+      IF(
+        AND(
+          ISBLANK(Petition__c),ISBLANK(Segment__c),ISBLANK(Investigation__c)
+           ),
+      1, 0)
+    =1),
+   ( IF(ISBLANK(Petition__c),0,1)+
+     IF(ISBLANK(Segment__c),0,1)+ 
+     IF(ISBLANK(Investigation__c),0,1)&gt; 1
+   )
+ )</errorConditionFormula>
+        <errorMessage>Every Litigation must have either a Petition, an Investigation, or a Segment. Please enter ONLY one value, either for a Petition, an Investigation or a Segment.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>International_Litigation_Final_Extension</fullName>
