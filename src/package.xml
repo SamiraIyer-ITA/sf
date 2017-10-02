@@ -160,7 +160,7 @@
 		<members>InvestigationSelectorTest</members>
 		<members>PetitionSelectorTest</members>
 		<members>PetitionTriggerHandler</members>
-		<members>TestUtils</members>
+		<!--<members>TestUtils</members>-->
 		<name>ApexClass</name>
 	</types>
     <types>
