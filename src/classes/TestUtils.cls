@@ -176,7 +176,11 @@ public with sharing class TestUtils {
         Litigation__c lit = new Litigation__c();
         lit.put(parentLookupField, parentId);
         lit.RecordTypeId = utils.getRecordTypeIdMap('Litigation__c').get(recordTypeName);
-        lit.Request_Filed__c = requestFiled;
+        if (recordTypeName == 'Remand') {
+            lit.Expected_Final_Signature_Before_Ext__c = requestFiled.addDays(42);
+        } else {
+            lit.Request_Filed__c = requestFiled;
+        }
         if(doInsert) {
             insert lit;
         }

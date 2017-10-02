@@ -1586,7 +1586,7 @@ public class SegmentTriggerHandlerTest {
 		//setup start dates
 		siSeg.Decision_on_How_to_Proceed__c = 'Formal';
 		siSeg.Segment_Outcome__c = 'Completed';
-		siSeg.Actual_Final_Signature__c = segmentDate;
+		siSeg.Actual_Final_Signature__c = segmentDate.addDays(45);
 		setStartDates();
 		getNewSegs();
 
@@ -2958,6 +2958,21 @@ public class SegmentTriggerHandlerTest {
 		setStartDates();
 		setExtensions();
 		getNewSegs();
+		System.assertEquals(nsSeg.Initiation_Issues_Due_to_DAS__c, nsSeg.Next_Office_Deadline__c);
+
+		nsSeg.Actual_Initiation_Issues_to_DAS__c = nsSeg.Initiation_Issues_Due_to_DAS__c;
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Initiation_Concurrence_Due_to_DAS__c, nsSeg.Next_Office_Deadline__c);
+
+		nsSeg.Actual_Initiation_Concurrence_to_DAS__c = nsSeg.Initiation_Concurrence_Due_to_DAS__c;
+		update nsSeg;
+		nsSeg = null;
+		System.assertEquals(nsSeg.Calculated_Initiation_Signature__c, nsSeg.Next_Office_Deadline__c);
+
+		nsSeg.Actual_Initiation_Signature__c = nsSeg.Calculated_Initiation_Signature__c;
+		update nsSeg;
+		nsSeg = null;
 		System.assertEquals(nsSeg.Prelim_Team_Meeting_Deadline__c, nsSeg.Next_Office_Deadline__c);
 
 		nsSeg.Actual_Initiation_Signature__c = System.today().addDays(-180);
@@ -3540,7 +3555,6 @@ public class SegmentTriggerHandlerTest {
 
 	@isTest static void setStatusAdministrativeReview() {
 		Test.startTest();
-		Litigation__c l = TestUtils.createLitigation(testCalculated.addDays(15), 'Remand', true);
 
 		//Segment- Preliminary Status
 		System.assertEquals('Prelim', [SELECT Id, Segment_Outcome__c, Status__c FROM Segment__c WHERE Id =: adminSeg.Id LIMIT 1].Status__c);
@@ -3592,7 +3606,6 @@ public class SegmentTriggerHandlerTest {
 
 	@isTest static void setStatusExpeditedReview() {
 		Test.startTest();
-		Litigation__c l = TestUtils.createLitigation(testCalculated.addDays(15), 'Remand', true);
 
 		//Segment- Preliminary Status
 		System.assertEquals('Prelim', [SELECT Id, Segment_Outcome__c, Status__c FROM Segment__c WHERE Id =: expedSeg.Id LIMIT 1].Status__c);
@@ -3647,7 +3660,6 @@ public class SegmentTriggerHandlerTest {
 
 	@isTest static void setStatusNewShipperReview() {
 		Test.startTest();
-		Litigation__c l = TestUtils.createLitigation(testCalculated.addDays(15), 'Remand', true);
 
 		//Segment- Preliminary Status
 		System.assertEquals('Prelim', [SELECT Id, Segment_Outcome__c, Status__c FROM Segment__c WHERE Id =: nsSeg.Id LIMIT 1].Status__c);
@@ -3996,7 +4008,7 @@ public class SegmentTriggerHandlerTest {
 	@testSetup static void dataSetup() {
 		Test.startTest();
 		User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
-		Petition__c testPet = TestUtils.createPetition(segmentDate.addDays(-350), 'AD', true);
+		Petition__c testPet = TestUtils.createPetition(segmentDate.addDays(-350), 'AD ME', true);
 		Investigation__c testInvAd = TestUtils.createInvestigation('AD', testPet, true);
 		ADCVD_Order__c testOrder = TestUtils.createOrder(testInvAd, true);
 		List<Segment__c> segsToInsert = new List<Segment__c>();

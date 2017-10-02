@@ -20,6 +20,7 @@ public class LitigationTriggerHandlerTest {
 				intLit = [SELECT Id, RecordTypeId, Request_Filed__c, Calculated_Initiation_Signature__c, Calculated_Preliminary_Signature__c,
 								Calculated_Final_Signature__c, Prelim_Extension_of_days__c, Status__c, Final_Extension_of_days__c, 
 								Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, 
+								Prelim_Team_Meeting_Deadline__c, Final_Team_Meeting_Deadline__c, ADCVD_Case_Number__c, 
 								Next_Due_to_DAS_Deadline__c, Next_Major_Deadline__c, Next_Office_Deadline__c 
 								FROM Litigation__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
 			}
@@ -31,13 +32,25 @@ public class LitigationTriggerHandlerTest {
 			if (remand == null) {
 				Id recordTypeId = utils.getRecordTypeIdMap('Litigation__c').get('Remand');
 				remand = [SELECT Id, RecordTypeId, Final_Extension_of_days__c, Expected_Final_Signature_Before_Ext__c, Calculated_Amended_Final_Signature__c,
-								Calculated_Draft_Remand_release_to_party__c, Calculated_Final_Signature__c, Court_of_Panel_s_Ruling__c, Status__c, Prelim_Team_Meeting_Deadline__c,
+								Calculated_Draft_Remand_release_to_party__c, Calculated_Final_Signature__c, Court_of_Panel_s_Ruling__c, Status__c, 
 								Draft_Remand_Concurrence_Due_to_DAS__c, Draft_Remand_Issues_Due_to_DAS__c, Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, 
+								Prelim_Team_Meeting_Deadline__c, Final_Team_Meeting_Deadline__c, ADCVD_Case_Number__c, 
 								Next_Due_to_DAS_Deadline__c, Next_Major_Deadline__c, Next_Office_Deadline__c 
 							FROM Litigation__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
 			}
 			return remand;
 		}
+	}
+
+	private static Segment__c adminSeg{
+		get{
+			if (adminSeg == null) {
+				Id recordTypeId = Utils.getRecordTypeIdMap('Segment__c').get('Administrative_Review');
+				adminSeg = [SELECT Id, ADCVD_Case_Number__c FROM Segment__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
+			}
+			return adminSeg;
+		}
+		set;
 	}
 
 	//setCalculatedInitiationSignature
@@ -246,6 +259,11 @@ public class LitigationTriggerHandlerTest {
 	@isTest static void setNextOfficeDeadlineIntLit() {
 		Test.startTest();
 
+		System.assertEquals(intLit.Prelim_Team_Meeting_Deadline__c, intLit.Next_Office_Deadline__c);
+
+		intLit.Request_Filed__c = intLit.Request_Filed__c.addDays(-35);
+		update intLit;
+		intLit = null;
 		System.assertEquals(intLit.Prelim_Issues_Due_to_DAS__c, intLit.Next_Office_Deadline__c);
 
 		intLit.Actual_Prelim_Issues_to_DAS__c = intLit.Prelim_Issues_Due_to_DAS__c;
@@ -258,7 +276,13 @@ public class LitigationTriggerHandlerTest {
 		intLit = null;
 		System.assertEquals(intLit.Calculated_Preliminary_Signature__c, intLit.Next_Office_Deadline__c);
 
+		intLit.Request_Filed__c = intLit.Request_Filed__c.addDays(-35);
 		intLit.Actual_Preliminary_Signature__c = intLit.Calculated_Preliminary_Signature__c.addDays(-7);
+		update intLit;
+		intLit = null;
+		System.assertEquals(intLit.Final_Team_Meeting_Deadline__c, intLit.Next_Office_Deadline__c);
+
+		intLit.Request_Filed__c = intLit.Request_Filed__c.addDays(-105);
 		update intLit;
 		intLit = null;
 		System.assertEquals(intLit.Final_Issues_Due_to_DAS__c, intLit.Next_Office_Deadline__c);
@@ -348,13 +372,30 @@ public class LitigationTriggerHandlerTest {
 		System.assertEquals('Closed', [SELECT Id, Status__c FROM Litigation__c WHERE Id =: remand.Id LIMIT 1].Status__c);
 	}
 
+	//setCaseValuesFromParent
+	@isTest static void setCaseValuesFromParent() {
+		Test.startTest();
+
+		Test.stopTest();
+		System.assertEquals(intLit.ADCVD_Case_Number__c, adminSeg.ADCVD_Case_Number__c);
+	}
+
 	@testSetup static void dataSetup() {
 		Test.startTest();
 		User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
+		Petition__c testPet = TestUtils.createPetition(litigationDate.addDays(-350), 'AD ME', true);
+		Investigation__c testInvAd = TestUtils.createInvestigation('AD', testPet, true);
+		ADCVD_Order__c testOrder = TestUtils.createOrder(testInvAd, true);
+		Map<String,Segment__c> segsToInsert = new Map<string,Segment__c>();
 		List<Litigation__c> litToInsert = new List<Litigation__c>();
 		System.runAs(testUser) {
+			for(String segRecordTypeName : utils.getRecordTypeDeveloperNameMap('Segment__c').values()) {
+				Segment__c testSeg = TestUtils.createSegment(testOrder, segRecordTypeName, false);
+				segsToInsert.put(segRecordTypeName, testSeg);
+			}
+			insert segsToInsert.values();
 			for(String litRecordTypeName : utils.getRecordTypeDeveloperNameMap('Litigation__c').values()) {
-				Litigation__c testLit = TestUtils.createLitigation(litigationDate, litRecordTypeName, false);
+				Litigation__c testLit = TestUtils.createLitigation(segsToInsert.get('Administrative_Review').Id, 'Segment__c', litigationDate, litRecordTypeName, false);
 				litToInsert.add(testLit);
 			}
 			insert litToInsert;
