@@ -117,15 +117,6 @@ C-###-### for CVD</inlineHelpText>
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Actual_Initiation_Sig_After_Calculated__c</fullName>
-        <externalId>false</externalId>
-        <formula>Actual_Initiation_Signature__c &gt; Calculated_Initiation_Signature__c</formula>
-        <label>Actual Initiation Sig After Calculated</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>Actual_Initiation_Signature__c</fullName>
         <description>Actual Initiation Signature</description>
         <externalId>false</externalId>
@@ -578,29 +569,6 @@ C-###-### for CVD</inlineHelpText>
         </valueSet>
     </fields>
     <fields>
-        <fullName>External_Id__c</fullName>
-        <caseSensitive>false</caseSensitive>
-        <externalId>true</externalId>
-        <label>External Id</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>true</unique>
-    </fields>
-    <fields>
-        <fullName>Import_Volume_or_Value__c</fullName>
-        <externalId>false</externalId>
-        <label>Import Volume or Value</label>
-        <length>28</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Initiation_Announcement_Date__c</fullName>
         <externalId>false</externalId>
         <label>Initiation Announcement Date</label>
@@ -657,19 +625,6 @@ C-###-### for CVD</inlineHelpText>
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Injunction__c</fullName>
-        <externalId>false</externalId>
-        <label>Injunction</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>YesNo</valueSetName>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Link__c</fullName>
         <externalId>false</externalId>
         <formula>HYPERLINK( LEFT($Api.Enterprise_Server_URL_390 , FIND(&apos;/services&apos;, $Api.Enterprise_Server_URL_390)) &amp; Id,  Petition_Name__c , &apos;_self&apos;)</formula>
@@ -721,19 +676,6 @@ C-###-### for CVD</inlineHelpText>
     <fields>
         <fullName>Litigation_YesNo__c</fullName>
         <defaultValue>&quot;No&quot;</defaultValue>
-        <externalId>false</externalId>
-        <label>Litigation</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>YesNo</valueSetName>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>Litigation__c</fullName>
         <externalId>false</externalId>
         <label>Litigation</label>
         <required>false</required>

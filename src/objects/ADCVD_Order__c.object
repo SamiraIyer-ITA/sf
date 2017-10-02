@@ -87,54 +87,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Actual_Amended_Final_Signature__c</fullName>
-        <externalId>false</externalId>
-        <label>Actual Amended Final Signature</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Actual_Amended_Prelim_Determination_Sig__c</fullName>
-        <externalId>false</externalId>
-        <label>Actual Amended Prelim Determination Sig</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Actual_Final_Signature__c</fullName>
-        <externalId>false</externalId>
-        <label>Actual Final Signature</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Actual_Initiation_Signature__c</fullName>
-        <externalId>false</externalId>
-        <label>Actual Initiation Signature</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Actual_Preliminary_Signature__c</fullName>
-        <externalId>false</externalId>
-        <label>Actual Preliminary Signature</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Alignment_Postponement_of_Final_FR_Pub__c</fullName>
-        <externalId>false</externalId>
-        <label>Alignment Postponement of Final FR Pub</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Anniversary_Month__c</fullName>
         <externalId>false</externalId>
         <label>Anniversary Month</label>
@@ -157,120 +109,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Calculated_Amended_Final_Signature__c</fullName>
-        <externalId>false</externalId>
-        <label>Calculated Amended Final Signature</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Calculated_Amended_Prelim_Det_Signature__c</fullName>
-        <externalId>false</externalId>
-        <label>Calculated Amended Prelim Det Signature</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Calculated_Final_Signature__c</fullName>
-        <externalId>false</externalId>
-        <label>Calculated Final Signature</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Calculated_ITC_Final_FR_Published__c</fullName>
-        <externalId>false</externalId>
-        <label>Calculated ITC Final FR Published</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Calculated_ITC_Prelim_Determination__c</fullName>
-        <externalId>false</externalId>
-        <label>Calculated ITC Prelim Determination</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Calculated_Initiation_Signature__c</fullName>
-        <externalId>false</externalId>
-        <label>Calculated Initiation Signature</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Calculated_Order_FR_Signature__c</fullName>
-        <externalId>false</externalId>
-        <label>Calculated Order FR Signature</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Calculated_Postponement_of_Prelim_Det_FR__c</fullName>
-        <externalId>false</externalId>
-        <label>Calculated Postponement of Prelim Det FR</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Calculated_Prelim_Extension_Req_Filed__c</fullName>
-        <externalId>false</externalId>
-        <label>Calculated Prelim Extension Req. Filed</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>TextArea</type>
-    </fields>
-    <fields>
-        <fullName>Calculated_Preliminary_Signature__c</fullName>
-        <externalId>false</externalId>
-        <label>Calculated Preliminary Signature</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Choose_Following_Respondent_Selection__c</fullName>
-        <externalId>false</externalId>
-        <label>Choose Following Respondent Selection:</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>CBP Data</fullName>
-                    <default>false</default>
-                    <label>CBP Data</label>
-                </value>
-                <value>
-                    <fullName>Quantity and Value Questionnaires</fullName>
-                    <default>false</default>
-                    <label>Quantity and Value Questionnaires</label>
-                </value>
-                <value>
-                    <fullName>Others</fullName>
-                    <default>false</default>
-                    <label>Others</label>
-                </value>
-                <value>
-                    <fullName>N/A</fullName>
-                    <default>false</default>
-                    <label>N/A</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Commodity__c</fullName>
         <externalId>false</externalId>
         <formula>TEXT(  Investigation__r.Petition__r.Commodity__c  )</formula>
@@ -281,14 +119,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Concurrence_to_DAS__c</fullName>
-        <externalId>false</externalId>
-        <label>Concurrence to DAS</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Country__c</fullName>
         <externalId>false</externalId>
         <formula>TEXT(  Investigation__r.Petition__r.Country__c )</formula>
@@ -297,30 +127,6 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Do_you_have_Ministerial_Error_for_Final__c</fullName>
-        <externalId>false</externalId>
-        <label>Do you have Ministerial Error for Final?</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>YesNo</valueSetName>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>Do_you_have_Ministerial_Error_for_Prelim__c</fullName>
-        <externalId>false</externalId>
-        <label>Do you have Ministerial Error for Prelim</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>YesNo</valueSetName>
-        </valueSet>
     </fields>
     <fields>
         <fullName>Effective_Date_for_Most_Recent_SunsetFR__c</fullName>
@@ -339,139 +145,6 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Est_ITC_Notification_to_DOC__c</fullName>
-        <description>Estimate ITC Notification to DOC for Final Determination</description>
-        <externalId>false</externalId>
-        <label>Est. ITC Notification to DOC</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Estimated_Order_FR_Published__c</fullName>
-        <externalId>false</externalId>
-        <label>Estimated Order FR Published</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>External_Id__c</fullName>
-        <caseSensitive>false</caseSensitive>
-        <externalId>true</externalId>
-        <label>External Id</label>
-        <length>255</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>true</unique>
-    </fields>
-    <fields>
-        <fullName>Final_Extension_of_days__c</fullName>
-        <externalId>false</externalId>
-        <label>Final Extension (# of days)</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Final_Team_Meeting_Deadline__c</fullName>
-        <externalId>false</externalId>
-        <label>Final Team Meeting Deadline</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>TextArea</type>
-    </fields>
-    <fields>
-        <fullName>HTS_Number__c</fullName>
-        <externalId>false</externalId>
-        <label>HTS Number</label>
-        <length>128</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>ITC_Finding__c</fullName>
-        <externalId>false</externalId>
-        <label>ITC Finding</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>MultiselectPicklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Materially Injured</fullName>
-                    <default>false</default>
-                    <label>Materially Injured</label>
-                </value>
-                <value>
-                    <fullName>Threatened with Injury</fullName>
-                    <default>false</default>
-                    <label>Threatened with Injury</label>
-                </value>
-                <value>
-                    <fullName>Materially Retarded</fullName>
-                    <default>false</default>
-                    <label>Materially Retarded</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-        <visibleLines>3</visibleLines>
-    </fields>
-    <fields>
-        <fullName>ITC_Notification_to_DOC_of_Final_Determ__c</fullName>
-        <externalId>false</externalId>
-        <label>ITC Notification to DOC of Final Determ</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>If_Aligned_Input_AD_Final_Det_Signature__c</fullName>
-        <externalId>false</externalId>
-        <label>If Aligned, Input AD Final Det Signature</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Initiation_Extension_of_days__c</fullName>
-        <externalId>false</externalId>
-        <label>Initiation Extension (# of days)</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Input_Date_of_Post_Prelim_Det_Signature__c</fullName>
-        <externalId>false</externalId>
-        <label>Input Date of Post Prelim Det Signature</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Investigation_Outcome__c</fullName>
-        <externalId>false</externalId>
-        <formula>TEXT( Investigation__r.Investigation_Outcome__c )</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Investigation Outcome</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Investigation__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -481,27 +154,6 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Is_This_Investigation_Aligned_With_AD_In__c</fullName>
-        <description>Is this Investigation Aligned with the AD Investigation?</description>
-        <externalId>false</externalId>
-        <label>Is This Investigation Aligned With AD In</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>YesNo</valueSetName>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>Issues_to_DAS__c</fullName>
-        <externalId>false</externalId>
-        <label>Issues to DAS</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
     </fields>
     <fields>
         <fullName>Link__c</fullName>
@@ -555,39 +207,6 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Number_of_Additional_Companies_Inv_Rev__c</fullName>
-        <externalId>false</externalId>
-        <label>Number of Additional Companies Inv/Rev</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Number_of_Companies_Requested__c</fullName>
-        <externalId>false</externalId>
-        <label>Number of Companies Requested</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Number_of_Mandatory_Companies__c</fullName>
-        <externalId>false</externalId>
-        <label>Number of Mandatory Companies</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Office__c</fullName>
         <externalId>false</externalId>
         <label>Office</label>
@@ -598,51 +217,6 @@
             <restricted>true</restricted>
             <valueSetName>ADCVD_Offices</valueSetName>
         </valueSet>
-    </fields>
-    <fields>
-        <fullName>Period_Covered_End_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Period Covered - End Date</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Period_Covered_Start_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Period Covered - Start Date</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Petition_Filed__c</fullName>
-        <externalId>false</externalId>
-        <formula>Investigation__r.Petition__r.Petition_Filed__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Petition Filed</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Prelim_Extension_of_days__c</fullName>
-        <externalId>false</externalId>
-        <label>Prelim Extension (# of days)</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Prelim_Team_Meeting_Deadline__c</fullName>
-        <externalId>false</externalId>
-        <label>Prelim Team Meeting Deadline</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Product_Short_Name__c</fullName>
@@ -664,18 +238,6 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Receive_Injunction_or_In_Litigation__c</fullName>
-        <externalId>false</externalId>
-        <label>Receive Injunction or In Litigation?</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>YesNo</valueSetName>
-        </valueSet>
     </fields>
     <fields>
         <fullName>Revocation_Reason__c</fullName>
@@ -711,17 +273,6 @@
             </valueSetDefinition>
         </valueSet>
         <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Scope_Description__c</fullName>
-        <description>Scope Description</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Scope Description</inlineHelpText>
-        <label>Scope Description</label>
-        <length>32768</length>
-        <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>Segment_Status__c</fullName>
@@ -811,14 +362,6 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>Termination_of_Suspension_Gap_Period_Beg__c</fullName>
-        <externalId>false</externalId>
-        <label>Termination of Suspension Gap Period Beg</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Third_Country_Case_Number_s__c</fullName>
         <externalId>false</externalId>
         <label>Third Country Case Number(s)</label>
@@ -838,54 +381,6 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>true</unique>
-    </fields>
-    <fields>
-        <fullName>Upstream_Subsidy_Allegation__c</fullName>
-        <externalId>false</externalId>
-        <label>Upstream Subsidy Allegation?</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>YesNo</valueSetName>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>Will_You_Amend_the_Final__c</fullName>
-        <externalId>false</externalId>
-        <label>Will You Amend the Final?</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>YesNo</valueSetName>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>Will_You_Amend_the_Prelim_Determination__c</fullName>
-        <externalId>false</externalId>
-        <label>Will You Amend the Prelim Determination?</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>YesNo</valueSetName>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>Will_you_Issue_Post_Prelim_Determination__c</fullName>
-        <externalId>false</externalId>
-        <label>Will you Issue Post Prelim Determination</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>YesNo</valueSetName>
-        </valueSet>
     </fields>
     <label>ADCVD Order</label>
     <listViews>
@@ -961,73 +456,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Choose_Following_Respondent_Selection__c</picklist>
-            <values>
-                <fullName>CBP Data</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>N%2FA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Quantity and Value Questionnaires</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Do_you_have_Ministerial_Error_for_Final__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Do_you_have_Ministerial_Error_for_Prelim__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>ITC_Finding__c</picklist>
-            <values>
-                <fullName>Materially Injured</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Materially Retarded</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Threatened with Injury</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Is_This_Investigation_Aligned_With_AD_In__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Office__c</picklist>
             <values>
                 <fullName>I</fullName>
@@ -1059,17 +487,6 @@
             </values>
             <values>
                 <fullName>VIII</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Receive_Injunction_or_In_Litigation__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1119,50 +536,6 @@
             </values>
             <values>
                 <fullName>Revoked-Incomplete</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Upstream_Subsidy_Allegation__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Will_You_Amend_the_Final__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Will_You_Amend_the_Prelim_Determination__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Will_you_Issue_Post_Prelim_Determination__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

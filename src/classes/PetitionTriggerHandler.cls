@@ -31,7 +31,6 @@ public without sharing class PetitionTriggerHandler {
         }
         if(isAfter && isUpdate) {
             recalculateInvestigations(newMap);
-            //recalculateIssues(newMap, oldMap);
         }
     }
 
@@ -99,16 +98,6 @@ public without sharing class PetitionTriggerHandler {
         update investigations;
     }
 
-    @TestVisible private static void recalculateIssues(Map<Id,Petition__c> newMap, Map<Id,Petition__c> oldMap) {
-        Set<Id> parentIds = getIssueParentIds(newMap, oldMap);
-        List<Issue__c> issuesToUpdate = new List<Issue__c>();
-
-        for (Issue__c i : [SELECT Id, Type__c, Issues_to_DAS__c, Concurrence_to_DAS__c FROM Issue__c WHERE Petition__c IN: parentIds]) {
-            issuesToUpdate.add(i);
-        }
-        if (!issuesToUpdate.isEmpty()) update issuesToUpdate;
-    }
-
 
     /***********************************
     * Helper Methods
@@ -139,18 +128,6 @@ public without sharing class PetitionTriggerHandler {
         } else {
             return petitionConstants;
         }
-    }
-
-    @TestVisible private static Set<Id> getIssueParentIds(Map<Id,Petition__c> newMap, Map<Id,Petition__c> oldMap) {
-        Set<Id> returnIdSet = new Set<Id>();
-        for (Petition__c p : newMap.values()) {
-            if (oldMap.get(p.Id) == null) {
-                returnIdSet.add(p.Id);
-            } else if (oldMap.get(p.Id) != null && oldMap.get(p.Id).Calculated_Initiation_Signature__c != p.Calculated_Initiation_Signature__c) {
-                returnIdSet.add(p.Id);
-            }
-        }
-        return returnIdSet;
     }
 
     /**
