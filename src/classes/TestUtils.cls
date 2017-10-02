@@ -1,36 +1,86 @@
 @isTest
-public with sharing class TestUtils {
-	
-	private static Id adminProfileId = [SELECT Id FROM Profile WHERE Name=: 'System Administrator' LIMIT 1].Id;
-	
-	/*public static Staffing_Assignment__c createStaffingAssignment(Boolean doInsert, Segment__c seg, ADCVD_Order__c ord) {
-		Staffing_Assignment__c sa = new Staffing_Assignment__c(Segment__c = seg.Id, ADCVD_Order__c = ord.Id);
-		if(doInsert) {
-			insert sa;
-		}
-		return sa;
-	}*/
+public class TestUtils {
+    private static Id adminProfileId = [SELECT Id FROM Profile WHERE Name=: 'System Administrator' LIMIT 1].Id;
 
-/*	/public static List<User> createStaffUsers(Boolean doInsert) {
-		Integer i = 0;
-		List<User> userList = new List<User>();
-		for(String s: StaffingAssignmentController.userTitlesSet) {
-			i++;
-			User u = createAdminUser(false, 'test@test.tst', i);
-            u.AD_CVD_Title__c = s;
-            userList.add(u);
-		}
-		if(doInsert) {
-			insert userList;	
-		}
-		return userList;
-	}
-*/	
-	public static User createAdminUser(Boolean doInsert, String email, Integer i) {
-		User u = new User();
-		u.ProfileId = adminProfileId;
-     	u.isActive = true;
-    	u.Alias = 'Alias' + i;
+    public static Boolean messageFound(ApexPages.Severity severity, String msg) {
+        List<ApexPages.Message> pageMessages = ApexPages.getMessages();
+        // Check that the error message you are expecting is in pageMessages
+        Boolean messageFound = false;
+        for(ApexPages.Message message : pageMessages) {
+            if(message.getDetail() == msg
+                && message.getSeverity() == severity) {
+                messageFound = true;        
+            }
+        }
+
+        return messageFound;
+    }
+
+    public static Page__c createPage(Boolean doInsert) {
+        Page__c pg = new Page__c(name = 'Test Home Page');
+        if(doInsert) {
+            insert pg;
+        }
+        return pg;
+    }
+
+    public static Row__c createRow(Boolean doInsert, Page__c pg) {
+        Row__c r = new Row__c(
+            Name= 'Test Row',
+            Page__c = pg.id
+            );
+        if(doInsert) {
+            insert r;
+        }
+        return r;
+    }
+
+    public static Template_Page__c createTemplatePage(Boolean doInsert) {
+        Template_Page__c tp = new Template_Page__c(
+            Name = 'My Test Template',
+            Description__c = 'My Test Description',
+            Image__c = 'MyTestImage.png',
+            IsActive__c = true
+            );
+        if(doInsert) {
+            insert tp;
+        }
+        return tp;
+    } 
+    
+    public static Template_Row__c createTemplateRow(Boolean doInsert, Template_Page__c pg) {
+        Template_Row__c r = new Template_Row__c(
+            Name= 'Test Row',
+            Page__c = pg.id
+            );
+        if(doInsert) {
+            insert r;
+        }
+        return r;
+    }
+
+    public static Template_Page_Content__c createTemplatePageContent(Boolean doInsert, Template_Page__c pg, Template_Row__c tr) {
+        //TODO implement schema utils
+        Map<String, Id> recordTypeMap = new Map<String, Id>();
+        for(RecordType rt : [select id, developername from RecordType where sObjectType = 'Template_Page_Content__c']){
+            recordTypeMap.put(rt.developername, rt.id);
+        }
+        Template_Page_Content__c tpc = new Template_Page_Content__c(
+            Name= 'Test Page Content',
+            RecordTypeId = recordTypeMap.get('Generic_Content'),
+            Row__c = tr.Id,
+            Page__c = pg.Id
+            );
+        if(doInsert) {
+            insert tpc;
+        }
+        return tpc;
+    }
+    public static User createAdminUser(Boolean doInsert, String email, Integer i) {
+        User u = new User();
+        u.ProfileId = adminProfileId;
+        u.isActive = true;
+        u.Alias = 'Alias' + i;
         u.LocaleSidKey = 'en_US';
         u.LanguageLocaleKey='en_US';
         u.LastName = 'LastName' + i;
@@ -41,22 +91,47 @@ public with sharing class TestUtils {
         u.CommunityNickname = 'Ltest' + i;
         u.UserName = email + '.test' + i;
         if(doInsert) {
-        	insert u;
+            insert u;
         }
         return u;
-	}
-	public static Account createAccount(Boolean doInsert) {
+    }
+    public static Account createAccount(Boolean doInsert) {
         Account newRecord = new Account(
             Name='Acme', 
             BillingStreet = '101 binary way', 
             BillingCity = 'New York', 
-            BillingState='NY',
+            BillingStateCode='NY',
             BillingPostalCode='10101'
             );
         if(doInsert) {insert newRecord;}
         return newRecord; 
     }
     
+    public static Account createAccount(string name, string url, Boolean doInsert){
+        Account a = new Account();
+        a.name = name;
+        a.website = url;
+        if(doInsert) {insert a;}
+        return a;
+    }
+    
+/*     public static Issue__c createIssue(string name, string description, string url, Boolean doInsert){
+        Issue__c issue = new Issue__c();
+        issue.name = name;
+        issue.description__c = description;
+        issue.link__c = url;
+         if(doInsert) {insert issue;}
+        return issue;
+    }
+    
+     public static Regulation__c createRegulation(string name, string url, Boolean doInsert){
+        Regulation__c regulation = new Regulation__c();
+        regulation.name = name;
+        regulation.url__c = url;
+         if(doInsert) {insert regulation;}
+        return regulation;
+    }
+*/    
     public static Product2 createProduct(Boolean doInsert) {
         Product2 newRecord = new product2(
             Name='MyTestProduct', 
@@ -66,14 +141,57 @@ public with sharing class TestUtils {
         return newRecord; 
     }
 
+    public static Product2 createProduct(string name, string description, string url, Boolean doInsert){
+        Product2 product = new Product2();
+        product.name = name;
+        product.description = description;
+        product.displayUrl = url;
+        product.isActive = true;
+        if(doInsert) {insert product;}
+        return product;
+    }
+    
+    public static Pricebook2 createPricebook(string name, boolean isActive, Boolean doInsert){
+        Pricebook2 pb= new Pricebook2();
+        pb.name = name;
+        pb.isActive= isActive;
+        if(doInsert) {insert pb;}
+        return pb;
+    }
+    
+    public static PricebookEntry createPricebookEntry(String pricebookId, String productId, Boolean doInsert){
+        PricebookEntry pbe = new PricebookEntry();
+        pbe.isActive = true;
+        pbe.unitPrice = 4.99;
+        pbe.Pricebook2Id = pricebookId;
+        pbe.Product2Id = productId;
+        if(doInsert) {insert pbe;}
+        return pbe;
+    }
         
     public static Asset createAsset(Account account, Product2 product, Boolean doInsert){
+        return createAsset('Installed', account, product, doInsert);
+    }
+    
+    public static Asset createAsset(String status, Account account, Product2 product, Boolean doInsert){
+        return createAsset(status, account, product, doInsert, true, true, null, null);
+    }
+    
+    public static Asset createAsset(String status, Account account, Product2 product, Boolean doInsert, Boolean hasHrData, Boolean hasNonHrData, Framework__c framework, Participation__c app){
         Asset newRecord = new Asset(
             Name = Product.Name, 
             AccountId = account.Id, 
             Product2id = Product.Id, 
-            Status='Installed'
+            Status=status,
+            HR_Data__c = hasHrData,
+            Non_HR_Data__c = hasNonHrData
             );
+        if (framework != null) {
+            newRecord.framework__c = framework.Id;
+        }
+        if (app != null) {
+            newRecord.Participant__c = app.Id;
+        }
         if(doInsert) {insert newRecord;}
         return newRecord;
     }
@@ -117,7 +235,7 @@ public with sharing class TestUtils {
         }
         return fr;
     }
-    
+
     //create Investigation
     public static Investigation__c createInvestigation(String recordTypeName, Petition__c p, Boolean doInsert) {
         Investigation__c i = new Investigation__c();
@@ -132,19 +250,8 @@ public with sharing class TestUtils {
         }
         return i;
     }
-
-    //create Issue
-    public static Issue__c createIssue (Id parentId, String parentLookupField, String issueType, Boolean doInsert) {
-        Issue__c i = new Issue__c();
-        i.put(parentLookupField, parentId);
-        i.Type__c = issueType;
-        if(doInsert) {
-            insert i;
-        }
-        return i;
-    }
     
-    // create Case
+    // create Lead
     public static Lead createLead(String firstName, String LastName,boolean isInsert){
         Lead lead = new Lead ();
         lead.firstName = firstName;
@@ -186,7 +293,7 @@ public with sharing class TestUtils {
         }
         return lit;
     }
-            
+                
     // create test Opportunity
     public static Opportunity createOpportunity(String accId, String conId, boolean isInsert){
         Opportunity opp = new Opportunity();
@@ -290,8 +397,8 @@ public with sharing class TestUtils {
         }
         return td;
     }
-    
-     public static User createGenericUser(string username, string email, String profileId) {
+
+    public static User createGenericUser(string username, string email, String profileId) {
         User user = new User();
         user.ProfileId = profileId;
         user.isActive = true;
@@ -308,5 +415,134 @@ public with sharing class TestUtils {
         //user.CallCenterId  = [select Id from CallCenter limit 1].Id;       
         //user.ContactId = conId;
         return user;
+    }  
+    
+    public static User createCommunityUser(string email, Id contactId){
+        User user = new User();
+        user.ProfileId = [select id from profile where name = 'Customer Trade Community User' limit 1].id;
+        user.isActive = true;
+        user.Alias = 'Alias1';
+        user.LocaleSidKey = 'en_US';
+        user.LanguageLocaleKey='en_US';
+        user.LastName = 'LastName1';
+        user.FirstName = 'FirstName1';
+        user.EmailEncodingKey = 'ISO-8859-1';
+        user.Email = email;
+        user.ContactId = contactId;
+        user.TimeZoneSidKey = 'America/New_York';
+        user.CommunityNickname = email;
+        user.UserName = email;
+        insert user;
+        return user;
+    }
+    
+    public static Program__c createProgram(string name, boolean active){   
+        Program__c program = new Program__c(name=name, isActive__c = active);
+        insert program;
+        return program;
+    }
+    
+    public static Product2 createProduct(string name, boolean active){
+        Product2 product = new product2(name=name, isActive = active);
+        insert product;
+        return product; 
+    }
+    
+    public static Pricebook2 createPricebook(id ProgramId){
+        pricebook2 pb = new pricebook2(name='Test PB', program__c = ProgramId, isActive = true); 
+        insert pb;
+        return pb;
+    }
+    
+    public static List<PricebookEntry> createPricebookEntries(List<product2> products, list<id> PricebookIds){
+        list<PricebookEntry> pbes = new PricebookEntry[]{};
+            for(id pb : PricebookIds){
+                for(Product2 product : products){
+                    pbes.add(new PricebookEntry(
+                        Pricebook2Id = pb,
+                        Product2Id = product.id, 
+                        unitPrice = 5.00,
+                        isActive = true
+                    ));
+                }
+            }
+        insert pbes;
+        return pbes;
+    }
+
+    public static List<PaymentSettings__c> createPaymentSettings(){
+        PaymentSettings__c[] settings = new PaymentSettings__c[]{
+            new PaymentSettings__c(name='PRIVACY_SHIELD_APP_ID', value__c = 'dummy'),
+            new PaymentSettings__c(name='PRIVACY_SHIELD_APP', value__c = 'ps'),
+            new PaymentSettings__c(name='EVENTS_SERVICES_APP_ID', value__c = 'dummy'),
+            new PaymentSettings__c(name='EVENTS_SERVICES_APP', value__c = 'es'),
+            new PaymentSettings__c(name='PAY_GOV_TCS_ONLINE_URL', value__c = 'http://pay.gov'),
+            new PaymentSettings__c(name='PAY_GOV_TCS_ONLINE_ENDPOINT', value__c = 'http://pay.gov/TCS')
+        };
+        insert settings; 
+        return settings;
+     }
+     
+     public static List<Third_Party_Master_List__c> createTPMLs(List<id> FrameworkIds){
+         List<Third_Party_Master_List__c> TPML = new List<Third_Party_Master_List__c>();
+            
+         for(Id framework : FrameworkIds){
+            TPML.add(new Third_Party_Master_List__c(name = 'DRP HR', framework__c=framework, type__c = 'Dispute Resolution Provider', website__c = 'http://my.site', nonhr_data__c = false, hr_data__c = true));
+            TPML.add(new Third_Party_Master_List__c(name = 'DRP NonHR', framework__c=framework, type__c = 'Dispute Resolution Provider', website__c = 'http://my.site', nonhr_data__c = true, hr_data__c = false));
+         }
+         TPML.add(new Third_Party_Master_List__c(name = 'DRP', type__c = 'Dispute Resolution Provider', website__c = 'http://my.site', nonhr_data__c = true, hr_data__c = false));
+         TPML.add(new Third_Party_Master_List__c(name = 'Verifier 1', type__c = 'Verification Provider', website__c = 'http://my.site'));
+         TPML.add(new Third_Party_Master_List__c(name = 'Verifier 2', type__c = 'Verification Provider', website__c = 'http://my.site'));
+         TPML.add(new Third_Party_Master_List__c(name = 'Statutory Body', type__c = 'U.S. Statutory Body', website__c = 'http://my.site'));
+        
+        insert TPML;
+        return null;
+     }
+     
+     public static Order createOrder(id accountId, id participationId, id programId, id pricebookId) {
+         Order order = new Order();
+         order.accountId = accountId;
+         //order.participation__c = participationId;  //No longer used
+         order.participant__c = participationId;
+         order.program__c = programId;
+         order.pricebook2Id = pricebookId;
+         order.effectiveDate = Date.today();
+         order.status = 'Draft';
+         insert order;
+         return order;
+    }
+    
+    public static Participation__c createApplication(id accountId) {
+        return createApplication(accountId, null);
+    }
+    
+    public static Participation__c createApplication(id accountId, id programId) {
+       Participation__c application = new Participation__c(organization__c = accountId, name='Application Name', postal_code__c = '99999');
+       if (programId != null) {
+           application.program__c = programId;
+       }
+       insert application;
+       return application;
+    }
+    
+    public static Framework__c createFramework(String frameworkName, id productId, id programId, boolean isActive) {
+        Framework__c framework = new Framework__c( name = frameworkName, product__c = productId, program__c = programId, isActive__c = isActive);
+        insert framework;
+        return framework;
+    }
+    
+    public static Payment__c createPayment(Id orderId, String application) {
+        Payment__c payment = new Payment__c(Order__c = orderId, Application__c = application,
+                                            Pay_Gov_Tracking_Id__c = 'trackingId', Payment_Date__c = Date.today().addDays(-2),
+                                            Payment_Type__c = 'PLASTIC_CARD', Transaction_Status__c = 'Success',
+                                           Transaction_Amount__c = 5.00, Transaction_Date__c = Datetime.now().addDays(-2));
+        insert payment;
+        return payment;
+    }
+    
+    public static Covered_Entity__c createCoveredEntity(String entityName, Id applicationId) {
+       Covered_Entity__c ce = new Covered_Entity__c(Name = entityName, Participant__c = applicationId);
+       insert ce;
+       return ce;
     }
 }
