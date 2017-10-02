@@ -229,7 +229,7 @@ public class PetitionTriggerHandlerTest {
 		System.assertEquals(p.Calculated_Initiation_Signature__c, p.Next_Major_Deadline__c);
 
 		p.Petition_Outcome__c = 'Initiated from Petition';
-		p.Actual_Initiation_Signature__c = System.today().addDays(-1);
+		p.Actual_Initiation_Signature__c = System.today().toStartofWeek().addDays(-5);
 		update p;
 
 		Test.stopTest();
@@ -243,7 +243,7 @@ public class PetitionTriggerHandlerTest {
 		System.assertEquals(p.Initiation_Announcement_Date__c, p.Next_Announcement_Date__c);
 
 		p.Petition_Outcome__c = 'Initiated from Petition';
-		p.Actual_Initiation_Signature__c = System.today().addDays(-1);
+		p.Actual_Initiation_Signature__c = petitionDate.addDays(4);
 		update p;
 
 		Test.stopTest();
@@ -268,7 +268,7 @@ public class PetitionTriggerHandlerTest {
 			[SELECT Id, Next_Due_to_DAS_Deadline__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Next_Due_to_DAS_Deadline__c);
 
 		p.Petition_Outcome__c = 'Initiated from Petition';
-		p.Actual_Initiation_Signature__c = System.today().addDays(-1);
+		p.Actual_Initiation_Signature__c = System.today().toStartofWeek().addDays(-5);
 		update p;
 
 		Test.stopTest();
@@ -293,7 +293,7 @@ public class PetitionTriggerHandlerTest {
 			[SELECT Id, Next_Office_Deadline__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Next_Office_Deadline__c);
 
 		p.Petition_Outcome__c = 'Initiated from Petition';
-		p.Actual_Initiation_Signature__c = System.today().addDays(-1);
+		p.Actual_Initiation_Signature__c = System.today().toStartofWeek().addDays(-5);
 		update p;
 
 		Test.stopTest();

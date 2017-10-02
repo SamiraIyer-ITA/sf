@@ -971,8 +971,7 @@ public class InvestigationTriggerHandlerTest {
 		iAD = null;
 		System.assertEquals(iAD.Calculated_Order_FR_Signature__c, iAD.Next_Major_Deadline__c);
 
-		ADCVD_Order__c ao = TestUtils.createOrder(iAD, true);
-		Federal_Register__c orderFR = TestUtils.createFR(ao.Id, 'ADCVD_Order__c', System.today(), 'Order', true);
+		Federal_Register__c orderFR = TestUtils.createFR(adOrder.Id, 'ADCVD_Order__c', System.today(), 'Order', true);
 		iAD = null;
 
 		Test.stopTest();
@@ -1006,8 +1005,7 @@ public class InvestigationTriggerHandlerTest {
 		iCVD = null;
 		System.assertEquals(iCVD.Calculated_Order_FR_Signature__c, iCVD.Next_Major_Deadline__c);
 
-		ADCVD_Order__c ao = TestUtils.createOrder(iCVD, true);
-		Federal_Register__c orderFR = TestUtils.createFR(ao.Id, 'ADCVD_Order__c', System.today(), 'Order', true);
+		Federal_Register__c orderFR = TestUtils.createFR(cvdOrder.Id, 'ADCVD_Order__c', System.today(), 'Order', true);
 		iCVD = null;
 
 		Test.stopTest();
@@ -1285,8 +1283,7 @@ public class InvestigationTriggerHandlerTest {
 		iAD = null;
 		System.assertEquals(iAD.Calculated_Order_FR_Signature__c, iAD.Next_Due_to_DAS_Deadline__c);
 
-		ADCVD_Order__c ao = TestUtils.createOrder(iAD, true);
-		Federal_Register__c orderFR = TestUtils.createFR(ao.Id, 'ADCVD_Order__c', System.today(), 'Order', true);
+		Federal_Register__c orderFR = TestUtils.createFR(adOrder.Id, 'ADCVD_Order__c', System.today(), 'Order', true);
 		iAD = null;
 
 		Test.stopTest();
@@ -1324,8 +1321,7 @@ public class InvestigationTriggerHandlerTest {
 		iCVD = null;
 		System.assertEquals(iCVD.Calculated_Order_FR_Signature__c, iCVD.Next_Due_to_DAS_Deadline__c);
 
-		ADCVD_Order__c ao = TestUtils.createOrder(iCVD, true);
-		Federal_Register__c orderFR = TestUtils.createFR(ao.Id, 'ADCVD_Order__c', System.today(), 'Order', true);
+		Federal_Register__c orderFR = TestUtils.createFR(cvdOrder.Id, 'ADCVD_Order__c', System.today(), 'Order', true);
 		iCVD = null;
 
 		Test.stopTest();
@@ -1390,8 +1386,7 @@ public class InvestigationTriggerHandlerTest {
 		//120 day offset to Calculated_Initiation_Signature__c, 
 		//3 day Initiation_Extension_of_days__c, 
 		//20 day offset to Petition_Filed__c, 
-		//-3 adjustment days for weekends
-		adP.Petition_Filed__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(System.today().addDays(-140));
+		adP.Petition_Filed__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(System.today().addDays(-143));
 		update adP;
 
 		Test.stopTest();
@@ -1404,8 +1399,7 @@ public class InvestigationTriggerHandlerTest {
 		//45 day offset to Calculated_Initiation_Signature__c, 
 		//3 day Initiation_Extension_of_days__c, 
 		//20 day offset to Petition_Filed__c, 
-		//-3 adjustment days for weekends
-		cvdP.Petition_Filed__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(System.today().addDays(-65));
+		cvdP.Petition_Filed__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(System.today().addDays(-68));
 		update cvdP;
 
 		Test.stopTest();
@@ -1644,8 +1638,7 @@ public class InvestigationTriggerHandlerTest {
 
 		System.assertEquals(iAD.Calculated_Order_FR_Signature__c, iAD.Next_Office_Deadline__c);
 
-		ADCVD_Order__c ao = TestUtils.createOrder(iAD, true);
-		Federal_Register__c orderFR = TestUtils.createFR(ao.Id, 'ADCVD_Order__c', System.today(), 'Order', true);
+		Federal_Register__c orderFR = TestUtils.createFR(adOrder.Id, 'ADCVD_Order__c', System.today(), 'Order', true);
 		iAD = null;
 
 		Test.stopTest();

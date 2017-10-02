@@ -929,7 +929,7 @@ C-###-### for CVD</inlineHelpText>
         <description>Referenced from parent Petition</description>
         <externalId>false</externalId>
         <label>Product</label>
-        <length>28</length>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
