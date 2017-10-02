@@ -94,19 +94,6 @@
         <unique>true</unique>
     </fields>
     <fields>
-        <fullName>FR_Cite__c</fullName>
-        <description>FR Cite #</description>
-        <externalId>false</externalId>
-        <inlineHelpText>FR Cite #</inlineHelpText>
-        <label>FR Cite #</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>FR_URL__c</fullName>
         <description>FR URL</description>
         <externalId>false</externalId>
@@ -300,14 +287,6 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
-    </fields>
-    <fields>
-        <fullName>URL__c</fullName>
-        <externalId>false</externalId>
-        <label>URL</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Url</type>
     </fields>
     <label>Federal Register</label>
     <nameField>

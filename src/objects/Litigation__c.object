@@ -210,50 +210,6 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Choose_Following_Respondent_Selection__c</fullName>
-        <externalId>false</externalId>
-        <label>Choose Following Respondent Selection:</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>CBP Data</fullName>
-                    <default>false</default>
-                    <label>CBP Data</label>
-                </value>
-                <value>
-                    <fullName>Quantity and Value Questionaires</fullName>
-                    <default>false</default>
-                    <label>Quantity and Value Questionaires</label>
-                </value>
-                <value>
-                    <fullName>Other</fullName>
-                    <default>false</default>
-                    <label>Other</label>
-                </value>
-                <value>
-                    <fullName>N/A</fullName>
-                    <default>false</default>
-                    <label>N/A</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>Concurrence_to_DAS__c</fullName>
-        <externalId>false</externalId>
-        <label>Concurrence to DAS</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Country__c</fullName>
         <externalId>false</externalId>
         <label>Country</label>
@@ -354,15 +310,6 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Final_Remand__c</fullName>
-        <externalId>false</externalId>
-        <label>Final Remand</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>TextArea</type>
-    </fields>
-    <fields>
         <fullName>Final_Team_Meeting_Deadline__c</fullName>
         <externalId>false</externalId>
         <label>Final Team Meeting Deadline</label>
@@ -435,15 +382,6 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Issues_to_DAS__c</fullName>
-        <externalId>false</externalId>
-        <label>Issues to DAS</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
     </fields>
     <fields>
         <fullName>Link__c</fullName>
@@ -723,25 +661,6 @@
         <fullName>International_Litigation</fullName>
         <active>true</active>
         <label>International Litigation</label>
-        <picklistValues>
-            <picklist>Choose_Following_Respondent_Selection__c</picklist>
-            <values>
-                <fullName>CBP Data</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>N%2FA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Quantity and Value Questionaires</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>Country__c</picklist>
             <values>
@@ -1052,25 +971,6 @@
         <fullName>Remand</fullName>
         <active>true</active>
         <label>Remand</label>
-        <picklistValues>
-            <picklist>Choose_Following_Respondent_Selection__c</picklist>
-            <values>
-                <fullName>CBP Data</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>N%2FA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Quantity and Value Questionaires</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>Country__c</picklist>
             <values>

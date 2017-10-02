@@ -295,47 +295,6 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Applicable_CBP_Instructions_Category__c</fullName>
-        <description>hide if customs_instructions_yes_no is not TRUE; if customs_instructions_yes_no is TRUE, validation (must be completed before closing case); repeating (can be multiple types of CBP instructions associated with each combination of respondent/exporter/producer);</description>
-        <externalId>false</externalId>
-        <label>Applicable CBP Instructions Category</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Cash Deposit</fullName>
-                    <default>false</default>
-                    <label>Cash Deposit</label>
-                </value>
-                <value>
-                    <fullName>Initiation</fullName>
-                    <default>false</default>
-                    <label>Initiation</label>
-                </value>
-                <value>
-                    <fullName>Liquidation</fullName>
-                    <default>false</default>
-                    <label>Liquidation</label>
-                </value>
-                <value>
-                    <fullName>Other</fullName>
-                    <default>false</default>
-                    <label>Other</label>
-                </value>
-                <value>
-                    <fullName>Refund</fullName>
-                    <default>false</default>
-                    <label>Refund</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>CBP_Case_Number__c</fullName>
         <externalId>false</externalId>
         <label>CBP Case Number</label>
@@ -446,36 +405,6 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Choose_Following_Respondent_Selection__c</fullName>
-        <externalId>false</externalId>
-        <label>Choose Following Respondent Selection</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>CBP Data</fullName>
-                    <default>false</default>
-                    <label>CBP Data</label>
-                </value>
-                <value>
-                    <fullName>Other</fullName>
-                    <default>false</default>
-                    <label>Other</label>
-                </value>
-                <value>
-                    <fullName>Quantity and Value Questionnaire</fullName>
-                    <default>false</default>
-                    <label>Quantity and Value Questionnaire</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Commodity__c</fullName>
         <externalId>false</externalId>
         <label>Commodity</label>
@@ -543,15 +472,6 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
-    </fields>
-    <fields>
-        <fullName>Concurrence_to_DAS__c</fullName>
-        <externalId>false</externalId>
-        <label>Concurrence to DAS</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
     </fields>
     <fields>
         <fullName>Countervailed_Programs__c</fullName>
@@ -1750,44 +1670,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Applicable_CBP_Instructions_Category__c</picklist>
-            <values>
-                <fullName>Cash Deposit</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Initiation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Liquidation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Refund</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Choose_Following_Respondent_Selection__c</picklist>
-            <values>
-                <fullName>CBP Data</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Quantity and Value Questionnaire</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Commodity__c</picklist>
             <values>
                 <fullName>Cement and Ceramics</fullName>
@@ -2345,44 +2227,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Applicable_CBP_Instructions_Category__c</picklist>
-            <values>
-                <fullName>Cash Deposit</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Initiation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Liquidation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Refund</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Choose_Following_Respondent_Selection__c</picklist>
-            <values>
-                <fullName>CBP Data</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Quantity and Value Questionnaire</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Commodity__c</picklist>
             <values>
                 <fullName>Cement and Ceramics</fullName>
@@ -2931,8 +2775,8 @@
         <customTabListAdditionalFields>Commodity__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
         <excludedStandardButtons>Accept</excludedStandardButtons>
-        <excludedStandardButtons>Forward</excludedStandardButtons>
         <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <excludedStandardButtons>Forward</excludedStandardButtons>
         <lookupDialogsAdditionalFields>ADCVD_Case_Number__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Country__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ADCVD_Case_Type__c</lookupDialogsAdditionalFields>

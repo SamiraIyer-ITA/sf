@@ -124,25 +124,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Date_Due__c</fullName>
-        <externalId>false</externalId>
-        <label>Date Due</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Determination_Number__c</fullName>
-        <externalId>false</externalId>
-        <label>Determination Number</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Effective_Date_of_Termination__c</fullName>
         <externalId>false</externalId>
         <label>Effective Date of Termination</label>
@@ -176,15 +157,6 @@
         <fullName>Lotus_Notes_History_Data__c</fullName>
         <externalId>false</externalId>
         <label>Lotus Notes History Data</label>
-        <length>32768</length>
-        <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Next_Determination__c</fullName>
-        <externalId>false</externalId>
-        <label>Next Determination</label>
         <length>32768</length>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
@@ -305,7 +277,6 @@
         <columns>NAME</columns>
         <columns>Suspension_Date__c</columns>
         <columns>Termination_Date__c</columns>
-        <columns>Date_Due__c</columns>
         <columns>Investigation__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <actionOverrides>
         <actionName>Accept</actionName>
         <type>Default</type>
@@ -121,11 +121,6 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Preliminary_Decision_Memorandum_URL__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
             <field>Notify_ITC_of_Final_Results__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -151,11 +146,6 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Revocation_or_Continuation_to_DAS__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
             <field>Calculated_Revocation_or_Continuation_FR__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -166,22 +156,12 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Continuation_or_Revocation_FR_Notice_Pub__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
             <field>Continuation_or_Revocation__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
             <field>Effective_Date_if_revoked__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Next_Sunset_Initiation_Date_Continued__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -252,11 +232,6 @@
         </displayedFields>
         <displayedFields>
             <field>Actual_Preliminary_Signature__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Preliminary_Decision_Memorandum_URL__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -347,16 +322,6 @@
         </displayedFields>
         <displayedFields>
             <field>Continuation_or_Revocation__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Continuation_or_Revocation_FR_Notice_Pub__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Next_Sunset_Initiation_Date_Continued__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -822,17 +787,6 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Amended_Prelim_Issues__c</fullName>
-        <description>Amended Prelim Issues</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Amended Prelim Issues</inlineHelpText>
-        <label>Amended Prelim Issues</label>
-        <length>32768</length>
-        <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
-    </fields>
-    <fields>
         <fullName>Anniversary_Month__c</fullName>
         <externalId>false</externalId>
         <label>Anniversary Month</label>
@@ -955,24 +909,6 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Concurrence_to_DAS__c</fullName>
-        <description>Concurrence to DAS</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Concurrence to DAS</inlineHelpText>
-        <label>Concurrence to DAS</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Continuation_or_Revocation_FR_Notice_Pub__c</fullName>
-        <externalId>false</externalId>
-        <label>Continuation or Revocation FR Notice Pub</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
     </fields>
     <fields>
         <fullName>Continuation_or_Revocation__c</fullName>
@@ -1132,16 +1068,6 @@
         <fullName>Effective_Date_if_revoked__c</fullName>
         <externalId>false</externalId>
         <label>Effective Date (if revoked)</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>End_Anniversary_Date__c</fullName>
-        <description>End Anniversary Date</description>
-        <externalId>false</externalId>
-        <inlineHelpText>End Anniversary Date</inlineHelpText>
-        <label>End Anniversary Date</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -1342,14 +1268,6 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Initiation_Prelim_FR_Published__c</fullName>
-        <externalId>false</externalId>
-        <label>Initiation/Prelim FR Published?</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Injunction__c</fullName>
@@ -1597,14 +1515,6 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Next_Sunset_Initiation_Date_Continued__c</fullName>
-        <externalId>false</externalId>
-        <label>Next Sunset Initiation Date(Continued)</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Notice_of_Intent_to_Participate__c</fullName>
         <externalId>false</externalId>
         <label>Notice of Intent to Participate</label>
@@ -1766,17 +1676,6 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Prelim_Issues__c</fullName>
-        <description>Prelim Issues</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Prelim Issues</inlineHelpText>
-        <label>Prelim Issues</label>
-        <length>32768</length>
-        <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
-    </fields>
-    <fields>
         <fullName>Prelim_Team_Meeting_Deadline__c</fullName>
         <description>Prelim Team Meeting Deadline</description>
         <externalId>false</externalId>
@@ -1793,16 +1692,6 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Preliminary_Decision_Memorandum_URL__c</fullName>
-        <externalId>false</externalId>
-        <label>Preliminary Decision Memorandum URL</label>
-        <length>128</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Preliminary_Determination__c</fullName>
@@ -1894,34 +1783,12 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>Receive_an_Injunction_or_in_Litigation__c</fullName>
-        <externalId>false</externalId>
-        <label>Receive an Injunction or in Litigation?</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>YesNo</valueSetName>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Request_Filed__c</fullName>
         <externalId>false</externalId>
         <label>Request Filed</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Requestor_Company_Name__c</fullName>
-        <externalId>false</externalId>
-        <label>Requestor Company Name</label>
-        <length>128</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Requestor__c</fullName>
@@ -1962,14 +1829,6 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>Revocation_or_Continuation_to_DAS__c</fullName>
-        <externalId>false</externalId>
-        <label>Revocation or Continuation to DAS</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Scope_Determination__c</fullName>
         <externalId>false</externalId>
         <label>Scope Determination</label>
@@ -1986,30 +1845,6 @@
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Scope_Segment_Termination__c</fullName>
-        <externalId>false</externalId>
-        <label>Scope Segment Termination</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Scope Not Properly Filed and Served</fullName>
-                    <default>false</default>
-                    <label>Scope Not Properly Filed and Served</label>
-                </value>
-                <value>
-                    <fullName>Incomplete Scope Request</fullName>
-                    <default>false</default>
-                    <label>Incomplete Scope Request</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
     </fields>
     <fields>
         <fullName>Segment_Name__c</fullName>
@@ -3069,17 +2904,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Receive_an_Injunction_or_in_Litigation__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Respondent_File_Substantive_Response__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -3098,17 +2922,6 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Scope_Segment_Termination__c</picklist>
-            <values>
-                <fullName>Incomplete Scope Request</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Scope Not Properly Filed and Served</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3887,17 +3700,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Receive_an_Injunction_or_in_Litigation__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Respondent_File_Substantive_Response__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -3916,17 +3718,6 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Scope_Segment_Termination__c</picklist>
-            <values>
-                <fullName>Incomplete Scope Request</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Scope Not Properly Filed and Served</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4705,17 +4496,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Receive_an_Injunction_or_in_Litigation__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Respondent_File_Substantive_Response__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -4734,17 +4514,6 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Scope_Segment_Termination__c</picklist>
-            <values>
-                <fullName>Incomplete Scope Request</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Scope Not Properly Filed and Served</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5523,17 +5292,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Receive_an_Injunction_or_in_Litigation__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Respondent_File_Substantive_Response__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -5552,17 +5310,6 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Scope_Segment_Termination__c</picklist>
-            <values>
-                <fullName>Incomplete Scope Request</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Scope Not Properly Filed and Served</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6341,17 +6088,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Receive_an_Injunction_or_in_Litigation__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Respondent_File_Substantive_Response__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -6370,17 +6106,6 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Scope_Segment_Termination__c</picklist>
-            <values>
-                <fullName>Incomplete Scope Request</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Scope Not Properly Filed and Served</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7159,17 +6884,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Receive_an_Injunction_or_in_Litigation__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Respondent_File_Substantive_Response__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -7188,17 +6902,6 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Scope_Segment_Termination__c</picklist>
-            <values>
-                <fullName>Incomplete Scope Request</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Scope Not Properly Filed and Served</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7969,17 +7672,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Receive_an_Injunction_or_in_Litigation__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Respondent_File_Substantive_Response__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -7998,17 +7690,6 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Scope_Segment_Termination__c</picklist>
-            <values>
-                <fullName>Incomplete Scope Request</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Scope Not Properly Filed and Served</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8179,7 +7860,7 @@
         <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
         <customTabListAdditionalFields>Period_Covered_Start_Date__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Period_Covered_End_Date__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Requestor_Company_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields xsi:nil="true"/>
         <customTabListAdditionalFields>Product_Description__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>ADCVD_Case_Number__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Country__c</lookupDialogsAdditionalFields>
@@ -8188,7 +7869,7 @@
         <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Period_Covered_Start_Date__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Period_Covered_End_Date__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Requestor_Company_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields xsi:nil="true"/>
         <lookupDialogsAdditionalFields>Product_Description__c</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ADCVD_Case_Number__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Country__c</lookupPhoneDialogsAdditionalFields>
@@ -8197,7 +7878,7 @@
         <lookupPhoneDialogsAdditionalFields>RECORDTYPE</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Period_Covered_Start_Date__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Period_Covered_End_Date__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Requestor_Company_Name__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields xsi:nil="true"/>
         <searchFilterFields>ADCVD_Case_Number__c</searchFilterFields>
         <searchFilterFields>Country__c</searchFilterFields>
         <searchFilterFields>ADCVD_Case_Type__c</searchFilterFields>
@@ -8205,7 +7886,7 @@
         <searchFilterFields>RECORDTYPE</searchFilterFields>
         <searchFilterFields>Period_Covered_Start_Date__c</searchFilterFields>
         <searchFilterFields>Period_Covered_End_Date__c</searchFilterFields>
-        <searchFilterFields>Requestor_Company_Name__c</searchFilterFields>
+        <searchFilterFields xsi:nil="true"/>
         <searchFilterFields>Product_Description__c</searchFilterFields>
         <searchFilterFields>Segment_Name__c</searchFilterFields>
         <searchResultsAdditionalFields>ADCVD_Case_Number__c</searchResultsAdditionalFields>
@@ -8215,7 +7896,7 @@
         <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Period_Covered_Start_Date__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Period_Covered_End_Date__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Requestor_Company_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields xsi:nil="true"/>
         <searchResultsAdditionalFields>Product_Description__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
@@ -8786,22 +8467,6 @@ SR = Sunset Review</description>
 $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Reject&quot;),NOT(ISBLANK(Scope_Language_Changes__c))
 )</errorConditionFormula>
         <errorMessage>&quot;Scope Language Change(s)&quot; is required only if &quot;Decision on How to Proceed&quot; is either &quot;Formal&quot; or &quot;Informal&quot;.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>SI_Scope_Segment_Termination</fullName>
-        <active>true</active>
-        <description>Legend to the Initials Placed on each rule name
-AR = Admin Review
-ACR = Anti-Circumvention Review
-CCR = Changed Circumstances Review
-ER = Expedited Review
-NSR = New Shipper Review
-SI = Scope Inquiry
-SR = Sunset Review</description>
-        <errorConditionFormula>And( 
-$RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, NOT(ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Reject&quot;)),NOT(ISBLANK(TEXT( Scope_Segment_Termination__c)))
-)</errorConditionFormula>
-        <errorMessage>&quot;Scope Segment Termination&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Reject&apos;.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>SI_Was_Product_Determined_To_Be_In_Scope</fullName>
