@@ -6,7 +6,7 @@
 		<members>IssueSelector</members>
 		<members>IssueSelectorTest</members>
 		<members>IssueTriggerHandler</members>
-		<members>PetitionDateCalc</members>
+		<!--<members>PetitionDateCalc</members>-->
 		<name>ApexClass</name>
 	</types>
 	<types>

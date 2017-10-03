@@ -40,9 +40,9 @@
 		<members>ADCVD_Order__c.Issues_to_DAS__c</members>
 		<members>ADCVD_Order__c.ITC_Finding__c</members>
 		<members>ADCVD_Order__c.ITC_Notification_to_DOC_of_Final_Determ__c</members>
-		<members>ADCVD_Order__c.Next_Due_to_DAS_Deadline_and_Timeline__c</members>
+		<!--<members>ADCVD_Order__c.Next_Due_to_DAS_Deadline_and_Timeline__c</members>
 		<members>ADCVD_Order__c.Next_Major_AS_DAS_Deadline_and_Timeline__c</members>
-		<members>ADCVD_Order__c.Next_Office_PM_Deadline_and_Timeline__c</members>
+		<members>ADCVD_Order__c.Next_Office_PM_Deadline_and_Timeline__c</members>-->
 		<members>ADCVD_Order__c.Number_of_Additional_Companies_Inv_Rev__c</members>
 		<members>ADCVD_Order__c.Number_of_Companies_Requested__c</members>
 		<members>ADCVD_Order__c.Number_of_Mandatory_Companies__c</members>
@@ -62,7 +62,7 @@
 		<members>Investigation__c.Applicable_CBP_Instructions_Category__c</members>
 		<members>Investigation__c.Choose_Following_Respondent_Selection__c</members>
 		<members>Investigation__c.Concurrence_to_DAS__c</members>
-		<members>Investigation__c.Investigation_YesNo__c</members>
+		<!--<members>Investigation__c.Investigation_YesNo__c</members>-->
 		<members>Investigation__c.Issues_to_DAS__c</members>
 		<!--<members>Issue__c.Assistant_Secretary_Status__c</members>
 		<members>Issue__c.Concurrence_to_DAS__c</members>
@@ -98,15 +98,15 @@
 		<members>Segment__c.Continuation_or_Revocation_FR_Notice_Pub__c</members>
 		<members>Segment__c.End_Anniversary_Date__c</members>
 		<members>Segment__c.Initiation_Prelim_FR_Published__c</members>
-		<members>Segment__c.Issues_to_DAS__c</members>
+		<!--<members>Segment__c.Issues_to_DAS__c</members>-->
 		<members>Segment__c.Next_Office_PM_Deadline__c</members>
 		<members>Segment__c.Next_Sunset_Initiation_Date_Continued__c</members>
-		<members>Segment__c.Petition_Case_Number__c</members>
+		<!--<members>Segment__c.Petition_Case_Number__c</members>
 		<members>Segment__c.Petition_Case_Type__c</members>
 		<members>Segment__c.Petition_Commodity__c</members>
 		<members>Segment__c.Petition_Country__c</members>
 		<members>Segment__c.Petition_Product__c</members>
-		<members>Segment__c.Petition_Product_Short_Name__c</members>
+		<members>Segment__c.Petition_Product_Short_Name__c</members>-->
 		<members>Segment__c.Prelim_Issues__c</members>
 		<members>Segment__c.Preliminary_Decision_Memorandum_URL__c</members>
 		<members>Segment__c.Receive_an_Injunction_or_in_Litigation__c</members>
