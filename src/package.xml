@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-
-<!--This is commented for the destructive changes.  Uncomment afterwards
-<?xml version="1.0" encoding="UTF-8"?>
-<Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
         <members>*</members>
         <name>ApexClass</name>
@@ -73,7 +69,6 @@
         <members>Insight_Chapter__c</members>
         <members>Insight__c</members>
         <members>Investigation__c</members>
-        <members>Issue__c</members>
         <members>KnowledgeMap__c</members>
         <members>KnowledgeSearch__c</members>
         <members>Level__c</members>
@@ -96,7 +91,6 @@
         <members>Refund__c</members>
         <members>RelatedCountries__c</members>
         <members>Related_Cases_and_Orgs__c</members>
-        <members>Related_Issue__c</members>
         <members>Related_Organization__c</members>
         <members>Renewing_Product__c</members>
         <members>Row__c</members>
@@ -146,26 +140,6 @@
         <members>BusinessHours</members>
         <members>PathAssistant</members>
         <name>Settings</name>
-    </types>
-    <version>39.0</version>
-</Package>
-
--->
-
-	<types>
-		<members>CustomMetadataSelectorTest</members>
-		<members>DateCalculationConditionServiceTest</members>
-		<members>DateCalculationSelectorTest</members>
-		<members>DateCalculationServiceTest</members>
-		<members>InvestigationSelectorTest</members>
-		<members>PetitionSelectorTest</members>
-		<members>PetitionTriggerHandler</members>
-		<!--<members>TestUtils</members>-->
-		<name>ApexClass</name>
-	</types>
-    <types>
-        <members>Segment__c</members>
-        <name>CustomObject</name>
     </types>
     <version>39.0</version>
 </Package>
