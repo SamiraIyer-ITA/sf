@@ -341,6 +341,31 @@ public class TestUtils {
         return petition;
     }
 
+    //create test Primary Recusal
+    public static Recusal__c createRecusal(Id userId, Date startDate, Date endDate, Boolean doInsert) {
+        Recusal__c r = new Recusal__c();
+        r.RecordTypeId = Utils.getRecordTypeIdMap('Recusal__c').get('Primary');
+        r.User__c = userId;
+        r.Start_Date__c = startDate;
+        r.End_Date__c = endDate;
+        if (doInsert) {
+            insert r;
+        }
+        return r;
+    }
+
+    //create test Related Recusal
+    public static Recusal__c createRecusal(Id primaryRecusalId, Id parentId, String parentObjectName, Boolean doInsert) {
+        Recusal__c r = new Recusal__c();
+        r.RecordTypeId = Utils.getRecordTypeIdMap('Recusal__c').get('Related');
+        r.Primary_Recusal_Aligned_To__c = primaryRecusalId;
+        r.put(parentObjectName, parentId);
+        if (doInsert) {
+            insert r;
+        }
+        return r;
+    }
+
     //create test segment
     public static Segment__c createSegment(ADCVD_Order__c ord, String recordTypeName, Boolean doInsert) {
         Segment__c seg = new Segment__c();
@@ -371,6 +396,18 @@ public class TestUtils {
             insert seg;
         }
         return seg;
+    }
+
+    //create test staffing assignment
+    public static Staffing_Assignment__c createStaff(SObject parent, String parentType, Boolean doInsert) {
+        Staffing_Assignment__c sa = new Staffing_Assignment__c();
+        if (parent != null && parent.Id != null) {
+            sa.put(parentType, parent.Id);
+        }
+        if (doInsert) {
+            insert sa;
+        }
+        return sa;
     }
 
     // create test suspension agreement
