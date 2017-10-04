@@ -41,7 +41,16 @@
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayoutAssignment>Basic_Case_Info</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Basic_Case_Info</fullName>
+        <fields>RecordTypeId</fields>
+        <fields>ADCVD_Case_Number__c</fields>
+        <fields>Petition__c</fields>
+        <fields>Investigation__c</fields>
+        <fields>Segment__c</fields>
+        <label>Basic Case Info</label>
+    </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>

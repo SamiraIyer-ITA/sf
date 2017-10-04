@@ -45,7 +45,16 @@
         <type>Flexipage</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+	<compactLayoutAssignment>Basic_Case_Info</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Basic_Case_Info</fullName>
+        <fields>ADCVD_Case_Number__c</fields>
+        <fields>Product__c</fields>
+        <fields>Product_Short_Name__c</fields>
+        <fields>Country__c</fields>
+        <fields>Commodity__c</fields>
+        <label>Basic Case Info</label>
+    </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
