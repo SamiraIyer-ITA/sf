@@ -8342,7 +8342,7 @@ OR (ISPICKVAL(Type_of_Circumvention_Inquiry__c, &apos;Merchandise Completed or A
 
 ISPICKVAL(Type_of_Circumvention_Inquiry__c, &apos;Merchandise Completed or Assembled in other Foreign Countries&apos;),
 
-ISPICKVAL(Type_of_Circumvention_Inquiry__c, &apos;Minor Altercations of Merchandise&apos;)
+ISPICKVAL(Type_of_Circumvention_Inquiry__c, &apos;Minor Alterations of Merchandise&apos;)
 ),
 
 ISBLANK(TEXT(Preliminary_Determination__c))
