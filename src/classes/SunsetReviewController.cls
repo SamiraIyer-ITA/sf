@@ -90,7 +90,6 @@ public class SunsetReviewController {
             return dcs;
         } set;
     }
-    public String fDate {get; set;}
 
     //constructor for controller
     public SunsetReviewController() {

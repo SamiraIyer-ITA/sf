@@ -60,28 +60,6 @@ public without sharing class ReviewRecusalExtension {
 		return parentId;
     	} set;
     }
-    //Get the parentSObjectType name by checking the parent fields on the Recusal
-    public String parentSObjectType {get {
-    	if(rec != null) {
-	    	if (rec.Petition__c != null) {
-				parentSObjectType = 'Petition__c';
-			} else if (rec.Investigation__c != null) {
-				parentSObjectType = 'Investigation__c';
-			} else if (rec.ADCVD_Order__c != null) {
-				parentSObjectType = 'ADCVD_Order__c';
-			} else if (rec.Segment__c != null) {
-				parentSObjectType = 'Segment__c';
-			} else if (rec.Litigation__c != null) {
-				parentSObjectType = 'Litigation__c';
-			} else if (rec.Related_Organization__c != null) {
-				parentSObjectType = 'Related_Organization__c';
-			} else {
-				parentSObjectType = 'Staffing_Assignment__c';
-			}
-		}
-		return parentSObjectType;
-		} set;
-	}
 
     /***********************************
      * Variable for Recusal
@@ -100,16 +78,6 @@ public without sharing class ReviewRecusalExtension {
      * Variables for Users
      *****************************************/
 	public Id userId {get; set;}
-	public User user {get {
-		if(user == null) {
-			user = new User();
-			for(User u : [SELECT Id, Name From User Where Id =: userId]) {
-				user = u;
-			}
-		}
-		return user;
-		} set;
-	}
 	//Set of all Ids from users with Staffing Roles
 	public Set<Id> userIdSet {get {
 		if(userIdSet == null) {
@@ -157,7 +125,7 @@ public without sharing class ReviewRecusalExtension {
 	 *********************/
 	
 	public ReviewRecusalExtension (ApexPages.StandardController stdController) {
-		stdController.addFields(parentFieldNames);//add fields that will be referenced to avoid "field not retrieved by soql" error
+		if (!Test.isRunningTest()) {stdController.addFields(parentFieldNames);}//add fields that will be referenced to avoid "field not retrieved by soql" error
         rec = (Recusal__c)stdController.getRecord();
         if (ApexPages.currentPage().getParameters() != null && ApexPages.currentPage().getParameters().get('userId') != null) {
             userId = ApexPages.currentPage().getParameters().get('userId');

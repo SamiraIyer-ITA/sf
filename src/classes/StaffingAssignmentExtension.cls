@@ -194,7 +194,7 @@ public without sharing class StaffingAssignmentExtension {
 	 * Constructors
 	 *********************/
 	public StaffingAssignmentExtension (ApexPages.StandardController stdController) {
-		stdController.addFields(parentFieldNames);//add fields that will be referenced to avoid "field not retrieved by soql" error
+		if (!Test.isRunningTest()) {stdController.addFields(parentFieldNames);}//add fields that will be referenced to avoid "field not retrieved by soql" error
 		//If this is a page reload, there will be parameters, not a record
 		if (ApexPages.currentPage().getParameters() != null && ApexPages.currentPage().getParameters().get('parentId') != null) {
             parentId = ApexPages.currentPage().getParameters().get('parentId');
