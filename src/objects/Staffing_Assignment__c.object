@@ -445,6 +445,13 @@ IF( Segment__c != null, Segment__r.Link__c ,
         <searchFilterFields>Title__c</searchFilterFields>
         <searchFilterFields>User__c</searchFilterFields>
         <searchFilterFields>Related_Organization__c</searchFilterFields>
+        <searchResultsAdditionalFields>Parent__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADCVD_Case_Number__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Country__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADCVD_Case_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Product__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Title__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>User__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
