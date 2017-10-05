@@ -229,7 +229,7 @@ public class SegmentTriggerHandlerTest {
 		setExtensions();
 		getNewSegs();
 		//Anti-Circumvention Review
-		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(acSeg.Application_Accepted__c.addDays(45).addDays(7));
+		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(acSeg.Application_Accepted__c.addDays(45));
 
 		Test.stopTest();
 		System.assertEquals(testCalculated,
@@ -312,14 +312,9 @@ public class SegmentTriggerHandlerTest {
 		getNewSegs();//trigger new query in class variables
 		testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(siSeg.Actual_Date_of_Decision_on_HoP__c.addDays(75).addDays(7));
 		//compare Actual_Date_of_Decision_on_HoP__c + Prelim_Extension__c
-		System.assertEquals(testActual,
-			[SELECT Id, Calculated_Preliminary_Signature__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Calculated_Preliminary_Signature__c);
-
-		//Based on Not Formal
-		clearFormal();
-
+		
 		Test.stopTest();
-		System.assertEquals(null,
+		System.assertEquals(testActual,
 			[SELECT Id, Calculated_Preliminary_Signature__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Calculated_Preliminary_Signature__c);
 	}
 
@@ -353,7 +348,7 @@ public class SegmentTriggerHandlerTest {
         acSeg.Type_of_Circumvention_Inquiry__c = 'Later-Developed Merchandise';
         update acSeg;
         getNewSegs();
-		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(acSeg.Calculated_Initiation_Signature__c.addDays(120).addDays(7));
+		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(acSeg.Calculated_Initiation_Signature__c.addDays(120));
 		//compare Calculated_Initiation_Signature__c + Prelim_Extension__c
 		System.assertEquals(testCalculated,
 			[SELECT Id, Calculated_Preliminary_Signature__c FROM Segment__c WHERE Id =: acSeg.Id LIMIT 1].Calculated_Preliminary_Signature__c);
@@ -361,7 +356,7 @@ public class SegmentTriggerHandlerTest {
 		//Based on Actual
 		acSeg.Actual_Initiation_Signature__c = acSeg.Calculated_Initiation_Signature__c.addDays(-14);
 		update acSeg;
-		testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(acSeg.Actual_Initiation_Signature__c.addDays(120).addDays(7));
+		testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(acSeg.Actual_Initiation_Signature__c.addDays(120));
 
 		Test.stopTest();
 		//compare Actual_Initiation_Signature__c + Prelim_Extension__c
@@ -443,15 +438,10 @@ public class SegmentTriggerHandlerTest {
 		////Based on Formal
 		//compare Calculated_Preliminary_Signature__c
 		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(siSeg.Calculated_Preliminary_Signature__c.addDays(-21));
-		System.assertEquals(testCalculated,
-			[SELECT Id, Prelim_Team_Meeting_Deadline__c FROM  Segment__c WHERE Id =: siSeg.Id LIMIT 1].Prelim_Team_Meeting_Deadline__c);
-		
-		//Based on Not Formal
-		clearFormal();
 
 		Test.stopTest();
-		System.assertEquals(null,
-			[SELECT Id, Prelim_Team_Meeting_Deadline__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Prelim_Team_Meeting_Deadline__c);
+		System.assertEquals(testCalculated,
+			[SELECT Id, Prelim_Team_Meeting_Deadline__c FROM  Segment__c WHERE Id =: siSeg.Id LIMIT 1].Prelim_Team_Meeting_Deadline__c);
 	}
 
 	//setPrelimTeamMeetingDeadline
@@ -605,13 +595,10 @@ public class SegmentTriggerHandlerTest {
 
 		//Based on Not Formal
 		testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(siSeg.Actual_Date_of_Decision_on_HoP__c.addDays(120).addDays(7));
-		System.assertEquals(testActual,
-			[SELECT Id, Calculated_Final_Signature__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Calculated_Final_Signature__c);
-		clearFormal();
 
 		Test.stopTest();
-		System.assertEquals(null,
-			[SELECT Id, Final_Extension_of_days__c, Calculated_Final_Signature__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Final_Extension_of_days__c);
+		System.assertEquals(testActual,
+			[SELECT Id, Calculated_Final_Signature__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Calculated_Final_Signature__c);
 	}
 
 	//setCalculatedFinalSignature for the Expedited Review
@@ -652,15 +639,17 @@ public class SegmentTriggerHandlerTest {
 
 		//Anti_circumvention Review
 		//Based on Calculated
-		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(acSeg.Calculated_Initiation_Signature__c.addDays(300).addDays(7));
+		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(acSeg.Calculated_Initiation_Signature__c.addDays(300));
 		//compare Calculated_Preliminary_Signature__c + Final_Extension_of_days__c
 		System.assertEquals(testCalculated,
 			[SELECT Id, Calculated_Final_Signature__c FROM Segment__c WHERE Id =: acSeg.Id LIMIT 1].Calculated_Final_Signature__c);
 
 		//Based on Actual
+		acSeg.Type_of_Circumvention_Inquiry__c = 'Minor Alterations of Merchandise';
+		acSeg.Preliminary_Determination__c = 'No';
 		acSeg.Actual_Initiation_Signature__c = acSeg.Calculated_Initiation_Signature__c.addDays(-14);
 		update acSeg;
-		testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(acSeg.Actual_Initiation_Signature__c.addDays(300).addDays(7));
+		testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(acSeg.Actual_Initiation_Signature__c.addDays(300));
 		//compare Actual_Initiation_Signature__c + Final_Extension_of_days__c
 		
 		Test.stopTest();
@@ -812,15 +801,10 @@ public class SegmentTriggerHandlerTest {
 		//Based on Formal
 		//compare Calculated_Final_Signature__c
 		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(siSeg.Calculated_Final_Signature__c.addDays(-21));
-		System.assertEquals(testCalculated,
-			[SELECT Id, Final_Team_Meeting_Deadline__c FROM  Segment__c WHERE Id =: siSeg.Id LIMIT 1].Final_Team_Meeting_Deadline__c);
-
-		//Based on Not Formal
-		clearFormal();
 
 		Test.stopTest();
-		System.assertEquals(null,
-			[SELECT Id, Final_Team_Meeting_Deadline__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Final_Team_Meeting_Deadline__c);
+		System.assertEquals(testCalculated,
+			[SELECT Id, Final_Team_Meeting_Deadline__c FROM  Segment__c WHERE Id =: siSeg.Id LIMIT 1].Final_Team_Meeting_Deadline__c);
 	}
 
 	//setFinalTeamMeetingDeadline
@@ -2471,7 +2455,7 @@ public class SegmentTriggerHandlerTest {
 		acSeg = null;
 		System.assertEquals(acSeg.Prelim_Issues_Due_to_DAS__c, acSeg.Next_Due_to_DAS_Deadline__c);
 
-		acSeg.Type_of_Circumvention_Inquiry__c = 'Minor Altercations of Merchandise';
+		acSeg.Type_of_Circumvention_Inquiry__c = 'Minor Alterations of Merchandise';
 		acSeg.Preliminary_Determination__c = 'Yes';
 		update acSeg;
 		acSeg = null;
@@ -2529,7 +2513,7 @@ public class SegmentTriggerHandlerTest {
 		acSeg = null;
 		System.assertEquals(acSeg.Calculated_Initiation_Signature__c, acSeg.Next_Due_to_DAS_Deadline__c);
 
-		acSeg.Type_of_Circumvention_Inquiry__c = 'Minor Altercations of Merchandise';
+		acSeg.Type_of_Circumvention_Inquiry__c = 'Minor Alterations of Merchandise';
 		acSeg.Preliminary_Determination__c = 'No';
 		acSeg.Actual_Initiation_Signature__c = acSeg.Calculated_Initiation_Signature__c;
 		update acSeg;
@@ -2736,6 +2720,8 @@ public class SegmentTriggerHandlerTest {
 		System.assertEquals(siSeg.Deadline_for_Decision_on_How_to_Proceed__c, siSeg.Next_Due_to_DAS_Deadline__c);
 
 		siSeg.Decision_on_How_to_Proceed__c = 'Informal';
+		siSeg.Type_of_Scope_Ruling__c = 'K (1)';
+		siSeg.Segment_Outcome__c = 'Completed';
 		siSeg.Actual_Date_of_Decision_on_HoP__c = siSeg.Deadline_for_Decision_on_How_to_Proceed__c;
 		update siSeg;
 		siSeg = null;
@@ -3121,7 +3107,7 @@ public class SegmentTriggerHandlerTest {
 		acSeg = null;
 		System.assertEquals(acSeg.Calculated_Initiation_Signature__c, acSeg.Next_Office_Deadline__c);
 
-		acSeg.Type_of_Circumvention_Inquiry__c = 'Minor Altercations of Merchandise';
+		acSeg.Type_of_Circumvention_Inquiry__c = 'Minor Alterations of Merchandise';
 		acSeg.Preliminary_Determination__c = 'No';
 		acSeg.Actual_Initiation_Signature__c = acSeg.Calculated_Initiation_Signature__c;
 		update acSeg;
@@ -3360,6 +3346,7 @@ public class SegmentTriggerHandlerTest {
 		System.assertEquals(siSeg.Deadline_for_Decision_on_How_to_Proceed__c, siSeg.Next_Office_Deadline__c);
 
 		siSeg.Decision_on_How_to_Proceed__c = 'Informal';
+		siSeg.Segment_Outcome__c ='Completed';
 		siSeg.Actual_Date_of_Decision_on_HoP__c = siSeg.Deadline_for_Decision_on_How_to_Proceed__c;
 		update siSeg;
 		siSeg = null;
@@ -3824,6 +3811,8 @@ public class SegmentTriggerHandlerTest {
 		System.assertEquals('How To Proceed', [SELECT Id, Status__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Status__c);
 
 		siSeg.Decision_on_How_to_Proceed__c = 'Informal';
+		siSeg.Type_of_Scope_Ruling__c = 'K (1)';
+		siSeg.Segment_Outcome__c = 'Completed';
 		update siSeg;
 		getNewSegs();
 		System.assertEquals('Final', [SELECT Id, Status__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Status__c);
@@ -4065,9 +4054,9 @@ public class SegmentTriggerHandlerTest {
 	private static void setExtensions() {
 		List<Segment__c> segsToUpdate = new List<Segment__c>();
 		//ACR
-		acSeg.Initiation_Extension_of_days__c = acSeg.Initiation_Extension_of_days__c == null ? 7 : 7;
-		acSeg.Prelim_Extension__c = acSeg.Prelim_Extension__c == null ? 7 : 7;
-		acSeg.Final_Extension_of_days__c = adminSeg.Final_Extension_of_days__c == null ? 7 : 7;
+		acSeg.Initiation_Extension_of_days__c = (acSeg.Type_of_Circumvention_Inquiry__c == 'Later-Developed Merchandise' || acSeg.Preliminary_Determination__c == 'Yes') ? 7 : null;
+		acSeg.Prelim_Extension__c = (acSeg.Type_of_Circumvention_Inquiry__c == 'Later-Developed Merchandise' || acSeg.Preliminary_Determination__c == 'Yes') ? 7 : null;
+		acSeg.Final_Extension_of_days__c = (acSeg.Type_of_Circumvention_Inquiry__c == 'Later-Developed Merchandise' || acSeg.Preliminary_Determination__c == 'Yes') ? 7 : null;
 		segsToUpdate.add(acSeg);
 		//Administrative Review
 		adminSeg.Prelim_Extension__c = adminSeg.Prelim_Extension__c == null ? 7 : 7;
@@ -4075,7 +4064,7 @@ public class SegmentTriggerHandlerTest {
 		segsToUpdate.add(adminSeg);
 		//CCR
 		ccSeg.Initiation_Extension_of_days__c = ccSeg.Initiation_Extension_of_days__c == null ? 7 : 7;
-		ccSeg.Prelim_Extension__c = ccSeg.Prelim_Extension__c == null ? 7 : 7;
+		ccSeg.Prelim_Extension__c = ccSeg.Is_this_review_expedited__c != 'Yes' ? 7 : null;
 		ccSeg.Final_Extension_of_days__c = ccSeg.Final_Extension_of_days__c == null ? 7 : 7;
 		segsToUpdate.add(ccSeg);
 		//Expedited Review
@@ -4087,8 +4076,8 @@ public class SegmentTriggerHandlerTest {
 		nsSeg.Final_Extension_of_days__c = nsSeg.Final_Extension_of_days__c == null ? 7 : 7;
 		segsToUpdate.add(nsSeg);
 		//SI
-		siSeg.Prelim_Extension__c = siSeg.Prelim_Extension__c == null ? 7 : 7;
-		siSeg.Final_Extension_of_days__c = siSeg.Final_Extension_of_days__c == null ? 7 : 7;
+		siSeg.Prelim_Extension__c = siSeg.Decision_on_How_to_Proceed__c == 'Formal' ? 7 : null;
+		siSeg.Final_Extension_of_days__c = siSeg.Decision_on_How_to_Proceed__c == 'Formal' ? 7 : null;
 		siSeg.Initiation_Extension_of_days__c = siSeg.Initiation_Extension_of_days__c == null ? 7 : 7;
 		segsToUpdate.add(siSeg);
 		//SSR
@@ -4102,6 +4091,7 @@ public class SegmentTriggerHandlerTest {
 
 	private static void clearFormal() {
 		siSeg.Decision_on_How_to_Proceed__c = '';
+		siSeg.Actual_Date_of_Decision_on_HoP__c = null;
 		siSeg.Prelim_Extension__c = siSeg.Prelim_Extension__c = null;
 		siSeg.Final_Extension_of_days__c = siSeg.Final_Extension_of_days__c = null;
 		siSeg.Initiation_Extension_of_days__c = siSeg.Initiation_Extension_of_days__c = null;
