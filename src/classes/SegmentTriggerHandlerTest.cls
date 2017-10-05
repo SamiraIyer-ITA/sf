@@ -4056,6 +4056,7 @@ public class SegmentTriggerHandlerTest {
 		siSeg.Request_Filed__c = segmentDate;
 		siSeg.Actual_Date_of_Decision_on_HoP__c = segmentDate.addDays(21);
 		siSeg.Decision_on_How_to_Proceed__c = 'Formal';
+		siSeg.Type_of_Scope_Ruling__c = 'K (1)';
 		segsToUpdate.add(siSeg);
 
 		update segsToUpdate;
