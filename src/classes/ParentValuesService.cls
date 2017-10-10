@@ -4,6 +4,7 @@ public without sharing class ParentValuesService {
 		Set<String> potentialFields = new Set<String>{
 			'ADCVD_Case_Number__c',
 			'ADCVD_Case_Type__c',
+			'Commodity__c',
 			'Country__c',
 			'Product__c',
 			'Product_Short_Name__c',

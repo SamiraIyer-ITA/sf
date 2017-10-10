@@ -219,6 +219,17 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Commodity__c</fullName>
+        <externalId>false</externalId>
+        <label>Commodity</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Country__c</fullName>
         <externalId>false</externalId>
         <label>Country</label>
