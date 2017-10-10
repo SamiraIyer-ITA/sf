@@ -77,6 +77,16 @@ public without sharing class ReviewRecusalExtension {
     /******************************************
      * Variables for Users
      *****************************************/
+    public User user {get {
+ 		if(user == null) {
+ 			user = new User();
+ 			for(User u : [SELECT Id, Name From User Where Id =: userId]) {
+ 				user = u;
+ 			}
+ 		}
+ 		return user;
+ 		} set;
+ 	}
 	public Id userId {get; set;}
 	//Set of all Ids from users with Staffing Roles
 	public Set<Id> userIdSet {get {
