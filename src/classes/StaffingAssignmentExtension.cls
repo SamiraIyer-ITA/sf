@@ -405,7 +405,10 @@ public without sharing class StaffingAssignmentExtension {
 		List<Related_Organization__c> returnList = new List<Related_Organization__c>();
 		if (relOrgMap.isEmpty()) {
 			for(Related_Organization__c r : [SELECT ADCVD_Order__c, ADCVD_Order__r.ADCVD_Order_Name__c, Investigation__c, Investigation__r.Investigation_Name__c, 
-													Litigation__c, Litigation__r.Litigation_Name__c, Petition__c, Petition__r.Petition_Name__c, Segment__c, Segment__r.Segment_Name__c
+													Litigation__c, Litigation__r.Litigation_Name__c, Litigation__r.Petition__c, Litigation__r.Petition__r.Petition_Name__c, 
+													Litigation__r.Investigation__c, Litigation__r.Investigation__r.Investigation_Name__c, 
+													Litigation__r.Segment__c, Litigation__r.Segment__r.Segment_Name__c, 
+													Petition__c, Petition__r.Petition_Name__c, Segment__c, Segment__r.Segment_Name__c
 												FROM Related_Organization__c WHERE Id IN: parentRecordMap.keySet()]) {
 				relOrgMap.put(r.Id, r);
 			}
@@ -562,8 +565,17 @@ public without sharing class StaffingAssignmentExtension {
 					sa.Related_Org_Parent_Id__c = r.Investigation__c;
 					sa.Related_Org_Parent_Name__c = r.Investigation__r.Investigation_Name__c;
 				} else if (r.Litigation__c != null) {
-					sa.Related_Org_Parent_Id__c = r.Litigation__c;
-					sa.Related_Org_Parent_Name__c = r.Litigation__r.Litigation_Name__c;
+					if (r.Litigation__r.Petition__c != null) {
+						sa.Related_Org_Parent_Id__c = r.Litigation__r.Petition__c;
+						sa.Related_Org_Parent_Name__c = r.Litigation__r.Petition__r.Petition_Name__c;
+					} else if (r.Litigation__r.Investigation__c != null) {
+						sa.Related_Org_Parent_Id__c = r.Litigation__r.Investigation__c;
+						sa.Related_Org_Parent_Name__c = r.Litigation__r.Investigation__r.Investigation_Name__c;
+					} else if (r.Litigation__r.Segment__c != null) {
+						sa.Related_Org_Parent_Id__c = r.Litigation__r.Segment__c;
+						sa.Related_Org_Parent_Name__c = r.Litigation__r.Segment__r.Segment_Name__c;
+					}
+					
 				} else if (r.Petition__c != null) {
 					sa.Related_Org_Parent_Id__c = r.Petition__c;
 					sa.Related_Org_Parent_Name__c = r.Petition__r.Petition_Name__c;
