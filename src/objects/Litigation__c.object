@@ -426,6 +426,15 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Locked__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Locked</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Lotus_Notes_History_Data__c</fullName>
         <externalId>false</externalId>
         <label>Lotus Notes History Data</label>
@@ -1308,40 +1317,40 @@
         <fullName>Actual_Draft_Remand_released_Not_Blank</fullName>
         <active>true</active>
         <description>You cannot enter an Actual Draft Released Party Date until the Calculate Draft Released Party Date is not populated</description>
-        <errorConditionFormula>AND( 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND( 
 ISNULL( Calculated_Draft_Remand_release_to_party__c ), 
 NOT( ISNULL( Actual_Draft_Remand_released_to_party__c )) 
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorMessage>Calculated Draft Remand Released Date must be populated in order to enter Actual Draft Remand Released Date</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Actual_Final_Signature_Not_Blank</fullName>
         <active>true</active>
         <description>You cannot enter an Actual Final Signature Date until the Calculate Final Signature Date is not populated</description>
-        <errorConditionFormula>AND( 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND( 
 ISNULL( Calculated_Final_Signature__c ), 
 NOT( ISNULL( Actual_Final_Signature__c )) 
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorMessage>Calculated Final Signature Date must be populated in order to enter Actual Final Signature Date</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Actual_Initiation_Signature_Not_Blank</fullName>
         <active>true</active>
         <description>You cannot enter an Actual Initiation Signature Date until the Calculate Initiation Signature Date is not populated</description>
-        <errorConditionFormula>AND( 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND( 
 ISNULL( Calculated_Initiation_Signature__c ), 
 NOT( ISNULL( Actual_Initiation_Signature__c )) 
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorMessage>Calculated Initiation Signature Date must be populated in order to enter Actual Initiation Signature Date</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Actual_Preliminary_Signature_Not_Blank</fullName>
         <active>true</active>
         <description>You cannot enter an Actual Preliminary Signature Date until the Calculate Preliminary Signature Date is not populated</description>
-        <errorConditionFormula>AND( 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND( 
 ISNULL( Calculated_Preliminary_Signature__c ), 
 NOT( ISNULL( Actual_Preliminary_Signature__c )) 
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorMessage>Calculated Preliminary Signature Date must be populated in order to enter Actual Preliminary Signature Date</errorMessage>
     </validationRules>
     <validationRules>
@@ -1366,28 +1375,28 @@ NOT( ISNULL( Actual_Preliminary_Signature__c ))
     <validationRules>
         <fullName>International_Litigation_Final_Extension</fullName>
         <active>true</active>
-        <errorConditionFormula>And (
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And (
 $RecordType.DeveloperName = &quot;International_Litigation&quot;, 
   Final_Extension_of_days__c  &lt; 0
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorMessage>Final Extension cannot be less than zero.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>International_Litigation_Preli_Extension</fullName>
         <active>true</active>
-        <errorConditionFormula>And (
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And (
 $RecordType.DeveloperName = &quot;International_Litigation&quot;, 
    Prelim_Extension_of_days__c  &lt; 0
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorMessage>Preliminary Extension cannot be less than zero.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Remand_Final_Extension</fullName>
         <active>true</active>
-        <errorConditionFormula>And (
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And (
 $RecordType.DeveloperName = &quot;Remand&quot;, 
   Final_Extension_of_days__c  &lt; 0
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorMessage>Final Extension cannot be less than zero.</errorMessage>
     </validationRules>
     <visibility>Public</visibility>

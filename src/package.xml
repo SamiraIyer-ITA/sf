@@ -73,6 +73,7 @@
         <members>KnowledgeSearch__c</members>
         <members>Level__c</members>
         <members>Litigation__c</members>
+        <members>Master_Automation__c</members>
         <members>Master_CongressionalDistrict__c</members>
         <members>My_Profile_Option__c</members>
         <members>Navigation_Group__c</members>

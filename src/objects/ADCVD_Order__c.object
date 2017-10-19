@@ -175,6 +175,14 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Locked__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Locked</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Lotus_Notes_History_Data__c</fullName>
         <externalId>false</externalId>
         <label>Lotus Notes History Data</label>

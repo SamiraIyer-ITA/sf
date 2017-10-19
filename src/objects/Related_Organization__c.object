@@ -99,7 +99,6 @@
         <externalId>false</externalId>
         <label>ADCVD Order</label>
         <referenceTo>ADCVD_Order__c</referenceTo>
-        <relationshipLabel>Related Organizations</relationshipLabel>
         <relationshipName>Related_Organizations</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -112,7 +111,6 @@
         <externalId>false</externalId>
         <label>Account</label>
         <referenceTo>Account</referenceTo>
-        <relationshipLabel>Related Organizations</relationshipLabel>
         <relationshipName>Related_Organizations</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -159,7 +157,6 @@
             <isOptional>false</isOptional>
         </lookupFilter>
         <referenceTo>Custom_Instruction__c</referenceTo>
-        <relationshipLabel>Related Organizations</relationshipLabel>
         <relationshipName>Related_Organizations</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -181,7 +178,6 @@
         <externalId>false</externalId>
         <label>Investigation</label>
         <referenceTo>Investigation__c</referenceTo>
-        <relationshipLabel>Related Organizations</relationshipLabel>
         <relationshipName>Related_Organizations</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -194,7 +190,6 @@
         <externalId>false</externalId>
         <label>Legal Representation</label>
         <referenceTo>Related_Organization__c</referenceTo>
-        <relationshipLabel>Legal Representation</relationshipLabel>
         <relationshipName>Related_Organizations</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -218,7 +213,6 @@
         <externalId>false</externalId>
         <label>Litigation</label>
         <referenceTo>Litigation__c</referenceTo>
-        <relationshipLabel>Related Organizations</relationshipLabel>
         <relationshipName>Related_Organizations</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -242,7 +236,6 @@
         <externalId>false</externalId>
         <label>Petition</label>
         <referenceTo>Petition__c</referenceTo>
-        <relationshipLabel>Related Organizations</relationshipLabel>
         <relationshipName>Related_Organizations</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -297,7 +290,6 @@
         <externalId>false</externalId>
         <label>Segment</label>
         <referenceTo>Segment__c</referenceTo>
-        <relationshipLabel>Related Organizations</relationshipLabel>
         <relationshipName>Related_Organizations</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -395,14 +387,14 @@
             </valueSetDefinition>
         </valueSet>
     </fields>
-    <label>Related Organization</label>
+    <label>Interested Organization</label>
     <nameField>
         <displayFormat>RO-{000000}</displayFormat>
         <label>Related Organization Name</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Related Organizations</pluralLabel>
+    <pluralLabel>Interested Organizations</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>Customs_Instructions_Only</fullName>

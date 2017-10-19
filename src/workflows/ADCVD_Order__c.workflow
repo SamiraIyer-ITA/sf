@@ -16,7 +16,12 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>OR(  ISNEW(),  ISBLANK( This_Investigation_has_an_Order__c ),  ISCHANGED( This_Investigation_has_an_Order__c ) )</formula>
+        <formula>AND($Setup.Master_Automation__c.WorkflowRulesEnabled__c == true, Locked__c == false, OR(
+ ISNEW(),
+ ISBLANK( This_Investigation_has_an_Order__c ),
+ ISCHANGED( This_Investigation_has_an_Order__c )
+)
+)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

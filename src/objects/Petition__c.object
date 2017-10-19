@@ -695,6 +695,15 @@ C-###-### for CVD</inlineHelpText>
         </valueSet>
     </fields>
     <fields>
+        <fullName>Locked__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Locked</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Lotus_Notes_Litigation_ID__c</fullName>
         <externalId>false</externalId>
         <label>Lotus Notes Litigation ID</label>
@@ -1031,9 +1040,11 @@ C-###-### for CVD</inlineHelpText>
         <fullName>Actual_Initiation_Signature_Not_Blank</fullName>
         <active>true</active>
         <description>You cannot enter an Actual Initiation Signature Date until the Calculate Initiation Signature Date in not populated</description>
-        <errorConditionFormula>AND( 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,
+AND( 
 ISNULL( Calculated_Initiation_Signature__c ), 
 NOT( ISNULL( Actual_Initiation_Signature__c )) 
+)
 )</errorConditionFormula>
         <errorMessage>Calculated Initiation Signature Date must be populated in order to enter Actual Initiation Signature Date</errorMessage>
     </validationRules>
@@ -1041,13 +1052,12 @@ NOT( ISNULL( Actual_Initiation_Signature__c ))
         <fullName>Actual_Initiation_Signature_Not_Required</fullName>
         <active>true</active>
         <description>If type of Petition Segment is equals to any of those two options then Actual Initiation Signature must not be selected</description>
-        <errorConditionFormula>AND ( 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,
+AND ( 
 OR (ISPICKVAL(Petition_Outcome__c, &apos;Deficient Petition/Did Not Initiate&apos;), 
-
 ISPICKVAL(Petition_Outcome__c, &apos;Petition Withdrawn/Did Not Initiate&apos;)), 
-
 NOT(ISBLANK(TEXT(Actual_Initiation_Signature__c))) 
-
+)
 )</errorConditionFormula>
         <errorMessage>Actual initiation Signature must not be selected with the Type of Petition Outcome selected</errorMessage>
     </validationRules>
@@ -1055,13 +1065,12 @@ NOT(ISBLANK(TEXT(Actual_Initiation_Signature__c)))
         <fullName>Actual_Initiation_Signature_Required</fullName>
         <active>true</active>
         <description>If type of Petition Segment is equals to any of those two options then Actual Initiation Signature must be selected</description>
-        <errorConditionFormula>AND (
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,
+AND (
 OR (ISPICKVAL(Petition_Outcome__c, &apos;Initiated from Petition&apos;),
-
 ISPICKVAL(Petition_Outcome__c, &apos;Self-Initiated&apos;)),
-
 ISBLANK(TEXT(Actual_Initiation_Signature__c))
-
+)
 )</errorConditionFormula>
         <errorMessage>Actual initiation Signature must have a value with the Type of Petition Outcome selected</errorMessage>
     </validationRules>
@@ -1069,9 +1078,9 @@ ISBLANK(TEXT(Actual_Initiation_Signature__c))
         <fullName>CBP_Case_number_for_AD_and_CVD_Format</fullName>
         <active>true</active>
         <description>CBP Case Number must be formatted specifically this way.</description>
-        <errorConditionFormula>IF(TEXT(ADCVD_Case_Type__c) = &quot;CVD&quot;, 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,IF(TEXT(ADCVD_Case_Type__c) = &quot;CVD&quot;, 
 (NOT(OR(ISBLANK( CBP_Case_Number__c ),REGEX( CBP_Case_Number__c ,&quot;C-[0-9]{3}-[0-9]{3}&quot;)))), 
-(NOT(OR(ISBLANK(CBP_Case_Number__c ),REGEX( CBP_Case_Number__c ,&quot;A-[0-9]{3}-[0-9]{3}&quot;)))) )</errorConditionFormula>
+(NOT(OR(ISBLANK(CBP_Case_Number__c ),REGEX( CBP_Case_Number__c ,&quot;A-[0-9]{3}-[0-9]{3}&quot;)))) ))</errorConditionFormula>
         <errorDisplayField>CBP_Case_Number__c</errorDisplayField>
         <errorMessage>Format should be A-###-### or C-###-###</errorMessage>
     </validationRules>
@@ -1079,26 +1088,26 @@ ISBLANK(TEXT(Actual_Initiation_Signature__c))
         <fullName>Case_number_for_AD_and_CVD_Format</fullName>
         <active>true</active>
         <description>Case Number must be formatted specifically this way.</description>
-        <errorConditionFormula>IF(TEXT(ADCVD_Case_Type__c) = &quot;CVD&quot;, 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,IF(TEXT(ADCVD_Case_Type__c) = &quot;CVD&quot;, 
 (NOT(OR(ISBLANK(ADCVD_Case_Number__c),REGEX( ADCVD_Case_Number__c,&quot;C-[0-9]{3}-[0-9]{3}&quot;)))), 
-(NOT(OR(ISBLANK(ADCVD_Case_Number__c),REGEX( ADCVD_Case_Number__c,&quot;A-[0-9]{3}-[0-9]{3}&quot;)))) )</errorConditionFormula>
+(NOT(OR(ISBLANK(ADCVD_Case_Number__c),REGEX( ADCVD_Case_Number__c,&quot;A-[0-9]{3}-[0-9]{3}&quot;)))) ))</errorConditionFormula>
         <errorDisplayField>ADCVD_Case_Number__c</errorDisplayField>
         <errorMessage>Format should be A-###-### or C-###-###</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>ExtensionBound</fullName>
         <active>true</active>
-        <errorConditionFormula>Initiation_Extension_of_days__c &gt; 20 || Initiation_Extension_of_days__c &lt; 0</errorConditionFormula>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,Initiation_Extension_of_days__c &gt; 20 || Initiation_Extension_of_days__c &lt; 0)</errorConditionFormula>
         <errorDisplayField>Initiation_Extension_of_days__c</errorDisplayField>
         <errorMessage>Initiation extension cannot exceed more than 20 days.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Lit_Resolved_Required_If_Lit_Is_Yes</fullName>
         <active>true</active>
-        <errorConditionFormula>AND( 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND( 
  ISPICKVAL( Litigation_YesNo__c , &apos;Yes&apos;) ,
  ISPICKVAL( Litigation_Resolved__c , &apos;&apos;)
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorDisplayField>Litigation_Resolved__c</errorDisplayField>
         <errorMessage>Litigation Resolved must cannot be blank if Litigation equals &quot;Yes&quot;</errorMessage>
     </validationRules>
@@ -1106,28 +1115,28 @@ ISBLANK(TEXT(Actual_Initiation_Signature__c))
         <fullName>Litigation_Resolved_Required</fullName>
         <active>true</active>
         <description>Litigation Resolved cannot be blank if Litigation is &apos;Yes&apos;</description>
-        <errorConditionFormula>AND ( 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND ( 
 ISPICKVAL( Litigation_YesNo__c , &apos;Yes&apos;), 
 ISBLANK( TEXT( Litigation_Resolved__c ) ) 
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorMessage>Litigation Resolved cannot be blank when Litigation is &quot;Yes&quot;</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Petition_Outcome_Required</fullName>
         <active>true</active>
         <description>IF Actual_Initiation_Signature__c is not blank THEN Petition_Outcome__c should be required</description>
-        <errorConditionFormula>AND (
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND (
 NOT(ISBLANK(TEXT(Actual_Initiation_Signature__c ))),
-ISPICKVAL(Petition_Outcome__c, &apos;&apos;))</errorConditionFormula>
+ISPICKVAL(Petition_Outcome__c, &apos;&apos;)))</errorConditionFormula>
         <errorMessage>Petition Outcome is required in order to choose Actual Initiation Signature</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Petition_Outcome_Required_for_Actual_Sig</fullName>
         <active>true</active>
-        <errorConditionFormula>AND( 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND( 
    NOT(ISNULL(Actual_Initiation_Signature__c)),
    ISBLANK(TEXT(Petition_Outcome__c ))
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorDisplayField>Petition_Outcome__c</errorDisplayField>
         <errorMessage>The Petition Outcome is required to enter an Actual Initiation Signature</errorMessage>
     </validationRules>

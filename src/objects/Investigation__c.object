@@ -1165,6 +1165,15 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Locked__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Locked</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Lotus_Notes_History_Data__c</fullName>
         <externalId>false</externalId>
         <label>Lotus Notes History Data</label>
@@ -2816,29 +2825,29 @@
         <fullName>Actual_Amended_Final_Signature_Not_Blank</fullName>
         <active>true</active>
         <description>You cannot enter an Actual Amended Final Signature Date until the Calculate Amended Final Signature Date is not populated</description>
-        <errorConditionFormula>AND( 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND( 
 ISNULL( Calculated_Amended_Final_Signature__c ), 
 NOT( ISNULL( Actual_Amended_Final_Signature__c )) 
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorMessage>Calculated Amended Final Signature Date must be populated in order to enter Actual Amended Final Signature Date</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Actual_Amended_Prelim_Determ_Not_Blank</fullName>
         <active>true</active>
         <description>You cannot enter an Actual Amended Prelim Determination Date until the Calculate Amended Prelim Determination Date is not populated</description>
-        <errorConditionFormula>AND( 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND( 
 ISNULL(Calc_Amended_Prelim_Determination_Sig__c ), 
 NOT( ISNULL( Actual_Amended_Prelim_Determination_Sig__c )) 
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorMessage>Calculated Amended Prelim Determination Date must be populated in order to enter Actual Amended Prelim Determination Date</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Actual_Final_Required_for_DOC_Neg</fullName>
         <active>true</active>
-        <errorConditionFormula>AND( 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND( 
 ISNULL(  Actual_Final_Signature__c ), 
  ISPICKVAL( Investigation_Outcome__c , &apos;DOC Negative Final&apos;) 
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorDisplayField>Actual_Final_Signature__c</errorDisplayField>
         <errorMessage>The Actual Final Signature date is required when Investigation Outcome is &quot;DOC Negative Final&quot;</errorMessage>
     </validationRules>
@@ -2846,106 +2855,114 @@ ISNULL(  Actual_Final_Signature__c ),
         <fullName>Actual_Final_Signature_Not_Blank</fullName>
         <active>true</active>
         <description>You cannot enter an Actual Final Signature Date until the Calculate Final Signature Date is not populated</description>
-        <errorConditionFormula>AND( 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND( 
 ISNULL( Calculated_Final_Signature__c ), 
 NOT( ISNULL( Actual_Final_Signature__c )) 
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorMessage>Calculated Final Signature Date must be populated in order to enter Actual Final Signature Date</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Actual_Preliminary_Signature_Not_Blank</fullName>
         <active>true</active>
         <description>You cannot enter an Actual Preliminary Signature Date until the Calculate Preliminary Signature Date in not populated</description>
-        <errorConditionFormula>AND( 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND( 
 ISNULL( Calculated_Preliminary_Signature__c ), 
 NOT( ISNULL( Actual_Preliminary_Signature__c )) 
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorMessage>Calculated Preliminary Signature Date must be populated in order to enter Actual Preliminary Signature Date</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Bounded_Days_For_AD_Final_Extension</fullName>
         <active>true</active>
-        <errorConditionFormula>And (
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,And (
 $RecordType.DeveloperName = &quot;AD&quot;, 
 OR(Final_Extension_of_days__c &gt; 60, Final_Extension_of_days__c &lt; 0)
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorMessage>Final extension # of days on AD Investigation can only range from 1 to 60 days.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Bounded_Days_For_AD_Prelim_Extension</fullName>
         <active>true</active>
-        <errorConditionFormula>And (
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,And (
 $RecordType.DeveloperName = &quot;AD&quot;, 
 OR(Prelim_Extension_of_days__c &gt; 50,  Prelim_Extension_of_days__c &lt; 0)
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorMessage>Preliminary extension # of days on AD Investigation can only range from 1 to 50 days.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Bounded_Days_For_CVD_Final_Extension</fullName>
         <active>true</active>
-        <errorConditionFormula>And (
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,And (
 $RecordType.DeveloperName = &quot;CVD&quot;, 
 OR(Final_Extension_of_days__c &gt; 90, Final_Extension_of_days__c &lt; 0)
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorMessage>Final extension # of days on CVD Investigation can only range from 1 to 90 days.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Bounded_Days_For_CVD_Prelim_Extension</fullName>
         <active>true</active>
-        <errorConditionFormula>And (
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,And (
 $RecordType.DeveloperName = &quot;CVD&quot;, 
 OR(Prelim_Extension_of_days__c &gt; 65, Prelim_Extension_of_days__c &lt; 0)
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorMessage>Preliminary extension # of days on CVD Investigation can only range from 1 to 65 days.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Calc_Amended_Prelim_Determination_Null</fullName>
         <active>true</active>
-        <errorConditionFormula>AND ( 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND ( 
 $RecordType.DeveloperName = &quot;CVD&quot;, 
 ISPICKVAL(Amend_the_Preliminary_Determination__c , &quot;No&quot;), 
 NOT(AND(ISBLANK( Calc_Amended_Prelim_Determination_Sig__c ))) 
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorMessage>If Amend the Preliminary Determination is &quot;No&quot;, then there should be null for Calculated Amended Preliminary Determination Signature field.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Cannot_Edit_Locked_Record</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Profile.Name != &apos;System Administrator&apos;,
+Locked__c == true
+)</errorConditionFormula>
+        <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Custom_Instruction_Required</fullName>
         <active>true</active>
         <description>Cannot answer Have_Custom_Instruction_been_sent__c unless Litigation_YesNo__c is populated.</description>
-        <errorConditionFormula>AND (
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND (
   ISBLANK(TEXT(Litigation_YesNo__c )),
   NOT(ISBLANK(TEXT(Have_Custom_Instruction_been_sent__c)))
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorMessage>Litigation cannot be blank when Have Custom Instructions is populated</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Final_Extension_Null_If_False</fullName>
         <active>true</active>
-        <errorConditionFormula>AND (
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND (
 $RecordType.DeveloperName = &quot;CVD&quot;, 
  ISPICKVAL( Upstream_Subsidy_Allegation__c , &quot;No&quot;),
  NOT(AND(ISBLANK( Final_Extension_of_days__c)))
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorMessage>If upstream subsidy allegation is &quot;No&quot; , then final extensions of day must be null.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Litigation_Resolved_Required</fullName>
         <active>true</active>
         <description>Litigation Resolved is required when Litigation is set to yes</description>
-        <errorConditionFormula>AND ( 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND ( 
   ISPICKVAL( Litigation_YesNo__c , &apos;Yes&apos;),
   ISBLANK( TEXT( Litigation_Resolved__c ) )
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorDisplayField>Litigation_Resolved__c</errorDisplayField>
         <errorMessage>Litigation Resolved cannot be blank when Litigation is &quot;Yes&quot;</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Petition_Withdrawn_Date_Required</fullName>
         <active>true</active>
-        <errorConditionFormula>AND( 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND( 
 ISNULL( Petition_Withdrawn__c ), 
  ISPICKVAL( Investigation_Outcome__c , &apos;Petition Withdrawn After Initiation&apos;) 
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorDisplayField>Petition_Withdrawn__c</errorDisplayField>
         <errorMessage>The Petition Withdrawn date is required when Investigation Outcome is &quot;Petition Withdrawn After Initiation&quot;</errorMessage>
     </validationRules>
