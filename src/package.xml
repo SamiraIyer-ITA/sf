@@ -134,6 +134,30 @@
         <name>Profile</name>
     </types>
     <types>
+        <members>AD_Policy_Analyst</members>
+        <members>AD_Policy_Manager</members>
+        <members>ADCVD_Accounting</members>
+        <members>ADCVD_Accounting_Staff</members>
+        <members>ADCVD_Accting_Program_Mgr</members>
+        <members>ADCVD_APO</members>
+        <members>ADCVD_CRU</members>
+        <members>ADCVD_Customs</members>
+        <members>ADCVD_Customs_Staff</members>
+        <members>ADCVD_Legal</members>
+        <members>ADCVD_Legal_Staff</members>
+        <members>ADCVD_PCAU_Staff</members>
+        <members>ADCVD_Petitions</members>
+        <members>ADCVD_Policy</members>
+        <members>ADCVD_SI_Staff</members>
+        <members>ADCVD_Sr_Legal</members>
+        <members>CVD_Policy_Analyst</members>
+        <members>CVD_Policy_Manager</members>
+        <members>E_C_DAS_AS</members>
+        <members>E_C_Operations</members>
+        <members>E_C_Operations_Analyst</members>
+        <name>Role</name>  
+    <types>
+    <types>
         <members>*</members>
         <name>Workflow</name>
     </types>
