@@ -118,6 +118,10 @@
         <name>CustomObject</name>
     </types>
     <types>
+        <members>Edit_ADCVD_Locked_Records</members>
+        <name>CustomPermission</name>
+    </types>
+    <types>
         <members>*</members>
         <name>CustomTab</name>
     </types>
@@ -128,6 +132,10 @@
     <types>
         <members>*</members>
         <name>PathAssistant</name>
+    </types>
+    <types>
+        <members>Edit_ADCVD_Locked_Records</members>
+        <name>PermissionSet</name>
     </types>
     <types>
         <members>*</members>

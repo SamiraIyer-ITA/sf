@@ -18,6 +18,7 @@ public without sharing class SegmentTriggerHandler {
 		if (!AppConfigService.triggerEnabled) {return;}
 
 		if (isBefore && isInsert) {
+			newList = new LockedRecordHandler().removeLockedRecords(newList);
 			initialize(newList, newMap);
 			syncToAdcvdOrder(newList, isInsert);
 			syncToAdministrativeReview(newList);
@@ -26,6 +27,7 @@ public without sharing class SegmentTriggerHandler {
 			runValidations(newList);
 		}
 		if (isBefore && isUpdate) {
+			newList = new LockedRecordHandler().removeLockedRecords(newList);
 			initialize(newList, newMap);
 			syncToAdministrativeReview(newList);
 			calculateSegmentDates(newList);
@@ -63,7 +65,7 @@ public without sharing class SegmentTriggerHandler {
 
 	//Setup Methods used to set class level variables
 	@TestVisible private static void initialize(List<Segment__c> newList, Map<Id,Segment__c> newMap) {
-		recordTypeNameMap = utils.getRecordTypeDeveloperNameMap(newList[0]);
+		recordTypeNameMap = utils.getRecordTypeDeveloperNameMap('Segment__c');
 		if(newMap != null) {
 			ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get Segments with an Id
 			frUtilMap = listInstance.utilMap;
@@ -72,7 +74,7 @@ public without sharing class SegmentTriggerHandler {
 
 	//Syncs Order Fields to Segment only on insert
 	@TestVisible private static void syncToAdcvdOrder(List<Segment__c> newList, Boolean isInsert) {
-		if (isInsert) SyncUtility.syncObject(newList, 'ADCVD_Order__c');
+		if (isInsert && !newList.isEmpty()) SyncUtility.syncObject(newList, 'ADCVD_Order__c');
 	}
 
 	//Syncs New Shipper Reviews in scope to Administrative Reviews
@@ -84,8 +86,7 @@ public without sharing class SegmentTriggerHandler {
     			newShipperReviewsToSyncList.add(s);
     		}
     		if (!newShipperReviewsToSyncList.isEmpty()) {
-    			SyncUtility.syncObject(newShipperReviewsToSyncList, null, true);// su = ADCVDServiceDispatcher.getSyncUtilityInstance('Segment__c');
-        		//su.syncObject(newShipperReviewsToSyncList, 'Segment__c');
+    			SyncUtility.syncObject(newShipperReviewsToSyncList, null, true);
             }
     	}
     }
@@ -137,7 +138,7 @@ public without sharing class SegmentTriggerHandler {
 
 	@TestVisible private static void recalculateOrdersOnSegmentDelete(Map<Id,Segment__c> oldMap) {
 		List<Segment__c> segmentsToDelete = new List<Segment__c>();
-		for (Segment__c s : [SELECT Id, Segment_Outcome__c, Do_Delete__c FROM Segment__c WHERE Id IN: oldMap.keySet()]) {
+		for (Segment__c s : [SELECT Id, Segment_Outcome__c, Do_Delete__c FROM Segment__c WHERE Id IN: oldMap.keySet() AND Locked__c =: false]) {
 			s.Do_Delete__c = true;
 			segmentsToDelete.add(s);
 		}
@@ -146,7 +147,7 @@ public without sharing class SegmentTriggerHandler {
 
 	//updates a list of New Shipper Reviews if they are aligned to a Administrative Review in scope that was updated
     @TestVisible private static void recalculateNewShipperReviews(Map<Id,Segment__c> newMap) {
-        List<Segment__c> newShipperReviewsToSyncList = [SELECT Id FROM Segment__c WHERE Administrative_Review_Aligned_To__c IN: newMap.keySet()];
+        List<Segment__c> newShipperReviewsToSyncList = [SELECT Id FROM Segment__c WHERE Administrative_Review_Aligned_To__c IN: newMap.keySet() AND Locked__c =: false];
         update newShipperReviewsToSyncList;
     }
 

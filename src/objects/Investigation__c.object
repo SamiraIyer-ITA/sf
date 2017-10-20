@@ -2920,8 +2920,9 @@ NOT(AND(ISBLANK( Calc_Amended_Prelim_Determination_Sig__c )))
     <validationRules>
         <fullName>Cannot_Edit_Locked_Record</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($Profile.Name != &apos;System Administrator&apos;,
-Locked__c == true
+        <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false,
+Locked__c == true,
+NOT(ISCHANGED(Locked__c))
 )</errorConditionFormula>
         <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
     </validationRules>

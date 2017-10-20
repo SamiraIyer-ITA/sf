@@ -18,12 +18,14 @@ public without sharing class ADCVDOrderTriggerHandler {
         if (!AppConfigService.triggerEnabled) {return;}
 
         if (isBefore && isInsert) {
+            newList = new LockedRecordHandler().removeLockedRecords(newList);
             initialize(newList,newMap);
             calculateOrderDates(newList);
             calculateOrderStatuses(newList);
             runCustomValidations(newList);
         }
         if (isBefore && isUpdate) {
+            newList = new LockedRecordHandler().removeLockedRecords(newList);
             initialize(newList,newMap);
             calculateOrderDates(newList);
             calculateOrderStatuses(newList);

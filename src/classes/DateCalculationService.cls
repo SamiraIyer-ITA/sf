@@ -19,9 +19,15 @@ public without sharing class DateCalculationService {
     }
 
     @TestVisible private void calculateDates(SObject record, String soType) {
+    	Date goLiveDate = Date.newInstance(2017, 10, 30);
     	for (String key : dateCalculations.keySet()) {
     		Date_Calculation__mdt dc = dateCalculations.get(key);
     		String calculatedDateName = dc.Calculated_Date_Field_Name__c;
+    		String actualDateName = dc.Actual_Date_Field_Name__c != '' ? dc.Actual_Date_Field_Name__c : '';
+    		if ((Date)record.get(calculatedDateName && !Test.isRunningTest()) < goLiveDate) {continue;}
+    		if (!String.isBlank(actualDateName) && !Test.isRunningTest()) {
+    			if ((Date)record.get(actualDateName) != null) {continue;}
+    		}
     		System.debug('*** calculatedDateName: ' + calculatedDateName);
     		Integer numberOfBaseDates = (Integer) dc.Number_of_Base_Date_Fields__c;
     		Integer numberOfConditionals = (Integer) dc.Number_of_Conditionals__c;
