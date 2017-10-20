@@ -2198,9 +2198,9 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Was_Product_Prelim_Determine_on_Scope__c</fullName>
+        <fullName>Was_Product_Prelim_Determine_in_Scope__c</fullName>
         <externalId>false</externalId>
-        <label>Was Product Prelim Determine on Scope?</label>
+        <label>Was Product Prelim Determine in Scope?</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -3064,7 +3064,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Was_Product_Prelim_Determine_on_Scope__c</picklist>
+            <picklist>Was_Product_Prelim_Determine_in_Scope__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -3860,7 +3860,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Was_Product_Prelim_Determine_on_Scope__c</picklist>
+            <picklist>Was_Product_Prelim_Determine_in_Scope__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -4656,7 +4656,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Was_Product_Prelim_Determine_on_Scope__c</picklist>
+            <picklist>Was_Product_Prelim_Determine_in_Scope__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -5452,7 +5452,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Was_Product_Prelim_Determine_on_Scope__c</picklist>
+            <picklist>Was_Product_Prelim_Determine_in_Scope__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -6248,7 +6248,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Was_Product_Prelim_Determine_on_Scope__c</picklist>
+            <picklist>Was_Product_Prelim_Determine_in_Scope__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -7036,7 +7036,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Was_Product_Prelim_Determine_on_Scope__c</picklist>
+            <picklist>Was_Product_Prelim_Determine_in_Scope__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -7820,7 +7820,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Was_Product_Prelim_Determine_on_Scope__c</picklist>
+            <picklist>Was_Product_Prelim_Determine_in_Scope__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
