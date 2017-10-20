@@ -104,7 +104,7 @@ public without sharing class FederalRegisterTriggerHandler {
      * @return             void
      */
     @TestVisible private static void calculateInvestigations(Set<Id> parentIdSet) {
-        List<Investigation__c> investigationsToUpdate = [SELECT Id FROM Investigation__c WHERE Id IN: parentIdSet];
+        List<Investigation__c> investigationsToUpdate = [SELECT Id FROM Investigation__c WHERE Id IN: parentIdSet AND Locked__c =: false];
         database.update(investigationsToUpdate, false);
     }
 
@@ -114,7 +114,7 @@ public without sharing class FederalRegisterTriggerHandler {
      * @return             void
      */
     @TestVisible private static void calculateSuspensionAgreements(Set<Id> parentIdSet) {
-        List<Suspension_Agreement__c> suspAgrToUpdate = [SELECT Id FROM Suspension_Agreement__c WHERE Id IN: parentIdSet];
+        List<Suspension_Agreement__c> suspAgrToUpdate = [SELECT Id FROM Suspension_Agreement__c WHERE Id IN: parentIdSet AND Locked__c =: false];
         database.update(suspAgrToUpdate, false);
     }
 
@@ -124,7 +124,7 @@ public without sharing class FederalRegisterTriggerHandler {
      * @return             void
      */
     @TestVisible private static void calculateOrders(Set<Id> parentIdSet) {
-        List<ADCVD_Order__c> ordersToUpdate = [SELECT Id FROM ADCVD_Order__c WHERE Id IN: parentIdSet];
+        List<ADCVD_Order__c> ordersToUpdate = [SELECT Id FROM ADCVD_Order__c WHERE Id IN: parentIdSet AND Locked__c =: false];
         database.update(ordersToUpdate, false);
     }
 
@@ -134,7 +134,7 @@ public without sharing class FederalRegisterTriggerHandler {
      * @return             void
      */
     @TestVisible private static void calculateSegments(Set<Id> parentIdSet) {
-        List<Segment__c> segmentsToUpdate = [SELECT Id FROM Segment__c WHERE Id IN: parentIdSet];
+        List<Segment__c> segmentsToUpdate = [SELECT Id FROM Segment__c WHERE Id IN: parentIdSet AND Locked__c =: false];
         database.update(segmentsToUpdate, false);
     }
 

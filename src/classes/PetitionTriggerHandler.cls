@@ -30,6 +30,7 @@ public without sharing class PetitionTriggerHandler {
             calculatePetitionStatuses(newList);
         }
         if(isAfter && isInsert) {
+            newList = new LockedRecordHandler().removeLockedRecords(newList);
             StaffingAssignmentExtension createStaff = new StaffingAssignmentExtension(newList);
             
         }

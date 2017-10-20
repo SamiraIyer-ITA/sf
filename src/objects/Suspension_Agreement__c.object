@@ -157,7 +157,7 @@
         <fullName>Locked__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>Locked</label>
+        <label>Record Locked</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -297,5 +297,14 @@
     <pluralLabel>Suspension Agreements</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Cannot_Edit_Locked_Record</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false, 
+Locked__c == true, 
+NOT(ISCHANGED(Locked__c)) 
+)</errorConditionFormula>
+        <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
+    </validationRules>
     <visibility>Public</visibility>
 </CustomObject>

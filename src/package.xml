@@ -126,6 +126,10 @@
         <name>CustomTab</name>
     </types>
     <types>
+        <members>Add_Staffing_Assignment_to_User_s_Chatter_Feed-1</members>
+        <name>Flow</name>
+    </types>
+    <types>
         <members>*</members>
         <name>GlobalValueSet</name>
     </types>
@@ -163,7 +167,7 @@
         <members>E_C_DAS_AS</members>
         <members>E_C_Operations</members>
         <members>E_C_Operations_Analyst</members>
-        <name>Role</name>  
+        <name>Role</name>
     </types>
     <types>
         <members>*</members>

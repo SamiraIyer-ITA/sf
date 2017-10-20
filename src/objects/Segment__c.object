@@ -1425,7 +1425,7 @@
         <fullName>Locked__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>Locked</label>
+        <label>Record Locked</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -8167,6 +8167,17 @@ SR = Sunset Review</description>
  Prelim_Extension__c &lt; 0
 ))</errorConditionFormula>
         <errorMessage>Preliminary Extension cannot be less than zero days.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Cannot_Edit_Locked_Record</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false, 
+NOT(ISNEW()), 
+OR (Locked__c == true, 
+PRIORVALUE(Locked__c) == true 
+) 
+)</errorConditionFormula>
+        <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Custom_Instruction_Required</fullName>

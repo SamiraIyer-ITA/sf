@@ -7,16 +7,17 @@ public without sharing class RecusalTriggerHandler {
         if (!AppConfigService.triggerEnabled) {return;}
 
 		if(isBefore && isInsert) {
+			newList = new LockedRecordHandler().removeLockedRecords(newList);
 			syncToPrimary(newList);
 		}
 		if(isBefore && isUpdate) {
+			newList = new LockedRecordHandler().removeLockedRecords(newList);
 			syncToPrimary(newList);
 		}
 		if(isAfter && isInsert) {
 			
 		}
 		if (isAfter && isUpdate) {
-            //initialize(newList, newMap);
             syncRelatedRecusals(newMap);
         }
 	}
@@ -29,7 +30,7 @@ public without sharing class RecusalTriggerHandler {
 	
     //returns a list of Related Recusals to update if the aligned Primary Recusal is updated
     @TestVisible private static void syncRelatedRecusals(Map<Id,Recusal__c> newMap) {
-        List<Recusal__c> relatedRecusals = [SELECT Id FROM Recusal__c WHERE Primary_Recusal_Aligned_To__c IN: newMap.keySet()];
+        List<Recusal__c> relatedRecusals = [SELECT Id FROM Recusal__c WHERE Primary_Recusal_Aligned_To__c IN: newMap.keySet() AND Locked__c =: false];
         update relatedRecusals;
     }
 }

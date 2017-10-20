@@ -131,6 +131,15 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Locked__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Record Locked</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Petition__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -256,17 +265,28 @@
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
+        <fullName>Cannot_Edit_Locked_Record</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false, 
+NOT(ISNEW()), 
+OR (Locked__c == true, 
+PRIORVALUE(Locked__c) == true 
+) 
+)</errorConditionFormula>
+        <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Related_Recusal_must_have_a_primary</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(RecordType.DeveloperName = &apos;Related&apos;,
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND(RecordType.DeveloperName = &apos;Related&apos;,
      Primary_Recusal_Aligned_To__c  = null
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorMessage>Related recusals be aligned to a primary recusal</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Related_Recusal_one_parent_Investigation</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND(
 	RecordType.DeveloperName = &apos;Related&apos;,
 	OR(
 		AND(
@@ -302,13 +322,13 @@
 		 Segment__c != null
 		)
 	)
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorMessage>Related recusals must have one parent record</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Related_Recusal_one_parent_Litigation</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND(
 	RecordType.DeveloperName = &apos;Related&apos;,
 	OR(
 		AND(
@@ -336,13 +356,13 @@
 		 Segment__c != null
 		)
 	)
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorMessage>Related recusals must have one parent record</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Related_Recusal_one_parent_Petition</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND(
 	RecordType.DeveloperName = &apos;Related&apos;,
 	OR(
 		AND(
@@ -362,13 +382,13 @@
 		 Segment__c != null
 		)
 	)
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorMessage>Related Recusals must have one parent record</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Related_Recusal_one_parent_rel_org</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND(
 	RecordType.DeveloperName = &apos;Related&apos;,
 	OR(
 		AND(
@@ -380,26 +400,26 @@
 		 Segment__c != null
 		)
 	)
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorMessage>Related recusals must have one parent record</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Related_Recusals_must_have_a_parent</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(RecordType.DeveloperName = &apos;Related&apos;,
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND(RecordType.DeveloperName = &apos;Related&apos;,
 ADCVD_Order__c = null,
  Investigation__c = null,
  Litigation__c = null,
  Petition__c = null,
  Related_Organization__c = null,
  Segment__c = null
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorMessage>Related Recusals must have one parent record</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Related_Recusals_one_parent_ADCVD_Order</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND(
 	RecordType.DeveloperName = &apos;Related&apos;,
 	OR(
 		AND(
@@ -435,7 +455,7 @@ ADCVD_Order__c = null,
 		 Segment__c != null
 		)
 	)
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorMessage>Related Recusals must have one parent record</errorMessage>
     </validationRules>
     <visibility>Public</visibility>

@@ -32,12 +32,13 @@ public without sharing class InvestigationTriggerHandler {
             calculateInvestigationStatuses(newList);
             runValidations(newList);
         }
+        if (isAfter && isInsert) {
+            newList = new LockedRecordHandler().removeLockedRecords(newList);
+            StaffingAssignmentExtension createStaff = new StaffingAssignmentExtension(newList);
+        }
         if (isAfter && isUpdate) {
             initialize(newList, newMap);
             recalculateCVDinvestigations(newMap);
-        }
-        if (isAfter && isInsert) {
-            StaffingAssignmentExtension createStaff = new StaffingAssignmentExtension(newList);
         }
     }
     

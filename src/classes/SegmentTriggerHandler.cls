@@ -38,8 +38,9 @@ public without sharing class SegmentTriggerHandler {
 			recalculateOrdersOnSegmentDelete(oldMap);
 		}
 		if(isAfter && isInsert) {
-			StaffingAssignmentExtension createStaff = new StaffingAssignmentExtension(newList);
 			recalculateOrders(newMap, oldMap);
+			newList = new LockedRecordHandler().removeLockedRecords(newList);
+			StaffingAssignmentExtension createStaff = new StaffingAssignmentExtension(newList);
 		}
 		if (isAfter && isUpdate) {
 			recalculateNewShipperReviews(newMap);
@@ -130,7 +131,7 @@ public without sharing class SegmentTriggerHandler {
 		Set<Id> orderIdSet = getOrderParentIds(newMap, oldMap);
 		List<ADCVD_Order__c> ordersToUpdate = new List<ADCVD_Order__c>();
 		System.debug('ordersToUpdate : ' + ordersToUpdate);
-		for (ADCVD_Order__c o : [SELECT Id FROM ADCVD_Order__c WHERE Id IN: orderIdSet]) {
+		for (ADCVD_Order__c o : [SELECT Id FROM ADCVD_Order__c WHERE Id IN: orderIdSet AND Locked__c =: false]) {
 			ordersToUpdate.add(o);
 		}
 		if (!ordersToUpdate.isEmpty())  update ordersToUpdate;

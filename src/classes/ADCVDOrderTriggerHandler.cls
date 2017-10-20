@@ -32,6 +32,7 @@ public without sharing class ADCVDOrderTriggerHandler {
             runCustomValidations(newList);
         }
         if(isAfter && isInsert) {
+            newList = new LockedRecordHandler().removeLockedRecords(newList);
             StaffingAssignmentExtension createStaff = new StaffingAssignmentExtension(newList);
         }
     }
