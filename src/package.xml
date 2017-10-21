@@ -118,8 +118,16 @@
         <name>CustomObject</name>
     </types>
     <types>
+        <members>Edit_ADCVD_Locked_Records</members>
+        <name>CustomPermission</name>
+    </types>
+    <types>
         <members>*</members>
         <name>CustomTab</name>
+    </types>
+    <types>
+        <members>Add_Staffing_Assignment_to_User_s_Chatter_Feed-1</members>
+        <name>Flow</name>
     </types>
     <types>
         <members>*</members>
@@ -128,6 +136,10 @@
     <types>
         <members>*</members>
         <name>PathAssistant</name>
+    </types>
+    <types>
+        <members>Edit_ADCVD_Locked_Records</members>
+        <name>PermissionSet</name>
     </types>
     <types>
         <members>*</members>
@@ -155,7 +167,7 @@
         <members>E_C_DAS_AS</members>
         <members>E_C_Operations</members>
         <members>E_C_Operations_Analyst</members>
-        <name>Role</name>  
+        <name>Role</name>
     </types>
     <types>
         <members>*</members>

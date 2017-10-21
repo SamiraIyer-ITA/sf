@@ -16,6 +16,7 @@ public without sharing class InvestigationTriggerHandler {
         if (!AppConfigService.triggerEnabled) {return;}
 
         if (isBefore && isInsert) {
+            newList = new LockedRecordHandler().removeLockedRecords(newList);
             initialize(newList, newMap);
             setRecordType(newList);
             syncToInvestigation(newList);
@@ -24,19 +25,20 @@ public without sharing class InvestigationTriggerHandler {
             runValidations(newList);
         }
         if (isBefore && isUpdate) {
+            newList = new LockedRecordHandler().removeLockedRecords(newList);
             initialize(newList, newMap);
             syncToInvestigation(newList);
             calculateInvestigationDates(newList);
             calculateInvestigationStatuses(newList);
             runValidations(newList);
         }
+        if (isAfter && isInsert) {
+            newList = new LockedRecordHandler().removeLockedRecords(newList);
+            StaffingAssignmentExtension createStaff = new StaffingAssignmentExtension(newList);
+        }
         if (isAfter && isUpdate) {
             initialize(newList, newMap);
             recalculateCVDinvestigations(newMap);
-//            recalculateIssues(newMap, oldMap);
-        }
-        if (isAfter && isInsert) {
-            StaffingAssignmentExtension createStaff = new StaffingAssignmentExtension(newList);
         }
     }
     
@@ -59,7 +61,7 @@ public without sharing class InvestigationTriggerHandler {
     //Setup Methods used to set class level variables
     @TestVisible private static void initialize(List<Investigation__c> newList, Map<Id,Investigation__c> newMap) {
         petitionsInScopeMap = findPetitionsInScopeMap(newList);
-        recordTypeNameMap = utils.getRecordTypeDeveloperNameMap(newList[0]);
+        recordTypeNameMap = utils.getRecordTypeDeveloperNameMap(INVESTIGATION);
         if (newMap != null) {
             ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get Investigations with an Id
             frUtilMap = listInstance.utilMap;
@@ -82,7 +84,7 @@ public without sharing class InvestigationTriggerHandler {
     }
     //Syncs petition fields to investigation fields and AD to CVD if aligned
     @TestVisible private static void syncToInvestigation(List<Investigation__c> newList) {
-            SyncUtility.syncObject(newList, null, true);
+        if (!newList.isEmpty()) {SyncUtility.syncObject(newList, null, true);}
     }
     //Primary calculation method for Trigger Handler
     @TestVisible private static void calculateInvestigationDates(List<Investigation__c> newList) {
@@ -120,7 +122,7 @@ public without sharing class InvestigationTriggerHandler {
 
     //returns a list of CVD Investigations to update if the aligned AD Investigation is updated
     @TestVisible private static void recalculateCVDinvestigations(Map<Id,Investigation__c> newMap) {
-        List<Investigation__c> cvdInvestigations = [SELECT Id FROM Investigation__c WHERE AD_Investigation_Aligned_To__c IN: newMap.keySet()];
+        List<Investigation__c> cvdInvestigations = [SELECT Id FROM Investigation__c WHERE AD_Investigation_Aligned_To__c IN: newMap.keySet() AND Locked__c =: false];
         update cvdInvestigations;
     }
 

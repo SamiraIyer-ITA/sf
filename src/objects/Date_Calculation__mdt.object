@@ -21,6 +21,16 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Actual_Date_Field_Name__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Actual Date Field Name</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Base_Date_Field_1_Lookup_Field_Name__c</fullName>
         <externalId>false</externalId>
         <fieldManageability>SubscriberControlled</fieldManageability>

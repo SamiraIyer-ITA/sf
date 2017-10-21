@@ -1425,7 +1425,7 @@
         <fullName>Locked__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>Locked</label>
+        <label>Record Locked</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -8169,6 +8169,17 @@ SR = Sunset Review</description>
         <errorMessage>Preliminary Extension cannot be less than zero days.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Cannot_Edit_Locked_Record</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false, 
+NOT(ISNEW()), 
+OR (Locked__c == true, 
+PRIORVALUE(Locked__c) == true 
+) 
+)</errorConditionFormula>
+        <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Custom_Instruction_Required</fullName>
         <active>true</active>
         <description>Cannot answer Have_Custom_Instruction_been_sent__c unless Litigation_YesNo__c is populated.</description>
@@ -8183,9 +8194,9 @@ SR = Sunset Review</description>
         <active>true</active>
         <description>Record Type: Scope Inquiry
 Decision on How to Proceed field is required when value is set for the field Actual Date of Decision on How to Proceed.</description>
-        <errorConditionFormula>AND(
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND(
 NOT(ISBLANK( Actual_Date_of_Decision_on_HoP__c)),
-ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;&apos;))</errorConditionFormula>
+ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;&apos;)))</errorConditionFormula>
         <errorMessage>&quot;Decision on How to Proceed&quot; field is required when value is entered for &quot;Actual Date of Decision - How to Proceed&quot; field</errorMessage>
     </validationRules>
     <validationRules>
@@ -8275,7 +8286,7 @@ SR = Sunset Review</description>
         <active>true</active>
         <description>Record Types: Scope Inquiry, Changed Circumstance and Anti-Circumvention.
 Prelim AND/OR Final Extensions should be empty based on certain other field selections.</description>
-        <errorConditionFormula>CASE(RecordType.DeveloperName,
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, CASE(RecordType.DeveloperName,
 
 &quot;Scope_Inquiry&quot;,
 IF  (
@@ -8309,7 +8320,7 @@ IF (
         NOT(ISNULL(Prelim_Extension__c))
         ),
 1, 0), 
-0) =1</errorConditionFormula>
+0) =1)</errorConditionFormula>
         <errorMessage>&quot;Prelim Extension (# of days)&quot; AND / OR &quot;Final Extension (# of days)&quot; cannot contain values based on your current field selections. Please remove these values, or change your current selection of values from other fields, before saving the record.</errorMessage>
     </validationRules>
     <validationRules>
@@ -8561,7 +8572,7 @@ $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_Ho
         <active>true</active>
         <description>Segment Outcome is required when Decision on How to Proceed is either &quot;Informal&quot; or &quot;Reject&quot;
 Record Type: Scope Inquiry</description>
-        <errorConditionFormula>CASE(RecordType.DeveloperName,
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, CASE(RecordType.DeveloperName,
 &quot;Scope_Inquiry&quot;,
 IF (
    AND (
@@ -8572,7 +8583,7 @@ IF (
      ISPICKVAL(Segment_Outcome__c, &apos;&apos;)
    ),
 1,
-0),0) = 1</errorConditionFormula>
+0),0) = 1)</errorConditionFormula>
         <errorMessage>Segment Outcome is required when Decision on How to Proceed is either &quot;Informal&quot; or &quot;Reject&quot;</errorMessage>
     </validationRules>
     <validationRules>
@@ -8588,13 +8599,13 @@ IF (
         <active>true</active>
         <description>Type of Circumvention Inquiry field value is required when Actual Initiation Signature is entered. 
 Record Type: Anti-Circumvention</description>
-        <errorConditionFormula>AND 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND 
 (
 CASE
   (RecordType.DeveloperName, &quot;Anti_Circumvention_Review&quot;, 1, 0) = 1,
    ISPICKVAL(Type_of_Circumvention_Inquiry__c , &apos;&apos;), 
    NOT(ISNULL( Actual_Initiation_Signature__c ))
-)</errorConditionFormula>
+))</errorConditionFormula>
         <errorMessage>Type of Circumvention Inquiry field value is required, when Actual Initiation Signature is populated.</errorMessage>
     </validationRules>
     <validationRules>
@@ -8602,9 +8613,9 @@ CASE
         <active>true</active>
         <description>Record Type: Scope Inquiry
 Type of Scope Ruling is required when value is set for Decision on How to Proceed.</description>
-        <errorConditionFormula>AND (
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND (
 NOT(ISBLANK(TEXT(Decision_on_How_to_Proceed__c))),
-ISPICKVAL(Type_of_Scope_Ruling__c, &apos;&apos;))</errorConditionFormula>
+ISPICKVAL(Type_of_Scope_Ruling__c, &apos;&apos;)))</errorConditionFormula>
         <errorMessage>Type of Scope Ruling is required when value is entered for Decision on How to Proceed</errorMessage>
     </validationRules>
     <validationRules>

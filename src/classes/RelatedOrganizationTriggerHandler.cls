@@ -16,6 +16,7 @@ public without sharing class RelatedOrganizationTriggerHandler {
 
 		}
 		if(isAfter && isInsert) {
+			newList = new LockedRecordHandler().removeLockedRecords(newList);
 			setCaseValuesFromParent(newList);
             StaffingAssignmentExtension createStaff = new StaffingAssignmentExtension(clonedList);
         }

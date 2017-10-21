@@ -149,6 +149,16 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Locked__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Record Locked</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Parent_Name__c</fullName>
         <externalId>false</externalId>
         <formula>IF( ADCVD_Order__c != null,  ADCVD_Order__r.ADCVD_Order_Name__c , 

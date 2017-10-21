@@ -17,20 +17,16 @@ public without sharing class SuspensionAgreementTriggerHandler {
         if (!AppConfigService.triggerEnabled) {return;}
 
         if (isBefore && isInsert) {
+            newList = new LockedRecordHandler().removeLockedRecords(newList);
             initialize(newList,newMap);
             calculateDates(newList);
             runCustomValidations(newList);
         }
         if (isBefore && isUpdate) {
+            newList = new LockedRecordHandler().removeLockedRecords(newList);
             initialize(newList,newMap);
             calculateDates(newList);
             runCustomValidations(newList);
-        }
-        if (isAfter && isUpdate) {
-
-        }
-        if(isAfter && isInsert) {
-
         }
     }
 

@@ -14,20 +14,25 @@ public without sharing class PetitionTriggerHandler {
         
         if (!AppConfigService.triggerEnabled) {return;}
 
+
         if(isBefore && isInsert) {
+            newList = new LockedRecordHandler().removeLockedRecords(newList);
             initialize(newList, newMap);
             alertsOnDates(newList);
             calculatePetitionDates(newList);
             calculatePetitionStatuses(newList);
         }
         if(isBefore && isUpdate) {
+            newList = new LockedRecordHandler().removeLockedRecords(newList);
             initialize(newList, newMap);
             alertsOnDates(newList);
             calculatePetitionDates(newList);
             calculatePetitionStatuses(newList);
         }
         if(isAfter && isInsert) {
+            newList = new LockedRecordHandler().removeLockedRecords(newList);
             StaffingAssignmentExtension createStaff = new StaffingAssignmentExtension(newList);
+            
         }
         if(isAfter && isUpdate) {
             recalculateInvestigations(newMap);
@@ -78,9 +83,6 @@ public without sharing class PetitionTriggerHandler {
     @TestVisible private static void calculatePetitionDates(List<Petition__c> newList) {
         DateCalculationService petDcs = DateCalculationServiceDispatcher.getDateCalculationServiceInstance('Petition__c');
         petDcs.getCalculatedDates(newList, 'Petition__c', '');
-        /*for (Petition__c p : newList){
-            setCalculatedInitiationSignature(p);
-        }*/
     }
 
     /**
@@ -94,7 +96,7 @@ public without sharing class PetitionTriggerHandler {
     }
 
     @TestVisible private static void recalculateInvestigations(Map<Id,Petition__c> newMap) {
-        List<Investigation__c> investigations = [SELECT Id FROM Investigation__c WHERE Petition__c IN: newMap.keySet()];
+        List<Investigation__c> investigations = [SELECT Id FROM Investigation__c WHERE Petition__c IN: newMap.keySet() AND Locked__c =: false];
         update investigations;
     }
 
@@ -155,30 +157,6 @@ public without sharing class PetitionTriggerHandler {
                     }
                 }
             }
-        }
-    }
-
-    /********************************
-    * Date Calculations
-    ********************************/
-
-    @TestVisible private static void setCalculatedInitiationSignature(Petition__c p) {
-        if((p.Petition_Outcome__c == null || outcomesThatStartCalculations.contains(p.Petition_Outcome__c)) && p.Petition_Filed__c != null){
-            Integer maximumDays = 40;
-            p.Calculated_Initiation_Signature__c = p.Petition_Filed__c.addDays(CALC_INIT_SIG);
-            if(p.Initiation_Extension_of_days__c != null) {
-                p.Calculated_Initiation_Signature__c = p.Calculated_Initiation_Signature__c.addDays((Integer)p.Initiation_Extension_of_days__c);
-            }
-            //roll back if more than 40 days or more between petition filed and calculated date, otherwise rollforward;
-            boolean rollForward = true;
-/*                
-            if(p.Petition_Filed__c.daysBetween(p.Calculated_Initiation_Signature__c) >= (maximumDays - 1)) {
-                rollForward = false;
-             } else if (ADCVD_TollingDayUtility.dayOfWeek(p.Calculated_Initiation_Signature__c) == 'Sat' && p.Petition_Filed__c.daysBetween(p.Calculated_Initiation_Signature__c) >= (maximumDays - 2)) {
-                rollforward = false;
-            }
-*/
-            p.Calculated_Initiation_Signature__c = ADCVD_TollingDayUtility.getCalculatedDate(p.Petition_Filed__c, p.Calculated_Initiation_Signature__c, rollforward);
         }
     }
 

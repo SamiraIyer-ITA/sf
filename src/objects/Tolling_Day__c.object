@@ -71,6 +71,14 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Locked__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Record Locked</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Reason__c</fullName>
         <externalId>false</externalId>
         <label>Reason</label>
@@ -105,5 +113,14 @@
     <pluralLabel>Tolling Days</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Cannot_Edit_Locked_Record</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false, 
+Locked__c == true, 
+NOT(ISCHANGED(Locked__c)) 
+)</errorConditionFormula>
+        <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
+    </validationRules>
     <visibility>Public</visibility>
 </CustomObject>
