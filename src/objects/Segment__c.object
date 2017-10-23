@@ -8513,7 +8513,7 @@ NSR = New Shipper Review
 SI = Scope Inquiry
 SR = Sunset Review</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And( 
-$RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, NOT(ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;)),OR(ISPICKVAL( Was_Product_Prelim_Determine_on_Scope__c, &quot;Yes&quot;),ISPICKVAL( Was_Product_Prelim_Determine_on_Scope__c, &quot;No&quot;))
+$RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, NOT(ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;)),OR(ISPICKVAL( Was_Product_Prelim_Determine_in_Scope__c, &quot;Yes&quot;),ISPICKVAL( Was_Product_Prelim_Determine_in_Scope__c, &quot;No&quot;))
 ))</errorConditionFormula>
         <errorMessage>&quot;Was the Product Preliminary Determined to be in Scope?&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</errorMessage>
     </validationRules>
