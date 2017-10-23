@@ -117,8 +117,8 @@
         <fullName>Cannot_Edit_Locked_Record</fullName>
         <active>true</active>
         <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false, 
-Locked__c == true, 
-NOT(ISCHANGED(Locked__c)) 
+NOT(ISNEW()),
+PRIORVALUE(Locked__c) == true 
 )</errorConditionFormula>
         <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
     </validationRules>

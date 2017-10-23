@@ -2922,9 +2922,7 @@ NOT(AND(ISBLANK( Calc_Amended_Prelim_Determination_Sig__c )))
         <active>true</active>
         <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false,
 NOT(ISNEW()),
-OR (Locked__c == true,
 PRIORVALUE(Locked__c) == true
-)   
 )</errorConditionFormula>
         <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
     </validationRules>
