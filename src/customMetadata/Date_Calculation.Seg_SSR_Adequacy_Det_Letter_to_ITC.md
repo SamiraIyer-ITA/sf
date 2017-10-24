@@ -112,7 +112,7 @@
     </values>
     <values>
         <field>Calculated_Date_Field_Name__c</field>
-        <value xsi:type="xsd:string">Adequacy_Determination_Letter__c</value>
+        <value xsi:type="xsd:string">Adequacy_Determination_Letter_to_ITC__c</value>
     </values>
     <values>
         <field>Conditional_Field_1_Lookup_Field_Name__c</field>
