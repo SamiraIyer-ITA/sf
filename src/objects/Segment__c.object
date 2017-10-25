@@ -73,7 +73,7 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Adequacy_Determination_Letter__c</field>
+            <field>Adequacy_Determination_Letter_to_ITC__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -198,7 +198,7 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Adequacy_Determination_Letter__c</field>
+            <field>Adequacy_Determination_Letter_to_ITC__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -673,10 +673,10 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Adequacy_Determination_Letter__c</fullName>
+        <fullName>Adequacy_Determination_Letter_to_ITC__c</fullName>
         <description>Adequacy determination and letter to ITC if not adequate or if no adequate respondent.</description>
         <externalId>false</externalId>
-        <label>Adequacy Determination &amp; Letter</label>
+        <label>Adequacy Determination &amp; Letter to ITC</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
