@@ -35,7 +35,7 @@ public without sharing class PetitionTriggerHandler {
             
         }
         if(isAfter && isUpdate) {
-            recalculateInvestigations(newMap);
+            recalculateInvestigations(newMap, oldMap);
         }
     }
 
@@ -95,8 +95,14 @@ public without sharing class PetitionTriggerHandler {
         setStatus(newList);
     }
 
-    @TestVisible private static void recalculateInvestigations(Map<Id,Petition__c> newMap) {
-        List<Investigation__c> investigations = [SELECT Id FROM Investigation__c WHERE Petition__c IN: newMap.keySet() AND Locked__c =: false];
+    @TestVisible private static void recalculateInvestigations(Map<Id,Petition__c> newMap, Map<Id,Petition__c> oldMap) {
+        Set<Id> querySet = new Set<Id>();
+        for (Id i : newMap.keySet()) {
+            if (newMap.get(i).Tolling_Update__c == oldMap.get(i).Tolling_Update__c) {
+                querySet.add(i);
+            }
+        }
+        List<Investigation__c> investigations = [SELECT Id FROM Investigation__c WHERE Petition__c IN: querySet AND Locked__c =: false];
         update investigations;
     }
 
