@@ -808,6 +808,7 @@ public class InvestigationTriggerHandlerTest {
 
 		iAD.Investigation_Outcome__c = 'DOC Negative Final';
 		insufficientDataError = attemptUpsert(iAD);
+		System.debug(loggingLevel.Error, '*** insufficientDataError: ' + iAD);
 		System.assert(insufficientDataError.contains('Actual Final Signature date is required'));
 
 		iAD.Investigation_Outcome__c = 'Petition Withdrawn After Initiation';
@@ -1667,6 +1668,8 @@ public class InvestigationTriggerHandlerTest {
 	@testSetup static void dataSetup() {
 		Test.startTest();
 		User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
+		Master_Automation__c ma = new Master_Automation__c(ValidationRulesEnabled__c = true, WorkflowRulesEnabled__c = true);
+		insert ma;
 		Petition__c testADPetition = TestUtils.createPetition(petitionDate, 'AD ME', true);
 		Petition__c testCVDPetition = TestUtils.createPetition(petitionDate, 'CVD', true);
 		Investigation__c testADinvestigation = TestUtils.createInvestigation('AD', testADPetition, true);

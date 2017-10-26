@@ -73,7 +73,7 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Adequacy_Determination_Letter__c</field>
+            <field>Adequacy_Determination_Letter_to_ITC__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -198,7 +198,7 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Adequacy_Determination_Letter__c</field>
+            <field>Adequacy_Determination_Letter_to_ITC__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -673,10 +673,10 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Adequacy_Determination_Letter__c</fullName>
+        <fullName>Adequacy_Determination_Letter_to_ITC__c</fullName>
         <description>Adequacy determination and letter to ITC if not adequate or if no adequate respondent.</description>
         <externalId>false</externalId>
-        <label>Adequacy Determination &amp; Letter</label>
+        <label>Adequacy Determination &amp; Letter to ITC</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -8513,7 +8513,7 @@ NSR = New Shipper Review
 SI = Scope Inquiry
 SR = Sunset Review</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And( 
-$RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, NOT(ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;)),OR(ISPICKVAL( Was_Product_Prelim_Determine_on_Scope__c, &quot;Yes&quot;),ISPICKVAL( Was_Product_Prelim_Determine_on_Scope__c, &quot;No&quot;))
+$RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, NOT(ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;)),OR(ISPICKVAL( Was_Product_Prelim_Determine_in_Scope__c, &quot;Yes&quot;),ISPICKVAL( Was_Product_Prelim_Determine_in_Scope__c, &quot;No&quot;))
 ))</errorConditionFormula>
         <errorMessage>&quot;Was the Product Preliminary Determined to be in Scope?&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</errorMessage>
     </validationRules>

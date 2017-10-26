@@ -66,7 +66,7 @@
         <externalId>false</externalId>
         <label>ADCVD Case Number</label>
         <length>28</length>
-        <required>false</required>
+        <required>true</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -80,7 +80,7 @@
 A-###-### for AD 
 C-###-### for CVD</inlineHelpText>
         <label>ADCVD Case Type</label>
-        <required>false</required>
+        <required>true</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
