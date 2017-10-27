@@ -23,9 +23,22 @@
 private class ADCVDProcessBuilderTest {
 	
 	@testSetup static void setupRecords(){
+		//Petition is created and users are assgined to its realted staffing assignments
 		Date petitionDate = Date.Today();
         Petition__c aPetition = TestUtils.createPetition(petitionDate, 'AD ME', true);
-		
+        Profile aProfile = [Select Id From Profile Where Name ='Standard User'];
+        
+        List<Staffing_Assignment__c> staffingAssignments = [Select Id, Name, User__c From Staffing_Assignment__c];
+        List<User> usersToInsert = new List<User>();
+        for(Integer i=0; i<staffingAssignments.size(); i++){
+        	usersToInsert.add(TestUtils.createGenericUser(i+'initialAssignment@trade.gov',i+'username@trade.gov', aProfile.Id));
+        } 
+        insert usersToInsert;
+        
+        for(Integer i=0; i<staffingAssignments.size(); i++){
+        	staffingAssignments[i].User__c = usersToInsert[i].Id;
+        }
+        update staffingAssignments;
 	}
 	
     @isTest static void petitionStaffingAssignmentFeedTest() {
@@ -38,48 +51,45 @@ private class ADCVDProcessBuilderTest {
         //Assert petition is created
         System.assert(queriedPetition != null);
         
-                
-        List<Staffing_Assignment__c> queriedSA = [Select Id, Name, User__c From Staffing_Assignment__c];
-        System.assert(queriedSA.size() > 0, 'No Staffing Assignments were created');
-        List<User> usersToInsert = new List<User>();
-        for(Integer i=0; i<queriedSA.size(); i++){
-        	usersToInsert.add(TestUtils.createGenericUser(i+'username@trade.gov',i+'username@trade.gov', aProfile.Id));
-        } 
-        insert usersToInsert;
-        
-        for(Integer i=0; i<queriedSA.size(); i++){
-        	queriedSA[i].User__c = usersToInsert[i].Id;
-        }
-        Test.startTest();
-        update queriedSA;
-        Test.stopTest();
+        List<Staffing_Assignment__c> staffingAssignments = [Select Id, Name,User__c, User__r.Username From Staffing_Assignment__c];
+        //Assert staffing assignemnts were created
+        System.assert(staffingAssignments.size() > 0);
         
         //Set of assigned user Ids at the begining
         Set<String> userIds = new Set<String>();
-        for(User aUser: usersToInsert){
-        	userIds.add(aUser.Id);
+        for(Staffing_Assignment__c anAssignment: staffingAssignments){
+        	userIds.add(anAssignment.User__c);
+        	String username = anAssignment.User__r.Username;
+        	System.assert(username.contains('initialassignment')); 
         }
         
         
         List<FeedItem> feedItems = [Select ParentId, Id, Body From FeedItem Where ParentId in: userIds];
-        System.assert(feedItems.size() == queriedSA.size());
+        System.assert(feedItems.size() == staffingAssignments.size());
         
         
         //Reassigning to new users
-        List<Staffing_Assignment__c> queriedSA2 = [Select Id, Name, User__c From Staffing_Assignment__c];
         List<User> reassignedUsers = new List<User>();
-        for(Integer i=queriedSA.size(); i<queriedSA2.size()*2; i++){//starting point of i is different to avoid duplicate users
-        	reassignedUsers.add(TestUtils.createGenericUser(i+'username@trade.gov',i+'username@trade.gov', aProfile.Id));
+        for(Integer i=0; i<staffingAssignments.size(); i++){
+        	reassignedUsers.add(TestUtils.createGenericUser(i+'reassignment@trade.gov',i+'username@trade.gov', aProfile.Id));
         } 
         insert reassignedUsers;
-        for(Integer i=0; i<queriedSA2.size(); i++){
+        for(Integer i=0; i<staffingAssignments.size(); i++){
         	//Reassign to different user
-        	queriedSA2[i].User__c = reassignedUsers[i].Id;
+        	staffingAssignments[i].User__c = reassignedUsers[i].Id;
         }
-        update queriedSA2;
+        Test.startTest();
+        update staffingAssignments;
+        Test.stopTest(); 
+        
+        List<Staffing_Assignment__c> staffingAssignments2 = [Select Id, Name,User__c, User__r.Username From Staffing_Assignment__c];
+        
+        
         Set<String> reassignedUserIds = new Set<String>();
-        for(User aUser: reassignedUsers){
-        	reassignedUserIds.add(aUser.Id);
+        for(Staffing_Assignment__c anAssignment: staffingAssignments2){
+        	reassignedUserIds.add(anAssignment.User__c);
+        	String username = anAssignment.User__r.Username;
+        	System.assert(username.contains('reassignment'));
         }
         List<FeedItem> feedItems2 = [Select ParentId, Id, Body From FeedItem Where ParentId in: reassignedUserIds];
         
