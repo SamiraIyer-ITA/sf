@@ -8636,14 +8636,17 @@ IF(
       )
       ,
      AND(
-         ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Reject&apos;), 
+        OR(
+           ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Reject&apos;),
+           ISPICKVAL(Segment_Outcome__c, &apos;Rejected&apos;)
+          ), 
          NOT(ISBLANK(TEXT(Type_of_Scope_Ruling__c)))
         )
       ),
      1, 0
     ) = 1
   )</errorConditionFormula>
-        <errorMessage>Type of Scope Ruling is required when Decision on How to Proceed is &quot;Formal&quot; or &quot;Informal&quot; but not required for &quot;Reject&quot;</errorMessage>
+        <errorMessage>Type of Scope Ruling is required when Decision on How to Proceed is selected as &quot;Formal&quot; or &quot;Informal&quot;.  Type of Scope Ruling is NOT required when Segment Outcome is selected as &quot;Rejected&quot;.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>max_180_days_if_prelim_extend_is_blank</fullName>
