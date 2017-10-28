@@ -8568,21 +8568,34 @@ $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_Ho
     <validationRules>
         <fullName>Segment_Outcome_Required</fullName>
         <active>true</active>
-        <description>Segment Outcome is required when Decision on How to Proceed is either &quot;Informal&quot; or &quot;Reject&quot;
-Record Type: Scope Inquiry</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, CASE(RecordType.DeveloperName,
-&quot;Scope_Inquiry&quot;,
-IF (
-   AND (
-     OR (
-       ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Informal&apos;),
-       ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Reject&apos;)
-     ),
-     ISPICKVAL(Segment_Outcome__c, &apos;&apos;)
-   ),
-1,
-0),0) = 1)</errorConditionFormula>
-        <errorMessage>Segment Outcome is required when Decision on How to Proceed is either &quot;Informal&quot; or &quot;Reject&quot;</errorMessage>
+        <description>Segment Outcome is required when: 
+1) Actual Final Signature is entered (Record Type: All Types) 
+     OR
+2) Decision on How to Proceed is either &quot;Informal&quot; or &quot;Reject&quot; (Record Type: Scope Inquiry)</description>
+        <errorConditionFormula>AND(
+  $Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
+  Locked__c == false,
+  OR(
+    AND(
+        NOT(ISNULL(Actual_Final_Signature__c )),
+        ISPICKVAL(Segment_Outcome__c, &apos;&apos;)
+        ),
+    CASE(RecordType.DeveloperName,
+      &quot;Scope_Inquiry&quot;,
+        IF (
+             OR
+             (
+             AND (ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Informal&apos;), ISPICKVAL(Segment_Outcome__c, &apos;&apos;)),
+             AND (ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Reject&apos;), NOT(ISPICKVAL(Segment_Outcome__c, &apos;Rejected&apos;)))     
+             ),
+        1,0
+        )
+      ,
+      0
+    ) = 1
+  )
+)</errorConditionFormula>
+        <errorMessage>Segment Outcome is required, because you have value in Decision on How to Proceed field as either &quot;Informal&quot; or &quot;Reject&quot;, AND/OR you have a value in Actual Final Signature field.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Segment_must_have_a_parent</fullName>
@@ -8610,11 +8623,27 @@ CASE
         <fullName>Type_of_Scope_Ruling_Required</fullName>
         <active>true</active>
         <description>Record Type: Scope Inquiry
-Type of Scope Ruling is required when value is set for Decision on How to Proceed.</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND (
-NOT(ISBLANK(TEXT(Decision_on_How_to_Proceed__c))),
-ISPICKVAL(Type_of_Scope_Ruling__c, &apos;&apos;)))</errorConditionFormula>
-        <errorMessage>Type of Scope Ruling is required when value is entered for Decision on How to Proceed</errorMessage>
+Type of Scope Ruling is required when value set for Decision on How to Proceed is &quot;Formal&quot; or &quot;Informal&quot;, but not when &quot;Reject&quot;</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,  
+IF(
+  OR(
+    AND(
+      OR(
+         ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Formal&apos;),
+         ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Informal&apos;)
+         ),
+      ISBLANK(TEXT(Type_of_Scope_Ruling__c))
+      )
+      ,
+     AND(
+         ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Reject&apos;), 
+         NOT(ISBLANK(TEXT(Type_of_Scope_Ruling__c)))
+        )
+      ),
+     1, 0
+    ) = 1
+  )</errorConditionFormula>
+        <errorMessage>Type of Scope Ruling is required when Decision on How to Proceed is &quot;Formal&quot; or &quot;Informal&quot; but not required for &quot;Reject&quot;</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>max_180_days_if_prelim_extend_is_blank</fullName>
