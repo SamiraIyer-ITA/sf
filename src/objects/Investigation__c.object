@@ -1578,9 +1578,7 @@
         <description>An anti dumping investigation</description>
         <label>AD</label>
         <picklistValues>
-            <picklist></picklist>
             <values>
-                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1955,49 +1953,37 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist></picklist>
             <values>
-                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName></fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2041,7 +2027,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist></picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -2072,7 +2057,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Quantity and Value Questionnaire</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2443,49 +2427,37 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist></picklist>
             <values>
-                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName></fullName>
                 <default>false</default>
             </values>
         </picklistValues>
