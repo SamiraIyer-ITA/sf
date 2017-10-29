@@ -54,36 +54,43 @@ public class SchedulePetitionRefresh implements ScheduledDispatcher.IScheduleDis
       	}
 
 		Database.SaveResult[] srList = Database.update(petitionsToRefresh, false); 
-		for (Database.SaveResult sr : srList) {
+		for (Integer k = 0; k < petitionsToRefresh.size(); k++) {
+        Database.SaveResult sr = srList[k];
+        Petition__c so = petitionsToRefresh[k];
 
     		if (sr.isSuccess()) {
         		// Operation was successful, so get the ID of the record that was processed
-        		emailtext1 = emailtext1 + 'Successfully updated Petition ID: ' + sr.getId();
+        		emailtext1 = emailtext1 + 'Successfully updated Petition: ' + 
+            URL.getSalesforceBaseUrl().toExternalForm() + '/' + sr.getId() + '\n';
     	
     		}else {
 
         		// Operation failed, so get all errors               
         		for(Database.Error err : sr.getErrors()) {
-        			emailtext2 = emailtext2 + 'The following error has occurred: \n';
+        			emailtext2 = emailtext2 + 'The following error has occurred for Petition: ' + 
+              URL.getSalesforceBaseUrl().toExternalForm()+'/'+ so.Id + '\n';
         			emailtext2 = emailtext2 + err.getStatusCode() + ': ' + err.getMessage() + '\n';                   
         			emailtext2 = emailtext2 + 'Petition fields that affected this error: ' + err.getFields() + '\n';
         		}
     		}
-		
    		}   
 
 		Database.SaveResult[] srList1 = Database.update(investigationsToRefresh, false); 
-		for (Database.SaveResult sr1 : srList1) {
+		for (Integer k = 0; k < investigationsToRefresh.size(); k++) {
+        Database.SaveResult sr1 = srList1[k];
+        Investigation__c so = investigationsToRefresh[k];
 
     		if (sr1.isSuccess()) {
         		// Operation was successful, so get the ID of the record that was processed
-        		emailtext2 = emailtext2 + 'Successfully updated Investiagation ID: ' + sr1.getId();
+        		emailtext2 = emailtext2 + 'Successfully updated Investigation: ' + 
+            URL.getSalesforceBaseUrl().toExternalForm() + '/' + sr1.getId() + '\n';
     	
     		}else {
 
         		// Operation failed, so get all errors               
         		for(Database.Error ierr : sr1.getErrors()) {
-        			emailtext2 = emailtext2 + 'The following error has occurred: \n';
+        			emailtext2 = emailtext2 + 'The following error has occurred for Investigation: ' + 
+              URL.getSalesforceBaseUrl().toExternalForm()+'/'+ so.Id + '\n';
         			emailtext2 = emailtext2 + ierr.getStatusCode() + ': ' + ierr.getMessage() + '\n';                   
         			emailtext2 = emailtext2 + 'Investigation fields that affected this error: ' + ierr.getFields() + '\n';
         		}

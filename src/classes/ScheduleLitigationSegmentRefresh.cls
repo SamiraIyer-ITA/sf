@@ -49,17 +49,21 @@ public class ScheduleLitigationSegmentRefresh implements DispatchScheduledFollow
       	}
 
 		Database.SaveResult[] srList = Database.update(litigationsToRefresh, false); 
-		for (Database.SaveResult sr : srList) {
+		for (Integer k = 0; k < litigationsToRefresh.size(); k++) {
+        Database.SaveResult sr = srList[k];
+        Litigation__c so = litigationsToRefresh[k];
 
     		if (sr.isSuccess()) {
         		// Operation was successful, so get the ID of the record that was processed
-        		emailtext1 = emailtext1 + 'Successfully updated Litigation ID: ' + sr.getId();
+        		emailtext1 = emailtext1 + 'Successfully updated Litigation: ' + 
+            URL.getSalesforceBaseUrl().toExternalForm() + '/' + sr.getId() + '\n';
     	
     		}else {
 
         		// Operation failed, so get all errors               
         		for(Database.Error err : sr.getErrors()) {
-        			emailtext2 = emailtext2 + 'The following error has occurred: \n';
+        			emailtext2 = emailtext2 + 'The following error has occurred for Litigation: ' + 
+              URL.getSalesforceBaseUrl().toExternalForm()+'/'+ so.Id + '\n';
         			emailtext2 = emailtext2 + err.getStatusCode() + ': ' + err.getMessage() + '\n';                   
         			emailtext2 = emailtext2 + 'Litigation fields that affected this error: ' + err.getFields() + '\n';
         		}
@@ -68,17 +72,21 @@ public class ScheduleLitigationSegmentRefresh implements DispatchScheduledFollow
    		}   
 
 		Database.SaveResult[] srList1 = Database.update(segmentsToRefresh, false); 
-		for (Database.SaveResult sr1 : srList1) {
+		for (Integer k = 0; k < segmentsToRefresh.size(); k++) {
+        Database.SaveResult sr1 = srList1[k];
+        Segment__c so = segmentsToRefresh[k];
 
     		if (sr1.isSuccess()) {
         		// Operation was successful, so get the ID of the record that was processed
-        		emailtext2 = emailtext2 + 'Successfully updated Segment ID: ' + sr1.getId();
+        		emailtext2 = emailtext2 + 'Successfully updated Segment: ' + 
+            URL.getSalesforceBaseUrl().toExternalForm() + '/' + sr1.getId() + '\n';
     	
     		}else {
 
         		// Operation failed, so get all errors               
         		for(Database.Error ierr : sr1.getErrors()) {
-        			emailtext2 = emailtext2 + 'The following error has occurred: \n';
+        			emailtext2 = emailtext2 + 'The following error has occurred for Segment: ' + 
+              URL.getSalesforceBaseUrl().toExternalForm()+'/'+ so.Id + '\n';
         			emailtext2 = emailtext2 + ierr.getStatusCode() + ': ' + ierr.getMessage() + '\n';                   
         			emailtext2 = emailtext2 + 'Segment fields that affected this error: ' + ierr.getFields() + '\n';
         		}
