@@ -304,42 +304,6 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Applicable_CBP_Instructions_Category__c</fullName>
-        <description>hide if customs_instructions_yes_no is not TRUE; if customs_instructions_yes_no is TRUE, validation (must be completed before closing case); repeating (can be multiple types of CBP instructions associated with each combination of respondent/exporter/producer);</description>
-        <externalId>false</externalId>
-        <label>Applicable CBP Instructions Category</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Cash Deposit</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Initiation</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Liquidation</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Other</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Refund</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>CBP_Case_Number__c</fullName>
         <externalId>false</externalId>
         <label>CBP Case Number</label>
@@ -450,33 +414,6 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Choose_Following_Respondent_Selection__c</fullName>
-        <externalId>false</externalId>
-        <label>Choose Following Respondent Selection</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>CBP Data</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Other</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Quantity and Value Questionnaire</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Commodity__c</fullName>
         <externalId>false</externalId>
         <label>Commodity</label>
@@ -533,15 +470,6 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
-    </fields>
-    <fields>
-        <fullName>Concurrence_to_DAS__c</fullName>
-        <externalId>false</externalId>
-        <label>Concurrence to DAS</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
     </fields>
     <fields>
         <fullName>Countervailed_Programs__c</fullName>
@@ -1079,15 +1007,6 @@
         </valueSet>
     </fields>
     <fields>
-        <fullName>Issues_to_DAS__c</fullName>
-        <externalId>false</externalId>
-        <label>Issues to DAS</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Link__c</fullName>
         <externalId>false</externalId>
         <formula>HYPERLINK( LEFT($Api.Enterprise_Server_URL_390 , FIND(&apos;/services&apos;, $Api.Enterprise_Server_URL_390)) &amp; Id,  Investigation_Name__c, &apos;_self&apos;)</formula>
@@ -1160,7 +1079,6 @@
         <fullName>Locked__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>Record Locked</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -1255,17 +1173,6 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Next_Office_PM_Deadline__c</fullName>
-        <description>Next Office/PM Deadline and Timeline</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Next Office/PM Deadline and Timeline</inlineHelpText>
-        <label>Next Office/PM Deadline</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Number_of_Additional_Companies_Investiga__c</fullName>
         <description>Number of Additional Companies Investigated/Reviewed</description>
         <externalId>false</externalId>
@@ -1343,97 +1250,6 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Petition_Case_Number__c</fullName>
-        <externalId>false</externalId>
-        <label>Petition Case Number</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Petition_Case_Type__c</fullName>
-        <externalId>false</externalId>
-        <label>Petition Case Type</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Petition_Commodity__c</fullName>
-        <externalId>false</externalId>
-        <label>Petition Commodity</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Cement and Ceramics</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Chemicals and Allied Industries</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Foodstuffs</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Machinery and Automotive</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Minerals</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Other Metals and Articles of Metal</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Other Mfg.</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Paper and Paperboard</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Plastics and Rubber</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Steel-Related</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>Textiles</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>Petition_Country__c</fullName>
-        <externalId>false</externalId>
-        <label>Petition Country</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Petition_Initiation_Signature__c</fullName>
         <description>This is for either the Actual or Calculated Initiation Signature date from the Petition without any further calculation.  This is used in the lookup filter to align a CVD investigation with an AD investigation.</description>
         <externalId>false</externalId>
@@ -1442,29 +1258,6 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Petition_Product_Short_Name__c</fullName>
-        <description>Petition Product Short Name</description>
-        <externalId>false</externalId>
-        <label>Petition Product Short Name</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Petition_Product__c</fullName>
-        <externalId>false</externalId>
-        <label>Petition Product</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Petition_Withdrawn__c</fullName>
@@ -1624,17 +1417,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Schedule_Refresh__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Used by a Schedulable class to cause the Tolling Date Service to recalculate tolling days whenever a calculated announcement date is equal to &quot;yesterday when the associated trigger calculates the next announcement date.</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Hidden field used by the system</inlineHelpText>
-        <label>Schedule Refresh</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>Signature_of_Prelim_Postponement_FR__c</fullName>
         <description>Calculated Postponement of Preliminary Determination FR Signature</description>
         <externalId>false</externalId>
@@ -1722,17 +1504,6 @@
         <unique>true</unique>
     </fields>
     <fields>
-        <fullName>Tolling_Update__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Used by a batch class when the Tolling Date Trigger executes to add new tolling date records. This causes dates to recalculate whenever the new tolling dates are added. Prevents updates to Petition from updating related Investigation records of different types.</description>
-        <externalId>false</externalId>
-        <inlineHelpText>For system use only.</inlineHelpText>
-        <label>Tolling Update</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>Upstream_Subsidy_Allegation__c</fullName>
         <description>Upstream Subsidy Allegation?</description>
         <externalId>false</externalId>
@@ -1807,75 +1578,12 @@
         <description>An anti dumping investigation</description>
         <label>AD</label>
         <picklistValues>
-            <picklist>ADCVD_Offices</picklist>
+            <picklist></picklist>
             <values>
-                <fullName>I</fullName>
+                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>II</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>III</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>V</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VII</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VIII</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Applicable_CBP_Instructions_Category__c</picklist>
-            <values>
-                <fullName>Cash Deposit</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Initiation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Liquidation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Refund</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Choose_Following_Respondent_Selection__c</picklist>
-            <values>
-                <fullName>CBP Data</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Quantity and Value Questionnaire</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2247,49 +1955,49 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Petition_Commodity__c</picklist>
+            <picklist></picklist>
             <values>
-                <fullName>Cement and Ceramics</fullName>
+                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chemicals and Allied Industries</fullName>
+                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Foodstuffs</fullName>
+                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Machinery and Automotive</fullName>
+                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Minerals</fullName>
+                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other Metals and Articles of Metal</fullName>
+                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other Mfg%2E</fullName>
+                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Paper and Paperboard</fullName>
+                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Plastics and Rubber</fullName>
+                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Steel-Related</fullName>
+                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Textiles</fullName>
+                <fullName></fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2333,7 +2041,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>YesNo</picklist>
+            <picklist></picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -2343,78 +2051,24 @@
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>CVD</fullName>
-        <active>true</active>
-        <description>A countervailing duties investigation</description>
-        <label>CVD</label>
         <picklistValues>
-            <picklist>ADCVD_Offices</picklist>
             <values>
-                <fullName>I</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>II</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>III</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>V</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VII</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VIII</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Applicable_CBP_Instructions_Category__c</picklist>
             <values>
-                <fullName>Cash Deposit</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Initiation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Liquidation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Refund</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Choose_Following_Respondent_Selection__c</picklist>
             <values>
-                <fullName>CBP Data</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2425,7 +2079,6 @@
         <picklistValues>
             <picklist>Commodity__c</picklist>
             <values>
-                <fullName>Cement and Ceramics</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2790,49 +2443,49 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Petition_Commodity__c</picklist>
+            <picklist></picklist>
             <values>
-                <fullName>Cement and Ceramics</fullName>
+                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Chemicals and Allied Industries</fullName>
+                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Foodstuffs</fullName>
+                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Machinery and Automotive</fullName>
+                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Minerals</fullName>
+                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other Metals and Articles of Metal</fullName>
+                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other Mfg%2E</fullName>
+                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Paper and Paperboard</fullName>
+                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Plastics and Rubber</fullName>
+                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Steel-Related</fullName>
+                <fullName></fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Textiles</fullName>
+                <fullName></fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2876,7 +2529,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>YesNo</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -2896,7 +2548,6 @@
         <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
         <excludedStandardButtons>Accept</excludedStandardButtons>
         <excludedStandardButtons>Forward</excludedStandardButtons>
-        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
         <lookupDialogsAdditionalFields>ADCVD_Case_Number__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Country__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ADCVD_Case_Type__c</lookupDialogsAdditionalFields>
@@ -3022,9 +2673,6 @@ NOT(AND(ISBLANK( Calc_Amended_Prelim_Determination_Sig__c )))
     <validationRules>
         <fullName>Cannot_Edit_Locked_Record</fullName>
         <active>true</active>
-        <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false,
-NOT(ISNEW()),
-PRIORVALUE(Locked__c) == true
 )</errorConditionFormula>
         <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
     </validationRules>
