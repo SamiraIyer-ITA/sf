@@ -219,6 +219,37 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Choose_Following_Respondent_Selection__c</fullName>
+        <externalId>false</externalId>
+        <label>Choose Following Respondent Selection:</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>CBP Data</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Quantity and Value Questionaires</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Commodity__c</fullName>
         <externalId>false</externalId>
         <label>Commodity</label>
@@ -228,6 +259,15 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Concurrence_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Concurrence to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Country__c</fullName>
@@ -330,6 +370,15 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Final_Remand__c</fullName>
+        <externalId>false</externalId>
+        <label>Final Remand</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>Final_Team_Meeting_Deadline__c</fullName>
         <externalId>false</externalId>
         <label>Final Team Meeting Deadline</label>
@@ -365,27 +414,22 @@
                 <value>
                     <fullName>129</fullName>
                     <default>false</default>
-                    <label>129</label>
                 </value>
                 <value>
                     <fullName>429</fullName>
                     <default>false</default>
-                    <label>429</label>
                 </value>
                 <value>
                     <fullName>437</fullName>
                     <default>false</default>
-                    <label>437</label>
                 </value>
                 <value>
                     <fullName>449</fullName>
                     <default>false</default>
-                    <label>449</label>
                 </value>
                 <value>
                     <fullName>464</fullName>
                     <default>false</default>
-                    <label>464</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -402,6 +446,15 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Issues_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Issues to DAS</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Link__c</fullName>
@@ -429,7 +482,7 @@
         <fullName>Locked__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>Locked</label>
+        <label>Record Locked</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -506,6 +559,20 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Petition_Case_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Investigation__c != null,  Investigation__r.Petition_Case_Number__c , 
+IF( Segment__c != null,  Segment__r.Petition_Case_Number__c , 
+&apos;&apos;
+) )</formula>
+        <label>Petition Case Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Petition__c</fullName>
@@ -615,6 +682,17 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Schedule_Refresh__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by a Schedulable class to cause the Tolling Date Service to recalculate tolling days whenever a calculated announcement date is equal to &quot;yesterday when the associated trigger calculates the next announcement date.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Hidden field used by system</inlineHelpText>
+        <label>Schedule Refresh</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Segment__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -642,23 +720,19 @@
                 <value>
                     <fullName>Preliminary</fullName>
                     <default>false</default>
-                    <label>Preliminary</label>
                 </value>
                 <value>
                     <fullName>Final</fullName>
                     <default>false</default>
-                    <label>Final</label>
                 </value>
                 <value>
                     <fullName>Closed</fullName>
                     <default>false</default>
-                    <label>Closed</label>
                 </value>
                 <value>
                     <fullName>Active</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
-                    <label>Active</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -691,7 +765,26 @@
         <active>true</active>
         <label>International Litigation</label>
         <picklistValues>
-            <picklist>Country__c</picklist>
+            <picklist>Choose_Following_Respondent_Selection__c</picklist>
+            <values>
+                <fullName>CBP Data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quantity and Value Questionaires</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Countries</picklist>
             <values>
                 <fullName>Argentina</fullName>
                 <default>false</default>
@@ -1001,7 +1094,26 @@
         <active>true</active>
         <label>Remand</label>
         <picklistValues>
-            <picklist>Country__c</picklist>
+            <picklist>Choose_Following_Respondent_Selection__c</picklist>
+            <values>
+                <fullName>CBP Data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quantity and Value Questionaires</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Countries</picklist>
             <values>
                 <fullName>Argentina</fullName>
                 <default>false</default>
@@ -1354,10 +1466,19 @@ NOT( ISNULL( Actual_Preliminary_Signature__c ))
         <errorMessage>Calculated Preliminary Signature Date must be populated in order to enter Actual Preliminary Signature Date</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Cannot_Edit_Locked_Record</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false, 
+NOT(ISNEW()), 
+PRIORVALUE(Locked__c) == true 
+)</errorConditionFormula>
+        <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Every_Litigation_must_have_a_Parent</fullName>
         <active>true</active>
         <description>Every Litigation must ONLY have either a Petition, an Investigation, or a Segment.</description>
-        <errorConditionFormula>OR(
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, OR(
     (
       IF(
         AND(
@@ -1369,7 +1490,7 @@ NOT( ISNULL( Actual_Preliminary_Signature__c ))
      IF(ISBLANK(Segment__c),0,1)+ 
      IF(ISBLANK(Investigation__c),0,1)&gt; 1
    )
- )</errorConditionFormula>
+ ))</errorConditionFormula>
         <errorMessage>Every Litigation must have either a Petition, an Investigation, or a Segment. Please enter ONLY one value, either for a Petition, an Investigation or a Segment.</errorMessage>
     </validationRules>
     <validationRules>
@@ -1399,5 +1520,4 @@ $RecordType.DeveloperName = &quot;Remand&quot;,
 ))</errorConditionFormula>
         <errorMessage>Final Extension cannot be less than zero.</errorMessage>
     </validationRules>
-    <visibility>Public</visibility>
 </CustomObject>
