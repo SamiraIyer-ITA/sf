@@ -1849,6 +1849,16 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Schedule_Refresh__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by a Schedulable class to cause the Tolling Date Service to recalculate tolling days whenever a calculated announcement date is equal to &quot;yesterday when the associated trigger calculates the next announcement date.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>For system use only.</inlineHelpText>
+        <label>Schedule Refresh</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Scope_Determination__c</fullName>
         <externalId>false</externalId>
         <label>Scope Determination</label>
@@ -1865,40 +1875,6 @@
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Scope_Segment_Termination__c</fullName>
-        <externalId>false</externalId>
-        <label>Scope Segment Termination</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Scope not properly filed and served</fullName>
-                    <default>false</default>
-                    <label>Scope not properly filed and served</label>
-                </value>
-                <value>
-                    <fullName>Scope not fully complete</fullName>
-                    <default>false</default>
-                    <label>Scope not fully complete</label>
-                </value>
-                <value>
-                    <fullName>Department did not initiate</fullName>
-                    <default>false</default>
-                    <label>Department did not initiate</label>
-                </value>
-                <value>
-                    <fullName>Respondent not fully responsive</fullName>
-                    <default>false</default>
-                    <label>Respondent not fully responsive</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
     </fields>
     <fields>
         <fullName>Segment_Name__c</fullName>
