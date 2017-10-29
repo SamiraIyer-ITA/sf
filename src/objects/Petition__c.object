@@ -66,7 +66,7 @@
         <externalId>false</externalId>
         <label>ADCVD Case Number</label>
         <length>28</length>
-        <required>false</required>
+        <required>true</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -80,7 +80,7 @@
 A-###-### for AD 
 C-###-### for CVD</inlineHelpText>
         <label>ADCVD Case Type</label>
-        <required>false</required>
+        <required>true</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -90,14 +90,17 @@ C-###-### for CVD</inlineHelpText>
                 <value>
                     <fullName>AD ME</fullName>
                     <default>false</default>
+                    <label>AD ME</label>
                 </value>
                 <value>
                     <fullName>AD NME</fullName>
                     <default>false</default>
+                    <label>AD NME</label>
                 </value>
                 <value>
                     <fullName>CVD</fullName>
                     <default>false</default>
+                    <label>CVD</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -119,15 +122,6 @@ C-###-### for CVD</inlineHelpText>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Actual_Initiation_Sig_After_Calculated__c</fullName>
-        <externalId>false</externalId>
-        <formula>Actual_Initiation_Signature__c &gt; Calculated_Initiation_Signature__c</formula>
-        <label>Actual Initiation Sig After Calculated</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Actual_Initiation_Signature__c</fullName>
@@ -162,49 +156,6 @@ C-###-### for CVD</inlineHelpText>
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Case_Number__c</fullName>
-        <caseSensitive>false</caseSensitive>
-        <description>Referenced from parent Petition case</description>
-        <externalId>false</externalId>
-        <label>Case Number</label>
-        <length>28</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>true</unique>
-    </fields>
-    <fields>
-        <fullName>Case_Type__c</fullName>
-        <description>Referenced from parent Petition case</description>
-        <externalId>false</externalId>
-        <inlineHelpText>This should be in the following format:
-A-###-### for AD 
-C-###-### for CVD</inlineHelpText>
-        <label>Case Type</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>AD ME</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>AD NME</fullName>
-                    <default>false</default>
-                </value>
-                <value>
-                    <fullName>CVD</fullName>
-                    <default>false</default>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Commodity__c</fullName>
         <description>Referenced from parent petition</description>
         <externalId>false</externalId>
@@ -219,46 +170,57 @@ C-###-### for CVD</inlineHelpText>
                 <value>
                     <fullName>Cement and Ceramics</fullName>
                     <default>false</default>
+                    <label>Cement and Ceramics</label>
                 </value>
                 <value>
                     <fullName>Chemicals and Allied Industries</fullName>
                     <default>false</default>
+                    <label>Chemicals and Allied Industries</label>
                 </value>
                 <value>
                     <fullName>Foodstuffs</fullName>
                     <default>false</default>
+                    <label>Foodstuffs</label>
                 </value>
                 <value>
                     <fullName>Machinery and Automotive</fullName>
                     <default>false</default>
+                    <label>Machinery and Automotive</label>
                 </value>
                 <value>
                     <fullName>Minerals</fullName>
                     <default>false</default>
+                    <label>Minerals</label>
                 </value>
                 <value>
                     <fullName>Other Metals and Articles of Metal</fullName>
                     <default>false</default>
+                    <label>Other Metals and Articles of Metal</label>
                 </value>
                 <value>
                     <fullName>Other Mfg.</fullName>
                     <default>false</default>
+                    <label>Other Mfg.</label>
                 </value>
                 <value>
                     <fullName>Paper and Paperboard</fullName>
                     <default>false</default>
+                    <label>Paper and Paperboard</label>
                 </value>
                 <value>
                     <fullName>Plastics and Rubber</fullName>
                     <default>false</default>
+                    <label>Plastics and Rubber</label>
                 </value>
                 <value>
                     <fullName>Steel-Related</fullName>
                     <default>false</default>
+                    <label>Steel-Related</label>
                 </value>
                 <value>
                     <fullName>Textiles</fullName>
                     <default>false</default>
+                    <label>Textiles</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -278,296 +240,340 @@ C-###-### for CVD</inlineHelpText>
                 <value>
                     <fullName>Argentina</fullName>
                     <default>false</default>
+                    <label>Argentina</label>
                 </value>
                 <value>
                     <fullName>Australia</fullName>
                     <default>false</default>
+                    <label>Australia</label>
                 </value>
                 <value>
                     <fullName>Austria</fullName>
                     <default>false</default>
+                    <label>Austria</label>
                 </value>
                 <value>
                     <fullName>Bangladesh</fullName>
                     <default>false</default>
+                    <label>Bangladesh</label>
                 </value>
                 <value>
                     <fullName>Belarus</fullName>
                     <default>false</default>
+                    <label>Belarus</label>
                 </value>
                 <value>
                     <fullName>Belgium</fullName>
                     <default>false</default>
+                    <label>Belgium</label>
                 </value>
                 <value>
                     <fullName>Brazil</fullName>
                     <default>false</default>
+                    <label>Brazil</label>
                 </value>
                 <value>
                     <fullName>Canada</fullName>
                     <default>false</default>
+                    <label>Canada</label>
                 </value>
                 <value>
                     <fullName>Chile</fullName>
                     <default>false</default>
+                    <label>Chile</label>
                 </value>
                 <value>
                     <fullName>China</fullName>
                     <default>false</default>
+                    <label>China</label>
                 </value>
                 <value>
                     <fullName>Colombia</fullName>
                     <default>false</default>
+                    <label>Colombia</label>
                 </value>
                 <value>
                     <fullName>Czech Republic</fullName>
                     <default>false</default>
+                    <label>Czech Republic</label>
                 </value>
                 <value>
                     <fullName>Denmark</fullName>
                     <default>false</default>
+                    <label>Denmark</label>
                 </value>
                 <value>
                     <fullName>Ecuador</fullName>
                     <default>false</default>
+                    <label>Ecuador</label>
                 </value>
                 <value>
                     <fullName>Egypt</fullName>
                     <default>false</default>
+                    <label>Egypt</label>
                 </value>
                 <value>
                     <fullName>Estonia</fullName>
                     <default>false</default>
+                    <label>Estonia</label>
                 </value>
                 <value>
                     <fullName>Finland</fullName>
                     <default>false</default>
+                    <label>Finland</label>
                 </value>
                 <value>
                     <fullName>France</fullName>
                     <default>false</default>
+                    <label>France</label>
                 </value>
                 <value>
                     <fullName>Germany</fullName>
                     <default>false</default>
+                    <label>Germany</label>
                 </value>
                 <value>
                     <fullName>Greece</fullName>
                     <default>false</default>
+                    <label>Greece</label>
                 </value>
                 <value>
                     <fullName>Hungary</fullName>
                     <default>false</default>
+                    <label>Hungary</label>
                 </value>
                 <value>
                     <fullName>India</fullName>
                     <default>false</default>
+                    <label>India</label>
                 </value>
                 <value>
                     <fullName>Indonesia</fullName>
                     <default>false</default>
+                    <label>Indonesia</label>
                 </value>
                 <value>
                     <fullName>Iran</fullName>
                     <default>false</default>
+                    <label>Iran</label>
                 </value>
                 <value>
                     <fullName>Iraq</fullName>
                     <default>false</default>
+                    <label>Iraq</label>
                 </value>
                 <value>
                     <fullName>Ireland</fullName>
                     <default>false</default>
+                    <label>Ireland</label>
                 </value>
                 <value>
                     <fullName>Israel</fullName>
                     <default>false</default>
+                    <label>Israel</label>
                 </value>
                 <value>
                     <fullName>Italy</fullName>
                     <default>false</default>
+                    <label>Italy</label>
                 </value>
                 <value>
                     <fullName>Japan</fullName>
                     <default>false</default>
+                    <label>Japan</label>
                 </value>
                 <value>
                     <fullName>Kazakhstan</fullName>
                     <default>false</default>
+                    <label>Kazakhstan</label>
                 </value>
                 <value>
                     <fullName>Kyrgyzstan</fullName>
                     <default>false</default>
+                    <label>Kyrgyzstan</label>
                 </value>
                 <value>
                     <fullName>Latvia</fullName>
                     <default>false</default>
+                    <label>Latvia</label>
                 </value>
                 <value>
                     <fullName>Lithuania</fullName>
                     <default>false</default>
+                    <label>Lithuania</label>
                 </value>
                 <value>
                     <fullName>Luxembourg</fullName>
                     <default>false</default>
+                    <label>Luxembourg</label>
                 </value>
                 <value>
                     <fullName>Macedonia</fullName>
                     <default>false</default>
+                    <label>Macedonia</label>
                 </value>
                 <value>
                     <fullName>Malaysia</fullName>
                     <default>false</default>
+                    <label>Malaysia</label>
                 </value>
                 <value>
                     <fullName>Mexico</fullName>
                     <default>false</default>
+                    <label>Mexico</label>
                 </value>
                 <value>
                     <fullName>Moldova</fullName>
                     <default>false</default>
+                    <label>Moldova</label>
                 </value>
                 <value>
                     <fullName>Netherlands</fullName>
                     <default>false</default>
+                    <label>Netherlands</label>
                 </value>
                 <value>
                     <fullName>New Zealand</fullName>
                     <default>false</default>
+                    <label>New Zealand</label>
                 </value>
                 <value>
                     <fullName>Norway</fullName>
                     <default>false</default>
+                    <label>Norway</label>
                 </value>
                 <value>
                     <fullName>Oman</fullName>
                     <default>false</default>
+                    <label>Oman</label>
                 </value>
                 <value>
                     <fullName>Pakistan</fullName>
                     <default>false</default>
+                    <label>Pakistan</label>
                 </value>
                 <value>
                     <fullName>Philippines</fullName>
                     <default>false</default>
+                    <label>Philippines</label>
                 </value>
                 <value>
                     <fullName>Poland</fullName>
                     <default>false</default>
+                    <label>Poland</label>
                 </value>
                 <value>
                     <fullName>Portugal</fullName>
                     <default>false</default>
+                    <label>Portugal</label>
                 </value>
                 <value>
                     <fullName>Romania</fullName>
                     <default>false</default>
+                    <label>Romania</label>
                 </value>
                 <value>
                     <fullName>Russia</fullName>
                     <default>false</default>
+                    <label>Russia</label>
                 </value>
                 <value>
                     <fullName>Saudi Arabia</fullName>
                     <default>false</default>
+                    <label>Saudi Arabia</label>
                 </value>
                 <value>
                     <fullName>Singapore</fullName>
                     <default>false</default>
+                    <label>Singapore</label>
                 </value>
                 <value>
                     <fullName>Slovakia</fullName>
                     <default>false</default>
+                    <label>Slovakia</label>
                 </value>
                 <value>
                     <fullName>South Africa</fullName>
                     <default>false</default>
+                    <label>South Africa</label>
                 </value>
                 <value>
                     <fullName>South Korea</fullName>
                     <default>false</default>
+                    <label>South Korea</label>
                 </value>
                 <value>
                     <fullName>Spain</fullName>
                     <default>false</default>
+                    <label>Spain</label>
                 </value>
                 <value>
                     <fullName>Sweden</fullName>
                     <default>false</default>
+                    <label>Sweden</label>
                 </value>
                 <value>
                     <fullName>Switzerland</fullName>
                     <default>false</default>
+                    <label>Switzerland</label>
                 </value>
                 <value>
                     <fullName>Taiwan</fullName>
                     <default>false</default>
+                    <label>Taiwan</label>
                 </value>
                 <value>
                     <fullName>Thailand</fullName>
                     <default>false</default>
+                    <label>Thailand</label>
                 </value>
                 <value>
                     <fullName>Trinidad and Tobago</fullName>
                     <default>false</default>
+                    <label>Trinidad and Tobago</label>
                 </value>
                 <value>
                     <fullName>Turkey</fullName>
                     <default>false</default>
+                    <label>Turkey</label>
                 </value>
                 <value>
                     <fullName>Ukraine</fullName>
                     <default>false</default>
+                    <label>Ukraine</label>
                 </value>
                 <value>
                     <fullName>United Arab Emirates</fullName>
                     <default>false</default>
+                    <label>United Arab Emirates</label>
                 </value>
                 <value>
                     <fullName>United Kingdom</fullName>
                     <default>false</default>
+                    <label>United Kingdom</label>
                 </value>
                 <value>
                     <fullName>United States</fullName>
                     <default>false</default>
+                    <label>United States</label>
                 </value>
                 <value>
                     <fullName>Uzbekistan</fullName>
                     <default>false</default>
+                    <label>Uzbekistan</label>
                 </value>
                 <value>
                     <fullName>Venezuela</fullName>
                     <default>false</default>
+                    <label>Venezuela</label>
                 </value>
                 <value>
                     <fullName>Vietnam</fullName>
                     <default>false</default>
+                    <label>Vietnam</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
-    </fields>
-    <fields>
-        <fullName>External_Id__c</fullName>
-        <caseSensitive>false</caseSensitive>
-        <externalId>true</externalId>
-        <label>External Id</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>true</unique>
-    </fields>
-    <fields>
-        <fullName>Import_Volume_or_Value__c</fullName>
-        <externalId>false</externalId>
-        <label>Import Volume or Value</label>
-        <length>28</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Initiation_Announcement_Date__c</fullName>
@@ -626,19 +632,6 @@ C-###-### for CVD</inlineHelpText>
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Injunction__c</fullName>
-        <externalId>false</externalId>
-        <label>Injunction</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>YesNo</valueSetName>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Link__c</fullName>
         <externalId>false</externalId>
         <formula>HYPERLINK( LEFT($Api.Enterprise_Server_URL_390 , FIND(&apos;/services&apos;, $Api.Enterprise_Server_URL_390)) &amp; Id,  Petition_Name__c , &apos;_self&apos;)</formula>
@@ -677,10 +670,12 @@ C-###-### for CVD</inlineHelpText>
                 <value>
                     <fullName>Active</fullName>
                     <default>false</default>
+                    <label>Active</label>
                 </value>
                 <value>
                     <fullName>Inactive</fullName>
                     <default>false</default>
+                    <label>Inactive</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -688,19 +683,6 @@ C-###-### for CVD</inlineHelpText>
     <fields>
         <fullName>Litigation_YesNo__c</fullName>
         <defaultValue>&quot;No&quot;</defaultValue>
-        <externalId>false</externalId>
-        <label>Litigation</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>YesNo</valueSetName>
-        </valueSet>
-    </fields>
-    <fields>
-        <fullName>Litigation__c</fullName>
         <externalId>false</externalId>
         <label>Litigation</label>
         <required>false</required>
@@ -763,15 +745,6 @@ C-###-### for CVD</inlineHelpText>
         <fullName>Next_Office_Deadline__c</fullName>
         <externalId>false</externalId>
         <label>Next Office Deadline</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Next_Office_PM_Deadline__c</fullName>
-        <externalId>false</externalId>
-        <label>Next Office/PM Deadline</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -847,43 +820,52 @@ C-###-### for CVD</inlineHelpText>
                 <value>
                     <fullName>Deficient Petition/Did Not Initiate</fullName>
                     <default>false</default>
+                    <label>Deficient Petition/Did Not Initiate</label>
                 </value>
                 <value>
                     <fullName>Initiated from Petition</fullName>
                     <default>false</default>
+                    <label>Initiated from Petition</label>
                 </value>
                 <value>
                     <fullName>Petition Withdrawn/Did Not Initiate</fullName>
                     <default>false</default>
+                    <label>Petition Withdrawn/Did Not Initiate</label>
                 </value>
                 <value>
                     <fullName>Self-Initiated</fullName>
                     <default>false</default>
+                    <label>Self-Initiated</label>
                 </value>
                 <value>
                     <fullName>In Progress</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>In Progress</label>
                 </value>
                 <value>
                     <fullName>Initiated</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Initiated</label>
                 </value>
                 <value>
                     <fullName>Petition_Withdrawn_Did_Not_Initiate</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Petition_Withdrawn_Did_Not_Initiate</label>
                 </value>
                 <value>
                     <fullName>Self Initiate in Progress</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Self Initiate in Progress</label>
                 </value>
                 <value>
                     <fullName>Self-Initiate In Progress</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Self-Initiate In Progress</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -913,17 +895,6 @@ C-###-### for CVD</inlineHelpText>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Schedule_Refresh__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Used by a Schedulable class to cause the Tolling Date Service to recalculate tolling days whenever a calculated announcement date is equal to &quot;yesterday when the associated trigger calculates the next announcement date.</description>
-        <externalId>false</externalId>
-        <inlineHelpText>For system use only.</inlineHelpText>
-        <label>Schedule Refresh</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>Status__c</fullName>
         <externalId>false</externalId>
         <label>Status</label>
@@ -938,63 +909,62 @@ C-###-### for CVD</inlineHelpText>
                 <value>
                     <fullName>In Progress</fullName>
                     <default>false</default>
+                    <label>In Progress</label>
                 </value>
                 <value>
                     <fullName>Litigation</fullName>
                     <default>false</default>
+                    <label>Litigation</label>
                 </value>
                 <value>
                     <fullName>Closed</fullName>
                     <default>false</default>
+                    <label>Closed</label>
                 </value>
                 <value>
                     <fullName>Completed</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Completed</label>
                 </value>
                 <value>
                     <fullName>Filed</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Filed</label>
                 </value>
                 <value>
                     <fullName>Rejected/Deficient/Negative Finding</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Rejected/Deficient/Negative Finding</label>
                 </value>
                 <value>
                     <fullName>Remand/International Litigation</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Remand/International Litigation</label>
                 </value>
                 <value>
                     <fullName>Self Initiating</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Self Initiating</label>
                 </value>
                 <value>
                     <fullName>With the Court</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>With the Court</label>
                 </value>
                 <value>
                     <fullName>Withdrawn/Rescinded</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Withdrawn/Rescinded</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
-    </fields>
-    <fields>
-        <fullName>Tolling_Update__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Used by a batch class when the Tolling Date Trigger executes to add new tolling date records. This causes dates to recalculate whenever the new tolling dates are added without updating related Investigation records.</description>
-        <externalId>false</externalId>
-        <inlineHelpText>For system use only</inlineHelpText>
-        <label>Tolling Update</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Total_Imports_Domestic_Consumption__c</fullName>
@@ -1179,4 +1149,5 @@ ISPICKVAL(Petition_Outcome__c, &apos;&apos;)))</errorConditionFormula>
         <errorDisplayField>Petition_Outcome__c</errorDisplayField>
         <errorMessage>The Petition Outcome is required to enter an Actual Initiation Signature</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>
