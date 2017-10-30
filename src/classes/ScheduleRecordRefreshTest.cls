@@ -1,14 +1,5 @@
-/**
- * 
- *    Created by Cal Smith
- *    on 10/26/2017 
- *    MIL Corporation
- * 
- **/
- 
 @isTest
-private class ScheduleLitigationSegmentTest {
-
+public class ScheduleRecordRefreshTest {
 
 	private static Date petitionDate = System.today();
 	private static Date testNextAnnouncmentDate = System.today();//reusable date variable for each test to add roll forward logic allowing data normalization
@@ -17,26 +8,23 @@ private class ScheduleLitigationSegmentTest {
 	private static Date testPublishedDate = System.today();
 	private static Date segmentDate = System.today();
 	private static Date litigationDate = System.today();
+	private static String CRON_EXP = '0 0 1 ' +  String.valueOf((System.today().addDays(1)).day()) + ' ' + String.valueOf(System.today().addDays(1).month()) + ' ?';
 
 	private static AppConfig__c app {
 		get{
 			if(app == null){ 
 				app = new AppConfig__c();
 	 			app.Name = 'default';
-				app.Primary_Admin__c = 'csmith@milcorp.com'; 
+				app.Primary_Admin__c = 'joshuamoody80@gmail.com'; 
 				app.ADCVD_Admin__c = 'calvin.smith@trade.gov';
 				app.ADCVD_Developer__c = 'crmprogdev@gmail.com';
 				app.TriggersEnabled__c = false;
 				app.AppEnabled__c = true;
-				app.ChronExp_LitigationSegement__c = ' 0 ' + string.valueOf((system.now().addMinutes(30)).minute()) + ' ' + string.valueOf((system.now().addMinutes(30)).hour()) + ' ' + string.valueOf(system.today().day()) + ' ' + string.valueOf(system.today().Month()) + ' ?';
-				system.debug('ChronExp_LitigationSegement__c = ' + app.ChronExp_LitigationSegement__c);
-				app.ChronExpr_PetitionInvestigation__c = '0 0 1 ' +  string.valueOf((system.today().addDays(1)).day()) + ' ' + string.valueOf(system.today().addDays(1).month()) + ' ?';
-				system.debug('ChronExpr_PetitionInvestigation__c = ' + app.ChronExpr_PetitionInvestigation__c); 
 				insert app;
 			}
 			return app;
 		}			
-	}				
+	}	
 	
 	private static User u{
 		get{
@@ -310,7 +298,7 @@ private class ScheduleLitigationSegmentTest {
 				Id recordTypeId = utils.getRecordTypeIdMap('Segment__c').get('Sunset_Review');
 				ssSeg = [SELECT Id, RecordTypeId, Calculated_Preliminary_Signature__c, Calculated_Final_Signature__c, Update_ACE_Customs_Module__c, Adequacy_of_Respondents_Submission__c, 
 							Actual_Final_Signature__c, Actual_Revocation_or_Continuation_FR__c, Calculated_Revocation_or_Continuation_FR__c, 
-							Issue_Liquidation_Revocation_Instruction__c, Rebuttal_Comments_Due__c, Adequacy_Determination_Letter__c, 
+							Issue_Liquidation_Revocation_Instruction__c, Rebuttal_Comments_Due__c, Adequacy_Determination_Letter_to_ITC__c, 
 							Comments_on_Adequacy_Determination_Filed__c, Memorandum_on_Adequacy_Determination__c, Prelim_Team_Meeting_Deadline__c, 
 							Notify_ITC_of_No_Domestic_Interest__c, Inadequate_Domestic_Response_note_to_ITC__c, Notice_of_Intent_to_Participate__c, 
 							Notify_Cluster_Coordinator_No_Interest__c, Substantive_Response_Due_For_All_Parties__c, Inform_Cluster_Coordinator_if_No_Respons__c, 
@@ -355,16 +343,16 @@ private class ScheduleLitigationSegmentTest {
 		}
 	}
 
-    static testMethod void testSegmentDates() {
+
+
+    static testMethod void testPetitionDates() {
+		ScheduledRecordsRefreshDispatcher spr = new ScheduledRecordsRefreshDispatcher();
     	
-     	String CRON_EXP = app.ChronExp_LitigationSegement__c;
-		DispatchScheduledFollower dsf = new DispatchScheduledFollower();
-    	
-    	system.debug('CRON_EXP = ' + CRON_EXP);	
+    	System.debug('CRON_EXP = ' + CRON_EXP);	
  
         Test.startTest();
 
-   		String CronTriggerID = system.schedule('Dispatch Follow', CRON_EXP, dsf);
+   		String CronTriggerID = System.schedule('Schedule ADCVD Records Refresh', CRON_EXP, spr);
 		
    		CronTrigger ctx = [SELECT Id, CronExpression, TimesTriggered, NextFireTime
             	FROM CronTrigger WHERE Id =: CronTriggerID ];
@@ -375,9 +363,144 @@ private class ScheduleLitigationSegmentTest {
     		
 		// verifiy the job is scheduled
    		Integer c1 = [SELECT COUNT() FROM CronTrigger WHERE CronJobDetail.JobType = '7'];
-   		system.assertEquals(c1, 1);
-		//system.debug('c1 = ' + c1);
+   		System.assertEquals(c1, 1);
+		//System.debug('c1 = ' + c1);
 
+        //Capture current values from trigger for comparison in final assert
+        testNextDueToDAS = adP.Next_Due_to_DAS_Deadline__c;
+        testNextOfficeDeadline = adP.Next_Office_Deadline__c;
+        testNextAnnouncmentDate = adP.Next_Announcement_Date__c;
+
+        //Set value for scheduleable query
+        adP.Next_Due_to_DAS_Deadline__c = System.today().addDays(-1);
+        adP.Next_Office_Deadline__c = System.today().addDays(-1);
+        adP.Next_Announcement_Date__c = System.today().addDays(-1);
+		adP.Schedule_Refresh__c = false;
+		adP.Tolling_Update__c = false;
+		
+        update adP;
+
+        //Assert values updated correctly, and have not had the triggers run on them
+        System.assertEquals(System.today().addDays(-1), adP.Next_Due_to_DAS_Deadline__c);
+		System.assertEquals(System.today().addDays(-1), adP.Next_Office_Deadline__c);
+		System.assertEquals(System.today().addDays(-1), adP.Next_Announcement_Date__c);
+		System.assertEquals(false, adP.Schedule_Refresh__c);
+		System.assertEquals(false, adP.Tolling_Update__c);
+		
+		//Turn on triggers
+		app.TriggersEnabled__c = true;
+		update app;
+        
+		Test.stopTest();
+		// Call scheduable class - executes on test.stopTest()
+
+		// Query chron trigger to confirm that job has run 
+		
+		CronTrigger ct = [SELECT Id, CronExpression, TimesTriggered, NextFireTime, State, StartTime, EndTime, PreviousFireTime
+            	FROM CronTrigger WHERE Id =: CronTriggerID ];
+		        
+		//System.assertEquals(ct.TimesTriggered, 1);
+		System.debug('ct.TimesTriggered = '+ ct.TimesTriggered);
+
+		adP = null;
+		//System.assertEquals(true, adP.Schedule_Refresh__c);
+		System.debug('adP.Schedule_Refresh__c = ' + adP.Schedule_Refresh__c);
+        //System.assertEquals(testNextDueToDAS, adP.Next_Due_to_DAS_Deadline__c);
+        //System.assertEquals(testNextOfficeDeadline, adP.Next_Office_Deadline__c);
+        //System.assertEquals(testNextAnnouncmentDate, adP.Next_Announcement_Date__c);
+		
+
+    }
+
+    static testMethod void testInvestigationDates() {
+		ScheduledRecordsRefreshDispatcher spr = new ScheduledRecordsRefreshDispatcher();
+    	
+    	System.debug('CRON_EXP = ' + CRON_EXP);
+    		
+        Test.startTest();
+		// schedule the job to run
+   		String CronTriggerID = System.schedule('Schedule ADCVD Records Refresh', CRON_EXP, spr);
+		
+		// query chron trigger
+   		CronTrigger ctx = [SELECT Id, CronExpression, TimesTriggered, NextFireTime
+            	FROM CronTrigger WHERE Id =: CronTriggerID ];
+
+        // Verify the job has not run
+   	    //System.debug('ctx.TimesTriggered = ' + ctx.TimesTriggered);
+   	    System.assertEquals(0, ctx.TimesTriggered);
+    		
+		// verifiy the job is scheduled
+   		Integer c1 = [SELECT COUNT() FROM CronTrigger WHERE CronJobDetail.JobType = '7'];
+
+		//System.debug('c1 = ' + c1);
+   		System.assertEquals(c1, 1);
+        
+        //Capture current values from trigger for comparison in final assert
+        testNextDueToDAS = iAD.Next_Due_to_DAS_Deadline__c;
+        testNextOfficeDeadline = iAD.Next_Office_Deadline__c;
+        testNextAnnouncmentDate = iAD.Next_Announcement_Date__c;
+
+        //Set value for scheduleable query
+        iAD.Next_Due_to_DAS_Deadline__c = System.today().addDays(-1);
+        iAD.Next_Office_Deadline__c = System.today().addDays(-1);
+        iAD.Next_Announcement_Date__c = System.today().addDays(-1);
+		iAD.Schedule_Refresh__c = false;
+		iAD.Tolling_Update__c = false;
+
+        update iAD;
+
+        //Assert values updated correctly, and have not had the triggers run on them
+        System.assertEquals(System.today().addDays(-1), iAD.Next_Due_to_DAS_Deadline__c);
+		System.assertEquals(System.today().addDays(-1), iAD.Next_Office_Deadline__c);
+		System.assertEquals(System.today().addDays(-1), iAD.Next_Announcement_Date__c);
+		System.assertEquals(false, iAD.Schedule_Refresh__c);
+		System.assertEquals(false, iAD.Tolling_Update__c);
+
+		//Turn on triggers
+		app.TriggersEnabled__c = true;
+		update app;
+        
+		Test.stopTest();
+		// Call scheduable class - executes on test.stopTest()
+
+		// Query chron trigger to confirm that job has run 		
+		CronTrigger ct = [SELECT Id, CronExpression, TimesTriggered, NextFireTime, State, StartTime, EndTime, PreviousFireTime
+            	FROM CronTrigger WHERE Id =: CronTriggerID ];
+        
+		//System.assertEquals(ct.TimesTriggered, 1);
+		System.debug('ct.TimesTriggered = '+ ct.TimesTriggered);
+
+		//System.assertEquals(true, iAD.Schedule_Refresh__c);
+		iAD = null;
+        System.debug('iAD.Schedule_Refresh__c = ' + iAD.Schedule_Refresh__c);
+		//System.assertEquals(testNextDueToDAS, iAD.Next_Due_to_DAS_Deadline__c);
+        //System.assertEquals(testNextOfficeDeadline, iAD.Next_Office_Deadline__c);
+        //System.assertEquals(testNextAnnouncmentDate, iAD.Next_Announcement_Date__c);	
+    }
+
+    static testMethod void testSegmentDates() {
+		ScheduledRecordsRefreshDispatcher spr = new ScheduledRecordsRefreshDispatcher();
+    	
+    	System.debug('CRON_EXP = ' + CRON_EXP);
+    		
+        Test.startTest();
+		// schedule the job to run
+   		String CronTriggerID = System.schedule('Schedule ADCVD Records Refresh', CRON_EXP, spr);
+		
+		// query chron trigger
+   		CronTrigger ctx = [SELECT Id, CronExpression, TimesTriggered, NextFireTime
+            	FROM CronTrigger WHERE Id =: CronTriggerID ];
+
+        // Verify the job has not run
+   	    //System.debug('ctx.TimesTriggered = ' + ctx.TimesTriggered);
+   	    System.assertEquals(0, ctx.TimesTriggered);
+    		
+		// verifiy the job is scheduled
+   		Integer c1 = [SELECT COUNT() FROM CronTrigger WHERE CronJobDetail.JobType = '7'];
+
+		//System.debug('c1 = ' + c1);
+   		System.assertEquals(c1, 1);
+        
         //Capture current values from trigger for comparison in final assert
         testNextDueToDAS = adminSeg.Next_Due_to_DAS_Deadline__c;
         testNextOfficeDeadline = adminSeg.Next_Office_Deadline__c;
@@ -387,7 +510,8 @@ private class ScheduleLitigationSegmentTest {
         adminSeg.Next_Due_to_DAS_Deadline__c = System.today().addDays(-1);
         adminSeg.Next_Office_Deadline__c = System.today().addDays(-1);
         adminSeg.Next_Announcement_Date__c = System.today().addDays(-1);
-        adminSeg.Schedule_Refresh__c = false;
+		adminSeg.Schedule_Refresh__c = false;
+		adminSeg.Tolling_Update__c = false;
 
         update adminSeg;
 
@@ -396,61 +520,53 @@ private class ScheduleLitigationSegmentTest {
 		System.assertEquals(System.today().addDays(-1), adminSeg.Next_Office_Deadline__c);
 		System.assertEquals(System.today().addDays(-1), adminSeg.Next_Announcement_Date__c);
 		System.assertEquals(false, adminSeg.Schedule_Refresh__c);
-
+		System.assertEquals(false, adminSeg.Tolling_Update__c);
 
 		//Turn on triggers
 		app.TriggersEnabled__c = true;
 		update app;
         
 		Test.stopTest();
-		// scheduable class - executes on test.stopTest()
+		// Call scheduable class - executes on test.stopTest()
 
-		// Query chron trigger to confirm that job has run 
-		CronTrigger ct = [SELECT Id, CronExpression, TimesTriggered, NextFireTime
+		// Query chron trigger to confirm that job has run 		
+		CronTrigger ct = [SELECT Id, CronExpression, TimesTriggered, NextFireTime, State, StartTime, EndTime, PreviousFireTime
             	FROM CronTrigger WHERE Id =: CronTriggerID ];
-            	
-		// assert scheduled class ran
-		//system.assertEquals(ct.TimesTriggered, 1);
-        system.debug('ct.TimesTriggered = '+ ct.TimesTriggered);    			
+        
+		//System.assertEquals(ct.TimesTriggered, 1);
+		System.debug('ct.TimesTriggered = '+ ct.TimesTriggered);
 
-		// verify value of checkbox changed
-		system.debug('adminSeg.Schedule_Refresh__c = ' + adminSeg.Schedule_Refresh__c);
 		//System.assertEquals(true, adminSeg.Schedule_Refresh__c);
-
-		// assert primary class is scheduled to run at 1AM
-		
-   		CronTrigger ct1 = [SELECT Id, CronJobDetail.Name, State, NextFireTime
-            	FROM CronTrigger WHERE CronJobDetail.Name= 'Next Dispatch Scheduled' ];
-		
-		//system.debug('ct1.NextFireTime.hour() = ' + ct1.NextFireTime.hour());
-		system.assertEquals(ct1.NextFireTime.hour(),1);
-		
+		adminSeg = null;
+        System.debug('adminSeg.Schedule_Refresh__c = ' + adminSeg.Schedule_Refresh__c);
+        //System.assertEquals(testNextDueToDAS, adminSeg.Next_Due_to_DAS_Deadline__c);
+        //System.assertEquals(testNextOfficeDeadline, adminSeg.Next_Office_Deadline__c);
+        //System.assertEquals(testNextAnnouncmentDate, adminSeg.Next_Announcement_Date__c);
     }
 
     static testMethod void testLitigationDates() {
- 
-     	Boolean schedulableRunning = false;
-        String CRON_EXP = app.ChronExp_LitigationSegement__c;
-		DispatchScheduledFollower dsf = new DispatchScheduledFollower();
+		ScheduledRecordsRefreshDispatcher spr = new ScheduledRecordsRefreshDispatcher();
     	
-    	system.debug('CRON_EXP = ' + CRON_EXP);	
- 
+    	System.debug('CRON_EXP = ' + CRON_EXP);
+    		
         Test.startTest();
-
-   		String CronTriggerID = system.schedule('Dispatch Follow', CRON_EXP, dsf);
+		// schedule the job to run
+   		String CronTriggerID = System.schedule('Schedule ADCVD Records Refresh', CRON_EXP, spr);
 		
+		// query chron trigger
    		CronTrigger ctx = [SELECT Id, CronExpression, TimesTriggered, NextFireTime
             	FROM CronTrigger WHERE Id =: CronTriggerID ];
 
         // Verify the job has not run
-   	    System.assertEquals(0, ctx.TimesTriggered);
    	    //System.debug('ctx.TimesTriggered = ' + ctx.TimesTriggered);
+   	    System.assertEquals(0, ctx.TimesTriggered);
     		
 		// verifiy the job is scheduled
    		Integer c1 = [SELECT COUNT() FROM CronTrigger WHERE CronJobDetail.JobType = '7'];
-   		system.assertEquals(c1, 1);
-		//system.debug('c1 = ' + c1);
 
+		//System.debug('c1 = ' + c1);
+   		System.assertEquals(c1, 1);
+        
         //Capture current values from trigger for comparison in final assert
         testNextDueToDAS = intLit.Next_Due_to_DAS_Deadline__c;
         testNextOfficeDeadline = intLit.Next_Office_Deadline__c;
@@ -460,7 +576,8 @@ private class ScheduleLitigationSegmentTest {
         intLit.Next_Due_to_DAS_Deadline__c = System.today().addDays(-1);
         intLit.Next_Office_Deadline__c = System.today().addDays(-1);
         intLit.Next_Announcement_Date__c = System.today().addDays(-1);
-        intLit.Schedule_Refresh__c = false;
+		intLit.Schedule_Refresh__c = false;
+		intLit.Tolling_Update__c = false;
 
         update intLit;
 
@@ -469,45 +586,35 @@ private class ScheduleLitigationSegmentTest {
 		System.assertEquals(System.today().addDays(-1), intLit.Next_Office_Deadline__c);
 		System.assertEquals(System.today().addDays(-1), intLit.Next_Announcement_Date__c);
 		System.assertEquals(false, intLit.Schedule_Refresh__c);
-
+		System.assertEquals(false, intLit.Tolling_Update__c);
 
 		//Turn on triggers
 		app.TriggersEnabled__c = true;
 		update app;
         
 		Test.stopTest();
-		// scheduable class - executes on test.stopTest()
-		schedulableRunning = system.isScheduled();
-        System.debug('schedulableRunning = ' + schedulableRunning);
+		// Call scheduable class - executes on test.stopTest()
 
-		// Query chron trigger to confirm that job has run 
-		CronTrigger ct = [SELECT Id, CronExpression, TimesTriggered, NextFireTime, State
+		// Query chron trigger to confirm that job has run 		
+		CronTrigger ct = [SELECT Id, CronExpression, TimesTriggered, NextFireTime, State, StartTime, EndTime, PreviousFireTime
             	FROM CronTrigger WHERE Id =: CronTriggerID ];
-		
-		// assert scheduled class ran
-		//system.assertEquals(ct.TimesTriggered, 1);
-		//system.debug('ct.TimesTriggered = '+ ct.TimesTriggered);
-		
-		// verify value of checkbox changed
-		system.debug('intLit.Schedule_Refresh__c = ' + intLit.Schedule_Refresh__c);
+        
+		//System.assertEquals(ct.TimesTriggered, 1);
+		System.debug('ct.TimesTriggered = '+ ct.TimesTriggered);
+
 		//System.assertEquals(true, intLit.Schedule_Refresh__c);
-		
-		// assert  primary class is scheduled to run at 1AM
-     	String cronExpr = app.ChronExpr_PetitionInvestigation__c;
-		ScheduledDispatcher sd = new ScheduledDispatcher();
-		
-   		CronTrigger ct1 = [SELECT Id, CronJobDetail.Name, State, NextFireTime,TimesTriggered
-            	FROM CronTrigger WHERE CronJobDetail.Name= 'Next Dispatch Scheduled' ];
-		
-		//system.debug('ct1.NextFireTime.hour() = ' + ct1.NextFireTime.hour()); 
-		system.assertEquals(ct1.NextFireTime.hour(),1);
-		
+		intLit = null;
+        System.debug('intLit.Schedule_Refresh__c = ' + intLit.Schedule_Refresh__c);
+		//System.assertEquals(testNextDueToDAS, intLit.Next_Due_to_DAS_Deadline__c);
+        //System.assertEquals(testNextOfficeDeadline, intLit.Next_Office_Deadline__c);
+        //System.assertEquals(testNextAnnouncmentDate, intLit.Next_Announcement_Date__c);
     }
+
     
 	@testSetup static void dataSetup() {
 		Test.startTest();
 
-		Map<String,Segment__c> segsToInsert = new Map<string,Segment__c>();
+		Map<String,Segment__c> segsToInsert = new Map<String,Segment__c>();
 		List<Litigation__c> litToInsert = new List<Litigation__c>();
 
 		User testUser = testUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
@@ -570,5 +677,4 @@ private class ScheduleLitigationSegmentTest {
 
 		update segsToUpdate;
 	}
-
 }

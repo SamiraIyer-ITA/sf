@@ -1,12 +1,4 @@
-/**
- * 
- *    Created by Cal Smith
- *    on 10/26/2017 
- *    MIL Corporation
- *
- **/
- 
-public class ScheduledDispatcher implements Schedulable {
+public class ScheduledRecordsRefreshDispatcher implements Schedulable {
 	
 	public Interface IScheduleDispatched 
     { 
@@ -17,12 +9,10 @@ public class ScheduledDispatcher implements Schedulable {
     {
     	Integer c = [SELECT COUNT() FROM CronTrigger WHERE CronJobDetail.JobType = '7'];
     	if(c<100){
-        	Type targetType = Type.forName('SchedulePetitionRefresh');   
+        	Type targetType = Type.forName('ScheduleRecordsRefresh');   
         	if(targetType!=null) {
-            	IScheduleDispatched obj = 
-            		(IScheduleDispatched)targettype.newInstance();
+            	IScheduleDispatched obj = (IScheduleDispatched)targetType.newInstance();
             	obj.execute(sc);
-               
         	}
     	}	 
     } 
