@@ -130,7 +130,7 @@ public class ScheduleRecordsRefresh implements ScheduledRecordsRefreshDispatcher
 		Integer emailMax = limits.getLimitEmailInvocations();
 		Integer emailActual = limits.getEmailInvocations();
 		emailAllowed = emailMax - emailActual;
-		if(emailAllowed > 3) Messaging.reserveSingleEmailCapacity(3);
+		if(emailAllowed > 2) Messaging.reserveSingleEmailCapacity(2);
 	}
 
   public void writeMessages(Database.SaveResult sr, Id objectId, String objectLabel) {
