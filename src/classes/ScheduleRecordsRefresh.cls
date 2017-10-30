@@ -136,7 +136,7 @@ public class ScheduleRecordsRefresh implements ScheduledRecordsRefreshDispatcher
   public void writeMessages(Database.SaveResult sr, Id objectId, String objectLabel) {
     if (sr.isSuccess()) {
         // Operation was successful, so get the ID of the record that was processed
-        failureText = failureText + 'Successfully updated ' + objectLabel + ': ' + 
+        successText = successText + 'Successfully updated ' + objectLabel + ': ' + 
         URL.getSalesforceBaseUrl().toExternalForm() + '/' + sr.getId() + '\n';
     } else {
       // Operation failed, so get all errors               
