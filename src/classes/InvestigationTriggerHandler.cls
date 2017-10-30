@@ -38,7 +38,7 @@ public without sharing class InvestigationTriggerHandler {
         }
         if (isAfter && isUpdate) {
             initialize(newList, newMap);
-            recalculateCVDinvestigations(newMap);
+            recalculateCVDinvestigations(newMap,oldMap);
         }
     }
     
@@ -121,8 +121,14 @@ public without sharing class InvestigationTriggerHandler {
     }
 
     //returns a list of CVD Investigations to update if the aligned AD Investigation is updated
-    @TestVisible private static void recalculateCVDinvestigations(Map<Id,Investigation__c> newMap) {
-        List<Investigation__c> cvdInvestigations = [SELECT Id FROM Investigation__c WHERE AD_Investigation_Aligned_To__c IN: newMap.keySet() AND Locked__c =: false];
+    @TestVisible private static void recalculateCVDinvestigations(Map<Id,Investigation__c> newMap, Map<Id,Investigation__c> oldMap) {
+        Set<Id> querySet = new Set<Id>();
+        for (Id i : newMap.keySet()) {
+            if (newMap.get(i).Tolling_Update__c == oldMap.get(i).Tolling_Update__c) {
+                querySet.add(i);
+            }
+        }
+        List<Investigation__c> cvdInvestigations = [SELECT Id FROM Investigation__c WHERE AD_Investigation_Aligned_To__c IN: querySet AND Locked__c =: false];
         update cvdInvestigations;
     }
 

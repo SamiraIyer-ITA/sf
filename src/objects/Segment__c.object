@@ -2093,6 +2093,14 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Tolling_Update__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Tolling Update</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Type_of_Circumvention_Inquiry__c</fullName>
         <externalId>false</externalId>
         <label>Type of Circumvention Inquiry</label>
