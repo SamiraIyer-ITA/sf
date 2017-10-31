@@ -895,6 +895,17 @@ C-###-### for CVD</inlineHelpText>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Schedule_Refresh__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by a Schedulable class to cause the Tolling Date Service to recalculate tolling days whenever a calculated announcement date is equal to &quot;yesterday when the associated trigger calculates the next announcement date.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>For system use only.</inlineHelpText>
+        <label>Schedule Refresh</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Status__c</fullName>
         <externalId>false</externalId>
         <label>Status</label>
@@ -965,6 +976,17 @@ C-###-### for CVD</inlineHelpText>
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Tolling_Update__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by a batch class when the Tolling Date Trigger executes to add new tolling date records. This causes dates to recalculate whenever the new tolling dates are added without updating related Investigation records.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>For system use only</inlineHelpText>
+        <label>Tolling Update</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Total_Imports_Domestic_Consumption__c</fullName>
