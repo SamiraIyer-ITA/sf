@@ -109,6 +109,7 @@ public class ScheduleRecordsRefresh implements ScheduledRecordsRefreshDispatcher
 		String emailtext = '';
 		if (String.isEmpty(successText) && String.isEmpty(failureText)) emailtext = 'No records were processed for update during this execution.';
 		if (String.isNotEmpty(successText) && String.isEmpty(failureText)) emailtext = 'Operation completely successful. No errors reported.';
+ 		if (String.isEmpty(successText) && String.isNotEmpty(failureText)) emailtext = 'Operation failed. The following errors occurred: \n' + failureText;
  		if (String.isNotEmpty(successText) && String.isNotEmpty(failureText)) emailtext = emailtext += successText + 'Partial Success! The following errors occurred: \n' + failureText;
 		
 		Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
