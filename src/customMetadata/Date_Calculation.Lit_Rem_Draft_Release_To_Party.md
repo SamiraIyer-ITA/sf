@@ -11,6 +11,10 @@
         <value xsi:type="xsd:boolean">true</value>
     </values>
     <values>
+        <field>Actual_Date_Field_Name__c</field>
+        <value xsi:type="xsd:string">Actual_Draft_Remand_released_to_party__c</value>
+    </values>
+    <values>
         <field>Base_Date_Field_1_Lookup_Field_Name__c</field>
         <value xsi:nil="true"/>
     </values>

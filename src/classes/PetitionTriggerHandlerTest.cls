@@ -39,12 +39,15 @@ public class PetitionTriggerHandlerTest {
 	//Initiation Extension - Scenarios 1 and 2
 	@isTest static void petitionExtensionBound(){
 		Test.startTest();
+		Master_Automation__c ma = new Master_Automation__c(ValidationRulesEnabled__c = true, WorkflowRulesEnabled__c = true);
+		insert ma;
 		if(ADCVD_TollingDayUtility.dayOfWeek(petitionDate) != 'Fri'){//if today is not Friday, move the petition filed date ahead to the next Friday, which puts Calculated Initiation on a weekday
 			petitionDate = petitionDate.toStartOfWeek().addDays(5);
 		}
 		Petition__c p = TestUtils.createPetition(petitionDate, 'AD ME', false);
 		p.Initiation_Extension_of_days__c = 21;//out of bounds
 		String error = attemptInsert(p);
+		System.debug(loggingLevel.Error, '*** error: ' + error);
 		System.assert(error.contains('extension cannot exceed more than 20 days'));
 		p.Initiation_Extension_of_days__c = 20;//in bounds
 		error = attemptInsert(p);

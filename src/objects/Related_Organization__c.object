@@ -220,6 +220,15 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Locked__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Record Locked</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Parent_Id__c</fullName>
         <externalId>false</externalId>
         <formula>ADCVD_Order__c</formula>
@@ -1037,17 +1046,26 @@
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
+        <fullName>Cannot_Edit_Locked_Record</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false, 
+NOT(ISNEW()), 
+PRIORVALUE(Locked__c) == true 
+)</errorConditionFormula>
+        <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Custom_Instructions_must_have_a_parent</fullName>
         <active>true</active>
         <description>Custom Instructions must have a parent (ADCVD Order, Investigation, Petition, Segment, or Suspension Agreement)</description>
-        <errorConditionFormula>AND(NOT(ISBLANK(Custom_Instruction__c)), ISBLANK( Segment__c ),  ISBLANK( ADCVD_Order__c ), ISBLANK( Petition__c ),  ISBLANK( Investigation__c ),  ISBLANK( Segment__r.Suspension_Agreement__c ))</errorConditionFormula>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND(NOT(ISBLANK(Custom_Instruction__c)), ISBLANK( Segment__c ),  ISBLANK( ADCVD_Order__c ), ISBLANK( Petition__c ),  ISBLANK( Investigation__c ),  ISBLANK( Segment__r.Suspension_Agreement__c )))</errorConditionFormula>
         <errorMessage>Custom Instructions must have a parent.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Segment_must_be_populated_if_ci_is</fullName>
         <active>true</active>
         <description>Segment must be populated if Custom Instruction is</description>
-        <errorConditionFormula>AND(NOT(ISBLANK( Custom_Instruction__c )), ISBLANK( Segment__c ))</errorConditionFormula>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND(NOT(ISBLANK( Custom_Instruction__c )), ISBLANK( Segment__c )))</errorConditionFormula>
         <errorMessage>You must have a segment if you have custom instructions.</errorMessage>
     </validationRules>
     <visibility>Public</visibility>
