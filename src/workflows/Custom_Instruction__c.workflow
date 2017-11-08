@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <fieldUpdates>
-        <fullName>UpdateOwnerToOpenCustomInstructionQueue</fullName>
+        <fullName>UpdateOwner_OpenCustomsInstructionQueue</fullName>
         <field>OwnerId</field>
-        <lookupValue>Custom_Instructions_Open_Queue</lookupValue>
+        <lookupValue>Customs_Instructions_Open_Queue</lookupValue>
         <lookupValueType>Queue</lookupValueType>
-        <name>UpdateOwnerToOpenCustomInstructionQueue</name>
+        <name>UpdateOwner-OpenCustomsInstructionQueue</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>LookupValue</operation>
         <protected>false</protected>
     </fieldUpdates>
     <rules>
-        <fullName>Queue Open Custom Instruction</fullName>
+        <fullName>Queue Open Customs Instruction</fullName>
         <actions>
-            <name>UpdateOwnerToOpenCustomInstructionQueue</name>
+            <name>UpdateOwner_OpenCustomsInstructionQueue</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>

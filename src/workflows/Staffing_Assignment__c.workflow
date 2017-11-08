@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <fieldUpdates>
-        <fullName>UpdateOwnerToOpenStaffingAssignmentQueue</fullName>
+        <fullName>UpdateOwner_OpenStaffingAssignmentQueue</fullName>
         <field>OwnerId</field>
         <lookupValue>Staffing_Assignments_Open_Queue</lookupValue>
         <lookupValueType>Queue</lookupValueType>
-        <name>UpdateOwnerToOpenStaffingAssignmentQueue</name>
+        <name>UpdateOwner-OpenStaffingAssignmentQueue</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>LookupValue</operation>
         <protected>false</protected>
@@ -13,7 +13,7 @@
     <rules>
         <fullName>Queue Open Staffing Assignment</fullName>
         <actions>
-            <name>UpdateOwnerToOpenStaffingAssignmentQueue</name>
+            <name>UpdateOwner_OpenStaffingAssignmentQueue</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
