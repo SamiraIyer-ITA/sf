@@ -297,6 +297,29 @@
         </valueSet>
     </fields>
     <label>Federal Register</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>FederalRegister_ClosedLocked_Queue_Federal_Register</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FederalRegister ClosedLocked Queue</label>
+        <queue>FederalRegister_ClosedLocked_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FederalRegister_Open_Queue_Federal_Register</fullName>
+        <filterScope>Queue</filterScope>
+        <label>FederalRegister Open Queue</label>
+        <queue>FederalRegister_Open_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
     <nameField>
         <displayFormat>FR-{000000}</displayFormat>
         <label>Federal Register Number</label>

@@ -1,182 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>*</members>
-        <name>ApexClass</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ApexComponent</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ApexPage</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ApexTrigger</name>
-    </types>
-    <types>
-        <members>Winter_17_175x65Recovered_lightning</members>
-        <name>ContentAsset</name>
-    </types>
-    <types>
-        <members>AD_CVD</members>
-        <members>AD_CVD_Lightning</members>
-        <name>CustomApplication</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>CustomField</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>CustomMetadata</name>
-    </types>
-    <types>
-        <members>ADCVD_Objects__mdt</members>
         <members>ADCVD_Order__c</members>
-        <members>AppConfig__c</members>
-        <members>Artifact__c</members>
-        <members>BatchJobScheduler__c</members>
-        <members>BatchTriggerFlag__c</members>
-        <members>Carousel_Item__c</members>
-        <members>Case_Contributor__c</members>
-        <members>Case__c</members>
-        <members>CertificationPricePoints__c</members>
-        <members>Chapter_Section__c</members>
-        <members>Chapter__c</members>
-        <members>Clean_URL__c</members>
-        <members>Constant__mdt</members>
-        <members>Content_Container__c</members>
-        <members>Content_Override__c</members>
-        <members>Content_Version__c</members>
-        <members>Content__c</members>
-        <members>Covered_Entity__c</members>
-        <members>Custom_Instruction__c</members>
-        <members>Date_Calculation__mdt</members>
-        <members>Decision_Log__c</members>
-        <members>Department_Taxonomy__c</members>
         <members>Federal_Register__c</members>
-        <members>Framework__c</members>
         <members>Harmonized_Tariff_Schedule__c</members>
-        <members>Icon__c</members>
-        <members>Image__c</members>
-        <members>Inactive_Period__c</members>
-        <members>Inactive_Reason__c</members>
-        <members>Industry__c</members>
-        <members>Insight_Atom__c</members>
-        <members>Insight_Chapter__c</members>
-        <members>Insight__c</members>
-        <members>Investigation__c</members>
-        <members>KnowledgeMap__c</members>
-        <members>KnowledgeSearch__c</members>
-        <members>Level__c</members>
-        <members>Litigation__c</members>
-        <members>Master_Automation__c</members>
-        <members>Master_CongressionalDistrict__c</members>
-        <members>My_Profile_Option__c</members>
-        <members>Navigation_Group__c</members>
-        <members>Navigation_Link__c</members>
-        <members>Page_Content__c</members>
-        <members>Page__c</members>
-        <members>Participant_Contact__c</members>
-        <members>Participant__c</members>
-        <members>Participation__c</members>
-        <members>PaymentSettings__c</members>
-        <members>Payment__c</members>
-        <members>Petition__c</members>
-        <members>Program__c</members>
-        <members>Publication_Template__c</members>
-        <members>Recusal__c</members>
-        <members>Refund__c</members>
-        <members>RelatedCountries__c</members>
-        <members>Related_Cases_and_Orgs__c</members>
-        <members>Related_Organization__c</members>
-        <members>Renewing_Product__c</members>
-        <members>Row__c</members>
-        <members>Section__c</members>
         <members>Segment__c</members>
-        <members>Series__c</members>
-        <members>Service__mdt</members>
-        <members>Site__c</members>
-        <members>Social_Icons__c</members>
-        <members>Staffing_Assignment__c</members>
-        <members>Survey_Result__c</members>
-        <members>Suspension_Agreement__c</members>
-        <members>Sync_Utility__mdt</members>
-        <members>Template_Page_Content__c</members>
-        <members>Template_Page__c</members>
-        <members>Template_Row__c</members>
-        <members>Third_Party_Master_List__c</members>
-        <members>Third_Party__c</members>
         <members>Tolling_Day__c</members>
-        <members>URL__c</members>
-        <members>User</members>
-        <members>WIN_Contributor__c</members>
-        <members>WIN__c</members>
         <name>CustomObject</name>
     </types>
     <types>
-        <members>Edit_ADCVD_Locked_Records</members>
-        <name>CustomPermission</name>
+        <members>ADCVD_Order__c.Lock_Closed_Record</members>
+        <members>ADCVD_Order__c.UpdateOwnerTo_ClosedLockADCVD_OrderQueue</members>
+        <members>ADCVD_Order__c.Update_Owner_to_Open_ADCVD_Order_Queue</members>
+        <members>Federal_Register__c.UpdateOwnerTo_OpenFederalRegisterQueue</members>
+        <members>Harmonized_Tariff_Schedule__c.UpdateOwnerHarmonizedTariffScheduleQueue</members>
+        <members>Segment__c.Lock_Closed_Record</members>
+        <members>Segment__c.Update_Owner_to_ClosedLock_Segment_Queue</members>
+        <members>Segment__c.Update_Owner_to_Open_Segment_Queue</members>
+        <members>Tolling_Day__c.Update_Owner_to_Open_TollingDay_Queue</members>
+        <name>WorkflowFieldUpdate</name>
     </types>
     <types>
-        <members>*</members>
-        <name>CustomTab</name>
-    </types>
-    <types>
-        <members>Add_Staffing_Assignment_to_User_s_Chatter_Feed-1</members>
-        <name>Flow</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>GlobalValueSet</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>PathAssistant</name>
-    </types>
-    <types>
-        <members>Edit_ADCVD_Locked_Records</members>
-        <name>PermissionSet</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Profile</name>
-    </types>
-    <types>
-        <members>ADCVD_APO</members>
-        <members>ADCVD_Accounting</members>
-        <members>ADCVD_Accounting_Staff</members>
-        <members>ADCVD_Accting_Program_Mgr</members>
-        <members>ADCVD_CRU</members>
-        <members>ADCVD_Customs</members>
-        <members>ADCVD_Customs_Staff</members>
-        <members>ADCVD_Legal</members>
-        <members>ADCVD_Legal_Staff</members>
-        <members>ADCVD_PCAU_Staff</members>
-        <members>ADCVD_Petitions</members>
-        <members>ADCVD_Policy</members>
-        <members>ADCVD_SI_Staff</members>
-        <members>ADCVD_Sr_Legal</members>
-        <members>AD_Policy_Analyst</members>
-        <members>AD_Policy_Manager</members>
-        <members>CVD_Policy_Analyst</members>
-        <members>CVD_Policy_Manager</members>
-        <members>E_C_DAS_AS</members>
-        <members>E_C_Operations</members>
-        <members>E_C_Operations_Analyst</members>
-        <name>Role</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Workflow</name>
-    </types>
-    <types>
-        <members>BusinessHours</members>
-        <members>PathAssistant</members>
-        <name>Settings</name>
+        <members>ADCVD_Order__c.Lock Revoked-Complete ADCVD Order</members>
+        <members>ADCVD_Order__c.Open Queue ADCVD Order</members>
+        <members>Federal_Register__c.Open Queue Federal_Register</members>
+        <members>Harmonized_Tariff_Schedule__c.Open Queue Harmonized Tariff Schedule</members>
+        <members>Segment__c.Lock Closed Segment</members>
+        <members>Segment__c.Open Queue Segment</members>
+        <members>Tolling_Day__c.Open Queue Tolling Day</members>
+        <name>WorkflowRule</name>
     </types>
     <version>39.0</version>
 </Package>

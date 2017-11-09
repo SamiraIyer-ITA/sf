@@ -396,6 +396,33 @@
     </fields>
     <label>ADCVD Order</label>
     <listViews>
+        <fullName>ADCVD_Order_ClosedLocked_Queue_ADCVD_Order</fullName>
+        <filterScope>Queue</filterScope>
+        <label>ADCVD_Order ClosedLocked Queue</label>
+        <queue>ADCVD_Order_ClosedLocked_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>ADCVD_Order_MigratedClosedLocked_Queue_ADCVD_Order</fullName>
+        <filterScope>Queue</filterScope>
+        <label>ADCVD_Order MigratedClosedLocked Queue</label>
+        <queue>ADCVD_Order_MigratedClosedLocked_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>ADCVD_Order_Open_Queue_ADCVD_Order</fullName>
+        <filterScope>Queue</filterScope>
+        <label>ADCVD_Order Open Queue</label>
+        <queue>ADCVD_Order_Open_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
         <columns>Country__c</columns>
