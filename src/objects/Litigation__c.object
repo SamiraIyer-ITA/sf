@@ -681,7 +681,7 @@
         <label>Tolling Update</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
+        <type>Checkbox</type
     </fields>
     <fields>
         <fullName>USTR_Notification_to_Implement_Final_Res__c</fullName>
