@@ -136,6 +136,24 @@
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
+    <listViews>
+        <fullName>HTS_ClosedLocked_Queue_Harmonized_Tariff_Schedule</fullName>
+        <filterScope>Queue</filterScope>
+        <label>HarmonizedTariffSchedule ClosedLckdQueue</label>
+        <queue>HarmonizedTariffSchedule_ClosedLckdQueue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>HTS_Open_Queue_Harmonized_Tariff_Schedule</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Harmonized Tariff Schedule Open Queue</label>
+        <queue>Harmonized_Tariff_Schedule_Open_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
     <nameField>
         <label>Harmonized Tariff Schedule Name</label>
         <trackHistory>false</trackHistory>

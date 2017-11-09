@@ -2332,6 +2332,33 @@
         <filterScope>Everything</filterScope>
         <label>New Segment Layout</label>
     </listViews>
+    <listViews>
+        <fullName>Segment_ClosedLocked_Queue_Segment</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Segment ClosedLocked Queue</label>
+        <queue>Segment_ClosedLocked_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Segment_MigratedClosedLocked_Queue_Segment</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Segments MigratedClosedLocked Queue</label>
+        <queue>Segments_MigratedClosedLocked_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Segment_Open_Queue_Segment</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Segment Open Queue</label>
+        <queue>Segment_Open_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
     <nameField>
         <displayFormat>S-{0000}</displayFormat>
         <label>Segment Number</label>
