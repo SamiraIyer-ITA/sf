@@ -20,4 +20,5 @@
         <formula>AND($Setup.Master_Automation__c.WorkflowRulesEnabled__c == true,  Locked__c == false)</formula>
         <triggerType>onCreateOnly</triggerType>
     </rules>
-</Workflow>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata"/>
+

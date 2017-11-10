@@ -45,7 +45,7 @@
         <type>Flexipage</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
-	<compactLayoutAssignment>Basic_Case_Info</compactLayoutAssignment>
+    <compactLayoutAssignment>Basic_Case_Info</compactLayoutAssignment>
     <compactLayouts>
         <fullName>Basic_Case_Info</fullName>
         <fields>ADCVD_Case_Number__c</fields>
@@ -236,6 +236,16 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>Petition_Filed__c</fullName>
+        <externalId>false</externalId>
+        <formula>Investigation__r.Petition__r.Petition_Filed__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Petition Filed</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Product_Short_Name__c</fullName>
         <externalId>false</externalId>
         <formula>Investigation__r.Petition__r.Product_Short_Name__c</formula>
@@ -270,22 +280,18 @@
                 <value>
                     <fullName>Sunset - No Interest</fullName>
                     <default>false</default>
-                    <label>Sunset - No Interest</label>
                 </value>
                 <value>
                     <fullName>Sunset - No Likelihood</fullName>
                     <default>false</default>
-                    <label>Sunset - No Likelihood</label>
                 </value>
                 <value>
                     <fullName>Sunset - Injury</fullName>
                     <default>false</default>
-                    <label>Sunset - Injury</label>
                 </value>
                 <value>
                     <fullName>CCR - No Interest</fullName>
                     <default>false</default>
-                    <label>CCR - No Interest</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -305,36 +311,30 @@
                 <value>
                     <fullName>Active</fullName>
                     <default>false</default>
-                    <label>Active</label>
                 </value>
                 <value>
                     <fullName>Inactive</fullName>
                     <default>false</default>
-                    <label>Inactive</label>
                 </value>
                 <value>
                     <fullName>Closed</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
-                    <label>Closed</label>
                 </value>
                 <value>
                     <fullName>Litigation</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
-                    <label>Litigation</label>
                 </value>
                 <value>
                     <fullName>Litigation Hold</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
-                    <label>Litigation Hold</label>
                 </value>
                 <value>
                     <fullName>Suspended</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
-                    <label>Suspended</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -353,27 +353,22 @@
                 <value>
                     <fullName>Order FR Needed</fullName>
                     <default>false</default>
-                    <label>Order FR Needed</label>
                 </value>
                 <value>
                     <fullName>Current-Active</fullName>
                     <default>false</default>
-                    <label>Current-Active</label>
                 </value>
                 <value>
                     <fullName>Current-Inactive</fullName>
                     <default>false</default>
-                    <label>Current-Inactive</label>
                 </value>
                 <value>
                     <fullName>Revoked-Incomplete</fullName>
                     <default>false</default>
-                    <label>Revoked-Incomplete</label>
                 </value>
                 <value>
                     <fullName>Revoked-Complete</fullName>
                     <default>false</default>
-                    <label>Revoked-Complete</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -401,6 +396,33 @@
     </fields>
     <label>ADCVD Order</label>
     <listViews>
+        <fullName>ADCVD_Order_ClosedLocked_Queue_ADCVD_Order</fullName>
+        <filterScope>Queue</filterScope>
+        <label>ADCVD_Order ClosedLocked Queue</label>
+        <queue>ADCVD_Order_ClosedLocked_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>ADCVD_Order_MigratedClosedLocked_Queue_ADCVD_Order</fullName>
+        <filterScope>Queue</filterScope>
+        <label>ADCVD_Order MigratedClosedLocked Queue</label>
+        <queue>ADCVD_Order_MigratedClosedLocked_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>ADCVD_Order_Open_Queue_ADCVD_Order</fullName>
+        <filterScope>Queue</filterScope>
+        <label>ADCVD_Order Open Queue</label>
+        <queue>ADCVD_Order_Open_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
         <columns>Country__c</columns>
@@ -417,146 +439,6 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>ADCVD Orders</pluralLabel>
-    <recordTypes>
-        <fullName>Anti_Circumvention_Review</fullName>
-        <active>true</active>
-        <label>Anti-Circumvention Review</label>
-        <picklistValues>
-            <picklist>Anniversary_Month__c</picklist>
-            <values>
-                <fullName>April</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>August</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>December</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>February</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>January</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>July</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>June</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>March</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>May</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>November</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>October</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>September</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Office__c</picklist>
-            <values>
-                <fullName>I</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>II</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>III</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>V</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VII</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VIII</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Revocation_Reason__c</picklist>
-            <values>
-                <fullName>CCR - No Interest</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sunset - Injury</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sunset - No Interest</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sunset - No Likelihood</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Segment_Status__c</picklist>
-            <values>
-                <fullName>Active</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Status__c</picklist>
-            <values>
-                <fullName>Current-Active</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Current-Inactive</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Order FR Needed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Revoked-Complete</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Revoked-Incomplete</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>ADCVD_Case_Number__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Country__c</customTabListAdditionalFields>
@@ -602,5 +484,4 @@ PRIORVALUE(Locked__c) == true
 )</errorConditionFormula>
         <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
     </validationRules>
-    <visibility>Public</visibility>
 </CustomObject>

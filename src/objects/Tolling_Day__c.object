@@ -105,6 +105,15 @@
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
+    <listViews>
+        <fullName>Tolling_Day_Open_Queue_Tolling_Day</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Tolling Day Open Queue</label>
+        <queue>Tolling_Day_Open_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
     <nameField>
         <displayFormat>TD-{000000}</displayFormat>
         <label>Tolling Days</label>

@@ -24,7 +24,35 @@
         <members>Petition__c</members>
         <members>Recusal__c</members>
         <members>Staffing_Assignment__c</members>
-        <name>Workflow</name>
+        <members>ADCVD_Order__c</members>
+        <members>Federal_Register__c</members>
+        <members>Harmonized_Tariff_Schedule__c</members>
+        <members>Segment__c</members>
+        <members>Tolling_Day__c</members>
+        <name>CustomObject</name>
     </types>
-    <version>36.0</version>
+        <name>Workflow</name>
+    <types>
+        <members>ADCVD_Order__c.Lock_Closed_Record</members>
+        <members>ADCVD_Order__c.UpdateOwnerTo_ClosedLockADCVD_OrderQueue</members>
+        <members>ADCVD_Order__c.Update_Owner_to_Open_ADCVD_Order_Queue</members>
+        <members>Federal_Register__c.UpdateOwnerTo_OpenFederalRegisterQueue</members>
+        <members>Harmonized_Tariff_Schedule__c.UpdateOwnerHarmonizedTariffScheduleQueue</members>
+        <members>Segment__c.Lock_Closed_Record</members>
+        <members>Segment__c.Update_Owner_to_ClosedLock_Segment_Queue</members>
+        <members>Segment__c.Update_Owner_to_Open_Segment_Queue</members>
+        <members>Tolling_Day__c.Update_Owner_to_Open_TollingDay_Queue</members>
+        <name>WorkflowFieldUpdate</name>
+    </types>
+    <types>
+        <members>ADCVD_Order__c.Lock Revoked-Complete ADCVD Order</members>
+        <members>ADCVD_Order__c.Open Queue ADCVD Order</members>
+        <members>Federal_Register__c.Open Queue Federal_Register</members>
+        <members>Harmonized_Tariff_Schedule__c.Open Queue Harmonized Tariff Schedule</members>
+        <members>Segment__c.Lock Closed Segment</members>
+        <members>Segment__c.Open Queue Segment</members>
+        <members>Tolling_Day__c.Open Queue Tolling Day</members>
+        <name>WorkflowRule</name>
+    </types>
+    <version>39.0</version>
 </Package>
