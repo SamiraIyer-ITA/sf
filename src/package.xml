@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+        <members>Custom_Instructions_ClosedLocked_Queue</members>
+        <members>Custom_Instructions_MigratedLockedQueue</members>
+        <members>Custom_Instructions_Open_Queue</members>
+        <members>Litigations_ClosedLocked_Queue</members>
+        <members>Litigations_MigratedClosedLocked_Queue</members>
+        <members>Litigations_Open_Queue</members>
+        <members>Petitions_ClosedLocked_Queue</members>
+        <members>Petitions_MigratedClosedLocked_Queue</members>
+        <members>Petitions_Open_Queue</members>
+        <members>Recusals_ClosedLocked_Queue</members>
+        <members>Recusals_MigratedClosedLocked_Queue</members>
+        <members>Recusals_Open_Queue</members>
+        <members>Staffing_Assignments_ClosedLocked_Queue</members>
+        <members>Staffing_Assignments_MigratedLockedQueue</members>
+        <members>Staffing_Assignments_Open_Queue</members>
+        <name>Queue</name>
+    </types>
+    <types>
+        <members>Custom_Instruction__c</members>
+        <members>Litigation__c</members>
+        <members>Petition__c</members>
+        <members>Recusal__c</members>
+        <members>Staffing_Assignment__c</members>
         <members>ADCVD_Order__c</members>
         <members>Federal_Register__c</members>
         <members>Harmonized_Tariff_Schedule__c</members>
@@ -8,6 +31,7 @@
         <members>Tolling_Day__c</members>
         <name>CustomObject</name>
     </types>
+        <name>Workflow</name>
     <types>
         <members>ADCVD_Order__c.Lock_Closed_Record</members>
         <members>ADCVD_Order__c.UpdateOwnerTo_ClosedLockADCVD_OrderQueue</members>
