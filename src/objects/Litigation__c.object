@@ -38,7 +38,11 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Litigation_Lightning_Record_Page_Layout</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>Basic_Case_Info</compactLayoutAssignment>
@@ -172,6 +176,17 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>CBP_Case_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>CBP Case Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Calculated_Amended_Final_Signature__c</fullName>
@@ -365,27 +380,22 @@
                 <value>
                     <fullName>129</fullName>
                     <default>false</default>
-                    <label>129</label>
                 </value>
                 <value>
                     <fullName>429</fullName>
                     <default>false</default>
-                    <label>429</label>
                 </value>
                 <value>
                     <fullName>437</fullName>
                     <default>false</default>
-                    <label>437</label>
                 </value>
                 <value>
                     <fullName>449</fullName>
                     <default>false</default>
-                    <label>449</label>
                 </value>
                 <value>
                     <fullName>464</fullName>
                     <default>false</default>
-                    <label>464</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -488,6 +498,19 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Office__c</fullName>
+        <externalId>false</externalId>
+        <label>Office</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>ADCVD_Offices</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Period_Covered_End_Date__c</fullName>
@@ -653,23 +676,19 @@
                 <value>
                     <fullName>Preliminary</fullName>
                     <default>false</default>
-                    <label>Preliminary</label>
                 </value>
                 <value>
                     <fullName>Final</fullName>
                     <default>false</default>
-                    <label>Final</label>
                 </value>
                 <value>
                     <fullName>Closed</fullName>
                     <default>false</default>
-                    <label>Closed</label>
                 </value>
                 <value>
                     <fullName>Active</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
-                    <label>Active</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -698,6 +717,33 @@
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
+    <listViews>
+        <fullName>Litigations_ClosedLocked_Queue_Litigation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Litigations-ClosedLocked Queue</label>
+        <queue>Litigations_ClosedLocked_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Litigations_MigratedClosedLocked_Queue_Litigation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Litigations-MigratedClosedLocked Queue</label>
+        <queue>Litigations_MigratedClosedLocked_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Litigations_Open_Queue_Litigation</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Litigations-Open Queue</label>
+        <queue>Litigations_Open_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
     <nameField>
         <displayFormat>L-{000000}</displayFormat>
         <label>Litigation Number</label>
@@ -711,7 +757,42 @@
         <active>true</active>
         <label>International Litigation</label>
         <picklistValues>
-            <picklist>Country__c</picklist>
+            <picklist>ADCVD_Offices</picklist>
+            <values>
+                <fullName>I</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>II</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>III</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>V</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VII</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VIII</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Countries</picklist>
             <values>
                 <fullName>Argentina</fullName>
                 <default>false</default>
@@ -1021,7 +1102,42 @@
         <active>true</active>
         <label>Remand</label>
         <picklistValues>
-            <picklist>Country__c</picklist>
+            <picklist>ADCVD_Offices</picklist>
+            <values>
+                <fullName>I</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>II</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>III</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>V</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VII</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VIII</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Countries</picklist>
             <values>
                 <fullName>Argentina</fullName>
                 <default>false</default>
@@ -1374,6 +1490,15 @@ NOT( ISNULL( Actual_Preliminary_Signature__c ))
         <errorMessage>Calculated Preliminary Signature Date must be populated in order to enter Actual Preliminary Signature Date</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Cannot_Edit_Locked_Record</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false, 
+NOT(ISNEW()), 
+PRIORVALUE(Locked__c) == true 
+)</errorConditionFormula>
+        <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Every_Litigation_must_have_a_Parent</fullName>
         <active>true</active>
         <description>Every Litigation must ONLY have either a Petition, an Investigation, or a Segment.</description>
@@ -1391,15 +1516,6 @@ NOT( ISNULL( Actual_Preliminary_Signature__c ))
    )
  ))</errorConditionFormula>
         <errorMessage>Every Litigation must have either a Petition, an Investigation, or a Segment. Please enter ONLY one value, either for a Petition, an Investigation or a Segment.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Cannot_Edit_Locked_Record</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false, 
-NOT(ISNEW()), 
-PRIORVALUE(Locked__c) == true 
-)</errorConditionFormula>
-        <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>International_Litigation_Final_Extension</fullName>
@@ -1428,5 +1544,4 @@ $RecordType.DeveloperName = &quot;Remand&quot;,
 ))</errorConditionFormula>
         <errorMessage>Final Extension cannot be less than zero.</errorMessage>
     </validationRules>
-    <visibility>Public</visibility>
 </CustomObject>
