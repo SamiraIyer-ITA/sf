@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <fieldUpdates>
-        <fullName>UpdateOwner_OpenCustomsInstructionQueue</fullName>
+        <fullName>UpdateOwnerTo_OpenFederalRegisterQueue</fullName>
+        <description>Update Owner of Record to Federal Register Open Queue</description>
         <field>OwnerId</field>
-        <lookupValue>Customs_Instructions_Open_Queue</lookupValue>
+        <lookupValue>FederalRegister_Open_Queue</lookupValue>
         <lookupValueType>Queue</lookupValueType>
-        <name>UpdateOwner-OpenCustomsInstructionQueue</name>
+        <name>UpdateOwnerTo OpenFederalRegisterQueue</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>LookupValue</operation>
         <protected>false</protected>
     </fieldUpdates>
     <rules>
-        <fullName>Queue Open Customs Instruction</fullName>
+        <fullName>Open Queue Federal_Register</fullName>
         <actions>
-            <name>UpdateOwner_OpenCustomsInstructionQueue</name>
+            <name>UpdateOwnerTo_OpenFederalRegisterQueue</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND($Setup.Master_Automation__c.WorkflowRulesEnabled__c == true,  Locked__c == false)</formula>
+        <formula>AND($Setup.Master_Automation__c.WorkflowRulesEnabled__c == true, Locked__c == false)</formula>
         <triggerType>onCreateOnly</triggerType>
     </rules>
 </Workflow>
-

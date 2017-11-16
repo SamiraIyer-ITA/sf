@@ -1,3 +1,10 @@
+/**
+ * 
+ *    Modified by Cal Smith
+ *    on 11/03/2017 
+ *    MIL Corporation
+ * 
+ **/
 public without sharing class TollingDayTriggerHandler {
     public static boolean preventRecursion = false;
     public static void mainEntry(List<Tolling_Day__c> newList, List<Tolling_Day__c> oldList, Map<Id, Tolling_Day__c> newMap, 
@@ -19,34 +26,32 @@ public without sharing class TollingDayTriggerHandler {
     //private static Set<Date> datesInScope = new Set<Date>();
     @TestVisible private static Date earliestDate = null;
     @TestVisible private static Date latestDate = null;
+    @TestVisible private static Date maxLatestDate = date.parse('01/02/2001');
     /* method to build an earliest and latest set of dates in scope */ 
     @TestVisible private static void setDatesInScope(List<Tolling_Day__c> tdList) {
         for(Tolling_Day__c td: tdList) {
             Date loopDate = td.Start_Date__c;
+			
             if(earliestDate == null || earliestDate > td.Start_Date__c) {
                 earliestDate = td.Start_Date__c;
             }
             if(latestDate == null || latestDate < td.End_Date__c) {
                 latestDate = td.End_Date__c;
             }
+            if(maxLatestDate < latestDate) maxLatestDate=latestDate;
+            
         }
+        system.debug('maxLatestDate = ' + maxLatestDate);
     }
-    @TestVisible private static Set<Id> findPetitionsInScope(List<Tolling_Day__c> tdList) {
-        setDatesInScope(tdList);
-        Set<Id> petitionIdSet = new Set<Id>();
-        system.debug(latestDate);
-        for(Petition__c p: [SELECT Id FROM Petition__c WHERE Petition_Filed__c <=: latestDate AND Petition_Outcome__c = null]) {
-            petitionIdSet.add(p.Id);
-        }
-        return petitionIdSet;
-        
-    }
+
     @TestVisible private static void recalculatePetitionTollingDay(List<Tolling_Day__c> tdList) {
-        calculatePetitionsFuture(findPetitionsInScope(tdList));
+        setDatesInScope(tdList);
+        string initialState = '1';
+        string queryObject = 'Petition__c';   
+        string lastDate = string.valueOf(maxLatestDate);
+        system.debug('lastDate = ' + lastDate);
+        ID batchprocessid = Database.executeBatch(new AddTollingDayBatch(initialState, queryObject, lastDate));
+        system.debug('Returned batch process ID: ' + batchProcessId);        
     }
-    @future
-    private static void calculatePetitionsFuture(Set<Id> petitionIdSet) {
-        List<Petition__c> petitionsToUpdate = [SELECT Id FROM Petition__c WHERE Id IN: petitionIdSet];
-        database.update(petitionsToUpdate, false);
-    }
+
 }
