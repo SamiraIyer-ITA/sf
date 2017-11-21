@@ -38,7 +38,11 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>ADCVD_Petition_Lightning_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>Basic_Case_Info</compactLayoutAssignment>
@@ -154,6 +158,52 @@ C-###-### for CVD</inlineHelpText>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Case_Number__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>Referenced from parent Petition case</description>
+        <externalId>false</externalId>
+        <label>Case Number</label>
+        <length>28</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Case_Type__c</fullName>
+        <description>Referenced from parent Petition case</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This should be in the following format:
+A-###-### for AD 
+C-###-### for CVD</inlineHelpText>
+        <label>Case Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AD ME</fullName>
+                    <default>false</default>
+                    <label>AD ME</label>
+                </value>
+                <value>
+                    <fullName>AD NME</fullName>
+                    <default>false</default>
+                    <label>AD NME</label>
+                </value>
+                <value>
+                    <fullName>CVD</fullName>
+                    <default>false</default>
+                    <label>CVD</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Commodity__c</fullName>
@@ -576,6 +626,17 @@ C-###-### for CVD</inlineHelpText>
         </valueSet>
     </fields>
     <fields>
+        <fullName>External_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>External Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Initiation_Announcement_Date__c</fullName>
         <externalId>false</externalId>
         <label>Initiation Announcement Date</label>
@@ -745,6 +806,15 @@ C-###-### for CVD</inlineHelpText>
         <fullName>Next_Office_Deadline__c</fullName>
         <externalId>false</externalId>
         <label>Next Office Deadline</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Next_Office_PM_Deadline__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Office/PM Deadline</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1019,6 +1089,15 @@ C-###-### for CVD</inlineHelpText>
         <columns>NAME</columns>
         <filterScope>Everything</filterScope>
         <label>Demo List View</label>
+    </listViews>
+    <listViews>
+        <fullName>Petitions_And_Investigations_Petition</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Petitions-Open Queue</label>
+        <queue>Petitions_Open_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
     </listViews>
     <nameField>
         <displayFormat>P-{00000}</displayFormat>
