@@ -1206,12 +1206,12 @@ IF(
          ISPICKVAL(ADCVD_Case_Type__c, &apos;AD ME&apos;),
          ISPICKVAL(ADCVD_Case_Type__c, &apos;AD NME&apos;)
          ),
-         BEGINS(ADCVD_Case_Number__c, &quot;C&quot;)
+         NOT(BEGINS(ADCVD_Case_Number__c, &quot;A&quot;))
       )
       ,
      AND(
          ISPICKVAL(ADCVD_Case_Type__c, &apos;CVD&apos;),
-         BEGINS(ADCVD_Case_Number__c, &quot;A&quot;) 
+         NOT(BEGINS(ADCVD_Case_Number__c, &quot;C&quot;))
         )
       ),
      1, 0
