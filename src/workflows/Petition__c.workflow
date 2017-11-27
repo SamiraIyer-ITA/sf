@@ -40,7 +40,8 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND($Setup.Master_Automation__c.WorkflowRulesEnabled__c == true, Locked__c == false,  ISPICKVAL(Status__c , &apos;Closed&apos;))</formula>
+        <formula>AND($Setup.Master_Automation__c.WorkflowRulesEnabled__c == true, Locked__c == false,  ISPICKVAL(Status__c , &apos;Closed&apos;),  ISNULL(Next_Announcement_Date__c)
+)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
