@@ -704,6 +704,16 @@ C-###-### for CVD</inlineHelpText>
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Lotus_Notes_History_Data__c</fullName>
+        <externalId>false</externalId>
+        <label>Lotus Notes History Data</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
         <fullName>Lotus_Notes_Litigation_ID__c</fullName>
         <externalId>false</externalId>
         <label>Lotus Notes Litigation ID</label>
