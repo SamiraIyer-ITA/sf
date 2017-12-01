@@ -1126,14 +1126,43 @@ PRIORVALUE(Locked__c) == true
         <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>CaseType_must_match_format_of_CaseNumber</fullName>
+        <active>true</active>
+        <description>ADCVD Case Type should and Case Number must match</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,  
+IF(
+  OR(
+    AND(
+      OR(
+         ISPICKVAL(ADCVD_Case_Type__c, &apos;AD ME&apos;),
+         ISPICKVAL(ADCVD_Case_Type__c, &apos;AD NME&apos;)
+         ),
+         NOT(BEGINS(ADCVD_Case_Number__c, &quot;A&quot;))
+      )
+      ,
+     AND(
+         ISPICKVAL(ADCVD_Case_Type__c, &apos;CVD&apos;),
+         NOT(BEGINS(ADCVD_Case_Number__c, &quot;C&quot;))
+        )
+      ),
+     1, 0
+    ) = 1
+  )</errorConditionFormula>
+        <errorDisplayField>ADCVD_Case_Type__c</errorDisplayField>
+        <errorMessage>ADCVD Case Type field does not match with the ADCVD Case Number format. For AD cases the ADCVD Case Number format should be A-###-### and for CVD cases the format should be C-###-###.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Case_number_for_AD_and_CVD_Format</fullName>
         <active>true</active>
         <description>Case Number must be formatted specifically this way.</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,IF(TEXT(ADCVD_Case_Type__c) = &quot;CVD&quot;, 
-(NOT(OR(ISBLANK(ADCVD_Case_Number__c),REGEX( ADCVD_Case_Number__c,&quot;C-[0-9]{3}-[0-9]{3}&quot;)))), 
-(NOT(OR(ISBLANK(ADCVD_Case_Number__c),REGEX( ADCVD_Case_Number__c,&quot;A-[0-9]{3}-[0-9]{3}&quot;)))) ))</errorConditionFormula>
+        <errorConditionFormula>AND(
+     $Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
+     Locked__c == false, 
+     NOT(REGEX(ADCVD_Case_Number__c,&quot;C-[0-9]{3}-[0-9]{3}&quot;)), 
+     NOT(REGEX(ADCVD_Case_Number__c,&quot;A-[0-9]{3}-[0-9]{3}&quot;)) 
+   )</errorConditionFormula>
         <errorDisplayField>ADCVD_Case_Number__c</errorDisplayField>
-        <errorMessage>Format should be A-###-### or C-###-###</errorMessage>
+        <errorMessage>Invalid ADCVD Case Number Format. For AD cases valid Case Number format should be  A-###-###. For CVD cases valid Case Number format should be C-###-###.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>ExtensionBound</fullName>
