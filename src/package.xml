@@ -146,6 +146,12 @@
         <members>Tolling_Day__c</members>
         <name>CustomTab</name>
     </types>
+	<types>
+        <members>OrderAttachmentWriter</members>
+        <members>StaffingAssignment</members>
+        <members>SuspensionAgreementAttachmentWriter</members>
+        <name>ApexPage</name>
+    </types>
     <types>
         <members>ADCVD/ADCVD_Orders_By_Commodities</members>
         <members>ADCVD/Deadlines_Dashboard</members>
