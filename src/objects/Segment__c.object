@@ -1775,6 +1775,26 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Range_of_Rates_Final__c</fullName>
+        <externalId>false</externalId>
+        <label>Range of Rates - Final</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Range_of_Rates_Prelim__c</fullName>
+        <externalId>false</externalId>
+        <label>Range of Rates - Prelim</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Rebuttal_Briefs_Due__c</fullName>
         <externalId>false</externalId>
         <label>Rebuttal Briefs Due</label>
