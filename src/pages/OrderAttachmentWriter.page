@@ -1,4 +1,4 @@
-<apex:page standardController="ADCVD_Order__c" extensions="AttachmentWriterController" showHeader="false" sidebar="false" docType="html-5.0">
+<apex:page standardController="ADCVD_Order__c" extensions="AttachmentWriterController" showHeader="false" sidebar="false" docType="html-5.0" lightningStylesheets="true">
     <style>
         .fixedTextArea{
             width: 100%;
