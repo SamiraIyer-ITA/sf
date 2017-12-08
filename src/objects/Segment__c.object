@@ -1124,17 +1124,28 @@
     <fields>
         <fullName>Final_Extension_Remaining__c</fullName>
         <externalId>false</externalId>
-        <formula>CASE( RecordType.DeveloperName , 
-&apos;Administrative_Review&apos;, 
- IF( Prelim_Extension__c = 0 &amp;&amp;  ISNULL(Actual_Preliminary_Signature__c) , 
-     60 - Final_Extension_of_days__c, 
-     IF( Prelim_Extension__c = 0 &amp;&amp;  NOT(ISNULL(Actual_Preliminary_Signature__c)) , 
-         180 - Final_Extension_of_days__c, 
-         60 - Final_Extension_of_days__c)) ,
-&apos;Anti_Circumvention_Review&apos;, 180 - Final_Extension_of_days__c , 
-&apos;Expedited_Review&apos;, 60 - Final_Extension_of_days__c , 
-&apos;New_Shipper_Review&apos;, 60 - Final_Extension_of_days__c , 
-0)</formula>
+        <formula>CASE(RecordType.DeveloperName, 
+	&apos;Administrative_Review&apos;, 
+ 		IF(Prelim_Extension__c = 0 &amp;&amp; ISNULL(Actual_Preliminary_Signature__c), 
+                    (60 - Final_Extension_of_days__c), 
+     		     IF(Prelim_Extension__c = 0 &amp;&amp;  NOT(ISNULL(Actual_Preliminary_Signature__c)) , 
+         		(180 - Final_Extension_of_days__c), 
+         		   (60 - Final_Extension_of_days__c))),
+	&apos;Anti_Circumvention_Review&apos;, (180 - Final_Extension_of_days__c), 
+	&apos;Expedited_Review&apos;, (60 - Final_Extension_of_days__c), 
+	&apos;New_Shipper_Review&apos;, 
+		IF (ISBLANK(Administrative_Review_Aligned_To__c), 60 - Final_Extension_of_days__c, 
+		   IF (Administrative_Review_Aligned_To__r.Prelim_Extension__c = 0 &amp;&amp;  
+                       ISNULL(Administrative_Review_Aligned_To__r.Actual_Preliminary_Signature__c), 
+	     		  (60 - Administrative_Review_Aligned_To__r.Final_Extension_of_days__c), 
+	     		   IF (Administrative_Review_Aligned_To__r.Prelim_Extension__c = 0 &amp;&amp;  
+                                 NOT(ISNULL(Administrative_Review_Aligned_To__r.Actual_Preliminary_Signature__c)), 
+	         		 (180 - Administrative_Review_Aligned_To__r.Final_Extension_of_days__c), 
+	         	   (60 - Administrative_Review_Aligned_To__r.Final_Extension_of_days__c)
+	         	     )
+	                )
+	          ),
+    0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Final Extension Remaining</label>
         <precision>18</precision>
@@ -1729,11 +1740,14 @@
         <fullName>Preliminary_Extension_Remaining__c</fullName>
         <externalId>false</externalId>
         <formula>CASE( RecordType.DeveloperName ,
- &apos;Administrative_Review&apos;, 120 - Prelim_Extension__c,
- &apos;Expedited_Review&apos;, 120 - Prelim_Extension__c ,
- &apos;New_Shipper_Review&apos;, 120 - Prelim_Extension__c ,
- &apos;Sunset_Review&apos;, 90 - Prelim_Extension__c ,
-0)</formula>
+    &apos;Administrative_Review&apos;, (120 - Prelim_Extension__c),
+    &apos;Expedited_Review&apos;, (120 - Prelim_Extension__c),
+    &apos;New_Shipper_Review&apos;, 
+       IF (ISBLANK(Administrative_Review_Aligned_To__c) || NOT(ISNULL(Actual_Preliminary_Signature__c)),
+          (120 - Prelim_Extension__c), (120 - Administrative_Review_Aligned_To__r.Prelim_Extension__c)
+	   ),
+    &apos;Sunset_Review&apos;, 90 - Prelim_Extension__c ,
+   0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Preliminary Extension Remaining</label>
         <precision>18</precision>
