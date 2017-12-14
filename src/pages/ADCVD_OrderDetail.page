@@ -1,0 +1,112 @@
+<apex:page showHeader="false" applyBodyTag="false" applyHtmlTag="false" controller="ADCVD_OrderDetailController">
+    <apex:composition template="Site_Template">
+        <apex:define name="sectionalNav">
+            <head>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+                <link href="{!URLFor($Resource.ps, 'ps/participant.css')}" rel="stylesheet" />
+            </head>
+        </apex:define>
+        <apex:define name="page">
+            
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" ></script>
+    	<script src="https://afeld.github.io/bootstrap-toc/bootstrap-toc.js" charset="utf-8"></script>
+            
+            
+          
+<body data-spy="scroll" data-target="#toc" >
+    <div class="container" style="background:#fafafa; " >
+      <div class="row">
+      
+      
+        <div class="col-sm-3" >
+        
+         <div class="navbox" >
+          <p style="font-size:35px;">{!order.Product_Short_Name__c}</p>
+          <p style="margin-top:15px;text-indent:3px;color:#bababa;font-weight:400;">{!order.Country__c}</p>
+          <p style="margin-top:15px;text-indent:3px;color:#bababa;font-weight:normal;">{!order.ADCVD_Case_Number__c}</p>
+                 
+          <nav id="toc" data-spy="affix" data-toggle="toc" ></nav>
+          
+         </div>
+        </div>
+        
+        
+        
+<div class="col-sm-9 rightbox" >
+      
+      
+ <div class="panel panel-default" id="upcoming-deadlines">
+    <div class="panel-heading"> <h2>Upcoming Deadlines</h2></div>
+    <div class="panel-body">
+            
+          <apex:repeat value="{!Segments}" var="s">
+          	
+              <apex:outputPanel >
+                  <div class="col-md-12" >
+                      <p class="text-muted uppercase">{!s.recordType}</p>
+                      <div class="about" style="color:#586874;font-size: 15px;font-weight:400;">{!s.announcementType} Results Announcement: {!s.announcementDate}</div>
+                      <apex:outputtext >
+                          <div class="about" style="color:#586874;font-size: 15px;font-weight:400;">Extension Days Remaining: {!s.daysRemaining}</div>
+                      </apex:outputtext>                              
+                      <hr/>
+                  </div>
+              </apex:outputPanel>
+              
+          </apex:repeat>
+    </div>
+</div>
+
+
+
+
+<apex:outputtext >
+ <div class="panel panel-default" id="hts-numbers">
+    <div class="panel-heading"> <h2>HTS Numbers</h2></div>
+    <div class="panel-body">
+            <div class="row" style="padding-left:0;padding-right:0;">
+                <apex:repeat value="{!order.Harmonized_Tariff_Schedules__r}" var="hts">
+                  <div class="col-md-6">
+                      <p class="text-muted uppercase">{!hts.HTS_Number_Formatted__c} </p><div class="itaBr"></div>
+                  </div>
+                </apex:repeat>
+            </div>
+    </div>
+</div>
+</apex:outputtext>
+
+
+<div class="panel panel-default" id="scope" >
+    <div class="panel-heading"> <h2>Scope of the Order</h2></div>
+    <div class="panel-body">                
+              <div class="col-md-12">
+                  <div class="about">
+                  <apex:outputtext >
+                      <br/>
+                      <p style="color:#586874;font-size: 15px;font-weight:400;">{!attachmentBody}</p> 
+                      <div class="itaBr"></div>
+                  </apex:outputtext>
+                  </div>
+              </div>
+       </div>
+   </div>
+</div>
+
+
+
+         
+          </div>
+      </div>
+    
+  </body>
+          
+           <script type="text/javascript">
+                jQuery(document).ready(function ($) {
+                    $('#tabs').tab();
+                    $('[data-toggle="tooltip"]').tooltip();  
+                });
+            </script>
+        </apex:define>
+    </apex:composition>
+</apex:page>

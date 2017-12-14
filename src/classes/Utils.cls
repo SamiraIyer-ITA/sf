@@ -12,7 +12,7 @@ public without sharing class Utils {
 	public static Map<Id,RecordType> recordTypeIdToRecordTypeMap {get {
 		if(recordTypeIdToRecordTypeMap == null) {
 			recordTypeIdToRecordTypeMap = new Map<Id,RecordType>();
-			for (RecordType rt : [SELECT Id, DeveloperName, SObjectType FROM RecordType]) {
+			for (RecordType rt : [SELECT Id, Name, DeveloperName, SObjectType FROM RecordType]) {
 				recordTypeIdToRecordTypeMap.put(rt.Id, rt);
 			}
 		}
@@ -63,6 +63,17 @@ public without sharing class Utils {
 			for(RecordType rt : recordTypeIdToRecordTypeMap.values()){
 				if (rt.SObjectType == sObjectName) {
 					returnMap.put(rt.Id, rt.DeveloperName);
+				}
+			}
+		}
+		return returnMap;
+	}
+	public static Map<Id,String> getRecordTypeLabelMap(String sObjectName){
+		Map<Id,String> returnMap = new Map<Id,String>();
+		if (sObjectName != null) {
+			for(RecordType rt : recordTypeIdToRecordTypeMap.values()){
+				if (rt.SObjectType == sObjectName) {
+					returnMap.put(rt.Id, rt.Name);
 				}
 			}
 		}

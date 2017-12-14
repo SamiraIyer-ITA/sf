@@ -46,6 +46,14 @@ public with sharing class AppConfigService {
             return getApplicationConfig().TriggersEnabled__c;
         }
     }
+    
+    public static Date goLiveDate
+    {
+        get
+        {
+            return getApplicationConfig().Go_Live_Date__c;
+        }
+    }
 
 }
 
