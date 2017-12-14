@@ -19,7 +19,7 @@ public without sharing class DateCalculationService {
     }
 
     @TestVisible private void calculateDates(SObject record, String soType) {
-    	Date goLiveDate = Date.newInstance(2017, 10, 30);
+    	Date goLiveDate = AppConfigService.goLiveDate;
     	for (String key : dateCalculations.keySet()) {
     		Date_Calculation__mdt dc = dateCalculations.get(key);
     		String calculatedDateName = dc.Calculated_Date_Field_Name__c;

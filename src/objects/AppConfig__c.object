@@ -70,6 +70,14 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Go_Live_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Go Live Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Primary_Admin__c</fullName>
         <description>PrimaryAdmin to be notified by schedulable classes for ADCVD app&apos;s schedulable classes</description>
         <externalId>false</externalId>
