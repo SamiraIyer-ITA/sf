@@ -236,6 +236,26 @@ public class TestUtils {
         return fr;
     }
 
+    //create HTS Numbers
+    public static List<Harmonized_Tariff_Schedule__c> createHtsNumbers(Id parentId, Decimal start, Decimal count, Boolean doInsert) {
+        List<Harmonized_Tariff_Schedule__c> htsNums = new List<Harmonized_Tariff_Schedule__c>();
+        start.setScale(0);
+        count.setScale(0);
+        if (start > Decimal.valueOf('9999999999') || start < 1) {start = Decimal.valueOf('1000000000');}
+        if (count > 1000 || count < 1) {count = 10;}
+        Decimal finish = start + count;
+        for (Decimal i = start; i < finish; i++) {
+            Harmonized_Tariff_Schedule__c hts = new Harmonized_Tariff_Schedule__c();
+            hts.ADCVD_Order__c = parentId;
+            hts.HTS_Number__c = i.format().replaceAll(',', '');
+            htsNums.add(hts);
+        } 
+        if(doInsert) {
+            insert htsNums;
+        }
+        return htsNums;
+    }
+
     //create Investigation
     public static Investigation__c createInvestigation(String recordTypeName, Petition__c p, Boolean doInsert) {
         Investigation__c i = new Investigation__c();
