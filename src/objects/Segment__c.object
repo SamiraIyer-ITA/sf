@@ -1124,17 +1124,28 @@
     <fields>
         <fullName>Final_Extension_Remaining__c</fullName>
         <externalId>false</externalId>
-        <formula>CASE( RecordType.DeveloperName , 
-&apos;Administrative_Review&apos;, 
- IF( Prelim_Extension__c = 0 &amp;&amp;  ISNULL(Actual_Preliminary_Signature__c) , 
-     60 - Final_Extension_of_days__c, 
-     IF( Prelim_Extension__c = 0 &amp;&amp;  NOT(ISNULL(Actual_Preliminary_Signature__c)) , 
-         180 - Final_Extension_of_days__c, 
-         60 - Final_Extension_of_days__c)) ,
-&apos;Anti_Circumvention_Review&apos;, 180 - Final_Extension_of_days__c , 
-&apos;Expedited_Review&apos;, 60 - Final_Extension_of_days__c , 
-&apos;New_Shipper_Review&apos;, 60 - Final_Extension_of_days__c , 
-0)</formula>
+        <formula>CASE(RecordType.DeveloperName, 
+	&apos;Administrative_Review&apos;, 
+ 		IF(Prelim_Extension__c = 0 &amp;&amp; ISNULL(Actual_Preliminary_Signature__c), 
+                    (60 - Final_Extension_of_days__c), 
+     		     IF(Prelim_Extension__c = 0 &amp;&amp;  NOT(ISNULL(Actual_Preliminary_Signature__c)) , 
+         		(180 - Final_Extension_of_days__c), 
+         		   (60 - Final_Extension_of_days__c))),
+	&apos;Anti_Circumvention_Review&apos;, (180 - Final_Extension_of_days__c), 
+	&apos;Expedited_Review&apos;, (60 - Final_Extension_of_days__c), 
+	&apos;New_Shipper_Review&apos;, 
+		IF (ISBLANK(Administrative_Review_Aligned_To__c), 60 - Final_Extension_of_days__c, 
+		   IF (Administrative_Review_Aligned_To__r.Prelim_Extension__c = 0 &amp;&amp;  
+                       ISNULL(Administrative_Review_Aligned_To__r.Actual_Preliminary_Signature__c), 
+	     		  (60 - Administrative_Review_Aligned_To__r.Final_Extension_of_days__c), 
+	     		   IF (Administrative_Review_Aligned_To__r.Prelim_Extension__c = 0 &amp;&amp;  
+                                 NOT(ISNULL(Administrative_Review_Aligned_To__r.Actual_Preliminary_Signature__c)), 
+	         		 (180 - Administrative_Review_Aligned_To__r.Final_Extension_of_days__c), 
+	         	   (60 - Administrative_Review_Aligned_To__r.Final_Extension_of_days__c)
+	         	     )
+	                )
+	          ),
+    0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Final Extension Remaining</label>
         <precision>18</precision>
@@ -1729,11 +1740,14 @@
         <fullName>Preliminary_Extension_Remaining__c</fullName>
         <externalId>false</externalId>
         <formula>CASE( RecordType.DeveloperName ,
- &apos;Administrative_Review&apos;, 120 - Prelim_Extension__c,
- &apos;Expedited_Review&apos;, 120 - Prelim_Extension__c ,
- &apos;New_Shipper_Review&apos;, 120 - Prelim_Extension__c ,
- &apos;Sunset_Review&apos;, 90 - Prelim_Extension__c ,
-0)</formula>
+    &apos;Administrative_Review&apos;, (120 - Prelim_Extension__c),
+    &apos;Expedited_Review&apos;, (120 - Prelim_Extension__c),
+    &apos;New_Shipper_Review&apos;, 
+       IF (ISBLANK(Administrative_Review_Aligned_To__c) || NOT(ISNULL(Actual_Preliminary_Signature__c)),
+          (120 - Prelim_Extension__c), (120 - Administrative_Review_Aligned_To__r.Prelim_Extension__c)
+	   ),
+    &apos;Sunset_Review&apos;, 90 - Prelim_Extension__c ,
+   0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Preliminary Extension Remaining</label>
         <precision>18</precision>
@@ -1769,6 +1783,26 @@
         <externalId>false</externalId>
         <formula>IF(NOT(ISNULL(ADCVD_Order__c)),  ADCVD_Order__r.Product__c  ,  Suspension_Agreement__r.Product__c  )</formula>
         <label>Product</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Range_of_Rates_Final__c</fullName>
+        <externalId>false</externalId>
+        <label>Range of Rates - Final</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Range_of_Rates_Prelim__c</fullName>
+        <externalId>false</externalId>
+        <label>Range of Rates - Prelim</label>
+        <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -8496,6 +8530,29 @@ SR = Sunset Review</description>
 $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, NOT(ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;)),NOT(AND(ISBLANK(Actual_Preliminary_Signature__c)))
 ))</errorConditionFormula>
         <errorMessage>&quot;Actual Preliminary Signature&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>SI_DecisionHOP_SegmentOutcome_Rejected</fullName>
+        <active>true</active>
+        <description>Record Type: Scope Inquiry
+When Segment Outcome is  &quot;Rejected&quot;, require Decision on How to Proceed as &quot;Reject&quot;</description>
+        <errorConditionFormula>AND(
+  $Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
+  Locked__c == false,
+    CASE(RecordType.DeveloperName,
+      &quot;Scope_Inquiry&quot;,
+        IF (
+            AND(
+                ISPICKVAL(Segment_Outcome__c, &apos;Rejected&apos;), 
+                NOT(ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Reject&apos;))     
+                ),
+        1,0
+        )
+      ,
+      0
+    ) = 1
+  )</errorConditionFormula>
+        <errorMessage>When Segment Outcome field is &quot;Rejected&quot;, Decision on How to Proceed field should have &quot;Reject&quot; value selected. Please update your selection for Decision on How to Proceed field.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>SI_Prelim_Extension</fullName>

@@ -906,9 +906,10 @@
         <fullName>Final_Extension_Remaining__c</fullName>
         <externalId>false</externalId>
         <formula>CASE( RecordType.DeveloperName , 
-&apos;AD&apos;, 60 -  Final_Extension_of_days__c  , 
-&apos;CVD&apos;, 90 - Final_Extension_of_days__c, 
-0)</formula>
+    &apos;AD&apos;, 60 - Final_Extension_of_days__c , 
+    &apos;CVD&apos;, IF (ISBLANK(AD_Investigation_Aligned_To__c), (90 - Final_Extension_of_days__c), 
+                 (60 - AD_Investigation_Aligned_To__r.Final_Extension_of_days__c)), 
+    0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Final Extension Remaining</label>
         <precision>18</precision>
@@ -1466,7 +1467,7 @@
         <fullName>Range_of_Rates_Final_Amended__c</fullName>
         <externalId>false</externalId>
         <label>Range of Rates - Final Amended</label>
-        <length>50</length>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1477,7 +1478,7 @@
         <fullName>Range_of_Rates_Final__c</fullName>
         <externalId>false</externalId>
         <label>Range of Rates - Final</label>
-        <length>50</length>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1488,7 +1489,7 @@
         <fullName>Range_of_Rates_Prelim_Amended__c</fullName>
         <externalId>false</externalId>
         <label>Range of Rates - Prelim Amended</label>
-        <length>50</length>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1499,7 +1500,7 @@
         <fullName>Range_of_Rates_Prelim__c</fullName>
         <externalId>false</externalId>
         <label>Range of Rates - Prelim</label>
-        <length>50</length>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>

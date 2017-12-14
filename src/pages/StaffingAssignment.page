@@ -75,7 +75,7 @@
 																			<div class="slds-truncate" title="Override User">Override User</div>
 																		</th>
 																		<th scope="col">
-																			<div class="slds-truncate" title="Title">Title</div>
+																			<div class="slds-truncate" title="Staffing Role">Staffing Role</div>
 																		</th>
 																		<th scope="col">
 																			<div class="slds-truncate" title="User">User</div>
@@ -188,7 +188,7 @@
 			<apex:outputPanel >
 				<apex:dataTable value="{!staffWrapperList}" var="saw" align="left" cellspacing="20" columns="6" >
 				<apex:column >
-          <apex:facet name="header" >Title</apex:facet>
+          <apex:facet name="header" >Staffing Role</apex:facet>
 				<apex:inputField value="{!saw.sa.Title__c}" >
 					<apex:actionSupport event="onchange" reRender="user" />
 				</apex:inputField>
