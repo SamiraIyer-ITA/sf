@@ -1473,7 +1473,7 @@
         <fullName>Minesterial_Error_for_final__c</fullName>
         <description>Do you have a Ministerial Error for Final?</description>
         <externalId>false</externalId>
-        <inlineHelpText>Do you have a Ministerial Error for Final?</inlineHelpText>
+        <inlineHelpText>Select &quot;Yes&quot; if there was a ministerial error in the final results, regardless of whether there is a need to issue an amended final.</inlineHelpText>
         <label>Ministerial Error for Final</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -2323,7 +2323,7 @@
         <fullName>Will_you_Amend_the_Final__c</fullName>
         <description>Will you Amend the Final?</description>
         <externalId>false</externalId>
-        <inlineHelpText>Will you Amend the Final?</inlineHelpText>
+        <inlineHelpText>Select &quot;Yes&quot; if, as a result of a ministerial error in the final results, amended results will be issued.</inlineHelpText>
         <label>Will you Amend the Final?</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
