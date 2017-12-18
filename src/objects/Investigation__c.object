@@ -274,7 +274,7 @@
         <fullName>Amend_the_Preliminary_Determination__c</fullName>
         <description>Will you Amend the Preliminary Determination?</description>
         <externalId>false</externalId>
-        <inlineHelpText>Will you Amend the Preliminary Determination?</inlineHelpText>
+        <inlineHelpText>Select &quot;Yes&quot; if, as a result of a ministerial error in the preliminary determination, an amended preliminary determination will be issued.</inlineHelpText>
         <label>Amend the Preliminary Determination?</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1646,7 +1646,7 @@
         <fullName>Will_you_Amend_the_Final__c</fullName>
         <description>Will you Amend the Final?</description>
         <externalId>false</externalId>
-        <inlineHelpText>Will you Amend the Final?</inlineHelpText>
+        <inlineHelpText>Select &quot;Yes&quot; if, as a result of a ministerial error in the final determination, an amended final determination will be issued.</inlineHelpText>
         <label>Will you Amend the Final?</label>
         <required>false</required>
         <trackHistory>false</trackHistory>

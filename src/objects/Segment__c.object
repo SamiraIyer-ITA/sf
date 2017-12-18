@@ -2323,7 +2323,7 @@
         <fullName>Will_you_Amend_the_Final__c</fullName>
         <description>Will you Amend the Final?</description>
         <externalId>false</externalId>
-        <inlineHelpText>Will you Amend the Final?</inlineHelpText>
+        <inlineHelpText>Select &quot;Yes&quot; if, as a result of a ministerial error in the final results, amended results will be issued.</inlineHelpText>
         <label>Will you Amend the Final?</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
