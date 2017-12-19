@@ -4,6 +4,8 @@
  *    on 10/26/2017 
  *    MIL Corporation
  * 
+ *    Revised 12/18/2017
+ *
  **/
  
 @isTest
@@ -22,25 +24,6 @@ public class AddTollingDayBatchTest {
 	public static Date tollingDateStart = System.today().addDays(-10);
 	public static Date tollingDateEnd = System.today().addDays(-6);
     public static Boolean testTollingUpdate = false;
-/*  public static Id bid {
-        get	{
-            if(bid == null){
-                Id bid = Database.ExecuteBatch(new AddTollingDayBatch(initialState, queryObject, latestDate));
-        	}
-			return bid;
-        }
-        set; 
-    } 
-    public static Id bid1 {
-        get	{
-            if(bid1 == null){
-                Id bid1 = Database.ExecuteBatch(new AddTollingDayBatch(initialState, queryObject, latestDate));
-        	}
-			return bid;
-        }        
-        set;
-    }
-*/
     public static AppConfig__c app {
         get{
             if(app == null){ 
@@ -482,8 +465,6 @@ public class AddTollingDayBatchTest {
 		dmlRowsAllowed1 = dmlRowsMax - dmlRowsActual1;
         dmlRowsUsed1 = dmlRowsActual1 - dmlRowsUsedBefore; 
 
-		// assert number of rows and statements here
-		
 		list<Tolling_Day__c>tdList = new list<Tolling_Day__c>();
 		tdList.add(td);
 		list<Petition__c>recordsToProcess = new list<Petition__c>([SELECT Id, Tolling_Update__c FROM Petition__c WHERE Petition_Filed__c <= :tollingDateEnd AND Petition_Outcome__c = null AND Locked__c = false]);
@@ -495,8 +476,6 @@ public class AddTollingDayBatchTest {
 
         //ID batchprocessid        
         Id bid;
-
-		level = LoggingLevel.FINE;
 
 		// declare a new tolling day batch & set batch context 
 		// this will also cause the checkLimits() and getNumToObject() methods to run
@@ -535,7 +514,6 @@ public class AddTollingDayBatchTest {
 		// rollback transaction
 		Database.rollback(sp);
 
-
         Test.stopTest();
 
         dmlStatementsActualAfter = limits.getDMLStatements();
@@ -545,8 +523,6 @@ public class AddTollingDayBatchTest {
 		dmlRowsUsed = dmlRowsActualAfter - dmlRowsUsedBefore;
 		dmlStatementsUsed = dmlStatementsActualAfter - dmlStatementsUsedBefore; 
 
-		// rollback counts as a statement
-		        
 		system.debug('dmlStatementsMax = '+ dmlStatementsMax);
 		system.debug('dmlStatementsUsedBefore = '+ dmlStatementsUsedBefore);
 		system.debug('dmlRowsMax = '+ dmlRowsMax);
@@ -635,6 +611,7 @@ public class AddTollingDayBatchTest {
         
         // Insert Tolling Date 
         Tolling_Day__c td = TestUtils.createTollingDay(tollingDateStart, tollingDateEnd, u, true);
+		
 		dmlStatementsActual1 = limits.getDMLStatements();
 		dmlStatementsAllowed1 = dmlStatementsMax - dmlStatementsActual1;
         dmlStatementsUsed1 = dmlStatementsActual1 - dmlStatementsUsedBefore;
@@ -657,8 +634,6 @@ public class AddTollingDayBatchTest {
         Test.startTest();
 
         // Start Batch Class
-
-		level = LoggingLevel.FINE;
 
 		// declare a new tolling day batch & set batch context 
 		// this will also cause the checkLimits() and getNumToObject() methods to run
@@ -698,7 +673,8 @@ public class AddTollingDayBatchTest {
 		Database.rollback(sp);
 
         Test.stopTest();
-
+		
+		level = LoggingLevel.DEBUG;
         dmlStatementsActualAfter = limits.getDMLStatements();
         dmlStatementsAllowedAfter = dmlStatementsMax - dmlStatementsActualAfter; 
         dmlRowsActualAfter = limits.getDMLRows();
@@ -731,18 +707,17 @@ public class AddTollingDayBatchTest {
 		system.debug('dmlRowsUsed = '+ dmlRowsUsed);
 		system.debug('dmlStatementsUsed = '+ dmlStatementsUsed); 
 
+		// assert rows & statements used are what's expected
 		system.assertEquals(dmlRowsActual1,4);
 		system.assertEquals(dmlStatementsUsed1,3);
 		system.assertEquals(dmlRowsActual2,1);
 		system.assertEquals(dmlStatementsUsed2,0);
 		system.assertEquals(dmlRowsUsed,3);
 		system.assertEquals(dmlStatementsUsed,3);
+		
 		// because of rollback...
 		system.assertEquals(false, iAD.Tolling_Update__c);
 		
-		// assert rows used are what's expected
-		
-
 		//*** FINISHED CREATING FINAL ASSERTIONS ***//
 
     }
@@ -812,6 +787,8 @@ public class AddTollingDayBatchTest {
         string queryObject = 'Litigation__c';
         string lastDate = string.valueOf(tollingDateEnd);
         system.debug('lastDate = ' + latestDate);
+        //ID batchprocessid        
+        Id bid;
 
         Test.startTest();
 
@@ -856,14 +833,13 @@ public class AddTollingDayBatchTest {
        
 
         Test.stopTest();
-
+		level = LoggingLevel.DEBUG;
         dmlStatementsActualAfter = limits.getDMLStatements();
         dmlStatementsAllowedAfter = dmlStatementsMax - dmlStatementsActualAfter; 
         dmlRowsActualAfter = limits.getDMLRows();
         dmlRowsAllowedAfter = dmlRowsMax - dmlRowsActualAfter; 
 		dmlRowsUsed = dmlRowsActualAfter - dmlRowsUsedBefore;
 		dmlStatementsUsed = dmlStatementsActualAfter - dmlStatementsUsedBefore; 
-		// rollback counts as a statement
 		        
 		system.debug('dmlStatementsMax = '+ dmlStatementsMax);
 		system.debug('dmlStatementsUsedBefore = '+ dmlStatementsUsedBefore);
@@ -889,15 +865,16 @@ public class AddTollingDayBatchTest {
 		system.debug('dmlRowsUsed = '+ dmlRowsUsed);
 		system.debug('dmlStatementsUsed = '+ dmlStatementsUsed); 
 
-		// assert rows used are what's expected		
+		// assert rows & statements used are what's expected		
 		system.assertEquals(dmlRowsActual1,4);
 		system.assertEquals(dmlStatementsUsed1,3);
 		system.assertEquals(dmlRowsActual2,1);
 		system.assertEquals(dmlStatementsUsed2,0);
 		system.assertEquals(dmlRowsUsed,3);
 		system.assertEquals(dmlStatementsUsed,3);
+		
 		// because of rollback...
-		system.assertEquals(false, iAD.Tolling_Update__c);
+		system.assertEquals(false, intLit.Tolling_Update__c);
 
 		//*** FINISHED CREATING FINAL ASSERTIONS ***//
 
@@ -969,6 +946,9 @@ public class AddTollingDayBatchTest {
         string lastDate = string.valueOf(tollingDateEnd);
         system.debug('lastDate = ' + latestDate);
 
+        //ID batchprocessid        
+        Id bid;
+		
         Test.startTest();
 
         // Start Batch Class
@@ -1009,14 +989,14 @@ public class AddTollingDayBatchTest {
 		Database.rollback(sp);
 
         Test.stopTest();
-
+		level = LoggingLevel.FINE;
+		
         dmlStatementsActualAfter = limits.getDMLStatements();
         dmlStatementsAllowedAfter = dmlStatementsMax - dmlStatementsActualAfter; 
         dmlRowsActualAfter = limits.getDMLRows();
         dmlRowsAllowedAfter = dmlRowsMax - dmlRowsActualAfter; 
 		dmlRowsUsed = dmlRowsActualAfter - dmlRowsUsedBefore;
 		dmlStatementsUsed = dmlStatementsActualAfter - dmlStatementsUsedBefore; 
-		// rollback counts as a statement
 		        
 		system.debug('dmlStatementsMax = '+ dmlStatementsMax);
 		system.debug('dmlStatementsUsedBefore = '+ dmlStatementsUsedBefore);
@@ -1042,15 +1022,16 @@ public class AddTollingDayBatchTest {
 		system.debug('dmlRowsUsed = '+ dmlRowsUsed);
 		system.debug('dmlStatementsUsed = '+ dmlStatementsUsed); 
 
-		// assert rows used are what's expected
+		// assert rows & statements used are what's expected
 		system.assertEquals(dmlRowsActual1,4);
 		system.assertEquals(dmlStatementsUsed1,3);
 		system.assertEquals(dmlRowsActual2,2);
 		system.assertEquals(dmlStatementsUsed2,1);
 		system.assertEquals(dmlRowsUsed,3);
 		system.assertEquals(dmlStatementsUsed,3);
+		
 		// because of rollback...
-		system.assertEquals(false, iAD.Tolling_Update__c);
+		system.assertEquals(false, adminSeg.Tolling_Update__c);
 				
 		//*** FINISHED CREATING FINAL ASSERTIONS ***//
 
