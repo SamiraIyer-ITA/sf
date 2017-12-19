@@ -22,7 +22,7 @@ public class AddTollingDayBatchTest {
 	public static Date tollingDateStart = System.today().addDays(-10);
 	public static Date tollingDateEnd = System.today().addDays(-6);
     public static Boolean testTollingUpdate = false;
-    public static Id bid {
+/*  public static Id bid {
         get	{
             if(bid == null){
                 Id bid = Database.ExecuteBatch(new AddTollingDayBatch(initialState, queryObject, latestDate));
@@ -30,7 +30,7 @@ public class AddTollingDayBatchTest {
 			return bid;
         }
         set; 
-    }
+    } 
     public static Id bid1 {
         get	{
             if(bid1 == null){
@@ -40,7 +40,7 @@ public class AddTollingDayBatchTest {
         }        
         set;
     }
-
+*/
     public static AppConfig__c app {
         get{
             if(app == null){ 
@@ -48,7 +48,7 @@ public class AddTollingDayBatchTest {
                 app.Name = 'default';
                 app.Primary_Admin__c = 'csmith@milcorp.com'; 
                 app.ADCVD_Admin__c = 'calvin.smith@trade.gov';
-                app.TriggersEnabled__c = true;
+                app.TriggersEnabled__c = false;
                 app.AppEnabled__c = true;
                 app.ChronExp_LitigationSegement__c = ' 0 ' + string.valueOf((system.now().addMinutes(30)).minute()) + ' ' + string.valueOf((system.now().addMinutes(30)).hour()) + ' ' + string.valueOf(system.today().day()) + ' ' + string.valueOf(system.today().Month()) + ' ?';
                 system.debug('app.ChronExp_LitigationSegement__c = ' + app.ChronExp_LitigationSegement__c);
@@ -412,7 +412,7 @@ public class AddTollingDayBatchTest {
                 app.Name = 'default';
                 app.Primary_Admin__c = 'csmith@milcorp.com'; 
                 app.ADCVD_Admin__c = 'calvin.smith@trade.gov';
-                app.TriggersEnabled__c = true;
+                app.TriggersEnabled__c = false;
                 app.AppEnabled__c = true;
                 app.ChronExp_LitigationSegement__c = ' 0 ' + string.valueOf((system.now().addMinutes(30)).minute()) + ' ' + string.valueOf((system.now().addMinutes(30)).hour()) + ' ' + string.valueOf(system.today().day()) + ' ' + string.valueOf(system.today().Month()) + ' ?';
                 system.debug('app.ChronExp_LitigationSegement__c = ' + app.ChronExp_LitigationSegement__c);
@@ -430,9 +430,32 @@ public class AddTollingDayBatchTest {
         integer emailMax = limits.getLimitEmailInvocations();
         integer emailActualBefore = limits.getEmailInvocations();
         integer emailAllowedBefore = emailMax - emailActualBefore;
+        integer dmlStatementsMax = limits.getLimitDMLStatements();
+        integer dmlStatementsUsedBefore = limits.getDMLStatements();
+        integer dmlStatementsAllowedBefore = dmlStatementsMax - dmlStatementsUsedBefore;
+        integer dmlRowsMax = limits.getLimitDmlRows();
+        integer dmlRowsUsedBefore = limits.getDmlRows();
+		integer dmlRowsAllowedBefore = dmlRowsMax - dmlRowsUsedBefore;		
+        integer dmlStatementsActual1 = 0;
+        integer dmlStatementsAllowed1 = 0; 
+        integer dmlStatementsUsed1 = 0;
+        integer dmlRowsActual1 = 0;
+        integer dmlRowsAllowed1 = 0;
+        integer dmlRowsUsed1 = 0;
+        integer dmlStatementsUsed2 = 0;
+        integer dmlStatementsActual2 = 0;
+        integer dmlStatementsAllowed2 = 0;
+        integer dmlRowsAllowed2 = 0; 
+        integer dmlRowsActual2 = 0; 
+		integer dmlRowsUsed2 = 0;
+        integer dmlStatementsActualAfter = 0;
+        integer dmlStatementsAllowedAfter = 0; 
+		integer dmlStatementsUsed = 0; 
+        integer dmlRowsActualAfter = 0;
+        integer dmlRowsAllowedAfter = 0; 
+		integer dmlRowsUsed = 0;
         
-        
-        //Set value for scheduleable query
+        //Set value for batch data
         adP.Next_Due_to_DAS_Deadline__c = System.today();
         adP.Next_Office_Deadline__c = System.today();
         adP.Next_Announcement_Date__c = System.today();
@@ -448,73 +471,152 @@ public class AddTollingDayBatchTest {
         system.assertEquals(false, adP.Schedule_Refresh__c);
 		system.assertEquals(false, adP.Tolling_Update__c);       
 
-        //Capture current values from trigger for comparison in final assert
-        testNextDueToDAS = adP.Next_Due_to_DAS_Deadline__c;
-        testNextOfficeDeadline = adP.Next_Office_Deadline__c;
-        testNextAnnouncmentDate = adP.Next_Announcement_Date__c;
-		testTollingUpdate = adP.Tolling_Update__c;
-        
         Test.startTest();        
         // Insert Tolling Date : Start Batch Class
         level = LoggingLevel.DEBUG;
         Tolling_Day__c td = TestUtils.createTollingDay(tollingDateStart, tollingDateEnd, u, true);
-		//TollingDayTriggerHandler.setDatesInScope(tdList);
-        //TollingDayTriggerHandler.recalculatePetitionTollingDay(tdList);
+		dmlStatementsActual1 = limits.getDMLStatements();
+		dmlStatementsAllowed1 = dmlStatementsMax - dmlStatementsActual1;
+        dmlStatementsUsed1 = dmlStatementsActual1 - dmlStatementsUsedBefore;
+        dmlRowsActual1 = limits.getDmlRows();
+		dmlRowsAllowed1 = dmlRowsMax - dmlRowsActual1;
+        dmlRowsUsed1 = dmlRowsActual1 - dmlRowsUsedBefore; 
 
-        Test.stopTest();
-        
-        
-        //*****System.assertNotEquals(testNextDueToDAS, adP.Next_Due_to_DAS_Deadline__c);
-        //System.assertEquals(testNextOfficeDeadline, adP.Next_Office_Deadline__c);
-        //System.assertEquals(testNextAnnouncmentDate, adP.Next_Announcement_Date__c);
-        system.debug('testTollingUpdate ' + adP.Tolling_Update__c);
-        //system.assertEquals(testTollingUpdate, true);
-        
+		// assert number of rows and statements here
 		
+		list<Tolling_Day__c>tdList = new list<Tolling_Day__c>();
+		tdList.add(td);
+		list<Petition__c>recordsToProcess = new list<Petition__c>([SELECT Id, Tolling_Update__c FROM Petition__c WHERE Petition_Filed__c <= :tollingDateEnd AND Petition_Outcome__c = null AND Locked__c = false]);
+		TollingDayTriggerHandler.setDatesInScope(tdList);
         string initialState = '1';
         string queryObject = 'Petition__c';
-        string Context = initialState +', ' + queryObject +', ' + latestDate;         
-        //AsyncApexJob aaj = [SELECT Id, Status, JobItemsProcessed, TotalJobItems, NumberOfErrors
-        //            FROM AsyncApexJob WHERE Status =: 'Completed'];
-        
-        //system.debug('aaj.Status = '+ aaj.Status);
-        //system.assertEquals(aaj.Status, 'Completed');
-        
-        
-        // query status of next batch job       
-        //AsyncApexJob aaj1 = [SELECT Id, Status, JobItemsProcessed, TotalJobItems, NumberOfErrors
-        //            FROM AsyncApexJob WHERE ID =: bid1 ];
-                    
-        // assert next job was created
-        //Boolean Result = false;            
-        //if(aaj1.Status == 'Holding' || aaj1.Status == 'Queued' || aaj1.Status == 'Preparing' || aaj1.Status == 'Processing' || aaj1.Status == 'Completed') Result = true; 
-        //system.assertEquals(Result , true);
-        //system.debug('aaj1.Status = ' + aaj1.Status);
-        
-        integer emailActualAfter = limits.getEmailInvocations();
-        integer emailAllowedAfter = emailMax - emailActualAfter;
-        integer emailSent = emailAllowedAfter - emailAllowedBefore;
-        // assert email results were sent
-        system.debug('emailSent = ' + emailSent);
-        //system.assert(emailSent>0);        
+        string lastDate = string.valueOf(tollingDateEnd);
+        system.debug('lastDate = ' + lastDate);
+
+        //ID batchprocessid        
+        Id bid;
+
+		level = LoggingLevel.FINE;
+
+		// declare a new tolling day batch & set batch context 
+		// this will also cause the checkLimits() and getNumToObject() methods to run
+		AddTollingDayBatch atdb = new AddTollingDayBatch(initialState, queryObject, lastDate);
+		
+		// Call the start method in the batch class during the unit test
+		Database.QueryLocator ql = atdb.start(null);
+		
+		// start the batch class during unit test
+		atdb.execute(null, recordsToProcess);
+		
+		Savepoint sp = Database.setSavepoint();
+
+		// call finish method without starting next job (bc = null)
+		level = LoggingLevel.FINE;
+		atdb.finish(null);
+		
+		// Before Rollback...
+				
+		system.debug('atdb.finish(null).bid = ' + atdb.bid );
+
+		system.assertEquals(atdb.bid,'707000000000000AAA');
+
+		//The next job will have been given a job Id which will have been queried for as 'bid1' in the batch
+
+		system.debug('atdb.finish(null).bid1 = ' + atdb.bid1 );
+		
+		system.assertNotEquals(atdb.bid1,null);
+				 
+        dmlStatementsActual2 = limits.getDMLStatements();
+        dmlStatementsAllowed2 = dmlStatementsMax - dmlStatementsActual2; 
+        dmlRowsActual2 = limits.getDMLRows();
+        dmlStatementsUsed2 = dmlStatementsActual2 - dmlStatementsUsedBefore;
+        dmlRowsUsed2 = dmlRowsActual2 - dmlRowsUsedBefore; 
+
+		// rollback transaction
+		Database.rollback(sp);
+
+
+        Test.stopTest();
+
+        dmlStatementsActualAfter = limits.getDMLStatements();
+        dmlStatementsAllowedAfter = dmlStatementsMax - dmlStatementsActualAfter; 
+        dmlRowsActualAfter = limits.getDMLRows();
+        dmlRowsAllowedAfter = dmlRowsMax - dmlRowsActualAfter; 
+		dmlRowsUsed = dmlRowsActualAfter - dmlRowsUsedBefore;
+		dmlStatementsUsed = dmlStatementsActualAfter - dmlStatementsUsedBefore; 
+
+		// rollback counts as a statement
+		        
+		system.debug('dmlStatementsMax = '+ dmlStatementsMax);
+		system.debug('dmlStatementsUsedBefore = '+ dmlStatementsUsedBefore);
+		system.debug('dmlRowsMax = '+ dmlRowsMax);
+		system.debug('dmlRowsUsedBefore = '+ dmlRowsUsedBefore);
+		system.debug('dmlStatementsAllowedBefore = '+ dmlStatementsAllowedBefore);
+		system.debug('dmlRowsAllowedBefore = '+ dmlRowsAllowedBefore);
+		system.debug('dmlStatementsAllowed1 = ' + dmlStatementsAllowed1);
+		system.debug('dmlRowsAllowed1 = ' + dmlRowsAllowed1);
+		system.debug('dmlRowsActual1 = ' + dmlRowsActual1);
+		system.debug('dmlStatementsUsed1 = ' + dmlStatementsUsed1);
+		system.debug('dmlRowsUsed1 = ' + dmlRowsUsed1);
+		system.debug('dmlStatementsActual2 = ' + dmlStatementsActual2);
+		system.debug('dmlStatementsAllowed2 = ' + dmlStatementsAllowed2);
+		system.debug('dmlRowsAllowed2 = ' + dmlRowsAllowed2);
+		system.debug('dmlRowsActual2 = ' + dmlRowsActual2);
+		system.debug('dmlStatementsUsed2 = ' + dmlStatementsUsed2);
+		system.debug('dmlRowsUsed2 = ' + dmlRowsUsed2);
+		system.debug('dmlStatementsActualAfter = '+ dmlStatementsActualAfter);		
+		system.debug('dmlRowsActualAfter = '+ dmlRowsActualAfter);
+		system.debug('dmlRowsAllowedAfter = '+ dmlRowsAllowedAfter);
+		system.debug('dmlStatementsAllowedAfter = '+ dmlStatementsAllowedAfter);
+		system.debug('dmlRowsUsed = '+ dmlRowsUsed);
+		system.debug('dmlStatementsUsed = '+ dmlStatementsUsed); 
+
+		system.assertEquals(dmlRowsActual1,2);
+		system.assertEquals(dmlStatementsUsed1,1);
+		system.assertEquals(dmlRowsActual2,3);
+		system.assertEquals(dmlStatementsUsed2,2);
+		system.assertEquals(dmlRowsUsed,1);
+		system.assertEquals(dmlStatementsUsed,1);
+		// because of rollback...
+		system.assertEquals(false, adP.Tolling_Update__c);
+		
+		//*** FINISHED CREATING FINAL ASSERTIONS ***//
 
     }
 
     static testMethod void testInvestigationDates() {
         
-        system.LoggingLevel level = LoggingLevel.DEBUG;    
+        system.LoggingLevel level = LoggingLevel.INFO;    
         AppConfig__c app = insertAppConfig();
-        Test.startTest();
         integer emailMax = limits.getLimitEmailInvocations();
         integer emailActualBefore = limits.getEmailInvocations();
         integer emailAllowedBefore = emailMax - emailActualBefore;
-        
-        //Capture current values from trigger for comparison in final assert
-        testNextDueToDAS = iAD.Next_Due_to_DAS_Deadline__c;
-        testNextOfficeDeadline = iAD.Next_Office_Deadline__c;
-        testNextAnnouncmentDate = iAD.Next_Announcement_Date__c;
-
-        //Set value for scheduleable query
+        integer dmlStatementsMax = limits.getLimitDMLStatements();
+        integer dmlStatementsUsedBefore = limits.getDMLStatements();
+        integer dmlStatementsAllowedBefore = dmlStatementsMax - dmlStatementsUsedBefore;
+        integer dmlRowsMax = limits.getLimitDmlRows();
+        integer dmlRowsUsedBefore = limits.getDmlRows();
+		integer dmlRowsAllowedBefore = dmlRowsMax - dmlRowsUsedBefore;		
+        integer dmlStatementsActual1 = 0;
+        integer dmlStatementsAllowed1 = 0; 
+        integer dmlStatementsUsed1 = 0;
+        integer dmlRowsActual1 = 0;
+        integer dmlRowsAllowed1 = 0;
+        integer dmlRowsUsed1 = 0;
+        integer dmlStatementsUsed2 = 0;
+        integer dmlStatementsActual2 = 0;
+        integer dmlStatementsAllowed2 = 0;
+        integer dmlRowsAllowed2 = 0; 
+        integer dmlRowsActual2 = 0; 
+		integer dmlRowsUsed2 = 0;
+        integer dmlStatementsActualAfter = 0;
+        integer dmlStatementsAllowedAfter = 0; 
+		integer dmlStatementsUsed = 0; 
+        integer dmlRowsActualAfter = 0;
+        integer dmlRowsAllowedAfter = 0; 
+		integer dmlRowsUsed = 0;
+                
+        //Set value for batch data
         iAD.Next_Due_to_DAS_Deadline__c = System.today();
         iAD.Next_Office_Deadline__c = System.today();
         iAD.Next_Announcement_Date__c = System.today();
@@ -523,84 +625,317 @@ public class AddTollingDayBatchTest {
         
 
         update iAD;
-
+		level = LoggingLevel.DEBUG;
         //Assert values updated correctly, and have not had the triggers run on them
         system.assertEquals(System.today(), iAD.Next_Due_to_DAS_Deadline__c);
         system.assertEquals(System.today(), iAD.Next_Office_Deadline__c);
         system.assertEquals(System.today(), iAD.Next_Announcement_Date__c);
 		system.assertEquals(false, iAD.Tolling_Update__c);
         
-        //Turn off triggers
-        app.TriggersEnabled__c = false;
-        update app;
+        
+        // Insert Tolling Date 
+        Tolling_Day__c td = TestUtils.createTollingDay(tollingDateStart, tollingDateEnd, u, true);
+		dmlStatementsActual1 = limits.getDMLStatements();
+		dmlStatementsAllowed1 = dmlStatementsMax - dmlStatementsActual1;
+        dmlStatementsUsed1 = dmlStatementsActual1 - dmlStatementsUsedBefore;
+        dmlRowsActual1 = limits.getDmlRows();
+		dmlRowsAllowed1 = dmlRowsMax - dmlRowsActual1;
+        dmlRowsUsed1 = dmlRowsActual1 - dmlRowsUsedBefore; 
 
-        // Start Batch Class
-		Tolling_Day__c td = TestUtils.createTollingDay(tollingDateStart, tollingDateEnd, u, true);
+		// We do not need to invoke the tolling day trigger
+				
+		list<Investigation__c>recordsToProcess = new list<Investigation__c>([SELECT Id, Petition__r.Petition_Filed__c, Tolling_Update__c FROM Investigation__c WHERE Petition__r.Petition_Filed__c <= :tollingDateEnd  AND Investigation_Outcome__c = null AND Locked__c = false]);
 
-        //Turn on triggers
-        app.TriggersEnabled__c = true;
-        update app;
-		level = LoggingLevel.DEBUG;
-		
-        //start batch class
         string initialState = '2';
         string queryObject = 'Investigation__c';
-        system.debug(latestDate);
-        ID batchprocessid1 = Database.executeBatch(new AddTollingDayBatch(initialState, queryObject, latestDate));
-        system.debug('Returned batch process ID: ' + batchProcessId1);
-         
+        string lastDate = string.valueOf(tollingDateEnd);
+        system.debug('lastDate = ' + latestDate);
+
+        //ID batchprocessid        
+        Id bid;
+
+        Test.startTest();
+
+        // Start Batch Class
+
+		level = LoggingLevel.FINE;
+
+		// declare a new tolling day batch & set batch context 
+		// this will also cause the checkLimits() and getNumToObject() methods to run
+		AddTollingDayBatch atdb = new AddTollingDayBatch(initialState, queryObject, lastDate);
+		
+		// Call the start method in the batch class during the unit test
+		Database.QueryLocator ql = atdb.start(null);
+		
+		// start the batch class during unit test
+		atdb.execute(null, recordsToProcess);
+		
+		Savepoint sp = Database.setSavepoint();
+
+		// call finish method without starting next job (bc = null)
+		level = LoggingLevel.FINE;
+		atdb.finish(null);
+		
+		// Before Rollback...
+		
+		system.debug('atdb.finish(null).bid = ' + atdb.bid );
+
+		system.assertEquals(atdb.bid,'707000000000000AAA');
+
+		//The next job will have been given a job Id which will have been queried for as 'bid1' in the batch
+
+		system.debug('atdb.finish(null).bid1 = ' + atdb.bid1 );
+		
+		system.assertNotEquals(atdb.bid1,null);
+				 
+        dmlStatementsActual2 = limits.getDMLStatements();
+        dmlStatementsAllowed2 = dmlStatementsMax - dmlStatementsActual2; 
+        dmlRowsActual2 = limits.getDMLRows();
+        dmlStatementsUsed2 = dmlStatementsActual2 - dmlStatementsUsedBefore;
+        dmlRowsUsed2 = dmlRowsActual2 - dmlRowsUsedBefore; 
+
+		// rollback transaction
+		Database.rollback(sp);
+
         Test.stopTest();
 
-        //System.assertEquals(testNextDueToDAS, iAD.Next_Due_to_DAS_Deadline__c);
-        //System.assertEquals(testNextOfficeDeadline, iAD.Next_Office_Deadline__c);
-        //System.assertEquals(testNextAnnouncmentDate, iAD.Next_Announcement_Date__c);
-        system.debug('iAD.Tolling_Update__c = ' + iAD.Tolling_Update__c);
-        //system.assertEquals(iAD.Tolling_Update__c, true);
+        dmlStatementsActualAfter = limits.getDMLStatements();
+        dmlStatementsAllowedAfter = dmlStatementsMax - dmlStatementsActualAfter; 
+        dmlRowsActualAfter = limits.getDMLRows();
+        dmlRowsAllowedAfter = dmlRowsMax - dmlRowsActualAfter; 
+		dmlRowsUsed = dmlRowsActualAfter - dmlRowsUsedBefore;
+		dmlStatementsUsed = dmlStatementsActualAfter - dmlStatementsUsedBefore; 
+		// rollback counts as a statement
+		        
+		system.debug('dmlStatementsMax = '+ dmlStatementsMax);
+		system.debug('dmlStatementsUsedBefore = '+ dmlStatementsUsedBefore);
+		system.debug('dmlRowsMax = '+ dmlRowsMax);
+		system.debug('dmlRowsUsedBefore = '+ dmlRowsUsedBefore);
+		system.debug('dmlStatementsAllowedBefore = '+ dmlStatementsAllowedBefore);
+		system.debug('dmlRowsAllowedBefore = '+ dmlRowsAllowedBefore);
+		system.debug('dmlStatementsAllowed1 = ' + dmlStatementsAllowed1);
+		system.debug('dmlRowsAllowed1 = ' + dmlRowsAllowed1);
+		system.debug('dmlRowsActual1 = ' + dmlRowsActual1);
+		system.debug('dmlStatementsUsed1 = ' + dmlStatementsUsed1);
+		system.debug('dmlRowsUsed1 = ' + dmlRowsUsed1);
+		system.debug('dmlStatementsActual2 = ' + dmlStatementsActual2);
+		system.debug('dmlStatementsAllowed2 = ' + dmlStatementsAllowed2);
+		system.debug('dmlRowsAllowed2 = ' + dmlRowsAllowed2);
+		system.debug('dmlRowsActual2 = ' + dmlRowsActual2);
+		system.debug('dmlStatementsUsed2 = ' + dmlStatementsUsed2);
+		system.debug('dmlRowsUsed2 = ' + dmlRowsUsed2);
+		system.debug('dmlStatementsActualAfter = '+ dmlStatementsActualAfter);		
+		system.debug('dmlRowsActualAfter = '+ dmlRowsActualAfter);
+		system.debug('dmlRowsAllowedAfter = '+ dmlRowsAllowedAfter);
+		system.debug('dmlStatementsAllowedAfter = '+ dmlStatementsAllowedAfter);
+		system.debug('dmlRowsUsed = '+ dmlRowsUsed);
+		system.debug('dmlStatementsUsed = '+ dmlStatementsUsed); 
+
+		system.assertEquals(dmlRowsActual1,4);
+		system.assertEquals(dmlStatementsUsed1,3);
+		system.assertEquals(dmlRowsActual2,1);
+		system.assertEquals(dmlStatementsUsed2,0);
+		system.assertEquals(dmlRowsUsed,3);
+		system.assertEquals(dmlStatementsUsed,3);
+		// because of rollback...
+		system.assertEquals(false, iAD.Tolling_Update__c);
+		
+		// assert rows used are what's expected
+		
+
+		//*** FINISHED CREATING FINAL ASSERTIONS ***//
+
+    }
+
+   static testMethod void testLitigationDates() {
         
-        AsyncApexJob aaj = [SELECT Id, Status, JobItemsProcessed, TotalJobItems, NumberOfErrors
-                    FROM AsyncApexJob WHERE ID =: batchprocessid1 ];
-                    
-        system.debug('aaj.Status = ' + aaj.Status);
-        //system.assertEquals(aaj.Status, 'Completed');
+        system.LoggingLevel level = LoggingLevel.INFO;    
+        AppConfig__c app = insertAppConfig();
+        integer emailMax = limits.getLimitEmailInvocations();
+        integer emailActualBefore = limits.getEmailInvocations();
+        integer emailAllowedBefore = emailMax - emailActualBefore;
+        integer dmlStatementsMax = limits.getLimitDMLStatements();
+        integer dmlStatementsUsedBefore = limits.getDMLStatements();
+        integer dmlStatementsAllowedBefore = dmlStatementsMax - dmlStatementsUsedBefore;
+        integer dmlRowsMax = limits.getLimitDmlRows();
+        integer dmlRowsUsedBefore = limits.getDmlRows();
+		integer dmlRowsAllowedBefore = dmlRowsMax - dmlRowsUsedBefore;		
+        integer dmlStatementsActual1 = 0;
+        integer dmlStatementsAllowed1 = 0; 
+        integer dmlStatementsUsed1 = 0;
+        integer dmlRowsActual1 = 0;
+        integer dmlRowsAllowed1 = 0;
+        integer dmlRowsUsed1 = 0;
+        integer dmlStatementsUsed2 = 0;
+        integer dmlStatementsActual2 = 0;
+        integer dmlStatementsAllowed2 = 0;
+        integer dmlRowsAllowed2 = 0; 
+        integer dmlRowsActual2 = 0; 
+		integer dmlRowsUsed2 = 0;
+        integer dmlStatementsActualAfter = 0;
+        integer dmlStatementsAllowedAfter = 0; 
+		integer dmlStatementsUsed = 0; 
+        integer dmlRowsActualAfter = 0;
+        integer dmlRowsAllowedAfter = 0; 
+		integer dmlRowsUsed = 0;
+                
+        //Set value for batch data
+        intLit.Next_Due_to_DAS_Deadline__c = System.today();
+        intLit.Next_Office_Deadline__c = System.today();
+        intLit.Next_Announcement_Date__c = System.today();
+        intLit.Schedule_Refresh__c = false; 
+        intLit.Tolling_Update__c = false;
+
+        update intLit;
+
+		level = LoggingLevel.DEBUG;
+        //Assert values updated correctly, and have not had the triggers run on them
+        system.assertEquals(System.today(), intLit.Next_Due_to_DAS_Deadline__c);
+        system.assertEquals(System.today(), intLit.Next_Office_Deadline__c);
+        system.assertEquals(System.today(), intLit.Next_Announcement_Date__c);
+		system.assertEquals(false, intLit.Tolling_Update__c);
         
+        // Insert Tolling Date 
+        Tolling_Day__c td = TestUtils.createTollingDay(tollingDateStart, tollingDateEnd, u, true);
+		dmlStatementsActual1 = limits.getDMLStatements();
+		dmlStatementsAllowed1 = dmlStatementsMax - dmlStatementsActual1;
+        dmlStatementsUsed1 = dmlStatementsActual1 - dmlStatementsUsedBefore;
+        dmlRowsActual1 = limits.getDmlRows();
+		dmlRowsAllowed1 = dmlRowsMax - dmlRowsActual1;
+        dmlRowsUsed1 = dmlRowsActual1 - dmlRowsUsedBefore; 
+
+		// We do not need to invoke the tolling day trigger
         
-        // query status of next batch job
-        //AsyncApexJob aaj1 = [SELECT Id, Status, JobItemsProcessed, TotalJobItems, NumberOfErrors
-        //            FROM AsyncApexJob WHERE ID =: bid1 ];
-        
-        // assert next job was created
-        //Boolean Result = false;
-        //if(aaj1.Status == 'Holding' || aaj1.Status == 'Queued' || aaj1.Status == 'Preparing' || aaj1.Status == 'Processing' || aaj1.Status == 'Completed') Result = true; 
-        //system.debug('aaj1.Status = ' + aaj1.Status);
-        //system.assertEquals(Result , true);
-        
-        integer emailActualAfter = limits.getEmailInvocations();
-        integer emailAllowedAfter = emailMax - emailActualAfter;
-        integer emailSent = emailAllowedAfter - emailAllowedBefore;
-        // assert email results were sent
-        system.debug('emailSent = ' + emailSent);
-        //system.assert(emailSent>0);        
+        list<Litigation__c>recordsToProcess = new list<Litigation__c>([SELECT Id, Tolling_Update__c, Locked__c FROM Litigation__c WHERE Actual_Final_Signature__c = null AND (Draft_Remand_Issues_Due_to_DAS__c <= :tollingDateEnd OR Request_Filed__c <= :tollingDateEnd ) AND Locked__c = false]);
+		
+        string initialState = '3';
+        string queryObject = 'Litigation__c';
+        string lastDate = string.valueOf(tollingDateEnd);
+        system.debug('lastDate = ' + latestDate);
+
+        Test.startTest();
+
+        // Start Batch Class
+
+		// declare a new tolling day batch & set batch context 
+		// this will also cause the checkLimits() and getNumToObject() methods to run
+		AddTollingDayBatch atdb = new AddTollingDayBatch(initialState, queryObject, lastDate);
+		
+		// Call the start method in the batch class during the unit test
+		Database.QueryLocator ql = atdb.start(null);
+		
+		// start the batch class during unit test
+		atdb.execute(null, recordsToProcess);
+		
+		Savepoint sp = Database.setSavepoint();
+
+		// call finish method without starting next job (bc = null)
+
+		level = LoggingLevel.FINE;
+		atdb.finish(null);
+		
+		// Before Rollback...
+				
+		system.debug('atdb.finish(null).bid = ' + atdb.bid );
+
+		system.assertEquals(atdb.bid,'707000000000000AAA');
+
+		//The next job will have been given a job Id which will have been queried for as 'bid1' in the batch
+
+		system.debug('atdb.finish(null).bid1 = ' + atdb.bid1 );
+		
+		system.assertNotEquals(atdb.bid1,null);
+				 
+        dmlStatementsActual2 = limits.getDMLStatements();
+        dmlStatementsAllowed2 = dmlStatementsMax - dmlStatementsActual2; 
+        dmlRowsActual2 = limits.getDMLRows();
+        dmlStatementsUsed2 = dmlStatementsActual2 - dmlStatementsUsedBefore;
+        dmlRowsUsed2 = dmlRowsActual2 - dmlRowsUsedBefore; 
+
+		// rollback transaction
+       
+
+        Test.stopTest();
+
+        dmlStatementsActualAfter = limits.getDMLStatements();
+        dmlStatementsAllowedAfter = dmlStatementsMax - dmlStatementsActualAfter; 
+        dmlRowsActualAfter = limits.getDMLRows();
+        dmlRowsAllowedAfter = dmlRowsMax - dmlRowsActualAfter; 
+		dmlRowsUsed = dmlRowsActualAfter - dmlRowsUsedBefore;
+		dmlStatementsUsed = dmlStatementsActualAfter - dmlStatementsUsedBefore; 
+		// rollback counts as a statement
+		        
+		system.debug('dmlStatementsMax = '+ dmlStatementsMax);
+		system.debug('dmlStatementsUsedBefore = '+ dmlStatementsUsedBefore);
+		system.debug('dmlRowsMax = '+ dmlRowsMax);
+		system.debug('dmlRowsUsedBefore = '+ dmlRowsUsedBefore);
+		system.debug('dmlStatementsAllowedBefore = '+ dmlStatementsAllowedBefore);
+		system.debug('dmlRowsAllowedBefore = '+ dmlRowsAllowedBefore);
+		system.debug('dmlStatementsAllowed1 = ' + dmlStatementsAllowed1);
+		system.debug('dmlRowsAllowed1 = ' + dmlRowsAllowed1);
+		system.debug('dmlRowsActual1 = ' + dmlRowsActual1);
+		system.debug('dmlStatementsUsed1 = ' + dmlStatementsUsed1);
+		system.debug('dmlRowsUsed1 = ' + dmlRowsUsed1);
+		system.debug('dmlStatementsActual2 = ' + dmlStatementsActual2);
+		system.debug('dmlStatementsAllowed2 = ' + dmlStatementsAllowed2);
+		system.debug('dmlRowsAllowed2 = ' + dmlRowsAllowed2);
+		system.debug('dmlRowsActual2 = ' + dmlRowsActual2);
+		system.debug('dmlStatementsUsed2 = ' + dmlStatementsUsed2);
+		system.debug('dmlRowsUsed2 = ' + dmlRowsUsed2);
+		system.debug('dmlStatementsActualAfter = '+ dmlStatementsActualAfter);		
+		system.debug('dmlRowsActualAfter = '+ dmlRowsActualAfter);
+		system.debug('dmlRowsAllowedAfter = '+ dmlRowsAllowedAfter);
+		system.debug('dmlStatementsAllowedAfter = '+ dmlStatementsAllowedAfter);
+		system.debug('dmlRowsUsed = '+ dmlRowsUsed);
+		system.debug('dmlStatementsUsed = '+ dmlStatementsUsed); 
+
+		// assert rows used are what's expected		
+		system.assertEquals(dmlRowsActual1,4);
+		system.assertEquals(dmlStatementsUsed1,3);
+		system.assertEquals(dmlRowsActual2,1);
+		system.assertEquals(dmlStatementsUsed2,0);
+		system.assertEquals(dmlRowsUsed,3);
+		system.assertEquals(dmlStatementsUsed,3);
+		// because of rollback...
+		system.assertEquals(false, iAD.Tolling_Update__c);
+
+		//*** FINISHED CREATING FINAL ASSERTIONS ***//
 
     }
 
     static testMethod void testSegmentDates() {
         
-        system.LoggingLevel level = LoggingLevel.INFO;
+        system.LoggingLevel level = LoggingLevel.INFO;    
         AppConfig__c app = insertAppConfig();
-        Test.startTest();
-
-
         integer emailMax = limits.getLimitEmailInvocations();
         integer emailActualBefore = limits.getEmailInvocations();
         integer emailAllowedBefore = emailMax - emailActualBefore;
-
-
-        //Capture current values from trigger for comparison in final assert
-        testNextDueToDAS = adminSeg.Next_Due_to_DAS_Deadline__c;
-        testNextOfficeDeadline = adminSeg.Next_Office_Deadline__c;
-        testNextAnnouncmentDate = adminSeg.Next_Announcement_Date__c;
-
-        //Set value for scheduleable query
+        integer dmlStatementsMax = limits.getLimitDMLStatements();
+        integer dmlStatementsUsedBefore = limits.getDMLStatements();
+        integer dmlStatementsAllowedBefore = dmlStatementsMax - dmlStatementsUsedBefore;
+        integer dmlRowsMax = limits.getLimitDmlRows();
+        integer dmlRowsUsedBefore = limits.getDmlRows();
+		integer dmlRowsAllowedBefore = dmlRowsMax - dmlRowsUsedBefore;		
+        integer dmlStatementsActual1 = 0;
+        integer dmlStatementsAllowed1 = 0; 
+        integer dmlStatementsUsed1 = 0;
+        integer dmlRowsActual1 = 0;
+        integer dmlRowsAllowed1 = 0;
+        integer dmlRowsUsed1 = 0;
+        integer dmlStatementsUsed2 = 0;
+        integer dmlStatementsActual2 = 0;
+        integer dmlStatementsAllowed2 = 0;
+        integer dmlRowsAllowed2 = 0; 
+        integer dmlRowsActual2 = 0; 
+		integer dmlRowsUsed2 = 0;
+        integer dmlStatementsActualAfter = 0;
+        integer dmlStatementsAllowedAfter = 0; 
+		integer dmlStatementsUsed = 0; 
+        integer dmlRowsActualAfter = 0;
+        integer dmlRowsAllowedAfter = 0; 
+		integer dmlRowsUsed = 0;
+                
+        //Set value for batch data
         adminSeg.Next_Due_to_DAS_Deadline__c = System.today();
         adminSeg.Next_Office_Deadline__c = System.today();
         adminSeg.Next_Announcement_Date__c = System.today();
@@ -609,144 +944,151 @@ public class AddTollingDayBatchTest {
 
         update adminSeg;
 
+		level = LoggingLevel.DEBUG;
         //Assert values updated correctly, and have not had the triggers run on them
         system.assertEquals(System.today(), adminSeg.Next_Due_to_DAS_Deadline__c);
         system.assertEquals(System.today(), adminSeg.Next_Office_Deadline__c);
         system.assertEquals(System.today(), adminSeg.Next_Announcement_Date__c);
 		system.assertEquals(false, adminSeg.Tolling_Update__c);
         
-        //Turn off triggers
-        app.TriggersEnabled__c = false;
-        update app;
+        // Insert Tolling Date 
+        Tolling_Day__c td = TestUtils.createTollingDay(tollingDateStart, tollingDateEnd, u, true);
+		dmlStatementsActual1 = limits.getDMLStatements();
+		dmlStatementsAllowed1 = dmlStatementsMax - dmlStatementsActual1;
+        dmlStatementsUsed1 = dmlStatementsActual1 - dmlStatementsUsedBefore;
+        dmlRowsActual1 = limits.getDmlRows();
+		dmlRowsAllowed1 = dmlRowsMax - dmlRowsActual1;
+        dmlRowsUsed1 = dmlRowsActual1 - dmlRowsUsedBefore; 
 
-        // Start Batch Class
-		Tolling_Day__c td = TestUtils.createTollingDay(tollingDateStart, tollingDateEnd, u, true);
-
-        //Turn on triggers
-        app.TriggersEnabled__c = true;
-        update app;
-        
-        
-        //start batch class
-        string initialState = '3';
-        string queryObject = 'Segment__c';
-        system.debug(latestDate);
-        ID batchprocessid1 = Database.executeBatch(new AddTollingDayBatch(initialState, queryObject, latestDate));
-        system.debug('Returned batch process ID: ' + batchProcessId1);
-
-
-        Test.stopTest();
-		level = LoggingLevel.DEBUG;
+		// We do not need to invoke the tolling day trigger
 		
-        //System.assertEquals(testNextDueToDAS, adminSeg.Next_Due_to_DAS_Deadline__c);
-        //System.assertEquals(testNextOfficeDeadline, adminSeg.Next_Office_Deadline__c);
-        //System.assertEquals(testNextAnnouncmentDate, adminSeg.Next_Announcement_Date__c);
-        system.debug('adminSeg.Tolling_Update__c = ' + adminSeg.Tolling_Update__c);
-        //system.assertEquals(adminSeg.Tolling_Update__c, true);
-        
-        AsyncApexJob aaj = [SELECT Id, Status, JobItemsProcessed, TotalJobItems, NumberOfErrors
-                    FROM AsyncApexJob WHERE ID =: batchprocessid1 ];
-                    
-        //system.assertEquals(aaj.Status, 'Completed');
-        system.debug('aaj.Status = ' + aaj.Status);        
-        
-        // query status of next batch job
-        //AsyncApexJob aaj1 = [SELECT Id, Status, JobItemsProcessed, TotalJobItems, NumberOfErrors
-        //            FROM AsyncApexJob WHERE ID =: bid1 ];
-                    
-        // assert next job was created            
-        //Boolean Result = false;
-        //if(aaj1.Status == 'Holding' || aaj1.Status == 'Queued' || aaj1.Status == 'Preparing' || aaj1.Status == 'Processing' || aaj1.Status == 'Completed') Result = true; 
-        //system.assertEquals(Result , true);
-		//system.debug('Result = ' + Result);
-        //system.debug('aaj1.Status = ' + aaj1.Status);
+		list<Segment__c>recordsToProcess = new list<Segment__c>([SELECT Id, Tolling_Update__c, Locked__c FROM Segment__c WHERE Segment_Outcome__c = null AND (Application_Accepted__c <= :tollingDateEnd OR Final_Date_of_Anniversary_Month__c <= :tollingDateEnd OR Final_Date_of_Anniversary_Month__c <= :tollingDateEnd OR Request_Filed__c <= :tollingDateEnd OR Calculated_Initiation_Signature__c <= :tollingDateEnd OR Initiation_Issues_Due_to_DAS__c <= :tollingDateEnd OR Prelim_Team_Meeting_Deadline__c <= :tollingDateEnd OR Final_Team_Meeting_Deadline__c <= :tollingDateEnd ) AND Locked__c = false]);
 
-        integer emailActualAfter = limits.getEmailInvocations();
-        integer emailAllowedAfter = emailMax - emailActualAfter;
-        integer emailSent = emailAllowedAfter - emailAllowedBefore;
-        // assert email results were sent
-        system.debug('emailSent = ' + emailSent);
-        //system.assert(emailSent>0);        
+        string initialState = '4';
+        string queryObject = 'Segment__c';
+        string lastDate = string.valueOf(tollingDateEnd);
+        system.debug('lastDate = ' + latestDate);
 
-    }
-
-    static testMethod void testLitigationDates() {
-        
-        system.LoggingLevel level = LoggingLevel.INFO;
-        AppConfig__c app = insertAppConfig();
         Test.startTest();
 
-        integer emailMax = limits.getLimitEmailInvocations();
-        integer emailActualBefore = limits.getEmailInvocations();
-        integer emailAllowedBefore = emailMax - emailActualBefore;
-
-        //Capture current values from trigger for comparison in final assert
-        testNextDueToDAS = intLit.Next_Due_to_DAS_Deadline__c;
-        testNextOfficeDeadline = intLit.Next_Office_Deadline__c;
-        testNextAnnouncmentDate = intLit.Next_Announcement_Date__c;
-
-        //Set value for scheduleable query
-        intLit.Next_Due_to_DAS_Deadline__c = System.today();
-        intLit.Next_Office_Deadline__c = System.today();
-        intLit.Next_Announcement_Date__c = System.today();
-        intLit.Schedule_Refresh__c = false; 
-        intLit.Tolling_Update__c = false;
-
-
-        update intLit;
-
-        //Assert values updated correctly, and have not had the triggers run on them
-        system.assertEquals(System.today(), intLit.Next_Due_to_DAS_Deadline__c);
-        system.assertEquals(System.today(), intLit.Next_Office_Deadline__c);
-        system.assertEquals(System.today(), intLit.Next_Announcement_Date__c);
-		system.assertEquals(false, intLit.Tolling_Update__c);
-        
-        //Turn off triggers
-        app.TriggersEnabled__c = false;
-        update app;
-
         // Start Batch Class
-		Tolling_Day__c td = TestUtils.createTollingDay(tollingDateStart, tollingDateEnd, u, true);
 
-        //Turn on triggers
-        app.TriggersEnabled__c = true;
-        update app;
-        
-        //start batch class
-        string initialState = '4';
-        string queryObject = 'Litigation__c';
-        system.debug(latestDate);
-        ID batchprocessid1 = Database.executeBatch(new AddTollingDayBatch(initialState, queryObject, latestDate));
-        system.debug('Returned batch process ID: ' + batchProcessId1);
+		// declare a new tolling day batch & set batch context 
+		// this will also cause the checkLimits() and getNumToObject() methods to run
+		AddTollingDayBatch atdb = new AddTollingDayBatch(initialState, queryObject, lastDate);
+		
+		// Call the start method in the batch class during the unit test
+		Database.QueryLocator ql = atdb.start(null);
+		
+		// start the batch class during unit test
+		atdb.execute(null, recordsToProcess);
+		
+		Savepoint sp = Database.setSavepoint();
+
+		// call finish method without starting next job (bc = null)
+		level = LoggingLevel.FINE;
+		atdb.finish(null);
+		
+		// Before Rollback...
+		
+		system.debug('atdb.finish(null).bid = ' + atdb.bid );
+
+		system.assertEquals(atdb.bid,'707000000000000AAA');
+
+		//This is final batch, there will not be a next job. Job Id for 'bid1' will be null
+		
+		system.assertEquals(atdb.bid1,null);
+				 
+        dmlStatementsActual2 = limits.getDMLStatements();
+        dmlStatementsAllowed2 = dmlStatementsMax - dmlStatementsActual2; 
+        dmlRowsActual2 = limits.getDMLRows();
+        dmlStatementsUsed2 = dmlStatementsActual2 - dmlStatementsUsedBefore;
+        dmlRowsUsed2 = dmlRowsActual2 - dmlRowsUsedBefore; 
+
+		// rollback transaction
+		Database.rollback(sp);
 
         Test.stopTest();
-		level = LoggingLevel.DEBUG;
-		
-        //System.assertEquals(testNextDueToDAS, intLit.Next_Due_to_DAS_Deadline__c);
-        //System.assertEquals(testNextOfficeDeadline, intLit.Next_Office_Deadline__c);
-        //System.assertEquals(testNextAnnouncmentDate, intLit.Next_Announcement_Date__c);
-        system.debug('intLit.Tolling_Update__c = ' + intLit.Tolling_Update__c);
-        //system.assertEquals(intLit.Tolling_Update__c,  true);
-        
-        AsyncApexJob aaj = [SELECT Id, Status, JobItemsProcessed, TotalJobItems, NumberOfErrors
-                    FROM AsyncApexJob WHERE ID =: batchprocessid1 ];
 
-        system.debug('aaj.Status = ' + aaj.Status);                    
-        //system.assertEquals(aaj.Status, 'Completed');
+        dmlStatementsActualAfter = limits.getDMLStatements();
+        dmlStatementsAllowedAfter = dmlStatementsMax - dmlStatementsActualAfter; 
+        dmlRowsActualAfter = limits.getDMLRows();
+        dmlRowsAllowedAfter = dmlRowsMax - dmlRowsActualAfter; 
+		dmlRowsUsed = dmlRowsActualAfter - dmlRowsUsedBefore;
+		dmlStatementsUsed = dmlStatementsActualAfter - dmlStatementsUsedBefore; 
+		// rollback counts as a statement
+		        
+		system.debug('dmlStatementsMax = '+ dmlStatementsMax);
+		system.debug('dmlStatementsUsedBefore = '+ dmlStatementsUsedBefore);
+		system.debug('dmlRowsMax = '+ dmlRowsMax);
+		system.debug('dmlRowsUsedBefore = '+ dmlRowsUsedBefore);
+		system.debug('dmlStatementsAllowedBefore = '+ dmlStatementsAllowedBefore);
+		system.debug('dmlRowsAllowedBefore = '+ dmlRowsAllowedBefore);
+		system.debug('dmlStatementsAllowed1 = ' + dmlStatementsAllowed1);
+		system.debug('dmlRowsAllowed1 = ' + dmlRowsAllowed1);
+		system.debug('dmlRowsActual1 = ' + dmlRowsActual1);
+		system.debug('dmlStatementsUsed1 = ' + dmlStatementsUsed1);
+		system.debug('dmlRowsUsed1 = ' + dmlRowsUsed1);
+		system.debug('dmlStatementsActual2 = ' + dmlStatementsActual2);
+		system.debug('dmlStatementsAllowed2 = ' + dmlStatementsAllowed2);
+		system.debug('dmlRowsAllowed2 = ' + dmlRowsAllowed2);
+		system.debug('dmlRowsActual2 = ' + dmlRowsActual2);
+		system.debug('dmlStatementsUsed2 = ' + dmlStatementsUsed2);
+		system.debug('dmlRowsUsed2 = ' + dmlRowsUsed2);
+		system.debug('dmlStatementsActualAfter = '+ dmlStatementsActualAfter);		
+		system.debug('dmlRowsActualAfter = '+ dmlRowsActualAfter);
+		system.debug('dmlRowsAllowedAfter = '+ dmlRowsAllowedAfter);
+		system.debug('dmlStatementsAllowedAfter = '+ dmlStatementsAllowedAfter);
+		system.debug('dmlRowsUsed = '+ dmlRowsUsed);
+		system.debug('dmlStatementsUsed = '+ dmlStatementsUsed); 
 
-        integer emailActualAfter = limits.getEmailInvocations();
-        integer emailAllowedAfter = emailMax - emailActualAfter;
-        integer emailSent = emailAllowedAfter - emailAllowedBefore;
-        // assert email results were sent
-        system.debug('emailSent = ' + emailSent);
-        //system.assert(emailSent>0);        
+		// assert rows used are what's expected
+		system.assertEquals(dmlRowsActual1,4);
+		system.assertEquals(dmlStatementsUsed1,3);
+		system.assertEquals(dmlRowsActual2,2);
+		system.assertEquals(dmlStatementsUsed2,1);
+		system.assertEquals(dmlRowsUsed,3);
+		system.assertEquals(dmlStatementsUsed,3);
+		// because of rollback...
+		system.assertEquals(false, iAD.Tolling_Update__c);
+				
+		//*** FINISHED CREATING FINAL ASSERTIONS ***//
 
     }
-    
+
+     
     @testSetup static void dataSetup() {
         Test.startTest();
 
         Map<String,Segment__c> segsToInsert = new Map<string,Segment__c>();
+        integer emailMax = limits.getLimitEmailInvocations();
+        integer emailActualBefore = limits.getEmailInvocations();
+        integer emailAllowedBefore = emailMax - emailActualBefore;
+        integer dmlStatementsMax = limits.getLimitDMLStatements();
+        integer dmlStatementsUsedBefore = limits.getDMLStatements();
+        integer dmlStatementsAllowedBefore = dmlStatementsMax - dmlStatementsUsedBefore;
+        integer dmlRowsMax = limits.getLimitDmlRows();
+        integer dmlRowsUsedBefore = limits.getDmlRows();
+		integer dmlRowsAllowedBefore = dmlRowsMax - dmlRowsUsedBefore;		
+        integer dmlStatementsActual1 = 0;
+        integer dmlStatementsAllowed1 = 0; 
+        integer dmlStatementsUsed1 = 0;
+        integer dmlRowsActual1 = 0;
+        integer dmlRowsAllowed1 = 0;
+        integer dmlRowsUsed1 = 0;
+        integer dmlStatementsUsed2 = 0;
+        integer dmlStatementsActual2 = 0;
+        integer dmlStatementsAllowed2 = 0;
+        integer dmlRowsAllowed2 = 0; 
+        integer dmlRowsActual2 = 0; 
+		integer dmlRowsUsed2 = 0;
+        integer dmlStatementsActualAfter = 0;
+        integer dmlStatementsAllowedAfter = 0; 
+		integer dmlStatementsUsed = 0; 
+        integer dmlRowsActualAfter = 0;
+        integer dmlRowsAllowedAfter = 0; 
+		integer dmlRowsUsed = 0;        
+        
         List<Litigation__c> litToInsert = new List<Litigation__c>();
 
         User testUser = testUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
