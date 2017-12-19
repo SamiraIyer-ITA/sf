@@ -14,21 +14,21 @@ private final string latestDate;
     
 @TestVisible public AppConfig__c app = AppConfig__c.getValues('default'); 
 
-public string queryStr1A = 'SELECT Id, Tolling_Update__c, Locked__c FROM Petition__c WHERE Petition_Filed__c <= ';
+public string queryStr1A = 'SELECT Id, Tolling_Update__c FROM Petition__c WHERE Petition_Filed__c <= ';
 public string queryStr1B = ' AND Petition_Outcome__c = null AND Locked__c = false';
-public string queryStr2A = 'SELECT Id, Petition__r.Petition_Filed__c, Tolling_Update__c, Locked__c FROM Investigation__c WHERE Petition__r.Petition_Filed__c <= ';
+public string queryStr2A = 'SELECT Id, Petition__r.Petition_Filed__c, Tolling_Update__c FROM Investigation__c WHERE Petition__r.Petition_Filed__c <= ';
 public string queryStr2B = '  AND Investigation_Outcome__c = null AND Locked__c = false';
-public string queryStr3A = 'SELECT Id, Tolling_Update__c FROM Litigation__c, Locked__c WHERE Actual_Final_Signature__c = null AND (Draft_Remand_Issues_Due_to_DAS__c <= ';
+public string queryStr3A = 'SELECT Id, Tolling_Update__c FROM Litigation__c WHERE Actual_Final_Signature__c = null AND (Draft_Remand_Issues_Due_to_DAS__c <= ';
 public string queryStr3B = ' OR Request_Filed__c <= '; 
-public string queryStr3C = ' AND Locked__c = false )';
-public string queryStr4A = 'SELECT Id, Tolling_Update__c, Locked__c FROM Segment__c WHERE Segment_Outcome__c = null AND (Application_Accepted__c <= ';
+public string queryStr3C = ') AND Locked__c = false';
+public string queryStr4A = 'SELECT Id, Tolling_Update__c FROM Segment__c WHERE Segment_Outcome__c = null AND (Application_Accepted__c <= ';
 public string queryStr4B = ' OR Final_Date_of_Anniversary_Month__c <= ';
 public string queryStr4C = ' OR Request_Filed__c <= ';
 public string queryStr4D = ' OR Calculated_Initiation_Signature__c <= ';
 public string queryStr4E = ' OR Initiation_Issues_Due_to_DAS__c <= ';
 public string queryStr4F = ' OR Prelim_Team_Meeting_Deadline__c <= ';
 public string queryStr4G = ' OR Final_Team_Meeting_Deadline__c <= ';
-public string queryStr4H = ' AND Locked__c = false )';
+public string queryStr4H = ' ) AND Locked__c = false';
 string query;
 public string queryString1;
 public string queryString2;
@@ -82,7 +82,7 @@ public integer emailAllowed;
 
 
     @TestVisible  public Database.QueryLocator start(Database.BatchableContext BC) {
-        bid=BC.getJobId();
+        bid = Test.isRunningTest()? '707000000000000AAA': BC.getJobId();
         If(initialState == '1' && numToObject.get(initialState)=='Petition__c') query = queryString1; 
         If(initialState == '2' && numToObject.get(initialState)=='Investigation__c') query = queryString2;
         If(initialState == '3' && numToObject.get(initialState)=='Litigation__c') query = queryString3;
@@ -133,9 +133,13 @@ public integer emailAllowed;
         system.debug('emailAllowed = ' + emailAllowed);
         system.debug('app.Primary_Admin__c = ' + app.Primary_Admin__c);
         system.debug('app.ADCVD_Admin__c = ' + app.ADCVD_Admin__c);
-        if(emailAllowed>1){
-            AsyncApexJob aaj = [SELECT Id, Status, JobItemsProcessed, TotalJobItems, NumberOfErrors
-                FROM AsyncApexJob WHERE Id = :BC.getJobId() ];
+        bid = Test.isRunningTest()? '707000000000000AAA': BC.getJobId();
+        if(emailAllowed>1 ){
+        	AsyncApexJob aaj = new AsyncApexJob();
+        	if(bid != '707000000000000AAA'){
+            	aaj = [SELECT Id, Status, JobItemsProcessed, TotalJobItems, NumberOfErrors
+                	FROM AsyncApexJob WHERE Id = :bid ];
+        	}   
             Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
             String[] toAddresses = new String[]{app.Primary_Admin__c};
             string[] ccAddresses = new string[]{app.ADCVD_Admin__c}; 
@@ -145,7 +149,7 @@ public integer emailAllowed;
             mail.setSenderDisplayName('Tolling Day Batch Processing Job number ' + aaj.Id );
             mail.setSubject('Tolling Day Batch Process Completed');
             mail.setPlainTextBody('Batch Process ' + aaj.Id + ' has completed on '+ numToObject.get(initialState) + ' object records with a Status of ' + aaj.Status + 
-            '. There were ' + aaj.JobItemsProcessed + ' job items processed with ' + aaj.NumberOfErrors + 'errors.'  );
+            '. There were ' + aaj.JobItemsProcessed + ' job items processed with ' + aaj.NumberOfErrors + ' errors.'  );
             Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail });
         }
         
