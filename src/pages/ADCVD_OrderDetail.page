@@ -1,73 +1,215 @@
 <apex:page showHeader="false" applyBodyTag="false" applyHtmlTag="false" controller="ADCVD_OrderDetailController">
     <apex:composition template="Site_Template">
-        <apex:define name="sectionalNav">
-            <head>
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-                <link href="{!URLFor($Resource.ps, 'ps/participant.css')}" rel="stylesheet" />
-            </head>
-        </apex:define>
-        <apex:define name="page">
-            
-        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" ></script>
-    	<script src="https://afeld.github.io/bootstrap-toc/bootstrap-toc.js" charset="utf-8"></script>
-            
-            
+          <apex:define name="sectionalNav"> 
           
-<body data-spy="scroll" data-target="#toc" >
-    <div class="container" style="background:#fafafa; " >
-      <div class="row">
-      
-      
-        <div class="col-sm-3" >
-        
-         <div class="navbox" >
-          <p style="font-size:35px;">{!order.Product_Short_Name__c}</p>
-          <p style="margin-top:15px;text-indent:3px;color:#bababa;font-weight:400;">{!order.Country__c}</p>
-          <p style="margin-top:15px;text-indent:3px;color:#bababa;font-weight:normal;">{!order.ADCVD_Case_Number__c}</p>
-                 
-          <nav id="toc" data-spy="affix" data-toggle="toc" ></nav>
+     <link href="{!URLFor($Resource.ps, 'ps/participant.css')}" rel="stylesheet" />     
           
-         </div>
-        </div>
-        
-        
-        
-<div class="col-sm-9 rightbox" >
-      
-      
- <div class="panel panel-default" id="upcoming-deadlines">
-    <div class="panel-heading"> <h2>Upcoming Deadlines</h2></div>
-    <div class="panel-body">
-            
-          <apex:repeat value="{!Segments}" var="s">
-          	
+<style>
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700,900');
+
+ #my-nav {
+  position: fixed;
+  width: 100%;
+  background-color: black;
+  height: 40px !important;
+  min-height: 0px;
+  z-index: 9999;
+  margin-bottom: 0;
+}
+
+#blog-main {
+  height: 500px;
+  padding: 0;
+  margin-right: 5px;
+  background-color: transparent;
+}
+
+#blog-sidebar {
+  background-color: transparent;
+  width: 240px;
+  height: 300px;
+}
+
+.affix {
+  position: fixed;
+  top: 40px;
+}
+.affix-top {
+  position: static;
+}
+.affix-bottom {
+  position: absolute;
+}
+
+#blog-footer {
+  background-color: transparent;
+  height: 300px;
+}
+
+ .panel-group .panel {
+        border-radius: 0;
+        box-shadow: none;
+        border: none;
+    }
+
+    .more-less {
+        float: right;
+        color: #212121;
+    }
+
+
+pre, .holder-description {
+    text-align: justify!important;
+    background: transparent;
+    border: none;
+    word-break: normal;
+    word-wrap: normal;
+    white-space: pre-line;
+}
+
+.holder-description {    
+    width:100%;
+    height:100%;
+    display:block;    
+    border: none;   
+    
+}
+nav[data-toggle='toc'] .nav > li > a {
+padding-left:0;
+font-size:16px;
+}
+nav[data-toggle='toc'] .nav > li > a:hover, nav[data-toggle='toc'] .nav > li > a:focus {
+padding-left:0;
+font-size:16px;
+}
+#prod-name {
+font-size: 26px;color: #000;font-weight:900;line-height:1.2;margin-bottom:25px;
+}
+#order-country {
+text-transform: uppercase;font-weight:500;color: #000;font-size:16px;
+}
+#case-num {
+font-weight:500;color: #000;font-size:16px;
+}
+#announcement-type {
+color:#586874;font-size: 15px;font-weight:400;
+}
+#days-remaining {
+color:#586874;font-size: 15px;font-weight:400;
+}
+#cust-row {
+padding-left:0;padding-right:0;
+}
+#attach-body {
+color:#586874;font-size: 15px;font-weight:400;
+}
+#toc {
+margin-top:20px;
+ }           
+                        
+nav[data-toggle='toc'] .nav > li > a {
+  display: block;
+  padding: 4px 20px;
+  padding-left:20px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #343434;
+  letter-spacing: .1px;
+}
+nav[data-toggle='toc'] .nav > li > a:hover,
+nav[data-toggle='toc'] .nav > li > a:focus {
+  padding-left:15px;
+  font-size: 16px;
+  color: #343434;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: transparent;
+border-left: 5px solid #178ef3;
+}
+nav[data-toggle='toc'] .nav > .active > a,
+nav[data-toggle='toc'] .nav > .active:hover > a,
+nav[data-toggle='toc'] .nav > .active:focus > a {
+  padding-left:15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #343434;
+  background-color: transparent;
+  border-left: 5px solid #178ef3;
+}
+
+/* Nav: second level (shown on .active) */
+nav[data-toggle='toc'] .nav .nav {
+  display: none; /* Hide by default, but at >768px, show it */
+  padding-bottom: 10px;
+}
+nav[data-toggle='toc'] .nav .nav > li > a {
+  padding-top: 1px;
+  padding-bottom: 1px;
+    padding-left:15px;
+  font-size: 16px;
+  font-weight: normal;
+}
+nav[data-toggle='toc'] .nav .nav > li > a:hover,
+nav[data-toggle='toc'] .nav .nav > li > a:focus {
+  padding-left: 15px;
+}
+nav[data-toggle='toc'] .nav .nav > .active > a,
+nav[data-toggle='toc'] .nav .nav > .active:hover > a,
+nav[data-toggle='toc'] .nav .nav > .active:focus > a {
+  padding-left: 15px;
+  font-weight: 500;
+}
+</style>
+
+ </apex:define>
+        <apex:define name="page">              
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" ></script>
+        <script src="https://afeld.github.io/bootstrap-toc/bootstrap-toc.js" charset="utf-8"></script>        
+        <script type="text/javascript" src="https://cdn.rawgit.com/vaakash/jquery-collapser/master/jquery.collapser.min.js"></script>
+
+
+<div class="container" id="wrapper">
+  <div class="row">
+  <div class="col-sm-3">
+      <div id="blog-sidebar" data-spy="affix" data-offset-top="80" data-offset-bottom="345">
+      <p id="prod-name">{!order.Product_Short_Name__c}</p>
+          <ol class="breadcrumb"><p id="order-country">{!order.Country__c}</p>
+          <p id="case-num">Case #{!order.ADCVD_Case_Number__c}</p>
+          </ol>
+          
+          <nav id="toc" data-toggle="toc" ></nav>
+      </div>
+    </div>
+    <div class="col-sm-9">
+      <div id="blog-main">
+           
+<div class="panel panel-default" id="upcoming-announcements">
+  <div class="panel-heading"> <h2>Upcoming Announcements</h2></div>
+    <div class="panel-body">            
+          <apex:repeat value="{!Segments}" var="s">           
               <apex:outputPanel >
-                  <div class="col-md-12" >
+                  <div class="col-md-6" >
                       <p class="text-muted uppercase">{!s.recordType}</p>
-                      <div class="about" style="color:#586874;font-size: 15px;font-weight:400;">{!s.announcementType} Results Announcement: {!s.announcementDate}</div>
+                      <div class="about" id="announcement-type">{!s.announcementType} Results Announcement: {!s.announcementDate}</div>
                       <apex:outputtext >
-                          <div class="about" style="color:#586874;font-size: 15px;font-weight:400;">Extension Days Remaining: {!s.daysRemaining}</div>
+                          <div class="about" id="days-remaining">Extension Days Remaining: {!s.daysRemaining}</div>
                       </apex:outputtext>                              
-                      <hr/>
-                  </div>
-              </apex:outputPanel>
-              
+                      <br/>                  
+                   </div>
+              </apex:outputPanel>            
           </apex:repeat>
     </div>
 </div>
-
-
 
 
 <apex:outputtext >
  <div class="panel panel-default" id="hts-numbers">
     <div class="panel-heading"> <h2>HTS Numbers</h2></div>
     <div class="panel-body">
-            <div class="row" style="padding-left:0;padding-right:0;">
+            <div class="row" id="cust-row">
                 <apex:repeat value="{!order.Harmonized_Tariff_Schedules__r}" var="hts">
-                  <div class="col-md-6">
+                  <div class="col-md-3">
                       <p class="text-muted uppercase">{!hts.HTS_Number_Formatted__c} </p><div class="itaBr"></div>
                   </div>
                 </apex:repeat>
@@ -81,32 +223,39 @@
     <div class="panel-heading"> <h2>Scope of the Order</h2></div>
     <div class="panel-body">                
               <div class="col-md-12">
-                  <div class="about">
-                  <apex:outputtext >
-                      <br/>
-                      <p style="color:#586874;font-size: 15px;font-weight:400;">{!attachmentBody}</p> 
-                      <div class="itaBr"></div>
-                  </apex:outputtext>
+                  <div class="about">      
+      <div class="holder-description">
+<apex:outputtext >
+     <p class="demo3" id="attach-body">{!attachmentBody}</p>                      
+</apex:outputtext>
+</div> 
                   </div>
               </div>
        </div>
-   </div>
-</div>
-
-
-
-         
-          </div>
+   </div>    
       </div>
-    
-  </body>
-          
-           <script type="text/javascript">
+    </div>   
+  </div>
+</div><!-- /.container -->
+
+<div id='blog-footer'></div>
+
+<script>
+$(document).ready(function(){  
+    $('.demo3').collapser({
+        mode: 'lines',
+        truncate: 2
+    });
+        
+});
+</script>
+<script type="text/javascript">
                 jQuery(document).ready(function ($) {
                     $('#tabs').tab();
                     $('[data-toggle="tooltip"]').tooltip();  
                 });
-            </script>
+ </script>
+                      
         </apex:define>
     </apex:composition>
 </apex:page>
