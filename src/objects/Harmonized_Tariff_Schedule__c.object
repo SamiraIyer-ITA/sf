@@ -121,9 +121,14 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>Primary Secondary</fullName>
+                    <fullName>Primary</fullName>
                     <default>false</default>
-                    <label>Primary Secondary</label>
+                    <label>Primary</label>
+                </value>
+                <value>
+                    <fullName>Secondary</fullName>
+                    <default>false</default>
+                    <label>Secondary</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
