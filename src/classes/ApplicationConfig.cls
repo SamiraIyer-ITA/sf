@@ -58,8 +58,8 @@ global class ApplicationConfig {
             //      Investigation__c.SObjectType => Investigations.Constructor.class,
             //      Litigation__c.SObjectType => Litigations.Constructor.class,
             //      Petition__c.SObjectType => Petitions.Constructor.class,
-                    Recusal__c.SObjectType => Recusals.Constructor.class,
-                    Related_Organization__c.SObjectType => RelatedOrganizations.Constructor.class
+            //      Recusal__c.SObjectType => Recusals.Constructor.class,
+            //      Related_Organization__c.SObjectType => RelatedOrganizations.Constructor.class
             //      ,
             //      Segment__c.SObjectType => Segments.Constructor.class,
             //      Staffing_Assignment__c.SObjectType => Staffing_Assignments.Constructor.class,
