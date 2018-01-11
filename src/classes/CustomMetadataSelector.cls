@@ -21,6 +21,17 @@ public without sharing class CustomMetadataSelector {
 		} set;
 	}
 
+	public static List<Automated_Chatter_Post__mdt> allPosts {
+		get {
+			if (allPosts == null) {
+				String query = Utils.soqlBuilderAllFields('Automated_Chatter_Post__mdt', false);
+				query += ', ADCVD_Objects__r.Object_API_Name__c, ADCVD_Objects__r.Record_Type_Name__c FROM Automated_Chatter_Post__mdt';
+				allPosts = database.query(query);
+			}
+			return allPosts;
+		} set;
+	}
+
 	public static List<Date_Calculation__mdt> allDateCalculations {
 		get {
 			if (allDateCalculations == null) {
@@ -36,6 +47,8 @@ public without sharing class CustomMetadataSelector {
 			return allDateCalculations;
 		} set;
 	}
+
+	public static Map<String,List<Automated_Chatter_Post__mdt>> sObjectToPostMap = new Map<String,List<Automated_Chatter_Post__mdt>>();
 
 	public static Map<String,Constant__mdt> getConstantNameToConstantMap(String offsetFieldName) {
 		Map<String,Constant__mdt> returnMap = new Map<String,Constant__mdt>();
@@ -66,5 +79,19 @@ public without sharing class CustomMetadataSelector {
 			}
 		}
 		return returnConstant;
+	}
+
+	public static List<Automated_Chatter_Post__mdt> getPostsList(String sObjectName) {
+		if (sObjectToPostMap.isEmpty()) {
+			for (Automated_Chatter_Post__mdt acp : allPosts) {
+				List<Automated_Chatter_Post__mdt> tempList = new List<Automated_Chatter_Post__mdt>();
+				if (sObjectToPostMap.get(acp.ADCVD_Objects__r.Object_API_Name__c) != null) {
+					tempList = sObjectToPostMap.get(acp.ADCVD_Objects__r.Object_API_Name__c);
+				}
+				tempList.add(acp);
+				sObjectToPostMap.put(acp.ADCVD_Objects__r.Object_API_Name__c, tempList);
+			}
+		}
+		return sObjectToPostMap.get(sObjectName);
 	}
 }
