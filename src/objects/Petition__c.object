@@ -106,6 +106,19 @@ C-###-### for CVD</inlineHelpText>
         </valueSet>
     </fields>
     <fields>
+        <fullName>ADCVD_Case__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>ADCVD Case</label>
+        <referenceTo>ADCVD_Case__c</referenceTo>
+        <relationshipLabel>Petitions</relationshipLabel>
+        <relationshipName>Petitions</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Actual_Initiation_Concurrence_to_DAS__c</fullName>
         <externalId>false</externalId>
         <label>Actual Initiation Concurrence to DAS</label>

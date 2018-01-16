@@ -86,6 +86,18 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>ADCVD_Case__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>ADCVD Case</label>
+        <referenceTo>ADCVD_Case__c</referenceTo>
+        <relationshipLabel>ADCVD Orders</relationshipLabel>
+        <relationshipName>ADCVD_Orders</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>ADCVD_Order_Name__c</fullName>
         <externalId>false</externalId>
         <formula>ADCVD_Case_Number__c +&apos;--&apos;+ Name</formula>

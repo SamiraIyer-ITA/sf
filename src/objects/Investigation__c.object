@@ -84,6 +84,19 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>ADCVD_Case__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>ADCVD Case</label>
+        <referenceTo>ADCVD_Case__c</referenceTo>
+        <relationshipLabel>Investigations</relationshipLabel>
+        <relationshipName>Investigations</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>AD_Investigation_Aligned_To__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>AD investigation that this CVD investigation is aligned to</description>
