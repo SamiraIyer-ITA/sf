@@ -1,7 +1,7 @@
 /*************************************
 * This class accepts the parent records, performs logic to see if any posts 
 * are needed, gets those posts stored in the org using the CustomMetadataSelector,
-* gets the Staffing Personnel to mention using the StaffingAssignmentSelector,
+* gets the Staffing Personnel to mention using the StaffingAssignmentsSelector,
 * and posts those to Chatter using the ConnectApiHelper.
 *
 * Author: Joshua Moody
@@ -11,7 +11,7 @@
 public class ChatterPostService {
 	public void getChatterPosts(Map<Id,SObject> oldMap, Map<Id,SObject> newMap, String sObjectName) {
 		List<Automated_Chatter_Post__mdt> postsList = CustomMetadataSelector.getPostsList(sObjectName);//get all posts for this SObjectType
-		StaffingAssignmentSelector.setParentIdsToStaffLists(newMap.keySet(), sObjectName);//initialized map of all staffing assignments in scope for all parent records
+		StaffingAssignmentsSelector.setParentIdsToStaffLists(newMap.keySet(), sObjectName);//initialized map of all staffing assignments in scope for all parent records
 		for(Id i : newMap.keySet()) {
 			//initialize strings to be used in post
 			String caseNumber = (String)newMap.get(i).get('ADCVD_Case_Number__c') + '--' + (String)newMap.get(i).get('Name') + ' from ' + (String)newMap.get(i).get('Country__c');
@@ -107,7 +107,7 @@ public class ChatterPostService {
 		for (Schema.PicklistEntry ple : pleList) {//add all roles from default list to title map
 			staffingRoles.add(ple.getValue());
 		}
-		for (Staffing_Assignment__c sa : StaffingAssignmentSelector.parentIdsToStaffLists.get(parentId)) {//iterate through the staff lists for each parent record
+		for (Staffing_Assignment__c sa : StaffingAssignmentsSelector.parentIdsToStaffLists.get(parentId)) {//iterate through the staff lists for each parent record
 			List<Id> tempList = new List<Id>();
 			if (roleToUserIdListMap.get(sa.Title__c) != null) {
 				tempList = roleToUserIdListMap.get(sa.Title__c);
