@@ -6,7 +6,7 @@
 * Created Date: 1/11/2018
 ***************************************/
 
-public class StaffingAssignmentSelector {
+public class StaffingAssignmentsSelector {
 
 	public static Map<Id,List<Staffing_Assignment__c>> parentIdsToStaffLists = new Map<Id,List<Staffing_Assignment__c>>();
 	private static Set<Id> staffingAssignmentIds = new Set<Id>();//all staffing assignments in all lists in parentIdsToStaffLists
