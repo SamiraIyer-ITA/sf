@@ -160,7 +160,7 @@ nav[data-toggle='toc'] .nav .nav > .active:focus > a {
   font-weight: 500;
 }
 .signed {
-color: #93c47d;
+color: #28a745;
 }
 </style>
 
