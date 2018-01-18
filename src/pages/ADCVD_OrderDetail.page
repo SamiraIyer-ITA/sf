@@ -159,6 +159,9 @@ nav[data-toggle='toc'] .nav .nav > .active:focus > a {
   padding-left: 15px;
   font-weight: 500;
 }
+.signed {
+color: #93c47d;
+}
 </style>
 
  </apex:define>
@@ -193,7 +196,7 @@ nav[data-toggle='toc'] .nav .nav > .active:focus > a {
                       <p class="text-muted uppercase">{!s.recordType}</p>
                       <div class="about" id="announcement-type">{!s.announcementType} Results Announcement: {!s.announcementDate}</div>
                       <apex:outputtext >
-                          <div class="about" id="days-remaining">Extension Days Remaining: {!s.daysRemaining}</div>
+                          <div class="about" id="days-remaining">Extension Days Remaining: <span class="daysremaining">{!s.daysRemaining}</span></div>
                       </apex:outputtext>                              
                       <br/>                  
                    </div>
@@ -239,7 +242,9 @@ nav[data-toggle='toc'] .nav .nav > .active:focus > a {
 </div><!-- /.container -->
 
 <div id='blog-footer'></div>
-
+<script>
+$('.daysremaining:contains(Decision Signed)').addClass('signed');
+</script>
 <script>
 $(document).ready(function(){  
     $('.demo3').collapser({
