@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>ADCVD_Objects__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>ADCVD Objects</label>
+        <referenceTo>ADCVD_Objects__mdt</referenceTo>
+        <relationshipLabel>Automated Chatter Posts</relationshipLabel>
+        <relationshipName>Automated_Chatter_Posts</relationshipName>
+        <required>false</required>
+        <type>MetadataRelationship</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>true</defaultValue>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Active</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Feed_Item_Message__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <inlineHelpText>To Mention a Staffing Assignment User use @ and their Staffing Role
+The following HTML tags can be used to for rich text: &lt;b&gt;, &lt;i&gt;, &lt;u&gt;, &lt;s&gt;, &lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;, &lt;p&gt;
+Use &lt;/p&gt; from line breaks</inlineHelpText>
+        <label>Feed Item Message</label>
+        <length>32768</length>
+        <type>LongTextArea</type>
+        <visibleLines>20</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Posting_Condition__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Posting Condition</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Alignment</fullName>
+                    <default>true</default>
+                    <label>Alignment</label>
+                </value>
+                <value>
+                    <fullName>Extension</fullName>
+                    <default>false</default>
+                    <label>Extension</label>
+                </value>
+                <value>
+                    <fullName>Litigation Change</fullName>
+                    <default>false</default>
+                    <label>Litigation Change</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Automated Chatter Post</label>
+    <pluralLabel>Automated Chatter Posts</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>
