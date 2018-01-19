@@ -83,10 +83,10 @@ padding-left:0;
 font-size:16px;
 }
 #prod-name {
-font-size: 26px;color: #000;font-weight:900;line-height:1.2;margin-bottom:25px;
+font-size: 21px;color: #3c4542;font-weight:900;line-height:1.2;margin-bottom:25px;
 }
 #order-country {
-text-transform: uppercase;font-weight:500;color: #000;font-size:16px;
+font-weight:700;color: #3c4542;font-size:18px;
 }
 #case-num {
 font-weight:500;color: #000;font-size:16px;
@@ -176,10 +176,11 @@ color: #28a745;
   <div class="row">
   <div class="col-sm-3">
       <div id="blog-sidebar" data-spy="affix" data-offset-top="80" data-offset-bottom="345">
-      <p id="prod-name">{!order.Product_Short_Name__c}</p>
-          <ol class="breadcrumb"><p id="order-country">{!order.Country__c}</p>
-          <p id="case-num">Case #{!order.ADCVD_Case_Number__c}</p>
-          </ol>
+      <ol class="breadcrumb">
+          <p id="prod-name">Case #{!order.ADCVD_Case_Number__c}</p>
+          <p id="order-country">{!order.Country__c}</p>
+          <p id="order-country">{!order.Product_Short_Name__c}</p>
+      </ol>
           
           <nav id="toc" data-toggle="toc" ></nav>
       </div>
