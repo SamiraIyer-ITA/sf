@@ -147,7 +147,7 @@ public class SegmentsSelector extends fflib_SObjectSelector{
             Segment__c.Verification_if_needed__c,
             Segment__c.Was_product_determined_to_be_in_scope__c,
             Segment__c.Was_Product_Prelim_Determine_in_Scope__c,
-            Segment__c.Was_Product_Prelim_Determine_on_Scope__c,
+//          Segment__c.Was_Product_Prelim_Determine_on_Scope__c,
             Segment__c.What_to_Use_For_Respondent_Selection__c,
             Segment__c.Will_you_Amend_the_Final__c
 		};
