@@ -27,6 +27,8 @@
 /**
  * Class provides inner classes implementing factories for the main components
  * of the Apex Enterprise Patterns, Service, Unit Of Work, Selector and Domain.
+ * These classes primarily apply to mock services.
+ *
  *   See the sample applications Application.cls file for an example
  **/
 public class ApplicationConfig1 

@@ -1,3 +1,10 @@
+/**
+* 	This is an Application specific Domain base class to customise fflib_SObjectSelector
+* 	for web services callouts through various interfaces and add common behavior.
+ **/
+
+
+
 public class CalloutsSelector extends fflib_SObjectSelector {
     
     public List<Schema.SObjectField> getSObjectFieldList() {

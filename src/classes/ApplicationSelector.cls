@@ -1,5 +1,6 @@
 /**
- * Applicaiton specific Domain base class, customise fflib_SObjectSelector and add common behaviour
+* 	This is an Application specific Domain base class to customise fflib_SObjectSelector
+* 	and add common behavior.
  **/
 public abstract class ApplicationSelector extends fflib_SObjectSelector {
 
