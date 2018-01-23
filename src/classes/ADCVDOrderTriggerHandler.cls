@@ -20,6 +20,7 @@ public without sharing class ADCVDOrderTriggerHandler {
         if (isBefore && isInsert) {
             newList = new LockedRecordHandler().removeLockedRecords(newList);
             initialize(newList,newMap);
+            setCaseValues(newList);
             calculateOrderDates(newList);
             calculateOrderStatuses(newList);
             runCustomValidations(newList);
@@ -40,6 +41,7 @@ public without sharing class ADCVDOrderTriggerHandler {
     /*****************************
     * Class Level Variables
     *****************************/
+    @TestVisible private static Map<Id,Investigation__c> investigationsInScopeMap = new Map<Id,Investigation__c>();
     @TestVisible private static Map<Id,List<Segment__c>> orderIdToSegmentMap = new Map<Id,List<Segment__c>>();
     @TestVisible private static Map<Id,String> orderIdToSegmentStatusMap = new Map<Id,String>();
     @TestVisible private static Map<Id,ADCVD_FederalRegisterUtility> frUtilMap = new Map<Id,ADCVD_FederalRegisterUtility>();
@@ -61,6 +63,14 @@ public without sharing class ADCVDOrderTriggerHandler {
             setOrderIdToSegmentStatusMap(newMap.keySet());
             ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get Segments with an Id
             frUtilMap = listInstance.utilMap;
+        }
+        investigationsInScopeMap = findInvestigationsInScopeMap(newList);
+    }
+
+    @TestVisible private static void setCaseValues(List<ADCVD_Order__c> newList) {
+        ParentValuesService pvs = new ParentValuesService();
+        for (ADCVD_Order__c ao : newList) {
+            ao = (ADCVD_Order__c) pvs.setCaseValuesFromParent(investigationsInScopeMap.get(ao.Investigation__c), ao);
         }
     }
 
@@ -97,6 +107,26 @@ public without sharing class ADCVDOrderTriggerHandler {
     /***********************************
     * Helper Methods
     ***********************************/
+
+    //returns a set of Investigation Ids in scope of the ADCVD Orders in trigger
+    @TestVisible private static Set<Id> findIdsInScope(List<ADCVD_Order__c> newList) {
+        Set<Id> investigationIdSet = new Set<Id>();
+        for (ADCVD_Order__c ao : newList) {
+            investigationIdSet.add(ao.Investigation__c);
+        }
+        return investigationIdSet;
+    }
+    //returns a map of the Investigation__c objects in the form: key = Id, value = Investigation object
+    //This pulls the investigation fields needed via the Investigation lookup field and adds them to the map
+    @TestVisible private static Map<Id,Investigation__c> findInvestigationsInScopeMap(List<ADCVD_Order__c> newList) {
+        Map<Id,Investigation__c> returnMap = new Map<Id,Investigation__c>();
+        Set<Id> investigationIdSet = findIdsInScope(newList);
+        for (Investigation__c i : [SELECT Id, ADCVD_Case_Type__c, ADCVD_Case__c 
+                                    FROM Investigation__c WHERE Id IN: investigationIdSet]) {
+            returnMap.put(i.Id, i);
+        }
+        return returnMap;
+    }
 
     //used to set Offset Variables
 	@TestVisible private static Map<String,Constant__mdt> orderCalcOffsets() {

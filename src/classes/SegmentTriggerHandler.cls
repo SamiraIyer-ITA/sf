@@ -20,6 +20,7 @@ public without sharing class SegmentTriggerHandler {
 		if (isBefore && isInsert) {
 			newList = new LockedRecordHandler().removeLockedRecords(newList);
 			initialize(newList, newMap);
+			setCaseValues(newList);
 			syncToAdcvdOrder(newList, isInsert);
 			syncToAdministrativeReview(newList);
 			calculateSegmentDates(newList);
@@ -55,7 +56,9 @@ public without sharing class SegmentTriggerHandler {
 	****************************************/
 
 	@TestVisible private static Map<Id,String> recordTypeNameMap = new Map<Id,String>();
-	@TestVisible private static Map<Id,ADCVD_FederalRegisterUtility> frUtilMap = new Map<Id,ADCVD_FederalRegisterUtility>();
+	@TestVisible private static Map<Id,ADCVD_Order__c> ordersInScopeMap = new Map<Id,ADCVD_Order__c>();
+	@TestVisible private static Map<Id,Suspension_Agreement__c> suspAgreementsInScopeMap = new Map<Id,Suspension_Agreement__c>();
+    @TestVisible private static Map<Id,ADCVD_FederalRegisterUtility> frUtilMap = new Map<Id,ADCVD_FederalRegisterUtility>();
 	@TestVisible private static String ssrType = '';
 	@TestVisible private static Map<Id,List<Litigation__c>> segmentIdToLitigationMap = new Map<Id,List<Litigation__c>>();
 	@TestVisible private static Map<Id,String> segmentIdToLitigationStatusMap = new Map<Id,String>();
@@ -72,7 +75,22 @@ public without sharing class SegmentTriggerHandler {
 			ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get Segments with an Id
 			frUtilMap = listInstance.utilMap;
 		}
+		findParentsInScopeMap(newList);
 	}
+
+	@TestVisible private static void setCaseValues(List<Segment__c> newList) {
+        ParentValuesService pvs = new ParentValuesService();
+        if (!ordersInScopeMap.isEmpty()) {
+	        for (Segment__c s : newList) {
+	            s = (Segment__c) pvs.setCaseValuesFromParent(ordersInScopeMap.get(s.ADCVD_Order__c), s);
+	        }
+	    }
+	    if (!suspAgreementsInScopeMap.isEmpty()) {
+	        for (Segment__c s : newList) {
+	            s = (Segment__c) pvs.setCaseValuesFromParent(suspAgreementsInScopeMap.get(s.Suspension_Agreement__c), s);
+	        }
+	    }
+    }
 
 	//Syncs Order Fields to Segment only on insert
 	@TestVisible private static void syncToAdcvdOrder(List<Segment__c> newList, Boolean isInsert) {
@@ -157,6 +175,39 @@ public without sharing class SegmentTriggerHandler {
 	/***********************************
 	* Helper Methods
 	***********************************/
+
+	//returns two sets of Ids, mapped to the object type: ADCVD Orders and Suspension Agreements
+    @TestVisible private static Map<String,Set<Id>> findIdsInScope(List<Segment__c> newList) {
+        Map<String,Set<Id>> parentIdsSetMap = new Map<String,Set<Id>>();
+        Set<Id> saIds = new Set<Id>();
+        Set<Id> orderIds = new Set<Id>();
+        for (Segment__c s : newList) {
+        	if (s.ADCVD_Order__c != null) {orderIds.add(s.ADCVD_Order__c);}
+            if (s.Suspension_Agreement__c != null) {saIds.add(s.Suspension_Agreement__c);}
+        }
+        if (!orderIds.isEmpty()) parentIdsSetMap.put('ADCVD_Order__c', orderIds);
+        if (!saIds.isEmpty()) parentIdsSetMap.put('Suspension_Agreement__c', saIds);
+        return parentIdsSetMap;
+    }
+    //returns a map of the parent objects in the form: key = Id, value = parent object
+    //This pulls the parent fields needed via the parent lookup field and adds them to the map
+    @TestVisible private static void findParentsInScopeMap(List<Segment__c> newList) {
+        Map<String,Set<Id>> parentIdsSetMap = findIdsInScope(newList);
+        if (parentIdsSetMap.get('ADCVD_Order__c') != null) {
+        	Set<Id> tempSet = parentIdsSetMap.get('ADCVD_Order__c');
+	        for (ADCVD_Order__c ao : [SELECT Id, ADCVD_Case_Type__c, ADCVD_Case__c 
+	                                    FROM ADCVD_Order__c WHERE Id IN: tempSet]) {
+	            ordersInScopeMap.put(ao.Id, ao);
+	        }
+	    }
+	    if (parentIdsSetMap.get('Suspension_Agreement__c') != null) {
+        	Set<Id> tempSet = parentIdsSetMap.get('Suspension_Agreement__c');
+	        for (Suspension_Agreement__c sa : [SELECT Id, ADCVD_Case_Type__c, ADCVD_Case__c 
+	                                    FROM Suspension_Agreement__c WHERE Id IN: tempSet]) {
+	            suspAgreementsInScopeMap.put(sa.Id, sa);
+	        }
+	    }
+    }
 
 	//Called from mainEntry->calculateSegmentDates for lists
 	@TestVisible private static void setSsrType(List<Segment__c> newList) {
