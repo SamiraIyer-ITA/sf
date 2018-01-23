@@ -1,4 +1,17 @@
 global class ApplicationConfig {
+
+/**
+*
+*		Created by Cal Smith on 12/26/17
+*
+*		This class creates a Unit of Work Factory, a Selector Factory,
+*		a Domain Factory, and a Callouts Factory for the ADCVD Application
+*		along with an ApplicationException class. Its purpose is to 
+*		configure the fflib classes for the ADCVD Application.
+*		
+*
+**/
+
     
     // Configure and create the UnitOfWorkFactory for this Application
     public static final fflib_Application.UnitOfWorkFactory UnitOfWork = 

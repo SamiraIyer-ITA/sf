@@ -1,15 +1,21 @@
 /**
- * Applicaiton specific Domain base class, customise fflib_SObjectDomain and add common behaviour
+ *  This is an Application specific Domain base class to customise 
+ *	fflib_SObjectDomain and add common behavior.
  **/
 public abstract class ApplicationDomain extends fflib_SObjectDomain {
     
     /**
      * Constructor required for Test.createStub
      **/
+     
+     // super is commented because of production error being thrown
+     // caused by assertion in fflib_SObjectDomain class constructor
+     // that is there reportedly only to support Test.creatStub
     public ApplicationDomain() {
         // super();
     }
     
+    // We do not use crud security testing in our triggers at this time
     public ApplicationDomain(List<SObject> records) {
         super(records);
         // Disable the base class CRUD checking in preference to explicit checking elsewhere

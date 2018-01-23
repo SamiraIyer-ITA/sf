@@ -1,9 +1,18 @@
 /**
- * Created by cloud on 8/15/2017.
+ * 		Created by Cal Smith on 8/15/2017.
+ *
+ *		This test class performs unit tests on the AppConfigService.
+ *		It tests it under three conditions:
+ *		1) With no or "null" custom settings configuration
+ *		2) With triggers set to "off"
+ *		3) With triggers set to "on"
+ *		4) With triggers set for a "test config"
+ *
  */
 
 @IsTest
 private class AppConfigServiceTest {
+	
     static testMethod void nullTestConfig() {
         User testUser = TestUtils.createAdminUser(true, 'testrunner@trade.gov', 1);
 

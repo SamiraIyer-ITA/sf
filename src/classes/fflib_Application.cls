@@ -27,6 +27,8 @@
 /**
  * Class provides inner classes implementing factories for the main components
  * of the Apex Enterprise Patterns, Service, Unit Of Work, Selector and Domain.
+ * These innser classes primarily apply to creating mocks.
+ *
  *   See the sample applications Application.cls file for an example
  **/
 public class fflib_Application 
