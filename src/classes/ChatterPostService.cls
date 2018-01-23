@@ -65,13 +65,13 @@ public class ChatterPostService {
 				}
 				if (oldSeg.Prelim_Extension__c != newSeg.Prelim_Extension__c && newSeg.Calculated_Preliminary_Signature__c != null) {
 					message = conditionToMessageMap.get('Extension') != null ? conditionToMessageMap.get('Extension') : '';
-					message += 'Preliminary Extension Number of Days changed from ' + oldSeg.Prelim_Extension__c + ' to ' + newSeg.Prelim_Extension__c + '</p>';
+					message += '<p>Preliminary Extension Number of Days changed from ' + oldSeg.Prelim_Extension__c + ' to ' + newSeg.Prelim_Extension__c + '</p>';
 					message += '<p>The Calculated Preliminary Signature date is: <b>' + newSeg.Calculated_Preliminary_Signature__c.format() + '</b></p>';
 					conditionToMessageMap.put('Extension', message);
 				}
 				if (oldSeg.Final_Extension_of_days__c != newSeg.Final_Extension_of_days__c && newSeg.Calculated_Final_Signature__c != null) {
 					message = conditionToMessageMap.get('Extension') != null ? conditionToMessageMap.get('Extension'): '';
-					message += 'Final Extension Number of Days changed from ' + oldSeg.Final_Extension_of_days__c + ' to ' + newSeg.Final_Extension_of_days__c + '</p>';
+					message += '<p>Final Extension Number of Days changed from ' + oldSeg.Final_Extension_of_days__c + ' to ' + newSeg.Final_Extension_of_days__c + '</p>';
 					message += '<p>The Calculated Final Signature date is: <b>' + newSeg.Calculated_Final_Signature__c.format() + '</b></p>';
 					conditionToMessageMap.put('Extension', message);
 				}
