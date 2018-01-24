@@ -3,6 +3,7 @@ public class AttachmentWriterController {
     public Id attachmentId {get; set;}
     public Id recordId {get; set;}
     public String attachmentBody {get; set;}
+    public String objectName {get; set;}
     public Boolean editAccess {get; set;}
     public Boolean readAccess {get; set;}
     public PageReference toggleEdit(){
@@ -46,9 +47,11 @@ public class AttachmentWriterController {
         if(stdController.getRecord() InstanceOf ADCVD_Order__c) {
             ADCVD_Order__c o = (ADCVD_Order__c)stdController.getRecord();
             RecordId = o.Id;
+            objectName = 'ADCVD_Order__c';
         } else if (stdController.getRecord() InstanceOf Suspension_Agreement__c) {
             Suspension_Agreement__c s = (Suspension_Agreement__c)stdController.getRecord();
             RecordId = s.Id;
+            objectName = 'Suspension_Agreement__c';
         }
         init();
     }
@@ -73,6 +76,7 @@ public class AttachmentWriterController {
                 name = defaultName
             );
             upsert a;
+            CreateHTSRecordsController htsCon = new CreateHTSRecordsController(this);
             cancel();
         } catch (Exception e) {
             system.debug(e);
