@@ -2,6 +2,7 @@ public without sharing class ParentValuesService {
 
 	public SObject setCaseValuesFromParent (SObject parent, SObject child) {
 		Set<String> potentialFields = new Set<String>{
+			'ADCVD_Case__c',
 			'ADCVD_Case_Number__c',
 			'ADCVD_Case_Type__c',
 			'Commodity__c',

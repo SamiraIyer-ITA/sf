@@ -19,6 +19,7 @@ public without sharing class InvestigationTriggerHandler {
             newList = new LockedRecordHandler().removeLockedRecords(newList);
             initialize(newList, newMap);
             setRecordType(newList);
+            setCaseValues(newList);
             syncToInvestigation(newList);
         	calculateInvestigationDates(newList);
             calculateInvestigationStatuses(newList);
@@ -38,8 +39,8 @@ public without sharing class InvestigationTriggerHandler {
         }
         if (isAfter && isUpdate) {
             initialize(newList, newMap);
-            recalculateCVDinvestigations(newMap,oldMap);
-            new ChatterPostService().getChatterPosts(oldMap, newMap, 'Investigation__c');
+            recalculateCVDinvestigations(newMap);
+            new ChatterPostService().getChatterPosts(oldMap, newMap, INVESTIGATION);
         }
     }
     
@@ -75,12 +76,18 @@ public without sharing class InvestigationTriggerHandler {
         for (Investigation__c i: newList) {
             if (petitionsInScopeMap.get(i.Petition__c) != null) {
                 String petitionType = petitionsInScopeMap.get(i.Petition__c).ADCVD_Case_Type__c;    
-                if (petitionType.contains('CVD')) {
-                    i.RecordTypeId = MetadataHelper.getRecordTypeIdByName(INVESTIGATION, 'CVD');
-                } else if (petitionType.contains('AD')) {
-                    i.RecordTypeId = MetadataHelper.getRecordTypeIdByName(INVESTIGATION, 'AD');
+                if (petitionType.contains(CVDRECORD)) {
+                    i.RecordTypeId = MetadataHelper.getRecordTypeIdByName(INVESTIGATION, CVDRECORD);
+                } else if (petitionType.contains(ADRECORD)) {
+                    i.RecordTypeId = MetadataHelper.getRecordTypeIdByName(INVESTIGATION, ADRECORD);
                 }
             }
+        }
+    }
+    @TestVisible private static void setCaseValues(List<Investigation__c> newList) {
+        ParentValuesService pvs = new ParentValuesService();
+        for (Investigation__c i : newList) {
+            i = (Investigation__c) pvs.setCaseValuesFromParent(petitionsInScopeMap.get(i.Petition__c), i);
         }
     }
     //Syncs petition fields to investigation fields and AD to CVD if aligned
@@ -99,7 +106,7 @@ public without sharing class InvestigationTriggerHandler {
         }
         for (String recordTypeName : recordTypeNameToInvestigationListMap.keySet()) {
             DateCalculationService dcs = DateCalculationServiceDispatcher.getDateCalculationServiceInstance(recordTypeName);
-            dcs.getCalculatedDates(recordTypeNameToInvestigationListMap.get(recordTypeName), 'Investigation__c', recordTypeName);
+            dcs.getCalculatedDates(recordTypeNameToInvestigationListMap.get(recordTypeName), INVESTIGATION, recordTypeName);
         }
     }
 
@@ -151,7 +158,7 @@ public without sharing class InvestigationTriggerHandler {
     	Map<Id,Petition__c> returnMap = new Map<Id,Petition__c>();
     	Set<Id> petitionIdSet = findIdsInScope(newList);
     	for (Petition__c p : [SELECT Id, Petition_Filed__c, Initiation_Extension_of_days__c, Actual_Initiation_Signature__c, 
-    									Calculated_Initiation_Signature__c, ADCVD_Case_Type__c
+    									Calculated_Initiation_Signature__c, ADCVD_Case_Type__c, ADCVD_Case__c 
     								FROM Petition__c WHERE Id IN: petitionIdSet]) {
     		returnMap.put(p.Id, p);
             if (p.Actual_Initiation_Signature__c == null && p.Calculated_Initiation_Signature__c == null) {
