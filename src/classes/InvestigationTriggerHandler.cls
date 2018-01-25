@@ -39,7 +39,7 @@ public without sharing class InvestigationTriggerHandler {
         }
         if (isAfter && isUpdate) {
             initialize(newList, newMap);
-            recalculateCVDinvestigations(newMap);
+            recalculateCVDinvestigations(newMap, oldMap);
             new ChatterPostService().getChatterPosts(oldMap, newMap, INVESTIGATION);
         }
     }
