@@ -54,7 +54,7 @@ global without sharing class ADCVD_OrderSearch {
 			                               			Preliminary_Announcement_Date__c, Final_Announcement_Date__c, Next_Announcement_Date__c 
 			                               			FROM Segments__r WHERE Next_Announcement_Date__c != null ORDER BY Next_Announcement_Date__c ASC),
 			                               (SELECT Id, HTS_Number__c, HTS_Number_Formatted__c FROM Harmonized_Tariff_Schedules__r ORDER BY HTS_Number_Formatted__c ASC)
-			                               FROM ADCVD_Order__c
+			                               FROM ADCVD_Order__c WHERE Status__c !=: 'Revoked-Complete'
 			                             ];
         
         for (ADCVD_Order__c o: orders) {
