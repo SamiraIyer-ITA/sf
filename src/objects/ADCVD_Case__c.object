@@ -223,7 +223,7 @@ C-###-### for CVD</inlineHelpText>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <label>ADCVD Case</label>
+    <label>ADCVD Case Number</label>
     <listViews>
         <fullName>All</fullName>
         <filterScope>Everything</filterScope>
