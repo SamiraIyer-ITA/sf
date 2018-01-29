@@ -8668,6 +8668,20 @@ $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, NOT(ISPICKVAL( Decision_o
         <errorMessage>&quot;Was the Product Preliminary Determined to be in Scope?&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>SI_Request_Filed_Not_Updateable</fullName>
+        <active>true</active>
+        <description>AD-1988 On scope inquiries, once a request filed date has been entered it shouldn&apos;t be editable except by an ADCVD Manager Profile and System Admin</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, 
+$Setup.Master_Automation__c.Scope_Inquiry_Edit_Request_Filed__c == false,
+And(
+$RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, 
+NOT(ISBLANK(Request_Filed__c)),
+ISCHANGED(Request_Filed__c) 
+))</errorConditionFormula>
+        <errorDisplayField>Request_Filed__c</errorDisplayField>
+        <errorMessage>The Request Filed cannot edited after it is set.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>SI_Scope_Changes_HTS</fullName>
         <active>true</active>
         <description>Legend to the Initials Placed on each rule name
