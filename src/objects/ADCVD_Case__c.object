@@ -193,6 +193,15 @@ C-###-### for CVD</inlineHelpText>
         </valueSet>
     </fields>
     <fields>
+        <fullName>Locked__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Record Locked</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Product_Short_Name__c</fullName>
         <externalId>false</externalId>
         <label>Product Short Name</label>
@@ -214,19 +223,18 @@ C-###-### for CVD</inlineHelpText>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <label>ADCVD Case</label>
+    <label>ADCVD Case Number</label>
     <listViews>
         <fullName>All</fullName>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
     <nameField>
-        <displayFormat>C-{00000}</displayFormat>
-        <label>ADCVD Case Name</label>
+        <label>ADCVD Case Number</label>
         <trackHistory>false</trackHistory>
-        <type>AutoNumber</type>
+        <type>Text</type>
     </nameField>
-    <pluralLabel>ADCVD Cases</pluralLabel>
+    <pluralLabel>ADCVD Case Numbers</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>Filed</fullName>
@@ -906,5 +914,44 @@ C-###-### for CVD</inlineHelpText>
     </recordTypes>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>CaseType_must_match_format_of_CaseNumber</fullName>
+        <active>true</active>
+        <description>ADCVD Case Type should and Case Number must match</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,  
+IF(
+  OR(
+    AND(
+      OR(
+         ISPICKVAL(ADCVD_Case_Type__c, &apos;AD ME&apos;),
+         ISPICKVAL(ADCVD_Case_Type__c, &apos;AD NME&apos;)
+         ),
+         NOT(BEGINS(Name, &quot;A&quot;))
+      )
+      ,
+     AND(
+         ISPICKVAL(ADCVD_Case_Type__c, &apos;CVD&apos;),
+         NOT(BEGINS(Name, &quot;C&quot;))
+        )
+      ),
+     1, 0
+    ) = 1
+  )</errorConditionFormula>
+        <errorDisplayField>ADCVD_Case_Type__c</errorDisplayField>
+        <errorMessage>ADCVD Case Type field does not match with the ADCVD Case Number format. For AD cases the ADCVD Case Number format should be A-###-### and for CVD cases the format should be C-###-###.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Case_number_for_AD_and_CVD_Format</fullName>
+        <active>true</active>
+        <description>Case Number must be formatted specifically this way.</description>
+        <errorConditionFormula>AND(
+     $Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
+     Locked__c == false, 
+     NOT(REGEX(Name,&quot;C-[0-9]{3}-[0-9]{3}&quot;)), 
+     NOT(REGEX(Name,&quot;A-[0-9]{3}-[0-9]{3}&quot;)) 
+   )</errorConditionFormula>
+        <errorDisplayField>Name</errorDisplayField>
+        <errorMessage>Invalid ADCVD Case Number Format. For AD cases valid Case Number format should be  A-###-###. For CVD cases valid Case Number format should be C-###-###.</errorMessage>
+    </validationRules>
     <visibility>Public</visibility>
 </CustomObject>
