@@ -228,20 +228,17 @@
         <fullName>Office__c</fullName>
         <externalId>false</externalId>
         <label>Office</label>
+        <picklist>
+            <picklistValues>
+                <fullName>SA</fullName>
+                <default>true</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Suspension Office</fullName>
-                    <default>true</default>
-                    <label>Suspension Office</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
     </fields>
     <fields>
         <fullName>Product_Short_Name__c</fullName>

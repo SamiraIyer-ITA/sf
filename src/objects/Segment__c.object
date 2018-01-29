@@ -1663,13 +1663,49 @@
         <fullName>Office__c</fullName>
         <externalId>false</externalId>
         <label>Office</label>
+        <picklist>
+            <picklistValues>
+                <fullName>I</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>II</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>III</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>V</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>VI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>VII</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>VIII</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
+            <sorted>false</sorted>
+        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>ADCVD_Offices</valueSetName>
-        </valueSet>
     </fields>
     <fields>
         <fullName>Period_Covered_End_Date__c</fullName>
