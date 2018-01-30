@@ -236,6 +236,7 @@
         <profile>Admin</profile>
     </profileActionOverrides>
     <tab>standard-home</tab>
+    <tab>ADCVD_Case__c</tab>
     <tab>Petition__c</tab>
     <tab>Investigation__c</tab>
     <tab>ADCVD_Order__c</tab>

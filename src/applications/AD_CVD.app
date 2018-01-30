@@ -2,6 +2,7 @@
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
     <defaultLandingTab>standard-home</defaultLandingTab>
     <label>AD CVD</label>
+    <tab>ADCVD_Case__c</tab>
     <tab>Petition__c</tab>
     <tab>Investigation__c</tab>
     <tab>ADCVD_Order__c</tab>

@@ -111,6 +111,7 @@
     </types>
     <types>
         <members>ADCVD_Order__c</members>
+	<members>ADCVD_Case__c</members>
         <members>Custom_Instruction__c</members>
         <members>Harmonized_Tariff_Schedule__c</members>
         <members>Federal_Register__c</members>
@@ -133,6 +134,7 @@
     </types>
     <types>
         <members>ADCVD_Order__c</members>
+	<members>ADCVD_Case__c</members>
         <members>Federal_Register__c</members>
         <members>Harmonized_Tariff_Schedule__c</members>
         <members>Litigation__c</members>
@@ -228,6 +230,7 @@
     </types>
     <types>
         <members>ADCVD_Objects__mdt</members>
+	<members>ADCVD_Case__c</members>
         <members>ADCVD_Order__c</members>
         <members>Custom_Instruction__c</members>
         <members>Date_Calculation__mdt</members>
@@ -340,6 +343,8 @@
         <members>ADCVD_Order_ClosedLocked_Queue</members>
         <members>ADCVD_Order_MigratedClosedLocked_Queue</members>
         <members>ADCVD_Order_Open_Queue</members>
+	<members>ADCVD_Case_Closed_Locked</members>
+	<members>ADCVD_Case_Open</members>
         <members>FederalRegister_ClosedLocked_Queue</members>
         <members>FederalRegister_Open_Queue</members>
         <members>Harmonized_Tariff_Schedule_Open_Queue</members>
