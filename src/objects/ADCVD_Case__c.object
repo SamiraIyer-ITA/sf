@@ -180,6 +180,17 @@ C-###-### for CVD</inlineHelpText>
         </valueSet>
     </fields>
     <fields>
+        <fullName>Country_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Country Text</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Country__c</fullName>
         <externalId>false</externalId>
         <label>Country</label>
@@ -224,6 +235,24 @@ C-###-### for CVD</inlineHelpText>
         <unique>false</unique>
     </fields>
     <label>ADCVD Case</label>
+    <listViews>
+        <fullName>ADCVD_Case_Closed_Locked_ADCVD_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>ADCVD Case Closed Locked</label>
+        <queue>ADCVD_Case_Closed_Locked</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>ADCVD_Case_Open_ADCVD_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>ADCVD Case Open</label>
+        <queue>ADCVD_Case_Open</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
     <listViews>
         <fullName>All</fullName>
         <filterScope>Everything</filterScope>
