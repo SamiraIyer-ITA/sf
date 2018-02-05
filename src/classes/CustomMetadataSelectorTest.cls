@@ -1,6 +1,16 @@
 @isTest
 public class CustomMetadataSelectorTest {
 
+	/************************************************
+    * This class performs unit tests on the CustomMetadataSelector
+    * under these condititions.
+    * 1. Test to ensure that the class is initialized when creating a petition
+    * 2. Test to ensure that the class is initialized when creating an investigation
+    * 3. Test to ensure that the Constant__mdt is queried and held in static class variables
+    * 4. Test to ensure that the ADCVD_Objects__mdt is queried and held in static class variables
+    * 5. Test to ensure that the Date_Calculation__mdt is queried and held in static class variables
+    *************************************************/
+
 	private static FINAL Integer COUNT = 1;
 
 	@isTest static void allConstants() {

@@ -1,5 +1,14 @@
 @isTest
 private class AttachmentWriterControllerTest {
+    /************************************************
+    * This class performs unit tests on the AttachmentWriterController
+    * under these condititions.
+    * 1. Test to ensure that no attachment is created when body is null
+    * 2. Test to ensure that attachment is created when body is populated
+    * 3. Test to ensure that edit mode went back to false
+    * 4. Test to ensure that the attachment was re-queried
+    * 5. Test to ensure that it updated the same attachment
+    *************************************************/
 	static ADCVD_Order__c o {
         get {
             if (o == null) {

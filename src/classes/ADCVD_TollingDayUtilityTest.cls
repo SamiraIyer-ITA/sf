@@ -1,5 +1,16 @@
 @isTest
 public with sharing class ADCVD_TollingDayUtilityTest {
+	/************************************************
+	* This class performs unit tests on the ADCVD_TollingDayUtility
+	* under these condititions.
+	* 1. Tolling day record creation
+	* 2. Tolling days in record calculated
+	* 3. If a Holiday is identified
+	* 4. If a Tolling Day is identified
+	* 5. In a set of dates, the returned date is rolled forward
+	* 6. In a set of dates, the returned date is rolled backward
+	* 7. If a Working Day is identified
+	*************************************************/
 	private static Date holidayDate = System.today();
 	private static Date tollingDateStart = System.today().addDays(-10);
 	private static Date tollingDateEnd = System.today().addDays(-4);
