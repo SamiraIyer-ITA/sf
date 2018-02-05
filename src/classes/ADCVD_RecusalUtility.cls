@@ -1,3 +1,11 @@
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Apr 3 2017
+ *    MIL Corporation
+ * 
+ **/
+
 public without sharing class ADCVD_RecusalUtility {
 	/*************************************************************
     This utility accepts a list of SObjects and a set of User Ids.

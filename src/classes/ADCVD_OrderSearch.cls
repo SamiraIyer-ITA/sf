@@ -1,5 +1,20 @@
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Dec 14 2017
+ *    MIL Corporation
+ * 
+ **/
+
 @RestResource(urlMapping='/ADCVD_OrderSearch/*')
 global without sharing class ADCVD_OrderSearch {
+
+    /************************************************
+    * This class is the API for the search tool used for
+    * searching ADCVD Orders from the web. It queries the 
+    * ADCVD Object for all ADCVD Orders and writes those, 
+    * with their child segments and HTS numbers to a JSON.
+    *************************************************/
     
     //JSON output classes.  These are marked as Public so the ADCVD_OrderSearchTest can see them.
        

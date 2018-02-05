@@ -1,5 +1,23 @@
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Dec 14 2017
+ *    MIL Corporation
+ * 
+ **/
+
 @isTest
 public class ADCVD_OrderSearchTest {
+
+	/************************************************
+    * This class performs unit tests on the ADCVD_OrderSearch 
+    * under these condititions.
+    * 1. Test to ensure that a REST request via POST triggers this class
+    * 2. Test to ensure that the REST response is a JSON output
+    * 3. Test to ensure that the number of segments in the REST response matches the Segments queried
+    * 4. Test to ensure that the Product Short Name in the REST response matches that field from the ADCVD Order
+    * 5. Test to ensure that the number of HTS Numbers in the REST response matches the HTS Numbers queried
+    *************************************************/
 
 	private static Date orderDate = System.today();
 

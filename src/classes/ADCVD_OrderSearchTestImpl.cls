@@ -1,5 +1,18 @@
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Dec 14 2017
+ *    MIL Corporation
+ * 
+ **/
+
 @isTest
 global class ADCVD_OrderSearchTestImpl implements HttpCalloutMock {
+
+	/*******************************************
+	* This class is only used to create the HttpCalloutMock
+	* used in ADCVD_OrderSearchTest.cls
+	*******************************************/
 
     global HTTPResponse respond(HTTPRequest req) {
         HttpResponse res = new HttpResponse();
