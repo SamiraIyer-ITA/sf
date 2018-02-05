@@ -1,5 +1,15 @@
 @isTest
 public class DateCalculationServiceTest {
+
+	/************************************************
+    * This class performs unit tests on the DateCalculationService
+    * under these condititions.
+    * 1. Test to ensure that the class is initialized when creating a petition
+    * 2. Test to ensure that the class is initialized when creating an Investigation
+    * 3. Test to ensure that the date calculations are queried and held in class
+    * 4. Test to ensure that the date calculations are applied to a record
+    *************************************************/
+
 	private static FINAL Integer COUNT = 1;
 
 	private static List<Petition__c> petList {

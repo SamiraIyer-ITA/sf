@@ -1,5 +1,21 @@
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Feb 28 2017
+ *    MIL Corporation
+ * 
+ **/
+
 @isTest
 public class ADCVD_FederalRegisterUtilityTest {
+
+	/************************************************
+    * This class performs unit tests on the ADCVD_FederalRegisterUtility
+    * under these condititions.
+    * 1. Test to ensure that an instance is created from a list of SObjects
+    * Further testing for functionality needed.
+    *************************************************/
+
 	private static Date petitionDate = System.today();
 	private static String parentObjectName = '';
 	private static List<Investigation__c> iList {

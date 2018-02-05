@@ -1,7 +1,21 @@
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Apr 3 2017
+ *    MIL Corporation
+ * 
+ **/
+
 public without sharing class ADCVD_RecusalUtility {
 	/*************************************************************
-//TODO: description
-	 ************************************************************/
+    This utility accepts a list of SObjects and a set of User Ids.
+    It has 2 constructors.  One is public and empty for setting 
+    a class level variable in another class. The second
+    calls the query of all parents from the Cascade utility and calls
+    the first constructor to place the returned Recusals into class
+    instances.  It then returns a map of all User Ids for that parent to an instance
+    of this class with their recusals, both primary and secondary, mapped to the parent records.
+	************************************************************/
 	//Object agnostic variables
    //holds the name of the original object type being updated
 	@TestVisible private static String parentObjectName = '';

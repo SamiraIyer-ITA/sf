@@ -1,5 +1,14 @@
 @isTest
 public class InvestigationTriggerHandlerTest {
+
+	/************************************************
+	* This class performs unit tests on the InvestigationTriggerHandler
+	* under these condititions.
+	* 1. Test to ensure that class variables initialize
+	* 2. Test to ensure that date calculations are logically correct
+	* 3. Test to ensure that status calculations are logically correct
+	*************************************************/
+
 	private static Date petitionDate = System.today();
 	private static Date testActual = System.today();//reusable date variable for each test to add roll forward logic allowing data normalization
 	private static Date testCalculated = System.today();//reusable date variable for each test to add roll forward logic allowing data normalization

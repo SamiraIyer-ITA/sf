@@ -1,5 +1,15 @@
 @isTest
 public class DateCalculationConditionServiceTest {
+
+	/************************************************
+    * This class performs unit tests on the DateCalculationConditionService
+    * under these condititions.
+    * 1. Test to ensure that greater than condition logic is applied
+    * 2. Test to ensure that less than condition logic is applied
+    * 3. Test to ensure that equals condition logic is applied
+    * 4. Test to ensure that not equals condition logic is applied
+    *************************************************/
+
 	private static FINAL Integer COUNT = 1;
 
 	@isTest static void getConditionalResult() {

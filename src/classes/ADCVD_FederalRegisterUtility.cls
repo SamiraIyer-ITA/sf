@@ -1,3 +1,11 @@
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Feb 27 2017
+ *    MIL Corporation
+ * 
+ **/
+
 public without sharing class ADCVD_FederalRegisterUtility {
 	/*************************************************************
 	This utility accepts a list of SObjects from a trigger handler.

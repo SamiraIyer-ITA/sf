@@ -1,4 +1,20 @@
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Dec 13 2017
+ *    MIL Corporation
+ * 
+ **/
+
 public class ADCVD_OrderDetailController {
+
+    /************************************************
+    * This class queries the ADCVD Object for the ADCVD Order
+    * in scope, which is received from an external source. It writes
+    * the child segments to Segment objects.  This controller is
+    * used with the ADCVD_OrderDetail visual force page.
+    *************************************************/
+
     public ADCVD_Order__c order {get; set;}    
     public Id orderId {get; set;}
     private static string defaultName = 'Scope.txt';

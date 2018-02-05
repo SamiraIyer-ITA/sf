@@ -1,5 +1,14 @@
 @isTest
 public class PetitionTriggerHandlerTest {
+
+	/************************************************
+	* This class performs unit tests on the PetitionTriggerHandler
+	* under these condititions.
+	* 1. Test to ensure that class variables initialize
+	* 2. Test to ensure that date calculations are logically correct
+	* 3. Test to ensure that status calculations are logically correct
+	*************************************************/
+
 	private static Date petitionDate = System.today();
 	private static User u{
 		get{
