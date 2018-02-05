@@ -1,5 +1,13 @@
 @isTest
 public class FederalRegisterTriggerHandlerTest {
+
+	/************************************************
+    * This class performs unit tests on the FederalRegisterTriggerHandler
+    * under these condititions.
+    * 1. Test to ensure that records in scope are queried
+    * 2. Test to ensure that records in scope are recalculated
+    *************************************************/
+
 	private static Date publishDate = System.today();
 	private static User u{
 		get{
