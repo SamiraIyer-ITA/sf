@@ -1,3 +1,13 @@
+/**
+ * 
+ *    Created by Tim Barsotti
+ *    on Jan 24 2017
+ *    MIL Corporation
+ *
+ *    Updated by Joshua Moody
+ * 
+ **/
+
 @isTest
 private class AttachmentWriterControllerTest {
     /************************************************
