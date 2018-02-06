@@ -1,5 +1,22 @@
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Aug 3 2017
+ *    MIL Corporation
+ * 
+ **/
+
 @isTest
 public class DateCalculationSelectorTest {
+
+	/************************************************
+    * This class performs unit tests on the DateCalculationSelector
+    * under these condititions.
+    * 1. Test to ensure FR Map instantiates
+    * 2. Test to ensure Petition Map instantiates
+    * 3. Test to ensure Date Calculations Map instantiates
+    *************************************************/
+
 	private static FINAL Integer COUNT = 1;
 
 	private static List<Investigation__c> invList {

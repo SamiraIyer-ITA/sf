@@ -1,4 +1,19 @@
+/**
+ * 
+ *    Updated by Tim Barsotti
+ *    on Apr 3 2017
+ *    MIL Corporation
+ * 
+ **/
+
 public without sharing class MetadataHelper {
+
+	/************************************************
+    * This class is used across multiple projects and teams.
+    * It provides methods that perform various repeatable
+    * functions to return metadata from the org.
+    *************************************************/
+
 	public static Map<String, Schema.SObjectType> gd { 
         get {
             if(gd == null) { 

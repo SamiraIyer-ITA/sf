@@ -1,3 +1,11 @@
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Mar 14 2017
+ *    MIL Corporation
+ * 
+ **/
+
 @isTest
 public class LitigationTriggerHandlerTest {
 
