@@ -9,11 +9,11 @@
 public without sharing class Federal_RegisterCS implements ADCVD_CascadeService {
 
 	/************************************************
-    * This class queries and maps FRs to their parents and grandparents.  This 
+    * This class queries and maps Federal Registers to their parents and grandparents.  This 
     * query is more expensive because of the ORs in the WHERE clause, but saves
     * on the number of queries due to cascading updates.  This class provides
     * methods to:
-    * 1. Get a map of FRs to all possible parent/grandparents that it could affect calculations
+    * 1. Get a map of Federal Registers to all possible parent/grandparents that it could affect calculations
     *************************************************/
 
 	/**

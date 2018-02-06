@@ -13,7 +13,7 @@ public without sharing class PetitionSelector {
 	ONLY THE PETITIONS IN CONTEXT. CODE TO KNOW WHICH ARE IN CONTEXT IS 
 	NEEDED FOR THIS REFACTOR.
 	* This class queries Petitions and stores them in class
-	* for faster reference by classes using custom metadata.
+	* for faster reference by classes.
 	* This class provides methods to:
 	* 1. Query all Petitions
 	* 2. Map those records for the easiest consumption by classes

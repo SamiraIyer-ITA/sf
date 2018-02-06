@@ -12,7 +12,7 @@ public class DateCalculationSelectorTest {
 	/************************************************
     * This class performs unit tests on the DateCalculationSelector
     * under these condititions.
-    * 1. Test to ensure FR Map instantiates
+    * 1. Test to ensure Federal Register Map instantiates
     * 2. Test to ensure Petition Map instantiates
     * 3. Test to ensure Date Calculations Map instantiates
     *************************************************/
