@@ -22,6 +22,7 @@ public without sharing class DateCalculationConditionService {
     * 2. Get the condition result (an overloaded method since the 
     * input can be many datatypes)
     ***********************************************************/
+    
 	@TestVisible private SObject record {get; set;}
 	@TestVisible private Date_Calculation__mdt dc {get; set;}
 	@TestVisible private Integer condition {get; set;}

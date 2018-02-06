@@ -1,5 +1,19 @@
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Aug 6 2017
+ *    MIL Corporation
+ * 
+ **/
+
 @isTest
 public class PetitionSelectorTest {
+
+	/************************************************
+   * This class performs unit tests on the PetitionSelector
+   * under these condititions.
+   * 1. Test to ensure that the class correctly queries petitions
+   *************************************************/
 
 	private static FINAL Integer COUNT = 1;
 	

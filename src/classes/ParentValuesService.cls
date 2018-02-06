@@ -1,4 +1,22 @@
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Sep 19 2017
+ *    MIL Corporation
+ * 
+ **/
+
 public without sharing class ParentValuesService {
+
+	/***********************************************************
+    * This class populates Case Information from one parent
+    * sObject to a child sObject in the ADCVD app.  Since 
+    * each field may or may not exist on the child, sObjectExceptions
+    * are caught and debugged rather than stopping the execution.
+    * This class provides methods to:
+    * 1. Get the value of a specific set of repeated fields from
+    * a parent record and populate it to the child record.
+    ***********************************************************/
 
 	public SObject setCaseValuesFromParent (SObject parent, SObject child) {
 		Set<String> potentialFields = new Set<String>{
