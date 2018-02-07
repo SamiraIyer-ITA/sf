@@ -1,11 +1,24 @@
 /**
  * 
- *    Modified by Cal Smith
- *    on 11/03/2017 
+ *    Created by Tim Barsotti
+ *    on Feb 6 2017
  *    MIL Corporation
  * 
+ *    Updated by Joshua Moody
+ *    Updated by Cal Smith
+ * 
  **/
+
 public without sharing class TollingDayTriggerHandler {
+
+    /***********************************************************
+   * This class handles all trigger contexts for the Tolling_Day__c
+   * object.  It provides methods that:
+   * 1. Organize the flow of logic for each trigger context
+   * 2. Initialize class variables
+   * 3. Call batch service classes to update the records in scope
+   ***********************************************************/
+
     public static boolean preventRecursion = false;
     public static void mainEntry(List<Tolling_Day__c> newList, List<Tolling_Day__c> oldList, Map<Id, Tolling_Day__c> newMap, 
         Map<Id, Tolling_Day__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete, 

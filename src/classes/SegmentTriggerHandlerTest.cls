@@ -1,3 +1,11 @@
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Feb 23 2017
+ *    MIL Corporation
+ * 
+ **/
+
 @isTest
 public class SegmentTriggerHandlerTest {
 

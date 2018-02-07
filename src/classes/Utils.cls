@@ -1,4 +1,24 @@
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Jul 17 2017
+ *    MIL Corporation
+ * 
+ **/
+
 public without sharing class Utils {
+
+	/**************************************************
+	* This class contains repeatable methods that perform
+	* various tasks.  Some include building field lists for
+	* dml, querying and mapping record type names, caching
+	* a global describe for performance boosts on subsequent
+	* calls, and dynamically type casting lists.  All of these
+	* are currently used in the ADCVD app, but a future refactor
+	* should look across the org code for similar code for
+	* better organization and standardization across all projects.
+	**************************************************/
+	
 	//use this reference for Global Describe to store in cache memory
 	public static Map<String,Schema.SObjectType> cachedGD {
 		get{

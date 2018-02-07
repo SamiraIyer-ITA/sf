@@ -1,4 +1,31 @@
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Mar 31 2017
+ *    MIL Corporation
+ * 
+ **/
+
 public without sharing class StaffingAssignmentExtension {
+
+	/***********************************************************
+    * This class is the controller/extension for a page that displays
+    * information about a record's staffing assignments. The original
+    * design was to a related list or inline vf page.  That changed to
+    * a separate page.  Then the requirement to do this same dml 
+    * functionality for triggers was added.  With the changing direction
+    * and multiple concurrent developers working on this class, it grew
+    * in size and complexity and is now high candidate for a refactor.
+    * This class provides methods to:
+    * 1. Dynamically display in the correct UX (can be updated to 
+    * using the lightningStylesheets tag, which is currently in beta)
+    * 2. Display in a list all the staffing assignments for the 
+    * parent record and the child(ren) related organization records
+    * 3. Update the Staffing Assignments as needed
+    * 4. Is also called from triggers to create the userless
+    * staffing assignments that are added on insert of a parent
+    * record.
+    ***********************************************************/
 
 	private static FINAL String PETITION = 'Petition__c';
 	private static FINAL String INVESTIGATION = 'Investigation__c';

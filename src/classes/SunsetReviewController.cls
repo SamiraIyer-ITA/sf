@@ -1,4 +1,24 @@
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Mar 16 2017
+ *    MIL Corporation
+ * 
+ **/
+
 public class SunsetReviewController {
+
+    /***********************************************************
+    * This class is the controller/extension for a page that displays
+    * the dynamic field inline vf section of a sunset review.
+    * This class provides methods to:
+    * 1. Dynamically display in the correct UX (can be updated to 
+    * using the lightningStylesheets tag, which is currently in beta)
+    * 2. Dynamically display fields based on the logic that determines
+    * where a sunset review is a 90, 120, or 240 day review
+    * 3. Get, update and display updated calculations in page
+    ***********************************************************/
+
     public Id recordId {get; set;}
     @AuraEnabled
     public Segment__c ssReview {
