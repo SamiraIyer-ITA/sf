@@ -14,7 +14,7 @@ public class TestUtils {
     /***********************************************
     * This class creates test data for objects across
     * multiple projects within the trade.org instance.
-    * All methods should have the give the option to
+    * All methods should accept a boolean parameter to
     * insert before return. Methods that create users
     * should also have the ability to set unique values
     * if multiple users are created.
