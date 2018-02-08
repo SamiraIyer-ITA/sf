@@ -22,7 +22,7 @@ public without sharing class StaffingAssignmentExtension {
     * 2. Display in a list all the staffing assignments for the 
     * parent record and the child(ren) related organization records
     * 3. Update the Staffing Assignments as needed
-    * 4. Is also called from triggers to create the userless
+    * 4. Via a second constructor, it is also called from triggers to create the userless
     * staffing assignments that are added on insert of a parent
     * record.
     ***********************************************************/
