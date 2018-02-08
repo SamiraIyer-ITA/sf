@@ -1,4 +1,27 @@
+/**
+ * 
+ *    Created by Tim Barsotti
+ *    on Feb 10 2017
+ *    MIL Corporation
+ *
+ *    Updated by Joshua Moody
+ *    
+ **/
+
 public without sharing class PetitionTriggerHandler {
+
+    /***********************************************************
+   * This class handles all trigger contexts for the Petition__c
+   * object.  It provides methods that:
+   * 1. Organize the flow of logic for each trigger context
+   * 2. Initialize class variables
+   * 3. Help in the mapping of related objects
+   * 4. Call services classes to do date calculations
+   * 5. Retrieve constant values saved in custom metadata
+   * 6. Performs status calculations
+   * 7. Performs custom validations not possible with validation rules
+   * 8. Calls service classes to create Staffing Assignments and Chatter Posts
+   ***********************************************************/
 
     @TestVisible private static Set<String> outcomesThatStartCalculations = new Set<String>();
     @TestVisible private static Set<String> activeLitigationStatuses = new Set<String>();

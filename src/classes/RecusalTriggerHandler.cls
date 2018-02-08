@@ -1,4 +1,18 @@
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Apr 5 2017
+ *    MIL Corporation
+ * 
+ **/
+
 public without sharing class RecusalTriggerHandler {
+
+	/***********************************************************
+   * This class handles all trigger contexts for the Recusal__c
+   * object.  It provides methods that:
+   * 1. Call services classes sync related recusals to their primary recusals
+   ***********************************************************/
 
 	public static void mainEntry(List<Recusal__c> newList, List<Recusal__c> oldList, Map<Id, Recusal__c> newMap, 
 		Map<Id, Recusal__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete, 

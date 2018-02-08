@@ -1,4 +1,20 @@
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Mar 8 2017
+ *    MIL Corporation
+ * 
+ **/
+
 public without sharing class Federal_RegisterCS implements ADCVD_CascadeService {
+
+	/************************************************
+    * This class queries and maps Federal Registers to their parents and grandparents.  This 
+    * query is more expensive because of the ORs in the WHERE clause, but saves
+    * on the number of queries due to cascading updates.  This class provides
+    * methods to:
+    * 1. Get a map of Federal Registers to all possible parent/grandparents that it could affect calculations
+    *************************************************/
 
 	/**
 	 * Implements the ADCVD_CascadeService for Federal_Register__c objects

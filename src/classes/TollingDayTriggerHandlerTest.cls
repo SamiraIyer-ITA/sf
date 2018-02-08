@@ -1,13 +1,24 @@
 /**
  * 
- *    Modified by Cal Smith
- *    on 11/03/2017 
+ *    Created by Joshua Moody
+ *    on Feb 10 2017
  *    MIL Corporation
+ * 
+ *	  Updated by Eitan Alfiya
  * 
  **/
 
 @isTest
 public class TollingDayTriggerHandlerTest {
+
+	/************************************************
+    * This class performs unit tests on the TollingDayTriggerHandler
+    * under these condititions.
+    * 1. Test to ensure that class variables initialize
+    * 2. Test to ensure that records in scope are correct
+    * 3. Test to ensure that date calculations are logically correct
+    *************************************************/
+
 	private static Date petitionDate {
 		get {
 			if(petitionDate == null){

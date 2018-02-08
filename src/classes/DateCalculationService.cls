@@ -1,4 +1,24 @@
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Aug 3 2017
+ *    MIL Corporation
+ * 
+ **/
+
 public without sharing class DateCalculationService {
+
+	/************************************************
+    * This class performs the date calculations for all objects
+    * in the ADCVD app.  It primarily controls the flow of logic
+    * and uses other classes to read the logic stored in metadata,
+    * evaluate records using that logic, and sets the date values.
+    * 1. Control of logic flow (main method) is getCalculatedDates
+    * 2. setDateCalculations retrieves the metadata holding the logic
+    * 3. getBaseObjectMap retrieves the related objects that could affect the calculations
+    * 4. getFRUtilMap retrieves Federal Registers (via the class instances)
+    * 5. calculateDates is a loop of the records and does the calculations for each record
+    *************************************************/
 
 	@TestVisible private Map<String,Date_Calculation__mdt> dateCalculations = new Map<String,Date_Calculation__mdt>();
 	@TestVisible private Map<String,Map<Id,SObject>> baseObjectMap = new Map<String,Map<Id,SObject>>();

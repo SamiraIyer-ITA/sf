@@ -1,5 +1,25 @@
+/**
+ * 
+ *    Created by Tim Barsotti
+ *    on Jan 24 2017
+ *    MIL Corporation
+ *
+ *    Updated by Joshua Moody
+ * 
+ **/
+
 @isTest
 public class TestUtils {
+
+    /***********************************************
+    * This class creates test data for objects across
+    * multiple projects within the trade.org instance.
+    * All methods should accept a boolean parameter to
+    * insert before return. Methods that create users
+    * should also have the ability to set unique values
+    * if multiple users are created.
+    ***********************************************/
+    
     private static Id adminProfileId = [SELECT Id FROM Profile WHERE Name=: 'System Administrator' LIMIT 1].Id;
 
     public static Boolean messageFound(ApexPages.Severity severity, String msg) {

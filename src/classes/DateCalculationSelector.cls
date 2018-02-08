@@ -1,4 +1,20 @@
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Aug 3 2017
+ *    MIL Corporation
+ * 
+ **/
+
 public without sharing class DateCalculationSelector {
+
+	/******************************************************************
+	* This class maps information needed for the DateCalculationService
+	* This class provides methods to:
+	* 1. Map Federal Registers via a class so that one parent Id is mapped to
+	* each of it's Federal Registers
+	* 2. Map Petitions, Investigations, and Date Calculation custom metadata
+	******************************************************************/
 
 /*
 	public static Map<String,List<SObject>> allRecordsMap {
