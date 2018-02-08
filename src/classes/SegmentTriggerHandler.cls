@@ -18,6 +18,7 @@ public without sharing class SegmentTriggerHandler {
    * 5. Retrieve constant values saved in custom metadata
    * 6. Performs status calculations
    * 7. Performs custom validations not possible with validation rules
+   * 8. Calls service classes to create Staffing Assignments and Chatter Posts
    ***********************************************************/
 
 	@TestVisible private static Set<String> activeSegmentStatuses = new Set<String>();
