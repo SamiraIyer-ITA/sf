@@ -17,6 +17,7 @@ global class ApplicationConfig {
     public static final fflib_Application.UnitOfWorkFactory UnitOfWork = 
         new fflib_Application.UnitOfWorkFactory(
                 new List<SObjectType> {
+                	ADCVD_Case__c.SObjectType,
                     ADCVD_Order__c.SObjectType,
                     Federal_Register__c.SObjectType,
                     Harmonized_Tariff_Schedule__c.SObjectType,
@@ -43,19 +44,21 @@ global class ApplicationConfig {
         new fflib_Application.SelectorFactory(
             // Map SObjectType to Selector Class
             new Map<SObjectType, Type> {
+            //		ADCVD_Case__c.SObjectType => ADCVD_CasesSelector.class	
             //      ADCVD_Order__c.SObjectType => ADCVD_OrdersSelector.class,
             //      Federal_Register__c.SObjectType => Federal_RegistersSelector.class,
             //      Harmonized_Tariff_Schedule__c.SObjectType => Harmonized_Tariff_SchedulesSelector.class,
             //      Investigation__c.SObjectType => InvestigationsSelector.class,
             //      Litigation__c.SObjectType => LitigationsSelector.class,
-            //      Petition__c.SObjectType => PetitionsSelector.class,
+                    Petition__c.SObjectType => PetitionsSelector.class,
                     Recusal__c.SObjectType => RecusalsSelector.class,
-                    Related_Organization__c.SObjectType => RelatedOrganizationsSelector.class 
-            //      ,
-            //      Segment__c.SObjectType => SegmentsSelector.class,
-            //      Staffing_Assignment__c.SObjectType => Staffing_AssignmentsSelector.class,
+                    Related_Organization__c.SObjectType => Related_OrganizationsSelector.class, 
+                    Segment__c.SObjectType => SegmentsSelector.class
+            //        ,
+            //      Staffing_Assignment__c.SObjectType => StaffingAssignmentsSelector.class
+            //        ,
             //      Suspension_Agreement__c.SObjectType => Suspension_AgreementsSelector.class,
-            //      Tolling_Day__c.SObjectType => TollingDaysSelector.class,
+            //        Tolling_Day__c.SObjectType => TollingDaysSelector.class
                     });
                     
     // Configure and create the DomainFactory for this Application
@@ -65,19 +68,20 @@ global class ApplicationConfig {
             // originally above was Application.Selector but wouldn't compile
             // Map SObjectType to Domain Class Constructors 
             new Map<SObjectType, Type> {
+            //		ADCVD_Case__c.SObjectType => ADCVD_Cases.Constructor.class,
             //      ADCVD_Order__c.SObjectType => Orders.Constructor.class,
-            //      Federal_Register__c.SObjectType => Federal_Registers.Constructor.class,
-            //      Harmonized_Tariff_Schedule__c.SObjectType => Harmonized_Tariff_Schedules.Constructor.class,
-            //      Investigation__c.SObjectType => Investigations.Constructor.class,
-            //      Litigation__c.SObjectType => Litigations.Constructor.class,
-            //      Petition__c.SObjectType => Petitions.Constructor.class,
-            //      Recusal__c.SObjectType => Recusals.Constructor.class,
-            //      Related_Organization__c.SObjectType => RelatedOrganizations.Constructor.class
+            //        Federal_Register__c.SObjectType => Federal_Registers.Constructor.class,
+            //        Harmonized_Tariff_Schedule__c.SObjectType => Harmonized_Tariff_Schedules.Constructor.class,
+            //        Investigation__c.SObjectType => Investigations.Constructor.class,
+                    Litigation__c.SObjectType => Litigations.Constructor.class,
+            //        Petition__c.SObjectType => Petitions.Constructor.class,
+                    Recusal__c.SObjectType => Recusals.Constructor.class,
+                    Related_Organization__c.SObjectType => Related_Organizations.Constructor.class
             //      ,
             //      Segment__c.SObjectType => Segments.Constructor.class,
             //      Staffing_Assignment__c.SObjectType => Staffing_Assignments.Constructor.class,
             //      Suspension_Agreement__c.SObjectType => Suspension_Agreements.Constructor.class,
-            //      Tolling_Day__c.SObjectType => Tolling_Day.Constructor.class,
+            //      Tolling_Day__c.SObjectType => Tolling_Day.Constructor.class
                     }
             );
                     

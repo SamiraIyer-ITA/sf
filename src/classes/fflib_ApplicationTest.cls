@@ -28,7 +28,7 @@
 @IsTest
 private class fflib_ApplicationTest 
 {
-/*    @IsTest
+    @IsTest
     private static void callingDomainFactoryShouldGiveRegisteredImplsAndMocks()
     {
         // Registered Accounts domain class by SObject List
@@ -496,5 +496,5 @@ private class fflib_ApplicationTest
     public class AccountsServiceImpl implements IAccountService { }
 
     public class AccountsServiceMock implements IAccountService { }
-*/    
+    
 }

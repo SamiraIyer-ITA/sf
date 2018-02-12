@@ -23,6 +23,15 @@
  * OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+ 
+/**
+ *
+ *	This code does a field describe call to get schema relationships. It then creates a new account and
+ *  two unrelated contacts (no associated accounts). It then uses the utility to make relationships
+ *  between the account and both contacts and asserts the results.
+ *
+ */ 
+ 
 @isTest
 public class fflib_ApexMocksUtilsTest
 {
