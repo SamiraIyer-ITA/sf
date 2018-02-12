@@ -26,7 +26,7 @@
 @isTest
 private class fflib_ApexMocksTest
 {
-/*	@isTest
+	@isTest
 	static void whenStubMultipleCallsWithMatchersShouldReturnExpectedValues()
 	{
 		// Given
@@ -753,5 +753,5 @@ private class fflib_ApexMocksTest
 			return arg instanceof Integer ? Math.mod((Integer)arg, 2) == 0: false;
 		}
 	}
-*/	
+	
 }

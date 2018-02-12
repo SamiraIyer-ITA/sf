@@ -23,6 +23,15 @@
  * OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+
+/** 
+ *	This class utilizes the IMatcher interface to determine whether different types of Matches between
+ *	Matcher Objects are true or false. It does this not just for a single object, but also for different
+ *	comparisions of a single object to many objects that include allOf, anyOf, isNot, noneOf, equals and
+ *	and more including comparisons for different types of fields/object types.
+ *
+ */
+  
 public class fflib_Match
 {
 	private static List<fflib_IMatcher> matchers = new List<fflib_IMatcher>();

@@ -11,6 +11,10 @@
 
 /**
  * @see fflib_SObjectUnitOfWork
+ *
+ *	This class provides the structure for implementing the Unit of Work
+ *	pattern for doing DML from within the fflibs trigger framework. 
+ *
  **/
 public interface fflib_ISObjectUnitOfWork
 {
