@@ -52,7 +52,7 @@ global class ApplicationConfig {
             //      Litigation__c.SObjectType => LitigationsSelector.class,
                     Petition__c.SObjectType => PetitionsSelector.class,
                     Recusal__c.SObjectType => RecusalsSelector.class,
-                    Related_Organization__c.SObjectType => Related_OrganizationsSelector.class, 
+                    Related_Organization__c.SObjectType => RelatedOrganizationsSelector.class, 
                     Segment__c.SObjectType => SegmentsSelector.class
             //        ,
             //      Staffing_Assignment__c.SObjectType => StaffingAssignmentsSelector.class
