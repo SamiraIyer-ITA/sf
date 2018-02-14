@@ -522,7 +522,54 @@
         <type>Picklist</type>
         <valueSet>
             <restricted>true</restricted>
-            <valueSetName>ADCVD_Offices</valueSetName>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>I</fullName>
+                    <default>false</default>
+                    <label>I</label>
+                </value>
+                <value>
+                    <fullName>II</fullName>
+                    <default>false</default>
+                    <label>II</label>
+                </value>
+                <value>
+                    <fullName>III</fullName>
+                    <default>false</default>
+                    <label>III</label>
+                </value>
+                <value>
+                    <fullName>IV</fullName>
+                    <default>false</default>
+                    <label>IV</label>
+                </value>
+                <value>
+                    <fullName>V</fullName>
+                    <default>false</default>
+                    <label>V</label>
+                </value>
+                <value>
+                    <fullName>VI</fullName>
+                    <default>false</default>
+                    <label>VI</label>
+                </value>
+                <value>
+                    <fullName>VII</fullName>
+                    <default>false</default>
+                    <label>VII</label>
+                </value>
+                <value>
+                    <fullName>VIII</fullName>
+                    <default>false</default>
+                    <label>VIII</label>
+                </value>
+                <value>
+                    <fullName>SA</fullName>
+                    <default>false</default>
+                    <label>SA</label>
+                </value>
+            </valueSetDefinition>
         </valueSet>
     </fields>
     <fields>
