@@ -134,7 +134,7 @@ public class SunsetReviewController {
                 is90day = false;
             }
             if(is90day) {
-            	updateSSReview('90');
+            	//updateSSReview('90');
             }
             return is90day;
         } 
@@ -149,7 +149,7 @@ public class SunsetReviewController {
     public Boolean is120day {
         get {
             if (ssReview.Notice_of_intent_to_participate_Ips__c == 'Yes' && ssReview.Domestic_Party_File_Substan_Response__c == 'Yes' 
-            	&& ssReview.Respondent_File_Substantive_Response__c == 'No' && ssReview.Review_to_address_zeroing_in_Segments__c != 'Yes') {
+            	&& ssReview.Respondent_File_Substantive_Response__c != 'Yes' && ssReview.Review_to_address_zeroing_in_Segments__c != 'Yes') {
                 is120day = true;
            
             } else {
@@ -161,7 +161,7 @@ public class SunsetReviewController {
             	is120day = true;
             }
             if(is120day) {
-            	updateSSReview('120');
+            	//updateSSReview('120');
             }
             return is120day;
         } 
@@ -187,7 +187,7 @@ public class SunsetReviewController {
             	is240day = true;
             }
             if(is240day) {
-            	updateSSReview('240');
+            	//updateSSReview('240');
             }
             return is240day;
         } 
@@ -205,12 +205,12 @@ public class SunsetReviewController {
     public PageReference save() {
         try {
             upsert(ssReview);
-            //cancel(); //requeries and rerenders form
+            cancel(); //requeries and rerenders form
         } catch(System.DMLException e) {
             ApexPages.addMessages(e);
             return null;
         }
-        toggleEdit();
+        //toggleEdit();
         return null;
     }
     public pageReference cancel() {
@@ -221,7 +221,7 @@ public class SunsetReviewController {
         }
         return null;
     }
-    public PageReference updateSSReview() {
+    /*public PageReference updateSSReview() {
     	updateSSReview(ssReviewType);
     	return null;
     }
@@ -231,12 +231,13 @@ public class SunsetReviewController {
     		ssReview.Sunset_Review_Type__c = ss;
             dcs.getCalculatedDates(new List<Segment__c>{ssReview}, 'Segment__c', 'Sunset_Review');
     	}
-    }
+    }*/
 
     private void queryReview(){
         Id i = ApexPages.currentPage().getParameters().get('Id');
         if (i != null) {
-            String qry = soqlBuilderAllFieldsForRecord('Segment__c', i);
+            String qry = 'SELECT rebuttal_comments_due__c, adequacy_determination_letter_to_itc__c, comments_on_adequacy_determination_filed__c, memorandum_on_adequacy_determination__c, adequate_after_reconsideration__c, next_due_to_das_deadline__c, final_issues_due_to_das__c, actual_final_issues_to_das__c, final_concurrence_due_to_das__c, actual_final_concurrence_to_das__c, calculated_final_signature__c, actual_final_signature__c, final_announcement_date__c, notify_itc_of_final_results__c, itc_vote_on_continuation_or_revocation__c, next_announcement_date__c, next_major_deadline__c, next_office_deadline__c, calculated_revocation_or_continuation_fr__c, actual_revocation_or_continuation_fr__c, continuation_or_revocation__c, effective_date_if_revoked__c, update_ace_customs_module__c, issue_liquidation_revocation_instruction__c, adequacy_of_respondents_submission__c, adequate_after_determination__c, preliminary_extension_remaining__c, prelim_team_meeting_deadline__c, prelim_issues_due_to_das__c, actual_prelim_issues_to_das__c, prelim_concurrence_due_to_das__c, actual_prelim_concurrence_to_das__c, calculated_preliminary_signature__c, actual_preliminary_signature__c, verification_if_needed__c, case_briefs_due__c, rebuttal_briefs_due__c, hearing_if_requested__c, final_extension_of_days__c, final_team_meeting_deadline__c, notify_itc_of_no_domestic_interest__c, inadequate_domestic_response_note_to_itc__c, litigation_hold_expiration_date__c, notice_of_intent_to_participate_ips__c, notice_of_intent_to_participate__c, domestic_party_file_substan_response__c, notify_cluster_coordinator_no_interest__c, respondent_file_substantive_response__c, substantive_response_due_for_all_parties__c, review_to_address_zeroing_in_segments__c, inform_cluster_coordinator_if_no_respons__c ' + 
+                            'FROM Segment__c WHERE ID =: i';//soqlBuilderAllFieldsForRecord('Segment__c', i);
             ssReview = database.query(qry);
         } else {
             ssReview = new Segment__c();
@@ -250,14 +251,14 @@ public class SunsetReviewController {
         return query;
     }
     private static String soqlBuilderAllFields(String SobjectApiName) {
-        Map<String, Schema.SObjectType> schemaMap = Schema.getGlobalDescribe();
-        Map<String, Schema.SObjectField> fieldMap = schemaMap.get(SobjectApiName).getDescribe().fields.getMap();
+        //Map<String, Schema.SObjectType> schemaMap = Schema.getGlobalDescribe();
+        Map<String, Schema.SObjectField> fieldMap = Utils.cachedGD.get(SobjectApiName).getDescribe().fields.getMap();
         Set<String> searchFields = new Set<String>();
         String commaSeparatedFields = '';
-        for (String fieldName : fieldMap.keyset()){
+        /*for (String fieldName : fieldMap.keyset()){
             searchFields.add(fieldName.toLowerCase());
-        }
-        Map<String, Schema.FieldSet> FsMap = schemaMap.get(SobjectApiName).getDescribe().fieldSets.getMap();
+        }*/
+        Map<String, Schema.FieldSet> FsMap = Utils.cachedGD.get(SobjectApiName).getDescribe().fieldSets.getMap();
         for (String s: FsMap.keySet()) {
             for (Schema.FieldSetMember f: FsMap.get(s).getFields()) {
                 searchFields.add(String.valueOf(f.getFieldPath()).toLowerCase());

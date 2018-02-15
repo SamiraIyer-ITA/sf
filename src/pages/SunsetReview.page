@@ -38,7 +38,7 @@
                         <div class="slds-col slds-no-flex slds-grid slds-align-top slds-align-middle">
                           <div class="slds-button-group" role="group">
                             <apex:commandButton styleClass="slds-button slds-button--neutral" action="{!toggleEdit}" value="Edit" id="editButton-ltng" reRender="form-ltng, pm-ltng" rendered="{!NOT(edit)}" />
-                            <apex:commandButton styleClass="slds-button slds-button--neutral" action="{!save}" value="Save" id="saveButton-ltng"  reRender="form-ltng, pm-ltng" rendered="{!edit}" />
+                            <apex:commandButton styleClass="slds-button slds-button--neutral" action="{!save}" value="Save" id="saveButton-ltng"  reRender="form-ltng, pm-ltng" rendered="{!edit}" oncomplete="refreshPage();"/>
                             <apex:commandButton styleClass="slds-button slds-button--neutral" action="{!cancel}" value="Cancel" id="cancelButton-ltng"  reRender="form-ltng, pm-ltng" rendered="{!edit}" immediate="true"/>
                           </div>
                         </div>
@@ -72,9 +72,9 @@
                                                 <div class="slds-form-element slds-size--1-of-2">
                                                     <apex:outputField id="infoOutput" value="{!ssReview[f]}" rendered="{!NOT(edit) || CONTAINS(f.fieldPath, '__r')}"  styleClass="slds-output"/>
                                                     <apex:inputField id="infoInput" value="{!ssReview[f.fieldPath]}" rendered="{!edit && NOT(CONTAINS(f.fieldPath, '__r'))}" required="{!OR(f.required, f.dbrequired)}" styleClass="slds-input" showDatePicker="false">
-                                                        <apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection-ltng, reviewInfo-ltng, hiddenBlock" >
+                                                        <!--<apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection-ltng, reviewInfo-ltng, hiddenBlock" >
                                                             <apex:param name="ssReviewType" value="" assignTo="{!ssReviewType}"/>
-                                                        </apex:actionSupport>
+                                                        </apex:actionSupport>-->
                                                     </apex:inputField>
                                                 </div>
                                             </div>
@@ -103,9 +103,9 @@
                                                     <div class="slds-form-element slds-size--1-of-2">
                                                         <apex:outputField value="{!ssReview[f]}" rendered="{!NOT(edit) || CONTAINS(f.fieldPath, '__r')}"  styleClass="slds-output-"/>
                                                         <apex:inputField value="{!ssReview[f.fieldPath]}" rendered="{!edit && NOT(CONTAINS(f.fieldPath, '__r'))}" required="{!OR(f.required, f.dbrequired)}" styleClass="slds-input" showDatePicker="false">
-                                                        	<apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection-ltng, hiddenBlock" >
+                                                        	<!--<apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection-ltng, hiddenBlock" >
                                                             	<apex:param name="ssReviewType" value="90" assignTo="{!ssReviewType}"/>
-                                                            </apex:actionSupport>
+                                                            </apex:actionSupport>-->
                                                         </apex:inputField>
                                                     </div>
                                                 </div>
@@ -133,9 +133,9 @@
                                                     <div class="slds-form-element slds-size--1-of-2">
                                                         <apex:outputField value="{!ssReview[f]}" rendered="{!NOT(edit) || CONTAINS(f.fieldPath, '__r')}"  styleClass="slds-output-"/>
                                                         <apex:inputField value="{!ssReview[f.fieldPath]}" rendered="{!edit && NOT(CONTAINS(f.fieldPath, '__r'))}" required="{!OR(f.required, f.dbrequired)}" styleClass="slds-input" showDatePicker="false">
-                                                        	<apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection-ltng, hiddenBlock" >
+                                                        	<!--<apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection-ltng, hiddenBlock" >
                                                             	<apex:param name="ssReviewType" value="120" assignTo="{!ssReviewType}"/>
-                                                            </apex:actionSupport>
+                                                            </apex:actionSupport>-->
                                                         </apex:inputField>
                                                     </div>
                                                 </div>
@@ -163,9 +163,9 @@
                                                     <div class="slds-form-element slds-size--1-of-2">
                                                         <apex:outputField value="{!ssReview[f]}" rendered="{!NOT(edit) || CONTAINS(f.fieldPath, '__r')}"  styleClass="slds-output-"/>
                                                         <apex:inputField value="{!ssReview[f.fieldPath]}" rendered="{!edit && NOT(CONTAINS(f.fieldPath, '__r'))}" required="{!OR(f.required, f.dbrequired)}" styleClass="slds-input" showDatePicker="false">
-                                                            <apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection-ltng, hiddenBlock" >
+                                                            <!--<apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection-ltng, hiddenBlock" >
                                                             	<apex:param name="ssReviewType" value="240" assignTo="{!ssReviewType}"/>
-                                                            </apex:actionSupport>
+                                                            </apex:actionSupport>-->
                                                         </apex:inputField>
                                                     </div>
                                                 </div>
@@ -186,6 +186,16 @@
             <!-- / REQUIRED SLDS WRAPPER -->    
 
   <!-- JAVASCRIPT -->
+    <script>
+        function refreshPage() {
+          var recordId = "{!recordId}";
+          if (recordId != null) {
+            if (sforce.one) {
+              window.parent.location = '/' + recordId;
+            }
+          }
+        }
+    </script>
   <!-- / JAVASCRIPT -->
         </apex:form>
         </body>
@@ -195,7 +205,7 @@
         <apex:pageBlock > 
             <apex:pageBlockButtons >
                 <apex:commandButton action="{!toggleEdit}" value="Edit" id="editButton" reRender="form, pm" rendered="{!NOT(edit)}" />
-                <apex:commandButton action="{!save}" value="Save" id="saveButton"  reRender="form, pm" rendered="{!edit}" />
+                <apex:commandButton action="{!save}" value="Save" id="saveButton"  reRender="form, pm" rendered="{!edit}" oncomplete="window.location.reload();"/>
                 <apex:commandButton action="{!cancel}" value="Cancel" id="cancelButton"  reRender="form, pm" rendered="{!edit}" styleClass="saveCancelButton" immediate="true"/>
             </apex:pageBlockButtons>
             <apex:pageBlockSection id="reviewInfo" columns="2" title="Review Information" collapsible="false" >
@@ -204,9 +214,9 @@
                         <!--     <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" hideOnEdit="editButton" event="ondblclick" /> -->
                     </apex:outputField>
                     <apex:inputField value="{!ssReview[f.fieldPath]}" rendered="{!edit && NOT(CONTAINS(f.fieldPath, '__r'))}" required="{!OR(f.required, f.dbrequired)}" >
-                        <apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection, reviewInfo, hiddenBlock" >
+                        <!--<apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection, reviewInfo, hiddenBlock" >
                             <apex:param name="ssReviewType" value="" assignTo="{!ssReviewType}"/>
-                        </apex:actionSupport>
+                        </apex:actionSupport>-->
                     </apex:inputField>
                 </apex:repeat>
             </apex:pageBlockSection>
@@ -217,9 +227,9 @@
                             <!--     <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" hideOnEdit="editButton" event="ondblclick" /> -->
                         </apex:outputField>
                         <apex:inputField value="{!ssReview[f.fieldPath]}" rendered="{!edit && NOT(CONTAINS(f.fieldPath, '__r'))}" required="{!OR(f.required, f.dbrequired)}" >
-                            <apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection, hiddenBlock" >
+                            <!--<apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection, hiddenBlock" >
                                 <apex:param name="ssReviewType" value="90" assignTo="{!ssReviewType}"/>
-                            </apex:actionSupport>
+                            </apex:actionSupport>-->
                         </apex:inputField>
                     </apex:repeat>
                 </apex:pageBlockSection>
@@ -229,9 +239,9 @@
                             <!--     <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" hideOnEdit="editButton" event="ondblclick" /> -->
                         </apex:outputField>
                         <apex:inputField value="{!ssReview[f.fieldPath]}" rendered="{!edit && NOT(CONTAINS(f.fieldPath, '__r'))}" required="{!OR(f.required, f.dbrequired)}" >
-                            <apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection, hiddenBlock" >
+                            <!--<apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection, hiddenBlock" >
                                 <apex:param name="ssReviewType" value="120" assignTo="{!ssReviewType}"/>
-                            </apex:actionSupport>
+                            </apex:actionSupport>-->
                         </apex:inputfield>
                     </apex:repeat>
                 </apex:pageBlockSection>
@@ -241,9 +251,9 @@
                             <!--     <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" hideOnEdit="editButton" event="ondblclick" /> -->
                         </apex:outputField>
                         <apex:inputField value="{!ssReview[f.fieldPath]}" rendered="{!edit && NOT(CONTAINS(f.fieldPath, '__r'))}" required="{!OR(f.required, f.dbrequired)}" >
-                            <apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection, hiddenBlock" >
+                            <!--<apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection, hiddenBlock" >
                                 <apex:param name="ssReviewType" value="240" assignTo="{!ssReviewType}"/>
-                            </apex:actionSupport>
+                            </apex:actionSupport>-->
                     </apex:inputField>
                     </apex:repeat>
                 </apex:pageBlockSection>
