@@ -944,6 +944,15 @@ C-###-### for CVD</inlineHelpText>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
+        <fullName>Cannot_Edit_Locked_Record</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Permission.Edit_ADCVD_Locked_Records == false, 
+NOT(ISNEW()), 
+PRIORVALUE(Locked__c) == true 
+)</errorConditionFormula>
+        <errorMessage>This record is locked. Please contact your administrator about unlocking this record.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>CaseType_must_match_format_of_CaseNumber</fullName>
         <active>true</active>
         <description>ADCVD Case Type should and Case Number must match</description>
