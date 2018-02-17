@@ -42,6 +42,7 @@ public without sharing class PetitionTriggerHandler {
             newList = new LockedRecordHandler().removeLockedRecords(newList);
             initialize(newList, newMap);
             alertsOnDates(newList);
+            newList = setCaseValuesFromParent(newList);
             calculatePetitionDates(newList);
             calculatePetitionStatuses(newList);
         }
@@ -97,6 +98,22 @@ public without sharing class PetitionTriggerHandler {
                 p.Actual_Initiation_Signature__c.addError('The Actual Initiation Signature date cannot be on a holiday');
             }
         }
+    }
+
+    @TestVisible private static List<Petition__c> setCaseValuesFromParent (List<Petition__c> newList) {
+        Map<Id,ADCVD_Case__c> parentCasesMap = new Map<Id,ADCVD_Case__c>();
+        ParentValuesService pvs = new ParentValuesService();
+        for (Petition__c p : newList) {
+            parentCasesMap.put(p.ADCVD_Case__c, new ADCVD_Case__c());
+        }
+        for (ADCVD_Case__c ac : [SELECT Id, ADCVD_Case_Number__c, ADCVD_Case_Type__c, CBP_Case_Number__c, Commodity__c, Country__c, Product__c, Product_Short_Name__c
+                                    FROM ADCVD_Case__c WHERE Id IN: parentCasesMap.keySet()]) {
+            parentCasesMap.put(ac.Id, ac);
+        }
+        for (Petition__c p : newList) {
+            p = (Petition__c)pvs.setCaseValuesFromParent(parentCasesMap.get(p.ADCVD_Case__c), p);
+        }
+        return newList;
     }
 
     /**
