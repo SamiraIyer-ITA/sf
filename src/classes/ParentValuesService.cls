@@ -23,6 +23,7 @@ public without sharing class ParentValuesService {
 			'ADCVD_Case__c',
 			'ADCVD_Case_Number__c',
 			'ADCVD_Case_Type__c',
+			'CBP_Case_Number__c',
 			'Commodity__c',
 			'Country__c',
 			'Product__c',

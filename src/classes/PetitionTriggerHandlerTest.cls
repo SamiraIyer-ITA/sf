@@ -320,6 +320,25 @@ public class PetitionTriggerHandlerTest {
 		System.assertEquals(null, [SELECT Id, Next_Office_Deadline__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Next_Office_Deadline__c);
 	}
 
+    @isTest static void setCaseValuesFromParent() {
+        Test.startTest();
+        ADCVD_Case__c testCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
+        Petition__c p = TestUtils.createPetition(petitionDate, 'AD ME', false);
+        p.ADCVD_Case__c = testCase.Id;
+        insert p;
+        Test.stopTest();
+        Petition__c savedPetition = [SELECT Id, ADCVD_Case_Number__c, ADCVD_Case_Type__c, CBP_Case_Number__c, Commodity__c,
+                                            Country__c, Product__c, Product_Short_Name__c
+                                        FROM Petition__c WHERE ADCVD_Case__c =: testCase.Id];
+        System.assertEquals(testCase.ADCVD_Case_Number__c, savedPetition.ADCVD_Case_Number__c);
+        System.assertEquals(testCase.ADCVD_Case_Type__c, savedPetition.ADCVD_Case_Type__c);
+        System.assertEquals(testCase.CBP_Case_Number__c, savedPetition.CBP_Case_Number__c);
+        System.assertEquals(testCase.Commodity__c, savedPetition.Commodity__c);
+        System.assertEquals(testCase.Country__c, savedPetition.Country__c);
+        System.assertEquals(testCase.Product__c, savedPetition.Product__c);
+        System.assertEquals(testCase.Product_Short_Name__c, savedPetition.Product_Short_Name__c);
+    }
+
 	@testSetup static void dataSetup() {
 		Test.startTest();
 		User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
