@@ -244,6 +244,24 @@ public class TestUtils {
         return cs;
     }
 
+    // create ADCVD Case
+    public static ADCVD_Case__c createADCVDCase(String caseName, String caseType, boolean doInsert){
+        ADCVD_Case__c testCase = new ADCVD_Case__c(
+            Name = caseName,
+            ADCVD_Case_Number__c = caseName,
+            ADCVD_Case_Type__c = caseType,
+            CBP_Case_Number__c = caseName,
+            Commodity__c = 'Foodstuffs',
+            Country__c = 'Argentina',
+            Product__c = 'Tacos - Full',
+            Product_Short_Name__c = 'Tacos'
+        );
+        if(doInsert) {
+            insert testCase;
+        }  
+        return testCase;
+    }
+
     //create Federal Register
     public static Federal_Register__c createFR(Id parentId, String parentLookupField, Date publishedDate, String frType, Boolean doInsert) {
         Federal_Register__c fr = new Federal_Register__c();
