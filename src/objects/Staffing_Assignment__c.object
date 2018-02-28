@@ -315,6 +315,11 @@ IF( Segment__c != null, Segment__r.Link__c ,
                     <label>Analyst</label>
                 </value>
                 <value>
+                    <fullName>AS Assistant</fullName>
+                    <default>false</default>
+                    <label>AS Assistant</label>
+                </value>
+                <value>
                     <fullName>Assistant Secretary</fullName>
                     <default>false</default>
                     <label>Assistant Secretary</label>
