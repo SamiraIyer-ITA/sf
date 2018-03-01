@@ -60,7 +60,7 @@
     <enableFeeds>true</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
-    <enableSearch>true</enableSearch>
+    <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
@@ -8086,11 +8086,10 @@ ER = Expedited Review
 NSR = New Shipper Review
 SI = Scope Inquiry
 SR = Sunset Review</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And (
- $RecordType.DeveloperName = &quot;Anti_Circumvention_Review&quot;, 
- OR(Final_Extension_of_days__c &gt; 180,Final_Extension_of_days__c    &lt; 0)
-))</errorConditionFormula>
-        <errorMessage>Final Extension can only range from 1 to 180 days.</errorMessage>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, 
+AND($RecordType.DeveloperName = &quot;Anti_Circumvention_Review&quot;, 
+Final_Extension_of_days__c &lt; 0))</errorConditionFormula>
+        <errorMessage>Final Extension (# of days) cannot be less than zero.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>ACR_Initiation_Extension</fullName>
