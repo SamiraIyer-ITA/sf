@@ -120,7 +120,7 @@
     </values>
     <values>
         <field>Conditional_Field_1_Name__c</field>
-        <value xsi:type="xsd:string">All_parties_in_agreement_to_the_outcome__c</value>
+        <value xsi:type="xsd:string">Preliminary_Determination__c</value>
     </values>
     <values>
         <field>Conditional_Field_1_Object__c</field>
@@ -140,7 +140,7 @@
     </values>
     <values>
         <field>Conditional_Field_1_Value__c</field>
-        <value xsi:type="xsd:string">No</value>
+        <value xsi:type="xsd:string">Yes</value>
     </values>
     <values>
         <field>Conditional_Field_2_Lookup_Field_Name__c</field>

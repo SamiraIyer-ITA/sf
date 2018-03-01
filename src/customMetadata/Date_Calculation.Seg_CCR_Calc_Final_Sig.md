@@ -120,7 +120,7 @@
     </values>
     <values>
         <field>Conditional_Field_1_Name__c</field>
-        <value xsi:type="xsd:string">Is_this_review_expedited__c</value>
+        <value xsi:type="xsd:string">All_parties_in_agreement_to_the_outcome__c</value>
     </values>
     <values>
         <field>Conditional_Field_1_Object__c</field>
@@ -148,7 +148,7 @@
     </values>
     <values>
         <field>Conditional_Field_2_Name__c</field>
-        <value xsi:type="xsd:string">All_parties_in_agreement_to_the_outcome__c</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_2_Object__c</field>
@@ -156,11 +156,11 @@
     </values>
     <values>
         <field>Conditional_Field_2_Operator__c</field>
-        <value xsi:type="xsd:string">Equals</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_2_Result__c</field>
-        <value xsi:type="xsd:string">Use Constant 2</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_2_Type__c</field>
@@ -168,7 +168,7 @@
     </values>
     <values>
         <field>Conditional_Field_2_Value__c</field>
-        <value xsi:type="xsd:string">Yes</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_3_Lookup_Field_Name__c</field>
@@ -364,7 +364,7 @@
     </values>
     <values>
         <field>Number_of_Conditionals__c</field>
-        <value xsi:type="xsd:double">2.0</value>
+        <value xsi:type="xsd:double">1.0</value>
     </values>
     <values>
         <field>Order_of_Execution__c</field>
