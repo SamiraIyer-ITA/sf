@@ -67,7 +67,7 @@ public without sharing class SegmentTriggerHandler {
 		if (isAfter && isUpdate) {
 			recalculateNewShipperReviews(newMap);
 			recalculateOrders(newMap, oldMap);
-			new ChatterPostService().getChatterPosts(oldMap, newMap, 'Segment__c');
+			if (!Test.isRunningTest()) {new ChatterPostService().getChatterPosts(oldMap, newMap, 'Segment__c');}
 		}
 	}
 
@@ -436,7 +436,7 @@ public without sharing class SegmentTriggerHandler {
 				s.Status__c = 'Prelim';
 			}
 		} else if (recordTypeNameMap.get(s.RecordTypeId) == CHANGED_CIRCUMSTANCES_REVIEW) {
-			if (s.All_parties_in_agreement_to_the_outcome__c == 'No' 
+			if (s.Preliminary_Determination__c == 'Yes' 
 				&& initPublished != null
 				&& s.Actual_Initiation_Signature__c != null
 				&& (prelimPublished == null || s.Actual_Preliminary_Signature__c == null)  
@@ -498,12 +498,12 @@ public without sharing class SegmentTriggerHandler {
 					s.Status__c = 'Final';
 			}
 		} else if (recordTypeNameMap.get(s.RecordTypeId) == CHANGED_CIRCUMSTANCES_REVIEW) {
-			if ((s.Is_this_review_expedited__c == 'Yes' || s.All_parties_in_agreement_to_the_outcome__c == 'Yes')
+			if ((s.Preliminary_Determination__c != 'Yes')
 				&& initPublished != null
 				&& s.Actual_Initiation_Signature__c != null
 				&& (finalPublished == null || s.Actual_Final_Signature__c == null || s.Segment_Outcome__c == null)) {
 					s.Status__c = 'Final';
-			} else if ((s.Is_this_review_expedited__c == 'No' || s.All_parties_in_agreement_to_the_outcome__c == 'No')
+			} else if ((s.Preliminary_Determination__c == 'Yes')
 				&& initPublished != null
 				&& s.Actual_Initiation_Signature__c != null
 				&& prelimPublished != null
