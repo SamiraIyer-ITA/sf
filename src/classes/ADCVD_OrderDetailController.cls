@@ -15,8 +15,8 @@ public class ADCVD_OrderDetailController {
     * used with the ADCVD_OrderDetail visual force page.
     *************************************************/
 
-    public ADCVD_Order__c order {get; set;}    
-    public Id orderId {get; set;}
+    public ADCVD_Order__c order {get; set;}
+    public String adcvdCase {get; set;}
     private static string defaultName = 'Scope.txt';
     public String attachmentBody {get; set;}
     public Map<Id,String> recordTypeIdToNameMap {
@@ -41,7 +41,7 @@ public class ADCVD_OrderDetailController {
     }
     
     public ADCVD_OrderDetailController() {
-        this.orderId = ApexPages.currentPage().getParameters().get('Id');
+        this.adcvdCase = ApexPages.currentPage().getParameters().get('adcvdcase');
         this.Segments = new List<Segment>(); 
         this.order = [SELECT
                                Id, Name, ADCVD_Case_Number__c, Product_Short_Name__c, Country__c, 
@@ -51,7 +51,7 @@ public class ADCVD_OrderDetailController {
                                			FROM Segments__r WHERE Next_Announcement_Date__c != null ORDER BY Next_Announcement_Date__c ASC),
                                (SELECT Id, HTS_Number_Formatted__c FROM Harmonized_Tariff_Schedules__r ORDER BY HTS_Number_Formatted__c ASC),
                                (SELECT Id FROM Attachments WHERE Name =: defaultName LIMIT 1)
-                               FROM ADCVD_Order__c WHERE id = :this.orderId LIMIT 1
+                               FROM ADCVD_Order__c WHERE ADCVD_Case_Number__c = :this.adcvdCase LIMIT 1
                              ];
         if(!order.Attachments.isEmpty()) {
             this.attachmentBody = [SELECT Id, Body, Description FROM Attachment WHERE Id =: this.order.Attachments[0].Id LIMIT 1].Body.toString();
