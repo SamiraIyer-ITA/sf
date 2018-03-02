@@ -204,7 +204,7 @@
     </values>
     <values>
         <field>Conditional_Field_4_Name__c</field>
-        <value xsi:type="xsd:string">Next_Due_to_DAS_Deadline__c</value>
+        <value xsi:type="xsd:string">Segment_Outcome__c</value>
     </values>
     <values>
         <field>Conditional_Field_4_Object__c</field>
@@ -216,7 +216,7 @@
     </values>
     <values>
         <field>Conditional_Field_4_Result__c</field>
-        <value xsi:type="xsd:string">Align</value>
+        <value xsi:type="xsd:string">Skip</value>
     </values>
     <values>
         <field>Conditional_Field_4_Type__c</field>
@@ -232,7 +232,7 @@
     </values>
     <values>
         <field>Conditional_Field_5_Name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Next_Due_to_DAS_Deadline__c</value>
     </values>
     <values>
         <field>Conditional_Field_5_Object__c</field>
@@ -240,11 +240,11 @@
     </values>
     <values>
         <field>Conditional_Field_5_Operator__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Not Equals To</value>
     </values>
     <values>
         <field>Conditional_Field_5_Result__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Align</value>
     </values>
     <values>
         <field>Conditional_Field_5_Type__c</field>
@@ -364,7 +364,7 @@
     </values>
     <values>
         <field>Number_of_Conditionals__c</field>
-        <value xsi:type="xsd:double">4.0</value>
+        <value xsi:type="xsd:double">5.0</value>
     </values>
     <values>
         <field>Order_of_Execution__c</field>
