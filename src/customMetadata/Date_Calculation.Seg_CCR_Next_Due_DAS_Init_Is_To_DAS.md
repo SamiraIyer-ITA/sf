@@ -176,7 +176,7 @@
     </values>
     <values>
         <field>Conditional_Field_3_Name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Segment_Outcome__c</value>
     </values>
     <values>
         <field>Conditional_Field_3_Object__c</field>
@@ -184,11 +184,11 @@
     </values>
     <values>
         <field>Conditional_Field_3_Operator__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Not Equals To</value>
     </values>
     <values>
         <field>Conditional_Field_3_Result__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Skip</value>
     </values>
     <values>
         <field>Conditional_Field_3_Type__c</field>
@@ -364,7 +364,7 @@
     </values>
     <values>
         <field>Number_of_Conditionals__c</field>
-        <value xsi:type="xsd:double">2.0</value>
+        <value xsi:type="xsd:double">3.0</value>
     </values>
     <values>
         <field>Order_of_Execution__c</field>
