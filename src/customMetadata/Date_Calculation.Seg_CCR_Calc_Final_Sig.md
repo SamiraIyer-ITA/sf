@@ -140,7 +140,7 @@
     </values>
     <values>
         <field>Conditional_Field_1_Value__c</field>
-        <value xsi:type="xsd:string">Yes</value>
+        <value xsi:type="xsd:string">No</value>
     </values>
     <values>
         <field>Conditional_Field_2_Lookup_Field_Name__c</field>
@@ -148,7 +148,7 @@
     </values>
     <values>
         <field>Conditional_Field_2_Name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Preliminary_Determination__c</value>
     </values>
     <values>
         <field>Conditional_Field_2_Object__c</field>
@@ -156,11 +156,11 @@
     </values>
     <values>
         <field>Conditional_Field_2_Operator__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Equals</value>
     </values>
     <values>
         <field>Conditional_Field_2_Result__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Use Constant 2</value>
     </values>
     <values>
         <field>Conditional_Field_2_Type__c</field>
@@ -168,7 +168,7 @@
     </values>
     <values>
         <field>Conditional_Field_2_Value__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Yes</value>
     </values>
     <values>
         <field>Conditional_Field_3_Lookup_Field_Name__c</field>
@@ -340,11 +340,11 @@
     </values>
     <values>
         <field>Constant_1__c</field>
-        <value xsi:type="xsd:string">Changed_Circ_Calc_Final_Sig_NoExpedite</value>
+        <value xsi:type="xsd:string">Changed_Circ_Calc_Final_Sig_Expedite</value>
     </values>
     <values>
         <field>Constant_2__c</field>
-        <value xsi:type="xsd:string">Changed_Circ_Calc_Final_Sig_Expedite</value>
+        <value xsi:type="xsd:string">Changed_Circ_Calc_Final_Sig_NoExpedite</value>
     </values>
     <values>
         <field>Constant_3__c</field>
@@ -364,7 +364,7 @@
     </values>
     <values>
         <field>Number_of_Conditionals__c</field>
-        <value xsi:type="xsd:double">1.0</value>
+        <value xsi:type="xsd:double">2.0</value>
     </values>
     <values>
         <field>Order_of_Execution__c</field>
