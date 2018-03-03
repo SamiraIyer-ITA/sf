@@ -120,7 +120,7 @@
     </values>
     <values>
         <field>Conditional_Field_1_Name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Investigation_Outcome__c</value>
     </values>
     <values>
         <field>Conditional_Field_1_Object__c</field>
@@ -128,11 +128,11 @@
     </values>
     <values>
         <field>Conditional_Field_1_Operator__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Equals</value>
     </values>
     <values>
         <field>Conditional_Field_1_Result__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Execute</value>
     </values>
     <values>
         <field>Conditional_Field_1_Type__c</field>
@@ -140,7 +140,7 @@
     </values>
     <values>
         <field>Conditional_Field_1_Value__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Order</value>
     </values>
     <values>
         <field>Conditional_Field_2_Lookup_Field_Name__c</field>
@@ -148,7 +148,7 @@
     </values>
     <values>
         <field>Conditional_Field_2_Name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Investigation_Outcome__c</value>
     </values>
     <values>
         <field>Conditional_Field_2_Object__c</field>
@@ -156,11 +156,11 @@
     </values>
     <values>
         <field>Conditional_Field_2_Operator__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Equals</value>
     </values>
     <values>
         <field>Conditional_Field_2_Result__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Execute</value>
     </values>
     <values>
         <field>Conditional_Field_2_Type__c</field>
@@ -364,7 +364,7 @@
     </values>
     <values>
         <field>Number_of_Conditionals__c</field>
-        <value xsi:type="xsd:double">0.0</value>
+        <value xsi:type="xsd:double">2.0</value>
     </values>
     <values>
         <field>Order_of_Execution__c</field>
