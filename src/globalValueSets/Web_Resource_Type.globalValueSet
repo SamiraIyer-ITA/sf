@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Environmental Issue</fullName>
+        <default>false</default>
+    </customValue>
+    <customValue>
+        <fullName>EPA Regulation</fullName>
+        <default>false</default>
+    </customValue>
+    <customValue>
+        <fullName>Use Case</fullName>
+        <default>false</default>
+    </customValue>
+    <customValue>
+        <fullName>Project Phase</fullName>
+        <default>false</default>
+    </customValue>
+    <customValue>
+        <fullName>Performance Improvement Area</fullName>
+        <default>false</default>
+    </customValue>
+    <customValue>
+        <fullName>Issue</fullName>
+        <default>false</default>
+    </customValue>
+    <customValue>
+        <fullName>Regulation</fullName>
+        <default>false</default>
+    </customValue>
+    <customValue>
+        <fullName>Sector</fullName>
+        <default>false</default>
+    </customValue>
+    <customValue>
+        <fullName>Sub-Sector</fullName>
+        <default>false</default>
+    </customValue>
+    <masterLabel>Web Resource Type</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

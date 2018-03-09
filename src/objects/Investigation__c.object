@@ -1,0 +1,2913 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override updated by Lightning App Builder during activation.</comment>
+        <content>CVD_Investigation_Lightning_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>Basic_Case_Info</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Basic_Case_Info</fullName>
+        <fields>ADCVD_Case__c</fields>
+        <fields>Office__c</fields>
+        <fields>Product_Short_Name__c</fields>
+        <fields>Country__c</fields>
+        <fields>Period_Covered_Start_Date__c</fields>
+        <fields>Period_Covered_End_Date__c</fields>
+        <label>Basic Case Info</label>
+    </compactLayouts>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>ADCVD_Case_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>ADCVD Case Number Text Value</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ADCVD_Case_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>ADCVD Case Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ADCVD_Case__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>ADCVD Case</label>
+        <referenceTo>ADCVD_Case__c</referenceTo>
+        <relationshipLabel>Investigations</relationshipLabel>
+        <relationshipName>Investigations</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>AD_Investigation_Aligned_To__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>AD investigation that this CVD investigation is aligned to</description>
+        <externalId>false</externalId>
+        <label>AD Investigation Aligned To</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>1 AND 2 AND 3</booleanFilter>
+            <filterItems>
+                <field>Investigation__c.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>AD</value>
+            </filterItems>
+            <filterItems>
+                <field>Investigation__c.Commodity__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.Commodity__c</valueField>
+            </filterItems>
+            <filterItems>
+                <field>Investigation__c.Petition_Initiation_Signature__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.Petition_Initiation_Signature__c</valueField>
+            </filterItems>
+            <infoMessage>The Product on both investigations must match as well</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Investigation__c</referenceTo>
+        <relationshipLabel>Aligned CVD Investigations</relationshipLabel>
+        <relationshipName>Investigations</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Amend_Final_Concurrence_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Amend Final Concurrence to DAS</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Amend_Final_Issues_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Amend Final Issues to DAS</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Amend_Prelim_Concurrence_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Amend Prelim Concurrence to DAS</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Amend_Prelim_Issues_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Amend Prelim Issues to DAS</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Amended_Final_Signature__c</fullName>
+        <description>Actual Amended Final Signature</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Actual Amended Final Signature</inlineHelpText>
+        <label>Actual Amended Final Signature</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Amended_Prelim_Determination_Sig__c</fullName>
+        <description>Actual Amended Preliminary Determination Signature</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Actual Amended Preliminary Determination Signature</inlineHelpText>
+        <label>Actual Amended Prelim Determination Sig</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Final_Concurrence_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Final Concurrence to DAS</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Final_Issues_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Final Issues to DAS</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Final_Signature__c</fullName>
+        <description>Actual Final Signature</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Actual Final Signature</inlineHelpText>
+        <label>Actual Final Signature</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Prelim_Concurrence_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Prelim Concurrence to DAS</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Prelim_Issues_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Actual Prelim Issues to DAS</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Preliminary_Signature__c</fullName>
+        <description>Actual Preliminary Signature</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Actual Preliminary Signature</inlineHelpText>
+        <label>Actual Preliminary Signature</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Amend_Final_Concurrence_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Amend Final Concurrence Due to DAS</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Amend_Final_Issues_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Amend Final Issues Due to DAS</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Amend_Prelim_Concurrence_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Amend Prelim Concurrence Due to DAS</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Amend_Prelim_Issues_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Amend Prelim Issues Due to DAS</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Amend_the_Preliminary_Determination__c</fullName>
+        <description>Will you Amend the Preliminary Determination?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Will you Amend the Preliminary Determination?</inlineHelpText>
+        <label>Amend the Preliminary Determination?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Amended_Final_Announcement_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Amended Final Announcement Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Amended_Preliminary_Announcement_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Amended Preliminary Announcement Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>CBP_Case_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>CBP Case Number</label>
+        <length>28</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Calc_Amended_Prelim_Determination_Sig__c</fullName>
+        <description>Calculated Amended Preliminary Determination Signature</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Calculated Amended Preliminary Determination Signature</inlineHelpText>
+        <label>Calc Amended Prelim Determination Sig</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Calculated_Amended_Final_Signature__c</fullName>
+        <description>Calculated Amended Final Signature</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Calculated Amended Final Signature</inlineHelpText>
+        <label>Calculated Amended Final Signature</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Calculated_Final_Signature__c</fullName>
+        <description>Calculated Final Signature</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Calculated Final Signature</inlineHelpText>
+        <label>Calculated Final Signature</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Calculated_ITC_Final_FR_Published__c</fullName>
+        <description>Calculated ITC Final FR Published</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Calculated ITC Final FR Published</inlineHelpText>
+        <label>Calculated ITC Final FR Published</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Calculated_ITC_Prelim_Determination__c</fullName>
+        <description>Calculated ITC Prelim Determination</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Calculated ITC Prelim Determination</inlineHelpText>
+        <label>Calculated ITC Prelim Determination</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Calculated_Order_FR_Signature__c</fullName>
+        <description>Calculated Order FR Signature</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Calculated Order FR Signature</inlineHelpText>
+        <label>Calculated Order FR Signature</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Calculated_Postponement_of_PrelimDeterFR__c</fullName>
+        <description>Calculated Postponement of Preliminary Determination Federal Register Signature</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Calculated Postponement of Preliminary Determination Federal Register Signature</inlineHelpText>
+        <label>Calculated Postponement of PrelimDeterFR</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Calculated_Prelim_Extension_Request_File__c</fullName>
+        <description>Calculated Prelim Extension Request Filed</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Calculated Prelim Extension Request Filed</inlineHelpText>
+        <label>Calculated Prelim Extension Request File</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Calculated_Preliminary_Signature__c</fullName>
+        <description>Calculated Preliminary Signature</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Calculated Preliminary Signature</inlineHelpText>
+        <label>Calculated Preliminary Signature</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Commodity__c</fullName>
+        <externalId>false</externalId>
+        <label>Commodity</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Cement and Ceramics</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Chemicals and Allied Industries</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Foodstuffs</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Machinery and Automotive</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Minerals</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other Metals and Articles of Metal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Other Mfg.</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Paper and Paperboard</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Plastics and Rubber</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Steel-Related</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Textiles</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Countervailed_Programs__c</fullName>
+        <description>hide if customs_instructions_yes_no is not TRUE; if customs_instructions_yes_no is TRUE, validation (must be completed before closing case); disable if Case Type (field &quot;type&quot;) = AD ME or AD NME; repeating (one Countervailed Programs per selection made from Applicable CPB Instructions)</description>
+        <externalId>false</externalId>
+        <label>Countervailed Programs</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Country__c</fullName>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Country_in_which_factors_were_valued__c</fullName>
+        <description>&quot;hide if customs_instructions_yes_no is not TRUE; if customs_instructions_yes_no is TRUE, validation (must be completed before closing case); disable if Case Type (field &quot;&quot;type&quot;&quot;) = CVD; repeating (one Name of Country in which factors were valued per selection made from Applicable CPB Instructions)&quot;</description>
+        <externalId>false</externalId>
+        <label>Country in which factors were valued</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Argentina</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Australia</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Austria</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Bangladesh</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Belarus</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Belgium</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Brazil</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Canada</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Chile</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Colombia</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Czech Republic</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Denmark</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ecuador</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Egypt</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Estonia</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Finland</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>France</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Germany</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Greece</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Hungary</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>India</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Indonesia</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Iran</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Iraq</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ireland</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Israel</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Italy</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Japan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Kazakhstan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Kyrgyzstan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Latvia</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Lithuania</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Luxembourg</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Macedonia</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Malaysia</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Mexico</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Moldova</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Netherlands</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>New Zealand</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Norway</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Oman</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pakistan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>People&apos;s Republic of China</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Philippines</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Poland</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Portugal</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Romania</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Russia</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Saudi Arabia</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Singapore</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Slovakia</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>South Africa</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>South Korea</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Spain</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Sweden</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Taiwan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Thailand</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Trinidad and Tobago</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Turkey</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Ukraine</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>United Arab Emirates</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>United Kingdom</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>United States</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Uzbekistan</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Venezuela</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Vietnam</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Est_ITC_Notification_to_DOC_of_Final_Det__c</fullName>
+        <description>Estimated ITC Notification to DOC of Final Determination</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Estimated ITC Notification to DOC of Final Determination</inlineHelpText>
+        <label>Est ITC Notification to DOC of Final Det</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Estimated_Order_FR_Published__c</fullName>
+        <description>Estimated Order FR Published</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Estimated Order FR Published</inlineHelpText>
+        <label>Estimated Order FR Published</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>External_Id__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>External Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Final_Announcement_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Final Announcement Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Final_Concurrence_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Final Concurrence Due to DAS</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Final_Extension_Remaining__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE( RecordType.DeveloperName , 
+&apos;AD&apos;, 60 -  Final_Extension_of_days__c  , 
+&apos;CVD&apos;, 90 - Final_Extension_of_days__c, 
+0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Final Extension Remaining</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Final_Extension_of_days__c</fullName>
+        <description>Final Extension (# of days)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Final Extension (# of days)</inlineHelpText>
+        <label>Final Extension (# of days)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Final_Issues_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Final Issues Due to DAS</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Final_Team_Meeting_Deadline__c</fullName>
+        <externalId>false</externalId>
+        <label>Final Team Meeting Deadline</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Have_Custom_Instruction_been_sent__c</fullName>
+        <externalId>false</externalId>
+        <label>Have Custom Instruction been sent?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ITC_Finding__c</fullName>
+        <description>Order: Referenced from parent Investigation</description>
+        <externalId>false</externalId>
+        <label>ITC Finding</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Materially Injured</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Materially Retarded</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Threatened with Injury</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ITC_Notification_to_DOC_of_Final_Determ__c</fullName>
+        <description>ITC Official Notification to DOC of Final Determination</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ITC Official Notification to DOC of Final Determination</inlineHelpText>
+        <label>ITC Notification to DOC of Final Determ</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Injunction__c</fullName>
+        <externalId>false</externalId>
+        <label>Injunction</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Input_Date_of_Post_Prelim_Determ_Sig__c</fullName>
+        <description>Input Date of Post Preliminary Determination Signature</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Input Date of Post Preliminary Determination Signature</inlineHelpText>
+        <label>Input Date of Post Prelim Determ Sig</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Investigation_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>ADCVD_Case_Number__c +&apos;--&apos;+ Name</formula>
+        <label>Investigation Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Investigation_Outcome__c</fullName>
+        <externalId>false</externalId>
+        <label>Investigation Outcome</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>DOC Negative Final</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ITC Negative Final</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ITC Negative Prelim</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Petition Withdrawn After Initiation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Suspension Agreement</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Order</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Link__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK( LEFT($Api.Enterprise_Server_URL_390 , FIND(&apos;/services&apos;, $Api.Enterprise_Server_URL_390)) &amp; Id,  Investigation_Name__c, &apos;_self&apos;)</formula>
+        <label>Link</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Litigation_Hold_Expiration_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Litigation Hold Expiration Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Litigation_Resolved__c</fullName>
+        <externalId>false</externalId>
+        <label>Litigation Resolved</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Litigation_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Litigation Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Inactive</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Litigation_YesNo__c</fullName>
+        <externalId>false</externalId>
+        <label>Litigation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Locked__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Record Locked</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Lotus_Notes_History_Data__c</fullName>
+        <externalId>false</externalId>
+        <label>Lotus Notes History Data</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Lotus_Notes_Litigation_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Lotus Notes Litigation ID</label>
+        <length>250</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Ministerial_Error_for_Prelim__c</fullName>
+        <externalId>false</externalId>
+        <label>Ministerial Error for Prelim?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Ministerial_Error_for_final__c</fullName>
+        <externalId>false</externalId>
+        <label>Ministerial Error for final?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Next_Announcement_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Next Announcement Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Next_Due_to_DAS_Deadline__c</fullName>
+        <description>Next Due to DAS Deadline and Timeline</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Next Due to DAS Deadline and Timeline</inlineHelpText>
+        <label>Next Due to DAS Deadline</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Next_Major_Deadline__c</fullName>
+        <description>Next Major AS/DAS Deadline and Timeline</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Next Major AS/DAS Deadline and Timeline</inlineHelpText>
+        <label>Next Major Deadline</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Next_Office_Deadline__c</fullName>
+        <description>Next Office/PM Deadline and Timeline</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Next Office/PM Deadline and Timeline</inlineHelpText>
+        <label>Next Office Deadline</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Next_Office_PM_Deadline__c</fullName>
+        <description>Next Office/PM Deadline and Timeline</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Next Office/PM Deadline and Timeline</inlineHelpText>
+        <label>Next Office/PM Deadline</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_Additional_Companies_Investiga__c</fullName>
+        <description>Number of Additional Companies Investigated/Reviewed</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of Additional Companies Investigated/Reviewed</inlineHelpText>
+        <label>Number of Additional Companies Investiga</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Companies_Requested__c</fullName>
+        <description>Number of Companies Requested</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of Companies Requested</inlineHelpText>
+        <label>Number of Companies Requested</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Mandatory_Companies__c</fullName>
+        <description>Number of Mandatory Companies</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of Mandatory Companies</inlineHelpText>
+        <label>Number of Mandatory Companies</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Office__c</fullName>
+        <externalId>false</externalId>
+        <label>Office</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>ADCVD_Offices</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Period_Covered_End_Date__c</fullName>
+        <description>Period Covered - End Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Period Covered - End Date</inlineHelpText>
+        <label>Period Covered - End Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Period_Covered_Start_Date__c</fullName>
+        <description>Period Covered - Start Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Period Covered - Start Date</inlineHelpText>
+        <label>Period Covered - Start Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Petition_Initiation_Signature__c</fullName>
+        <description>This is for either the Actual or Calculated Initiation Signature date from the Petition without any further calculation.  This is used in the lookup filter to align a CVD investigation with an AD investigation.</description>
+        <externalId>false</externalId>
+        <label>Petition Initiation Signature</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Petition_Withdrawn__c</fullName>
+        <externalId>false</externalId>
+        <label>Petition Withdrawn</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Petition__c</fullName>
+        <externalId>false</externalId>
+        <label>Petition</label>
+        <referenceTo>Petition__c</referenceTo>
+        <relationshipLabel>Investigations</relationshipLabel>
+        <relationshipName>Investigations</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Prelim_Concurrence_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Prelim Concurrence Due to DAS</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Prelim_Extension_of_days__c</fullName>
+        <description>Prelim Extension (# of days)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Prelim Extension (# of days)</inlineHelpText>
+        <label>Prelim Extension (# of days)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Prelim_Issues_Due_to_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>Prelim Issues Due to DAS</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Prelim_Team_Meeting_Deadline__c</fullName>
+        <externalId>false</externalId>
+        <label>Prelim Team Meeting Deadline</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Preliminary_Announcement_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Preliminary Announcement Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Preliminary_Extension_Remaining__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE( RecordType.DeveloperName , 
+&apos;AD&apos;, 50 -  Prelim_Extension_of_days__c , 
+&apos;CVD&apos;, 65 -  Prelim_Extension_of_days__c ,
+0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Preliminary Extension Remaining</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Short_Name__c</fullName>
+        <description>Petition Product Short Name</description>
+        <externalId>false</externalId>
+        <label>Product Short Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Range_of_Rates_Final_Amended__c</fullName>
+        <externalId>false</externalId>
+        <label>Range of Rates - Final Amended</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Range_of_Rates_Final__c</fullName>
+        <externalId>false</externalId>
+        <label>Range of Rates - Final</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Range_of_Rates_Prelim_Amended__c</fullName>
+        <externalId>false</externalId>
+        <label>Range of Rates - Prelim Amended</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Range_of_Rates_Prelim__c</fullName>
+        <externalId>false</externalId>
+        <label>Range of Rates - Prelim</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Schedule_Refresh__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by a Schedulable class to cause the Tolling Date Service to recalculate tolling days whenever a calculated announcement date is equal to &quot;yesterday when the associated trigger calculates the next announcement date.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Hidden field used by the system</inlineHelpText>
+        <label>Schedule Refresh</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Signature_of_Prelim_Postponement_FR__c</fullName>
+        <description>Calculated Postponement of Preliminary Determination FR Signature</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Calculated Postponement of Preliminary Determination FR Signature</inlineHelpText>
+        <label>Signature of Prelim Postponement FR</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>Status</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Status</inlineHelpText>
+        <label>Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Suspended</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Prelim</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Amend Prelim</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Final</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Pending Order</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Hold</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Litigation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Customs</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Closed</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Termination_of_Suspension_Gap_Period_Beg__c</fullName>
+        <description>Termination of Suspension/Gap Period Begins</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Termination of Suspension/Gap Period Begins</inlineHelpText>
+        <label>Termination of Suspension/Gap Period Beg</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>This_Petition_Has_An_Investigation__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <externalId>false</externalId>
+        <label>This Petition Has An Investigation</label>
+        <length>18</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Tolling_Update__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by a batch class when the Tolling Date Trigger executes to add new tolling date records. This causes dates to recalculate whenever the new tolling dates are added. Prevents updates to Petition from updating related Investigation records of different types.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>For system use only.</inlineHelpText>
+        <label>Tolling Update</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Upstream_Subsidy_Allegation__c</fullName>
+        <description>Upstream Subsidy Allegation?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Upstream Subsidy Allegation?</inlineHelpText>
+        <label>Upstream Subsidy Allegation?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Will_you_Amend_the_Final__c</fullName>
+        <description>Will you Amend the Final?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Will you Amend the Final?</inlineHelpText>
+        <label>Will you Amend the Final?</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Will_you_Issue_a_Post_Preliminary_Determ__c</fullName>
+        <description>Will you Issue a Post Preliminary Determination?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Will you Issue a Post Preliminary Determination?</inlineHelpText>
+        <label>Will you Issue a Post Preliminary Determ</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
+    </fields>
+    <label>Investigation</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number__c</columns>
+        <columns>Country__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>ADCVD_Case_Type__c</columns>
+        <columns>Product__c</columns>
+        <columns>Commodity__c</columns>
+        <columns>Office__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Active_Investigations</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number__c</columns>
+        <columns>Country__c</columns>
+        <columns>ADCVD_Case_Type__c</columns>
+        <columns>Product__c</columns>
+        <columns>Office__c</columns>
+        <columns>Status__c</columns>
+        <columns>Calculated_Preliminary_Signature__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Prelim,Amend Prelim,Final</value>
+        </filters>
+        <label>All Active Investigations</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Closed_Investigations</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number__c</columns>
+        <columns>Country__c</columns>
+        <columns>ADCVD_Case_Type__c</columns>
+        <columns>Product__c</columns>
+        <columns>Commodity__c</columns>
+        <columns>Office__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Closed</value>
+        </filters>
+        <label>All Closed Investigations</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Investigations_in_Litigation</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number__c</columns>
+        <columns>Country__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>ADCVD_Case_Type__c</columns>
+        <columns>Product__c</columns>
+        <columns>Commodity__c</columns>
+        <columns>Office__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Litigation</value>
+        </filters>
+        <label>All Investigations in Litigation</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Investigations_in_Litigation_Hold</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number__c</columns>
+        <columns>Country__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>ADCVD_Case_Type__c</columns>
+        <columns>Product__c</columns>
+        <columns>Commodity__c</columns>
+        <columns>Office__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Hold</value>
+        </filters>
+        <label>All Investigations in Litigation Hold</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Open_Investigations</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number__c</columns>
+        <columns>Country__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>ADCVD_Case_Type__c</columns>
+        <columns>Product__c</columns>
+        <columns>Commodity__c</columns>
+        <columns>Office__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </filters>
+        <label>All Open Investigations</label>
+    </listViews>
+    <nameField>
+        <displayFormat>I-{00000}</displayFormat>
+        <label>Investigation Number</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Investigations</pluralLabel>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>AD</fullName>
+        <active>true</active>
+        <description>An anti dumping investigation</description>
+        <label>AD</label>
+        <picklistValues>
+            <picklist>ADCVD_Offices</picklist>
+            <values>
+                <fullName>I</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>II</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>III</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>V</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VII</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VIII</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Commodity__c</picklist>
+            <values>
+                <fullName>Cement and Ceramics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemicals and Allied Industries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foodstuffs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Machinery and Automotive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minerals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Metals and Articles of Metal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Mfg%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paper and Paperboard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plastics and Rubber</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Steel-Related</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Textiles</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Country_in_which_factors_were_valued__c</picklist>
+            <values>
+                <fullName>Argentina</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Australia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Austria</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bangladesh</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Belarus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Belgium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Brazil</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Canada</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Colombia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Czech Republic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Denmark</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ecuador</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Egypt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Estonia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>France</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Germany</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greece</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hungary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>India</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Indonesia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Iran</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Iraq</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ireland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Israel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Italy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Japan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kazakhstan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kyrgyzstan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Latvia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lithuania</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Luxembourg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Macedonia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malaysia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mexico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moldova</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Netherlands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Zealand</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Norway</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oman</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pakistan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>People%27s Republic of China</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Philippines</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Poland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Portugal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Romania</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Russia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saudi Arabia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Singapore</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Slovakia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South Africa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South Korea</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sweden</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Taiwan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thailand</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trinidad and Tobago</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Turkey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ukraine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>United Arab Emirates</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>United Kingdom</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>United States</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Uzbekistan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Venezuela</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vietnam</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ITC_Finding__c</picklist>
+            <values>
+                <fullName>Materially Injured</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Materially Retarded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Threatened with Injury</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Investigation_Outcome__c</picklist>
+            <values>
+                <fullName>DOC Negative Final</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITC Negative Final</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITC Negative Prelim</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Order</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Petition Withdrawn After Initiation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suspension Agreement</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Litigation_Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inactive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Amend Prelim</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Final</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Litigation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Order</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prelim</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suspended</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>YesNo</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>CVD</fullName>
+        <active>true</active>
+        <description>A countervailing duties investigation</description>
+        <label>CVD</label>
+        <picklistValues>
+            <picklist>ADCVD_Offices</picklist>
+            <values>
+                <fullName>I</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>II</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>III</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>V</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VII</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VIII</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Commodity__c</picklist>
+            <values>
+                <fullName>Cement and Ceramics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemicals and Allied Industries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foodstuffs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Machinery and Automotive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minerals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Metals and Articles of Metal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Mfg%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paper and Paperboard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plastics and Rubber</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Steel-Related</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Textiles</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Country_in_which_factors_were_valued__c</picklist>
+            <values>
+                <fullName>Argentina</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Australia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Austria</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bangladesh</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Belarus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Belgium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Brazil</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Canada</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Colombia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Czech Republic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Denmark</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ecuador</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Egypt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Estonia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>France</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Germany</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greece</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hungary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>India</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Indonesia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Iran</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Iraq</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ireland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Israel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Italy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Japan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kazakhstan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kyrgyzstan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Latvia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lithuania</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Luxembourg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Macedonia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Malaysia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mexico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moldova</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Netherlands</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Zealand</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Norway</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oman</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pakistan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>People%27s Republic of China</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Philippines</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Poland</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Portugal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Romania</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Russia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saudi Arabia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Singapore</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Slovakia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South Africa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>South Korea</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sweden</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Taiwan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thailand</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trinidad and Tobago</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Turkey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ukraine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>United Arab Emirates</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>United Kingdom</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>United States</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Uzbekistan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Venezuela</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vietnam</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>ITC_Finding__c</picklist>
+            <values>
+                <fullName>Materially Injured</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Materially Retarded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Threatened with Injury</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Investigation_Outcome__c</picklist>
+            <values>
+                <fullName>DOC Negative Final</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITC Negative Final</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ITC Negative Prelim</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Order</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Petition Withdrawn After Initiation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suspension Agreement</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Litigation_Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inactive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Amend Prelim</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Final</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Litigation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Order</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prelim</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suspended</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>YesNo</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>ADCVD_Case_Number__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Country__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ADCVD_Case_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Product__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Commodity__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <excludedStandardButtons>Forward</excludedStandardButtons>
+        <lookupDialogsAdditionalFields>ADCVD_Case_Number__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Country__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ADCVD_Case_Type__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Product__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Commodity__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ADCVD_Case_Number__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Country__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ADCVD_Case_Type__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Product__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Status__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>ADCVD_Case_Number__c</searchFilterFields>
+        <searchFilterFields>Country__c</searchFilterFields>
+        <searchFilterFields>ADCVD_Case_Type__c</searchFilterFields>
+        <searchFilterFields>Product__c</searchFilterFields>
+        <searchFilterFields>Commodity__c</searchFilterFields>
+        <searchFilterFields>Status__c</searchFilterFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchResultsAdditionalFields>ADCVD_Case_Number__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Country__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADCVD_Case_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Product__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Commodity__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Actual_Amended_Final_Signature_Not_Blank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Amended Final Signature Date until the Calculate Amended Final Signature Date is not populated</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND( 
+ISNULL( Calculated_Amended_Final_Signature__c ), 
+NOT( ISNULL( Actual_Amended_Final_Signature__c )) 
+))</errorConditionFormula>
+        <errorMessage>Calculated Amended Final Signature Date must be populated in order to enter Actual Amended Final Signature Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Actual_Amended_Prelim_Determ_Not_Blank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Amended Prelim Determination Date until the Calculate Amended Prelim Determination Date is not populated</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND( 
+ISNULL(Calc_Amended_Prelim_Determination_Sig__c ), 
+NOT( ISNULL( Actual_Amended_Prelim_Determination_Sig__c )) 
+))</errorConditionFormula>
+        <errorMessage>Calculated Amended Prelim Determination Date must be populated in order to enter Actual Amended Prelim Determination Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Actual_Final_Required_for_DOC_Neg</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND( 
+ISNULL(  Actual_Final_Signature__c ), 
+ ISPICKVAL( Investigation_Outcome__c , &apos;DOC Negative Final&apos;) 
+))</errorConditionFormula>
+        <errorDisplayField>Actual_Final_Signature__c</errorDisplayField>
+        <errorMessage>The Actual Final Signature date is required when Investigation Outcome is &quot;DOC Negative Final&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Actual_Final_Signature_Not_Blank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Final Signature Date until the Calculate Final Signature Date is not populated</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND( 
+ISNULL( Calculated_Final_Signature__c ), 
+NOT( ISNULL( Actual_Final_Signature__c )) 
+))</errorConditionFormula>
+        <errorMessage>Calculated Final Signature Date must be populated in order to enter Actual Final Signature Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Actual_Preliminary_Signature_Not_Blank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Preliminary Signature Date until the Calculate Preliminary Signature Date in not populated</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND( 
+ISNULL( Calculated_Preliminary_Signature__c ), 
+NOT( ISNULL( Actual_Preliminary_Signature__c )) 
+))</errorConditionFormula>
+        <errorMessage>Calculated Preliminary Signature Date must be populated in order to enter Actual Preliminary Signature Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Bounded_Days_For_AD_Final_Extension</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,And (
+$RecordType.DeveloperName = &quot;AD&quot;, 
+OR(Final_Extension_of_days__c &gt; 60, Final_Extension_of_days__c &lt; 0)
+))</errorConditionFormula>
+        <errorMessage>Final extension # of days on AD Investigation can only range from 1 to 60 days.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Bounded_Days_For_AD_Prelim_Extension</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,And (
+$RecordType.DeveloperName = &quot;AD&quot;, 
+OR(Prelim_Extension_of_days__c &gt; 50,  Prelim_Extension_of_days__c &lt; 0)
+))</errorConditionFormula>
+        <errorMessage>Preliminary extension # of days on AD Investigation can only range from 1 to 50 days.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Bounded_Days_For_CVD_Final_Extension</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,And (
+$RecordType.DeveloperName = &quot;CVD&quot;, 
+OR(Final_Extension_of_days__c &gt; 90, Final_Extension_of_days__c &lt; 0)
+))</errorConditionFormula>
+        <errorMessage>Final extension # of days on CVD Investigation can only range from 1 to 90 days.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Bounded_Days_For_CVD_Prelim_Extension</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,And (
+$RecordType.DeveloperName = &quot;CVD&quot;, 
+OR(Prelim_Extension_of_days__c &gt; 65, Prelim_Extension_of_days__c &lt; 0)
+))</errorConditionFormula>
+        <errorMessage>Preliminary extension # of days on CVD Investigation can only range from 1 to 65 days.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Calc_Amended_Prelim_Determination_Null</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND ( 
+$RecordType.DeveloperName = &quot;CVD&quot;, 
+ISPICKVAL(Amend_the_Preliminary_Determination__c , &quot;No&quot;), 
+NOT(AND(ISBLANK( Calc_Amended_Prelim_Determination_Sig__c ))) 
+))</errorConditionFormula>
+        <errorMessage>If Amend the Preliminary Determination is &quot;No&quot;, then there should be null for Calculated Amended Preliminary Determination Signature field.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Cannot_Edit_Locked_Record</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false,
+NOT(ISNEW()),
+PRIORVALUE(Locked__c) == true
+)</errorConditionFormula>
+        <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Custom_Instruction_Required</fullName>
+        <active>true</active>
+        <description>Cannot answer Have_Custom_Instruction_been_sent__c unless Litigation_YesNo__c is populated.</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND (
+  ISBLANK(TEXT(Litigation_YesNo__c )),
+  NOT(ISBLANK(TEXT(Have_Custom_Instruction_been_sent__c)))
+))</errorConditionFormula>
+        <errorMessage>Litigation cannot be blank when Have Custom Instructions is populated</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Final_Extension_Null_If_False</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND (
+$RecordType.DeveloperName = &quot;CVD&quot;, 
+ ISPICKVAL( Upstream_Subsidy_Allegation__c , &quot;No&quot;),
+ NOT(AND(ISBLANK( Final_Extension_of_days__c)))
+))</errorConditionFormula>
+        <errorMessage>If upstream subsidy allegation is &quot;No&quot; , then final extensions of day must be null.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Litigation_Resolved_Required</fullName>
+        <active>true</active>
+        <description>Litigation Resolved is required when Litigation is set to yes</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND ( 
+  ISPICKVAL( Litigation_YesNo__c , &apos;Yes&apos;),
+  ISBLANK( TEXT( Litigation_Resolved__c ) )
+))</errorConditionFormula>
+        <errorDisplayField>Litigation_Resolved__c</errorDisplayField>
+        <errorMessage>Litigation Resolved cannot be blank when Litigation is &quot;Yes&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Petition_Withdrawn_Date_Required</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND( 
+ISNULL( Petition_Withdrawn__c ), 
+ ISPICKVAL( Investigation_Outcome__c , &apos;Petition Withdrawn After Initiation&apos;) 
+))</errorConditionFormula>
+        <errorDisplayField>Petition_Withdrawn__c</errorDisplayField>
+        <errorMessage>The Petition Withdrawn date is required when Investigation Outcome is &quot;Petition Withdrawn After Initiation&quot;</errorMessage>
+    </validationRules>
+</CustomObject>

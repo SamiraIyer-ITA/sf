@@ -1,0 +1,277 @@
+<apex:page id="page" standardController="Segment__c" extensions="SunsetReviewController"
+    showHeader="false" sidebar="false" standardStylesheets="{!isSalesforceClassic}" 
+    applyHtmlTag="{!isSalesforceClassic}" applyBodyTag="{!isSalesforceClassic}"
+    docType="html-5.0">
+    <apex:includeLightning />
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
+        <head>
+            <meta charset="utf-8" />
+            <meta http-equiv="x-ua-compatible" content="ie=edge" />
+            <title>Sunset Review</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <!--<apex:include pageName="UIThemeUtilsInclude"/>-->
+            <!-- Import the Design System style sheet -->
+            <apex:variable var="uiTheme" value="lightningDesktop" rendered="true">
+                <apex:slds />
+            </apex:variable>
+        </head>
+        <body>
+            <apex:form id="form-ltng" rendered="true">
+            <apex:pageMessages id="pm-ltng"/>
+            <!-- REQUIRED SLDS WRAPPER -->
+            <div class="slds-scope">
+
+            <!-- PAGE HEADER -->
+                <div class="slds-page-header">
+                  <!-- LAYOUT GRID -->
+                  <div class="slds-grid">
+
+                    <!-- GRID COL -->
+                    <div class="slds-col slds-has-flexi-truncate">
+                      <!-- HEADING AREA -->
+                      <p class="slds-text-title--caps slds-line-height--reset">Segment</p>
+                      <h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate" title="Sunset_Review">Sunset Review</h1>
+                      <!-- / HEADING AREA -->
+                    </div>
+
+                    <!-- ACTION BUTTONS -->
+                        <div class="slds-col slds-no-flex slds-grid slds-align-top slds-align-middle">
+                          <div class="slds-button-group" role="group">
+                            <apex:commandButton styleClass="slds-button slds-button--neutral" action="{!toggleEdit}" value="Edit" id="editButton-ltng" reRender="form-ltng, pm-ltng" rendered="{!NOT(edit)}" />
+                            <apex:commandButton styleClass="slds-button slds-button--neutral" action="{!save}" value="Save" id="saveButton-ltng"  reRender="form-ltng, pm-ltng" rendered="{!edit}"/><!-- oncomplete="refreshPage();"/> -->
+                            <apex:commandButton styleClass="slds-button slds-button--neutral" action="{!cancel}" value="Cancel" id="cancelButton-ltng"  reRender="form-ltng, pm-ltng" rendered="{!edit}" immediate="true"/>
+                          </div>
+                        </div>
+                    <!-- / ACTION BUTTONS -->
+
+                  </div>
+                  <!-- / LAYOUT GRID -->
+
+                  <!-- PAGE HEADER DETAIL ROW -->
+                  <!-- / PAGE HEADER DETAIL ROW -->
+
+                </div>
+            <!-- / PAGE HEADER -->
+            <!-- PRIMARY CONTENT WRAPPER -->
+            <div class="myapp slds-p-horizontal--medium">
+            <ul id="sunset-review" class="slds-has-dividers--bottom-space"></ul>
+                <apex:outputPanel > 
+                    <apex:outputPanel id="reviewInfo-ltng">
+                        <div class="slds-section">
+                            <fieldset class="slds-form--compound">
+                                <legend class="slds-section-title--divider slds-size--2-of-2 slds-form-element__label slds-text-title--caps">Review Information</legend>
+                                <ol class="columns" data-columns="2" style="column-count: 2">
+                                    <apex:repeat id="infoRepeat" value="{!reviewInfoFieldsList}" var="f" >
+                                        <div class="slds-form-element__group">
+                                            <div class="slds-form-element__row">
+                                                <div class="slds-form-element slds-size--1-of-2">
+                                                    <label class="slds-form-element__label">
+                                                        {!f.label}
+                                                    </label>
+                                                </div>
+                                                <div class="slds-form-element slds-size--1-of-2">
+                                                    <apex:outputField id="infoOutput" value="{!ssReview[f]}" rendered="{!NOT(edit) || CONTAINS(f.fieldPath, '__r')}"  styleClass="slds-output"/>
+                                                    <apex:inputField id="infoInput" value="{!ssReview[f.fieldPath]}" rendered="{!edit && NOT(CONTAINS(f.fieldPath, '__r'))}" required="{!OR(f.required, f.dbrequired)}" styleClass="slds-input" showDatePicker="false">
+                                                        <!--<apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection-ltng, reviewInfo-ltng, hiddenBlock" >
+                                                            <apex:param name="ssReviewType" value="" assignTo="{!ssReviewType}"/>
+                                                        </apex:actionSupport>-->
+                                                    </apex:inputField>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </apex:repeat>
+                                    <br/>
+                                    <br/>
+                                </ol>
+                            </fieldset>
+                        </div>  
+                    </apex:outputPanel>
+                    <apex:outputPanel id="dynamicSection-ltng" >
+                        <apex:outputPanel rendered="{!is90day}">
+                            <div class="slds-section">
+                                <fieldset class="slds-form--compound">
+                                    <legend class="slds-section-title--divider slds-size--2-of-2 slds-form-element__label slds-text-title--caps">90 Day</legend>
+                                    <ul class="columns" data-columns="2" style="column-count: 2">
+                                        <apex:repeat value="{!fieldsList90}" var="f">
+                                            <div class="slds-form-element__group">
+                                                <div class="slds-form-element__row">
+                                                    <div class="slds-form-element slds-size--1-of-2">
+                                                        <label class="slds-form-element__label" for="input-01">
+                                                            {!f.label}
+                                                        </label>
+                                                    </div>
+                                                    <div class="slds-form-element slds-size--1-of-2">
+                                                        <apex:outputField value="{!ssReview[f]}" rendered="{!NOT(edit) || CONTAINS(f.fieldPath, '__r')}"  styleClass="slds-output-"/>
+                                                        <apex:inputField value="{!ssReview[f.fieldPath]}" rendered="{!edit && NOT(CONTAINS(f.fieldPath, '__r'))}" required="{!OR(f.required, f.dbrequired)}" styleClass="slds-input" showDatePicker="false">
+                                                            <!--<apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection-ltng, hiddenBlock" >
+                                                                <apex:param name="ssReviewType" value="90" assignTo="{!ssReviewType}"/>
+                                                            </apex:actionSupport>-->
+                                                        </apex:inputField>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </apex:repeat>
+                                        <br/>
+                                        <br/>
+                                    </ul>
+                                </fieldset>
+                            </div>
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!is120day}">
+                            <div class="slds-section">
+                                <fieldset class="slds-form--compound">
+                                    <legend class="slds-section-title--divider slds-size--2-of-2 slds-form-element__label slds-text-title--caps">120 Day</legend>
+                                    <ul class="columns" data-columns="2" style="column-count: 2">
+                                        <apex:repeat value="{!fieldsList120}" var="f">
+                                            <div class="slds-form-element__group">
+                                                <div class="slds-form-element__row">
+                                                    <div class="slds-form-element slds-size--1-of-2">
+                                                        <label class="slds-form-element__label" for="input-01">
+                                                            {!f.label}
+                                                        </label>
+                                                    </div>
+                                                    <div class="slds-form-element slds-size--1-of-2">
+                                                        <apex:outputField value="{!ssReview[f]}" rendered="{!NOT(edit) || CONTAINS(f.fieldPath, '__r')}"  styleClass="slds-output-"/>
+                                                        <apex:inputField value="{!ssReview[f.fieldPath]}" rendered="{!edit && NOT(CONTAINS(f.fieldPath, '__r'))}" required="{!OR(f.required, f.dbrequired)}" styleClass="slds-input" showDatePicker="false">
+                                                            <!--<apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection-ltng, hiddenBlock" >
+                                                                <apex:param name="ssReviewType" value="120" assignTo="{!ssReviewType}"/>
+                                                            </apex:actionSupport>-->
+                                                        </apex:inputField>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </apex:repeat>
+                                        <br/>
+                                        <br/>
+                                    </ul>
+                                </fieldset>
+                            </div>
+                        </apex:outputPanel>
+                        <apex:outputPanel rendered="{!is240day}">
+                            <div class="slds-section">
+                                <fieldset class="slds-form--compound">
+                                    <legend class="slds-section-title--divider slds-size--2-of-2 slds-form-element__label slds-text-title--caps">240 Day</legend>
+                                    <ul class="columns" data-columns="2" style="column-count: 2">
+                                        <apex:repeat value="{!fieldsList240}" var="f">
+                                            <div class="slds-form-element__group">
+                                                <div class="slds-form-element__row">
+                                                    <div class="slds-form-element slds-size--1-of-2">
+                                                        <label class="slds-form-element__label" for="input-01">
+                                                            {!f.label}
+                                                        </label>
+                                                    </div>
+                                                    <div class="slds-form-element slds-size--1-of-2">
+                                                        <apex:outputField value="{!ssReview[f]}" rendered="{!NOT(edit) || CONTAINS(f.fieldPath, '__r')}"  styleClass="slds-output-"/>
+                                                        <apex:inputField value="{!ssReview[f.fieldPath]}" rendered="{!edit && NOT(CONTAINS(f.fieldPath, '__r'))}" required="{!OR(f.required, f.dbrequired)}" styleClass="slds-input" showDatePicker="false">
+                                                            <!--<apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection-ltng, hiddenBlock" >
+                                                                <apex:param name="ssReviewType" value="240" assignTo="{!ssReviewType}"/>
+                                                            </apex:actionSupport>-->
+                                                        </apex:inputField>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </apex:repeat>
+                                        <br/>
+                                        <br/>
+                                    </ul>
+                                </fieldset>
+                            </div>  
+                        </apex:outputPanel>
+                    </apex:outputPanel>
+                </apex:outputPanel>
+            </div>
+            <!-- FOOTER -->
+            <!-- / FOOTER -->
+            </div>
+            <!-- / REQUIRED SLDS WRAPPER -->    
+
+  <!-- JAVASCRIPT -->
+    <script>
+        function refreshPage() {
+          var recordId = "{!recordId}";
+          if (recordId != null) {
+            if (sforce.one) {
+              window.parent.location = '/' + recordId;
+            }
+          }
+        }
+    </script>
+  <!-- / JAVASCRIPT -->
+        </apex:form>
+        </body>
+    </html>
+    <apex:form id="form" rendered="false">
+        <apex:pageMessages id="pm"/>
+        <apex:pageBlock > 
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!toggleEdit}" value="Edit" id="editButton" reRender="form, pm" rendered="{!NOT(edit)}" />
+                <apex:commandButton action="{!save}" value="Save" id="saveButton"  reRender="form, pm" rendered="{!edit}"/> <!-- oncomplete="window.location.reload();"/>-->
+                <apex:commandButton action="{!cancel}" value="Cancel" id="cancelButton"  reRender="form, pm" rendered="{!edit}" styleClass="saveCancelButton" immediate="true"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection id="reviewInfo" columns="2" title="Review Information" collapsible="false" >
+                <apex:repeat value="{!$ObjectType.Segment__c.FieldSets.Review_Information}" var="f">
+                    <apex:outputField value="{!ssReview[f]}" rendered="{!NOT(edit) || CONTAINS(f.fieldPath, '__r')}">
+                        <!--     <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" hideOnEdit="editButton" event="ondblclick" /> -->
+                    </apex:outputField>
+                    <apex:inputField value="{!ssReview[f.fieldPath]}" rendered="{!edit && NOT(CONTAINS(f.fieldPath, '__r'))}" required="{!OR(f.required, f.dbrequired)}" >
+                        <!--<apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection, reviewInfo, hiddenBlock" >
+                            <apex:param name="ssReviewType" value="" assignTo="{!ssReviewType}"/>
+                        </apex:actionSupport>-->
+                    </apex:inputField>
+                </apex:repeat>
+            </apex:pageBlockSection>
+            <apex:pageBlock id="dynamicSection" >
+                <apex:pageBlockSection title="90 Day" rendered="{!is90day}" collapsible="false" >
+                    <apex:repeat value="{!$ObjectType.Segment__c.FieldSets.Is_90_Day}" var="f">
+                        <apex:outputField value="{!ssReview[f]}" rendered="{!NOT(edit) || CONTAINS(f.fieldPath, '__r')}">
+                            <!--     <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" hideOnEdit="editButton" event="ondblclick" /> -->
+                        </apex:outputField>
+                        <apex:inputField value="{!ssReview[f.fieldPath]}" rendered="{!edit && NOT(CONTAINS(f.fieldPath, '__r'))}" required="{!OR(f.required, f.dbrequired)}" >
+                            <!--<apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection, hiddenBlock" >
+                                <apex:param name="ssReviewType" value="90" assignTo="{!ssReviewType}"/>
+                            </apex:actionSupport>-->
+                        </apex:inputField>
+                    </apex:repeat>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="120 Day" rendered="{!is120day}" collapsible="false" >
+                    <apex:repeat value="{!$ObjectType.Segment__c.FieldSets.Is_120_Day}" var="f">
+                        <apex:outputField value="{!ssReview[f]}" rendered="{!NOT(edit) || CONTAINS(f.fieldPath, '__r')}">
+                            <!--     <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" hideOnEdit="editButton" event="ondblclick" /> -->
+                        </apex:outputField>
+                        <apex:inputField value="{!ssReview[f.fieldPath]}" rendered="{!edit && NOT(CONTAINS(f.fieldPath, '__r'))}" required="{!OR(f.required, f.dbrequired)}" >
+                            <!--<apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection, hiddenBlock" >
+                                <apex:param name="ssReviewType" value="120" assignTo="{!ssReviewType}"/>
+                            </apex:actionSupport>-->
+                        </apex:inputfield>
+                    </apex:repeat>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="240 Day" rendered="{!is240day}" collapsible="false" >
+                    <apex:repeat value="{!$ObjectType.Segment__c.FieldSets.Is_240_Day}" var="f">
+                        <apex:outputField value="{!ssReview[f]}" rendered="{!NOT(edit) || CONTAINS(f.fieldPath, '__r')}">
+                            <!--     <apex:inlineEditSupport showOnEdit="saveButton, cancelButton" hideOnEdit="editButton" event="ondblclick" /> -->
+                        </apex:outputField>
+                        <apex:inputField value="{!ssReview[f.fieldPath]}" rendered="{!edit && NOT(CONTAINS(f.fieldPath, '__r'))}" required="{!OR(f.required, f.dbrequired)}" >
+                            <!--<apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection, hiddenBlock" >
+                                <apex:param name="ssReviewType" value="240" assignTo="{!ssReviewType}"/>
+                            </apex:actionSupport>-->
+                    </apex:inputField>
+                    </apex:repeat>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+        </apex:pageBlock>
+        <!--variables will sometimes not pass to the controller without rerendering the value back on the page.  This does that, but is hidden from the user-->
+        <apex:pageBlock id="hiddenBlock" rendered="false">
+            <apex:outputText id="hiddentext" value="{!ssReviewType}"/>
+        </apex:pageBlock>
+    </apex:form>
+<!--    <script type="text/javascript">
+        $Lightning.use("c:TestDatePickerApp", function () {
+            $Lightning.createComponent("c:TestDatePicker", 
+                {"callback": function(val){
+                    alert("Visualforce Page has recieved this value: " + val);
+                }}, 
+                    "lightning", 
+                function (cmp) {});
+      });
+    </script> -->
+</apex:page>

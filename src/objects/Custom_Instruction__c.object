@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>ADCVD_Order__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>ADCVD Order</label>
+        <referenceTo>ADCVD_Order__c</referenceTo>
+        <relationshipLabel>Custom Instructions</relationshipLabel>
+        <relationshipName>Custom_Instructions</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>AD_CVD_Module_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>AD/CVD Module Number</label>
+        <length>13</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Applicable_Rate__c</fullName>
+        <externalId>false</externalId>
+        <label>Applicable Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Basis_for_Rate__c</fullName>
+        <externalId>false</externalId>
+        <label>Basis for Rate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>HM</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>COP</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>CV</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>NME</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>FA</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>TM</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>CBP_Instructions_Category__c</fullName>
+        <externalId>false</externalId>
+        <label>CBP Instructions Category</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>coming</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>later</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>CBP_Instructions_Sub_Category__c</fullName>
+        <externalId>false</externalId>
+        <label>CBP Instructions Sub-Category</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>coming</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>later</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Countervailed_Programs__c</fullName>
+        <externalId>false</externalId>
+        <label>Countervailed Programs</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Country_in_which_factors_were_valued__c</fullName>
+        <description>Name of Country in which factors were valued</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of Country in which factors were valued</inlineHelpText>
+        <label>Country in which factors were valued</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Countries</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Date_Message_Loaded_in_ACE__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Message Loaded in ACE</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IMN_NO__c</fullName>
+        <externalId>false</externalId>
+        <label>IMN NO.</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Investigation__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Investigation</label>
+        <referenceTo>Investigation__c</referenceTo>
+        <relationshipLabel>Custom Instructions</relationshipLabel>
+        <relationshipName>Custom_Instructions</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Locked__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Record Locked</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Message_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Message Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Message_No__c</fullName>
+        <externalId>false</externalId>
+        <label>Message No.</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Petition__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Petition</label>
+        <referenceTo>Petition__c</referenceTo>
+        <relationshipLabel>Custom Instructions</relationshipLabel>
+        <relationshipName>Custom_Instructions</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Segment__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Segment</label>
+        <referenceTo>Segment__c</referenceTo>
+        <relationshipLabel>Custom Instructions</relationshipLabel>
+        <relationshipName>Custom_Instructions</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Suspension_Agreement__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Suspension Agreement</label>
+        <referenceTo>Suspension_Agreement__c</referenceTo>
+        <relationshipLabel>Custom Instructions</relationshipLabel>
+        <relationshipName>Custom_Instructions</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Custom Instruction</label>
+    <listViews>
+        <fullName>Customs_Instructions_ClosedLocked_Queue_Custom_Instruction</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Customs Instructions-ClosedLocked Queue</label>
+        <queue>Customs_Instructions_ClosedLocked_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Customs_Instructions_MigratedLockedQueue_Custom_Instruction</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Customs Instructions-MigratedLockedQueue</label>
+        <queue>Customs_Instructions_MigratedLockedQueue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Customs_Instructions_Open_Queue_Custom_Instruction</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Customs Instructions-Open Queue</label>
+        <queue>Customs_Instructions_Open_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <nameField>
+        <displayFormat>CI-{000000}</displayFormat>
+        <label>Custom Instruction Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Custom Instructions</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Cannot_Edit_Locked_Record</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false, 
+NOT(ISNEW()), 
+OR (Locked__c == true, 
+PRIORVALUE(Locked__c) == true 
+) 
+)</errorConditionFormula>
+        <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
+    </validationRules>
+</CustomObject>

@@ -1,0 +1,272 @@
+<!--
+ - Created by cloud on 8/17/2017.
+ -->
+
+<apex:page id="Describer_Development" Controller="Describer"  showHeader="false" sidebar="false" >
+<head>
+
+    <STYLE type="text/css">
+        table { 
+                font-size: normal;
+                width:100%;
+                align:center;
+                border-collapse: collapse;
+                border: 2px solid black;
+                margin:5px;
+            }
+        caption {   font: bold san-serif;
+                    font-size: 1.4em; 
+                    margin-top:20px;
+                }   
+        
+        th  {   align:center;
+                border-collapse: collapse;
+                border: 2px solid black;
+                margin:5px;
+            }
+       
+        td  {   align:center;
+                padding:5px;
+                border-collapse: collapse;
+                border: 2px solid black;
+            }
+        button  { margin-top:10px;
+            }
+            
+        table.id="childRelationships" {
+                width:40%;
+                align:center;
+                border-collapse: collapse;
+                border: 2px solid black;
+                margin:5px;
+                    
+        }   
+    </STYLE>
+    </head>    
+    
+    <apex:form id="objectDescriberSelector">
+        <div align="center" id="button1">
+            <apex:commandButton value="Get Describe Object Fields" action="{!showFields}" />            
+            </div>
+    <table id="selectlists">
+        <tr>
+            <td align="center">
+                <apex:selectList value="{!selectedObject}" size="1">
+                    <apex:selectOptions value="{!objectNames}"/>
+                </apex:selectList>
+            </td>
+            <td align="center">
+                <apex:selectList value="{!selectedProfile}" size="1">
+                    <apex:selectOptions value="{!profileNames}"/>
+                </apex:selectList>                            
+            </td>
+        </tr>
+    </table>
+    
+    <table id="CRUD" render="!isNull{!selectedObject} AND !isNull({!objectToCRUDPerms})">
+        <caption>{!selectedObject} CRUD Permissions</caption>
+        <tr><apex:repeat value="{!objectToCRUDPerms[selectedObject]}" var="objectToCRUDkey">
+            <td><apex:outputLabel value="{!objectToCRUDkey}"/></td>
+            </apex:repeat>
+        </tr>
+        <tr>
+            <apex:repeat value="{!objectToCRUDPerms[selectedObject]}" var="objectToCRUDkey">
+                <td><apex:outputText value="{!objectToCRUDPerms[selectedObject][objectToCRUDkey]}"/></td>
+            </apex:repeat>
+        </tr>
+    </table>
+
+    <table id="ObjRTInfos" render ="!isNull{!selectedObject} AND !isNull({!recordTypeMapByName})">
+        <caption>{!selectedObject} Record Type Infos</caption>
+        <tr>
+            <apex:repeat value="{!recordTypeMapKeyset}" var="RTkey">
+                <td><apex:outputLabel value="{!RTkey}"/></td>
+            </apex:repeat>
+        </tr>
+        <tr>
+            <apex:repeat value="{!recordTypeMapKeyset}" var="RTkey">
+                <td><apex:outputText value="{!recordTypeMapByName[RTkey]}"/></td>
+            </apex:repeat>
+        </tr>
+    </table>
+        
+    <table id="CreateableFieldGroupings" render="!isNull{!selectedObject} AND !isNull({!areCreateableFields})">
+        <caption>Createable fields - {!selectedObject}</caption>
+        <tr>
+            <apex:repeat value="{!areCreateableFields}" var="a">
+                <td><apex:outputLabel value="{!a.key}"/></td>
+            </apex:repeat>
+        </tr>
+        <tr>
+            <apex:repeat value="{!areCreateableFields}" var="a">
+                <td><apex:outputText value="{!a.val}"/></td>
+            </apex:repeat>
+        </tr>
+    </table>
+
+    <table id="UpdateableFieldGroupings" render="!isNull{!selectedObject} AND !isNull({!areUpdateableFields})">
+        <caption>Updateable fields - {!selectedObject}</caption>
+        <tr>
+            <apex:repeat value="{!areUpdateableFields}" var="a">
+                <td><apex:outputLabel value="{!a.key}"/></td>
+            </apex:repeat>
+        </tr>
+        <tr>
+            <apex:repeat value="{!areUpdateableFields}" var="a">
+                <td><apex:outputText value="{!a.val}"/></td>
+            </apex:repeat>
+        </tr>
+    </table>
+    
+    <table id="ReadOnlyFieldGroupings" render="!isNull{!selectedObject} AND !isNull({!areReadOnlyFields})">
+        <caption>ReadOnly fields - {!selectedObject}</caption>
+        <tr>
+            <apex:repeat value="{!areReadOnlyFields}" var="a">
+                <td><apex:outputLabel value="{!a.key}"/></td>
+            </apex:repeat>
+        </tr>
+        <tr>
+            <apex:repeat value="{!areReadOnlyFields}" var="a">
+                <td><apex:outputText value="{!a.val}"/></td>
+            </apex:repeat>
+        </tr>
+    </table>
+    
+    <table id="AccessibleFieldGroupings" render="!isNull{!selectedObject} AND !isNull({!areAccessibleFields})">
+        <caption>Accessible fields - {!selectedObject}</caption>
+        <tr>
+            <apex:repeat value="{!areAccessibleFields}" var="a">
+                <td><apex:outputLabel value="{!a.key}"/></td>
+            </apex:repeat>
+        </tr>
+        <tr>
+            <apex:repeat value="{!areAccessibleFields}" var="a">
+                <td><apex:outputText value="{!a.val}"/></td>
+            </apex:repeat>
+        </tr>
+    </table>
+    
+    <table id="ChildRelationshipsGroupings" render="!isNull{!selectedObject} AND !isNull({!areChildRelationships})">
+        <caption>Child Relationship fields for {!selectedObject}</caption>
+        <tr>
+            <apex:repeat value="{!areChildRelationships}" var="childkey">
+                <td><apex:outputLabel value="{!childkey}"/></td>
+            </apex:repeat>
+        </tr>
+        <tr>
+            <apex:repeat value="{!areChildRelationships}" var="childkey">
+                <td><apex:outputText value="{!areChildRelationships[childkey]}"/></td>
+            </apex:repeat>
+        </tr>
+    </table>
+    
+    <table id="NamePointingFieldGroupings" render="!isNull({!selectedObject}) AND !isNull({!areNamePointingFields})">
+        <caption>NamePointing fields for {!selectedObject}</caption>
+        <tr>
+            <apex:repeat value="{!areNamePointingFields}" var="a">
+                <td><apex:outputLabel value="{!a.key}"/></td>
+            </apex:repeat>
+        </tr>
+        <tr>
+            <apex:repeat value="{!areNamePointingFields}" var="a">
+                <td><apex:outputText value="{!a.val}"/></td>
+            </apex:repeat>
+        </tr>
+    </table>
+    
+    <table id="ReferenceToFieldGroupings" render="!isNull({!selectedObject}) && !isNull({!areReferenceToFields})">
+        <caption>ReferenceTo other object fields for {!selectedObject}</caption>
+        
+        <tr><apex:repeat value="{!areReferenceToFields}" var="refKey"><td><apex:outputLabel value="{!refKey}"/></td></apex:repeat></tr>
+        <tr><apex:repeat value="{!areReferenceToFields}" var="refKey"><td><apex:outputText value="{!areReferenceToFields[refKey]}"/></td></apex:repeat></tr>
+        
+    </table>
+    
+    <table id="DefaultedOnCreateFieldGroupings" render="!isNull({!selectedObject}) AND !isNull({!areDefaultedOnCreateFields})">
+        <caption>Fields with DefaultedOnCreate values for {!selectedObject}</caption>
+        <tr>
+            <apex:repeat value="{!areDefaultedOnCreateFields}" var="a">
+                <td><apex:outputLabel value="{!a.key}"/></td>
+            </apex:repeat>
+        </tr>
+        <tr>
+            <apex:repeat value="{!areDefaultedOnCreateFields}" var="a">
+                <td><apex:outputText value="{!a.val}"/></td>
+            </apex:repeat></tr>
+    </table>
+    
+    <table id="IdLookupFieldGroupings" render="!isNull({!selectedObject}) AND !isNull({!areIdLookupFields})">
+        <caption>IdLookup fields for {!selectedObject}</caption>
+        <tr>
+            <apex:repeat value="{!areIdLookupFields}" var="a">
+                <td><apex:outputLabel value="{!a.key}"/></td>
+            </apex:repeat>
+        </tr>
+        <tr>
+            <apex:repeat value="{!areIdLookupFields}" var="a">
+                <td><apex:outputText value="{!a.val}"/></td>
+            </apex:repeat>
+        </tr>
+    </table>
+    
+    <table id="ExternalIDFieldGroupings" render="!isNull({!selectedObject}) AND !isNull({!areExternalIDFields})">
+        <caption >ExternalID fields for {!selectedObject}</caption>
+        <tr>
+            <apex:repeat value="{!areExternalIDFields}" var="a">
+                <td><apex:outputLabel value="{!a.key}"/></td>
+            </apex:repeat>
+        </tr>
+        <tr>
+            <apex:repeat value="{!areExternalIDFields}" var="a"><td>
+                <apex:outputText value="{!a.val}"/></td>
+            </apex:repeat>
+        </tr>
+    </table>
+   
+    <table id="UniqueFieldGroupings" render="!isNull({!selectedObject}) AND !isNull({!areUniqueFields})">
+        <caption>Unique value fields for {!selectedObject}</caption>
+        <tr>
+            <apex:repeat value="{!areUniqueFields}" var="a">
+                <td><apex:outputLabel value="{!a.key}"/></td>
+            </apex:repeat>
+        </tr>
+        <tr>
+            <apex:repeat value="{!areUniqueFields}" var="a"><td>
+                <apex:outputText value="{!a.val}"/></td>
+            </apex:repeat>
+        </tr>
+    </table>
+    
+    <table id="IncludedFieldGroupings" render="!isNull({!selectedObject}) AND !isNull({!areIncludedFields})">
+        <caption>Fields available in a saved value set selection for {!selectedObject}</caption>
+        <tr>
+            <apex:repeat value="{!areIncludedFields}" var="a">
+                <td><apex:outputLabel value="{!a.key}"/></td>
+            </apex:repeat>
+        </tr>
+        <tr>
+            <apex:repeat value="{!areIncludedFields}" var="a">
+                <td><apex:outputText value="{!a.val}"/></td>
+            </apex:repeat>
+        </tr>
+    </table>
+    
+    
+    <table id="Optional - Nillable Fields" render="!isNull({!selectedObject}) AND !isNull({!areNillableFields})">
+        <caption>Nillable fields for {!selectedObject}</caption>
+        <tr>
+            <apex:repeat value="{!areNillableFields}" var="a">
+                <td><apex:outputLabel value="{!a.key}"/></td>
+            </apex:repeat>
+        </tr>
+        <tr>
+            <apex:repeat value="{!areNillableFields}" var="a">
+                <td><apex:outputText value="{!a.val}"/></td>
+            </apex:repeat>
+        </tr>
+    </table>                
+         
+
+    </apex:form>
+    
+</apex:page>

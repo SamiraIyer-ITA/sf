@@ -1,0 +1,21 @@
+<apex:page standardController="ADCVD_Order__c" extensions="AttachmentWriterController" showHeader="false" sidebar="false" docType="html-5.0">
+    <style>
+        .fixedTextArea{
+            width: 100%;
+            height: 130px;
+        }
+    </style>
+    <apex:pageMessages id="pm"/>
+    <apex:form rendered="{!recordId != null}">
+        <apex:pageBlock rendered="{!readAccess || editAccess}">
+            <apex:outputPanel layout="block" styleClass="fixedTextArea">
+                <apex:inputTextarea rows="10" value="{!attachmentBody}" styleClass="fixedTextArea" readonly="{!!edit}" disabled="{!!edit}"/> 
+            </apex:outputPanel>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton action="{!toggleEdit}" value="Edit" title="Edit" rendered="{!!edit}" />
+                <apex:commandButton action="{!saveAttachment}" value="Save" title="Save"  rendered="{!edit}" />
+                <apex:commandButton action="{!cancel}" value="Cancel" title="Cancel" rendered="{!edit}" />
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>Holds Configuration data for applications that utilize triggers in the org. There should be a &quot;default&quot; config and a &quot;testConfig&quot; AppConfig list in an org. EnableTriggers to be checked for both.</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>ADCVD_Admin__c</fullName>
+        <description>Email address of any Admin within the ADCVD group that wants to receive notification related to schedulable jobs</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used by ADCVD App</inlineHelpText>
+        <label>ADCVD Admin</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ADCVD_Developer__c</fullName>
+        <description>Email address of ADCVD Developer who may be monitoring scheduled jobs or running diagnostics related to them</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used by ADCVD App</inlineHelpText>
+        <label>ADCVD Developer</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AppEnabled__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Whether the application is enabled for configuration</description>
+        <externalId>false</externalId>
+        <label>AppEnabled</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ChronExp_LitigationSegement__c</fullName>
+        <defaultValue>&quot;0 &quot; + TEXT(MINUTE(TIMEVALUE(NOW() + 30))) + &quot; &quot; +  TEXT(HOUR(TIMEVALUE(NOW() + 30))) + &quot; &quot; + TEXT(Day(TODAY())) + &quot; &quot; + TEXT(MONTH(TODAY())) + &quot;? &quot;</defaultValue>
+        <description>Chron Trigger Expression used for ScheduledDispatcher of RefreshLitigationSegmentDates class.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used by ADCVD Application Schedulable Classes.</inlineHelpText>
+        <label>ChronExpr LitigationSegement</label>
+        <length>100</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ChronExpr_PetitionInvestigation__c</fullName>
+        <defaultValue>&quot;0 0 1 &quot; +  TEXT(Day( TODAY() +1)) + &quot; &quot; + TEXT(Month( TODAY() +1)) + &quot; ?&quot;</defaultValue>
+        <description>Chron Trigger Expression used for ScheduledDispatcher of RefreshPetitionInvestigationDates class.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used by ADCVD Application Schedulable Classes.</inlineHelpText>
+        <label>ChronExpr PetitionInvestigation</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EnableDiagnostics__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>We may add functionality for diagnostics. For now, it will be disabled. If added, changing this to true will enable the feature.</description>
+        <externalId>false</externalId>
+        <label>EnableDiagnostics</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Go_Live_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Go Live Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Primary_Admin__c</fullName>
+        <description>PrimaryAdmin to be notified by schedulable classes for ADCVD app&apos;s schedulable classes</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used by schedulable classes in finish methods</inlineHelpText>
+        <label>Primary Admin</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TriggersEnabled__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>All triggers are enabled by default</description>
+        <externalId>false</externalId>
+        <label>TriggersEnabled</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>AppConfig</label>
+    <visibility>Protected</visibility>
+</CustomObject>
