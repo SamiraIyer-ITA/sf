@@ -1,8 +1,0 @@
-<apex:page contentType="text/plain" showHeader="false" controller="SiteMap_Controller" >
-Sitemap: https://{!domain}/sitemap
-
-User-agent: * 
-Allow: /
-
-User-agent: PowerMapper Allow: /
-</apex:page>

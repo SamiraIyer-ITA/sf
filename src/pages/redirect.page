@@ -1,6 +1,0 @@
-<apex:page standardStylesheets="false" controller="redirect_controller" showHeader="false">
-    <script language="javascript">
-        //window.location.assign("{!redirect}");
-        document.location = '{!redirect}';
-    </script>
-</apex:page>

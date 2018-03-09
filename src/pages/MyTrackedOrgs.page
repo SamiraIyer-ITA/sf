@@ -1,5 +1,0 @@
-<apex:page >
-<apex:outputPanel id="MyTrackedOrgs" >
-<apex:iframe src="/00Or0000000Oqgy?pv0={$!User.ID}" scrolling="true"  height="1588px"  width="100%"/>   
-</apex:outputPanel>
-</apex:page>
