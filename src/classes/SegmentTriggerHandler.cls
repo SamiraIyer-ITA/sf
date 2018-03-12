@@ -142,7 +142,7 @@ public without sharing class SegmentTriggerHandler {
 	@TestVisible private static void runValidations(List<Segment__c> newList) {
     	for (Segment__c s : newList) {
     		validateRescissionOutcome(s);
-    		validateCompletedOutcome(s);
+    		//validateCompletedOutcome(s);
     	}
     }
 

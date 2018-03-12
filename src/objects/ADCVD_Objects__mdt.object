@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This holds the object types, record types, and a type field (if present) delineating a difference in records for the ADCVD app</description>
+    <fields>
+        <fullName>Number_of_Date_Calculations__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Number of Date Calculations</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Object_API_Name__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Object API Name</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>ADCVD_Order__c</fullName>
+                    <default>false</default>
+                    <label>ADCVD_Order__c</label>
+                </value>
+                <value>
+                    <fullName>Federal_Register__c</fullName>
+                    <default>false</default>
+                    <label>Federal_Register__c</label>
+                </value>
+                <value>
+                    <fullName>Investigation__c</fullName>
+                    <default>false</default>
+                    <label>Investigation__c</label>
+                </value>
+                <value>
+                    <fullName>Issue__c</fullName>
+                    <default>false</default>
+                    <label>Issue__c</label>
+                </value>
+                <value>
+                    <fullName>Litigation__c</fullName>
+                    <default>false</default>
+                    <label>Litigation__c</label>
+                </value>
+                <value>
+                    <fullName>Petition__c</fullName>
+                    <default>false</default>
+                    <label>Petition__c</label>
+                </value>
+                <value>
+                    <fullName>Recusal__c</fullName>
+                    <default>false</default>
+                    <label>Recusal__c</label>
+                </value>
+                <value>
+                    <fullName>Related_Organization__c</fullName>
+                    <default>false</default>
+                    <label>Related_Organization__c</label>
+                </value>
+                <value>
+                    <fullName>Segment__c</fullName>
+                    <default>false</default>
+                    <label>Segment__c</label>
+                </value>
+                <value>
+                    <fullName>Staffing_Assignment__c</fullName>
+                    <default>false</default>
+                    <label>Staffing_Assignment__c</label>
+                </value>
+                <value>
+                    <fullName>Suspension_Agreement__c</fullName>
+                    <default>false</default>
+                    <label>Suspension_Agreement__c</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Record_Type_Name__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Record Type Name</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AD</fullName>
+                    <default>false</default>
+                    <label>AD</label>
+                </value>
+                <value>
+                    <fullName>CVD</fullName>
+                    <default>false</default>
+                    <label>CVD</label>
+                </value>
+                <value>
+                    <fullName>Administrative_Review</fullName>
+                    <default>false</default>
+                    <label>Administrative_Review</label>
+                </value>
+                <value>
+                    <fullName>Anti_Circumvention_Review</fullName>
+                    <default>false</default>
+                    <label>Anti_Circumvention_Review</label>
+                </value>
+                <value>
+                    <fullName>Changed_Circumstances_Review</fullName>
+                    <default>false</default>
+                    <label>Changed_Circumstances_Review</label>
+                </value>
+                <value>
+                    <fullName>Expedited_Review</fullName>
+                    <default>false</default>
+                    <label>Expedited_Review</label>
+                </value>
+                <value>
+                    <fullName>New_Shipper_Review</fullName>
+                    <default>false</default>
+                    <label>New_Shipper_Review</label>
+                </value>
+                <value>
+                    <fullName>Scope_Inquiry</fullName>
+                    <default>false</default>
+                    <label>Scope_Inquiry</label>
+                </value>
+                <value>
+                    <fullName>Sunset_Review</fullName>
+                    <default>false</default>
+                    <label>Sunset_Review</label>
+                </value>
+                <value>
+                    <fullName>International_Litigation</fullName>
+                    <default>false</default>
+                    <label>International_Litigation</label>
+                </value>
+                <value>
+                    <fullName>Remand</fullName>
+                    <default>false</default>
+                    <label>Remand</label>
+                </value>
+                <value>
+                    <fullName>Primary</fullName>
+                    <default>false</default>
+                    <label>Primary</label>
+                </value>
+                <value>
+                    <fullName>Related</fullName>
+                    <default>false</default>
+                    <label>Related</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Type</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Admin Review Opportunity Notice</fullName>
+                    <default>false</default>
+                    <label>Admin Review Opportunity Notice</label>
+                </value>
+                <value>
+                    <fullName>Amended Final</fullName>
+                    <default>false</default>
+                    <label>Amended Final</label>
+                </value>
+                <value>
+                    <fullName>Amended Preliminary</fullName>
+                    <default>false</default>
+                    <label>Amended Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Continuation</fullName>
+                    <default>false</default>
+                    <label>Continuation</label>
+                </value>
+                <value>
+                    <fullName>Continuation or Revocation</fullName>
+                    <default>false</default>
+                    <label>Continuation or Revocation</label>
+                </value>
+                <value>
+                    <fullName>Correction</fullName>
+                    <default>false</default>
+                    <label>Correction</label>
+                </value>
+                <value>
+                    <fullName>Deadline for Decision on how to proceed</fullName>
+                    <default>false</default>
+                    <label>Deadline for Decision on how to proceed</label>
+                </value>
+                <value>
+                    <fullName>Final</fullName>
+                    <default>false</default>
+                    <label>Final</label>
+                </value>
+                <value>
+                    <fullName>Initiation</fullName>
+                    <default>false</default>
+                    <label>Initiation</label>
+                </value>
+                <value>
+                    <fullName>Initiation/Prelim</fullName>
+                    <default>false</default>
+                    <label>Initiation/Prelim</label>
+                </value>
+                <value>
+                    <fullName>ITC Final</fullName>
+                    <default>false</default>
+                    <label>ITC Final</label>
+                </value>
+                <value>
+                    <fullName>ITC Preliminary</fullName>
+                    <default>false</default>
+                    <label>ITC Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Order</fullName>
+                    <default>false</default>
+                    <label>Order</label>
+                </value>
+                <value>
+                    <fullName>Petitioner</fullName>
+                    <default>false</default>
+                    <label>Petitioner</label>
+                </value>
+                <value>
+                    <fullName>Post Litigation</fullName>
+                    <default>false</default>
+                    <label>Post Litigation</label>
+                </value>
+                <value>
+                    <fullName>Postponement</fullName>
+                    <default>false</default>
+                    <label>Postponement</label>
+                </value>
+                <value>
+                    <fullName>Preliminary</fullName>
+                    <default>false</default>
+                    <label>Preliminary</label>
+                </value>
+                <value>
+                    <fullName>Quarterly Scope</fullName>
+                    <default>false</default>
+                    <label>Quarterly Scope</label>
+                </value>
+                <value>
+                    <fullName>Rescission</fullName>
+                    <default>false</default>
+                    <label>Rescission</label>
+                </value>
+                <value>
+                    <fullName>Respondent</fullName>
+                    <default>false</default>
+                    <label>Respondent</label>
+                </value>
+                <value>
+                    <fullName>Revocation</fullName>
+                    <default>false</default>
+                    <label>Revocation</label>
+                </value>
+                <value>
+                    <fullName>Suspension Agreement</fullName>
+                    <default>false</default>
+                    <label>Suspension Agreement</label>
+                </value>
+                <value>
+                    <fullName>Termination</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Termination</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>ADCVD Objects</label>
+    <pluralLabel>ADCVD Objects</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>
