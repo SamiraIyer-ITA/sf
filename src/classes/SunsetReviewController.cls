@@ -252,9 +252,8 @@ public class SunsetReviewController {
     private static String soqlBuilderAllFields(String SobjectApiName) {
         //Map<String, Schema.SObjectType> schemaMap = Schema.getGlobalDescribe();
         //Map<String, Schema.SObjectField> fieldMap = Utils.cachedGD.get(SobjectApiName).getDescribe().fields.getMap();
-        Set<String> searchFields = new Set<String>();
-        String fieldsNotDisplayed = 'Adequacy_of_Respondents_Submission__c';
-        String commaSeparatedFields = fieldsNotDisplayed;
+        Set<String> searchFields = new Set<String>{'Adequacy_of_Respondents_Submission__c'};
+        String commaSeparatedFields = '';
         /*for (String fieldName : fieldMap.keyset()){
             searchFields.add(fieldName.toLowerCase());
         }*/
