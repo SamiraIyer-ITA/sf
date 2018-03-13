@@ -1,20 +1,5 @@
-/**
- * 
- *    Created by Joshua Moody
- *    on Oct 3 2017
- *    MIL Corporation
- * 
- **/
-
 @isTest
 public class RecusalTriggerHandlerTest {
-
-	/************************************************
-    * This class performs unit tests on the RecusalTriggerHandler
-    * under these condititions.
-    * 1. Test to ensure that a related recusal correctly syncs to it's primary
-    *************************************************/
-
 	static Petition__c p {
 		get {
 			if (p == null) {

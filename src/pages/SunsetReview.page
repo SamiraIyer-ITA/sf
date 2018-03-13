@@ -11,12 +11,12 @@
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <!--<apex:include pageName="UIThemeUtilsInclude"/>-->
             <!-- Import the Design System style sheet -->
-            <apex:variable var="uiTheme" value="lightningDesktop" rendered="{!isLightningExperience || isSalesforce1}">
+            <apex:variable var="uiTheme" value="lightningDesktop" rendered="true">
                 <apex:slds />
             </apex:variable>
         </head>
         <body>
-            <apex:form id="form-ltng" rendered="{!isLightningExperience || isSalesforce1}">
+            <apex:form id="form-ltng" rendered="true">
             <apex:pageMessages id="pm-ltng"/>
             <!-- REQUIRED SLDS WRAPPER -->
             <div class="slds-scope">
@@ -38,7 +38,7 @@
                         <div class="slds-col slds-no-flex slds-grid slds-align-top slds-align-middle">
                           <div class="slds-button-group" role="group">
                             <apex:commandButton styleClass="slds-button slds-button--neutral" action="{!toggleEdit}" value="Edit" id="editButton-ltng" reRender="form-ltng, pm-ltng" rendered="{!NOT(edit)}" />
-                            <apex:commandButton styleClass="slds-button slds-button--neutral" action="{!save}" value="Save" id="saveButton-ltng"  reRender="form-ltng, pm-ltng" rendered="{!edit}"/> <!--oncomplete="refreshPage();"/>-->
+                            <apex:commandButton styleClass="slds-button slds-button--neutral" action="{!save}" value="Save" id="saveButton-ltng"  reRender="form-ltng, pm-ltng" rendered="{!edit}"/><!-- oncomplete="refreshPage();"/> -->
                             <apex:commandButton styleClass="slds-button slds-button--neutral" action="{!cancel}" value="Cancel" id="cancelButton-ltng"  reRender="form-ltng, pm-ltng" rendered="{!edit}" immediate="true"/>
                           </div>
                         </div>
@@ -103,8 +103,8 @@
                                                     <div class="slds-form-element slds-size--1-of-2">
                                                         <apex:outputField value="{!ssReview[f]}" rendered="{!NOT(edit) || CONTAINS(f.fieldPath, '__r')}"  styleClass="slds-output-"/>
                                                         <apex:inputField value="{!ssReview[f.fieldPath]}" rendered="{!edit && NOT(CONTAINS(f.fieldPath, '__r'))}" required="{!OR(f.required, f.dbrequired)}" styleClass="slds-input" showDatePicker="false">
-                                                        	<!--<apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection-ltng, hiddenBlock" >
-                                                            	<apex:param name="ssReviewType" value="90" assignTo="{!ssReviewType}"/>
+                                                            <!--<apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection-ltng, hiddenBlock" >
+                                                                <apex:param name="ssReviewType" value="90" assignTo="{!ssReviewType}"/>
                                                             </apex:actionSupport>-->
                                                         </apex:inputField>
                                                     </div>
@@ -133,8 +133,8 @@
                                                     <div class="slds-form-element slds-size--1-of-2">
                                                         <apex:outputField value="{!ssReview[f]}" rendered="{!NOT(edit) || CONTAINS(f.fieldPath, '__r')}"  styleClass="slds-output-"/>
                                                         <apex:inputField value="{!ssReview[f.fieldPath]}" rendered="{!edit && NOT(CONTAINS(f.fieldPath, '__r'))}" required="{!OR(f.required, f.dbrequired)}" styleClass="slds-input" showDatePicker="false">
-                                                        	<!--<apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection-ltng, hiddenBlock" >
-                                                            	<apex:param name="ssReviewType" value="120" assignTo="{!ssReviewType}"/>
+                                                            <!--<apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection-ltng, hiddenBlock" >
+                                                                <apex:param name="ssReviewType" value="120" assignTo="{!ssReviewType}"/>
                                                             </apex:actionSupport>-->
                                                         </apex:inputField>
                                                     </div>
@@ -164,7 +164,7 @@
                                                         <apex:outputField value="{!ssReview[f]}" rendered="{!NOT(edit) || CONTAINS(f.fieldPath, '__r')}"  styleClass="slds-output-"/>
                                                         <apex:inputField value="{!ssReview[f.fieldPath]}" rendered="{!edit && NOT(CONTAINS(f.fieldPath, '__r'))}" required="{!OR(f.required, f.dbrequired)}" styleClass="slds-input" showDatePicker="false">
                                                             <!--<apex:actionSupport event="onchange" action="{!updateSSReview}" reRender="dynamicSection-ltng, hiddenBlock" >
-                                                            	<apex:param name="ssReviewType" value="240" assignTo="{!ssReviewType}"/>
+                                                                <apex:param name="ssReviewType" value="240" assignTo="{!ssReviewType}"/>
                                                             </apex:actionSupport>-->
                                                         </apex:inputField>
                                                     </div>
@@ -200,12 +200,12 @@
         </apex:form>
         </body>
     </html>
-    <apex:form id="form" rendered="{!isSalesforceClassic}">
+    <apex:form id="form" rendered="false">
         <apex:pageMessages id="pm"/>
         <apex:pageBlock > 
             <apex:pageBlockButtons >
                 <apex:commandButton action="{!toggleEdit}" value="Edit" id="editButton" reRender="form, pm" rendered="{!NOT(edit)}" />
-                <apex:commandButton action="{!save}" value="Save" id="saveButton"  reRender="form, pm" rendered="{!edit}" oncomplete="window.location.reload();"/>
+                <apex:commandButton action="{!save}" value="Save" id="saveButton"  reRender="form, pm" rendered="{!edit}"/> <!-- oncomplete="window.location.reload();"/>-->
                 <apex:commandButton action="{!cancel}" value="Cancel" id="cancelButton"  reRender="form, pm" rendered="{!edit}" styleClass="saveCancelButton" immediate="true"/>
             </apex:pageBlockButtons>
             <apex:pageBlockSection id="reviewInfo" columns="2" title="Review Information" collapsible="false" >

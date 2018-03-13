@@ -1,13 +1,5 @@
 @isTest
 public class InvestigationSelectorTest {
-
-	/************************************************
-	InvestigatioSelector IS CURRENTLY A PLACEHOLDER CLASS AND IS NOT USED IN APP.
-
-    * This class performs unit tests on the InvestigationSelector
-    * under these condititions.
-    * 1. Test to ensure that the class is initialized when creating an investigation
-    *************************************************/
 	
 	private static FINAL Integer COUNT = 1;
 

@@ -1,22 +1,5 @@
-/**
- * 
- *    Created by Joshua Moody
- *    on Mar 14 2017
- *    MIL Corporation
- * 
- **/
-
 @isTest
 public class LitigationTriggerHandlerTest {
-
-	/************************************************
-    * This class performs unit tests on the ADCVDOrderTriggerHandler
-    * under these condititions.
-    * 1. Test to ensure that class variables initialize
-    * 2. Test to ensure that date calculations are logically correct
-    * 3. Test to ensure that parent case values are correctly added on insert
-    *************************************************/
-
 	private static Date litigationDate = System.today();
 	private static Date testActual = System.today();//reusable date variable for each test to add roll forward logic allowing data normalization
 	private static Date testCalculated = System.today();//reusable date variable for each test to add roll forward logic allowing data normalization

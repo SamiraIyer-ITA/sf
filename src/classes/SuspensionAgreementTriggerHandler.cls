@@ -1,22 +1,4 @@
-/**
- * 
- *    Created by Joshua Moody
- *    on May 16 2017
- *    MIL Corporation
- * 
- **/
-
 public without sharing class SuspensionAgreementTriggerHandler {
-
-    /***********************************************************
-   * This class handles all trigger contexts for the Suspension_Agreement__c
-   * object.  It provides methods that:
-   * 1. Organize the flow of logic for each trigger context
-   * 2. Initialize class variables
-   * 3. Help in the mapping of related objects
-   * 4. Retrieve constant values saved in custom metadata
-   * 5. Performs custom validations not possible with validation rules
-   ***********************************************************/
 
 	private static Map<String,Constant__mdt> saCalcOffsets = saCalcOffsets();
 
@@ -37,7 +19,6 @@ public without sharing class SuspensionAgreementTriggerHandler {
         if (isBefore && isInsert) {
             newList = new LockedRecordHandler().removeLockedRecords(newList);
             initialize(newList,newMap);
-            setCaseValues(newList);
             calculateDates(newList);
             runCustomValidations(newList);
         }
@@ -53,7 +34,6 @@ public without sharing class SuspensionAgreementTriggerHandler {
      * Class Level Variables
     *****************************/
 
-    @TestVisible private static Map<Id,Investigation__c> investigationsInScopeMap = new Map<Id,Investigation__c>();
     @TestVisible private static Map<Id,ADCVD_FederalRegisterUtility> frUtilMap = new Map<Id,ADCVD_FederalRegisterUtility>();
 
 
@@ -65,14 +45,6 @@ public without sharing class SuspensionAgreementTriggerHandler {
         if(newMap != null) {
             ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get Segments with an Id
             frUtilMap = listInstance.utilMap;
-        }
-        investigationsInScopeMap = findInvestigationsInScopeMap(newList);
-    }
-
-    @TestVisible private static void setCaseValues(List<Suspension_Agreement__c> newList) {
-        ParentValuesService pvs = new ParentValuesService();
-        for (Suspension_Agreement__c sa : newList) {
-            sa = (Suspension_Agreement__c) pvs.setCaseValuesFromParent(investigationsInScopeMap.get(sa.Investigation__c), sa);
         }
     }
 
@@ -93,26 +65,6 @@ public without sharing class SuspensionAgreementTriggerHandler {
     /***********************************
     * Helper Methods
     ***********************************/
-
-    //returns a set of Investigation Ids in scope of the Suspension Agreements in trigger
-    @TestVisible private static Set<Id> findIdsInScope(List<Suspension_Agreement__c> newList) {
-        Set<Id> investigationIdSet = new Set<Id>();
-        for (Suspension_Agreement__c sa : newList) {
-            investigationIdSet.add(sa.Investigation__c);
-        }
-        return investigationIdSet;
-    }
-    //returns a map of the Investigation__c objects in the form: key = Id, value = Investigation object
-    //This pulls the investigation fields needed via the Investigation lookup field and adds them to the map
-    @TestVisible private static Map<Id,Investigation__c> findInvestigationsInScopeMap(List<Suspension_Agreement__c> newList) {
-        Map<Id,Investigation__c> returnMap = new Map<Id,Investigation__c>();
-        Set<Id> investigationIdSet = findIdsInScope(newList);
-        for (Investigation__c i : [SELECT Id, ADCVD_Case_Type__c, ADCVD_Case__c 
-                                    FROM Investigation__c WHERE Id IN: investigationIdSet]) {
-            returnMap.put(i.Id, i);
-        }
-        return returnMap;
-    }
 
     //used to set Offset Variables
 	@TestVisible private static Map<String,Constant__mdt> saCalcOffsets() {

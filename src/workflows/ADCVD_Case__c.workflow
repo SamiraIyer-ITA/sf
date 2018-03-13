@@ -19,16 +19,6 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Update_Owner_to_Closed_ADCVD_Case_Queue</fullName>
-        <field>OwnerId</field>
-        <lookupValue>ADCVD_Case_Closed_Locked</lookupValue>
-        <lookupValueType>Queue</lookupValueType>
-        <name>Update Owner to Closed ADCVD Case Queue</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>LookupValue</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
         <fullName>Update_Owner_to_Open_ADCVD_Case_Queue</fullName>
         <field>OwnerId</field>
         <lookupValue>ADCVD_Case_Open</lookupValue>

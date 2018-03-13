@@ -60,7 +60,7 @@ public without sharing class PetitionTriggerHandler {
         }
         if(isAfter && isUpdate) {
             recalculateInvestigations(newMap, oldMap);
-            if (!Test.isRunningTest()) {new ChatterPostService().getChatterPosts(oldMap, newMap, 'Petition__c');}
+            new ChatterPostService().getChatterPosts(oldMap, newMap, 'Petition__c');
         }
     }
 

@@ -1,20 +1,5 @@
-/**
- * 
- *    Created by Joshua Moody
- *    on Sep 19 2017
- *    MIL Corporation
- * 
- **/
-
 @isTest
 public class ParentValuesServiceTest {
-
-	/************************************************
-    * This class performs unit tests on the ParentValuesService
-    * under these condititions.
-    * 1. Test to ensure that fields are correctly populated on
-    * a child object from the parent.
-    *************************************************/
 
 	private static Date petitionDate = System.today();
 	private static Investigation__c iAD {

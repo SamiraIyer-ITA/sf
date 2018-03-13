@@ -1175,7 +1175,7 @@
                 <sorted>false</sorted>
                 <value>
                     <fullName>Admin Review Opportunity Notice</fullName>
-                    <default>true</default>
+                    <default>false</default>
                     <label>Admin Review Opportunity Notice</label>
                 </value>
                 <value>
@@ -1482,7 +1482,7 @@
                 <sorted>false</sorted>
                 <value>
                     <fullName>Admin Review Opportunity Notice</fullName>
-                    <default>true</default>
+                    <default>false</default>
                     <label>Admin Review Opportunity Notice</label>
                 </value>
                 <value>
@@ -1789,7 +1789,7 @@
                 <sorted>false</sorted>
                 <value>
                     <fullName>Admin Review Opportunity Notice</fullName>
-                    <default>true</default>
+                    <default>false</default>
                     <label>Admin Review Opportunity Notice</label>
                 </value>
                 <value>
@@ -2091,7 +2091,7 @@
                 <sorted>false</sorted>
                 <value>
                     <fullName>Admin Review Opportunity Notice</fullName>
-                    <default>true</default>
+                    <default>false</default>
                     <label>Admin Review Opportunity Notice</label>
                 </value>
                 <value>
@@ -2393,7 +2393,7 @@
                 <sorted>false</sorted>
                 <value>
                     <fullName>Admin Review Opportunity Notice</fullName>
-                    <default>true</default>
+                    <default>false</default>
                     <label>Admin Review Opportunity Notice</label>
                 </value>
                 <value>
@@ -2695,7 +2695,7 @@
                 <sorted>false</sorted>
                 <value>
                     <fullName>Admin Review Opportunity Notice</fullName>
-                    <default>true</default>
+                    <default>false</default>
                     <label>Admin Review Opportunity Notice</label>
                 </value>
                 <value>
@@ -2997,7 +2997,7 @@
                 <sorted>false</sorted>
                 <value>
                     <fullName>Admin Review Opportunity Notice</fullName>
-                    <default>true</default>
+                    <default>false</default>
                     <label>Admin Review Opportunity Notice</label>
                 </value>
                 <value>
@@ -3299,7 +3299,7 @@
                 <sorted>false</sorted>
                 <value>
                     <fullName>Admin Review Opportunity Notice</fullName>
-                    <default>true</default>
+                    <default>false</default>
                     <label>Admin Review Opportunity Notice</label>
                 </value>
                 <value>

@@ -1,13 +1,6 @@
 /**
-* 	Created by cloud on 8/14/2017.
-*
-*	This class reads custom settings to set flags for the ADCVD
-*	Triggers. It uses booleans to tell the triggers whether or not
-*	the triggers are running in a unit test context and whether
-*	or not they're enabled. It also passes a GoLive date to one of
-*	the application's service classes.
-*
-*/
+ * Created by cloud on 8/14/2017.
+ */
 
 public with sharing class AppConfigService {
     private static AppConfig__c testConfig = null;

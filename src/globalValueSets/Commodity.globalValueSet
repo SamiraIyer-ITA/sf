@@ -3,57 +3,46 @@
     <customValue>
         <fullName>Cement and Ceramics</fullName>
         <default>false</default>
-        <label>Cement and Ceramics</label>
     </customValue>
     <customValue>
         <fullName>Chemicals and Allied Industries</fullName>
         <default>false</default>
-        <label>Chemicals and Allied Industries</label>
     </customValue>
     <customValue>
         <fullName>Foodstuffs</fullName>
         <default>false</default>
-        <label>Foodstuffs</label>
     </customValue>
     <customValue>
         <fullName>Machinery and Automotive</fullName>
         <default>false</default>
-        <label>Machinery and Automotive</label>
     </customValue>
     <customValue>
         <fullName>Minerals</fullName>
         <default>false</default>
-        <label>Minerals</label>
     </customValue>
     <customValue>
         <fullName>Other Metals and Articles of Metal</fullName>
         <default>false</default>
-        <label>Other Metals and Articles of Metal</label>
     </customValue>
     <customValue>
         <fullName>Other Mfg.</fullName>
         <default>false</default>
-        <label>Other Mfg.</label>
     </customValue>
     <customValue>
         <fullName>Paper and Paperboard</fullName>
         <default>false</default>
-        <label>Paper and Paperboard</label>
     </customValue>
     <customValue>
         <fullName>Plastics and Rubber</fullName>
         <default>false</default>
-        <label>Plastics and Rubber</label>
     </customValue>
     <customValue>
         <fullName>Steel-Related</fullName>
         <default>false</default>
-        <label>Steel-Related</label>
     </customValue>
     <customValue>
         <fullName>Textiles</fullName>
         <default>false</default>
-        <label>Textiles</label>
     </customValue>
     <masterLabel>Commodity</masterLabel>
     <sorted>false</sorted>

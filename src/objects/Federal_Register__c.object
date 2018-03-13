@@ -191,85 +191,87 @@
         <fullName>Type__c</fullName>
         <externalId>false</externalId>
         <label>Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Initiation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Continuation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Preliminary</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Amended Preliminary</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Final</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Amended Final</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ITC Preliminary</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ITC Final</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Order</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Postponement</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Post Litigation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Admin Review Opportunity Notice</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Rescission</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Correction</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Revocation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Quarterly Scope</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Suspension Agreement</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Termination</fullName>
-                <default>false</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Initiation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Continuation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Preliminary</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Amended Preliminary</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Final</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Amended Final</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ITC Preliminary</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>ITC Final</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Order</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Postponement</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Post Litigation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Admin Review Opportunity Notice</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Rescission</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Correction</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Revocation</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Quarterly Scope</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Suspension Agreement</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Termination</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <label>Federal Register</label>
     <listViews>
@@ -329,5 +331,4 @@ ISBLANK( Petition__c ), ISBLANK(Suspension_Agreement__c ),
 ISBLANK( ADCVD_Order__c )))</errorConditionFormula>
         <errorMessage>You must have a Petition, Investigation,  Orders, Suspension Agreement or Segment associated to this Federal Register.</errorMessage>
     </validationRules>
-    <visibility>Public</visibility>
 </CustomObject>

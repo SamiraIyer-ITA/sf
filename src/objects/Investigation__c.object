@@ -38,13 +38,18 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
+        <comment>Action override updated by Lightning App Builder during activation.</comment>
+        <content>CVD_Investigation_Lightning_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>Basic_Case_Info</compactLayoutAssignment>
     <compactLayouts>
         <fullName>Basic_Case_Info</fullName>
-        <fields>ADCVD_Case_Number__c</fields>
+        <fields>ADCVD_Case__c</fields>
+        <fields>Office__c</fields>
         <fields>Product_Short_Name__c</fields>
         <fields>Country__c</fields>
         <fields>Period_Covered_Start_Date__c</fields>
@@ -64,9 +69,10 @@
     <fields>
         <fullName>ADCVD_Case_Number__c</fullName>
         <externalId>false</externalId>
-        <label>ADCVD Case Number</label>
+        <label>ADCVD Case Number Text Value</label>
         <length>255</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -78,6 +84,7 @@
         <label>ADCVD Case Type</label>
         <length>255</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -92,6 +99,7 @@
         <relationshipLabel>Investigations</relationshipLabel>
         <relationshipName>Investigations</relationshipName>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
@@ -127,6 +135,7 @@
         <relationshipLabel>Aligned CVD Investigations</relationshipLabel>
         <relationshipName>Investigations</relationshipName>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
@@ -136,6 +145,7 @@
         <externalId>false</externalId>
         <label>Actual Amend Final Concurrence to DAS</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -145,6 +155,7 @@
         <externalId>false</externalId>
         <label>Actual Amend Final Issues to DAS</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -154,6 +165,7 @@
         <externalId>false</externalId>
         <label>Actual Amend Prelim Concurrence to DAS</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -163,6 +175,7 @@
         <externalId>false</externalId>
         <label>Actual Amend Prelim Issues to DAS</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -174,6 +187,7 @@
         <inlineHelpText>Actual Amended Final Signature</inlineHelpText>
         <label>Actual Amended Final Signature</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -185,6 +199,7 @@
         <inlineHelpText>Actual Amended Preliminary Determination Signature</inlineHelpText>
         <label>Actual Amended Prelim Determination Sig</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -194,6 +209,7 @@
         <externalId>false</externalId>
         <label>Actual Final Concurrence to DAS</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -203,6 +219,7 @@
         <externalId>false</externalId>
         <label>Actual Final Issues to DAS</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -214,6 +231,7 @@
         <inlineHelpText>Actual Final Signature</inlineHelpText>
         <label>Actual Final Signature</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -223,6 +241,7 @@
         <externalId>false</externalId>
         <label>Actual Prelim Concurrence to DAS</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -232,6 +251,7 @@
         <externalId>false</externalId>
         <label>Actual Prelim Issues to DAS</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -243,6 +263,7 @@
         <inlineHelpText>Actual Preliminary Signature</inlineHelpText>
         <label>Actual Preliminary Signature</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -252,6 +273,7 @@
         <externalId>false</externalId>
         <label>Amend Final Concurrence Due to DAS</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -261,6 +283,7 @@
         <externalId>false</externalId>
         <label>Amend Final Issues Due to DAS</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -270,6 +293,7 @@
         <externalId>false</externalId>
         <label>Amend Prelim Concurrence Due to DAS</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -279,6 +303,7 @@
         <externalId>false</externalId>
         <label>Amend Prelim Issues Due to DAS</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -287,9 +312,10 @@
         <fullName>Amend_the_Preliminary_Determination__c</fullName>
         <description>Will you Amend the Preliminary Determination?</description>
         <externalId>false</externalId>
-        <inlineHelpText>Select &quot;Yes&quot; if, as a result of a ministerial error in the preliminary determination, an amended preliminary determination will be issued.</inlineHelpText>
+        <inlineHelpText>Will you Amend the Preliminary Determination?</inlineHelpText>
         <label>Amend the Preliminary Determination?</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -303,6 +329,7 @@
         <externalId>false</externalId>
         <label>Amended Final Announcement Date</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -312,6 +339,7 @@
         <externalId>false</externalId>
         <label>Amended Preliminary Announcement Date</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -322,6 +350,7 @@
         <label>CBP Case Number</label>
         <length>28</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -334,6 +363,7 @@
         <inlineHelpText>Calculated Amended Preliminary Determination Signature</inlineHelpText>
         <label>Calc Amended Prelim Determination Sig</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -345,6 +375,7 @@
         <inlineHelpText>Calculated Amended Final Signature</inlineHelpText>
         <label>Calculated Amended Final Signature</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -356,6 +387,7 @@
         <inlineHelpText>Calculated Final Signature</inlineHelpText>
         <label>Calculated Final Signature</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -367,6 +399,7 @@
         <inlineHelpText>Calculated ITC Final FR Published</inlineHelpText>
         <label>Calculated ITC Final FR Published</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -378,6 +411,7 @@
         <inlineHelpText>Calculated ITC Prelim Determination</inlineHelpText>
         <label>Calculated ITC Prelim Determination</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -389,6 +423,7 @@
         <inlineHelpText>Calculated Order FR Signature</inlineHelpText>
         <label>Calculated Order FR Signature</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -400,6 +435,7 @@
         <inlineHelpText>Calculated Postponement of Preliminary Determination Federal Register Signature</inlineHelpText>
         <label>Calculated Postponement of PrelimDeterFR</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -411,6 +447,7 @@
         <inlineHelpText>Calculated Prelim Extension Request Filed</inlineHelpText>
         <label>Calculated Prelim Extension Request File</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -422,6 +459,7 @@
         <inlineHelpText>Calculated Preliminary Signature</inlineHelpText>
         <label>Calculated Preliminary Signature</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -431,6 +469,7 @@
         <externalId>false</externalId>
         <label>Commodity</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -440,57 +479,46 @@
                 <value>
                     <fullName>Cement and Ceramics</fullName>
                     <default>false</default>
-                    <label>Cement and Ceramics</label>
                 </value>
                 <value>
                     <fullName>Chemicals and Allied Industries</fullName>
                     <default>false</default>
-                    <label>Chemicals and Allied Industries</label>
                 </value>
                 <value>
                     <fullName>Foodstuffs</fullName>
                     <default>false</default>
-                    <label>Foodstuffs</label>
                 </value>
                 <value>
                     <fullName>Machinery and Automotive</fullName>
                     <default>false</default>
-                    <label>Machinery and Automotive</label>
                 </value>
                 <value>
                     <fullName>Minerals</fullName>
                     <default>false</default>
-                    <label>Minerals</label>
                 </value>
                 <value>
                     <fullName>Other Metals and Articles of Metal</fullName>
                     <default>false</default>
-                    <label>Other Metals and Articles of Metal</label>
                 </value>
                 <value>
                     <fullName>Other Mfg.</fullName>
                     <default>false</default>
-                    <label>Other Mfg.</label>
                 </value>
                 <value>
                     <fullName>Paper and Paperboard</fullName>
                     <default>false</default>
-                    <label>Paper and Paperboard</label>
                 </value>
                 <value>
                     <fullName>Plastics and Rubber</fullName>
                     <default>false</default>
-                    <label>Plastics and Rubber</label>
                 </value>
                 <value>
                     <fullName>Steel-Related</fullName>
                     <default>false</default>
-                    <label>Steel-Related</label>
                 </value>
                 <value>
                     <fullName>Textiles</fullName>
                     <default>false</default>
-                    <label>Textiles</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -501,6 +529,7 @@
         <externalId>false</externalId>
         <label>Countervailed Programs</label>
         <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
@@ -512,6 +541,7 @@
         <label>Country</label>
         <length>255</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -523,6 +553,7 @@
         <externalId>false</externalId>
         <label>Country in which factors were valued</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -533,332 +564,266 @@
                 <value>
                     <fullName>Argentina</fullName>
                     <default>false</default>
-                    <label>Argentina</label>
                 </value>
                 <value>
                     <fullName>Australia</fullName>
                     <default>false</default>
-                    <label>Australia</label>
                 </value>
                 <value>
                     <fullName>Austria</fullName>
                     <default>false</default>
-                    <label>Austria</label>
                 </value>
                 <value>
                     <fullName>Bangladesh</fullName>
                     <default>false</default>
-                    <label>Bangladesh</label>
                 </value>
                 <value>
                     <fullName>Belarus</fullName>
                     <default>false</default>
-                    <label>Belarus</label>
                 </value>
                 <value>
                     <fullName>Belgium</fullName>
                     <default>false</default>
-                    <label>Belgium</label>
                 </value>
                 <value>
                     <fullName>Brazil</fullName>
                     <default>false</default>
-                    <label>Brazil</label>
                 </value>
                 <value>
                     <fullName>Canada</fullName>
                     <default>false</default>
-                    <label>Canada</label>
                 </value>
                 <value>
                     <fullName>Chile</fullName>
                     <default>false</default>
-                    <label>Chile</label>
                 </value>
                 <value>
                     <fullName>Colombia</fullName>
                     <default>false</default>
-                    <label>Colombia</label>
                 </value>
                 <value>
                     <fullName>Czech Republic</fullName>
                     <default>false</default>
-                    <label>Czech Republic</label>
                 </value>
                 <value>
                     <fullName>Denmark</fullName>
                     <default>false</default>
-                    <label>Denmark</label>
                 </value>
                 <value>
                     <fullName>Ecuador</fullName>
                     <default>false</default>
-                    <label>Ecuador</label>
                 </value>
                 <value>
                     <fullName>Egypt</fullName>
                     <default>false</default>
-                    <label>Egypt</label>
                 </value>
                 <value>
                     <fullName>Estonia</fullName>
                     <default>false</default>
-                    <label>Estonia</label>
                 </value>
                 <value>
                     <fullName>Finland</fullName>
                     <default>false</default>
-                    <label>Finland</label>
                 </value>
                 <value>
                     <fullName>France</fullName>
                     <default>false</default>
-                    <label>France</label>
                 </value>
                 <value>
                     <fullName>Germany</fullName>
                     <default>false</default>
-                    <label>Germany</label>
                 </value>
                 <value>
                     <fullName>Greece</fullName>
                     <default>false</default>
-                    <label>Greece</label>
                 </value>
                 <value>
                     <fullName>Hungary</fullName>
                     <default>false</default>
-                    <label>Hungary</label>
                 </value>
                 <value>
                     <fullName>India</fullName>
                     <default>false</default>
-                    <label>India</label>
                 </value>
                 <value>
                     <fullName>Indonesia</fullName>
                     <default>false</default>
-                    <label>Indonesia</label>
                 </value>
                 <value>
                     <fullName>Iran</fullName>
                     <default>false</default>
-                    <label>Iran</label>
                 </value>
                 <value>
                     <fullName>Iraq</fullName>
                     <default>false</default>
-                    <label>Iraq</label>
                 </value>
                 <value>
                     <fullName>Ireland</fullName>
                     <default>false</default>
-                    <label>Ireland</label>
                 </value>
                 <value>
                     <fullName>Israel</fullName>
                     <default>false</default>
-                    <label>Israel</label>
                 </value>
                 <value>
                     <fullName>Italy</fullName>
                     <default>false</default>
-                    <label>Italy</label>
                 </value>
                 <value>
                     <fullName>Japan</fullName>
                     <default>false</default>
-                    <label>Japan</label>
                 </value>
                 <value>
                     <fullName>Kazakhstan</fullName>
                     <default>false</default>
-                    <label>Kazakhstan</label>
                 </value>
                 <value>
                     <fullName>Kyrgyzstan</fullName>
                     <default>false</default>
-                    <label>Kyrgyzstan</label>
                 </value>
                 <value>
                     <fullName>Latvia</fullName>
                     <default>false</default>
-                    <label>Latvia</label>
                 </value>
                 <value>
                     <fullName>Lithuania</fullName>
                     <default>false</default>
-                    <label>Lithuania</label>
                 </value>
                 <value>
                     <fullName>Luxembourg</fullName>
                     <default>false</default>
-                    <label>Luxembourg</label>
                 </value>
                 <value>
                     <fullName>Macedonia</fullName>
                     <default>false</default>
-                    <label>Macedonia</label>
                 </value>
                 <value>
                     <fullName>Malaysia</fullName>
                     <default>false</default>
-                    <label>Malaysia</label>
                 </value>
                 <value>
                     <fullName>Mexico</fullName>
                     <default>false</default>
-                    <label>Mexico</label>
                 </value>
                 <value>
                     <fullName>Moldova</fullName>
                     <default>false</default>
-                    <label>Moldova</label>
                 </value>
                 <value>
                     <fullName>Netherlands</fullName>
                     <default>false</default>
-                    <label>Netherlands</label>
                 </value>
                 <value>
                     <fullName>New Zealand</fullName>
                     <default>false</default>
-                    <label>New Zealand</label>
                 </value>
                 <value>
                     <fullName>Norway</fullName>
                     <default>false</default>
-                    <label>Norway</label>
                 </value>
                 <value>
                     <fullName>Oman</fullName>
                     <default>false</default>
-                    <label>Oman</label>
                 </value>
                 <value>
                     <fullName>Pakistan</fullName>
                     <default>false</default>
-                    <label>Pakistan</label>
                 </value>
                 <value>
                     <fullName>People&apos;s Republic of China</fullName>
                     <default>false</default>
-                    <label>People&apos;s Republic of China</label>
                 </value>
                 <value>
                     <fullName>Philippines</fullName>
                     <default>false</default>
-                    <label>Philippines</label>
                 </value>
                 <value>
                     <fullName>Poland</fullName>
                     <default>false</default>
-                    <label>Poland</label>
                 </value>
                 <value>
                     <fullName>Portugal</fullName>
                     <default>false</default>
-                    <label>Portugal</label>
                 </value>
                 <value>
                     <fullName>Romania</fullName>
                     <default>false</default>
-                    <label>Romania</label>
                 </value>
                 <value>
                     <fullName>Russia</fullName>
                     <default>false</default>
-                    <label>Russia</label>
                 </value>
                 <value>
                     <fullName>Saudi Arabia</fullName>
                     <default>false</default>
-                    <label>Saudi Arabia</label>
                 </value>
                 <value>
                     <fullName>Singapore</fullName>
                     <default>false</default>
-                    <label>Singapore</label>
                 </value>
                 <value>
                     <fullName>Slovakia</fullName>
                     <default>false</default>
-                    <label>Slovakia</label>
                 </value>
                 <value>
                     <fullName>South Africa</fullName>
                     <default>false</default>
-                    <label>South Africa</label>
                 </value>
                 <value>
                     <fullName>South Korea</fullName>
                     <default>false</default>
-                    <label>South Korea</label>
                 </value>
                 <value>
                     <fullName>Spain</fullName>
                     <default>false</default>
-                    <label>Spain</label>
                 </value>
                 <value>
                     <fullName>Sweden</fullName>
                     <default>false</default>
-                    <label>Sweden</label>
                 </value>
                 <value>
                     <fullName>Taiwan</fullName>
                     <default>false</default>
-                    <label>Taiwan</label>
                 </value>
                 <value>
                     <fullName>Thailand</fullName>
                     <default>false</default>
-                    <label>Thailand</label>
                 </value>
                 <value>
                     <fullName>Trinidad and Tobago</fullName>
                     <default>false</default>
-                    <label>Trinidad and Tobago</label>
                 </value>
                 <value>
                     <fullName>Turkey</fullName>
                     <default>false</default>
-                    <label>Turkey</label>
                 </value>
                 <value>
                     <fullName>Ukraine</fullName>
                     <default>false</default>
-                    <label>Ukraine</label>
                 </value>
                 <value>
                     <fullName>United Arab Emirates</fullName>
                     <default>false</default>
-                    <label>United Arab Emirates</label>
                 </value>
                 <value>
                     <fullName>United Kingdom</fullName>
                     <default>false</default>
-                    <label>United Kingdom</label>
                 </value>
                 <value>
                     <fullName>United States</fullName>
                     <default>false</default>
-                    <label>United States</label>
                 </value>
                 <value>
                     <fullName>Uzbekistan</fullName>
                     <default>false</default>
-                    <label>Uzbekistan</label>
                 </value>
                 <value>
                     <fullName>Venezuela</fullName>
                     <default>false</default>
-                    <label>Venezuela</label>
                 </value>
                 <value>
                     <fullName>Vietnam</fullName>
                     <default>false</default>
-                    <label>Vietnam</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -870,6 +835,7 @@
         <inlineHelpText>Estimated ITC Notification to DOC of Final Determination</inlineHelpText>
         <label>Est ITC Notification to DOC of Final Det</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -881,6 +847,7 @@
         <inlineHelpText>Estimated Order FR Published</inlineHelpText>
         <label>Estimated Order FR Published</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -892,6 +859,7 @@
         <label>External Id</label>
         <length>255</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -902,6 +870,7 @@
         <externalId>false</externalId>
         <label>Final Announcement Date</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -911,6 +880,7 @@
         <externalId>false</externalId>
         <label>Final Concurrence Due to DAS</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -919,10 +889,9 @@
         <fullName>Final_Extension_Remaining__c</fullName>
         <externalId>false</externalId>
         <formula>CASE( RecordType.DeveloperName , 
-    &apos;AD&apos;, 60 - Final_Extension_of_days__c , 
-    &apos;CVD&apos;, IF (ISBLANK(AD_Investigation_Aligned_To__c), (90 - Final_Extension_of_days__c), 
-                 (60 - AD_Investigation_Aligned_To__r.Final_Extension_of_days__c)), 
-    0)</formula>
+&apos;AD&apos;, 60 -  Final_Extension_of_days__c  , 
+&apos;CVD&apos;, 90 - Final_Extension_of_days__c, 
+0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Final Extension Remaining</label>
         <precision>18</precision>
@@ -942,6 +911,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
@@ -952,6 +922,7 @@
         <externalId>false</externalId>
         <label>Final Issues Due to DAS</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -961,6 +932,7 @@
         <externalId>false</externalId>
         <label>Final Team Meeting Deadline</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -970,6 +942,7 @@
         <externalId>false</externalId>
         <label>Have Custom Instruction been sent?</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -984,6 +957,7 @@
         <externalId>false</externalId>
         <label>ITC Finding</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
@@ -994,17 +968,14 @@
                 <value>
                     <fullName>Materially Injured</fullName>
                     <default>false</default>
-                    <label>Materially Injured</label>
                 </value>
                 <value>
                     <fullName>Materially Retarded</fullName>
                     <default>false</default>
-                    <label>Materially Retarded</label>
                 </value>
                 <value>
                     <fullName>Threatened with Injury</fullName>
                     <default>false</default>
-                    <label>Threatened with Injury</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1017,6 +988,7 @@
         <inlineHelpText>ITC Official Notification to DOC of Final Determination</inlineHelpText>
         <label>ITC Notification to DOC of Final Determ</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -1026,6 +998,7 @@
         <externalId>false</externalId>
         <label>Injunction</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -1041,6 +1014,7 @@
         <inlineHelpText>Input Date of Post Preliminary Determination Signature</inlineHelpText>
         <label>Input Date of Post Prelim Determ Sig</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -1061,6 +1035,7 @@
         <externalId>false</externalId>
         <label>Investigation Outcome</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -1071,38 +1046,31 @@
                 <value>
                     <fullName>DOC Negative Final</fullName>
                     <default>false</default>
-                    <label>DOC Negative Final</label>
                 </value>
                 <value>
                     <fullName>ITC Negative Final</fullName>
                     <default>false</default>
-                    <label>ITC Negative Final</label>
                 </value>
                 <value>
                     <fullName>ITC Negative Prelim</fullName>
                     <default>false</default>
-                    <label>ITC Negative Prelim</label>
                 </value>
                 <value>
                     <fullName>Petition Withdrawn After Initiation</fullName>
                     <default>false</default>
-                    <label>Petition Withdrawn After Initiation</label>
                 </value>
                 <value>
                     <fullName>Suspension Agreement</fullName>
                     <default>false</default>
-                    <label>Suspension Agreement</label>
                 </value>
                 <value>
                     <fullName>Order</fullName>
                     <default>false</default>
-                    <label>Order</label>
                 </value>
                 <value>
                     <fullName>In Progress</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
-                    <label>In Progress</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1123,6 +1091,7 @@
         <externalId>false</externalId>
         <label>Litigation Hold Expiration Date</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -1132,6 +1101,7 @@
         <externalId>false</externalId>
         <label>Litigation Resolved</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -1145,6 +1115,7 @@
         <externalId>false</externalId>
         <label>Litigation Status</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -1155,12 +1126,10 @@
                 <value>
                     <fullName>Active</fullName>
                     <default>false</default>
-                    <label>Active</label>
                 </value>
                 <value>
                     <fullName>Inactive</fullName>
                     <default>false</default>
-                    <label>Inactive</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1170,6 +1139,7 @@
         <externalId>false</externalId>
         <label>Litigation</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -1183,6 +1153,7 @@
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Record Locked</label>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -1192,6 +1163,7 @@
         <externalId>false</externalId>
         <label>Lotus Notes History Data</label>
         <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
@@ -1203,6 +1175,7 @@
         <label>Lotus Notes Litigation ID</label>
         <length>250</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -1211,9 +1184,9 @@
     <fields>
         <fullName>Ministerial_Error_for_Prelim__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>Select &quot;Yes&quot; if there was a ministerial error in the preliminary determination, regardless of whether there is a need to issue an amended prelim.</inlineHelpText>
         <label>Ministerial Error for Prelim?</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -1225,9 +1198,9 @@
     <fields>
         <fullName>Ministerial_Error_for_final__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>Select &quot;Yes&quot; if there was a ministerial error in the final determination, regardless of whether there is a need to issue an amended final.</inlineHelpText>
         <label>Ministerial Error for final?</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -1241,6 +1214,7 @@
         <externalId>false</externalId>
         <label>Next Announcement Date</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -1252,6 +1226,7 @@
         <inlineHelpText>Next Due to DAS Deadline and Timeline</inlineHelpText>
         <label>Next Due to DAS Deadline</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -1263,6 +1238,7 @@
         <inlineHelpText>Next Major AS/DAS Deadline and Timeline</inlineHelpText>
         <label>Next Major Deadline</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -1274,6 +1250,19 @@
         <inlineHelpText>Next Office/PM Deadline and Timeline</inlineHelpText>
         <label>Next Office Deadline</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Next_Office_PM_Deadline__c</fullName>
+        <description>Next Office/PM Deadline and Timeline</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Next Office/PM Deadline and Timeline</inlineHelpText>
+        <label>Next Office/PM Deadline</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -1287,6 +1276,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
@@ -1301,6 +1291,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
@@ -1315,6 +1306,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
@@ -1325,6 +1317,7 @@
         <externalId>false</externalId>
         <label>Office</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -1340,6 +1333,7 @@
         <inlineHelpText>Period Covered - End Date</inlineHelpText>
         <label>Period Covered - End Date</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -1351,6 +1345,7 @@
         <inlineHelpText>Period Covered - Start Date</inlineHelpText>
         <label>Period Covered - Start Date</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -1361,6 +1356,7 @@
         <externalId>false</externalId>
         <label>Petition Initiation Signature</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -1370,6 +1366,7 @@
         <externalId>false</externalId>
         <label>Petition Withdrawn</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -1383,6 +1380,7 @@
         <relationshipName>Investigations</relationshipName>
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
@@ -1393,6 +1391,7 @@
         <externalId>false</externalId>
         <label>Prelim Concurrence Due to DAS</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -1406,6 +1405,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
@@ -1416,6 +1416,7 @@
         <externalId>false</externalId>
         <label>Prelim Issues Due to DAS</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -1425,6 +1426,7 @@
         <externalId>false</externalId>
         <label>Prelim Team Meeting Deadline</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -1434,6 +1436,7 @@
         <externalId>false</externalId>
         <label>Preliminary Announcement Date</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -1462,6 +1465,7 @@
         <label>Product Short Name</label>
         <length>255</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -1473,6 +1477,7 @@
         <label>Product</label>
         <length>255</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -1482,8 +1487,9 @@
         <fullName>Range_of_Rates_Final_Amended__c</fullName>
         <externalId>false</externalId>
         <label>Range of Rates - Final Amended</label>
-        <length>255</length>
+        <length>50</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -1495,6 +1501,7 @@
         <label>Range of Rates - Final</label>
         <length>255</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -1504,8 +1511,9 @@
         <fullName>Range_of_Rates_Prelim_Amended__c</fullName>
         <externalId>false</externalId>
         <label>Range of Rates - Prelim Amended</label>
-        <length>255</length>
+        <length>50</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -1515,8 +1523,9 @@
         <fullName>Range_of_Rates_Prelim__c</fullName>
         <externalId>false</externalId>
         <label>Range of Rates - Prelim</label>
-        <length>255</length>
+        <length>50</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -1529,6 +1538,7 @@
         <externalId>false</externalId>
         <inlineHelpText>Hidden field used by the system</inlineHelpText>
         <label>Schedule Refresh</label>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -1540,6 +1550,7 @@
         <inlineHelpText>Calculated Postponement of Preliminary Determination FR Signature</inlineHelpText>
         <label>Signature of Prelim Postponement FR</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -1551,6 +1562,7 @@
         <inlineHelpText>Status</inlineHelpText>
         <label>Status</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -1560,48 +1572,39 @@
                 <sorted>false</sorted>
                 <value>
                     <fullName>Suspended</fullName>
-                    <default>true</default>
-                    <label>Suspended</label>
+                    <default>false</default>
                 </value>
                 <value>
                     <fullName>Prelim</fullName>
                     <default>false</default>
-                    <label>Prelim</label>
                 </value>
                 <value>
                     <fullName>Amend Prelim</fullName>
                     <default>false</default>
-                    <label>Amend Prelim</label>
                 </value>
                 <value>
                     <fullName>Final</fullName>
                     <default>false</default>
-                    <label>Final</label>
                 </value>
                 <value>
                     <fullName>Pending Order</fullName>
                     <default>false</default>
-                    <label>Pending Order</label>
                 </value>
                 <value>
                     <fullName>Hold</fullName>
                     <default>false</default>
-                    <label>Hold</label>
                 </value>
                 <value>
                     <fullName>Litigation</fullName>
                     <default>false</default>
-                    <label>Litigation</label>
                 </value>
                 <value>
                     <fullName>Customs</fullName>
                     <default>false</default>
-                    <label>Customs</label>
                 </value>
                 <value>
                     <fullName>Closed</fullName>
                     <default>false</default>
-                    <label>Closed</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1613,6 +1616,7 @@
         <inlineHelpText>Termination of Suspension/Gap Period Begins</inlineHelpText>
         <label>Termination of Suspension/Gap Period Beg</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -1624,6 +1628,7 @@
         <label>This Petition Has An Investigation</label>
         <length>18</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -1636,6 +1641,7 @@
         <externalId>false</externalId>
         <inlineHelpText>For system use only.</inlineHelpText>
         <label>Tolling Update</label>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -1647,6 +1653,7 @@
         <inlineHelpText>Upstream Subsidy Allegation?</inlineHelpText>
         <label>Upstream Subsidy Allegation?</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -1659,9 +1666,10 @@
         <fullName>Will_you_Amend_the_Final__c</fullName>
         <description>Will you Amend the Final?</description>
         <externalId>false</externalId>
-        <inlineHelpText>Select &quot;Yes&quot; if, as a result of a ministerial error in the final determination, an amended final determination will be issued.</inlineHelpText>
+        <inlineHelpText>Will you Amend the Final?</inlineHelpText>
         <label>Will you Amend the Final?</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -1677,6 +1685,7 @@
         <inlineHelpText>Will you Issue a Post Preliminary Determination?</inlineHelpText>
         <label>Will you Issue a Post Preliminary Determ</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -1689,25 +1698,119 @@
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
+        <columns>ADCVD_Case_Number__c</columns>
+        <columns>Country__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>ADCVD_Case_Type__c</columns>
+        <columns>Product__c</columns>
+        <columns>Commodity__c</columns>
+        <columns>Office__c</columns>
+        <columns>Status__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
     <listViews>
-        <fullName>Demo_List_View</fullName>
-        <columns>RECORDTYPE</columns>
+        <fullName>All_Active_Investigations</fullName>
         <columns>NAME</columns>
-        <columns>Period_Covered_Start_Date__c</columns>
-        <columns>Period_Covered_End_Date__c</columns>
+        <columns>ADCVD_Case_Number__c</columns>
+        <columns>Country__c</columns>
+        <columns>ADCVD_Case_Type__c</columns>
+        <columns>Product__c</columns>
+        <columns>Office__c</columns>
+        <columns>Status__c</columns>
+        <columns>Calculated_Preliminary_Signature__c</columns>
         <filterScope>Everything</filterScope>
-        <label>Demo List View</label>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Prelim,Amend Prelim,Final</value>
+        </filters>
+        <label>All Active Investigations</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Closed_Investigations</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number__c</columns>
+        <columns>Country__c</columns>
+        <columns>ADCVD_Case_Type__c</columns>
+        <columns>Product__c</columns>
+        <columns>Commodity__c</columns>
+        <columns>Office__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Closed</value>
+        </filters>
+        <label>All Closed Investigations</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Investigations_in_Litigation</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number__c</columns>
+        <columns>Country__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>ADCVD_Case_Type__c</columns>
+        <columns>Product__c</columns>
+        <columns>Commodity__c</columns>
+        <columns>Office__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Litigation</value>
+        </filters>
+        <label>All Investigations in Litigation</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Investigations_in_Litigation_Hold</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number__c</columns>
+        <columns>Country__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>ADCVD_Case_Type__c</columns>
+        <columns>Product__c</columns>
+        <columns>Commodity__c</columns>
+        <columns>Office__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Hold</value>
+        </filters>
+        <label>All Investigations in Litigation Hold</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Open_Investigations</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number__c</columns>
+        <columns>Country__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>ADCVD_Case_Type__c</columns>
+        <columns>Product__c</columns>
+        <columns>Commodity__c</columns>
+        <columns>Office__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </filters>
+        <label>All Open Investigations</label>
     </listViews>
     <nameField>
         <displayFormat>I-{00000}</displayFormat>
         <label>Investigation Number</label>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Investigations</pluralLabel>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>AD</fullName>
@@ -1715,13 +1818,37 @@
         <description>An anti dumping investigation</description>
         <label>AD</label>
         <picklistValues>
-            <picklist>Amend_the_Preliminary_Determination__c</picklist>
+            <picklist>ADCVD_Offices</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>I</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
+                <fullName>II</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>III</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>V</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VII</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VIII</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2040,17 +2167,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Have_Custom_Instruction_been_sent__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>ITC_Finding__c</picklist>
             <values>
                 <fullName>Materially Injured</fullName>
@@ -2062,17 +2178,6 @@
             </values>
             <values>
                 <fullName>Threatened with Injury</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Injunction__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2104,17 +2209,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Litigation_Resolved__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Litigation_Status__c</picklist>
             <values>
                 <fullName>Active</fullName>
@@ -2122,74 +2216,6 @@
             </values>
             <values>
                 <fullName>Inactive</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Litigation_YesNo__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Ministerial_Error_for_Prelim__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Ministerial_Error_for_final__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Office__c</picklist>
-            <values>
-                <fullName>I</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>II</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>III</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>V</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VII</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VIII</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2233,29 +2259,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Upstream_Subsidy_Allegation__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Will_you_Amend_the_Final__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Will_you_Issue_a_Post_Preliminary_Determ__c</picklist>
+            <picklist>YesNo</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -2272,13 +2276,37 @@
         <description>A countervailing duties investigation</description>
         <label>CVD</label>
         <picklistValues>
-            <picklist>Amend_the_Preliminary_Determination__c</picklist>
+            <picklist>ADCVD_Offices</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>I</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
+                <fullName>II</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>III</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>V</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VII</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VIII</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2597,17 +2625,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Have_Custom_Instruction_been_sent__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>ITC_Finding__c</picklist>
             <values>
                 <fullName>Materially Injured</fullName>
@@ -2619,17 +2636,6 @@
             </values>
             <values>
                 <fullName>Threatened with Injury</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Injunction__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2661,17 +2667,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Litigation_Resolved__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Litigation_Status__c</picklist>
             <values>
                 <fullName>Active</fullName>
@@ -2679,74 +2674,6 @@
             </values>
             <values>
                 <fullName>Inactive</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Litigation_YesNo__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Ministerial_Error_for_Prelim__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Ministerial_Error_for_final__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Office__c</picklist>
-            <values>
-                <fullName>I</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>II</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>III</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>V</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VII</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VIII</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2790,29 +2717,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Upstream_Subsidy_Allegation__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Will_you_Amend_the_Final__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Will_you_Issue_a_Post_Preliminary_Determ__c</picklist>
+            <picklist>YesNo</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -3005,5 +2910,4 @@ ISNULL( Petition_Withdrawn__c ),
         <errorDisplayField>Petition_Withdrawn__c</errorDisplayField>
         <errorMessage>The Petition Withdrawn date is required when Investigation Outcome is &quot;Petition Withdrawn After Initiation&quot;</errorMessage>
     </validationRules>
-    <visibility>Public</visibility>
 </CustomObject>

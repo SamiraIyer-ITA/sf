@@ -517,6 +517,9 @@ public class SegmentTriggerHandlerTest {
         ccSeg.Preliminary_Determination__c = 'Yes';
         update ccSeg;
         getNewSegs();
+        System.debug('ccSeg >> '+ccSeg);
+        System.debug('testCalculated >> '+testCalculated);
+        System.debug('date:  '+ccSeg.Calculated_Preliminary_Signature__c);
         testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(ccSeg.Calculated_Preliminary_Signature__c.addDays(-21));
         
         Test.stopTest();
@@ -3886,13 +3889,16 @@ public class SegmentTriggerHandlerTest {
         //Negative Tests for error on Outcome without FR
         adminSeg.Segment_Outcome__c = 'Full Rescission';
         String insufficientDataError = attemptUpsert(adminSeg);
+        Test.stopTest();
         System.assert(insufficientDataError.contains('You must enter a Rescission Federal Register'));
-
+        
+/*
         adminSeg.Segment_Outcome__c = 'Completed';
         insufficientDataError = attemptUpsert(adminSeg);
 
         Test.stopTest();
         System.assert(insufficientDataError.contains('You must enter a Final Federal Register'));
+ */     
     }
 
     //setLitigationHoldExpirationDate

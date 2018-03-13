@@ -38,14 +38,30 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>ADCVD_Case_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
     </actionOverrides>
     <allowInChatterGroups>true</allowInChatterGroups>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayoutAssignment>ADCVD_Case</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>ADCVD_Case</fullName>
+        <fields>Name</fields>
+        <fields>ADCVD_Case_Type__c</fields>
+        <fields>Country__c</fields>
+        <fields>Product__c</fields>
+        <fields>Product_Short_Name__c</fields>
+        <fields>Commodity__c</fields>
+        <fields>CBP_Case_Number__c</fields>
+        <label>ADCVD Case</label>
+    </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
-    <enableActivities>false</enableActivities>
+    <description>The ADCVD Case object is the shell or &quot;manilla folder&quot; to tie all ADCVD Case activities together.</description>
+    <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableFeeds>false</enableFeeds>
+    <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
     <enableSearch>true</enableSearch>
@@ -56,9 +72,10 @@
         <fullName>ADCVD_Case_Number__c</fullName>
         <caseSensitive>false</caseSensitive>
         <externalId>false</externalId>
-        <label>ADCVD Case Number</label>
+        <label>ADCVD Case Number Text Value</label>
         <length>28</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -72,6 +89,7 @@ A-###-### for AD
 C-###-### for CVD</inlineHelpText>
         <label>ADCVD Case Type</label>
         <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -82,17 +100,14 @@ C-###-### for CVD</inlineHelpText>
                 <value>
                     <fullName>AD ME</fullName>
                     <default>false</default>
-                    <label>AD ME</label>
                 </value>
                 <value>
                     <fullName>AD NME</fullName>
                     <default>false</default>
-                    <label>AD NME</label>
                 </value>
                 <value>
                     <fullName>CVD</fullName>
                     <default>false</default>
-                    <label>CVD</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -104,6 +119,7 @@ C-###-### for CVD</inlineHelpText>
         <label>CBP Case Number</label>
         <length>28</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -114,6 +130,7 @@ C-###-### for CVD</inlineHelpText>
         <externalId>false</externalId>
         <label>Commodity</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -124,57 +141,46 @@ C-###-### for CVD</inlineHelpText>
                 <value>
                     <fullName>Cement and Ceramics</fullName>
                     <default>false</default>
-                    <label>Cement and Ceramics</label>
                 </value>
                 <value>
                     <fullName>Chemicals and Allied Industries</fullName>
                     <default>false</default>
-                    <label>Chemicals and Allied Industries</label>
                 </value>
                 <value>
                     <fullName>Foodstuffs</fullName>
                     <default>false</default>
-                    <label>Foodstuffs</label>
                 </value>
                 <value>
                     <fullName>Machinery and Automotive</fullName>
                     <default>false</default>
-                    <label>Machinery and Automotive</label>
                 </value>
                 <value>
                     <fullName>Minerals</fullName>
                     <default>false</default>
-                    <label>Minerals</label>
                 </value>
                 <value>
                     <fullName>Other Metals and Articles of Metal</fullName>
                     <default>false</default>
-                    <label>Other Metals and Articles of Metal</label>
                 </value>
                 <value>
                     <fullName>Other Mfg.</fullName>
                     <default>false</default>
-                    <label>Other Mfg.</label>
                 </value>
                 <value>
                     <fullName>Paper and Paperboard</fullName>
                     <default>false</default>
-                    <label>Paper and Paperboard</label>
                 </value>
                 <value>
                     <fullName>Plastics and Rubber</fullName>
                     <default>false</default>
-                    <label>Plastics and Rubber</label>
                 </value>
                 <value>
                     <fullName>Steel-Related</fullName>
                     <default>false</default>
-                    <label>Steel-Related</label>
                 </value>
                 <value>
                     <fullName>Textiles</fullName>
                     <default>false</default>
-                    <label>Textiles</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -185,6 +191,7 @@ C-###-### for CVD</inlineHelpText>
         <label>Country Text</label>
         <length>40</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -195,6 +202,7 @@ C-###-### for CVD</inlineHelpText>
         <externalId>false</externalId>
         <label>Country</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -208,6 +216,7 @@ C-###-### for CVD</inlineHelpText>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Record Locked</label>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -218,6 +227,7 @@ C-###-### for CVD</inlineHelpText>
         <label>Product Short Name</label>
         <length>255</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -229,6 +239,7 @@ C-###-### for CVD</inlineHelpText>
         <label>Product</label>
         <length>255</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -236,34 +247,37 @@ C-###-### for CVD</inlineHelpText>
     </fields>
     <label>ADCVD Case</label>
     <listViews>
-        <fullName>ADCVD_Case_Closed_Locked_ADCVD_Case</fullName>
-        <filterScope>Queue</filterScope>
-        <label>ADCVD Case Closed Locked</label>
-        <queue>ADCVD_Case_Closed_Locked</queue>
-        <sharedTo>
-            <allInternalUsers></allInternalUsers>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>ADCVD_Case_Open_ADCVD_Case</fullName>
+        <fullName>ADCVD_Case_Open</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Type__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Product__c</columns>
+        <columns>Product_Short_Name__c</columns>
+        <columns>Country__c</columns>
+        <columns>Commodity__c</columns>
         <filterScope>Queue</filterScope>
         <label>ADCVD Case Open</label>
         <queue>ADCVD_Case_Open</queue>
-        <sharedTo>
-            <allInternalUsers></allInternalUsers>
-        </sharedTo>
     </listViews>
     <listViews>
         <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Type__c</columns>
+        <columns>Product__c</columns>
+        <columns>Product_Short_Name__c</columns>
+        <columns>Country__c</columns>
+        <columns>Commodity__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
     <nameField>
-        <label>ADCVD Case Number</label>
+        <label>ADCVD Case</label>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
     </nameField>
     <pluralLabel>ADCVD Cases</pluralLabel>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>Filed</fullName>
@@ -332,7 +346,7 @@ C-###-### for CVD</inlineHelpText>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Country__c</picklist>
+            <picklist>Countries</picklist>
             <values>
                 <fullName>Argentina</fullName>
                 <default>false</default>
@@ -470,10 +484,6 @@ C-###-### for CVD</inlineHelpText>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Macedonia</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Malaysia</fullName>
                 <default>false</default>
             </values>
@@ -547,6 +557,10 @@ C-###-### for CVD</inlineHelpText>
             </values>
             <values>
                 <fullName>Spain</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sri Lanka</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -670,7 +684,7 @@ C-###-### for CVD</inlineHelpText>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Country__c</picklist>
+            <picklist>Countries</picklist>
             <values>
                 <fullName>Argentina</fullName>
                 <default>false</default>
@@ -764,10 +778,6 @@ C-###-### for CVD</inlineHelpText>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Iran</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Iraq</fullName>
                 <default>false</default>
             </values>
@@ -808,19 +818,11 @@ C-###-### for CVD</inlineHelpText>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Macedonia</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Malaysia</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Mexico</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Moldova</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -860,10 +862,6 @@ C-###-### for CVD</inlineHelpText>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Russia</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Saudi Arabia</fullName>
                 <default>false</default>
             </values>
@@ -880,11 +878,11 @@ C-###-### for CVD</inlineHelpText>
                 <default>false</default>
             </values>
             <values>
-                <fullName>South Korea</fullName>
+                <fullName>Spain</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Spain</fullName>
+                <fullName>Sri Lanka</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -932,17 +930,42 @@ C-###-### for CVD</inlineHelpText>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Venezuela</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Vietnam</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
     </recordTypes>
-    <searchLayouts/>
+    <searchLayouts>
+        <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Country__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ADCVD_Case_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Product__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Commodity__c</customTabListAdditionalFields>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
+        <excludedStandardButtons>Forward</excludedStandardButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <lookupDialogsAdditionalFields>Country__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ADCVD_Case_Type__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Product__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Commodity__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Country__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADCVD_Case_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Product__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Commodity__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <fullName>CBP_Case_number_for_AD_and_CVD_Format</fullName>
+        <active>true</active>
+        <description>CBP Case Number must be formatted specifically this way.</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,IF(TEXT(ADCVD_Case_Type__c) = &quot;CVD&quot;, 
+(NOT(OR(ISBLANK( CBP_Case_Number__c ),REGEX( CBP_Case_Number__c ,&quot;C-[0-9]{3}-[0-9]{3}&quot;)))), 
+(NOT(OR(ISBLANK(CBP_Case_Number__c ),REGEX( CBP_Case_Number__c ,&quot;A-[0-9]{3}-[0-9]{3}&quot;)))) ))</errorConditionFormula>
+        <errorDisplayField>CBP_Case_Number__c</errorDisplayField>
+        <errorMessage>Format should be A-###-### or C-###-###</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Cannot_Edit_Locked_Record</fullName>
         <active>true</active>
@@ -991,5 +1014,4 @@ IF(
         <errorDisplayField>Name</errorDisplayField>
         <errorMessage>Invalid ADCVD Case Number Format. For AD cases valid Case Number format should be  A-###-###. For CVD cases valid Case Number format should be C-###-###.</errorMessage>
     </validationRules>
-    <visibility>Public</visibility>
 </CustomObject>

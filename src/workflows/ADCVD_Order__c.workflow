@@ -29,17 +29,6 @@
         <operation>LookupValue</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Update_Owner_to_Open_ADCVD_Order_Queue</fullName>
-        <description>Update Owner of Record to ADCVD_Order Open Queue</description>
-        <field>OwnerId</field>
-        <lookupValue>ADCVD_Order_Open_Queue</lookupValue>
-        <lookupValueType>Queue</lookupValueType>
-        <name>Update Owner to Open ADCVD Order Queue</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>LookupValue</operation>
-        <protected>false</protected>
-    </fieldUpdates>
     <rules>
         <fullName>Lock Revoked-Complete ADCVD Order</fullName>
         <actions>
@@ -55,23 +44,13 @@
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
-        <fullName>Open Queue ADCVD Order</fullName>
-        <actions>
-            <name>Update_Owner_to_Open_ADCVD_Order_Queue</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <formula>AND($Setup.Master_Automation__c.WorkflowRulesEnabled__c == true, Locked__c == false)</formula>
-        <triggerType>onCreateOnly</triggerType>
-    </rules>
-    <rules>
         <fullName>Update Investigation ID</fullName>
         <actions>
             <name>Set_Investigation_ID</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND($Setup.Master_Automation__c.WorkflowRulesEnabled__c == true, Locked__c == false, OR(  ISNEW(),  ISCHANGED( This_Investigation_has_an_Order__c ) ) )</formula>
+        <formula>AND($Setup.Master_Automation__c.WorkflowRulesEnabled__c == true, Locked__c == false,  OR( ISNEW(), ISCHANGED( This_Investigation_has_an_Order__c ) ))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

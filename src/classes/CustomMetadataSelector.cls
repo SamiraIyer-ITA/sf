@@ -1,20 +1,4 @@
-/**
- * 
- *    Created by Joshua Moody
- *    on August 3 2017
- *    MIL Corporation
- * 
- **/
-
 public without sharing class CustomMetadataSelector {
-
-	/******************************************************************
-	* This class queries custom metadata objects and stores them in class
-	* for faster reference by classes using custom metadata.
-	* This class provides methods to:
-	* 1. Query all custom metadata used in the ADCVD App
-	* 2. Map those records for the easiest consumption by classes
-	******************************************************************/
 
 	public static List<ADCVD_Objects__mdt> allAdcvdObjects {
 		get {

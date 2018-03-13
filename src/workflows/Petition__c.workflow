@@ -19,16 +19,6 @@
         <operation>LookupValue</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Update_Owner_to_Open_Petition_Queue</fullName>
-        <field>OwnerId</field>
-        <lookupValue>Petitions_Open_Queue</lookupValue>
-        <lookupValueType>Queue</lookupValueType>
-        <name>Update Owner to Open Petition Queue</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>LookupValue</operation>
-        <protected>false</protected>
-    </fieldUpdates>
     <rules>
         <fullName>Lock Closed Petition</fullName>
         <actions>
@@ -40,18 +30,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND($Setup.Master_Automation__c.WorkflowRulesEnabled__c == true, Locked__c == false,  ISPICKVAL(Status__c , &apos;Closed&apos;),  ISNULL(Next_Announcement_Date__c)
-)</formula>
+        <formula>AND($Setup.Master_Automation__c.WorkflowRulesEnabled__c == true, Locked__c == false,  ISPICKVAL(Status__c , &apos;Closed&apos;),  ISNULL(Next_Announcement_Date__c) )</formula>
         <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>Queue Open Petition</fullName>
-        <actions>
-            <name>Update_Owner_to_Open_Petition_Queue</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <formula>AND($Setup.Master_Automation__c.WorkflowRulesEnabled__c == true,  Locked__c == false)</formula>
-        <triggerType>onCreateOnly</triggerType>
     </rules>
 </Workflow>

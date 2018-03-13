@@ -42,10 +42,23 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Staffing_Assignment_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
     </actionOverrides>
     <allowInChatterGroups>true</allowInChatterGroups>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayoutAssignment>StaffingAssignmentInfo</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>StaffingAssignmentInfo</fullName>
+        <fields>ADCVD_Case__c</fields>
+        <fields>ADCVD_Case_Type__c</fields>
+        <fields>Country__c</fields>
+        <fields>Product__c</fields>
+        <fields>Name</fields>
+        <label>StaffingAssignmentInfo</label>
+    </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
@@ -53,14 +66,14 @@
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
-    <enableSearch>true</enableSearch>
+    <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
         <fullName>ADCVD_Case_Number__c</fullName>
         <externalId>false</externalId>
-        <label>ADCVD Case Number</label>
+        <label>ADCVD Case Number Text Value</label>
         <length>28</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -83,17 +96,14 @@
                 <value>
                     <fullName>AD ME</fullName>
                     <default>false</default>
-                    <label>AD ME</label>
                 </value>
                 <value>
                     <fullName>AD NME</fullName>
                     <default>false</default>
-                    <label>AD NME</label>
                 </value>
                 <value>
                     <fullName>CVD</fullName>
                     <default>false</default>
-                    <label>CVD</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -166,7 +176,6 @@
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Record Locked</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -291,7 +300,7 @@ IF( Segment__c != null, Segment__r.Link__c ,
     <fields>
         <fullName>Title__c</fullName>
         <externalId>false</externalId>
-        <label>Staffing Role</label>
+        <label>Title</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -302,77 +311,58 @@ IF( Segment__c != null, Segment__r.Link__c ,
                 <value>
                     <fullName>Accounting Director</fullName>
                     <default>false</default>
-                    <label>Accounting Director</label>
                 </value>
                 <value>
                     <fullName>Accounting PM</fullName>
                     <default>false</default>
-                    <label>Accounting PM</label>
                 </value>
                 <value>
                     <fullName>Analyst</fullName>
                     <default>false</default>
-                    <label>Analyst</label>
-                </value>
-                <value>
-                    <fullName>AS Assistant</fullName>
-                    <default>false</default>
-                    <label>AS Assistant</label>
                 </value>
                 <value>
                     <fullName>Assistant Secretary</fullName>
                     <default>false</default>
-                    <label>Assistant Secretary</label>
                 </value>
                 <value>
                     <fullName>Associate DAS</fullName>
                     <default>false</default>
-                    <label>Associate DAS</label>
                 </value>
                 <value>
                     <fullName>DAS</fullName>
                     <default>false</default>
-                    <label>DAS</label>
                 </value>
                 <value>
                     <fullName>DAS Assistant</fullName>
                     <default>false</default>
-                    <label>DAS Assistant</label>
                 </value>
                 <value>
                     <fullName>Office Director</fullName>
                     <default>false</default>
-                    <label>Office Director</label>
                 </value>
                 <value>
                     <fullName>Program Manager</fullName>
                     <default>false</default>
-                    <label>Program Manager</label>
                 </value>
                 <value>
                     <fullName>Senior Legal</fullName>
                     <default>false</default>
-                    <label>Senior Legal</label>
                 </value>
                 <value>
                     <fullName>Senior Policy</fullName>
                     <default>false</default>
-                    <label>Senior Policy</label>
                 </value>
                 <value>
                     <fullName>Staff Accountant</fullName>
                     <default>false</default>
-                    <label>Staff Accountant</label>
                 </value>
                 <value>
                     <fullName>Staff Legal</fullName>
                     <default>false</default>
-                    <label>Staff Legal</label>
                 </value>
                 <value>
                     <fullName>Staff Policy</fullName>
                     <default>false</default>
-                    <label>Staff Policy</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -412,7 +402,42 @@ IF( Segment__c != null, Segment__r.Link__c ,
         <columns>Parent__c</columns>
         <columns>Related_Organization_Parent__c</columns>
         <filterScope>Everything</filterScope>
+        <filters>
+            <field>User__c</field>
+            <operation>equals</operation>
+            <value>brendan quinn</value>
+        </filters>
         <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Legal_Staffing_Unfilled</fullName>
+        <booleanFilter>1 AND 2 AND 3 AND 4</booleanFilter>
+        <columns>Title__c</columns>
+        <columns>User__c</columns>
+        <columns>Parent__c</columns>
+        <columns>Product__c</columns>
+        <columns>Country__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>User__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>Title__c</field>
+            <operation>equals</operation>
+            <value>Senior Policy,Staff Policy</value>
+        </filters>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>contains</operation>
+            <value>--AO-</value>
+        </filters>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>startsWith</operation>
+            <value>A-</value>
+        </filters>
+        <label>Unfilled Order AD Policy Staffing</label>
     </listViews>
     <listViews>
         <fullName>Order_Account_Staffing</fullName>
@@ -441,6 +466,90 @@ IF( Segment__c != null, Segment__r.Link__c ,
             <operation>equals</operation>
         </filters>
         <label>Order-Account Staffing</label>
+    </listViews>
+    <listViews>
+        <fullName>Staffing_Assignments_ClosedLocked_Queue_Staffing_Assignment</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Staffing Assignments-ClosedLocked Queue</label>
+        <queue>Staffing_Assignments_ClosedLocked_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Staffing_Assignments_MigratedLockedQueue_Staffing_Assignment</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Staffing Assignments-MigratedLockedQueue</label>
+        <queue>Staffing_Assignments_MigratedLockedQueue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Staffing_Assignments_Open_Queue_Staffing_Assignment</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Staffing Assignments-Open Queue</label>
+        <queue>Staffing_Assignments_Open_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Test_Test_Staffing_List</fullName>
+        <columns>NAME</columns>
+        <columns>Product__c</columns>
+        <columns>Country__c</columns>
+        <columns>Title__c</columns>
+        <columns>User__c</columns>
+        <columns>Segment__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>User__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>Segment__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>Test - Test - Staffing List Segments</label>
+    </listViews>
+    <listViews>
+        <fullName>Test_Test_Staffing_List_Invest</fullName>
+        <columns>NAME</columns>
+        <columns>Product__c</columns>
+        <columns>Country__c</columns>
+        <columns>Title__c</columns>
+        <columns>User__c</columns>
+        <columns>Investigation__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>User__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>Investigation__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>Test - Test - Staffing List Invest</label>
+    </listViews>
+    <listViews>
+        <fullName>Test_Test_Staffing_List_Petitions</fullName>
+        <columns>NAME</columns>
+        <columns>Product__c</columns>
+        <columns>Country__c</columns>
+        <columns>Title__c</columns>
+        <columns>User__c</columns>
+        <columns>Petition__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>User__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>Petition__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>Test - Test - Staffing List Petitions</label>
     </listViews>
     <listViews>
         <fullName>Unfilled_Staff</fullName>
@@ -493,5 +602,4 @@ ISBLANK(  Related_Organization__c )&amp;&amp;
 ISBLANK(  Segment__c )</errorConditionFormula>
         <errorMessage>Please select a parent for this staffing assignment</errorMessage>
     </validationRules>
-    <visibility>Public</visibility>
 </CustomObject>

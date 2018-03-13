@@ -242,6 +242,33 @@
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
+    <listViews>
+        <fullName>Recusals_ClosedLocked_Queue_Recusal</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Recusals-ClosedLocked Queue</label>
+        <queue>Recusals_ClosedLocked_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Recusals_MigratedClosedLocked_Queue_Recusal</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Recusals-MigratedClosedLocked Queue</label>
+        <queue>Recusals_MigratedClosedLocked_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Recusals_Open_Queue_Recusal</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Recusals-Open Queue</label>
+        <queue>Recusals_Open_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
     <nameField>
         <displayFormat>R-{000000}</displayFormat>
         <label>Recusal Name</label>
@@ -456,5 +483,4 @@ ADCVD_Order__c = null,
 ))</errorConditionFormula>
         <errorMessage>Related Recusals must have one parent record</errorMessage>
     </validationRules>
-    <visibility>Public</visibility>
 </CustomObject>

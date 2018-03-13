@@ -48,7 +48,7 @@
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
-    <enableSearch>true</enableSearch>
+    <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
@@ -103,32 +103,26 @@
                 <value>
                     <fullName>HM</fullName>
                     <default>false</default>
-                    <label>HM</label>
                 </value>
                 <value>
                     <fullName>COP</fullName>
                     <default>false</default>
-                    <label>COP</label>
                 </value>
                 <value>
                     <fullName>CV</fullName>
                     <default>false</default>
-                    <label>CV</label>
                 </value>
                 <value>
                     <fullName>NME</fullName>
                     <default>false</default>
-                    <label>NME</label>
                 </value>
                 <value>
                     <fullName>FA</fullName>
                     <default>false</default>
-                    <label>FA</label>
                 </value>
                 <value>
                     <fullName>TM</fullName>
                     <default>false</default>
-                    <label>TM</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -148,12 +142,10 @@
                 <value>
                     <fullName>coming</fullName>
                     <default>false</default>
-                    <label>coming</label>
                 </value>
                 <value>
                     <fullName>later</fullName>
                     <default>false</default>
-                    <label>later</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -173,12 +165,10 @@
                 <value>
                     <fullName>coming</fullName>
                     <default>false</default>
-                    <label>coming</label>
                 </value>
                 <value>
                     <fullName>later</fullName>
                     <default>false</default>
-                    <label>later</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -311,6 +301,33 @@
         <type>Lookup</type>
     </fields>
     <label>Custom Instruction</label>
+    <listViews>
+        <fullName>Customs_Instructions_ClosedLocked_Queue_Custom_Instruction</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Customs Instructions-ClosedLocked Queue</label>
+        <queue>Customs_Instructions_ClosedLocked_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Customs_Instructions_MigratedLockedQueue_Custom_Instruction</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Customs Instructions-MigratedLockedQueue</label>
+        <queue>Customs_Instructions_MigratedLockedQueue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Customs_Instructions_Open_Queue_Custom_Instruction</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Customs Instructions-Open Queue</label>
+        <queue>Customs_Instructions_Open_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
     <nameField>
         <displayFormat>CI-{000000}</displayFormat>
         <label>Custom Instruction Name</label>
@@ -331,5 +348,4 @@ PRIORVALUE(Locked__c) == true
 )</errorConditionFormula>
         <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
     </validationRules>
-    <visibility>Public</visibility>
 </CustomObject>

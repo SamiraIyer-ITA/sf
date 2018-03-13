@@ -1,20 +1,5 @@
-/**
- * 
- *    Created by Joshua Moody
- *    on Dec 14 2017
- *    MIL Corporation
- * 
- **/
-
 @RestResource(urlMapping='/ADCVD_OrderSearch/*')
 global without sharing class ADCVD_OrderSearch {
-
-    /************************************************
-    * This class is the API for the search tool used for
-    * searching ADCVD Orders from the web. It queries the 
-    * ADCVD Object for all ADCVD Orders and writes those, 
-    * with their child segments and HTS numbers to a JSON.
-    *************************************************/
     
     //JSON output classes.  These are marked as Public so the ADCVD_OrderSearchTest can see them.
        
@@ -69,7 +54,7 @@ global without sharing class ADCVD_OrderSearch {
 			                               			Preliminary_Announcement_Date__c, Final_Announcement_Date__c, Next_Announcement_Date__c 
 			                               			FROM Segments__r WHERE Next_Announcement_Date__c != null ORDER BY Next_Announcement_Date__c ASC),
 			                               (SELECT Id, HTS_Number__c, HTS_Number_Formatted__c FROM Harmonized_Tariff_Schedules__r ORDER BY HTS_Number_Formatted__c ASC)
-			                               FROM ADCVD_Order__c WHERE Status__c !=: 'Revoked-Complete'
+			                               FROM ADCVD_Order__c
 			                             ];
         
         for (ADCVD_Order__c o: orders) {

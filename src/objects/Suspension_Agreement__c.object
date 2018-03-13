@@ -38,10 +38,24 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>ADCVD_Suspension_Agreement_Record</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayoutAssignment>Basic_Case_Info</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Basic_Case_Info</fullName>
+        <fields>ADCVD_Case__c</fields>
+        <fields>Product__c</fields>
+        <fields>Product_Short_Name__c</fields>
+        <fields>Country__c</fields>
+        <fields>Commodity__c</fields>
+        <fields>ADCVD_Case_Number__c</fields>
+        <label>Basic Case Info</label>
+    </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
@@ -56,7 +70,7 @@
         <fullName>ADCVD_Case_Number__c</fullName>
         <externalId>false</externalId>
         <formula>Investigation__r.Petition__r.ADCVD_Case_Number__c</formula>
-        <label>ADCVD Case Number</label>
+        <label>ADCVD Case Number Text Value</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -228,17 +242,24 @@
         <fullName>Office__c</fullName>
         <externalId>false</externalId>
         <label>Office</label>
-        <picklist>
-            <picklistValues>
-                <fullName>SA</fullName>
-                <default>true</default>
-            </picklistValues>
-            <restrictedPicklist>true</restrictedPicklist>
-            <sorted>false</sorted>
-        </picklist>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>SA</fullName>
+                    <default>true</default>
+                </value>
+                <value>
+                    <fullName>Suspension Office</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Product_Short_Name__c</fullName>
@@ -292,9 +313,16 @@
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
+        <columns>Investigation__c</columns>
+        <columns>ADCVD_Case_Number__c</columns>
+        <columns>Country__c</columns>
+        <columns>ADCVD_Case_Type__c</columns>
+        <columns>Product__c</columns>
+        <columns>Commodity__c</columns>
         <columns>Suspension_Date__c</columns>
         <columns>Termination_Date__c</columns>
-        <columns>Investigation__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
@@ -315,5 +343,4 @@ PRIORVALUE(Locked__c) == true
 )</errorConditionFormula>
         <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
     </validationRules>
-    <visibility>Public</visibility>
 </CustomObject>

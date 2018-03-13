@@ -1,22 +1,5 @@
-/**
- * 
- *    Created by Joshua Moody
- *    on Oct 3 2017
- *    MIL Corporation
- * 
- **/
-
 @isTest
 private class ReviewRecusalExtensionTest {
-
-    /************************************************
-    * This class performs unit tests on the ReviewRecusalExtension
-    * under these condititions.
-    * 1. Test to ensure that primary recusals display properly
-    * 2. Test to ensure that related recusals display properly
-    * 3. Test to ensure that the UX is detected and set correctly
-    *************************************************/
-
 	static Petition__c p {
 		get {
 			if (p == null) {

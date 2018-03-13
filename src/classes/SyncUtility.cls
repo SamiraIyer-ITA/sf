@@ -1,11 +1,3 @@
-/**
- * 
- *    Created by Joshua Moody
- *    on Feb 19 2017
- *    MIL Corporation
- * 
- **/
-
 public without sharing class SyncUtility {
 	/*******************************************************************
 	* This utility class uses custom metadata to sync objects.  To setup 

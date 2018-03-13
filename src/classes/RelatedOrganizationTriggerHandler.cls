@@ -1,22 +1,4 @@
-/**
- * 
- *    Created by Joshua Moody
- *    on Apr 17 2017
- *    MIL Corporation
- * 
- **/
-
 public without sharing class RelatedOrganizationTriggerHandler {
-
-	/***********************************************************
-   * This class handles all trigger contexts for the Related_Organization__c
-   * object.  It provides methods that:
-   * 1. Organize the flow of logic for each trigger context
-   * 2. Initialize class variables
-   * 3. Help in the mapping of related objects
-   * 4. Call services classes to do get values from parent records
-   ***********************************************************/
-
     public static boolean preventRecursion = false;
 	public static void mainEntry(List<Related_Organization__c> newList, List<Related_Organization__c> oldList, Map<Id, Related_Organization__c> newMap, 
 		Map<Id, Related_Organization__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete, 

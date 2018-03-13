@@ -1,24 +1,4 @@
-/**
- * 
- *    Created by Tim Barsotti
- *    on Jan 24 2017
- *    MIL Corporation
- *
- *    Updated by Joshua Moody
- * 
- **/
-
 public class AttachmentWriterController {
-    /****************************************
-    * This class is the controller for an inline
-    * visualforce page on the ADCVD_Order__c and 
-    * Suspension_Agreement__c objects. This class:
-    * 1. Verifies user access to this record
-    * 2. Queries for an existing attachment
-    * Also, it provides methods to:
-    * 1. Save the attachment
-    * 2. Cancel the edit and return to viewing
-    ****************************************/
     private static string defaultName = 'Scope.txt';
     public Id attachmentId {get; set;}
     public Id recordId {get; set;}

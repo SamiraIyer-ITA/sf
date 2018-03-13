@@ -48,7 +48,8 @@
     <compactLayoutAssignment>Basic_Case_Info</compactLayoutAssignment>
     <compactLayouts>
         <fullName>Basic_Case_Info</fullName>
-        <fields>ADCVD_Case_Number__c</fields>
+        <fields>ADCVD_Case__c</fields>
+        <fields>Office__c</fields>
         <fields>Product__c</fields>
         <fields>Product_Short_Name__c</fields>
         <fields>Country__c</fields>
@@ -69,7 +70,7 @@
         <fullName>ADCVD_Case_Number__c</fullName>
         <externalId>false</externalId>
         <formula>Investigation__r.ADCVD_Case_Number__c</formula>
-        <label>ADCVD Case Number</label>
+        <label>ADCVD Case Number Text Value</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -94,6 +95,7 @@
         <relationshipLabel>ADCVD Orders</relationshipLabel>
         <relationshipName>ADCVD_Orders</relationshipName>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -112,6 +114,7 @@
         <externalId>false</externalId>
         <label>Anniversary Month</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -154,6 +157,7 @@
         <externalId>false</externalId>
         <label>Effective Date for Most Recent SunsetFR</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -162,6 +166,7 @@
         <externalId>false</externalId>
         <label>Effective Date of Revocation</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -173,6 +178,7 @@
         <referenceTo>Investigation__c</referenceTo>
         <relationshipName>Court_Orders</relationshipName>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -191,6 +197,7 @@
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Record Locked</label>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -199,6 +206,7 @@
         <externalId>false</externalId>
         <label>Lotus Notes History Data</label>
         <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
@@ -232,6 +240,7 @@
         <externalId>false</externalId>
         <label>Next Sunset Initiation Date</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -240,12 +249,23 @@
         <externalId>false</externalId>
         <label>Office</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
             <restricted>true</restricted>
             <valueSetName>ADCVD_Offices</valueSetName>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Petition_Case_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Investigation__r.Petition__r.Case_Type__c)</formula>
+        <label>Petition Case Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Petition_Filed__c</fullName>
@@ -283,6 +303,7 @@
         <externalId>false</externalId>
         <label>Revocation Reason</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <valueSet>
@@ -314,6 +335,7 @@
         <externalId>false</externalId>
         <label>Segment Status</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -356,6 +378,7 @@
         <externalId>false</externalId>
         <label>Status</label>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -391,6 +414,7 @@
         <label>Third Country Case Number(s)</label>
         <length>128</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -402,6 +426,7 @@
         <label>This Investigation has an Order</label>
         <length>18</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>true</unique>
@@ -437,17 +462,68 @@
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
-        <columns>Country__c</columns>
-        <columns>Product__c</columns>
-        <columns>ADCVD_Case_Type__c</columns>
         <columns>ADCVD_Case_Number__c</columns>
+        <columns>CBP_Case_Number__c</columns>
+        <columns>Country__c</columns>
+        <columns>ADCVD_Case_Type__c</columns>
+        <columns>Product__c</columns>
+        <columns>Product_Short_Name__c</columns>
         <columns>Commodity__c</columns>
+        <columns>Office__c</columns>
+        <columns>Status__c</columns>
         <filterScope>Everything</filterScope>
+        <filters>
+            <field>Country__c</field>
+            <operation>equals</operation>
+            <value>China</value>
+        </filters>
         <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Current_Orders</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number__c</columns>
+        <columns>Country__c</columns>
+        <columns>ADCVD_Case_Type__c</columns>
+        <columns>Product_Short_Name__c</columns>
+        <columns>Commodity__c</columns>
+        <columns>Office__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Revoked-Incomplete,Revoked-Complete</value>
+        </filters>
+        <filters>
+            <field>Country__c</field>
+            <operation>equals</operation>
+            <value>China</value>
+        </filters>
+        <label>All Current Orders</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Revoked_Orders</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number__c</columns>
+        <columns>Country__c</columns>
+        <columns>ADCVD_Case_Type__c</columns>
+        <columns>Product_Short_Name__c</columns>
+        <columns>Commodity__c</columns>
+        <columns>Office__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Revoked-Incomplete,Revoked-Complete</value>
+        </filters>
+        <label>All Revoked Orders</label>
     </listViews>
     <nameField>
         <displayFormat>AO-{0000000}</displayFormat>
         <label>ADCVD Order</label>
+        <trackFeedHistory>false</trackFeedHistory>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>ADCVD Orders</pluralLabel>

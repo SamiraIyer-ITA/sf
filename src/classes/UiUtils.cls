@@ -1,28 +1,4 @@
-/**
- * 
- *    Created by Joshua Moody
- *    on Jul 17 2017
- *    MIL Corporation
- * 
- **/
-
 public without sharing class UiUtils {
-
-    /***********************************************************
-    * This class is a collection of repeatable methods used to 
-    * allow easier development of vf pages in the Lightning UX.
-    * Some of these methods will soon be replaced by standard 
-    * functionality (i.e. lightningStylesheets tag), but some will
-    * retain their usefulness for sometime.
-    * This class provides methods to:
-    * 1. Get the currently UX for the user
-    * 2. Change the order of the fields returned by a Schema.FieldSetMember
-    * call, a list of fields, or a list of sObjects so the displayed 
-    * order will match in Lightning and Classic. (Classic
-    * page blocks populate fields in a zig-zag pattern but Lightning
-    * populates fields by filling columns)
-    ***********************************************************/
-
 	public static Boolean isSalesforce1() {
 		Boolean isSalesforce1;
         if(UserInfo.getUiThemeDisplayed() == 'Theme4t') {
