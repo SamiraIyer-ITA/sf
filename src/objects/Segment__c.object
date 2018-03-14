@@ -71,6 +71,11 @@
         <fullName>Is_120_Day</fullName>
         <description>SunsetReviewVF</description>
         <displayedFields>
+            <field>Segment_Outcome__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>Rebuttal_Comments_Due__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -175,6 +180,11 @@
     <fieldSets>
         <fullName>Is_240_Day</fullName>
         <description>SunsetReviewVF</description>
+        <displayedFields>
+            <field>Segment_Outcome__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
         <displayedFields>
             <field>Rebuttal_Comments_Due__c</field>
             <isFieldManaged>false</isFieldManaged>
@@ -335,6 +345,11 @@
     <fieldSets>
         <fullName>Is_90_Day</fullName>
         <description>SunsetReviewVF</description>
+        <displayedFields>
+            <field>Segment_Outcome__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
         <displayedFields>
             <field>Notify_ITC_of_No_Domestic_Interest__c</field>
             <isFieldManaged>false</isFieldManaged>

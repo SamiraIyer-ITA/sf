@@ -236,8 +236,7 @@ public class SunsetReviewController {
     private void queryReview(){
         Id i = ApexPages.currentPage().getParameters().get('Id');
         if (i != null) {
-            String qry = 'SELECT rebuttal_comments_due__c, adequacy_determination_letter_to_itc__c, comments_on_adequacy_determination_filed__c, memorandum_on_adequacy_determination__c, adequate_after_reconsideration__c, next_due_to_das_deadline__c, final_issues_due_to_das__c, actual_final_issues_to_das__c, final_concurrence_due_to_das__c, actual_final_concurrence_to_das__c, calculated_final_signature__c, actual_final_signature__c, final_announcement_date__c, notify_itc_of_final_results__c, itc_vote_on_continuation_or_revocation__c, next_announcement_date__c, next_major_deadline__c, next_office_deadline__c, calculated_revocation_or_continuation_fr__c, actual_revocation_or_continuation_fr__c, continuation_or_revocation__c, effective_date_if_revoked__c, update_ace_customs_module__c, issue_liquidation_revocation_instruction__c, adequacy_of_respondents_submission__c, adequate_after_determination__c, preliminary_extension_remaining__c, prelim_team_meeting_deadline__c, prelim_issues_due_to_das__c, actual_prelim_issues_to_das__c, prelim_concurrence_due_to_das__c, actual_prelim_concurrence_to_das__c, calculated_preliminary_signature__c, actual_preliminary_signature__c, verification_if_needed__c, case_briefs_due__c, rebuttal_briefs_due__c, hearing_if_requested__c, final_extension_of_days__c, final_team_meeting_deadline__c, notify_itc_of_no_domestic_interest__c, inadequate_domestic_response_note_to_itc__c, litigation_hold_expiration_date__c, notice_of_intent_to_participate_ips__c, notice_of_intent_to_participate__c, domestic_party_file_substan_response__c, notify_cluster_coordinator_no_interest__c, respondent_file_substantive_response__c, substantive_response_due_for_all_parties__c, review_to_address_zeroing_in_segments__c, inform_cluster_coordinator_if_no_respons__c ' + 
-                            'FROM Segment__c WHERE ID =: i';//soqlBuilderAllFieldsForRecord('Segment__c', i);
+            String qry = soqlBuilderAllFieldsForRecord('Segment__c', i);
             ssReview = database.query(qry);
         } else {
             ssReview = new Segment__c();
@@ -252,8 +251,8 @@ public class SunsetReviewController {
     }
     private static String soqlBuilderAllFields(String SobjectApiName) {
         //Map<String, Schema.SObjectType> schemaMap = Schema.getGlobalDescribe();
-        Map<String, Schema.SObjectField> fieldMap = Utils.cachedGD.get(SobjectApiName).getDescribe().fields.getMap();
-        Set<String> searchFields = new Set<String>();
+        //Map<String, Schema.SObjectField> fieldMap = Utils.cachedGD.get(SobjectApiName).getDescribe().fields.getMap();
+        Set<String> searchFields = new Set<String>{'Adequacy_of_Respondents_Submission__c'};
         String commaSeparatedFields = '';
         /*for (String fieldName : fieldMap.keyset()){
             searchFields.add(fieldName.toLowerCase());
@@ -264,7 +263,6 @@ public class SunsetReviewController {
                 searchFields.add(String.valueOf(f.getFieldPath()).toLowerCase());
             }
         }
-
         for (String s: searchFields) {
             if (commaSeparatedFields != '') {
                 commaSeparatedFields = commaSeparatedFields + ', ' + s;
