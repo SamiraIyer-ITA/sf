@@ -3892,13 +3892,12 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assert(insufficientDataError.contains('You must enter a Rescission Federal Register'));
         
-/*
-        adminSeg.Segment_Outcome__c = 'Completed';
-        insufficientDataError = attemptUpsert(adminSeg);
+        // Following 4 lines were commented as method validateCompletedOutcome in SegmentTriggerHandler has been removed - story AD-2197
+        // adminSeg.Segment_Outcome__c = 'Completed';
+        // insufficientDataError = attemptUpsert(adminSeg);
 
-        Test.stopTest();
-        System.assert(insufficientDataError.contains('You must enter a Final Federal Register'));
- */     
+        // Test.stopTest();
+        // System.assert(insufficientDataError.contains('You must enter a Final Federal Register'));     
     }
 
     //setLitigationHoldExpirationDate
@@ -3909,12 +3908,13 @@ public class SegmentTriggerHandlerTest {
         expedSeg.Segment_Outcome__c = 'Full Rescission';
         String insufficientDataError = attemptUpsert(expedSeg);
         System.assert(insufficientDataError.contains('You must enter a Rescission Federal Register'));
+        
+        // Following 4 lines were commented as method validateCompletedOutcome in SegmentTriggerHandler has been removed - story AD-2197
+        // expedSeg.Segment_Outcome__c = 'Completed';
+        // insufficientDataError = attemptUpsert(expedSeg);
 
-        expedSeg.Segment_Outcome__c = 'Completed';
-        insufficientDataError = attemptUpsert(expedSeg);
-
-        Test.stopTest();
-        System.assert(insufficientDataError.contains('You must enter a Final Federal Register'));
+        // Test.stopTest();
+        // System.assert(insufficientDataError.contains('You must enter a Final Federal Register'));
     }
 
     //setLitigationHoldExpirationDate
@@ -3925,12 +3925,13 @@ public class SegmentTriggerHandlerTest {
         nsSeg.Segment_Outcome__c = 'Full Rescission';
         String insufficientDataError = attemptUpsert(nsSeg);
         System.assert(insufficientDataError.contains('You must enter a Rescission Federal Register'));
+        
+        // Following 4 lines were commented as method validateCompletedOutcome in SegmentTriggerHandler has been removed - story AD-2197
+        // nsSeg.Segment_Outcome__c = 'Completed';
+        // insufficientDataError = attemptUpsert(nsSeg);
 
-        nsSeg.Segment_Outcome__c = 'Completed';
-        insufficientDataError = attemptUpsert(nsSeg);
-
-        Test.stopTest();
-        System.assert(insufficientDataError.contains('You must enter a Final Federal Register'));
+        // Test.stopTest();
+        // System.assert(insufficientDataError.contains('You must enter a Final Federal Register'));
     }
 
     //setLitigationHoldExpirationDate
@@ -3941,12 +3942,13 @@ public class SegmentTriggerHandlerTest {
         acSeg.Segment_Outcome__c = 'Full Rescission';
         String insufficientDataError = attemptUpsert(acSeg);
         System.assert(insufficientDataError.contains('You must enter a Rescission Federal Register'));
+        
+        // Following 4 lines were commented as method validateCompletedOutcome in SegmentTriggerHandler has been removed - story AD-2197
+        // acSeg.Segment_Outcome__c = 'Completed';
+        // insufficientDataError = attemptUpsert(acSeg);
 
-        acSeg.Segment_Outcome__c = 'Completed';
-        insufficientDataError = attemptUpsert(acSeg);
-
-        Test.stopTest();
-        System.assert(insufficientDataError.contains('You must enter a Final Federal Register'));
+        // Test.stopTest();
+        // System.assert(insufficientDataError.contains('You must enter a Final Federal Register'));
     }
 
     //setLitigationHoldExpirationDate
@@ -3957,12 +3959,13 @@ public class SegmentTriggerHandlerTest {
         ccSeg.Segment_Outcome__c = 'Full Rescission';
         String insufficientDataError = attemptUpsert(ccSeg);
         System.assert(insufficientDataError.contains('You must enter a Rescission Federal Register'));
+        
+        // Following 4 lines were commented as method validateCompletedOutcome in SegmentTriggerHandler has been removed - story AD-2197
+        // ccSeg.Segment_Outcome__c = 'Completed';
+        // insufficientDataError = attemptUpsert(ccSeg);
 
-        ccSeg.Segment_Outcome__c = 'Completed';
-        insufficientDataError = attemptUpsert(ccSeg);
-
-        Test.stopTest();
-        System.assert(insufficientDataError.contains('You must enter a Final Federal Register'));
+        // Test.stopTest();
+        // System.assert(insufficientDataError.contains('You must enter a Final Federal Register'));
     }
 
     //setLitigationHoldExpirationDate
@@ -3970,11 +3973,12 @@ public class SegmentTriggerHandlerTest {
         Test.startTest();
 
         //Negative Tests for error on Outcome without FR
-        ssSeg.Segment_Outcome__c = 'Completed';
-        String insufficientDataError = attemptUpsert(ssSeg);
+        // Following 4 lines were commented as method validateCompletedOutcome in SegmentTriggerHandler has been removed - story AD-2197
+        // ssSeg.Segment_Outcome__c = 'Completed';
+        // String insufficientDataError = attemptUpsert(ssSeg);
 
-        Test.stopTest();
-        System.assert(insufficientDataError.contains('You must enter a Final Federal Register'));
+        // Test.stopTest();
+        // System.assert(insufficientDataError.contains('You must enter a Final Federal Register'));
     }
 
 
