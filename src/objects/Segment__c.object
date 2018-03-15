@@ -874,7 +874,7 @@
     <fields>
         <fullName>Calculated_Final_FR_Signature__c</fullName>
         <externalId>false</externalId>
-        <label>Calculated Final FR Signature</label>
+        <label>Calculated Final FR Publication</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
