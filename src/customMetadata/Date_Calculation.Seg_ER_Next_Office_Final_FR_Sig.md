@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <label>Seg ER - Next Major - Final FR Sig</label>
+    <label>Seg ER - Next Office - Final FR Sig</label>
     <protected>false</protected>
     <values>
         <field>ADCVD_Objects__c</field>
@@ -8,7 +8,7 @@
     </values>
     <values>
         <field>Active_Calculation__c</field>
-        <value xsi:type="xsd:boolean">false</value>
+        <value xsi:type="xsd:boolean">true</value>
     </values>
     <values>
         <field>Actual_Date_Field_Name__c</field>
@@ -112,7 +112,7 @@
     </values>
     <values>
         <field>Calculated_Date_Field_Name__c</field>
-        <value xsi:type="xsd:string">Next_Major_Deadline__c</value>
+        <value xsi:type="xsd:string">Next_Office_Deadline__c</value>
     </values>
     <values>
         <field>Conditional_Field_1_Lookup_Field_Name__c</field>
@@ -148,7 +148,7 @@
     </values>
     <values>
         <field>Conditional_Field_2_Name__c</field>
-        <value xsi:type="xsd:string">Next_Major_Deadline__c</value>
+        <value xsi:type="xsd:string">Next_Office_Deadline__c</value>
     </values>
     <values>
         <field>Conditional_Field_2_Object__c</field>
@@ -368,7 +368,7 @@
     </values>
     <values>
         <field>Order_of_Execution__c</field>
-        <value xsi:type="xsd:double">162.0</value>
+        <value xsi:type="xsd:double">247.0</value>
     </values>
     <values>
         <field>Tolling_Service__c</field>
