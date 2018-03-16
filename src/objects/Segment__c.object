@@ -480,7 +480,7 @@
     <fields>
         <fullName>ADCVD_Case_Type__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(NOT(ISNULL(ADCVD_Order__c)),  ADCVD_Order__r.ADCVD_Case_Type__c  ,  Suspension_Agreement__r.ADCVD_Case_Type__c  )</formula>
+        <formula>TEXT(ADCVD_Case__r.ADCVD_Case_Type__c)</formula>
         <label>ADCVD Case Type</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -1893,7 +1893,7 @@
     <fields>
         <fullName>Product_Short_Name__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(NOT(ISNULL(ADCVD_Order__c)), ADCVD_Order__r.Product_Short_Name__c , Suspension_Agreement__r.Product_Short_Name__c )</formula>
+        <formula>(ADCVD_Case__r.Product_Short_Name__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Product Short Name</label>
         <required>false</required>
@@ -1904,7 +1904,7 @@
     <fields>
         <fullName>Product__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(NOT(ISNULL(ADCVD_Order__c)),  ADCVD_Order__r.Product__c  ,  Suspension_Agreement__r.Product__c  )</formula>
+        <formula>(ADCVD_Case__r.Product__c)</formula>
         <label>Product</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
