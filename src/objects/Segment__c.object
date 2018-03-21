@@ -470,7 +470,7 @@
     <fields>
         <fullName>ADCVD_Case_Number__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(NOT(ISNULL(ADCVD_Order__c)),  ADCVD_Order__r.ADCVD_Case_Number__c  ,  Suspension_Agreement__r.ADCVD_Case_Number__c  )</formula>
+        <formula>(ADCVD_Case__r.ADCVD_Case_Number__c)</formula>
         <label>ADCVD Case Number Text Value</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
