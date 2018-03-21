@@ -956,7 +956,7 @@
     <fields>
         <fullName>Commodity__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(NOT(ISNULL(ADCVD_Order__c)),  ADCVD_Order__r.Commodity__c  ,  Suspension_Agreement__r.Commodity__c  )</formula>
+        <formula>TEXT(ADCVD_Case__r.Commodity__c)</formula>
         <label>Commodity</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
