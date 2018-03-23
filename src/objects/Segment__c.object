@@ -1371,6 +1371,18 @@
             <restricted>true</restricted>
             <valueSetName>YesNo</valueSetName>
         </valueSet>
+    <fields>
+        <fullName>Investigation__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Investigation</label>
+        <referenceTo>Investigation__c</referenceTo>
+        <relationshipLabel>Segments</relationshipLabel>
+        <relationshipName>Segments</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Is_the_review_being_rescinded__c</fullName>
@@ -2323,6 +2335,10 @@
         <fullName>Type_of_Scope_Ruling__c</fullName>
         <externalId>false</externalId>
         <label>Type of Scope Ruling</label>
+            <picklistValues>
+                <fullName>Plain Language</fullName>
+                <default>false</default>
+            </picklistValues>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>

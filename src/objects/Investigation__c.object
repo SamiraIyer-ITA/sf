@@ -1544,6 +1544,20 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Segment__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Segment</label>
+        <referenceTo>Segment__c</referenceTo>
+        <relationshipLabel>Investigations</relationshipLabel>
+        <relationshipName>Investigations</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Signature_of_Prelim_Postponement_FR__c</fullName>
         <description>Calculated Postponement of Preliminary Determination FR Signature</description>
         <externalId>false</externalId>
