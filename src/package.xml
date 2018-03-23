@@ -376,6 +376,10 @@
         <members>Staffing_Assignment_Record_Page</members>
         <name>FlexiPage</name>
     </types>
+	<types>
+        <members>Investigations_and_Segments_with_Staffing</members>
+        <name>ReportType</name>
+    </types>
     <types>
         <members>ADCVD_Manager</members>
         <name>Group</name>
