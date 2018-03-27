@@ -2336,10 +2336,6 @@
         <fullName>Type_of_Scope_Ruling__c</fullName>
         <externalId>false</externalId>
         <label>Type of Scope Ruling</label>
-            <picklistValues>
-                <fullName>Plain Language</fullName>
-                <default>false</default>
-            </picklistValues>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
@@ -2354,6 +2350,10 @@
                 </value>
                 <value>
                     <fullName>K (2)</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Plain Language</fullName>
                     <default>false</default>
                 </value>
             </valueSetDefinition>
