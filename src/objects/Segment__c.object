@@ -1371,6 +1371,7 @@
             <restricted>true</restricted>
             <valueSetName>YesNo</valueSetName>
         </valueSet>
+    </fields>
     <fields>
         <fullName>Investigation__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
