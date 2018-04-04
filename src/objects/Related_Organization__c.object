@@ -64,7 +64,7 @@
     <fields>
         <fullName>ADCVD_Case_Number__c</fullName>
         <externalId>false</externalId>
-        <label>ADCVD Case Number</label>
+        <label>ADCVD Case Text Value</label>
         <length>28</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -98,6 +98,21 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>ADCVD_Case__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Lookup to ADCVD Case</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field links to the related ADCVD Case for the Petition and all other objects related to a &quot;Case&quot;</inlineHelpText>
+        <label>ADCVD Case Number</label>
+        <referenceTo>ADCVD_Case__c</referenceTo>
+        <relationshipLabel>Interested Organizations</relationshipLabel>
+        <relationshipName>Interested_Organizations</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>ADCVD_Order__c</fullName>
@@ -2438,16 +2453,43 @@ PRIORVALUE(Locked__c) == true
         <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Custom_Instructions_must_have_a_parent</fullName>
+        <fullName>Interested_Org_must_have_a_parent</fullName>
         <active>true</active>
-        <description>Custom Instructions must have a parent (ADCVD Order, Investigation, Petition, Segment, or Suspension Agreement)</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND(NOT(ISBLANK(Custom_Instruction__c)), ISBLANK( Segment__c ),  ISBLANK( ADCVD_Order__c ), ISBLANK( Petition__c ),  ISBLANK( Investigation__c ),  ISBLANK( Segment__r.Suspension_Agreement__c )))</errorConditionFormula>
-        <errorMessage>Custom Instructions must have a parent.</errorMessage>
+        <description>Interested Organizations without a Custom Instructions must have an ADCVD Order, Investigation, Petition, Segment or a related ADCVD Case. If Customs Instructions is the parent, a Segment record must also be included as a reference.</description>
+        <errorConditionFormula>AND
+($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, 
+ISNEW(), ISBLANK(ADCVD_Case__c), 
+AND(OR( 
+(AND(ISBLANK(ADCVD_Order__c ), ISBLANK(Custom_Instruction__c), ISBLANK(Investigation__c), 
+ISBLANK(Petition__c), ISBLANK( Segment__c ), ISBLANK( Segment__r.Suspension_Agreement__c )))
+,
+(IF(ISBLANK(ADCVD_Order__c),0,1)+
+IF(ISBLANK(Custom_Instruction__c),0,1)+
+IF(ISBLANK(Investigation__c),0,1)+
+IF(ISBLANK(Petition__c),0,1)+
+IF(ISBLANK(Segment__c),0,1)+ 
+IF(ISBLANK(Segment__r.Suspension_Agreement__c),0,1)&gt;1) 
+),
+OR(
+(AND(NOT(ISBLANK(Custom_Instruction__c)),ISBLANK(ADCVD_Order__c),ISBLANK(Investigation__c ),
+ISBLANK( Petition__c ),ISBLANK( Segment__c ),ISBLANK( Segment__r.Suspension_Agreement__c )))
+,
+(IF(ISBLANK(ADCVD_Order__c),0,1)+
+IF(ISBLANK(Custom_Instruction__c),0,1)+
+IF(ISBLANK(Investigation__c),0,1)+
+IF(ISBLANK(Petition__c),0,1)+
+IF(ISBLANK(Segment__c),0,1)+ 
+IF(ISBLANK(Segment__r.Suspension_Agreement__c),0,1)&gt;2) 
+))
+,
+AND(NOT(ISBLANK(Custom_Instruction__c)),
+ISBLANK( Segment__c )))</errorConditionFormula>
+        <errorMessage>Interested Organizations without Custom Instructions must have at least one parent. If Customs Instructions are the parent, a Segment must also be referenced.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Segment_must_be_populated_if_ci_is</fullName>
         <active>true</active>
-        <description>Segment must be populated if Custom Instruction is</description>
+        <description>Segment must be populated if Custom Instruction is a parent</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND(NOT(ISBLANK( Custom_Instruction__c )), ISBLANK( Segment__c )))</errorConditionFormula>
         <errorMessage>You must have a segment if you have custom instructions.</errorMessage>
     </validationRules>

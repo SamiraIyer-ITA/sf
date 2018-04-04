@@ -2894,6 +2894,22 @@ PRIORVALUE(Locked__c) == true
         <errorMessage>Litigation cannot be blank when Have Custom Instructions is populated</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Every_Investigation_must_have_a_parent</fullName>
+        <active>true</active>
+        <description>Every Investigation must have a parent (Petition) plus an ADCVD Case.</description>
+        <errorConditionFormula>AND( 
+$Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
+Locked__c == false,
+ISNEW(), 
+AND(NOT(ISNEW()),NOT(ISBLANK(Segment__c))),
+OR(ISBLANK(Petition__c), 
+ISBLANK(ADCVD_Case__c),
+ISBLANK(Segment__c)
+)	
+)</errorConditionFormula>
+        <errorMessage>A new Investigation must have a parent Petition with an ADCVD Case.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Final_Extension_Null_If_False</fullName>
         <active>true</active>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND (
@@ -2913,6 +2929,18 @@ $RecordType.DeveloperName = &quot;CVD&quot;,
 ))</errorConditionFormula>
         <errorDisplayField>Litigation_Resolved__c</errorDisplayField>
         <errorMessage>Litigation Resolved cannot be blank when Litigation is &quot;Yes&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Only_SysAdmin_reparents_Investigations</fullName>
+        <active>true</active>
+        <description>Cannot reparent an Investigation to another Petition or ADCVD Case unless a System Administrator.</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
+Locked__c == false, 
+NOT( ISNEW() ), 
+OR(ISCHANGED(Petition__c), ISCHANGED(Segment__c), ISCHANGED(ADCVD_Case__c)),$Profile.Name &lt;&gt; 
+&quot;System Administrator&quot; 
+)</errorConditionFormula>
+        <errorMessage>You are not authorized to edit this field. Only a System Administrator can edit the parent Petition or ADCVD Case for this record.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Petition_Withdrawn_Date_Required</fullName>

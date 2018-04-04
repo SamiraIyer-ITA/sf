@@ -592,14 +592,31 @@ IF( Segment__c != null, Segment__r.Link__c ,
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
+        <fullName>Only_Admin_reparents_records</fullName>
+        <active>true</active>
+        <description>Staffing Assignment records can only be reparented by a System Administrator. This rule considered Interested Organization as a possible parent.</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
+Locked__c == false, 
+NOT( ISNEW() ), 
+OR(ISCHANGED(ADCVD_Case__c ),ISCHANGED(ADCVD_Order__c),ISCHANGED(Investigation__c),ISCHANGED(Petition__c),ISCHANGED(Related_Organization__c),ISCHANGED(Segment__c)),$Profile.Name 
+&lt;&gt; 
+&quot;System Administrator&quot; 
+)</errorConditionFormula>
+        <errorMessage>You are not authorized to edit this field. Only a System Administrator can edit the parent ADCVD Order, Investigation, Petition, Interested Organization, Segment or ADCVD Case for this record.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Require_a_parent_value</fullName>
         <active>true</active>
-        <description>Require a parent value for all staffing assignments</description>
-        <errorConditionFormula>ISBLANK( ADCVD_Order__c )&amp;&amp;
-ISBLANK(  Investigation__c )&amp;&amp;
-ISBLANK(  Petition__c )&amp;&amp;
-ISBLANK(  Related_Organization__c )&amp;&amp;
-ISBLANK(  Segment__c )</errorConditionFormula>
-        <errorMessage>Please select a parent for this staffing assignment</errorMessage>
+        <description>Require one parent value for each staffing assignment along with a related ADCVD Case. This rule considers Related Organization as a possible parent.</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, ISNEW(), ISBLANK(ADCVD_Case__c), OR( 
+(AND( ISBLANK(ADCVD_Order__c),ISBLANK(Investigation__c),ISBLANK(Petition__c),ISBLANK(Related_Organization__c),ISBLANK(Segment__c))),
+(IF(ISBLANK(ADCVD_Order__c),0,1)+
+IF(ISBLANK(Investigation__c),0,1)+
+IF(ISBLANK(Petition__c),0,1)+
+IF(ISBLANK(Related_Organization__c),0,1)+ 
+IF(ISBLANK(Segment__c),0,1)&gt;1) 
+) 
+)</errorConditionFormula>
+        <errorMessage>Please select one parent ADCVD Order, Interested Organization, Investigation, Petition, or Segment for this Staffing Assignment with a related ADCVD Case.</errorMessage>
     </validationRules>
 </CustomObject>
