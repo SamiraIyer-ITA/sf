@@ -3016,21 +3016,30 @@ PRIORVALUE(Locked__c) == true
         <fullName>Every_Litigation_must_have_a_Parent</fullName>
         <active>true</active>
         <description>Every Litigation must ONLY have either a Petition, an Investigation, or a Segment.</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, OR(
-    (
-      IF(
-        AND(
-          ISBLANK(Petition__c),ISBLANK(Segment__c),ISBLANK(Investigation__c)
-           ),
-      1, 0)
-    =1),
-   ( IF(ISBLANK(Petition__c),0,1)+
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, ISNEW(), ISBLANK(ADCVD_Case__c), OR( 
 (AND( ISBLANK(Petition__c),ISBLANK(Segment__c),ISBLANK(Investigation__c))),(IF(ISBLANK(Petition__c),0,1)+
    IF(ISBLANK(Segment__c),0,1)+ 
    IF(ISBLANK(Investigation__c),0,1)&gt;1) 
 )
 )</errorConditionFormula>
+        <errorMessage>Every Litigation must have either a Petition, an Investigation, or a Segment with a related ADCVD Case record. Please enter ONLY one value, either for a Petition, an Investigation or a Segment.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>International_Litigation_Final_Extension</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And (
+$RecordType.DeveloperName = &quot;International_Litigation&quot;, 
+  Final_Extension_of_days__c  &lt; 0
+))</errorConditionFormula>
+        <errorMessage>Final Extension cannot be less than zero.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>International_Litigation_Preli_Extension</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And (
+$RecordType.DeveloperName = &quot;International_Litigation&quot;, 
+   Prelim_Extension_of_days__c  &lt; 0
+))</errorConditionFormula>
         <errorMessage>Every Litigation must have either a Petition, an Investigation, or a Segment with a related ADCVD Case record. Please enter ONLY one value, either for a Petition, an Investigation or a Segment.</errorMessage>
     </validationRules>
     <validationRules>
