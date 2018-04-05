@@ -316,19 +316,36 @@ PRIORVALUE(Locked__c) == true
     </validationRules>
     <validationRules>
         <fullName>Cannot_reparent_a_federal_register</fullName>
-        <active>false</active>
+        <active>true</active>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND( $Profile.Name != &apos;System Administrator&apos;,
         OR( ISCHANGED( Investigation__c ) , ISCHANGED( 
-Petition__c ) , ISCHANGED( Segment__c ) ) ))</errorConditionFormula>
+Petition__c ) , ISCHANGED( Segment__c ), ISCHANGED( Suspension_Agreement__c ) ) ))</errorConditionFormula>
         <errorMessage>Cannot re-parent a federal register.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Ensure_there_is_a_parent</fullName>
+        <fullName>Ensure_there_is_only_one_parent</fullName>
         <active>true</active>
-        <description>This validation rule makes sure you cannot create a federal register without a Investigation, Petition, Orders, Suspension Agreement or Segment attached to it. If all three of these lookup fields are empty, the validation error message will trigger.</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND( ISBLANK( Investigation__c ) , ISBLANK( Segment__c ),
-ISBLANK( Petition__c ), ISBLANK(Suspension_Agreement__c ),
-ISBLANK( ADCVD_Order__c )))</errorConditionFormula>
-        <errorMessage>You must have a Petition, Investigation,  Orders, Suspension Agreement or Segment associated to this Federal Register.</errorMessage>
+        <description>You cannot create a federal register without a single parent record: either an Investigation, Petition, Order, Suspension Agreement or Segment attached to it. If all four of these lookup fields are empty, the validation error message will trigger.</description>
+        <errorConditionFormula>AND(
+$Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
+Locked__c == false, 
+ISNEW(),  
+OR( 
+  (AND 
+  ( ISBLANK(Petition__c),
+  ISBLANK(Segment__c),
+  ISBLANK(Investigation__c), 
+  ISBLANK(Suspension_Agreement__c) 
+  )
+  ),
+  (	
+	IF(ISBLANK(Petition__c),0,1)+ 
+	IF(ISBLANK(Segment__c),0,1)+ 
+	IF(ISBLANK(Investigation__c),0,1)+ 
+	IF(ISBLANK(Suspension_Agreement__c),0,1) &gt;1
+   )
+  ) 
+)</errorConditionFormula>
+        <errorMessage>You must have either a Petition, Investigation,  ADCVD Order, Suspension Agreement or Segment associated to this Federal Register.</errorMessage>
     </validationRules>
 </CustomObject>

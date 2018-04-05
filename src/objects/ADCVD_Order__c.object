@@ -572,4 +572,32 @@ PRIORVALUE(Locked__c) == true
 )</errorConditionFormula>
         <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
     </validationRules>
+    <validationRules>
+        <fullName>Every_ADCVD_Order_must_have_parent</fullName>
+        <active>true</active>
+        <description>Every ADCVD Order must have a parent Investigation plus an ADCVD Case.</description>
+        <errorConditionFormula>AND(
+$Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+Locked__c == false,
+ISNEW(), 
+OR
+(ISBLANK(Investigation__c),
+ISBLANK(ADCVD_Case__c)
+)			 
+)</errorConditionFormula>
+        <errorDisplayField>Investigation__c</errorDisplayField>
+        <errorMessage>ADCVD Order must have a parent Investigation with an ADCVD Case</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Only_Admin_can_reparent_ADCVD_Order</fullName>
+        <active>true</active>
+        <description>Only a System Admin can reparent an ADCVD Order to a different Investigation or ADCVD Case.</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
+Locked__c == false,
+NOT( ISNEW() ),
+ OR(ISCHANGED(Investigation__c), ISCHANGED(ADCVD_Case__c)),$Profile.Name &lt;&gt;
+&quot;System Administrator&quot;
+)</errorConditionFormula>
+        <errorMessage>You are not authorized to edit this field. Only a System Administrator can edit the parent Investigation or ADCVD Case for this record.</errorMessage>
+    </validationRules>
 </CustomObject>
