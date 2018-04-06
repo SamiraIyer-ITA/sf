@@ -25,7 +25,6 @@
         <name>ApexPage</name>
     </types>
     <types>
-        <members>AD_CVD</members>
         <members>AD_CVD_Lightning</members>
         <name>CustomApplication</name>
     </types>
