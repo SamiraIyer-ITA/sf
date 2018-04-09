@@ -437,7 +437,7 @@ public without sharing class SegmentTriggerHandler {
 					s.Status__c = 'Prelim';
 			}
 		} else if (recordTypeNameMap.get(s.RecordTypeId) == SCOPE_INQUIRY) {
-			if (s.Decision_on_How_to_Proceed__c == 'Formal' && s.Actual_Preliminary_Signature__c == null) {
+			if (s.Decision_on_How_to_Proceed__c == 'Formal' && s.Preliminary_Determination__c == 'Yes' && s.Actual_Preliminary_Signature__c == null) {
 				 s.Status__c = 'Prelim';
 			}
 		} else if (recordTypeNameMap.get(s.RecordTypeId) == SUNSET_REVIEW) {
@@ -506,7 +506,7 @@ public without sharing class SegmentTriggerHandler {
 			}
 		} else if (recordTypeNameMap.get(s.RecordTypeId) == SCOPE_INQUIRY) {
 			if (s.Decision_on_How_to_Proceed__c == 'Formal' 
-				&& s.Actual_Preliminary_Signature__c != null
+				&& (s.Preliminary_Determination__c != 'Yes' || (s.Preliminary_Determination__c == 'Yes' && s.Actual_Preliminary_Signature__c != null))
 				&& s.Actual_Final_Signature__c == null) {
 					s.Status__c = 'Final';
 			}

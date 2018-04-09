@@ -332,6 +332,7 @@ public class SegmentTriggerHandlerTest {
         //Scope Inquiry
         //Based on Formal
         siSeg.Actual_Date_of_Decision_on_HoP__c = siSeg.Deadline_for_Decision_on_How_to_Proceed__c.addDays(-14);
+        siSeg.Preliminary_Determination__c = 'Yes';
         update siSeg;
         getNewSegs();//trigger new query in class variables
         testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(siSeg.Actual_Date_of_Decision_on_HoP__c.addDays(75).addDays(7));
@@ -460,7 +461,10 @@ public class SegmentTriggerHandlerTest {
         getNewSegs();
 
         //Scope Inquiry
-        ////Based on Formal
+        //Based on Formal
+        siSeg.Preliminary_Determination__c = 'Yes';
+        update siSeg;
+        getNewSegs();
         //compare Calculated_Preliminary_Signature__c
         testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(siSeg.Calculated_Preliminary_Signature__c.addDays(-21));
 
@@ -1676,6 +1680,8 @@ public class SegmentTriggerHandlerTest {
         //setup start dates
         setStartDates();
         setExtensions();
+        siSeg.Preliminary_Determination__c = 'Yes';
+        update siSeg;
         getNewSegs();
         testCalculated = ADCVD_TollingDayUtility.getCalculatedDate(siSeg.Calculated_Preliminary_Signature__c, siSeg.Calculated_Preliminary_Signature__c.addDays(1), true);
 
@@ -2032,6 +2038,7 @@ public class SegmentTriggerHandlerTest {
 
         siSeg.Actual_Date_of_Decision_on_HoP__c = siSeg.Deadline_for_Decision_on_How_to_Proceed__c.addDays(-7);
         siSeg.Decision_on_How_to_Proceed__c = 'Formal';
+        siSeg.Preliminary_Determination__c = 'Yes';
         update siSeg;
         siSeg = null;
         System.assertEquals(siSeg.Calculated_Preliminary_Signature__c, siSeg.Next_Major_Deadline__c);
@@ -2229,6 +2236,7 @@ public class SegmentTriggerHandlerTest {
 
         siSeg.Actual_Date_of_Decision_on_HoP__c = System.today().toStartOfWeek().addDays(-4);
         siSeg.Decision_on_How_to_Proceed__c = 'Formal';
+        siSeg.Preliminary_Determination__c = 'Yes';
         update siSeg;
         getNewSegs();
         System.assertEquals(siSeg.Preliminary_Announcement_Date__c, siSeg.Next_Announcement_Date__c);
@@ -2695,6 +2703,7 @@ public class SegmentTriggerHandlerTest {
         System.assertEquals(siSeg.Deadline_for_Decision_on_How_to_Proceed__c, siSeg.Next_Due_to_DAS_Deadline__c);
 
         siSeg.Decision_on_How_to_Proceed__c = 'Formal';
+        siSeg.Preliminary_Determination__c = 'Yes';
         siSeg.Actual_Date_of_Decision_on_HoP__c = siSeg.Deadline_for_Decision_on_How_to_Proceed__c;
         update siSeg;
         siSeg = null;
@@ -3714,6 +3723,7 @@ public class SegmentTriggerHandlerTest {
         System.assertEquals(siSeg.Deadline_for_Decision_on_How_to_Proceed__c, siSeg.Next_Office_Deadline__c);
 
         siSeg.Decision_on_How_to_Proceed__c = 'Formal';
+        siSeg.Preliminary_Determination__c = 'Yes';
         siSeg.Actual_Date_of_Decision_on_HoP__c = siSeg.Deadline_for_Decision_on_How_to_Proceed__c;
         update siSeg;
         siSeg = null;
@@ -4267,6 +4277,7 @@ public class SegmentTriggerHandlerTest {
         //Segment -Prelim Status
         setStartDates();
         siSeg.Decision_on_How_to_Proceed__c = 'Formal';
+        siSeg.Preliminary_Determination__c = 'Yes';
         update siSeg;
         getNewSegs();
         System.assertEquals('Prelim', [SELECT Id, Status__c FROM Segment__c WHERE Id =: siSeg.Id LIMIT 1].Status__c);
