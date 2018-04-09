@@ -10207,6 +10207,10 @@
                 <fullName>K %282%29</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Plain Language</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Was_Product_Prelim_Determine_on_Scope__c</picklist>
