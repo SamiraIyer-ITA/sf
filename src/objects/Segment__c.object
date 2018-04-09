@@ -10099,6 +10099,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Preliminary_Determination__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Segment_Outcome__c</picklist>
             <values>
                 <fullName>Completed</fullName>
