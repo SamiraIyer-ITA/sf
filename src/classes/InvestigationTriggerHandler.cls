@@ -158,7 +158,8 @@ public without sharing class InvestigationTriggerHandler {
     	Map<Id,Petition__c> returnMap = new Map<Id,Petition__c>();
     	Set<Id> petitionIdSet = findIdsInScope(newList);
     	for (Petition__c p : [SELECT Id, Petition_Filed__c, Initiation_Extension_of_days__c, Actual_Initiation_Signature__c, 
-    									Calculated_Initiation_Signature__c, ADCVD_Case_Type__c, ADCVD_Case__c 
+    									Calculated_Initiation_Signature__c, ADCVD_Case_Type__c, ADCVD_Case__c, ADCVD_Case_Number__c,
+                                        CBP_Case_Number__c, Commodity__c, Country__c, Product__c, Product_Short_Name__c 
     								FROM Petition__c WHERE Id IN: petitionIdSet]) {
     		returnMap.put(p.Id, p);
             if (p.Actual_Initiation_Signature__c == null && p.Calculated_Initiation_Signature__c == null) {
