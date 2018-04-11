@@ -26,21 +26,29 @@ public without sharing class Federal_RegisterCS implements ADCVD_CascadeService 
 			}
 		}
 		if (parentObjectName == 'Investigation__c') {
-			for (ADCVD_Order__c ao : [SELECT Id FROM ADCVD_Order__c WHERE Investigation__c IN: parentIdSet]) {
+			for (Investigation__c i : [SELECT Id, Petition__c, (SELECT Id FROM Court_Orders__r) FROM Investigation__c WHERE Id IN: parentIdSet]) {
+				parentIdSet.add(i.Petition__c);
+				for (ADCVD_Order__c ao : i.Court_Orders__r) {
 				parentIdSet.add(ao.Id);
 			}
 		}
+			/*for (ADCVD_Order__c ao : [SELECT Id, Investigation__r.Petition__c FROM ADCVD_Order__c WHERE Investigation__c IN: parentIdSet]) {
+				parentIdSet.add(ao.Id);
+				parentIdSet.add(ao.Investigation__r.Petition__c);
+			}*/
+		}
 		//query all potential parents for the FRs whose parent is in the parentIdSet
-		for(Federal_Register__c fr : [SELECT Id, Type__c, Published_Date__c, Do_Delete__c, Segment__c, Segment__r.ADCVD_Order__c, Investigation__c, CreatedDate, 
+		for(Federal_Register__c fr : [SELECT Id, Type__c, Published_Date__c, Do_Delete__c, Segment__c, Segment__r.ADCVD_Order__c, Investigation__c, Petition__c, CreatedDate, 
 										ADCVD_Order__c, ADCVD_Order__r.Investigation__c, Suspension_Agreement__c, Suspension_Agreement__r.Investigation__c 
 										FROM Federal_Register__c 
 										WHERE Id IN: parentIdSet
+										OR Petition__c IN: parentIdSet
 										OR Segment__c IN: parentIdSet
 										OR Investigation__c IN: parentIdSet
 										OR ADCVD_Order__c IN: parentIdSet
 										OR Suspension_Agreement__c IN: parentIdSet]) {
 			//create a temporary set for this FR that contains all it's potential parents
-			Set<Id> tempSet = new Set<Id>{fr.Id, fr.Segment__c, fr.Segment__r.ADCVD_Order__c, fr.Investigation__c, fr.ADCVD_Order__c, 
+			Set<Id> tempSet = new Set<Id>{fr.Id, fr.Segment__c, fr.Segment__r.ADCVD_Order__c, fr.Investigation__c, fr.ADCVD_Order__c, fr.Petition__c, 
 											fr.ADCVD_Order__r.Investigation__c, fr.Suspension_Agreement__c, fr.Suspension_Agreement__r.Investigation__c};
 			for(Id tempId : tempSet) {
 				if(tempId != null) {//only map this FR to parents that are not null

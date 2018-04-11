@@ -170,7 +170,7 @@ public without sharing class DateCalculationService {
     @TestVisible private SObject getBaseConditionalObject(SObject record, Date_Calculation__mdt dc, Integer i) {
     	String baseObjectName = 'Conditional_Field_'+ String.valueOf(i) + '_Object__c';
     	String baseFieldName = 'Conditional_Field_'+ String.valueOf(i) + '_Name__c';
-    	String baseDateFieldLookupFieldName = 'Conditional_Field_'+ '3' + '_Lookup_Field_Name__c';
+    	String baseDateFieldLookupFieldName = 'Conditional_Field_'+ String.valueOf(i) + '_Lookup_Field_Name__c';
     	String baseFieldType = 'Conditional_Field_'+ String.valueOf(i) + '_Type__c';
     	Set<String> childSObjectNames = new Set<String> {''};
 
@@ -182,7 +182,8 @@ public without sharing class DateCalculationService {
     	} else if (childSObjectNames.contains(baseObjectName)) {
     		return getBaseObject(record, '', baseObjectName, baseFieldType);
 		} else {
-			return getBaseObject(record, '', baseObjectName);
+			return getBaseObject(record, String.valueOf(dc.get(baseDateFieldLookupFieldName)),
+				String.valueOf(dc.get(baseObjectName)));
 		}
 		return null;
     }
@@ -235,7 +236,7 @@ public without sharing class DateCalculationService {
 			for (Date_Calculation__mdt dc : dateCalculations.values()) {
 				targetObjectName = targetObjectName == '' ? dc.ADCVD_Objects__r.Object_API_Name__c : targetObjectName;
 				System.debug('*** targetObjectName: ' + targetObjectName);
-				for (Integer i = 1; i <=5; i++) {
+				for (Integer i = 1; i <=6; i++) {
 					String lookupFieldName = 'Base_Date_Field_' + String.valueOf(i) + '_Lookup_Field_Name__c';
 					String objectName = 'Base_Date_Field_' + String.valueOf(i) + '_Object__c';
 					lookupFieldNameToObjectNameMap.put(String.valueOf(dc.get(lookupFieldName)), String.valueOf(dc.get(objectName)));

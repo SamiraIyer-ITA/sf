@@ -35,6 +35,11 @@ public without sharing class FederalRegisterTriggerHandler {
         Set<Id> frIdSet = new Set<Id>();
         Set<Id> tempSet = new Set<Id>();
         for(Federal_Register__c fr : newList) {
+            if(fr.Petition__c != null) {
+                parentIdSet.add(fr.Petition__c);
+            } else if (oldMap != null && oldMap.get(fr.Id).Petition__c != null) {
+                parentIdSet.add(oldMap.get(fr.Id).Petition__c);
+            }
             if(fr.Investigation__c != null) {
                 parentIdSet.add(fr.Investigation__c);
             } else if (oldMap != null && oldMap.get(fr.Id).Investigation__c != null) {
@@ -92,10 +97,21 @@ public without sharing class FederalRegisterTriggerHandler {
     @TestVisible private static void recalculateParentsOfFederalRegister(List<Federal_Register__c> newList, Map<Id,Federal_Register__c> oldMap) {
         Set<Id> parentIdSet = findParentsInScope(newList, oldMap);
         setFrUtilMap(parentIdSet);
+        calculatePetitions(parentIdSet);
         calculateInvestigations(parentIdSet);
         calculateOrders(parentIdSet);
         calculateSuspensionAgreements(parentIdSet);
         calculateSegments(parentIdSet);
+    }
+
+    /**
+     * Updates the Petitions after FRs have been updated
+     * @param  parentIdSet Set of Ids from Petitions, Investigations, ADCVD Orders, Suspension Agreements, Segments or FRs
+     * @return             void
+     */
+    @TestVisible private static void calculatePetitions(Set<Id> parentIdSet) {
+        List<Petition__c> petitionsToUpdate = [SELECT Id FROM Petition__c WHERE Id IN: parentIdSet AND Locked__c =: false];
+        database.update(petitionsToUpdate, false);
     }
 
     /**
