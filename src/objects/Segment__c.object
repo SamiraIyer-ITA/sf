@@ -10254,7 +10254,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>YesNo</picklist>
+            <picklist>Will_you_Amend_the_Final__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
