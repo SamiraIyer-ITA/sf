@@ -8,6 +8,7 @@ global without sharing class ADCVD_OrderSearch {
         public String caseNumber;
         public String productShortName;
         public String country;
+        public String commodity;
         public List<Segment> segments = new List<Segment>();
         public List<HTS> htsNums = new List<HTS>();
     }
@@ -48,7 +49,7 @@ global without sharing class ADCVD_OrderSearch {
         //Initialize the return value
         JsonOutput output = new JsonOutput();
                 
-        List<ADCVD_Order__c> orders = [SELECT Id, ADCVD_Case_Number__c, Product_Short_Name__c, Country__c, 
+        List<ADCVD_Order__c> orders = [SELECT Id, ADCVD_Case_Number__c, Product_Short_Name__c, Country__c, Commodity__c, 
 			                               (SELECT Id, RecordTypeId, Actual_Final_Signature__c, Initiation_Extension_Remaining__c, 
 			                               			Preliminary_Extension_Remaining__c, Final_Extension_Remaining__c, Initiation_Announcement_Date__c, 
 			                               			Preliminary_Announcement_Date__c, Final_Announcement_Date__c, Next_Announcement_Date__c 
@@ -63,7 +64,8 @@ global without sharing class ADCVD_OrderSearch {
             ao.caseNumber = o.ADCVD_Case_Number__c;
             ao.productShortName = o.Product_Short_Name__c;
             ao.country = o.Country__c;
-            
+            ao.commodity = o.Commodity__c;
+
             for (Segment__c seg: o.Segments__r) {
                 Segment s = new Segment();
                 s.id = seg.id;
