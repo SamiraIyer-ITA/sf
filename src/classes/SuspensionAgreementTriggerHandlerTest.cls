@@ -56,6 +56,24 @@ public class SuspensionAgreementTriggerHandlerTest {
 		System.assert(SuspensionAgreementTriggerHandler.frUtilMap.isEmpty());
 	}
 
+    //Test to check if Suspension Agreement is auto-populated with ADCVD Case number
+    @isTest static void setCaseValuesFromParent() {
+        Test.startTest();
+        ADCVD_Case__c testCase = TestUtils.createADCVDCase('A-111-123', 'AD ME', true);
+        Petition__c testPetition = TestUtils.createPetition(suspDate.addDays(-14),'AD ME', false);
+        testPetition.ADCVD_Case__c = testCase.Id;
+        insert testPetition;        
+		Investigation__c testInvestigation = TestUtils.createInvestigation('AD', testPetition, true);
+		Suspension_Agreement__c testSuspAgr = TestUtils.createSuspensionAgreement(testInvestigation, suspDate, true); 
+        Test.stopTest();
+        Suspension_Agreement__c savedSuspAgrmnt = [SELECT Id, ADCVD_Case__c, ADCVD_Case_Number__c
+                                                  FROM Suspension_Agreement__c WHERE ADCVD_Case__c =: testCase.Id];
+        System.assertEquals(testCase.Id, savedSuspAgrmnt.ADCVD_Case__c);
+        System.assertEquals(testCase.ADCVD_Case_Number__c, savedSuspAgrmnt.ADCVD_Case_Number__c);
+        System.assertEquals(testPetition.ADCVD_Case__c, savedSuspAgrmnt.ADCVD_Case__c);
+    }    
+       
+    
 	@isTest static void setNextSunsetInitiationDate() {
 		Test.startTest();
 		System.assertEquals(null, sa.Next_Sunset_Initiation_Date__c); 
