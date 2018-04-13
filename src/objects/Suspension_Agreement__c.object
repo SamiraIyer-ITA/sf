@@ -69,7 +69,7 @@
     <fields>
         <fullName>ADCVD_Case_Number__c</fullName>
         <externalId>false</externalId>
-        <formula>Investigation__r.Petition__r.ADCVD_Case_Number__c</formula>
+        <formula>ADCVD_Case__r.ADCVD_Case_Number__c</formula>
         <label>ADCVD Case Number Text Value</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -79,7 +79,7 @@
     <fields>
         <fullName>ADCVD_Case_Type__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT( Investigation__r.Petition__r.ADCVD_Case_Type__c )</formula>
+        <formula>TEXT(ADCVD_Case__r.ADCVD_Case_Type__c)</formula>
         <label>ADCVD Case Type</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -122,7 +122,7 @@
     <fields>
         <fullName>CBP_Case_Number__c</fullName>
         <externalId>false</externalId>
-        <formula>Investigation__r.CBP_Case_Number__c</formula>
+        <formula>ADCVD_Case__r.CBP_Case_Number__c</formula>
         <label>CBP Case Number</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -132,7 +132,7 @@
     <fields>
         <fullName>Commodity__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT( Investigation__r.Petition__r.Commodity__c )</formula>
+        <formula>TEXT(ADCVD_Case__r.Commodity__c)</formula>
         <label>Commodity</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -142,7 +142,7 @@
     <fields>
         <fullName>Country__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(  Investigation__r.Petition__r.Country__c  )</formula>
+        <formula>TEXT(ADCVD_Case__r.Country__c)</formula>
         <label>Country</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -264,7 +264,7 @@
     <fields>
         <fullName>Product_Short_Name__c</fullName>
         <externalId>false</externalId>
-        <formula>Investigation__r.Petition__r.Product_Short_Name__c</formula>
+        <formula>ADCVD_Case__r.Product_Short_Name__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Product Short Name</label>
         <required>false</required>
@@ -275,7 +275,7 @@
     <fields>
         <fullName>Product__c</fullName>
         <externalId>false</externalId>
-        <formula>Investigation__r.Petition__r.Product__c</formula>
+        <formula>ADCVD_Case__r.Product__c</formula>
         <label>Product</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
