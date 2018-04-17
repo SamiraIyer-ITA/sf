@@ -48,10 +48,33 @@
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
-    <enableSearch>false</enableSearch>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>ADCVD_Case_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(ADCVD_Case__r.ADCVD_Case_Type__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>ADCVD Case Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ADCVD_Case__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>ADCVD Case</label>
+        <referenceTo>ADCVD_Case__c</referenceTo>
+        <relationshipLabel>Federal Registers</relationshipLabel>
+        <relationshipName>Federal_Registers</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
     <fields>
         <fullName>ADCVD_Order__c</fullName>
         <deleteConstraint>Restrict</deleteConstraint>
@@ -65,10 +88,40 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Case_Concat_Text_Values__c</fullName>
+        <externalId>false</externalId>
+        <label>Case Concat Text Values</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>Cite_Number__c</fullName>
         <externalId>false</externalId>
         <label>Cite Number</label>
         <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Commodity__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(ADCVD_Case__r.Commodity__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Commodity</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Country__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(ADCVD_Case__r.Country__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Country</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -154,6 +207,44 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Product_Short_Name_Text_Value__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Short Name Text Value</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Product_Short_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>ADCVD_Case__r.Product_Short_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Product Short Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Text_Value__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Text Value</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <externalId>false</externalId>
+        <formula>ADCVD_Case__r.Product__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Product</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Published_Date__c</fullName>

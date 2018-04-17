@@ -57,7 +57,7 @@
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
-    <enableSearch>false</enableSearch>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
@@ -149,6 +149,15 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case_Concat_Text_Values__c</fullName>
+        <externalId>false</externalId>
+        <label>Case Concat Text Values</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Country__c</fullName>
@@ -281,6 +290,15 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Product_Short_Name_Text_Value__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Short Name Text Value</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Product_Short_Name__c</fullName>
@@ -2441,7 +2459,20 @@
             </values>
         </picklistValues>
     </recordTypes>
-    <searchLayouts/>
+    <searchLayouts>
+        <searchFilterFields>OBJECT_ID</searchFilterFields>
+        <searchFilterFields>ADCVD_Case__c</searchFilterFields>
+        <searchFilterFields>ADCVD_Case_Number__c</searchFilterFields>
+        <searchFilterFields>ADCVD_Case_Type__c</searchFilterFields>
+        <searchFilterFields>ADCVD_Order__c</searchFilterFields>
+        <searchFilterFields>Case_Concat_Text_Values__c</searchFilterFields>
+        <searchResultsAdditionalFields>OBJECT_ID</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADCVD_Case__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADCVD_Case_Number__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADCVD_Case_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADCVD_Order__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Case_Concat_Text_Values__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
         <fullName>Cannot_Edit_Locked_Record</fullName>
