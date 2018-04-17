@@ -223,6 +223,7 @@
         <members>Recusal__c</members>
         <members>Segment__c</members>
         <members>Staffing_Assignment__c</members>
+	<members>Related_Organization__c</members>
         <members>Suspension_Agreement__c</members>
         <members>Test_Object_Describer</members>
         <members>Tolling_Day__c</members>
@@ -367,6 +368,7 @@
     </types>
     <types>
         <members>ADCVD_Objects__mdt</members>
+	<members>Investigation__c</members>
         <members>ADCVD_Order__c</members>
         <members>Custom_Instruction__c</members>
         <members>Date_Calculation__mdt</members>
@@ -375,6 +377,8 @@
         <members>Petition__c</members>
         <members>Recusal__c</members>
         <members>Segment__c</members>
+	<members>Litigation__c</members>
+	<members>Related_Organization__c</members>
         <members>Service__mdt</members>
         <members>Staffing_Assignment__c</members>
         <members>Suspension_Agreement__c</members>

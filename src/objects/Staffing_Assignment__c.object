@@ -66,7 +66,7 @@
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
-    <enableSearch>false</enableSearch>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
@@ -144,6 +144,15 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case_Concat_Text_Values__c</fullName>
+        <externalId>false</externalId>
+        <label>Case Concat Text Values</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Country__c</fullName>
@@ -226,6 +235,27 @@ IF( Segment__c != null, Segment__r.Link__c ,
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Product_Short_Name_Text_Value__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Short Name Text Value</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Product_Short_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>ADCVD_Case__r.Product_Short_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Product Short Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Product__c</fullName>

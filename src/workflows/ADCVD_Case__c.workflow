@@ -10,6 +10,15 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Concatenated_ADCVD_Case_Field</fullName>
+        <field>Case_Concat_Text_Values__c</field>
+        <formula>TEXT(Commodity__c) + &apos;; &apos;+ TEXT( Country__c)+ &apos;; &apos;+TEXT( ADCVD_Case_Type__c )</formula>
+        <name>Update Concatenated ADCVD Case Field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Country_Text_Field_On_ADCVD_Case</fullName>
         <field>Country_Text__c</field>
         <formula>TEXT(Country__c)</formula>
@@ -48,6 +57,21 @@
         <active>true</active>
         <formula>AND($Setup.Master_Automation__c.WorkflowRulesEnabled__c == true, Locked__c == false)</formula>
         <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update ADCVD Case Concatenated Field</fullName>
+        <actions>
+            <name>Update_Concatenated_ADCVD_Case_Field</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>This workflow rule updates the concatenated text field on ADCVD Case with, Commodity, Country and ADCVD Case Type.</description>
+        <formula>AND($Setup.Master_Automation__c.WorkflowRulesEnabled__c == true, (IF( ISNEW()  || 
+( ISCHANGED( ADCVD_Case_Type__c )
+|| ISCHANGED( Country__c )
+|| ISCHANGED( Commodity__c ) )
+, True, False)))</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Update ADCVD Case Number</fullName>

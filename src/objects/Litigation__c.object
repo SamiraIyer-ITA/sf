@@ -63,7 +63,7 @@
     <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
-    <enableSearch>false</enableSearch>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
@@ -266,6 +266,16 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Case_Concat_Text_Values__c</fullName>
+        <externalId>false</externalId>
+        <label>Case Concat Text Values</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Commodity__c</fullName>
@@ -695,6 +705,16 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Short_Name_Text_Value__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Short Name Text Value</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Product_Short_Name__c</fullName>
@@ -3044,6 +3064,7 @@ $RecordType.DeveloperName = &quot;International_Litigation&quot;,
     </validationRules>
     <validationRules>
         <fullName>Only_Admin_reparents_Litigation_Records</fullName>
+        <fullName>Prelim_Extension_of_days</fullName>
         <active>true</active>
         <description>Litigation records can only be reparented by a System Administrator.</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
@@ -3053,6 +3074,8 @@ OR(ISCHANGED(Petition__c),ISCHANGED(Segment__c),ISCHANGED(Investigation__c)),$Pr
 &quot;System Administrator&quot;
 )</errorConditionFormula>
         <errorMessage>You are not authorized to edit this field. Only a System Administrator can edit the parent Petition, Segment, Investigation or ADCVD Case for this record.</errorMessage>
+        <errorConditionFormula>Calculated_Draft_Remand_release_to_party__c  &lt;  Calculated_Final_Signature__c</errorConditionFormula>
+        <errorMessage>Please account for weekends or holidays when adjusting the extension number of days.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Remand_Final_Extension</fullName>

@@ -356,7 +356,7 @@
     </values>
     <values>
         <field>Extension_Field_1_Name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Prelim_Extension_of_days_c</value>
     </values>
     <values>
         <field>Number_of_Base_Date_Fields__c</field>

@@ -63,7 +63,7 @@
     <enableFeeds>true</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
-    <enableSearch>false</enableSearch>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
@@ -470,7 +470,7 @@
     <fields>
         <fullName>ADCVD_Case_Number__c</fullName>
         <externalId>false</externalId>
-        <formula>(ADCVD_Case__r.ADCVD_Case_Number__c)</formula>
+        <formula>ADCVD_Case__r.Name</formula>
         <label>ADCVD Case Number Text Value</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -928,6 +928,15 @@
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Case_Concat_Text_Values__c</fullName>
+        <externalId>false</externalId>
+        <label>Case Concat Text Values</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Choose_Following_Respondent_Selection__c</fullName>
@@ -1904,6 +1913,15 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Product_Short_Name_Text_Value__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Short Name Text Value</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>Product_Short_Name__c</fullName>
         <externalId>false</externalId>
         <formula>(ADCVD_Case__r.Product_Short_Name__c)</formula>
@@ -1913,6 +1931,15 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Text_Value__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Text Value</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Product__c</fullName>
