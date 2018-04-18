@@ -28,12 +28,12 @@
            
 <div class="panel panel-default" id="upcoming-announcements">
   <div class="panel-heading"> <h2>Upcoming Announcements</h2></div>
+
     <div class="panel-body">
     
-    <div class="row"></div>
+    <div class="row" id="cust-row"><div class="row pad-none"><apex:repeat value="{!Segments}" var="s"><apex:outputPanel ><div class="col-md-6"><p class="text-muted uppercase">{!s.recordType}</p><div class="about" id="announcement-type">{!s.announcementType} Results Announcement: {!s.announcementDate}</div><apex:outputtext ><div class="about" id="days-remaining">Extension Days Remaining: <span class="daysremaining">{!s.daysRemaining}</span></div></apex:outputtext><br/></div></apex:outputPanel></apex:repeat></div></div>
     
     </div>
-
 
 </div>
 

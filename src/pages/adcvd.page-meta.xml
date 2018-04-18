@@ -3,5 +3,5 @@
     <apiVersion>39.0</apiVersion>
     <availableInTouch>false</availableInTouch>
     <confirmationTokenRequired>false</confirmationTokenRequired>
-    <label>ADCVD_OrderDetail</label>
+    <label>adcvd</label>
 </ApexPage>
