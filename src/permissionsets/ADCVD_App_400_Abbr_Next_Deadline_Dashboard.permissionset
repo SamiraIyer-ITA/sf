@@ -8478,7 +8478,7 @@
     <label>ADCVD App: 400 Abbr Next Deadline Dashboard</label>
     <license>Salesforce</license>
     <pageAccesses>
-        <apexPage>ADCVD_OrderDetail</apexPage>
+        <apexPage>adcvd</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>

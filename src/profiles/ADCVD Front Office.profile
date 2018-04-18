@@ -9333,7 +9333,7 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <pageAccesses>
-        <apexPage>ADCVD_OrderDetail</apexPage>
+        <apexPage>adcvd</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
