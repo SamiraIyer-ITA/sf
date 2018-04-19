@@ -3024,6 +3024,12 @@ NOT( ISNULL( Actual_Preliminary_Signature__c ))
         <errorMessage>Calculated Preliminary Signature Date must be populated in order to enter Actual Preliminary Signature Date</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Calc_Draft_Must_Be_Less_Than_Calc_Final</fullName>
+        <active>true</active>
+        <errorConditionFormula>Calculated_Draft_Remand_release_to_party__c  &gt;=  Calculated_Final_Signature__c</errorConditionFormula>
+        <errorMessage>Please account for weekends or holidays when adjusting the extension number of days.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Cannot_Edit_Locked_Record</fullName>
         <active>true</active>
         <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false, 
