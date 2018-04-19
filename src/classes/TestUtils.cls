@@ -242,6 +242,25 @@ public class TestUtils {
         return testCase;
     }
 
+    //create custom settings object controlling ADCVD App triggers
+    public static AppConfig__c createAppConfig(String name, Boolean triggersEnabled, Boolean doInsert) {
+        AppConfig__c app = new AppConfig__c();
+        app.Name = name;
+        app.Primary_Admin__c = 'sandip.menon@trade.gov'; 
+        app.ADCVD_Admin__c = 'joshua.moody@trade.gov';
+        app.TriggersEnabled__c = triggersEnabled;
+        app.AppEnabled__c = true;
+        app.Go_Live_Date__c = Date.newInstance(2018, 2, 15);
+        app.ChronExp_LitigationSegement__c = ' 0 ' + string.valueOf((system.now().addMinutes(30)).minute()) + ' ' + string.valueOf((system.now().addMinutes(30)).hour()) + ' ' + string.valueOf(system.today().day()) + ' ' + string.valueOf(system.today().Month()) + ' ?';
+        system.debug('app.ChronExp_LitigationSegement__c = ' + app.ChronExp_LitigationSegement__c);
+        app.ChronExpr_PetitionInvestigation__c = '0 0 1 ' +  string.valueOf((system.today().addDays(1)).day()) + ' ' + string.valueOf(system.today().addDays(1).month()) + ' ?';
+        system.debug('ChronExpr_PetitionInvestigation__c = ' + app.ChronExpr_PetitionInvestigation__c);
+        if (doInsert) {
+            insert app;
+        }
+        return app;
+    }   
+
     //create Federal Register
     public static Federal_Register__c createFR(Id parentId, String parentLookupField, Date publishedDate, String frType, Boolean doInsert) {
         Federal_Register__c fr = new Federal_Register__c();
@@ -255,14 +274,9 @@ public class TestUtils {
     }
 
     //create Investigation
-    public static Investigation__c createInvestigation(String recordTypeName, Petition__c p, Boolean doInsert) {
+    public static Investigation__c createInvestigation(Petition__c p, Boolean doInsert) {
         Investigation__c i = new Investigation__c();
         i.Petition__c = p.Id;
-        if (p.ADCVD_Case_Number__c.indexOf('A') > -1) {
-            i.RecordTypeId = utils.getRecordTypeIdMap(i).get('AD');
-        } else if (p.ADCVD_Case_Number__c.indexOf('C') > -1) {
-            i.RecordTypeId = utils.getRecordTypeIdMap(i).get('CVD');
-        }
         if (doInsert) {
             insert i;
         }
@@ -311,7 +325,18 @@ public class TestUtils {
         }
         return lit;
     }
-                
+
+    //create Master Automation record which controls validation rules and workflow rules for adcvd
+    public static Master_Automation__c createMasterAutomation(Boolean vr, Boolean wfr, Boolean doInsert) {
+        Master_Automation__c ma = new Master_Automation__c();
+        ma.ValidationRulesEnabled__c = vr;
+        ma.WorkflowRulesEnabled__c = wfr;
+        if (doInsert) {
+            insert ma;
+        }
+        return ma;
+    }
+
     // create test Opportunity
     public static Opportunity createOpportunity(String accId, String conId, boolean isInsert){
         Opportunity opp = new Opportunity();
@@ -338,18 +363,9 @@ public class TestUtils {
     }
 
     // create test Petition
-    public static Petition__c createPetition(Date petitionDate, String caseType, Boolean doInsert){
+    public static Petition__c createPetition(ADCVD_Case__c c, Date petitionDate, Boolean doInsert){
         Petition__c petition = new Petition__c();
-        petition.Product__c = 'tacos';
-        petition.Product_Short_Name__c = 'tacos';
-        petition.ADCVD_Case_Type__c = caseType;
-        if(caseType.substring(0, 1) == 'A'){
-            petition.ADCVD_Case_Number__c = 'A-111-222';
-        } else {
-            petition.ADCVD_Case_Number__c = 'C-111-222';
-        }
-        petition.Country__c = 'United States';
-        petition.Commodity__c = 'Foodstuffs'; 
+        petition.ADCVD_Case__c = c.Id;
         petition.Petition_Filed__c = petitionDate;
         //added for testing purposes
         petition.Initiation_Extension_of_days__c = 3;

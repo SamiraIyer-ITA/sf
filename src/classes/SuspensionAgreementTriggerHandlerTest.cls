@@ -140,10 +140,15 @@ public class SuspensionAgreementTriggerHandlerTest {
 
 	@testSetup static void dataSetup() {
 		Test.startTest();
+		//create custom setting configuration to activate triggers, workflow rules, and validation rules
+        Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
+        AppConfig__c ac = TestUtils.createAppConfig('default', true, true);
+        //create test data
 		User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
-		Petition__c testPet = TestUtils.createPetition(suspDate.addDays(-14),'AD ME', true);
-		Investigation__c testInv = TestUtils.createInvestigation('AD', testPet, true);
-		Suspension_Agreement__c testSuspAgr = TestUtils.createSuspensionAgreement(testInv, suspDate, true);
+		ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
+        Petition__c testADPetition = TestUtils.createPetition(testADCase, suspDate.addDays(-14), true);
+        Investigation__c testADinvestigation = TestUtils.createInvestigation(testADPetition, true);
+		Suspension_Agreement__c testADSuspAgreement = TestUtils.createSuspensionAgreement(testADinvestigation, suspDate, true);
 		/*List<Segment__c> segsToInsert = new List<Segment__c>();
 		System.runAs(testUser) {
 			for(String segRecordTypeName : utils.getRecordTypeDeveloperNameMap('Segment__c').values()) {

@@ -54,8 +54,14 @@ public class FederalRegisterTriggerHandlerTest {
  
     @testSetup static void dataSetup() {
         Test.startTest();
-        User testUser = testUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
-        Petition__c p = TestUtils.createPetition(publishDate, 'AD ME', true);
-        Investigation__c testInvestigation = TestUtils.createInvestigation('AD', p, true);
+        //create custom setting configuration to activate triggers, workflow rules, and validation rules
+        Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
+        AppConfig__c ac = TestUtils.createAppConfig('default', true, true);
+        //create test data
+        User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
+        ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
+        Petition__c testADPetition = TestUtils.createPetition(testADCase, publishDate, true);
+        Investigation__c testADinvestigation = TestUtils.createInvestigation(testADPetition, true);
+        ADCVD_Order__c testADOrder = TestUtils.createOrder(testADinvestigation, true);
     }
 }

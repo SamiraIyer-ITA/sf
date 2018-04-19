@@ -71,17 +71,22 @@ public class ADCVD_FederalRegisterUtilityTest {
 */
 	@testSetup static void dataSetup() {
 		Test.startTest();
+		//create custom setting configuration to activate triggers, workflow rules, and validation rules
+        Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
+        AppConfig__c ac = TestUtils.createAppConfig('default', true, true);
+        //create test data
 		User u = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
 		petitionDate = ADCVD_TollingDayUtility.getCalculatedDate(petitionDate, petitionDate, true);
-		Petition__c testPet = TestUtils.createPetition(petitionDate, 'AD ME', true);
-		Investigation__c testInv = TestUtils.createInvestigation('AD', testPet, true);
-		ADCVD_Order__c testOrder = TestUtils.createOrder(testInv, true);
-		Segment__c testSeg = TestUtils.createSegment(testOrder, 'Administrative_Review', true);
+		ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
+        Petition__c testADPetition = TestUtils.createPetition(testADCase, petitionDate, true);
+        Investigation__c testADinvestigation = TestUtils.createInvestigation(testADPetition, true);
+        ADCVD_Order__c testADOrder = TestUtils.createOrder(testADinvestigation, true);
+		Segment__c testSeg = TestUtils.createSegment(testADOrder, 'Administrative_Review', true);
 		Integer days = 140;
 		List<Federal_Register__c> frsToInsert = new List<Federal_Register__c>();
 		Schema.DescribeFieldResult f = Federal_Register__c.Type__c.getDescribe();
 		for(Schema.PicklistEntry frType : f.getPicklistValues()) {
-			Federal_Register__c testInvFR = TestUtils.createFR(testInv.Id, 'Investigation__c', ADCVD_TollingDayUtility.getCalculatedDate(petitionDate, petitionDate.addDays(days), true), frType.getValue(), false);
+			Federal_Register__c testInvFR = TestUtils.createFR(testADinvestigation.Id, 'Investigation__c', ADCVD_TollingDayUtility.getCalculatedDate(petitionDate, petitionDate.addDays(days), true), frType.getValue(), false);
 			frsToInsert.add(testInvFR);
 			days += 7;
 			Federal_Register__c testSegFR = TestUtils.createFR(testSeg.Id, 'Segment__c', ADCVD_TollingDayUtility.getCalculatedDate(petitionDate, petitionDate.addDays(days), true), frType.getValue(), false);
