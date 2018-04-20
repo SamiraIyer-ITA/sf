@@ -57,7 +57,7 @@ public class SuspensionAgreementTriggerHandlerTest {
 	}
 
     //Test to check if Suspension Agreement is auto-populated with ADCVD Case number
-    @isTest static void setCaseValuesFromParent() {
+    /*@isTest static void setCaseValuesFromParent() {
         Test.startTest();
         ADCVD_Case__c testCase = TestUtils.createADCVDCase('A-111-123', 'AD ME', true);
         Petition__c testPetition = TestUtils.createPetition(suspDate.addDays(-14),'AD ME', false);
@@ -73,7 +73,7 @@ public class SuspensionAgreementTriggerHandlerTest {
         System.assertEquals(testPetition.ADCVD_Case__c, savedSuspAgrmnt.ADCVD_Case__c);
     }    
        
-    
+    */
 	@isTest static void setNextSunsetInitiationDate() {
 		Test.startTest();
 		System.assertEquals(null, sa.Next_Sunset_Initiation_Date__c); 
