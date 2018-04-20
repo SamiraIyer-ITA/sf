@@ -40,7 +40,8 @@ public class PetitionTriggerHandlerTest {
         Holiday h = new Holiday(ActivityDate = petitionDate.addDays(-1), Name = 'Every day is a holiday');//Set previous Friday to holiday
         insert h;
         System.runAs(u){//change context because of holiday insert
-            Petition__c p = TestUtils.createPetition(petitionDate, 'AD ME', false);
+            ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
+            Petition__c p = TestUtils.createPetition(testADCase, petitionDate, false);
             error = attemptInsert(p);//failed weekend insert
             System.assert(error.contains(''));//needs a portion of Petition Filed on Weekend VR error message
             p.Petition_Filed__c.addDays(-1);
@@ -61,7 +62,8 @@ public class PetitionTriggerHandlerTest {
         if(ADCVD_TollingDayUtility.dayOfWeek(petitionDate) != 'Fri'){//if today is not Friday, move the petition filed date ahead to the next Friday, which puts Calculated Initiation on a weekday
             petitionDate = petitionDate.toStartOfWeek().addDays(5);
         }
-        Petition__c p = TestUtils.createPetition(petitionDate, 'AD ME', false);
+        ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
+        Petition__c p = TestUtils.createPetition(testADCase, petitionDate, false);
         p.Initiation_Extension_of_days__c = 21;//out of bounds
         String error = attemptInsert(p);
         System.debug(loggingLevel.Error, '*** error: ' + error);
@@ -78,7 +80,8 @@ public class PetitionTriggerHandlerTest {
         if(ADCVD_TollingDayUtility.dayOfWeek(petitionDate) != 'Mon'){//Set to Monday
             petitionDate = petitionDate.toStartOfWeek().addDays(1);
         }
-        Petition__c p = TestUtils.createPetition(petitionDate, 'AD ME', false);
+        ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
+        Petition__c p = TestUtils.createPetition(testADCase, petitionDate, false);
         p.Initiation_Extension_of_days__c = 1;//20+1 will set Calculated Initiation Signature to same day of the week as Petition Filed
         System.debug(p.Petition_Filed__c);
         System.debug(p.Petition_Filed__c.addDays(20));
@@ -98,7 +101,8 @@ public class PetitionTriggerHandlerTest {
         if(ADCVD_TollingDayUtility.dayOfWeek(petitionDate) != 'Fri'){//if today is not Friday, move the petition filed date ahead to the next Friday, which puts Calculated Initiation on Saturday
             petitionDate = petitionDate.toStartOfWeek().addDays(5);
         }
-        Petition__c p = TestUtils.createPetition(petitionDate, 'AD ME', false);
+        ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
+        Petition__c p = TestUtils.createPetition(testADCase, petitionDate, false);
         p.Initiation_Extension_of_days__c =2;//20+2 will set Calculated Initiation Signature to day of week after Petition Filed
         System.debug(p.Petition_Filed__c);
         System.debug(p.Petition_Filed__c.addDays(20));
@@ -121,7 +125,8 @@ public class PetitionTriggerHandlerTest {
         Holiday h = new Holiday(ActivityDate = petitionDate.addDays(24), Name = 'Every day is a holiday');//Set Monday following Saturday of Calculated Initiation to a holiday
         insert h;
         System.runAs(u){//change context because of holiday insert
-            Petition__c p = TestUtils.createPetition(petitionDate, 'AD ME', false);
+            ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
+            Petition__c p = TestUtils.createPetition(testADCase, petitionDate, false);
             p.Initiation_Extension_of_days__c = 2;//20+2 will set Calculated Initiation Signature to day of week after Petition Filed
             System.debug(p.Petition_Filed__c);
             System.debug(p.Petition_Filed__c.addDays(20));
@@ -145,7 +150,8 @@ public class PetitionTriggerHandlerTest {
         Holiday h = new Holiday(ActivityDate = petitionDate.addDays(21), Name = 'Every day is a holiday');//Set Monday following Saturday of Calculated Initiation to a holiday
         insert h;
         System.runAs(u){
-            Petition__c p = TestUtils.createPetition(petitionDate, 'AD ME', false);
+            ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
+            Petition__c p = TestUtils.createPetition(testADCase, petitionDate, false);
             p.Initiation_Extension_of_days__c = 1;//20+1 will set Calculated Initiation Signature to same day as Petition Filed
             System.debug(p.Petition_Filed__c);
             System.debug(p.Petition_Filed__c.addDays(20));
@@ -166,7 +172,8 @@ public class PetitionTriggerHandlerTest {
         if(ADCVD_TollingDayUtility.dayOfWeek(petitionDate) != 'Fri'){//if today is not Friday, move the petition filed date ahead to the next Friday, which puts Calculated Initiation on Tuesday
             petitionDate = petitionDate.toStartOfWeek().addDays(5);
         }
-        Petition__c p = TestUtils.createPetition(petitionDate, 'AD ME', false);
+        ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
+        Petition__c p = TestUtils.createPetition(testADCase, petitionDate, false);
         p.Initiation_Extension_of_days__c = 20;//20+20 will set Calculated Initiation Signature to 2 days of the week before Petition Filed
         System.debug(p.Petition_Filed__c);
         System.debug(p.Petition_Filed__c.addDays(20));
@@ -245,7 +252,8 @@ public class PetitionTriggerHandlerTest {
     @isTest static void setNextMajorDeadline() {
         Test.startTest();
         petitionDate = petitionDate.toStartOfWeek().addDays(-9);//need date in past for Actual to be set in past
-        Petition__c p = TestUtils.createPetition(petitionDate, 'AD ME', true);
+        ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
+        Petition__c p = TestUtils.createPetition(testADCase, petitionDate, true);
         System.assertEquals(p.Calculated_Initiation_Signature__c, p.Next_Major_Deadline__c);
 
         p.Petition_Outcome__c = 'Initiated from Petition';
@@ -259,7 +267,8 @@ public class PetitionTriggerHandlerTest {
     @isTest static void setNextAnnouncementDate() {
         Test.startTest();
         petitionDate = petitionDate.toStartOfWeek().addDays(-9);//need date in past for Actual to be set in past
-        Petition__c p = TestUtils.createPetition(petitionDate, 'AD ME', true);
+        ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
+        Petition__c p = TestUtils.createPetition(testADCase, petitionDate, true);
         System.assertEquals(p.Initiation_Announcement_Date__c, p.Next_Announcement_Date__c);
 
         p.Petition_Outcome__c = 'Initiated from Petition';
@@ -273,7 +282,8 @@ public class PetitionTriggerHandlerTest {
     @isTest static void setNextDueToDasDeadline() {
         Test.startTest();
         petitionDate = petitionDate.toStartOfWeek().addDays(-9);//need date in past for Actual to be set in past
-        Petition__c p = TestUtils.createPetition(petitionDate, 'AD ME', true);
+        ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
+        Petition__c p = TestUtils.createPetition(testADCase, petitionDate, true);
         System.assertEquals([SELECT Id, Initiation_Issues_Due_to_DAS__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Initiation_Issues_Due_to_DAS__c, 
             [SELECT Id, Next_Due_to_DAS_Deadline__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Next_Due_to_DAS_Deadline__c);
 
@@ -298,7 +308,8 @@ public class PetitionTriggerHandlerTest {
     @isTest static void setNextOfficeDeadline() {
         Test.startTest();
         petitionDate = petitionDate.toStartOfWeek().addDays(-9);//need date in past for Actual to be set in past
-        Petition__c p = TestUtils.createPetition(petitionDate, 'AD ME', true);
+        ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
+        Petition__c p = TestUtils.createPetition(testADCase, petitionDate, true);
         System.assertEquals([SELECT Id, Initiation_Issues_Due_to_DAS__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Initiation_Issues_Due_to_DAS__c, 
             [SELECT Id, Next_Office_Deadline__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Next_Office_Deadline__c);
 
@@ -322,25 +333,27 @@ public class PetitionTriggerHandlerTest {
 
     @isTest static void setCaseValuesFromParent() {
         Test.startTest();
-        ADCVD_Case__c testCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
-        Petition__c p = TestUtils.createPetition(petitionDate, 'AD ME', false);
-        p.ADCVD_Case__c = testCase.Id;
-        insert p;
+        ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
+        Petition__c p = TestUtils.createPetition(testADCase, petitionDate, true);
         Test.stopTest();
         Petition__c savedPetition = [SELECT Id, ADCVD_Case_Number__c, ADCVD_Case_Type__c, CBP_Case_Number__c, Commodity__c,
                                             Country__c, Product__c, Product_Short_Name__c
-                                        FROM Petition__c WHERE ADCVD_Case__c =: testCase.Id];
-        System.assertEquals(testCase.ADCVD_Case_Number__c, savedPetition.ADCVD_Case_Number__c);
-        System.assertEquals(testCase.ADCVD_Case_Type__c, savedPetition.ADCVD_Case_Type__c);
-        System.assertEquals(testCase.CBP_Case_Number__c, savedPetition.CBP_Case_Number__c);
-        System.assertEquals(testCase.Commodity__c, savedPetition.Commodity__c);
-        System.assertEquals(testCase.Country__c, savedPetition.Country__c);
-        System.assertEquals(testCase.Product__c, savedPetition.Product__c);
-        System.assertEquals(testCase.Product_Short_Name__c, savedPetition.Product_Short_Name__c);
+                                        FROM Petition__c WHERE ADCVD_Case__c =: testADCase.Id];
+        System.assertEquals(testADCase.ADCVD_Case_Number__c, savedPetition.ADCVD_Case_Number__c);
+        System.assertEquals(testADCase.ADCVD_Case_Type__c, savedPetition.ADCVD_Case_Type__c);
+        System.assertEquals(testADCase.CBP_Case_Number__c, savedPetition.CBP_Case_Number__c);
+        System.assertEquals(testADCase.Commodity__c, savedPetition.Commodity__c);
+        System.assertEquals(testADCase.Country__c, savedPetition.Country__c);
+        System.assertEquals(testADCase.Product__c, savedPetition.Product__c);
+        System.assertEquals(testADCase.Product_Short_Name__c, savedPetition.Product_Short_Name__c);
     }
 
     @testSetup static void dataSetup() {
         Test.startTest();
+        //create custom setting configuration to activate triggers, workflow rules, and validation rules
+        Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
+        AppConfig__c ac = TestUtils.createAppConfig('default', true, true);
+        //create test data
         User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
     }
 

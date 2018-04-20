@@ -97,7 +97,7 @@ public class SyncUtilityTest {
 	}
 	@isTest static void setInvestigationTargetObjectValues() {
 		Test.startTest();
-		Investigation__c i = TestUtils.createInvestigation('CVD', pList[0], false);
+		Investigation__c i = TestUtils.createInvestigation(pList[0], false);
 		i.AD_Investigation_Aligned_To__c = iAD.Id;
 		iList.add(i);
 		targetObjectName(iList);
@@ -114,17 +114,29 @@ public class SyncUtilityTest {
 
 	@testSetup static void dataSetup() {
 		Test.startTest();
+		//create custom setting configuration to activate triggers, workflow rules, and validation rules
+        Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
+        AppConfig__c ac = TestUtils.createAppConfig('default', true, true);
+        //create test data
 		User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
+		List<ADCVD_Case__c> cList = new List<ADCVD_Case__c>();
 		List<Petition__c> petitionsToInsert = new List<Petition__c>();
-		Petition__c testAdPetition = TestUtils.createPetition(petitionDate, 'AD ME', false);
+		ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', false);
+		cList.add(testADCase);
+		ADCVD_Case__c testCVDCase = TestUtils.createADCVDCase('C-123-123', 'CVD', false);
+		cList.add(testCVDCase);
+		insert cList;
+
+		Petition__c testADPetition = TestUtils.createPetition(testADCase, petitionDate,false);
 		testAdPetition.Commodity__c = 'Foodstuffs';
 		petitionsToInsert.add(testAdPetition);
-		Petition__c testCvdPetition = TestUtils.createPetition(petitionDate, 'CVD', false);
+		Petition__c testCvdPetition = TestUtils.createPetition(testCVDCase, petitionDate,false);
 		testCvdPetition.Commodity__c = 'Foodstuffs';
 		petitionsToInsert.add(testCvdPetition);
 		insert petitionsToInsert;
-		Investigation__c testADinvestigation = TestUtils.createInvestigation('AD', testAdPetition, true);
-		Investigation__c testCVDinvestigation = TestUtils.createInvestigation('CVD', testCvdPetition, false);
+
+		Investigation__c testADinvestigation = TestUtils.createInvestigation(testAdPetition, true);
+		Investigation__c testCVDinvestigation = TestUtils.createInvestigation(testCvdPetition, false);
 		testCVDinvestigation.AD_Investigation_Aligned_To__c = testADinvestigation.Id;
 		insert testCVDinvestigation;
 	}

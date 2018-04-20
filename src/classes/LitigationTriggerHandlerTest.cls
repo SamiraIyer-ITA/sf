@@ -382,15 +382,20 @@ public class LitigationTriggerHandlerTest {
 
 	@testSetup static void dataSetup() {
 		Test.startTest();
+		//create custom setting configuration to activate triggers, workflow rules, and validation rules
+        Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
+        AppConfig__c ac = TestUtils.createAppConfig('default', true, true);
+        //create test data
 		User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
-		Petition__c testPet = TestUtils.createPetition(litigationDate.addDays(-350), 'AD ME', true);
-		Investigation__c testInvAd = TestUtils.createInvestigation('AD', testPet, true);
-		ADCVD_Order__c testOrder = TestUtils.createOrder(testInvAd, true);
+        ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
+        Petition__c testADPetition = TestUtils.createPetition(testADCase, litigationDate.addDays(-350), true);
+        Investigation__c testADinvestigation = TestUtils.createInvestigation(testADPetition, true);
+        ADCVD_Order__c testADOrder = TestUtils.createOrder(testADinvestigation, true);
 		Map<String,Segment__c> segsToInsert = new Map<string,Segment__c>();
 		List<Litigation__c> litToInsert = new List<Litigation__c>();
 		System.runAs(testUser) {
 			for(String segRecordTypeName : utils.getRecordTypeDeveloperNameMap('Segment__c').values()) {
-				Segment__c testSeg = TestUtils.createSegment(testOrder, segRecordTypeName, false);
+				Segment__c testSeg = TestUtils.createSegment(testADOrder, segRecordTypeName, false);
 				segsToInsert.put(segRecordTypeName, testSeg);
 			}
 			insert segsToInsert.values();

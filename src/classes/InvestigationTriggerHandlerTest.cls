@@ -1164,14 +1164,18 @@ public class InvestigationTriggerHandlerTest {
 
   @testSetup static void dataSetup() {
     Test.startTest();
+    //create custom setting configuration to activate triggers, workflow rules, and validation rules
+    Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
+    AppConfig__c ac = TestUtils.createAppConfig('default', true, true);
+    //create test data
     User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
-    Master_Automation__c ma = new Master_Automation__c(ValidationRulesEnabled__c = true, WorkflowRulesEnabled__c = true);
-    insert ma;
-    Petition__c testADPetition = TestUtils.createPetition(petitionDate, 'AD ME', true);
-    Petition__c testCVDPetition = TestUtils.createPetition(petitionDate, 'CVD', true);
-    Investigation__c testADinvestigation = TestUtils.createInvestigation('AD', testADPetition, true);
+    ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
+    ADCVD_Case__c testCVDCase = TestUtils.createADCVDCase('C-123-123', 'CVD', true);
+    Petition__c testADPetition = TestUtils.createPetition(testADCase, petitionDate, true);
+    Petition__c testCVDPetition = TestUtils.createPetition(testCVDCase, petitionDate, true);
+    Investigation__c testADinvestigation = TestUtils.createInvestigation(testADPetition, true);
     Federal_Register__c testAdPrelimFR = TestUtils.createFR(testADinvestigation.Id, 'Investigation__c', testPublishedDate.addDays(210), 'Preliminary', true);
-    Investigation__c testCVDinvestigation = TestUtils.createInvestigation('CVD', testCVDPetition, true);
+    Investigation__c testCVDinvestigation = TestUtils.createInvestigation(testCVDPetition, true);
     Federal_Register__c testCvdPrelimFR = TestUtils.createFR(testCVDinvestigation.Id, 'Investigation__c', testPublishedDate.addDays(140), 'Preliminary', true);
     ADCVD_Order__c testAdOrder = TestUtils.createOrder(testADinvestigation, true);
     ADCVD_Order__c testCvdOrder = TestUtils.createOrder(testCVDinvestigation, true);

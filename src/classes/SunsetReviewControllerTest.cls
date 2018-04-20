@@ -106,11 +106,16 @@ public class SunsetReviewControllerTest {
     
     @testSetup static void dataSetup() {
         Test.startTest();
-        p = TestUtils.createPetition(System.today().addDays(-280), 'AD ME', true);
-        i = TestUtils.createInvestigation('AD', p, true);
-        o = TestUtils.createOrder(i, true);
-        s = TestUtils.createSegment(o, 'Sunset_Review', true);
-        u = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
+        //create custom setting configuration to activate triggers, workflow rules, and validation rules
+        Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
+        AppConfig__c ac = TestUtils.createAppConfig('default', true, true);
+        //create test data
+        User testUser = TestUtils.createAdminUser(false, 'myemail@email.com.testita', 1);
+        ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
+        Petition__c testADPetition = TestUtils.createPetition(testADCase, System.today().addDays(-280), true);
+        Investigation__c testADinvestigation = TestUtils.createInvestigation(testADPetition, true);
+        ADCVD_Order__c testADOrder = TestUtils.createOrder(testADinvestigation, true);
+        Segment__c testARseg = TestUtils.createSegment(testADOrder, 'Administrative_Review', true);
     } 
     private static void sunsetSetup(){
         pageRef = Page.SunsetReview;

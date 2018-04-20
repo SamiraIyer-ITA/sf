@@ -69,7 +69,7 @@ public integer emailAllowed;
         Integer emailMax = limits.getLimitEmailInvocations();
         Integer emailActual = limits.getEmailInvocations();
         emailAllowed = emailMax - emailActual;
-        if(emailAllowed > 2) Messaging.reserveSingleEmailCapacity(2);
+        if(emailAllowed > 2 && !Test.isRunningTest()) Messaging.reserveSingleEmailCapacity(2);
     }
 
     public void getNumToObject(){
@@ -150,7 +150,7 @@ public integer emailAllowed;
             mail.setSubject('Tolling Day Batch Process Completed');
             mail.setPlainTextBody('Batch Process ' + aaj.Id + ' has completed on '+ numToObject.get(initialState) + ' object records with a Status of ' + aaj.Status + 
             '. There were ' + aaj.JobItemsProcessed + ' job items processed with ' + aaj.NumberOfErrors + ' errors.'  );
-            Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail });
+            if (!Test.isRunningTest()) {Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail });}
         }
         
         // start next job

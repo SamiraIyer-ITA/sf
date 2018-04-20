@@ -83,8 +83,9 @@ private class AttachmentWriterControllerTest {
 	
 	@testSetup static void dataSetup() {
         Test.startTest();
-        Petition__c testADPetition = TestUtils.createPetition(System.today().addDays(-280), 'AD ME', true);
-        Investigation__c testADinvestigation = TestUtils.createInvestigation('AD', testADPetition, true);
+        ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
+        Petition__c testADPetition = TestUtils.createPetition(testADCase, System.today().addDays(-280), true);
+        Investigation__c testADinvestigation = TestUtils.createInvestigation(testADPetition, true);
         o = TestUtils.createOrder(testADinvestigation, true);
         s = TestUtils.createSuspensionAgreement(testADinvestigation, System.today(), true);
     } 
