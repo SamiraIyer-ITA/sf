@@ -55,7 +55,6 @@ public without sharing class DateCalculationConditionService {
     		String recordFieldValue = tempRecordFieldValue != null ? String.valueOf(tempRecordFieldValue) : '';
     		System.debug('*** String recordFieldValue: ' + recordFieldValue);
     		String cmtFieldValue = (String) tempCmtFieldValue;
-    		Set<String> cmtFieldValueSet = new Set<String>();
     		System.debug('*** String cmtFieldValue: ' + cmtFieldValue);
     		returnBoolean = getConditionResult(recordFieldValue, cmtFieldValue, operator);
     	} else if (tempCmtFieldValue instanceOf String && ((String)tempCmtFieldValue).indexOf(';') > 0) {
@@ -117,10 +116,11 @@ public without sharing class DateCalculationConditionService {
     }
     @TestVisible private Boolean getConditionResult(String recordFieldValue, String cmtFieldValue, String operator) {
     	//Set Boolean Based on logic in cmt
+        String emptyRecordFieldValue = recordFieldValue == '' || recordFieldValue == null ? 'null' : recordFieldValue;
     	if (operator == 'Equals') {
-    		return (recordFieldValue == cmtFieldValue);
+    		return (recordFieldValue == cmtFieldValue || emptyRecordFieldValue == cmtFieldValue);
     	} else if (operator == 'Not Equals To') {
-    		return (recordFieldValue != cmtFieldValue);
+    		return (recordFieldValue != cmtFieldValue && emptyRecordFieldValue != cmtFieldValue);
     	}
     	return false;
     }
@@ -135,10 +135,11 @@ public without sharing class DateCalculationConditionService {
     }
     @TestVisible private Boolean getConditionResult(String recordFieldValue, Set<String> cmtFieldValue, String operator) {
     	//Set Boolean Based on logic in cmt
+        String emptyRecordFieldValue = recordFieldValue == '' || recordFieldValue == null ? 'null' : recordFieldValue;
     	if (operator == 'Equals') {
-    		return (cmtFieldValue.contains(recordFieldValue));
+    		return (cmtFieldValue.contains(recordFieldValue) || cmtFieldValue.contains(emptyRecordFieldValue));
     	} else if (operator == 'Not Equals To') {
-    		return (!cmtFieldValue.contains(recordFieldValue));
+    		return (!cmtFieldValue.contains(recordFieldValue) && !cmtFieldValue.contains(emptyRecordFieldValue));
     	}
     	return false;
     }

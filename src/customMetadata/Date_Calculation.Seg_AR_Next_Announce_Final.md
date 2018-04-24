@@ -176,7 +176,7 @@
     </values>
     <values>
         <field>Conditional_Field_3_Name__c</field>
-        <value xsi:type="xsd:string">Next_Announcement_Date__c</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_3_Object__c</field>
@@ -184,11 +184,11 @@
     </values>
     <values>
         <field>Conditional_Field_3_Operator__c</field>
-        <value xsi:type="xsd:string">Not Equals To</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_3_Result__c</field>
-        <value xsi:type="xsd:string">Align</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_3_Type__c</field>
@@ -359,12 +359,28 @@
         <value xsi:nil="true"/>
     </values>
     <values>
+        <field>Extension_Field_2_Name__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Extension_Object_1_Name__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
+        <field>Extension_Object_2_Name__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
         <field>Number_of_Base_Date_Fields__c</field>
         <value xsi:type="xsd:double">1.0</value>
     </values>
     <values>
         <field>Number_of_Conditionals__c</field>
-        <value xsi:type="xsd:double">3.0</value>
+        <value xsi:type="xsd:double">2.0</value>
+    </values>
+    <values>
+        <field>Number_of_Extensions__c</field>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Order_of_Execution__c</field>
