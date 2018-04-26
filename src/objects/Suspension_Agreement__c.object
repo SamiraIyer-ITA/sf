@@ -333,6 +333,61 @@
         <type>Text</type>
         <unique>true</unique>
     </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <description>This field displays the Type of Suspension Agreement</description>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AD - 734(b) - Cessation of Exports</fullName>
+                    <default>false</default>
+                    <label>AD - 734(b) - Cessation of Exports</label>
+                </value>
+                <value>
+                    <fullName>AD - 734(b) - Normal Value</fullName>
+                    <default>false</default>
+                    <label>AD - 734(b) - Normal Value</label>
+                </value>
+                <value>
+                    <fullName>AD - 734(c) - Reference Price</fullName>
+                    <default>false</default>
+                    <label>AD - 734(c) - Reference Price</label>
+                </value>
+                <value>
+                    <fullName>AD - 734(l) - NME</fullName>
+                    <default>false</default>
+                    <label>AD - 734(l) - NME</label>
+                </value>
+                <value>
+                    <fullName>CVD - 704(b) - Elimination of Subsidy</fullName>
+                    <default>false</default>
+                    <label>CVD - 704(b) - Elimination of Subsidy</label>
+                </value>
+                <value>
+                    <fullName>CVD - 704(b) - Cessation of Exports</fullName>
+                    <default>false</default>
+                    <label>CVD - 704(b) - Cessation of Exports</label>
+                </value>
+                <value>
+                    <fullName>CVD - 704(c) - Other than Quantitative Restriction</fullName>
+                    <default>false</default>
+                    <label>CVD - 704(c) - Other than Quantitative Restriction</label>
+                </value>
+                <value>
+                    <fullName>CVD - 704(c) - Quantitative Restriction</fullName>
+                    <default>false</default>
+                    <label>CVD - 704(c) - Quantitative Restriction</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
     <label>Suspension Agreement</label>
     <listViews>
         <fullName>All</fullName>
