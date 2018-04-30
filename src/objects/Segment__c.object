@@ -201,7 +201,7 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Preliminary_Extension_Remaining__c</field>
+            <field>Prelim_Extension__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -12274,6 +12274,15 @@ SR = Sunset Review</description>
 $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Reject&quot;),NOT(ISBLANK(TEXT(  Was_product_determined_to_be_in_scope__c )))
 ))</errorConditionFormula>
         <errorMessage>&quot;Was the Product Determined to be in Scope?&quot; is required only if &quot;Decision on How to Proceed&quot; is either &quot;Formal&quot; or &quot;Informal&quot;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>SSR_240_Extension_Total</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND (
+  ISPICKVAL(Sunset_Review_Type__c , &apos;240&apos;),
+   Prelim_Extension__c + Final_Extension_of_days__c &gt; 90
+)</errorConditionFormula>
+        <errorMessage>The total extension of Prelim Extension # of days and Final Extension # of days cannot be more than 90.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Segment_Outcome_Required</fullName>
