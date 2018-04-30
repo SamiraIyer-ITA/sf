@@ -360,7 +360,7 @@
     </values>
     <values>
         <field>Extension_Field_2_Name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Final_Extension_of_days__c</value>
     </values>
     <values>
         <field>Extension_Object_1_Name__c</field>
@@ -380,7 +380,7 @@
     </values>
     <values>
         <field>Number_of_Extensions__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:double">2.0</value>
     </values>
     <values>
         <field>Order_of_Execution__c</field>
