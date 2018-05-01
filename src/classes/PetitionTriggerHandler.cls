@@ -71,6 +71,7 @@ public without sharing class PetitionTriggerHandler {
 
     @TestVisible private static Map<Id,List<Litigation__c>> petitionIdToLitigationMap = new Map<Id,List<Litigation__c>>();
     @TestVisible private static Map<Id,String> petitionIdToLitigationStatusMap = new Map<Id,String>();
+    @TestVisible private static Map<Id,ADCVD_FederalRegisterUtility> frUtilMap = new Map<Id,ADCVD_FederalRegisterUtility>();
 
 
     /*****************************************
@@ -87,6 +88,8 @@ public without sharing class PetitionTriggerHandler {
         if(newMap != null) {
             setPetitionIdToLitigationMap(newMap.keySet());
             setPetitionIdToLitigationStatusMap();
+            ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get Investigations with an Id
+            frUtilMap = listInstance.utilMap;
         }
     }
 
@@ -232,7 +235,7 @@ public without sharing class PetitionTriggerHandler {
     }
 
     @TestVisible private static void setInitialStatus(Petition__c p) {
-        if ((p.Petition_Outcome__c == null || outcomesThatStartCalculations.contains(p.Petition_Outcome__c)) && p.Actual_Initiation_Signature__c == null) {
+        if (p.Petition_Outcome__c == null) {
             p.Status__c = 'In Progress';
         }
     }
@@ -244,8 +247,13 @@ public without sharing class PetitionTriggerHandler {
     }
 
     @TestVisible private static void setClosedStatus(Petition__c p) {
+        Date initPublished = null;
+        if(p.Id != null && frUtilMap != null) {
+            initPublished = frUtilMap.get(p.Id) != null ? frUtilMap.get(p.Id).initiationPublishedDate : null;
+        }
         if ((p.Litigation_YesNo__c == 'No' || (p.Litigation_YesNo__c == 'Yes' && p.Litigation_Resolved__c == 'Yes')) && //not in Litigation status
-            ((outcomesThatStartCalculations.contains(p.Petition_Outcome__c) && p.Petition_Outcome__c != null && p.Actual_Initiation_Signature__c != null) || //initiated with Actual Signature
+            (((p.Petition_Outcome__c == 'Initiated from Petition' && p.Actual_Initiation_Signature__c != null) || //initiated with Actual Signature from Petition
+            (p.Petition_Outcome__c == 'Self-Initiated' && p.Actual_Initiation_Signature__c != null && initPublished != null)) || // self-initiated with Actual Signature and Initiation FR
             (!outcomesThatStartCalculations.contains(p.Petition_Outcome__c) && p.Petition_Outcome__c != null))) { //not initiated
             p.Status__c = 'Closed';
         }

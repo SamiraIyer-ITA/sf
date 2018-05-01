@@ -1873,7 +1873,7 @@ public class SegmentTriggerHandlerTest {
         System.assertEquals(expedSeg.Calculated_Final_Signature__c, expedSeg.Next_Major_Deadline__c);
 
         expedSeg.Will_you_Amend_the_Final__c = 'Yes';
-        //expedSeg.Segment_Outcome__c = 'Completed';
+        expedSeg.Segment_Outcome__c = 'Completed';
         expedSeg.Actual_Final_Signature__c = expedSeg.Calculated_Final_Signature__c.addDays(-7);
         update expedSeg;
         getNewSegs();
@@ -1902,7 +1902,7 @@ public class SegmentTriggerHandlerTest {
         System.assertEquals(nsSeg.Calculated_Final_Signature__c, nsSeg.Next_Major_Deadline__c);
 
         nsSeg.Will_you_Amend_the_Final__c = 'Yes';
-        //nsSeg.Segment_Outcome__c = 'Completed';
+        nsSeg.Segment_Outcome__c = 'Completed';
         nsSeg.Actual_Final_Signature__c = nsSeg.Calculated_Final_Signature__c.addDays(-7);
         update nsSeg;
         getNewSegs();
@@ -2166,7 +2166,7 @@ public class SegmentTriggerHandlerTest {
         getNewSegs();
         System.assertEquals(ccSeg.Final_Announcement_Date__c, ccSeg.Next_Announcement_Date__c);
 
-        //ccSeg.Segment_Outcome__c = 'Completed';
+        ccSeg.Segment_Outcome__c = 'Completed';
         ccSeg.Actual_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
         update ccSeg;
         getNewSegs();
@@ -2270,7 +2270,7 @@ public class SegmentTriggerHandlerTest {
         getNewSegs();
         System.assertEquals(adminSeg.Calculated_Final_Signature__c, adminSeg.Next_Due_to_DAS_Deadline__c);
 
-        //adminSeg.Segment_Outcome__c = 'Completed';
+        adminSeg.Segment_Outcome__c = 'Completed';
         adminSeg.Actual_Final_Signature__c = adminSeg.Calculated_Final_Signature__c.addDays(-7);
         update adminSeg;
         getNewSegs();
@@ -2329,7 +2329,7 @@ public class SegmentTriggerHandlerTest {
         getNewSegs();
         System.assertEquals(expedSeg.Calculated_Final_Signature__c, expedSeg.Next_Due_to_DAS_Deadline__c);
 
-        //expedSeg.Segment_Outcome__c = 'Completed';
+        expedSeg.Segment_Outcome__c = 'Completed';
         expedSeg.Actual_Final_Signature__c = expedSeg.Calculated_Final_Signature__c.addDays(-7);
         update expedSeg;
         getNewSegs();
@@ -2403,7 +2403,7 @@ public class SegmentTriggerHandlerTest {
         getNewSegs();
         System.assertEquals(nsSeg.Calculated_Final_Signature__c, nsSeg.Next_Due_to_DAS_Deadline__c);
 
-        //nsSeg.Segment_Outcome__c = 'Completed';
+        nsSeg.Segment_Outcome__c = 'Completed';
         nsSeg.Actual_Final_Signature__c = nsSeg.Calculated_Final_Signature__c.addDays(-7);
         update nsSeg;
         getNewSegs();
@@ -2972,6 +2972,7 @@ public class SegmentTriggerHandlerTest {
         adminSeg.Actual_Preliminary_Signature__c = System.today().addDays(-7);
         
         adminSeg.Will_you_Amend_the_Final__c = 'Yes';
+        adminSeg.Segment_Outcome__c = 'Completed';
         adminSeg.Actual_Final_Issues_to_DAS__c = adminSeg.Final_Issues_Due_to_DAS__c;
         adminSeg.Actual_Final_Concurrence_to_DAS__c = adminSeg.Final_Concurrence_Due_to_DAS__c;
         adminSeg.Actual_Final_Signature__c = adminSeg.Calculated_Final_Signature__c.addDays(-7);

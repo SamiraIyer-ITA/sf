@@ -31,6 +31,7 @@ public without sharing class DateCalculationService {
     		System.debug('*** calculatedDateName: ' + calculatedDateName);
     		Integer numberOfBaseDates = (Integer) dc.Number_of_Base_Date_Fields__c;
     		Integer numberOfConditionals = (Integer) dc.Number_of_Conditionals__c;
+    		Integer numberOfExtensions = (Integer) dc.Number_of_Extensions__c;
     		String tollingService = dc.Tolling_Service__c;
     		Integer offset = dc.Constant_1__r.Number_Value__c != null ? (Integer) dc.Constant_1__r.Number_Value__c : 0;
     		Integer extension = 0;
@@ -68,8 +69,8 @@ public without sharing class DateCalculationService {
     				baseDate = baseDate == null ? getBaseDate(record, soType, dc, i) : baseDate;
     				System.debug('*** baseDate: ' + baseDate);
     			}
-	    		if (!String.isBlank(dc.Extension_Field_1_Name__c)) {
-	    			extension = getExtension(record, dc);
+    			for (Integer i = 1; i <= numberOfExtensions; i++) {
+    				extension += getExtension(record, dc, i);
 	    		}
 	    		if (baseDate != null && tollingService == 'Get Calculated Date') {
 		    		tempDate = baseDate.addDays(offset).addDays(extension);
@@ -135,8 +136,6 @@ public without sharing class DateCalculationService {
     	return returnMap;
     }
 
-    
-
     @TestVisible private Date getBaseDate(SObject record, String soType, Date_Calculation__mdt dc, Integer i) {
     	String baseDateFieldObject = 'Base_Date_Field_'+ String.valueOf(i) + '_Object__c';
     	String baseDateFieldName = 'Base_Date_Field_'+ String.valueOf(i) + '_Name__c';
@@ -162,8 +161,13 @@ public without sharing class DateCalculationService {
 		return baseDate;
     }
 
-    @TestVisible private Integer getExtension(SObject record, Date_Calculation__mdt dc) {
-		Integer extension = record.get(dc.Extension_Field_1_Name__c) == null ? 0 : Integer.valueOf(record.get(dc.Extension_Field_1_Name__c));
+    @TestVisible private Integer getExtension(SObject record, Date_Calculation__mdt dc, Integer i) {
+    	String extensionObjectName = 'Extension_Object_' + String.valueOf(i) + '_Name__c';
+    	String extensionFieldName = 'Extension_Field_' + String.valueOf(i) + '_Name__c';
+    	SObject extRecord = !String.isBlank(String.valueOf(dc.get(extensionObjectName))) 
+    						? getBaseObject(record, String.valueOf(dc.get(extensionObjectName)), String.valueOf(dc.get(extensionObjectName))) : record;
+    	Integer extension = extRecord.get(String.valueOf(dc.get(extensionFieldName))) == null 
+    						? 0 : Integer.valueOf(extRecord.get(String.valueOf(dc.get(extensionFieldName))));
 		return extension;
     }
 
