@@ -387,7 +387,34 @@ public class TestUtils {
         }
         return r;
     }
-
+	//create test Harmonized Tarrif Schedule with ADCVD Order
+    public static List<Harmonized_Tariff_Schedule__c> createHTS(ADCVD_Order__c order, Integer count, Boolean doInsert){
+        List<Harmonized_Tariff_Schedule__c> htsList = new List<Harmonized_Tariff_Schedule__c>();
+        Integer htsNumber = 1111111111;
+        for(Integer i = 0; i < count; i++){
+            Harmonized_Tariff_Schedule__c hts = new Harmonized_Tariff_Schedule__c(
+            	ADCVD_Order__c = order.Id,
+                HTS_Number__c = String.valueOf(htsNumber+i)
+            );
+            htsList.add(hts);
+        }
+        if(doInsert) insert htsList;
+        return htsList;
+    }
+    //create test Harmonized Tarrif Schedule with Suspension Agreement
+    public static List<Harmonized_Tariff_Schedule__c> createHTS(Suspension_Agreement__c SA, Integer count, Boolean doInsert){
+        List<Harmonized_Tariff_Schedule__c> htsList = new List<Harmonized_Tariff_Schedule__c>();
+        Integer htsNumber = 1111111111;
+        for(Integer i = 0; i < count; i++){
+            Harmonized_Tariff_Schedule__c hts = new Harmonized_Tariff_Schedule__c(
+            	Suspension_Agreement__c = SA.Id,
+                HTS_Number__c = String.valueOf(htsNumber+i)
+            );
+            htsList.add(hts);
+        }
+        if(doInsert) insert htsList;
+        return htsList;
+    }
     //create test Related Recusal
     public static Recusal__c createRecusal(Id primaryRecusalId, Id parentId, String parentObjectName, Boolean doInsert) {
         Recusal__c r = new Recusal__c();
