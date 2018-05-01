@@ -372,7 +372,7 @@
     </values>
     <values>
         <field>Number_of_Base_Date_Fields__c</field>
-        <value xsi:type="xsd:double">4.0</value>
+        <value xsi:type="xsd:double">5.0</value>
     </values>
     <values>
         <field>Number_of_Conditionals__c</field>
@@ -380,7 +380,7 @@
     </values>
     <values>
         <field>Number_of_Extensions__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:double">0.0</value>
     </values>
     <values>
         <field>Order_of_Execution__c</field>

@@ -304,11 +304,12 @@ public without sharing class InvestigationTriggerHandler {
     }
 
     @TestVisible private static void setSuspendedStatus(Investigation__c i) {
-        if (i.AD_Investigation_Aligned_To__c == null) {
+        // IF statement needed to be removed for story AD-2160 - Do not sync status when aligning CVD with AD Investigation
+        // if (i.AD_Investigation_Aligned_To__c == null) {
             if (i.Investigation_Outcome__c == 'Suspension Agreement') {
                 i.Status__c = 'Suspended';
             }
-        }
+        //}
     }
 
     @TestVisible private static void setPrelimStatus(Investigation__c i) {
@@ -316,11 +317,13 @@ public without sharing class InvestigationTriggerHandler {
         if (i.Id != null && frUtilMap != null) {
             prelimPublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).preliminaryPublishedDate : null;
         }
-        if (i.AD_Investigation_Aligned_To__c == null) {
+        
+        // IF statement needed to be removed for story AD-2160 - Do not sync status when aligning CVD with AD Investigation
+        // if (i.AD_Investigation_Aligned_To__c == null) {
             if ((i.Actual_Preliminary_Signature__c == null || prelimPublished == null) && !outcomesThatTermInvestigations.contains(i.Investigation_Outcome__c)) {
                 i.Status__c = 'Prelim';
             }
-        }
+        // }
     }
 
     @TestVisible private static void setAmendedPrelimStatus(Investigation__c i) {
@@ -328,7 +331,9 @@ public without sharing class InvestigationTriggerHandler {
         if (i.Id != null && frUtilMap != null) {
             prelimPublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).preliminaryPublishedDate : null;
         }
-        if (i.AD_Investigation_Aligned_To__c == null) {
+        
+        // IF statement needed to be removed for story AD-2160 - Do not sync status when aligning CVD with AD Investigation
+        // if (i.AD_Investigation_Aligned_To__c == null) {
             if (prelimPublished != null && 
                 i.Actual_Preliminary_Signature__c != null &&
                 i.Amend_the_Preliminary_Determination__c == 'Yes' && 
@@ -336,7 +341,7 @@ public without sharing class InvestigationTriggerHandler {
                 !outcomesThatTermInvestigations.contains(i.Investigation_Outcome__c)) {
                 i.Status__c = 'Amend Prelim';
             }
-        }  
+        // }  
     }
 
     @TestVisible private static void setFinalStatus(Investigation__c i) {
@@ -346,7 +351,9 @@ public without sharing class InvestigationTriggerHandler {
             prelimPublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).preliminaryPublishedDate : null;
             finalPublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).finalPublishedDate : null;
         }
-        if (i.AD_Investigation_Aligned_To__c == null) {
+        
+       // IF statement needed to be removed for story AD-2160 - Do not sync status when aligning CVD with AD Investigation
+       // if (i.AD_Investigation_Aligned_To__c == null) {
             if (i.Actual_Preliminary_Signature__c != null &&
                 prelimPublished != null &&
                 (finalPublished == null || i.Actual_Final_Signature__c == null) 
@@ -354,7 +361,7 @@ public without sharing class InvestigationTriggerHandler {
                 (i.Amend_the_Preliminary_Determination__c != 'Yes' || i.Actual_Amended_Prelim_Determination_Sig__c != null)) {
                 i.Status__c = 'Final';
             }
-        }
+        // }
     }
 
     @TestVisible private static void setPendingOrderStatus(Investigation__c i) {
@@ -364,7 +371,9 @@ public without sharing class InvestigationTriggerHandler {
             prelimPublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).preliminaryPublishedDate : null;
             finalPublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).finalPublishedDate : null;
         }
-        if (i.AD_Investigation_Aligned_To__c == null) {
+        
+       // IF statement needed to be removed for story AD-2160 - Do not sync status when aligning CVD with AD Investigation 
+       // if (i.AD_Investigation_Aligned_To__c == null) {
             if (prelimPublished != null &&
                 finalPublished != null &&
                 i.Actual_Preliminary_Signature__c != null &&
@@ -379,40 +388,44 @@ public without sharing class InvestigationTriggerHandler {
                 && i.Investigation_Outcome__c == 'Order') {
                 i.addError('Preliminary and final actual signatures and Federal Registers are required to set Investigation Outcome to Order.');
             }
-        }
+        // }
     }
 
     @TestVisible private static void setHoldStatus(Investigation__c i) {
-        if (i.AD_Investigation_Aligned_To__c == null) {
+        // IF statement needed to be removed for story AD-2160 - Do not sync status when aligning CVD with AD Investigation
+        // if (i.AD_Investigation_Aligned_To__c == null) {
             if (i.Litigation_Hold_Expiration_Date__c != null && i.Litigation_YesNo__c == null) {
                 i.Status__c = 'Hold';
             }
-        }
+        // }
     }
 
     @TestVisible private static void setLitigationStatus(Investigation__c i) {
-        if (i.AD_Investigation_Aligned_To__c == null) {
+       // IF statement needed to be removed for story AD-2160 - Do not sync status when aligning CVD with AD Investigation
+       // if (i.AD_Investigation_Aligned_To__c == null) {
             if (i.Litigation_YesNo__c == 'Yes' && i.Litigation_Resolved__c == 'No' && i.Investigation_Outcome__c != null) {
                 i.Status__c = 'Litigation';
             }
-        }
+       // }
     }
 
     @TestVisible private static void setCustomsStatus(Investigation__c i) {
-        if (i.AD_Investigation_Aligned_To__c == null) {
+        // IF statement needed to be removed for story AD-2160 - Do not sync status when aligning CVD with AD Investigation
+        // if (i.AD_Investigation_Aligned_To__c == null) {
             if ((i.Litigation_YesNo__c == 'No' || (i.Litigation_YesNo__c == 'Yes' && i.Litigation_Resolved__c == 'Yes')) && 
                 i.Have_Custom_Instruction_been_sent__c != 'Yes') { 
                 i.Status__c = 'Customs';
             }
-        }
+        // }
     }
 
     @TestVisible private static void setClosedStatus(Investigation__c i) {
-        if (i.AD_Investigation_Aligned_To__c == null) {
+        // IF statement needed to be removed for story AD-2160 - Do not sync status when aligning CVD with AD Investigation
+        // if (i.AD_Investigation_Aligned_To__c == null) {
             if ((i.Litigation_YesNo__c == 'No' || (i.Litigation_YesNo__c == 'Yes' && i.Litigation_Resolved__c == 'Yes')) && 
                 i.Have_Custom_Instruction_been_sent__c == 'Yes') { 
                 i.Status__c = 'Closed';
             }
-        }
+        // }
     }
 }
