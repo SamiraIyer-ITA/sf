@@ -212,11 +212,11 @@
     </values>
     <values>
         <field>Conditional_Field_4_Operator__c</field>
-        <value xsi:type="xsd:string">Not Equals To</value>
+        <value xsi:type="xsd:string">Equals</value>
     </values>
     <values>
         <field>Conditional_Field_4_Result__c</field>
-        <value xsi:type="xsd:string">Skip</value>
+        <value xsi:type="xsd:string">Execute</value>
     </values>
     <values>
         <field>Conditional_Field_4_Type__c</field>
@@ -224,7 +224,7 @@
     </values>
     <values>
         <field>Conditional_Field_4_Value__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Completed;null</value>
     </values>
     <values>
         <field>Conditional_Field_5_Lookup_Field_Name__c</field>
