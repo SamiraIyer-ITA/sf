@@ -6,6 +6,7 @@ global without sharing class ADCVD_OrderSearch {
     public class ADCVD_Order {
         public String id;
         public String caseNumber;
+        public String productName;		
         public String productShortName;
         public String country;
         public String commodity;
@@ -49,7 +50,7 @@ global without sharing class ADCVD_OrderSearch {
         //Initialize the return value
         JsonOutput output = new JsonOutput();
                 
-        List<ADCVD_Order__c> orders = [SELECT Id, ADCVD_Case_Number__c, Product_Short_Name__c, Country__c, Commodity__c, 
+        List<ADCVD_Order__c> orders = [SELECT Id, ADCVD_Case_Number__c, Product__c, Product_Short_Name__c, Country__c, Commodity__c, 
 			                               (SELECT Id, RecordTypeId, Actual_Final_Signature__c, Initiation_Extension_Remaining__c, 
 			                               			Preliminary_Extension_Remaining__c, Final_Extension_Remaining__c, Initiation_Announcement_Date__c, 
 			                               			Preliminary_Announcement_Date__c, Final_Announcement_Date__c, Next_Announcement_Date__c 
@@ -62,6 +63,7 @@ global without sharing class ADCVD_OrderSearch {
             ADCVD_Order ao = new ADCVD_Order();
             ao.id = o.id;
             ao.caseNumber = o.ADCVD_Case_Number__c;
+            ao.productName = o.Product__c;			
             ao.productShortName = o.Product_Short_Name__c;
             ao.country = o.Country__c;
             ao.commodity = o.Commodity__c;
