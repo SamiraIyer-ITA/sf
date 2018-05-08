@@ -1192,7 +1192,6 @@
      IF( Prelim_Extension__c = 0 &amp;&amp;  NOT(ISNULL(Actual_Preliminary_Signature__c)) , 
          180 - Final_Extension_of_days__c, 
          60 - Final_Extension_of_days__c)) ,
-&apos;Anti_Circumvention_Review&apos;, 180 - Final_Extension_of_days__c , 
 &apos;Expedited_Review&apos;, 60 - Final_Extension_of_days__c , 
 &apos;New_Shipper_Review&apos;, 60 - Final_Extension_of_days__c , 
 0)</formula>
@@ -1321,9 +1320,9 @@
     <fields>
         <fullName>Initiation_Extension_Remaining__c</fullName>
         <externalId>false</externalId>
-        <formula>CASE( RecordType.DeveloperName , 
-&apos;Anti_Circumvention_Review&apos;, 45 - Initiation_Extension_of_days__c ,
-&apos;Changed_Circumstances_Review&apos;, 45 - Initiation_Extension_of_days__c ,
+        <formula>CASE(RecordType.DeveloperName , 
+&apos;Anti_Circumvention_Review&apos;, 0,
+&apos;Changed_Circumstances_Review&apos;, 0,
 0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Initiation Extension Remaining</label>
@@ -11597,7 +11596,7 @@
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
         <fullName>ACR_Final_Extension</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Legend to the Initials Placed on each rule name
 AR = Admin Review
 ACR = Anti-Circumvention Review
