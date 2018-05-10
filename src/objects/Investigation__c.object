@@ -350,8 +350,7 @@
         <formula>CASE( Next_Announcement_Date__c ,  
 Preliminary_Announcement_Date__c ,&apos;Preliminary&apos;,  
 Final_Announcement_Date__c ,&apos;Final&apos;,
-&apos;&apos;)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+&apos;-&apos;)</formula>
         <label>Announcement Type</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -858,8 +857,7 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
         <externalId>false</externalId>
         <formula>IF(NOT(ISBLANK(Actual_Final_Signature__c)) , &apos;Decision Signed&apos;, 
 CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Preliminary_Extension_Remaining__c) ,
-  Final_Announcement_Date__c ,  TEXT(Final_Extension_Remaining__c) ,&apos;&apos;) )</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+  Final_Announcement_Date__c ,  TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) )</formula>
         <label>Days Remaining</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
