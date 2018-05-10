@@ -1228,6 +1228,7 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
          60 - Final_Extension_of_days__c)) ,
 &apos;Expedited_Review&apos;, 60 - Final_Extension_of_days__c , 
 &apos;New_Shipper_Review&apos;, 60 - Final_Extension_of_days__c , 
+&apos;Sunset_Review&apos;, 90 - (Prelim_Extension__c  + Final_Extension_of_days__c),      
 0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Final Extension Remaining</label>
