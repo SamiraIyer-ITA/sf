@@ -345,6 +345,20 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Announcement_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE( Next_Announcement_Date__c ,  
+Preliminary_Announcement_Date__c ,&apos;Preliminary&apos;,  
+Final_Announcement_Date__c ,&apos;Final&apos;,
+&apos;-&apos;)</formula>
+        <label>Announcement Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>CBP_Case_Number__c</fullName>
         <externalId>false</externalId>
         <label>CBP Case Number</label>
@@ -837,6 +851,29 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Days_Remaining__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(NOT(ISBLANK(Actual_Final_Signature__c)) , &apos;Decision Signed&apos;, 
+CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Preliminary_Extension_Remaining__c) ,
+  Final_Announcement_Date__c ,  TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) )</formula>
+        <label>Days Remaining</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Decision_Signed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Decision Signed</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Est_ITC_Notification_to_DOC_of_Final_Det__c</fullName>
