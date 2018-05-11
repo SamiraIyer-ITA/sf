@@ -495,7 +495,43 @@ public class TestUtils {
         }
         return td;
     }
-
+	//create test Related_Organization__c with ADCVD Order parent
+    public static Related_Organization__c createRelatedOrg(ADCVD_Order__c order, Boolean doInsert){
+        Related_Organization__c relatedOrg = new Related_Organization__c(ADCVD_Order__c = order.Id);
+        if(doInsert) insert relatedOrg;
+        return relatedOrg;
+    }
+	//create test Related_Organization__c with Customs Instructions parent
+    public static Related_Organization__c createRelatedOrg(Custom_Instruction__c customInstruction, Boolean doInsert){
+        Related_Organization__c relatedOrg = new Related_Organization__c(Custom_Instruction__c = customInstruction.Id);
+        if(doInsert) insert relatedOrg;
+        return relatedOrg;
+    }
+	//create test Related_Organization__c with Investigation parent
+    public static Related_Organization__c createRelatedOrg(Investigation__c investigation, Boolean doInsert){
+        Related_Organization__c relatedOrg = new Related_Organization__c(Investigation__c = investigation.Id);
+        if(doInsert) insert relatedOrg;
+        return relatedOrg;
+    }
+    //create test Related_Organization__c with Litigation parent
+    public static Related_Organization__c createRelatedOrg(Litigation__c litigation, Boolean doInsert){
+        Related_Organization__c relatedOrg = new Related_Organization__c(Litigation__c = litigation.Id);
+        if(doInsert) insert relatedOrg;
+        return relatedOrg;
+    }
+    //create test Related_Organization__c with Petition parent
+    public static Related_Organization__c createRelatedOrg(Petition__c petition, Boolean doInsert){
+        Related_Organization__c relatedOrg = new Related_Organization__c(Petition__c = petition.Id);
+        if(doInsert) insert relatedOrg;
+        return relatedOrg;
+    }
+    //create test Related_Organization__c with Segment parent
+    public static Related_Organization__c createRelatedOrg(Segment__c segment, Boolean doInsert){
+        Related_Organization__c relatedOrg = new Related_Organization__c(Segment__c = segment.Id);
+        if(doInsert) insert relatedOrg;
+        return relatedOrg;
+    }
+    
     public static User createGenericUser(string username, string email, String profileId) {
         User user = new User();
         user.ProfileId = profileId;
