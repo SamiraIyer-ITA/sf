@@ -9,6 +9,8 @@
 public class ADCVD_OrderDetailControllerTest {
     
     @testSetup static void createData(){
+        Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
+        AppConfig__c ac = TestUtils.createAppConfig('default', true, true);
         ADCVD_Case__c adcvdCase = TestUtils.createADCVDCase('A-111-222', 'AD ME', true); //Matching case name to adcvd order case name
         Petition__c petition = TestUtils.createPetition(adcvdCase, Date.today(), true);
         Investigation__c investigation = TestUtils.createInvestigation(petition, true);
@@ -72,6 +74,7 @@ public class ADCVD_OrderDetailControllerTest {
         //Set the dates in the segment to test for Preliminary announcement type
         Segment__c prelimARSegment = segmentList[1];
         prelimARSegment.Actual_Final_Signature__c = Date.today().addDays(1);
+        prelimARSegment.Segment_Outcome__c = 'Completed';
         update prelimARSegment;
         
         //Requery the records
