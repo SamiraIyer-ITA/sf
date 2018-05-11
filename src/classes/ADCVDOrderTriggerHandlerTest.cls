@@ -158,20 +158,42 @@ public class ADCVDOrderTriggerHandlerTest {
         System.assertNotEquals(ADCVDOrderTriggerHandler.orderIdToSegmentMap, null);
     }
 
-    @isTest static void setNextSunsetInitiationDate() {
+    @isTest static void setNextSunsetInitiationDate_Order() {
         Test.startTest();
         System.assertEquals(null, o.Next_Sunset_Initiation_Date__c);
         Federal_Register__c orderFR = setFR(o.Id, 'Order', true);
         o = null;
         testCalculated = orderDate.toStartOfMonth().addYears(4).addMonths(11);
+
+        Test.stopTest();
         System.assertEquals(testCalculated, o.Next_Sunset_Initiation_Date__c);
+    }
+    @isTest static void setNextSunsetInitiationDate_Continuation() {
+        Test.startTest();
         orderDate = orderDate.addMonths(1);
-        Federal_Register__c continuationFR = setFR(o.Id, 'Continuation', true);
+        List<Federal_Register__c> frList = new List<Federal_Register__c>();
+        Federal_Register__c orderFR = setFR(o.Id, 'Order', false);
+        frList.add(orderFR);
+        Federal_Register__c continuationFR = setFR(o.Id, 'Continuation', false);
+        frList.add(continuationFR);
+        insert frList;
         o = null;
         testCalculated = orderDate.toStartOfMonth().addYears(4).addMonths(11);
+
+        Test.stopTest();
         System.assertEquals(testCalculated, o.Next_Sunset_Initiation_Date__c);
-        orderDate = orderDate.addMonths(1);
-        Federal_Register__c revoFR = setFR(o.Id, 'Revocation', true);
+    }
+    @isTest static void setNextSunsetInitiationDate_Revocation() {
+        Test.startTest();
+        orderDate = orderDate.addMonths(2);
+        List<Federal_Register__c> frList = new List<Federal_Register__c>();
+        Federal_Register__c orderFR = setFR(o.Id, 'Order', false);
+        frList.add(orderFR);
+        Federal_Register__c continuationFR = setFR(o.Id, 'Continuation', false);
+        frList.add(continuationFR);
+        Federal_Register__c revoFR = setFR(o.Id, 'Revocation', false);
+        frList.add(revoFR);
+        insert frList;
         o = null;
 
         Test.stopTest();
@@ -228,10 +250,12 @@ public class ADCVDOrderTriggerHandlerTest {
     @isTest static void setStatus2() {
         Test.startTest();
         System.assertEquals('Order FR Needed', o.Status__c);//default on Insert
-        Federal_Register__c orderFR = setFR(o.Id, 'Order', true);
-        o = null;
-        System.assertEquals('Current-Active', o.Status__c);//updated when at least one Segment is active
-        Federal_Register__c revoFR = setFR(o.Id, 'Revocation', true);
+        List<Federal_Register__c> frList = new List<Federal_Register__c>();
+        Federal_Register__c orderFR = setFR(o.Id, 'Order', false);
+        frList.add(orderFR);
+        Federal_Register__c revoFR = setFR(o.Id, 'Revocation', false);
+        frList.add(revoFR);
+        insert frList;
         o = null;
         System.assertEquals('Revoked-Incomplete', o.Status__c);//updated when Revocation FR is inserted
         o.Status__c = 'Revoked-Complete';//manually set to Revoked-Complete
