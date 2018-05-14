@@ -4757,19 +4757,19 @@ public class SegmentTriggerHandlerTest {
         setStartDates();
         getNewSegs();
         //Segment Prelim Status
-        setFR(acSeg.Id, 'Initiation');
+        List<Federal_Register__c> frList = new List<Federal_Register__c>();
+        frList.add(setFR(acSeg.Id, 'Initiation', false));
+        frList.add(setFR(acSeg.Id, 'Preliminary', false));
+        frList.add(setFR(acSeg.Id, 'Final', false));
+        insert frList;
         acSeg.Actual_Initiation_Signature__c = acSeg.Calculated_Initiation_Signature__c.addDays(-7);
         acSeg.Type_of_Circumvention_Inquiry__c = 'Later-Developed Merchandise';
-        update acSeg;
-        getNewSegs();
         //Segment Final Status
-        setFR(acSeg.Id, 'Preliminary');
         acSeg.Actual_Preliminary_Signature__c = acSeg.Calculated_Preliminary_Signature__c.addDays(-14);
         //Segment Hold Status
         acSeg.Segment_Outcome__c ='Completed';
         acSeg.Actual_Final_Signature__c = acSeg.Calculated_Final_Signature__c.addDays(-14);
         update acSeg;
-        setFR(acSeg.Id, 'Final');
         getNewSegs();
 
         Test.stopTest();
@@ -5056,7 +5056,6 @@ public class SegmentTriggerHandlerTest {
 
 
     @testSetup static void dataSetup() {
-        Test.startTest();
         //create custom setting configuration to activate triggers, workflow rules, and validation rules
         Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
         AppConfig__c ac = TestUtils.createAppConfig('default', true, true);
@@ -5170,6 +5169,15 @@ public class SegmentTriggerHandlerTest {
             parentName = 'ADCVD_Order__c';
         }
         Federal_Register__c testFR = TestUtils.createFR(parentId, parentName, segmentDate.addDays(120), frType, true);
+    }
+    
+    private static Federal_Register__c setFR(Id parentId, String frType, Boolean doInsert) {
+        String parentName = 'Segment__c';
+        if (frType == 'Revocation') {
+            parentName = 'ADCVD_Order__c';
+        }
+        Federal_Register__c testFR = TestUtils.createFR(parentId, parentName, segmentDate.addDays(120), frType, doInsert);
+        return testFR;
     }
 
     private static void getNewSegs() {
