@@ -12313,11 +12313,15 @@ $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_Ho
     <validationRules>
         <fullName>SSR_240_Extension_Total</fullName>
         <active>true</active>
-        <errorConditionFormula>AND( 
- OR(
-  Prelim_Extension__c &gt; 90, Final_Extension_of_days__c &gt; 90, 
-  Prelim_Extension__c + Final_Extension_of_days__c &gt; 90),
-  ISPICKVAL(Sunset_Review_Type__c , &apos;240&apos;)
+        <errorConditionFormula>AND
+(
+   $Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
+   Locked__c == false,
+AND( 
+    OR(
+    Prelim_Extension__c &gt; 90, Final_Extension_of_days__c &gt; 90, 
+    Prelim_Extension__c + Final_Extension_of_days__c &gt; 90),
+    ISPICKVAL(Sunset_Review_Type__c , &apos;240&apos;))
 )</errorConditionFormula>
         <errorMessage>The total extension of Prelim Extension # of days and Final Extension # of days cannot be more than 90.</errorMessage>
     </validationRules>
