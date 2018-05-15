@@ -87,6 +87,7 @@
         <members>StaffingAssignmentExtension</members>
         <members>StaffingAssignmentExtensionTest</members>
         <members>StaffingAssignmentsSelector</members>
+        <members>StaffingAssignmentsSelectorTest</members>
         <members>SunsetReviewController</members>
         <members>SunsetReviewControllerTest</members>
         <members>SuspensionAgreementTriggerHandler</members>
