@@ -147,6 +147,7 @@
         <members>ADCVD_OrderDetailControllerTest</members>
         <members>InvestigationOverride</members>
         <members>StaffingAssignmentSelector</members>
+        <members>StaffingAssignmentSelectorTest</members>
         <members>RelatedOrganizationSelector</members>
         <members>RelatedOrganizationSelectorTest</members>
         <name>ApexClass</name>
