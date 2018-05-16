@@ -899,7 +899,7 @@
         <active>true</active>
         <label>International Litigation</label>
         <picklistValues>
-            <picklist>Countries</picklist>
+            <picklist>Country__c</picklist>
             <values>
                 <fullName>Afghanistan</fullName>
                 <default>false</default>
@@ -1940,7 +1940,7 @@
         <active>true</active>
         <label>Remand</label>
         <picklistValues>
-            <picklist>Countries</picklist>
+            <picklist>Country__c</picklist>
             <values>
                 <fullName>Afghanistan</fullName>
                 <default>false</default>

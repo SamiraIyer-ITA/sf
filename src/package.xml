@@ -87,7 +87,6 @@
         <members>StaffingAssignmentExtension</members>
         <members>StaffingAssignmentExtensionTest</members>
         <members>StaffingAssignmentsSelector</members>
-        <members>StaffingAssignmentsSelectorTest</members>
         <members>SunsetReviewController</members>
         <members>SunsetReviewControllerTest</members>
         <members>SuspensionAgreementTriggerHandler</members>
@@ -148,6 +147,8 @@
         <members>ADCVD_OrderDetailControllerTest</members>
         <members>InvestigationOverride</members>
         <members>StaffingAssignmentSelector</members>
+        <members>RelatedOrganizationSelector</members>
+        <members>RelatedOrganizationSelectorTest</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -158,7 +159,7 @@
         <members>SunsetReview</members>
         <members>SuspensionAgreementAttachmentWriter</members>
         <members>OrderAttachmentWriter</members>
-        <members>ADCVD_OrderDetail</members>
+        <members>adcvd</members>
         <name>ApexPage</name>
     </types>
     <types>
@@ -188,7 +189,6 @@
         <members>ADCVD_Order__c</members>
         <members>ADCVD_Objects__mdt</members>
         <members>AppConfig__c</members>
-        <members>Case</members>
         <members>Constant__mdt</members>
         <members>Contact</members>
         <members>Custom_Instruction__c</members>
@@ -224,7 +224,7 @@
         <members>Recusal__c</members>
         <members>Segment__c</members>
         <members>Staffing_Assignment__c</members>
-	<members>Related_Organization__c</members>
+		<members>Related_Organization__c</members>
         <members>Suspension_Agreement__c</members>
         <members>Test_Object_Describer</members>
         <members>Tolling_Day__c</members>
@@ -369,7 +369,7 @@
     </types>
     <types>
         <members>ADCVD_Objects__mdt</members>
-	<members>Investigation__c</members>
+		<members>Investigation__c</members>
         <members>ADCVD_Order__c</members>
         <members>Custom_Instruction__c</members>
         <members>Date_Calculation__mdt</members>
@@ -378,8 +378,8 @@
         <members>Petition__c</members>
         <members>Recusal__c</members>
         <members>Segment__c</members>
-	<members>Litigation__c</members>
-	<members>Related_Organization__c</members>
+		<members>Litigation__c</members>
+		<members>Related_Organization__c</members>
         <members>Service__mdt</members>
         <members>Staffing_Assignment__c</members>
         <members>Suspension_Agreement__c</members>
@@ -389,5 +389,5 @@
         <members>Constant__mdt</members>
         <name>Workflow</name>
     </types>
-    <version>39.0</version>
+    <version>40.0</version>
 </Package>

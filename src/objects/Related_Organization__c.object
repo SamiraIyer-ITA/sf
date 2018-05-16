@@ -457,7 +457,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Countries</picklist>
+            <picklist>Country__c</picklist>
             <values>
                 <fullName>Afghanistan</fullName>
                 <default>false</default>
@@ -1466,7 +1466,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Countries</picklist>
+            <picklist>Country__c</picklist>
             <values>
                 <fullName>Afghanistan</fullName>
                 <default>false</default>

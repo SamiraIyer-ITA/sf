@@ -356,7 +356,7 @@ C-###-### for CVD</inlineHelpText>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Countries</picklist>
+            <picklist>Country__c</picklist>
             <values>
                 <fullName>Argentina</fullName>
                 <default>false</default>
@@ -694,7 +694,7 @@ C-###-### for CVD</inlineHelpText>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Countries</picklist>
+            <picklist>Country__c</picklist>
             <values>
                 <fullName>Argentina</fullName>
                 <default>false</default>
