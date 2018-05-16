@@ -1226,7 +1226,6 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
      IF( Prelim_Extension__c = 0 &amp;&amp;  NOT(ISNULL(Actual_Preliminary_Signature__c)) , 
          180 - Final_Extension_of_days__c, 
          60 - Final_Extension_of_days__c)) ,
-&apos;Anti_Circumvention_Review&apos;, 180 - Final_Extension_of_days__c , 
 &apos;Expedited_Review&apos;, 60 - Final_Extension_of_days__c , 
 &apos;New_Shipper_Review&apos;, 60 - Final_Extension_of_days__c , 
 &apos;Sunset_Review&apos;, 90 - (Prelim_Extension__c  + Final_Extension_of_days__c),      
@@ -11632,7 +11631,7 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
         <fullName>ACR_Final_Extension</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Legend to the Initials Placed on each rule name
 AR = Admin Review
 ACR = Anti-Circumvention Review
