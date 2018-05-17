@@ -146,8 +146,8 @@
         <members>fflib_StringBuilderTest</members>
         <members>ADCVD_OrderDetailControllerTest</members>
         <members>InvestigationOverride</members>
-        <members>StaffingAssignmentSelector</members>
-        <members>StaffingAssignmentSelectorTest</members>
+        <members>StaffingAssignmentsSelector</members>
+        <members>StaffingAssignmentsSelectorTest</members>
         <members>RelatedOrganizationSelector</members>
         <members>RelatedOrganizationSelectorTest</members>
         <name>ApexClass</name>
