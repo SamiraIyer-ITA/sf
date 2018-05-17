@@ -13160,7 +13160,7 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
         <fullName>ACR_Final_Extension</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>Legend to the Initials Placed on each rule name
 AR = Admin Review
 ACR = Anti-Circumvention Review
