@@ -426,12 +426,14 @@ OR(
   ( ISBLANK(Petition__c),
   ISBLANK(Segment__c),
   ISBLANK(Investigation__c), 
+  ISBLANK(ADCVD_Order__c),
   ISBLANK(Suspension_Agreement__c) 
   )
   ),
   (	
 	IF(ISBLANK(Petition__c),0,1)+ 
 	IF(ISBLANK(Segment__c),0,1)+ 
+        IF(ISBLANK(ADCVD_Order__c),0,1)+
 	IF(ISBLANK(Investigation__c),0,1)+ 
 	IF(ISBLANK(Suspension_Agreement__c),0,1) &gt;1
    )
@@ -439,4 +441,5 @@ OR(
 )</errorConditionFormula>
         <errorMessage>You must have either a Petition, Investigation,  ADCVD Order, Suspension Agreement or Segment associated to this Federal Register.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>
