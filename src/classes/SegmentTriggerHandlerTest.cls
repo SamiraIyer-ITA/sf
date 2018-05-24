@@ -2038,12 +2038,12 @@ public class SegmentTriggerHandlerTest {
         setExtensions();
         getNewSegs();
 
-        System.assertEquals(adminSeg.Preliminary_Announcement_Date__c, adminSeg.Next_Announcement_Date__c);
+        System.assertEquals(adminSeg.Amended_Final_Announcement_Date__c, adminSeg.Next_Announcement_Date__c);
 
         adminSeg.Actual_Preliminary_Signature__c = System.today().toStartOfWeek().addDays(-4);
         update adminSeg;
         getNewSegs();
-        System.assertEquals(adminSeg.Final_Announcement_Date__c, adminSeg.Next_Announcement_Date__c);
+        System.assertEquals(adminSeg.Amended_Final_Announcement_Date__c, adminSeg.Next_Announcement_Date__c);
 
         adminSeg.Segment_Outcome__c = 'Completed';
         adminSeg.Actual_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
@@ -2067,12 +2067,12 @@ public class SegmentTriggerHandlerTest {
         setExtensions();
         getNewSegs();
 
-        System.assertEquals(expedSeg.Preliminary_Announcement_Date__c, expedSeg.Next_Announcement_Date__c);
+        System.assertEquals(expedSeg.Amended_Final_Announcement_Date__c, expedSeg.Next_Announcement_Date__c);
 
         expedSeg.Actual_Preliminary_Signature__c = System.today().toStartOfWeek().addDays(-4);
         update expedSeg;
         getNewSegs();
-        System.assertEquals(expedSeg.Final_Announcement_Date__c, expedSeg.Next_Announcement_Date__c);
+        System.assertEquals(expedSeg.Amended_Final_Announcement_Date__c, expedSeg.Next_Announcement_Date__c);
 
         expedSeg.Segment_Outcome__c = 'Completed';
         expedSeg.Actual_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
@@ -2096,12 +2096,12 @@ public class SegmentTriggerHandlerTest {
         setExtensions();
         getNewSegs();
 
-        System.assertEquals(nsSeg.Preliminary_Announcement_Date__c, nsSeg.Next_Announcement_Date__c);
+        System.assertEquals(nsSeg.Amended_Final_Announcement_Date__c, nsSeg.Next_Announcement_Date__c);
 
         nsSeg.Actual_Preliminary_Signature__c = System.today().toStartOfWeek().addDays(-4);
         update nsSeg;
         getNewSegs();
-        System.assertEquals(nsSeg.Final_Announcement_Date__c, nsSeg.Next_Announcement_Date__c);
+        System.assertEquals(nsSeg.Amended_Final_Announcement_Date__c, nsSeg.Next_Announcement_Date__c);
 
         nsSeg.Segment_Outcome__c = 'Completed';
         nsSeg.Actual_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
@@ -2130,12 +2130,12 @@ public class SegmentTriggerHandlerTest {
         acSeg.Type_of_Circumvention_Inquiry__c = 'Later-Developed Merchandise';
         update acSeg;
         getNewSegs();
-        System.assertEquals(acSeg.Preliminary_Announcement_Date__c, acSeg.Next_Announcement_Date__c);
+        System.assertEquals(null, acSeg.Next_Announcement_Date__c);
 
         acSeg.Actual_Preliminary_Signature__c = System.today().toStartOfWeek().addDays(-4);
         update acSeg;
         getNewSegs();
-        System.assertEquals(acSeg.Final_Announcement_Date__c, acSeg.Next_Announcement_Date__c);
+        System.assertEquals(null, acSeg.Next_Announcement_Date__c);
 
         acSeg.Segment_Outcome__c = 'Completed';
         acSeg.Actual_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
@@ -2159,12 +2159,12 @@ public class SegmentTriggerHandlerTest {
         ccSeg.Preliminary_Determination__c = 'Yes';
         update ccSeg;
         getNewSegs();
-        System.assertEquals(ccSeg.Preliminary_Announcement_Date__c, ccSeg.Next_Announcement_Date__c);
+        System.assertEquals(null, ccSeg.Next_Announcement_Date__c);
 
         ccSeg.Actual_Preliminary_Signature__c = System.today().toStartOfWeek().addDays(-4);
         update ccSeg;
         getNewSegs();
-        System.assertEquals(ccSeg.Final_Announcement_Date__c, ccSeg.Next_Announcement_Date__c);
+        System.assertEquals(null, ccSeg.Next_Announcement_Date__c);
 
         ccSeg.Segment_Outcome__c = 'Completed';
         ccSeg.Actual_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);

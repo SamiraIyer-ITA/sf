@@ -628,7 +628,7 @@ public class InvestigationTriggerHandlerTest {
   //Next Announcement Date
   @isTest static void setNextAnnouncementDateAD() {
     Test.startTest();
-    System.assertEquals(iAD.Preliminary_Announcement_Date__c, iAD.Next_Announcement_Date__c);
+    System.assertEquals(Null, iAD.Next_Announcement_Date__c);
 
     iAD.Amend_the_Preliminary_Determination__c = 'Yes';
     iAD.Will_you_Amend_the_Final__c = 'Yes';
@@ -640,9 +640,8 @@ public class InvestigationTriggerHandlerTest {
     iAD.Actual_Amended_Prelim_Determination_Sig__c = System.today().toStartOfWeek().addDays(-4);
     update iAD;
     iAD = null;
-    System.assertEquals(iAD.Final_Announcement_Date__c, iAD.Next_Announcement_Date__c);
-
-    
+    System.assertEquals(iAD.Amended_Final_Announcement_Date__c, iAD.Next_Announcement_Date__c);  
+  
     iAD.Actual_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
     update iAD;
     iAD = null;
@@ -659,7 +658,7 @@ public class InvestigationTriggerHandlerTest {
   //Next Announcement Date
   @isTest static void setNextAnnouncementDateCVD() {
     Test.startTest();
-    System.assertEquals(iCVD.Preliminary_Announcement_Date__c, iCVD.Next_Announcement_Date__c);
+    System.assertEquals(Null, iCVD.Next_Announcement_Date__c);  
 
     iCVD.Amend_the_Preliminary_Determination__c = 'Yes';
     iCVD.Will_you_Amend_the_Final__c = 'Yes';
@@ -671,9 +670,8 @@ public class InvestigationTriggerHandlerTest {
     iCVD.Actual_Amended_Prelim_Determination_Sig__c = System.today().toStartOfWeek().addDays(-4);
     update iCVD;
     iCVD = null;
-    System.assertEquals(iCVD.Final_Announcement_Date__c, iCVD.Next_Announcement_Date__c);
+    System.assertEquals(iCVD.Amended_Final_Announcement_Date__c, iCVD.Next_Announcement_Date__c);   
 
-    
     iCVD.Actual_Final_Signature__c = System.today().toStartOfWeek().addDays(-4);
     update iCVD;
     iCVD = null;
