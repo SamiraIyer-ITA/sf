@@ -72,17 +72,19 @@ public without sharing class DateCalculationService {
     			for (Integer i = 1; i <= numberOfExtensions; i++) {
     				extension += getExtension(record, dc, i);
 	    		}
-	    		if (baseDate != null && tollingService == 'Get Calculated Date') {
-		    		tempDate = baseDate.addDays(offset).addDays(extension);
-		    		tempDate = ADCVD_TollingDayUtility.getCalculatedDate(baseDate, tempDate, true);
-		    	} else if (baseDate != null && tollingService == 'Count Back Business Days') {
-		    		tempDate = ADCVD_TollingDayUtility.countBackBusinessDays(baseDate, offset);
-		    	}
 	    		record.put(calculatedDateName, tempDate);
     		} else {
     			record.put(calculatedDateName, null);
     		}
     	}
+                           if (baseDate != null && tollingService == 'Get Calculated Date') {
+                               tempDate = baseDate.addDays(offset).addDays(extension);
+                               tempDate = ADCVD_TollingDayUtility.getCalculatedDate(baseDate, tempDate, true);
+                           } else if (baseDate != null && tollingService == 'Count Back Business Days') {
+                               tempDate = ADCVD_TollingDayUtility.countBackBusinessDays(baseDate, offset);
+                           } else if (baseDate != null && String.isBlank(tollingService)) {
+                               tempDate = baseDate.addDays(offset).addDays(extension);
+                           }
     }
 
     @TestVisible private Map<String,Object> applyConditionals(SObject record, String soType, Date_Calculation__mdt dc, Map<String,Boolean> conditionalResults, Integer numberOfBaseDates) {

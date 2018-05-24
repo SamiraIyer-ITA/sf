@@ -4655,12 +4655,18 @@ public class SegmentTriggerHandlerTest {
 
     @isTest static void setCCR_Status() {
         Test.startTest();
-
+		
         //Segment - Initiation Status
         System.assertEquals('Initiation',  ccSeg.Status__c);
-
+		//Insert all the FRs
+        List<Federal_Register__c> frList = new List<Federal_Register__c>();
+        frList.add(setFR(ccSeg.Id, 'Initiation', false));
+        frList.add(setFR(ccSeg.Id, 'Preliminary', false));    
+        frList.add(setFR(ccSeg.Id, 'Final',false));
+        insert frList;
+        
+        Test.stopTest();
         //Segment - Preliminary Status
-        setFR(ccSeg.Id, 'Initiation');
         ccSeg.All_parties_in_agreement_to_the_outcome__c = 'No';
         ccSeg.Preliminary_Determination__c = 'Yes';
         ccSeg.Actual_Initiation_Signature__c = segmentDate;
@@ -4669,20 +4675,18 @@ public class SegmentTriggerHandlerTest {
         System.assertEquals('Prelim',  ccSeg.Status__c);
 
         //Segment - Final Statss
-        setFR(ccSeg.Id, 'Preliminary');
         ccSeg.Actual_Preliminary_Signature__c = ccSeg.Calculated_Preliminary_Signature__c.addDays(-14);
         update ccSeg;
         getNewSegs();
-        System.assertEquals('Final',  ccSeg.Status__c);
-
+        System.assertEquals('Final',  ccSeg.Status__c);        
+        
         //Segment Hold Status
-        setFR(ccSeg.Id, 'Final');
         ccSeg.Segment_Outcome__c ='Completed';
         ccSeg.Actual_Final_Signature__c = ccSeg.Calculated_Final_Signature__c.addDays(14);
         update ccSeg;
         getNewSegs();
         System.assertEquals('Hold',  ccSeg.Status__c);
-
+        
         //Segment Litigation Status
         ccSeg.Litigation_YesNo__c = 'Yes';
         ccSeg.Litigation_Resolved__c = 'No';
@@ -4696,16 +4700,15 @@ public class SegmentTriggerHandlerTest {
         update ccSeg;
         getNewSegs();
         System.assertEquals('Customs',  ccSeg.Status__c);
-
         //Segment Closed Status
         ccSeg.Have_Custom_Instruction_been_sent__c = 'Yes';
         update ccSeg;
         getNewSegs();
 
-        Test.stopTest();
-        System.assertEquals('Closed',  ccSeg.Status__c);
+        System.assertEquals('Closed',  ccSeg.Status__c);			
+		
     }
-
+    
     @isTest static void setACR_Status_Initiation() {
         Test.startTest();
         setStartDates();
@@ -4762,9 +4765,12 @@ public class SegmentTriggerHandlerTest {
         frList.add(setFR(acSeg.Id, 'Preliminary', false));
         frList.add(setFR(acSeg.Id, 'Final', false));
         insert frList;
+        Test.stopTest();
         acSeg.Actual_Initiation_Signature__c = acSeg.Calculated_Initiation_Signature__c.addDays(-7);
         acSeg.Type_of_Circumvention_Inquiry__c = 'Later-Developed Merchandise';
         //Segment Final Status
+        update acSeg;
+        acSeg = null;
         acSeg.Actual_Preliminary_Signature__c = acSeg.Calculated_Preliminary_Signature__c.addDays(-14);
         //Segment Hold Status
         acSeg.Segment_Outcome__c ='Completed';
@@ -4772,7 +4778,7 @@ public class SegmentTriggerHandlerTest {
         update acSeg;
         getNewSegs();
 
-        Test.stopTest();
+        
         System.assertEquals('Hold', acSeg.Status__c);
     }
 
@@ -4780,26 +4786,29 @@ public class SegmentTriggerHandlerTest {
         Test.startTest();
         setStartDates();
         getNewSegs();
+        //Insert all FRs
+        List<Federal_Register__c> frList = new List<Federal_Register__c>();
+        frList.add(setFR(acSeg.Id, 'Initiation', false));
+        frList.add(setFR(acSeg.Id, 'Preliminary', false));
+        frList.add(setFR(acSeg.Id, 'Final', false));
+        insert frList;
+        Test.stopTest();
         //Segment Prelim Status
         acSeg.Actual_Initiation_Signature__c = acSeg.Calculated_Initiation_Signature__c.addDays(-7);
         acSeg.Type_of_Circumvention_Inquiry__c = 'Later-Developed Merchandise';
         update acSeg;
         getNewSegs();
-        setFR(acSeg.Id, 'Initiation');
         //Segment Final Status
         acSeg.Actual_Preliminary_Signature__c = acSeg.Calculated_Preliminary_Signature__c.addDays(-14);
-        setFR(acSeg.Id, 'Preliminary');
         //Segment Hold Status
         acSeg.Segment_Outcome__c ='Completed';
         acSeg.Actual_Final_Signature__c = acSeg.Calculated_Final_Signature__c.addDays(-14);
-        setFR(acSeg.Id, 'Final');
         //Segment Litigation Status
         acSeg.Litigation_YesNo__c = 'Yes';
         acSeg.Litigation_Resolved__c = 'No';
         update acSeg;
         getNewSegs();
 
-        Test.stopTest();
         System.assertEquals('Litigation', acSeg.Status__c);
     }
 
@@ -4807,17 +4816,21 @@ public class SegmentTriggerHandlerTest {
         Test.startTest();
         setStartDates();
         getNewSegs();
+        //Insert all FRs
+        List<Federal_Register__c> frList = new List<Federal_Register__c>();
+        frList.add(setFR(acSeg.Id, 'Initiation',false));
+        frList.add(setFR(acSeg.Id, 'Preliminary', false));
+        frList.add(setFR(acSeg.Id, 'Final', false));
+        insert frList;
+        Test.stopTest();
         //Segment Prelim Status
-        setFR(acSeg.Id, 'Initiation');
         acSeg.Actual_Initiation_Signature__c = acSeg.Calculated_Initiation_Signature__c.addDays(-7);
         acSeg.Type_of_Circumvention_Inquiry__c = 'Later-Developed Merchandise';
         update acSeg;
         getNewSegs();
         //Segment Final Status
-        setFR(acSeg.Id, 'Preliminary');
         acSeg.Actual_Preliminary_Signature__c = acSeg.Calculated_Preliminary_Signature__c.addDays(-14);
         //Segment Hold Status
-        setFR(acSeg.Id, 'Final');
         acSeg.Segment_Outcome__c ='Completed';
         acSeg.Actual_Final_Signature__c = acSeg.Calculated_Final_Signature__c.addDays(-14);
         //Segment Litigation Status
@@ -4828,7 +4841,6 @@ public class SegmentTriggerHandlerTest {
         update acSeg;
         getNewSegs();
 
-        Test.stopTest();
         System.assertEquals('Customs', acSeg.Status__c);
     }
 
@@ -4836,17 +4848,21 @@ public class SegmentTriggerHandlerTest {
         Test.startTest();
         setStartDates();
         getNewSegs();
+        //Insert all FRs
+        List<Federal_Register__c> frList = new List<Federal_Register__c>();
+        frList.add(setFR(acSeg.Id, 'Initiation', false));
+        frList.add(setFR(acSeg.Id, 'Preliminary', false));
+        frList.add(setFR(acSeg.Id, 'Final', false));
+        insert frList;
+        Test.stopTest();
         //Segment Prelim Status
-        setFR(acSeg.Id, 'Initiation');
         acSeg.Actual_Initiation_Signature__c = acSeg.Calculated_Initiation_Signature__c.addDays(-7);
         acSeg.Type_of_Circumvention_Inquiry__c = 'Later-Developed Merchandise';
         update acSeg;
         getNewSegs();
         //Segment Final Status
-        setFR(acSeg.Id, 'Preliminary');
         acSeg.Actual_Preliminary_Signature__c = acSeg.Calculated_Preliminary_Signature__c.addDays(-14);
         //Segment Hold Status
-        setFR(acSeg.Id, 'Final');
         acSeg.Segment_Outcome__c ='Completed';
         acSeg.Actual_Final_Signature__c = acSeg.Calculated_Final_Signature__c.addDays(-14);
         //Segment Litigation Status
@@ -4860,7 +4876,6 @@ public class SegmentTriggerHandlerTest {
         update acSeg;
         getNewSegs();
 
-        Test.stopTest();
         System.assertEquals('Closed', acSeg.Status__c);
     }
 
@@ -5010,22 +5025,27 @@ public class SegmentTriggerHandlerTest {
 
         //Segment - Initiation Status
         System.assertEquals('Initiation',  ssSeg.Status__c);
-
+		
         //Segment - Prelim Status
         ss240();
-        setFR(ssSeg.Id, 'Initiation');
+        //Insert all FRs
+        List<Federal_Register__c> frList = new List<Federal_Register__c>();
+        frList.add(setFR(ssSeg.Id, 'Initiation', false));
+        frList.add(setFR(ssSeg.Id, 'Preliminary', false));
+        frList.add(setFR(ssSeg.Id, 'Final', false));
+        insert frList;
+        Test.stopTest();
+        
         getNewSegs();
         System.assertEquals('Prelim',  ssSeg.Status__c);
 
         //Segment - Final Status
-        setFR(ssSeg.Id, 'Preliminary');
         ssSeg.Actual_Preliminary_Signature__c = ssSeg.Calculated_Preliminary_Signature__c;
         update ssSeg;
         getNewSegs();
         System.assertEquals('Final',  ssSeg.Status__c);
 
         //Segment - Hold Status
-        setFR(ssSeg.Id, 'Final');
         ssSeg.Actual_Final_Signature__c = ssSeg.Calculated_Final_Signature__c;
         ssSeg.Segment_Outcome__c = 'Completed';
         update ssSeg;
@@ -5050,7 +5070,6 @@ public class SegmentTriggerHandlerTest {
         update ssSeg;
         getNewSegs();
         
-        Test.stopTest();
         System.assertEquals('Closed',  ssSeg.Status__c);
     }
 

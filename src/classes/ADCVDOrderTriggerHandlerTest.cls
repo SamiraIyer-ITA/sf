@@ -287,16 +287,16 @@ public class ADCVDOrderTriggerHandlerTest {
         frList.add(orderFR);
         frList.add(revoFR);
         insert frList;
-
         //test validation on order FR
         o.Effective_Date_of_Revocation__c = orderDate.addYears(6);
         String validationError = attemptUpsert(o);
         System.assert(validationError.contains('Order Federal Register Published Date:'));
-
+		Test.stopTest();
         //add continuation FR
         continuationFR = setFR(o.Id, 'Continuation', false);
         continuationFR.Published_Date__c = continuationFR.Published_Date__c.addDays(14);
         insert continuationFR;
+        
 
         //test validationon continuation FR
         validationError = attemptUpsert(o);
@@ -306,7 +306,7 @@ public class ADCVDOrderTriggerHandlerTest {
         o.Effective_Date_of_Revocation__c = orderDate.addYears(-2);
         validationError = attemptUpsert(o);
 
-        Test.stopTest();
+        
         System.assert(validationError.contains('Success'));
 
     }
