@@ -148,7 +148,7 @@
     </values>
     <values>
         <field>Conditional_Field_2_Name__c</field>
-        <value xsi:type="xsd:string">Investigation_Outcome__c</value>
+        <value xsi:type="xsd:string">Next_Announcement_Date__c</value>
     </values>
     <values>
         <field>Conditional_Field_2_Object__c</field>
@@ -156,11 +156,11 @@
     </values>
     <values>
         <field>Conditional_Field_2_Operator__c</field>
-        <value xsi:type="xsd:string">Equals</value>
+        <value xsi:type="xsd:string">Not Equals To</value>
     </values>
     <values>
         <field>Conditional_Field_2_Result__c</field>
-        <value xsi:type="xsd:string">Execute</value>
+        <value xsi:type="xsd:string">Align</value>
     </values>
     <values>
         <field>Conditional_Field_2_Type__c</field>
@@ -168,7 +168,7 @@
     </values>
     <values>
         <field>Conditional_Field_2_Value__c</field>
-        <value xsi:type="xsd:string">Completed;Null</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_3_Lookup_Field_Name__c</field>
@@ -176,7 +176,7 @@
     </values>
     <values>
         <field>Conditional_Field_3_Name__c</field>
-        <value xsi:type="xsd:string">Next_Announcement_Date__c</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_3_Object__c</field>
@@ -184,11 +184,11 @@
     </values>
     <values>
         <field>Conditional_Field_3_Operator__c</field>
-        <value xsi:type="xsd:string">Not Equals To</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_3_Result__c</field>
-        <value xsi:type="xsd:string">Align</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_3_Type__c</field>
@@ -376,7 +376,7 @@
     </values>
     <values>
         <field>Number_of_Conditionals__c</field>
-        <value xsi:type="xsd:double">3.0</value>
+        <value xsi:type="xsd:double">2.0</value>
     </values>
     <values>
         <field>Number_of_Extensions__c</field>

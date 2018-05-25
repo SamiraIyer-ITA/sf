@@ -148,7 +148,7 @@
     </values>
     <values>
         <field>Conditional_Field_2_Name__c</field>
-        <value xsi:type="xsd:string">Segment_Outcome__c</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_2_Object__c</field>
@@ -156,11 +156,11 @@
     </values>
     <values>
         <field>Conditional_Field_2_Operator__c</field>
-        <value xsi:type="xsd:string">Equals</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_2_Result__c</field>
-        <value xsi:type="xsd:string">Execute</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_2_Type__c</field>
@@ -168,7 +168,7 @@
     </values>
     <values>
         <field>Conditional_Field_2_Value__c</field>
-        <value xsi:type="xsd:string">Completed;Null</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Conditional_Field_3_Lookup_Field_Name__c</field>
@@ -376,7 +376,7 @@
     </values>
     <values>
         <field>Number_of_Conditionals__c</field>
-        <value xsi:type="xsd:double">2.0</value>
+        <value xsi:type="xsd:double">1.0</value>
     </values>
     <values>
         <field>Number_of_Extensions__c</field>
