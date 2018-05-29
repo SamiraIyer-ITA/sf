@@ -25,16 +25,25 @@ public class CreateHTSRecordsController{
         this.recordId = con.recordId;
      	this.attachmentBody = con.attachmentBody;
      	this.attachmentId = con.attachmentId;
-        //System.debug('#1 MainClass: recordId: ' + recordId + ', attachmentBody: ' + attachmentBody +  ', attachmentId: ' + attachmentId );  
-	 	mainMethod();   
+        //System.debug('#: objectName: ' + objectName + ' , recordId: ' + recordId + ', attachmentBody: ' + attachmentBody +  ', attachmentId: ' + attachmentId );  
+        mainMethod();   
     }   
 
-    /* This is the main method having calls all other methods */
+    /* This is the main method calling other methods */
       public void mainMethod() {
     	if(attachmentBody != null && recordId != null) {    
-    		List<String> htsNumList = getHTSNumber(attachmentBody);
+    		Map <String, Harmonized_Tariff_Schedule__c> existingHTSNumMap = new Map <String, Harmonized_Tariff_Schedule__c>();
+            List <Harmonized_Tariff_Schedule__c> existingHTSNumList = new List <Harmonized_Tariff_Schedule__c>(); 
+            existingHTSNumList = [Select Id, HTS_Number__c, Name from Harmonized_Tariff_Schedule__c where ADCVD_Order__c =:recordId OR Suspension_Agreement__c =:recordId]; 
+                        
+             //System.debug('# existingHTSNumList = ' + existingHTSNumList);
+             For (Harmonized_Tariff_Schedule__c htsNums: existingHTSNumList) {
+                existingHTSNumMap.put(htsNums.HTS_Number__c, htsNums); 
+            }
+			//System.debug('# existingHTSNumMap = ' + existingHTSNumMap);	
+            List<String> htsNumList = getHTSNumber(attachmentBody);
             Map<String, String> htsNumMap = getHTSNumMap(htsNumList);
-            createHTSRecords(htsNumMap);
+            createHTSRecords(htsNumMap, existingHTSNumMap);
     	}
       }  
     
@@ -49,7 +58,7 @@ public class CreateHTSRecordsController{
         } 
          
         For (Integer listItem=0; listItem<htsNumListWithDecimals.size(); listItem++){
-            //System.debug('#2 MainClass: HTS Numbers List With Decimals: ' + htsNumListWithDecimals.get(listItem));
+            //System.debug('# getHTSNumber: HTS Numbers List With Decimals: ' + htsNumListWithDecimals.get(listItem));
         }
         return htsNumListWithDecimals;
     }
@@ -64,22 +73,26 @@ public class CreateHTSRecordsController{
         }
    
         For (string htsVal:htsNumMap.keyset()){
-            //System.debug('#3 MainClass: HTS Numbers List WithOut Decimals: ' + htsNumMap.get(htsVal));
+            //System.debug('# getHTSNumMap: HTS Numbers List WithOut Decimals: ' + htsNumMap.get(htsVal));
         }     
         return htsNumMap;
     } 
      
     /* This method inserts HTS records for the corresponding parentId  */
-    public void createHTSRecords (map<string,string> htsMap){
+    public void createHTSRecords (Map<string,string> htsMap,  Map <String, Harmonized_Tariff_Schedule__c> existingHTSNumbers){
         List <Harmonized_Tariff_Schedule__c> toInsert = new List<Harmonized_Tariff_Schedule__c>();       
         For(string hts:htsMap.keyset()){
+            //System.debug('# existingHTSNumbers.containsKey(htsMap.get(hts))) = ' + existingHTSNumbers.containsKey(htsMap.get(hts))); 
+            If (!existingHTSNumbers.containsKey(htsMap.get(hts))){
+                //System.debug('# HTS Number CAN be INSERTED'); 
                 Harmonized_Tariff_Schedule__c htsRecord = new Harmonized_Tariff_Schedule__c (name = hts, HTS_Number__c = htsMap.get(hts));
                 htsRecord.put(objectName, recordId);
                 toInsert.add(htsRecord);
-                //System.debug('#4 MainClass: HTS Number in Map: ' + htsMap.get(hts));
-            	//System.debug('#5 MainClass: Entire HTS Record to be Upserted: ' + htsRecord);
+                //System.debug('# createHTSRecords: HTS Number in Map: ' + htsMap.get(hts));
+            	//System.debug('# createHTSRecords: Entire HTS Record to be Upserted: ' + htsRecord);
+             }  
         }
-        //System.debug('#6 MainClass: HTS Records Upserted: ' + toInsert);
+        //System.debug('# createHTSRecords: HTS Records Upserted: ' + toInsert);
         Upsert toInsert;
     }
 }

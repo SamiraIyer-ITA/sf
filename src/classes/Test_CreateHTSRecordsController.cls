@@ -91,7 +91,29 @@ private class Test_CreateHTSRecordsController {
                 System.assertEquals(htsExpNum, htsActNum);
 				i++; 
         	}
-    	}
+    	} 
+      
+        // Retreive the existing HTS Numbers List
+        List <Harmonized_Tariff_Schedule__c> existingHTSNumList = [Select Id, HTS_Number__c, Name from Harmonized_Tariff_Schedule__c where ADCVD_Order__c =: o.Id];   
+        Integer oldHTSNumListSize = existingHTSNumList.size();
+        
+        // Insert duplicate HTS Numbers 
+		ext.attachmentBody = '7208.40.3060, 5407.9505';       
+        ext.saveAttachment();         
+        
+        // Retreive the new HTS Numbers List after inserting the duplicate HTS Numbers 
+        List <Harmonized_Tariff_Schedule__c> newHTSNumList = [Select Id, HTS_Number__c, Name from Harmonized_Tariff_Schedule__c where ADCVD_Order__c =: o.Id];   
+        Integer newHTSNumListSize = newHTSNumList.size(); 
+        
+        // Duplicate HTS Numbers should NOT get inserted and the list size should be the same
+        If (oldHTSNumListSize == newHTSNumListSize) {    
+         	// Compare both the Lists - the old HTS Numbers List and the New HTS Numbers List
+          	For (Integer i=0; i<newHTSNumList.size(); i++) {
+              	If (existingHTSNumList.get(i) == newHTSNumList.get(i)){
+             		System.assertEquals(existingHTSNumList.get(i), newHTSNumList.get(i));
+              	}
+           	}
+        }
         Test.stopTest();        
 	}   
 
@@ -153,6 +175,29 @@ private class Test_CreateHTSRecordsController {
 				j++; 
         	}
     	}
+        
+        // Retreive the existing HTS Numbers List
+        List <Harmonized_Tariff_Schedule__c> existingHTSNumList = [Select Id, HTS_Number__c, Name from Harmonized_Tariff_Schedule__c where Suspension_Agreement__c =: s.Id];   
+        Integer oldHTSNumListSize = existingHTSNumList.size();
+        
+        // Insert duplicate HTS Numbers 
+		ext.attachmentBody = '7208.40.3060, 5407.9505';       
+        ext.saveAttachment();         
+        
+        // Retreive the new HTS Numbers List after inserting the duplicate HTS Numbers 
+        List <Harmonized_Tariff_Schedule__c> newHTSNumList = [Select Id, HTS_Number__c, Name from Harmonized_Tariff_Schedule__c where Suspension_Agreement__c =: s.Id];   
+        Integer newHTSNumListSize = newHTSNumList.size(); 
+        
+        // Duplicate HTS Numbers should NOT get inserted and the list size should be the same
+        If (oldHTSNumListSize == newHTSNumListSize) {  
+         	// Compare both the Lists - the old HTS Numbers List and the New HTS Numbers List
+          	For (Integer i=0; i<newHTSNumList.size(); i++) {
+              	If (existingHTSNumList.get(i) == newHTSNumList.get(i)){
+             		System.assertEquals(existingHTSNumList.get(i), newHTSNumList.get(i));
+              	}
+           	}
+        }        
+                
         Test.stopTest();        
 	}       
     
