@@ -34,12 +34,8 @@ public class CreateHTSRecordsController{
     	if(attachmentBody != null && recordId != null) {    
     		Map <String, Harmonized_Tariff_Schedule__c> existingHTSNumMap = new Map <String, Harmonized_Tariff_Schedule__c>();
             List <Harmonized_Tariff_Schedule__c> existingHTSNumList = new List <Harmonized_Tariff_Schedule__c>(); 
-            If (objectName == 'ADCVD_Order__c') {
-                existingHTSNumList = [Select HTS_Number__c, Name from Harmonized_Tariff_Schedule__c where ADCVD_Order__r.Id =:recordId]; 
-             }
-            If (objectName == 'Suspension_Agreement__c') {
-                existingHTSNumList = [Select HTS_Number__c, Name from Harmonized_Tariff_Schedule__c where Suspension_Agreement__r.Id =:recordId];   
-             }
+            existingHTSNumList = [Select Id, HTS_Number__c, Name from Harmonized_Tariff_Schedule__c where ADCVD_Order__c =:recordId OR Suspension_Agreement__c =:recordId]; 
+                        
              //System.debug('# existingHTSNumList = ' + existingHTSNumList);
              For (Harmonized_Tariff_Schedule__c htsNums: existingHTSNumList) {
                 existingHTSNumMap.put(htsNums.HTS_Number__c, htsNums); 
