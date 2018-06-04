@@ -1356,8 +1356,8 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
         <fullName>Initiation_Extension_Remaining__c</fullName>
         <externalId>false</externalId>
         <formula>CASE( RecordType.DeveloperName , 
-&apos;Anti_Circumvention_Review&apos;, 45 - Initiation_Extension_of_days__c ,
-&apos;Changed_Circumstances_Review&apos;, 45 - Initiation_Extension_of_days__c ,
+&apos;Anti_Circumvention_Review&apos;, 0 ,
+&apos;Changed_Circumstances_Review&apos;, 0 ,
 0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Initiation Extension Remaining</label>
