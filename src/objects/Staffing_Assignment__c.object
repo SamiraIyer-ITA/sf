@@ -394,6 +394,10 @@ IF( Segment__c != null, Segment__r.Link__c ,
                     <fullName>Staff Policy</fullName>
                     <default>false</default>
                 </value>
+                <value>
+                    <fullName>AS Assistant</fullName>
+                    <default>false</default>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
