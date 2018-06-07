@@ -14,16 +14,19 @@ public class ChatterPostService {
 		StaffingAssignmentsSelector.setParentIdsToStaffLists(newMap.keySet(), sObjectName);//initialized map of all staffing assignments in scope for all parent records
 		for(Id i : newMap.keySet()) {
 			//initialize strings to be used in post
-			String caseNumber = (String)newMap.get(i).get('ADCVD_Case_Number__c') + '--' + (String)newMap.get(i).get('Name') + ' from ' + (String)newMap.get(i).get('Country__c');
-			String message = '';
+			String caseNumber = (String)newMap.get(i).get('ADCVD_Case_Number__c') + '--' + (String)newMap.get(i).get('Name') +', '+(String)newMap.get(i).get('Product_Short_Name__c')+' from ' + (String)newMap.get(i).get('Country__c');
+			System.debug('caseNumber:'+caseNumber);
+            String message = '';
 			Map<String,String> conditionToMessageMap = new Map<String,String>();
 			//determine if conditions were met for posting
 			if (sObjectName == 'Petition__c') {
 				Petition__c oldPet = (Petition__c)oldMap.get(i);
 				Petition__c newPet = (Petition__c)newMap.get(i);
-
+				
 				if (oldPet.Initiation_Extension_of_days__c != newPet.Initiation_Extension_of_days__c && newPet.Calculated_Initiation_Signature__c != null) {
-					message = 'Initiation Extension Number of Days changed from ' + oldPet.Initiation_Extension_of_days__c + ' to ' + newPet.Initiation_Extension_of_days__c;
+                    Integer oldInitiationExtensionOfDays = (Integer)(oldPet.Initiation_Extension_of_days__c != null ? oldPet.Initiation_Extension_of_days__c: 0); 
+                	Integer newInitiationExtensionOfDays = (Integer)(newPet.Initiation_Extension_of_days__c != null ? newPet.Initiation_Extension_of_days__c: 0);
+                    message = 'Initiation Extension Number of Days changed from ' + oldInitiationExtensionOfDays + ' to ' + newInitiationExtensionOfDays;
 					message += '<p>The Calculated Initiation Signature date is: <b>' + newPet.Calculated_Initiation_Signature__c.format() + '</b></p>';
 					conditionToMessageMap.put('Extension', message);
 				}
@@ -37,13 +40,17 @@ public class ChatterPostService {
 					conditionToMessageMap.put('Alignment', message);
 				}
 				if (oldInv.Prelim_Extension_of_days__c != newInv.Prelim_Extension_of_days__c && newInv.Calculated_Preliminary_Signature__c != null) {
-					message = '<p> Preliminary Extension Number of Days changed from ' + oldInv.Prelim_Extension_of_days__c + ' to ' + newInv.Prelim_Extension_of_days__c + '</p>';
+                    Integer oldPrelimExtensionOfDays = (Integer)(oldInv.Prelim_Extension_of_days__c != null ? oldInv.Prelim_Extension_of_days__c: 0);
+                    Integer newPrelimExtensionOfDays = (Integer)(newInv.Prelim_Extension_of_days__c != null ? newInv.Prelim_Extension_of_days__c: 0);
+					message = '<p> Preliminary Extension Number of Days changed from ' + oldPrelimExtensionOfDays + ' to ' + newPrelimExtensionOfDays + '</p>';
 					message += '<p> The Calculated Preliminary Signature date is: <b>' + newInv.Calculated_Preliminary_Signature__c.format() + '</b></p>';
 					conditionToMessageMap.put('Extension', message);
 				}
 				if (oldInv.Final_Extension_of_days__c != newInv.Final_Extension_of_days__c && newInv.Calculated_Final_Signature__c != null) {
 					message = conditionToMessageMap.get('Extension') != null ? conditionToMessageMap.get('Extension') : '';
-					message += '<p> Final Extension Number of Days changed from ' + oldInv.Final_Extension_of_days__c + ' to ' + newInv.Final_Extension_of_days__c + '</p>';
+                    Integer oldFinalExtensionOfDays = (Integer)(oldInv.Final_Extension_of_days__c != null ? oldInv.Final_Extension_of_days__c: 0);
+                    Integer newFinalExtensionOfDays = (Integer)(newInv.Final_Extension_of_days__c != null ? newInv.Final_Extension_of_days__c: 0);
+					message += '<p> Final Extension Number of Days changed from ' + oldFinalExtensionOfDays + ' to ' + newFinalExtensionOfDays + '</p>';
 					message += '<p> The Calculated Final Signature date is: <b>' + newInv.Calculated_Final_Signature__c.format() + '</b></p>';
 					conditionToMessageMap.put('Extension', message);
 
@@ -59,19 +66,25 @@ public class ChatterPostService {
 					conditionToMessageMap.put('Alignment', message);
 				}
 				if (oldSeg.Initiation_Extension_of_days__c != newSeg.Initiation_Extension_of_days__c && newSeg.Calculated_Initiation_Signature__c != null) {
-					message = 'Initiation Extension Number of Days changed from ' + oldSeg.Initiation_Extension_of_days__c + ' to ' + newSeg.Initiation_Extension_of_days__c;
+                    Integer oldInitiationExtensionOfDays = (Integer)(oldSeg.Initiation_Extension_of_days__c != null ? oldSeg.Initiation_Extension_of_days__c: 0);
+                    Integer newInitiationExtensionOfDays = (Integer)(newSeg.Initiation_Extension_of_days__c != null ? newSeg.Initiation_Extension_of_days__c: 0);
+					message = 'Initiation Extension Number of Days changed from ' + oldInitiationExtensionOfDays + ' to ' + newInitiationExtensionOfDays;
 					message += '<p>The Calculated Initiation Signature date is: <b>' + newSeg.Calculated_Initiation_Signature__c.format() + '</b></p>';
 					conditionToMessageMap.put('Extension', message);
 				}
 				if (oldSeg.Prelim_Extension__c != newSeg.Prelim_Extension__c && newSeg.Calculated_Preliminary_Signature__c != null) {
 					message = conditionToMessageMap.get('Extension') != null ? conditionToMessageMap.get('Extension') : '';
-					message += '<p>Preliminary Extension Number of Days changed from ' + oldSeg.Prelim_Extension__c + ' to ' + newSeg.Prelim_Extension__c + '</p>';
+                    Integer oldPrelimExtensionOfDays = (Integer)(oldSeg.Prelim_Extension__c != null ? oldSeg.Prelim_Extension__c: 0);
+                    Integer newPrelimExtensionOfDays = (Integer)(newSeg.Prelim_Extension__c != null ? newSeg.Prelim_Extension__c: 0);
+					message += '<p>Preliminary Extension Number of Days changed from ' + oldPrelimExtensionOfDays + ' to ' + newPrelimExtensionOfDays + '</p>';
 					message += '<p>The Calculated Preliminary Signature date is: <b>' + newSeg.Calculated_Preliminary_Signature__c.format() + '</b></p>';
 					conditionToMessageMap.put('Extension', message);
 				}
 				if (oldSeg.Final_Extension_of_days__c != newSeg.Final_Extension_of_days__c && newSeg.Calculated_Final_Signature__c != null) {
 					message = conditionToMessageMap.get('Extension') != null ? conditionToMessageMap.get('Extension'): '';
-					message += '<p>Final Extension Number of Days changed from ' + oldSeg.Final_Extension_of_days__c + ' to ' + newSeg.Final_Extension_of_days__c + '</p>';
+                    Integer oldFinalExtensionOfDays = (Integer)(oldSeg.Final_Extension_of_days__c != null ? oldSeg.Final_Extension_of_days__c: 0);
+                    Integer newFinalExtensionOfDays = (Integer)(newSeg.Final_Extension_of_days__c != null ? newSeg.Final_Extension_of_days__c: 0);
+					message += '<p>Final Extension Number of Days changed from ' + oldFinalExtensionOfDays + ' to ' + newFinalExtensionOfDays + '</p>';
 					message += '<p>The Calculated Final Signature date is: <b>' + newSeg.Calculated_Final_Signature__c.format() + '</b></p>';
 					conditionToMessageMap.put('Extension', message);
 				}
