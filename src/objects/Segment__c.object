@@ -13634,6 +13634,30 @@ $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_Ho
         <errorMessage>&quot;Access Barcode&quot; is required only if &quot;Decision on How to Proceed&quot; is either &quot;Formal&quot; or &quot;Informal&quot;.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>SI_ActualDateDecisionHOP_DecisionHOP_Req</fullName>
+        <active>true</active>
+        <description>If Segment Outcome field is not empty.,then Decision on How to Proceed field is required AND Actual date of Decision - How to Proceed field is required.</description>
+        <errorConditionFormula>AND(
+  $Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
+  Locked__c == false,
+
+    CASE(RecordType.DeveloperName,
+      &quot;Scope_Inquiry&quot;,
+        IF (
+             AND( 
+                  NOT(ISBLANK(TEXT(Segment_Outcome__c))),
+                  OR(ISBLANK(TEXT(Decision_on_How_to_Proceed__c)), 
+                     ISBLANK(Actual_Date_of_Decision_on_HoP__c)) 
+                ),
+        1,0
+        )
+      ,
+      0
+    ) = 1
+)</errorConditionFormula>
+        <errorMessage>Decision on How to Proceed AND Actual date of Decision - How to Proceed field, both fields are required since you have selected a value in the Segment Outcome field.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>SI_Actual_Date_of_Decision_on_HOP_Bound</fullName>
         <active>true</active>
         <description>Legend to the Initials Placed on each rule name

@@ -4878,23 +4878,25 @@ public class SegmentTriggerHandlerTest {
 
         System.assertEquals('Closed', acSeg.Status__c);
     }
-
+       
     @isTest static void setSI_Status() {
         Test.startTest();
 
         //Segment- How To Proceed Status
         System.assertEquals('How To Proceed',  siSeg.Status__c);
-
-        siSeg.Decision_on_How_to_Proceed__c = 'Informal';
+        
+ 		setStartDates();
+ 		siSeg.Decision_on_How_to_Proceed__c = 'Informal';
         siSeg.Type_of_Scope_Ruling__c = 'K (1)';
-        siSeg.Segment_Outcome__c = 'Completed';
+        siSeg.Segment_Outcome__c = 'Completed';                
+  		siSeg.Actual_Date_of_Decision_on_HoP__c = System.today().toStartOfWeek().addDays(-4);   
         update siSeg;
         getNewSegs();
-        System.assertEquals('Final',  siSeg.Status__c);
-
+        System.assertEquals('Hold',  siSeg.Status__c); 
+                       
         //Segment -Prelim Status
-        setStartDates();
         siSeg.Decision_on_How_to_Proceed__c = 'Formal';
+        siSeg.Actual_Final_Signature__c = null; // Clearing this field set above as it derived value from Actual_Date_of_Decision_on_HoP__c 
         siSeg.Preliminary_Determination__c = 'Yes';
         update siSeg;
         getNewSegs();
