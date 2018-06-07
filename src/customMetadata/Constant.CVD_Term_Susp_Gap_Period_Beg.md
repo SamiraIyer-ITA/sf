@@ -24,7 +24,7 @@
     </values>
     <values>
         <field>Number_Value__c</field>
-        <value xsi:type="xsd:double">121.0</value>
+        <value xsi:type="xsd:double">120.0</value>
     </values>
     <values>
         <field>Petition_Calculation_Offset__c</field>
