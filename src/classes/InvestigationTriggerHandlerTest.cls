@@ -398,8 +398,8 @@ public class InvestigationTriggerHandlerTest {
     //CVD Investigation
     //CVD based on FR Published_Date__c with Type__c Preliminary (Final_Extension_of_days__c does not matter)
     //cvdPrelimFR.Published_Date__c is set, so compare cvdPrelimFR.Published_Date__c
-    testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(cvdPrelimFR.Published_Date__c.addDays(121));
-
+    testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(cvdPrelimFR.Published_Date__c.addDays(120));
+      
     Test.stopTest();
     System.assertEquals(testCalculated,
       [SELECT Id, Termination_of_Suspension_Gap_Period_Beg__c FROM Investigation__c WHERE Id =: iCVD.Id LIMIT 1].Termination_of_Suspension_Gap_Period_Beg__c);
