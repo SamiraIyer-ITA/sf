@@ -13985,7 +13985,7 @@ IF(
      1, 0
     ) = 1
   )</errorConditionFormula>
-        <errorMessage>Type of Scope Ruling is required when Decision on How to Proceed is &quot;Formal&quot; or &quot;Informal&quot; but not required for &quot;Reject&quot;</errorMessage>
+        <errorMessage>Type of Scope Ruling is required when Decision on How to Proceed is &quot;Formal&quot; or &quot;Informal&quot;. However, Type of Scope Ruling is NOT required when Decision on How to Proceed is &quot;Reject&quot;</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>max_180_days_if_prelim_extend_is_blank</fullName>
