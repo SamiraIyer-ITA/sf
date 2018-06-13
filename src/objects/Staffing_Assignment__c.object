@@ -429,6 +429,40 @@ IF( Segment__c != null, Segment__r.Link__c ,
     </fields>
     <label>Staffing Assignment</label>
     <listViews>
+        <fullName>AD_Policy_Orders_Staffing_Assignment</fullName>
+        <columns>NAME</columns>
+        <columns>Title__c</columns>
+        <columns>User__c</columns>
+        <columns>Parent__c</columns>
+        <columns>Country__c</columns>
+        <columns>Product__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ADCVD_Order__c</field>
+            <operation>notEqual</operation>
+            <value>null</value>
+        </filters>
+        <filters>
+            <field>ADCVD_Case_Type__c</field>
+            <operation>equals</operation>
+            <value>AD ME,AD NME</value>
+        </filters>
+        <filters>
+            <field>Title__c</field>
+            <operation>equals</operation>
+            <value>Senior Policy,Staff Policy</value>
+        </filters>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>contains</operation>
+            <value>AO</value>
+        </filters>
+        <label>AD Policy Orders Staffing Assignment</label>
+        <sharedTo>
+            <group>AD_Policy_Mass_Staffing_Group</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
         <columns>Title__c</columns>
@@ -442,6 +476,69 @@ IF( Segment__c != null, Segment__r.Link__c ,
             <value>brendan quinn</value>
         </filters>
         <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>CVD_Policy_Orders_Staffing_Assignment</fullName>
+        <columns>NAME</columns>
+        <columns>Title__c</columns>
+        <columns>User__c</columns>
+        <columns>Parent__c</columns>
+        <columns>Country__c</columns>
+        <columns>Product__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ADCVD_Order__c</field>
+            <operation>notEqual</operation>
+            <value>null</value>
+        </filters>
+        <filters>
+            <field>ADCVD_Case_Type__c</field>
+            <operation>equals</operation>
+            <value>CVD</value>
+        </filters>
+        <filters>
+            <field>Title__c</field>
+            <operation>equals</operation>
+            <value>Senior Policy,Staff Policy</value>
+        </filters>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>contains</operation>
+            <value>AO</value>
+        </filters>
+        <label>CVD Policy Orders Staffing Assignment</label>
+        <sharedTo>
+            <group>CVD_Policy_Mass_Staffing_Group</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Legal_Orders_Staffing_Assignment</fullName>
+        <columns>NAME</columns>
+        <columns>Title__c</columns>
+        <columns>User__c</columns>
+        <columns>Parent__c</columns>
+        <columns>Country__c</columns>
+        <columns>Product__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ADCVD_Order__c</field>
+            <operation>notEqual</operation>
+            <value>null</value>
+        </filters>
+        <filters>
+            <field>Title__c</field>
+            <operation>equals</operation>
+            <value>Senior Legal,Staff Legal</value>
+        </filters>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>contains</operation>
+            <value>AO</value>
+        </filters>
+        <label>Legal Orders Staffing Assignment</label>
+        <sharedTo>
+            <group>Legal_Mass_Staffing_Group</group>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Legal_Staffing_Unfilled</fullName>
