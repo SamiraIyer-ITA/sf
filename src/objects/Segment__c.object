@@ -1356,8 +1356,8 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
         <fullName>Initiation_Extension_Remaining__c</fullName>
         <externalId>false</externalId>
         <formula>CASE( RecordType.DeveloperName , 
-&apos;Anti_Circumvention_Review&apos;, 45 - Initiation_Extension_of_days__c ,
-&apos;Changed_Circumstances_Review&apos;, 45 - Initiation_Extension_of_days__c ,
+&apos;Anti_Circumvention_Review&apos;, 0 ,
+&apos;Changed_Circumstances_Review&apos;, 0 ,
 0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Initiation Extension Remaining</label>
@@ -13634,6 +13634,30 @@ $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_Ho
         <errorMessage>&quot;Access Barcode&quot; is required only if &quot;Decision on How to Proceed&quot; is either &quot;Formal&quot; or &quot;Informal&quot;.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>SI_ActualDateDecisionHOP_DecisionHOP_Req</fullName>
+        <active>true</active>
+        <description>If Segment Outcome field is not empty.,then Decision on How to Proceed field is required AND Actual date of Decision - How to Proceed field is required.</description>
+        <errorConditionFormula>AND(
+  $Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
+  Locked__c == false,
+
+    CASE(RecordType.DeveloperName,
+      &quot;Scope_Inquiry&quot;,
+        IF (
+             AND( 
+                  NOT(ISBLANK(TEXT(Segment_Outcome__c))),
+                  OR(ISBLANK(TEXT(Decision_on_How_to_Proceed__c)), 
+                     ISBLANK(Actual_Date_of_Decision_on_HoP__c)) 
+                ),
+        1,0
+        )
+      ,
+      0
+    ) = 1
+)</errorConditionFormula>
+        <errorMessage>Decision on How to Proceed AND Actual date of Decision - How to Proceed field, both fields are required since you have selected a value in the Segment Outcome field.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>SI_Actual_Date_of_Decision_on_HOP_Bound</fullName>
         <active>true</active>
         <description>Legend to the Initials Placed on each rule name
@@ -13839,6 +13863,21 @@ $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_Ho
         <errorMessage>&quot;Was the Product Determined to be in Scope?&quot; is required only if &quot;Decision on How to Proceed&quot; is either &quot;Formal&quot; or &quot;Informal&quot;.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>SSR_240_Extension_Total</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND 
+( 
+$Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
+Locked__c == false, 
+AND( 
+OR( 
+Prelim_Extension__c &gt; 90, Final_Extension_of_days__c &gt; 90, 
+Prelim_Extension__c + Final_Extension_of_days__c &gt; 90), 
+ISPICKVAL(Sunset_Review_Type__c , &apos;240&apos;)) 
+)</errorConditionFormula>
+        <errorMessage>The total extension of Prelim Extension # of days and Final Extension # of days cannot be more than 90.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>SSR_240_Extension_Total_Final_Ext</fullName>
         <active>true</active>
         <errorConditionFormula>AND
@@ -13850,7 +13889,7 @@ AND(
     Final_Extension_of_days__c &gt; 90),
     ISPICKVAL(Sunset_Review_Type__c , &apos;240&apos;))
 )</errorConditionFormula>
-        <errorMessage>The total extension Final Extension # of days cannot be more than 90 for Calculated Final Signature.</errorMessage>
+        <errorMessage>The Final Extension # of days cannot be more than 90 for Calculated Final Signature.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>SSR_240_Extension_Total_Prelim_Ext</fullName>
@@ -13864,7 +13903,7 @@ OR(
 Prelim_Extension__c  &gt; 90), 
 ISPICKVAL(Sunset_Review_Type__c , &apos;240&apos;)) 
 )</errorConditionFormula>
-        <errorMessage>The total extension Prelim Extension # of days cannot be more than 90 for Calculated Final Signature.</errorMessage>
+        <errorMessage>The Prelim Extension # of days cannot be more than 90 for Calculated Preliminary Signature.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Segment_Outcome_Required</fullName>
@@ -13946,7 +13985,7 @@ IF(
      1, 0
     ) = 1
   )</errorConditionFormula>
-        <errorMessage>Type of Scope Ruling is required when Decision on How to Proceed is &quot;Formal&quot; or &quot;Informal&quot; but not required for &quot;Reject&quot;</errorMessage>
+        <errorMessage>Type of Scope Ruling is required when Decision on How to Proceed is &quot;Formal&quot; or &quot;Informal&quot;. However, Type of Scope Ruling is NOT required when Decision on How to Proceed is &quot;Reject&quot;</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>max_180_days_if_prelim_extend_is_blank</fullName>
