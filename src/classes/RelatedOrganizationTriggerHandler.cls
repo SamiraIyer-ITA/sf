@@ -53,8 +53,8 @@ public without sharing class RelatedOrganizationTriggerHandler {
 										Segment__r.ADCVD_Order__c, Segment__r.Suspension_Agreement__c, Segment__r.ADCVD_Case_Number__c, Segment__r.ADCVD_Case_Type__c, Segment__r.Country__c, Segment__r.Product__c, 
 										Litigation__r.Petition__r.ADCVD_Case_Number__c, Litigation__r.Petition__r.ADCVD_Case_Type__c, Litigation__r.Petition__r.Country__c, Litigation__r.Petition__r.Product__c, Litigation__r.Petition__r.CBP_Case_Number__c,
 										Litigation__r.Investigation__r.ADCVD_Case_Number__c, Litigation__r.Investigation__r.ADCVD_Case_Type__c, Litigation__r.Investigation__r.Country__c, Litigation__r.Investigation__r.Product__c, Litigation__r.Investigation__r.CBP_Case_Number__c,
-										Litigation__r.Segment__r.ADCVD_Order__c, Litigation__r.Segment__r.Suspension_Agreement__c, Litigation__r.Segment__r.ADCVD_Case_Number__c, Litigation__r.Segment__r.ADCVD_Case_Type__c, Litigation__r.Segment__r.Country__c, Litigation__r.Segment__r.Product__c, 
-										Legal_Representation__r.ADCVD_Case_Number__c, Legal_Representation__r.ADCVD_Case_Type__c, Legal_Representation__r.Country__c, Legal_Representation__r.Product__c, Legal_Representation__r.CBP_Case_Number__c
+										Litigation__r.Segment__r.ADCVD_Order__c, Litigation__r.Segment__r.Suspension_Agreement__c, Litigation__r.Segment__r.ADCVD_Case_Number__c, Litigation__r.Segment__r.ADCVD_Case_Type__c, Litigation__r.Segment__r.Country__c, Litigation__r.Segment__r.Product__c 
+										//Legal_Representation__r.ADCVD_Case_Number__c, Legal_Representation__r.ADCVD_Case_Type__c, Legal_Representation__r.Country__c, Legal_Representation__r.Product__c, Legal_Representation__r.CBP_Case_Number__c
 										FROM Related_Organization__c WHERE Id IN: newList]) {
 			returnList.add(r);
 		}
