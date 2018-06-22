@@ -220,8 +220,18 @@
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Legal Representation</label>
-        <referenceTo>Related_Organization__c</referenceTo>
-        <relationshipName>Related_Organizations</relationshipName>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.Is_Law_Firm__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Interested Organizations</relationshipLabel>
+        <relationshipName>Interested_Organizations</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -430,8 +440,8 @@
     </fields>
     <label>Interested Organization</label>
     <nameField>
-        <displayFormat>RO-{000000}</displayFormat>
-        <label>Related Organization Name</label>
+        <displayFormat>IO-{000000}</displayFormat>
+        <label>Interested Organization Name</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
@@ -2475,6 +2485,16 @@
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
+        <fullName>An_Organization_CannotBe_LawFirm</fullName>
+        <active>true</active>
+        <description>An Organization is CANNOT be a Law Firm.</description>
+        <errorConditionFormula>AND(
+  $Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, 
+  AND(Account__r.Is_Law_Firm__c, Account__c != Account__r.Name)    
+ )</errorConditionFormula>
+        <errorMessage>You have incorrect value for Organization field. An Organization CANNOT be a Law Firm. Please update and correct your selection.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Cannot_Edit_Locked_Record</fullName>
         <active>true</active>
         <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false, 
@@ -2516,6 +2536,15 @@ IF(ISBLANK(Segment__r.Suspension_Agreement__c),0,1)&gt;2)
 AND(NOT(ISBLANK(Custom_Instruction__c)),
 ISBLANK( Segment__c )))</errorConditionFormula>
         <errorMessage>Interested Organizations without Custom Instructions must have at least one parent. If Customs Instructions are the parent, a Segment must also be referenced.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>LegalRepresentation_CanOnly_Be_a_LawFirm</fullName>
+        <active>true</active>
+        <description>A Legal Representation can ONLY be a Law Firm.</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, 
+AND(NOT(Legal_Representation__r.Is_Law_Firm__c), 
+Legal_Representation__c != Legal_Representation__r.Name))</errorConditionFormula>
+        <errorMessage>You have incorrect value for Legal Representation field. A Legal Representation can ONLY be a Law Firm. Please update and correct your selection.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Segment_must_be_populated_if_ci_is</fullName>
