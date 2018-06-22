@@ -220,18 +220,8 @@
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Legal Representation</label>
-        <lookupFilter>
-            <active>true</active>
-            <filterItems>
-                <field>Account.Is_Law_Firm__c</field>
-                <operation>equals</operation>
-                <value>True</value>
-            </filterItems>
-            <isOptional>false</isOptional>
-        </lookupFilter>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>Interested Organizations</relationshipLabel>
-        <relationshipName>Interested_Organizations</relationshipName>
+        <referenceTo>Related_Organization__c</referenceTo>
+        <relationshipName>Related_Organizations</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -440,8 +430,8 @@
     </fields>
     <label>Interested Organization</label>
     <nameField>
-        <displayFormat>IO-{000000}</displayFormat>
-        <label>Interested Organization Name</label>
+        <displayFormat>RO-{000000}</displayFormat>
+        <label>Related Organization Name</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
@@ -2526,21 +2516,6 @@ IF(ISBLANK(Segment__r.Suspension_Agreement__c),0,1)&gt;2)
 AND(NOT(ISBLANK(Custom_Instruction__c)),
 ISBLANK( Segment__c )))</errorConditionFormula>
         <errorMessage>Interested Organizations without Custom Instructions must have at least one parent. If Customs Instructions are the parent, a Segment must also be referenced.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Organization_CannotBe_LawFirm_viceversa</fullName>
-        <active>true</active>
-        <description>An Organization is CANNOT be a Law Firm, but a Legal Representation can ONLY be a Law Firm.</description>
-        <errorConditionFormula>AND(
-  $Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, 
-  IF(AND(
-        OR(Account__c != Account__r.Name, Account__c == Legal_Representation__c), 
-        Account__r.Is_Law_Firm__c), 1,
-     IF(AND(
-        OR(Legal_Representation__c == Account__r.Name, Legal_Representation__c == Account__c),!Account__r.Is_Law_Firm__c),1,0)) = 1
- )</errorConditionFormula>
-        <errorMessage>You have incorrect values for either Organization or Legal Representation fields.
-Please ensure that an Organization is NOT a Law Firm, but a Legal Representation can ONLY be a Law Firm. Please update and correct your selections.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Segment_must_be_populated_if_ci_is</fullName>
