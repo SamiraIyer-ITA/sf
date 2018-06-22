@@ -6,23 +6,111 @@ public without sharing class FederalRegisterTriggerHandler {
         
         if (!AppConfigService.triggerEnabled) {return;}
 
+        if(isBefore && isInsert) {
+            initialize(newList, null);
+            setCaseValues(newList);
+        }
         if(isAfter && isInsert) {
-            recalculateParentsOfFederalRegister(newList,oldMap);
+            initialize(newList, newMap);
+            recalculateParentsOfFederalRegister(newList);
         }
         if(isAfter && isUpdate) {
-            recalculateParentsOfFederalRegister(newList,oldMap);
-        }
-        if(isBefore && isDelete) {
-            calculateParentsOnDelete(oldMap);
+            initialize(newList, newMap);
+            recalculateParentsOfFederalRegister(newList);
         }
         if(isAfter && isDelete) {
-            recalculateParentsOfFederalRegister(newlist, oldMap);
+            initialize(oldMap.values(), null);
+            recalculateParentsOfFederalRegister(oldMap.values());
         }
     }
 
     //Map to Federal Register Utility instances
     @TestVisible private static Map<Id,ADCVD_FederalRegisterUtility> frUtilMap = new Map<Id,ADCVD_FederalRegisterUtility>();
-    
+    @TestVisible private static ADCVD_Selector adcvdSelector;
+    @TestVisible private static FederalRegisterSelector frSelector;
+    @TestVisible private static ADCVD_CaseSelector caseSelector;
+
+    @TestVisible private static void initialize(List<Federal_Register__c> newList, Map<Id,Federal_Register__c> newMap) {
+        Set<Id> caseIdSet = getCaseIdSet(newList);
+        caseSelector = (ADCVD_CaseSelector) ADCVD_CaseSelector.selectorMap.get('ADCVD_Case__c');
+        caseSelector = caseSelector.getInstance(caseIdSet);
+        if (newMap != null) {
+            addNewFrsToSelectors(newMap);
+        }
+    }
+    @TestVisible private static Set<Id> getCaseIdSet (List<Federal_Register__c> newList) {
+        Set<Id> caseIdSet = new Set<Id>();
+        Set<Id> petitionIdSet = new Set<Id>();
+        Set<Id> investigationIdSet = new Set<Id>();
+        Set<Id> orderIdSet = new Set<Id>();
+        Set<Id> suspAgrmtIdSet = new Set<Id>();
+        Set<Id> segmentIdSet = new Set<Id>();
+        for (Federal_Register__c fr : newList) {
+            if(fr.Petition__c != null) {
+                setFrParent(fr, 'Petition__c');
+                petitionIdSet.add(fr.Petition__c);
+            } else if(fr.Investigation__c != null) {
+                setFrParent(fr, 'Investigation__c');
+                investigationIdSet.add(fr.Investigation__c);
+            } else if(fr.Segment__c != null) {
+                setFrParent(fr, 'Segment__c');
+                segmentIdSet.add(fr.Segment__c);
+            } else if(fr.ADCVD_Order__c != null) {
+                setFrParent(fr, 'ADCVD_Order__c');
+                orderIdSet.add(fr.ADCVD_Order__c);
+            } else if(fr.Suspension_Agreement__c != null) {
+                setFrParent(fr, 'Suspension_Agreement__c');
+                suspAgrmtIdSet.add(fr.Suspension_Agreement__c);
+            }
+        }
+        for (Petition__c p : [SELECT ADCVD_Case__c FROM Petition__c WHERE Id IN: petitionIdSet]) {
+            caseIdSet.add(p.ADCVD_Case__c);
+        }
+        for (Investigation__c i : [SELECT ADCVD_Case__c FROM Investigation__c WHERE Id IN: investigationIdSet]) {
+            caseIdSet.add(i.ADCVD_Case__c);
+        }
+        for (Segment__c s : [SELECT ADCVD_Case__c FROM Segment__c WHERE Id IN: segmentIdSet]) {
+            caseIdSet.add(s.ADCVD_Case__c);
+        }
+        for (ADCVD_Order__c ao : [SELECT ADCVD_Case__c FROM ADCVD_Order__c WHERE Id IN: orderIdSet]) {
+            caseIdSet.add(ao.ADCVD_Case__c);
+        }
+        for (Suspension_Agreement__c sa : [SELECT ADCVD_Case__c FROM Suspension_Agreement__c WHERE Id IN: suspAgrmtIdSet]) {
+            caseIdSet.add(sa.ADCVD_Case__c);
+        }
+        return caseIdSet;
+    }
+
+    @TestVisible private static void setCaseValues(List<Federal_Register__c> newList) {
+        ParentValuesService pvs = new ParentValuesService();
+        for (Federal_Register__c fr : newList) {
+            Id parentId = (Id) fr.get(fr.FR_Parent__c);
+            adcvdSelector = (ADCVD_Selector) caseSelector.getSelector(fr.FR_Parent__c).getInstance();
+            fr = (Federal_Register__c) pvs.setCaseValuesFromParent(adcvdSelector.getMap(false).get(parentId), fr);
+        }
+    }
+
+    @TestVisible private static void setFrParent (Federal_Register__c fr, String parentName) {
+        if (String.isBlank(fr.FR_Parent__c)) {
+            fr.FR_Parent__c = parentName;
+        }
+    }
+
+    @TestVisible private static void addNewFrsToSelectors(Map<Id,Federal_Register__c> newMap) {
+        Map<Id,List<Federal_Register__c>> caseToFrsMap = new Map<Id,List<Federal_Register__c>>();
+        frSelector = (FederalRegisterSelector) caseSelector.getSelector('Federal_Register__c');
+        for (Federal_Register__c fr : newMap.values()) {
+            frSelector.addFrToMap(fr);
+            List<Federal_Register__c> tempList = caseToFrsMap.get(fr.ADCVD_Case__c) != null ?
+                                                   caseToFrsMap.get(fr.ADCVD_Case__c) : new List<Federal_Register__c>();
+            tempList.add(fr);
+            caseToFrsMap.put(fr.ADCVD_Case__c, tempList);
+        }
+        for (Id caseId : caseToFrsMap.keySet()) {
+            caseSelector.setCaseIdToFrMap(caseId, caseToFrsMap.get(caseId));
+        }
+        caseSelector.putSelector('Federal_Register__c', frSelector);
+    }
 
     /**
      * Method for getting the parents of FRs and adding FRs to a list to instantiate FRUtility instances for
@@ -30,62 +118,21 @@ public without sharing class FederalRegisterTriggerHandler {
      * @param  oldMap  the version of new FRs prior to update, used for updating parents on delete
      * @return         Set of Ids from Investigations, Segments, ADCVD Orders or FRs
      */
-    @TestVisible private static Set<Id> findParentsInScope(List<Federal_Register__c> newList, Map<Id,Federal_Register__c> oldMap) {
+    @TestVisible private static Set<Id> findParentsInScope(List<Federal_Register__c> newList) {
         Set<Id> parentIdSet = new Set<Id>();
-        Set<Id> frIdSet = new Set<Id>();
-        Set<Id> tempSet = new Set<Id>();
         for(Federal_Register__c fr : newList) {
-            if(fr.Petition__c != null) {
-                parentIdSet.add(fr.Petition__c);
-            } else if (oldMap != null && oldMap.get(fr.Id).Petition__c != null) {
-                parentIdSet.add(oldMap.get(fr.Id).Petition__c);
-            }
-            if(fr.Investigation__c != null) {
-                parentIdSet.add(fr.Investigation__c);
-            } else if (oldMap != null && oldMap.get(fr.Id).Investigation__c != null) {
-                parentIdSet.add(oldMap.get(fr.Id).Investigation__c);
-            }
-            if(fr.Segment__c != null) {
-                parentIdSet.add(fr.Segment__c);
-            } else if (oldMap != null && oldMap.get(fr.Id).Segment__c != null) {
-                parentIdSet.add(oldMap.get(fr.Id).Segment__c);
-            }
-            if(fr.ADCVD_Order__c != null) {
-                parentIdSet.add(fr.ADCVD_Order__c);
-                tempSet.add(fr.ADCVD_Order__c);
-            } else if (oldMap != null && oldMap.get(fr.Id).ADCVD_Order__c != null) {
-                parentIdSet.add(oldMap.get(fr.Id).ADCVD_Order__c);
-                tempSet.add(oldMap.get(fr.Id).ADCVD_Order__c);
-            }
-            if(fr.Suspension_Agreement__c != null) {
-                parentIdSet.add(fr.Suspension_Agreement__c);
-            } else if (oldMap != null && oldMap.get(fr.Id).Suspension_Agreement__c != null) {
-                parentIdSet.add(oldMap.get(fr.Id).Suspension_Agreement__c);
-            }
-        }
-        for (ADCVD_Order__c ao : [SELECT Investigation__c, (SELECT Id FROM Segments__r) FROM ADCVD_Order__c WHERE Id IN: tempSet]) {
-            parentIdSet.add(ao.Investigation__c);
-            for (Segment__c s : ao.Segments__r) {
-                parentIdSet.add(s.Id);
-            }
+            parentIdSet.add((Id)fr.get(fr.FR_Parent__c));
+            parentIdSet.addAll(findRelatedInScope(fr));
         }
         return parentIdSet;  
     }
 
-    /**
-     * gets a list of all FRs for parents in scope to update...this keeps the oldest FR as the one used in calculations
-     * @param  parentIdSet Set of Ids from parent Investigations or parent Segments for the FRs in context
-     * @return             void
-     */
-    @TestVisible private static void setFrUtilMap(Set<Id> parentIdSet) {
-        List<Federal_Register__c> listForFrUtilMap = new List<Federal_Register__c>();
-        for (Federal_Register__c fr : [SELECT Id FROM Federal_Register__c WHERE Investigation__c IN: parentIdSet OR Segment__c IN: parentIdSet 
-                                        OR ADCVD_Order__c IN: parentIdSet OR Suspension_Agreement__c IN: parentIdSet]) {
-            listForFrUtilMap.add(fr);
+    @TestVisible private static Set<Id> findRelatedInScope(Federal_Register__c fr) {
+        Set<Id> returnIdSet = new Set<Id>();
+        if (fr.Type__c == 'Order') {
+            returnIdSet.addAll(caseSelector.getIdSet(fr.ADCVD_Case__c, 'Investigation__c'));
         }
-
-        ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(listForFrUtilMap);
-        frUtilMap = listInstance.utilMap;
+        return returnIdSet;
     }
 
     /**
@@ -94,14 +141,25 @@ public without sharing class FederalRegisterTriggerHandler {
      * @param  oldMap  the version of new FRs prior to update, used for updating parents on delete
      * @return         void
      */
-    @TestVisible private static void recalculateParentsOfFederalRegister(List<Federal_Register__c> newList, Map<Id,Federal_Register__c> oldMap) {
-        Set<Id> parentIdSet = findParentsInScope(newList, oldMap);
-        setFrUtilMap(parentIdSet);
+    @TestVisible private static void recalculateParentsOfFederalRegister(List<Federal_Register__c> newList) {
+        Set<Id> parentIdSet = findParentsInScope(newList);
         calculatePetitions(parentIdSet);
         calculateInvestigations(parentIdSet);
         calculateOrders(parentIdSet);
-        calculateSuspensionAgreements(parentIdSet);
-        calculateSegments(parentIdSet);
+        //calculateSuspensionAgreements(parentIdSet);
+        //calculateSegments(parentIdSet);
+    }
+
+    @TestVisible private static List<SObject> getUpdateList(Set<Id> parentIdSet, String objectName) {
+        ADCVD_Selector tempSelector = caseSelector.getSelector(objectName).getInstance();
+        Map<Id,SObject> masterMap = (Map<Id,SObject>) tempSelector.getMap(false);
+        List<SObject> updateList = new List<SObject>();
+        for (Id soId : masterMap.keySet()) {
+            if (parentIdSet.contains(soId)) {
+                updateList.add(masterMap.get(soId));
+            }
+        }
+        return updateList;
     }
 
     /**
@@ -110,8 +168,7 @@ public without sharing class FederalRegisterTriggerHandler {
      * @return             void
      */
     @TestVisible private static void calculatePetitions(Set<Id> parentIdSet) {
-        List<Petition__c> petitionsToUpdate = [SELECT Id FROM Petition__c WHERE Id IN: parentIdSet AND Locked__c =: false];
-        database.update(petitionsToUpdate, false);
+        database.update(getUpdateList(parentIdSet, 'Petition__c'), false);
     }
 
     /**
@@ -120,8 +177,7 @@ public without sharing class FederalRegisterTriggerHandler {
      * @return             void
      */
     @TestVisible private static void calculateInvestigations(Set<Id> parentIdSet) {
-        List<Investigation__c> investigationsToUpdate = [SELECT Id FROM Investigation__c WHERE Id IN: parentIdSet AND Locked__c =: false];
-        database.update(investigationsToUpdate, false);
+        database.update(getUpdateList(parentIdSet, 'Investigation__c'), false);
     }
 
     /**
@@ -140,8 +196,7 @@ public without sharing class FederalRegisterTriggerHandler {
      * @return             void
      */
     @TestVisible private static void calculateOrders(Set<Id> parentIdSet) {
-        List<ADCVD_Order__c> ordersToUpdate = [SELECT Id FROM ADCVD_Order__c WHERE Id IN: parentIdSet AND Locked__c =: false];
-        database.update(ordersToUpdate, false);
+        database.update(getUpdateList(parentIdSet, 'ADCVD_Order__c'), false);
     }
 
     /**
@@ -152,19 +207,5 @@ public without sharing class FederalRegisterTriggerHandler {
     @TestVisible private static void calculateSegments(Set<Id> parentIdSet) {
         List<Segment__c> segmentsToUpdate = [SELECT Id FROM Segment__c WHERE Id IN: parentIdSet AND Locked__c =: false];
         database.update(segmentsToUpdate, false);
-    }
-
-    /**
-     * Called prior to deleting an FR. This sets a boolean flag on the FR, then updates it,
-     * triggering updates to its parents prior it being deleted.
-     * @param  oldMap [description]
-     * @return        [description]
-     */
-    @TestVisible private static void calculateParentsOnDelete(Map<Id,Federal_Register__c> oldMap) {
-        List<Federal_Register__c> frList = [SELECT Id FROM Federal_Register__c WHERE Id IN: oldMap.keySet()];
-        for(Federal_Register__c fr : frList) {
-            fr.Do_Delete__c = true;
-        }
-        update frList;
     }
 }

@@ -39,7 +39,7 @@ public class InvestigationTriggerHandlerTest {
               Prelim_Team_Meeting_Deadline__c, Calculated_Amended_Final_Signature__c, Actual_Final_Signature__c, Final_Team_Meeting_Deadline__c, 
               Est_ITC_Notification_to_DOC_of_Final_Det__c, ITC_Notification_to_DOC_of_Final_Determ__c, Calculated_Order_FR_Signature__c, 
               Calculated_ITC_Final_FR_Published__c, Estimated_Order_FR_Published__c, Calculated_Prelim_Extension_Request_File__c, 
-              Calculated_Postponement_of_PrelimDeterFR__c, 
+              Calculated_Postponement_of_PrelimDeterFR__c, ADCVD_Case__c, 
               Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, Amend_Prelim_Issues_Due_to_DAS__c, Amend_Prelim_Concurrence_Due_to_DAS__c, 
               Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, Amend_Final_Issues_Due_to_DAS__c, Amend_Final_Concurrence_Due_to_DAS__c,
               Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, 
@@ -58,7 +58,7 @@ public class InvestigationTriggerHandlerTest {
               Prelim_Team_Meeting_Deadline__c, Calculated_Amended_Final_Signature__c, Actual_Final_Signature__c, Final_Team_Meeting_Deadline__c, 
               Est_ITC_Notification_to_DOC_of_Final_Det__c, ITC_Notification_to_DOC_of_Final_Determ__c, Calculated_Order_FR_Signature__c, 
               Calculated_ITC_Final_FR_Published__c, Estimated_Order_FR_Published__c, Calculated_Prelim_Extension_Request_File__c, 
-              Calculated_Postponement_of_PrelimDeterFR__c, 
+              Calculated_Postponement_of_PrelimDeterFR__c, ADCVD_Case__c, 
               Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, Amend_Prelim_Issues_Due_to_DAS__c, Amend_Prelim_Concurrence_Due_to_DAS__c, 
               Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, Amend_Final_Issues_Due_to_DAS__c, Amend_Final_Concurrence_Due_to_DAS__c, 
               Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, 
@@ -78,7 +78,7 @@ public class InvestigationTriggerHandlerTest {
               Prelim_Team_Meeting_Deadline__c, Calculated_Amended_Final_Signature__c, Actual_Final_Signature__c, Final_Team_Meeting_Deadline__c, 
               Est_ITC_Notification_to_DOC_of_Final_Det__c, ITC_Notification_to_DOC_of_Final_Determ__c, Calculated_Order_FR_Signature__c, 
               Calculated_ITC_Final_FR_Published__c, Estimated_Order_FR_Published__c, Calculated_Prelim_Extension_Request_File__c, 
-              Petition_Initiation_Signature__c, Calculated_Postponement_of_PrelimDeterFR__c, 
+              Petition_Initiation_Signature__c, Calculated_Postponement_of_PrelimDeterFR__c, ADCVD_Case__c, 
               Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, Amend_Prelim_Issues_Due_to_DAS__c, Amend_Prelim_Concurrence_Due_to_DAS__c, 
               Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, Amend_Final_Issues_Due_to_DAS__c, Amend_Final_Concurrence_Due_to_DAS__c, 
               Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, 
@@ -156,7 +156,7 @@ public class InvestigationTriggerHandlerTest {
   private static Petition__c adP{
     get{
       if (adP == null) {
-        adP = [SELECT Id, Petition_Filed__c, Actual_Initiation_Signature__c, Calculated_Initiation_Signature__c FROM Petition__c WHERE ADCVD_Case_Type__c LIKE 'AD%' LIMIT 1];
+        adP = [SELECT Id, ADCVD_Case__c, Petition_Filed__c, Actual_Initiation_Signature__c, Calculated_Initiation_Signature__c FROM Petition__c WHERE ADCVD_Case_Type__c LIKE 'AD%' LIMIT 1];
       }
       return adP;
     }
@@ -164,7 +164,7 @@ public class InvestigationTriggerHandlerTest {
   private static Petition__c cvdP{
     get{
       if (cvdP == null) {
-        cvdP = [SELECT Id, Petition_Filed__c, Actual_Initiation_Signature__c, Calculated_Initiation_Signature__c FROM Petition__c WHERE ADCVD_Case_Type__c LIKE 'CVD%' LIMIT 1];
+        cvdP = [SELECT Id, ADCVD_Case__c, Petition_Filed__c, Actual_Initiation_Signature__c, Calculated_Initiation_Signature__c FROM Petition__c WHERE ADCVD_Case_Type__c LIKE 'CVD%' LIMIT 1];
       }
       return cvdP;
     }
@@ -172,7 +172,7 @@ public class InvestigationTriggerHandlerTest {
   private static ADCVD_Order__c adOrder{
     get{
       if (adOrder == null) {
-        adOrder = [SELECT Id FROM ADCVD_Order__c WHERE Investigation__c =: iAD.Id LIMIT 1];
+        adOrder = [SELECT Id, ADCVD_Case__c FROM ADCVD_Order__c WHERE Investigation__c =: iAD.Id LIMIT 1];
       }
       return adOrder;
     }
@@ -180,7 +180,7 @@ public class InvestigationTriggerHandlerTest {
   private static ADCVD_Order__c cvdOrder{
     get{
       if (cvdOrder == null) {
-        cvdOrder = [SELECT Id FROM ADCVD_Order__c WHERE Investigation__c =: iCVD.Id LIMIT 1];
+        cvdOrder = [SELECT Id, ADCVD_Case__c FROM ADCVD_Order__c WHERE Investigation__c =: iCVD.Id LIMIT 1];
       }
       return cvdOrder;
     }
@@ -243,7 +243,7 @@ public class InvestigationTriggerHandlerTest {
 
   //setCalcAmendedPrelimDeterminationSig
   //Test has 2 parts that test two dates each: AD and CVD
-  @isTest static void setCalcAmendedPrelimDeterminationSig() {
+  @isTest static void setADCalcAmendedPrelimDeterminationSig() {
     Test.startTest();
     //AD investigation
     //AD based on calculated
@@ -265,9 +265,13 @@ public class InvestigationTriggerHandlerTest {
     iAD = null;//trigger a new query to database
     //iAD.Actual_Preliminary_Signature__c is set, so compare iAD.Actual_Preliminary_Signature__c
     testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(iAD.Actual_Preliminary_Signature__c.addDays(31));
+    
+    Test.stopTest();
     System.assertEquals(testActual,
       [SELECT Id, Calc_Amended_Prelim_Determination_Sig__c FROM Investigation__c WHERE Id =: iAD.Id LIMIT 1].Calc_Amended_Prelim_Determination_Sig__c);
-
+  }
+  @isTest static void setCVDCalcAmendedPrelimDeterminationSig() {
+    Test.startTest();
     //CVD investigation
     //CVD based on calculated
     System.assertEquals(null, iCVD.Calc_Amended_Prelim_Determination_Sig__c);
@@ -278,8 +282,6 @@ public class InvestigationTriggerHandlerTest {
     update iCVD;
     iCVD = null;//trigger a new query to database
     //iCVD.Actual_Preliminary_Signature__c is null, so compare Calculated_Preliminary_Signature__c
-    System.debug(iCVD);
-    System.debug(iCVD.Petition__c);
     testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(iCVD.Calculated_Preliminary_Signature__c.addDays(31));
     System.assertEquals(testCalculated,
       [SELECT Id, Calc_Amended_Prelim_Determination_Sig__c FROM Investigation__c WHERE Id =: iCVD.Id LIMIT 1].Calc_Amended_Prelim_Determination_Sig__c);
@@ -740,13 +742,8 @@ public class InvestigationTriggerHandlerTest {
     //CVD based on actual
     PetitionSelector.allPetitions = null;
     cvdP.Petition_Outcome__c = 'Initiated from Petition';
-    System.debug(loggingLevel.Error, '*** iCVD.Petition_Initiation_Signature__c: ' + iCVD.Petition_Initiation_Signature__c);
-    System.debug(loggingLevel.Error, '*** cvdP.Actual_Initiation_Signature__c: ' + cvdP.Actual_Initiation_Signature__c);
     cvdP.Actual_Initiation_Signature__c = cvdP.Calculated_Initiation_Signature__c.addDays(-14);//set cvdP.Actual_Initiation_Signature__c
-    System.debug(loggingLevel.Error, '*** cvdP.Actual_Initiation_Signature__c: ' + cvdP.Actual_Initiation_Signature__c);
     update cvdP;//update cvdP
-    System.debug(loggingLevel.Error, '*** cvdP.Actual_Initiation_Signature__c: ' + cvdP.Actual_Initiation_Signature__c);
-    System.debug(loggingLevel.Error, '*** iCVD.Petition_Initiation_Signature__c: ' + iCVD.Petition_Initiation_Signature__c);
     //cvdP.Actual_Initiation_Signature__c is set, so compare Actual_Initiation_Signature__c
     testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(cvdP.Actual_Initiation_Signature__c.addDays(45));
 
@@ -824,7 +821,6 @@ public class InvestigationTriggerHandlerTest {
 
     iAD.Investigation_Outcome__c = 'DOC Negative Final';
     insufficientDataError = attemptUpsert(iAD);
-    System.debug(loggingLevel.Error, '*** insufficientDataError: ' + iAD);
     System.assert(insufficientDataError.contains('Actual Final Signature date is required'));
 
     iAD.Investigation_Outcome__c = 'Petition Withdrawn After Initiation';
