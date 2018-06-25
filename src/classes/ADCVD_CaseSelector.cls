@@ -29,10 +29,6 @@ public without sharing class ADCVD_CaseSelector implements ADCVD_Selector {
 		RELATED_OBJECTS.put('ADCVD_Order', (RelatedObjects) new ADCVD_OrderRelatedParents());
 		RELATED_OBJECTS.put('Suspension_Agreement', (RelatedObjects) new Suspension_AgreementRelatedParents());
 		RELATED_OBJECTS.put('Segment', (RelatedObjects) new SegmentRelatedParents());
-		//RELATED_OBJECTS.put('Litigation', (RelatedObjects) new LitigationRelatedParents());
-		//RELATED_OBJECTS.put('Federal_Register', (RelatedObjects) new Federal_RegisterRelatedParents());
-		//RELATED_OBJECTS.put('Staffing_Assignment', (RelatedObjects) new Staffing_AssignmentRelatedParents());
-		//RELATED_OBJECTS.put('Related_Organization', (RelatedObjects) new Related_OrganizationRelatedParents());
 		selectorMap = new Map<String,ADCVD_Selector>();
 		selectorMap.put('Petition__c', (ADCVD_Selector) new PetitionSelector());
 		selectorMap.put('Investigation__c', (ADCVD_Selector) new InvestigationSelector());
@@ -312,21 +308,4 @@ public without sharing class ADCVD_CaseSelector implements ADCVD_Selector {
 			fr_ParentIdToRelatedParentIds.put(soId, relatedIdSet);
 		}
 	}
-	//these inner classes do not use Federal Registers in their calculations
-	//instead, they currently implement the RelatedObjects directly
-	//expected in future development to create virtual classes as needed
-	//for them to extend
-/*  public class LitigationRelatedParents implements RelatedObjects {
-		public void setRelatedIdSet (SObject so, Id soId) {}
-	}
-	public class Federal_RegisterRelatedParents implements RelatedObjects {
-		public void setRelatedIdSet (SObject so, Id soId) {}
-	}
-	public class Staffing_AssignmentRelatedParents implements RelatedObjects {
-		public void setRelatedIdSet (SObject so, Id soId) {}
-	}
-	public class Related_OrganizationRelatedParents implements RelatedObjects {
-		public void setRelatedIdSet (SObject so, Id soId) {}
-	}
-*/
 }
