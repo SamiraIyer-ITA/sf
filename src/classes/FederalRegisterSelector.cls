@@ -1,28 +1,27 @@
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on 6/22/2018
+ *    MIL Corporation
+ * 
+ **/
 public without sharing class FederalRegisterSelector implements ADCVD_Selector{
 
-    /**
-    * This is a selector class to hold Federal Register information for the execution cycle.
-    *
-    * Example of normal execution cycle:
-    * A trigger, such as InvestigationTriggerHandler will reference the FederalRegisterMapper.
-    * The FederalRegisterMapper will call the FederalRegisterSelector.
-    * The FederalRegisterSelector will retrieve data from the ADCVD_CaseSelector class and via SOQL, storing the data for reference during a transaction.
-    * The FederalRegisterMapper then uses the retrieved data and maps it in inner classes and a map called masterMap.
-    * The FederalRegisterMapper masterMap is then utilized by the InvestigationTriggerHandler.
-    *
-    */
-
+    //get the instance from the ADCVD_Case Selector
     public static FederalRegisterSelector instance = (FederalRegisterSelector)ADCVD_CaseSelector.selectorMap.get('Federal_Register__c');
+    //maps of all FRs and only unlocked FRs
     public static Map<Id,Federal_Register__c> idToUnlockedFrMap = new Map<Id,Federal_Register__c>();
     public static Map<Id,Federal_Register__c> idToAllFrMap = new Map<Id,Federal_Register__c>();
 
     /**
     * The first Id in the parentIdToFRMap is the Id of the Petition, Investigation, ADCVD Order, Suspension Agreement, or Segment
-    * The inner map is the Id of the Federal Register and then the Federal Register itself.  There is only an
-    * unlocked version of this map at this time.
+    * The inner map is the Id of the Federal Register and then the Federal Register itself.  This map contains all FRs - this can 
+    * be reviewed at a later date once we have a archiving/locking solution
     */
     public static Map<Id, Map<Id, Federal_Register__c>> parentIdToFRMap = new Map<Id, Map<Id, Federal_Register__c>>();
+    //empty constructor for this class
     public FederalRegisterSelector() {}
+    //private constructor based on FRs
     private FederalRegisterSelector(Set<Id> frIdSet) {
         if (idToUnlockedFrMap.isEmpty()) {
             List<Federal_Register__c> tempList = new List<Federal_Register__c>();
@@ -34,13 +33,14 @@ public without sharing class FederalRegisterSelector implements ADCVD_Selector{
             }
         }
     }
-
+    //primary method for accessing this selector
     public static FederalRegisterSelector getInstance () {
         if (instance == null) {
             return getNewInstance();
         }
         return instance;
     }
+    //method to get a new instance of this selector
     public static FederalRegisterSelector getNewInstance() {
         Set<Id> frIdSet = new Set<Id>();
         for (Id caseId : ADCVD_CaseSelector.caseIdToFrIdMap.keySet()) {
@@ -50,9 +50,11 @@ public without sharing class FederalRegisterSelector implements ADCVD_Selector{
         ADCVD_CaseSelector.selectorMap.put('Federal_Register__c', instance);
         return instance;
     }
+    //no param method to return the unlocked map
     public Map<Id,Federal_Register__c> getMap() {
         return idToUnlockedFrMap;
     }
+    //method to return either the locked or unlocked map
     public Map<Id,Federal_Register__c> getMap(Boolean includeLocked) {
         if (includeLocked) {
             return idToAllFrMap;
@@ -60,21 +62,21 @@ public without sharing class FederalRegisterSelector implements ADCVD_Selector{
             return idToUnlockedFrMap;
         }
     }
+    //method to return the parentIdtoFrMap
     public Map<Id, Map<Id,Federal_Register__c>> getParentToFrMap() {
-        return parentIdToFRMap;
+        return parentIdToFrMap;
     }
+    //method to add an fr to the unlocked and all fr maps
+    //also updates the parentIdToFrMap with the new Fr
     public void addFrToMap(Federal_Register__c fr) {
         if (!fr.Locked__c) {
             idToUnlockedFrMap.put(fr.Id, fr);
-            populateMaps(fr);
         }
         idToAllFrMap.put(fr.Id, fr);
+        setParentIdToFrMap(fr);
     }
-
-    /**
-    * Populate the maps caseIdToFRMap and parentIdToFRMap based on case Ids in scope.
-    */
-    private void populateMaps(Federal_Register__c fr) {
+    //method to update the parentIdToFrMap
+    private void setParentIdToFrMap(Federal_Register__c fr) {
         //Create a temporary map
         Map<Id, Federal_Register__c> tempMap;
         //Populate the maps with each Federal Register returned

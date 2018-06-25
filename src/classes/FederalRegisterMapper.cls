@@ -1,16 +1,11 @@
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on 6/22/2018
+ *    MIL Corporation
+ * 
+ **/
 public without sharing class FederalRegisterMapper {
-
-  /**
-   * This is a mapper class to hold Federal Register information for the execution cycle.
-   *
-   * Example of normal execution cycle:
-   * A trigger, such as InvestigationTriggerHandler will reference the FederalRegisterMapper.
-   * The FederalRegisterMapper will call the FederalRegisterSelector.
-   * The FederalRegisterSelector will retrieve data from the ADCVD_CaseSelector class and via SOQL, storing the data for reference during a transaction.
-   * The FederalRegisterMapper then uses the retrieved data and maps it in inner classes and a map called masterMap.
-   * The FederalRegisterMapper masterMap is then utilized by the InvestigationTriggerHandler.
-   *
-   */
 
   /**
    * The first Id of the masterMap is the Id of a Petition, Investigation, ADCVD Order, Suspension Agreement, or Segment.

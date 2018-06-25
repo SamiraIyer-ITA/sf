@@ -7,30 +7,40 @@
  **/
 public without sharing class ADCVD_CaseSelector implements ADCVD_Selector {
 
+	//the object API names without '__c' that need their related object ids mapped for 
+	//correct processing of mapped Federal Registers
 	public static FINAL List<String> FR_RELATED_PARENT_NAMES = new List<String>{
 		'Petition', 'Investigation','ADCVD_Order', 'Suspension_Agreement', 'Segment'};
+	//Map of shortened object API name to an inner class instance.  This map is used
+	//to dynamically create the class types needed.
 	public static FINAL Map<String,RelatedObjects> RELATED_OBJECTS;
+	//The map that holds the selector instance for the other selectors.
+	//The are initialized here via empty constructors.  Those empty instances will be
+	//replaced when one of the selectors is requested in a class via the selector
+	//specific implementation of getInstance()
 	public static Map<String,ADCVD_Selector> selectorMap;
+	//the instance for this class
 	@TestVisible private static ADCVD_CaseSelector instance = null;
+	//populate maps on class initialization
 	static {
 		RELATED_OBJECTS = new Map<String,RelatedObjects>();
-		selectorMap = new Map<String,ADCVD_Selector>();
 		RELATED_OBJECTS.put('Petition', (RelatedObjects) new PetitionRelatedParents());
 		RELATED_OBJECTS.put('Investigation', (RelatedObjects) new InvestigationRelatedParents());
 		RELATED_OBJECTS.put('ADCVD_Order', (RelatedObjects) new ADCVD_OrderRelatedParents());
 		RELATED_OBJECTS.put('Suspension_Agreement', (RelatedObjects) new Suspension_AgreementRelatedParents());
 		RELATED_OBJECTS.put('Segment', (RelatedObjects) new SegmentRelatedParents());
-		RELATED_OBJECTS.put('Litigation', (RelatedObjects) new LitigationRelatedParents());
-		RELATED_OBJECTS.put('Federal_Register', (RelatedObjects) new Federal_RegisterRelatedParents());
-		RELATED_OBJECTS.put('Staffing_Assignment', (RelatedObjects) new Staffing_AssignmentRelatedParents());
-		RELATED_OBJECTS.put('Related_Organization', (RelatedObjects) new Related_OrganizationRelatedParents());
+		//RELATED_OBJECTS.put('Litigation', (RelatedObjects) new LitigationRelatedParents());
+		//RELATED_OBJECTS.put('Federal_Register', (RelatedObjects) new Federal_RegisterRelatedParents());
+		//RELATED_OBJECTS.put('Staffing_Assignment', (RelatedObjects) new Staffing_AssignmentRelatedParents());
+		//RELATED_OBJECTS.put('Related_Organization', (RelatedObjects) new Related_OrganizationRelatedParents());
+		selectorMap = new Map<String,ADCVD_Selector>();
 		selectorMap.put('Petition__c', (ADCVD_Selector) new PetitionSelector());
 		selectorMap.put('Investigation__c', (ADCVD_Selector) new InvestigationSelector());
 		selectorMap.put('ADCVD_Order__c', (ADCVD_Selector) new ADCVD_OrderSelector());
 		selectorMap.put('Suspension_Agreement__c', (ADCVD_Selector) new Suspension_AgreementSelector());
 		selectorMap.put('Segment__c', (ADCVD_Selector) new SegmentSelector());
 		selectorMap.put('Federal_Register__c', (ADCVD_Selector) new FederalRegisterSelector());
-		selectorMap.put('Litigation__c', (ADCVD_Selector) new ADCVD_CaseSelector());
+		selectorMap.put('Litigation__c', (ADCVD_Selector) new LitigationSelector());
 		selectorMap.put('ADCVD_Case__c', (ADCVD_Selector) new ADCVD_CaseSelector());
 	}
 	//Master map of unlocked cases for execution
@@ -55,7 +65,12 @@ public without sharing class ADCVD_CaseSelector implements ADCVD_Selector {
 	*/
 	//map of an Id to the related Ids whose FRs could affect the it's calculations. Used in the FR Mapper
 	public static Map<Id,Set<Id>> fr_ParentIdToRelatedParentIds = new Map<Id,Set<Id>>();
+
+	//empty constructor of this class
 	public ADCVD_CaseSelector(){}
+	//private constructor used via the getInstance() method.  Performs a query on the ADCVD_Case__c table
+	//with subqueries to get the Ids of all the related records. The returned list of cases is then used to populate
+	//the in class maps
 	private ADCVD_CaseSelector(Set<Id> caseIdSet) {
 		if (instance == null) {
 			List<ADCVD_Case__c> tempList = new List<ADCVD_Case__c>();
@@ -78,6 +93,8 @@ public without sharing class ADCVD_CaseSelector implements ADCVD_Selector {
 		}
 	}
 
+	//primary mapping method. Populates the unlocked and locked case maps and all of the
+	//per object scope maps (case to petitions, etc)
 	private void mapCaseIdsToMaps(List<ADCVD_Case__c> caseList) {
 		for (ADCVD_Case__c ac : caseList) {
 			if (!ac.Locked__c) {
@@ -94,6 +111,7 @@ public without sharing class ADCVD_CaseSelector implements ADCVD_Selector {
 			setCaseIdToRelOrgMap(ac.Id, ac.Interested_Organizations__r);
 		}
 	}
+	//accepts a case Id and an object name and returns the set of Ids for that case and object
 	public Set<Id> getIdSet(Id caseId, String objectName) {
 		if (objectName == 'Petition__c') {
 			return caseIdToPetitionIdMap.get(caseId);
@@ -114,6 +132,7 @@ public without sharing class ADCVD_CaseSelector implements ADCVD_Selector {
 		}
 		return new Set<Id>();
 	}
+	//methods to populate each case to set of object Ids map.
 	public void setCaseIdToPetitionMap(Id caseId, List<Petition__c> petitionList) {
 		caseIdToPetitionIdMap.put(caseId, getIdSetForMaps(petitionList, 'Petition__c'));
 	}
@@ -141,7 +160,10 @@ public without sharing class ADCVD_CaseSelector implements ADCVD_Selector {
 	public void setCaseIdToRelOrgMap(Id caseId, List<Related_Organization__c> relOrgList) {
 		caseIdToRelOrgIdMap.put(caseId, getIdSetForMaps(relOrgList, 'Related_Organization__c'));
 	}
-
+	//This method returns the Ids from List of SObjects in a Set.  It also uses the same
+	//for loop to populate the related Id Maps.  This two functions need to happen together
+	//to make sure the map of Case to Id Set and the Ids in that set to their related Ids
+	//stay in sync
 	private static Set<Id> getIdSetForMaps(List<SObject> soList, String objectName) {
 		Set<Id> tempSet = new Set<Id>();
 		String shortenedObjectName = objectName.removeEnd('__c');
@@ -152,30 +174,30 @@ public without sharing class ADCVD_CaseSelector implements ADCVD_Selector {
 		}
 		return tempSet;
 	}
-
+	//method to create a new instance of the inner classes
 	private static void populateRelatedIdMaps (String shortenedObjectName, SObject so, Id soId) {
 		if (FR_RELATED_PARENT_NAMES.contains(shortenedObjectName)) {
 			FrRelatedParents frp = new FrRelatedParents(shortenedObjectName, so, soId);
 		}
 	}
-
+	//primary method for getting and instance of this selector
 	public ADCVD_CaseSelector getInstance(Set<Id> caseIdSet) {
 		if (instance == null) {
 			return getNewInstance(caseIdSet);
 		}
 		return instance;
 	}
-
+	//method to get a new instance of this selector, should be very rarely used
 	public ADCVD_CaseSelector getNewInstance(Set<Id> caseIdSet) {
 		instance = new ADCVD_CaseSelector(caseIdSet);
 		selectorMap.put('ADCVD_Case__c', instance);
 		return instance;
 	}
-
+	//method for returning this instance without providing new case Ids
 	public ADCVD_CaseSelector getInstance() {
 		return (ADCVD_CaseSelector) selectorMap.get('ADCVD_Case__c');
 	}
-
+	//method for returning either all or unlocked cases
 	public Map<Id,SObject> getMap(Boolean includeLocked) {
 		if (includeLocked) {
 			return idToAllCaseMap;
@@ -183,28 +205,36 @@ public without sharing class ADCVD_CaseSelector implements ADCVD_Selector {
 			return idToUnlockedCaseMap;
 		}
 	}
-
+	//method to return a selector based on the Object's API name
 	public ADCVD_Selector getSelector(String objectName) {
 		return selectorMap.get(objectName);
 	}
-
+	//method to update the map with an updated selector (i.e. after inserting new records, the trigger handler will update the selector
+	//then update this map with the new one)
 	public void putSelector(String objectName, ADCVD_Selector selector) {
 		selectorMap.put(objectName, selector);
 	}
-
+	//method to return a related set of Ids, which Ids will be returned is based on the logic in the inner classes.
+	//(i.e. an investigation Id param will return a set of Ids with that investigation Id,
+	//that investigation's Petition Id, and if that Investigation has an order, that investigation's order Id)
+	//This method is primarily used in the FederalRegisterMapper to correctly retrieve FRs for a specific parent
 	public Set<Id> getFrRelatedParents(Id soId) {
 		return fr_ParentIdToRelatedParentIds.get(soId);
 	}
-
+	// extension of Exception to throw an exception when a class cannot be dynamically instantiated due to a
+	// naming issue
 	public class NameException extends Exception{}
-
+	//interface for the inner classes
 	public interface RelatedObjects {
 		void setRelatedIdSet(SObject so, Id soId);
 	}
-
+	//virtual class for the inner classes
 	public virtual class FrRelatedParents implements RelatedObjects {
+		//instance of interface
 		private RelatedObjects ro;
+		//empty constructor of this class
 		public FrRelatedParents (){}
+		//constructor used to cast the interface instance to a concrete class and call the main class method
 		public FrRelatedParents (String shortenedObjectName, SObject so, Id soId) {
 			if(!RELATED_OBJECTS.containsKey(shortenedObjectName)) throw new NameException(shortenedObjectName);
 			ro = RELATED_OBJECTS.get(shortenedObjectName);
@@ -212,7 +242,11 @@ public without sharing class ADCVD_CaseSelector implements ADCVD_Selector {
 		}
 		//default is to add it's own id to the set
 		public virtual void setRelatedIdSet(SObject so, Id soId) {
-			fr_ParentIdToRelatedParentIds.put(soId, new Set<Id>{soId});
+			Set<Id> relatedIdSet = new Set<Id>{soId};
+			if (fr_ParentIdToRelatedParentIds.get(soId) != null) {
+				relatedIdSet.addAll(fr_ParentIdToRelatedParentIds.get(soId));
+			}
+			fr_ParentIdToRelatedParentIds.put(soId, relatedIdSet);
 		}
 		//adds soId to a specified related objects set. Useful for adding children to the parent's set
 		public void addIdToRelatedSet(Id soId, Id relatedId) {
@@ -224,65 +258,75 @@ public without sharing class ADCVD_CaseSelector implements ADCVD_Selector {
 			fr_ParentIdToRelatedParentIds.put(relatedId, relatedIdSet);
 		}
 	}
-	//uses default implementation
+	//Petition uses default implementation in FrRelatedParents
 	public class PetitionRelatedParents extends FrRelatedParents {}
+	//Investigation also adds the petition Id to it's map
 	public class InvestigationRelatedParents extends FrRelatedParents {
 		public override void setRelatedIdSet(SObject so, Id soId) {
 			Id petitionId = (Id) so.get('Petition__c');
-			Set<Id> tempSet = new Set<Id>{soId};
+			Set<Id> relatedIdSet = new Set<Id>{soId};
 			if (fr_ParentIdToRelatedParentIds.get(soId) != null) {
-				tempSet.addAll(fr_ParentIdToRelatedParentIds.get(soId));
+				relatedIdSet.addAll(fr_ParentIdToRelatedParentIds.get(soId));
 			}
-			tempSet.add(petitionId);
-			fr_ParentIdToRelatedParentIds.put(soId, tempSet);
+			relatedIdSet.add(petitionId);
+			fr_ParentIdToRelatedParentIds.put(soId, relatedIdSet);
 		}
 	}
+	//Order also adds it's Id to the Investigation's map
 	public class ADCVD_OrderRelatedParents extends FrRelatedParents {
 		public override void setRelatedIdSet(SObject so, Id soId) {
 			//get parent Id
 			Id investigationId = (Id) so.get('Investigation__c');
-			//initiate return set with current order Id
-			Set<Id> tempSet = new Set<Id>{soId};
-			//add existing related Ids
-			if (fr_ParentIdToRelatedParentIds.get(soId) != null) {
-				tempSet.addAll(fr_ParentIdToRelatedParentIds.get(soId));
-			}
 			//add the order Id to the parent Investigation Id Set
 			addIdToRelatedSet(soId, investigationId);
-			fr_ParentIdToRelatedParentIds.put(soId, tempSet);
-		}
-	}
-	public class Suspension_AgreementRelatedParents extends FrRelatedParents {
-		public override void setRelatedIdSet(SObject so, Id soId) {
-			Set<Id> tempSet = new Set<Id>{soId};
+			//initiate return set with current order Id
+			Set<Id> relatedIdSet = new Set<Id>{soId};
+			//add existing related Ids
 			if (fr_ParentIdToRelatedParentIds.get(soId) != null) {
-				tempSet.addAll(fr_ParentIdToRelatedParentIds.get(soId));
+				relatedIdSet.addAll(fr_ParentIdToRelatedParentIds.get(soId));
 			}
-			fr_ParentIdToRelatedParentIds.put(soId, tempSet);
+			fr_ParentIdToRelatedParentIds.put(soId, relatedIdSet);
 		}
 	}
+	//Suspension Agreement uses the default implementation
+	public class Suspension_AgreementRelatedParents extends FrRelatedParents {}
+	//Segment adds it's own Id to it's parent (either order or suspension agreement)
+	//It then add it's parent Id to it's own Set
 	public class SegmentRelatedParents extends FrRelatedParents {
 		public override void setRelatedIdSet(SObject so, Id soId) {
 			//get parent Ids
 			Id orderId = (Id) so.get('ADCVD_Order__c');
 			Id suspAgrmtId = (Id) so.get('Suspension_Agreement__c');
-			//initiate return set with current segment Id
-			Set<Id> tempSet = new Set<Id>{soId};
-			//add existing related Ids
-			if (fr_ParentIdToRelatedParentIds.get(soId) != null) {
-				tempSet.addAll(fr_ParentIdToRelatedParentIds.get(soId));
-			}
-			//add new related Ids
-			tempSet.add(orderId);
-			tempSet.add(suspAgrmtId);
 			//add the segment Id to the parent Order or Suspension Agreement Id Set
 			if (orderId != null) addIdToRelatedSet(soId, orderId);
 			if (suspAgrmtId != null) addIdToRelatedSet(soId, suspAgrmtId);
-			fr_ParentIdToRelatedParentIds.put(soId, tempSet);
+			//initiate return set with current segment Id
+			Set<Id> relatedIdSet = new Set<Id>{soId};
+			//add existing related Ids
+			if (fr_ParentIdToRelatedParentIds.get(soId) != null) {
+				relatedIdSet.addAll(fr_ParentIdToRelatedParentIds.get(soId));
+			}
+			//add new related Ids
+			if (orderId != null) relatedIdSet.add(orderId);
+			if (suspAgrmtId != null) relatedIdSet.add(suspAgrmtId);
+			fr_ParentIdToRelatedParentIds.put(soId, relatedIdSet);
 		}
 	}
-	public class LitigationRelatedParents extends FrRelatedParents {}
-	public class Federal_RegisterRelatedParents extends FrRelatedParents {}
-	public class Staffing_AssignmentRelatedParents extends FrRelatedParents {}
-	public class Related_OrganizationRelatedParents extends FrRelatedParents {}
+	//these inner classes do not use Federal Registers in their calculations
+	//instead, they currently implement the RelatedObjects directly
+	//expected in future development to create virtual classes as needed
+	//for them to extend
+/*  public class LitigationRelatedParents implements RelatedObjects {
+		public void setRelatedIdSet (SObject so, Id soId) {}
+	}
+	public class Federal_RegisterRelatedParents implements RelatedObjects {
+		public void setRelatedIdSet (SObject so, Id soId) {}
+	}
+	public class Staffing_AssignmentRelatedParents implements RelatedObjects {
+		public void setRelatedIdSet (SObject so, Id soId) {}
+	}
+	public class Related_OrganizationRelatedParents implements RelatedObjects {
+		public void setRelatedIdSet (SObject so, Id soId) {}
+	}
+*/
 }
