@@ -147,6 +147,16 @@
         <unique>true</unique>
     </fields>
     <fields>
+        <fullName>FR_Parent__c</fullName>
+        <externalId>false</externalId>
+        <label>FR Parent</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>FR_URL__c</fullName>
         <description>FR URL</description>
         <externalId>false</externalId>
