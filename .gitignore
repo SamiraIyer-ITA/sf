@@ -14,3 +14,9 @@ src_git
 src_dep
 src_cmp
 lightning
+
+lib/
+
+build\.xml
+
+local\.build\.properties
