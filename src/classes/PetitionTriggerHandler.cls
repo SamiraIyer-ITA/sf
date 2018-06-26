@@ -55,6 +55,7 @@ public without sharing class PetitionTriggerHandler {
         }
         if(isAfter && isInsert) {
             newList = new LockedRecordHandler().removeLockedRecords(newList);
+            initialize(newList, newMap);
             StaffingAssignmentExtension createStaff = new StaffingAssignmentExtension(newList);
             
         }
@@ -71,8 +72,10 @@ public without sharing class PetitionTriggerHandler {
 
     @TestVisible private static Map<Id,List<Litigation__c>> petitionIdToLitigationMap = new Map<Id,List<Litigation__c>>();
     @TestVisible private static Map<Id,String> petitionIdToLitigationStatusMap = new Map<Id,String>();
-    @TestVisible private static Map<Id,ADCVD_FederalRegisterUtility> frUtilMap = new Map<Id,ADCVD_FederalRegisterUtility>();
-
+    @TestVisible private static Map<Id, FederalRegisterMapper.MappedFRs> frUtilMap = new Map<Id, FederalRegisterMapper.MappedFRs>();
+    @TestVisible private static ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.selectorMap.get('ADCVD_Case__c');
+    @TestVisible private static PetitionMapper petMapper;
+    @TestVisible private static FederalRegisterMapper frMapper;
 
     /*****************************************
     * Methods called directly by mainEntry()
@@ -85,11 +88,17 @@ public without sharing class PetitionTriggerHandler {
      * @return         [description]
      */
     @TestVisible private static void initialize(List<Petition__c> newList, Map<Id,Petition__c> newMap) {
+        Set<Id> caseIdSet = new Set<Id>();
+        for (Petition__c p : newList) {
+            caseIdSet.add(p.ADCVD_Case__c);
+        }
+        caseMapper = caseMapper.getInstance(caseIdSet);
         if(newMap != null) {
+            addNewPetToMappers(newMap);
+            frMapper = (FederalRegisterMapper) caseMapper.getMapper('Federal_Register__c').getInstance();
+            frUtilMap = frMapper.getMappedFRs(newMap.keySet());
             setPetitionIdToLitigationMap(newMap.keySet());
             setPetitionIdToLitigationStatusMap();
-            ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get Investigations with an Id
-            frUtilMap = listInstance.utilMap;
         }
     }
 
@@ -117,6 +126,21 @@ public without sharing class PetitionTriggerHandler {
             p = (Petition__c)pvs.setCaseValuesFromParent(parentCasesMap.get(p.ADCVD_Case__c), p);
         }
         return newList;
+    }
+
+    @TestVisible private static void addNewPetToMappers(Map<Id,Petition__c> newMap) {
+        Map<Id,List<Petition__c>> caseToPetMap = new Map<Id,List<Petition__c>>();
+        petMapper = (PetitionMapper) caseMapper.getMapper('Petition__c');
+        for (Petition__c p : newMap.values()) {
+            petMapper.addPetToMap(p);
+            List<Petition__c> tempList = caseToPetMap.get(p.ADCVD_Case__c) != null ?
+                                                   caseToPetMap.get(p.ADCVD_Case__c) : new List<Petition__c>();
+            tempList.add(p);
+            caseToPetMap.put(p.ADCVD_Case__c, tempList);
+        }
+        for (Id caseId : caseToPetMap.keySet()) {
+            caseMapper.setCaseIdToPetitionMap(caseId, caseToPetMap.get(caseId));
+        }
     }
 
     /**
@@ -249,7 +273,7 @@ public without sharing class PetitionTriggerHandler {
     @TestVisible private static void setClosedStatus(Petition__c p) {
         Date initPublished = null;
         if(p.Id != null && frUtilMap != null) {
-            initPublished = frUtilMap.get(p.Id) != null ? frUtilMap.get(p.Id).initiationPublishedDate : null;
+            initPublished = frUtilMap.get(p.Id) != null ? frUtilMap.get(p.Id).typeToPublishedDateMap.get('Initiation') : null;
         }
         if ((p.Litigation_YesNo__c == 'No' || (p.Litigation_YesNo__c == 'Yes' && p.Litigation_Resolved__c == 'Yes')) && //not in Litigation status
             (((p.Petition_Outcome__c == 'Initiated from Petition' && p.Actual_Initiation_Signature__c != null) || //initiated with Actual Signature from Petition

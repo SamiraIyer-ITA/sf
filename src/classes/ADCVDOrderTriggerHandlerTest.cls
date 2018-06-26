@@ -33,7 +33,7 @@ public class ADCVDOrderTriggerHandlerTest {
     private static ADCVD_Order__c o{
         get{
             if (o == null) {
-                o = [SELECT Id, Anniversary_Month__c, Investigation__c, Office__c, Segment_Status__c, Status__c, Next_Sunset_Initiation_Date__c FROM ADCVD_Order__c LIMIT 1];
+                o = [SELECT Id, ADCVD_Case__c, Anniversary_Month__c, Investigation__c, Office__c, Segment_Status__c, Status__c, Next_Sunset_Initiation_Date__c FROM ADCVD_Order__c LIMIT 1];
             }
             return o;
         }
@@ -41,7 +41,7 @@ public class ADCVDOrderTriggerHandlerTest {
     private static Federal_Register__c orderFR{
         get{
             if (orderFR == null) {
-                orderFR = [SELECT Id, ADCVD_Order__c, Type__c, Published_Date__c FROM Federal_Register__c WHERE Type__c =: 'Order' LIMIT 1];
+                orderFR = [SELECT Id, ADCVD_Case__c, ADCVD_Order__c, Type__c, Published_Date__c FROM Federal_Register__c WHERE Type__c =: 'Order' LIMIT 1];
             }
             return orderFR;
         }

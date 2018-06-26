@@ -35,6 +35,7 @@ public without sharing class InvestigationTriggerHandler {
         }
         if (isAfter && isInsert) {
             newList = new LockedRecordHandler().removeLockedRecords(newList);
+            initialize(newList, newMap);
             StaffingAssignmentExtension createStaff = new StaffingAssignmentExtension(newList);
         }
         if (isAfter && isUpdate) {
@@ -49,24 +50,31 @@ public without sharing class InvestigationTriggerHandler {
     ****************************************/
 
     @TestVisible private static Map<Id,Petition__c> petitionsInScopeMap = new Map<Id,Petition__c>();
-    @TestVisible private static Set<Id> unfinishedPetitions = new Set<Id>();
+    //@TestVisible private static Set<Id> unfinishedPetitions = new Set<Id>();
     @TestVisible private static Map<Id,String> recordTypeNameMap = new Map<Id,String>();
-    @TestVisible private static Map<Id,ADCVD_FederalRegisterUtility> frUtilMap = new Map<Id,ADCVD_FederalRegisterUtility>();
+    //@TestVisible private static Map<Id,ADCVD_FederalRegisterUtility> frUtilMap = new Map<Id,ADCVD_FederalRegisterUtility>();
     @TestVisible private static Map<Id,List<Litigation__c>> investigationIdToLitigationMap = new Map<Id,List<Litigation__c>>();
     @TestVisible private static Map<Id,String> investigationIdToLitigationStatusMap = new Map<Id,String>();
-
-
+    @TestVisible private static Map<Id, FederalRegisterMapper.MappedFRs> frUtilMap = new Map<Id, FederalRegisterMapper.MappedFRs>();
+    @TestVisible private static ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.selectorMap.get('ADCVD_Case__c');
+    @TestVisible private static InvestigationMapper invMapper;
+    @TestVisible private static FederalRegisterMapper frMapper;
     /*****************************************
     * Methods called directly by mainEntry()
     *****************************************/
 
     //Setup Methods used to set class level variables
     @TestVisible private static void initialize(List<Investigation__c> newList, Map<Id,Investigation__c> newMap) {
-        petitionsInScopeMap = findPetitionsInScopeMap(newList);
+        Set<Id> caseIdSet = getCaseIdSet(newList);
+        caseMapper = caseMapper.getInstance(caseIdSet);
         recordTypeNameMap = utils.getRecordTypeDeveloperNameMap(INVESTIGATION);
+        PetitionMapper ps = (PetitionMapper) caseMapper.getMapper('Petition__c').getInstance();
+        petitionsInScopeMap = (Map<Id,Petition__c>) caseMapper.getMapper('Petition__c').getInstance().getMap(true);// findPetitionsInScopeMap(newList);
+        
         if (newMap != null) {
-            ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get Investigations with an Id
-            frUtilMap = listInstance.utilMap;
+            addNewInvToMappers(newMap);
+            frMapper = (FederalRegisterMapper) caseMapper.getMapper('Federal_Register__c').getInstance();
+            frUtilMap = frMapper.getMappedFRs(newMap.keySet());
             setInvestigationIdToLitigationMap(newMap.keySet());
             setInvestigationIdToLitigationStatusMap();
 
@@ -84,10 +92,35 @@ public without sharing class InvestigationTriggerHandler {
             }
         }
     }
+    @TestVisible private static Set<Id> getCaseIdSet (List<Investigation__c> newList) {
+        Set<Id> caseIdSet = new Set<Id>();
+        Set<Id> petitionIdSet = new Set<Id>();
+        for (Investigation__c i : newList) {
+            petitionIdSet.add(i.Petition__c);
+        }
+        for (Petition__c p : [SELECT ADCVD_Case__c FROM Petition__c WHERE Id IN: petitionIdSet]) {
+            caseIdSet.add(p.ADCVD_Case__c);
+        }
+        return caseIdSet;
+    }
     @TestVisible private static void setCaseValues(List<Investigation__c> newList) {
         ParentValuesService pvs = new ParentValuesService();
         for (Investigation__c i : newList) {
             i = (Investigation__c) pvs.setCaseValuesFromParent(petitionsInScopeMap.get(i.Petition__c), i);
+        }
+    }
+    @TestVisible private static void addNewInvToMappers(Map<Id,Investigation__c> newMap) {
+        Map<Id,List<Investigation__c>> caseToInvMap = new Map<Id,List<Investigation__c>>();
+        invMapper = (InvestigationMapper) caseMapper.getMapper('Investigation__c');
+        for (Investigation__c i : newMap.values()) {
+            invMapper.addInvToMap(i);
+            List<Investigation__c> tempList = caseToInvMap.get(i.ADCVD_Case__c) != null ?
+                                                   caseToInvMap.get(i.ADCVD_Case__c) : new List<Investigation__c>();
+            tempList.add(i);
+            caseToInvMap.put(i.ADCVD_Case__c, tempList);
+        }
+        for (Id caseId : caseToInvMap.keySet()) {
+            caseMapper.setCaseIdToInvestigationMap(caseId, caseToInvMap.get(caseId));
         }
     }
     //Syncs petition fields to investigation fields and AD to CVD if aligned
@@ -98,9 +131,9 @@ public without sharing class InvestigationTriggerHandler {
     @TestVisible private static void calculateInvestigationDates(List<Investigation__c> newList) {
         Map<String,List<Investigation__c>> recordTypeNameToInvestigationListMap = new Map<String,List<Investigation__c>>();
         for (Investigation__c i : newList) {
-            if (recordTypeNameToInvestigationListMap.get(recordTypeNameMap.get(i.RecordTypeId)) != null && findCompletePetition(i)) {
+            if (recordTypeNameToInvestigationListMap.get(recordTypeNameMap.get(i.RecordTypeId)) != null) {//} && findCompletePetition(i)) {
                 recordTypeNameToInvestigationListMap.get(recordTypeNameMap.get(i.RecordTypeId)).add(i);
-            } else if (findCompletePetition(i)) {
+            } else {// if (findCompletePetition(i)) {
                 recordTypeNameToInvestigationListMap.put(recordTypeNameMap.get(i.RecordTypeId), new List<Investigation__c>{i});
             }
         }
@@ -130,13 +163,20 @@ public without sharing class InvestigationTriggerHandler {
 
     //returns a list of CVD Investigations to update if the aligned AD Investigation is updated
     @TestVisible private static void recalculateCVDinvestigations(Map<Id,Investigation__c> newMap, Map<Id,Investigation__c> oldMap) {
+        invMapper = (InvestigationMapper) caseMapper.getMapper('Investigation__c').getInstance();
+        List<Investigation__c> cvdInvestigations = new List<Investigation__c>();
         Set<Id> querySet = new Set<Id>();
         for (Id i : newMap.keySet()) {
             if (newMap.get(i).Tolling_Update__c == oldMap.get(i).Tolling_Update__c) {
                 querySet.add(i);
             }
         }
-        List<Investigation__c> cvdInvestigations = [SELECT Id FROM Investigation__c WHERE AD_Investigation_Aligned_To__c IN: querySet AND Locked__c =: false];
+        for (Investigation__c i : invMapper.getMap().values()) {
+            if (querySet.contains(i.AD_Investigation_Aligned_To__c)) {
+                cvdInvestigations.add(i);
+            }
+        }
+        //List<Investigation__c> cvdInvestigations = [SELECT Id FROM Investigation__c WHERE AD_Investigation_Aligned_To__c IN: querySet AND Locked__c =: false];
         update cvdInvestigations;
     }
 
@@ -144,30 +184,6 @@ public without sharing class InvestigationTriggerHandler {
     * Helper Methods
     ***********************************/
 
-    //returns a set of Petition Ids in scope of the Investigations in trigger
-    @TestVisible private static Set<Id> findIdsInScope(List<Investigation__c> newList) {
-    	Set<Id> petitionIdSet = new Set<Id>();
-    	for (Investigation__c i : newList) {
-    		petitionIdSet.add(i.Petition__c);
-    	}
-    	return petitionIdSet;
-    }
-    //returns a map of the Petition__c objects in the form: key = Id, value = Investigation object
-    //This pulls the petition fields needed via the Petition lookup field and adds them to the map
-    @TestVisible private static Map<Id,Petition__c> findPetitionsInScopeMap(List<Investigation__c> newList) {
-    	Map<Id,Petition__c> returnMap = new Map<Id,Petition__c>();
-    	Set<Id> petitionIdSet = findIdsInScope(newList);
-    	for (Petition__c p : [SELECT Id, Petition_Filed__c, Initiation_Extension_of_days__c, Actual_Initiation_Signature__c, 
-    									Calculated_Initiation_Signature__c, ADCVD_Case_Type__c, ADCVD_Case__c, ADCVD_Case_Number__c,
-                                        CBP_Case_Number__c, Commodity__c, Country__c, Product__c, Product_Short_Name__c 
-    								FROM Petition__c WHERE Id IN: petitionIdSet]) {
-    		returnMap.put(p.Id, p);
-            if (p.Actual_Initiation_Signature__c == null && p.Calculated_Initiation_Signature__c == null) {
-                unfinishedPetitions.add(p.Id);
-            }
-    	}
-    	return returnMap;
-    }
     //returns a map of <String,Integer> in the form: key = CMT Api name, CMT number value
     //used to set Offset Variables
     @TestVisible private static Map<String,Constant__mdt> setInvestigationApiToConstants() {
@@ -219,22 +235,6 @@ public without sharing class InvestigationTriggerHandler {
             }
         }
     }
-    
-
-    /**************************************
-    * Date Calculations
-    ***************************************/
-
-    //checks that the petition has the values to proceed...this avoids NPEs on Petitions without dates to start calculations
-    //This could need to be updated for self-initiated Investigations if self-initiation is not added at the Petition
-    @TestVisible private static Boolean findCompletePetition(Investigation__c i) {
-        Boolean returnBoolean = false;
-        Petition__c p = petitionsInScopeMap.get(i.Petition__c);
-        if (!unfinishedPetitions.contains(p.Id)) {
-            returnBoolean = true;
-        }
-        return returnBoolean;
-    }
 
     /*****************************
     * Validations
@@ -244,7 +244,7 @@ public without sharing class InvestigationTriggerHandler {
         if (i.Investigation_Outcome__c != 'ITC Negative Prelim') {return;}
         Date itcPrelim = null;
         if(i.Id != null && frUtilMap != null) {
-            itcPrelim = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).itcPreliminaryPublishedDate : null;
+            itcPrelim = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).typeToPublishedDateMap.get('ITC Preliminary') : null;
         }
         if (itcPrelim == null) {
             i.addError('You must enter a ITC Preliminary Federal Register to set Investigation Outcome to "ITC Negative Prelim".');
@@ -255,7 +255,7 @@ public without sharing class InvestigationTriggerHandler {
         if (i.Investigation_Outcome__c != 'ITC Negative Final') {return;}
         Date itcFinal = null;
         if(i.Id != null && frUtilMap != null) {
-            itcFinal = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).itcFinalPublishedDate : null;
+            itcFinal = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).typeToPublishedDateMap.get('ITC Final') : null;
         }
         if (itcFinal == null) {
             i.addError('You must enter a ITC Final Federal Register to set Investigation Outcome to "ITC Negative Final".');
@@ -266,7 +266,7 @@ public without sharing class InvestigationTriggerHandler {
         if (i.Investigation_Outcome__c != 'Order') {return;}
         Date orderFR = null;
         if(i.Id != null && frUtilMap != null) {
-            orderFR = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).orderPublishedDate : null;
+            orderFR = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).typeToPublishedDateMap.get('Order') : null;
         }
         if (orderFR == null) {
             i.addError('You must create an ADCVD Order for this Investigation and add an Order Federal Register to it to set Investigation Outcome to "Order".');
@@ -315,7 +315,7 @@ public without sharing class InvestigationTriggerHandler {
     @TestVisible private static void setPrelimStatus(Investigation__c i) {
         Date prelimPublished = null;
         if (i.Id != null && frUtilMap != null) {
-            prelimPublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).preliminaryPublishedDate : null;
+            prelimPublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).typeToPublishedDateMap.get('Preliminary') : null;
         }
         
         // IF statement needed to be removed for story AD-2160 - Do not sync status when aligning CVD with AD Investigation
@@ -329,7 +329,7 @@ public without sharing class InvestigationTriggerHandler {
     @TestVisible private static void setAmendedPrelimStatus(Investigation__c i) {
         Date prelimPublished = null;
         if (i.Id != null && frUtilMap != null) {
-            prelimPublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).preliminaryPublishedDate : null;
+            prelimPublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).typeToPublishedDateMap.get('Preliminary') : null;
         }
         
         // IF statement needed to be removed for story AD-2160 - Do not sync status when aligning CVD with AD Investigation
@@ -348,8 +348,8 @@ public without sharing class InvestigationTriggerHandler {
         Date prelimPublished = null;
         Date finalPublished = null;
         if (i.Id != null && frUtilMap != null) {
-            prelimPublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).preliminaryPublishedDate : null;
-            finalPublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).finalPublishedDate : null;
+            prelimPublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).typeToPublishedDateMap.get('Preliminary') : null;
+            finalPublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).typeToPublishedDateMap.get('Final') : null;
         }
         
        // IF statement needed to be removed for story AD-2160 - Do not sync status when aligning CVD with AD Investigation
@@ -368,8 +368,8 @@ public without sharing class InvestigationTriggerHandler {
         Date prelimPublished = null;
         Date finalPublished = null;
         if (i.Id != null && frUtilMap != null) {
-            prelimPublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).preliminaryPublishedDate : null;
-            finalPublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).finalPublishedDate : null;
+            prelimPublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).typeToPublishedDateMap.get('Preliminary') : null;
+            finalPublished = frUtilMap.get(i.Id) != null ? frUtilMap.get(i.Id).typeToPublishedDateMap.get('Final') : null;
         }
         
        // IF statement needed to be removed for story AD-2160 - Do not sync status when aligning CVD with AD Investigation 
