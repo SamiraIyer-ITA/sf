@@ -5,6 +5,7 @@
         <members>ADCVDOrderTriggerHandlerTest</members>
         <members>ADCVDProcessBuilderTest</members>
         <members>ADCVD_AdcvdOrderSelector</members>
+        <members>ADCVD_CaseMapper</members>
         <members>ADCVD_CascadeService</members>
         <members>ADCVD_ConstantSelector</members>
         <members>ADCVD_ConstantsMetadataWrapper</members>
@@ -15,6 +16,7 @@
         <members>ADCVD_IConstantSelector</members>
         <members>ADCVD_IFederalRegisterSelector</members>
         <members>ADCVD_IInvestigationSelector</members>
+        <members>ADCVD_IMapper</members>
         <members>ADCVD_InvestigationSelector</members>
         <members>ADCVD_IParentObjectFetchingService</members>
         <members>ADCVD_IPetitionSelector</members>
@@ -23,6 +25,7 @@
         <members>ADCVD_IStaffingAssignmentSelector</members>
         <members>ADCVD_OrderDetailController</members>
         <members>ADCVD_OrderDetailControllerTest</members>
+        <members>ADCVD_OrderMapper</members>
         <members>ADCVD_OrderSearch</members>
         <members>ADCVD_ParentObjectFetchingService</members>
         <members>ADCVD_ParentObjectFetchingService_Test</members>
@@ -70,15 +73,17 @@
         <members>Describer</members>
         <members>DescriberTest</members>
         <members>DispatchScheduledFollower</members>
+        <members>FederalRegisterMapper</members>
         <members>FederalRegisterTriggerHandler</members>
         <members>FederalRegisterTriggerHandlerTest</members>
         <members>Federal_RegisterCS</members>
-        <members>InvestigationSelector</members>
+        <members>InvestigationMapper</members>
         <members>InvestigationSelectorTest</members>
         <members>InvestigationTriggerHandler</members>
         <members>InvestigationTriggerHandlerTest</members>
         <members>InvestigationsSelector</members>
         <members>LibSObjectDescribe</members>
+        <members>LitigationMapper</members>
         <members>LitigationTriggerHandler</members>
         <members>LitigationTriggerHandlerTest</members>
         <members>LockedRecordHandler</members>
@@ -89,7 +94,7 @@
         <members>ParentValuesService</members>
         <members>ParentValuesServiceTest</members>
         <members>Parser</members>
-        <members>PetitionSelector</members>
+        <members>PetitionMapper</members>
         <members>PetitionSelectorTest</members>
         <members>PetitionTriggerHandler</members>
         <members>PetitionTriggerHandlerTest</members>
@@ -110,12 +115,13 @@
         <members>SecurityService</members>
         <members>SegmentTriggerHandler</members>
         <members>SegmentTriggerHandlerTest</members>
-        <members>SegmentsSelector</members>
+        <members>SegmentMapper</members>
         <members>StaffingAssignmentExtension</members>
         <members>StaffingAssignmentExtensionTest</members>
         <members>StaffingAssignmentsSelector</members>
         <members>SunsetReviewController</members>
         <members>SunsetReviewControllerTest</members>
+        <members>Suspension_AgreementMapper</members>
         <members>SuspensionAgreementTriggerHandler</members>
         <members>SuspensionAgreementTriggerHandlerTest</members>
         <members>SyncUtility</members>
