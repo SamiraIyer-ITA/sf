@@ -23,7 +23,7 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <label>Application Factory Selector Fieldset</label>
-    <pluralLabel>Application Factory Selector Fieldsets</pluralLabel>
+    <label>Application Factory - Selector Fieldset</label>
+    <pluralLabel>Application Factory - Selector Fieldsets</pluralLabel>
     <visibility>Public</visibility>
 </CustomObject>
