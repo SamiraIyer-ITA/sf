@@ -56,8 +56,9 @@ public without sharing class InvestigationTriggerHandler {
     @TestVisible private static Map<Id,List<Litigation__c>> investigationIdToLitigationMap = new Map<Id,List<Litigation__c>>();
     @TestVisible private static Map<Id,String> investigationIdToLitigationStatusMap = new Map<Id,String>();
     @TestVisible private static Map<Id, FederalRegisterMapper.MappedFRs> frUtilMap = new Map<Id, FederalRegisterMapper.MappedFRs>();
-    @TestVisible private static ADCVD_CaseSelector caseSelector = (ADCVD_CaseSelector) ADCVD_CaseSelector.selectorMap.get('ADCVD_Case__c');
-    @TestVisible private static InvestigationSelector invSelector;
+    @TestVisible private static ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.selectorMap.get('ADCVD_Case__c');
+    @TestVisible private static InvestigationMapper invMapper;
+    @TestVisible private static FederalRegisterMapper frMapper;
     /*****************************************
     * Methods called directly by mainEntry()
     *****************************************/
@@ -65,15 +66,15 @@ public without sharing class InvestigationTriggerHandler {
     //Setup Methods used to set class level variables
     @TestVisible private static void initialize(List<Investigation__c> newList, Map<Id,Investigation__c> newMap) {
         Set<Id> caseIdSet = getCaseIdSet(newList);
-        caseSelector = caseSelector.getInstance(caseIdSet);
+        caseMapper = caseMapper.getInstance(caseIdSet);
         recordTypeNameMap = utils.getRecordTypeDeveloperNameMap(INVESTIGATION);
-        PetitionSelector ps = (PetitionSelector) caseSelector.getSelector('Petition__c').getInstance();
-        petitionsInScopeMap = (Map<Id,Petition__c>) caseSelector.getSelector('Petition__c').getInstance().getMap(true);// findPetitionsInScopeMap(newList);
+        PetitionMapper ps = (PetitionMapper) caseMapper.getMapper('Petition__c').getInstance();
+        petitionsInScopeMap = (Map<Id,Petition__c>) caseMapper.getMapper('Petition__c').getInstance().getMap(true);// findPetitionsInScopeMap(newList);
         
         if (newMap != null) {
-            addNewInvToSelectors(newMap);
-            FederalRegisterMapper frm = new FederalRegisterMapper(newMap.keySet());
-            frUtilMap = frm.masterMap;
+            addNewInvToMappers(newMap);
+            frMapper = (FederalRegisterMapper) caseMapper.getMapper('Federal_Register__c').getInstance();
+            frUtilMap = frMapper.getMappedFRs(newMap.keySet());
             setInvestigationIdToLitigationMap(newMap.keySet());
             setInvestigationIdToLitigationStatusMap();
 
@@ -108,18 +109,18 @@ public without sharing class InvestigationTriggerHandler {
             i = (Investigation__c) pvs.setCaseValuesFromParent(petitionsInScopeMap.get(i.Petition__c), i);
         }
     }
-    @TestVisible private static void addNewInvToSelectors(Map<Id,Investigation__c> newMap) {
+    @TestVisible private static void addNewInvToMappers(Map<Id,Investigation__c> newMap) {
         Map<Id,List<Investigation__c>> caseToInvMap = new Map<Id,List<Investigation__c>>();
-        invSelector = (InvestigationSelector) caseSelector.getSelector('Investigation__c');
+        invMapper = (InvestigationMapper) caseMapper.getMapper('Investigation__c');
         for (Investigation__c i : newMap.values()) {
-            invSelector.addInvToMap(i);
+            invMapper.addInvToMap(i);
             List<Investigation__c> tempList = caseToInvMap.get(i.ADCVD_Case__c) != null ?
                                                    caseToInvMap.get(i.ADCVD_Case__c) : new List<Investigation__c>();
             tempList.add(i);
             caseToInvMap.put(i.ADCVD_Case__c, tempList);
         }
         for (Id caseId : caseToInvMap.keySet()) {
-            caseSelector.setCaseIdToInvestigationMap(caseId, caseToInvMap.get(caseId));
+            caseMapper.setCaseIdToInvestigationMap(caseId, caseToInvMap.get(caseId));
         }
     }
     //Syncs petition fields to investigation fields and AD to CVD if aligned
@@ -162,7 +163,7 @@ public without sharing class InvestigationTriggerHandler {
 
     //returns a list of CVD Investigations to update if the aligned AD Investigation is updated
     @TestVisible private static void recalculateCVDinvestigations(Map<Id,Investigation__c> newMap, Map<Id,Investigation__c> oldMap) {
-        invSelector = (InvestigationSelector) caseSelector.getSelector('Investigation__c').getInstance();
+        invMapper = (InvestigationMapper) caseMapper.getMapper('Investigation__c').getInstance();
         List<Investigation__c> cvdInvestigations = new List<Investigation__c>();
         Set<Id> querySet = new Set<Id>();
         for (Id i : newMap.keySet()) {
@@ -170,7 +171,7 @@ public without sharing class InvestigationTriggerHandler {
                 querySet.add(i);
             }
         }
-        for (Investigation__c i : invSelector.getMap().values()) {
+        for (Investigation__c i : invMapper.getMap().values()) {
             if (querySet.contains(i.AD_Investigation_Aligned_To__c)) {
                 cvdInvestigations.add(i);
             }

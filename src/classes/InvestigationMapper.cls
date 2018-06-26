@@ -1,10 +1,10 @@
-public without sharing class InvestigationSelector implements ADCVD_Selector{
+public without sharing class InvestigationMapper implements ADCVD_IMapper{
 
-	public static InvestigationSelector instance = (InvestigationSelector)ADCVD_CaseSelector.selectorMap.get('Investigation__c');
+	public static InvestigationMapper instance = (InvestigationMapper)ADCVD_CaseMapper.selectorMap.get('Investigation__c');
 	public static Map<Id,Investigation__c> idToUnlockedInvestigationMap = new Map<Id,Investigation__c>();
 	public static Map<Id,Investigation__c> idToAllInvestigationMap = new Map<Id,Investigation__c>();
-	public InvestigationSelector() {}
-	private InvestigationSelector(Set<Id> investigationIdSet) {
+	public InvestigationMapper() {}
+	private InvestigationMapper(Set<Id> investigationIdSet) {
 		if (idToUnlockedInvestigationMap.isEmpty()) {
 			
 			List<Investigation__c> tempList = new List<Investigation__c>();
@@ -16,20 +16,20 @@ public without sharing class InvestigationSelector implements ADCVD_Selector{
 			}
 		}
 	}
-	public static InvestigationSelector getInstance () {
+	public static InvestigationMapper getInstance () {
 		if (instance == null) {
-			System.debug('InvestigationSelector instance: ' + instance);
+			System.debug('InvestigationMapper instance: ' + instance);
 			return getNewInstance();
 		}
 		return instance;
 	}
-	public static InvestigationSelector getNewInstance() {
+	public static InvestigationMapper getNewInstance() {
 		Set<Id> investigationIdSet = new Set<Id>();
-		for (Id caseId : ADCVD_CaseSelector.caseIdToInvestigationIdMap.keySet()) {
-			investigationIdSet.addAll(ADCVD_CaseSelector.caseIdToInvestigationIdMap.get(caseId));
+		for (Id caseId : ADCVD_CaseMapper.caseIdToInvestigationIdMap.keySet()) {
+			investigationIdSet.addAll(ADCVD_CaseMapper.caseIdToInvestigationIdMap.get(caseId));
 		}
-		instance = new InvestigationSelector(investigationIdSet);
-		ADCVD_CaseSelector.selectorMap.put('Investigation__c', instance);
+		instance = new InvestigationMapper(investigationIdSet);
+		ADCVD_CaseMapper.selectorMap.put('Investigation__c', instance);
 		return instance;
 	}
 	public Map<Id, Investigation__c> getMap() {

@@ -5,12 +5,12 @@
  *    MIL Corporation
  * 
  **/
-public without sharing class Suspension_AgreementSelector implements ADCVD_Selector {
-	public static Suspension_AgreementSelector instance = (Suspension_AgreementSelector)ADCVD_CaseSelector.selectorMap.get('Suspension_Agreement__c');
+public without sharing class Suspension_AgreementMapper implements ADCVD_IMapper {
+	public static Suspension_AgreementMapper instance = (Suspension_AgreementMapper)ADCVD_CaseMapper.selectorMap.get('Suspension_Agreement__c');
 	public static Map<Id,Suspension_Agreement__c> idToUnlockedSuspAgrmtMap = new Map<Id,Suspension_Agreement__c>();
 	public static Map<Id,Suspension_Agreement__c> idToAllSuspAgrmtMap = new Map<Id,Suspension_Agreement__c>();
-	public Suspension_AgreementSelector() {}
-	private Suspension_AgreementSelector(Set<Id> suspAgrmtIdSet) {
+	public Suspension_AgreementMapper() {}
+	private Suspension_AgreementMapper(Set<Id> suspAgrmtIdSet) {
 		if (idToUnlockedSuspAgrmtMap.isEmpty()) {
 			
 			List<Suspension_Agreement__c> tempList = new List<Suspension_Agreement__c>();
@@ -22,20 +22,20 @@ public without sharing class Suspension_AgreementSelector implements ADCVD_Selec
 			}
 		}
 	}
-	public static Suspension_AgreementSelector getInstance () {
+	public static Suspension_AgreementMapper getInstance () {
 		if (instance == null) {
-			System.debug('Suspension_AgreementSelector instance: ' + instance);
+			System.debug('Suspension_AgreementMapper instance: ' + instance);
 			return getNewInstance();
 		}
 		return instance;
 	}
-	public static Suspension_AgreementSelector getNewInstance() {
+	public static Suspension_AgreementMapper getNewInstance() {
 		Set<Id> suspAgrmtIdSet = new Set<Id>();
-		for (Id caseId : ADCVD_CaseSelector.caseIdToSuspAgrmtIdMap.keySet()) {
-			suspAgrmtIdSet.addAll(ADCVD_CaseSelector.caseIdToSuspAgrmtIdMap.get(caseId));
+		for (Id caseId : ADCVD_CaseMapper.caseIdToSuspAgrmtIdMap.keySet()) {
+			suspAgrmtIdSet.addAll(ADCVD_CaseMapper.caseIdToSuspAgrmtIdMap.get(caseId));
 		}
-		instance = new Suspension_AgreementSelector(suspAgrmtIdSet);
-		ADCVD_CaseSelector.selectorMap.put('Suspension_Agreement__c', instance);
+		instance = new Suspension_AgreementMapper(suspAgrmtIdSet);
+		ADCVD_CaseMapper.selectorMap.put('Suspension_Agreement__c', instance);
 		return instance;
 	}
 	public Map<Id, Suspension_Agreement__c> getMap() {

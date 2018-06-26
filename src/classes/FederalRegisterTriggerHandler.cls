@@ -24,20 +24,24 @@ public without sharing class FederalRegisterTriggerHandler {
         }
     }
 
-    //Map to Federal Register Utility instances
-    @TestVisible private static Map<Id,ADCVD_FederalRegisterUtility> frUtilMap = new Map<Id,ADCVD_FederalRegisterUtility>();
-    @TestVisible private static ADCVD_Selector adcvdSelector;
-    @TestVisible private static FederalRegisterSelector frSelector;
-    @TestVisible private static ADCVD_CaseSelector caseSelector;
+    //Mapper declared that will be initialized later based on the parent
+    @TestVisible private static ADCVD_IMapper adcvdMapper;
+    //Mapper declared that will be initialized after caseMapper is initiatlized
+    @TestVisible private static FederalRegisterMapper frMapper;
+    //Mapper declared that will be initialized in the initialize method
+    @TestVisible private static ADCVD_CaseMapper caseMapper;
 
+    //method to initialize the caseMapper and if newMap is passed (after insert/update) it will add the new FRs to the Mappers
     @TestVisible private static void initialize(List<Federal_Register__c> newList, Map<Id,Federal_Register__c> newMap) {
         Set<Id> caseIdSet = getCaseIdSet(newList);
-        caseSelector = (ADCVD_CaseSelector) ADCVD_CaseSelector.selectorMap.get('ADCVD_Case__c');
-        caseSelector = caseSelector.getInstance(caseIdSet);
+        caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.selectorMap.get('ADCVD_Case__c');
+        caseMapper = caseMapper.getInstance(caseIdSet);
         if (newMap != null) {
-            addNewFrsToSelectors(newMap);
+            addNewFrsToMappers(newMap);
         }
     }
+    //method to get the case Ids from the parents.  If a list of FRs is added that have parents from all 5 potential
+    //parents, all 5 queries will run.  This should only be called in the initialize method.
     @TestVisible private static Set<Id> getCaseIdSet (List<Federal_Register__c> newList) {
         Set<Id> caseIdSet = new Set<Id>();
         Set<Id> petitionIdSet = new Set<Id>();
@@ -80,36 +84,41 @@ public without sharing class FederalRegisterTriggerHandler {
         }
         return caseIdSet;
     }
-
+    //used to set the ADCVD_Case__c field on the FRs based on the value in the parents
     @TestVisible private static void setCaseValues(List<Federal_Register__c> newList) {
         ParentValuesService pvs = new ParentValuesService();
         for (Federal_Register__c fr : newList) {
             Id parentId = (Id) fr.get(fr.FR_Parent__c);
-            adcvdSelector = (ADCVD_Selector) caseSelector.getSelector(fr.FR_Parent__c).getInstance();
-            fr = (Federal_Register__c) pvs.setCaseValuesFromParent(adcvdSelector.getMap(false).get(parentId), fr);
+            adcvdMapper = (ADCVD_IMapper) caseMapper.getMapper(fr.FR_Parent__c).getInstance();
+            fr = (Federal_Register__c) pvs.setCaseValuesFromParent(adcvdMapper.getMap(false).get(parentId), fr);
         }
     }
-
+    //Sets FR_Parent__c to the DeveloperName of the field of the parent (allows .get(FR_Parent__c) to retrieve the Id of the parent)
     @TestVisible private static void setFrParent (Federal_Register__c fr, String parentName) {
         if (String.isBlank(fr.FR_Parent__c)) {
             fr.FR_Parent__c = parentName;
         }
     }
-
-    @TestVisible private static void addNewFrsToSelectors(Map<Id,Federal_Register__c> newMap) {
+    //method to add the FRs from the recent insert/update to the frMapper, the caseMapper,
+    //and update the FederalRegisterMapper instance in the map of selectors with the new FRs
+    @TestVisible private static void addNewFrsToMappers(Map<Id,Federal_Register__c> newMap) {
         Map<Id,List<Federal_Register__c>> caseToFrsMap = new Map<Id,List<Federal_Register__c>>();
-        frSelector = (FederalRegisterSelector) caseSelector.getSelector('Federal_Register__c');
+        //get the FederalRegisterMapper instance from the caseMapper
+        frMapper = (FederalRegisterMapper) caseMapper.getMapper('Federal_Register__c');
         for (Federal_Register__c fr : newMap.values()) {
-            frSelector.addFrToMap(fr);
+            //update FederalRegisterMapper instance
+            frMapper.addFrToMap(fr);
             List<Federal_Register__c> tempList = caseToFrsMap.get(fr.ADCVD_Case__c) != null ?
                                                    caseToFrsMap.get(fr.ADCVD_Case__c) : new List<Federal_Register__c>();
             tempList.add(fr);
             caseToFrsMap.put(fr.ADCVD_Case__c, tempList);
         }
+        //add the FRs to the case Maps
         for (Id caseId : caseToFrsMap.keySet()) {
-            caseSelector.setCaseIdToFrMap(caseId, caseToFrsMap.get(caseId));
+            caseMapper.setCaseIdToFrMap(caseId, caseToFrsMap.get(caseId));
         }
-        caseSelector.putSelector('Federal_Register__c', frSelector);
+        //replace the FederalRegisterMapper in the caseMapper map with the new updated one
+        caseMapper.putMapper('Federal_Register__c', frMapper);
     }
 
     /**
@@ -121,7 +130,9 @@ public without sharing class FederalRegisterTriggerHandler {
     @TestVisible private static Set<Id> findParentsInScope(List<Federal_Register__c> newList) {
         Set<Id> parentIdSet = new Set<Id>();
         for(Federal_Register__c fr : newList) {
+            //add this FRs parent Id to the parents that need an update
             parentIdSet.add((Id)fr.get(fr.FR_Parent__c));
+            //add related parent Ids to the parents that need an update
             parentIdSet.addAll(findRelatedInScope(fr));
         }
         return parentIdSet;  
@@ -129,8 +140,9 @@ public without sharing class FederalRegisterTriggerHandler {
 
     @TestVisible private static Set<Id> findRelatedInScope(Federal_Register__c fr) {
         Set<Id> returnIdSet = new Set<Id>();
+        //FRs with the type "Order" can affect the investigation
         if (fr.Type__c == 'Order') {
-            returnIdSet.addAll(caseSelector.getIdSet(fr.ADCVD_Case__c, 'Investigation__c'));
+            returnIdSet.addAll(caseMapper.getIdSet(fr.ADCVD_Case__c, 'Investigation__c'));
         }
         return returnIdSet;
     }
@@ -146,13 +158,13 @@ public without sharing class FederalRegisterTriggerHandler {
         calculatePetitions(parentIdSet);
         calculateInvestigations(parentIdSet);
         calculateOrders(parentIdSet);
-        //calculateSuspensionAgreements(parentIdSet);
-        //calculateSegments(parentIdSet);
+        calculateSuspensionAgreements(parentIdSet);
+        calculateSegments(parentIdSet);
     }
 
     @TestVisible private static List<SObject> getUpdateList(Set<Id> parentIdSet, String objectName) {
-        ADCVD_Selector tempSelector = caseSelector.getSelector(objectName).getInstance();
-        Map<Id,SObject> masterMap = (Map<Id,SObject>) tempSelector.getMap(false);
+        ADCVD_IMapper tempMapper = caseMapper.getMapper(objectName).getInstance();
+        Map<Id,SObject> masterMap = (Map<Id,SObject>) tempMapper.getMap(false);
         List<SObject> updateList = new List<SObject>();
         for (Id soId : masterMap.keySet()) {
             if (parentIdSet.contains(soId)) {
@@ -186,8 +198,7 @@ public without sharing class FederalRegisterTriggerHandler {
      * @return             void
      */
     @TestVisible private static void calculateSuspensionAgreements(Set<Id> parentIdSet) {
-        List<Suspension_Agreement__c> suspAgrToUpdate = [SELECT Id FROM Suspension_Agreement__c WHERE Id IN: parentIdSet AND Locked__c =: false];
-        database.update(suspAgrToUpdate, false);
+        database.update(getUpdateList(parentIdSet, 'Suspension_Agreement__c'), false);
     }
 
     /**
@@ -205,7 +216,6 @@ public without sharing class FederalRegisterTriggerHandler {
      * @return             void
      */
     @TestVisible private static void calculateSegments(Set<Id> parentIdSet) {
-        List<Segment__c> segmentsToUpdate = [SELECT Id FROM Segment__c WHERE Id IN: parentIdSet AND Locked__c =: false];
-        database.update(segmentsToUpdate, false);
+        database.update(getUpdateList(parentIdSet, 'Segment__c'), false);
     }
 }

@@ -73,8 +73,9 @@ public without sharing class PetitionTriggerHandler {
     @TestVisible private static Map<Id,List<Litigation__c>> petitionIdToLitigationMap = new Map<Id,List<Litigation__c>>();
     @TestVisible private static Map<Id,String> petitionIdToLitigationStatusMap = new Map<Id,String>();
     @TestVisible private static Map<Id, FederalRegisterMapper.MappedFRs> frUtilMap = new Map<Id, FederalRegisterMapper.MappedFRs>();
-    @TestVisible private static ADCVD_CaseSelector caseSelector = (ADCVD_CaseSelector) ADCVD_CaseSelector.selectorMap.get('ADCVD_Case__c');
-    @TestVisible private static PetitionSelector petSelector;
+    @TestVisible private static ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.selectorMap.get('ADCVD_Case__c');
+    @TestVisible private static PetitionMapper petMapper;
+    @TestVisible private static FederalRegisterMapper frMapper;
 
     /*****************************************
     * Methods called directly by mainEntry()
@@ -91,11 +92,11 @@ public without sharing class PetitionTriggerHandler {
         for (Petition__c p : newList) {
             caseIdSet.add(p.ADCVD_Case__c);
         }
-        caseSelector = caseSelector.getInstance(caseIdSet);
+        caseMapper = caseMapper.getInstance(caseIdSet);
         if(newMap != null) {
-            addNewPetToSelectors(newMap);
-            FederalRegisterMapper frm = new FederalRegisterMapper(newMap.keySet());
-            frUtilMap = frm.masterMap;
+            addNewPetToMappers(newMap);
+            frMapper = (FederalRegisterMapper) caseMapper.getMapper('Federal_Register__c').getInstance();
+            frUtilMap = frMapper.getMappedFRs(newMap.keySet());
             setPetitionIdToLitigationMap(newMap.keySet());
             setPetitionIdToLitigationStatusMap();
         }
@@ -127,18 +128,18 @@ public without sharing class PetitionTriggerHandler {
         return newList;
     }
 
-    @TestVisible private static void addNewPetToSelectors(Map<Id,Petition__c> newMap) {
+    @TestVisible private static void addNewPetToMappers(Map<Id,Petition__c> newMap) {
         Map<Id,List<Petition__c>> caseToPetMap = new Map<Id,List<Petition__c>>();
-        petSelector = (PetitionSelector) caseSelector.getSelector('Petition__c');
+        petMapper = (PetitionMapper) caseMapper.getMapper('Petition__c');
         for (Petition__c p : newMap.values()) {
-            petSelector.addPetToMap(p);
+            petMapper.addPetToMap(p);
             List<Petition__c> tempList = caseToPetMap.get(p.ADCVD_Case__c) != null ?
                                                    caseToPetMap.get(p.ADCVD_Case__c) : new List<Petition__c>();
             tempList.add(p);
             caseToPetMap.put(p.ADCVD_Case__c, tempList);
         }
         for (Id caseId : caseToPetMap.keySet()) {
-            caseSelector.setCaseIdToPetitionMap(caseId, caseToPetMap.get(caseId));
+            caseMapper.setCaseIdToPetitionMap(caseId, caseToPetMap.get(caseId));
         }
     }
 

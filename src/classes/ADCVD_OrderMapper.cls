@@ -5,13 +5,13 @@
  *    MIL Corporation
  * 
  **/
-public without sharing class ADCVD_OrderSelector implements ADCVD_Selector{
+public without sharing class ADCVD_OrderMapper implements ADCVD_IMapper{
 
-	public static ADCVD_OrderSelector instance = (ADCVD_OrderSelector)ADCVD_CaseSelector.selectorMap.get('ADCVD_Order__c');
+	public static ADCVD_OrderMapper instance = (ADCVD_OrderMapper)ADCVD_CaseMapper.selectorMap.get('ADCVD_Order__c');
 	public static Map<Id,ADCVD_Order__c> idToUnlockedOrderMap = new Map<Id,ADCVD_Order__c>();
 	public static Map<Id,ADCVD_Order__c> idToAllOrderMap = new Map<Id,ADCVD_Order__c>();
-	public ADCVD_OrderSelector() {}
-	private ADCVD_OrderSelector(Set<Id> orderIdSet) {
+	public ADCVD_OrderMapper() {}
+	private ADCVD_OrderMapper(Set<Id> orderIdSet) {
 		if (idToUnlockedOrderMap.isEmpty()) {
 			
 			List<ADCVD_Order__c> tempList = new List<ADCVD_Order__c>();
@@ -23,20 +23,20 @@ public without sharing class ADCVD_OrderSelector implements ADCVD_Selector{
 			}
 		}
 	}
-	public static ADCVD_OrderSelector getInstance () {
+	public static ADCVD_OrderMapper getInstance () {
 		if (instance == null) {
-			System.debug('ADCVD_OrderSelector instance: ' + instance);
+			System.debug('ADCVD_OrderMapper instance: ' + instance);
 			return getNewInstance();
 		}
 		return instance;
 	}
-	public static ADCVD_OrderSelector getNewInstance() {
+	public static ADCVD_OrderMapper getNewInstance() {
 		Set<Id> orderIdSet = new Set<Id>();
-		for (Id caseId : ADCVD_CaseSelector.caseIdToOrderIdMap.keySet()) {
-			orderIdSet.addAll(ADCVD_CaseSelector.caseIdToOrderIdMap.get(caseId));
+		for (Id caseId : ADCVD_CaseMapper.caseIdToOrderIdMap.keySet()) {
+			orderIdSet.addAll(ADCVD_CaseMapper.caseIdToOrderIdMap.get(caseId));
 		}
-		instance = new ADCVD_OrderSelector(orderIdSet);
-		ADCVD_CaseSelector.selectorMap.put('ADCVD_Order__c', instance);
+		instance = new ADCVD_OrderMapper(orderIdSet);
+		ADCVD_CaseMapper.selectorMap.put('ADCVD_Order__c', instance);
 		return instance;
 	}
 	public Map<Id, ADCVD_Order__c> getMap() {

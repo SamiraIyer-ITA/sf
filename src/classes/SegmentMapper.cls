@@ -5,12 +5,12 @@
  *    MIL Corporation
  * 
  **/
-public without sharing class SegmentSelector implements ADCVD_Selector {
-	public static SegmentSelector instance = (SegmentSelector)ADCVD_CaseSelector.selectorMap.get('Segment__c');
+public without sharing class SegmentMapper implements ADCVD_IMapper {
+	public static SegmentMapper instance = (SegmentMapper)ADCVD_CaseMapper.selectorMap.get('Segment__c');
 	public static Map<Id,Segment__c> idToUnlockedSegmentMap = new Map<Id,Segment__c>();
 	public static Map<Id,Segment__c> idToAllSegmentMap = new Map<Id,Segment__c>();
-	public SegmentSelector() {}
-	private SegmentSelector(Set<Id> segmentIdSet) {
+	public SegmentMapper() {}
+	private SegmentMapper(Set<Id> segmentIdSet) {
 		if (idToUnlockedSegmentMap.isEmpty()) {
 			
 			List<Segment__c> tempList = new List<Segment__c>();
@@ -22,20 +22,20 @@ public without sharing class SegmentSelector implements ADCVD_Selector {
 			}
 		}
 	}
-	public static SegmentSelector getInstance () {
+	public static SegmentMapper getInstance () {
 		if (instance == null) {
-			System.debug('SegmentSelector instance: ' + instance);
+			System.debug('SegmentMapper instance: ' + instance);
 			return getNewInstance();
 		}
 		return instance;
 	}
-	public static SegmentSelector getNewInstance() {
+	public static SegmentMapper getNewInstance() {
 		Set<Id> segmentIdSet = new Set<Id>();
-		for (Id caseId : ADCVD_CaseSelector.caseIdToSegmentIdMap.keySet()) {
-			segmentIdSet.addAll(ADCVD_CaseSelector.caseIdToSegmentIdMap.get(caseId));
+		for (Id caseId : ADCVD_CaseMapper.caseIdToSegmentIdMap.keySet()) {
+			segmentIdSet.addAll(ADCVD_CaseMapper.caseIdToSegmentIdMap.get(caseId));
 		}
-		instance = new SegmentSelector(segmentIdSet);
-		ADCVD_CaseSelector.selectorMap.put('Segment__c', instance);
+		instance = new SegmentMapper(segmentIdSet);
+		ADCVD_CaseMapper.selectorMap.put('Segment__c', instance);
 		return instance;
 	}
 	public Map<Id, Segment__c> getMap() {

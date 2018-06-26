@@ -1,8 +1,9 @@
 public without sharing class DateCalculationService {
 
     @TestVisible private Map<String,Date_Calculation__mdt> dateCalculations = new Map<String,Date_Calculation__mdt>();
+    @TestVisible private FederalRegisterMapper frMapper;
     @TestVisible private Map<Id, FederalRegisterMapper.MappedFRs> frUtilMap = new Map<Id, FederalRegisterMapper.MappedFRs>();
-    @TestVisible private ADCVD_CaseSelector caseSelector = (ADCVD_CaseSelector) ADCVD_CaseSelector.selectorMap.get('ADCVD_Case__c');
+    @TestVisible private ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.selectorMap.get('ADCVD_Case__c');
 
     public void getCalculatedDates(List<SObject> soList, String soType, String recordTypeName) {
         setDateCalculations(soType, recordTypeName);
@@ -194,11 +195,11 @@ public without sharing class DateCalculationService {
     @TestVisible private SObject getBaseObject(SObject record, String lookupFieldName, String baseObjectName) {
         Id tempId = (Id)record.get(lookupFieldName);
         SObject so = null;
-        ADCVD_Selector adcvdSelector = caseSelector.getSelector(baseObjectName);
-        if (adcvdSelector != null) adcvdSelector.getInstance();
-            System.debug(LoggingLevel.Debug, '*** adcvdSelector: ' + adcvdSelector);
-        if (adcvdSelector != null && adcvdSelector.getMap(true) != null) {
-            so = adcvdSelector.getMap(true).get(tempId);
+        ADCVD_IMapper adcvdMapper = caseMapper.getMapper(baseObjectName);
+        if (adcvdMapper != null) adcvdMapper.getInstance();
+            System.debug(LoggingLevel.Debug, '*** adcvdMapper: ' + adcvdMapper);
+        if (adcvdMapper != null && adcvdMapper.getMap(true) != null) {
+            so = adcvdMapper.getMap(true).get(tempId);
         }
         System.debug(LoggingLevel.Debug, '***getBaseObject so: ' + so);
         return so;
@@ -238,8 +239,8 @@ public without sharing class DateCalculationService {
             if (soId != null) {tempSet.add(soId);}
         }
         if (!tempSet.isEmpty()) {
-            FederalRegisterMapper frm = new FederalRegisterMapper(tempSet);
-            frUtilMap = frm.masterMap;
+            frMapper = (FederalRegisterMapper) caseMapper.getMapper('Federal_Register__c').getInstance();
+            frUtilMap = frMapper.getMappedFRs(tempSet);
         }
     }
 }

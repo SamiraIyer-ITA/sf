@@ -50,8 +50,9 @@ public without sharing class ADCVDOrderTriggerHandler {
     @TestVisible private static Map<Id,List<Segment__c>> orderIdToSegmentMap = new Map<Id,List<Segment__c>>();
     @TestVisible private static Map<Id,String> orderIdToSegmentStatusMap = new Map<Id,String>();
     @TestVisible private static Map<Id, FederalRegisterMapper.MappedFRs> frUtilMap = new Map<Id, FederalRegisterMapper.MappedFRs>();
-    @TestVisible private static ADCVD_CaseSelector caseSelector = (ADCVD_CaseSelector) ADCVD_CaseSelector.selectorMap.get('ADCVD_Case__c');
-    @TestVisible private static ADCVD_OrderSelector orderSelector;
+    @TestVisible private static ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.selectorMap.get('ADCVD_Case__c');
+    @TestVisible private static ADCVD_OrderMapper orderMapper;
+    @TestVisible private static FederalRegisterMapper frMapper;
 
     /*****************************************
     * Methods called directly by mainEntry()
@@ -68,13 +69,13 @@ public without sharing class ADCVDOrderTriggerHandler {
         for (ADCVD_Order__c ao : newList) {
             caseIdSet.add(ao.ADCVD_Case__c);
         }
-        caseSelector = caseSelector.getInstance(caseIdSet);
-        InvestigationSelector is = (InvestigationSelector) caseSelector.getSelector('Investigation__c').getInstance();
-        investigationsInScopeMap = (Map<Id,Investigation__c>) caseSelector.getSelector('Investigation__c').getInstance().getMap(true);
+        caseMapper = caseMapper.getInstance(caseIdSet);
+        InvestigationMapper is = (InvestigationMapper) caseMapper.getMapper('Investigation__c').getInstance();
+        investigationsInScopeMap = (Map<Id,Investigation__c>) caseMapper.getMapper('Investigation__c').getInstance().getMap(true);
         if(newMap != null) {
-            addNewOrderToSelectors(newMap);
-            FederalRegisterMapper frm = new FederalRegisterMapper(newMap.keySet());
-            frUtilMap = frm.masterMap;
+            addNewOrderToMappers(newMap);
+            frMapper = (FederalRegisterMapper) caseMapper.getMapper('Federal_Register__c').getInstance();
+            frUtilMap = frMapper.getMappedFRs(newMap.keySet());
         	setOrderIdToSegmentMap(newMap.keySet());
             setOrderIdToSegmentStatusMap(newMap.keySet());
         }
@@ -98,18 +99,18 @@ public without sharing class ADCVDOrderTriggerHandler {
         }
     }
 
-    @TestVisible private static void addNewOrderToSelectors(Map<Id,ADCVD_Order__c> newMap) {
+    @TestVisible private static void addNewOrderToMappers(Map<Id,ADCVD_Order__c> newMap) {
         Map<Id,List<ADCVD_Order__c>> caseToOrderMap = new Map<Id,List<ADCVD_Order__c>>();
-        orderSelector = (ADCVD_OrderSelector) caseSelector.getSelector('ADCVD_Order__c');
+        orderMapper = (ADCVD_OrderMapper) caseMapper.getMapper('ADCVD_Order__c');
         for (ADCVD_Order__c ao : newMap.values()) {
-            orderSelector.addOrderToMap(ao);
+            orderMapper.addOrderToMap(ao);
             List<ADCVD_Order__c> tempList = caseToOrderMap.get(ao.ADCVD_Case__c) != null ?
                                                    caseToOrderMap.get(ao.ADCVD_Case__c) : new List<ADCVD_Order__c>();
             tempList.add(ao);
             caseToOrderMap.put(ao.ADCVD_Case__c, tempList);
         }
         for (Id caseId : caseToOrderMap.keySet()) {
-            caseSelector.setCaseIdToOrderMap(caseId, caseToOrderMap.get(caseId));
+            caseMapper.setCaseIdToOrderMap(caseId, caseToOrderMap.get(caseId));
         }
     }
 
