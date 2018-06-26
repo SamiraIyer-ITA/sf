@@ -278,6 +278,36 @@
         <members>ADCVD_Objects.Segment_All_Record_Types</members>
         <members>ADCVD_Objects.Staffing_Assignment</members>
         <members>ADCVD_Objects.Suspension_Agreement</members>
+        <members>ADCVD_Objects.ADCVD_Order</members>
+        <members>ADCVD_Objects.Federal_Register</members>
+        <members>ADCVD_Objects.Inv_AD</members>
+        <members>ADCVD_Objects.Inv_All_Record_Types</members>
+        <members>ADCVD_Objects.Inv_CVD</members>
+        <members>ADCVD_Objects.Issue_Amended_Final</members>
+        <members>ADCVD_Objects.Issue_Amended_Preliminary</members>
+        <members>ADCVD_Objects.Issue_Continuation_or_Revocation</members>
+        <members>ADCVD_Objects.Issue_Deadline_for_Dec_on_HOP</members>
+        <members>ADCVD_Objects.Issue_Final</members>
+        <members>ADCVD_Objects.Issue_Initiation</members>
+        <members>ADCVD_Objects.Issue_Preliminary</members>
+        <members>ADCVD_Objects.Lit_All_Record_Types</members>
+        <members>ADCVD_Objects.Lit_Int</members>
+        <members>ADCVD_Objects.Lit_Rem</members>
+        <members>ADCVD_Objects.Petition</members>
+        <members>ADCVD_Objects.Rec_Pri</members>
+        <members>ADCVD_Objects.Rec_Rel</members>
+        <members>ADCVD_Objects.Related_Org_Petitioner</members>
+        <members>ADCVD_Objects.Related_Org_Respondent</members>
+        <members>ADCVD_Objects.Seg_ACR</members>
+        <members>ADCVD_Objects.Seg_AR</members>
+        <members>ADCVD_Objects.Seg_CCR</members>
+        <members>ADCVD_Objects.Seg_ER</members>
+        <members>ADCVD_Objects.Seg_NSR</members>
+        <members>ADCVD_Objects.Seg_SI</members>
+        <members>ADCVD_Objects.Seg_SSR</members>
+        <members>ADCVD_Objects.Segment_All_Record_Types</members>
+        <members>ADCVD_Objects.Staffing_Assignment</members>
+        <members>ADCVD_Objects.Suspension_Agreement</members>
         <members>Automated_Chatter_Post.Inv_Alignment_Change</members>
         <members>Automated_Chatter_Post.Inv_Extension</members>
         <members>Automated_Chatter_Post.Inv_Litigation_Change</members>
