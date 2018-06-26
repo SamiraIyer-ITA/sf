@@ -914,6 +914,17 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Is_Law_Firm__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field will be checked and will determine if the Organization is a Law Firm</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Put a check if Organization is a Law Firm.</inlineHelpText>
+        <label>Is Law Firm</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Is_Subsidiary__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
