@@ -38,6 +38,7 @@
         <members>ADCVD_SegmentSelector</members>
         <members>ADCVD_SelectorsTest</members>
         <members>ADCVD_StaffingAssignmentSelector</members>
+        <members>ADCVD_StaffingAssignmentSelectorTest</members>
         <members>ADCVD_TollingDayUtility</members>
         <members>ADCVD_TollingDayUtilityTest</members>
         <members>AddTollingDayBatch</members>
@@ -1219,11 +1220,6 @@
     </types>
     <types>
         <members>Account</members>
-        <members>ApplicationFactory_Domain__mdt</members>
-        <members>ApplicationFactory_Selector__mdt</members>
-        <members>ApplicationFactory_SelectorFieldset__mdt</members>
-        <members>ApplicationFactory_Service__mdt</members>
-        <members>ApplicationFactory_UnitOfWork__mdt</members>
         <members>ADCVD_Case__c</members>
         <members>ADCVD_Order__c</members>
         <members>ADCVD_Objects__mdt</members>
@@ -1247,8 +1243,6 @@
         <members>Sync_Utility__mdt</members>
         <members>Tolling_Day__c</members>
         <members>User</members>
-        <members>core_Event__e</members>
-        <members>core_EventConsumerSubscription__mdt</members>
         <name>CustomObject</name>
     </types>
     <types>
