@@ -101,15 +101,7 @@
         <members>Utils</members>
         <members>UtilsTest</members>
         <members>VideoController</members>
-        <members>core_IEventsConsumer</members>
-        <members>core_PlatformEventsDistributor</members>
-        <members>core_Utils</members>
-        <members>fflib_Answer</members>
-        <members>fflib_AnswerTest</members>
-        <members>fflib_AnyOrder</members>
-        <members>fflib_AnyOrderTest</members>
         <members>fflib_ApexMocks</members>
-        <members>fflib_ApexMocksConfig</members>
         <members>fflib_ApexMocksTest</members>
         <members>fflib_ApexMocksUtils</members>
         <members>fflib_ApexMocksUtilsTest</members>
@@ -120,11 +112,6 @@
         <members>fflib_IDGenerator</members>
         <members>fflib_IDGeneratorTest</members>
         <members>fflib_IMatcher</members>
-        <members>fflib_Inheritor</members>
-        <members>fflib_InheritorTest</members>
-        <members>fflib_InOrder</members>
-        <members>fflib_InOrderTest</members>
-        <members>fflib_InvocationOnMock</members>
         <members>fflib_ISObjectDomain</members>
         <members>fflib_ISObjectSelector</members>
         <members>fflib_ISObjectUnitOfWork</members>
@@ -138,16 +125,12 @@
         <members>fflib_MethodCountRecorder</members>
         <members>fflib_MethodReturnValue</members>
         <members>fflib_MethodReturnValueRecorder</members>
-        <members>fflib_MethodVerifier</members>
         <members>fflib_Mocks</members>
         <members>fflib_MyList</members>
         <members>fflib_QualifiedMethod</members>
-        <members>fflib_QualifiedMethodAndArgValues</members>
         <members>fflib_QualifiedMethodTest</members>
         <members>fflib_QueryFactory</members>
         <members>fflib_QueryFactoryTest</members>
-        <members>fflib_SecurityUtils</members>
-        <members>fflib_SecurityUtilsTest</members>
         <members>fflib_SObjectDescribe</members>
         <members>fflib_SObjectDescribeTest</members>
         <members>fflib_SObjectDomain</members>
@@ -161,14 +144,6 @@
         <members>fflib_SecurityUtilsTest</members>
         <members>fflib_StringBuilder</members>
         <members>fflib_StringBuilderTest</members>
-        <members>fflib_System</members>
-        <members>fflib_SystemTest</members>
-        <members>fflib_VerificationMode</members>
-        <members>fflibext_Application</members>
-        <members>fflibext_ISObjectSelector</members>
-        <members>fflibext_ISObjectUnitOfWork</members>
-        <members>fflibext_SObjectSelector</members>
-        <members>fflibext_SObjectUnitOfWork</members>
         <members>ADCVD_OrderDetailControllerTest</members>
         <members>InvestigationOverride</members>
         <members>StaffingAssignmentsSelector</members>
@@ -199,26 +174,11 @@
         <members>SuspensionAgreementTrigger</members>
         <members>SegmentTrigger</members>
         <members>TollingDayTrigger</members>
-        <members>core_PlatformEvents</members>
         <name>ApexTrigger</name>
     </types>
     <types>
         <members>AD_CVD_Lightning</members>
         <name>CustomApplication</name>
-    </types>
-    <types>
-        <members>fflib_QueryFactory_crossobject_fieldsets_not_allowed_error</members>
-        <members>fflib_QueryFactory_fieldset_wrong_sobject_error</members>
-        <members>fflib_QueryFactory_recursive_subquery_error</members>
-        <members>fflib_QueryFactory_subquery_invalid_relationship</members>
-        <members>fflib_security_error_field_not_insertable</members>
-        <members>fflib_security_error_field_not_readable</members>
-        <members>fflib_security_error_field_not_updateable</members>
-        <members>fflib_security_error_object_not_deletable</members>
-        <members>fflib_security_error_object_not_insertable</members>
-        <members>fflib_security_error_object_not_readable</members>
-        <members>fflib_security_error_object_not_updateable</members>
-        <name>CustomLabel</name>
     </types>
     <types>
         <members>ADCVD_Objects.ADCVD_Order</members>
@@ -1401,5 +1361,5 @@
         <members>Constant__mdt</members>
         <name>Workflow</name>
     </types>
-    <version>42.0</version>
+    <version>40.0</version>
 </Package>
