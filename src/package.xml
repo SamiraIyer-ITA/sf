@@ -4,38 +4,14 @@
         <members>ADCVDOrderTriggerHandler</members>
         <members>ADCVDOrderTriggerHandlerTest</members>
         <members>ADCVDProcessBuilderTest</members>
-        <members>ADCVD_AdcvdOrderSelector</members>
         <members>ADCVD_CascadeService</members>
-        <members>ADCVD_ConstantSelector</members>
-        <members>ADCVD_ConstantsMetadataWrapper</members>
-        <members>ADCVD_FederalRegisterSelector</members>
         <members>ADCVD_FederalRegisterUtility</members>
         <members>ADCVD_FederalRegisterUtilityTest</members>
-        <members>ADCVD_IAdcvdOrderSelector</members>
-        <members>ADCVD_IConstantSelector</members>
-        <members>ADCVD_IFederalRegisterSelector</members>
-        <members>ADCVD_IInvestigationSelector</members>
-        <members>ADCVD_InvestigationSelector</members>
-        <members>ADCVD_IParentObjectFetchingService</members>
-        <members>ADCVD_IPetitionSelector</members>
-        <members>ADCVD_IRelatedOrganizationSelector</members>
-        <members>ADCVD_ISegmentSelector</members>
-        <members>ADCVD_IStaffingAssignmentSelector</members>
         <members>ADCVD_OrderDetailController</members>
-        <members>ADCVD_OrderDetailControllerTest</members>
         <members>ADCVD_OrderSearch</members>
-        <members>ADCVD_ParentObjectFetchingService</members>
-        <members>ADCVD_ParentObjectFetchingService_Test</members>
-        <members>ADCVD_ParentObjectFetchingServiceImpl</members>
-        <members>ADCVD_PetitionSelector</members>
         <members>ADCVD_OrderSearchTest</members>
         <members>ADCVD_OrderSearchTestImpl</members>
         <members>ADCVD_RecusalUtility</members>
-        <members>ADCVD_RelatedOrganizationSelector</members>
-        <members>ADCVD_SegmentSelector</members>
-        <members>ADCVD_SelectorsTest</members>
-        <members>ADCVD_StaffingAssignmentSelector</members>
-        <members>ADCVD_StaffingAssignmentSelectorTest</members>
         <members>ADCVD_TollingDayUtility</members>
         <members>ADCVD_TollingDayUtilityTest</members>
         <members>AddTollingDayBatch</members>
@@ -53,9 +29,6 @@
         <members>ChatterPostService</members>
         <members>ConnectApiHelper</members>
         <members>ConnectApiHelperTest</members>
-        <members>core_IEventsConsumer</members>
-        <members>core_PlatformEventsDistributor</members>
-        <members>core_Utils</members>
         <members>CreateHTSRecordsController</members>
         <members>CustomMetadataSelector</members>
         <members>CustomMetadataSelectorTest</members>
