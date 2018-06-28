@@ -1,0 +1,16 @@
+.project
+.settings
+.metadata
+salesforce.schema
+Referenced Packages
+*.sublime-project
+*.sublime-settings
+*.sublime-workspace
+apex-scripts/log
+build.properties
+config
+mm.log
+src_git
+src_dep
+src_cmp
+lightning

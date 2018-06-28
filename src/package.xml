@@ -4,40 +4,14 @@
         <members>ADCVDOrderTriggerHandler</members>
         <members>ADCVDOrderTriggerHandlerTest</members>
         <members>ADCVDProcessBuilderTest</members>
-        <members>ADCVD_AdcvdOrderSelector</members>
-        <members>ADCVD_CaseMapper</members>
         <members>ADCVD_CascadeService</members>
-        <members>ADCVD_ConstantSelector</members>
-        <members>ADCVD_ConstantsMetadataWrapper</members>
-        <members>ADCVD_FederalRegisterSelector</members>
         <members>ADCVD_FederalRegisterUtility</members>
         <members>ADCVD_FederalRegisterUtilityTest</members>
-        <members>ADCVD_IAdcvdOrderSelector</members>
-        <members>ADCVD_IConstantSelector</members>
-        <members>ADCVD_IFederalRegisterSelector</members>
-        <members>ADCVD_IInvestigationSelector</members>
-        <members>ADCVD_IMapper</members>
-        <members>ADCVD_InvestigationSelector</members>
-        <members>ADCVD_IParentObjectFetchingService</members>
-        <members>ADCVD_IPetitionSelector</members>
-        <members>ADCVD_IRelatedOrganizationSelector</members>
-        <members>ADCVD_ISegmentSelector</members>
-        <members>ADCVD_IStaffingAssignmentSelector</members>
         <members>ADCVD_OrderDetailController</members>
-        <members>ADCVD_OrderDetailControllerTest</members>
-        <members>ADCVD_OrderMapper</members>
         <members>ADCVD_OrderSearch</members>
-        <members>ADCVD_ParentObjectFetchingService</members>
-        <members>ADCVD_ParentObjectFetchingService_Test</members>
-        <members>ADCVD_ParentObjectFetchingServiceImpl</members>
-        <members>ADCVD_PetitionSelector</members>
         <members>ADCVD_OrderSearchTest</members>
         <members>ADCVD_OrderSearchTestImpl</members>
         <members>ADCVD_RecusalUtility</members>
-        <members>ADCVD_RelatedOrganizationSelector</members>
-        <members>ADCVD_SegmentSelector</members>
-        <members>ADCVD_SelectorsTest</members>
-        <members>ADCVD_StaffingAssignmentSelector</members>
         <members>ADCVD_TollingDayUtility</members>
         <members>ADCVD_TollingDayUtilityTest</members>
         <members>AddTollingDayBatch</members>
@@ -55,9 +29,6 @@
         <members>ChatterPostService</members>
         <members>ConnectApiHelper</members>
         <members>ConnectApiHelperTest</members>
-        <members>core_IEventsConsumer</members>
-        <members>core_PlatformEventsDistributor</members>
-        <members>core_Utils</members>
         <members>CreateHTSRecordsController</members>
         <members>CustomMetadataSelector</members>
         <members>CustomMetadataSelectorTest</members>
@@ -72,17 +43,15 @@
         <members>Describer</members>
         <members>DescriberTest</members>
         <members>DispatchScheduledFollower</members>
-        <members>FederalRegisterMapper</members>
         <members>FederalRegisterTriggerHandler</members>
         <members>FederalRegisterTriggerHandlerTest</members>
         <members>Federal_RegisterCS</members>
-        <members>InvestigationMapper</members>
+        <members>InvestigationSelector</members>
         <members>InvestigationSelectorTest</members>
         <members>InvestigationTriggerHandler</members>
         <members>InvestigationTriggerHandlerTest</members>
         <members>InvestigationsSelector</members>
         <members>LibSObjectDescribe</members>
-        <members>LitigationMapper</members>
         <members>LitigationTriggerHandler</members>
         <members>LitigationTriggerHandlerTest</members>
         <members>LockedRecordHandler</members>
@@ -93,7 +62,7 @@
         <members>ParentValuesService</members>
         <members>ParentValuesServiceTest</members>
         <members>Parser</members>
-        <members>PetitionMapper</members>
+        <members>PetitionSelector</members>
         <members>PetitionSelectorTest</members>
         <members>PetitionTriggerHandler</members>
         <members>PetitionTriggerHandlerTest</members>
@@ -114,13 +83,12 @@
         <members>SecurityService</members>
         <members>SegmentTriggerHandler</members>
         <members>SegmentTriggerHandlerTest</members>
-        <members>SegmentMapper</members>
+        <members>SegmentsSelector</members>
         <members>StaffingAssignmentExtension</members>
         <members>StaffingAssignmentExtensionTest</members>
         <members>StaffingAssignmentsSelector</members>
         <members>SunsetReviewController</members>
         <members>SunsetReviewControllerTest</members>
-        <members>Suspension_AgreementMapper</members>
         <members>SuspensionAgreementTriggerHandler</members>
         <members>SuspensionAgreementTriggerHandlerTest</members>
         <members>SyncUtility</members>
@@ -253,36 +221,6 @@
         <name>CustomLabel</name>
     </types>
     <types>
-        <members>ADCVD_Objects.ADCVD_Order</members>
-        <members>ADCVD_Objects.Federal_Register</members>
-        <members>ADCVD_Objects.Inv_AD</members>
-        <members>ADCVD_Objects.Inv_All_Record_Types</members>
-        <members>ADCVD_Objects.Inv_CVD</members>
-        <members>ADCVD_Objects.Issue_Amended_Final</members>
-        <members>ADCVD_Objects.Issue_Amended_Preliminary</members>
-        <members>ADCVD_Objects.Issue_Continuation_or_Revocation</members>
-        <members>ADCVD_Objects.Issue_Deadline_for_Dec_on_HOP</members>
-        <members>ADCVD_Objects.Issue_Final</members>
-        <members>ADCVD_Objects.Issue_Initiation</members>
-        <members>ADCVD_Objects.Issue_Preliminary</members>
-        <members>ADCVD_Objects.Lit_All_Record_Types</members>
-        <members>ADCVD_Objects.Lit_Int</members>
-        <members>ADCVD_Objects.Lit_Rem</members>
-        <members>ADCVD_Objects.Petition</members>
-        <members>ADCVD_Objects.Rec_Pri</members>
-        <members>ADCVD_Objects.Rec_Rel</members>
-        <members>ADCVD_Objects.Related_Org_Petitioner</members>
-        <members>ADCVD_Objects.Related_Org_Respondent</members>
-        <members>ADCVD_Objects.Seg_ACR</members>
-        <members>ADCVD_Objects.Seg_AR</members>
-        <members>ADCVD_Objects.Seg_CCR</members>
-        <members>ADCVD_Objects.Seg_ER</members>
-        <members>ADCVD_Objects.Seg_NSR</members>
-        <members>ADCVD_Objects.Seg_SI</members>
-        <members>ADCVD_Objects.Seg_SSR</members>
-        <members>ADCVD_Objects.Segment_All_Record_Types</members>
-        <members>ADCVD_Objects.Staffing_Assignment</members>
-        <members>ADCVD_Objects.Suspension_Agreement</members>
         <members>ADCVD_Objects.ADCVD_Order</members>
         <members>ADCVD_Objects.Federal_Register</members>
         <members>ADCVD_Objects.Inv_AD</members>
@@ -1219,11 +1157,6 @@
     </types>
     <types>
         <members>Account</members>
-        <members>ApplicationFactory_Domain__mdt</members>
-        <members>ApplicationFactory_Selector__mdt</members>
-        <members>ApplicationFactory_SelectorFieldset__mdt</members>
-        <members>ApplicationFactory_Service__mdt</members>
-        <members>ApplicationFactory_UnitOfWork__mdt</members>
         <members>ADCVD_Case__c</members>
         <members>ADCVD_Order__c</members>
         <members>ADCVD_Objects__mdt</members>
@@ -1247,8 +1180,6 @@
         <members>Sync_Utility__mdt</members>
         <members>Tolling_Day__c</members>
         <members>User</members>
-        <members>core_Event__e</members>
-        <members>core_EventConsumerSubscription__mdt</members>
         <name>CustomObject</name>
     </types>
     <types>
