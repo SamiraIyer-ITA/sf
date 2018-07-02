@@ -72,6 +72,8 @@ public without sharing class DateCalculationService {
                     tempDate = ADCVD_TollingDayUtility.getCalculatedDate(baseDate, tempDate, true);
                 } else if (baseDate != null && tollingService == 'Count Back Business Days') {
                     tempDate = ADCVD_TollingDayUtility.countBackBusinessDays(baseDate, offset);
+                   } else if (baseDate != null && String.isBlank(tollingService)) {
+                        tempDate = baseDate.addDays(offset).addDays(extension);
                 }
                 record.put(calculatedDateName, tempDate);
             } else {
