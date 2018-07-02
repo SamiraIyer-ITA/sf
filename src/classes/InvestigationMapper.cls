@@ -1,6 +1,6 @@
 public without sharing class InvestigationMapper implements ADCVD_IMapper{
 
-	public static InvestigationMapper instance = (InvestigationMapper)ADCVD_CaseMapper.selectorMap.get('Investigation__c');
+	public static InvestigationMapper instance = (InvestigationMapper)ADCVD_CaseMapper.mapperMap.get('Investigation__c');
 	public static Map<Id,Investigation__c> idToUnlockedInvestigationMap = new Map<Id,Investigation__c>();
 	public static Map<Id,Investigation__c> idToAllInvestigationMap = new Map<Id,Investigation__c>();
 	public InvestigationMapper() {}
@@ -29,7 +29,7 @@ public without sharing class InvestigationMapper implements ADCVD_IMapper{
 			investigationIdSet.addAll(ADCVD_CaseMapper.caseIdToInvestigationIdMap.get(caseId));
 		}
 		instance = new InvestigationMapper(investigationIdSet);
-		ADCVD_CaseMapper.selectorMap.put('Investigation__c', instance);
+		ADCVD_CaseMapper.mapperMap.put('Investigation__c', instance);
 		return instance;
 	}
 	public Map<Id, Investigation__c> getMap() {

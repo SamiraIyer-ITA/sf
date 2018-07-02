@@ -60,7 +60,7 @@ public without sharing class SegmentTriggerHandler {
 	@TestVisible private static Map<Id,Suspension_Agreement__c> suspAgrmntsInScopeMap = new Map<Id,Suspension_Agreement__c>();
     @TestVisible private static FederalRegisterMapper frMapper;
     @TestVisible private static Map<Id, FederalRegisterMapper.MappedFRs> frUtilMap = new Map<Id, FederalRegisterMapper.MappedFRs>();
-    @TestVisible private static ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.selectorMap.get('ADCVD_Case__c');
+    @TestVisible private static ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.mapperMap.get('ADCVD_Case__c');
     @TestVisible private static SegmentMapper segMapper;
     @TestVisible private static String ssrType = '';
 	@TestVisible private static Map<Id,List<Litigation__c>> segmentIdToLitigationMap = new Map<Id,List<Litigation__c>>();

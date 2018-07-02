@@ -3,7 +3,7 @@ public without sharing class DateCalculationService {
     @TestVisible private Map<String,Date_Calculation__mdt> dateCalculations = new Map<String,Date_Calculation__mdt>();
     @TestVisible private FederalRegisterMapper frMapper;
     @TestVisible private Map<Id, FederalRegisterMapper.MappedFRs> frUtilMap = new Map<Id, FederalRegisterMapper.MappedFRs>();
-    @TestVisible private ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.selectorMap.get('ADCVD_Case__c');
+    @TestVisible private ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.mapperMap.get('ADCVD_Case__c');
 
     public void getCalculatedDates(List<SObject> soList, String soType, String recordTypeName) {
         setDateCalculations(soType, recordTypeName);

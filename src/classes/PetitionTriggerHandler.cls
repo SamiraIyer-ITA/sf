@@ -73,7 +73,7 @@ public without sharing class PetitionTriggerHandler {
     @TestVisible private static Map<Id,List<Litigation__c>> petitionIdToLitigationMap = new Map<Id,List<Litigation__c>>();
     @TestVisible private static Map<Id,String> petitionIdToLitigationStatusMap = new Map<Id,String>();
     @TestVisible private static Map<Id, FederalRegisterMapper.MappedFRs> frUtilMap = new Map<Id, FederalRegisterMapper.MappedFRs>();
-    @TestVisible private static ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.selectorMap.get('ADCVD_Case__c');
+    @TestVisible private static ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.mapperMap.get('ADCVD_Case__c');
     @TestVisible private static PetitionMapper petMapper;
     @TestVisible private static FederalRegisterMapper frMapper;
 

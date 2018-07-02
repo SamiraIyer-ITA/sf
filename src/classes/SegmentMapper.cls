@@ -6,7 +6,7 @@
  * 
  **/
 public without sharing class SegmentMapper implements ADCVD_IMapper {
-	public static SegmentMapper instance = (SegmentMapper)ADCVD_CaseMapper.selectorMap.get('Segment__c');
+	public static SegmentMapper instance = (SegmentMapper)ADCVD_CaseMapper.mapperMap.get('Segment__c');
 	public static Map<Id,Segment__c> idToUnlockedSegmentMap = new Map<Id,Segment__c>();
 	public static Map<Id,Segment__c> idToAllSegmentMap = new Map<Id,Segment__c>();
 	public SegmentMapper() {}
@@ -35,7 +35,7 @@ public without sharing class SegmentMapper implements ADCVD_IMapper {
 			segmentIdSet.addAll(ADCVD_CaseMapper.caseIdToSegmentIdMap.get(caseId));
 		}
 		instance = new SegmentMapper(segmentIdSet);
-		ADCVD_CaseMapper.selectorMap.put('Segment__c', instance);
+		ADCVD_CaseMapper.mapperMap.put('Segment__c', instance);
 		return instance;
 	}
 	public Map<Id, Segment__c> getMap() {
