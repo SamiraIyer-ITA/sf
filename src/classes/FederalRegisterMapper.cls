@@ -8,7 +8,7 @@
 public without sharing class FederalRegisterMapper implements ADCVD_IMapper{
 
     //get the instance from the ADCVD_Case Mapper
-    public static FederalRegisterMapper instance = (FederalRegisterMapper)ADCVD_CaseMapper.selectorMap.get('Federal_Register__c');
+    public static FederalRegisterMapper instance = (FederalRegisterMapper)ADCVD_CaseMapper.mapperMap.get('Federal_Register__c');
     //maps of all FRs and only unlocked FRs
     public static Map<Id,Federal_Register__c> idToUnlockedFrMap = new Map<Id,Federal_Register__c>();
     public static Map<Id,Federal_Register__c> idToAllFrMap = new Map<Id,Federal_Register__c>();
@@ -48,7 +48,7 @@ public without sharing class FederalRegisterMapper implements ADCVD_IMapper{
             frIdSet.addAll(ADCVD_CaseMapper.caseIdToFrIdMap.get(caseId));
         }
         instance = new FederalRegisterMapper(frIdSet);
-        ADCVD_CaseMapper.selectorMap.put('Federal_Register__c', instance);
+        ADCVD_CaseMapper.mapperMap.put('Federal_Register__c', instance);
         return instance;
     }
     //no param method to return the unlocked map
@@ -114,8 +114,8 @@ public without sharing class FederalRegisterMapper implements ADCVD_IMapper{
     * MappedFRs is an inner class which is implemented by an inner class for each of the types of Federal Registers.
     */
     public class MappedFRs {
-        @TestVisible private ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.selectorMap.get('ADCVD_Case__c');
-        @TestVisible private FederalRegisterMapper frMapper = (FederalRegisterMapper) ADCVD_CaseMapper.selectorMap.get('Federal_Register__c').getInstance();
+        @TestVisible private ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.mapperMap.get('ADCVD_Case__c');
+        @TestVisible private FederalRegisterMapper frMapper = (FederalRegisterMapper) ADCVD_CaseMapper.mapperMap.get('Federal_Register__c').getInstance();
         @TestVisible Id myId { get; private set; }  //Id will vary, based on the inner case
         public Map<String, Date> typeToPublishedDateMap = new Map<String, Date>();
         public Map<String, Federal_Register__c> frsByType = new Map<String, Federal_Register__c>();

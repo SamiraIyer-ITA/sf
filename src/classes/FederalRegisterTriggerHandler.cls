@@ -34,7 +34,7 @@ public without sharing class FederalRegisterTriggerHandler {
     //method to initialize the caseMapper and if newMap is passed (after insert/update) it will add the new FRs to the Mappers
     @TestVisible private static void initialize(List<Federal_Register__c> newList, Map<Id,Federal_Register__c> newMap) {
         Set<Id> caseIdSet = getCaseIdSet(newList);
-        caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.selectorMap.get('ADCVD_Case__c');
+        caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.mapperMap.get('ADCVD_Case__c');
         caseMapper = caseMapper.getInstance(caseIdSet);
         if (newMap != null) {
             addNewFrsToMappers(newMap);
