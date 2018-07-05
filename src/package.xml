@@ -150,6 +150,15 @@
         <members>StaffingAssignmentsSelectorTest</members>
         <members>RelatedOrganizationSelector</members>
         <members>RelatedOrganizationSelectorTest</members>
+		<members>ADCVD_CaseMapper.cls</members>
+		<members>ADCVD_IMapper.cls</members>
+		<members>ADCVD_OrderMapper.cls</members>
+		<members>FederalRegisterMapper.cls</members>
+		<members>InvestigationMapper.cls</members>
+		<members>LitigationMapper.cls</members>
+		<members>PetitionMapper.cls</members>
+		<members>SegmentMapper.cls</members>
+		<members>Suspension_AgreementMapper.cls</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -1272,10 +1281,10 @@
         <members>Staffing_Assignments_ClosedLocked_Queue</members>
         <name>Queue</name>
     </types>
-    <types>
+<!--<types>
         <members>Investigations_and_Segments_with_Staffing</members>
         <name>ReportType</name>
-    </types>
+    </types> -->
     <types>
         <members>AD_Policy_Analyst</members>
         <members>AD_Policy_Manager</members>
