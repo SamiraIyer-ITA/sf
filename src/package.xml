@@ -4,10 +4,13 @@
         <members>ADCVDOrderTriggerHandler</members>
         <members>ADCVDOrderTriggerHandlerTest</members>
         <members>ADCVDProcessBuilderTest</members>
+        <members>ADCVD_CaseMapper</members>
         <members>ADCVD_CascadeService</members>
         <members>ADCVD_FederalRegisterUtility</members>
         <members>ADCVD_FederalRegisterUtilityTest</members>
         <members>ADCVD_OrderDetailController</members>
+        <members>ADCVD_IMapper</members>
+        <members>ADCVD_OrderMapper</members>
         <members>ADCVD_OrderSearch</members>
         <members>ADCVD_OrderSearchTest</members>
         <members>ADCVD_OrderSearchTestImpl</members>
@@ -43,9 +46,11 @@
         <members>Describer</members>
         <members>DescriberTest</members>
         <members>DispatchScheduledFollower</members>
+        <members>FederalRegisterMapper</members>
         <members>FederalRegisterTriggerHandler</members>
         <members>FederalRegisterTriggerHandlerTest</members>
         <members>Federal_RegisterCS</members>
+        <members>InvestigationMapper</members>
         <members>InvestigationSelector</members>
         <members>InvestigationSelectorTest</members>
         <members>InvestigationTriggerHandler</members>
@@ -62,6 +67,7 @@
         <members>ParentValuesService</members>
         <members>ParentValuesServiceTest</members>
         <members>Parser</members>
+        <members>PetitionMapper</members>
         <members>PetitionSelector</members>
         <members>PetitionSelectorTest</members>
         <members>PetitionTriggerHandler</members>
@@ -81,6 +87,7 @@
         <members>ScheduledRecordsRefreshDispatcher</members>
         <members>ScheduledRecordsRefreshDispatcherTest</members>
         <members>SecurityService</members>
+        <members>SegmentMapper</members>
         <members>SegmentTriggerHandler</members>
         <members>SegmentTriggerHandlerTest</members>
         <members>SegmentsSelector</members>
@@ -89,6 +96,7 @@
         <members>StaffingAssignmentsSelector</members>
         <members>SunsetReviewController</members>
         <members>SunsetReviewControllerTest</members>
+        <members>Suspension_AgreementMapper</members>
         <members>SuspensionAgreementTriggerHandler</members>
         <members>SuspensionAgreementTriggerHandlerTest</members>
         <members>SyncUtility</members>
