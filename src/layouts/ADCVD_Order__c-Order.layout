@@ -142,7 +142,6 @@
         <relatedList>Segment__c.ADCVD_Order__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>HTS_Number__c</fields>
         <relatedList>Harmonized_Tariff_Schedule__c.ADCVD_Order__c</relatedList>

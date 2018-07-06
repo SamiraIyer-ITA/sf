@@ -15,10 +15,6 @@
                 <behavior>Edit</behavior>
                 <field>Number_of_Mandatory_Companies__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Upstream_Subsidy_Allegation__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -40,11 +36,19 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Calculated_ITC_Prelim_Determination__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Calculated_Prelim_Extension_Request_File__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Prelim_Extension_of_days__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Preliminary_Extension_Remaining__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -75,6 +79,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>ITC_Finding__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Actual_Prelim_Issues_to_DAS__c</field>
             </layoutItems>
             <layoutItems>
@@ -89,7 +97,7 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>ITC_Finding__c</field>
+                <field>Upstream_Subsidy_Allegation__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -266,7 +274,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Product_Short_Name__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Office__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Commodity__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -346,14 +362,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Injunction__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Product_Short_Name__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Commodity__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
