@@ -154,7 +154,7 @@
     <fields>
         <fullName>Country__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(  Investigation__r.Petition__r.Country__c )</formula>
+        <formula>TEXT(ADCVD_Case__r.Country__c)</formula>
         <label>Country</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
