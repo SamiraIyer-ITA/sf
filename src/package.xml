@@ -150,15 +150,15 @@
         <members>StaffingAssignmentsSelectorTest</members>
         <members>RelatedOrganizationSelector</members>
         <members>RelatedOrganizationSelectorTest</members>
-		<members>ADCVD_CaseMapper.cls</members>
-		<members>ADCVD_IMapper.cls</members>
-		<members>ADCVD_OrderMapper.cls</members>
-		<members>FederalRegisterMapper.cls</members>
-		<members>InvestigationMapper.cls</members>
-		<members>LitigationMapper.cls</members>
-		<members>PetitionMapper.cls</members>
-		<members>SegmentMapper.cls</members>
-		<members>Suspension_AgreementMapper.cls</members>
+		<members>ADCVD_CaseMapper</members>
+		<members>ADCVD_IMapper</members>
+		<members>ADCVD_OrderMapper</members>
+		<members>FederalRegisterMapper</members>
+		<members>InvestigationMapper</members>
+		<members>LitigationMapper</members>
+		<members>PetitionMapper</members>
+		<members>SegmentMapper</members>
+		<members>Suspension_AgreementMapper</members>
         <name>ApexClass</name>
     </types>
     <types>
