@@ -8,7 +8,7 @@
 public without sharing class PetitionMapper implements ADCVD_IMapper {
 
 	//get the instance from the ADCVD_CaseMapper
-	public static PetitionMapper instance = (PetitionMapper)ADCVD_CaseMapper.selectorMap.get('Petition__c');
+	public static PetitionMapper instance = (PetitionMapper)ADCVD_CaseMapper.mapperMap.get('Petition__c');
 	//Maps of unlocked and of all petititons.  The unlocked map is primarily used when updating petitions, the unlocked
 	//map is sometimes used to retrieve values when updating other related objects
 	public static Map<Id,Petition__c> idToUnlockedPetitionMap = new Map<Id,Petition__c>();
@@ -41,7 +41,7 @@ public without sharing class PetitionMapper implements ADCVD_IMapper {
 			petitionIdSet.addAll(ADCVD_CaseMapper.caseIdToPetitionIdMap.get(caseId));
 		}
 		instance = new PetitionMapper(petitionIdSet);
-		ADCVD_CaseMapper.selectorMap.put('Petition__c', instance);
+		ADCVD_CaseMapper.mapperMap.put('Petition__c', instance);
 		return instance;
 	}
 	//gets the unlocked petition map

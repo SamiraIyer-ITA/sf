@@ -99,7 +99,7 @@
                 <field>LastModifiedById</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>ADCVD_Case__c</field>
             </layoutItems>
             <layoutItems>

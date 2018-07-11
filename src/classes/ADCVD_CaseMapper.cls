@@ -14,11 +14,11 @@ public without sharing class ADCVD_CaseMapper implements ADCVD_IMapper {
 	//Map of shortened object API name to an inner class instance.  This map is used
 	//to dynamically create the class types needed.
 	public static FINAL Map<String,RelatedObjects> RELATED_OBJECTS;
-	//The map that holds the selector instance for the other selectors.
+	//The map that holds the mapper instance for the other mappers.
 	//The are initialized here via empty constructors.  Those empty instances will be
-	//replaced when one of the selectors is requested in a class via the selector
+	//replaced when one of the mappers is requested in a class via the mapper
 	//specific implementation of getInstance()
-	public static Map<String,ADCVD_IMapper> selectorMap;
+	public static Map<String,ADCVD_IMapper> mapperMap;
 	//the instance for this class
 	@TestVisible private static ADCVD_CaseMapper instance = null;
 	//populate maps on class initialization
@@ -29,15 +29,15 @@ public without sharing class ADCVD_CaseMapper implements ADCVD_IMapper {
 		RELATED_OBJECTS.put('ADCVD_Order', (RelatedObjects) new ADCVD_OrderRelatedParents());
 		RELATED_OBJECTS.put('Suspension_Agreement', (RelatedObjects) new Suspension_AgreementRelatedParents());
 		RELATED_OBJECTS.put('Segment', (RelatedObjects) new SegmentRelatedParents());
-		selectorMap = new Map<String,ADCVD_IMapper>();
-		selectorMap.put('Petition__c', (ADCVD_IMapper) new PetitionMapper());
-		selectorMap.put('Investigation__c', (ADCVD_IMapper) new InvestigationMapper());
-		selectorMap.put('ADCVD_Order__c', (ADCVD_IMapper) new ADCVD_OrderMapper());
-		selectorMap.put('Suspension_Agreement__c', (ADCVD_IMapper) new Suspension_AgreementMapper());
-		selectorMap.put('Segment__c', (ADCVD_IMapper) new SegmentMapper());
-		selectorMap.put('Federal_Register__c', (ADCVD_IMapper) new FederalRegisterMapper());
-		selectorMap.put('Litigation__c', (ADCVD_IMapper) new LitigationMapper());
-		selectorMap.put('ADCVD_Case__c', (ADCVD_IMapper) new ADCVD_CaseMapper());
+		mapperMap = new Map<String,ADCVD_IMapper>();
+		mapperMap.put('Petition__c', (ADCVD_IMapper) new PetitionMapper());
+		mapperMap.put('Investigation__c', (ADCVD_IMapper) new InvestigationMapper());
+		mapperMap.put('ADCVD_Order__c', (ADCVD_IMapper) new ADCVD_OrderMapper());
+		mapperMap.put('Suspension_Agreement__c', (ADCVD_IMapper) new Suspension_AgreementMapper());
+		mapperMap.put('Segment__c', (ADCVD_IMapper) new SegmentMapper());
+		mapperMap.put('Federal_Register__c', (ADCVD_IMapper) new FederalRegisterMapper());
+		mapperMap.put('Litigation__c', (ADCVD_IMapper) new LitigationMapper());
+		mapperMap.put('ADCVD_Case__c', (ADCVD_IMapper) new ADCVD_CaseMapper());
 	}
 	//Master map of unlocked cases for execution
 	public static Map<Id,ADCVD_Case__c> idToUnlockedCaseMap = new Map<Id,ADCVD_Case__c>();
@@ -176,22 +176,22 @@ public without sharing class ADCVD_CaseMapper implements ADCVD_IMapper {
 			FrRelatedParents frp = new FrRelatedParents(shortenedObjectName, so, soId);
 		}
 	}
-	//primary method for getting and instance of this selector
+	//primary method for getting and instance of this mapper
 	public ADCVD_CaseMapper getInstance(Set<Id> caseIdSet) {
 		if (instance == null) {
 			return getNewInstance(caseIdSet);
 		}
 		return instance;
 	}
-	//method to get a new instance of this selector, should be very rarely used
+	//method to get a new instance of this mapper, should be very rarely used
 	public ADCVD_CaseMapper getNewInstance(Set<Id> caseIdSet) {
 		instance = new ADCVD_CaseMapper(caseIdSet);
-		selectorMap.put('ADCVD_Case__c', instance);
+		mapperMap.put('ADCVD_Case__c', instance);
 		return instance;
 	}
 	//method for returning this instance without providing new case Ids
 	public ADCVD_CaseMapper getInstance() {
-		return (ADCVD_CaseMapper) selectorMap.get('ADCVD_Case__c');
+		return (ADCVD_CaseMapper) mapperMap.get('ADCVD_Case__c');
 	}
 	//method for returning either all or unlocked cases
 	public Map<Id,SObject> getMap(Boolean includeLocked) {
@@ -201,14 +201,14 @@ public without sharing class ADCVD_CaseMapper implements ADCVD_IMapper {
 			return idToUnlockedCaseMap;
 		}
 	}
-	//method to return a selector based on the Object's API name
+	//method to return a mapper based on the Object's API name
 	public ADCVD_IMapper getMapper(String objectName) {
-		return selectorMap.get(objectName);
+		return mapperMap.get(objectName);
 	}
-	//method to update the map with an updated selector (i.e. after inserting new records, the trigger handler will update the selector
+	//method to update the map with an updated mapper (i.e. after inserting new records, the trigger handler will update the mapper
 	//then update this map with the new one)
-	public void putMapper(String objectName, ADCVD_IMapper selector) {
-		selectorMap.put(objectName, selector);
+	public void putMapper(String objectName, ADCVD_IMapper mapper) {
+		mapperMap.put(objectName, mapper);
 	}
 	//method to return a related set of Ids, which Ids will be returned is based on the logic in the inner classes.
 	//(i.e. an investigation Id param will return a set of Ids with that investigation Id,

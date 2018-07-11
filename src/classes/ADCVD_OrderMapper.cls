@@ -7,7 +7,7 @@
  **/
 public without sharing class ADCVD_OrderMapper implements ADCVD_IMapper{
 
-	public static ADCVD_OrderMapper instance = (ADCVD_OrderMapper)ADCVD_CaseMapper.selectorMap.get('ADCVD_Order__c');
+	public static ADCVD_OrderMapper instance = (ADCVD_OrderMapper)ADCVD_CaseMapper.mapperMap.get('ADCVD_Order__c');
 	public static Map<Id,ADCVD_Order__c> idToUnlockedOrderMap = new Map<Id,ADCVD_Order__c>();
 	public static Map<Id,ADCVD_Order__c> idToAllOrderMap = new Map<Id,ADCVD_Order__c>();
 	public ADCVD_OrderMapper() {}
@@ -36,7 +36,7 @@ public without sharing class ADCVD_OrderMapper implements ADCVD_IMapper{
 			orderIdSet.addAll(ADCVD_CaseMapper.caseIdToOrderIdMap.get(caseId));
 		}
 		instance = new ADCVD_OrderMapper(orderIdSet);
-		ADCVD_CaseMapper.selectorMap.put('ADCVD_Order__c', instance);
+		ADCVD_CaseMapper.mapperMap.put('ADCVD_Order__c', instance);
 		return instance;
 	}
 	public Map<Id, ADCVD_Order__c> getMap() {

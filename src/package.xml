@@ -3,91 +3,52 @@
     <types>
         <members>ADCVDOrderTriggerHandler</members>
         <members>ADCVDOrderTriggerHandlerTest</members>
-        <members>ADCVDProcessBuilderTest</members>
-        <members>ADCVD_AdcvdOrderSelector</members>
-        <members>ADCVD_CaseMapper</members>
         <members>ADCVD_CascadeService</members>
-        <members>ADCVD_ConstantSelector</members>
-        <members>ADCVD_ConstantsMetadataWrapper</members>
-        <members>ADCVD_FederalRegisterSelector</members>
+        <members>ADCVD_CaseMapper</members>
         <members>ADCVD_FederalRegisterUtility</members>
         <members>ADCVD_FederalRegisterUtilityTest</members>
-        <members>ADCVD_IAdcvdOrderSelector</members>
-        <members>ADCVD_IConstantSelector</members>
-        <members>ADCVD_IFederalRegisterSelector</members>
-        <members>ADCVD_IInvestigationSelector</members>
         <members>ADCVD_IMapper</members>
-        <members>ADCVD_InvestigationSelector</members>
-        <members>ADCVD_IParentObjectFetchingService</members>
-        <members>ADCVD_IPetitionSelector</members>
-        <members>ADCVD_IRelatedOrganizationSelector</members>
-        <members>ADCVD_ISegmentSelector</members>
-        <members>ADCVD_IStaffingAssignmentSelector</members>
         <members>ADCVD_OrderDetailController</members>
         <members>ADCVD_OrderDetailControllerTest</members>
         <members>ADCVD_OrderMapper</members>
         <members>ADCVD_OrderSearch</members>
-        <members>ADCVD_ParentObjectFetchingService</members>
-        <members>ADCVD_ParentObjectFetchingService_Test</members>
-        <members>ADCVD_ParentObjectFetchingServiceImpl</members>
-        <members>ADCVD_PetitionSelector</members>
-        <members>ADCVD_OrderSearchTest</members>
-        <members>ADCVD_OrderSearchTestImpl</members>
         <members>ADCVD_RecusalUtility</members>
-        <members>ADCVD_RelatedOrganizationSelector</members>
-        <members>ADCVD_SegmentSelector</members>
-        <members>ADCVD_SelectorsTest</members>
-        <members>ADCVD_StaffingAssignmentSelector</members>
-        <members>ADCVD_StaffingAssignmentSelectorTest</members>
         <members>ADCVD_TollingDayUtility</members>
         <members>ADCVD_TollingDayUtilityTest</members>
         <members>AddTollingDayBatch</members>
         <members>AddTollingDayBatchTest</members>
         <members>AppConfigService</members>
         <members>AppConfigServiceTest</members>
-        <members>ApplicationConfig</members>
-        <members>ApplicationConfig1</members>
-        <members>ApplicationDomain</members>
-        <members>ApplicationSelector</members>
         <members>AttachmentWriterController</members>
         <members>AttachmentWriterControllerTest</members>
-        <members>CalloutsSelector</members>
         <members>CascadeUtility</members>
         <members>ChatterPostService</members>
         <members>ConnectApiHelper</members>
         <members>ConnectApiHelperTest</members>
-        <members>core_IEventsConsumer</members>
-        <members>core_PlatformEventsDistributor</members>
-        <members>core_Utils</members>
         <members>CreateHTSRecordsController</members>
         <members>CustomMetadataSelector</members>
         <members>CustomMetadataSelectorTest</members>
         <members>DateCalculationConditionService</members>
         <members>DateCalculationConditionServiceTest</members>
-        <members>DateCalculationSelector</members>
-        <members>DateCalculationSelectorTest</members>
         <members>DateCalculationService</members>
         <members>DateCalculationServiceDispatcher</members>
         <members>DateCalculationServiceDispatcherTest</members>
         <members>DateCalculationServiceTest</members>
         <members>Describer</members>
         <members>DescriberTest</members>
-        <members>DispatchScheduledFollower</members>
         <members>FederalRegisterMapper</members>
         <members>FederalRegisterTriggerHandler</members>
         <members>FederalRegisterTriggerHandlerTest</members>
         <members>Federal_RegisterCS</members>
         <members>InvestigationMapper</members>
+        <members>InvestigationOverride</members>
         <members>InvestigationSelectorTest</members>
         <members>InvestigationTriggerHandler</members>
         <members>InvestigationTriggerHandlerTest</members>
-        <members>InvestigationsSelector</members>
-        <members>LibSObjectDescribe</members>
         <members>LitigationMapper</members>
         <members>LitigationTriggerHandler</members>
         <members>LitigationTriggerHandlerTest</members>
         <members>LockedRecordHandler</members>
-        <members>LogService</members>
         <members>MetadataHelper</members>
         <members>ParentSortingService</members>
         <members>ParentSortingServiceTest</members>
@@ -98,32 +59,30 @@
         <members>PetitionSelectorTest</members>
         <members>PetitionTriggerHandler</members>
         <members>PetitionTriggerHandlerTest</members>
-        <members>PetitionsSelector</members>
-        <members>QueryFactory</members>
         <members>RecusalCS</members>
         <members>RecusalTriggerHandler</members>
         <members>RecusalTriggerHandlerTest</members>
-        <members>RecusalsSelector</members>
+        <members>RelatedOrganizationSelector</members>
+        <members>RelatedOrganizationSelectorTest</members>
         <members>RelatedOrganizationTriggerHandler</members>
-        <members>RelatedOrganizationsSelector</members>
         <members>ReviewRecusalExtension</members>
         <members>ReviewRecusalExtensionTest</members>
         <members>ScheduleRecordRefreshTest</members>
         <members>ScheduleRecordsRefresh</members>
         <members>ScheduledRecordsRefreshDispatcher</members>
         <members>ScheduledRecordsRefreshDispatcherTest</members>
-        <members>SecurityService</members>
+        <members>SegmentMapper</members>
         <members>SegmentTriggerHandler</members>
         <members>SegmentTriggerHandlerTest</members>
-        <members>SegmentMapper</members>
         <members>StaffingAssignmentExtension</members>
         <members>StaffingAssignmentExtensionTest</members>
         <members>StaffingAssignmentsSelector</members>
+        <members>StaffingAssignmentsSelectorTest</members>
         <members>SunsetReviewController</members>
         <members>SunsetReviewControllerTest</members>
-        <members>Suspension_AgreementMapper</members>
         <members>SuspensionAgreementTriggerHandler</members>
         <members>SuspensionAgreementTriggerHandlerTest</members>
+        <members>Suspension_AgreementMapper</members>
         <members>SyncUtility</members>
         <members>SyncUtilityTest</members>
         <members>TestUtils</members>
@@ -134,93 +93,21 @@
         <members>Utils</members>
         <members>UtilsTest</members>
         <members>VideoController</members>
-        <members>core_IEventsConsumer</members>
-        <members>core_PlatformEventsDistributor</members>
-        <members>core_Utils</members>
-        <members>fflib_Answer</members>
-        <members>fflib_AnswerTest</members>
-        <members>fflib_AnyOrder</members>
-        <members>fflib_AnyOrderTest</members>
-        <members>fflib_ApexMocks</members>
-        <members>fflib_ApexMocksConfig</members>
-        <members>fflib_ApexMocksTest</members>
-        <members>fflib_ApexMocksUtils</members>
-        <members>fflib_ApexMocksUtilsTest</members>
-        <members>fflib_Application</members>
-        <members>fflib_ApplicationTest</members>
-        <members>fflib_ArgumentCaptor</members>
-        <members>fflib_ArgumentCaptorTest</members>
-        <members>fflib_IDGenerator</members>
-        <members>fflib_IDGeneratorTest</members>
-        <members>fflib_IMatcher</members>
-        <members>fflib_Inheritor</members>
-        <members>fflib_InheritorTest</members>
-        <members>fflib_InOrder</members>
-        <members>fflib_InOrderTest</members>
-        <members>fflib_InvocationOnMock</members>
-        <members>fflib_ISObjectDomain</members>
-        <members>fflib_ISObjectSelector</members>
-        <members>fflib_ISObjectUnitOfWork</members>
-        <members>fflib_Match</members>
-        <members>fflib_MatchTest</members>
-        <members>fflib_MatcherDefinitions</members>
-        <members>fflib_MatcherDefinitionsTest</members>
-        <members>fflib_MatchersReturnValue</members>
-        <members>fflib_MethodArgValues</members>
-        <members>fflib_MethodArgValuesTest</members>
-        <members>fflib_MethodCountRecorder</members>
-        <members>fflib_MethodReturnValue</members>
-        <members>fflib_MethodReturnValueRecorder</members>
-        <members>fflib_MethodVerifier</members>
-        <members>fflib_Mocks</members>
-        <members>fflib_MyList</members>
-        <members>fflib_QualifiedMethod</members>
-        <members>fflib_QualifiedMethodAndArgValues</members>
-        <members>fflib_QualifiedMethodTest</members>
-        <members>fflib_QueryFactory</members>
-        <members>fflib_QueryFactoryTest</members>
-        <members>fflib_SecurityUtils</members>
-        <members>fflib_SecurityUtilsTest</members>
-        <members>fflib_SObjectDescribe</members>
-        <members>fflib_SObjectDescribeTest</members>
-        <members>fflib_SObjectDomain</members>
-        <members>fflib_SObjectDomainTest</members>
-        <members>fflib_SObjectMocks</members>
-        <members>fflib_SObjectSelector</members>
-        <members>fflib_SObjectSelectorTest</members>
-        <members>fflib_SObjectUnitOfWork</members>
-        <members>fflib_SObjectUnitOfWorkTest</members>
-        <members>fflib_SecurityUtils</members>
-        <members>fflib_SecurityUtilsTest</members>
-        <members>fflib_StringBuilder</members>
-        <members>fflib_StringBuilderTest</members>
-        <members>fflib_System</members>
-        <members>fflib_SystemTest</members>
-        <members>fflib_VerificationMode</members>
-        <members>fflibext_Application</members>
-        <members>fflibext_ISObjectSelector</members>
-        <members>fflibext_ISObjectUnitOfWork</members>
-        <members>fflibext_SObjectSelector</members>
-        <members>fflibext_SObjectUnitOfWork</members>
-        <members>ADCVD_OrderDetailControllerTest</members>
-        <members>InvestigationOverride</members>
-        <members>StaffingAssignmentsSelector</members>
-        <members>StaffingAssignmentsSelectorTest</members>
-        <members>RelatedOrganizationSelector</members>
-        <members>RelatedOrganizationSelectorTest</members>
         <name>ApexClass</name>
     </types>
+
     <types>
         <members>Describer_Development</members>
         <members>InvestigationOverride</members>
+        <members>OrderAttachmentWriter</members>
         <members>ReviewRecusalPage</members>
         <members>StaffingAssignment</members>
         <members>SunsetReview</members>
         <members>SuspensionAgreementAttachmentWriter</members>
-        <members>OrderAttachmentWriter</members>
         <members>adcvd</members>
         <name>ApexPage</name>
     </types>
+
     <types>
         <members>ADCVDOrderTrigger</members>
         <members>FederalRegisterTrigger</members>
@@ -228,11 +115,11 @@
         <members>LitigationTrigger</members>
         <members>RecusalTrigger</members>
         <members>PetitionTrigger</members>
+        <members>RecusalTrigger</members>
         <members>RelatedOrganizationTrigger</members>
-        <members>SuspensionAgreementTrigger</members>
         <members>SegmentTrigger</members>
+        <members>SuspensionAgreementTrigger</members>
         <members>TollingDayTrigger</members>
-        <members>core_PlatformEvents</members>
         <name>ApexTrigger</name>
     </types>
     <types>
@@ -240,50 +127,6 @@
         <name>CustomApplication</name>
     </types>
     <types>
-        <members>fflib_QueryFactory_crossobject_fieldsets_not_allowed_error</members>
-        <members>fflib_QueryFactory_fieldset_wrong_sobject_error</members>
-        <members>fflib_QueryFactory_recursive_subquery_error</members>
-        <members>fflib_QueryFactory_subquery_invalid_relationship</members>
-        <members>fflib_security_error_field_not_insertable</members>
-        <members>fflib_security_error_field_not_readable</members>
-        <members>fflib_security_error_field_not_updateable</members>
-        <members>fflib_security_error_object_not_deletable</members>
-        <members>fflib_security_error_object_not_insertable</members>
-        <members>fflib_security_error_object_not_readable</members>
-        <members>fflib_security_error_object_not_updateable</members>
-        <name>CustomLabel</name>
-    </types>
-    <types>
-        <members>ADCVD_Objects.ADCVD_Order</members>
-        <members>ADCVD_Objects.Federal_Register</members>
-        <members>ADCVD_Objects.Inv_AD</members>
-        <members>ADCVD_Objects.Inv_All_Record_Types</members>
-        <members>ADCVD_Objects.Inv_CVD</members>
-        <members>ADCVD_Objects.Issue_Amended_Final</members>
-        <members>ADCVD_Objects.Issue_Amended_Preliminary</members>
-        <members>ADCVD_Objects.Issue_Continuation_or_Revocation</members>
-        <members>ADCVD_Objects.Issue_Deadline_for_Dec_on_HOP</members>
-        <members>ADCVD_Objects.Issue_Final</members>
-        <members>ADCVD_Objects.Issue_Initiation</members>
-        <members>ADCVD_Objects.Issue_Preliminary</members>
-        <members>ADCVD_Objects.Lit_All_Record_Types</members>
-        <members>ADCVD_Objects.Lit_Int</members>
-        <members>ADCVD_Objects.Lit_Rem</members>
-        <members>ADCVD_Objects.Petition</members>
-        <members>ADCVD_Objects.Rec_Pri</members>
-        <members>ADCVD_Objects.Rec_Rel</members>
-        <members>ADCVD_Objects.Related_Org_Petitioner</members>
-        <members>ADCVD_Objects.Related_Org_Respondent</members>
-        <members>ADCVD_Objects.Seg_ACR</members>
-        <members>ADCVD_Objects.Seg_AR</members>
-        <members>ADCVD_Objects.Seg_CCR</members>
-        <members>ADCVD_Objects.Seg_ER</members>
-        <members>ADCVD_Objects.Seg_NSR</members>
-        <members>ADCVD_Objects.Seg_SI</members>
-        <members>ADCVD_Objects.Seg_SSR</members>
-        <members>ADCVD_Objects.Segment_All_Record_Types</members>
-        <members>ADCVD_Objects.Staffing_Assignment</members>
-        <members>ADCVD_Objects.Suspension_Agreement</members>
         <members>ADCVD_Objects.ADCVD_Order</members>
         <members>ADCVD_Objects.Federal_Register</members>
         <members>ADCVD_Objects.Inv_AD</members>
@@ -1250,20 +1093,20 @@
         <name>CustomPermission</name>
     </types>
     <types>
+        <members>ADCVD_Case__c</members>
         <members>ADCVD_Order__c</members>
         <members>Federal_Register__c</members>
         <members>Harmonized_Tariff_Schedule__c</members>
-        <members>Litigation__c</members>
         <members>Investigation__c</members>
+        <members>Litigation__c</members>
+        <members>Next_Major_Deadline_Dashboard</members>
         <members>Petition__c</members>
         <members>Recusal__c</members>
+		<members>Related_Organization__c</members>
         <members>Segment__c</members>
         <members>Staffing_Assignment__c</members>
-		<members>Related_Organization__c</members>
         <members>Suspension_Agreement__c</members>
-        <members>Test_Object_Describer</members>
         <members>Tolling_Day__c</members>
-        <members>ADCVD_Case__c</members>
         <name>CustomTab</name>
     </types>
     <types>
@@ -1271,7 +1114,7 @@
         <members>ADCVD/Deadlines_Dashboard</members>
         <name>Dashboard</name>
     </types>
-    <types>
+<!--    <types>
         <members>ADCVD_Case_Page</members>
         <members>ADCVD_Home_Page</members>
         <members>ADCVD_Investigation_Lightning_Record_Page</members>
@@ -1288,6 +1131,7 @@
         <members>Staffing_Assignment_Record_Page</members>
         <name>FlexiPage</name>
     </types>
+-->
     <types>
         <members>ADCVD_Offices</members>
         <members>Commodity</members>
@@ -1300,7 +1144,9 @@
         <name>GlobalValueSet</name>
     </types>
     <types>
-        <members>ADCVD_Manager</members>
+        <members>AD_Policy_Mass_Staffing_Group</members>
+        <members>CVD_Policy_Mass_Staffing_Group</members>
+        <members>Legal_Mass_Staffing_Group</members>
         <name>Group</name>
     </types>
         <types>
@@ -1308,6 +1154,7 @@
         <name>HomePageLayout</name>
     </types>
     <types>
+        <members>ADCVD_Case__c-ADCVD Case Layout</members>
         <members>ADCVD_Objects__mdt-ADCVD Objects Layout</members>
         <members>ADCVD_Order__c-Order</members>
         <members>Constant__mdt-Constant Layout</members>
@@ -1337,12 +1184,11 @@
         <members>Sync_Utility__mdt-Sync Utility Layout</members>
         <members>Tolling_Day__c-Tolling Day Layout</members>
         <members>User-User Layout</members>
-        <members>ADCVD_Case__c-ADCVD Case Layout</members>
         <name>Layout</name>
     </types>
     <types>
-        <members>AD_CVD</members>
-        <members>AD_CVD_Advanced_Permissions</members>
+        <members>ADCVD_App_400_Abbr_Next_Deadline_Dashboard</members>
+        <members>ADCVD_App_401_Next_Deadline_Dashboard_View_All</members>
         <members>ADCVD_App_Edit_ADCVD_Locked_Records</members>
         <name>PermissionSet</name>
     </types>
@@ -1369,16 +1215,16 @@
         <members>Segment_ClosedLocked_Queue</members>
         <members>Segment_Open_Queue</members>
         <members>Segments_MigratedClosedLocked_Queue</members>
-        <members>Tolling_Day_Open_Queue</members>
         <members>Staffing_Assignments_Open_Queue</members>
         <members>Staffing_Assignments_MigratedLockedQueue</members>
         <members>Staffing_Assignments_ClosedLocked_Queue</members>
+        <members>Tolling_Day_Open_Queue</members>
         <name>Queue</name>
     </types>
-    <types>
+<!--<types>
         <members>Investigations_and_Segments_with_Staffing</members>
         <name>ReportType</name>
-    </types>
+    </types> -->
     <types>
         <members>AD_Policy_Analyst</members>
         <members>AD_Policy_Manager</members>
@@ -1417,52 +1263,31 @@
         <name>Role</name>
     </types>
     <types>
-        <members>testCsvFile1</members>
-        <members>testad</members>
-        <members>testad_final_extension_bound</members>
-        <members>testad_holiday</members>
-        <members>testad_initiation_extension_bound</members>
-        <members>testad_preliminary_extension_bound</members>
-        <members>testad_tolling_day_after_end_date</members>
-        <members>testad_tolling_day_before_start_date</members>
-        <members>testad_tolling_day_between_both_dates</members>
-        <members>testad_tolling_day_between_end_date</members>
-        <members>testad_tolling_day_between_start_date</members>
-        <members>testcvd</members>
-        <members>testcvd_final_extension_bound</members>
-        <members>testcvd_holiday</members>
-        <members>testcvd_initiation_extension_bound</members>
-        <members>testcvd_preliminary_extension_bound</members>
-        <members>testcvd_tolling_day_after_end_date</members>
-        <members>testcvd_tolling_day_before_start_date</members>
-        <members>testcvd_tolling_day_between_both_dates</members>
-        <members>testcvd_tolling_day_between_end_date</members>
-        <members>testcvd_tolling_day_between_start_date</members>
         <members>adcvd</members>
-        <members>TestAlignedCVD</members>
+        <members>adcvd_search</members>
         <name>StaticResource</name>
     </types>
     <types>
+        <members>ADCVD_Case__c</members>
         <members>ADCVD_Objects__mdt</members>
-		<members>Investigation__c</members>
         <members>ADCVD_Order__c</members>
+        <members>Constant__mdt</members>
         <members>Custom_Instruction__c</members>
         <members>Date_Calculation__mdt</members>
         <members>Federal_Register__c</members>
         <members>Harmonized_Tariff_Schedule__c</members>
+        <members>Investigation__c</members>
+        <members>Litigation__c</members>
         <members>Petition__c</members>
         <members>Recusal__c</members>
-        <members>Segment__c</members>
-		<members>Litigation__c</members>
 		<members>Related_Organization__c</members>
+        <members>Segment__c</members>
         <members>Service__mdt</members>
         <members>Staffing_Assignment__c</members>
         <members>Suspension_Agreement__c</members>
         <members>Sync_Utility__mdt</members>
         <members>Tolling_Day__c</members>
-        <members>ADCVD_Case__c</members>
-        <members>Constant__mdt</members>
         <name>Workflow</name>
     </types>
-    <version>42.0</version>
+    <version>40.0</version>
 </Package>

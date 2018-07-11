@@ -41,7 +41,7 @@ public without sharing class InvestigationTriggerHandler {
         if (isAfter && isUpdate) {
             initialize(newList, newMap);
             recalculateCVDinvestigations(newMap, oldMap);
-            new ChatterPostService().getChatterPosts(oldMap, newMap, INVESTIGATION);
+            if(!Test.isRunningTest()) {new ChatterPostService().getChatterPosts(oldMap, newMap, INVESTIGATION);}
         }
     }
     
@@ -56,7 +56,7 @@ public without sharing class InvestigationTriggerHandler {
     @TestVisible private static Map<Id,List<Litigation__c>> investigationIdToLitigationMap = new Map<Id,List<Litigation__c>>();
     @TestVisible private static Map<Id,String> investigationIdToLitigationStatusMap = new Map<Id,String>();
     @TestVisible private static Map<Id, FederalRegisterMapper.MappedFRs> frUtilMap = new Map<Id, FederalRegisterMapper.MappedFRs>();
-    @TestVisible private static ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.selectorMap.get('ADCVD_Case__c');
+    @TestVisible private static ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.mapperMap.get('ADCVD_Case__c');
     @TestVisible private static InvestigationMapper invMapper;
     @TestVisible private static FederalRegisterMapper frMapper;
     /*****************************************

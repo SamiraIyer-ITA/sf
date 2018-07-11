@@ -3,7 +3,7 @@ public without sharing class DateCalculationService {
     @TestVisible private Map<String,Date_Calculation__mdt> dateCalculations = new Map<String,Date_Calculation__mdt>();
     @TestVisible private FederalRegisterMapper frMapper;
     @TestVisible private Map<Id, FederalRegisterMapper.MappedFRs> frUtilMap = new Map<Id, FederalRegisterMapper.MappedFRs>();
-    @TestVisible private ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.selectorMap.get('ADCVD_Case__c');
+    @TestVisible private ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.mapperMap.get('ADCVD_Case__c');
 
     public void getCalculatedDates(List<SObject> soList, String soType, String recordTypeName) {
         setDateCalculations(soType, recordTypeName);
@@ -72,6 +72,8 @@ public without sharing class DateCalculationService {
                     tempDate = ADCVD_TollingDayUtility.getCalculatedDate(baseDate, tempDate, true);
                 } else if (baseDate != null && tollingService == 'Count Back Business Days') {
                     tempDate = ADCVD_TollingDayUtility.countBackBusinessDays(baseDate, offset);
+                   } else if (baseDate != null && String.isBlank(tollingService)) {
+                        tempDate = baseDate.addDays(offset).addDays(extension);
                 }
                 record.put(calculatedDateName, tempDate);
             } else {

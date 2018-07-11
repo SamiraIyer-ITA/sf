@@ -6,7 +6,7 @@
  * 
  **/
 public without sharing class Suspension_AgreementMapper implements ADCVD_IMapper {
-	public static Suspension_AgreementMapper instance = (Suspension_AgreementMapper)ADCVD_CaseMapper.selectorMap.get('Suspension_Agreement__c');
+	public static Suspension_AgreementMapper instance = (Suspension_AgreementMapper)ADCVD_CaseMapper.mapperMap.get('Suspension_Agreement__c');
 	public static Map<Id,Suspension_Agreement__c> idToUnlockedSuspAgrmtMap = new Map<Id,Suspension_Agreement__c>();
 	public static Map<Id,Suspension_Agreement__c> idToAllSuspAgrmtMap = new Map<Id,Suspension_Agreement__c>();
 	public Suspension_AgreementMapper() {}
@@ -35,7 +35,7 @@ public without sharing class Suspension_AgreementMapper implements ADCVD_IMapper
 			suspAgrmtIdSet.addAll(ADCVD_CaseMapper.caseIdToSuspAgrmtIdMap.get(caseId));
 		}
 		instance = new Suspension_AgreementMapper(suspAgrmtIdSet);
-		ADCVD_CaseMapper.selectorMap.put('Suspension_Agreement__c', instance);
+		ADCVD_CaseMapper.mapperMap.put('Suspension_Agreement__c', instance);
 		return instance;
 	}
 	public Map<Id, Suspension_Agreement__c> getMap() {
