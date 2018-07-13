@@ -93,6 +93,74 @@
         <members>Utils</members>
         <members>UtilsTest</members>
         <members>VideoController</members>
+        <members>core_IEventsConsumer</members>
+        <members>core_PlatformEventsDistributor</members>
+        <members>core_Utils</members>
+        <members>fflib_Answer</members>
+        <members>fflib_AnswerTest</members>
+        <members>fflib_AnyOrder</members>
+        <members>fflib_AnyOrderTest</members>
+        <members>fflib_ApexMocks</members>
+        <members>fflib_ApexMocksConfig</members>
+        <members>fflib_ApexMocksTest</members>
+        <members>fflib_ApexMocksUtils</members>
+        <members>fflib_ApexMocksUtilsTest</members>
+        <members>fflib_Application</members>
+        <members>fflib_ApplicationTest</members>
+        <members>fflib_ArgumentCaptor</members>
+        <members>fflib_ArgumentCaptorTest</members>
+        <members>fflib_IDGenerator</members>
+        <members>fflib_IDGeneratorTest</members>
+        <members>fflib_IMatcher</members>
+        <members>fflib_Inheritor</members>
+        <members>fflib_InheritorTest</members>
+        <members>fflib_InOrder</members>
+        <members>fflib_InOrderTest</members>
+        <members>fflib_InvocationOnMock</members>
+        <members>fflib_ISObjectDomain</members>
+        <members>fflib_ISObjectSelector</members>
+        <members>fflib_ISObjectUnitOfWork</members>
+        <members>fflib_Match</members>
+        <members>fflib_MatchTest</members>
+        <members>fflib_MatcherDefinitions</members>
+        <members>fflib_MatcherDefinitionsTest</members>
+        <members>fflib_MatchersReturnValue</members>
+        <members>fflib_MethodArgValues</members>
+        <members>fflib_MethodArgValuesTest</members>
+        <members>fflib_MethodCountRecorder</members>
+        <members>fflib_MethodReturnValue</members>
+        <members>fflib_MethodReturnValueRecorder</members>
+        <members>fflib_MethodVerifier</members>
+        <members>fflib_Mocks</members>
+        <members>fflib_MyList</members>
+        <members>fflib_QualifiedMethod</members>
+        <members>fflib_QualifiedMethodAndArgValues</members>
+        <members>fflib_QualifiedMethodTest</members>
+        <members>fflib_QueryFactory</members>
+        <members>fflib_QueryFactoryTest</members>
+        <members>fflib_SecurityUtils</members>
+        <members>fflib_SecurityUtilsTest</members>
+        <members>fflib_SObjectDescribe</members>
+        <members>fflib_SObjectDescribeTest</members>
+        <members>fflib_SObjectDomain</members>
+        <members>fflib_SObjectDomainTest</members>
+        <members>fflib_SObjectMocks</members>
+        <members>fflib_SObjectSelector</members>
+        <members>fflib_SObjectSelectorTest</members>
+        <members>fflib_SObjectUnitOfWork</members>
+        <members>fflib_SObjectUnitOfWorkTest</members>
+        <members>fflib_SecurityUtils</members>
+        <members>fflib_SecurityUtilsTest</members>
+        <members>fflib_StringBuilder</members>
+        <members>fflib_StringBuilderTest</members>
+        <members>fflib_System</members>
+        <members>fflib_SystemTest</members>
+        <members>fflib_VerificationMode</members>
+        <members>fflibext_Application</members>
+        <members>fflibext_ISObjectSelector</members>
+        <members>fflibext_ISObjectUnitOfWork</members>
+        <members>fflibext_SObjectSelector</members>
+        <members>fflibext_SObjectUnitOfWork</members>
         <name>ApexClass</name>
     </types>
 
@@ -120,11 +188,26 @@
         <members>SegmentTrigger</members>
         <members>SuspensionAgreementTrigger</members>
         <members>TollingDayTrigger</members>
+        <members>core_PlatformEvents</members>
         <name>ApexTrigger</name>
     </types>
     <types>
         <members>AD_CVD_Lightning</members>
         <name>CustomApplication</name>
+    </types>
+    <types>
+        <members>fflib_QueryFactory_crossobject_fieldsets_not_allowed_error</members>
+        <members>fflib_QueryFactory_fieldset_wrong_sobject_error</members>
+        <members>fflib_QueryFactory_recursive_subquery_error</members>
+        <members>fflib_QueryFactory_subquery_invalid_relationship</members>
+        <members>fflib_security_error_field_not_insertable</members>
+        <members>fflib_security_error_field_not_readable</members>
+        <members>fflib_security_error_field_not_updateable</members>
+        <members>fflib_security_error_object_not_deletable</members>
+        <members>fflib_security_error_object_not_insertable</members>
+        <members>fflib_security_error_object_not_readable</members>
+        <members>fflib_security_error_object_not_updateable</members>
+        <name>CustomLabel</name>
     </types>
     <types>
         <members>ADCVD_Objects.ADCVD_Order</members>
@@ -1063,6 +1146,11 @@
     </types>
     <types>
         <members>Account</members>
+        <members>ApplicationFactory_Domain__mdt</members>
+        <members>ApplicationFactory_Selector__mdt</members>
+        <members>ApplicationFactory_SelectorFieldset__mdt</members>
+        <members>ApplicationFactory_Service__mdt</members>
+        <members>ApplicationFactory_UnitOfWork__mdt</members>
         <members>ADCVD_Case__c</members>
         <members>ADCVD_Order__c</members>
         <members>ADCVD_Objects__mdt</members>
@@ -1086,6 +1174,8 @@
         <members>Sync_Utility__mdt</members>
         <members>Tolling_Day__c</members>
         <members>User</members>
+        <members>core_Event__e</members>
+        <members>core_EventConsumerSubscription__mdt</members>
         <name>CustomObject</name>
     </types>
     <types>
@@ -1114,24 +1204,6 @@
         <members>ADCVD/Deadlines_Dashboard</members>
         <name>Dashboard</name>
     </types>
-<!--    <types>
-        <members>ADCVD_Case_Page</members>
-        <members>ADCVD_Home_Page</members>
-        <members>ADCVD_Investigation_Lightning_Record_Page</members>
-        <members>ADCVD_Order_Lightning_Layout</members>
-        <members>ADCVD_Petition_Lightning_Record_Page</members>
-        <members>ADCVD_Suspension_Agreement_Record</members>
-        <members>International_Litigation_Record_Page</members>
-        <members>LightningSalesConsole_UtilityBar</members>
-        <members>LightningService_UtilityBar</members>
-        <members>Litigation_Lightning_Record_Page_Layout</members>
-        <members>Next_Major_Deadline_Dashboard</members>
-        <members>Remand_Litigation_Record_Page1</members>
-        <members>Segment_Lightning_Record_Page_Layout</members>
-        <members>Staffing_Assignment_Record_Page</members>
-        <name>FlexiPage</name>
-    </types>
--->
     <types>
         <members>ADCVD_Offices</members>
         <members>Commodity</members>
@@ -1221,10 +1293,6 @@
         <members>Tolling_Day_Open_Queue</members>
         <name>Queue</name>
     </types>
-<!--<types>
-        <members>Investigations_and_Segments_with_Staffing</members>
-        <name>ReportType</name>
-    </types> -->
     <types>
         <members>AD_Policy_Analyst</members>
         <members>AD_Policy_Manager</members>
