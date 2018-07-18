@@ -56,6 +56,7 @@
         <members>ParentValuesServiceTest</members>
         <members>Parser</members>
         <members>PetitionMapper</members>
+        <members>PetitionMapperTest</members>
         <members>PetitionSelectorTest</members>
         <members>PetitionTriggerHandler</members>
         <members>PetitionTriggerHandlerTest</members>
