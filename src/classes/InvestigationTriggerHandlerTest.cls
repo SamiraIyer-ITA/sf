@@ -89,6 +89,26 @@ public class InvestigationTriggerHandlerTest {
       return iCVD;
     }  
   }
+    private static Federal_Register__c adInitiationFR{
+        get{
+            if(adInitiationFR == null){
+                adInitiationFR = [SELECT Id, Published_Date__c, Type__c FROM Federal_Register__c WHERE Petition__c =: adP.Id AND Type__c =: 'Initiation' LIMIT 1];
+            }
+            return adInitiationFR;
+        }
+        set;
+    }
+    
+    private static Federal_Register__c cvdInitiationFR{
+        get{
+            if(cvdInitiationFR == null){
+                cvdInitiationFR = [SELECT Id, Published_Date__c, Type__c FROM Federal_Register__c WHERE Petition__c =: cvdP.Id AND Type__c =: 'Initiation' LIMIT 1];
+            }
+            return cvdInitiationFR;
+        }
+        set;
+    }
+    
   private static Federal_Register__c adPrelimFR {
     get {
       if(adPrelimFR == null) {
@@ -705,6 +725,37 @@ public class InvestigationTriggerHandlerTest {
     System.assertEquals(testActual,
       [SELECT Id, Calculated_Prelim_Extension_Request_File__c FROM Investigation__c WHERE Id =: iCVD.Id LIMIT 1].Calculated_Prelim_Extension_Request_File__c);
   }
+    //setADCalculatedPostponementOfPrelimDeterFRwithSelfInitiatedPetition
+    @isTest static void setADCalculatedPostponementOfPrelimDeterFRwithSelfInitiatedPetition(){
+        Test.startTest();
+        //AD investigation and Petition
+        testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(adInitiationFR.Published_Date__c.addDays(120));
+        //Set petition outcome to self-initiated
+        adP.Petition_Outcome__c = 'Self-Initiated';
+        //Add arbitrary dates to required fields, doesn't affect actual calculation
+        adP.Actual_Initiation_Signature__c = Date.Today().addDays(5);
+        adP.Calculated_Initiation_Signature__c = Date.Today().addDays(7);
+        update adP;
+        Test.stopTest();
+        System.assertEquals(testCalculated, 
+                            [SELECT Id, Calculated_Postponement_of_PrelimDeterFR__c FROM Investigation__c WHERE Id =: iAD.Id LIMIT 1].Calculated_Postponement_of_PrelimDeterFR__c);
+    }
+    //setCVDCalculatedPostponementOfPrelimDeterFRwithSelfInitiatedPetition
+    @isTest static void setCVDCalculatedPostponementOfPrelimDeterFRwithSelfInitiatedPetition(){
+        Test.startTest();
+        //CVD investigation and Petition
+        testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(cvdInitiationFR.Published_Date__c.addDays(45));
+        //Set petition outcome to self-initiated
+        cvdP.Petition_Outcome__c = 'Self-Initiated';
+        //Add arbitrary dates to required fields, doesn't affect actual calculation
+        cvdP.Actual_Initiation_Signature__c = Date.Today().addDays(5);
+        cvdP.Calculated_Initiation_Signature__c = Date.Today().addDays(7);
+        update cvdP;
+        Test.stopTest();
+        System.assertEquals(testCalculated, 
+                            [SELECT Id, Calculated_Postponement_of_PrelimDeterFR__c FROM Investigation__c WHERE Id =: iCVD.Id LIMIT 1].Calculated_Postponement_of_PrelimDeterFR__c);
+        
+    }
   //setCalculatedPostponementOfPrelimDeterFR
   @isTest static void setADCalculatedPostponementOfPrelimDeterFR() {
     Test.startTest();
@@ -1707,6 +1758,11 @@ public class InvestigationTriggerHandlerTest {
     frList.add(testAdPrelimFR);
     Federal_Register__c testCvdPrelimFR = TestUtils.createFR(testCVDinvestigation.Id, 'Investigation__c', testPublishedDate.addDays(140), 'Preliminary', false);
     frList.add(testCvdPrelimFR);
+        //Add initiation federal registers
+        Federal_Register__c testAdInitiationFR = TestUtils.createFR(testADPetition.Id, 'Petition__c', petitionDate, 'Initiation', false);
+        frList.add(testAdInitiationFR);
+        Federal_Register__c testCvdInitiationFR = TestUtils.createFR(testCVDPetition.Id, 'Petition__c', petitionDate, 'Initiation', false);
+        frList.add(testCvdInitiationFR);
     insert frList;
     ADCVD_Order__c testAdOrder = TestUtils.createOrder(testADinvestigation, false);
     orderList.add(testAdOrder);
