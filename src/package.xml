@@ -45,7 +45,11 @@
         <members>InvestigationSelectorTest</members>
         <members>InvestigationTriggerHandler</members>
         <members>InvestigationTriggerHandlerTest</members>
+        <members>ILitigationSelector</members>
         <members>LitigationMapper</members>
+        <members>LitigationMapperTest</members>
+        <members>LitigationSelector</members>
+        <members>LitigationSelectorTest</members>
         <members>LitigationTriggerHandler</members>
         <members>LitigationTriggerHandlerTest</members>
         <members>LockedRecordHandler</members>
