@@ -7,11 +7,16 @@
  **/
 
 public without sharing class LitigationMapper implements ADCVD_IMapper {
-	public static LitigationMapper instance = (LitigationMapper)ADCVD_CaseMapper.mapperMap.get('Litigation__c');
-	public static Map<Id,Litigation__c> idToUnlockedLitigationMap = new Map<Id,Litigation__c>();
+    
+	public static LitigationMapper instance = (LitigationMapper)ADCVD_CaseMapper.mapperMap.get('Litigation__c');  
+    public static Map<Id,Litigation__c> idToUnlockedLitigationMap = new Map<Id,Litigation__c>();    
 	public static Map<Id,Litigation__c> idToAllLitigationMap = new Map<Id,Litigation__c>();
-	public LitigationMapper() {}
-	@TestVisible private LitigationMapper(Set<Id> litigationIdSet) {
+	
+    public LitigationMapper() {}
+	
+    @TestVisible 
+    private LitigationMapper(Set<Id> litigationIdSet) 
+    {
 		if (idToUnlockedLitigationMap.isEmpty()) {         
             List<Litigation__c> litigationList = LitigationSelector.newInstance().selectById(litigationIdSet);            
 			for (Litigation__c l : litigationList) {
