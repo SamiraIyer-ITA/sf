@@ -63,9 +63,7 @@ public class InvestigationMapperTest {
         set;
     }
     
-    static testMethod void testInvestigationMapper(){
-        
-        Test.startTest();
+    @isTest static void testInvestigationMapper(){
         //One instace of the ADCVD_CaseMapper
         ADCVD_CaseMapper adcvdCaseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.mapperMap.get('ADCVD_Case__c');
         adcvdCaseMapper = adcvdCaseMapper.getInstance(new Set<Id>{case1.Id ,case2.Id});
@@ -76,7 +74,6 @@ public class InvestigationMapperTest {
         Map<Id, Investigation__c> idToAllInvestigation = invMapper.getMap(true);
         
         List<Investigation__c> allInvestigations = InvestigationMapper.allInvestigations;
-        Test.stopTest();
         unlockedInvestigation = null;
         lockedInvestigation = null;
         
@@ -94,9 +91,7 @@ public class InvestigationMapperTest {
         
     }
     
-    static testMethod void nullInstanceCoverage(){
-        Test.startTest();
+    @isTest static void nullInstanceCoverage(){
         InvestigationMapper.getInstance();
-        Test.stopTest();
     }
 }

@@ -70,8 +70,7 @@ public class SegmentMapperTest {
         set;
     }
     
-    static testMethod void testSegmentMapper(){
-        Test.startTest();
+    @isTest static void testSegmentMapper(){
         ADCVD_CaseMapper adcvdCaseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.mapperMap.get('ADCVD_Case__c');
         adcvdCaseMapper = adcvdCaseMapper.getInstance(new Set<Id>{case1.Id ,case2.Id});
         //SegmentMapper
@@ -80,8 +79,7 @@ public class SegmentMapperTest {
 		Map<Id, Segment__c> idToUnlockedSegments = segmentMapper.getMap(false);
         Map<Id, Segment__c> idToAllSegments = segmentMapper.getMap(true);
         
-        Test.stopTest();
-        
+
         System.assertEquals(unlockedSegment.Id, idToUnlockedSegments.get(unlockedSegment.Id).Id);
         System.assertEquals(null, idToUnlockedSegments.get(lockedSegment.Id));
 		
@@ -93,9 +91,7 @@ public class SegmentMapperTest {
         Map<Id, Segment__c> segmentIdMap = segmentMapper.getMap();
     }
     
-    static testMethod void nullInstanceCoverage(){
-        Test.startTest();
+    @isTest static void nullInstanceCoverage(){
         SegmentMapper.getInstance();
-        Test.stopTest();
     }
 }

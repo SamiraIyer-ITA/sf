@@ -24,7 +24,7 @@ public class Suspension_AgreementMapperTest {
         insert new List<Suspension_Agreement__c>{lockedSuspension, unlockedSuspension};
         lockedSuspension.Locked__c = true;
         update lockedSuspension;
-
+		
     }
 
     private static ADCVD_Case__c case1{
@@ -68,7 +68,6 @@ public class Suspension_AgreementMapperTest {
     }
 
     @isTest static void testSuspemsionAgreementMapper(){
-        Test.startTest();
         ADCVD_CaseMapper adcvdCaseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.mapperMap.get('ADCVD_Case__c');
         adcvdCaseMapper = adcvdCaseMapper.getInstance(new Set<Id>{case1.Id ,case2.Id});
         //SegmentMapper
@@ -77,7 +76,6 @@ public class Suspension_AgreementMapperTest {
         Map<Id, Suspension_Agreement__c> idToUnlockedSuspensionAgreements = suspensionAgreementMapper.getMap(false);
         Map<Id, Suspension_Agreement__c> idToAllSuspensionAgreements = suspensionAgreementMapper.getMap(true);
 
-        Test.stopTest();
 
         System.assertEquals(unlockedSuspensionAgreement.Id, idToUnlockedSuspensionAgreements.get(unlockedSuspensionAgreement.Id).Id);
         System.assertEquals(null, idToUnlockedSuspensionAgreements.get(lockedSuspensionAgreement.Id));
@@ -91,9 +89,7 @@ public class Suspension_AgreementMapperTest {
     }
 
     @isTest static void nullInstanceCoverage(){
-        Test.startTest();
         Suspension_AgreementMapper.getInstance();
-        Test.stopTest();
     }
 
 }
