@@ -1,6 +1,18 @@
 @isTest
 public class DateCalculationServiceTest {
 	private static FINAL Integer COUNT = 1;
+    
+    private static Set<Id> caseIds {
+        get {
+            if (caseIds == null) {
+                caseIds = new Set<Id>();
+                for (ADCVD_Case__c ac : [SELECT Id FROM ADCVD_Case__C]) {
+                    caseIds.add(ac.Id);
+                } 
+            }
+            return caseIds;
+        }
+    }
 
 	private static List<Petition__c> petList {
 		get {
@@ -24,7 +36,7 @@ public class DateCalculationServiceTest {
 
 	@isTest static void setDateCalculations() {
 		Test.startTest();
-		DateCalculationService dcs = DateCalculationServiceDispatcher.getDateCalculationServiceInstance('Investigation__c');
+        DateCalculationService dcs = DateCalculationServiceDispatcher.getDateCalculationServiceInstance('Investigation__c');
 		dcs.setDateCalculations('Investigation__c', 'AD');
 		Test.stopTest();
 		System.assertNotEquals(null, dcs.dateCalculations);
@@ -32,6 +44,10 @@ public class DateCalculationServiceTest {
 
 	@isTest static void getCalculatedDates() {
 		Test.startTest();
+        ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.mapperMap.get('ADCVD_Case__c');
+		caseMapper = caseMapper.getInstance(caseIds);
+		PetitionMapper petMapper = (PetitionMapper) caseMapper.getMapper('Petition__c').getInstance();
+        InvestigationMapper invMapper = (InvestigationMapper) caseMapper.getMapper('Investigation__c').getInstance();
 		DateCalculationService petDcs = DateCalculationServiceDispatcher.getDateCalculationServiceInstance('Petition__c');
 		petDcs.getCalculatedDates(petList, 'Petition__c', '');
 		DateCalculationService invDcs = DateCalculationServiceDispatcher.getDateCalculationServiceInstance('Investigation__c');
@@ -67,7 +83,6 @@ public class DateCalculationServiceTest {
 	}
 
 	@testSetup static void dataSetup() {
-		Test.startTest();
 		//create custom setting configuration to activate triggers, workflow rules, and validation rules
         Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
         AppConfig__c ac = TestUtils.createAppConfig('default', true, true);
