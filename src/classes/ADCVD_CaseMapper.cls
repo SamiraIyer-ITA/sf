@@ -130,45 +130,45 @@ public without sharing class ADCVD_CaseMapper implements ADCVD_IMapper {
 	}
 	//methods to populate each case to set of object Ids map.
 	public void setCaseIdToPetitionMap(Id caseId, List<Petition__c> petitionList) {
-		caseIdToPetitionIdMap.put(caseId, getIdSetForMaps(petitionList, 'Petition__c'));
+		caseIdToPetitionIdMap.put(caseId, getIdSetForMaps(caseIdToPetitionIdMap.get(caseId), petitionList, 'Petition__c'));
 	}
 	public void setCaseIdToInvestigationMap(Id caseId, List<Investigation__c> investigationList) {
-		caseIdToInvestigationIdMap.put(caseId, getIdSetForMaps(investigationList, 'Investigation__c'));
+		caseIdToInvestigationIdMap.put(caseId, getIdSetForMaps(caseIdToInvestigationIdMap.get(caseId), investigationList, 'Investigation__c'));
 	}
 	public void setCaseIdToOrderMap(Id caseId, List<ADCVD_Order__c> orderList) {
-		caseIdToOrderIdMap.put(caseId, getIdSetForMaps(orderList, 'ADCVD_Order__c'));
+		caseIdToOrderIdMap.put(caseId, getIdSetForMaps(caseIdToOrderIdMap.get(caseId), orderList, 'ADCVD_Order__c'));
 	}
 	public void setCaseIdToSuspAgrmtMap(Id caseId, List<Suspension_Agreement__c> suspAgrmtList) {
-		caseIdToSuspAgrmtIdMap.put(caseId, getIdSetForMaps(suspAgrmtList, 'Suspension_Agreement__c'));
+		caseIdToSuspAgrmtIdMap.put(caseId, getIdSetForMaps(caseIdToSuspAgrmtIdMap.get(caseId), suspAgrmtList, 'Suspension_Agreement__c'));
 	}
 	public void setCaseIdToSegmentMap(Id caseId, List<Segment__c> segmentList) {
-		caseIdToSegmentIdMap.put(caseId, getIdSetForMaps(segmentList, 'Segment__c'));
+		caseIdToSegmentIdMap.put(caseId, getIdSetForMaps(caseIdToSegmentIdMap.get(caseId), segmentList, 'Segment__c'));
 	}
 	public void setCaseIdToLitigationMap(Id caseId, List<Litigation__c> litigationList) {
-		caseIdToLitigationIdMap.put(caseId, getIdSetForMaps(litigationList, 'Litigation__c'));
+		caseIdToLitigationIdMap.put(caseId, getIdSetForMaps(caseIdToLitigationIdMap.get(caseId), litigationList, 'Litigation__c'));
 	}
 	public void setCaseIdToFrMap(Id caseId, List<Federal_Register__c> frList) {
-		caseIdToFrIdMap.put(caseId, getIdSetForMaps(frList, 'Federal_Register__c'));
-	}
+		caseIdToFrIdMap.put(caseId, getIdSetForMaps(caseIdToFrIdMap.get(caseId), frList, 'Federal_Register__c'));
+    }
 	public void setCaseIdToStaffingMap(Id caseId, List<Staffing_Assignment__c> staffingList) {
-		caseIdToStaffingIdMap.put(caseId, getIdSetForMaps(staffingList, 'Staffing_Assignment__c'));
+		caseIdToStaffingIdMap.put(caseId, getIdSetForMaps(caseIdToStaffingIdMap.get(caseId), staffingList, 'Staffing_Assignment__c'));
 	}
 	public void setCaseIdToRelOrgMap(Id caseId, List<Related_Organization__c> relOrgList) {
-		caseIdToRelOrgIdMap.put(caseId, getIdSetForMaps(relOrgList, 'Related_Organization__c'));
+		caseIdToRelOrgIdMap.put(caseId, getIdSetForMaps(caseIdToRelOrgIdMap.get(caseId), relOrgList, 'Related_Organization__c'));
 	}
 	//This method returns the Ids from List of SObjects in a Set.  It also uses the same
 	//for loop to populate the related Id Maps.  This two functions need to happen together
 	//to make sure the map of Case to Id Set and the Ids in that set to their related Ids
 	//stay in sync
-	private static Set<Id> getIdSetForMaps(List<SObject> soList, String objectName) {
-		Set<Id> tempSet = new Set<Id>();
+	private static Set<Id> getIdSetForMaps(Set<Id> soIdSet, List<SObject> soList, String objectName) {
+        soIdSet = soIdSet == null ? new Set<Id>() : soIdSet;
 		String shortenedObjectName = objectName.removeEnd('__c');
 		for (SObject so : soList) {
 			Id soId = (Id) so.get('Id');
-			tempSet.add(soId);
+			soIdSet.add(soId);
 			populateRelatedIdMaps(shortenedObjectName, so, soId);
 		}
-		return tempSet;
+		return soIdSet;
 	}
 	//method to create a new instance of the inner classes
 	private static void populateRelatedIdMaps (String shortenedObjectName, SObject so, Id soId) {

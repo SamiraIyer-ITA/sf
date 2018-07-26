@@ -95,12 +95,12 @@ public without sharing class FederalRegisterMapper implements ADCVD_IMapper{
     * @param soIdSet
     * @param objectName
     */
-    public Map<Id, MappedFRs> getMappedFRs(Set<Id> soIdSet) {  //objectName is the sObject name of the Ids
+    public Map<Id, MappedFRs> getMappedFRs(Set<Id> soIdSet, ADCVD_CaseMapper caseMapper) {  //objectName is the sObject name of the Ids
         Map<Id, MappedFRs> returnMap = new Map<Id, MappedFRs>();
         for (Id soId : soIdSet) {
             //Create the appropriate inner class based on objectName
             //try {
-            MappedFRs tempClass = new MappedFRs();
+            MappedFRs tempClass = new MappedFRs(caseMapper, this);
             //set the myId on that inner class
             tempClass.myId = soId;
             //Call a virtual class method that is implemented differently on each method.  This way the same method call can get us the correct logic dynamically.
@@ -114,12 +114,16 @@ public without sharing class FederalRegisterMapper implements ADCVD_IMapper{
     * MappedFRs is an inner class which is implemented by an inner class for each of the types of Federal Registers.
     */
     public class MappedFRs {
-        @TestVisible private ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.mapperMap.get('ADCVD_Case__c');
-        @TestVisible private FederalRegisterMapper frMapper = (FederalRegisterMapper) ADCVD_CaseMapper.mapperMap.get('Federal_Register__c').getInstance();
+        @TestVisible private ADCVD_CaseMapper caseMapper;
+        @TestVisible private FederalRegisterMapper frMapper;
         @TestVisible Id myId { get; private set; }  //Id will vary, based on the inner case
         public Map<String, Date> typeToPublishedDateMap = new Map<String, Date>();
         public Map<String, Federal_Register__c> frsByType = new Map<String, Federal_Register__c>();
 
+        public MappedFRs(ADCVD_CaseMapper caseMapper, FederalRegisterMapper frMapper) {
+            this.caseMapper = caseMapper;
+            this.frMapper = frMapper;
+        }
         /**
          * Retrieve the Federal Registers for a given sObject Id.
          * The sObject Id is the Id of a Petition, Investigation, ADCVD Order, Suspension Agreement, or Segment.

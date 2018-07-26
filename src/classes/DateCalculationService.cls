@@ -242,7 +242,7 @@ public without sharing class DateCalculationService {
         }
         if (!tempSet.isEmpty()) {
             frMapper = (FederalRegisterMapper) caseMapper.getMapper('Federal_Register__c').getInstance();
-            frUtilMap = frMapper.getMappedFRs(tempSet);
+            frUtilMap = frMapper.getMappedFRs(tempSet, caseMapper);
         }
     }
 }

@@ -74,7 +74,7 @@ public without sharing class InvestigationTriggerHandler {
         if (newMap != null) {
             addNewInvToMappers(newMap);
             frMapper = (FederalRegisterMapper) caseMapper.getMapper('Federal_Register__c').getInstance();
-            frUtilMap = frMapper.getMappedFRs(newMap.keySet());
+            frUtilMap = frMapper.getMappedFRs(newMap.keySet(), caseMapper);
             setInvestigationIdToLitigationMap(newMap.keySet());
             setInvestigationIdToLitigationStatusMap();
 
