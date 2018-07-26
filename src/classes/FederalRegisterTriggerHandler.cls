@@ -104,7 +104,7 @@ public without sharing class FederalRegisterTriggerHandler {
     @TestVisible private static void addNewFrsToMappers(Map<Id,Federal_Register__c> newMap) {
         Map<Id,List<Federal_Register__c>> caseToFrsMap = new Map<Id,List<Federal_Register__c>>();
         //get the FederalRegisterMapper instance from the caseMapper
-        frMapper = (FederalRegisterMapper) caseMapper.getMapper('Federal_Register__c');
+        frMapper = (FederalRegisterMapper) caseMapper.getMapper('Federal_Register__c').getInstance();
         for (Federal_Register__c fr : newMap.values()) {
             //update FederalRegisterMapper instance
             frMapper.addFrToMap(fr);

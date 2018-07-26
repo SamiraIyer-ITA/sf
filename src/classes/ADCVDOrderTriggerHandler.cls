@@ -75,7 +75,7 @@ public without sharing class ADCVDOrderTriggerHandler {
         if(newMap != null) {
             addNewOrderToMappers(newMap);
             frMapper = (FederalRegisterMapper) caseMapper.getMapper('Federal_Register__c').getInstance();
-            frUtilMap = frMapper.getMappedFRs(newMap.keySet());
+            frUtilMap = frMapper.getMappedFRs(newMap.keySet(), caseMapper);
         	setOrderIdToSegmentMap(newMap.keySet());
             setOrderIdToSegmentStatusMap(newMap.keySet());
         }
@@ -101,7 +101,7 @@ public without sharing class ADCVDOrderTriggerHandler {
 
     @TestVisible private static void addNewOrderToMappers(Map<Id,ADCVD_Order__c> newMap) {
         Map<Id,List<ADCVD_Order__c>> caseToOrderMap = new Map<Id,List<ADCVD_Order__c>>();
-        orderMapper = (ADCVD_OrderMapper) caseMapper.getMapper('ADCVD_Order__c');
+        orderMapper = (ADCVD_OrderMapper) caseMapper.getMapper('ADCVD_Order__c').getInstance();
         for (ADCVD_Order__c ao : newMap.values()) {
             orderMapper.addOrderToMap(ao);
             List<ADCVD_Order__c> tempList = caseToOrderMap.get(ao.ADCVD_Case__c) != null ?

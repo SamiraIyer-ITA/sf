@@ -96,7 +96,7 @@ public without sharing class PetitionTriggerHandler {
         if(newMap != null) {
             addNewPetToMappers(newMap);
             frMapper = (FederalRegisterMapper) caseMapper.getMapper('Federal_Register__c').getInstance();
-            frUtilMap = frMapper.getMappedFRs(newMap.keySet());
+            frUtilMap = frMapper.getMappedFRs(newMap.keySet(), caseMapper);
             setPetitionIdToLitigationMap(newMap.keySet());
             setPetitionIdToLitigationStatusMap();
         }
@@ -130,7 +130,7 @@ public without sharing class PetitionTriggerHandler {
 
     @TestVisible private static void addNewPetToMappers(Map<Id,Petition__c> newMap) {
         Map<Id,List<Petition__c>> caseToPetMap = new Map<Id,List<Petition__c>>();
-        petMapper = (PetitionMapper) caseMapper.getMapper('Petition__c');
+        petMapper = (PetitionMapper) caseMapper.getMapper('Petition__c').getInstance();
         for (Petition__c p : newMap.values()) {
             petMapper.addPetToMap(p);
             List<Petition__c> tempList = caseToPetMap.get(p.ADCVD_Case__c) != null ?

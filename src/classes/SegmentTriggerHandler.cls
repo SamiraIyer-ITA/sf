@@ -87,7 +87,7 @@ public without sharing class SegmentTriggerHandler {
 		if(newMap != null) {
 			addNewSegmentToMappers(newMap);
             frMapper = (FederalRegisterMapper) caseMapper.getMapper('Federal_Register__c').getInstance();
-            frUtilMap = frMapper.getMappedFRs(newMap.keySet());
+            frUtilMap = frMapper.getMappedFRs(newMap.keySet(), caseMapper);
 		}
 	}
 
@@ -106,7 +106,7 @@ public without sharing class SegmentTriggerHandler {
     }
     @TestVisible private static void addNewSegmentToMappers(Map<Id,Segment__c> newMap) {
         Map<Id,List<Segment__c>> caseToSegmentMap = new Map<Id,List<Segment__c>>();
-        segMapper = (SegmentMapper) caseMapper.getMapper('Segment__c');
+        segMapper = (SegmentMapper) caseMapper.getMapper('Segment__c').getInstance();
         for (Segment__c s : newMap.values()) {
             segMapper.addSegmentToMap(s);
             List<Segment__c> tempList = caseToSegmentMap.get(s.ADCVD_Case__c) != null ?
