@@ -166,6 +166,9 @@
         <members>fflibext_ISObjectUnitOfWork</members>
         <members>fflibext_SObjectSelector</members>
         <members>fflibext_SObjectUnitOfWork</members>
+		<members>InvestigationMapperTest</members>
+		<members>SegmentMapperTest</members>
+		<members>Suspension_AgreementMapperTest</members>
         <name>ApexClass</name>
     </types>
 
