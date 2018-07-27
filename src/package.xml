@@ -100,6 +100,7 @@
         <members>VideoController</members>
         <members>core_IEventsConsumer</members>
         <members>core_PlatformEventsDistributor</members>
+        <members>core_PlatformEventsDistributorTest</members>
         <members>core_Utils</members>
         <members>fflib_Answer</members>
         <members>fflib_AnswerTest</members>
