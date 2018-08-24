@@ -59,10 +59,11 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>true</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
-    <enableSearch>true</enableSearch>
+    <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
@@ -154,7 +155,7 @@
     <fields>
         <fullName>Country__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(ADCVD_Case__r.Country__c)</formula>
+        <formula>TEXT(  Investigation__r.Petition__r.Country__c )</formula>
         <label>Country</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -340,22 +341,27 @@
                 <value>
                     <fullName>Sunset - No Interest</fullName>
                     <default>false</default>
+                    <label>Sunset - No Interest</label>
                 </value>
                 <value>
                     <fullName>Sunset - No Likelihood</fullName>
                     <default>false</default>
+                    <label>Sunset - No Likelihood</label>
                 </value>
                 <value>
                     <fullName>Sunset - Injury</fullName>
                     <default>false</default>
+                    <label>Sunset - Injury</label>
                 </value>
                 <value>
                     <fullName>CCR - No Interest</fullName>
                     <default>false</default>
+                    <label>CCR - No Interest</label>
                 </value>
                 <value>
                     <fullName>Court Overturned</fullName>
                     <default>false</default>
+                    <label>Court Overturned</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -376,30 +382,36 @@
                 <value>
                     <fullName>Active</fullName>
                     <default>false</default>
+                    <label>Active</label>
                 </value>
                 <value>
                     <fullName>Inactive</fullName>
                     <default>false</default>
+                    <label>Inactive</label>
                 </value>
                 <value>
                     <fullName>Closed</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Closed</label>
                 </value>
                 <value>
                     <fullName>Litigation</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Litigation</label>
                 </value>
                 <value>
                     <fullName>Litigation Hold</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Litigation Hold</label>
                 </value>
                 <value>
                     <fullName>Suspended</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Suspended</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -419,22 +431,27 @@
                 <value>
                     <fullName>Order FR Needed</fullName>
                     <default>false</default>
+                    <label>Order FR Needed</label>
                 </value>
                 <value>
                     <fullName>Current-Active</fullName>
                     <default>false</default>
+                    <label>Current-Active</label>
                 </value>
                 <value>
                     <fullName>Current-Inactive</fullName>
                     <default>false</default>
+                    <label>Current-Inactive</label>
                 </value>
                 <value>
                     <fullName>Revoked-Incomplete</fullName>
                     <default>false</default>
+                    <label>Revoked-Incomplete</label>
                 </value>
                 <value>
                     <fullName>Revoked-Complete</fullName>
                     <default>false</default>
+                    <label>Revoked-Complete</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -502,12 +519,8 @@
         <columns>Commodity__c</columns>
         <columns>Office__c</columns>
         <columns>Status__c</columns>
+        <columns>LAST_UPDATE</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>Country__c</field>
-            <operation>equals</operation>
-            <value>China</value>
-        </filters>
         <label>All</label>
     </listViews>
     <listViews>
@@ -525,11 +538,6 @@
             <field>Status__c</field>
             <operation>notEqual</operation>
             <value>Revoked-Incomplete,Revoked-Complete</value>
-        </filters>
-        <filters>
-            <field>Country__c</field>
-            <operation>equals</operation>
-            <value>China</value>
         </filters>
         <label>All Current Orders</label>
     </listViews>
@@ -604,22 +612,6 @@ PRIORVALUE(Locked__c) == true
         <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Every_ADCVD_Order_must_have_parent</fullName>
-        <active>true</active>
-        <description>Every ADCVD Order must have a parent Investigation plus an ADCVD Case.</description>
-        <errorConditionFormula>AND(
-$Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
-Locked__c == false,
-ISNEW(), 
-OR
-(ISBLANK(Investigation__c),
-ISBLANK(ADCVD_Case__c)
-)			 
-)</errorConditionFormula>
-        <errorDisplayField>Investigation__c</errorDisplayField>
-        <errorMessage>ADCVD Order must have a parent Investigation with an ADCVD Case</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>Only_Admin_can_reparent_ADCVD_Order</fullName>
         <active>true</active>
         <description>Only a System Admin can reparent an ADCVD Order to a different Investigation or ADCVD Case.</description>
@@ -631,4 +623,5 @@ NOT( ISNEW() ),
 )</errorConditionFormula>
         <errorMessage>You are not authorized to edit this field. Only a System Administrator can edit the parent Investigation or ADCVD Case for this record.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>

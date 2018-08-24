@@ -52,17 +52,6 @@
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
-        <fullName>Petition Country Text Field</fullName>
-        <actions>
-            <name>Update_Country_Text_Field_on_Petition</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <description>This rule updates the country text field with the value present in the country picklist on the petition record.</description>
-        <formula>AND($Setup.Master_Automation__c.WorkflowRulesEnabled__c == true, (ISNEW() || ISCHANGED(Country__c)))</formula>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
         <fullName>Update Petition Concatenated Field</fullName>
         <actions>
             <name>Update_Concatenated_Petition_Field</name>
@@ -70,11 +59,7 @@
         </actions>
         <active>true</active>
         <description>This workflow rule updates the concatenated text field on Petition with, Commodity, Country and ADCVD Case Type.</description>
-        <formula>AND($Setup.Master_Automation__c.WorkflowRulesEnabled__c == true, (IF( ISNEW() || 
-( ISCHANGED(  ADCVD_Case_Type__c  ) 
-|| ISCHANGED(  Country__c  ) 
-|| ISCHANGED(  Commodity__c  ) ) 
-, True, False)))</formula>
+        <formula>AND($Setup.Master_Automation__c.WorkflowRulesEnabled__c == true, (IF( ISNEW() ||  ( ISCHANGED(  ADCVD_Case_Type__c  )  || ISCHANGED(  Country__c  )  || ISCHANGED(  Commodity__c  ) )  , True, False)))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

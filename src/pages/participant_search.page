@@ -1,0 +1,255 @@
+<apex:page controller="participant_search_controller" applyBodyTag="false" applyHtmlTag="false" showHeader="false" sidebar="false" action="{!search}" readOnly="true">
+<apex:composition template="Site_Template">
+    <apex:define name="page">
+        <script language="javascript">
+        function jump(){
+            window.scrollTo(0,0);
+        }
+        
+         var searchString = '';
+        
+         jQuery(document).ready(function ($) {
+             $('.ceList').hide();
+             $('#advancedSearch').hide();
+             if(!{!ShowResolutionProviders})
+                 $('#serviceProvidersList').hide();
+         });
+         
+         function filterProviders(val){
+            var valThis = val.toLowerCase();
+            $('#providers>li').each(function(){
+             var text = $(this).attr('data-provider').toLowerCase();
+                (text.indexOf(valThis) != -1) ? $(this).show() : $(this).hide();         
+           });
+         }
+         
+         function doTermSearchFilter(searchTerm){
+             $('.ceList').hide();
+             if(searchTerm == undefined || searchTerm == null || searchTerm == ''){
+                 $('.ceList').hide();
+             }else{
+                 $('.ceList').each(function(){
+                     var toggleIndicator = false;
+                     $(this).children('li').each(function(){
+                        if($(this).text().toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0){
+                            $(this).parent().show();
+                            toggleIndicator = true;
+                        }
+                     });
+                     if(toggleIndicator){
+                         console.log('toggle');
+                         $(this).parent().children('h5').children('.ceListToggle').html('-');
+                     }
+                 });
+             }
+         }
+        </script>
+        <script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+});
+</script>
+
+    <apex:form > 
+            <apex:actionFunction name="search" action="{!search}" rerender="searchResults, OffsetNavigation" status="searchStatus"/>
+            <apex:actionFunction name="next" action="{!search}" rerender="searchResults, OffsetNavigation" oncomplete="jump();" status="searchStatus">
+                <apex:param value="{!limit}" name="offsetChange" />
+            </apex:actionFunction>
+            <apex:actionFunction name="advancedSearch" action="{!advancedSearch}" rerender="searchResults, OffsetNavigation" status="searchStatus"/>
+            
+            <apex:actionFunction name="termSearch" action="{!advancedSearch}" rerender="searchResults" status="searchStatus">
+                <apex:param value="SearchTerm" name="searchMethod" />
+            </apex:actionFunction>
+            
+            <link href="{!URLFor($Resource.ps, 'ps/participant_search.css')}" rel="stylesheet" />
+            
+            <div class="container search_header">
+            
+            <apex:outputPanel id="searchTermPanel">
+                    <apex:inputText id="searchTerm" html-placeholder="Search" alt="Search" label="Search" value="{!searchTerm}" onchange="searchString = this.value; termSearch(); filterProviders(this.value);" onKeyUp="searchString = this.value; termSearch(); filterProviders(this.value);" /> 
+            </apex:outputPanel>
+            
+            <br />
+             <a href="/list" class="{!if(status = 'Active', 'active', 'inactive')}">ACTIVE</a>
+              <a href="/inactive" class="{!if(status = 'Inactive', 'active', 'inactive')}">INACTIVE</a>
+              <a onclick="$('#advancedSearch').toggle();" class="btn-dark pull-right advanced" style="border-radius:4px;">Advanced</a> 
+            <!-- a onclick="$('#serviceProvidersList').toggle();">Resolution Providers</a --> 
+            <div id="advancedSearch">
+            <fieldset>
+                <h5>Refine by</h5><br/><br/>
+              
+              <div class="row" style="padding-top:0;padding-bottom:0;">
+              
+              <div class="col-md-6 ps_search">
+               <apex:outputLabel for="status">Participation Status</apex:outputLabel>
+                <apex:selectList size="1" id="status" label="Status" value="{!status}" onchange="advancedSearch();">
+                    <apex:selectOption itemValue="Active" itemLabel="Active" />
+                    <apex:selectOption itemValue="Inactive" itemLabel="Inactive" />
+                </apex:selectList>
+             </div>
+                
+              <div class="col-md-6 ps_search">
+               <apex:outputLabel for="program">Program</apex:outputLabel>
+                <apex:selectList id="program" value="{!selectedProgram}" size="1" onchange="advancedSearch();">
+                    <apex:selectOptions value="{!availablePrograms}" />
+                </apex:selectList>
+              </div>
+              
+              </div>
+                
+                
+                <div class="row" >
+              
+              <div class="col-md-6 ps_search">
+                <apex:outputLabel for="dataType">Covered Data</apex:outputLabel>
+                <apex:selectList id="dataType" value="{!SelectedDataType}" size="1" onchange="advancedSearch();" disabled="{!if(status = 'Active', 'false', 'true')}">
+                    <apex:selectOption itemValue="" itemLabel="-- NO FILTER --" />
+                    <apex:selectOption itemLabel="HR Data" itemValue="HR Data" />
+                    <apex:selectOption itemLabel="Non-HR Data" itemValue="Non-HR Data" />
+                </apex:selectList>
+                </div>
+                
+              <div class="col-md-6 ps_search">
+                <apex:outputLabel for="dsp">Dispute Resolution</apex:outputLabel>
+                <apex:selectList id="dsp" value="{!serviceProvider}" size="1" onchange="advancedSearch();">
+                    <apex:selectOptions value="{!serviceProviders}" />
+                </apex:selectList>
+                </div>
+              
+              </div>
+              
+                <h5>Alphanumeric Listing</h5><br/><br/>
+                <div class="letter">
+                <apex:repeat value="{!couldStartWith}" var="letter">
+                    <apex:commandLink value="{!letter} | " action="{!advancedSearch}" reRender="searchTermPanel,searchResults">
+                        <apex:param name="startsWith" value="{!letter}"/>
+                        <apex:param value="StartingLetter" name="searchMethod" /> 
+                    </apex:commandLink>
+                </apex:repeat>   
+                           
+                <apex:commandLink value="All" action="{!advancedSearch}" reRender="searchTermPanel,searchResults">
+                    <apex:param value="" name="startsWith" />
+                </apex:commandLink>
+                </div>
+            </fieldset>
+            </div>
+            
+            </div>
+            <div id="serviceProvidersList">
+            <fieldset>
+                <legend>Resolution Providers</legend>
+                
+                <ul id="providers">
+                    <apex:repeat value="{!serviceProviderMap}" var="sp">
+                    <li data-provider="{!ServiceProviderMap[sp]}"><a href="?provider={!sp}{!if(ReferencedProgram!= null, '&program='+ReferencedProgram, '')}&status={!status}">{!ServiceProviderMap[sp]}</a></li>
+                    </apex:repeat>
+                </ul>
+            </fieldset>
+            </div>
+            <apex:outputPanel id="searchResults">
+            <div class="container results_box" style="background: #fafafa;">
+                
+                <div>
+                <!--<apex:outputtext rendered="{!serviceProvider != null && serviceProvider != ''}"><div class="row"><h1>{!if(serviceProvider != null, serviceProviderMap[serviceProvider], '')}</h1></div></apex:outputtext>-->
+
+                <apex:outputText rendered="{!participants.size = 0}">
+                    <p>No results found.</p>
+                </apex:outputText>
+
+                <apex:repeat value="{!participants}" var="participant">
+                 
+                    <div class="row each_result" >
+                        <div class="col-md-5">
+                            <h4><a style="color:#0076bb; font-size:20px;" href="/participant?id={!searchResults[participant.id].id}&status={!status}">{!searchResults[participant.id].name}</a></h4>
+                            <p>{!searchResults[participant.id].city}{!if(and(searchResults[participant.id].city != null, searchResults[participant.id].state != null), ', ', '')}{!searchResults[participant.id].State}</p>
+                            <br/>
+                            <p style="color:#bababa;"><i class="fa fa-circle {!if(status = 'Active', 'activeITA', 'inactiveITA')}" aria-hidden="true"></i> {!status}</p>
+                            <apex:outputPanel rendered="{!searchResults[participant.id].coveredEntities.size != 0 }">  <!--&& status = 'Active'-->
+                            <br/>
+                            <h5  onclick="$('#{!participant.id}_ceList').toggle(); if($('#{!participant.id}_ceList').is(':visible')){$('#{!participant.id}_ce').html('-');}else{$('#{!participant.id}_ce').html('+');}"><span id="{!participant.id}_ce" class="ceListToggle">+</span> {!searchResults[participant.id].coveredEntities.size} Covered {!IF(searchResults[participant.id].coveredEntities.size == 1,"Entity", "Entities")} </h5>
+                            <ul id="{!participant.id}_ceList" class='ceList'>
+                            <apex:repeat value="{!searchResults[participant.id].coveredEntities}" var="ce">
+                                <li>{!ce}</li>
+                            </apex:repeat>
+                            </ul>
+                            </apex:outputPanel>
+                        </div>
+                        <div class="col-md-4 results">
+                            <ul>
+                
+                            <p style="color:#bababa;"><small>Framework</small></p>
+                            <apex:repeat value="{!searchResults[participant.id].programs}" var="program">
+                                <li>{!program}</li>
+                            </apex:repeat>
+                            </ul>
+                        </div>
+                        <apex:outputtext rendered="{!status = 'Active'}">
+                        <div class="col-md-3 results">
+                            <p style="color:#bababa;"><small>Covered Data</small><a href="#" data-toggle="popover" data-placement="top" data-content="HR = Personal data about an organization's own employees, past or present, collected in the context of the employment relationship. Non-HR = Other personal data."><i class="fa fa-info-circle" aria-hidden="true" style="margin-left:3px;font-size:10px;"></i></a></p>
+                            <apex:repeat value="{!searchResults[participant.id].coveredData}" var="type">
+                                <apex:outputPanel layout="inline" rendered="{!searchResults[participant.id].coveredData[0] != type}">, </apex:outputPanel>
+                                {!type}
+                            </apex:repeat>
+                        </div>
+                        </apex:outputtext>
+                        <div class="col-md-12">
+                        
+                        </div>
+                        <div class="col-md-12">
+                        
+                        </div>
+                        <div class="col-md-12" style="text-align: right; font-size:12px;">
+                            <a href="/participant?id={!searchResults[participant.id].id}&contact=true#dispute-resolution-1" ><i class="fa fa-question-circle-o" aria-hidden="true"></i>
+                                Questions or Complaints
+                            </a>
+                        </div>
+                        
+                    </div>
+                    
+
+
+                                    
+                </apex:repeat>
+            <!--<br/>{!tempQuery}<br/><br/>{!tempString}<br/>-->
+<apex:outputtext rendered="{!participants == '0' }"><p>No participants found</p></apex:outputtext>
+                
+                </div>
+                <apex:outputpanel layout="block" id="OffsetNavigation" styleClass="containerInternal text-center" style="margin-bottom:75px;margin-top:75px;">
+                    <div class="btn-group" role="group" aria-label="...">
+                        <apex:outputtext rendered="{!offset != 0}">
+                            <a class="btn-navigate" style="cursor:pointer;" onclick="next({!if((offset-SelectedOffsetInteger) < ((0-1)*1), (0-1)*(offset), (0-1)*limit)});">Previous Results</a>
+                        </apex:outputtext>
+                        <apex:outputtext rendered="{!offset+participants.size < totalFilteredParticipants}">
+                            <a class="btn-navigate" style="cursor:pointer;" onclick="next({!limit});">Next Results</a>
+                         </apex:outputtext>
+                    </div>
+                    <br />
+                    <apex:outputtext rendered="{!status == 'Active' }">
+                        <!-- div style="margin-top:25px;">Total Organizations: {!totalOrgCount}</div -->
+                        <!-- div style="margin-top: 25px;">{!tmpQuery}</div -->
+                    </apex:outputtext>
+                    <br/>
+                    <apex:outputtext rendered="{!participants.size != 0}">
+                        <label>{!if(participants.size != 0, offset+1, 0)} to {!offset+participants.size} Organizations Per Page for {!totalFilteredParticipants} Total Organizations</label>              
+                    </apex:outputtext>
+                    <apex:outputpanel layout="block" styleclass="row pad-none" rendered="{!participants.size != 0}">
+                    
+                    <apex:outputpanel layout="block" styleclass="ps_search col-md-2 col-md-push-5" rendered="{!totalFilteredParticipants > 10}">
+                    
+                    <apex:SelectList value="{!SelectedOffset}" size="1" onchange="search();">
+                        <apex:selectoptions value="{!OffsetOptions}" />
+                    </apex:SelectList>
+                    </apex:outputpanel>
+                    </apex:outputpanel>
+                                                         
+                </apex:outputpanel>
+                
+            </div>    
+            <script language="javascript">
+                doTermSearchFilter(searchString.trim());
+            </script>
+            </apex:outputPanel>
+        </apex:form>
+    </apex:define>
+</apex:composition>
+</apex:page>

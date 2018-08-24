@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Relate Case to WIN</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Related Cases/WINs</value>
+    </caseValues>
+    <fields>
+        <label><!-- Author Email --></label>
+        <name>Author_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Author --></label>
+        <name>Case_Author__c</name>
+    </fields>
+    <fields>
+        <help><!-- If you got to page from a Case record, please do not change this field. --></help>
+        <label><!-- Case ID --></label>
+        <name>Case_ID__c</name>
+        <relationshipLabel><!-- Related WINs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Case Number --></label>
+        <name>Case_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Organization --></label>
+        <name>Case_Organization__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Subject --></label>
+        <name>Case_Subject__c</name>
+    </fields>
+    <fields>
+        <label><!-- Relate Case One --></label>
+        <name>Relate_Case_One__c</name>
+    </fields>
+    <fields>
+        <label><!-- Relate Case/WIN One --></label>
+        <name>Relate_Case_WIN_One__c</name>
+    </fields>
+    <fields>
+        <label><!-- Related WIN Owner --></label>
+        <name>Related_WIN_Owner__c</name>
+    </fields>
+    <fields>
+        <help><!-- If you got to this page from a WIN record, please do not change this field. --></help>
+        <label><!-- Related WIN --></label>
+        <name>Related_WIN__c</name>
+        <relationshipLabel><!-- Related Cases --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Related Wins to a Case --></label>
+        <name>Related_Wins_to_a_Case__c</name>
+    </fields>
+    <fields>
+        <label><!-- WIN Organization --></label>
+        <name>WIN_Organization__c</name>
+    </fields>
+    <layouts>
+        <layout>Cases Associated to WIN Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- WIN Information --></label>
+            <section>WIN Information</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Related Cases and Orgs --></label>
+        <name>Related_Cases_and_Orgs</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- You do not have permission to change the existing value of a Case or WIN field. --></errorMessage>
+        <name>Cannot_change_Case_or_WIN</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- New_Related_WIN --></label>
+        <name>New_Related_WIN</name>
+    </webLinks>
+</CustomObjectTranslation>

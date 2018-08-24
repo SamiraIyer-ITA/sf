@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Inactive Period</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Inactive Periods</value>
+    </caseValues>
+    <fields>
+        <label><!-- Asset --></label>
+        <name>Asset__c</name>
+        <relationshipLabel><!-- Inactive Periods --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- End Date --></label>
+        <name>End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Inactive Status Reason --></label>
+        <name>Inactive_Status_Reason__c</name>
+        <relationshipLabel><!-- Inactive Periods --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Participation Number --></label>
+        <name>Participation_Number__c</name>
+        <relationshipLabel><!-- Inactive Periods --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Application --></label>
+        <name>Participation__c</name>
+        <relationshipLabel><!-- Inactive Periods --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Start Date --></label>
+        <name>Start_Date__c</name>
+    </fields>
+    <layouts>
+        <layout>Inactive Period Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Inactive Dates --></label>
+            <section>Inactive Dates</section>
+        </sections>
+    </layouts>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

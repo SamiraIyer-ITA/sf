@@ -1,0 +1,246 @@
+<apex:page standardcontroller="Page__c" showHeader="false" applyBodyTag="false" applyHtmlTag="false" extensions="Page_Section_Controller" standardStylesheets="false" cache="true">
+<apex:composition template="Site_Template">
+        <apex:define name="title">{!page.Page_Title__c}{!if(and(page.Page_Title__c != '', page.Page_Title__c !=  null), ' | ', '')}</apex:define>
+        <apex:define name="description">  
+        <meta name="description" content="{!page.description__c}"/> 
+        <meta property="dcterms:title" content="{!Page__c.name}" /> 
+        <meta property="dcterms:description" content="{!page.description__c}" /> 
+        <meta property="dcterms:creator" content="International Trade Administration" /> 
+        <meta property="dcterms:created" content="{!page.createddate}" /> 
+        <meta property="dcterms:reviewed" content="{!page.lastmodifieddate}" /> 
+        <meta property="dcterms:language" content="EN-US" /> 
+        <meta property="dcterms:subject" content="data category 1, data category 2, .. data category N" />
+        </apex:define>
+    <apex:define name="sectionalNav">
+
+    <apex:outputPanel rendered="{!section != null}">
+        <div class="subheader">
+            <div>
+               <div class="container">
+                   <nav id="subnav">  
+                        <h4 id="sectionName">{!section.name}</h4>
+                        <div class="subNavLinks">
+                            <apex:repeat value="{!section.navigation_links__r}" var="link">
+                                 <a href="{!if(link.Redirect__c != '', link.Redirect__c, link.Page__r.Clean_URL__c)}"> {!upper(link.name)} </a>
+                            </apex:repeat>
+                        </div>
+                    </nav>
+                </div>
+              </div>
+        </div>  
+    </apex:outputPanel>
+    </apex:define>
+    <apex:define name="page">
+        <apex:outputtext rendered="{!Page__c.page__r.Display_Page_Name__c}"><div class=" itaBr"><h2>{!Page__c.name}</h2></div></apex:outputtext>
+
+        <apex:repeat value="{!page.page_contents__r}" var="pc" rendered="{!if(or(Page__c.recordtype.name = '', Page__c.recordtype.name = 'Generic Page'), true, false)}">
+            <!-- Genertic Content Start-->
+            <apex:outputtext rendered="{!and(pc.Row__c = null, or(pc.recordtype.name = null, pc.recordtype.name = 'Generic Content'))}">
+                <div class="{!if(pc.Content_Container__c = null, 'col-md-12', pc.content_container__r.Class_Name__c)}">
+                    <div>
+                        <apex:outputtext rendered="{!pc.Display_Content_Name__c}"><h2 class="text-center">{!if(pc.Header__c != null, pc.Header__c, if(pc.content__r.Display_Title__c != null, pc.content__r.Display_Title__c, pc.content__r.name))}</h2></apex:outputtext>
+                        <p class="text-center lead"><apex:outputtext escape="false" value="{!SUBSTITUTE(pc.content__r.Content__c,'_blank','_self')}" /></p>
+                    </div>
+                </div>
+            </apex:outputtext>
+            <!-- Genertic Content End-->
+            <apex:outputText rendered="{!and(pc.Row__c = null, pc.recordtype.name = 'Video')}">
+                <div>
+                <div class="{!if(pc.content__r.Image__c != null, 'col-md-12', pc.content_container__r.Class_Name__c)}" >
+                    <div class="embed-responsive embed-responsive-16by9">
+                    <apex:iframe width="560" height="315" src="{!pc.content__r.Endpoint__c}" frameborder="0"/>
+                    </div>
+                </div>
+                </div>
+            </apex:outputText>
+            <apex:outputtext rendered="{!and(pc.Row__c = null, pc.recordtype.name = 'Call to Action')}">
+                <div class="{!if(pc.Content_Container__c != null, pc.content_container__r.Class_Name__c, 'col-md-12')}">
+                    <div>
+                        <div>
+                            <div class="call-to-action">
+                                <h2 class="text-center title">{!if(pc.Header__c != null, pc.Header__c, if(pc.content__r.Display_Title__c != null, pc.content__r.Display_Title__c, pc.content__r.name))}</h2>
+                                <p class="itaBr"><apex:outputText escape="false" value="{!SUBSTITUTE(pc.content__r.Content__c,'_blank','_self')}" /></p>
+                                <a class="{!if(pc.content__r.image__c = null, 'btn-dark', 'primary-btn-ita')}" value="Connect" href="{!pc.content__r.button_path__c}" title="{!pc.Button_Title__c}">{!pc.content__r.button_text__c}</a>
+                            </div>                        
+                        </div>
+                    </div>            
+                </div>
+            </apex:outputtext>
+            <apex:outputtext rendered="{!and(pc.Row__c = null, pc.recordtype.name = 'Carousel')}">
+                <div id="carousel" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <apex:repeat value="{!caroMap[pc.Content__c]}" var="slide">
+                            <li data-target="#carousel" data-slide-to="{!slide}" class="{!if(slide = 0, 'active', '')}"/>
+                        </apex:repeat>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        <apex:repeat value="{!caroMap[pc.Content__c]}" var="slide">
+                        <div class="item {!if(slide = 0, 'active', '')}">
+                            <img class="carouselimg" src="/servlet/servlet.FileDownload?file={!caroMap[pc.content__c][slide].image__r.location__c}" alt="{!caroMap[pc.content__c][slide].image__r.alt__c}" />
+                            <div class="carousel-caption{!if(caroMap[pc.content__c][slide].image__r.carousel_class__c = null, '', ' '+caroMap[pc.content__c][slide].image__r.carousel_class__c) }">
+                                <h3>{!caroMap[pc.content__c][slide].header__c}</h3>
+                                <p>{!caroMap[pc.content__c][slide].description__c}</p>
+                                <p><a href="{!caroMap[pc.content__c][slide].button_path__c}">{!caroMap[pc.content__c][slide].button_text__c}</a></p>
+                            </div>
+                        </div>
+                        </apex:repeat>
+                    </div>
+                </div>
+            </apex:outputtext>
+        </apex:repeat> 
+
+        <!-- Start Page Row mapping -->
+        <apex:repeat value="{!rowOrders}" var="row">
+            <div style="{!if(and(rowBGMap[row] != '', rowStyles[row] != 'default-bg'), 'background-image: url(\"/servlet/servlet.FileDownload?file='+rowBGMap[row]+'\"); background-repeat:no-repeat; background-size: cover;', '')}">
+                <div class="section clearfix {!if(LEN(rowBGMap[row]) != 0, rowStyles[row]+'-img', rowStyles[row])}">
+                <div>
+                    <div class="row content">
+                         <div id='{!row}' class="containerInternal{!if(rowEnforceMap[row] == 'true', ' enforceHeight', ' ignoreHeight')}">
+                        <!-- div class="main" -->
+                            <apex:repeat value="{!rowMap[row]}" var="pc">
+                                <!-- Start Generic Content -->
+                                <apex:outputtext rendered="{!or(pc.recordtype.name = null, pc.recordtype.name = 'Generic Content')}">
+                                    <div class="{!if(pc.content_container__c = null, 'col-md-12', pc.content_container__r.Class_Name__c)}" id="{!row}_{!pc}">  
+                                        <div class="{!if(pc.button_text__c != null,'call-to-action', '')}">
+                                        <apex:outputtext rendered="{!workaround[pc.id]}" >
+                                            <apex:outputtext rendered="{!pc.id = firstheader}">
+                                                <h1 class="text-center">{!if(pc.Header__c != null, pc.Header__c, if(pc.content__r.display_title__c != null, pc.content__r.display_title__c, pc.content__r.name))}</h1>
+                                            </apex:outputtext>   
+                                            <apex:outputtext rendered="{!pc.id != firstheader}">
+                                                <h2 class="text-center">{!if(pc.Header__c != null, pc.Header__c, if(pc.content__r.display_title__c != null, pc.content__r.display_title__c, pc.content__r.name))}</h2>
+                                            </apex:outputtext>                                            
+                                        </apex:outputtext>
+                                        <p class="text-center lead"><apex:outputtext escape="false" value="{!SUBSTITUTE(pc.content__r.Content__c,'_blank','')}" /></p>
+                                        <apex:outputtext rendered="{!if(pc.button_text__c != null, true, false)}">
+                                            <!-- Allows the user to be able to make the page open in new a tab <a value="Connect" class="{!if(pc.content__r.image__c = null, 'btn-dark', 'primary-btn-ita')}" target="{!if(pc.nongov__c==true,'_blank','_self' )}" title="{!pc.Button_Title__c}" href="{!if(pc.Button_URL__c != null,pc.Button_URL__c, if(pc.button_page__r.clean_url__c != null, pc.button_page__r.clean_url__c, '/apex/page?id='+pc.Button_page__c))}">{!pc.Button_Text__c}</a><div class="itaBr"></div> -->
+                                            <a value="Connect" class="{!if(pc.content__r.image__c = null, 'btn-dark', 'primary-btn-ita')}" target="_self" title="{!pc.Button_Title__c}" href="{!if(pc.Button_URL__c != null,pc.Button_URL__c, if(pc.button_page__r.clean_url__c != null, pc.button_page__r.clean_url__c, '/apex/page?id='+pc.Button_page__c))}">{!pc.Button_Text__c}</a><div class="itaBr"></div>
+                                        </apex:outputtext>
+                                        </div>
+                                    </div>
+                                </apex:outputtext>
+                                <!-- End Generic Content -->
+                                <!-- Start Video Content -->
+                                <apex:outputText rendered="{!pc.recordtype.name = 'Video'}">
+                                    <div class="{!if(pc.content__r.Image__c != null, 'col-md-12', pc.content_container__r.Class_Name__c)}">
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                        <apex:iframe width="560" height="315" src="{!pc.content__r.Endpoint__c}" frameborder="0"/>
+                                        </div>
+                                    </div>
+                                </apex:outputText>
+                                <!-- End Video Content -->
+                                <!-- Start API Content -->
+                                <apex:outputText rendered="{!and(pc.recordtype.name = 'API', pc.content__r.api_type__c = 'search')}">
+                                                          
+                                    <div class="{!if(pc.content_container__c != null, pc.content_container__r.Class_Name__c, 'col-md-12')}"><label for="{!if(pc.Placeholder__c != null, pc.Placeholder__c, if(pc.content__r.display_title__c != null, pc.content__r.display_title__c, 'Search'))}" class="visuallyhidden">{!if(pc.Placeholder__c != null, pc.Placeholder__c, if(pc.content__r.display_title__c != null, pc.content__r.display_title__c, 'Search'))}:</label>
+                                        <form id="{!pc.id}" style="text-align: center;margin-bottom: 38px;" method="get">
+                                            <input type="text" class="bodySrchBox bodySrchBox{!if(LEN(rowBGMap[row]) != 0, rowStyles[row]+'-img', rowStyles[row])}" placeholder="{!if(pc.Placeholder__c != null, pc.Placeholder__c, if(pc.content__r.display_title__c != null, pc.content__r.display_title__c, 'Search'))}" id="{!pc.id}_search" />
+                                            <button type="submit" id="{!pc.id}_btn" value="Search" class="bodySrchBtn bodySrchBtn{!if(LEN(rowBGMap[row]) != 0, rowStyles[row]+'-img', rowStyles[row])}" onclick="window.location.replace('{!pc.content__r.endpoint__c}'+$('#{!pc.id}_search').val());"><i class="fa fa-search"><span class="sr-only">Search</span></i></button>
+                                        </form>
+                                    </div>
+                                    
+                                    <script language="javascript">
+                                        $('#{!pc.id}_btn').on('click', function(e){
+                                            var query, url;
+                                            e.preventDefault();
+                                            url = '{!pc.content__r.endpoint__c}'+$('#{!pc.id}_search').val();
+                                            return window.location.replace(url);
+                                        });
+                                    </script>
+                                </apex:outputText>
+                                <!-- End API Content -->
+                                <!-- Start Series List-->
+                                <apex:outputText rendered="{!pc.recordtype.name = 'Series List'}">
+                                    <div class="{!if(pc.content_container__c != null, pc.content_container__r.Class_Name__c, 'col-md-12')}">
+                                        <apex:outputtext rendered="{!workaround[pc.id]}"><h3>{!if(pc.Header__c != null, pc.Header__c, if(pc.content__r.display_title__c != null, pc.content__r.display_title__c, pc.content__r.name))}</h3></apex:outputtext>
+                                        <c:Series_List seriesType="{!pc.content__r.Series_Type__c}" record="{!pc.id}" buttonClass="{!rowStyles[row]}"  />
+                                    </div>                                
+                                </apex:outputText>
+                                <!-- End Series List-->
+                                <!--Start Icon List -->
+                                <apex:outputText rendered="{!pc.recordtype.name = 'Icon'}">
+                                    <div class="{!if(pc.content_container__c != null, pc.content_container__r.Class_Name__c, 'col-md-12')}" style="text-align: center;margin-bottom: 10px;">
+                                        <a target="{!if(pc.nongov__c, '_blank', '_self')}" href="{!if(pc.Button_URL__c != null, pc.Button_URL__c, if(pc.button_page__r.clean_url__c != null, pc.button_page__r.clean_url__c, '/apex/page?id='+pc.Button_page__c))}" class="icon-text"><i class="{!pc.content__r.class_name__c} icon-text" title="{!if(pc.Header__c != null, pc.Header__c, if(pc.content__r.display_title__c != null, pc.content__r.display_title__c, pc.content__r.name))}" style="margin-bottom:8px;"><span class="sr-only">{!if(pc.Header__c != null, pc.Header__c, if(pc.content__r.display_title__c != null, pc.content__r.display_title__c, pc.content__r.name))}</span></i><br />
+                                            <apex:outputtext rendered="{!workaround[pc.id]}"><h4 class="icon-text">{!if(pc.Header__c != null, pc.Header__c, if(pc.content__r.display_title__c != null, pc.content__r.display_title__c, pc.content__r.name))}</h4></apex:outputtext>
+                                        </a>
+                                    </div>
+                                </apex:outputText>
+                                <!-- End Icon List -->
+                                <!-- Start Carousel Content -->
+                                <apex:outputtext rendered="{!pc.recordtype.name = 'Carousel'}">
+                                    <div id="carousel" class="carousel slide" data-ride="carousel">
+                                        <ol class="carousel-indicators">
+                                            <apex:repeat value="{!caroMap[pc.Content__c]}" var="slide">
+                                                <li data-target="#carousel" data-slide-to="{!slide}" class="{!if(slide = 0, 'active', '')}"/>
+                                            </apex:repeat>
+                                        </ol>
+                                        <div class="carousel-inner" role="listbox">
+                                            <apex:repeat value="{!caroMap[pc.Content__c]}" var="slide">
+                                            <div class="item {!if(slide = 0, 'active', '')}">
+                                                <img class="carouselimg" src="/servlet/servlet.FileDownload?file={!caroMap[pc.content__c][slide].image__r.location__c}" alt="{!caroMap[pc.content__c][slide].image__r.alt__c}" />
+                                                <div class="carousel-caption{!if(caroMap[pc.content__c][slide].image__r.carousel_class__c = null, '', ' '+caroMap[pc.content__c][slide].image__r.carousel_class__c) }">
+                                                    <h3>{!caroMap[pc.content__c][slide].header__c}</h3>
+                                                    <p>{!caroMap[pc.content__c][slide].description__c}</p>
+                                                    <p><a href="{!caroMap[pc.content__c][slide].button_path__c}">{!caroMap[pc.content__c][slide].button_text__c}</a></p>
+                                                </div>
+                                            </div>
+                                            </apex:repeat>
+                                        </div>
+                                    </div>
+                                </apex:outputtext>
+                                <!-- End Carousel Content -->
+                            </apex:repeat> 
+                        <!-- /div -->
+                        </div>   
+                    </div>
+                </div>
+                </div>
+            </div>        
+        </apex:repeat>
+        <!-- End Page Row mapping -->
+        
+        <script language="javascript">
+function parseD(t){
+        var output = '';
+        var d = new Date(t);
+        output = (d.getMonth() + 1)+"/"+d.getDate()+'/'+d.getFullYear();
+        return output;
+}        
+
+function processPage(){
+    $('img').not(".carouselimg, #logo").css('width', 'auto');
+    $('img').not(".carouselimg, #logo").css('height', 'auto');
+
+
+    $.each($('.enforceHeight'), function( ind, val ) {
+
+    if ($(window).width() > 768) {
+        var h = 0;
+        $.each($(val).children('[class*="col-md"]'), function(i, v){
+            if($(v).height() > h){
+                h = $(v).height();
+            }
+        });
+        $.each($(val).children('[class*="col-md"]').not(".col-md-12"), function(i, v){
+            $(v).height(h);
+        });
+    }else{
+        $.each($(val).children('[class*="col-md"]').not(".col-md-12"), function(i, v){
+            $(v).height('auto');
+        });
+    }
+    });
+}
+
+$(window).resize(function() {processPage();});
+$(window).load(function() {processPage();});
+
+        </script>
+
+  <apex:outputPanel rendered="{!page.Pop_Up_Active__c}">
+       <!-- GovDelivery Subscription Overlay --> 
+       <script src="{!page.Pop_Up_Script__c}"></script> 
+       <!-- End GovDelivery Overlay --> 
+   </apex:outputPanel>
+    </apex:define>
+</apex:composition>
+</apex:page>

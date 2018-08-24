@@ -59,10 +59,11 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
-    <enableSearch>true</enableSearch>
+    <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
@@ -503,46 +504,57 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
                 <value>
                     <fullName>Cement and Ceramics</fullName>
                     <default>false</default>
+                    <label>Cement and Ceramics</label>
                 </value>
                 <value>
                     <fullName>Chemicals and Allied Industries</fullName>
                     <default>false</default>
+                    <label>Chemicals and Allied Industries</label>
                 </value>
                 <value>
                     <fullName>Foodstuffs</fullName>
                     <default>false</default>
+                    <label>Foodstuffs</label>
                 </value>
                 <value>
                     <fullName>Machinery and Automotive</fullName>
                     <default>false</default>
+                    <label>Machinery and Automotive</label>
                 </value>
                 <value>
                     <fullName>Minerals</fullName>
                     <default>false</default>
+                    <label>Minerals</label>
                 </value>
                 <value>
                     <fullName>Other Metals and Articles of Metal</fullName>
                     <default>false</default>
+                    <label>Other Metals and Articles of Metal</label>
                 </value>
                 <value>
                     <fullName>Other Mfg.</fullName>
                     <default>false</default>
+                    <label>Other Mfg.</label>
                 </value>
                 <value>
                     <fullName>Paper and Paperboard</fullName>
                     <default>false</default>
+                    <label>Paper and Paperboard</label>
                 </value>
                 <value>
                     <fullName>Plastics and Rubber</fullName>
                     <default>false</default>
+                    <label>Plastics and Rubber</label>
                 </value>
                 <value>
                     <fullName>Steel-Related</fullName>
                     <default>false</default>
+                    <label>Steel-Related</label>
                 </value>
                 <value>
                     <fullName>Textiles</fullName>
                     <default>false</default>
+                    <label>Textiles</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -586,64 +598,9 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
-                    <fullName>Afghanistan</fullName>
-                    <default>false</default>
-                    <label>Afghanistan</label>
-                </value>
-                <value>
-                    <fullName>Aland Islands</fullName>
-                    <default>false</default>
-                    <label>Aland Islands</label>
-                </value>
-                <value>
-                    <fullName>Albania</fullName>
-                    <default>false</default>
-                    <label>Albania</label>
-                </value>
-                <value>
-                    <fullName>Algeria</fullName>
-                    <default>false</default>
-                    <label>Algeria</label>
-                </value>
-                <value>
-                    <fullName>Andorra</fullName>
-                    <default>false</default>
-                    <label>Andorra</label>
-                </value>
-                <value>
-                    <fullName>Angola</fullName>
-                    <default>false</default>
-                    <label>Angola</label>
-                </value>
-                <value>
-                    <fullName>Anguilla</fullName>
-                    <default>false</default>
-                    <label>Anguilla</label>
-                </value>
-                <value>
-                    <fullName>Antarctica</fullName>
-                    <default>false</default>
-                    <label>Antarctica</label>
-                </value>
-                <value>
-                    <fullName>Antigua and Barbuda</fullName>
-                    <default>false</default>
-                    <label>Antigua and Barbuda</label>
-                </value>
-                <value>
                     <fullName>Argentina</fullName>
                     <default>false</default>
                     <label>Argentina</label>
-                </value>
-                <value>
-                    <fullName>Armenia</fullName>
-                    <default>false</default>
-                    <label>Armenia</label>
-                </value>
-                <value>
-                    <fullName>Aruba</fullName>
-                    <default>false</default>
-                    <label>Aruba</label>
                 </value>
                 <value>
                     <fullName>Australia</fullName>
@@ -656,29 +613,9 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
                     <label>Austria</label>
                 </value>
                 <value>
-                    <fullName>Azerbaijan</fullName>
-                    <default>false</default>
-                    <label>Azerbaijan</label>
-                </value>
-                <value>
-                    <fullName>Bahamas</fullName>
-                    <default>false</default>
-                    <label>Bahamas</label>
-                </value>
-                <value>
-                    <fullName>Bahrain</fullName>
-                    <default>false</default>
-                    <label>Bahrain</label>
-                </value>
-                <value>
                     <fullName>Bangladesh</fullName>
                     <default>false</default>
                     <label>Bangladesh</label>
-                </value>
-                <value>
-                    <fullName>Barbados</fullName>
-                    <default>false</default>
-                    <label>Barbados</label>
                 </value>
                 <value>
                     <fullName>Belarus</fullName>
@@ -691,89 +628,9 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
                     <label>Belgium</label>
                 </value>
                 <value>
-                    <fullName>Belize</fullName>
-                    <default>false</default>
-                    <label>Belize</label>
-                </value>
-                <value>
-                    <fullName>Benin</fullName>
-                    <default>false</default>
-                    <label>Benin</label>
-                </value>
-                <value>
-                    <fullName>Bermuda</fullName>
-                    <default>false</default>
-                    <label>Bermuda</label>
-                </value>
-                <value>
-                    <fullName>Bhutan</fullName>
-                    <default>false</default>
-                    <label>Bhutan</label>
-                </value>
-                <value>
-                    <fullName>Bolivia, Plurinational State of</fullName>
-                    <default>false</default>
-                    <label>Bolivia, Plurinational State of</label>
-                </value>
-                <value>
-                    <fullName>Bonaire, Sint Eustatius and Saba</fullName>
-                    <default>false</default>
-                    <label>Bonaire, Sint Eustatius and Saba</label>
-                </value>
-                <value>
-                    <fullName>Bosnia and Herzegovina</fullName>
-                    <default>false</default>
-                    <label>Bosnia and Herzegovina</label>
-                </value>
-                <value>
-                    <fullName>Botswana</fullName>
-                    <default>false</default>
-                    <label>Botswana</label>
-                </value>
-                <value>
-                    <fullName>Bouvet Island</fullName>
-                    <default>false</default>
-                    <label>Bouvet Island</label>
-                </value>
-                <value>
                     <fullName>Brazil</fullName>
                     <default>false</default>
                     <label>Brazil</label>
-                </value>
-                <value>
-                    <fullName>British Indian Ocean Territory</fullName>
-                    <default>false</default>
-                    <label>British Indian Ocean Territory</label>
-                </value>
-                <value>
-                    <fullName>Brunei Darussalam</fullName>
-                    <default>false</default>
-                    <label>Brunei Darussalam</label>
-                </value>
-                <value>
-                    <fullName>Bulgaria</fullName>
-                    <default>false</default>
-                    <label>Bulgaria</label>
-                </value>
-                <value>
-                    <fullName>Burkina Faso</fullName>
-                    <default>false</default>
-                    <label>Burkina Faso</label>
-                </value>
-                <value>
-                    <fullName>Burundi</fullName>
-                    <default>false</default>
-                    <label>Burundi</label>
-                </value>
-                <value>
-                    <fullName>Cambodia</fullName>
-                    <default>false</default>
-                    <label>Cambodia</label>
-                </value>
-                <value>
-                    <fullName>Cameroon</fullName>
-                    <default>false</default>
-                    <label>Cameroon</label>
                 </value>
                 <value>
                     <fullName>Canada</fullName>
@@ -781,99 +638,14 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
                     <label>Canada</label>
                 </value>
                 <value>
-                    <fullName>Cape Verde</fullName>
-                    <default>false</default>
-                    <label>Cape Verde</label>
-                </value>
-                <value>
-                    <fullName>Cayman Islands</fullName>
-                    <default>false</default>
-                    <label>Cayman Islands</label>
-                </value>
-                <value>
-                    <fullName>Central African Republic</fullName>
-                    <default>false</default>
-                    <label>Central African Republic</label>
-                </value>
-                <value>
-                    <fullName>Chad</fullName>
-                    <default>false</default>
-                    <label>Chad</label>
-                </value>
-                <value>
                     <fullName>Chile</fullName>
                     <default>false</default>
                     <label>Chile</label>
                 </value>
                 <value>
-                    <fullName>China</fullName>
-                    <default>false</default>
-                    <label>China</label>
-                </value>
-                <value>
-                    <fullName>Christmas Island</fullName>
-                    <default>false</default>
-                    <label>Christmas Island</label>
-                </value>
-                <value>
-                    <fullName>Cocos (Keeling) Islands</fullName>
-                    <default>false</default>
-                    <label>Cocos (Keeling) Islands</label>
-                </value>
-                <value>
                     <fullName>Colombia</fullName>
                     <default>false</default>
                     <label>Colombia</label>
-                </value>
-                <value>
-                    <fullName>Comoros</fullName>
-                    <default>false</default>
-                    <label>Comoros</label>
-                </value>
-                <value>
-                    <fullName>Congo</fullName>
-                    <default>false</default>
-                    <label>Congo</label>
-                </value>
-                <value>
-                    <fullName>Congo, the Democratic Republic of the</fullName>
-                    <default>false</default>
-                    <label>Congo, the Democratic Republic of the</label>
-                </value>
-                <value>
-                    <fullName>Cook Islands</fullName>
-                    <default>false</default>
-                    <label>Cook Islands</label>
-                </value>
-                <value>
-                    <fullName>Costa Rica</fullName>
-                    <default>false</default>
-                    <label>Costa Rica</label>
-                </value>
-                <value>
-                    <fullName>Cote d’Ivoire</fullName>
-                    <default>false</default>
-                    <label>Cote d’Ivoire</label>
-                </value>
-                <value>
-                    <fullName>Croatia</fullName>
-                    <default>false</default>
-                    <label>Croatia</label>
-                </value>
-                <value>
-                    <fullName>Cuba</fullName>
-                    <default>false</default>
-                    <label>Cuba</label>
-                </value>
-                <value>
-                    <fullName>Curaçao</fullName>
-                    <default>false</default>
-                    <label>Curaçao</label>
-                </value>
-                <value>
-                    <fullName>Cyprus</fullName>
-                    <default>false</default>
-                    <label>Cyprus</label>
                 </value>
                 <value>
                     <fullName>Czech Republic</fullName>
@@ -886,21 +658,6 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
                     <label>Denmark</label>
                 </value>
                 <value>
-                    <fullName>Djibouti</fullName>
-                    <default>false</default>
-                    <label>Djibouti</label>
-                </value>
-                <value>
-                    <fullName>Dominica</fullName>
-                    <default>false</default>
-                    <label>Dominica</label>
-                </value>
-                <value>
-                    <fullName>Dominican Republic</fullName>
-                    <default>false</default>
-                    <label>Dominican Republic</label>
-                </value>
-                <value>
                     <fullName>Ecuador</fullName>
                     <default>false</default>
                     <label>Ecuador</label>
@@ -911,44 +668,9 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
                     <label>Egypt</label>
                 </value>
                 <value>
-                    <fullName>El Salvador</fullName>
-                    <default>false</default>
-                    <label>El Salvador</label>
-                </value>
-                <value>
-                    <fullName>Equatorial Guinea</fullName>
-                    <default>false</default>
-                    <label>Equatorial Guinea</label>
-                </value>
-                <value>
-                    <fullName>Eritrea</fullName>
-                    <default>false</default>
-                    <label>Eritrea</label>
-                </value>
-                <value>
                     <fullName>Estonia</fullName>
                     <default>false</default>
                     <label>Estonia</label>
-                </value>
-                <value>
-                    <fullName>Ethiopia</fullName>
-                    <default>false</default>
-                    <label>Ethiopia</label>
-                </value>
-                <value>
-                    <fullName>Falkland Islands (Malvinas)</fullName>
-                    <default>false</default>
-                    <label>Falkland Islands (Malvinas)</label>
-                </value>
-                <value>
-                    <fullName>Faroe Islands</fullName>
-                    <default>false</default>
-                    <label>Faroe Islands</label>
-                </value>
-                <value>
-                    <fullName>Fiji</fullName>
-                    <default>false</default>
-                    <label>Fiji</label>
                 </value>
                 <value>
                     <fullName>Finland</fullName>
@@ -961,49 +683,9 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
                     <label>France</label>
                 </value>
                 <value>
-                    <fullName>French Guiana</fullName>
-                    <default>false</default>
-                    <label>French Guiana</label>
-                </value>
-                <value>
-                    <fullName>French Polynesia</fullName>
-                    <default>false</default>
-                    <label>French Polynesia</label>
-                </value>
-                <value>
-                    <fullName>French Southern Territories</fullName>
-                    <default>false</default>
-                    <label>French Southern Territories</label>
-                </value>
-                <value>
-                    <fullName>Gabon</fullName>
-                    <default>false</default>
-                    <label>Gabon</label>
-                </value>
-                <value>
-                    <fullName>Gambia</fullName>
-                    <default>false</default>
-                    <label>Gambia</label>
-                </value>
-                <value>
-                    <fullName>Georgia</fullName>
-                    <default>false</default>
-                    <label>Georgia</label>
-                </value>
-                <value>
                     <fullName>Germany</fullName>
                     <default>false</default>
                     <label>Germany</label>
-                </value>
-                <value>
-                    <fullName>Ghana</fullName>
-                    <default>false</default>
-                    <label>Ghana</label>
-                </value>
-                <value>
-                    <fullName>Gibraltar</fullName>
-                    <default>false</default>
-                    <label>Gibraltar</label>
                 </value>
                 <value>
                     <fullName>Greece</fullName>
@@ -1011,74 +693,9 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
                     <label>Greece</label>
                 </value>
                 <value>
-                    <fullName>Greenland</fullName>
-                    <default>false</default>
-                    <label>Greenland</label>
-                </value>
-                <value>
-                    <fullName>Grenada</fullName>
-                    <default>false</default>
-                    <label>Grenada</label>
-                </value>
-                <value>
-                    <fullName>Guadeloupe</fullName>
-                    <default>false</default>
-                    <label>Guadeloupe</label>
-                </value>
-                <value>
-                    <fullName>Guatemala</fullName>
-                    <default>false</default>
-                    <label>Guatemala</label>
-                </value>
-                <value>
-                    <fullName>Guernsey</fullName>
-                    <default>false</default>
-                    <label>Guernsey</label>
-                </value>
-                <value>
-                    <fullName>Guinea</fullName>
-                    <default>false</default>
-                    <label>Guinea</label>
-                </value>
-                <value>
-                    <fullName>Guinea-Bissau</fullName>
-                    <default>false</default>
-                    <label>Guinea-Bissau</label>
-                </value>
-                <value>
-                    <fullName>Guyana</fullName>
-                    <default>false</default>
-                    <label>Guyana</label>
-                </value>
-                <value>
-                    <fullName>Haiti</fullName>
-                    <default>false</default>
-                    <label>Haiti</label>
-                </value>
-                <value>
-                    <fullName>Heard Island and McDonald Islands</fullName>
-                    <default>false</default>
-                    <label>Heard Island and McDonald Islands</label>
-                </value>
-                <value>
-                    <fullName>Holy See (Vatican City State)</fullName>
-                    <default>false</default>
-                    <label>Holy See (Vatican City State)</label>
-                </value>
-                <value>
-                    <fullName>Honduras</fullName>
-                    <default>false</default>
-                    <label>Honduras</label>
-                </value>
-                <value>
                     <fullName>Hungary</fullName>
                     <default>false</default>
                     <label>Hungary</label>
-                </value>
-                <value>
-                    <fullName>Iceland</fullName>
-                    <default>false</default>
-                    <label>Iceland</label>
                 </value>
                 <value>
                     <fullName>India</fullName>
@@ -1106,11 +723,6 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
                     <label>Ireland</label>
                 </value>
                 <value>
-                    <fullName>Isle of Man</fullName>
-                    <default>false</default>
-                    <label>Isle of Man</label>
-                </value>
-                <value>
                     <fullName>Israel</fullName>
                     <default>false</default>
                     <label>Israel</label>
@@ -1121,24 +733,9 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
                     <label>Italy</label>
                 </value>
                 <value>
-                    <fullName>Jamaica</fullName>
-                    <default>false</default>
-                    <label>Jamaica</label>
-                </value>
-                <value>
                     <fullName>Japan</fullName>
                     <default>false</default>
                     <label>Japan</label>
-                </value>
-                <value>
-                    <fullName>Jersey</fullName>
-                    <default>false</default>
-                    <label>Jersey</label>
-                </value>
-                <value>
-                    <fullName>Jordan</fullName>
-                    <default>false</default>
-                    <label>Jordan</label>
                 </value>
                 <value>
                     <fullName>Kazakhstan</fullName>
@@ -1146,59 +743,14 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
                     <label>Kazakhstan</label>
                 </value>
                 <value>
-                    <fullName>Kenya</fullName>
-                    <default>false</default>
-                    <label>Kenya</label>
-                </value>
-                <value>
-                    <fullName>Kiribati</fullName>
-                    <default>false</default>
-                    <label>Kiribati</label>
-                </value>
-                <value>
-                    <fullName>Kuwait</fullName>
-                    <default>false</default>
-                    <label>Kuwait</label>
-                </value>
-                <value>
                     <fullName>Kyrgyzstan</fullName>
                     <default>false</default>
                     <label>Kyrgyzstan</label>
                 </value>
                 <value>
-                    <fullName>Lao People’s Democratic Republic</fullName>
-                    <default>false</default>
-                    <label>Lao People’s Democratic Republic</label>
-                </value>
-                <value>
                     <fullName>Latvia</fullName>
                     <default>false</default>
                     <label>Latvia</label>
-                </value>
-                <value>
-                    <fullName>Lebanon</fullName>
-                    <default>false</default>
-                    <label>Lebanon</label>
-                </value>
-                <value>
-                    <fullName>Lesotho</fullName>
-                    <default>false</default>
-                    <label>Lesotho</label>
-                </value>
-                <value>
-                    <fullName>Liberia</fullName>
-                    <default>false</default>
-                    <label>Liberia</label>
-                </value>
-                <value>
-                    <fullName>Libyan Arab Jamahiriya</fullName>
-                    <default>false</default>
-                    <label>Libyan Arab Jamahiriya</label>
-                </value>
-                <value>
-                    <fullName>Liechtenstein</fullName>
-                    <default>false</default>
-                    <label>Liechtenstein</label>
                 </value>
                 <value>
                     <fullName>Lithuania</fullName>
@@ -1211,64 +763,14 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
                     <label>Luxembourg</label>
                 </value>
                 <value>
-                    <fullName>Macao</fullName>
-                    <default>false</default>
-                    <label>Macao</label>
-                </value>
-                <value>
                     <fullName>Macedonia</fullName>
                     <default>false</default>
                     <label>Macedonia</label>
                 </value>
                 <value>
-                    <fullName>Madagascar</fullName>
-                    <default>false</default>
-                    <label>Madagascar</label>
-                </value>
-                <value>
-                    <fullName>Malawi</fullName>
-                    <default>false</default>
-                    <label>Malawi</label>
-                </value>
-                <value>
                     <fullName>Malaysia</fullName>
                     <default>false</default>
                     <label>Malaysia</label>
-                </value>
-                <value>
-                    <fullName>Maldives</fullName>
-                    <default>false</default>
-                    <label>Maldives</label>
-                </value>
-                <value>
-                    <fullName>Mali</fullName>
-                    <default>false</default>
-                    <label>Mali</label>
-                </value>
-                <value>
-                    <fullName>Malta</fullName>
-                    <default>false</default>
-                    <label>Malta</label>
-                </value>
-                <value>
-                    <fullName>Martinique</fullName>
-                    <default>false</default>
-                    <label>Martinique</label>
-                </value>
-                <value>
-                    <fullName>Mauritania</fullName>
-                    <default>false</default>
-                    <label>Mauritania</label>
-                </value>
-                <value>
-                    <fullName>Mauritius</fullName>
-                    <default>false</default>
-                    <label>Mauritius</label>
-                </value>
-                <value>
-                    <fullName>Mayotte</fullName>
-                    <default>false</default>
-                    <label>Mayotte</label>
                 </value>
                 <value>
                     <fullName>Mexico</fullName>
@@ -1281,99 +783,14 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
                     <label>Moldova</label>
                 </value>
                 <value>
-                    <fullName>Monaco</fullName>
-                    <default>false</default>
-                    <label>Monaco</label>
-                </value>
-                <value>
-                    <fullName>Mongolia</fullName>
-                    <default>false</default>
-                    <label>Mongolia</label>
-                </value>
-                <value>
-                    <fullName>Montenegro</fullName>
-                    <default>false</default>
-                    <label>Montenegro</label>
-                </value>
-                <value>
-                    <fullName>Montserrat</fullName>
-                    <default>false</default>
-                    <label>Montserrat</label>
-                </value>
-                <value>
-                    <fullName>Morocco</fullName>
-                    <default>false</default>
-                    <label>Morocco</label>
-                </value>
-                <value>
-                    <fullName>Mozambique</fullName>
-                    <default>false</default>
-                    <label>Mozambique</label>
-                </value>
-                <value>
-                    <fullName>Myanmar</fullName>
-                    <default>false</default>
-                    <label>Myanmar</label>
-                </value>
-                <value>
-                    <fullName>Namibia</fullName>
-                    <default>false</default>
-                    <label>Namibia</label>
-                </value>
-                <value>
-                    <fullName>Nauru</fullName>
-                    <default>false</default>
-                    <label>Nauru</label>
-                </value>
-                <value>
-                    <fullName>Nepal</fullName>
-                    <default>false</default>
-                    <label>Nepal</label>
-                </value>
-                <value>
                     <fullName>Netherlands</fullName>
                     <default>false</default>
                     <label>Netherlands</label>
                 </value>
                 <value>
-                    <fullName>New Caledonia</fullName>
-                    <default>false</default>
-                    <label>New Caledonia</label>
-                </value>
-                <value>
                     <fullName>New Zealand</fullName>
                     <default>false</default>
                     <label>New Zealand</label>
-                </value>
-                <value>
-                    <fullName>Nicaragua</fullName>
-                    <default>false</default>
-                    <label>Nicaragua</label>
-                </value>
-                <value>
-                    <fullName>Niger</fullName>
-                    <default>false</default>
-                    <label>Niger</label>
-                </value>
-                <value>
-                    <fullName>Nigeria</fullName>
-                    <default>false</default>
-                    <label>Nigeria</label>
-                </value>
-                <value>
-                    <fullName>Niue</fullName>
-                    <default>false</default>
-                    <label>Niue</label>
-                </value>
-                <value>
-                    <fullName>Norfolk Island</fullName>
-                    <default>false</default>
-                    <label>Norfolk Island</label>
-                </value>
-                <value>
-                    <fullName>North Korea</fullName>
-                    <default>false</default>
-                    <label>North Korea</label>
                 </value>
                 <value>
                     <fullName>Norway</fullName>
@@ -1391,44 +808,14 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
                     <label>Pakistan</label>
                 </value>
                 <value>
-                    <fullName>Palestine</fullName>
-                    <default>false</default>
-                    <label>Palestine</label>
-                </value>
-                <value>
-                    <fullName>Panama</fullName>
-                    <default>false</default>
-                    <label>Panama</label>
-                </value>
-                <value>
-                    <fullName>Papua New Guinea</fullName>
-                    <default>false</default>
-                    <label>Papua New Guinea</label>
-                </value>
-                <value>
-                    <fullName>Paraguay</fullName>
-                    <default>false</default>
-                    <label>Paraguay</label>
-                </value>
-                <value>
                     <fullName>People&apos;s Republic of China</fullName>
                     <default>false</default>
                     <label>People&apos;s Republic of China</label>
                 </value>
                 <value>
-                    <fullName>Peru</fullName>
-                    <default>false</default>
-                    <label>Peru</label>
-                </value>
-                <value>
                     <fullName>Philippines</fullName>
                     <default>false</default>
                     <label>Philippines</label>
-                </value>
-                <value>
-                    <fullName>Pitcairn</fullName>
-                    <default>false</default>
-                    <label>Pitcairn</label>
                 </value>
                 <value>
                     <fullName>Poland</fullName>
@@ -1441,16 +828,6 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
                     <label>Portugal</label>
                 </value>
                 <value>
-                    <fullName>Qatar</fullName>
-                    <default>false</default>
-                    <label>Qatar</label>
-                </value>
-                <value>
-                    <fullName>Reunion</fullName>
-                    <default>false</default>
-                    <label>Reunion</label>
-                </value>
-                <value>
                     <fullName>Romania</fullName>
                     <default>false</default>
                     <label>Romania</label>
@@ -1461,84 +838,9 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
                     <label>Russia</label>
                 </value>
                 <value>
-                    <fullName>Rwanda</fullName>
-                    <default>false</default>
-                    <label>Rwanda</label>
-                </value>
-                <value>
-                    <fullName>Saint Barthélemy</fullName>
-                    <default>false</default>
-                    <label>Saint Barthélemy</label>
-                </value>
-                <value>
-                    <fullName>Saint Helena, Ascension and Tristan da Cunha</fullName>
-                    <default>false</default>
-                    <label>Saint Helena, Ascension and Tristan da Cunha</label>
-                </value>
-                <value>
-                    <fullName>Saint Kitts and Nevis</fullName>
-                    <default>false</default>
-                    <label>Saint Kitts and Nevis</label>
-                </value>
-                <value>
-                    <fullName>Saint Lucia</fullName>
-                    <default>false</default>
-                    <label>Saint Lucia</label>
-                </value>
-                <value>
-                    <fullName>Saint Martin (French part)</fullName>
-                    <default>false</default>
-                    <label>Saint Martin (French part)</label>
-                </value>
-                <value>
-                    <fullName>Saint Pierre and Miquelon</fullName>
-                    <default>false</default>
-                    <label>Saint Pierre and Miquelon</label>
-                </value>
-                <value>
-                    <fullName>Saint Vincent and the Grenadines</fullName>
-                    <default>false</default>
-                    <label>Saint Vincent and the Grenadines</label>
-                </value>
-                <value>
-                    <fullName>Samoa</fullName>
-                    <default>false</default>
-                    <label>Samoa</label>
-                </value>
-                <value>
-                    <fullName>San Marino</fullName>
-                    <default>false</default>
-                    <label>San Marino</label>
-                </value>
-                <value>
-                    <fullName>Sao Tome and Principe</fullName>
-                    <default>false</default>
-                    <label>Sao Tome and Principe</label>
-                </value>
-                <value>
                     <fullName>Saudi Arabia</fullName>
                     <default>false</default>
                     <label>Saudi Arabia</label>
-                </value>
-                <value>
-                    <fullName>Senegal</fullName>
-                    <default>false</default>
-                    <label>Senegal</label>
-                </value>
-                <value>
-                    <fullName>Serbia</fullName>
-                    <default>false</default>
-                    <label>Serbia</label>
-                </value>
-                <value>
-                    <fullName>Seychelles</fullName>
-                    <default>false</default>
-                    <label>Seychelles</label>
-                </value>
-                <value>
-                    <fullName>Sierra Leone</fullName>
-                    <default>false</default>
-                    <label>Sierra Leone</label>
                 </value>
                 <value>
                     <fullName>Singapore</fullName>
@@ -1546,29 +848,9 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
                     <label>Singapore</label>
                 </value>
                 <value>
-                    <fullName>Sint Maarten (Dutch part)</fullName>
-                    <default>false</default>
-                    <label>Sint Maarten (Dutch part)</label>
-                </value>
-                <value>
                     <fullName>Slovakia</fullName>
                     <default>false</default>
                     <label>Slovakia</label>
-                </value>
-                <value>
-                    <fullName>Slovenia</fullName>
-                    <default>false</default>
-                    <label>Slovenia</label>
-                </value>
-                <value>
-                    <fullName>Solomon Islands</fullName>
-                    <default>false</default>
-                    <label>Solomon Islands</label>
-                </value>
-                <value>
-                    <fullName>Somalia</fullName>
-                    <default>false</default>
-                    <label>Somalia</label>
                 </value>
                 <value>
                     <fullName>South Africa</fullName>
@@ -1576,19 +858,9 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
                     <label>South Africa</label>
                 </value>
                 <value>
-                    <fullName>South Georgia and the South Sandwich Islands</fullName>
-                    <default>false</default>
-                    <label>South Georgia and the South Sandwich Islands</label>
-                </value>
-                <value>
                     <fullName>South Korea</fullName>
                     <default>false</default>
                     <label>South Korea</label>
-                </value>
-                <value>
-                    <fullName>South Sudan</fullName>
-                    <default>false</default>
-                    <label>South Sudan</label>
                 </value>
                 <value>
                     <fullName>Spain</fullName>
@@ -1596,44 +868,9 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
                     <label>Spain</label>
                 </value>
                 <value>
-                    <fullName>Sri Lanka</fullName>
-                    <default>false</default>
-                    <label>Sri Lanka</label>
-                </value>
-                <value>
-                    <fullName>Sudan</fullName>
-                    <default>false</default>
-                    <label>Sudan</label>
-                </value>
-                <value>
-                    <fullName>Suriname</fullName>
-                    <default>false</default>
-                    <label>Suriname</label>
-                </value>
-                <value>
-                    <fullName>Svalbard and Jan Mayen</fullName>
-                    <default>false</default>
-                    <label>Svalbard and Jan Mayen</label>
-                </value>
-                <value>
-                    <fullName>Swaziland</fullName>
-                    <default>false</default>
-                    <label>Swaziland</label>
-                </value>
-                <value>
                     <fullName>Sweden</fullName>
                     <default>false</default>
                     <label>Sweden</label>
-                </value>
-                <value>
-                    <fullName>Switzerland</fullName>
-                    <default>false</default>
-                    <label>Switzerland</label>
-                </value>
-                <value>
-                    <fullName>Syrian Arab Republic</fullName>
-                    <default>false</default>
-                    <label>Syrian Arab Republic</label>
                 </value>
                 <value>
                     <fullName>Taiwan</fullName>
@@ -1641,39 +878,9 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
                     <label>Taiwan</label>
                 </value>
                 <value>
-                    <fullName>Tajikistan</fullName>
-                    <default>false</default>
-                    <label>Tajikistan</label>
-                </value>
-                <value>
-                    <fullName>Tanzania, United Republic of</fullName>
-                    <default>false</default>
-                    <label>Tanzania, United Republic of</label>
-                </value>
-                <value>
                     <fullName>Thailand</fullName>
                     <default>false</default>
                     <label>Thailand</label>
-                </value>
-                <value>
-                    <fullName>Timor-Leste</fullName>
-                    <default>false</default>
-                    <label>Timor-Leste</label>
-                </value>
-                <value>
-                    <fullName>Togo</fullName>
-                    <default>false</default>
-                    <label>Togo</label>
-                </value>
-                <value>
-                    <fullName>Tokelau</fullName>
-                    <default>false</default>
-                    <label>Tokelau</label>
-                </value>
-                <value>
-                    <fullName>Tonga</fullName>
-                    <default>false</default>
-                    <label>Tonga</label>
                 </value>
                 <value>
                     <fullName>Trinidad and Tobago</fullName>
@@ -1681,34 +888,9 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
                     <label>Trinidad and Tobago</label>
                 </value>
                 <value>
-                    <fullName>Tunisia</fullName>
-                    <default>false</default>
-                    <label>Tunisia</label>
-                </value>
-                <value>
                     <fullName>Turkey</fullName>
                     <default>false</default>
                     <label>Turkey</label>
-                </value>
-                <value>
-                    <fullName>Turkmenistan</fullName>
-                    <default>false</default>
-                    <label>Turkmenistan</label>
-                </value>
-                <value>
-                    <fullName>Turks and Caicos Islands</fullName>
-                    <default>false</default>
-                    <label>Turks and Caicos Islands</label>
-                </value>
-                <value>
-                    <fullName>Tuvalu</fullName>
-                    <default>false</default>
-                    <label>Tuvalu</label>
-                </value>
-                <value>
-                    <fullName>Uganda</fullName>
-                    <default>false</default>
-                    <label>Uganda</label>
                 </value>
                 <value>
                     <fullName>Ukraine</fullName>
@@ -1731,19 +913,9 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
                     <label>United States</label>
                 </value>
                 <value>
-                    <fullName>Uruguay</fullName>
-                    <default>false</default>
-                    <label>Uruguay</label>
-                </value>
-                <value>
                     <fullName>Uzbekistan</fullName>
                     <default>false</default>
                     <label>Uzbekistan</label>
-                </value>
-                <value>
-                    <fullName>Vanuatu</fullName>
-                    <default>false</default>
-                    <label>Vanuatu</label>
                 </value>
                 <value>
                     <fullName>Venezuela</fullName>
@@ -1754,36 +926,6 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
                     <fullName>Vietnam</fullName>
                     <default>false</default>
                     <label>Vietnam</label>
-                </value>
-                <value>
-                    <fullName>Virgin Islands, British</fullName>
-                    <default>false</default>
-                    <label>Virgin Islands, British</label>
-                </value>
-                <value>
-                    <fullName>Wallis and Futuna</fullName>
-                    <default>false</default>
-                    <label>Wallis and Futuna</label>
-                </value>
-                <value>
-                    <fullName>Western Sahara</fullName>
-                    <default>false</default>
-                    <label>Western Sahara</label>
-                </value>
-                <value>
-                    <fullName>Yemen</fullName>
-                    <default>false</default>
-                    <label>Yemen</label>
-                </value>
-                <value>
-                    <fullName>Zambia</fullName>
-                    <default>false</default>
-                    <label>Zambia</label>
-                </value>
-                <value>
-                    <fullName>Zimbabwe</fullName>
-                    <default>false</default>
-                    <label>Zimbabwe</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1800,16 +942,6 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Decision_Signed__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Decision Signed</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Est_ITC_Notification_to_DOC_of_Final_Det__c</fullName>
@@ -1951,14 +1083,17 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <value>
                     <fullName>Materially Injured</fullName>
                     <default>false</default>
+                    <label>Materially Injured</label>
                 </value>
                 <value>
                     <fullName>Materially Retarded</fullName>
                     <default>false</default>
+                    <label>Materially Retarded</label>
                 </value>
                 <value>
                     <fullName>Threatened with Injury</fullName>
                     <default>false</default>
+                    <label>Threatened with Injury</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2029,31 +1164,38 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <value>
                     <fullName>DOC Negative Final</fullName>
                     <default>false</default>
+                    <label>DOC Negative Final</label>
                 </value>
                 <value>
                     <fullName>ITC Negative Final</fullName>
                     <default>false</default>
+                    <label>ITC Negative Final</label>
                 </value>
                 <value>
                     <fullName>ITC Negative Prelim</fullName>
                     <default>false</default>
+                    <label>ITC Negative Prelim</label>
                 </value>
                 <value>
                     <fullName>Petition Withdrawn After Initiation</fullName>
                     <default>false</default>
+                    <label>Petition Withdrawn After Initiation</label>
                 </value>
                 <value>
                     <fullName>Suspension Agreement</fullName>
                     <default>false</default>
+                    <label>Suspension Agreement</label>
                 </value>
                 <value>
                     <fullName>Order</fullName>
                     <default>false</default>
+                    <label>Order</label>
                 </value>
                 <value>
                     <fullName>In Progress</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>In Progress</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2109,10 +1251,12 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <value>
                     <fullName>Active</fullName>
                     <default>false</default>
+                    <label>Active</label>
                 </value>
                 <value>
                     <fullName>Inactive</fullName>
                     <default>false</default>
+                    <label>Inactive</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2580,38 +1724,47 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <value>
                     <fullName>Suspended</fullName>
                     <default>false</default>
+                    <label>Suspended</label>
                 </value>
                 <value>
                     <fullName>Prelim</fullName>
                     <default>false</default>
+                    <label>Prelim</label>
                 </value>
                 <value>
                     <fullName>Amend Prelim</fullName>
                     <default>false</default>
+                    <label>Amend Prelim</label>
                 </value>
                 <value>
                     <fullName>Final</fullName>
                     <default>false</default>
+                    <label>Final</label>
                 </value>
                 <value>
                     <fullName>Pending Order</fullName>
                     <default>false</default>
+                    <label>Pending Order</label>
                 </value>
                 <value>
                     <fullName>Hold</fullName>
                     <default>false</default>
+                    <label>Hold</label>
                 </value>
                 <value>
                     <fullName>Litigation</fullName>
                     <default>false</default>
+                    <label>Litigation</label>
                 </value>
                 <value>
                     <fullName>Customs</fullName>
                     <default>false</default>
+                    <label>Customs</label>
                 </value>
                 <value>
                     <fullName>Closed</fullName>
                     <default>false</default>
+                    <label>Closed</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2885,51 +2038,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
         <picklistValues>
             <picklist>Country_in_which_factors_were_valued__c</picklist>
             <values>
-                <fullName>Afghanistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Aland Islands</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Albania</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Algeria</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Andorra</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Angola</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Anguilla</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Antarctica</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Antigua and Barbuda</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Argentina</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Armenia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Aruba</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2941,23 +2050,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Azerbaijan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bahamas</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bahrain</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Bangladesh</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Barbados</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2969,71 +2062,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Belize</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Benin</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bermuda</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bhutan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bolivia%2C Plurinational State of</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bonaire%2C Sint Eustatius and Saba</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bosnia and Herzegovina</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Botswana</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bouvet Island</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Brazil</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>British Indian Ocean Territory</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Brunei Darussalam</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bulgaria</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Burkina Faso</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Burundi</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cambodia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cameroon</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3041,79 +2070,11 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Cape Verde</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cayman Islands</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Central African Republic</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chad</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Chile</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>China</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Christmas Island</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cocos %28Keeling%29 Islands</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Colombia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Comoros</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Congo</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Congo%2C the Democratic Republic of the</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cook Islands</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Costa Rica</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cote d%E2%80%99Ivoire</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Croatia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cuba</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Curaçao</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cyprus</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3125,18 +2086,6 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Djibouti</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dominica</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dominican Republic</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Ecuador</fullName>
                 <default>false</default>
             </values>
@@ -3145,35 +2094,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>El Salvador</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Equatorial Guinea</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Eritrea</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Estonia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ethiopia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Falkland Islands %28Malvinas%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Faroe Islands</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fiji</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3185,39 +2106,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>French Guiana</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>French Polynesia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>French Southern Territories</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gabon</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gambia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Georgia</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Germany</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ghana</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gibraltar</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3225,59 +2114,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Greenland</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Grenada</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Guadeloupe</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Guatemala</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Guernsey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Guinea</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Guinea-Bissau</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Guyana</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Haiti</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Heard Island and McDonald Islands</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Holy See %28Vatican City State%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Honduras</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Hungary</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Iceland</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3301,10 +2138,6 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Isle of Man</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Israel</fullName>
                 <default>false</default>
             </values>
@@ -3313,19 +2146,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Jamaica</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Japan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Jersey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Jordan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3333,47 +2154,11 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Kenya</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Kiribati</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Kuwait</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Kyrgyzstan</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Lao People%E2%80%99s Democratic Republic</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Latvia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lebanon</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lesotho</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Liberia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Libyan Arab Jamahiriya</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Liechtenstein</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3385,51 +2170,11 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Macao</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Macedonia</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Madagascar</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Malawi</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Malaysia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Maldives</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mali</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Malta</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Martinique</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mauritania</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mauritius</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mayotte</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3441,79 +2186,11 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Monaco</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mongolia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Montenegro</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Montserrat</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Morocco</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mozambique</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Myanmar</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Namibia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nauru</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nepal</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Netherlands</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>New Caledonia</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>New Zealand</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nicaragua</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Niger</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nigeria</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Niue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Norfolk Island</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>North Korea</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3529,35 +2206,11 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Palestine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Panama</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Papua New Guinea</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Paraguay</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>People%27s Republic of China</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Peru</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Philippines</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pitcairn</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3569,14 +2222,6 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Qatar</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reunion</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Romania</fullName>
                 <default>false</default>
             </values>
@@ -3585,67 +2230,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Rwanda</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Saint Barthélemy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Saint Helena%2C Ascension and Tristan da Cunha</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Saint Kitts and Nevis</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Saint Lucia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Saint Martin %28French part%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Saint Pierre and Miquelon</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Saint Vincent and the Grenadines</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Samoa</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>San Marino</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sao Tome and Principe</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Saudi Arabia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Senegal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Serbia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Seychelles</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sierra Leone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3653,23 +2238,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sint Maarten %28Dutch part%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Slovakia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Slovenia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Solomon Islands</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Somalia</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3677,15 +2246,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>South Georgia and the South Sandwich Islands</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>South Korea</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>South Sudan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3693,35 +2254,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sri Lanka</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sudan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Suriname</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Svalbard and Jan Mayen</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Swaziland</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Sweden</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Switzerland</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Syrian Arab Republic</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3729,31 +2262,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Tajikistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tanzania%2C United Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Thailand</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Timor-Leste</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Togo</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tokelau</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tonga</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3761,27 +2270,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Tunisia</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Turkey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Turkmenistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Turks and Caicos Islands</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tuvalu</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Uganda</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3801,15 +2290,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Uruguay</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Uzbekistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vanuatu</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3818,30 +2299,6 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
             </values>
             <values>
                 <fullName>Vietnam</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Virgin Islands%2C British</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wallis and Futuna</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Western Sahara</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yemen</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Zambia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Zimbabwe</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4138,51 +2595,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
         <picklistValues>
             <picklist>Country_in_which_factors_were_valued__c</picklist>
             <values>
-                <fullName>Afghanistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Aland Islands</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Albania</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Algeria</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Andorra</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Angola</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Anguilla</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Antarctica</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Antigua and Barbuda</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Argentina</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Armenia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Aruba</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4194,23 +2607,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Azerbaijan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bahamas</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bahrain</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Bangladesh</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Barbados</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4222,71 +2619,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Belize</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Benin</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bermuda</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bhutan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bolivia%2C Plurinational State of</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bonaire%2C Sint Eustatius and Saba</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bosnia and Herzegovina</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Botswana</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bouvet Island</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Brazil</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>British Indian Ocean Territory</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Brunei Darussalam</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bulgaria</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Burkina Faso</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Burundi</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cambodia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cameroon</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4294,79 +2627,11 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Cape Verde</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cayman Islands</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Central African Republic</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chad</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Chile</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>China</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Christmas Island</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cocos %28Keeling%29 Islands</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Colombia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Comoros</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Congo</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Congo%2C the Democratic Republic of the</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cook Islands</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Costa Rica</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cote d%E2%80%99Ivoire</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Croatia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cuba</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Curaçao</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cyprus</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4378,18 +2643,6 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Djibouti</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dominica</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dominican Republic</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Ecuador</fullName>
                 <default>false</default>
             </values>
@@ -4398,35 +2651,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>El Salvador</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Equatorial Guinea</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Eritrea</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Estonia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ethiopia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Falkland Islands %28Malvinas%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Faroe Islands</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fiji</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4438,39 +2663,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>French Guiana</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>French Polynesia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>French Southern Territories</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gabon</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gambia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Georgia</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Germany</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ghana</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gibraltar</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4478,59 +2671,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Greenland</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Grenada</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Guadeloupe</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Guatemala</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Guernsey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Guinea</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Guinea-Bissau</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Guyana</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Haiti</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Heard Island and McDonald Islands</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Holy See %28Vatican City State%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Honduras</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Hungary</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Iceland</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4554,10 +2695,6 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Isle of Man</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Israel</fullName>
                 <default>false</default>
             </values>
@@ -4566,19 +2703,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Jamaica</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Japan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Jersey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Jordan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4586,47 +2711,11 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Kenya</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Kiribati</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Kuwait</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Kyrgyzstan</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Lao People%E2%80%99s Democratic Republic</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Latvia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lebanon</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lesotho</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Liberia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Libyan Arab Jamahiriya</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Liechtenstein</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4638,51 +2727,11 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Macao</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Macedonia</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Madagascar</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Malawi</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Malaysia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Maldives</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mali</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Malta</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Martinique</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mauritania</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mauritius</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mayotte</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4694,79 +2743,11 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Monaco</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mongolia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Montenegro</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Montserrat</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Morocco</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mozambique</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Myanmar</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Namibia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nauru</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nepal</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Netherlands</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>New Caledonia</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>New Zealand</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nicaragua</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Niger</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nigeria</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Niue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Norfolk Island</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>North Korea</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4782,35 +2763,11 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Palestine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Panama</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Papua New Guinea</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Paraguay</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>People%27s Republic of China</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Peru</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Philippines</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pitcairn</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4822,14 +2779,6 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Qatar</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Reunion</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Romania</fullName>
                 <default>false</default>
             </values>
@@ -4838,67 +2787,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Rwanda</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Saint Barthélemy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Saint Helena%2C Ascension and Tristan da Cunha</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Saint Kitts and Nevis</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Saint Lucia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Saint Martin %28French part%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Saint Pierre and Miquelon</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Saint Vincent and the Grenadines</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Samoa</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>San Marino</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sao Tome and Principe</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Saudi Arabia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Senegal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Serbia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Seychelles</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sierra Leone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4906,23 +2795,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sint Maarten %28Dutch part%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Slovakia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Slovenia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Solomon Islands</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Somalia</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4930,15 +2803,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>South Georgia and the South Sandwich Islands</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>South Korea</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>South Sudan</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4946,35 +2811,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sri Lanka</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sudan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Suriname</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Svalbard and Jan Mayen</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Swaziland</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Sweden</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Switzerland</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Syrian Arab Republic</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4982,31 +2819,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Tajikistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tanzania%2C United Republic of</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Thailand</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Timor-Leste</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Togo</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tokelau</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tonga</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5014,27 +2827,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Tunisia</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Turkey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Turkmenistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Turks and Caicos Islands</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tuvalu</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Uganda</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5054,15 +2847,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
                 <default>false</default>
             </values>
             <values>
-                <fullName>Uruguay</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Uzbekistan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vanuatu</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5071,30 +2856,6 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
             </values>
             <values>
                 <fullName>Vietnam</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Virgin Islands%2C British</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wallis and Futuna</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Western Sahara</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yemen</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Zambia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Zimbabwe</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5425,6 +3186,7 @@ OR(Final_Extension_of_days__c &gt; 60, Final_Extension_of_days__c &lt; 0)
         <active>true</active>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,And (
 $RecordType.DeveloperName = &quot;AD&quot;, 
+NOT(ISPICKVAL( Petition__r.Petition_Outcome__c , &apos;Self-Initiated&apos;)),
 OR(Prelim_Extension_of_days__c &gt; 50,  Prelim_Extension_of_days__c &lt; 0)
 ))</errorConditionFormula>
         <errorMessage>Preliminary extension # of days on AD Investigation can only range from 1 to 50 days.</errorMessage>
@@ -5477,22 +3239,6 @@ PRIORVALUE(Locked__c) == true
         <errorMessage>Litigation cannot be blank when Have Custom Instructions is populated</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Every_Investigation_must_have_a_parent</fullName>
-        <active>true</active>
-        <description>Every Investigation must have a parent (Petition) plus an ADCVD Case.</description>
-        <errorConditionFormula>AND( 
-$Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
-Locked__c == false,
-ISNEW(), 
-AND(NOT(ISNEW()),NOT(ISBLANK(Segment__c))),
-OR(ISBLANK(Petition__c), 
-ISBLANK(ADCVD_Case__c),
-ISBLANK(Segment__c)
-)	
-)</errorConditionFormula>
-        <errorMessage>A new Investigation must have a parent Petition with an ADCVD Case.</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>Final_Extension_Null_If_False</fullName>
         <active>true</active>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND (
@@ -5535,4 +3281,5 @@ ISNULL( Petition_Withdrawn__c ),
         <errorDisplayField>Petition_Withdrawn__c</errorDisplayField>
         <errorMessage>The Petition Withdrawn date is required when Investigation Outcome is &quot;Petition Withdrawn After Initiation&quot;</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>

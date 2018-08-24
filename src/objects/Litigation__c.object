@@ -60,10 +60,11 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
-    <enableSearch>true</enableSearch>
+    <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
@@ -438,22 +439,27 @@
                 <value>
                     <fullName>129</fullName>
                     <default>false</default>
+                    <label>129</label>
                 </value>
                 <value>
                     <fullName>429</fullName>
                     <default>false</default>
+                    <label>429</label>
                 </value>
                 <value>
                     <fullName>437</fullName>
                     <default>false</default>
+                    <label>437</label>
                 </value>
                 <value>
                     <fullName>449</fullName>
                     <default>false</default>
+                    <label>449</label>
                 </value>
                 <value>
                     <fullName>464</fullName>
                     <default>false</default>
+                    <label>464</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -581,38 +587,47 @@
                 <value>
                     <fullName>I</fullName>
                     <default>false</default>
+                    <label>I</label>
                 </value>
                 <value>
                     <fullName>II</fullName>
                     <default>false</default>
+                    <label>II</label>
                 </value>
                 <value>
                     <fullName>III</fullName>
                     <default>false</default>
+                    <label>III</label>
                 </value>
                 <value>
                     <fullName>IV</fullName>
                     <default>false</default>
+                    <label>IV</label>
                 </value>
                 <value>
                     <fullName>V</fullName>
                     <default>false</default>
+                    <label>V</label>
                 </value>
                 <value>
                     <fullName>VI</fullName>
                     <default>false</default>
+                    <label>VI</label>
                 </value>
                 <value>
                     <fullName>VII</fullName>
                     <default>false</default>
+                    <label>VII</label>
                 </value>
                 <value>
                     <fullName>VIII</fullName>
                     <default>false</default>
+                    <label>VIII</label>
                 </value>
                 <value>
                     <fullName>SA</fullName>
                     <default>false</default>
+                    <label>SA</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -806,19 +821,23 @@
                 <value>
                     <fullName>Preliminary</fullName>
                     <default>false</default>
+                    <label>Preliminary</label>
                 </value>
                 <value>
                     <fullName>Final</fullName>
                     <default>false</default>
+                    <label>Final</label>
                 </value>
                 <value>
                     <fullName>Closed</fullName>
                     <default>false</default>
+                    <label>Closed</label>
                 </value>
                 <value>
                     <fullName>Active</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Active</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -3070,7 +3089,6 @@ $RecordType.DeveloperName = &quot;International_Litigation&quot;,
     </validationRules>
     <validationRules>
         <fullName>Only_Admin_reparents_Litigation_Records</fullName>
-        
         <active>true</active>
         <description>Litigation records can only be reparented by a System Administrator.</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
@@ -3080,7 +3098,13 @@ OR(ISCHANGED(Petition__c),ISCHANGED(Segment__c),ISCHANGED(Investigation__c)),$Pr
 &quot;System Administrator&quot;
 )</errorConditionFormula>
         <errorMessage>You are not authorized to edit this field. Only a System Administrator can edit the parent Petition, Segment, Investigation or ADCVD Case for this record.</errorMessage>
-        </validationRules>
+    </validationRules>
+    <validationRules>
+        <fullName>Prelim_Extension_of_days</fullName>
+        <active>true</active>
+        <errorConditionFormula>Calculated_Draft_Remand_release_to_party__c  &gt;=  Calculated_Final_Signature__c</errorConditionFormula>
+        <errorMessage>Please account for weekends or holidays when adjusting the extension number of days.</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Remand_Final_Extension</fullName>
         <active>true</active>
@@ -3090,4 +3114,5 @@ $RecordType.DeveloperName = &quot;Remand&quot;,
 ))</errorConditionFormula>
         <errorMessage>Final Extension cannot be less than zero.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>

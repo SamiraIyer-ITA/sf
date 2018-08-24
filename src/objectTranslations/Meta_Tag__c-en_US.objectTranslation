@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Meta Tag</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Meta Tags</value>
+    </caseValues>
+    <fields>
+        <help><!-- Choose which application this tag is targeting. --></help>
+        <label><!-- Application --></label>
+        <name>Application__c</name>
+        <picklistValues>
+            <masterLabel>Facebook</masterLabel>
+            <translation><!-- Facebook --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open Graph</masterLabel>
+            <translation><!-- Open Graph --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Twitter</masterLabel>
+            <translation><!-- Twitter --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Which atom, if any, is this tag going to be globally applied to? --></help>
+        <label><!-- Atom --></label>
+        <name>Atom__c</name>
+        <relationshipLabel><!-- Meta Tags --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Choose tag attribute. --></help>
+        <label><!-- Attribute --></label>
+        <name>Attribute__c</name>
+        <picklistValues>
+            <masterLabel>Alt</masterLabel>
+            <translation><!-- Alt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Height</masterLabel>
+            <translation><!-- Height --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Secure_URL</masterLabel>
+            <translation><!-- Secure_URL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tag</masterLabel>
+            <translation><!-- Tag --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Type</masterLabel>
+            <translation><!-- Type --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>URL</masterLabel>
+            <translation><!-- URL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Width</masterLabel>
+            <translation><!-- Width --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- What is displayed with this meta tag. --></help>
+        <label><!-- Content --></label>
+        <name>Content__c</name>
+    </fields>
+    <fields>
+        <help><!-- The name attribute defines a description, keyword, or author. --></help>
+        <label><!-- Name --></label>
+        <name>Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Which page, if any, is this tag going to be globally applied to? --></help>
+        <label><!-- Page --></label>
+        <name>Page__c</name>
+        <relationshipLabel><!-- Meta Tags --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Property --></label>
+        <name>Property__c</name>
+    </fields>
+    <fields>
+        <help><!-- Which site, if any, is this tag going to be globally applied to? --></help>
+        <label><!-- Site --></label>
+        <name>Site__c</name>
+        <relationshipLabel><!-- Meta Tags --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Choose application tag. --></help>
+        <label><!-- Tag --></label>
+        <name>Tag__c</name>
+        <picklistValues>
+            <masterLabel>App_ID</masterLabel>
+            <translation><!-- App_ID --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Author</masterLabel>
+            <translation><!-- Author --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Card</masterLabel>
+            <translation><!-- Card --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Description</masterLabel>
+            <translation><!-- Description --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Image</masterLabel>
+            <translation><!-- Image --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Modified_time</masterLabel>
+            <translation><!-- Modified_time --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Published_time</masterLabel>
+            <translation><!-- Published_time --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Site</masterLabel>
+            <translation><!-- Site --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Title</masterLabel>
+            <translation><!-- Title --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Type</masterLabel>
+            <translation><!-- Type --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>URL</masterLabel>
+            <translation><!-- URL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Video</masterLabel>
+            <translation><!-- Video --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Use Property As Name --></label>
+        <name>Use_Property_As_Name__c</name>
+    </fields>
+    <layouts>
+        <layout>Meta Tag Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Properties --></label>
+            <section>Properties</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Must have either a Name or Application entered.  Please enter a Name or Application. --></errorMessage>
+        <name>Has_Name_or_Application</name>
+    </validationRules>
+</CustomObjectTranslation>

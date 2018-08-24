@@ -1,0 +1,22 @@
+<apex:page sidebar="false" showHeader="false" applyBodyTag="false" applyHtmlTag="false">
+ <apex:composition template="Site_Template">
+     <apex:define name="page">
+    
+  <head>
+    <title>Toolkit Search</title>
+    <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+  </head>
+  <div align="center" class="row">
+  <body>
+  <h2>Toolkits Search</h2>
+  <p><a href="/et_search">Environmental Solutions</a></p>
+  <p><a href="/og_search">Oil and Gas</a></p>
+  <p><a href="/re_search">Renewable Energy</a></p>
+  <p><a href="/ng_search">NextGen</a></p>
+  <p><a href="/sg_search">SmartGrid</a></p>
+  <p><a href="/cn_search">Civil Nuclear</a></p>
+  </body>
+  </div>  
+     </apex:define>
+ </apex:composition>
+</apex:page>

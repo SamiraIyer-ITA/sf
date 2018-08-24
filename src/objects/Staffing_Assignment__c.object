@@ -62,11 +62,12 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>false</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
-    <enableSearch>true</enableSearch>
+    <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
@@ -96,14 +97,17 @@
                 <value>
                     <fullName>AD ME</fullName>
                     <default>false</default>
+                    <label>AD ME</label>
                 </value>
                 <value>
                     <fullName>AD NME</fullName>
                     <default>false</default>
+                    <label>AD NME</label>
                 </value>
                 <value>
                     <fullName>CVD</fullName>
                     <default>false</default>
+                    <label>CVD</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -341,62 +345,77 @@ IF( Segment__c != null, Segment__r.Link__c ,
                 <value>
                     <fullName>Accounting Director</fullName>
                     <default>false</default>
+                    <label>Accounting Director</label>
                 </value>
                 <value>
                     <fullName>Accounting PM</fullName>
                     <default>false</default>
+                    <label>Accounting PM</label>
                 </value>
                 <value>
                     <fullName>Analyst</fullName>
                     <default>false</default>
+                    <label>Analyst</label>
                 </value>
                 <value>
                     <fullName>Assistant Secretary</fullName>
                     <default>false</default>
+                    <label>Assistant Secretary</label>
                 </value>
                 <value>
                     <fullName>Associate DAS</fullName>
                     <default>false</default>
+                    <label>Associate DAS</label>
                 </value>
                 <value>
                     <fullName>DAS</fullName>
                     <default>false</default>
+                    <label>DAS</label>
                 </value>
                 <value>
                     <fullName>DAS Assistant</fullName>
                     <default>false</default>
+                    <label>DAS Assistant</label>
                 </value>
                 <value>
                     <fullName>Office Director</fullName>
                     <default>false</default>
+                    <label>Office Director</label>
                 </value>
                 <value>
                     <fullName>Program Manager</fullName>
                     <default>false</default>
+                    <label>Program Manager</label>
                 </value>
                 <value>
                     <fullName>Senior Legal</fullName>
                     <default>false</default>
+                    <label>Senior Legal</label>
                 </value>
                 <value>
                     <fullName>Senior Policy</fullName>
                     <default>false</default>
+                    <label>Senior Policy</label>
                 </value>
                 <value>
                     <fullName>Staff Accountant</fullName>
                     <default>false</default>
+                    <label>Staff Accountant</label>
                 </value>
                 <value>
                     <fullName>Staff Legal</fullName>
                     <default>false</default>
+                    <label>Staff Legal</label>
                 </value>
                 <value>
                     <fullName>Staff Policy</fullName>
                     <default>false</default>
+                    <label>Staff Policy</label>
                 </value>
                 <value>
                     <fullName>AS Assistant</fullName>
                     <default>false</default>
+                    <label>AS Assistant</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -429,38 +448,30 @@ IF( Segment__c != null, Segment__r.Link__c ,
     </fields>
     <label>Staffing Assignment</label>
     <listViews>
-        <fullName>AD_Policy_Orders_Staffing_Assignment</fullName>
-        <columns>NAME</columns>
+        <fullName>AD_Policy_Staffing</fullName>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <columns>Parent__c</columns>
         <columns>Title__c</columns>
         <columns>User__c</columns>
-        <columns>Parent__c</columns>
-        <columns>Country__c</columns>
         <columns>Product__c</columns>
+        <columns>Country__c</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>ADCVD_Order__c</field>
-            <operation>notEqual</operation>
-            <value>null</value>
-        </filters>
-        <filters>
-            <field>ADCVD_Case_Type__c</field>
-            <operation>equals</operation>
-            <value>AD ME,AD NME</value>
-        </filters>
         <filters>
             <field>Title__c</field>
             <operation>equals</operation>
-            <value>Senior Policy,Staff Policy</value>
+            <value>Senior Policy</value>
         </filters>
         <filters>
             <field>Parent_Name__c</field>
             <operation>contains</operation>
-            <value>AO</value>
+            <value>--AO-</value>
         </filters>
-        <label>AD Policy Orders Staffing Assignment</label>
-        <sharedTo>
-            <group>AD_Policy_Mass_Staffing_Group</group>
-        </sharedTo>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>startsWith</operation>
+            <value>A-</value>
+        </filters>
+        <label>AD Policy Staffing</label>
     </listViews>
     <listViews>
         <fullName>All</fullName>
@@ -470,32 +481,17 @@ IF( Segment__c != null, Segment__r.Link__c ,
         <columns>Parent__c</columns>
         <columns>Related_Organization_Parent__c</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>User__c</field>
-            <operation>equals</operation>
-            <value>brendan quinn</value>
-        </filters>
         <label>All</label>
     </listViews>
     <listViews>
-        <fullName>CVD_Policy_Orders_Staffing_Assignment</fullName>
-        <columns>NAME</columns>
+        <fullName>CVD_Policy_Staffing</fullName>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <columns>Parent__c</columns>
         <columns>Title__c</columns>
         <columns>User__c</columns>
-        <columns>Parent__c</columns>
-        <columns>Country__c</columns>
         <columns>Product__c</columns>
+        <columns>Country__c</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>ADCVD_Order__c</field>
-            <operation>notEqual</operation>
-            <value>null</value>
-        </filters>
-        <filters>
-            <field>ADCVD_Case_Type__c</field>
-            <operation>equals</operation>
-            <value>CVD</value>
-        </filters>
         <filters>
             <field>Title__c</field>
             <operation>equals</operation>
@@ -504,27 +500,24 @@ IF( Segment__c != null, Segment__r.Link__c ,
         <filters>
             <field>Parent_Name__c</field>
             <operation>contains</operation>
-            <value>AO</value>
+            <value>--AO-</value>
         </filters>
-        <label>CVD Policy Orders Staffing Assignment</label>
-        <sharedTo>
-            <group>CVD_Policy_Mass_Staffing_Group</group>
-        </sharedTo>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>startsWith</operation>
+            <value>C-</value>
+        </filters>
+        <label>CVD Policy Staffing</label>
     </listViews>
     <listViews>
-        <fullName>Legal_Orders_Staffing_Assignment</fullName>
-        <columns>NAME</columns>
+        <fullName>Legal_Staffing</fullName>
+        <booleanFilter>1 AND 2</booleanFilter>
+        <columns>Parent__c</columns>
         <columns>Title__c</columns>
         <columns>User__c</columns>
-        <columns>Parent__c</columns>
-        <columns>Country__c</columns>
         <columns>Product__c</columns>
+        <columns>Country__c</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>ADCVD_Order__c</field>
-            <operation>notEqual</operation>
-            <value>null</value>
-        </filters>
         <filters>
             <field>Title__c</field>
             <operation>equals</operation>
@@ -533,12 +526,9 @@ IF( Segment__c != null, Segment__r.Link__c ,
         <filters>
             <field>Parent_Name__c</field>
             <operation>contains</operation>
-            <value>AO</value>
+            <value>--AO-</value>
         </filters>
-        <label>Legal Orders Staffing Assignment</label>
-        <sharedTo>
-            <group>Legal_Mass_Staffing_Group</group>
-        </sharedTo>
+        <label>Legal Staffing</label>
     </listViews>
     <listViews>
         <fullName>Legal_Staffing_Unfilled</fullName>
@@ -597,6 +587,27 @@ IF( Segment__c != null, Segment__r.Link__c ,
             <operation>equals</operation>
         </filters>
         <label>Order-Account Staffing</label>
+    </listViews>
+    <listViews>
+        <fullName>Policy_and_Legal_Staffing_Combined</fullName>
+        <booleanFilter>1 AND 2</booleanFilter>
+        <columns>Parent__c</columns>
+        <columns>Title__c</columns>
+        <columns>User__c</columns>
+        <columns>Product__c</columns>
+        <columns>Country__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Title__c</field>
+            <operation>equals</operation>
+            <value>Senior Legal,Senior Policy,Staff Legal,Staff Policy</value>
+        </filters>
+        <filters>
+            <field>Parent_Name__c</field>
+            <operation>contains</operation>
+            <value>--AO-</value>
+        </filters>
+        <label>Policy and Legal Staffing Combined</label>
     </listViews>
     <listViews>
         <fullName>Staffing_Assignments_ClosedLocked_Queue_Staffing_Assignment</fullName>
@@ -750,4 +761,5 @@ IF(ISBLANK(Segment__c),0,1)&gt;1)
 )</errorConditionFormula>
         <errorMessage>Please select one parent ADCVD Order, Interested Organization, Investigation, Petition, or Segment for this Staffing Assignment with a related ADCVD Case.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>

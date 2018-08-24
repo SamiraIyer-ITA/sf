@@ -45,6 +45,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
@@ -132,4 +133,5 @@ PRIORVALUE(Locked__c) == true
 )</errorConditionFormula>
         <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>

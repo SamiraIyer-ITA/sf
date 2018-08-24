@@ -1,0 +1,15 @@
+<apex:page sidebar="false" showHeader="false" applyBodyTag="false" applyHtmlTag="false">
+ <apex:composition template="Site_Template">
+     <apex:define name="page">
+
+    <style>
+        #frame {
+        min-height:23700px;
+        }
+    </style>
+
+    <apex:iframe id="frame" src="https://govwizely.github.io/safe-harbor-swiss-search/" scrolling="false" />
+
+     </apex:define>
+ </apex:composition>
+</apex:page>

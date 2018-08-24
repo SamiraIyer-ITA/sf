@@ -3,38 +3,47 @@
     <customValue>
         <fullName>Environmental Issue</fullName>
         <default>false</default>
+        <label>Environmental Issue</label>
     </customValue>
     <customValue>
         <fullName>EPA Regulation</fullName>
         <default>false</default>
+        <label>EPA Regulation</label>
     </customValue>
     <customValue>
         <fullName>Use Case</fullName>
         <default>false</default>
+        <label>Use Case</label>
     </customValue>
     <customValue>
         <fullName>Project Phase</fullName>
         <default>false</default>
+        <label>Project Phase</label>
     </customValue>
     <customValue>
         <fullName>Performance Improvement Area</fullName>
         <default>false</default>
+        <label>Performance Improvement Area</label>
     </customValue>
     <customValue>
         <fullName>Issue</fullName>
         <default>false</default>
+        <label>Issue</label>
     </customValue>
     <customValue>
         <fullName>Regulation</fullName>
         <default>false</default>
+        <label>Regulation</label>
     </customValue>
     <customValue>
         <fullName>Sector</fullName>
         <default>false</default>
+        <label>Sector</label>
     </customValue>
     <customValue>
         <fullName>Sub-Sector</fullName>
         <default>false</default>
+        <label>Sub-Sector</label>
     </customValue>
     <masterLabel>Web Resource Type</masterLabel>
     <sorted>false</sorted>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Page</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Pages</value>
+    </caseValues>
+    <fields>
+        <label><!-- Assistance Text --></label>
+        <name>Assistance_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sliding Image --></label>
+        <lookupFilter>
+            <errorMessage><!-- You must look up to a Carousel. --></errorMessage>
+        </lookupFilter>
+        <name>Carousel__c</name>
+        <relationshipLabel><!-- Pages --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- URL Name --></label>
+        <name>Clean_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Collaborate Text --></label>
+        <name>Collaborate_Text__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please enter the name of the Group that you want to link to --></help>
+        <label><!-- Collaboration Group --></label>
+        <name>Collaboration_Group__c</name>
+    </fields>
+    <fields>
+        <label><!-- Atom --></label>
+        <lookupFilter>
+            <errorMessage><!-- You cannot select a Carousel for this content. --></errorMessage>
+        </lookupFilter>
+        <name>Content__c</name>
+        <relationshipLabel><!-- Pages --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Description Length --></label>
+        <name>Description_Length__c</name>
+    </fields>
+    <fields>
+        <help><!-- The description tag is a good way to provide a concise, human-readable summary of each page’s content (search engines may choose to use this over their automated results) --></help>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- Search Engines use titles, users a quick insight into the content of a result and why it’s relevant. Will be displayed on the browser tab and on visual search results. --></help>
+        <label><!-- Page Title --></label>
+        <name>Page_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- Template --></label>
+        <name>Page__c</name>
+        <relationshipLabel><!-- Pages --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Govdelivery Subscription Pop Up active --></help>
+        <label><!-- Pop-Up Active --></label>
+        <name>Pop_Up_Active__c</name>
+    </fields>
+    <fields>
+        <help><!-- Govdelivery Subscription Pop Up --></help>
+        <label><!-- Pop-Up Script --></label>
+        <name>Pop_Up_Script__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secondary Content Link Text --></label>
+        <name>Secondary_Content_Link_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secondary Content Link --></label>
+        <name>Secondary_Content_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secondary Content --></label>
+        <name>Secondary_Content__c</name>
+        <relationshipLabel><!-- Pages (Secondary Content) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- MicroSite --></label>
+        <name>Section__c</name>
+        <relationshipLabel><!-- Pages --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Site --></label>
+        <name>Site__c</name>
+        <relationshipLabel><!-- Pages --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Tertiary Content --></label>
+        <name>Tertiary_Content__c</name>
+        <relationshipLabel><!-- Pages (Tertiary Content) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Trade Events --></label>
+        <name>Trade_Events__c</name>
+        <relationshipLabel><!-- Pages (Trade Events) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Update Frequency --></label>
+        <name>Update_Frequency__c</name>
+        <picklistValues>
+            <masterLabel>always</masterLabel>
+            <translation><!-- always --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>daily</masterLabel>
+            <translation><!-- daily --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>hourly</masterLabel>
+            <translation><!-- hourly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>monthly</masterLabel>
+            <translation><!-- monthly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>never</masterLabel>
+            <translation><!-- never --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>weekly</masterLabel>
+            <translation><!-- weekly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>yearly</masterLabel>
+            <translation><!-- yearly --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The URL to the site of the current page --></help>
+        <label><!-- Public URL --></label>
+        <name>pageURL__c</name>
+    </fields>
+    <layouts>
+        <layout>Generic Page</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Domains --></label>
+            <section>Domains</section>
+        </sections>
+        <sections>
+            <label><!-- Metadata --></label>
+            <section>Metadata</section>
+        </sections>
+        <sections>
+            <label><!-- Popup --></label>
+            <section>Popup</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <description><!-- You can do anything with this page style. --></description>
+        <label><!-- Generic Page --></label>
+        <name>GenericPage</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Preview --></label>
+        <name>Preview</name>
+    </webLinks>
+</CustomObjectTranslation>

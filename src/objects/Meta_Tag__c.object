@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Ability to add custom meta tags on Web App pages.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Application__c</fullName>
+        <description>Choose which application this tag is targeting.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Choose which application this tag is targeting.</inlineHelpText>
+        <label>Application</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Facebook</fullName>
+                    <default>false</default>
+                    <label>Facebook</label>
+                </value>
+                <value>
+                    <fullName>Twitter</fullName>
+                    <default>false</default>
+                    <label>Twitter</label>
+                </value>
+                <value>
+                    <fullName>Open Graph</fullName>
+                    <default>false</default>
+                    <label>Open Graph</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Atom__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Relationship between a Meta Tag and atom, used within Web App.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Which atom, if any, is this tag going to be globally applied to?</inlineHelpText>
+        <label>Atom</label>
+        <referenceTo>Content__c</referenceTo>
+        <relationshipLabel>Meta Tags</relationshipLabel>
+        <relationshipName>Meta_Tags</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Attribute__c</fullName>
+        <description>Additional attributes on the tag.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Choose tag attribute.</inlineHelpText>
+        <label>Attribute</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Tag__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Width</fullName>
+                    <default>false</default>
+                    <label>Width</label>
+                </value>
+                <value>
+                    <fullName>Height</fullName>
+                    <default>false</default>
+                    <label>Height</label>
+                </value>
+                <value>
+                    <fullName>URL</fullName>
+                    <default>false</default>
+                    <label>URL</label>
+                </value>
+                <value>
+                    <fullName>Secure_URL</fullName>
+                    <default>false</default>
+                    <label>Secure_URL</label>
+                </value>
+                <value>
+                    <fullName>Type</fullName>
+                    <default>false</default>
+                    <label>Type</label>
+                </value>
+                <value>
+                    <fullName>Tag</fullName>
+                    <default>false</default>
+                    <label>Tag</label>
+                </value>
+                <value>
+                    <fullName>Alt</fullName>
+                    <default>false</default>
+                    <label>Alt</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Video</controllingFieldValue>
+                <controllingFieldValue>Image</controllingFieldValue>
+                <valueName>Width</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Video</controllingFieldValue>
+                <controllingFieldValue>Image</controllingFieldValue>
+                <valueName>Height</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Video</controllingFieldValue>
+                <controllingFieldValue>Image</controllingFieldValue>
+                <valueName>URL</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Video</controllingFieldValue>
+                <controllingFieldValue>Image</controllingFieldValue>
+                <valueName>Secure_URL</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Video</controllingFieldValue>
+                <controllingFieldValue>Image</controllingFieldValue>
+                <valueName>Type</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Video</controllingFieldValue>
+                <valueName>Tag</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Image</controllingFieldValue>
+                <valueName>Alt</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Content__c</fullName>
+        <description>Content attribute for meta tag.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>What is displayed with this meta tag.</inlineHelpText>
+        <label>Content</label>
+        <length>255</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Name__c</fullName>
+        <description>The name attribute for meta tags.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The name attribute defines a description, keyword, or author.</inlineHelpText>
+        <label>Name</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Page__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Relationship between a Meta Tag and page, used within Web App</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Which page, if any, is this tag going to be globally applied to?</inlineHelpText>
+        <label>Page</label>
+        <referenceTo>Page__c</referenceTo>
+        <relationshipLabel>Meta Tags</relationshipLabel>
+        <relationshipName>Meta_Tags</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Property__c</fullName>
+        <description>Property meta tag attribute.</description>
+        <externalId>false</externalId>
+        <formula>IF( ISPICKVAL( Application__c ,&apos;Facebook&apos; ),&apos;fb&apos; ,  IF( ISPICKVAL( Application__c , &apos;Open Graph&apos;) , &apos;og&apos;, LOWER(text(Application__c)) ) ) + if(!isBlank(text(Tag__c)), &apos;:&apos;, &apos;&apos;)+  LOWER( TEXT(Tag__c) )  + if(!isBlank(text( Attribute__c )), &apos;:&apos;, &apos;&apos;)+ LOWER(TEXT(Attribute__c))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Property</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Site__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Relationship between a Meta Tag and site, used within Web App.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Which site, if any, is this tag going to be globally applied to?</inlineHelpText>
+        <label>Site</label>
+        <referenceTo>Site__c</referenceTo>
+        <relationshipLabel>Meta Tags</relationshipLabel>
+        <relationshipName>Meta_Tags</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Tag__c</fullName>
+        <description>Card tag within application.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Choose application tag.</inlineHelpText>
+        <label>Tag</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Application__c</controllingField>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Title</fullName>
+                    <default>false</default>
+                    <label>Title</label>
+                </value>
+                <value>
+                    <fullName>Description</fullName>
+                    <default>false</default>
+                    <label>Description</label>
+                </value>
+                <value>
+                    <fullName>URL</fullName>
+                    <default>false</default>
+                    <label>URL</label>
+                </value>
+                <value>
+                    <fullName>App_ID</fullName>
+                    <default>false</default>
+                    <label>App_ID</label>
+                </value>
+                <value>
+                    <fullName>Card</fullName>
+                    <default>false</default>
+                    <label>Card</label>
+                </value>
+                <value>
+                    <fullName>Site</fullName>
+                    <default>false</default>
+                    <label>Site</label>
+                </value>
+                <value>
+                    <fullName>Video</fullName>
+                    <default>false</default>
+                    <label>Video</label>
+                </value>
+                <value>
+                    <fullName>Type</fullName>
+                    <default>false</default>
+                    <label>Type</label>
+                </value>
+                <value>
+                    <fullName>Image</fullName>
+                    <default>false</default>
+                    <label>Image</label>
+                </value>
+                <value>
+                    <fullName>Published_time</fullName>
+                    <default>false</default>
+                    <label>Published_time</label>
+                </value>
+                <value>
+                    <fullName>Modified_time</fullName>
+                    <default>false</default>
+                    <label>Modified_time</label>
+                </value>
+                <value>
+                    <fullName>Author</fullName>
+                    <default>false</default>
+                    <label>Author</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Facebook</controllingFieldValue>
+                <valueName>App_ID</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Twitter</controllingFieldValue>
+                <controllingFieldValue>Open Graph</controllingFieldValue>
+                <valueName>Title</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Twitter</controllingFieldValue>
+                <controllingFieldValue>Open Graph</controllingFieldValue>
+                <valueName>Description</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Twitter</controllingFieldValue>
+                <valueName>Card</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Twitter</controllingFieldValue>
+                <valueName>Site</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Twitter</controllingFieldValue>
+                <controllingFieldValue>Open Graph</controllingFieldValue>
+                <valueName>Image</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Open Graph</controllingFieldValue>
+                <valueName>URL</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Open Graph</controllingFieldValue>
+                <valueName>Video</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Open Graph</controllingFieldValue>
+                <valueName>Type</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Use_Property_As_Name__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Use Property As Name</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Meta Tag</label>
+    <nameField>
+        <displayFormat>Meta-{0}</displayFormat>
+        <label>Meta Tag Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Meta Tags</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Has_Name_or_Application</fullName>
+        <active>true</active>
+        <description>Ensures that there is a value in either the Name or Application custom fields before saving a record, as Meta Tags must have either a Property or Name attribute along with Content.</description>
+        <errorConditionFormula>AND( ISBLANK( text(Application__c) ), ISBLANK(  Name__c  ))</errorConditionFormula>
+        <errorMessage>Must have either a Name or Application entered.  Please enter a Name or Application.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Related Resource</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Related Resources</value>
+    </caseValues>
+    <fields>
+        <label><!-- Primary Web Resource Type --></label>
+        <name>PrimaryType__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Web Resource --></label>
+        <name>Primary_Web_Resource__c</name>
+        <relationshipLabel><!-- Related Resources --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product__c</name>
+        <relationshipLabel><!-- Related Web Resources --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Related Web Resource Type --></label>
+        <name>RelatedType__c</name>
+    </fields>
+    <fields>
+        <label><!-- Related Web Resource --></label>
+        <name>Related_Web_Resource__c</name>
+        <relationshipLabel><!-- Related Resources (Related Web Resource) --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Related Resource Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

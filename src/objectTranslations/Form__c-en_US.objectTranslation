@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Form</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Forms</value>
+    </caseValues>
+    <fields>
+        <label><!-- Case Description --></label>
+        <name>Case_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case RecordType --></label>
+        <name>Case_RecordType__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Subject --></label>
+        <name>Case_Subject__c</name>
+    </fields>
+    <fields>
+        <label><!-- Disable Submit --></label>
+        <name>Disable_Submit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Framework --></label>
+        <name>Framework__c</name>
+        <relationshipLabel><!-- Forms --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Header --></label>
+        <name>Header__c</name>
+    </fields>
+    <fields>
+        <label><!-- Instructions --></label>
+        <name>Instructions__c</name>
+    </fields>
+    <fields>
+        <label><!-- OMB Control No. --></label>
+        <name>OMB_Control_No__c</name>
+    </fields>
+    <fields>
+        <label><!-- OMB Expiration Date --></label>
+        <name>OMB_Expiration_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Object API --></label>
+        <name>Object_API__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Status --></label>
+        <name>Order_Status__c</name>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Paid</masterLabel>
+            <translation><!-- Paid --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Preview --></label>
+        <name>Preview__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Catalog --></label>
+        <name>Product_Catalog__c</name>
+        <relationshipLabel><!-- Forms --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Program --></label>
+        <name>Program__c</name>
+        <relationshipLabel><!-- Forms --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Record Type --></label>
+        <name>Record_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Thank You Page --></label>
+        <name>Thank_You_Page__c</name>
+        <relationshipLabel><!-- Forms --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Web Resource Type --></label>
+        <name>Web_Resource_Type__c</name>
+    </fields>
+    <layouts>
+        <layout>Form Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- OMB --></label>
+            <section>OMB</section>
+        </sections>
+        <sections>
+            <label><!-- Preamble --></label>
+            <section>Preamble</section>
+        </sections>
+        <sections>
+            <label><!-- Vetting Options --></label>
+            <section>Vetting Options</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- OMB --></label>
+        <name>OMB</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

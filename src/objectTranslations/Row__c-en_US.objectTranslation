@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Row</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Rows</value>
+    </caseValues>
+    <fields>
+        <help><!-- Choose the Primary, Secondary, or Tertiary style for this row. If this field is blank, the row will be white. --></help>
+        <label><!-- Color --></label>
+        <name>Container__c</name>
+        <relationshipLabel><!-- Rows --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Ensures all Row Elements inside of this Row line up in a Grid. --></help>
+        <label><!-- Snap to Grid --></label>
+        <name>Enforce_Uniform_Height__c</name>
+    </fields>
+    <fields>
+        <help><!-- What is the background image for this row? --></help>
+        <label><!-- Background Image --></label>
+        <name>Image__c</name>
+        <relationshipLabel><!-- Rows --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Page --></label>
+        <name>Page__c</name>
+        <relationshipLabel><!-- Rows --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Row --></label>
+        <name>Row__c</name>
+        <relationshipLabel><!-- Rows --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The order each row will display vertically on on the page from top to bottom. --></help>
+        <label><!-- Display Order --></label>
+        <name>Sort_Order__c</name>
+    </fields>
+    <layouts>
+        <layout>Row Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Row Attributes --></label>
+            <section>Row Attributes</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please select a color for this row or remove the background image. --></errorMessage>
+        <name>Background_Image_and_Color</name>
+    </validationRules>
+</CustomObjectTranslation>

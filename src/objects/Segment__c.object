@@ -60,10 +60,11 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>true</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
-    <enableSearch>true</enableSearch>
+    <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
@@ -470,7 +471,7 @@
     <fields>
         <fullName>ADCVD_Case_Number__c</fullName>
         <externalId>false</externalId>
-        <formula>ADCVD_Case__r.Name</formula>
+        <formula>(ADCVD_Case__r.ADCVD_Case_Number__c)</formula>
         <label>ADCVD Case Number Text Value</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -711,10 +712,12 @@
                 <value>
                     <fullName>Inadequate or Non-Substantive</fullName>
                     <default>false</default>
+                    <label>Inadequate or Non-Substantive</label>
                 </value>
                 <value>
                     <fullName>Adequate or Substantive</fullName>
                     <default>false</default>
+                    <label>Adequate or Substantive</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1000,10 +1003,12 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
                 <value>
                     <fullName>Continuation</fullName>
                     <default>false</default>
+                    <label>Continuation</label>
                 </value>
                 <value>
                     <fullName>Revocation</fullName>
                     <default>false</default>
+                    <label>Revocation</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1110,14 +1115,17 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
                 <value>
                     <fullName>Formal</fullName>
                     <default>false</default>
+                    <label>Formal</label>
                 </value>
                 <value>
                     <fullName>Informal</fullName>
                     <default>false</default>
+                    <label>Informal</label>
                 </value>
                 <value>
                     <fullName>Reject</fullName>
                     <default>false</default>
+                    <label>Reject</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1209,7 +1217,7 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
         <fullName>Final_Date_of_Anniversary_Month__c</fullName>
         <description>Final Date of Anniversary Month</description>
         <externalId>false</externalId>
-        <inlineHelpText>Final Date of Anniversary Month</inlineHelpText>
+        <inlineHelpText>Enter the last day of the anniversary month with current year</inlineHelpText>
         <label>Final Date of Anniversary Month</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1516,20 +1524,24 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
                 <value>
                     <fullName>Active</fullName>
                     <default>false</default>
+                    <label>Active</label>
                 </value>
                 <value>
                     <fullName>Inactive</fullName>
                     <default>false</default>
+                    <label>Inactive</label>
                 </value>
                 <value>
                     <fullName>Litigation</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Litigation</label>
                 </value>
                 <value>
                     <fullName>None</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>None</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1618,10 +1630,12 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
                 <value>
                     <fullName>Preliminary</fullName>
                     <default>false</default>
+                    <label>Preliminary</label>
                 </value>
                 <value>
                     <fullName>Final</fullName>
                     <default>false</default>
+                    <label>Final</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1796,38 +1810,47 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
                 <value>
                     <fullName>I</fullName>
                     <default>false</default>
+                    <label>I</label>
                 </value>
                 <value>
                     <fullName>II</fullName>
                     <default>false</default>
+                    <label>II</label>
                 </value>
                 <value>
                     <fullName>III</fullName>
                     <default>false</default>
+                    <label>III</label>
                 </value>
                 <value>
                     <fullName>IV</fullName>
                     <default>false</default>
+                    <label>IV</label>
                 </value>
                 <value>
                     <fullName>V</fullName>
                     <default>false</default>
+                    <label>V</label>
                 </value>
                 <value>
                     <fullName>VI</fullName>
                     <default>false</default>
+                    <label>VI</label>
                 </value>
                 <value>
                     <fullName>VII</fullName>
                     <default>false</default>
+                    <label>VII</label>
                 </value>
                 <value>
                     <fullName>VIII</fullName>
                     <default>false</default>
+                    <label>VIII</label>
                 </value>
                 <value>
                     <fullName>SA</fullName>
                     <default>false</default>
+                    <label>SA</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2144,32 +2167,39 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
                 <value>
                     <fullName>Full Rescission</fullName>
                     <default>false</default>
+                    <label>Full Rescission</label>
                 </value>
                 <value>
                     <fullName>Withdrawn</fullName>
                     <default>false</default>
+                    <label>Withdrawn</label>
                 </value>
                 <value>
                     <fullName>Deficient</fullName>
                     <default>false</default>
+                    <label>Deficient</label>
                 </value>
                 <value>
                     <fullName>Rejected</fullName>
                     <default>false</default>
+                    <label>Rejected</label>
                 </value>
                 <value>
                     <fullName>Completed</fullName>
                     <default>false</default>
+                    <label>Completed</label>
                 </value>
                 <value>
                     <fullName>Partial Rescission</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Partial Rescission</label>
                 </value>
                 <value>
                     <fullName>Rejected/Deficient/Negative Finding</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Rejected/Deficient/Negative Finding</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2189,78 +2219,95 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
                 <value>
                     <fullName>Initiation</fullName>
                     <default>false</default>
+                    <label>Initiation</label>
                 </value>
                 <value>
                     <fullName>How To Proceed</fullName>
                     <default>false</default>
+                    <label>How To Proceed</label>
                 </value>
                 <value>
                     <fullName>Prelim</fullName>
                     <default>false</default>
+                    <label>Prelim</label>
                 </value>
                 <value>
                     <fullName>Final</fullName>
                     <default>false</default>
+                    <label>Final</label>
                 </value>
                 <value>
                     <fullName>Amend Final</fullName>
                     <default>false</default>
+                    <label>Amend Final</label>
                 </value>
                 <value>
                     <fullName>Hold</fullName>
                     <default>false</default>
+                    <label>Hold</label>
                 </value>
                 <value>
                     <fullName>Litigation</fullName>
                     <default>false</default>
+                    <label>Litigation</label>
                 </value>
                 <value>
                     <fullName>Customs</fullName>
                     <default>false</default>
+                    <label>Customs</label>
                 </value>
                 <value>
                     <fullName>Closed</fullName>
                     <default>false</default>
+                    <label>Closed</label>
                 </value>
                 <value>
                     <fullName>Active</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Active</label>
                 </value>
                 <value>
                     <fullName>Completed</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Completed</label>
                 </value>
                 <value>
                     <fullName>Litigation Hold</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Litigation Hold</label>
                 </value>
                 <value>
                     <fullName>Rejected/Deficient/Negative Finding</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Rejected/Deficient/Negative Finding</label>
                 </value>
                 <value>
                     <fullName>Remand/International Litigation</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Remand/International Litigation</label>
                 </value>
                 <value>
                     <fullName>Suspended</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Suspended</label>
                 </value>
                 <value>
                     <fullName>With the Court</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>With the Court</label>
                 </value>
                 <value>
                     <fullName>Withdrawn/Rescinded</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Withdrawn/Rescinded</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2288,14 +2335,17 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
                 <value>
                     <fullName>90</fullName>
                     <default>false</default>
+                    <label>90</label>
                 </value>
                 <value>
                     <fullName>120</fullName>
                     <default>false</default>
+                    <label>120</label>
                 </value>
                 <value>
                     <fullName>240</fullName>
                     <default>false</default>
+                    <label>240</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2337,23 +2387,28 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
                 <value>
                     <fullName>Merchandise Completed or Assembled in United States</fullName>
                     <default>false</default>
+                    <label>Merchandise Completed or Assembled in United States</label>
                 </value>
                 <value>
                     <fullName>Merchandise Completed or Assembled in other Foreign Countries</fullName>
                     <default>false</default>
+                    <label>Merchandise Completed or Assembled in other Foreign Countries</label>
                 </value>
                 <value>
                     <fullName>Minor Alterations of Merchandise</fullName>
                     <default>false</default>
+                    <label>Minor Alterations of Merchandise</label>
                 </value>
                 <value>
                     <fullName>Later-Developed Merchandise</fullName>
                     <default>false</default>
+                    <label>Later-Developed Merchandise</label>
                 </value>
                 <value>
                     <fullName>Minor Altercations of Merchandise</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Minor Altercations of Merchandise</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2373,22 +2428,27 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
                 <value>
                     <fullName>Petitioner</fullName>
                     <default>false</default>
+                    <label>Petitioner</label>
                 </value>
                 <value>
                     <fullName>Respondent</fullName>
                     <default>false</default>
+                    <label>Respondent</label>
                 </value>
                 <value>
                     <fullName>U.S. Importer</fullName>
                     <default>false</default>
+                    <label>U.S. Importer</label>
                 </value>
                 <value>
                     <fullName>Domestic Interested Party</fullName>
                     <default>false</default>
+                    <label>Domestic Interested Party</label>
                 </value>
                 <value>
                     <fullName>Self-Initiated by the Department</fullName>
                     <default>false</default>
+                    <label>Self-Initiated by the Department</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2408,14 +2468,17 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
                 <value>
                     <fullName>K (1)</fullName>
                     <default>false</default>
+                    <label>K (1)</label>
                 </value>
                 <value>
                     <fullName>K (2)</fullName>
                     <default>false</default>
+                    <label>K (2)</label>
                 </value>
                 <value>
                     <fullName>Plain Language</fullName>
                     <default>false</default>
+                    <label>Plain Language</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2455,10 +2518,12 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2478,10 +2543,12 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
                 <value>
                     <fullName>Yes</fullName>
                     <default>false</default>
+                    <label>Yes</label>
                 </value>
                 <value>
                     <fullName>No</fullName>
                     <default>false</default>
+                    <label>No</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2514,18 +2581,22 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
                 <value>
                     <fullName>CBP Data</fullName>
                     <default>false</default>
+                    <label>CBP Data</label>
                 </value>
                 <value>
                     <fullName>Quantity and Value Questionaires</fullName>
                     <default>false</default>
+                    <label>Quantity and Value Questionaires</label>
                 </value>
                 <value>
                     <fullName>Other</fullName>
                     <default>false</default>
+                    <label>Other</label>
                 </value>
                 <value>
                     <fullName>N/A</fullName>
                     <default>false</default>
+                    <label>N/A</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2577,6 +2648,11 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
             <field>Status__c</field>
             <operation>equals</operation>
             <value>Initiation,How To Proceed,Prelim,Final,Amend Final</value>
+        </filters>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Segment__c.Administrative_Review</value>
         </filters>
         <label>All Active Segments</label>
     </listViews>
@@ -13878,34 +13954,6 @@ ISPICKVAL(Sunset_Review_Type__c , &apos;240&apos;))
         <errorMessage>The total extension of Prelim Extension # of days and Final Extension # of days cannot be more than 90.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>SSR_240_Extension_Total_Final_Ext</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND
-(
-   $Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
-   Locked__c == false,
-AND( 
-    OR(
-    Final_Extension_of_days__c &gt; 90),
-    ISPICKVAL(Sunset_Review_Type__c , &apos;240&apos;))
-)</errorConditionFormula>
-        <errorMessage>The Final Extension # of days cannot be more than 90 for Calculated Final Signature.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>SSR_240_Extension_Total_Prelim_Ext</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND 
-( 
-$Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
-Locked__c == false, 
-AND( 
-OR( 
-Prelim_Extension__c  &gt; 90), 
-ISPICKVAL(Sunset_Review_Type__c , &apos;240&apos;)) 
-)</errorConditionFormula>
-        <errorMessage>The Prelim Extension # of days cannot be more than 90 for Calculated Preliminary Signature.</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>Segment_Outcome_Required</fullName>
         <active>true</active>
         <description>Segment Outcome is required when: 
@@ -13940,12 +13988,10 @@ ISPICKVAL(Sunset_Review_Type__c , &apos;240&apos;))
     <validationRules>
         <fullName>Segment_must_have_a_parent</fullName>
         <active>true</active>
-        <description>Every Segment must have a parent ADCVD Order or Suspension Agreement with a related ADCVD Case.</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, NOT(ISBLANK(Investigation__c)), Locked__c == false, ISBLANK(ADCVD_Case__c), AND ( ISBLANK(ADCVD_Order__c ),
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND ( ISBLANK(ADCVD_Order__c ),
  ISBLANK( Suspension_Agreement__c )
-), AND(NOT(ISNEW()),NOT(ISBLANK(Investigation__c)))
-)</errorConditionFormula>
-        <errorMessage>Every Segment must have a ADCVD Order or a Suspension Agreement with a related ADCVD Case.</errorMessage>
+))</errorConditionFormula>
+        <errorMessage>Every Segment must have a ADCVD Order or a Suspension Agreement</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Type_of_Circumvention_Inquiry_Required</fullName>
@@ -13985,7 +14031,7 @@ IF(
      1, 0
     ) = 1
   )</errorConditionFormula>
-        <errorMessage>Type of Scope Ruling is required when Decision on How to Proceed is &quot;Formal&quot; or &quot;Informal&quot;. However, Type of Scope Ruling is NOT required when Decision on How to Proceed is &quot;Reject&quot;</errorMessage>
+        <errorMessage>Type of Scope Ruling is required when Decision on How to Proceed is &quot;Formal&quot; or &quot;Informal&quot; but not required for &quot;Reject&quot;</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>max_180_days_if_prelim_extend_is_blank</fullName>
@@ -13994,4 +14040,5 @@ IF(
 OR(AND(NOT(ISBLANK( Prelim_Extension__c)),  Final_Extension_of_days__c  &gt; 60),AND(ISBLANK( Prelim_Extension__c ),  Final_Extension_of_days__c &gt; 180))))</errorConditionFormula>
         <errorMessage>Final extension # of days can only range from 0-180 days.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>

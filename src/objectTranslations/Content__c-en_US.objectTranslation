@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Atom</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Atoms</value>
+    </caseValues>
+    <fields>
+        <label><!-- Alt Text --></label>
+        <name>Alt_Text__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please select an Approver. --></help>
+        <label><!-- Approver --></label>
+        <name>Approver__c</name>
+        <relationshipLabel><!-- Atoms --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- If linking to internal pages, the syntax is /page?id=RECORD_ID --></help>
+        <label><!-- Button URL --></label>
+        <name>Button_Path__c</name>
+    </fields>
+    <fields>
+        <label><!-- Button Display Text --></label>
+        <name>Button_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Class Name --></label>
+        <name>Class_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Atom Body (Formatting should be done here) --></help>
+        <label><!-- Atom --></label>
+        <name>Content__c</name>
+    </fields>
+    <fields>
+        <label><!-- Version --></label>
+        <name>Current_Version__c</name>
+    </fields>
+    <fields>
+        <help><!-- Public display title on the web. If this field is blank, the Atom Name can used as the display title. --></help>
+        <label><!-- Atom Title --></label>
+        <name>Display_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source URL --></label>
+        <name>Endpoint__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select the type of icon you are adding to the Icon library. --></help>
+        <label><!-- Icon Type --></label>
+        <name>Icon_Type__c</name>
+        <picklistValues>
+            <masterLabel>Social</masterLabel>
+            <translation><!-- Social --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Image --></label>
+        <name>Image__c</name>
+        <relationshipLabel><!-- Atoms --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Roll-up Summary to find out the last &apos;Online&apos; Version of a Content/Atom. --></help>
+        <label><!-- Last Modified Online Version --></label>
+        <name>LMOV__c</name>
+    </fields>
+    <fields>
+        <label><!-- Series Type --></label>
+        <name>Series_Type__c</name>
+        <picklistValues>
+            <masterLabel>Article</masterLabel>
+            <translation><!-- Article --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Basic Guide to Exporting</masterLabel>
+            <translation><!-- Basic Guide to Exporting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Country Commercial</masterLabel>
+            <translation><!-- Country Commercial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FAQ</masterLabel>
+            <translation><!-- FAQ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>State Report</masterLabel>
+            <translation><!-- State Report --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Top Markets</masterLabel>
+            <translation><!-- Top Markets --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Publishing Status --></help>
+        <label><!-- Publishing Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft: Rejected</masterLabel>
+            <translation><!-- Draft: Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft: Submitted for Approval</masterLabel>
+            <translation><!-- Draft: Submitted for Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Online</masterLabel>
+            <translation><!-- Online --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Summary --></label>
+        <name>Summary__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Updated Version # --></label>
+        <name>Updated_Version__c</name>
+    </fields>
+    <fields>
+        <help><!-- Version Number --></help>
+        <label><!-- Number of Versions --></label>
+        <name>Version_Number__c</name>
+    </fields>
+    <fields>
+        <help><!-- Version Number --></help>
+        <label><!-- All Versions --></label>
+        <name>Version__c</name>
+    </fields>
+    <fields>
+        <help><!-- Description accompanying the related video resources --></help>
+        <label><!-- Video Description --></label>
+        <name>Video_Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- URL that allows user to download a video from ITA-side server. Link should be from &quot;trade.gov&quot;. --></help>
+        <label><!-- Video Download --></label>
+        <name>Video_Download__c</name>
+    </fields>
+    <fields>
+        <help><!-- File size of downloadable video. Example: 10.4 MB --></help>
+        <label><!-- Video File Size --></label>
+        <name>Video_File_Size__c</name>
+    </fields>
+    <fields>
+        <label><!-- Web Resource Links --></label>
+        <name>Web_Resource_Links__c</name>
+    </fields>
+    <fields>
+        <label><!-- api type --></label>
+        <name>api_type__c</name>
+        <picklistValues>
+            <masterLabel>market research library</masterLabel>
+            <translation><!-- market research library --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>search</masterLabel>
+            <translation><!-- search --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>trade events</masterLabel>
+            <translation><!-- trade events --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>trade leads</masterLabel>
+            <translation><!-- trade leads --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>API</layout>
+        <sections>
+            <label><!-- API Content --></label>
+            <section>API Content</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Carousel</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Content Layout</layout>
+        <sections>
+            <label><!-- Atom --></label>
+            <section>Atom</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Draft Generic Content Layout</layout>
+        <sections>
+            <label><!-- Atom --></label>
+            <section>Atom</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Icon Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Icon --></label>
+            <section>Icon</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Series Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Knowledge Series --></label>
+            <section>Knowledge Series</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Video</layout>
+        <sections>
+            <label><!-- Content --></label>
+            <section>Content</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+        <sections>
+            <label><!-- Video Description --></label>
+            <section>Video Description</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Web Resource Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <description><!-- Page information from other web sources (e.g. Events) --></description>
+        <label><!-- API --></label>
+        <name>API</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Large images, with title and description, which slide across the page; aka Hero Box --></description>
+        <label><!-- Carousel --></label>
+        <name>Carousel</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Generic Content Record type (Submit for Approval) - - &gt; Text Record Type (Modify) - Only &apos;Modify&apos; button --></description>
+        <label><!-- Draft Generic Content --></label>
+        <name>Draft_Generic_Content</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Icon Library --></description>
+        <label><!-- Icon --></label>
+        <name>Icon</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Basic display (Editable View) of an Atom - With &apos;Edit and &apos;Submit for Approval&apos; buttons --></description>
+        <label><!-- Generic Content --></label>
+        <name>RichText</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- List of Series by Type --></description>
+        <label><!-- Series List --></label>
+        <name>Series_List</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Video media which is stored on an external system; ex: You Tube or Vimeo --></description>
+        <label><!-- Video --></label>
+        <name>Video</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Web Resource --></label>
+        <name>Web_Resource</name>
+    </recordTypes>
+    <startsWith>Vowel</startsWith>
+    <webLinks>
+        <label><!-- Carousel_Manager --></label>
+        <name>Carousel_Manager</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Modify --></label>
+        <name>Modify</name>
+    </webLinks>
+</CustomObjectTranslation>

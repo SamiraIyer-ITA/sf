@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Content Version</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Content Versions</value>
+    </caseValues>
+    <fields>
+        <help><!-- Atom Approver --></help>
+        <label><!-- Approver --></label>
+        <name>Approver__c</name>
+        <relationshipLabel><!-- Content Versions --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Public display title on the web. If this field is blank, the Atom Name can used as the display title. --></help>
+        <label><!-- Atom Title --></label>
+        <name>Atom_Title__c</name>
+    </fields>
+    <fields>
+        <help><!-- Parent Atom / Currently Published Atom --></help>
+        <label><!-- Published Version --></label>
+        <name>Atom__c</name>
+        <relationshipLabel><!-- Versions --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The Atom Body (Formatting should be done here) --></help>
+        <label><!-- Atom --></label>
+        <name>Content__c</name>
+    </fields>
+    <fields>
+        <help><!-- Publishing Status --></help>
+        <label><!-- Status --></label>
+        <name>Publishing_Status__c</name>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft: Rejected</masterLabel>
+            <translation><!-- Draft: Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft: Submitted for Approval</masterLabel>
+            <translation><!-- Draft: Submitted for Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Online</masterLabel>
+            <translation><!-- Online --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outdated</masterLabel>
+            <translation><!-- Outdated --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Publishing Status --></help>
+        <label><!-- Publishing Status --></label>
+        <name>Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Version Number --></label>
+        <name>Version_Number__c</name>
+    </fields>
+    <fields>
+        <help><!-- Version Number --></help>
+        <label><!-- Atom Version --></label>
+        <name>Version__c</name>
+    </fields>
+    <layouts>
+        <layout>Content Version Layout</layout>
+        <sections>
+            <label><!-- Atom --></label>
+            <section>Atom</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Published Content Version Layout</layout>
+        <sections>
+            <label><!-- Atom --></label>
+            <section>Atom</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <description><!-- Modifiable / Editable View of an Atom - With &apos;Edit and &apos;Submit for Approval&apos; buttons --></description>
+        <label><!-- Content Version --></label>
+        <name>Content_Version</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Online View of an Atom - No buttons --></description>
+        <label><!-- Published Content Version --></label>
+        <name>Published_Content_Version</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

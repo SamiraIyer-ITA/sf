@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Translation</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Translations</value>
+    </caseValues>
+    <fields>
+        <label><!-- Atom --></label>
+        <name>Atom__c</name>
+        <relationshipLabel><!-- Translations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Language --></label>
+        <name>Language__c</name>
+        <relationshipLabel><!-- Translations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Application --></label>
+        <name>Participation__c</name>
+        <relationshipLabel><!-- Translations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product__c</name>
+        <relationshipLabel><!-- Translations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Translation (Forms Access) --></label>
+        <name>Translation_Forms_Access__c</name>
+    </fields>
+    <fields>
+        <label><!-- Translation --></label>
+        <name>Translation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Web Resource Link --></label>
+        <name>Web_Resource_Link__c</name>
+        <relationshipLabel><!-- Translations --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Issue Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Product Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Regulation Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Translation Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Translation --></label>
+            <section>Translation</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <description><!-- Translations for the Application (Participation__c) --></description>
+        <label><!-- Application --></label>
+        <name>Application</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Translations for the Issue --></description>
+        <label><!-- Issue --></label>
+        <name>Issue</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Translations for the Product --></description>
+        <label><!-- Product --></label>
+        <name>Product</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Translations for the Regulation --></description>
+        <label><!-- Regulation --></label>
+        <name>Regulation</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

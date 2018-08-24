@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Cases associated to a WIN</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Author_Email__c</fullName>
+        <externalId>false</externalId>
+        <formula>Case_ID__r.Owner:User.Email</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Author Email</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case_Author__c</fullName>
+        <externalId>false</externalId>
+        <formula>Case_ID__r.Owner:User.FirstName + &quot; &quot; +  Case_ID__r.Owner:User.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Case Author</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case_ID__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>If you got to page from a Case record, please do not change this field.</inlineHelpText>
+        <label>Case ID</label>
+        <lookupFilter>
+            <active>false</active>
+            <errorMessage>Case must be closed to relate to WIN</errorMessage>
+            <filterItems>
+                <field>Case.IsClosed</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <infoMessage>Only Closed Cases can be related to WINs</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Related WINs</relationshipLabel>
+        <relationshipName>Cases_Associated_to_WINs</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Case_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>Case_ID__r.CaseNumber</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Case Number</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case_Organization__c</fullName>
+        <externalId>false</externalId>
+        <formula>Case_ID__r.Account.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Case Organization</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case_Subject__c</fullName>
+        <externalId>false</externalId>
+        <formula>Case_ID__r.Subject</formula>
+        <label>Case Subject</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Relate_Case_One__c</fullName>
+        <defaultValue>1</defaultValue>
+        <externalId>false</externalId>
+        <label>Relate Case One</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Relate_Case_WIN_One__c</fullName>
+        <externalId>false</externalId>
+        <formula>1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Relate Case/WIN One</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Related_WIN_Owner__c</fullName>
+        <description>00Nr0000000FiDi.Owner:User.FirstName &amp; &quot; &quot; &amp; 00Nr0000000FiDi.Owner:User.LastName</description>
+        <externalId>false</externalId>
+        <formula>Related_WIN__r.Owner:User.FirstName &amp; &quot; &quot; &amp; Related_WIN__r.Owner:User.LastName</formula>
+        <label>Related WIN Owner</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Related_WIN__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>If you got to this page from a WIN record, please do not change this field.</inlineHelpText>
+        <label>Related WIN</label>
+        <referenceTo>WIN__c</referenceTo>
+        <relationshipLabel>Related Cases</relationshipLabel>
+        <relationshipName>Related_Cases_and_Orgs</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Related_Wins_to_a_Case__c</fullName>
+        <externalId>false</externalId>
+        <label>Related Wins to a Case</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>WIN_Organization__c</fullName>
+        <externalId>false</externalId>
+        <formula>Related_WIN__r.Organization__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>WIN Organization</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Relate Case to WIN</label>
+    <nameField>
+        <displayFormat>RC-{0000}</displayFormat>
+        <label>Related Case</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Related Cases/WINs</pluralLabel>
+    <recordTypes>
+        <fullName>Related_Cases_and_Orgs</fullName>
+        <active>true</active>
+        <label>Related Cases and Orgs</label>
+    </recordTypes>
+    <searchLayouts>
+        <lookupFilterFields>Case_Organization__c</lookupFilterFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Cannot_change_Case_or_WIN</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISNEW(), $User.ProfileId &lt;&gt; &quot;00et0000000U8NX&quot;, OR(
+AND( NOT(ISBLANK(Case_ID__c)), ISCHANGED(Case_ID__c)), 
+AND( NOT(ISBLANK( Related_WIN__c )), ISCHANGED( Related_WIN__c ))
+)
+)</errorConditionFormula>
+        <errorMessage>You do not have permission to change the existing value of a Case or WIN field.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>New_Related_WIN</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>New Related WIN</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>https://trade--dev.cs32.my.salesforce.com/a03/e?CF00Nr0000000FhvZ=00001010&amp;CF00Nr0000000FhvZ_lkid=500r0000000uNpP&amp;retURL=%2F500r0000000uNpP</url>
+    </webLinks>
+</CustomObject>

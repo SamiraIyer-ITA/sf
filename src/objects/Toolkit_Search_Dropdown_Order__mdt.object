@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>The order in which the dropdowns should appear for Toolkit Search.</description>
+    <fields>
+        <fullName>Category__c</fullName>
+        <description>The sort order in which the Product Category dropdown should appear on the Toolkit Search page.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Category</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Class__c</fullName>
+        <description>The sort order in which the Product Class dropdown should appear on the Toolkit Search page.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Class</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Offering__c</fullName>
+        <description>The sort order in which the Product Offering dropdown should appear on the Toolkit Search page.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Offering</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Primary_Web_Resource__c</fullName>
+        <description>The sort order in which the Primary Web Resource dropdown should appear on the Toolkit Search page.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Primary Web Resource</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Related_Web_Resource__c</fullName>
+        <description>The sort order in which the Related Web Resource dropdown should appear on the Toolkit Search page.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Related Web Resource</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Solution__c</fullName>
+        <description>The sort order in which the Product (Solution) dropdown should appear on the Toolkit Search page.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Solution</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Toolkit Search Dropdown Order</label>
+    <pluralLabel>Toolkit Search Dropdown Order</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

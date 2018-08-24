@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Staffing Assignment</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Staffing Assignments</value>
+    </caseValues>
+    <fields>
+        <label><!-- ADCVD Case Number Text Value --></label>
+        <name>ADCVD_Case_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- ADCVD Case Type --></label>
+        <name>ADCVD_Case_Type__c</name>
+        <picklistValues>
+            <masterLabel>AD ME</masterLabel>
+            <translation><!-- AD ME --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AD NME</masterLabel>
+            <translation><!-- AD NME --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CVD</masterLabel>
+            <translation><!-- CVD --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- ADCVD Case --></label>
+        <name>ADCVD_Case__c</name>
+        <relationshipLabel><!-- Staffing Assignments --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- ADCVD Order --></label>
+        <name>ADCVD_Order__c</name>
+        <relationshipLabel><!-- Staffing Assignments --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- CBP Case Number --></label>
+        <name>CBP_Case_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Concat Text Values --></label>
+        <name>Case_Concat_Text_Values__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- Investigation --></label>
+        <name>Investigation__c</name>
+        <relationshipLabel><!-- Staffing Assignments --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Record Locked --></label>
+        <name>Locked__c</name>
+    </fields>
+    <fields>
+        <label><!-- Parent Name --></label>
+        <name>Parent_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Parent --></label>
+        <name>Parent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Petition --></label>
+        <name>Petition__c</name>
+        <relationshipLabel><!-- Staffing Assignments --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Product Short Name Text Value --></label>
+        <name>Product_Short_Name_Text_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Short Name --></label>
+        <name>Product_Short_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- Related Org Parent Id --></label>
+        <name>Related_Org_Parent_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Related Org Parent Name --></label>
+        <name>Related_Org_Parent_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Related Organization Parent --></label>
+        <name>Related_Organization_Parent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Related Organization --></label>
+        <name>Related_Organization__c</name>
+        <relationshipLabel><!-- Staffing Assignments --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Segment --></label>
+        <name>Segment__c</name>
+        <relationshipLabel><!-- Staffing Assignments --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Title --></label>
+        <name>Title__c</name>
+        <picklistValues>
+            <masterLabel>AS Assistant</masterLabel>
+            <translation><!-- AS Assistant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accounting Director</masterLabel>
+            <translation><!-- Accounting Director --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accounting PM</masterLabel>
+            <translation><!-- Accounting PM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Analyst</masterLabel>
+            <translation><!-- Analyst --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Assistant Secretary</masterLabel>
+            <translation><!-- Assistant Secretary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Associate DAS</masterLabel>
+            <translation><!-- Associate DAS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DAS</masterLabel>
+            <translation><!-- DAS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DAS Assistant</masterLabel>
+            <translation><!-- DAS Assistant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Office Director</masterLabel>
+            <translation><!-- Office Director --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Program Manager</masterLabel>
+            <translation><!-- Program Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Senior Legal</masterLabel>
+            <translation><!-- Senior Legal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Senior Policy</masterLabel>
+            <translation><!-- Senior Policy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Staff Accountant</masterLabel>
+            <translation><!-- Staff Accountant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Staff Legal</masterLabel>
+            <translation><!-- Staff Legal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Staff Policy</masterLabel>
+            <translation><!-- Staff Policy --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- User --></label>
+        <name>User__c</name>
+        <relationshipLabel><!-- Staffing Assignments --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Staffing Assignment Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Staffing Assignment --></label>
+            <section>Staffing Assignment</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- You are not authorized to edit this field. Only a System Administrator can edit the parent ADCVD Order, Investigation, Petition, Interested Organization, Segment or ADCVD Case for this record. --></errorMessage>
+        <name>Only_Admin_reparents_records</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please select one parent ADCVD Order, Interested Organization, Investigation, Petition, or Segment for this Staffing Assignment with a related ADCVD Case. --></errorMessage>
+        <name>Require_a_parent_value</name>
+    </validationRules>
+</CustomObjectTranslation>

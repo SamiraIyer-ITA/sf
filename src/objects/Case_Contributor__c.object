@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Case contributors</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Case_Contributor_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contributor_Name__r.Id</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Case Contributor ID</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case_ID__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Link of associated Case record</inlineHelpText>
+        <label>Case ID</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Case Contributors</relationshipLabel>
+        <relationshipName>Case_Contributors</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Contributor_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contributor Name</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Case_Contributors</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contributor__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contributor_Name__r.FirstName &amp; &quot; &quot; &amp; Contributor_Name__r.LastName</formula>
+        <label>Contributor</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Inactive__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Contributor_Name__r.IsActive &lt;&gt; TRUE, TRUE, FALSE)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Inactive</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Office__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Contributor_Name__r.RH_Lev_6_Office__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Office</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Organization__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Organization</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Case Contributors</relationshipLabel>
+        <relationshipName>Case_Contributors</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Original_Office__c</fullName>
+        <externalId>false</externalId>
+        <formula>RH_Lev_6_Office__c</formula>
+        <label>Original Office</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RH_Lev_1_GM_All__c</fullName>
+        <externalId>false</externalId>
+        <label>User Unit</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RH_Lev_2_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>User DAS</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RH_Lev_3_Region_2__c</fullName>
+        <externalId>false</externalId>
+        <label>User Region</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RH_Lev_4_Region_1__c</fullName>
+        <externalId>false</externalId>
+        <label>User Sub-region</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RH_Lev_5_Country__c</fullName>
+        <externalId>false</externalId>
+        <label>User Country</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RH_Lev_6_Office__c</fullName>
+        <externalId>false</externalId>
+        <label>User Office</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RH_Lev_7_Individual__c</fullName>
+        <externalId>false</externalId>
+        <label>User Agency</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Running_User_is_Case_Contributor__c</fullName>
+        <externalId>false</externalId>
+        <formula>Case_Contributor_ID__c = $User.Id</formula>
+        <label>Running User is Case Contributor</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Case Contributor</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Case_Contributor_ID__c</columns>
+        <columns>Case_ID__c</columns>
+        <columns>Contributor__c</columns>
+        <columns>Contributor_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>CCR-{0000}</displayFormat>
+        <label>Case Contributor Record</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Case Contributors</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Required_Case_Contributor_Name</fullName>
+        <active>true</active>
+        <description>Case Contributor Name is Required.  Added to prevent Process Builder flow error when user saves record without populating Contributor Name field.</description>
+        <errorConditionFormula>Contributor_Name__c = &quot;&quot;</errorConditionFormula>
+        <errorMessage>Contributor Name is Required.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

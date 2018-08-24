@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Language</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Languages</value>
+    </caseValues>
+    <fields>
+        <help><!-- Does this language read from Left-to-Right or Right-to-Left? --></help>
+        <label><!-- Direction --></label>
+        <name>Direction__c</name>
+        <picklistValues>
+            <masterLabel>ltr</masterLabel>
+            <translation><!-- ltr --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>rtl</masterLabel>
+            <translation><!-- rtl --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- 2 Character Length for Localization codes, per the ISO. --></help>
+        <label><!-- ISO 639-1 --></label>
+        <name>ISO_639_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Language Family --></label>
+        <name>Language_Family__c</name>
+        <picklistValues>
+            <masterLabel>Afro-Asiatic</masterLabel>
+            <translation><!-- Afro-Asiatic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Algonquian</masterLabel>
+            <translation><!-- Algonquian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Austroasiatic</masterLabel>
+            <translation><!-- Austroasiatic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Austronesian</masterLabel>
+            <translation><!-- Austronesian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aymaran</masterLabel>
+            <translation><!-- Aymaran --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Constructed</masterLabel>
+            <translation><!-- Constructed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Creole</masterLabel>
+            <translation><!-- Creole --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dené–Yeniseian</masterLabel>
+            <translation><!-- Dené–Yeniseian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dravidian</masterLabel>
+            <translation><!-- Dravidian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eskimo–Aleut</masterLabel>
+            <translation><!-- Eskimo–Aleut --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Indo-European</masterLabel>
+            <translation><!-- Indo-European --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Japonic</masterLabel>
+            <translation><!-- Japonic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Koreanic</masterLabel>
+            <translation><!-- Koreanic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Language isolate</masterLabel>
+            <translation><!-- Language isolate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mongolic</masterLabel>
+            <translation><!-- Mongolic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Niger–Congo</masterLabel>
+            <translation><!-- Niger–Congo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nilo-Saharan</masterLabel>
+            <translation><!-- Nilo-Saharan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Northwest Caucasian</masterLabel>
+            <translation><!-- Northwest Caucasian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quechuan</masterLabel>
+            <translation><!-- Quechuan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sino-Tibetan</masterLabel>
+            <translation><!-- Sino-Tibetan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>South Caucasian</masterLabel>
+            <translation><!-- South Caucasian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tai–Kadai</masterLabel>
+            <translation><!-- Tai–Kadai --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tupian</masterLabel>
+            <translation><!-- Tupian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Turkic</masterLabel>
+            <translation><!-- Turkic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Uralic</masterLabel>
+            <translation><!-- Uralic --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Language Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

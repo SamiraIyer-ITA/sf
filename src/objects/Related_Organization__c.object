@@ -54,6 +54,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -64,7 +65,7 @@
     <fields>
         <fullName>ADCVD_Case_Number__c</fullName>
         <externalId>false</externalId>
-        <label>ADCVD Case Text Value</label>
+        <label>ADCVD Case Number</label>
         <length>28</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -87,14 +88,17 @@
                 <value>
                     <fullName>AD ME</fullName>
                     <default>false</default>
+                    <label>AD ME</label>
                 </value>
                 <value>
                     <fullName>AD NME</fullName>
                     <default>false</default>
+                    <label>AD NME</label>
                 </value>
                 <value>
                     <fullName>CVD</fullName>
                     <default>false</default>
+                    <label>CVD</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -361,22 +365,27 @@
                 <value>
                     <fullName>Individually Examined</fullName>
                     <default>false</default>
+                    <label>Individually Examined</label>
                 </value>
                 <value>
                     <fullName>Non-Selected</fullName>
                     <default>false</default>
+                    <label>Non-Selected</label>
                 </value>
                 <value>
                     <fullName>Separate Rule</fullName>
                     <default>false</default>
+                    <label>Separate Rule</label>
                 </value>
                 <value>
                     <fullName>No Shipments/No Shipment Claim</fullName>
                     <default>false</default>
+                    <label>No Shipments/No Shipment Claim</label>
                 </value>
                 <value>
                     <fullName>Rescinded</fullName>
                     <default>false</default>
+                    <label>Rescinded</label>
                 </value>
             </valueSetDefinition>
             <valueSettings>
@@ -416,14 +425,17 @@
                 <value>
                     <fullName>Petitioner</fullName>
                     <default>false</default>
+                    <label>Petitioner</label>
                 </value>
                 <value>
                     <fullName>Respondent</fullName>
                     <default>false</default>
+                    <label>Respondent</label>
                 </value>
                 <value>
                     <fullName>Customs Instructions</fullName>
                     <default>false</default>
+                    <label>Customs Instructions</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -2459,20 +2471,7 @@
             </values>
         </picklistValues>
     </recordTypes>
-    <searchLayouts>
-        <searchFilterFields>OBJECT_ID</searchFilterFields>
-        <searchFilterFields>ADCVD_Case__c</searchFilterFields>
-        <searchFilterFields>ADCVD_Case_Number__c</searchFilterFields>
-        <searchFilterFields>ADCVD_Case_Type__c</searchFilterFields>
-        <searchFilterFields>ADCVD_Order__c</searchFilterFields>
-        <searchFilterFields>Case_Concat_Text_Values__c</searchFilterFields>
-        <searchResultsAdditionalFields>OBJECT_ID</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ADCVD_Case__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ADCVD_Case_Number__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ADCVD_Case_Type__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ADCVD_Order__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Case_Concat_Text_Values__c</searchResultsAdditionalFields>
-    </searchLayouts>
+    <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
         <fullName>Cannot_Edit_Locked_Record</fullName>
@@ -2484,44 +2483,18 @@ PRIORVALUE(Locked__c) == true
         <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Interested_Org_must_have_a_parent</fullName>
+        <fullName>Custom_Instructions_must_have_a_parent</fullName>
         <active>true</active>
-        <description>Interested Organizations without a Custom Instructions must have an ADCVD Order, Investigation, Petition, Segment or a related ADCVD Case. If Customs Instructions is the parent, a Segment record must also be included as a reference.</description>
-        <errorConditionFormula>AND
-($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, 
-ISNEW(), ISBLANK(ADCVD_Case__c), 
-AND(OR( 
-(AND(ISBLANK(ADCVD_Order__c ), ISBLANK(Custom_Instruction__c), ISBLANK(Investigation__c), 
-ISBLANK(Petition__c), ISBLANK( Segment__c ), ISBLANK( Segment__r.Suspension_Agreement__c )))
-,
-(IF(ISBLANK(ADCVD_Order__c),0,1)+
-IF(ISBLANK(Custom_Instruction__c),0,1)+
-IF(ISBLANK(Investigation__c),0,1)+
-IF(ISBLANK(Petition__c),0,1)+
-IF(ISBLANK(Segment__c),0,1)+ 
-IF(ISBLANK(Segment__r.Suspension_Agreement__c),0,1)&gt;1) 
-),
-OR(
-(AND(NOT(ISBLANK(Custom_Instruction__c)),ISBLANK(ADCVD_Order__c),ISBLANK(Investigation__c ),
-ISBLANK( Petition__c ),ISBLANK( Segment__c ),ISBLANK( Segment__r.Suspension_Agreement__c )))
-,
-(IF(ISBLANK(ADCVD_Order__c),0,1)+
-IF(ISBLANK(Custom_Instruction__c),0,1)+
-IF(ISBLANK(Investigation__c),0,1)+
-IF(ISBLANK(Petition__c),0,1)+
-IF(ISBLANK(Segment__c),0,1)+ 
-IF(ISBLANK(Segment__r.Suspension_Agreement__c),0,1)&gt;2) 
-))
-,
-AND(NOT(ISBLANK(Custom_Instruction__c)),
-ISBLANK( Segment__c )))</errorConditionFormula>
-        <errorMessage>Interested Organizations without Custom Instructions must have at least one parent. If Customs Instructions are the parent, a Segment must also be referenced.</errorMessage>
+        <description>Custom Instructions must have a parent (ADCVD Order, Investigation, Petition, Segment, or Suspension Agreement)</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND(NOT(ISBLANK(Custom_Instruction__c)), ISBLANK( Segment__c ),  ISBLANK( ADCVD_Order__c ), ISBLANK( Petition__c ),  ISBLANK( Investigation__c ),  ISBLANK( Segment__r.Suspension_Agreement__c )))</errorConditionFormula>
+        <errorMessage>Custom Instructions must have a parent.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Segment_must_be_populated_if_ci_is</fullName>
         <active>true</active>
-        <description>Segment must be populated if Custom Instruction is a parent</description>
+        <description>Segment must be populated if Custom Instruction is</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND(NOT(ISBLANK( Custom_Instruction__c )), ISBLANK( Segment__c )))</errorConditionFormula>
         <errorMessage>You must have a segment if you have custom instructions.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>

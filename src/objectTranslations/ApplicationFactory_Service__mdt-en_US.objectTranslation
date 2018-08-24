@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Application Factory - Service</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Application Factory - Services</value>
+    </caseValues>
+    <fields>
+        <help><!-- Specifies the service&apos;s related SObject Type. --></help>
+        <label><!-- SObject Type --></label>
+        <name>SObjectType__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Apex class to be instantiated. --></help>
+        <label><!-- Service Implementation Class --></label>
+        <name>ServiceImplementationClass__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

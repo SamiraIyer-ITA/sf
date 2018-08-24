@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Object to cluster Knowledge Articles by Publication</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Series Type</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Country Commercial</fullName>
+                    <default>false</default>
+                    <label>Country Commercial</label>
+                </value>
+                <value>
+                    <fullName>State Report</fullName>
+                    <default>false</default>
+                    <label>State Report</label>
+                </value>
+                <value>
+                    <fullName>Top Markets</fullName>
+                    <default>false</default>
+                    <label>Top Markets</label>
+                </value>
+                <value>
+                    <fullName>Article</fullName>
+                    <default>false</default>
+                    <label>Article</label>
+                </value>
+                <value>
+                    <fullName>Basic Guide to Exporting</fullName>
+                    <default>false</default>
+                    <label>Basic Guide to Exporting</label>
+                </value>
+                <value>
+                    <fullName>FAQ</fullName>
+                    <default>false</default>
+                    <label>FAQ</label>
+                </value>
+                <value>
+                    <fullName>Salesforce Products</fullName>
+                    <default>false</default>
+                    <label>Salesforce Products</label>
+                </value>
+                <value>
+                    <fullName>Market Insight</fullName>
+                    <default>false</default>
+                    <label>Market Insight</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Series</label>
+    <listViews>
+        <fullName>All_Series</fullName>
+        <columns>NAME</columns>
+        <columns>Type__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>LAST_ACTIVITY</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Series</label>
+        <sharedTo>
+            <role>System_Admin</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Articles</fullName>
+        <columns>NAME</columns>
+        <columns>Type__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Type__c</field>
+            <operation>equals</operation>
+            <value>Article</value>
+        </filters>
+        <label>Articles</label>
+    </listViews>
+    <listViews>
+        <fullName>Basic_Guide_to_Exporting</fullName>
+        <columns>NAME</columns>
+        <columns>Type__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Type__c</field>
+            <operation>equals</operation>
+            <value>Basic Guide to Exporting</value>
+        </filters>
+        <label>Basic Guide to Exporting</label>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Country_Commercial_Publication</fullName>
+        <columns>NAME</columns>
+        <columns>Type__c</columns>
+        <columns>OBJECT_ID</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Type__c</field>
+            <operation>equals</operation>
+            <value>Country Commercial</value>
+        </filters>
+        <label>Country Commercial Guides</label>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>FAQs</fullName>
+        <columns>NAME</columns>
+        <columns>Type__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Type__c</field>
+            <operation>equals</operation>
+            <value>FAQ</value>
+        </filters>
+        <label>FAQs</label>
+    </listViews>
+    <listViews>
+        <fullName>State_Reports_Publication</fullName>
+        <columns>NAME</columns>
+        <columns>Type__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Type__c</field>
+            <operation>equals</operation>
+            <value>State Report</value>
+        </filters>
+        <label>State Reports</label>
+    </listViews>
+    <listViews>
+        <fullName>Top_Markets_Publication</fullName>
+        <columns>NAME</columns>
+        <columns>Type__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Type__c</field>
+            <operation>equals</operation>
+            <value>Top Markets</value>
+        </filters>
+        <label>Top Markets</label>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <nameField>
+        <label>Series Name</label>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Series</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Type__c</customTabListAdditionalFields>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
+        <excludedStandardButtons>New</excludedStandardButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <lookupDialogsAdditionalFields>Type__c</lookupDialogsAdditionalFields>
+        <lookupFilterFields>NAME</lookupFilterFields>
+        <lookupFilterFields>Type__c</lookupFilterFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Type__c</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>Read</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,30 @@
+<apex:page standardController="Form__c" extensions="FormController" tabStyle="Form__c" >
+    <apex:form id="form">
+	    <apex:pageblock >
+	    <apex:pageMessages />
+	        <apex:pageBlockButtons >
+	            <apex:commandButton action="{!save}" value="Save" />
+	            <apex:commandButton action="{!cancel}" value="Cancel" />
+	        </apex:pageBlockButtons>
+	         
+	        <!-- Iterate the layoutSections, which is a list of sections -->
+	        <apex:repeat value="{!layoutSections}" var="layoutSection">
+	                <apex:pageBlockSection title="{!layoutSection.Name}" collapsible="{!layoutSection.allowCollapse}" columns="{!layoutSection.columns}">
+	                    
+	                    <!--Each section has layoutFields, let's iterate them as well-->
+	                    <apex:repeat value="{!layoutSection.layoutFields}" var="layoutField">
+	                        <apex:inputField value="{!Form__c[layoutField.ApiName]}" rendered="{!not(layoutField.isPlaceHOlder) && not(layoutField.ApiName == 'Object_API_Name__c')}" required="{!layoutField.required}" />
+	                        <apex:selectList value="{!Form__c[layoutField.ApiName]}" rendered="{!not(layoutField.isPlaceHOlder) && layoutField.ApiName == 'Object_API_Name__c'}" multiselect="false" size="1" required="{!layoutField.required}">
+	                        	<apex:selectOptions value="{!supportedObjectsList}" />
+	                    	</apex:selectList>
+
+	                        <apex:pageblocksectionitem rendered="{!layoutField.isPlaceHolder}" >
+	                            <apex:outputPanel ></apex:outputPanel>
+	                        </apex:pageblocksectionitem>
+	                    </apex:repeat>
+	                    
+	                </apex:pageBlockSection>
+	            </apex:repeat>  
+	    </apex:pageblock>
+    </apex:form>
+</apex:page>

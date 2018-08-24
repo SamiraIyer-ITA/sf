@@ -1,0 +1,181 @@
+<apex:page controller="ps_enhanced_controller" applyBodyTag="false" applyHtmlTag="false" sidebar="false" showHeader="false" action="{!redirectPSEnhanced}">
+<apex:composition template="Site_Template">
+<apex:define name="sectionalNav">
+</apex:define>
+<apex:define name="page">
+<style>
+        #app-assitance {
+        display:none;
+        }
+        .nobreak {
+        display:none;
+        }
+    </style>
+
+<c:communityCase />
+<apex:form >
+
+<link href="{!URLFor($Resource.ps, 'ps/application.css')}" rel="stylesheet" />  
+   
+    <apex:outputpanel layout="block" styleClass="main-plain" id="content">
+        <apex:outputpanel layout="block" styleClass="section clearfix ">
+           <apex:outputpanel layout="block" styleClass="row content">
+              <apex:outputpanel layout="block" styleclass="containerInternal enforceHeight">  
+    
+    <apex:outputpanel layout="block" styleClass="col-md-10 col-md-offset-1"> 
+    <apex:outputpanel layout="block" styleClass="order" id="order">
+    <button class="btn btn-gray btn-sm pull-right" onclick="$('#caseModal').show();" title="Open a new case" type="button">
+            <span aria-hidden="true" class="glyphicon glyphicon-plus"></span> Assistance
+    </button>
+    </apex:outputPanel>
+    <!--first panel -->
+    <h1 class="steps">My Application</h1><br/><br/>
+    <div class="panel panel-default order" id="order">
+<div class="panel-heading" id="grayheading">
+        <div class="row pad-left-zero pad-right-zero pad-up-down">
+            <p>You may edit your existing application information at any time by clicking the ‘Edit’ button in this section. If you need to add another framework or recertify to your existing framework(s), please see below section “Framework Actions”.</p>         
+        </div>
+</div>
+
+<div class="panel-body">                      
+  <apex:outputpanel layout="block" styleClass="row pad-none">                                      
+      <apex:outputpanel layout="block" styleClass="col-md-10">             
+             <span><h4>Framework</h4></span>             
+                  <apex:outputpanel layout="block" styleClass="row pad-none">
+                      <apex:outputpanel layout="block" styleClass="col-md-12">
+               <apex:repeat value="{!AvailableFrameworkMap}" var="framework">
+               <!-- this is the list of frameworks that the Customer may renew -->
+                   <apex:outputtext rendered="{!or(AvailableFrameworkMap[framework].status = 'Active', and(AvailableFrameworkMap[framework].status = 'Inactive', AvailableFrameworkMap[framework].inactive_status_reason__r.description__c != 'Withdrawal'))}">
+                       <p class="text-muted uppercase framework"> {!framework}: <apex:outputpanel styleClass="inlineBlock {!AvailableFrameworkMap[framework].status}ITA"> {!AvailableFrameworkMap[framework].status} </apex:outputpanel></p>
+                              <apex:outputpanel layout="block" styleClass="about">Covered Data:  {!if(AvailableFrameworkMap[framework].hr_data__c, 'HR', '')}{!if(AvailableFrameworkMap[framework].hr_data__c && AvailableFrameworkMap[framework].non_hr_data__c, ', ','')}{!if(AvailableFrameworkMap[framework].non_hr_data__c, 'Non-HR', '')} Data</apex:outputpanel>
+                              <apex:outputpanel layout="block" styleClass="about">Next Certified Due Date: {!month(AvailableFrameworkMap[framework].usageenddate)}/{!day(AvailableFrameworkMap[framework].usageenddate)}/{!year(AvailableFrameworkMap[framework].usageenddate)}</apex:outputpanel>                                  
+                   </apex:outputtext>
+                   <br/>                   
+               </apex:repeat>                                                          
+         </apex:outputPanel>
+       </apex:outputPanel>
+     </apex:outputPanel>
+     
+     <apex:outputpanel layout="block" styleClass="col-md-2">                           
+              <a class="btn btn-gray btn-sm pull-right" href="/ps_enhanced?program={!program.id}&door=edit&step=Step_1" >Edit</a>      
+     </apex:outputPanel>
+  </apex:outputPanel>               
+                  
+  <hr/>
+                      <apex:outputpanel layout="block" styleClass="row pad-none">                                                        
+                              <apex:outputpanel layout="block" styleClass="col-md-6"> 
+                              <h4>Organization</h4> 
+                              <div class="about">{!participation.Public_Display_Name__c}</div>
+                              <div class="about">{!participation.Street__c}</div>
+                              <div class="about">{!participation.City__c}, {!participation.State__c} {!participation.Postal_Code__c}</div>                                                                                     
+                              </apex:outputPanel>
+                              
+                              <apex:repeat value="{!participation.participant_contacts__r}" var="contact">
+                              <apex:outputpanel layout="block" styleClass="col-md-6" rendered="{!contact.Role__c = 'Organization Contact'}">  
+                              <h4>Organization Contact</h4>
+                              <div class="about">{!contact.First_Name__c} {!contact.Last_Name__c}</div>
+                              <div class="about">{!contact.Email__c}</div>                                                                                     
+                              </apex:outputPanel>
+                              </apex:repeat>                                            
+                      </apex:outputPanel>
+  <br/>
+                                   
+                      <apex:outputpanel rendered="{!entities.size != 0}">
+                          <h5 onclick="$('#a2zt000000001KRAAY_ceList').toggle(); if($('#a2zt000000001KRAAY_ceList').is(':visible')){$('#a2zt000000001KRAAY_ce').html('-');}else{$('#a2zt000000001KRAAY_ce').html('+');}"><span id="a2zt000000001KRAAY_ce">+</span> {!entities.size} Covered Entities</h5>
+                            <ul style="list-style:none;margin-top:0;margin-bottom:0;display:none;" class="ceList" id="a2zt000000001KRAAY_ceList">
+                                <apex:repeat var="ce" value="{!entities}">
+                                    <li>{!ce.name}</li>
+                                </apex:repeat>
+                            </ul>    
+                      </apex:outputpanel>
+                            <br/>
+</div>    
+</div>
+<!--end first panel --> 
+     
+  <br/>
+        
+<!--second panel -->        
+<h1 class="steps">Framework Actions</h1><br/><br/>
+<div class="panel panel-default order" id="order">
+        <div class="panel-heading" id="grayheading" >
+        <div class="row pad-left-zero pad-right-zero pad-up-down">
+          <p>You may add, annually recertify, or withdraw from a Privacy Shield Framework. Additional information regarding fee structures is available on the <a href="https://privacyshield.gov/program-overview">Program Overview Page</a>.</p>          
+        </div>
+        </div>
+        <div class="panel-body">        
+            <div > 
+               <span><h4>Add Framework</h4></span>
+               <br/>
+               <apex:repeat value="{!AvailableFrameworkMap}" var="framework">
+               <!-- this is the list of additional frameworks that the Customer may purchase -->
+                   <apex:outputpanel rendered="{!AvailableFrameworkMap[framework].status = null}">
+                       <apex:commandLink action="{!AddFramework}" rerender="none" styleClass="btn btn-gray btn-sm pull-right">
+                           <apex:param name="SelectedDoor" assignTo="{!SelectedDoor}" value="addition"/ >
+                           <apex:param name="SelectedFrameworkId" assignTo="{!SelectedFrameworkId}" value="{!framework}"/>
+                           Add
+                       </apex:commandLink>
+    
+                       <span class=" uppercase framework">{!framework}</span><br/>
+                       <span class="text-muted not-enrolled">Not Enrolled</span>               
+                       
+                   </apex:outputpanel>                   
+               </apex:repeat>
+               
+               <hr/>
+ 
+   <apex:outputpanel layout="block" styleClass="row pad-none">                                      
+      <apex:outputpanel layout="block" styleClass="col-md-10"> 
+               
+               <span><h4>Recertify Privacy Shield Participation </h4></span>
+       
+
+               
+               <apex:repeat value="{!AvailableFrameworkMap}" var="framework">
+               <!-- this is the list of frameworks that the Customer may renew -->
+                   <apex:outputtext rendered="{!or(AvailableFrameworkMap[framework].status = 'Active', and(AvailableFrameworkMap[framework].status = 'Inactive', AvailableFrameworkMap[framework].inactive_status_reason__r.description__c != 'Withdrawal'))}">
+                        
+                       <p class="text-muted uppercase framework"> {!framework}: <apex:outputpanel styleClass="inlineBlock {!AvailableFrameworkMap[framework].status}ITA"> {!AvailableFrameworkMap[framework].status} </apex:outputpanel></p>
+                              <apex:outputpanel layout="block" styleClass="about">Covered Data:  {!if(AvailableFrameworkMap[framework].hr_data__c, 'HR', '')}{!if(AvailableFrameworkMap[framework].hr_data__c && AvailableFrameworkMap[framework].non_hr_data__c, ', ','')}{!if(AvailableFrameworkMap[framework].non_hr_data__c, 'Non-HR', '')} Data</apex:outputpanel>
+                              <apex:outputpanel layout="block" styleClass="about">Next Certified Due Date: {!month(AvailableFrameworkMap[framework].usageenddate)}/{!day(AvailableFrameworkMap[framework].usageenddate)}/{!year(AvailableFrameworkMap[framework].usageenddate)}</apex:outputpanel>           
+                       
+                   </apex:outputtext> 
+                   <br/>                  
+               </apex:repeat>
+      </apex:outputpanel>         
+      <apex:outputpanel layout="block" styleClass="col-md-2">        
+               <apex:commandLink action="{!AddFramework}" rerender="none" styleClass="btn btn-gray btn-sm pull-right">
+                           <apex:param name="SelectedDoor" assignTo="{!SelectedDoor}" value="recertify"/ >
+                           Recertify
+               </apex:commandLink>
+       </apex:outputpanel>   
+    </apex:outputpanel>         
+                              
+  <hr/>
+                                          
+               <apex:outputpanel layout="block" styleClass="row pad-none">                                      
+                  <apex:outputpanel layout="block" styleClass="col-md-10">
+                    <span><p class="text-muted uppercase framework">Withdraw from Privacy Shield </p></span>                         
+                  </apex:outputpanel>
+                  <apex:outputpanel layout="block" styleClass="col-md-2">
+                    <apex:commandButton value="Withdraw" styleClass="btn btn-gray btn-sm pull-right" onclick="$('#caseModal').show(); $('.caseType').val('Withdrawal from Program'); $('.caseSubject').val('Withdraw from {!program.name}');" action="{!doNothing}" rerender="none" />                         
+                  </apex:outputpanel>                  
+               </apex:outputpanel>
+                     
+</div>
+</div>
+<!--end second panel -->
+        
+</div>
+    
+    </apex:outputpanel>
+    </apex:outputpanel>
+    
+    </apex:outputpanel>
+    </apex:outputpanel>
+    </apex:outputpanel>
+    
+</apex:form>    
+</apex:define>
+</apex:composition>
+</apex:page>

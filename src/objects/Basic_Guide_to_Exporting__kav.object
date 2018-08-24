@@ -1,0 +1,2493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <articleTypeChannelDisplay>
+        <articleTypeTemplates>
+            <channel>App</channel>
+            <template>Tab</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Prm</channel>
+            <template>Tab</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Csp</channel>
+            <template>Tab</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Pkb</channel>
+            <template>Toc</template>
+        </articleTypeTemplates>
+    </articleTypeChannelDisplay>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Basic Guide to Exporting Template</description>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <fields>
+        <fullName>Approval_Queue__c</fullName>
+        <description>This field ties to Approval Queues.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the approval queue for this Article.</inlineHelpText>
+        <label>Approval Queue</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Global Markets</fullName>
+                    <default>true</default>
+                    <label>Global Markets</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Atom__c</fullName>
+        <description>Body of an Article</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This rich-text area is where the body of your content should be placed. The content should not deviate from the overall theme and should stand on its own as a reliable source of information. Otherwise, a new topic should be created.</inlineHelpText>
+        <label>Atom</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Days_Since_Last_Published_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>TODAY() - DATEVALUE( LastPublishedDate )</formula>
+        <label>Days Since Last Published Date</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Draft_Complete__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Check this box, if your document is ready to go into workflow. If you&apos;re completely satisfied with your draft, then click &quot;Submit for Approval&quot; button.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Flag the draft version is ready for approval</inlineHelpText>
+        <label>Draft Complete</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Level_0__c</fullName>
+        <description>Hidden field for KM streamline effort.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the Level 0 section for this series.</inlineHelpText>
+        <label>Level 0</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Basic Guide to Exporting</fullName>
+                    <default>true</default>
+                    <label>Basic Guide to Exporting</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Level_1__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the Level 1 section for this series.</inlineHelpText>
+        <label>Level 1</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Export Overview</fullName>
+                    <default>false</default>
+                    <label>Export Overview</label>
+                </value>
+                <value>
+                    <fullName>Export Strategy</fullName>
+                    <default>false</default>
+                    <label>Export Strategy</label>
+                </value>
+                <value>
+                    <fullName>Developing a Marketing Plan</fullName>
+                    <default>false</default>
+                    <label>Developing a Marketing Plan</label>
+                </value>
+                <value>
+                    <fullName>Export Advice</fullName>
+                    <default>false</default>
+                    <label>Export Advice</label>
+                </value>
+                <value>
+                    <fullName>Methods and Channels for Exporting</fullName>
+                    <default>false</default>
+                    <label>Methods and Channels for Exporting</label>
+                </value>
+                <value>
+                    <fullName>Finding Qualified Buyers</fullName>
+                    <default>false</default>
+                    <label>Finding Qualified Buyers</label>
+                </value>
+                <value>
+                    <fullName>Tech Licensing and Joint Ventures</fullName>
+                    <default>false</default>
+                    <label>Tech Licensing and Joint Ventures</label>
+                </value>
+                <value>
+                    <fullName>Preparing your Product for Export</fullName>
+                    <default>false</default>
+                    <label>Preparing your Product for Export</label>
+                </value>
+                <value>
+                    <fullName>Exporting Services</fullName>
+                    <default>false</default>
+                    <label>Exporting Services</label>
+                </value>
+                <value>
+                    <fullName>International Legal Considerations</fullName>
+                    <default>false</default>
+                    <label>International Legal Considerations</label>
+                </value>
+                <value>
+                    <fullName>E-Exporting Tools for Small Businesses</fullName>
+                    <default>false</default>
+                    <label>E-Exporting Tools for Small Businesses</label>
+                </value>
+                <value>
+                    <fullName>Shipping Your Product</fullName>
+                    <default>false</default>
+                    <label>Shipping Your Product</label>
+                </value>
+                <value>
+                    <fullName>Pricing, Quotation and Terms</fullName>
+                    <default>false</default>
+                    <label>Pricing, Quotation and Terms</label>
+                </value>
+                <value>
+                    <fullName>Methods of Payment</fullName>
+                    <default>false</default>
+                    <label>Methods of Payment</label>
+                </value>
+                <value>
+                    <fullName>Financing Export Transactions</fullName>
+                    <default>false</default>
+                    <label>Financing Export Transactions</label>
+                </value>
+                <value>
+                    <fullName>Business Travel Abroad</fullName>
+                    <default>false</default>
+                    <label>Business Travel Abroad</label>
+                </value>
+                <value>
+                    <fullName>Selling Overseas and Aftersales Service</fullName>
+                    <default>false</default>
+                    <label>Selling Overseas and Aftersales Service</label>
+                </value>
+                <value>
+                    <fullName>Rules of Origin for FTAs</fullName>
+                    <default>false</default>
+                    <label>Rules of Origin for FTAs</label>
+                </value>
+                <value>
+                    <fullName>Glossary of Trade Terms</fullName>
+                    <default>false</default>
+                    <label>Glossary of Trade Terms</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Level_2__c</fullName>
+        <description>Select the Level 2 section for this series.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the Level 2 section for this series.</inlineHelpText>
+        <label>Level 2</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Level_1__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Why Companies Should Export</fullName>
+                    <default>false</default>
+                    <label>Why Companies Should Export</label>
+                </value>
+                <value>
+                    <fullName>Why Small Companies Don’t Export to More Than One Market</fullName>
+                    <default>false</default>
+                    <label>Why Small Companies Don’t Export to More Than One Market</label>
+                </value>
+                <value>
+                    <fullName>Strategic Reasons to Export</fullName>
+                    <default>false</default>
+                    <label>Strategic Reasons to Export</label>
+                </value>
+                <value>
+                    <fullName>Defeet International: Success Story</fullName>
+                    <default>false</default>
+                    <label>Defeet International: Success Story</label>
+                </value>
+                <value>
+                    <fullName>Do I need a license?</fullName>
+                    <default>false</default>
+                    <label>Do I need a license?</label>
+                </value>
+                <value>
+                    <fullName>Determine a Products Export Potential</fullName>
+                    <default>false</default>
+                    <label>Determine a Products Export Potential</label>
+                </value>
+                <value>
+                    <fullName>Company Export Readiness Assessment</fullName>
+                    <default>false</default>
+                    <label>Company Export Readiness Assessment</label>
+                </value>
+                <value>
+                    <fullName>Export Plan Development</fullName>
+                    <default>false</default>
+                    <label>Export Plan Development</label>
+                </value>
+                <value>
+                    <fullName>Market Research</fullName>
+                    <default>false</default>
+                    <label>Market Research</label>
+                </value>
+                <value>
+                    <fullName>Methods of Market Research</fullName>
+                    <default>false</default>
+                    <label>Methods of Market Research</label>
+                </value>
+                <value>
+                    <fullName>Sources of Market Research</fullName>
+                    <default>false</default>
+                    <label>Sources of Market Research</label>
+                </value>
+                <value>
+                    <fullName>Success Story: Zeigler Brothers</fullName>
+                    <default>false</default>
+                    <label>Success Story: Zeigler Brothers</label>
+                </value>
+                <value>
+                    <fullName>Local US Commercial Service Offices</fullName>
+                    <default>false</default>
+                    <label>Local US Commercial Service Offices</label>
+                </value>
+                <value>
+                    <fullName>US Commercial Service Offices Overseas Posts</fullName>
+                    <default>false</default>
+                    <label>US Commercial Service Offices Overseas Posts</label>
+                </value>
+                <value>
+                    <fullName>US Trade and Development Agency</fullName>
+                    <default>false</default>
+                    <label>US Trade and Development Agency</label>
+                </value>
+                <value>
+                    <fullName>Export-Import Bank of the US</fullName>
+                    <default>false</default>
+                    <label>Export-Import Bank of the US</label>
+                </value>
+                <value>
+                    <fullName>Pre-export Financing</fullName>
+                    <default>false</default>
+                    <label>Pre-export Financing</label>
+                </value>
+                <value>
+                    <fullName>Post-export Financing</fullName>
+                    <default>false</default>
+                    <label>Post-export Financing</label>
+                </value>
+                <value>
+                    <fullName>The US Commercial Service Advocacy Center</fullName>
+                    <default>false</default>
+                    <label>The US Commercial Service Advocacy Center</label>
+                </value>
+                <value>
+                    <fullName>Trade Agreeements Negotiations and Compliance</fullName>
+                    <default>false</default>
+                    <label>Trade Agreeements Negotiations and Compliance</label>
+                </value>
+                <value>
+                    <fullName>Bureau of Industry and Security</fullName>
+                    <default>false</default>
+                    <label>Bureau of Industry and Security</label>
+                </value>
+                <value>
+                    <fullName>Minority Business Development Agency</fullName>
+                    <default>false</default>
+                    <label>Minority Business Development Agency</label>
+                </value>
+                <value>
+                    <fullName>US Small Business Administration</fullName>
+                    <default>false</default>
+                    <label>US Small Business Administration</label>
+                </value>
+                <value>
+                    <fullName>SCORE - Counselors to America&apos;s Small Business</fullName>
+                    <default>false</default>
+                    <label>SCORE - Counselors to America&apos;s Small Business</label>
+                </value>
+                <value>
+                    <fullName>US Department of Agriculture</fullName>
+                    <default>false</default>
+                    <label>US Department of Agriculture</label>
+                </value>
+                <value>
+                    <fullName>National Center for Standards and Certifications Information</fullName>
+                    <default>false</default>
+                    <label>National Center for Standards and Certifications Information</label>
+                </value>
+                <value>
+                    <fullName>District Export Councils</fullName>
+                    <default>false</default>
+                    <label>District Export Councils</label>
+                </value>
+                <value>
+                    <fullName>State and Local Governments</fullName>
+                    <default>false</default>
+                    <label>State and Local Governments</label>
+                </value>
+                <value>
+                    <fullName>Financial Institutions</fullName>
+                    <default>false</default>
+                    <label>Financial Institutions</label>
+                </value>
+                <value>
+                    <fullName>Export Intermediaries</fullName>
+                    <default>false</default>
+                    <label>Export Intermediaries</label>
+                </value>
+                <value>
+                    <fullName>World Trade Center, International Trade Clubs, Local Chambers of Commerce</fullName>
+                    <default>false</default>
+                    <label>World Trade Center, International Trade Clubs, Local Chambers of Commerce</label>
+                </value>
+                <value>
+                    <fullName>Industry and Trade Associations</fullName>
+                    <default>false</default>
+                    <label>Industry and Trade Associations</label>
+                </value>
+                <value>
+                    <fullName>American Chambers of Commerce Abroad</fullName>
+                    <default>false</default>
+                    <label>American Chambers of Commerce Abroad</label>
+                </value>
+                <value>
+                    <fullName>International Trade Consultants and Other Advisers</fullName>
+                    <default>false</default>
+                    <label>International Trade Consultants and Other Advisers</label>
+                </value>
+                <value>
+                    <fullName>Freight Forwarders and Shipping Companies</fullName>
+                    <default>false</default>
+                    <label>Freight Forwarders and Shipping Companies</label>
+                </value>
+                <value>
+                    <fullName>Ecommerce Providers</fullName>
+                    <default>false</default>
+                    <label>Ecommerce Providers</label>
+                </value>
+                <value>
+                    <fullName>Success Story: Advanced Superabrasives</fullName>
+                    <default>false</default>
+                    <label>Success Story: Advanced Superabrasives</label>
+                </value>
+                <value>
+                    <fullName>Approaches to Exporting</fullName>
+                    <default>false</default>
+                    <label>Approaches to Exporting</label>
+                </value>
+                <value>
+                    <fullName>Channels of Distribution</fullName>
+                    <default>false</default>
+                    <label>Channels of Distribution</label>
+                </value>
+                <value>
+                    <fullName>Choosing a Foreign Representative/Distributor</fullName>
+                    <default>false</default>
+                    <label>Choosing a Foreign Representative/Distributor</label>
+                </value>
+                <value>
+                    <fullName>Success Story: Infinity Air</fullName>
+                    <default>false</default>
+                    <label>Success Story: Infinity Air</label>
+                </value>
+                <value>
+                    <fullName>US Department of Commerce: Buyer-Finding Programs</fullName>
+                    <default>false</default>
+                    <label>US Department of Commerce: Buyer-Finding Programs</label>
+                </value>
+                <value>
+                    <fullName>US Department of Commerce: Trade Event Programs</fullName>
+                    <default>false</default>
+                    <label>US Department of Commerce: Trade Event Programs</label>
+                </value>
+                <value>
+                    <fullName>Foreign Agricultural Service</fullName>
+                    <default>false</default>
+                    <label>Foreign Agricultural Service</label>
+                </value>
+                <value>
+                    <fullName>US Agency for International Development</fullName>
+                    <default>false</default>
+                    <label>US Agency for International Development</label>
+                </value>
+                <value>
+                    <fullName>US Department of State</fullName>
+                    <default>false</default>
+                    <label>US Department of State</label>
+                </value>
+                <value>
+                    <fullName>Millennium Challenge Corporation</fullName>
+                    <default>false</default>
+                    <label>Millennium Challenge Corporation</label>
+                </value>
+                <value>
+                    <fullName>State and Local Government Assistance</fullName>
+                    <default>false</default>
+                    <label>State and Local Government Assistance</label>
+                </value>
+                <value>
+                    <fullName>Promotion in Publications and Other Media</fullName>
+                    <default>false</default>
+                    <label>Promotion in Publications and Other Media</label>
+                </value>
+                <value>
+                    <fullName>Strategies for Keeping Buyers</fullName>
+                    <default>false</default>
+                    <label>Strategies for Keeping Buyers</label>
+                </value>
+                <value>
+                    <fullName>Technology Licensing</fullName>
+                    <default>false</default>
+                    <label>Technology Licensing</label>
+                </value>
+                <value>
+                    <fullName>Joint Ventures</fullName>
+                    <default>false</default>
+                    <label>Joint Ventures</label>
+                </value>
+                <value>
+                    <fullName>Success Story:  Spancrete Machinery Corporation</fullName>
+                    <default>false</default>
+                    <label>Success Story:  Spancrete Machinery Corporation</label>
+                </value>
+                <value>
+                    <fullName>Product Adaptation</fullName>
+                    <default>false</default>
+                    <label>Product Adaptation</label>
+                </value>
+                <value>
+                    <fullName>Engineering and Redesign</fullName>
+                    <default>false</default>
+                    <label>Engineering and Redesign</label>
+                </value>
+                <value>
+                    <fullName>Branding, Labeling, and Packaging</fullName>
+                    <default>false</default>
+                    <label>Branding, Labeling, and Packaging</label>
+                </value>
+                <value>
+                    <fullName>Installation</fullName>
+                    <default>false</default>
+                    <label>Installation</label>
+                </value>
+                <value>
+                    <fullName>Warranties</fullName>
+                    <default>false</default>
+                    <label>Warranties</label>
+                </value>
+                <value>
+                    <fullName>Success Stories:  Avazzia</fullName>
+                    <default>false</default>
+                    <label>Success Stories:  Avazzia</label>
+                </value>
+                <value>
+                    <fullName>Service Exports with High Growth Potential</fullName>
+                    <default>false</default>
+                    <label>Service Exports with High Growth Potential</label>
+                </value>
+                <value>
+                    <fullName>Free Trade Agreements and Service Exports</fullName>
+                    <default>false</default>
+                    <label>Free Trade Agreements and Service Exports</label>
+                </value>
+                <value>
+                    <fullName>Aspects of Service Exports</fullName>
+                    <default>false</default>
+                    <label>Aspects of Service Exports</label>
+                </value>
+                <value>
+                    <fullName>Marketing Services Abroad</fullName>
+                    <default>false</default>
+                    <label>Marketing Services Abroad</label>
+                </value>
+                <value>
+                    <fullName>Obtaining Government Support for Service Exports</fullName>
+                    <default>false</default>
+                    <label>Obtaining Government Support for Service Exports</label>
+                </value>
+                <value>
+                    <fullName>Success Story: Home Instead Senior Care</fullName>
+                    <default>false</default>
+                    <label>Success Story: Home Instead Senior Care</label>
+                </value>
+                <value>
+                    <fullName>Export Regulations</fullName>
+                    <default>false</default>
+                    <label>Export Regulations</label>
+                </value>
+                <value>
+                    <fullName>North America Free Trade Agreements</fullName>
+                    <default>false</default>
+                    <label>North America Free Trade Agreements</label>
+                </value>
+                <value>
+                    <fullName>US Foreign Trade Zones</fullName>
+                    <default>false</default>
+                    <label>US Foreign Trade Zones</label>
+                </value>
+                <value>
+                    <fullName>Export Processing Zones</fullName>
+                    <default>false</default>
+                    <label>Export Processing Zones</label>
+                </value>
+                <value>
+                    <fullName>Custom Bonded Warehouses</fullName>
+                    <default>false</default>
+                    <label>Custom Bonded Warehouses</label>
+                </value>
+                <value>
+                    <fullName>Intellectual Property Considerations</fullName>
+                    <default>false</default>
+                    <label>Intellectual Property Considerations</label>
+                </value>
+                <value>
+                    <fullName>International Agreements</fullName>
+                    <default>false</default>
+                    <label>International Agreements</label>
+                </value>
+                <value>
+                    <fullName>What is e-commerce?</fullName>
+                    <default>false</default>
+                    <label>What is e-commerce?</label>
+                </value>
+                <value>
+                    <fullName>Use of E-Commerce for International Business and Trade</fullName>
+                    <default>false</default>
+                    <label>Use of E-Commerce for International Business and Trade</label>
+                </value>
+                <value>
+                    <fullName>Market Development on the Web</fullName>
+                    <default>false</default>
+                    <label>Market Development on the Web</label>
+                </value>
+                <value>
+                    <fullName>Assessing Your Company&apos;s Readiness to go Online</fullName>
+                    <default>false</default>
+                    <label>Assessing Your Company&apos;s Readiness to go Online</label>
+                </value>
+                <value>
+                    <fullName>Steps to Going Online</fullName>
+                    <default>false</default>
+                    <label>Steps to Going Online</label>
+                </value>
+                <value>
+                    <fullName>Executing Orders and Providing After-Sales Service</fullName>
+                    <default>false</default>
+                    <label>Executing Orders and Providing After-Sales Service</label>
+                </value>
+                <value>
+                    <fullName>Foreign Legal and Regulatory Requirements</fullName>
+                    <default>false</default>
+                    <label>Foreign Legal and Regulatory Requirements</label>
+                </value>
+                <value>
+                    <fullName>Success Story:  NuStep</fullName>
+                    <default>false</default>
+                    <label>Success Story:  NuStep</label>
+                </value>
+                <value>
+                    <fullName>Freight Forwarders</fullName>
+                    <default>false</default>
+                    <label>Freight Forwarders</label>
+                </value>
+                <value>
+                    <fullName>Packing</fullName>
+                    <default>false</default>
+                    <label>Packing</label>
+                </value>
+                <value>
+                    <fullName>Labeling</fullName>
+                    <default>false</default>
+                    <label>Labeling</label>
+                </value>
+                <value>
+                    <fullName>Documentation</fullName>
+                    <default>false</default>
+                    <label>Documentation</label>
+                </value>
+                <value>
+                    <fullName>Success Story: Bassetts Ice Cream company</fullName>
+                    <default>false</default>
+                    <label>Success Story: Bassetts Ice Cream company</label>
+                </value>
+                <value>
+                    <fullName>Pricing Considerations</fullName>
+                    <default>false</default>
+                    <label>Pricing Considerations</label>
+                </value>
+                <value>
+                    <fullName>Quotations and Pro-Forma Invoices</fullName>
+                    <default>false</default>
+                    <label>Quotations and Pro-Forma Invoices</label>
+                </value>
+                <value>
+                    <fullName>Terms of Sale</fullName>
+                    <default>false</default>
+                    <label>Terms of Sale</label>
+                </value>
+                <value>
+                    <fullName>Commonly Used Terms</fullName>
+                    <default>false</default>
+                    <label>Commonly Used Terms</label>
+                </value>
+                <value>
+                    <fullName>Commonly Used Terms When Chartering a Vessel</fullName>
+                    <default>false</default>
+                    <label>Commonly Used Terms When Chartering a Vessel</label>
+                </value>
+                <value>
+                    <fullName>Success Story:  Alignment Simple Solution</fullName>
+                    <default>false</default>
+                    <label>Success Story:  Alignment Simple Solution</label>
+                </value>
+                <value>
+                    <fullName>Prudent Credit Practices</fullName>
+                    <default>false</default>
+                    <label>Prudent Credit Practices</label>
+                </value>
+                <value>
+                    <fullName>Cash in Advance</fullName>
+                    <default>false</default>
+                    <label>Cash in Advance</label>
+                </value>
+                <value>
+                    <fullName>Letters of Credit and Documentary Collection</fullName>
+                    <default>false</default>
+                    <label>Letters of Credit and Documentary Collection</label>
+                </value>
+                <value>
+                    <fullName>Escrow</fullName>
+                    <default>false</default>
+                    <label>Escrow</label>
+                </value>
+                <value>
+                    <fullName>Open Account</fullName>
+                    <default>false</default>
+                    <label>Open Account</label>
+                </value>
+                <value>
+                    <fullName>Consignment</fullName>
+                    <default>false</default>
+                    <label>Consignment</label>
+                </value>
+                <value>
+                    <fullName>Foreign Exchange Risk</fullName>
+                    <default>false</default>
+                    <label>Foreign Exchange Risk</label>
+                </value>
+                <value>
+                    <fullName>Payment Problems</fullName>
+                    <default>false</default>
+                    <label>Payment Problems</label>
+                </value>
+                <value>
+                    <fullName>Success Story: Giant Loop</fullName>
+                    <default>false</default>
+                    <label>Success Story: Giant Loop</label>
+                </value>
+                <value>
+                    <fullName>Factors to Consider in Making Financing Decisions</fullName>
+                    <default>false</default>
+                    <label>Factors to Consider in Making Financing Decisions</label>
+                </value>
+                <value>
+                    <fullName>Extending Credit to Foreign Buyers</fullName>
+                    <default>false</default>
+                    <label>Extending Credit to Foreign Buyers</label>
+                </value>
+                <value>
+                    <fullName>Working with Commercial Banks</fullName>
+                    <default>false</default>
+                    <label>Working with Commercial Banks</label>
+                </value>
+                <value>
+                    <fullName>Using Discounting and Bankers Acceptance</fullName>
+                    <default>false</default>
+                    <label>Using Discounting and Bankers Acceptance</label>
+                </value>
+                <value>
+                    <fullName>Using Export Intermediaries</fullName>
+                    <default>false</default>
+                    <label>Using Export Intermediaries</label>
+                </value>
+                <value>
+                    <fullName>Using Government Assistance Programs</fullName>
+                    <default>false</default>
+                    <label>Using Government Assistance Programs</label>
+                </value>
+                <value>
+                    <fullName>Obtaining Funding from Multilateral Investment Banks</fullName>
+                    <default>false</default>
+                    <label>Obtaining Funding from Multilateral Investment Banks</label>
+                </value>
+                <value>
+                    <fullName>Exploring State and Local Export Finance Programs</fullName>
+                    <default>false</default>
+                    <label>Exploring State and Local Export Finance Programs</label>
+                </value>
+                <value>
+                    <fullName>Success Story:  Patton Electronics Company</fullName>
+                    <default>false</default>
+                    <label>Success Story:  Patton Electronics Company</label>
+                </value>
+                <value>
+                    <fullName>Obtaining Proper Documentation</fullName>
+                    <default>false</default>
+                    <label>Obtaining Proper Documentation</label>
+                </value>
+                <value>
+                    <fullName>Obtaining Assistance from US Embassies and Consulates</fullName>
+                    <default>false</default>
+                    <label>Obtaining Assistance from US Embassies and Consulates</label>
+                </value>
+                <value>
+                    <fullName>Business Culture</fullName>
+                    <default>false</default>
+                    <label>Business Culture</label>
+                </value>
+                <value>
+                    <fullName>Success Story:  Lightning Eliminators</fullName>
+                    <default>false</default>
+                    <label>Success Story:  Lightning Eliminators</label>
+                </value>
+                <value>
+                    <fullName>Responding to Inquiries</fullName>
+                    <default>false</default>
+                    <label>Responding to Inquiries</label>
+                </value>
+                <value>
+                    <fullName>Learning about Potential Clients</fullName>
+                    <default>false</default>
+                    <label>Learning about Potential Clients</label>
+                </value>
+                <value>
+                    <fullName>Conducting Business Internationally</fullName>
+                    <default>false</default>
+                    <label>Conducting Business Internationally</label>
+                </value>
+                <value>
+                    <fullName>Building a Working Relationship</fullName>
+                    <default>false</default>
+                    <label>Building a Working Relationship</label>
+                </value>
+                <value>
+                    <fullName>Providing After-Sales Service</fullName>
+                    <default>false</default>
+                    <label>Providing After-Sales Service</label>
+                </value>
+                <value>
+                    <fullName>Basic Steps to Qualify a Product for Duty Free or Reduced Duty Benefits</fullName>
+                    <default>false</default>
+                    <label>Basic Steps to Qualify a Product for Duty Free or Reduced Duty Benefits</label>
+                </value>
+                <value>
+                    <fullName>Rules of Origin and Why They Matter</fullName>
+                    <default>false</default>
+                    <label>Rules of Origin and Why They Matter</label>
+                </value>
+                <value>
+                    <fullName>Percentage Based Rules</fullName>
+                    <default>false</default>
+                    <label>Percentage Based Rules</label>
+                </value>
+                <value>
+                    <fullName>Regional Value Content-Based Rule</fullName>
+                    <default>false</default>
+                    <label>Regional Value Content-Based Rule</label>
+                </value>
+                <value>
+                    <fullName>Example Rules of Origin</fullName>
+                    <default>false</default>
+                    <label>Example Rules of Origin</label>
+                </value>
+                <value>
+                    <fullName>Rules of Origin - General Categories</fullName>
+                    <default>false</default>
+                    <label>Rules of Origin - General Categories</label>
+                </value>
+                <value>
+                    <fullName>Rules of Origin Considerations</fullName>
+                    <default>false</default>
+                    <label>Rules of Origin Considerations</label>
+                </value>
+                <value>
+                    <fullName>Sector-Specific Considerations</fullName>
+                    <default>false</default>
+                    <label>Sector-Specific Considerations</label>
+                </value>
+                <value>
+                    <fullName>Certifying Origin of Product for FTA</fullName>
+                    <default>false</default>
+                    <label>Certifying Origin of Product for FTA</label>
+                </value>
+                <value>
+                    <fullName>Generic Certificates</fullName>
+                    <default>false</default>
+                    <label>Generic Certificates</label>
+                </value>
+                <value>
+                    <fullName>Success Story: Jet Incorporated</fullName>
+                    <default>false</default>
+                    <label>Success Story: Jet Incorporated</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Export Advice</controllingFieldValue>
+                <valueName>Local US Commercial Service Offices</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Advice</controllingFieldValue>
+                <valueName>US Commercial Service Offices Overseas Posts</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Advice</controllingFieldValue>
+                <controllingFieldValue>Methods and Channels for Exporting</controllingFieldValue>
+                <valueName>US Trade and Development Agency</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Advice</controllingFieldValue>
+                <valueName>Export-Import Bank of the US</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Advice</controllingFieldValue>
+                <valueName>Pre-export Financing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Advice</controllingFieldValue>
+                <valueName>Post-export Financing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Advice</controllingFieldValue>
+                <valueName>The US Commercial Service Advocacy Center</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Advice</controllingFieldValue>
+                <valueName>Trade Agreeements Negotiations and Compliance</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Advice</controllingFieldValue>
+                <valueName>Bureau of Industry and Security</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Advice</controllingFieldValue>
+                <valueName>Minority Business Development Agency</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Advice</controllingFieldValue>
+                <valueName>US Small Business Administration</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Advice</controllingFieldValue>
+                <valueName>SCORE - Counselors to America&apos;s Small Business</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Advice</controllingFieldValue>
+                <valueName>US Department of Agriculture</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Advice</controllingFieldValue>
+                <valueName>National Center for Standards and Certifications Information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Advice</controllingFieldValue>
+                <valueName>District Export Councils</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Advice</controllingFieldValue>
+                <valueName>State and Local Governments</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Advice</controllingFieldValue>
+                <valueName>Financial Institutions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Advice</controllingFieldValue>
+                <valueName>Export Intermediaries</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Advice</controllingFieldValue>
+                <valueName>World Trade Center, International Trade Clubs, Local Chambers of Commerce</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Advice</controllingFieldValue>
+                <valueName>Industry and Trade Associations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Advice</controllingFieldValue>
+                <valueName>American Chambers of Commerce Abroad</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Advice</controllingFieldValue>
+                <valueName>International Trade Consultants and Other Advisers</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Advice</controllingFieldValue>
+                <valueName>Freight Forwarders and Shipping Companies</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Advice</controllingFieldValue>
+                <valueName>Ecommerce Providers</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Advice</controllingFieldValue>
+                <valueName>Success Story: Advanced Superabrasives</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financing Export Transactions</controllingFieldValue>
+                <valueName>Factors to Consider in Making Financing Decisions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financing Export Transactions</controllingFieldValue>
+                <valueName>Extending Credit to Foreign Buyers</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financing Export Transactions</controllingFieldValue>
+                <valueName>Working with Commercial Banks</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financing Export Transactions</controllingFieldValue>
+                <valueName>Using Discounting and Bankers Acceptance</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financing Export Transactions</controllingFieldValue>
+                <valueName>Using Export Intermediaries</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financing Export Transactions</controllingFieldValue>
+                <valueName>Using Government Assistance Programs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financing Export Transactions</controllingFieldValue>
+                <valueName>Obtaining Funding from Multilateral Investment Banks</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financing Export Transactions</controllingFieldValue>
+                <valueName>Exploring State and Local Export Finance Programs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financing Export Transactions</controllingFieldValue>
+                <valueName>Success Story:  Patton Electronics Company</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Methods and Channels for Exporting</controllingFieldValue>
+                <valueName>Approaches to Exporting</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Methods and Channels for Exporting</controllingFieldValue>
+                <valueName>Channels of Distribution</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Methods and Channels for Exporting</controllingFieldValue>
+                <valueName>Choosing a Foreign Representative/Distributor</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Methods and Channels for Exporting</controllingFieldValue>
+                <valueName>Success Story: Infinity Air</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Business Travel Abroad</controllingFieldValue>
+                <valueName>Obtaining Proper Documentation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Business Travel Abroad</controllingFieldValue>
+                <valueName>Obtaining Assistance from US Embassies and Consulates</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Business Travel Abroad</controllingFieldValue>
+                <valueName>Business Culture</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Business Travel Abroad</controllingFieldValue>
+                <valueName>Success Story:  Lightning Eliminators</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finding Qualified Buyers</controllingFieldValue>
+                <valueName>US Department of Commerce: Buyer-Finding Programs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finding Qualified Buyers</controllingFieldValue>
+                <valueName>US Department of Commerce: Trade Event Programs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finding Qualified Buyers</controllingFieldValue>
+                <valueName>Foreign Agricultural Service</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finding Qualified Buyers</controllingFieldValue>
+                <valueName>US Agency for International Development</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finding Qualified Buyers</controllingFieldValue>
+                <valueName>US Department of State</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finding Qualified Buyers</controllingFieldValue>
+                <valueName>Millennium Challenge Corporation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finding Qualified Buyers</controllingFieldValue>
+                <valueName>State and Local Government Assistance</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finding Qualified Buyers</controllingFieldValue>
+                <valueName>Promotion in Publications and Other Media</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finding Qualified Buyers</controllingFieldValue>
+                <valueName>Strategies for Keeping Buyers</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Selling Overseas and Aftersales Service</controllingFieldValue>
+                <valueName>Responding to Inquiries</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Selling Overseas and Aftersales Service</controllingFieldValue>
+                <valueName>Learning about Potential Clients</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Selling Overseas and Aftersales Service</controllingFieldValue>
+                <valueName>Conducting Business Internationally</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Selling Overseas and Aftersales Service</controllingFieldValue>
+                <valueName>Building a Working Relationship</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Selling Overseas and Aftersales Service</controllingFieldValue>
+                <valueName>Providing After-Sales Service</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tech Licensing and Joint Ventures</controllingFieldValue>
+                <valueName>Technology Licensing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tech Licensing and Joint Ventures</controllingFieldValue>
+                <valueName>Joint Ventures</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Tech Licensing and Joint Ventures</controllingFieldValue>
+                <valueName>Success Story:  Spancrete Machinery Corporation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rules of Origin for FTAs</controllingFieldValue>
+                <valueName>Basic Steps to Qualify a Product for Duty Free or Reduced Duty Benefits</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rules of Origin for FTAs</controllingFieldValue>
+                <valueName>Rules of Origin and Why They Matter</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rules of Origin for FTAs</controllingFieldValue>
+                <valueName>Percentage Based Rules</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rules of Origin for FTAs</controllingFieldValue>
+                <valueName>Regional Value Content-Based Rule</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rules of Origin for FTAs</controllingFieldValue>
+                <valueName>Example Rules of Origin</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rules of Origin for FTAs</controllingFieldValue>
+                <valueName>Rules of Origin - General Categories</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rules of Origin for FTAs</controllingFieldValue>
+                <valueName>Rules of Origin Considerations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rules of Origin for FTAs</controllingFieldValue>
+                <valueName>Sector-Specific Considerations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rules of Origin for FTAs</controllingFieldValue>
+                <valueName>Certifying Origin of Product for FTA</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rules of Origin for FTAs</controllingFieldValue>
+                <valueName>Generic Certificates</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rules of Origin for FTAs</controllingFieldValue>
+                <valueName>Success Story: Jet Incorporated</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Preparing your Product for Export</controllingFieldValue>
+                <valueName>Product Adaptation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Preparing your Product for Export</controllingFieldValue>
+                <valueName>Engineering and Redesign</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Preparing your Product for Export</controllingFieldValue>
+                <valueName>Branding, Labeling, and Packaging</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Preparing your Product for Export</controllingFieldValue>
+                <valueName>Installation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Preparing your Product for Export</controllingFieldValue>
+                <valueName>Warranties</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Preparing your Product for Export</controllingFieldValue>
+                <valueName>Success Stories:  Avazzia</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Exporting Services</controllingFieldValue>
+                <valueName>Service Exports with High Growth Potential</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Exporting Services</controllingFieldValue>
+                <valueName>Free Trade Agreements and Service Exports</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Exporting Services</controllingFieldValue>
+                <valueName>Aspects of Service Exports</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Exporting Services</controllingFieldValue>
+                <valueName>Marketing Services Abroad</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Exporting Services</controllingFieldValue>
+                <valueName>Obtaining Government Support for Service Exports</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Exporting Services</controllingFieldValue>
+                <valueName>Success Story: Home Instead Senior Care</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>International Legal Considerations</controllingFieldValue>
+                <valueName>Export Regulations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>International Legal Considerations</controllingFieldValue>
+                <valueName>North America Free Trade Agreements</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>International Legal Considerations</controllingFieldValue>
+                <valueName>US Foreign Trade Zones</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>International Legal Considerations</controllingFieldValue>
+                <valueName>Export Processing Zones</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>International Legal Considerations</controllingFieldValue>
+                <valueName>Custom Bonded Warehouses</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>International Legal Considerations</controllingFieldValue>
+                <valueName>Intellectual Property Considerations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>International Legal Considerations</controllingFieldValue>
+                <valueName>International Agreements</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>E-Exporting Tools for Small Businesses</controllingFieldValue>
+                <valueName>What is e-commerce?</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>E-Exporting Tools for Small Businesses</controllingFieldValue>
+                <valueName>Use of E-Commerce for International Business and Trade</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>E-Exporting Tools for Small Businesses</controllingFieldValue>
+                <valueName>Market Development on the Web</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>E-Exporting Tools for Small Businesses</controllingFieldValue>
+                <valueName>Assessing Your Company&apos;s Readiness to go Online</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>E-Exporting Tools for Small Businesses</controllingFieldValue>
+                <valueName>Steps to Going Online</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>E-Exporting Tools for Small Businesses</controllingFieldValue>
+                <valueName>Executing Orders and Providing After-Sales Service</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>E-Exporting Tools for Small Businesses</controllingFieldValue>
+                <valueName>Foreign Legal and Regulatory Requirements</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>E-Exporting Tools for Small Businesses</controllingFieldValue>
+                <valueName>Success Story:  NuStep</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Shipping Your Product</controllingFieldValue>
+                <valueName>Freight Forwarders</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Shipping Your Product</controllingFieldValue>
+                <valueName>Packing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Shipping Your Product</controllingFieldValue>
+                <valueName>Labeling</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Shipping Your Product</controllingFieldValue>
+                <valueName>Documentation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Shipping Your Product</controllingFieldValue>
+                <valueName>Success Story: Bassetts Ice Cream company</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Overview</controllingFieldValue>
+                <valueName>Why Companies Should Export</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Overview</controllingFieldValue>
+                <valueName>Why Small Companies Don’t Export to More Than One Market</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Overview</controllingFieldValue>
+                <valueName>Strategic Reasons to Export</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Overview</controllingFieldValue>
+                <valueName>Defeet International: Success Story</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Strategy</controllingFieldValue>
+                <valueName>Do I need a license?</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Strategy</controllingFieldValue>
+                <valueName>Determine a Products Export Potential</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Strategy</controllingFieldValue>
+                <valueName>Company Export Readiness Assessment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Strategy</controllingFieldValue>
+                <valueName>Export Plan Development</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Pricing, Quotation and Terms</controllingFieldValue>
+                <valueName>Pricing Considerations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Pricing, Quotation and Terms</controllingFieldValue>
+                <valueName>Quotations and Pro-Forma Invoices</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Pricing, Quotation and Terms</controllingFieldValue>
+                <valueName>Terms of Sale</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Pricing, Quotation and Terms</controllingFieldValue>
+                <valueName>Commonly Used Terms</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Pricing, Quotation and Terms</controllingFieldValue>
+                <valueName>Commonly Used Terms When Chartering a Vessel</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Pricing, Quotation and Terms</controllingFieldValue>
+                <valueName>Success Story:  Alignment Simple Solution</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Developing a Marketing Plan</controllingFieldValue>
+                <valueName>Market Research</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Developing a Marketing Plan</controllingFieldValue>
+                <valueName>Methods of Market Research</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Developing a Marketing Plan</controllingFieldValue>
+                <valueName>Sources of Market Research</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Developing a Marketing Plan</controllingFieldValue>
+                <valueName>Success Story: Zeigler Brothers</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Methods of Payment</controllingFieldValue>
+                <valueName>Prudent Credit Practices</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Methods of Payment</controllingFieldValue>
+                <valueName>Cash in Advance</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Methods of Payment</controllingFieldValue>
+                <valueName>Letters of Credit and Documentary Collection</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Methods of Payment</controllingFieldValue>
+                <valueName>Escrow</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Methods of Payment</controllingFieldValue>
+                <valueName>Open Account</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Methods of Payment</controllingFieldValue>
+                <valueName>Consignment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Methods of Payment</controllingFieldValue>
+                <valueName>Foreign Exchange Risk</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Methods of Payment</controllingFieldValue>
+                <valueName>Payment Problems</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Methods of Payment</controllingFieldValue>
+                <valueName>Success Story: Giant Loop</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Level_3__c</fullName>
+        <description>Select the Level 3 section for this series.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the Level 3 section for this series.</inlineHelpText>
+        <label>Level 3</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Level_2__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Export Admininstration Regulations</fullName>
+                    <default>false</default>
+                    <label>Export Admininstration Regulations</label>
+                </value>
+                <value>
+                    <fullName>International Traffic in Arms Regulations</fullName>
+                    <default>false</default>
+                    <label>International Traffic in Arms Regulations</label>
+                </value>
+                <value>
+                    <fullName>Persons Restricted to Trade Restrictions</fullName>
+                    <default>false</default>
+                    <label>Persons Restricted to Trade Restrictions</label>
+                </value>
+                <value>
+                    <fullName>Sample Export Plan</fullName>
+                    <default>false</default>
+                    <label>Sample Export Plan</label>
+                </value>
+                <value>
+                    <fullName>General Information about Exporting</fullName>
+                    <default>false</default>
+                    <label>General Information about Exporting</label>
+                </value>
+                <value>
+                    <fullName>Statistical and Demographic Information</fullName>
+                    <default>false</default>
+                    <label>Statistical and Demographic Information</label>
+                </value>
+                <value>
+                    <fullName>Export Opportunities at Development Banks</fullName>
+                    <default>false</default>
+                    <label>Export Opportunities at Development Banks</label>
+                </value>
+                <value>
+                    <fullName>Industry Information</fullName>
+                    <default>false</default>
+                    <label>Industry Information</label>
+                </value>
+                <value>
+                    <fullName>Regional and Country Information</fullName>
+                    <default>false</default>
+                    <label>Regional and Country Information</label>
+                </value>
+                <value>
+                    <fullName>Customized Market Research</fullName>
+                    <default>false</default>
+                    <label>Customized Market Research</label>
+                </value>
+                <value>
+                    <fullName>Distribution Considerations</fullName>
+                    <default>false</default>
+                    <label>Distribution Considerations</label>
+                </value>
+                <value>
+                    <fullName>Indirect Exporting</fullName>
+                    <default>false</default>
+                    <label>Indirect Exporting</label>
+                </value>
+                <value>
+                    <fullName>Direct Exporting</fullName>
+                    <default>false</default>
+                    <label>Direct Exporting</label>
+                </value>
+                <value>
+                    <fullName>Sales Representative</fullName>
+                    <default>false</default>
+                    <label>Sales Representative</label>
+                </value>
+                <value>
+                    <fullName>Agents or Representatives</fullName>
+                    <default>false</default>
+                    <label>Agents or Representatives</label>
+                </value>
+                <value>
+                    <fullName>Distributors</fullName>
+                    <default>false</default>
+                    <label>Distributors</label>
+                </value>
+                <value>
+                    <fullName>Foreign Retailers</fullName>
+                    <default>false</default>
+                    <label>Foreign Retailers</label>
+                </value>
+                <value>
+                    <fullName>Direct Sales to End-Users</fullName>
+                    <default>false</default>
+                    <label>Direct Sales to End-Users</label>
+                </value>
+                <value>
+                    <fullName>Contacting and Evaluating Foreign Representatives</fullName>
+                    <default>false</default>
+                    <label>Contacting and Evaluating Foreign Representatives</label>
+                </value>
+                <value>
+                    <fullName>Negotiating an Agreement with a Foreign Representative</fullName>
+                    <default>false</default>
+                    <label>Negotiating an Agreement with a Foreign Representative</label>
+                </value>
+                <value>
+                    <fullName>Featured US Exporters</fullName>
+                    <default>false</default>
+                    <label>Featured US Exporters</label>
+                </value>
+                <value>
+                    <fullName>Gold Key Matching Service</fullName>
+                    <default>false</default>
+                    <label>Gold Key Matching Service</label>
+                </value>
+                <value>
+                    <fullName>International Company Profiles</fullName>
+                    <default>false</default>
+                    <label>International Company Profiles</label>
+                </value>
+                <value>
+                    <fullName>International Partner Search</fullName>
+                    <default>false</default>
+                    <label>International Partner Search</label>
+                </value>
+                <value>
+                    <fullName>International Buyer Program</fullName>
+                    <default>false</default>
+                    <label>International Buyer Program</label>
+                </value>
+                <value>
+                    <fullName>Trade Fair Certification Program</fullName>
+                    <default>false</default>
+                    <label>Trade Fair Certification Program</label>
+                </value>
+                <value>
+                    <fullName>Trade Missions</fullName>
+                    <default>false</default>
+                    <label>Trade Missions</label>
+                </value>
+                <value>
+                    <fullName>Antidiversion Clause</fullName>
+                    <default>false</default>
+                    <label>Antidiversion Clause</label>
+                </value>
+                <value>
+                    <fullName>Antiboycott Regulations</fullName>
+                    <default>false</default>
+                    <label>Antiboycott Regulations</label>
+                </value>
+                <value>
+                    <fullName>US Foreign Corrupt Practices Act</fullName>
+                    <default>false</default>
+                    <label>US Foreign Corrupt Practices Act</label>
+                </value>
+                <value>
+                    <fullName>Import Regulations of Foreign Governments</fullName>
+                    <default>false</default>
+                    <label>Import Regulations of Foreign Governments</label>
+                </value>
+                <value>
+                    <fullName>International Copyright Law</fullName>
+                    <default>false</default>
+                    <label>International Copyright Law</label>
+                </value>
+                <value>
+                    <fullName>NAFTA and Agreement on Trade-Related Aspects of Intellectual Property Rights</fullName>
+                    <default>false</default>
+                    <label>NAFTA and Agreement on Trade-Related Aspects of Intellectual Property Rights</label>
+                </value>
+                <value>
+                    <fullName>Patent Law</fullName>
+                    <default>false</default>
+                    <label>Patent Law</label>
+                </value>
+                <value>
+                    <fullName>Trademark Law</fullName>
+                    <default>false</default>
+                    <label>Trademark Law</label>
+                </value>
+                <value>
+                    <fullName>US Copyright Law Compared to International Copyright Law</fullName>
+                    <default>false</default>
+                    <label>US Copyright Law Compared to International Copyright Law</label>
+                </value>
+                <value>
+                    <fullName>What is a patent?</fullName>
+                    <default>false</default>
+                    <label>What is a patent?</label>
+                </value>
+                <value>
+                    <fullName>What does a patent do?</fullName>
+                    <default>false</default>
+                    <label>What does a patent do?</label>
+                </value>
+                <value>
+                    <fullName>What kind of protection does a patent provide?</fullName>
+                    <default>false</default>
+                    <label>What kind of protection does a patent provide?</label>
+                </value>
+                <value>
+                    <fullName>What rights does a patent owner have?</fullName>
+                    <default>false</default>
+                    <label>What rights does a patent owner have?</label>
+                </value>
+                <value>
+                    <fullName>Why are patents necessary?</fullName>
+                    <default>false</default>
+                    <label>Why are patents necessary?</label>
+                </value>
+                <value>
+                    <fullName>What role do patents play in everyday life?</fullName>
+                    <default>false</default>
+                    <label>What role do patents play in everyday life?</label>
+                </value>
+                <value>
+                    <fullName>How is a patent granted?</fullName>
+                    <default>false</default>
+                    <label>How is a patent granted?</label>
+                </value>
+                <value>
+                    <fullName>What kind of inventions can be protected?</fullName>
+                    <default>false</default>
+                    <label>What kind of inventions can be protected?</label>
+                </value>
+                <value>
+                    <fullName>Who grants patents?</fullName>
+                    <default>false</default>
+                    <label>Who grants patents?</label>
+                </value>
+                <value>
+                    <fullName>How can a patent be obtained worldwide?</fullName>
+                    <default>false</default>
+                    <label>How can a patent be obtained worldwide?</label>
+                </value>
+                <value>
+                    <fullName>Where can I find patent information?</fullName>
+                    <default>false</default>
+                    <label>Where can I find patent information?</label>
+                </value>
+                <value>
+                    <fullName>Can I obtain a patent for my software-related invention?</fullName>
+                    <default>false</default>
+                    <label>Can I obtain a patent for my software-related invention?</label>
+                </value>
+                <value>
+                    <fullName>How can I find the patent laws of various countries?</fullName>
+                    <default>false</default>
+                    <label>How can I find the patent laws of various countries?</label>
+                </value>
+                <value>
+                    <fullName>Can I discuss my invention with a potential investor before filing for a patent?</fullName>
+                    <default>false</default>
+                    <label>Can I discuss my invention with a potential investor before filing for a patent?</label>
+                </value>
+                <value>
+                    <fullName>How do I file in the US?</fullName>
+                    <default>false</default>
+                    <label>How do I file in the US?</label>
+                </value>
+                <value>
+                    <fullName>Can I protect my trademark in more than one country at the same time?</fullName>
+                    <default>false</default>
+                    <label>Can I protect my trademark in more than one country at the same time?</label>
+                </value>
+                <value>
+                    <fullName>How can I learn more about Intellectual Property Law?</fullName>
+                    <default>false</default>
+                    <label>How can I learn more about Intellectual Property Law?</label>
+                </value>
+                <value>
+                    <fullName>How long does it take to get a patent granted?</fullName>
+                    <default>false</default>
+                    <label>How long does it take to get a patent granted?</label>
+                </value>
+                <value>
+                    <fullName>How do I file a complaint if I think my intellectual property has been stolen?</fullName>
+                    <default>false</default>
+                    <label>How do I file a complaint if I think my intellectual property has been stolen?</label>
+                </value>
+                <value>
+                    <fullName>Airway Bill</fullName>
+                    <default>false</default>
+                    <label>Airway Bill</label>
+                </value>
+                <value>
+                    <fullName>Bill of Lading</fullName>
+                    <default>false</default>
+                    <label>Bill of Lading</label>
+                </value>
+                <value>
+                    <fullName>Commercial Invoice</fullName>
+                    <default>false</default>
+                    <label>Commercial Invoice</label>
+                </value>
+                <value>
+                    <fullName>Consular Invoice</fullName>
+                    <default>false</default>
+                    <label>Consular Invoice</label>
+                </value>
+                <value>
+                    <fullName>Certificate of Free Sale</fullName>
+                    <default>false</default>
+                    <label>Certificate of Free Sale</label>
+                </value>
+                <value>
+                    <fullName>Certificate of Conformity</fullName>
+                    <default>false</default>
+                    <label>Certificate of Conformity</label>
+                </value>
+                <value>
+                    <fullName>Certificate of Origin</fullName>
+                    <default>false</default>
+                    <label>Certificate of Origin</label>
+                </value>
+                <value>
+                    <fullName>NAFTA Certificate of Origin</fullName>
+                    <default>false</default>
+                    <label>NAFTA Certificate of Origin</label>
+                </value>
+                <value>
+                    <fullName>Inspection Certificate</fullName>
+                    <default>false</default>
+                    <label>Inspection Certificate</label>
+                </value>
+                <value>
+                    <fullName>Dock Receipt/Warehouse Receipt</fullName>
+                    <default>false</default>
+                    <label>Dock Receipt/Warehouse Receipt</label>
+                </value>
+                <value>
+                    <fullName>Destination Control Statement</fullName>
+                    <default>false</default>
+                    <label>Destination Control Statement</label>
+                </value>
+                <value>
+                    <fullName>Electronic Export Information (formerly Shipper&apos;s Export Declaration)</fullName>
+                    <default>false</default>
+                    <label>Electronic Export Information (formerly Shipper&apos;s Export Declaration)</label>
+                </value>
+                <value>
+                    <fullName>Export License</fullName>
+                    <default>false</default>
+                    <label>Export License</label>
+                </value>
+                <value>
+                    <fullName>Export Packing List</fullName>
+                    <default>false</default>
+                    <label>Export Packing List</label>
+                </value>
+                <value>
+                    <fullName>Insurance Certificate</fullName>
+                    <default>false</default>
+                    <label>Insurance Certificate</label>
+                </value>
+                <value>
+                    <fullName>Two Kinds of Insurance</fullName>
+                    <default>false</default>
+                    <label>Two Kinds of Insurance</label>
+                </value>
+                <value>
+                    <fullName>Cargo Insurance</fullName>
+                    <default>false</default>
+                    <label>Cargo Insurance</label>
+                </value>
+                <value>
+                    <fullName>Export Credit Insurance</fullName>
+                    <default>false</default>
+                    <label>Export Credit Insurance</label>
+                </value>
+                <value>
+                    <fullName>Tariffs</fullName>
+                    <default>false</default>
+                    <label>Tariffs</label>
+                </value>
+                <value>
+                    <fullName>Major Shippers</fullName>
+                    <default>false</default>
+                    <label>Major Shippers</label>
+                </value>
+                <value>
+                    <fullName>Cost, Insurance and Freight</fullName>
+                    <default>false</default>
+                    <label>Cost, Insurance and Freight</label>
+                </value>
+                <value>
+                    <fullName>Cost and Freight</fullName>
+                    <default>false</default>
+                    <label>Cost and Freight</label>
+                </value>
+                <value>
+                    <fullName>Carriage and Insurance Paid</fullName>
+                    <default>false</default>
+                    <label>Carriage and Insurance Paid</label>
+                </value>
+                <value>
+                    <fullName>Ex Works</fullName>
+                    <default>false</default>
+                    <label>Ex Works</label>
+                </value>
+                <value>
+                    <fullName>Free Alongside Ship</fullName>
+                    <default>false</default>
+                    <label>Free Alongside Ship</label>
+                </value>
+                <value>
+                    <fullName>Free Carrier</fullName>
+                    <default>false</default>
+                    <label>Free Carrier</label>
+                </value>
+                <value>
+                    <fullName>Free Onboard</fullName>
+                    <default>false</default>
+                    <label>Free Onboard</label>
+                </value>
+                <value>
+                    <fullName>Free Out</fullName>
+                    <default>false</default>
+                    <label>Free Out</label>
+                </value>
+                <value>
+                    <fullName>Free In</fullName>
+                    <default>false</default>
+                    <label>Free In</label>
+                </value>
+                <value>
+                    <fullName>Free In and Out</fullName>
+                    <default>false</default>
+                    <label>Free In and Out</label>
+                </value>
+                <value>
+                    <fullName>The Export-Import Bank of the United States</fullName>
+                    <default>false</default>
+                    <label>The Export-Import Bank of the United States</label>
+                </value>
+                <value>
+                    <fullName>Small Business Association</fullName>
+                    <default>false</default>
+                    <label>Small Business Association</label>
+                </value>
+                <value>
+                    <fullName>Department of Agriculture</fullName>
+                    <default>false</default>
+                    <label>Department of Agriculture</label>
+                </value>
+                <value>
+                    <fullName>Overseas Private Investment Corporation</fullName>
+                    <default>false</default>
+                    <label>Overseas Private Investment Corporation</label>
+                </value>
+                <value>
+                    <fullName>Carnets</fullName>
+                    <default>false</default>
+                    <label>Carnets</label>
+                </value>
+                <value>
+                    <fullName>Passports</fullName>
+                    <default>false</default>
+                    <label>Passports</label>
+                </value>
+                <value>
+                    <fullName>Visas</fullName>
+                    <default>false</default>
+                    <label>Visas</label>
+                </value>
+                <value>
+                    <fullName>Vaccinations</fullName>
+                    <default>false</default>
+                    <label>Vaccinations</label>
+                </value>
+                <value>
+                    <fullName>Foreign Customs</fullName>
+                    <default>false</default>
+                    <label>Foreign Customs</label>
+                </value>
+                <value>
+                    <fullName>Planning an Itinerary</fullName>
+                    <default>false</default>
+                    <label>Planning an Itinerary</label>
+                </value>
+                <value>
+                    <fullName>NAFTA, Chile, Singapore, Australia, CAFTA-DR, Colombia, Panama, Korea, and Peru FTAs</fullName>
+                    <default>false</default>
+                    <label>NAFTA, Chile, Singapore, Australia, CAFTA-DR, Colombia, Panama, Korea, and Peru FTAs</label>
+                </value>
+                <value>
+                    <fullName>Chile, Singapore, Australia, CAFTA-DR, Peru, Colombia, Korea, and  Panama FTAs</fullName>
+                    <default>false</default>
+                    <label>Chile, Singapore, Australia, CAFTA-DR, Peru, Colombia, Korea, and  Panama FTAs</label>
+                </value>
+                <value>
+                    <fullName>Israel, Jordan, Morocco, Bahrain, and Oman FTAs</fullName>
+                    <default>false</default>
+                    <label>Israel, Jordan, Morocco, Bahrain, and Oman FTAs</label>
+                </value>
+                <value>
+                    <fullName>De Minimus Rule</fullName>
+                    <default>false</default>
+                    <label>De Minimus Rule</label>
+                </value>
+                <value>
+                    <fullName>Accumulation</fullName>
+                    <default>false</default>
+                    <label>Accumulation</label>
+                </value>
+                <value>
+                    <fullName>Automobiles</fullName>
+                    <default>false</default>
+                    <label>Automobiles</label>
+                </value>
+                <value>
+                    <fullName>Chemicals</fullName>
+                    <default>false</default>
+                    <label>Chemicals</label>
+                </value>
+                <value>
+                    <fullName>Agricultural Products</fullName>
+                    <default>false</default>
+                    <label>Agricultural Products</label>
+                </value>
+                <value>
+                    <fullName>Textile Products</fullName>
+                    <default>false</default>
+                    <label>Textile Products</label>
+                </value>
+                <value>
+                    <fullName>Fungible Goods and Materials</fullName>
+                    <default>false</default>
+                    <label>Fungible Goods and Materials</label>
+                </value>
+                <value>
+                    <fullName>Indirect Materials</fullName>
+                    <default>false</default>
+                    <label>Indirect Materials</label>
+                </value>
+                <value>
+                    <fullName>Accessories, Spare Parts, and Tools</fullName>
+                    <default>false</default>
+                    <label>Accessories, Spare Parts, and Tools</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>What is e-commerce?</controllingFieldValue>
+                <valueName>What is a patent?</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>What is e-commerce?</controllingFieldValue>
+                <valueName>What does a patent do?</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>What is e-commerce?</controllingFieldValue>
+                <valueName>What kind of protection does a patent provide?</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>What is e-commerce?</controllingFieldValue>
+                <valueName>What rights does a patent owner have?</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>What is e-commerce?</controllingFieldValue>
+                <valueName>Why are patents necessary?</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>What is e-commerce?</controllingFieldValue>
+                <valueName>What role do patents play in everyday life?</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>What is e-commerce?</controllingFieldValue>
+                <valueName>How is a patent granted?</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>What is e-commerce?</controllingFieldValue>
+                <valueName>What kind of inventions can be protected?</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>What is e-commerce?</controllingFieldValue>
+                <valueName>Who grants patents?</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>What is e-commerce?</controllingFieldValue>
+                <valueName>How can a patent be obtained worldwide?</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>What is e-commerce?</controllingFieldValue>
+                <valueName>Where can I find patent information?</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>What is e-commerce?</controllingFieldValue>
+                <valueName>Can I obtain a patent for my software-related invention?</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>What is e-commerce?</controllingFieldValue>
+                <valueName>How can I find the patent laws of various countries?</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>What is e-commerce?</controllingFieldValue>
+                <valueName>Can I discuss my invention with a potential investor before filing for a patent?</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>What is e-commerce?</controllingFieldValue>
+                <valueName>How do I file in the US?</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>What is e-commerce?</controllingFieldValue>
+                <valueName>Can I protect my trademark in more than one country at the same time?</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>What is e-commerce?</controllingFieldValue>
+                <valueName>How can I learn more about Intellectual Property Law?</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>What is e-commerce?</controllingFieldValue>
+                <valueName>How long does it take to get a patent granted?</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>What is e-commerce?</controllingFieldValue>
+                <valueName>How do I file a complaint if I think my intellectual property has been stolen?</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Documentation</controllingFieldValue>
+                <valueName>Airway Bill</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Documentation</controllingFieldValue>
+                <valueName>Bill of Lading</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Documentation</controllingFieldValue>
+                <valueName>Commercial Invoice</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Documentation</controllingFieldValue>
+                <valueName>Consular Invoice</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Documentation</controllingFieldValue>
+                <valueName>Certificate of Free Sale</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Documentation</controllingFieldValue>
+                <valueName>Certificate of Conformity</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Documentation</controllingFieldValue>
+                <valueName>Certificate of Origin</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Documentation</controllingFieldValue>
+                <valueName>NAFTA Certificate of Origin</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Documentation</controllingFieldValue>
+                <valueName>Inspection Certificate</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Documentation</controllingFieldValue>
+                <valueName>Dock Receipt/Warehouse Receipt</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Documentation</controllingFieldValue>
+                <valueName>Destination Control Statement</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Documentation</controllingFieldValue>
+                <valueName>Electronic Export Information (formerly Shipper&apos;s Export Declaration)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Documentation</controllingFieldValue>
+                <valueName>Export License</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Documentation</controllingFieldValue>
+                <valueName>Export Packing List</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Documentation</controllingFieldValue>
+                <valueName>Insurance Certificate</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Documentation</controllingFieldValue>
+                <valueName>Two Kinds of Insurance</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Documentation</controllingFieldValue>
+                <valueName>Cargo Insurance</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Documentation</controllingFieldValue>
+                <valueName>Export Credit Insurance</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Documentation</controllingFieldValue>
+                <valueName>Tariffs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Documentation</controllingFieldValue>
+                <valueName>Major Shippers</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Using Government Assistance Programs</controllingFieldValue>
+                <valueName>The Export-Import Bank of the United States</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Using Government Assistance Programs</controllingFieldValue>
+                <valueName>Small Business Association</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Using Government Assistance Programs</controllingFieldValue>
+                <valueName>Department of Agriculture</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Using Government Assistance Programs</controllingFieldValue>
+                <valueName>Overseas Private Investment Corporation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Obtaining Proper Documentation</controllingFieldValue>
+                <valueName>Carnets</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Obtaining Proper Documentation</controllingFieldValue>
+                <valueName>Passports</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Obtaining Proper Documentation</controllingFieldValue>
+                <valueName>Visas</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Obtaining Proper Documentation</controllingFieldValue>
+                <valueName>Vaccinations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Obtaining Proper Documentation</controllingFieldValue>
+                <valueName>Foreign Customs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Obtaining Proper Documentation</controllingFieldValue>
+                <valueName>Planning an Itinerary</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Do I need a license?</controllingFieldValue>
+                <valueName>Export Admininstration Regulations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Do I need a license?</controllingFieldValue>
+                <valueName>International Traffic in Arms Regulations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Do I need a license?</controllingFieldValue>
+                <valueName>Persons Restricted to Trade Restrictions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Plan Development</controllingFieldValue>
+                <valueName>Sample Export Plan</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Sources of Market Research</controllingFieldValue>
+                <valueName>General Information about Exporting</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Sources of Market Research</controllingFieldValue>
+                <valueName>Statistical and Demographic Information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Sources of Market Research</controllingFieldValue>
+                <valueName>Export Opportunities at Development Banks</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Sources of Market Research</controllingFieldValue>
+                <valueName>Industry Information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Sources of Market Research</controllingFieldValue>
+                <valueName>Regional and Country Information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Sources of Market Research</controllingFieldValue>
+                <controllingFieldValue>US Department of Commerce: Buyer-Finding Programs</controllingFieldValue>
+                <valueName>Customized Market Research</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rules of Origin - General Categories</controllingFieldValue>
+                <valueName>NAFTA, Chile, Singapore, Australia, CAFTA-DR, Colombia, Panama, Korea, and Peru FTAs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rules of Origin - General Categories</controllingFieldValue>
+                <valueName>Chile, Singapore, Australia, CAFTA-DR, Peru, Colombia, Korea, and  Panama FTAs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rules of Origin - General Categories</controllingFieldValue>
+                <valueName>Israel, Jordan, Morocco, Bahrain, and Oman FTAs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rules of Origin Considerations</controllingFieldValue>
+                <valueName>De Minimus Rule</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Rules of Origin Considerations</controllingFieldValue>
+                <valueName>Accumulation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Sector-Specific Considerations</controllingFieldValue>
+                <valueName>Automobiles</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Sector-Specific Considerations</controllingFieldValue>
+                <valueName>Chemicals</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Sector-Specific Considerations</controllingFieldValue>
+                <valueName>Agricultural Products</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Sector-Specific Considerations</controllingFieldValue>
+                <valueName>Textile Products</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Sector-Specific Considerations</controllingFieldValue>
+                <valueName>Fungible Goods and Materials</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Sector-Specific Considerations</controllingFieldValue>
+                <valueName>Indirect Materials</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Sector-Specific Considerations</controllingFieldValue>
+                <valueName>Accessories, Spare Parts, and Tools</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Approaches to Exporting</controllingFieldValue>
+                <valueName>Distribution Considerations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Approaches to Exporting</controllingFieldValue>
+                <valueName>Indirect Exporting</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Approaches to Exporting</controllingFieldValue>
+                <valueName>Direct Exporting</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Channels of Distribution</controllingFieldValue>
+                <valueName>Sales Representative</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Channels of Distribution</controllingFieldValue>
+                <valueName>Agents or Representatives</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Channels of Distribution</controllingFieldValue>
+                <valueName>Distributors</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Channels of Distribution</controllingFieldValue>
+                <valueName>Foreign Retailers</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Channels of Distribution</controllingFieldValue>
+                <valueName>Direct Sales to End-Users</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Channels of Distribution</controllingFieldValue>
+                <valueName>Contacting and Evaluating Foreign Representatives</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Channels of Distribution</controllingFieldValue>
+                <valueName>Negotiating an Agreement with a Foreign Representative</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Department of Commerce: Buyer-Finding Programs</controllingFieldValue>
+                <valueName>Featured US Exporters</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Department of Commerce: Buyer-Finding Programs</controllingFieldValue>
+                <valueName>Gold Key Matching Service</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Department of Commerce: Buyer-Finding Programs</controllingFieldValue>
+                <valueName>International Company Profiles</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Department of Commerce: Buyer-Finding Programs</controllingFieldValue>
+                <valueName>International Partner Search</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Department of Commerce: Trade Event Programs</controllingFieldValue>
+                <valueName>International Buyer Program</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Department of Commerce: Trade Event Programs</controllingFieldValue>
+                <valueName>Trade Fair Certification Program</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>US Department of Commerce: Trade Event Programs</controllingFieldValue>
+                <valueName>Trade Missions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Commonly Used Terms</controllingFieldValue>
+                <valueName>Cost, Insurance and Freight</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Commonly Used Terms</controllingFieldValue>
+                <valueName>Cost and Freight</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Commonly Used Terms</controllingFieldValue>
+                <valueName>Carriage and Insurance Paid</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Commonly Used Terms</controllingFieldValue>
+                <valueName>Ex Works</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Commonly Used Terms</controllingFieldValue>
+                <valueName>Free Alongside Ship</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Commonly Used Terms</controllingFieldValue>
+                <valueName>Free Carrier</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Commonly Used Terms</controllingFieldValue>
+                <valueName>Free Onboard</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Commonly Used Terms When Chartering a Vessel</controllingFieldValue>
+                <valueName>Free Out</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Commonly Used Terms When Chartering a Vessel</controllingFieldValue>
+                <valueName>Free In</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Commonly Used Terms When Chartering a Vessel</controllingFieldValue>
+                <valueName>Free In and Out</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Regulations</controllingFieldValue>
+                <valueName>Antidiversion Clause</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Regulations</controllingFieldValue>
+                <valueName>Antiboycott Regulations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Regulations</controllingFieldValue>
+                <valueName>US Foreign Corrupt Practices Act</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Regulations</controllingFieldValue>
+                <valueName>Import Regulations of Foreign Governments</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>International Agreements</controllingFieldValue>
+                <valueName>International Copyright Law</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>International Agreements</controllingFieldValue>
+                <valueName>NAFTA and Agreement on Trade-Related Aspects of Intellectual Property Rights</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>International Agreements</controllingFieldValue>
+                <valueName>Patent Law</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>International Agreements</controllingFieldValue>
+                <valueName>Trademark Law</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>International Agreements</controllingFieldValue>
+                <valueName>US Copyright Law Compared to International Copyright Law</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Mobile_Title__c</fullName>
+        <description>Mobile title - Displays as the title in Mobile/Tablet View</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Title of the article in Mobile/Tablet View</inlineHelpText>
+        <label>Mobile Title</label>
+        <length>37</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Public_URL__c</fullName>
+        <description>Full Public URL for Article</description>
+        <externalId>false</externalId>
+        <formula>HYPERLINK($Label.export_gov&amp;&quot;/article?id=&quot;&amp;UrlName, $Label.export_gov&amp;&quot;/article?id=&quot;&amp;UrlName)</formula>
+        <label>Public URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>References__c</fullName>
+        <description>Article references</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If there are any references that were used during the writing of the content, they can be highlighted here. The rich text editor allows for formatting and link creation.</inlineHelpText>
+        <label>References (Public)</label>
+        <length>1000</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Series__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Creates relationship to Series</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Type Basic Guide to Exporting in this field.</inlineHelpText>
+        <label>Series</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Series__c.Type__c</field>
+                <operation>equals</operation>
+                <value>Basic Guide to Exporting</value>
+            </filterItems>
+            <infoMessage>Type in Basic Guide to Exporting</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Series__c</referenceTo>
+        <relationshipLabel>Basic Guides to Exporting</relationshipLabel>
+        <relationshipName>Basic_Guides_to_Exporting</relationshipName>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Stage__c</fullName>
+        <description>Tracks the stages of an article through an approval process</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Stage is the phase of the process that your content is in.</inlineHelpText>
+        <label>Stage</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Draft</fullName>
+                    <default>true</default>
+                    <label>Draft</label>
+                </value>
+                <value>
+                    <fullName>Under Review</fullName>
+                    <default>false</default>
+                    <label>Under Review</label>
+                </value>
+                <value>
+                    <fullName>Draft: Submitted for Approval</fullName>
+                    <default>false</default>
+                    <label>Draft: Submitted for Approval</label>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                    <label>Rejected</label>
+                </value>
+                <value>
+                    <fullName>Published</fullName>
+                    <default>false</default>
+                    <label>Published</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Video__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>A Video component to display along with this article.</inlineHelpText>
+        <label>Video</label>
+        <referenceTo>Content__c</referenceTo>
+        <relationshipLabel>Basic Guide to Exporting</relationshipLabel>
+        <relationshipName>Basic_Guide_to_Exporting</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <label>Basic Guide to Exporting</label>
+    <pluralLabel>Basic Guide to Exporting</pluralLabel>
+    <validationRules>
+        <fullName>Required_Level_1</fullName>
+        <active>false</active>
+        <description>Level 1 is mandatory</description>
+        <errorConditionFormula>ISBLANK(TEXT(Level_1__c))</errorConditionFormula>
+        <errorMessage>Please pick Level 1 (Mandatory field)</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Required_Mobile_Title</fullName>
+        <active>true</active>
+        <description>Mobile Title Needed if Article Title is larger than 37 characters</description>
+        <errorConditionFormula>AND( (LEN(Title)&gt;37) , ISBLANK( Mobile_Title__c ) )</errorConditionFormula>
+        <errorMessage>Please enter the Mobile Title (Article Title is too large for Mobile view)</errorMessage>
+    </validationRules>
+</CustomObject>

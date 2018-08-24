@@ -1,0 +1,123 @@
+<apex:page controller="InsightsController" sidebar="false" standardStylesheets="false">
+<apex:stylesheet value="{!URLFor($Resource.ITA2, 'skins/css/bootstrap-lite.css')}" />
+<script src="//code.jquery.com/jquery-2.2.0.min.js" language="javascript"></script>
+<c:EditInsightModal BoardId="{!Insight}" />
+<apex:outputpanel id="page">
+<apex:form >
+<div class="row">
+    <div class="col-md-2">
+        <div class="itaCntr"><a onclick="$('#insightModal').show();" class="InsightBtn">NEW</a></div>
+    </div>
+    <div class="col-md-10">
+        <div id="headerWrapper">
+            <apex:outputpanel id="header">
+                <h3>{!if(InsightId = null, '', Insight.Name__c)}</h3>
+                <apex:outputtext rendered="{!InsightId != null}">
+            <div id="toolbar">
+                <a onclick="$('#editInsightModal').show();"><span class="glyphicon glyphicon glyphicon-pencil InsightGlyph"></span>Edit</a><!--  | a class="caution" href="javascript:void();">Delete</a -->
+            </div>
+                </apex:outputtext>
+            </apex:outputpanel>
+        </div>
+    </div>
+</div>    
+<div class="row">
+    <div class="col-md-2" id="InsightListWrapper">
+        <div class="InsightDropTitle"><span class="glyphicon glyphicon-th-large InsightGlyph"></span>Boards</div>
+        <input type="text" id="BoardsFilter" placeholder="Search" />
+        <apex:outputPanel id="InsightUL">
+        <ul id="InsightList">
+        <apex:repeat value="{!insights}" var="ins">
+            <li class="InsightListLi {!if(InsightId = null, '', if(ins.id = InsightId, 'InsightHighlight', ''))}">
+                <apex:commandlink value="{!ins.Name__c}" action="{!selectInsight}" rerender="page" onclick="$('.ita-modal').hide();">
+                    <apex:param name="InsightId" assignTo="{!InsightId}" value="{!ins.id}" />
+                </apex:commandlink>
+            </li>
+        </apex:repeat>           
+        </ul>
+        </apex:outputPanel>
+        <div class="InsightDropTitle"><span class="glyphicon glyphicon-question-sign InsightGlyph"></span>Boards FAQ</div>
+    </div>
+    <div class="col-md-10 InsightBorder">
+        <c:boards_home id="BoardsFAQ" rendered="{!insight = null}"  />    
+    
+        <apex:outputpanel id="InsightAtomsList" rendered="{!insight != null}" >
+            <apex:repeat value="{!insight.insight_atoms__r}" var="ia">
+                <div class="row InsightSpace InsightAtom">
+                    <div class="col-md-12">
+                    <div class="InsightSortBtn"><a onclick="sortArticleUp('{!ia.id}');" title="Move Sort Order Up"><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></a></div>
+                        <div class="InsightSpace"><h4><a href="/apex/article?id={!ia.atom__c}" target="_blank">{!articleMap[ia.Atom__c].title}</a></h4></div>
+                        <p class="InsightSpace">
+                        <apex:outputText escape="false" value="{!articleMap[ia.Atom__c].summary}" /> 
+                        </p>
+                        <div class="InsightSpace">
+                            <div class="col-md-4"><div class="InsightInfo">Last Published:  {!articleMap[ia.atom__c].lastpublisheddate}</div> </div>
+                            <div class="col-md-4"><div class="InsightInfo">Saved By: {!ia.lastmodifiedby.alias}</div> </div>
+                            <div class="col-md-4"><div class="InsightEdit"><a class="caution" title="Delete Article" onclick="confirm('Are you sure that you want to remove this Article from your report?')? removeArticle('{!ia.id}'): console.log('dnr');">Remove</a></div></div>
+                        </div>
+                          <div class="InsightSortBtn"><a onclick="sortArticleDown('{!ia.id}');" title="Move Sort Order Down"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></a></div>
+                    
+                    </div>               
+    
+                </div>
+            </apex:repeat>
+        </apex:outputpanel>
+        <!-- apex:outputpanel id="InsightDetail">
+        <apex:repeat value="{!articleMap}" var="art">
+            <div class="row">
+                <div class="col-md-8">
+                    <h2>{!articleMap[art].title}</h2><br />
+                    <apex:outputtext value="{!articleMap[art].summary}" escape="true" />
+                </div>
+                <div class="col-md-1"><a href="javascript:void();">Remove</a></div>
+                <div class="col-md-1">Saved By</div>
+                <div class="col-md-1">Last Modified By</div>
+                <div class="col-md-1">Owner</div>
+            </div>    
+        </apex:repeat>
+        </apex:outputpanel -->
+    </div>
+</div>
+
+<apex:actionFunction action="{!removeArticle}" name="removeArticle" rerender="page">
+    <apex:param name="InsightItemId" assignTo="{!InsightAtomId}" value="" />
+</apex:actionFunction>
+
+<apex:actionfunction action="{!sortArticleUp}" name="sortArticleUp" rerender="page">
+    <apex:param name="InsightItemId" assignTo="{!InsightAtomId}" value="" />
+</apex:actionfunction>
+
+<apex:actionfunction action="{!sortArticleDown}" name="sortArticleDown" rerender="page">
+    <apex:param name="InsightItemId" assignTo="{!InsightAtomId}" value="" />
+</apex:actionfunction>
+
+<apex:actionfunction action="{!doNothing}" name="refreshPage" rerender="InsightUL" />
+</apex:form>
+
+</apex:outputpanel>
+
+<c:NewInsightModal />
+
+<script language="javascript">
+$('#BoardsFilter').keyup(function(){
+    var that = this, $allListElements = $('#InsightList > li');
+
+    var $matchingListElements = $allListElements.filter(function(i, li){
+        var listItemText = $(li).text().toUpperCase(), 
+            searchText = that.value.toUpperCase();
+        return ~listItemText.indexOf(searchText);
+    });
+
+    $allListElements.hide();
+    $matchingListElements.show();
+});
+
+ function checkInsightRequiredField(field){
+    if($('.'+field).val() == ''){
+        return false;
+    }
+    return true;
+ }
+</script>
+
+</apex:page>

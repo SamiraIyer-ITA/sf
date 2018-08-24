@@ -1,0 +1,31 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="true" docType="html-5.0" applyBodyTag="false" applyHtmlTag="false">
+<apex:composition template="Site_Template">
+    <apex:define name="page">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet"/>
+    
+   <div class="main" id="content">
+            <div style="background-image: url('https://internationaltradeadministration.github.io/pattern-library/images/power-electricity-line-pylon-159218.jpeg'); background-repeat:no-repeat; background-size: cover;background-position:center top;">
+                <div class="section clearfix ">
+                <div>
+                    <div class="row content">
+                         <div class="containerInternal enforceHeight">
+                                    <div class="col-md-5 call-out" >  
+                                        <div class="">
+                                        <br/><br/><br/>
+                                                <h1>Thank you!</h1><br/><br/>
+                                                 <h1>We’ll be in touch when we begin accepting applications.</h1>
+                                        <br/><br/><br/>
+                                        
+                                        
+                                        </div>
+                                    </div> 
+                        
+                        </div>   
+                    </div>
+                </div>
+                </div>
+            </div>
+    </div>
+    </apex:define>
+</apex:composition>
+</apex:page>

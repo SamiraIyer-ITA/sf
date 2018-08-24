@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>AppConfig</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>AppConfig</value>
+    </caseValues>
+    <fields>
+        <help><!-- Used by ADCVD App --></help>
+        <label><!-- ADCVD Admin --></label>
+        <name>ADCVD_Admin__c</name>
+    </fields>
+    <fields>
+        <help><!-- Used by ADCVD App --></help>
+        <label><!-- ADCVD Developer --></label>
+        <name>ADCVD_Developer__c</name>
+    </fields>
+    <fields>
+        <label><!-- AppEnabled --></label>
+        <name>AppEnabled__c</name>
+    </fields>
+    <fields>
+        <help><!-- Used by ADCVD Application Schedulable Classes. --></help>
+        <label><!-- ChronExpr LitigationSegement --></label>
+        <name>ChronExp_LitigationSegement__c</name>
+    </fields>
+    <fields>
+        <help><!-- Used by ADCVD Application Schedulable Classes. --></help>
+        <label><!-- ChronExpr PetitionInvestigation --></label>
+        <name>ChronExpr_PetitionInvestigation__c</name>
+    </fields>
+    <fields>
+        <label><!-- EnableDiagnostics --></label>
+        <name>EnableDiagnostics__c</name>
+    </fields>
+    <fields>
+        <label><!-- Go Live Date --></label>
+        <name>Go_Live_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Used by schedulable classes in finish methods --></help>
+        <label><!-- Primary Admin --></label>
+        <name>Primary_Admin__c</name>
+    </fields>
+    <fields>
+        <label><!-- TriggersEnabled --></label>
+        <name>TriggersEnabled__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

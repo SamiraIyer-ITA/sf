@@ -1,0 +1,4434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>AC_Date_Contract_Recorded__c</fullName>
+        <externalId>false</externalId>
+        <label>AC Date Contract Recorded</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>AC_Total_US_Export_Content__c</fullName>
+        <description>AC US Goods plus AC US Services.</description>
+        <externalId>false</externalId>
+        <formula>Advocacy_US_Export_Content_Goods__c +  Advocacy_US_Export_Content_Services__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>AC Total US Export Content</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>AC_WIN_Summary__c</fullName>
+        <externalId>false</externalId>
+        <label>AC WIN Summary</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Actual_Create_Date__c</fullName>
+        <defaultValue>NOW()</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>This field will display the actual creation date for records from CTS/ITA Central/Salesforce. Use this field for FY 15&apos; reporting</inlineHelpText>
+        <label>Actual Create Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Follow_on_Value__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Add additional sales made within 12 months of the initial sales in this field</inlineHelpText>
+        <label>Actual Follow-on Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Initial_Value__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>If you have a client provided actual value, please include it here</inlineHelpText>
+        <label>Actual Initial Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Additional_WIN_Features__c</fullName>
+        <externalId>false</externalId>
+        <label>Additional WIN Features</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>E-Award Winner</fullName>
+                    <default>false</default>
+                    <label>E-Award Winner</label>
+                </value>
+                <value>
+                    <fullName>Export Achievement Certificate Recipient</fullName>
+                    <default>false</default>
+                    <label>Export Achievement Certificate Recipient</label>
+                </value>
+                <value>
+                    <fullName>Woman-Owned Business</fullName>
+                    <default>false</default>
+                    <label>Woman-Owned Business</label>
+                </value>
+                <value>
+                    <fullName>Minority-Owned Business</fullName>
+                    <default>false</default>
+                    <label>Minority-Owned Business</label>
+                </value>
+                <value>
+                    <fullName>Rural Business</fullName>
+                    <default>false</default>
+                    <label>Rural Business</label>
+                </value>
+                <value>
+                    <fullName>Veteran-Owned</fullName>
+                    <default>false</default>
+                    <label>Veteran-Owned</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Advocacy_Date_Contract_Signed__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Date foreign government signed the procurement contract.</inlineHelpText>
+        <label>AC Date Contract Signed</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Advocacy_Total_Project_Value__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The total dollar amount of the awarded contract.</inlineHelpText>
+        <label>AC Total Project Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Advocacy_Total_US_Export_Content__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The total value of any exports related to the contract award.</inlineHelpText>
+        <label>Advocacy Total US Export Content</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Advocacy_US_Export_Content_Goods__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The value of U.S. Export Content (Goods) related to the contract award.</inlineHelpText>
+        <label>AC US Export Content (Goods)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Advocacy_US_Export_Content_Services__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The value of U.S. Export Content (Services) related to the contract award.</inlineHelpText>
+        <label>AC US Export Content (Services)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Approved_Narrative_FTA__c</fullName>
+        <externalId>false</externalId>
+        <label>Approved Narrative FTA</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Approved_Narrative__c</fullName>
+        <externalId>false</externalId>
+        <label>Approved Narrative</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>CTS_ID__c</fullName>
+        <description>Legacy CTS ID of Incident, Advocacy, or CDS</description>
+        <externalId>false</externalId>
+        <label>CTS ID</label>
+        <length>36</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CTS_Org_ID__c</fullName>
+        <description>Legacy CTS Organization ID</description>
+        <externalId>false</externalId>
+        <label>CTS Org ID</label>
+        <length>36</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Calendar_Year_of_Results__c</fullName>
+        <description>Auto-populate on the date the WIN was created.  Can be updated</description>
+        <externalId>false</externalId>
+        <label>Calendar Year of Results</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>2012</fullName>
+                    <default>false</default>
+                    <label>2012</label>
+                </value>
+                <value>
+                    <fullName>2013</fullName>
+                    <default>false</default>
+                    <label>2013</label>
+                </value>
+                <value>
+                    <fullName>2014</fullName>
+                    <default>false</default>
+                    <label>2014</label>
+                </value>
+                <value>
+                    <fullName>2015</fullName>
+                    <default>false</default>
+                    <label>2015</label>
+                </value>
+                <value>
+                    <fullName>2016</fullName>
+                    <default>false</default>
+                    <label>2016</label>
+                </value>
+                <value>
+                    <fullName>2017</fullName>
+                    <default>false</default>
+                    <label>2017</label>
+                </value>
+                <value>
+                    <fullName>2018</fullName>
+                    <default>false</default>
+                    <label>2018</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Clearance_Notes__c</fullName>
+        <externalId>false</externalId>
+        <label>Clearance Notes</label>
+        <length>4000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Cleared_For__c</fullName>
+        <externalId>false</externalId>
+        <label>Cleared For</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Press Use</fullName>
+                    <default>false</default>
+                    <label>Press Use</label>
+                </value>
+                <value>
+                    <fullName>Speeches</fullName>
+                    <default>false</default>
+                    <label>Speeches</label>
+                </value>
+                <value>
+                    <fullName>Send to Congress</fullName>
+                    <default>false</default>
+                    <label>Send to Congress</label>
+                </value>
+                <value>
+                    <fullName>Client willing to speak to  media</fullName>
+                    <default>false</default>
+                    <label>Client willing to speak to  media</label>
+                </value>
+                <value>
+                    <fullName>DOC/ITA websites and social media</fullName>
+                    <default>false</default>
+                    <label>DOC/ITA websites and social media</label>
+                </value>
+                <value>
+                    <fullName>Outreach by TPCC Agencies</fullName>
+                    <default>false</default>
+                    <label>Outreach by TPCC Agencies</label>
+                </value>
+                <value>
+                    <fullName>Declined to clear</fullName>
+                    <default>false</default>
+                    <label>Declined to clear</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Cleared_Until__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Select a Date 1 or 2 years from the WIN date.</inlineHelpText>
+        <label>Cleared Until</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Client_Cleared__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Client Cleared</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Client_Provided_Value__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>If provided, please note the dollar value of this WIN. Leave blank if not provided.</inlineHelpText>
+        <label>Client Provided Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Client_Verified__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this box to indicate that the contact entered above has verified all essential facts of this WIN.</inlineHelpText>
+        <label>Client Verified</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Contact_Name__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Contact Name should be limited to those who are associated with the organization related. Due to issue with filtered lookups in publisher actions, this filter is removed until issue is resolved.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Be sure to select a contact associated to this organization.</inlineHelpText>
+        <label>Contact Name</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>Contact must be a contact of the associated WIN organization.</errorMessage>
+            <filterItems>
+                <field>$Source.Organization__c</field>
+                <operation>equals</operation>
+                <valueField>Contact.Account.Id</valueField>
+            </filterItems>
+            <infoMessage>Contact must be a contact of the associated WIN organization.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>WINs</relationshipLabel>
+        <relationshipName>WINs</relationshipName>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Copy_AccountName_to_Text__c</fullName>
+        <description>This field is used to store the Account Name so that in global search WIN record will get populated based on AccountName</description>
+        <externalId>false</externalId>
+        <label>Copy AccountName to Text</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Copy_Contact_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Copy Contact Email</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Copy_WIN_Contact_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Copy WIN Contact Text</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Country_in_Win__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Country in Win</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Description_of_Objectives_Met__c</fullName>
+        <externalId>false</externalId>
+        <label>Client Objectives</label>
+        <length>4000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Description_of_Results__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>For example Sales Revenue, signed distributor/partner agreements or other significant positive outcomes.</inlineHelpText>
+        <label>Description of Results</label>
+        <length>4000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>EP_Impact_of_Exporting__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Impact of Exporting on the Ability of the Company to Grow, Hire, and Retain Jobs.</inlineHelpText>
+        <label>EP Impact of Exporting</label>
+        <length>4000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>EP__c</fullName>
+        <description>dummy field</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Impact of Exporting on the Ability of the Company to Grow, Hire, and Retain Jobs</inlineHelpText>
+        <label>EP Impact Narrative</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Estimated_Value_Explanation__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please explain how you calculated the estimated value above</inlineHelpText>
+        <label>Estimated Value Explanation</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Estimated_Value__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>If client did not provide value, please provide an estimation of the dollar value of this WIN</inlineHelpText>
+        <label>Estimated Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>FTA_Prospects__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Ask client if FTAs will help their export prospects, and if so, how.</inlineHelpText>
+        <label>FTA Prospects</label>
+        <length>8000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Final_Approver__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>This will be your second approver</inlineHelpText>
+        <label>Final Approver</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>WINs1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Final_Line_Approval_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Final Line Approval Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Final_Line_Approval__c</fullName>
+        <externalId>false</externalId>
+        <label>Final Line Approval</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                    <label>Approved</label>
+                </value>
+                <value>
+                    <fullName>Not Approved</fullName>
+                    <default>false</default>
+                    <label>Not Approved</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Final_Line_Approver__c</fullName>
+        <defaultValue>$User.ManagerId</defaultValue>
+        <externalId>false</externalId>
+        <label>Final Line Approver</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>First_Approver__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>This will be your first approver</inlineHelpText>
+        <label>First Approver</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>WINs</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>First_Line_Approval_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>First Line Approval Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>First_Line_Approval__c</fullName>
+        <externalId>false</externalId>
+        <label>First Line Approval</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Approved</fullName>
+                    <default>false</default>
+                    <label>Approved</label>
+                </value>
+                <value>
+                    <fullName>Not Approved</fullName>
+                    <default>false</default>
+                    <label>Not Approved</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>First_Line_Approver__c</fullName>
+        <defaultValue>$User.ManagerId</defaultValue>
+        <externalId>false</externalId>
+        <label>First Line Approver</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>HS_codes_affected__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the HS codes affected by this CD WIN. If none can be identified, please describe the product or service in detail.</inlineHelpText>
+        <label>HS codes affected</label>
+        <length>4000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>IP_Inv_Amount_est__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The estimated dollar amount of the investment for the U.S. locale.</inlineHelpText>
+        <label>SUSA Inv. Amount(est)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>IP_Inv_Announcement_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The date the investment award was announced.</inlineHelpText>
+        <label>SUSA Inv. Announcement Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>IP_Inv_Location_Congressional_District__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>This can be different than the Congressional District on the Organization record.</inlineHelpText>
+        <label>SUSA Inv. Location Congressional Distr.</label>
+        <length>200</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IP_Inv_Location__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The location (City, State) of the announced investment.</inlineHelpText>
+        <label>SUSA Inv. Location</label>
+        <length>200</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IP_Jobs_Created_est__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The estimated number of new jobs created based on the investment.</inlineHelpText>
+        <label>SUSA Jobs Created(est)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IP_Jobs_Retained_est__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The estimated number of retained jobs created based on the investment.</inlineHelpText>
+        <label>SUSA Jobs Retained(est)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IP_Press_News_Release__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Web links to new releases announcing the investment (can be numerous).</inlineHelpText>
+        <label>SUSA Press/News Release</label>
+        <length>4000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>IP_Zip_4__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Zip+4</inlineHelpText>
+        <label>SUSA Zip+4</label>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Impact_of_Exporting__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Impact of Exporting on the ability of the company to grow, hire, and retain jobs.</inlineHelpText>
+        <label>Impact (Especially Jobs/Revenue)</label>
+        <length>4000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Includes_Multiple_Cases__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Includes Multiple Cases</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Industry_Rollup__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Industry Win Rollup</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Internal_Comment__c</fullName>
+        <description>ITA Comments about the WIN.</description>
+        <externalId>false</externalId>
+        <label>Internal Comment</label>
+        <length>4000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Links_to_Additional_Cases__c</fullName>
+        <externalId>false</externalId>
+        <label>Links to Additional Cases</label>
+        <length>1000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Narrative__c</fullName>
+        <externalId>false</externalId>
+        <label>Assistance Provided</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>OPA_Ready__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>OPA Ready</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Organization__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Principle Associated Organization to the WIN</inlineHelpText>
+        <label>Organization Name</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>WINs</relationshipLabel>
+        <relationshipName>WINs</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Other_USG_Entities_Involved__c</fullName>
+        <description>Other TPCC Entities Involved
+Other USG Entities Involved
+Other Government entities that were involved with the WIN.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This list includes all Trade Promotion Coordinating Committee (TPCC) Agencies.</inlineHelpText>
+        <label>Other USG Entities Involved</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Agriculture Department</fullName>
+                    <default>false</default>
+                    <label>Agriculture Department</label>
+                </value>
+                <value>
+                    <fullName>Bureau of Economic Analysis</fullName>
+                    <default>false</default>
+                    <label>Bureau of Economic Analysis</label>
+                </value>
+                <value>
+                    <fullName>Bureau of Industry and Security</fullName>
+                    <default>false</default>
+                    <label>Bureau of Industry and Security</label>
+                </value>
+                <value>
+                    <fullName>Council of Economic Advisors</fullName>
+                    <default>false</default>
+                    <label>Council of Economic Advisors</label>
+                </value>
+                <value>
+                    <fullName>Defense Department</fullName>
+                    <default>false</default>
+                    <label>Defense Department</label>
+                </value>
+                <value>
+                    <fullName>Economic Development Administration</fullName>
+                    <default>false</default>
+                    <label>Economic Development Administration</label>
+                </value>
+                <value>
+                    <fullName>Economics and Statistics Administration</fullName>
+                    <default>false</default>
+                    <label>Economics and Statistics Administration</label>
+                </value>
+                <value>
+                    <fullName>Energy Department</fullName>
+                    <default>false</default>
+                    <label>Energy Department</label>
+                </value>
+                <value>
+                    <fullName>Environmental Protection Agency</fullName>
+                    <default>false</default>
+                    <label>Environmental Protection Agency</label>
+                </value>
+                <value>
+                    <fullName>Export-Import Bank</fullName>
+                    <default>false</default>
+                    <label>Export-Import Bank</label>
+                </value>
+                <value>
+                    <fullName>Health and Human Services Department</fullName>
+                    <default>false</default>
+                    <label>Health and Human Services Department</label>
+                </value>
+                <value>
+                    <fullName>Homeland Security Department</fullName>
+                    <default>false</default>
+                    <label>Homeland Security Department</label>
+                </value>
+                <value>
+                    <fullName>Labor Department</fullName>
+                    <default>false</default>
+                    <label>Labor Department</label>
+                </value>
+                <value>
+                    <fullName>Millennium Challenge Corporation</fullName>
+                    <default>false</default>
+                    <label>Millennium Challenge Corporation</label>
+                </value>
+                <value>
+                    <fullName>Minority Business Development Agency</fullName>
+                    <default>false</default>
+                    <label>Minority Business Development Agency</label>
+                </value>
+                <value>
+                    <fullName>National Security Council</fullName>
+                    <default>false</default>
+                    <label>National Security Council</label>
+                </value>
+                <value>
+                    <fullName>National Technical Information Service</fullName>
+                    <default>false</default>
+                    <label>National Technical Information Service</label>
+                </value>
+                <value>
+                    <fullName>NIST</fullName>
+                    <default>false</default>
+                    <label>NIST</label>
+                </value>
+                <value>
+                    <fullName>NOAA</fullName>
+                    <default>false</default>
+                    <label>NOAA</label>
+                </value>
+                <value>
+                    <fullName>NTIA</fullName>
+                    <default>false</default>
+                    <label>NTIA</label>
+                </value>
+                <value>
+                    <fullName>Office of Management and Budget</fullName>
+                    <default>false</default>
+                    <label>Office of Management and Budget</label>
+                </value>
+                <value>
+                    <fullName>Office of the U.S. Trade Representative</fullName>
+                    <default>false</default>
+                    <label>Office of the U.S. Trade Representative</label>
+                </value>
+                <value>
+                    <fullName>Overseas Private Investment Corporation</fullName>
+                    <default>false</default>
+                    <label>Overseas Private Investment Corporation</label>
+                </value>
+                <value>
+                    <fullName>Small Business Administration</fullName>
+                    <default>false</default>
+                    <label>Small Business Administration</label>
+                </value>
+                <value>
+                    <fullName>State Department</fullName>
+                    <default>false</default>
+                    <label>State Department</label>
+                </value>
+                <value>
+                    <fullName>Transportation Department</fullName>
+                    <default>false</default>
+                    <label>Transportation Department</label>
+                </value>
+                <value>
+                    <fullName>Treasury Department</fullName>
+                    <default>false</default>
+                    <label>Treasury Department</label>
+                </value>
+                <value>
+                    <fullName>USAID</fullName>
+                    <default>false</default>
+                    <label>USAID</label>
+                </value>
+                <value>
+                    <fullName>U.S. Census Bureau</fullName>
+                    <default>false</default>
+                    <label>U.S. Census Bureau</label>
+                </value>
+                <value>
+                    <fullName>U.S. Patent and Trademark Office</fullName>
+                    <default>false</default>
+                    <label>U.S. Patent and Trademark Office</label>
+                </value>
+                <value>
+                    <fullName>U.S. Trade and Development Agency</fullName>
+                    <default>false</default>
+                    <label>U.S. Trade and Development Agency</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Owner_Office__c</fullName>
+        <description>Owner:User.00Nr0000000FhOz</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Owner:User.RH_Lev_6_Office__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Owner&apos;s Office</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Primary_Outcome__c</fullName>
+        <externalId>false</externalId>
+        <label>Primary Outcome</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Compliance with trade agreement</fullName>
+                    <default>false</default>
+                    <label>Compliance with trade agreement</label>
+                </value>
+                <value>
+                    <fullName>Facilitated export transaction</fullName>
+                    <default>false</default>
+                    <label>Facilitated export transaction</label>
+                </value>
+                <value>
+                    <fullName>Reduced/Eliminated threat to US business</fullName>
+                    <default>false</default>
+                    <label>Reduced/Eliminated threat to US business</label>
+                </value>
+                <value>
+                    <fullName>Reduced/Removed/Prevented trade barrier</fullName>
+                    <default>false</default>
+                    <label>Reduced/Removed/Prevented trade barrier</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Quote_Testimonial__c</fullName>
+        <description>Text obtained from the client about the WIN or assistance provided by ITA.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Senior executives preferred.</inlineHelpText>
+        <label>Quote/Testimonial</label>
+        <length>8000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Related_Cases_to_WIN_Count__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Related Cases to WIN Count</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Related_Countries_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Related Countries Text</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Related_Countries__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Related Countries</label>
+        <referenceTo>RelatedCountries__c</referenceTo>
+        <relationshipLabel>WINs</relationshipLabel>
+        <relationshipName>WINs</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Request_WIN_Removal__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>When record is created in error.</inlineHelpText>
+        <label>Request WIN Removal</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ReviewedByOPA__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Reviewed By OPA</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Sensitive_Attachment_Links__c</fullName>
+        <externalId>false</externalId>
+        <label>Sensitive Attachment Links</label>
+        <length>400</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>SharePoint_ID__c</fullName>
+        <description>Legacy SharePoint record ID</description>
+        <externalId>false</externalId>
+        <label>SharePoint ID</label>
+        <length>8</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SharePoint_Org_Name__c</fullName>
+        <description>Legacy SharePoint Organization Name</description>
+        <externalId>false</externalId>
+        <label>SharePoint Organization Name</label>
+        <length>128</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Specific_Product__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Describes the type of products associated with the WIN.</inlineHelpText>
+        <label>Specific Product</label>
+        <length>4000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Verify_Validate__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>By entering my name, I verify that all essential facts are validated.</inlineHelpText>
+        <label>Verify/Validate</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>WIN_18_ID__c</fullName>
+        <description>Added object for reporting purposes, returns casesafe ID.  Not visible on Page Layouts.</description>
+        <externalId>false</externalId>
+        <formula>Casesafeid(Id)</formula>
+        <label>WIN 18 ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>WIN_Contributors_Rollup__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Is used to store the rollup value from the Win Contributor object for a particular win object.</description>
+        <externalId>false</externalId>
+        <label>WIN Contributors Rollup</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>WIN_Date__c</fullName>
+        <defaultValue>Today()</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Effective Date of the WIN</inlineHelpText>
+        <label>WIN Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>WIN_Name__c</fullName>
+        <displayFormat>WIN-{0000}</displayFormat>
+        <externalId>false</externalId>
+        <label>WIN Number</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>WIN_One__c</fullName>
+        <description>Added to all objects for reporting purposes, Power of One concept.  Not visible on Page Layouts.</description>
+        <externalId>false</externalId>
+        <formula>1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>WIN One</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>WIN_Title__c</fullName>
+        <externalId>false</externalId>
+        <label>WIN Title</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>WIN_Type_Selector__c</fullName>
+        <description>Used for publisher action on Org to create WIN</description>
+        <externalId>false</externalId>
+        <label>WIN Type Selector</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Advocacy</fullName>
+                    <default>false</default>
+                    <label>Advocacy</label>
+                </value>
+                <value>
+                    <fullName>Commercial Diplomacy</fullName>
+                    <default>false</default>
+                    <label>Commercial Diplomacy</label>
+                </value>
+                <value>
+                    <fullName>Export Promotion</fullName>
+                    <default>false</default>
+                    <label>Export Promotion</label>
+                </value>
+                <value>
+                    <fullName>Import Promotion</fullName>
+                    <default>false</default>
+                    <label>Import Promotion</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>WIN_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>WIN Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Advocacy</fullName>
+                    <default>false</default>
+                    <label>Advocacy</label>
+                </value>
+                <value>
+                    <fullName>Commercial Diplomacy</fullName>
+                    <default>false</default>
+                    <label>Commercial Diplomacy</label>
+                </value>
+                <value>
+                    <fullName>Export Promotion</fullName>
+                    <default>false</default>
+                    <label>Export Promotion</label>
+                </value>
+                <value>
+                    <fullName>Investment Promotion</fullName>
+                    <default>false</default>
+                    <label>Investment Promotion</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>WIN</label>
+    <listViews>
+        <fullName>All_Open_WINs</fullName>
+        <columns>NAME</columns>
+        <columns>Organization__c</columns>
+        <columns>Contact_Name__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>WIN_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Request_WIN_Removal__c</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>Final_Line_Approval_Date__c</field>
+            <operation>equals</operation>
+        </filters>
+        <label>All Open WINs</label>
+    </listViews>
+    <listViews>
+        <fullName>All_WINs</fullName>
+        <columns>NAME</columns>
+        <columns>Organization__c</columns>
+        <columns>Contact_Name__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>WIN_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Request_WIN_Removal__c</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>All WINs</label>
+    </listViews>
+    <listViews>
+        <fullName>My_Open_WINs</fullName>
+        <columns>NAME</columns>
+        <columns>Organization__c</columns>
+        <columns>Contact_Name__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>WIN_Name__c</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>Request_WIN_Removal__c</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>Final_Line_Approval_Date__c</field>
+            <operation>equals</operation>
+        </filters>
+        <label>My Open WINs</label>
+    </listViews>
+    <listViews>
+        <fullName>My_WINs</fullName>
+        <columns>NAME</columns>
+        <columns>Organization__c</columns>
+        <columns>Contact_Name__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>WIN_Name__c</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>Request_WIN_Removal__c</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>My WINs</label>
+    </listViews>
+    <listViews>
+        <fullName>Publicly_Cleared_WINs</fullName>
+        <columns>NAME</columns>
+        <columns>Cleared_For__c</columns>
+        <columns>Final_Line_Approval_Date__c</columns>
+        <columns>WIN_Type__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Cleared_For__c</field>
+            <operation>includes</operation>
+            <value>Press Use</value>
+        </filters>
+        <filters>
+            <field>Final_Line_Approval_Date__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>Publicly Cleared WINs</label>
+    </listViews>
+    <listViews>
+        <fullName>Swanson_EP_WINs_Not_Submitted</fullName>
+        <columns>Actual_Create_Date__c</columns>
+        <columns>First_Approver__c</columns>
+        <columns>Final_Approver__c</columns>
+        <columns>NAME</columns>
+        <columns>Organization__c</columns>
+        <columns>First_Line_Approval__c</columns>
+        <columns>First_Line_Approver__c</columns>
+        <columns>Final_Line_Approval__c</columns>
+        <columns>Final_Line_Approver__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>WIN__c.Export_Promotion,WIN__c.Export_Promotion_Locked</value>
+        </filters>
+        <filters>
+            <field>Actual_Create_Date__c</field>
+            <operation>greaterThan</operation>
+            <value>6/30/2014 12:00 AM</value>
+        </filters>
+        <filters>
+            <field>Final_Approver__c</field>
+            <operation>contains</operation>
+            <value>Swanson</value>
+        </filters>
+        <filters>
+            <field>First_Line_Approval__c</field>
+            <operation>equals</operation>
+        </filters>
+        <label>Swanson EP WINs Not Submitted</label>
+    </listViews>
+    <listViews>
+        <fullName>WIN_Type_Blank</fullName>
+        <columns>NAME</columns>
+        <columns>Calendar_Year_of_Results__c</columns>
+        <columns>Final_Line_Approval_Date__c</columns>
+        <columns>WIN_Date__c</columns>
+        <columns>WIN_Type__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>WIN_Type__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>notEqual</operation>
+        </filters>
+        <filters>
+            <field>Calendar_Year_of_Results__c</field>
+            <operation>equals</operation>
+            <value>2015,2016</value>
+        </filters>
+        <label>WIN Type Blank</label>
+    </listViews>
+    <listViews>
+        <fullName>WIN_Type_Blank1</fullName>
+        <columns>NAME</columns>
+        <columns>Calendar_Year_of_Results__c</columns>
+        <columns>Final_Line_Approval_Date__c</columns>
+        <columns>WIN_Date__c</columns>
+        <columns>WIN_Type__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>WIN_Type__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>notEqual</operation>
+        </filters>
+        <filters>
+            <field>Calendar_Year_of_Results__c</field>
+            <operation>equals</operation>
+            <value>2015,2016</value>
+        </filters>
+        <label>WIN Type Blank</label>
+    </listViews>
+    <listViews>
+        <fullName>WINs_to_Delete</fullName>
+        <columns>NAME</columns>
+        <columns>Organization__c</columns>
+        <columns>Contact_Name__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>WIN_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Request_WIN_Removal__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>WINs to Delete</label>
+    </listViews>
+    <nameField>
+        <label>WIN Name</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>WINs</pluralLabel>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Advocacy</fullName>
+        <active>true</active>
+        <description>Record type for creating an Advocacy WIN</description>
+        <label>Advocacy</label>
+        <picklistValues>
+            <picklist>Additional_WIN_Features__c</picklist>
+            <values>
+                <fullName>E-Award Winner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export Achievement Certificate Recipient</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minority-Owned Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rural Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Veteran-Owned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Woman-Owned Business</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Calendar_Year_of_Results__c</picklist>
+            <values>
+                <fullName>2012</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2013</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2014</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2015</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2016</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2017</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2018</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Cleared_For__c</picklist>
+            <values>
+                <fullName>Client willing to speak to  media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DOC%2FITA websites and social media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined to clear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outreach by TPCC Agencies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Press Use</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send to Congress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speeches</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Final_Line_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Approved</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>First_Line_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Approved</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Other_USG_Entities_Involved__c</picklist>
+            <values>
+                <fullName>Agriculture Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bureau of Economic Analysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bureau of Industry and Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Council of Economic Advisors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Defense Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economic Development Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economics and Statistics Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental Protection Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export-Import Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health and Human Services Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Homeland Security Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Labor Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Millennium Challenge Corporation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minority Business Development Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NIST</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NOAA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NTIA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Security Council</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Technical Information Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office of Management and Budget</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office of the U%2ES%2E Trade Representative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overseas Private Investment Corporation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small Business Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Treasury Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Census Bureau</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Patent and Trademark Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Trade and Development Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USAID</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Primary_Outcome__c</picklist>
+            <values>
+                <fullName>Compliance with trade agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Facilitated export transaction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reduced%2FEliminated threat to US business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>WIN_Type_Selector__c</picklist>
+            <values>
+                <fullName>Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commercial Diplomacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Import Promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>WIN_Type__c</picklist>
+            <values>
+                <fullName>Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commercial Diplomacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Investment Promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Advocacy_Locked</fullName>
+        <active>true</active>
+        <description>Record type used for locking an Advocacy WIN</description>
+        <label>Advocacy Locked</label>
+        <picklistValues>
+            <picklist>Additional_WIN_Features__c</picklist>
+            <values>
+                <fullName>E-Award Winner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export Achievement Certificate Recipient</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minority-Owned Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rural Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Veteran-Owned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Woman-Owned Business</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Calendar_Year_of_Results__c</picklist>
+            <values>
+                <fullName>2012</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2013</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2014</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2015</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2016</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2017</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2018</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Cleared_For__c</picklist>
+            <values>
+                <fullName>Client willing to speak to  media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DOC%2FITA websites and social media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined to clear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outreach by TPCC Agencies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Press Use</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send to Congress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speeches</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Final_Line_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Approved</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>First_Line_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Approved</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Other_USG_Entities_Involved__c</picklist>
+            <values>
+                <fullName>Agriculture Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bureau of Economic Analysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bureau of Industry and Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Council of Economic Advisors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Defense Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economic Development Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economics and Statistics Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental Protection Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export-Import Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health and Human Services Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Homeland Security Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Labor Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Millennium Challenge Corporation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minority Business Development Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NIST</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NOAA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NTIA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Security Council</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Technical Information Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office of Management and Budget</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office of the U%2ES%2E Trade Representative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overseas Private Investment Corporation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small Business Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Treasury Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Census Bureau</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Patent and Trademark Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Trade and Development Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USAID</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Primary_Outcome__c</picklist>
+            <values>
+                <fullName>Compliance with trade agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Facilitated export transaction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reduced%2FEliminated threat to US business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>WIN_Type_Selector__c</picklist>
+            <values>
+                <fullName>Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commercial Diplomacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Import Promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>WIN_Type__c</picklist>
+            <values>
+                <fullName>Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commercial Diplomacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Investment Promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Commercial_Diplomacy</fullName>
+        <active>true</active>
+        <description>Record type for creating a Commercial Diplomacy WIN</description>
+        <label>Commercial Diplomacy</label>
+        <picklistValues>
+            <picklist>Additional_WIN_Features__c</picklist>
+            <values>
+                <fullName>E-Award Winner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export Achievement Certificate Recipient</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minority-Owned Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rural Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Veteran-Owned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Woman-Owned Business</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Calendar_Year_of_Results__c</picklist>
+            <values>
+                <fullName>2012</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2013</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2014</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2015</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2016</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2017</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2018</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Cleared_For__c</picklist>
+            <values>
+                <fullName>Client willing to speak to  media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DOC%2FITA websites and social media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined to clear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outreach by TPCC Agencies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Press Use</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send to Congress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speeches</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Final_Line_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Approved</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>First_Line_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Approved</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Other_USG_Entities_Involved__c</picklist>
+            <values>
+                <fullName>Agriculture Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bureau of Economic Analysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bureau of Industry and Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Council of Economic Advisors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Defense Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economic Development Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economics and Statistics Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental Protection Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export-Import Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health and Human Services Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Homeland Security Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Labor Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Millennium Challenge Corporation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minority Business Development Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NIST</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NOAA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NTIA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Security Council</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Technical Information Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office of Management and Budget</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office of the U%2ES%2E Trade Representative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overseas Private Investment Corporation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small Business Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Treasury Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Census Bureau</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Patent and Trademark Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Trade and Development Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USAID</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Primary_Outcome__c</picklist>
+            <values>
+                <fullName>Compliance with trade agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Facilitated export transaction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reduced%2FEliminated threat to US business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>WIN_Type_Selector__c</picklist>
+            <values>
+                <fullName>Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commercial Diplomacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Import Promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>WIN_Type__c</picklist>
+            <values>
+                <fullName>Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commercial Diplomacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Investment Promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Commercial_Diplomacy_Locked</fullName>
+        <active>true</active>
+        <description>Record type used for locking a Commercial Diplomacy WIN</description>
+        <label>Commercial Diplomacy Locked</label>
+        <picklistValues>
+            <picklist>Additional_WIN_Features__c</picklist>
+            <values>
+                <fullName>E-Award Winner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export Achievement Certificate Recipient</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minority-Owned Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rural Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Veteran-Owned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Woman-Owned Business</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Calendar_Year_of_Results__c</picklist>
+            <values>
+                <fullName>2012</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2013</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2014</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2015</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2016</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2017</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2018</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Cleared_For__c</picklist>
+            <values>
+                <fullName>Client willing to speak to  media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DOC%2FITA websites and social media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined to clear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outreach by TPCC Agencies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Press Use</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send to Congress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speeches</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Final_Line_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Approved</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>First_Line_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Approved</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Other_USG_Entities_Involved__c</picklist>
+            <values>
+                <fullName>Agriculture Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bureau of Economic Analysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bureau of Industry and Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Council of Economic Advisors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Defense Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economic Development Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economics and Statistics Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental Protection Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export-Import Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health and Human Services Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Homeland Security Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Labor Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Millennium Challenge Corporation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minority Business Development Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NIST</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NOAA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NTIA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Security Council</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Technical Information Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office of Management and Budget</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office of the U%2ES%2E Trade Representative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overseas Private Investment Corporation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small Business Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Treasury Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Census Bureau</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Patent and Trademark Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Trade and Development Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USAID</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Primary_Outcome__c</picklist>
+            <values>
+                <fullName>Compliance with trade agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Facilitated export transaction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reduced%2FEliminated threat to US business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>WIN_Type_Selector__c</picklist>
+            <values>
+                <fullName>Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commercial Diplomacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Import Promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>WIN_Type__c</picklist>
+            <values>
+                <fullName>Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commercial Diplomacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Investment Promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Export_Promotion</fullName>
+        <active>true</active>
+        <description>Record type for creating an Export Promotion WIN</description>
+        <label>Export Promotion</label>
+        <picklistValues>
+            <picklist>Additional_WIN_Features__c</picklist>
+            <values>
+                <fullName>E-Award Winner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export Achievement Certificate Recipient</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minority-Owned Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rural Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Veteran-Owned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Woman-Owned Business</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Calendar_Year_of_Results__c</picklist>
+            <values>
+                <fullName>2012</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2013</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2014</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2015</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2016</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2017</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2018</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Cleared_For__c</picklist>
+            <values>
+                <fullName>Client willing to speak to  media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DOC%2FITA websites and social media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined to clear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outreach by TPCC Agencies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Press Use</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send to Congress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speeches</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Final_Line_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Approved</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>First_Line_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Approved</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Other_USG_Entities_Involved__c</picklist>
+            <values>
+                <fullName>Agriculture Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bureau of Economic Analysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bureau of Industry and Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Council of Economic Advisors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Defense Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economic Development Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economics and Statistics Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental Protection Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export-Import Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health and Human Services Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Homeland Security Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Labor Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Millennium Challenge Corporation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minority Business Development Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NIST</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NOAA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NTIA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Security Council</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Technical Information Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office of Management and Budget</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office of the U%2ES%2E Trade Representative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overseas Private Investment Corporation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small Business Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Treasury Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Census Bureau</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Patent and Trademark Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Trade and Development Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USAID</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Primary_Outcome__c</picklist>
+            <values>
+                <fullName>Compliance with trade agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Facilitated export transaction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reduced%2FEliminated threat to US business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>WIN_Type_Selector__c</picklist>
+            <values>
+                <fullName>Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commercial Diplomacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Import Promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>WIN_Type__c</picklist>
+            <values>
+                <fullName>Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commercial Diplomacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Investment Promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Export_Promotion_Locked</fullName>
+        <active>true</active>
+        <description>Record type used for locking an Export Promotion WIN</description>
+        <label>Export Promotion Locked</label>
+        <picklistValues>
+            <picklist>Additional_WIN_Features__c</picklist>
+            <values>
+                <fullName>E-Award Winner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export Achievement Certificate Recipient</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minority-Owned Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rural Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Veteran-Owned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Woman-Owned Business</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Calendar_Year_of_Results__c</picklist>
+            <values>
+                <fullName>2012</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2013</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2014</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2015</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2016</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2017</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2018</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Cleared_For__c</picklist>
+            <values>
+                <fullName>Client willing to speak to  media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DOC%2FITA websites and social media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined to clear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outreach by TPCC Agencies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Press Use</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send to Congress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speeches</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Final_Line_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Approved</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>First_Line_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Approved</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Other_USG_Entities_Involved__c</picklist>
+            <values>
+                <fullName>Agriculture Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bureau of Economic Analysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bureau of Industry and Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Council of Economic Advisors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Defense Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economic Development Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economics and Statistics Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental Protection Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export-Import Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health and Human Services Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Homeland Security Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Labor Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Millennium Challenge Corporation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minority Business Development Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NIST</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NOAA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NTIA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Security Council</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Technical Information Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office of Management and Budget</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office of the U%2ES%2E Trade Representative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overseas Private Investment Corporation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small Business Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Treasury Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Census Bureau</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Patent and Trademark Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Trade and Development Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USAID</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Primary_Outcome__c</picklist>
+            <values>
+                <fullName>Compliance with trade agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Facilitated export transaction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reduced%2FEliminated threat to US business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>WIN_Type_Selector__c</picklist>
+            <values>
+                <fullName>Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commercial Diplomacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Import Promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>WIN_Type__c</picklist>
+            <values>
+                <fullName>Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commercial Diplomacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Investment Promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Investment_Promotion</fullName>
+        <active>true</active>
+        <description>Record type for creating an Investment Promotion WIN</description>
+        <label>Investment Promotion</label>
+        <picklistValues>
+            <picklist>Additional_WIN_Features__c</picklist>
+            <values>
+                <fullName>E-Award Winner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export Achievement Certificate Recipient</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minority-Owned Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rural Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Woman-Owned Business</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Calendar_Year_of_Results__c</picklist>
+            <values>
+                <fullName>2012</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2013</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2014</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2015</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2016</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2017</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2018</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Cleared_For__c</picklist>
+            <values>
+                <fullName>Client willing to speak to  media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DOC%2FITA websites and social media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined to clear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outreach by TPCC Agencies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Press Use</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send to Congress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speeches</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Final_Line_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Approved</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>First_Line_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Approved</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Other_USG_Entities_Involved__c</picklist>
+            <values>
+                <fullName>Agriculture Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bureau of Economic Analysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bureau of Industry and Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Council of Economic Advisors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Defense Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economic Development Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economics and Statistics Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental Protection Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export-Import Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health and Human Services Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Homeland Security Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Labor Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Millennium Challenge Corporation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minority Business Development Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NIST</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NOAA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NTIA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Security Council</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Technical Information Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office of Management and Budget</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office of the U%2ES%2E Trade Representative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overseas Private Investment Corporation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small Business Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Treasury Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Census Bureau</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Patent and Trademark Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Trade and Development Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USAID</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Primary_Outcome__c</picklist>
+            <values>
+                <fullName>Compliance with trade agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Facilitated export transaction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reduced%2FEliminated threat to US business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>WIN_Type_Selector__c</picklist>
+            <values>
+                <fullName>Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commercial Diplomacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Import Promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>WIN_Type__c</picklist>
+            <values>
+                <fullName>Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commercial Diplomacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Investment Promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Investment_Promotion_Locked</fullName>
+        <active>true</active>
+        <description>Record type used for locking an Investment Promotion WIN</description>
+        <label>Investment Promotion Locked</label>
+        <picklistValues>
+            <picklist>Additional_WIN_Features__c</picklist>
+            <values>
+                <fullName>E-Award Winner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export Achievement Certificate Recipient</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minority-Owned Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rural Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Woman-Owned Business</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Calendar_Year_of_Results__c</picklist>
+            <values>
+                <fullName>2012</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2013</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2014</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2015</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2016</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2017</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2018</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Cleared_For__c</picklist>
+            <values>
+                <fullName>Client willing to speak to  media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DOC%2FITA websites and social media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined to clear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outreach by TPCC Agencies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Press Use</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send to Congress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speeches</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Final_Line_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Approved</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>First_Line_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Approved</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Other_USG_Entities_Involved__c</picklist>
+            <values>
+                <fullName>Agriculture Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bureau of Economic Analysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bureau of Industry and Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Council of Economic Advisors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Defense Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economic Development Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economics and Statistics Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental Protection Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export-Import Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health and Human Services Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Homeland Security Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Labor Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Millennium Challenge Corporation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minority Business Development Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NIST</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NOAA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NTIA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Security Council</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Technical Information Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office of Management and Budget</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office of the U%2ES%2E Trade Representative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overseas Private Investment Corporation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small Business Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Treasury Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Census Bureau</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Patent and Trademark Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Trade and Development Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USAID</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Primary_Outcome__c</picklist>
+            <values>
+                <fullName>Compliance with trade agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Facilitated export transaction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reduced%2FEliminated threat to US business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>WIN_Type_Selector__c</picklist>
+            <values>
+                <fullName>Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commercial Diplomacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Import Promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>WIN_Type__c</picklist>
+            <values>
+                <fullName>Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commercial Diplomacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Investment Promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>WIN_Standard_Record_Type</fullName>
+        <active>true</active>
+        <description>Record type used for WIN Publisher action</description>
+        <label>WIN Standard Record Type</label>
+        <picklistValues>
+            <picklist>Additional_WIN_Features__c</picklist>
+            <values>
+                <fullName>E-Award Winner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export Achievement Certificate Recipient</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minority-Owned Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rural Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Woman-Owned Business</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Calendar_Year_of_Results__c</picklist>
+            <values>
+                <fullName>2012</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2013</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2014</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2015</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2016</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2017</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2018</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Cleared_For__c</picklist>
+            <values>
+                <fullName>Client willing to speak to  media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DOC%2FITA websites and social media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined to clear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outreach by TPCC Agencies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Press Use</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send to Congress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speeches</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Final_Line_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Approved</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>First_Line_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Approved</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Other_USG_Entities_Involved__c</picklist>
+            <values>
+                <fullName>Agriculture Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bureau of Economic Analysis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bureau of Industry and Security</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Council of Economic Advisors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Defense Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economic Development Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Economics and Statistics Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental Protection Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export-Import Bank</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health and Human Services Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Homeland Security Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Labor Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Millennium Challenge Corporation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minority Business Development Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NIST</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NOAA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NTIA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Security Council</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>National Technical Information Service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office of Management and Budget</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Office of the U%2ES%2E Trade Representative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overseas Private Investment Corporation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Small Business Administration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Treasury Department</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Census Bureau</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Patent and Trademark Office</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Trade and Development Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>USAID</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Primary_Outcome__c</picklist>
+            <values>
+                <fullName>Compliance with trade agreement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Facilitated export transaction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reduced%2FEliminated threat to US business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reduced%2FRemoved%2FPrevented trade barrier</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>WIN_Type_Selector__c</picklist>
+            <values>
+                <fullName>Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commercial Diplomacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Import Promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>WIN_Type__c</picklist>
+            <values>
+                <fullName>Advocacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commercial Diplomacy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Export Promotion</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Investment Promotion</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>WIN_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>LAST_UPDATE</customTabListAdditionalFields>
+        <searchResultsAdditionalFields>Final_Line_Approval_Date__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>No_mod_to_WIN_without_user_permissions</fullName>
+        <active>true</active>
+        <description>No modifications to WIN information unless completed by OPA/OLIA profile user. AND(
+( $User.Can_Modify_Locked_WINs__c = FALSE), NOT(ISBLANK( Final_Line_Approval_Date__c)), ($Profile.Name &lt;&gt; &quot;System Administrator&quot;), ($Profile.Name &lt;&gt; &quot;Help Desk Administra</description>
+        <errorConditionFormula>AND(
+( $User.Can_Modify_Locked_WINs__c = FALSE), NOT(ISBLANK( Final_Line_Approval_Date__c)), ($Profile.Name &lt;&gt; &quot;System Administrator&quot;), ($Profile.Name &lt;&gt; &quot;Help Desk Administration&quot;)
+)</errorConditionFormula>
+        <errorMessage>Only System Administrators and those with the Can Modify Locked WINs permission can modify a WIN after final approval..</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Once_create_can_not_change_record_type</fullName>
+        <active>true</active>
+        <description>Once created, the record type can not be changed unless have the Modify Locked WINs.  Typically should not be done.</description>
+        <errorConditionFormula>AND(
+(ISCHANGED( RecordTypeId ) &amp;&amp; PRIORVALUE(RecordTypeId) &lt;&gt; NULL),($Profile.Name &lt;&gt; &quot;System Administrator&quot;), ($Profile.Name &lt;&gt; &quot;Help Desk Administration&quot;) 
+||
+(ISCHANGED( WIN_Type__c ) &amp;&amp; PRIORVALUE(WIN_Type__c) &lt;&gt; NULL),
+( $User.Can_Modify_Locked_WINs__c = FALSE),($Profile.Name &lt;&gt; &quot;System Administrator&quot;), ($Profile.Name &lt;&gt; &quot;Help Desk Administration&quot;) 
+)</errorConditionFormula>
+        <errorMessage>Can not change WIN record type.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>When_removal_selected_cant_edit</fullName>
+        <active>true</active>
+        <description>Unless administrator, can not edit wins marked for removal.
+
+AND( 
+$Profile.Name &lt;&gt; &quot;System Administrator&quot;, 
+$Profile.Name &lt;&gt; &quot;Data Team Admin&quot;, 
+Request_WIN_Removal__c = TRUE 
+)</description>
+        <errorConditionFormula>AND($Profile.Name &lt;&gt; &quot;System Administrator&quot;,
+$Profile.Name &lt;&gt; &quot;Data Team Admin&quot;,
+$Profile.Name &lt;&gt; &quot;Help Desk Administration&quot;,
+$Profile.Name &lt;&gt; &quot;Delegated Admin (Field)&quot;,
+PRIORVALUE(Request_WIN_Removal__c) &lt;&gt; FALSE &amp;&amp; 
+($Profile.Name &lt;&gt; &quot;System Administrator&quot;)
+)</errorConditionFormula>
+        <errorMessage>This WIN is requested to be removed.  If you believe this is in error, please contact the help desk immediately.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>Validate</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Validate</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>var validationMsg=&apos;&apos;;
+var i=0;
+
+if({!ISBLANK( WIN__c.First_Approver__c )})
+  validationMsg = &apos;\n&apos;+ ++i + &apos;. You must assign a First Approver to the WIN in order to submit for approval&apos;;
+
+if({!ISBLANK( WIN__c.Final_Approver__c )})
+  validationMsg = validationMsg + &apos;\n&apos;+ ++i + &apos;. You must assign a Final Approver to the WIN in order to submit for approval&apos;;
+
+if({!WIN__c.Country_in_Win__c} &lt; 1)
+  validationMsg = validationMsg + &apos;\n&apos;+ ++i + &apos;. You must add a Country to the WIN in order to submit for approval.&apos;;
+
+if({!WIN__c.WIN_Contributors_Rollup__c} &lt; 1)
+  validationMsg = validationMsg + &apos;\n&apos;+ ++i + &apos;. You must add a Contributors to the WIN in order to submit for approval.&apos;; 
+
+if({!WIN__c.Industry_Rollup__c} &lt; 1 )
+  validationMsg=  validationMsg + &apos;\n&apos;+ ++i + &apos;. You must add an Industry to the WIN in order to submit for approval.&apos;;
+
+if({!WIN__c.Related_Cases_to_WIN_Count__c}&lt;1)
+  validationMsg = validationMsg + &apos;\n&apos;+ ++i + &apos;. You must add a Case to the WIN in order to submit for approval.&apos;;
+
+if(validationMsg != &apos;&apos;)
+  alert(&apos;Failed the following validations : &apos; + validationMsg);
+else
+  alert(&apos;All requirements are complete. Please submit for approval&apos;);</url>
+    </webLinks>
+</CustomObject>

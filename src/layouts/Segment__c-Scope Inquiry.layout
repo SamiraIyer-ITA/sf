@@ -24,11 +24,11 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Segment_Outcome__c</field>
+                <field>Preliminary_Determination__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Preliminary_Determination__c</field>
+                <field>Segment_Outcome__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

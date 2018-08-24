@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Letterhead xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <backgroundColor>#FFFFFF</backgroundColor>
+    <bodyColor>#FFFFFF</bodyColor>
+    <bottomLine>
+        <color>#DEDEDE</color>
+        <height>1</height>
+    </bottomLine>
+    <description>Letterhead using the ITA Logo as appears in org</description>
+    <footer>
+        <backgroundColor>#FFFFFF</backgroundColor>
+        <height>100</height>
+        <horizontalAlignment>Left</horizontalAlignment>
+        <verticalAlignment>Top</verticalAlignment>
+    </footer>
+    <header>
+        <backgroundColor>#FFFFFF</backgroundColor>
+        <height>100</height>
+        <horizontalAlignment>Left</horizontalAlignment>
+        <logo>Communities_Shared_Document_Folder/logo_jpg.jpg</logo>
+        <verticalAlignment>Middle</verticalAlignment>
+    </header>
+    <middleLine>
+        <color>#cccccc</color>
+        <height>1</height>
+    </middleLine>
+    <name>ITA Logo</name>
+    <topLine>
+        <color>#FFFFFF</color>
+        <height>0</height>
+    </topLine>
+</Letterhead>

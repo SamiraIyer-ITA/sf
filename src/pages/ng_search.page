@@ -1,0 +1,24 @@
+<apex:page sidebar="false" showHeader="false" applyBodyTag="false" applyHtmlTag="false">
+ <apex:composition template="Site_Template">
+     <apex:define name="page">
+    
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Environmental Solutions Toolkit Search</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet"/>
+    <style type="text/css">
+        html {
+            font-size: 10px;
+        }
+    </style>    
+    <link href="{!URLFor($Resource.toolkitssearch, 'toolkitssearch/bundle.css')}" rel="stylesheet"/>
+  </head>
+  
+  <body>
+    <div id="toolkit-search"></div>
+    <script type="text/javascript" src="{!URLFor($Resource.toolkitssearch, 'toolkitssearch/next_gen.bundle.js')}"></script>
+  </body>  
+     </apex:define>
+ </apex:composition>
+</apex:page>

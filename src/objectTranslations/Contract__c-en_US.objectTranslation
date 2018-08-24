@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Contract</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Contracts</value>
+    </caseValues>
+    <fields>
+        <help><!-- The application that houses the business and contract information. --></help>
+        <label><!-- Application --></label>
+        <name>Application__c</name>
+        <relationshipLabel><!-- Contracts --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The official contract number. --></help>
+        <label><!-- Contract Number --></label>
+        <name>ContractNumber__c</name>
+    </fields>
+    <fields>
+        <help><!-- Auto-populated Organization from the Application record. --></help>
+        <label><!-- Organization --></label>
+        <name>Organization__c</name>
+    </fields>
+    <fields>
+        <help><!-- Which products and/or services does this contract cover? --></help>
+        <label><!-- Products/Services --></label>
+        <name>ProductsServices__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

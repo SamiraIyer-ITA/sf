@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Master Automation</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Master Automation</value>
+    </caseValues>
+    <fields>
+        <label><!-- ValidationRulesEnabled --></label>
+        <name>ValidationRulesEnabled__c</name>
+    </fields>
+    <fields>
+        <label><!-- WorkflowRulesEnabled --></label>
+        <name>WorkflowRulesEnabled__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

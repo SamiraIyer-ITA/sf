@@ -1,0 +1,1421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Segment</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Segments</value>
+    </caseValues>
+    <fieldSets>
+        <label><!-- Is 120 Day --></label>
+        <name>Is_120_Day</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Is 240 Day --></label>
+        <name>Is_240_Day</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Is 90 Day --></label>
+        <name>Is_90_Day</name>
+    </fieldSets>
+    <fieldSets>
+        <label><!-- Review Information --></label>
+        <name>Review_Information</name>
+    </fieldSets>
+    <fields>
+        <label><!-- ADCVD Case Number Text Value --></label>
+        <name>ADCVD_Case_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- ADCVD Case Type --></label>
+        <name>ADCVD_Case_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- ADCVD Case --></label>
+        <name>ADCVD_Case__c</name>
+        <relationshipLabel><!-- Segments --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- ADCVD Order --></label>
+        <name>ADCVD_Order__c</name>
+        <relationshipLabel><!-- Segments --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Access Barcode --></label>
+        <name>Access_Barcode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Amend Final Concurrence to DAS --></label>
+        <name>Actual_Amend_Final_Concurrence_to_DAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Amend Final Issues to DAS --></label>
+        <name>Actual_Amend_Final_Issues_to_DAS__c</name>
+    </fields>
+    <fields>
+        <help><!-- Actual Amended Final Signature --></help>
+        <label><!-- Actual Amended Final Signature --></label>
+        <name>Actual_Amended_Final_Signature__c</name>
+    </fields>
+    <fields>
+        <help><!-- Actual date of Decision on How to Proceed --></help>
+        <label><!-- Actual date of Decision - How to Proceed --></label>
+        <name>Actual_Date_of_Decision_on_HoP__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Decision on HOP Concurrence toDAS --></label>
+        <name>Actual_Decision_on_HOP_Concurrence_toDAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Decision on HOP Issues to DAS --></label>
+        <name>Actual_Decision_on_HOP_Issues_to_DAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Final Concurrence to DAS --></label>
+        <name>Actual_Final_Concurrence_to_DAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Final Issues to DAS --></label>
+        <name>Actual_Final_Issues_to_DAS__c</name>
+    </fields>
+    <fields>
+        <help><!-- Actual Final Signature --></help>
+        <label><!-- Actual Final Signature --></label>
+        <name>Actual_Final_Signature__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Initiation Concurrence to DAS --></label>
+        <name>Actual_Initiation_Concurrence_to_DAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Initiation Issues to DAS --></label>
+        <name>Actual_Initiation_Issues_to_DAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Initiation Signature --></label>
+        <name>Actual_Initiation_Signature__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Prelim Concurrence to DAS --></label>
+        <name>Actual_Prelim_Concurrence_to_DAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Prelim Issues to DAS --></label>
+        <name>Actual_Prelim_Issues_to_DAS__c</name>
+    </fields>
+    <fields>
+        <help><!-- Actual Preliminary Signature --></help>
+        <label><!-- Actual Preliminary Signature --></label>
+        <name>Actual_Preliminary_Signature__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Revocation or Continuation FR --></label>
+        <name>Actual_Revocation_or_Continuation_FR__c</name>
+    </fields>
+    <fields>
+        <label><!-- Adequacy Determination &amp; Letter --></label>
+        <name>Adequacy_Determination_Letter__c</name>
+    </fields>
+    <fields>
+        <label><!-- Adequacy Determination &amp; Letter to ITC --></label>
+        <name>Adequacy_Determination_Letter_to_ITC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Adequacy of Respondents Submission --></label>
+        <name>Adequacy_of_Respondents_Submission__c</name>
+        <picklistValues>
+            <masterLabel>Adequate or Substantive</masterLabel>
+            <translation><!-- Adequate or Substantive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inadequate or Non-Substantive</masterLabel>
+            <translation><!-- Inadequate or Non-Substantive --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Adequate after Determination? --></label>
+        <name>Adequate_after_Determination__c</name>
+    </fields>
+    <fields>
+        <label><!-- Adequate after Reconsideration? --></label>
+        <name>Adequate_after_Reconsideration__c</name>
+    </fields>
+    <fields>
+        <label><!-- Administrative Review Aligned To --></label>
+        <name>Administrative_Review_Aligned_To__c</name>
+        <relationshipLabel><!-- Aligned New Shipper Reviews --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Are all parties in agreement as to the outcome? --></help>
+        <label><!-- All parties in agreement to the outcome? --></label>
+        <name>All_parties_in_agreement_to_the_outcome__c</name>
+    </fields>
+    <fields>
+        <label><!-- Amend Final Concurrence Due to DAS --></label>
+        <name>Amend_Final_Concurrence_Due_to_DAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Amend Final Issues Due to DAS --></label>
+        <name>Amend_Final_Issues_Due_to_DAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Amended Final Announcement Date --></label>
+        <name>Amended_Final_Announcement_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Anniversary Month --></label>
+        <name>Anniversary_Month__c</name>
+    </fields>
+    <fields>
+        <label><!-- Announcement Type --></label>
+        <name>Announcement_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Application Accepted --></label>
+        <name>Application_Accepted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Application Properly Filed and Served --></label>
+        <name>Application_Properly_Filed_and_Served__c</name>
+    </fields>
+    <fields>
+        <label><!-- CBP Case Number --></label>
+        <name>CBP_Case_Number__c</name>
+    </fields>
+    <fields>
+        <help><!-- Calculated Amended Final Signature --></help>
+        <label><!-- Calculated Amended Final Signature --></label>
+        <name>Calculated_Amended_Final_Signature__c</name>
+    </fields>
+    <fields>
+        <label><!-- Calculated Final FR Publication --></label>
+        <name>Calculated_Final_FR_Signature__c</name>
+    </fields>
+    <fields>
+        <help><!-- Calculated Final Signature --></help>
+        <label><!-- Calculated Final Signature --></label>
+        <name>Calculated_Final_Signature__c</name>
+    </fields>
+    <fields>
+        <label><!-- Calculated Initiation Signature --></label>
+        <name>Calculated_Initiation_Signature__c</name>
+    </fields>
+    <fields>
+        <help><!-- Calculated Preliminary Signature --></help>
+        <label><!-- Calculated Preliminary Signature --></label>
+        <name>Calculated_Preliminary_Signature__c</name>
+    </fields>
+    <fields>
+        <label><!-- Calculated Revocation or Continuation FR --></label>
+        <name>Calculated_Revocation_or_Continuation_FR__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Briefs Due --></label>
+        <name>Case_Briefs_Due__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Concat Text Values --></label>
+        <name>Case_Concat_Text_Values__c</name>
+    </fields>
+    <fields>
+        <help><!-- Will you use CBP data, Quantity and Value Questionnaires or Other for respondent selection? --></help>
+        <label><!-- Choose Following Respondent Selection --></label>
+        <name>Choose_Following_Respondent_Selection__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comments on Adequacy Determination Filed --></label>
+        <name>Comments_on_Adequacy_Determination_Filed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commodity --></label>
+        <name>Commodity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Continuation or Revocation? --></label>
+        <name>Continuation_or_Revocation__c</name>
+        <picklistValues>
+            <masterLabel>Continuation</masterLabel>
+            <translation><!-- Continuation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Revocation</masterLabel>
+            <translation><!-- Revocation --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Countervailed Programs --></help>
+        <label><!-- Countervailed Programs --></label>
+        <name>Countervailed_Programs__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>Country__c</name>
+    </fields>
+    <fields>
+        <help><!-- Country in which factors were valued --></help>
+        <label><!-- Country in which factors were valued --></label>
+        <name>Country_in_which_factors_were_valued__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days Remaining --></label>
+        <name>Days_Remaining__c</name>
+    </fields>
+    <fields>
+        <help><!-- Deadline for Decision on How to Proceed --></help>
+        <label><!-- Deadline for Decision on How to Proceed --></label>
+        <name>Deadline_for_Decision_on_How_to_Proceed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Decision Signed --></label>
+        <name>Decision_Signed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Decision on HOP Concurrence Due to DAS --></label>
+        <name>Decision_on_HOP_Concurrence_Due_to_DAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Decision on HOP Issues Due to DAS --></label>
+        <name>Decision_on_HOP_Issues_Due_to_DAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Decision on How to Proceed --></label>
+        <name>Decision_on_How_to_Proceed__c</name>
+        <picklistValues>
+            <masterLabel>Formal</masterLabel>
+            <translation><!-- Formal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Informal</masterLabel>
+            <translation><!-- Informal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reject</masterLabel>
+            <translation><!-- Reject --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Deficient or Withdrawn Date --></label>
+        <name>Deficient_or_Withdrawn_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Do Delete --></label>
+        <name>Do_Delete__c</name>
+    </fields>
+    <fields>
+        <label><!-- Does the Review Involve CCR? --></label>
+        <name>Does_the_Review_Involve_CCR__c</name>
+    </fields>
+    <fields>
+        <label><!-- Domestic Party File Substan. Response? --></label>
+        <name>Domestic_Party_File_Substan_Response__c</name>
+    </fields>
+    <fields>
+        <label><!-- Effective Date (if revoked) --></label>
+        <name>Effective_Date_if_revoked__c</name>
+    </fields>
+    <fields>
+        <label><!-- External Id --></label>
+        <name>External_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Final Announcement Date --></label>
+        <name>Final_Announcement_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Final Concurrence Due to DAS --></label>
+        <name>Final_Concurrence_Due_to_DAS__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter the last day of the anniversary month with current year --></help>
+        <label><!-- Final Date of Anniversary Month --></label>
+        <name>Final_Date_of_Anniversary_Month__c</name>
+    </fields>
+    <fields>
+        <label><!-- Final Extension Remaining --></label>
+        <name>Final_Extension_Remaining__c</name>
+    </fields>
+    <fields>
+        <help><!-- If &quot;Preliminary Extension (# of days)&quot; + &quot;Final Extension (# of days)&quot; &gt; 45 days, it is considered late. --></help>
+        <label><!-- Final Extension (# of days) --></label>
+        <name>Final_Extension_of_days__c</name>
+    </fields>
+    <fields>
+        <label><!-- Final Issues Due to DAS --></label>
+        <name>Final_Issues_Due_to_DAS__c</name>
+    </fields>
+    <fields>
+        <help><!-- Final Team Meeting Deadline --></help>
+        <label><!-- Final Team Meeting Deadline --></label>
+        <name>Final_Team_Meeting_Deadline__c</name>
+    </fields>
+    <fields>
+        <label><!-- HTS Change(s) --></label>
+        <name>HTS_Changes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Have Custom Instruction been sent? --></label>
+        <name>Have_Custom_Instruction_been_sent__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hearing (if Requested) --></label>
+        <name>Hearing_if_Requested__c</name>
+    </fields>
+    <fields>
+        <label><!-- ITC Vote on Continuation or Revocation --></label>
+        <name>ITC_Vote_on_Continuation_or_Revocation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Inadequate Domestic Response note to ITC --></label>
+        <name>Inadequate_Domestic_Response_note_to_ITC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Inform Cluster Coordinator if No Respons --></label>
+        <name>Inform_Cluster_Coordinator_if_No_Respons__c</name>
+    </fields>
+    <fields>
+        <label><!-- Initiation Announcement Date --></label>
+        <name>Initiation_Announcement_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Initiation Concurrence Due to DAS --></label>
+        <name>Initiation_Concurrence_Due_to_DAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Initiation Extension Remaining --></label>
+        <name>Initiation_Extension_Remaining__c</name>
+    </fields>
+    <fields>
+        <label><!-- Initiation Extension (# of days) --></label>
+        <name>Initiation_Extension_of_days__c</name>
+    </fields>
+    <fields>
+        <label><!-- Initiation Issues Due to DAS --></label>
+        <name>Initiation_Issues_Due_to_DAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Injunction --></label>
+        <name>Injunction__c</name>
+    </fields>
+    <fields>
+        <label><!-- Intent to Participate by Domestic IPs? --></label>
+        <name>Intent_to_Participate_by_Domestic_IPs__c</name>
+    </fields>
+    <fields>
+        <label><!-- Investigation --></label>
+        <name>Investigation__c</name>
+        <relationshipLabel><!-- Segments --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Is the review being rescinded? --></help>
+        <label><!-- Is the review being rescinded? --></label>
+        <name>Is_the_review_being_rescinded__c</name>
+    </fields>
+    <fields>
+        <help><!-- Is this review expedited? --></help>
+        <label><!-- Is this review expedited? --></label>
+        <name>Is_this_review_expedited__c</name>
+    </fields>
+    <fields>
+        <help><!-- Issue Liquidation/Revocation Instructions, if Order is revoked --></help>
+        <label><!-- Issue Liquidation/Revocation Instruction --></label>
+        <name>Issue_Liquidation_Revocation_Instruction__c</name>
+    </fields>
+    <fields>
+        <label><!-- Link --></label>
+        <name>Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- Litigation Hold Expiration Date --></label>
+        <name>Litigation_Hold_Expiration_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Litigation Resolved --></label>
+        <name>Litigation_Resolved__c</name>
+    </fields>
+    <fields>
+        <label><!-- Litigation Status --></label>
+        <name>Litigation_Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Litigation --></label>
+        <name>Litigation_YesNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- Record Locked --></label>
+        <name>Locked__c</name>
+    </fields>
+    <fields>
+        <help><!-- Lotus Notes History Data --></help>
+        <label><!-- Lotus Notes History Data --></label>
+        <name>Lotus_Notes_History_Data__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lotus Notes Litigation ID --></label>
+        <name>Lotus_Notes_Litigation_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Memorandum on Adequacy Determination --></label>
+        <name>Memorandum_on_Adequacy_Determination__c</name>
+    </fields>
+    <fields>
+        <help><!-- Do you have a Ministerial Error for Final? --></help>
+        <label><!-- Ministerial Error for Final --></label>
+        <name>Minesterial_Error_for_final__c</name>
+    </fields>
+    <fields>
+        <label><!-- New Shipper Sync Level --></label>
+        <name>New_Shipper_Sync_Level__c</name>
+        <picklistValues>
+            <masterLabel>Final</masterLabel>
+            <translation><!-- Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preliminary</masterLabel>
+            <translation><!-- Preliminary --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Next Announcement Date --></label>
+        <name>Next_Announcement_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Next Due to DAS Deadline and Timeline on Segment --></help>
+        <label><!-- Next Due to DAS Deadline --></label>
+        <name>Next_Due_to_DAS_Deadline__c</name>
+    </fields>
+    <fields>
+        <help><!-- Next Major AS/DAS Deadline and Timeline on Segment --></help>
+        <label><!-- Next Major Deadline --></label>
+        <name>Next_Major_Deadline__c</name>
+    </fields>
+    <fields>
+        <help><!-- Next Office/PM Deadline and Timeline on Segment --></help>
+        <label><!-- Next Office Deadline --></label>
+        <name>Next_Office_Deadline__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notice of Intent to Participate --></label>
+        <name>Notice_of_Intent_to_Participate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notice of intent to participate Ips? --></label>
+        <name>Notice_of_intent_to_participate_Ips__c</name>
+    </fields>
+    <fields>
+        <help><!-- Notification to ITC of inadequate response; institure 90-day revocation --></help>
+        <label><!-- Notification of ITC of Inadequate Resp. --></label>
+        <name>Notification_of_ITC_of_Inadequate_Resp__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notify Cluster Coordinator No Interest --></label>
+        <name>Notify_Cluster_Coordinator_No_Interest__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notify ITC If Affirmative Prelim Determ. --></label>
+        <name>Notify_ITC_If_Affirmative_Prelim_Determ__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notify ITC of Final Results --></label>
+        <name>Notify_ITC_of_Final_Results__c</name>
+    </fields>
+    <fields>
+        <label><!-- Notify ITC of No Domestic Interest --></label>
+        <name>Notify_ITC_of_No_Domestic_Interest__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of Companies Requested --></help>
+        <label><!-- Number of Companies Requested --></label>
+        <name>Number_of_Companies_Requested__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of Mandatory Companies --></help>
+        <label><!-- Number of Mandatory Companies --></label>
+        <name>Number_of_Mandatory_Companies__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of SR Companies --></help>
+        <label><!-- Number of SR Companies --></label>
+        <name>Number_of_SR_Companies__c</name>
+    </fields>
+    <fields>
+        <label><!-- Office --></label>
+        <name>Office__c</name>
+        <picklistValues>
+            <masterLabel>I</masterLabel>
+            <translation><!-- I --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>II</masterLabel>
+            <translation><!-- II --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>III</masterLabel>
+            <translation><!-- III --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IV</masterLabel>
+            <translation><!-- IV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SA</masterLabel>
+            <translation><!-- SA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>V</masterLabel>
+            <translation><!-- V --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VI</masterLabel>
+            <translation><!-- VI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VII</masterLabel>
+            <translation><!-- VII --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VIII</masterLabel>
+            <translation><!-- VIII --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Period Covered - End Date --></help>
+        <label><!-- Period Covered - End Date --></label>
+        <name>Period_Covered_End_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Period Covered - Start Date --></help>
+        <label><!-- Period Covered - Start Date --></label>
+        <name>Period_Covered_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prelim Concurrence Due to DAS --></label>
+        <name>Prelim_Concurrence_Due_to_DAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prelim Extension (# of days) --></label>
+        <name>Prelim_Extension__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prelim Issues Due to DAS --></label>
+        <name>Prelim_Issues_Due_to_DAS__c</name>
+    </fields>
+    <fields>
+        <help><!-- Prelim Team Meeting Deadline --></help>
+        <label><!-- Prelim Team Meeting Deadline --></label>
+        <name>Prelim_Team_Meeting_Deadline__c</name>
+    </fields>
+    <fields>
+        <label><!-- Preliminary Announcement Date --></label>
+        <name>Preliminary_Announcement_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Preliminary Determination --></label>
+        <name>Preliminary_Determination__c</name>
+    </fields>
+    <fields>
+        <label><!-- Preliminary Extension Remaining --></label>
+        <name>Preliminary_Extension_Remaining__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Description --></label>
+        <name>Product_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Short Name Text Value --></label>
+        <name>Product_Short_Name_Text_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Short Name --></label>
+        <name>Product_Short_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Text Value --></label>
+        <name>Product_Text_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- Range of Rates - Final --></label>
+        <name>Range_of_Rates_Final__c</name>
+    </fields>
+    <fields>
+        <label><!-- Range of Rates - Prelim --></label>
+        <name>Range_of_Rates_Prelim__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rebuttal Briefs Due --></label>
+        <name>Rebuttal_Briefs_Due__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rebuttal Comments Due --></label>
+        <name>Rebuttal_Comments_Due__c</name>
+    </fields>
+    <fields>
+        <label><!-- Receive Request to Consider Sampling? --></label>
+        <name>Receive_Request_to_Consider_Sampling__c</name>
+    </fields>
+    <fields>
+        <label><!-- Request Filed --></label>
+        <name>Request_Filed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Requestor --></label>
+        <name>Requestor__c</name>
+        <relationshipLabel><!-- Segments --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Respondent File Substantive Response? --></label>
+        <name>Respondent_File_Substantive_Response__c</name>
+    </fields>
+    <fields>
+        <help><!-- Conduct 240-day review to address zeroing in underlying segments? --></help>
+        <label><!-- Review to address zeroing in Segments? --></label>
+        <name>Review_to_address_zeroing_in_Segments__c</name>
+    </fields>
+    <fields>
+        <help><!-- For system use only. --></help>
+        <label><!-- Schedule Refresh --></label>
+        <name>Schedule_Refresh__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scope Determination --></label>
+        <name>Scope_Determination__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scope Language Change(s) --></label>
+        <name>Scope_Language_Changes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Segment Name --></label>
+        <name>Segment_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Segment Outcome --></label>
+        <name>Segment_Outcome__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deficient</masterLabel>
+            <translation><!-- Deficient --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Full Rescission</masterLabel>
+            <translation><!-- Full Rescission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Withdrawn</masterLabel>
+            <translation><!-- Withdrawn --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Amend Final</masterLabel>
+            <translation><!-- Amend Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customs</masterLabel>
+            <translation><!-- Customs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Final</masterLabel>
+            <translation><!-- Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hold</masterLabel>
+            <translation><!-- Hold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>How To Proceed</masterLabel>
+            <translation><!-- How To Proceed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation</masterLabel>
+            <translation><!-- Initiation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Litigation</masterLabel>
+            <translation><!-- Litigation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prelim</masterLabel>
+            <translation><!-- Prelim --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Substantive Response Due For All Parties --></label>
+        <name>Substantive_Response_Due_For_All_Parties__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sunset Review Type --></label>
+        <name>Sunset_Review_Type__c</name>
+        <picklistValues>
+            <masterLabel>120</masterLabel>
+            <translation><!-- 120 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>240</masterLabel>
+            <translation><!-- 240 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>90</masterLabel>
+            <translation><!-- 90 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Suspension Agreement --></label>
+        <name>Suspension_Agreement__c</name>
+        <relationshipLabel><!-- Segments --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Tolling Update --></label>
+        <name>Tolling_Update__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type of Circumvention Inquiry --></label>
+        <name>Type_of_Circumvention_Inquiry__c</name>
+        <picklistValues>
+            <masterLabel>Later-Developed Merchandise</masterLabel>
+            <translation><!-- Later-Developed Merchandise --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Merchandise Completed or Assembled in United States</masterLabel>
+            <translation><!-- Merchandise Completed or Assembled in United States --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Merchandise Completed or Assembled in other Foreign Countries</masterLabel>
+            <translation><!-- Merchandise Completed or Assembled in other Foreign Countries --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Minor Alterations of Merchandise</masterLabel>
+            <translation><!-- Minor Alterations of Merchandise --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Type of Requestor --></label>
+        <name>Type_of_Requestor__c</name>
+        <picklistValues>
+            <masterLabel>Domestic Interested Party</masterLabel>
+            <translation><!-- Domestic Interested Party --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petitioner</masterLabel>
+            <translation><!-- Petitioner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Respondent</masterLabel>
+            <translation><!-- Respondent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Self-Initiated by the Department</masterLabel>
+            <translation><!-- Self-Initiated by the Department --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>U.S. Importer</masterLabel>
+            <translation><!-- U.S. Importer --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Type of Scope Ruling --></label>
+        <name>Type_of_Scope_Ruling__c</name>
+        <picklistValues>
+            <masterLabel>K (1)</masterLabel>
+            <translation><!-- K (1) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>K (2)</masterLabel>
+            <translation><!-- K (2) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Plain Language</masterLabel>
+            <translation><!-- Plain Language --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Update ACE (Customs Module) that Order is revoked --></help>
+        <label><!-- Update ACE (Customs Module) --></label>
+        <name>Update_ACE_Customs_Module__c</name>
+    </fields>
+    <fields>
+        <label><!-- Verification (if needed) --></label>
+        <name>Verification_if_needed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Was Product Prelim Determine in Scope? --></label>
+        <name>Was_Product_Prelim_Determine_in_Scope__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Was Product Prelim Determine on Scope? --></label>
+        <name>Was_Product_Prelim_Determine_on_Scope__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Was product determined to be in scope? --></label>
+        <name>Was_product_determined_to_be_in_scope__c</name>
+    </fields>
+    <fields>
+        <label><!-- What to Use For Respondent Selection? --></label>
+        <name>What_to_Use_For_Respondent_Selection__c</name>
+        <picklistValues>
+            <masterLabel>CBP Data</masterLabel>
+            <translation><!-- CBP Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quantity and Value Questionaires</masterLabel>
+            <translation><!-- Quantity and Value Questionaires --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Will you Amend the Final? --></help>
+        <label><!-- Will you Amend the Final? --></label>
+        <name>Will_you_Amend_the_Final__c</name>
+    </fields>
+    <layouts>
+        <layout>Administrative Review</layout>
+        <sections>
+            <label><!-- Administrative --></label>
+            <section>Administrative</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Extensions --></label>
+            <section>Extensions</section>
+        </sections>
+        <sections>
+            <label><!-- Highlight Panel --></label>
+            <section>Highlight Panel</section>
+        </sections>
+        <sections>
+            <label><!-- Ministerial Errors &amp; Amendments --></label>
+            <section>Ministerial Errors &amp; Amendments</section>
+        </sections>
+        <sections>
+            <label><!-- Path Key Fields --></label>
+            <section>Path Key Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Rates --></label>
+            <section>Rates</section>
+        </sections>
+        <sections>
+            <label><!-- Respondent Selection --></label>
+            <section>Respondent Selection</section>
+        </sections>
+        <sections>
+            <label><!-- Review Details --></label>
+            <section>Review Details</section>
+        </sections>
+        <sections>
+            <label><!-- Task Completion --></label>
+            <section>Task Completion</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Anti-Circumvention Review</layout>
+        <sections>
+            <label><!-- Administrative --></label>
+            <section>Administrative</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Extensions --></label>
+            <section>Extensions</section>
+        </sections>
+        <sections>
+            <label><!-- Highlights Panel --></label>
+            <section>Highlights Panel</section>
+        </sections>
+        <sections>
+            <label><!-- Path Key Fields --></label>
+            <section>Path Key Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Rates --></label>
+            <section>Rates</section>
+        </sections>
+        <sections>
+            <label><!-- Task Completion --></label>
+            <section>Task Completion</section>
+        </sections>
+        <sections>
+            <label><!-- Type of Review --></label>
+            <section>Type of Review</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Changed Circumstances Review</layout>
+        <sections>
+            <label><!-- Administrative --></label>
+            <section>Administrative</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Extensions --></label>
+            <section>Extensions</section>
+        </sections>
+        <sections>
+            <label><!-- Highlights Panel --></label>
+            <section>Highlights Panel</section>
+        </sections>
+        <sections>
+            <label><!-- Path Key Fields --></label>
+            <section>Path Key Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Rates --></label>
+            <section>Rates</section>
+        </sections>
+        <sections>
+            <label><!-- Task Completion --></label>
+            <section>Task Completion</section>
+        </sections>
+        <sections>
+            <label><!-- Type of Review --></label>
+            <section>Type of Review</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Expedited Review</layout>
+        <sections>
+            <label><!-- Administrative --></label>
+            <section>Administrative</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Extensions --></label>
+            <section>Extensions</section>
+        </sections>
+        <sections>
+            <label><!-- Highlight Panel --></label>
+            <section>Highlight Panel</section>
+        </sections>
+        <sections>
+            <label><!-- Initiation --></label>
+            <section>Initiation</section>
+        </sections>
+        <sections>
+            <label><!-- Ministerial Errors &amp; Amendments --></label>
+            <section>Ministerial Errors &amp; Amendments</section>
+        </sections>
+        <sections>
+            <label><!-- Path Key Fields --></label>
+            <section>Path Key Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Rates --></label>
+            <section>Rates</section>
+        </sections>
+        <sections>
+            <label><!-- Respondent Selection --></label>
+            <section>Respondent Selection</section>
+        </sections>
+        <sections>
+            <label><!-- Review Details --></label>
+            <section>Review Details</section>
+        </sections>
+        <sections>
+            <label><!-- Task Completion --></label>
+            <section>Task Completion</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>New Shipper Review</layout>
+        <sections>
+            <label><!-- Administrative --></label>
+            <section>Administrative</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Extensions --></label>
+            <section>Extensions</section>
+        </sections>
+        <sections>
+            <label><!-- Highlights Panel --></label>
+            <section>Highlights Panel</section>
+        </sections>
+        <sections>
+            <label><!-- Initiation --></label>
+            <section>Initiation</section>
+        </sections>
+        <sections>
+            <label><!-- Ministerial Errors &amp; Amendments --></label>
+            <section>Ministerial Errors &amp; Amendments</section>
+        </sections>
+        <sections>
+            <label><!-- Path Key Fields --></label>
+            <section>Path Key Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Rates --></label>
+            <section>Rates</section>
+        </sections>
+        <sections>
+            <label><!-- Task Completion --></label>
+            <section>Task Completion</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Scope Inquiry</layout>
+        <sections>
+            <label><!-- Administrative --></label>
+            <section>Administrative</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Formal &amp; Informal Scope Final Task Completion --></label>
+            <section>Formal &amp; Informal Scope Final Task Completion</section>
+        </sections>
+        <sections>
+            <label><!-- Formal Scope Prelim Task Completion --></label>
+            <section>Formal Scope Prelim Task Completion</section>
+        </sections>
+        <sections>
+            <label><!-- Highlights Panel --></label>
+            <section>Highlights Panel</section>
+        </sections>
+        <sections>
+            <label><!-- How to Proceed Task Completion --></label>
+            <section>How to Proceed Task Completion</section>
+        </sections>
+        <sections>
+            <label><!-- Path Key Fields --></label>
+            <section>Path Key Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Scope Results --></label>
+            <section>Scope Results</section>
+        </sections>
+        <sections>
+            <label><!-- Type of Scope Ruling --></label>
+            <section>Type of Scope Ruling</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Sunset Review</layout>
+        <sections>
+            <label><!-- Administrative --></label>
+            <section>Administrative</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Highlight Panel --></label>
+            <section>Highlight Panel</section>
+        </sections>
+        <sections>
+            <label><!-- Path Key Fields --></label>
+            <section>Path Key Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Sunset Review Information --></label>
+            <section>Sunset Review Information</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Administrative Review --></label>
+        <name>Administrative_Review</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Anti-Circumvention Review --></label>
+        <name>Anti_Circumvention_Review</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Changed Circumstances Review --></label>
+        <name>Changed_Circumstances_Review</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Expedited Review --></label>
+        <name>Expedited_Review</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- New Shipper Review --></label>
+        <name>New_Shipper_Review</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Scope Inquiry --></label>
+        <name>Scope_Inquiry</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Sunset Review --></label>
+        <name>Sunset_Review</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Final Extension (# of days) cannot be less than zero. --></errorMessage>
+        <name>ACR_Final_Extension</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Initiation Extension can only range from 1-45 days. --></errorMessage>
+        <name>ACR_Initiation_Extension</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Preliminary Extension cannot be less than zero days. --></errorMessage>
+        <name>ACR_Prelim_Extension</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If there is a value in preliminary extension # of days, the bound for final extension is 1-60 days. --></errorMessage>
+        <name>AR_Bound_If_Prelim_Extension_Exists</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If there is no value in preliminary extension # of days, the bound of final extension is 1-180 days. --></errorMessage>
+        <name>AR_Bound_If_Prelim_Extension_Not_Exists</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Preliminary Extension can only range from 1-120 days. --></errorMessage>
+        <name>AR_Prelim_Extension</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Preliminary Extension must be greater than zero days. --></errorMessage>
+        <name>AR_Prelim_Extension_Neg</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Final extension # of days can only range from 0-180 days. --></errorMessage>
+        <name>AR_max_180_days_if_prelim_extend_is_null</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Calculated Amended Final Signature Date must be populated in order to enter Actual Amended Final Signature Date --></errorMessage>
+        <name>Actual_Amended_Final_Determ_Not_Blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Calculated Final Signature Date must be populated in order to enter Actual Final Signature Date --></errorMessage>
+        <name>Actual_Final_Signature_Not_Blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Calculated Initiation Signature Date must be populated in order to enter Actual Initiation Signature Date --></errorMessage>
+        <name>Actual_Initiation_Signature_Not_Blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Calculated Preliminary Signature Date must be populated in order to enter Actual Preliminary Signature Date --></errorMessage>
+        <name>Actual_Preliminary_Signature_Not_Blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If there is a value in preliminary extension # of days, the bound for final extension is 1-60 days. --></errorMessage>
+        <name>Bound_If_Prelim_Extension_Exists</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If there is no value in preliminary extension # of days, the bound of final extension is 1-180 days. --></errorMessage>
+        <name>Bound_If_Prelim_Extension_Not_Exists</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Final Extension cannot be less than zero days. --></errorMessage>
+        <name>CCR_Final_Extension</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Initiation Extension can only range from 1-45 days. --></errorMessage>
+        <name>CCR_Initiation_Extension</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Preliminary Extension cannot be less than zero days. --></errorMessage>
+        <name>CCR_Prelim_Extension</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This record is locked.  Please contact your administrator about unlocking this record. --></errorMessage>
+        <name>Cannot_Edit_Locked_Record</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Litigation cannot be blank when Have Custom Instructions is populated --></errorMessage>
+        <name>Custom_Instruction_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &quot;Decision on How to Proceed&quot; field is required when value is entered for &quot;Actual Date of Decision - How to Proceed&quot; field --></errorMessage>
+        <name>Decision_on_How_to_Proceed_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Deficient or Withdrawn date is required when Segment Outcome is &quot;Deficient&quot; or &quot;Withdrawn&quot; --></errorMessage>
+        <name>Deficient_Or_Withdrawn_Date_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Final Extension (# of days) cannot exceed more than 60 days --></errorMessage>
+        <name>ER_Final_Extension</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Cannot exceed more than 120 days --></errorMessage>
+        <name>ER_Prelim_Extension</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Litigation Resolved cannot be blank when Litigation is &quot;Yes&quot; --></errorMessage>
+        <name>Litigation_Resolved_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The bound for Final Extension # of Days is 1 to 60 days. --></errorMessage>
+        <name>NSR_Final_Extension</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The bound for Preliminary Extension # of Days is 1 to 120 days. --></errorMessage>
+        <name>NSR_Prelim_Extension</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You are not authorized to edit this field. Only a System Administrator can edit the parent ADCVD Order, Suspension Agreement or ADCVD Case for this record. --></errorMessage>
+        <name>Only_Admin_reparents_Segments</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &quot;Prelim Extension (# of days)&quot; AND / OR &quot;Final Extension (# of days)&quot; cannot contain values based on your current field selections. Please remove these values, or change your current selection of values from other fields, before saving the record. --></errorMessage>
+        <name>PrelimExtension_FinalExtensions_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Preliminary Extension can only range from 1-120 days. --></errorMessage>
+        <name>Prelim_Extension_for_Admin_Review_Bound</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Preliminary Extension cannot exceed more than 120 days --></errorMessage>
+        <name>Prelim_Extension_for_Admin_Review_Exceed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Preliminary Extension must be greater than zero days. --></errorMessage>
+        <name>Prelim_Extension_for_Admin_Review_Neg</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Preliminary Determination must have a value with the Type of Circumvention Inquiry selected --></errorMessage>
+        <name>Preliminary_Determination_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &quot;Access Barcode&quot; is required only if &quot;Decision on How to Proceed&quot; is either &quot;Formal&quot; or &quot;Informal&quot;. --></errorMessage>
+        <name>SI_Access_Barcode</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Decision on How to Proceed AND Actual date of Decision - How to Proceed field, both fields are required since you have selected a value in the Segment Outcome field. --></errorMessage>
+        <name>SI_ActualDateDecisionHOP_DecisionHOP_Req</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &quot;Actual Date of Decision&quot; date cannot be after &quot;Deadline for Decision&quot; date. --></errorMessage>
+        <name>SI_Actual_Date_of_Decision_on_HOP_Bound</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &quot;Actual Final Signature&quot; cannot be after &quot;Calculated Final Signature&quot;. --></errorMessage>
+        <name>SI_Actual_Final_Signature</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &quot;Actual Final Signature&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;. --></errorMessage>
+        <name>SI_Actual_Final_Signature_NF</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &quot;Actual Preliminary Signature&quot; cannot be after &quot;Calculated Preliminary Signature&quot;. --></errorMessage>
+        <name>SI_Actual_Prelim_Signature</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &quot;Actual Preliminary Signature&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;. --></errorMessage>
+        <name>SI_Actual_Prelim_Signature_NF</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- When Segment Outcome field is &quot;Rejected&quot;, Decision on How to Proceed field should have &quot;Reject&quot; value selected. Please update your selection for Decision on How to Proceed field. --></errorMessage>
+        <name>SI_DecisionHOP_SegmentOutcome_Rejected</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The bound for &quot;Preliminary Extension (#of days)&quot; is 1 to 120 days. --></errorMessage>
+        <name>SI_Prelim_Extension</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &quot;Preliminary Extension (# of days)&quot;  is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;. --></errorMessage>
+        <name>SI_Prelim_Extension_NF</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Decision on How to Proceed is Reject, then Was Product Determined to be in Scope should be null. --></errorMessage>
+        <name>SI_Product_Determined_To_Be_In_Scope</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &quot;Was the Product Preliminary Determined to be in Scope?&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;. --></errorMessage>
+        <name>SI_Product_P_Determine_to_be_in_Scope_NF</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &quot;HTS Changes&quot; is required only if &quot;Decision on How to Proceed&quot; is either &quot;Formal&quot; or &quot;Informal&quot;. --></errorMessage>
+        <name>SI_Scope_Changes_HTS</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &quot;Scope Language Change(s)&quot; is required only if &quot;Decision on How to Proceed&quot; is either &quot;Formal&quot; or &quot;Informal&quot;. --></errorMessage>
+        <name>SI_Scope_Changes_Language</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- &quot;Was the Product Determined to be in Scope?&quot; is required only if &quot;Decision on How to Proceed&quot; is either &quot;Formal&quot; or &quot;Informal&quot;. --></errorMessage>
+        <name>SI_Was_Product_Determined_To_Be_In_Scope</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The total extension of Prelim Extension # of days and Final Extension # of days cannot be more than 90. --></errorMessage>
+        <name>SSR_240_Extension_Total</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Segment Outcome is required, because you have value in Decision on How to Proceed field as either &quot;Informal&quot; or &quot;Reject&quot;, AND/OR you have a value in Actual Final Signature field. --></errorMessage>
+        <name>Segment_Outcome_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Every Segment must have a ADCVD Order or a Suspension Agreement --></errorMessage>
+        <name>Segment_must_have_a_parent</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Type of Circumvention Inquiry field value is required, when Actual Initiation Signature is populated. --></errorMessage>
+        <name>Type_of_Circumvention_Inquiry_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Type of Scope Ruling is required when Decision on How to Proceed is &quot;Formal&quot; or &quot;Informal&quot; but not required for &quot;Reject&quot; --></errorMessage>
+        <name>Type_of_Scope_Ruling_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Final extension # of days can only range from 0-180 days. --></errorMessage>
+        <name>max_180_days_if_prelim_extend_is_blank</name>
+    </validationRules>
+</CustomObjectTranslation>

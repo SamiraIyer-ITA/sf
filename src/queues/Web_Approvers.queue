@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>Web Approvers</name>
+    <queueMembers>
+        <users>
+            <user>amanda.draper@trade.gov</user>
+            <user>bob.keating@trade.gov</user>
+            <user>caitlin.fennessy@trade.gov</user>
+            <user>cory.churches@trade.gov</user>
+            <user>daniel.curry@trade.gov</user>
+            <user>david.lee@trade.gov</user>
+            <user>david.ritchie@trade.gov</user>
+            <user>genilson.brandao@trade.gov</user>
+            <user>grace.harter@trade.gov</user>
+            <user>jennifer.hart@trade.gov</user>
+            <user>john.harlow@trade.gov</user>
+            <user>leslie.britton@trade.gov</user>
+            <user>micah.escobedo@trade.gov</user>
+            <user>nasreen.djouini@trade.gov</user>
+            <user>natalie.soroka@trade.gov</user>
+            <user>sandip.menon@trade.gov</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Content__c</sobjectType>
+    </queueSobject>
+</Queue>

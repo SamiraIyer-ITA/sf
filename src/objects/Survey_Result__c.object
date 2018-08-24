@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Survey Results from Qualtrics</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Ability_to_meet_your_objectives__c</fullName>
+        <externalId>false</externalId>
+        <label>Ability to meet your objectives</label>
+        <length>5</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Affordability__c</fullName>
+        <externalId>false</externalId>
+        <label>Affordability</label>
+        <length>5</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Anonymous__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Marked for anonymous responses</description>
+        <externalId>false</externalId>
+        <label>Anonymous</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Assistance_Detail__c</fullName>
+        <description>How did your organization receive assistance from the CS over the past 12 months?  Please check all that apply (Other)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>How did your organization receive assistance from the CS over the past 12 months?  Please check all that apply (Other)</inlineHelpText>
+        <label>Assistance Detail</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Assistance__c</fullName>
+        <description>How did your organization receive assistance from the CS over the past 12 months?  Please check all that apply</description>
+        <externalId>false</externalId>
+        <inlineHelpText>How did your organization receive assistance from the CS over the past 12 months?  Please check all that apply</inlineHelpText>
+        <label>Assistance</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Being_easy_to_work_with__c</fullName>
+        <externalId>false</externalId>
+        <label>Being easy to work with</label>
+        <length>5</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Best_Working_With_Us__c</fullName>
+        <description>How likely is it that you would recommend the U.S. Department of Commerce?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>How likely is it that you would recommend the U.S. Department of Commerce?</inlineHelpText>
+        <label>Best Working With Us</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Better_Serve_You__c</fullName>
+        <description>How could we better serve you in the future?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>How could we better serve you in the future?</inlineHelpText>
+        <label>Better Serve You</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Better_Serve__c</fullName>
+        <description>What did you like best and least about your experience working with us?
+ How could we better serve you in the future?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>What did you like best and least about your experience working with us?
+ How could we better serve you in the future?</inlineHelpText>
+        <label>Better Serve</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>CS_Information_or_Assistance_Other__c</fullName>
+        <description>Do you anticipate using CS information or assistance over the next 12-24 months to continue international outreach and/or increase your exports? (Other)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Do you anticipate using CS information or assistance over the next 12-24 months to continue international outreach and/or increase your exports? (Other)</inlineHelpText>
+        <label>CS Information or Assistance (Other)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>CS_Information_or_Assistance__c</fullName>
+        <description>Do you anticipate using CS information or assistance over the next 12-24 months to continue international outreach and/or increase your exports?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Do you anticipate using CS information or assistance over the next 12-24 months to continue international outreach and/or increase your exports?</inlineHelpText>
+        <label>CS Information or Assistance</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Case_Subject__c</fullName>
+        <externalId>false</externalId>
+        <formula>Case__r.Subject</formula>
+        <label>Case Subject</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Survey Results</relationshipLabel>
+        <relationshipName>Survey_Results</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Consistency_of_service_delivery__c</fullName>
+        <externalId>false</externalId>
+        <label>Consistency of service delivery</label>
+        <length>5</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Contact__r.FirstName &amp;&quot; &quot;&amp; Contact__r.LastName</formula>
+        <label>Contact Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Survey Results</relationshipLabel>
+        <relationshipName>Survey_Results</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Country_Other_Detail__c</fullName>
+        <description>In what foreign country (or countries) did you achieve the results listed above? (Other)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>In what foreign country (or countries) did you achieve the results listed above? (Other)</inlineHelpText>
+        <label>Country Other Detail</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Country_Outreach_Other__c</fullName>
+        <description>What foreign country (or countries) are you interested in entering for the first time or expanding exports and international outreach to over the next 12-24 months? (Other)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>What foreign country (or countries) are you interested in entering for the first time or expanding exports and international outreach to over the next 12-24 months? (Other)</inlineHelpText>
+        <label>Country Outreach (Other)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Country_Outreach__c</fullName>
+        <description>What foreign country (or countries) are you interested in entering for the first time or expanding exports and international outreach to over the next 12-24 months?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>What foreign country (or countries) are you interested in entering for the first time or expanding exports and international outreach to over the next 12-24 months?</inlineHelpText>
+        <label>Country Outreach</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Country_knowledge__c</fullName>
+        <externalId>false</externalId>
+        <label>Country knowledge</label>
+        <length>5</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Country_where_Results_were_achieved__c</fullName>
+        <description>In what foreign country (or countries) did you achieve the results listed above?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>In what foreign country (or countries) did you achieve the results listed above?</inlineHelpText>
+        <label>Country where Results were achieved</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Current_Case_Owner_Email__c</fullName>
+        <externalId>false</externalId>
+        <formula>Case__r.Owner:User.Email</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Current Case Owner Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Current_Case_Owner__c</fullName>
+        <externalId>false</externalId>
+        <formula>Case__r.Case_Owner_Full_Name__c</formula>
+        <label>Current Case Owner</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dollar_Value__c</fullName>
+        <description>Revenue created</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Revenue created</inlineHelpText>
+        <label>Dollar Value:</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Email_for_Notification__c</fullName>
+        <externalId>false</externalId>
+        <label>Email for Notification</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Increased_U_S_jobs_by__c</fullName>
+        <description>What results do you anticipate achieving within the next three years with the assistance provided by CS during the past 12 months?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>What results do you anticipate achieving within the next three years with the assistance provided by CS during the past 12 months?</inlineHelpText>
+        <label>Increased U.S. jobs by</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Increased_revenues_by__c</fullName>
+        <description>What results do you anticipate achieving within the next three years with the assistance provided by CS during the past 12 months?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>What results do you anticipate achieving within the next three years with the assistance provided by CS during the past 12 months?</inlineHelpText>
+        <label>Increased revenues by</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Industry_knowledge__c</fullName>
+        <externalId>false</externalId>
+        <label>Industry knowledge</label>
+        <length>5</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Jobs_Added__c</fullName>
+        <description>Change in employment</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Change in employment</inlineHelpText>
+        <label>Jobs Added (#):</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Jobs_Eliminated__c</fullName>
+        <description>Change in employment</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Change in employment</inlineHelpText>
+        <label>Jobs Eliminated</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Jobs_Safeguarded__c</fullName>
+        <description>Change in employment</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Change in employment</inlineHelpText>
+        <label>Jobs Safeguarded</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Likely_to_Recommend_CS__c</fullName>
+        <description>Using a scale from 1 to 10 where 1 means DEFINITELY WOULD NOT and 10 means DEFINITELY WOULD, how likely are you to recommend the CS to organizations that are not your direct competitors?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Using a scale from 1 to 10 where 1 means DEFINITELY WOULD NOT and 10 means DEFINITELY WOULD, how likely are you to recommend the CS to organizations that are not your direct competitors?</inlineHelpText>
+        <label>Likely to Recommend CS</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Likely_to_Recommend__c</fullName>
+        <description>Based on your most recent experience, how likely is it that you would recommend the U.S. Department of Commerce, U.S. Commercial Service?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Based on your most recent experience, how likely is it that you would recommend the U.S. Department of Commerce, U.S. Commercial Service?</inlineHelpText>
+        <label>Likely to Recommend</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Objectives_Met__c</fullName>
+        <description>Please indicate how well the U.S. Department of Commerce, U.S. Commercial Service met your objectives of: _____</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please indicate how well the U.S. Department of Commerce, U.S. Commercial Service met your objectives of: _____</inlineHelpText>
+        <label>Objectives Met</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Other_Feedback__c</fullName>
+        <description>Other feedback you’d like to share?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Other feedback you’d like to share?</inlineHelpText>
+        <label>Other Feedback</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Percent_Change__c</fullName>
+        <description>Change in employment</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Change in employment</inlineHelpText>
+        <label>Percent Change</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Percent_Increase__c</fullName>
+        <description>Revenue created</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Revenue created</inlineHelpText>
+        <label>Percent Increase:</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Primary_Contact__c</fullName>
+        <description>Display primary Contact</description>
+        <externalId>false</externalId>
+        <label>Primary Contact</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quality_of_information_assistance__c</fullName>
+        <externalId>false</externalId>
+        <label>Quality of information/assistance</label>
+        <length>5</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Significant_Results__c</fullName>
+        <description>Using a scale of 1 to 10 where 1 means “Not At All Significant” and 10 means “Very Significant,” how significant was CS in achieving the results listed above for your organization during the past 12 months?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Using a scale of 1 to 10 where 1 means “Not At All Significant” and 10 means “Very Significant,” how significant was CS in achieving the results listed above for your organization during the past 12 months?</inlineHelpText>
+        <label>Significant Results</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Specific_Results_Outcomes_Details__c</fullName>
+        <description>As a result of CS assistance, what specific results/outcomes was your organization able to achieve during the past 12 months? (Detail)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>As a result of CS assistance, what specific results/outcomes was your organization able to achieve during the past 12 months? (Detail)</inlineHelpText>
+        <label>Specific Results/Outcomes Details</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Specific_Results_Outcomes__c</fullName>
+        <description>As a result of CS assistance, what specific results/outcomes was your organization able to achieve during the past 12 months?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>As a result of CS assistance, what specific results/outcomes was your organization able to achieve during the past 12 months?</inlineHelpText>
+        <label>Specific Results/Outcomes</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Subject_matter_knowledge__c</fullName>
+        <externalId>false</externalId>
+        <label>Subject matter knowledge</label>
+        <length>5</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Timeliness_of_assistance__c</fullName>
+        <externalId>false</externalId>
+        <label>Timeliness of assistance</label>
+        <length>5</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type_of_Assistance_Details__c</fullName>
+        <description>What kind of assistance has your organization received from the Commercial Service over the past twelve months?  Please check all that apply (Please Specify)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>What kind of assistance has your organization received from the Commercial Service over the past twelve months?  Please check all that apply (Please Specify)</inlineHelpText>
+        <label>Type of Assistance Details</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Type_of_Assistance__c</fullName>
+        <description>What kind of assistance has your organization received from the Commercial Service over the past twelve months?  Please check all that apply</description>
+        <externalId>false</externalId>
+        <inlineHelpText>What kind of assistance has your organization received from the Commercial Service over the past twelve months?  Please check all that apply</inlineHelpText>
+        <label>Type of Assistance</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Type_of_Information__c</fullName>
+        <description>List of Objectives</description>
+        <externalId>false</externalId>
+        <inlineHelpText>What were the objectives you sought in your most recent interaction with the U.S. Department of Commerce, U.S. Commercial Service?</inlineHelpText>
+        <label>Type of Information</label>
+        <length>455</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Update_PB_Field__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Update PB Field</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Value_added__c</fullName>
+        <externalId>false</externalId>
+        <label>Value added</label>
+        <length>5</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Willing_to__c</fullName>
+        <description>Please check the boxes below if you would be willing to:</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please check the boxes below if you would be willing to:</inlineHelpText>
+        <label>Willing to:</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Your_Experience__c</fullName>
+        <description>What did you like best about your experience working with us?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>What did you like best about your experience working with us?</inlineHelpText>
+        <label>Your Experience</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <label>Survey Result</label>
+    <listViews>
+        <fullName>Admin_View</fullName>
+        <columns>NAME</columns>
+        <columns>Anonymous__c</columns>
+        <columns>Case__c</columns>
+        <columns>Contact__c</columns>
+        <columns>Contact_Name__c</columns>
+        <columns>Current_Case_Owner__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Objectives_Met__c</columns>
+        <columns>Ability_to_meet_your_objectives__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>Admin View</label>
+        <sharedTo>
+            <role>System_Admin</role>
+        </sharedTo>
+    </listViews>
+    <nameField>
+        <displayFormat>SR-{00000}</displayFormat>
+        <label>Survey Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Survey Results</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Annual_Survey</fullName>
+        <active>true</active>
+        <label>Annual Survey</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Transactional_Survey</fullName>
+        <active>true</active>
+        <description>Used for Transactional Survey</description>
+        <label>Transactional Survey</label>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

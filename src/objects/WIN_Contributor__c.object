@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Records users can associate themselves to WINs for credit.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Contributor_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contributor Name</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Contributor_Names</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contributor__c</fullName>
+        <description>User first and last name</description>
+        <externalId>false</externalId>
+        <formula>Contributor_Name__r.FirstName &amp; &quot; &quot; &amp; Contributor_Name__r.LastName</formula>
+        <label>Contributor</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Inactive__c</fullName>
+        <description>To identify users who are not active from displaying in related list. Also to sort by long views.</description>
+        <externalId>false</externalId>
+        <formula>IF( Contributor_Name__r.IsActive &lt;&gt; TRUE, TRUE, FALSE)</formula>
+        <label>Inactive</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Office__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Contributor_Name__r.RH_Lev_6_Office__c)</formula>
+        <label>Office</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Organization__c</fullName>
+        <externalId>false</externalId>
+        <formula>WIN__r.Organization__c</formula>
+        <label>Organization</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Original_Office__c</fullName>
+        <externalId>false</externalId>
+        <formula>RH_Lev_6_Office__c</formula>
+        <label>Original Office</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RH_Lev_1_GM_All__c</fullName>
+        <externalId>false</externalId>
+        <label>User Unit</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RH_Lev_2_DAS__c</fullName>
+        <externalId>false</externalId>
+        <label>User DAS</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RH_Lev_3_Region_2__c</fullName>
+        <externalId>false</externalId>
+        <label>User Region</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RH_Lev_4_Region_1__c</fullName>
+        <externalId>false</externalId>
+        <label>User Sub-region</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RH_Lev_5_Country__c</fullName>
+        <externalId>false</externalId>
+        <label>User Country</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RH_Lev_6_Office__c</fullName>
+        <externalId>false</externalId>
+        <label>User Office</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RH_Lev_7_Individual__c</fullName>
+        <externalId>false</externalId>
+        <label>User Agency</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>WIN_Contributor_ID__c</fullName>
+        <description>CasesafeID(Contributor_Name__r.Id)</description>
+        <externalId>false</externalId>
+        <formula>Contributor_Name__r.Id</formula>
+        <label>WIN Contributor ID</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>WIN_Contributor_One__c</fullName>
+        <externalId>false</externalId>
+        <formula>1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>WIN Contributor One</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>WIN__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>WIN</label>
+        <referenceTo>WIN__c</referenceTo>
+        <relationshipName>Contributors</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>WIN Contributor</label>
+    <nameField>
+        <displayFormat>WCR-{0000}</displayFormat>
+        <label>WINs Contributor Record</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>WIN Contributors</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>If_related_WIN_is_approved_limit_contrib</fullName>
+        <active>true</active>
+        <description>After a WIN is approved (where the Status value is set to Approved), the system shall only allow users with the Network Director/ICO role to edit the Contributor Related List. This is backdoor method to modify contributors on win</description>
+        <errorConditionFormula>TEXT(WIN__r.Final_Line_Approval__c) = &quot;Approved&quot; &amp;&amp;  $User.Can_Modify_Locked_WINs__c = FALSE</errorConditionFormula>
+        <errorMessage>After final approval, no users may make changes to contributor list.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Only_Sys_Admin_add_contr_locked_win</fullName>
+        <active>false</active>
+        <description>$User.ProfileId &lt;&gt; &quot;00et0000000U7uP&quot; &amp;&amp; WIN__r.RecordTypeId = &quot;012r000000005n3&quot;</description>
+        <errorConditionFormula>$User.ProfileId &lt;&gt; &quot;00et0000000U7uP&quot; &amp;&amp; WIN__r.RecordTypeId = &quot;012r000000005n3&quot;</errorConditionFormula>
+        <errorMessage>Only system administrator can modify a contributor.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Required_WIN_Contributor_Name</fullName>
+        <active>true</active>
+        <description>WIN Contributor Name is Required. Added to prevent Process Builder flow error when user saves record without populating Contributor Name field</description>
+        <errorConditionFormula>Contributor_Name__c = &quot;&quot; &amp;&amp; 
+($Profile.Name &lt;&gt; &quot;System Administrator&quot;)</errorConditionFormula>
+        <errorMessage>Contributor Name is Required.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -44,7 +44,7 @@ public class ADCVD_OrderDetailController {
         this.adcvdCase = ApexPages.currentPage().getParameters().get('adcvdcase');
         this.Segments = new List<Segment>(); 
         this.order = [SELECT
-                               Id, Name, ADCVD_Case_Number__c, Product_Short_Name__c, Country__c, Commodity__c, 
+                               Id, Name, ADCVD_Case_Number__c, Product_Short_Name__c, Country__c, 
                                (SELECT Id, Name, ADCVD_Case_Number__c, Product_Short_Name__c, Country__c, RecordTypeId, Actual_Final_Signature__c, 
                                      Initiation_Extension_Remaining__c, Preliminary_Extension_Remaining__c, Final_Extension_Remaining__c, 
                                      Initiation_Announcement_Date__c, Preliminary_Announcement_Date__c, Final_Announcement_Date__c, Next_Announcement_Date__c 

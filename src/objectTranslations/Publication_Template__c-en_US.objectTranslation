@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Series Template</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Series Templates</value>
+    </caseValues>
+    <fields>
+        <help><!-- Name of the Template should correlate to Article Type. --></help>
+        <label><!-- Series Template Name --></label>
+        <name>Series_Template_Name__c</name>
+    </fields>
+    <layouts>
+        <layout>Publication Template Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Series Template Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Approver__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Atom Approver</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Atom Approver</inlineHelpText>
+        <label>Approver</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>2 AND (1 OR 3)</booleanFilter>
+            <filterItems>
+                <field>$Source.CreatedById</field>
+                <operation>notEqual</operation>
+                <valueField>User.Id</valueField>
+            </filterItems>
+            <filterItems>
+                <field>User.UserType</field>
+                <operation>equals</operation>
+                <value>Standard</value>
+            </filterItems>
+            <filterItems>
+                <field>$Source.CreatedById</field>
+                <operation>equals</operation>
+                <value>005t0000000M9mC, 005t0000000EgPX, 005t0000000XfoB, 005t0000000Xs72, 005t0000000XoPY, 005t0000000Xo28, 005t0000000XoSu, 005t0000000qzA1, 005t0000000l25M</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Content_Versions</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Atom_Title__c</fullName>
+        <description>Public display title on the web. If this field is blank, the Atom Name can used as the display title.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Public display title on the web. If this field is blank, the Atom Name can used as the display title.</inlineHelpText>
+        <label>Atom Title</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Atom__c</fullName>
+        <description>Parent Atom / Currently Published Atom</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Parent Atom / Currently Published Atom</inlineHelpText>
+        <label>Published Version</label>
+        <referenceTo>Content__c</referenceTo>
+        <relationshipLabel>Versions</relationshipLabel>
+        <relationshipName>Content_Versions</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Content__c</fullName>
+        <description>The Atom Body (Formatting should be done here)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Atom Body (Formatting should be done here)</inlineHelpText>
+        <label>Atom</label>
+        <length>10000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Publishing_Status__c</fullName>
+        <description>Publishing Status (Controlled by Atom Approval Process)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Publishing Status</inlineHelpText>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Draft</fullName>
+                    <default>true</default>
+                    <label>Draft</label>
+                </value>
+                <value>
+                    <fullName>Draft: Submitted for Approval</fullName>
+                    <default>false</default>
+                    <label>Draft: Submitted for Approval</label>
+                </value>
+                <value>
+                    <fullName>Online</fullName>
+                    <default>false</default>
+                    <label>Online</label>
+                </value>
+                <value>
+                    <fullName>Draft: Rejected</fullName>
+                    <default>false</default>
+                    <label>Draft: Rejected</label>
+                </value>
+                <value>
+                    <fullName>Outdated</fullName>
+                    <default>false</default>
+                    <label>Outdated</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>Publishing Status (Controlled by Atom Approval Process)</description>
+        <externalId>false</externalId>
+        <formula>IF( CONTAINS( Version__c , &quot;(Outdated)&quot;), &quot;Offline&quot;, TEXT(Publishing_Status__c))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Publishing Status</inlineHelpText>
+        <label>Publishing Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Version_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Version Number</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Version__c</fullName>
+        <description>If Status = &apos;Draft&apos;, then Version = Draft Version 
+If Status = &apos;Draft: Submitted for Approval&apos;, then Version = &apos;Draft Version&apos; 
+If Status = &apos;Online&apos;, then Version = &apos;Version 1&apos;</description>
+        <externalId>false</externalId>
+        <formula>IF ((ISPICKVAL(Publishing_Status__c, &quot;Online&quot;)) &amp;&amp; (Atom__r.LMOV__c = LastModifiedDate), IF (Version_Number__c = &apos;Version 1&apos;, Version_Number__c, &quot;Version&quot; + &quot; &quot; + Version_Number__c),
+IF (NOT(ISPICKVAL(Publishing_Status__c, &apos;Draft: Rejected&apos;)), 
+IF ( (Version_Number__c = TEXT(MAX(Atom__r.Version_Number__c))) || (NOT(ISPICKVAL(Publishing_Status__c, &quot;Online&quot;))) || (Atom__r.Version__c = &apos;Version 1&apos;) || ((ISPICKVAL(Publishing_Status__c, &quot;Online&quot;)) &amp;&amp; (Atom__r.LMOV__c = LastModifiedDate)), 
+(IF ( CONTAINS (Version_Number__c, &quot;Version&quot;), Version_Number__c, &quot;Version&quot; + &quot; &quot; + Version_Number__c)), 
+(IF ( CONTAINS (Version_Number__c, &quot;Version&quot;), Version_Number__c, &quot;Version&quot; + &quot; &quot; + Version_Number__c) ) + &quot; (Outdated)&quot;), 
+(IF ( CONTAINS (Version_Number__c, &quot;Version&quot;), Version_Number__c, &quot;Version&quot; + &quot; &quot; + Version_Number__c) ) + &quot; (Rejected)&quot;))</formula>
+        <inlineHelpText>Version Number</inlineHelpText>
+        <label>Atom Version</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Content Version</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Atom_Title__c</columns>
+        <columns>Atom__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All1</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Atom Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Content Versions</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Content_Version</fullName>
+        <active>true</active>
+        <description>Modifiable / Editable View of an Atom - With &apos;Edit and &apos;Submit for Approval&apos; buttons</description>
+        <label>Content Version</label>
+        <picklistValues>
+            <picklist>Publishing_Status__c</picklist>
+            <values>
+                <fullName>Draft</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Draft%3A Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft%3A Submitted for Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Published_Content_Version</fullName>
+        <active>true</active>
+        <description>Online View of an Atom - No buttons</description>
+        <label>Published Content Version</label>
+        <picklistValues>
+            <picklist>Publishing_Status__c</picklist>
+            <values>
+                <fullName>Draft</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Draft%3A Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft%3A Submitted for Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

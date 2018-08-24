@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Organization</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Organizations</value>
+    </caseValues>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Access</value>
+        </caseValues>
+        <name>account_access</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Access Level</value>
+        </caseValues>
+        <name>account_access_level</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Contact Role</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Organization Contact Roles</value>
+        </caseValues>
+        <name>account_contact_role</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Creator</value>
+        </caseValues>
+        <name>account_creator</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Currency</value>
+        </caseValues>
+        <name>account_currency</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Description</value>
+        </caseValues>
+        <name>account_description</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Detail Page</value>
+        </caseValues>
+        <name>account_detail_page</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Division</value>
+        </caseValues>
+        <name>account_division</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Edit</value>
+        </caseValues>
+        <name>account_edit</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Fax</value>
+        </caseValues>
+        <name>account_fax</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Field</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Organization Fields</value>
+        </caseValues>
+        <name>account_field</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization General</value>
+        </caseValues>
+        <name>account_general</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Hierarchy</value>
+        </caseValues>
+        <name>account_hierarchy</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization History</value>
+        </caseValues>
+        <name>account_history</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization History Archive</value>
+        </caseValues>
+        <name>account_history_archive</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization History Report</value>
+        </caseValues>
+        <name>account_history_report</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization ID</value>
+        </caseValues>
+        <name>account_id</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Information</value>
+        </caseValues>
+        <name>account_information</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Name</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Organization Names</value>
+        </caseValues>
+        <name>account_name</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Number</value>
+        </caseValues>
+        <name>account_number</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Owner</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Organization Owners</value>
+        </caseValues>
+        <name>account_owner</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Owner Alias</value>
+        </caseValues>
+        <name>account_owner_alias</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Owner Report</value>
+        </caseValues>
+        <name>account_owner_report</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Owner Role</value>
+        </caseValues>
+        <name>account_owner_role</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Ownership</value>
+        </caseValues>
+        <name>account_ownership</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Phone</value>
+        </caseValues>
+        <name>account_phone</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Rating</value>
+        </caseValues>
+        <name>account_rating</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Record</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Organization Records</value>
+        </caseValues>
+        <name>account_record</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Record Type</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Organization Record Types</value>
+        </caseValues>
+        <name>account_record_type</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Report</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Organization Reports</value>
+        </caseValues>
+        <name>account_report</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Sharing</value>
+        </caseValues>
+        <name>account_sharing</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Site</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Organization Sites</value>
+        </caseValues>
+        <name>account_site</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Source</value>
+        </caseValues>
+        <name>account_source</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Stage ID</value>
+        </caseValues>
+        <name>account_stage_id</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Team</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Organization Teams</value>
+        </caseValues>
+        <name>account_team</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Team Member</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Organization Team Members</value>
+        </caseValues>
+        <name>account_team_member</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Team Member ID</value>
+        </caseValues>
+        <name>account_team_member_id</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Team Report</value>
+        </caseValues>
+        <name>account_team_report</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Territory</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Organization Territories</value>
+        </caseValues>
+        <name>account_territory</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Tool</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Organization Tools</value>
+        </caseValues>
+        <name>account_tool</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization Type</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Organization Types</value>
+        </caseValues>
+        <name>account_type</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization View</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Organization Views</value>
+        </caseValues>
+        <name>account_view</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Address</value>
+        </caseValues>
+        <name>billing_address_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>City</value>
+        </caseValues>
+        <name>billing_city_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Country</value>
+        </caseValues>
+        <name>billing_country_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Country Code</value>
+        </caseValues>
+        <name>billing_country_code_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Latitude</value>
+        </caseValues>
+        <name>billing_latitude_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Longitude</value>
+        </caseValues>
+        <name>billing_longitude_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>State/Province</value>
+        </caseValues>
+        <name>billing_state_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>State/Province Code</value>
+        </caseValues>
+        <name>billing_state_code_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Street</value>
+        </caseValues>
+        <name>billing_street_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Zip/Postal Code</value>
+        </caseValues>
+        <name>billing_zip_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Organization and Product Description</value>
+        </caseValues>
+        <name>description_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Number of Employees</value>
+        </caseValues>
+        <name>employees_account</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Parent Organization</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Parent Organizations</value>
+        </caseValues>
+        <name>parent_account</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Parent Organization Division</value>
+        </caseValues>
+        <name>parent_account_division</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Parent Organization ID</value>
+        </caseValues>
+        <name>parent_account_id</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Parent Organization Site</value>
+        </caseValues>
+        <name>parent_account_site</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Person Organization Record</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Person Organization Records</value>
+        </caseValues>
+        <name>person_account_record</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Web Site</value>
+        </caseValues>
+        <name>website_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <layouts>
+        <layout>Account Layout</layout>
+        <sections>
+            <label><!-- Data.com --></label>
+            <section>Data.com</section>
+        </sections>
+        <sections>
+            <label><!-- Hierarchies --></label>
+            <section>Hierarchies</section>
+        </sections>
+        <sections>
+            <label><!-- ITA --></label>
+            <section>ITA</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Individual Account</layout>
+        <sections>
+            <label><!-- Data.com --></label>
+            <section>Data.com</section>
+        </sections>
+        <sections>
+            <label><!-- ITA --></label>
+            <section>ITA</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Partner Account Layout</layout>
+        <sections>
+            <label><!-- Data.com --></label>
+            <section>Data.com</section>
+        </sections>
+        <sections>
+            <label><!-- Hierarchies --></label>
+            <section>Hierarchies</section>
+        </sections>
+        <sections>
+            <label><!-- ITA --></label>
+            <section>ITA</section>
+        </sections>
+        <sections>
+            <label><!-- Partner Information --></label>
+            <section>Partner Information</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- New Industry --></label>
+        <name>AccountTaxonomy</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Create a WIN --></label>
+        <name>Create_a_WIN</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Update Account --></label>
+        <name>UpdateLookupforCCD</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Change Date --></label>
+        <name>Update_Org</name>
+    </quickActions>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

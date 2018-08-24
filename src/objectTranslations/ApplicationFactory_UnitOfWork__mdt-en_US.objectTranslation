@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Application Factory - Unit of Work</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Application Factory - Units of Work</value>
+    </caseValues>
+    <fields>
+        <help><!-- The hierarchical order of SObjects. --></help>
+        <label><!-- Order --></label>
+        <name>Order__c</name>
+    </fields>
+    <fields>
+        <help><!-- Specifies the SObject Type support by the unit of work. --></help>
+        <label><!-- SObject Type --></label>
+        <name>SObjectType__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

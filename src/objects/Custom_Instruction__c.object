@@ -45,6 +45,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -116,26 +117,32 @@
                 <value>
                     <fullName>HM</fullName>
                     <default>false</default>
+                    <label>HM</label>
                 </value>
                 <value>
                     <fullName>COP</fullName>
                     <default>false</default>
+                    <label>COP</label>
                 </value>
                 <value>
                     <fullName>CV</fullName>
                     <default>false</default>
+                    <label>CV</label>
                 </value>
                 <value>
                     <fullName>NME</fullName>
                     <default>false</default>
+                    <label>NME</label>
                 </value>
                 <value>
                     <fullName>FA</fullName>
                     <default>false</default>
+                    <label>FA</label>
                 </value>
                 <value>
                     <fullName>TM</fullName>
                     <default>false</default>
+                    <label>TM</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -155,10 +162,12 @@
                 <value>
                     <fullName>coming</fullName>
                     <default>false</default>
+                    <label>coming</label>
                 </value>
                 <value>
                     <fullName>later</fullName>
                     <default>false</default>
+                    <label>later</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -178,10 +187,12 @@
                 <value>
                     <fullName>coming</fullName>
                     <default>false</default>
+                    <label>coming</label>
                 </value>
                 <value>
                     <fullName>later</fullName>
                     <default>false</default>
+                    <label>later</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -362,22 +373,6 @@ PRIORVALUE(Locked__c) == true
         <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Custom_Instruction_must_have_parent</fullName>
-        <active>true</active>
-        <description>Every Custom Instruction must have either an ADCVD Order, Investigation, Litigation, Petition, Segment or a Suspension Agreement associated with it.</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, ISNEW(), OR( 
-(AND( ISBLANK(ADCVD_Order__c),ISBLANK(Investigation__c),ISBLANK(Petition__c),ISBLANK(Segment__c),
-ISBLANK(Suspension_Agreement__c))),
-(IF(ISBLANK(ADCVD_Order__c),0,1)+
-IF(ISBLANK(Investigation__c),0,1)+
-IF(ISBLANK(Petition__c),0,1)+ 
-IF(ISBLANK(Segment__c),0,1)+ 
-IF(ISBLANK(Suspension_Agreement__c),0,1)&gt;1) 
-) 
-)</errorConditionFormula>
-        <errorMessage>Every Custom Instruction must have either an ADCVD Order, Investigation, Litigation, Petition, Segment or a Suspension Agreement. Please enter the value of the type record this Custom Instruction is related to.</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>Only_Admin_reparents_Custom_Instruction</fullName>
         <active>true</active>
         <description>Custom Instruction records can only be reparented by a System Administrator.</description>
@@ -391,4 +386,5 @@ $Profile.Name
 )</errorConditionFormula>
         <errorMessage>You are not authorized to edit this field. Only a System Administrator can edit the parent ADCVD Order, Investigation, Petition, Segment, or Suspension Agreement for this record.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>

@@ -1,0 +1,13 @@
+<apex:page sidebar="false" showHeader="false" applyBodyTag="false" applyHtmlTag="false">
+ <apex:composition template="Site_Template">
+     <apex:define name="page">
+            <link href="{!URLFor($Resource.trade_events_search, 'css/explorer.css')}" rel="stylesheet" /> 
+            <div id="explorer-app"></div>
+            <script type="text/javascript" src="{!URLFor($Resource.trade_events_search, 'js/bundle.js')}"></script>        
+        <script>
+                Explorer.render('explorer-app');
+        </script>
+        
+     </apex:define>
+ </apex:composition>
+</apex:page>

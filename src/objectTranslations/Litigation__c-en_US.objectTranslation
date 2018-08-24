@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Litigation</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Litigation</value>
+    </caseValues>
+    <fields>
+        <label><!-- ADCVD Case Number Text Value --></label>
+        <name>ADCVD_Case_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- ADCVD Case Type --></label>
+        <name>ADCVD_Case_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- ADCVD Case --></label>
+        <name>ADCVD_Case__c</name>
+        <relationshipLabel><!-- Litigation --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Actual Draft Remand Concurrence to DAS --></label>
+        <name>Actual_Draft_Remand_Concurrence_to_DAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Draft Remand Issues to DAS --></label>
+        <name>Actual_Draft_Remand_Issues_to_DAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Draft Remand (released to party) --></label>
+        <name>Actual_Draft_Remand_released_to_party__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Final Concurrence to DAS --></label>
+        <name>Actual_Final_Concurrence_to_DAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Final Issues to DAS --></label>
+        <name>Actual_Final_Issues_to_DAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Final Signature --></label>
+        <name>Actual_Final_Signature__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Initiation Signature --></label>
+        <name>Actual_Initiation_Signature__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Prelim Concurrence to DAS --></label>
+        <name>Actual_Prelim_Concurrence_to_DAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Prelim Issues to DAS --></label>
+        <name>Actual_Prelim_Issues_to_DAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Preliminary Signature --></label>
+        <name>Actual_Preliminary_Signature__c</name>
+    </fields>
+    <fields>
+        <label><!-- CBP Case Number --></label>
+        <name>CBP_Case_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Calculated Amended Final Signature --></label>
+        <name>Calculated_Amended_Final_Signature__c</name>
+    </fields>
+    <fields>
+        <label><!-- Calculated Draft Remand release to party --></label>
+        <name>Calculated_Draft_Remand_release_to_party__c</name>
+    </fields>
+    <fields>
+        <label><!-- Calculated Final Signature --></label>
+        <name>Calculated_Final_Signature__c</name>
+    </fields>
+    <fields>
+        <label><!-- Calculated Initiation Signature --></label>
+        <name>Calculated_Initiation_Signature__c</name>
+    </fields>
+    <fields>
+        <label><!-- Calculated Preliminary Signature --></label>
+        <name>Calculated_Preliminary_Signature__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Concat Text Values --></label>
+        <name>Case_Concat_Text_Values__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commodity --></label>
+        <name>Commodity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- Court of Panel&apos;s Ruling --></label>
+        <name>Court_of_Panel_s_Ruling__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Remand Issued by Court or Panel --></label>
+        <name>Date_Remand_Issued_by_Court_or_Panel__c</name>
+    </fields>
+    <fields>
+        <label><!-- Draft Remand Concurrence Due to DAS --></label>
+        <name>Draft_Remand_Concurrence_Due_to_DAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Draft Remand Issues Due to DAS --></label>
+        <name>Draft_Remand_Issues_Due_to_DAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Expected Final Signature Before Ext --></label>
+        <name>Expected_Final_Signature_Before_Ext__c</name>
+    </fields>
+    <fields>
+        <label><!-- External Id --></label>
+        <name>External_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Final Concurrence Due to DAS --></label>
+        <name>Final_Concurrence_Due_to_DAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Final Extension (# of days) --></label>
+        <name>Final_Extension_of_days__c</name>
+    </fields>
+    <fields>
+        <label><!-- Final Issues Due to DAS --></label>
+        <name>Final_Issues_Due_to_DAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Final Team Meeting Deadline --></label>
+        <name>Final_Team_Meeting_Deadline__c</name>
+    </fields>
+    <fields>
+        <label><!-- Initiation Extension (# of days) --></label>
+        <name>Initiation_Extension_of_days__c</name>
+    </fields>
+    <fields>
+        <label><!-- International Litigation Type --></label>
+        <name>International_Litigation_Type__c</name>
+        <picklistValues>
+            <masterLabel>129</masterLabel>
+            <translation><!-- 129 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>429</masterLabel>
+            <translation><!-- 429 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>437</masterLabel>
+            <translation><!-- 437 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>449</masterLabel>
+            <translation><!-- 449 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>464</masterLabel>
+            <translation><!-- 464 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Investigation --></label>
+        <name>Investigation__c</name>
+        <relationshipLabel><!-- Litigation --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Link --></label>
+        <name>Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- Litigation Name --></label>
+        <name>Litigation_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Record Locked --></label>
+        <name>Locked__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lotus Notes History Data --></label>
+        <name>Lotus_Notes_History_Data__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Announcement Date --></label>
+        <name>Next_Announcement_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Due to DAS Deadline --></label>
+        <name>Next_Due_to_DAS_Deadline__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Major Deadline --></label>
+        <name>Next_Major_Deadline__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Office Deadline --></label>
+        <name>Next_Office_Deadline__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Office/PM Deadline --></label>
+        <name>Next_Office_PM_Deadline__c</name>
+    </fields>
+    <fields>
+        <label><!-- Office --></label>
+        <name>Office__c</name>
+        <picklistValues>
+            <masterLabel>I</masterLabel>
+            <translation><!-- I --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>II</masterLabel>
+            <translation><!-- II --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>III</masterLabel>
+            <translation><!-- III --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IV</masterLabel>
+            <translation><!-- IV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SA</masterLabel>
+            <translation><!-- SA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>V</masterLabel>
+            <translation><!-- V --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VI</masterLabel>
+            <translation><!-- VI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VII</masterLabel>
+            <translation><!-- VII --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VIII</masterLabel>
+            <translation><!-- VIII --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Period Covered - End Date --></label>
+        <name>Period_Covered_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Period Covered - Start Date --></label>
+        <name>Period_Covered_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Petition --></label>
+        <name>Petition__c</name>
+        <relationshipLabel><!-- Litigation --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Prelim Concurrence Due to DAS --></label>
+        <name>Prelim_Concurrence_Due_to_DAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prelim Extension (# of days) --></label>
+        <name>Prelim_Extension_of_days__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prelim Issues Due to DAS --></label>
+        <name>Prelim_Issues_Due_to_DAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prelim Team Meeting Deadline --></label>
+        <name>Prelim_Team_Meeting_Deadline__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Description --></label>
+        <name>Product_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Short Name Text Value --></label>
+        <name>Product_Short_Name_Text_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Short Name --></label>
+        <name>Product_Short_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- Request Filed --></label>
+        <name>Request_Filed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Requestor --></label>
+        <name>Requestor__c</name>
+        <relationshipLabel><!-- Litigations --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Hidden field used by system --></help>
+        <label><!-- Schedule Refresh --></label>
+        <name>Schedule_Refresh__c</name>
+    </fields>
+    <fields>
+        <label><!-- Segment --></label>
+        <name>Segment__c</name>
+        <relationshipLabel><!-- Litigation --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Final</masterLabel>
+            <translation><!-- Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preliminary</masterLabel>
+            <translation><!-- Preliminary --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Tolling Update --></label>
+        <name>Tolling_Update__c</name>
+    </fields>
+    <fields>
+        <label><!-- USTR Notification to Implement Final Res --></label>
+        <name>USTR_Notification_to_Implement_Final_Res__c</name>
+    </fields>
+    <layouts>
+        <layout>InternationalLitigation</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Highlight Panel --></label>
+            <section>Highlight Panel</section>
+        </sections>
+        <sections>
+            <label><!-- Litigation Information --></label>
+            <section>Litigation Information</section>
+        </sections>
+        <sections>
+            <label><!-- Path Key Fields --></label>
+            <section>Path Key Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Task Completion --></label>
+            <section>Task Completion</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Litigation Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Remand</layout>
+        <sections>
+            <label><!-- Administrative --></label>
+            <section>Administrative</section>
+        </sections>
+        <sections>
+            <label><!-- Amended Final Phase --></label>
+            <section>Amended Final Phase</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Draft Remand Phase --></label>
+            <section>Draft Remand Phase</section>
+        </sections>
+        <sections>
+            <label><!-- Extension(s) --></label>
+            <section>Extension(s)</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Final Phase --></label>
+            <section>Final Phase</section>
+        </sections>
+        <sections>
+            <label><!-- Highlight Panel --></label>
+            <section>Highlight Panel</section>
+        </sections>
+        <sections>
+            <label><!-- Path Key Fields --></label>
+            <section>Path Key Fields</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- International Litigation --></label>
+        <name>International_Litigation</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Remand --></label>
+        <name>Remand</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Calculated Draft Remand Released Date must be populated in order to enter Actual Draft Remand Released Date --></errorMessage>
+        <name>Actual_Draft_Remand_released_Not_Blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Calculated Final Signature Date must be populated in order to enter Actual Final Signature Date --></errorMessage>
+        <name>Actual_Final_Signature_Not_Blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Calculated Initiation Signature Date must be populated in order to enter Actual Initiation Signature Date --></errorMessage>
+        <name>Actual_Initiation_Signature_Not_Blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Calculated Preliminary Signature Date must be populated in order to enter Actual Preliminary Signature Date --></errorMessage>
+        <name>Actual_Preliminary_Signature_Not_Blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please account for weekends or holidays when adjusting the extension number of days. --></errorMessage>
+        <name>Calc_Draft_Must_Be_Less_Than_Calc_Final</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This record is locked.  Please contact your administrator about unlocking this record. --></errorMessage>
+        <name>Cannot_Edit_Locked_Record</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Every Litigation must have either a Petition, an Investigation, or a Segment with a related ADCVD Case record. Please enter ONLY one value, either for a Petition, an Investigation or a Segment. --></errorMessage>
+        <name>Every_Litigation_must_have_a_Parent</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Final Extension cannot be less than zero. --></errorMessage>
+        <name>International_Litigation_Final_Extension</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Preliminary Extension cannot be less than zero. --></errorMessage>
+        <name>International_Litigation_Preli_Extension</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You are not authorized to edit this field. Only a System Administrator can edit the parent Petition, Segment, Investigation or ADCVD Case for this record. --></errorMessage>
+        <name>Only_Admin_reparents_Litigation_Records</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please account for weekends or holidays when adjusting the extension number of days. --></errorMessage>
+        <name>Prelim_Extension_of_days</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Final Extension cannot be less than zero. --></errorMessage>
+        <name>Remand_Final_Extension</name>
+    </validationRules>
+</CustomObjectTranslation>

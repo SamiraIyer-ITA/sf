@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Image</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Images</value>
+    </caseValues>
+    <fields>
+        <label><!-- Carousel Class --></label>
+        <name>Carousel_Class__c</name>
+    </fields>
+    <fields>
+        <label><!-- Class --></label>
+        <name>Class__c</name>
+        <relationshipLabel><!-- Images --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Image --></label>
+        <name>Image__c</name>
+    </fields>
+    <fields>
+        <label><!-- Location --></label>
+        <name>Location__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Background Image</masterLabel>
+            <translation><!-- Background Image --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Carousel Image</masterLabel>
+            <translation><!-- Carousel Image --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>alt__c</name>
+    </fields>
+    <layouts>
+        <layout>Image Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Image --></label>
+            <section>Image</section>
+        </sections>
+    </layouts>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

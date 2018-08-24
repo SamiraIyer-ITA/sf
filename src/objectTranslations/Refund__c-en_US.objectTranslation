@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Refund</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Refunds</value>
+    </caseValues>
+    <fields>
+        <help><!-- Populated via formula to pull in the Order Number from the Payment record. --></help>
+        <label><!-- Order Number --></label>
+        <name>OrderNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pay Gov Tracking ID --></label>
+        <name>Pay_Gov_Tracking_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment --></label>
+        <name>Payment__c</name>
+        <relationshipLabel><!-- Refunds --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Return Code --></label>
+        <name>Return_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Return Detail --></label>
+        <name>Return_Detail__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Failed</masterLabel>
+            <translation><!-- Failed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Process</masterLabel>
+            <translation><!-- In Process --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Transaction Amount --></label>
+        <name>Transaction_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Transaction Date --></label>
+        <name>Transaction_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Transaction Status --></label>
+        <name>Transaction_Status__c</name>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Failed</masterLabel>
+            <translation><!-- Failed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Received</masterLabel>
+            <translation><!-- Received --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retired</masterLabel>
+            <translation><!-- Retired --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Settled</masterLabel>
+            <translation><!-- Settled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Success</masterLabel>
+            <translation><!-- Success --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Refund Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Refunds cannot be issued for payments than have occurred in less than 24 hours. --></errorMessage>
+        <name>Payment_older_than_24_hours</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Invalid refund amount.  The refund amount must be less than or equal to the payment minus total refunds already issued for the payment. --></errorMessage>
+        <name>Valid_Refund_Amount</name>
+    </validationRules>
+</CustomObjectTranslation>

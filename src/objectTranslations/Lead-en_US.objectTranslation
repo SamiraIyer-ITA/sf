@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Comments</value>
+        </caseValues>
+        <name>description_lead</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Marketing Email Opt Out</value>
+        </caseValues>
+        <name>email_opt_out_lead</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <layouts>
+        <layout>Lead Layout</layout>
+        <sections>
+            <label><!-- Data.com --></label>
+            <section>Data.com</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Partner Lead Layout</layout>
+        <sections>
+            <label><!-- Data.com --></label>
+            <section>Data.com</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Partner Information --></label>
+            <section>Partner Information</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

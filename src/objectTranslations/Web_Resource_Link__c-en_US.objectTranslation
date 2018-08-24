@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Web Resource Link</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Web Resource Links</value>
+    </caseValues>
+    <fields>
+        <label><!-- Display Name --></label>
+        <name>DisplayName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sort Order --></label>
+        <name>Sort_Order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Edit</masterLabel>
+            <translation><!-- Edit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending Approval</masterLabel>
+            <translation><!-- Pending Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Published</masterLabel>
+            <translation><!-- Published --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- URL --></label>
+        <name>URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Web Resource --></label>
+        <name>Web_Resource__c</name>
+        <relationshipLabel><!-- Web Resource Links --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Web Resource Link Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

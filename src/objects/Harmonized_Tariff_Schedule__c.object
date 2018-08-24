@@ -45,6 +45,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>false</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
@@ -272,17 +273,6 @@ PRIORVALUE(Locked__c) == true
         <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>HTS_record_must_have_a_Parent</fullName>
-        <active>true</active>
-        <description>Every Harmonized Tariff Schedule record must have either an ADCVD Order or a Suspension Agreement.</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, ISNEW(), OR( 
-(AND(ISBLANK(ADCVD_Order__c ), ISBLANK(Suspension_Agreement__c))),(IF(ISBLANK(ADCVD_Order__c ),0,1)+ 
-IF(ISBLANK(Suspension_Agreement__c),0,1)&gt;1) 
-) 
-)</errorConditionFormula>
-        <errorMessage>Every Harmonized Tariff Schedule Record must have an ADCVD Order or a Suspension Agreement as a parent. Please select the record for object this Harmonized Tariff Schedule is related to.</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>Only_Admin_reparents_HTS_records</fullName>
         <active>true</active>
         <description>HTS records can only be reparented by a System Administrator.</description>
@@ -295,4 +285,5 @@ OR(ISCHANGED(ADCVD_Order__c ),ISCHANGED(Suspension_Agreement__c)),$Profile.Name
 )</errorConditionFormula>
         <errorMessage>You are not authorized to edit this field. Only a System Administrator can edit the parent ADCVD Order or Suspension Agreement for this record.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>

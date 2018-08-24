@@ -1,0 +1,45 @@
+<apex:page controller="form_start_controller" applyBodyTag="false" applyHtmlTag="false" sidebar="false" showHeader="false" action="{!redirect}">
+<apex:composition template="Site_Template">
+
+    <apex:define name="page">
+    <apex:outputpanel layout="block" styleClass="main"  style="background:#fff;">
+    <link href="{!URLFor($Resource.ps, 'ps/application.css')}" rel="stylesheet" />
+    <apex:outputpanel layout="block" styleClass="row content">
+    <apex:outputpanel layout="block" styleClass="containerInternal enforceHeight">
+        
+        
+        <apex:outputpanel layout="block" styleClass="row pad-up-down" >
+        
+        <apex:messages />
+        <div class="alert alert-warning alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="margin-right:25px;margin-top:5px;"><span aria-hidden="true">&times;</span></button>
+  This application form has been optimized for Chrome, Edge, Firefox, and Safari.
+</div>
+        <br/>
+            <h1 id="form-start-header">{!if(form.Header__c != null, form.Header__c,form.name)}</h1><br/><br/>
+            <apex:outputpanel layout="block" styleClass="row pad-top">
+                <apex:outputpanel layout="block" styleClass="col-md-6 pad-left-zero" >
+                    <apex:outputtext rendered="{!form.OMB_Control_No__c != null}">
+                        <p class="pull-left"><strong>OMB Control No.: </strong>  <span class="bluespan"> {!form.OMB_Control_No__c}</span></p>
+                    </apex:outputtext>
+                </apex:outputpanel>
+                <apex:outputpanel layout="block" styleClass="col-md-6 pad-right-zero" >
+                    <apex:outputtext rendered="{!form.OMB_Expiration_Date__c != null}">
+                        <p class="pull-right"><strong>Exp. Date: </strong> <span class="bluespan"> <apex:outputText value="{0,date,MM/dd/yyyy}"> <apex:param value="{!form.OMB_Expiration_Date__c}" /> </apex:outputtext></span></p>
+                    </apex:outputtext>
+                </apex:outputpanel>
+            </apex:outputpanel>
+            <apex:outputText escape="false" value="{!form.Instructions__c}" rendered="{!form.Instructions__c != null}" styleClass="test-justify article-body" />
+            <br/><br/>
+            <apex:form >
+                <apex:commandButton styleClass="itaLoginBtn pull-left" style="width:130px;border-radius: 4px;text-transform:none;font-size:14px;" action="{!start}" rerender="formtemplate" value="{!if(participantRecord.id != null, 'Continue', 'Start')}"/>
+            </apex:form>
+            <br/><br/><br/>
+            </apex:outputpanel>
+        
+            </apex:outputpanel>
+        </apex:outputpanel>
+    </apex:outputpanel>
+    </apex:define>
+</apex:composition>
+</apex:page>

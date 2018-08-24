@@ -54,12 +54,7 @@
         </actions>
         <active>true</active>
         <description>This workflow rule updates the concatenated text field on HTS with, Commodity, Country and ADCVD Case Type.</description>
-        <formula>AND($Setup.Master_Automation__c.WorkflowRulesEnabled__c == true, (IF( ISNEW() || 
-( ISCHANGED( ADCVD_Case_Type__c ) 
-|| ISCHANGED( Country__c ) 
-|| ISCHANGED( Commodity__c )
-|| ISCHANGED(  ADCVD_Case__c  ) ) 
-, True, False)))</formula>
+        <formula>AND($Setup.Master_Automation__c.WorkflowRulesEnabled__c == true, (IF( ISNEW() ||  ( ISCHANGED( ADCVD_Case_Type__c )  || ISCHANGED( Country__c )  || ISCHANGED( Commodity__c ) || ISCHANGED(  ADCVD_Case__c  ) )  , True, False)))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -69,9 +64,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND($Setup.Master_Automation__c.WorkflowRulesEnabled__c == true, (IF( ISNEW() || 
-( ISCHANGED(  Product_Short_Name__c  )) 
-, True, False)))</formula>
+        <formula>AND($Setup.Master_Automation__c.WorkflowRulesEnabled__c == true, (IF( ISNEW() ||  ( ISCHANGED(  Product_Short_Name__c  ))  , True, False)))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -81,9 +74,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>AND($Setup.Master_Automation__c.WorkflowRulesEnabled__c == true, (IF( ISNEW() || 
-( ISCHANGED( Product__c ) ) 
-, True, False)))</formula>
+        <formula>AND($Setup.Master_Automation__c.WorkflowRulesEnabled__c == true, (IF( ISNEW() ||  ( ISCHANGED( Product__c ) )  , True, False)))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

@@ -1,0 +1,20 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="true" docType="html-5.0" applyBodyTag="false" applyHtmlTag="false">
+<apex:composition template="Site_Template">
+    <apex:define name="page">
+    <div class="subheader secondary-bg-ita">
+        <div class="containerITA nopad">
+            <div class="row nopad">
+                <nav id="subnav">
+                <h4 id="sectionName">Trade Event</h4>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <link rel="stylesheet" href="{!URLFor($Resource.trade_event, 'css/trade_event.css')}" />
+    <div id="content">
+    </div>
+    <script src="{!URLFor($Resource.trade_event, 'js/trade_event.min.js')}"></script>
+    </apex:define>
+</apex:composition>
+</apex:page>

@@ -1,0 +1,70 @@
+<apex:page sidebar="false" showHeader="false" controller="WebToLead" standardStylesheets="true" docType="html-5.0" applyBodyTag="false" applyHtmlTag="false">
+<apex:composition template="Site_Template">
+    <apex:define name="page">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet"/>
+    
+   <div class="main" id="content">
+            <div style="background-image: url('https://internationaltradeadministration.github.io/pattern-library/images/power-electricity-line-pylon-159218.jpeg'); background-repeat:no-repeat; background-size: cover;">
+                <div class="section clearfix ">
+                <div>
+                    <div class="row content">
+                         <div class="containerInternal enforceHeight">
+                                    <div class="col-md-5 call-out" >  
+                                        <div class="">
+                                                <h1>Get in front of potential international smart grid buyers.
+                                                </h1>
+                                        <br/><br/><p>Provide your email and we'll let you know when we are taking submissions to be part of our buyers guide, which helps connect foreign buyers with U.S. businesses in the smart grid industry.
+                                        
+                                        
+                                        </p>
+                                        
+                                               
+                                        
+                                        
+                                        
+<apex:form >
+<apex:outputpanel id="messages">
+    <apex:messages styleClass="alert alert-danger fade in itaNoUL"/>                                         
+</apex:outputpanel>
+<label for="first_name">First Name</label>
+<div class="input-group">
+<apex:inputfield styleClass="bodySrchBox bodySrchBoxprimary-bg-ita signupbox" onchange="form_validated = formValidate($(this));"  value="{!lead.firstname}" />
+<apex:outputPanel layout="block" styleClass="error-msg"></apex:outputPanel>
+</div>
+<label for="last_name">Last Name</label>
+<div class="input-group">
+<apex:inputfield styleClass="bodySrchBox bodySrchBoxprimary-bg-ita signupbox" onchange="form_validated = formValidate($(this));"  value="{!lead.lastname}" />
+<apex:outputPanel layout="block" styleClass="error-msg"></apex:outputPanel>
+</div>
+<label for="email">Email</label>
+<div class="input-group">
+<apex:inputfield styleClass="bodySrchBox bodySrchBoxprimary-bg-ita signupbox" onchange="form_validated = formValidate($(this));"  value="{!lead.email}" />
+<apex:outputPanel layout="block" styleClass="error-msg"></apex:outputPanel>
+</div>
+<label for="company">Company</label>
+<div class="input-group">
+<apex:inputfield styleClass="bodySrchBox bodySrchBoxprimary-bg-ita signupbox" onchange="form_validated = formValidate($(this));"  value="{!lead.company}" />
+<apex:outputPanel layout="block" styleClass="error-msg"></apex:outputPanel>
+</div>
+<br/>
+<div class="input-group">
+<div class="primary-bg-ita">
+<apex:commandButton styleClass="btn-dark" id="submit-form" value="Submit" onclick="console.log('1:' + !form_validated ); console.log('2: '+!validateAllRequiredFields()); if(!form_validated || !validateAllRequiredFields()){ return false;}" style="height:44px;cursor:pointer;" action="{!submit}" rerender="messages"/>
+</div>
+</div>
+</apex:form>                     
+                                        
+                                        
+                                        
+                                        </div>
+                                    </div> 
+                        
+                        </div>   
+                    </div>
+                </div>
+                </div>
+            </div>
+    </div>
+    </apex:define>
+</apex:composition>
+</apex:page>

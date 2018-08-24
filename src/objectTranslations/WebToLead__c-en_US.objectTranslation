@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>WebToLead</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>WebToLead</value>
+    </caseValues>
+    <fields>
+        <label><!-- CampaignId --></label>
+        <name>CampaignId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Return URL --></label>
+        <name>Return_URL__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

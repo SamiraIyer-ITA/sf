@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Framework__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Framework</label>
+        <referenceTo>Framework__c</referenceTo>
+        <relationshipLabel>Third Party Master List</relationshipLabel>
+        <relationshipName>Third_Party_Master_List</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>HR_Data__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Resolves HR Data Issues</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>NonHR_Data__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Resolves Non-HR Data Issues</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Dispute Resolution Provider</fullName>
+                    <default>false</default>
+                    <label>Dispute Resolution Provider</label>
+                </value>
+                <value>
+                    <fullName>U.S. Statutory Body</fullName>
+                    <default>false</default>
+                    <label>U.S. Statutory Body</label>
+                </value>
+                <value>
+                    <fullName>Verification Provider</fullName>
+                    <default>false</default>
+                    <label>Verification Provider</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Website__c</fullName>
+        <description>Official website of the Third Party Provider</description>
+        <externalId>false</externalId>
+        <inlineHelpText>What is the Website for this Third Party Provider?</inlineHelpText>
+        <label>Website</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <label>Third Party Master List</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>Type__c</columns>
+        <columns>NAME</columns>
+        <columns>Website__c</columns>
+        <columns>HR_Data__c</columns>
+        <columns>NonHR_Data__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Dispute_Resolution_Provider</fullName>
+        <columns>Type__c</columns>
+        <columns>NAME</columns>
+        <columns>Website__c</columns>
+        <columns>HR_Data__c</columns>
+        <columns>NonHR_Data__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Type__c</field>
+            <operation>equals</operation>
+            <value>Dispute Resolution Provider</value>
+        </filters>
+        <label>Dispute Resolution Provider</label>
+    </listViews>
+    <listViews>
+        <fullName>U_S_Statutory_Bodies</fullName>
+        <columns>Type__c</columns>
+        <columns>NAME</columns>
+        <columns>Website__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Type__c</field>
+            <operation>equals</operation>
+            <value>U.S. Statutory Body</value>
+        </filters>
+        <label>U.S. Statutory Bodies</label>
+    </listViews>
+    <listViews>
+        <fullName>Verification_Providers</fullName>
+        <columns>Type__c</columns>
+        <columns>NAME</columns>
+        <columns>Website__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Type__c</field>
+            <operation>equals</operation>
+            <value>Verification Provider</value>
+        </filters>
+        <label>Verification Providers</label>
+    </listViews>
+    <nameField>
+        <label>Third Party Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Third Party Master List</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Default</fullName>
+        <active>true</active>
+        <label>Default</label>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Dispute Resolution Provider</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U%2ES%2E Statutory Body</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Verification Provider</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

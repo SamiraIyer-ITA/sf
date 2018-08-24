@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>This represents a Salesforce.com Site or Community, but does not actually control the availability of a Site.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Default_Page__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The Page the site will default to, when a user logs on to the site Domain</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Page the site will default to, when a user logs on to the site Domain</inlineHelpText>
+        <label>Site Homepage</label>
+        <referenceTo>Page__c</referenceTo>
+        <relationshipLabel>Sites</relationshipLabel>
+        <relationshipName>Sites</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Disable_Login__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Disable Login</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Domain__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>The site URL</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The site URL</inlineHelpText>
+        <label>Domain</label>
+        <length>255</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>GA_Account__c</fullName>
+        <description>Google Analytics Account #.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>Google Analytics Account #.</inlineHelpText>
+        <label>GA Account #</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>GA_Domain__c</fullName>
+        <externalId>false</externalId>
+        <label>GA Domain</label>
+        <length>140</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>GA_Script__c</fullName>
+        <description>Allows user to select the correct GA script for the web domain.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Legacy script starts with &quot;var _gaq&quot;. Modern script starts with &quot;(function(i,s,o,g,r,a,m)&quot;.</inlineHelpText>
+        <label>GA Script</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Legacy</fullName>
+                    <default>false</default>
+                    <label>Legacy</label>
+                </value>
+                <value>
+                    <fullName>Modern</fullName>
+                    <default>false</default>
+                    <label>Modern</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Hide_Last_Published_Date__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Hide Last Published Date</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Logo_Alt_Text__c</fullName>
+        <description>The 508 Compliant text for the Site Logo.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>What is the 508 Compliant text for this Site&apos;s Logo?</inlineHelpText>
+        <label>Logo Alt Text</label>
+        <length>140</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Required_Footer__c</fullName>
+        <externalId>false</externalId>
+        <label>Required Footer</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Search_URL__c</fullName>
+        <description>The Search API endpoint</description>
+        <externalId>false</externalId>
+        <label>Search URL</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Site_CSS__c</fullName>
+        <description>The location of the style used by the site</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The location of the style used by the site</inlineHelpText>
+        <label>Site Colors</label>
+        <length>255</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Site_Logo__c</fullName>
+        <description>The Logo that is displayed on the top left corner of the page</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Logo that is displayed on the top left corner of the page</inlineHelpText>
+        <label>Site Logo</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Slogan__c</fullName>
+        <description>The &quot;Tagline&quot; that will be displayed beneath the Site Logo</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The &quot;Tagline&quot; that will be displayed beneath the Site Logo</inlineHelpText>
+        <label>Tagline</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Title__c</fullName>
+        <description>Name that will be displayed on the browser tab</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name that will be displayed on the browser tab</inlineHelpText>
+        <label>Title</label>
+        <length>150</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>UseAsDefault__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>UseAsDefault</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>VisualForce_Redirect__c</fullName>
+        <description>VisualForce Page to use as the homepage instead of the homepage Page record.</description>
+        <externalId>false</externalId>
+        <label>VisualForce Redirect</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>favicon__c</fullName>
+        <externalId>false</externalId>
+        <label>Site Favicon</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>isSearchEnabled__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Is the Search utility turned on for the Site Template for this Site?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Turn on the Search utility for the Site?</inlineHelpText>
+        <label>isSearchEnabled</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Site</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Domain__c</columns>
+        <columns>Site_CSS__c</columns>
+        <columns>Site_Logo__c</columns>
+        <columns>UseAsDefault__c</columns>
+        <columns>isSearchEnabled__c</columns>
+        <columns>Disable_Login__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Site Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Sites</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Domain__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Default_Page__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Disable_Login__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>isSearchEnabled__c</customTabListAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

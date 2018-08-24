@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>UI Labels used by Toolkit Search</description>
+    <fields>
+        <fullName>Block__c</fullName>
+        <defaultValue>&quot;Block&quot;</defaultValue>
+        <description>The UI Label for the Block dropdown</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Block</label>
+        <length>30</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Category__c</fullName>
+        <defaultValue>&quot;Product Category&quot;</defaultValue>
+        <description>The label for Project Category dropdown</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Category</label>
+        <length>30</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Class__c</fullName>
+        <defaultValue>&quot;Product Class&quot;</defaultValue>
+        <description>The UI Label for the Product Class dropdown</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Class</label>
+        <length>30</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EPA_Regulation__c</fullName>
+        <defaultValue>&quot;EPA Regulation&quot;</defaultValue>
+        <description>The label for the &apos;EPA Regulation&apos; Web Resource Type</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>EPA Regulation</label>
+        <length>30</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Environmental_Issue__c</fullName>
+        <defaultValue>&quot;Environmental Issue&quot;</defaultValue>
+        <description>The label for the &apos;Environmental Issue&apos; Web Resource Type</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Environmental Issue</label>
+        <length>30</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Issue__c</fullName>
+        <defaultValue>&quot;Issue&quot;</defaultValue>
+        <description>The label for the Issue Web Resource Type</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Issue</label>
+        <length>30</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NoResultsLabel__c</fullName>
+        <defaultValue>&quot;There are no results for the selected criteria&quot;</defaultValue>
+        <description>The label for &quot;There are no results for the selected criteria&quot;</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>NoResultsLabel</label>
+        <length>50</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Offering__c</fullName>
+        <defaultValue>&quot;Offering&quot;</defaultValue>
+        <description>The UI label for the Offering dropdown</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Offering</label>
+        <length>30</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Performance_Improvement_Areas__c</fullName>
+        <defaultValue>&quot;Performance Improvement Areas&quot;</defaultValue>
+        <description>The label for the &apos;Performance Improvement Areas&apos; Web Resource Type</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Performance Improvement Areas</label>
+        <length>30</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <defaultValue>&quot;Solution&quot;</defaultValue>
+        <description>The UI Label for the Product dropdown</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Product</label>
+        <length>30</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project_Phase__c</fullName>
+        <defaultValue>&quot;Project Phase&quot;</defaultValue>
+        <description>The label for the &apos;Project Phase&apos; Web Resource Type</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Project Phase</label>
+        <length>30</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sector__c</fullName>
+        <defaultValue>&quot;Sector&quot;</defaultValue>
+        <description>The label for the Sector Web Resource Type</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Sector</label>
+        <length>30</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SelectAnOption__c</fullName>
+        <defaultValue>&quot;Select an Option&quot;</defaultValue>
+        <description>The label for &quot;Select an Option&quot;</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>SelectAnOption</label>
+        <length>30</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Shore__c</fullName>
+        <defaultValue>&quot;Shore&quot;</defaultValue>
+        <description>The UI label for the Shore dropdown</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Shore</label>
+        <length>30</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Solution_Provider__c</fullName>
+        <defaultValue>&quot;U.S. Solution Provider&quot;</defaultValue>
+        <description>The label for the US Solution Provider</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Solution Provider</label>
+        <length>30</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Solution__c</fullName>
+        <defaultValue>&quot;Solution&quot;</defaultValue>
+        <description>The label for Solution</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Solution</label>
+        <length>30</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TotalProviders__c</fullName>
+        <description>The label for &apos;Total Providers&apos; on Toolkit Search.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Total Providers</label>
+        <length>30</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Providers__c</fullName>
+        <description>The label for &apos;Total Providers&apos; on Toolkit Search.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Total Providers</label>
+        <length>30</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Use_Case__c</fullName>
+        <defaultValue>&quot;Use Case&quot;</defaultValue>
+        <description>The label for the &apos;Use Case&apos; Web Resource Type</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Use Case</label>
+        <length>30</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Toolkit Search Label</label>
+    <pluralLabel>Toolkit Search Labels</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

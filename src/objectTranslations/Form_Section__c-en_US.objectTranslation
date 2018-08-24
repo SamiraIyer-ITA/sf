@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Section</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Sections</value>
+    </caseValues>
+    <fields>
+        <help><!-- Can Users create these records? --></help>
+        <label><!-- Create --></label>
+        <name>Create__c</name>
+    </fields>
+    <fields>
+        <help><!-- Can Users delete these records? --></help>
+        <label><!-- Delete --></label>
+        <name>Delete__c</name>
+    </fields>
+    <fields>
+        <label><!-- Display Order --></label>
+        <name>Display_Order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Form --></label>
+        <name>Form__c</name>
+        <relationshipLabel><!-- Sections --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The header of the section --></help>
+        <label><!-- Header --></label>
+        <name>Header__c</name>
+    </fields>
+    <fields>
+        <label><!-- Instructions --></label>
+        <name>Instructions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Object API Name --></label>
+        <name>Object_API_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Record Type --></label>
+        <name>Record_Type__c</name>
+    </fields>
+    <fields>
+        <help><!-- Can Users update these records? --></help>
+        <label><!-- Update --></label>
+        <name>Update__c</name>
+    </fields>
+    <fields>
+        <label><!-- Where Clause --></label>
+        <name>Where_Clause__c</name>
+    </fields>
+    <layouts>
+        <layout>Section Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Permissions --></label>
+            <section>Permissions</section>
+        </sections>
+        <sections>
+            <label><!-- Preamble --></label>
+            <section>Preamble</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

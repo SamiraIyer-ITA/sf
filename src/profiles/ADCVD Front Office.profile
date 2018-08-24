@@ -10,6 +10,106 @@
         <default>true</default>
         <visible>true</visible>
     </applicationVisibilities>
+    <applicationVisibilities>
+        <application>API_Partners</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>Forms_App</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>Forms_App_Lightning</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>ITA_CRM</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>Knowledge_Management</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>Web</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>eCommerce</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__AppLauncher</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__Chatter</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__Community</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__Insights</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__LightningInstrumentation</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__LightningSales</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__LightningSalesConsole</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__LightningService</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__Marketing</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__Platform</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__Sales</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__Service</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__ServiceConsole</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
     <classAccesses>
         <apexClass>ADCVDOrderTriggerHandler</apexClass>
         <enabled>false</enabled>
@@ -23,6 +123,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ADCVD_CaseMapper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ADCVD_FederalRegisterUtility</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -31,7 +135,19 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ADCVD_IMapper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ADCVD_OrderDetailController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ADCVD_OrderDetailControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ADCVD_OrderMapper</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -247,6 +363,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>FederalRegisterMapper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>FederalRegisterTriggerHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -287,6 +407,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>InvestigationMapper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>InvestigationOverride</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -316,6 +440,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ListUtils</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LitigationMapper</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -435,6 +563,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>PetitionMapper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>PetitionSelector</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -448,6 +580,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>PetitionTriggerHandlerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PrintAnalyticsWidgetController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -531,6 +667,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>SegmentMapper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>SegmentTriggerHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -592,6 +732,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>SuspensionAgreementTriggerHandlerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Suspension_AgreementMapper</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -715,6 +859,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TEST_ToolkitSearchService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TEST_ToolkitSearchServiceImpl</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TEST_URLRewriter</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -783,6 +935,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ToolkitSearchService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TranslationUtils</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -843,6 +999,22 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>core_IEventsConsumer</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>core_PlatformEventsDistributor</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>core_PlatformEventsDistributorTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>core_Utils</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>dlrs_IndustryTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -856,6 +1028,258 @@
     </classAccesses>
     <classAccesses>
         <apexClass>dlrs_WIN_ContributorTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_Answer</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_AnswerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_AnyOrder</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_AnyOrderTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_ApexMocks</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_ApexMocksConfig</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_ApexMocksTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_ApexMocksUtils</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_ApexMocksUtilsTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_Application</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_ApplicationTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_ArgumentCaptor</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_ArgumentCaptorTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_IDGenerator</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_IDGeneratorTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_IMatcher</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_ISObjectDomain</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_ISObjectSelector</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_ISObjectUnitOfWork</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_InOrder</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_InOrderTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_Inheritor</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_InheritorTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_InvocationOnMock</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_Match</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_MatchTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_MatcherDefinitions</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_MatcherDefinitionsTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_MatchersReturnValue</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_MethodArgValues</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_MethodArgValuesTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_MethodCountRecorder</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_MethodReturnValue</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_MethodReturnValueRecorder</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_MethodVerifier</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_Mocks</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_MyList</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_QualifiedMethod</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_QualifiedMethodAndArgValues</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_QualifiedMethodTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_QueryFactory</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_QueryFactoryTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_SObjectDescribe</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_SObjectDescribeTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_SObjectDomain</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_SObjectDomainTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_SObjectMocks</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_SObjectSelector</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_SObjectSelectorTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_SObjectUnitOfWork</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_SObjectUnitOfWorkTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_SecurityUtils</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_SecurityUtilsTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_StringBuilder</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_StringBuilderTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_System</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_SystemTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflib_VerificationMode</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflibext_Application</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflibext_ISObjectSelector</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflibext_ISObjectUnitOfWork</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflibext_SObjectSelector</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>fflibext_SObjectUnitOfWork</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -952,6 +1376,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>ADCVD_Case__c.Case_Concat_Text_Values__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>ADCVD_Case__c.Commodity__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1032,6 +1461,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>ADCVD_Order__c.Case_Concat_Text_Values__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>ADCVD_Order__c.Commodity__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1097,8 +1531,18 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>ADCVD_Order__c.Product_Short_Name_Text_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>ADCVD_Order__c.Product_Short_Name__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ADCVD_Order__c.Product_Text_Value__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -1132,233 +1576,8 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.Account_Type__c</field>
+        <field>ApplicationFactory_SelectorFieldset__mdt.IsActive__c</field>
         <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Actual_Create_Date__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Associated_Business_Names__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.CTS_Org_ID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Category__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Congressional_District__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Congressional_District_formula__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.County_Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.DUNS_field__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.DataPartnerType__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.DupeBlocker_Insert_Action__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.DupeBlocker_Update_Action__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.For_Dupeblocker_Triggering__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Has_Exported_To__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.ITA_Organization_and_Product_Description__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Ignore__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Industries__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Is_Holding__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Is_Subsidiary__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Lead_Industry_Holder__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Lead_Sector_Holder__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Lead_Sub_sector_Holder__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Local_ITA_Office__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Merged_Organization__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Minority_Owned_Indicator__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.NAICS__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Organization_18_ID__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Organization_One__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Owner_Office__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Primary_Trade_Style__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Privacy_Shield_Disabled__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Request_Organization_Removal__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.SME__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.SharePoint_ID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Sharepoint_Org_Name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.SourceTechnology__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.State_Code__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.US_Tax_ID_from_Data_com__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Validated__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Verification_Status__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Woman_Owned_Indicator__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.eMenu_ES_ID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.eMenu_Org_Name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.test__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.test_number__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.zipCodeLen__c</field>
-        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -1468,61 +1687,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Artifact__c.isCurrent__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Asset.Affirmation__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Asset.Confirm_HR_Compliance__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Asset.Framework__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Asset.HIDDENDataLoad__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Asset.HR_Data__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Asset.Inactive_Status_Reason__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Asset.Non_HR_Data__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Asset.Participant__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Asset.Participation__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Asset.Program__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Asset.Retains_Data__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1647,16 +1811,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Campaign.Program__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>CampaignMember.Campaign_Program_Name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Carousel_Item__c.Button_Path__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -1689,476 +1843,6 @@
         <editable>false</editable>
         <field>Carousel_Item__c.Sort_Order__c</field>
         <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Actual_Case_Closed_Date__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Actual_Create_Date__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Advocacy_Actions_to_Date_Summary__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.Advocacy_Case_Description__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Advocacy_Competitors__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Advocacy_Expected_Project_Value__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Advocacy_Expected_US_Export_Content__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Advocacy_Foreign_Decision_Makers__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Advocacy_Official_USG_Advisory_Position__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.Advocacy_Pro__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Advocacy_Project_Status__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Attended_SelectUSA_Investment_Summit_201__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.CD_Agreement_Notes__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.CD_Case_Origin_Notes__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.CD_Case_Origin__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.CD_Case_Value__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.CD_Compliance_Case_Initiated_Date__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.CD_Compliance_Case__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.CD_Describe_Other_Trade_Barrier_Area_s__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.CD_Explanation_of_Case_Value__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.CD_Initiation_Summary__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.CD_Interested_Parties__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.CD_Relevant_Agreement__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.CD_Success_Definition__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.CD_Tanc_Tags__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.CD_Trade_Barrier__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.CTS_ID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.CTS_Org_ID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Case_18_ID__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Case_Close_Summary__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Case_Contributor_Rollup__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Case_One__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Case_Owner_Full_Name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Client_Objective__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.Compliance_Case__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Contact_Email_Opt_Out__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Contact_Email__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Contact_Full_Name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.Contact_Name_copy__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Contact_is_Active__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Control_Number__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.Copy_AccountName_to_Text__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.Copy_Contact_Email__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Copy_Contact_Phone__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.Country_in_Case_Rollup__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Days_Open__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Fee__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.Fiscal_Year_Calculation_2015__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Fiscal_Year__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.Foreign_Buyer_Delegate__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.HIDDEN_PB_Access_Field__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.IP_Case_Origin_Other__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.IP_Case_Origin__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.IP_Case_Reason__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.IP_Client_Type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.IP_EDO_Type__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.IP_Service_Provided_to_Date_Summary__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.ITA_Action_Plan__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.ImportCountry__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.Industry_Rollup_Sum__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Industry_Sector__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.InternalGroupMailingLists__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.Investment_Promotion__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.Number_of_WINs_associated_to_Case__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Opportunity__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Order__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Org_City__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Org_Country__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Org_County__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Org_State__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Org_Street__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.Other_Countries__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Owners_Office__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Participation_Profile__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Participation__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Potential_Primary_Outcome__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.Primary_Country__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Program__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Recent_Comment__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.Record_Type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.Record_type_selector__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.Related_Case__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.Related_Case_del__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.Request_Case_Removal__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Running_User__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Running_user_Case_Contributor__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Sensitive_Attachment_Links__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Sent_Survey__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.SharePoint_ID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.SharePoint_Org_Name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Site__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.SuppliedCountry__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Survey_Send_Time__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.Trade_Barrier__c</field>
-        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -2397,136 +2081,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Contact.Account_Record_Type__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.Active__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.Actual_Create_Date__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.CTS_Contact_ID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.CTS_Org_ID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.Community_User__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.Congressional_District__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.Contact_18_ID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.Contact_One__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.Contact_Zip_Len__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Contact.Copy_AccountName_to_Text__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.County__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Contact.Lead_Source_Detail__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.Local_ITA_Office__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.Other_County__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.Owner_Office__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.Registered_Community_Member__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Contact.Request_Contact_Removal__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.ResearcherHIDDEN__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.SharePoint_ID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.Sharepoint_Org_Name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.Survey_Opt_Out__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Contact.Total_Activities__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.eMenu_ID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.eMenu_Org_Name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.site__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Content_Container__c.Type__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2692,6 +2246,21 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Contract__c.ContractNumber__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contract__c.Organization__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contract__c.ProductsServices__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Country_Commercial__kav.Approval_Queue__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2758,6 +2327,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Country_Commercial__kav.level_0__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Custom_Instruction__c.ADCVD_Case__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3292,12 +2866,32 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Date_Calculation__mdt.Extension_Field_2_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Date_Calculation__mdt.Extension_Object_1_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Date_Calculation__mdt.Extension_Object_2_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Date_Calculation__mdt.Number_of_Base_Date_Fields__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Date_Calculation__mdt.Number_of_Conditionals__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Date_Calculation__mdt.Number_of_Extensions__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3364,111 +2958,6 @@
         <editable>true</editable>
         <field>Department_Taxonomy__c.Region_2__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.Activity_Assigned_Office__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.Activity_One_Number__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.Activity_One__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.Activity_Org__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.Actual_Create_Date__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.CTS_Activity_ID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.CTS_Org_ID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.Fiscal_Year__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Event.Investment_Promotion__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.Original_Office__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.RH_Lev_1_GM_All__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.RH_Lev_2_DAS__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.RH_Lev_3_Region_2__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.RH_Lev_4_Region_1__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.RH_Lev_5_Country__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.RH_Lev_6_Office__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.RH_Lev_7_Individual__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.Related_to_Case__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.Running_User_is_Owner__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.eMenu_ID_c__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.eMenu_Org_Name__c</field>
-        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3586,14 +3075,39 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Federal_Register__c.ADCVD_Case_Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Federal_Register__c.ADCVD_Case__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Federal_Register__c.ADCVD_Order__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Federal_Register__c.Case_Concat_Text_Values__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Federal_Register__c.Cite_Number__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Federal_Register__c.Commodity__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Federal_Register__c.Country__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -3604,6 +3118,11 @@
         <editable>false</editable>
         <field>Federal_Register__c.External_Id__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Federal_Register__c.FR_Parent__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -3634,6 +3153,26 @@
         <editable>true</editable>
         <field>Federal_Register__c.Petition__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Federal_Register__c.Product_Short_Name_Text_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Federal_Register__c.Product_Short_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Federal_Register__c.Product_Text_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Federal_Register__c.Product__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -3852,7 +3391,32 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Harmonized_Tariff_Schedule__c.ADCVD_Case_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Harmonized_Tariff_Schedule__c.ADCVD_Case__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Harmonized_Tariff_Schedule__c.ADCVD_Order__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Harmonized_Tariff_Schedule__c.Case_Concat_Text_Values__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Harmonized_Tariff_Schedule__c.Commodity__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Harmonized_Tariff_Schedule__c.Country__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3866,12 +3430,32 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Harmonized_Tariff_Schedule__c.Locked__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Harmonized_Tariff_Schedule__c.Product_Short_Name_Text_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Harmonized_Tariff_Schedule__c.Product_Short_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Harmonized_Tariff_Schedule__c.Product_Text_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Harmonized_Tariff_Schedule__c.Product__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Harmonized_Tariff_Schedule__c.Suspension_Agreement__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4162,6 +3746,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Investigation__c.Announcement_Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Investigation__c.CBP_Case_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4212,6 +3801,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Investigation__c.Case_Concat_Text_Values__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Investigation__c.Commodity__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4229,6 +3823,11 @@
         <editable>false</editable>
         <field>Investigation__c.Country_in_which_factors_were_valued__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Investigation__c.Days_Remaining__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -4457,6 +4056,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Investigation__c.Product_Short_Name_Text_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Investigation__c.Product_Short_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4543,96 +4147,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Language__c.Language_Family__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead.APIEndpoint__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead.AccountCategory__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead.Campaign_ID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead.DataPartnerType__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead.DataSet__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Lead.Industry_Hidden__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Lead.Investment_Promotion__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead.Lead_Owner_Agency__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead.Lead_Owner_Country__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead.Lead_Owner_DAS__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead.Lead_Owner_Office__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead.Lead_Owner_Region__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead.Lead_Owner_Sub_region__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead.Lead_Owner_Unit__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Lead.Sector_Hidden__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead.SourceTechnology__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Lead.Sub_Sector_Hidden__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead.Web_Campaign_ID__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4742,6 +4256,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Litigation__c.Case_Concat_Text_Values__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Litigation__c.Commodity__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4771,7 +4290,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Litigation__c.Expected_Final_Signature_Before_Ext__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4904,6 +4423,11 @@
         <editable>false</editable>
         <field>Litigation__c.Product_Description__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Litigation__c.Product_Short_Name_Text_Value__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -5257,86 +4781,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Opportunity.APIEndpoint__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Opportunity.AccountCategory__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Opportunity.Category__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Opportunity.DataSet__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Opportunity.Site__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Opportunity.SourceTechnology__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Opportunity.Trade_Community_User__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Order.Order_Paid__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Order.Participant__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Order.Participation__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Order.Program__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>OrderItem.Affirmation__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>OrderItem.Confirm_HR_Compliance__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>OrderItem.Framework__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>OrderItem.HR_Data__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>OrderItem.Non_HR_Data__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Page_Content__c.Button_Text__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -5662,6 +5106,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Participation__c.FAAContractor__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Participation__c.Fax__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -5872,6 +5321,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Petition__c.Case_Concat_Text_Values__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Petition__c.Case_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5884,6 +5338,11 @@
         <editable>false</editable>
         <field>Petition__c.Commodity__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Petition__c.Country_Text__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -6012,6 +5471,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Petition__c.Product_Short_Name_Text_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Petition__c.Product_Short_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -6057,11 +5521,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Platform__kav.Epic__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Platform__kav.Level_0__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -6093,46 +5552,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Platform__kav.Video__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Pricebook2.Program__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Pricebook2.Public_Display_Instructions__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Pricebook2.Public_Display_Name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Product2.Block__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Product2.Category__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Product2.Class__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Product2.ProductOffering__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Product2.Shore__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6198,6 +5617,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Program__c.isActive__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Recusal__c.ADCVD_Case__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6426,6 +5850,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Related_Organization__c.Case_Concat_Text_Values__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Related_Organization__c.Country__c</field>
         <readable>true</readable>
@@ -6479,6 +5908,11 @@
         <editable>true</editable>
         <field>Related_Organization__c.Producer__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Related_Organization__c.Product_Short_Name_Text_Value__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -6586,12 +6020,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Segment__c.ADCVD_Case__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Segment__c.ADCVD_Order__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -6736,6 +6170,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.Announcement_Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Segment__c.Application_Accepted__c</field>
         <readable>true</readable>
@@ -6756,9 +6195,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Segment__c.Calculated_Final_FR_Signature__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -6784,6 +6223,11 @@
         <editable>false</editable>
         <field>Segment__c.Case_Briefs_Due__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.Case_Concat_Text_Values__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -6822,8 +6266,18 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Segment__c.Days_Remaining__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Segment__c.Deadline_for_Decision_on_How_to_Proceed__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.Decision_Signed__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -6881,7 +6335,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Segment__c.Final_Date_of_Anniversary_Month__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7172,8 +6626,18 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Segment__c.Product_Short_Name_Text_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Segment__c.Product_Short_Name__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Segment__c.Product_Text_Value__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -7457,6 +6921,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Staffing_Assignment__c.Case_Concat_Text_Values__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Staffing_Assignment__c.Country__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7484,6 +6953,16 @@
         <editable>false</editable>
         <field>Staffing_Assignment__c.Petition__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Staffing_Assignment__c.Product_Short_Name_Text_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Staffing_Assignment__c.Product_Short_Name__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -7882,6 +7361,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Suspension_Agreement__c.Case_Concat_Text_Values__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Suspension_Agreement__c.Commodity__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7932,8 +7416,18 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Suspension_Agreement__c.Product_Short_Name_Text_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Suspension_Agreement__c.Product_Short_Name__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Suspension_Agreement__c.Product_Text_Value__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -7983,111 +7477,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Sync_Utility__mdt.Synced_for_Final__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Activity_Assigned_Office__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Activity_One_Number__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Activity_One__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Activity_Org__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Actual_Create_Date__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.CTS_Activity_ID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.CTS_Org_ID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Fiscal_Year__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Task.Investment_Promotion__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Original_Office__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.RH_Lev_1_GM_All__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.RH_Lev_2_DAS__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.RH_Lev_3_Region_2__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.RH_Lev_4_Region_1__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.RH_Lev_5_Country__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.RH_Lev_6_Office__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.RH_Lev_7_Individual__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Related_to_Case__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Running_User_is_Owner__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.eMenu_ID_c__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.eMenu_Org_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8536,166 +7925,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>User.AD_User_Id__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.Can_Modify_Locked_WINs__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.Deactivated_Date__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.Department_Taxonomy_Office__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.ITA_Office__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.Keep_Active__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.OutlookInstructionsSent__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.RH_Lev_1_Top_Level__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.RH_Lev_2_DAS_Level__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.RH_Lev_3_Region_2__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.RH_Lev_4_Region_1__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.RH_Lev_5_Country__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.RH_Lev_6_Office__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.RH_Lev_7_Individual__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.Region__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.Registered_Domain__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.Staffing_Role__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.Updated_by_Last_AD_Run__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.User_One__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.agf__Certified_Product_Owner__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.agf__Certified_Scrum_Master__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.agf__External_ID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.agf__GUS_User_Type__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.agf__Notification_Level__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.agf__Product_Owner_Certified_Date__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.agf__Scrum_Master_Certified_Date__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.agf__Show_All_Work_Comments__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.agf__Summary__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.agf__Team_Member_Allocation__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.agf__User_Preference__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.agf__Wall_Preference__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>User.agf__Work_User_Interface__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>WIN_Contributor__c.Contributor_Name__c</field>
         <readable>true</readable>
@@ -8796,6 +8025,16 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>WIN__c.Actual_Follow_on_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>WIN__c.Actual_Initial_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>WIN__c.Additional_WIN_Features__c</field>
         <readable>true</readable>
@@ -8872,6 +8111,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>WIN__c.Client_Provided_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>WIN__c.Client_Verified__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -8914,6 +8158,16 @@
         <editable>true</editable>
         <field>WIN__c.EP__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>WIN__c.Estimated_Value_Explanation__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>WIN__c.Estimated_Value__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -9172,49 +8426,805 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>agf__ADM_Acceptance_Criterion__c.Pre_Conditions__c</field>
+        <field>core_EventConsumerSubscription__mdt.EventCategory__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>agf__ADM_Build__c.Deployment_Status__c</field>
+        <field>core_EventConsumerSubscription__mdt.EventName__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>agf__ADM_Build__c.Description__c</field>
+        <field>core_EventConsumerSubscription__mdt.IsActive__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>agf__ADM_Build__c.ParentBuild__c</field>
+        <field>core_Event__e.EventCategory__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>agf__ADM_Build__c.Questions__c</field>
+        <field>core_Event__e.EventName__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>agf__ADM_Build__c.Stage__c</field>
+        <field>core_Event__e.Payload__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>agf__ADM_Build__c.Summary__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>agf__ADM_Epic__c.Parent_Epic__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>agf__ADM_Epic__c.Phase__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
+    <layoutAssignments>
+        <layout>ADCVD_Case__c-ADCVD Case Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ADCVD_Case__c-ADCVD Case Layout</layout>
+        <recordType>ADCVD_Case__c.Filed</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ADCVD_Case__c-ADCVD Case Layout</layout>
+        <recordType>ADCVD_Case__c.Self_Initiated</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ADCVD_Objects__mdt-ADCVD Objects Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ADCVD_Order__c-Order</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-Account Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ApplicationFactory_Domain__mdt-Application Factory - Domain Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ApplicationFactory_SelectorFieldset__mdt-Application Factory - Selector Fieldset Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ApplicationFactory_Selector__mdt-Application Factory - Selector Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ApplicationFactory_Service__mdt-Application Factory - Service Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ApplicationFactory_UnitOfWork__mdt-Application Factory - Unit of Work Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Article__kav-Article Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Artifact__c-Artifact Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Artifact__c-Artifact Layout</layout>
+        <recordType>Artifact__c.Privacy_Policy</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Asset-Asset Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Automated_Chatter_Post__mdt-Automated Chatter Post Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Basic_Guide_to_Exporting__kav-Basic Guide to Exporting Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>BatchJobScheduler__c-BatchJobScheduler Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>CampaignMember-Campaign Member Page Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Carousel_Item__c-Carousel Item Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Case-Case Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>CaseClose-ITA Cases Closed</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Case_Contributor__c-Case Contributor Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Case_Solution__kav-FAQ Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Chapter_Section__c-Chapter Section Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Chapter__c-Chapter Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Clean_URL__c-Clean URL Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>CollaborationGroup-ADCVD Group Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Constant__mdt-Constant Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Contact-ITA Contact Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ContentVersion-Content Version Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Content_Container__c-Content Container Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Content_Container__c-Content Container Layout</layout>
+        <recordType>Content_Container__c.Admin_Only</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Content_Container__c-Content Container Layout</layout>
+        <recordType>Content_Container__c.Style</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Content_Override__c-Content Override Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Content_Version__c-Content Version Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Content_Version__c-Content Version Layout</layout>
+        <recordType>Content_Version__c.Content_Version</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Content_Version__c-Published Content Version Layout</layout>
+        <recordType>Content_Version__c.Published_Content_Version</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Content__c-API</layout>
+        <recordType>Content__c.API</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Content__c-Carousel</layout>
+        <recordType>Content__c.Carousel</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Content__c-Content Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Content__c-Content Layout</layout>
+        <recordType>Content__c.RichText</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Content__c-Draft Generic Content Layout</layout>
+        <recordType>Content__c.Draft_Generic_Content</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Content__c-Icon Layout</layout>
+        <recordType>Content__c.Icon</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Content__c-Series Layout</layout>
+        <recordType>Content__c.Series_List</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Content__c-Video</layout>
+        <recordType>Content__c.Video</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Content__c-Web Resource Layout</layout>
+        <recordType>Content__c.Web_Resource</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Contract-Contract Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Contract__c-Contract Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Country_Commercial__kav-Country Commercial Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Covered_Entity__c-Covered Entity Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Custom_Instruction__c-Custom Instruction Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>DandBCompany-D%26B Company Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Date_Calculation__mdt-Date Calculation Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Decision_Log__c-Decision Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Department_Taxonomy__c-Department Taxonomy Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>DuplicateRecordItem-Duplicate Record Item Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>DuplicateRecordSet-Duplicate Record Set Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>EmailMessage-Email Message Layout - Email-to-Case</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Event-Event Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>FAQ__kav-FAQ Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>FAQlegacy__kav-FAQ Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Federal_Register__c-Federal Register Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>FeedItem-Feed Item Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Field__c-Question Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Field__c-Question Layout</layout>
+        <recordType>Field__c.Text_Input</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Form_Section__c-Section Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Form__c-Form Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Form__c-Form Layout</layout>
+        <recordType>Form__c.OMB</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Framework__c-Framework Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Global-Global Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Harmonized_Tariff_Schedule__c-Harmonized Tariff Schedule Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Icon__c-Icon Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Idea-Idea Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Image__c-Image Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Inactive_Period__c-Inactive Period Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Inactive_Reason__c-Inactive Status Reason Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Industry__c-Taxonomy Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Insight_Atom__c-Insight Atom Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Insight_Chapter__c-Insight Chapter Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Insight__c-Insight Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Internal_Mailing_List__mdt-Internal Mailing List Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Investigation__c-AD Investigation Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Investigation__c-AD Investigation Layout</layout>
+        <recordType>Investigation__c.AD</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Investigation__c-CVD Investigation Layout</layout>
+        <recordType>Investigation__c.CVD</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Language__c-Language Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead-Lead Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Level__c-Level Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>LinkedArticle-Linked Article Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Litigation__c-InternationalLitigation</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Litigation__c-InternationalLitigation</layout>
+        <recordType>Litigation__c.International_Litigation</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Litigation__c-Remand</layout>
+        <recordType>Litigation__c.Remand</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Macro-Macro Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Market_Insight__kav-Market Insight Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Market_Intelligence__kav-Market Intelligence Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Master_CongressionalDistrict__c-Master CongressionalDistrict Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meta_Tag__c-Meta Tag Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>My_Profile_Option__c-My Profile Option Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Navigation_Group__c-Navigation Group Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Navigation_Link__c-Navigation Link Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Navigation_Link__c-Navigation Link Layout</layout>
+        <recordType>Navigation_Link__c.Link</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Navigation_Link__c-Navigation Link Layout</layout>
+        <recordType>Navigation_Link__c.Section</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ObjectTerritory2AssignmentRule-Object Territory Assignment Rule Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-Opportunity Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>OpportunityLineItem-Opportunity Product Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Order-Order Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>OrderItem-Order Product Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Page_Content__c-Carousel Layout</layout>
+        <recordType>Page_Content__c.Carousel</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Page_Content__c-Icon Element Layout</layout>
+        <recordType>Page_Content__c.Icon</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Page_Content__c-Row Content Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Page_Content__c-Row Content Layout</layout>
+        <recordType>Page_Content__c.Generic_Content</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Page_Content__c-Search Layout</layout>
+        <recordType>Page_Content__c.API</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Page_Content__c-Series List Layout</layout>
+        <recordType>Page_Content__c.Series_List</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Page_Content__c-Video Layout</layout>
+        <recordType>Page_Content__c.Video</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Page__c-Generic Page</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Page__c-Generic Page</layout>
+        <recordType>Page__c.GenericPage</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Participant_Contact__c-Participant Contact Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Participant_Contact__c-Participant Contact Layout</layout>
+        <recordType>Participant_Contact__c.Privacy_Shield_Application_Contact</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Participant_Contact__c-Participant Contact Layout</layout>
+        <recordType>Participant_Contact__c.Regional_Toolkit_Application_Contact</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Participant_Contact__c-Participant Contact Layout</layout>
+        <recordType>Participant_Contact__c.Toolkit_Application_Contact</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Participant__c-Participation Status Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Participation__c-Environmental Technologies Toolkit Layout</layout>
+        <recordType>Participation__c.Environmental_Technologies_Toolkit</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Participation__c-General Toolkit Layout</layout>
+        <recordType>Participation__c.General_Toolkit</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Participation__c-NextGen Toolkit Layout</layout>
+        <recordType>Participation__c.NextGen_Toolkit</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Participation__c-Oil %26 Gas Toolkit Layout</layout>
+        <recordType>Participation__c.Oil_Gas_Toolkit</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Participation__c-Participation Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Participation__c-Participation Layout</layout>
+        <recordType>Participation__c.General</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Participation__c-Participation Layout</layout>
+        <recordType>Participation__c.Privacy_Shield</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Payment__c-Payment Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Petition__c-Petition Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Petition__c-Petition Layout</layout>
+        <recordType>Petition__c.Filed</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Petition__c-Petition Layout</layout>
+        <recordType>Petition__c.Self_Initiated</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Platform__kav-Platform Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Pricebook2-Price Book Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PricebookEntry-Price Book Entry</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Product2-Product Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Program__c-Mission Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Publication_Template__c-Publication Template Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>QuickText-Quick Text Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Recusal__c-Primary Recusal Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Recusal__c-Primary Recusal Layout</layout>
+        <recordType>Recusal__c.Primary</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Recusal__c-Related Recusal Layout</layout>
+        <recordType>Recusal__c.Related</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Refund__c-Refund Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>RelatedCountries__c-Countries Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Related_Cases_and_Orgs__c-Cases Associated to WIN Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Related_Cases_and_Orgs__c-Cases Associated to WIN Layout</layout>
+        <recordType>Related_Cases_and_Orgs__c.Related_Cases_and_Orgs</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Related_Organization__c-Related Organization Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Related_Organization__c-Related Organization Layout</layout>
+        <recordType>Related_Organization__c.Customs_Instructions_Only</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Related_Organization__c-Related Organization Layout</layout>
+        <recordType>Related_Organization__c.Petitioner_Respondent</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Related_Resource__c-Related Resource Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Renewing_Product__c-Renewing Product Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Row__c-Row Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Scorecard-Scorecard Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ScorecardAssociation-Scorecard Association Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ScorecardMetric-Scorecard Metric Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>SearchPromotionRule-Promoted Search Term Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Section__c-Section Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Section__c-Section Layout</layout>
+        <recordType>Section__c.Initiative</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Section__c-Section Layout</layout>
+        <recordType>Section__c.Office</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Section__c-Section Layout</layout>
+        <recordType>Section__c.Program</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Section__c-Section Layout</layout>
+        <recordType>Section__c.Service</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Segment__c-Administrative Review</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Segment__c-Administrative Review</layout>
+        <recordType>Segment__c.Administrative_Review</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Segment__c-Anti-Circumvention Review</layout>
+        <recordType>Segment__c.Anti_Circumvention_Review</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Segment__c-Changed Circumstances Review</layout>
+        <recordType>Segment__c.Changed_Circumstances_Review</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Segment__c-Expedited Review</layout>
+        <recordType>Segment__c.Expedited_Review</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Segment__c-New Shipper Review</layout>
+        <recordType>Segment__c.New_Shipper_Review</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Segment__c-Scope Inquiry</layout>
+        <recordType>Segment__c.Scope_Inquiry</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Segment__c-Sunset Review</layout>
+        <recordType>Segment__c.Sunset_Review</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Series__c-Series Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Service__mdt-Service Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Site__c-Site Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>SocialPersona-Social Persona Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>SocialPost-Social Post Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Social_Icons__c-Social Icon Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Solution-Solution Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Staffing_Assignment__c-Staffing Assignment Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>State_Report__kav-State Report Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Survey_Result__c-Annual Survey Result Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Survey_Result__c-Annual Survey Result Layout</layout>
+        <recordType>Survey_Result__c.Annual_Survey</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Survey_Result__c-Transactional Survey Result Layout</layout>
+        <recordType>Survey_Result__c.Transactional_Survey</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Suspension_Agreement__c-Suspension Agreement Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Sync_Utility__mdt-Sync Utility Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Task-Task Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Template_Page_Content__c-_Page_Content Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Template_Page_Content__c-_Page_Content Layout</layout>
+        <recordType>Template_Page_Content__c.API</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Template_Page_Content__c-_Page_Content Layout</layout>
+        <recordType>Template_Page_Content__c.Call_to_Action</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Template_Page_Content__c-_Page_Content Layout</layout>
+        <recordType>Template_Page_Content__c.Carousel</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Template_Page_Content__c-_Page_Content Layout</layout>
+        <recordType>Template_Page_Content__c.Generic_Content</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Template_Page_Content__c-_Page_Content Layout</layout>
+        <recordType>Template_Page_Content__c.Video</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Template_Page__c-_Page Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Template_Row__c-Row Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Territory2Model-Territory Model Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Territory2Type-Territory Type Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Third_Party_Master_List_Framework__c-Third Party Master List - Framework Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Third_Party_Master_List__c-Third Party Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Third_Party_Master_List__c-Third Party Layout</layout>
+        <recordType>Third_Party_Master_List__c.Default</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Third_Party__c-Third Party Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Third_Party__c-Third Party Layout</layout>
+        <recordType>Third_Party__c.Resolution_Provider</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Third_Party__c-Third Party Layout</layout>
+        <recordType>Third_Party__c.Statutory_Body</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Third_Party__c-Third Party Layout</layout>
+        <recordType>Third_Party__c.Verification</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Tolling_Day__c-Tolling Day Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Toolkit_Search_Dropdown_Order__mdt-Toolkit Search Dropdown Order Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Toolkit_Search_Label__mdt-Toolkit Search Label Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Top_Markets__kav-Top Markets Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Trade_Agreement__kav-Barrier Trade Agreement Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Translation__c-Issue Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Translation__c-Issue Layout</layout>
+        <recordType>Translation__c.Application</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Translation__c-Issue Layout</layout>
+        <recordType>Translation__c.Issue</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Translation__c-Issue Layout</layout>
+        <recordType>Translation__c.Product</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Translation__c-Issue Layout</layout>
+        <recordType>Translation__c.Regulation</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>URL__c-URL Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>User-User Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>UserAlt-User Profile Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>WIN_Contributor__c-ITA POC Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>WIN__c-Advocacy Locked Layout</layout>
+        <recordType>WIN__c.Advocacy_Locked</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>WIN__c-Advocacy Locked Layout</layout>
+        <recordType>WIN__c.WIN_Standard_Record_Type</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>WIN__c-Advocacy Open</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>WIN__c-Advocacy Open</layout>
+        <recordType>WIN__c.Advocacy</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>WIN__c-Commercial Diplomacy Locked</layout>
+        <recordType>WIN__c.Commercial_Diplomacy_Locked</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>WIN__c-Commercial Diplomacy Open</layout>
+        <recordType>WIN__c.Commercial_Diplomacy</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>WIN__c-Export Promo Locked</layout>
+        <recordType>WIN__c.Export_Promotion_Locked</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>WIN__c-Export Promo Open</layout>
+        <recordType>WIN__c.Export_Promotion</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>WIN__c-Investment Promotion Locked</layout>
+        <recordType>WIN__c.Investment_Promotion_Locked</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>WIN__c-Investment Promotion Open</layout>
+        <recordType>WIN__c.Investment_Promotion</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Web_Resource_Link__c-Web Resource Link Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>core_EventConsumerSubscription__mdt-Platform Event Consumer Layout</layout>
+    </layoutAssignments>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ADCVD_Case__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
     <objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
@@ -9333,7 +9343,7 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <pageAccesses>
-        <apexPage>adcvd</apexPage>
+        <apexPage>ADCVD_Search</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -9497,6 +9507,10 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>PrintAnalyticsWidget</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>RE_MarketingPage</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -9589,6 +9603,10 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>adcvd</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>article</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -9602,6 +9620,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>carouselManager</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>cn_search</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -9634,6 +9656,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>envirotech_toolkit</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>et_search</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -9685,6 +9711,14 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>ng_search</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>og_search</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>page</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -9725,6 +9759,10 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>re_search</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>redirect</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -9742,6 +9780,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>search_export</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>sg_search</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -9785,6 +9827,10 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>toolkitssearch</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>tpp_rates</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -9792,6 +9838,17 @@
         <apexPage>trade_events_search</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
+        <recordType>ADCVD_Case__c.Filed</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>ADCVD_Case__c.Self_Initiated</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Artifact__c.Privacy_Policy</recordType>
@@ -9855,6 +9912,16 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Content__c.Web_Resource</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Field__c.Text_Input</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Form__c.OMB</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -9952,6 +10019,11 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Participation__c.General_Toolkit</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Participation__c.NextGen_Toolkit</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -10114,6 +10186,11 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Translation__c.Application</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>WIN__c.Advocacy</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -10263,8 +10340,12 @@
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>Next_Deadlines_Abbr</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>Next_Major_Deadline_Dashboard</tab>
-        <visibility>DefaultOff</visibility>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Page_Builder</tab>
@@ -10304,6 +10385,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>RelatedCountries__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Related_Organization__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
@@ -10438,10 +10523,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>LightningExperienceUser</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>PreventClassicExperience</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

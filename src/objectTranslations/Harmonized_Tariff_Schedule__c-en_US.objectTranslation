@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Harmonized Tariff Schedule</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Harmonized Tariff Schedules</value>
+    </caseValues>
+    <fields>
+        <label><!-- ADCVD Case Type --></label>
+        <name>ADCVD_Case_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- ADCVD Case --></label>
+        <name>ADCVD_Case__c</name>
+        <relationshipLabel><!-- Harmonized Tariff Schedules --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- ADCVD Order --></label>
+        <name>ADCVD_Order__c</name>
+        <relationshipLabel><!-- Harmonized Tariff Schedules --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Case Concat Text Values --></label>
+        <name>Case_Concat_Text_Values__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commodity --></label>
+        <name>Commodity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- HTS Number --></label>
+        <name>HTS_Number_Formatted__c</name>
+    </fields>
+    <fields>
+        <label><!-- HTS Number Length --></label>
+        <name>HTS_Number_Length__c</name>
+    </fields>
+    <fields>
+        <label><!-- HTS Number --></label>
+        <name>HTS_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Record Locked --></label>
+        <name>Locked__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Short Name Text Value --></label>
+        <name>Product_Short_Name_Text_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Short Name --></label>
+        <name>Product_Short_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Text Value --></label>
+        <name>Product_Text_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- Suspension Agreement --></label>
+        <name>Suspension_Agreement__c</name>
+        <relationshipLabel><!-- Harmonized Tariff Schedules --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Harmonized Tariff Schedule Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- This record is locked.  Please contact your administrator about unlocking this record. --></errorMessage>
+        <name>Cannot_Edit_Locked_Record</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You are not authorized to edit this field. Only a System Administrator can edit the parent ADCVD Order or Suspension Agreement for this record. --></errorMessage>
+        <name>Only_Admin_reparents_HTS_records</name>
+    </validationRules>
+</CustomObjectTranslation>

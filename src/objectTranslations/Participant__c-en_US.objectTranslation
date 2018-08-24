@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>OLD Participation</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>OLD Participation</value>
+    </caseValues>
+    <fields>
+        <label><!-- Affirmation --></label>
+        <name>Affirmation_Confirmation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Affirmation --></label>
+        <name>Affirmation__c</name>
+        <relationshipLabel><!-- OLD Participation --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Application Stage --></label>
+        <name>Application_Stage__c</name>
+        <picklistValues>
+            <masterLabel>Finalized</masterLabel>
+            <translation><!-- Finalized --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending Review</masterLabel>
+            <translation><!-- Pending Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Under Review</masterLabel>
+            <translation><!-- Under Review --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Verification Method --></label>
+        <name>Claiming_Self_Verified__c</name>
+        <picklistValues>
+            <masterLabel>Outside Compliance Review</masterLabel>
+            <translation><!-- Outside Compliance Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Self-Assessment</masterLabel>
+            <translation><!-- Self-Assessment --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Confirm HR Compliance --></label>
+        <name>Confirm_HR_Compliance__c</name>
+    </fields>
+    <fields>
+        <label><!-- DisplayInActiveList --></label>
+        <name>DisplayInActiveList__c</name>
+    </fields>
+    <fields>
+        <label><!-- Framework --></label>
+        <name>Framework__c</name>
+        <relationshipLabel><!-- OLD Participation --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- HR Data --></label>
+        <name>HR_Data__c</name>
+    </fields>
+    <fields>
+        <label><!-- Inactive Status Reason --></label>
+        <name>Inactive_Status_Reason__c</name>
+        <relationshipLabel><!-- OLD Participation --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Non-HR Data --></label>
+        <name>Non_HR_Data__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity --></label>
+        <name>Opportunity__c</name>
+        <relationshipLabel><!-- OLD Participation --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Order --></label>
+        <name>Order__c</name>
+        <relationshipLabel><!-- OLD Participation --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Participant --></label>
+        <name>Participant__c</name>
+        <relationshipLabel><!-- OLD Participation --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Privacy Programs --></label>
+        <name>Privacy_Programs__c</name>
+    </fields>
+    <fields>
+        <label><!-- Program --></label>
+        <name>Program__c</name>
+    </fields>
+    <fields>
+        <help><!-- What is the intended use of the Framework by this Participant. --></help>
+        <label><!-- Purpose --></label>
+        <name>Purpose__c</name>
+    </fields>
+    <fields>
+        <label><!-- Retains Data --></label>
+        <name>Retains_Data__c</name>
+    </fields>
+    <fields>
+        <help><!-- What is the Status of this Organization&apos;s Participation in the Framework? --></help>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Under Review</masterLabel>
+            <translation><!-- Under Review --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Participation Status Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Data and Compliance --></label>
+            <section>Data and Compliance</section>
+        </sections>
+        <sections>
+            <label><!-- Inactive Participant --></label>
+            <section>Inactive Participant</section>
+        </sections>
+        <sections>
+            <label><!-- Participation --></label>
+            <section>Participation</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- You must indicate the reason that this Organization is no longer participating in the Framework. --></errorMessage>
+        <name>Inactive_Status_Reason_Is_Required</name>
+    </validationRules>
+</CustomObjectTranslation>

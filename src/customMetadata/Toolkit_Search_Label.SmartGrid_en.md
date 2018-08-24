@@ -8,7 +8,7 @@
     </values>
     <values>
         <field>Category__c</field>
-        <value xsi:type="xsd:string">Sub-Category 1</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Class__c</field>
@@ -20,11 +20,11 @@
     </values>
     <values>
         <field>Environmental_Issue__c</field>
-        <value xsi:type="xsd:string">Sub-Sector</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>Issue__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Sub-Sector</value>
     </values>
     <values>
         <field>NoResultsLabel__c</field>
@@ -40,7 +40,7 @@
     </values>
     <values>
         <field>Product__c</field>
-        <value xsi:type="xsd:string">Sub-Category 2</value>
+        <value xsi:type="xsd:string">Product Type</value>
     </values>
     <values>
         <field>Project_Phase__c</field>
@@ -48,11 +48,11 @@
     </values>
     <values>
         <field>Sector__c</field>
-        <value xsi:type="xsd:string">Sub-Sector</value>
+        <value xsi:nil="true"/>
     </values>
     <values>
         <field>SelectAnOption__c</field>
-        <value xsi:type="xsd:string">Search by PRODUCT CATEGORY</value>
+        <value xsi:type="xsd:string">Search by Product Category</value>
     </values>
     <values>
         <field>Shore__c</field>

@@ -1,0 +1,15 @@
+<apex:page sidebar="false" showHeader="false" applyBodyTag="false" applyHtmlTag="false">
+ <apex:composition template="Site_Template">
+     <apex:define name="page">
+
+<style>
+#frame {
+min-height:1400px;
+}
+</style>
+
+<apex:iframe id="frame" src="https://selectusa.github.io/map/" scrolling="false"/>
+
+     </apex:define>
+ </apex:composition>
+</apex:page>

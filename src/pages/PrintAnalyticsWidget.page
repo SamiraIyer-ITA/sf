@@ -1,0 +1,84 @@
+<apex:page controller="PrintAnalyticsWidgetController" action="{!init}"
+           showheader="false" sidebar="false" standardStylesheets="false" title="Printable View">
+    <apex:form >
+    <apex:stylesheet value="https://getbootstrap.com/dist/css/bootstrap.min.css"/>
+
+    <apex:includeScript value="https://code.jquery.com/jquery-3.1.0.min.js"/>
+    <style>
+    @page { margin: 0; }
+    @media print{@page {size: landscape}}
+    </style>
+    
+   
+    <br/><br/>    
+   <div class="container-fluid">     
+    <div class="table-responsive">
+       
+        <table name="results" id="results" data-role="table" class="table"> 
+            <thead>
+                <apex:repeat id="columnNames" value="{!fieldLabels}" var="field">
+                <th scope="col">{!field}</th><!--<th>Product Short Name</th><th>Country</th><th>Record Type</th><th>Next Major Deadline Type</th><th>Office</th>-->
+                </apex:repeat>
+            </thead>             
+            <tbody></tbody>        
+        </table>
+    </div>
+    </div>
+    
+    
+    
+    <script>
+        $(function() {
+            $.ajaxSetup({
+                headers: {"Authorization": 'Bearer {!$Api.Session_ID}'}
+            });
+            
+            executeQuery();
+        });
+
+/* Executes the SAQL query and displays the resulting accounts. Note: Account.Name and AccountId referenced below refer to the dataset field names. Update them to match your dataset fields. */                
+        function executeQuery() {
+            var query = {};
+            var fieldNames = "{!fieldNames}"
+            query.statements = "{!JSENCODE(query)}";
+            var queryObj = {query: query.statements};
+            $.ajax({
+                type: 'POST',
+                url: '/services/data/v39.0/wave/query',
+                data: JSON.stringify(queryObj),
+                contentType: 'application/json',
+                success: function(data) {
+                    var record = null;
+                    var row = null;
+                    $('#results tbody').empty();
+                    
+                    for (var i = 0; i < data.results.records.length; i++) {
+                        record = data.results.records[i];
+                        row = $('<tr>');
+                        /*for (var j = 0; j < fieldNames.length; j++
+                            row.append($('<td>').html(record[fieldNames[j]]));
+                        }*/
+                        row.append($('<td>').html(record['Next_Major_Deadline__c']));
+                        row.append($('<td>').html(record['Product_Short_Name__c']));
+                        row.append($('<td>').html(record['Country__c']));
+                        row.append($('<td>').html(record['Object_Name']));
+                        row.append($('<td>').html(record['Next_Major_Deadline_Type']));
+                        row.append($('<td>').html(record['Office__c']));
+                        $('#results tbody').append(row);
+                    }
+                },
+            });
+        }
+        
+        
+    </script>
+    
+     <script>
+ $(document).ajaxSuccess(function() {
+   window.print();
+           return false;
+});
+ </script>
+
+    </apex:form>
+</apex:page>

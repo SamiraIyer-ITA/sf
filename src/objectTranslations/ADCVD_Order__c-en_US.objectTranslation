@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>ADCVD Order</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>ADCVD Orders</value>
+    </caseValues>
+    <fields>
+        <label><!-- ADCVD Case Number Text Value --></label>
+        <name>ADCVD_Case_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- ADCVD Case Type --></label>
+        <name>ADCVD_Case_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- ADCVD Case --></label>
+        <name>ADCVD_Case__c</name>
+        <relationshipLabel><!-- ADCVD Orders --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- ADCVD Order Name --></label>
+        <name>ADCVD_Order_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Anniversary Month --></label>
+        <name>Anniversary_Month__c</name>
+    </fields>
+    <fields>
+        <label><!-- CBP Case Number --></label>
+        <name>CBP_Case_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Concat Text Values --></label>
+        <name>Case_Concat_Text_Values__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commodity --></label>
+        <name>Commodity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- Effective Date for Most Recent SunsetFR --></label>
+        <name>Effective_Date_for_Most_Recent_SunsetFR__c</name>
+    </fields>
+    <fields>
+        <label><!-- Effective Date of Revocation --></label>
+        <name>Effective_Date_of_Revocation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Investigation --></label>
+        <name>Investigation__c</name>
+        <relationshipLabel><!-- ADCVD Orders --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Link --></label>
+        <name>Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- Record Locked --></label>
+        <name>Locked__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lotus Notes History Data --></label>
+        <name>Lotus_Notes_History_Data__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Sunset Initiation Date --></label>
+        <name>Next_Sunset_Initiation_Date_UI__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Sunset Initiation Date --></label>
+        <name>Next_Sunset_Initiation_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Office --></label>
+        <name>Office__c</name>
+    </fields>
+    <fields>
+        <label><!-- Petition Case Type --></label>
+        <name>Petition_Case_Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Petition Filed --></label>
+        <name>Petition_Filed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Short Name Text Value --></label>
+        <name>Product_Short_Name_Text_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Short Name --></label>
+        <name>Product_Short_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Text Value --></label>
+        <name>Product_Text_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- Revocation Reason --></label>
+        <name>Revocation_Reason__c</name>
+        <picklistValues>
+            <masterLabel>CCR - No Interest</masterLabel>
+            <translation><!-- CCR - No Interest --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Court Overturned</masterLabel>
+            <translation><!-- Court Overturned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sunset - Injury</masterLabel>
+            <translation><!-- Sunset - Injury --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sunset - No Interest</masterLabel>
+            <translation><!-- Sunset - No Interest --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sunset - No Likelihood</masterLabel>
+            <translation><!-- Sunset - No Likelihood --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Segment Status --></label>
+        <name>Segment_Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Current-Active</masterLabel>
+            <translation><!-- Current-Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Current-Inactive</masterLabel>
+            <translation><!-- Current-Inactive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order FR Needed</masterLabel>
+            <translation><!-- Order FR Needed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Revoked-Complete</masterLabel>
+            <translation><!-- Revoked-Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Revoked-Incomplete</masterLabel>
+            <translation><!-- Revoked-Incomplete --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Third Country Case Number(s) --></label>
+        <name>Third_Country_Case_Number_s__c</name>
+    </fields>
+    <fields>
+        <label><!-- This Investigation has an Order --></label>
+        <name>This_Investigation_has_an_Order__c</name>
+    </fields>
+    <layouts>
+        <layout>Order</layout>
+        <sections>
+            <label><!-- Administrative --></label>
+            <section>Administrative</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Order Information --></label>
+            <section>Order Information</section>
+        </sections>
+        <sections>
+            <label><!-- Path Key Fields --></label>
+            <section>Path Key Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Scope of the Order --></label>
+            <section>Scope of the Order</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- This record is locked.  Please contact your administrator about unlocking this record. --></errorMessage>
+        <name>Cannot_Edit_Locked_Record</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You are not authorized to edit this field. Only a System Administrator can edit the parent Investigation or ADCVD Case for this record. --></errorMessage>
+        <name>Only_Admin_can_reparent_ADCVD_Order</name>
+    </validationRules>
+</CustomObjectTranslation>

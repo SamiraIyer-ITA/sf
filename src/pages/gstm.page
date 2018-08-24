@@ -1,0 +1,24 @@
+<apex:page sidebar="false" showHeader="false" controller="article_controller" applyBodyTag="false" applyHtmlTag="false">
+ <apex:composition template="Site_Template">
+     <apex:define name="page">
+   
+  <head>
+    <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="{!URLFor($Resource.steelsearch, 'steelsearch/grids-responsive-min.css')}" rel="stylesheet" type="text/css" />
+    <meta name="description" content="Interactive steel export and import trade monitor expands upon ITA's Steel Import Monitoring and Analysis (SIMA) and publishes aggregate global steel mill product trade flows."></meta>
+    <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    </head>
+<body>
+    <script>
+      $(document).ready(function() {
+        Explorer.render('explorer-app');
+      });
+    </script>
+  <link href="{!URLFor($Resource.steelsearch, 'steelsearch/explorer.css')}" rel="stylesheet" />
+    <div id="explorer-app"></div>
+  <script type="text/javascript" src="{!URLFor($Resource.steelsearch, 'steelsearch/bundle.js')}"></script>
+</body>
+     </apex:define>
+ </apex:composition>
+</apex:page>

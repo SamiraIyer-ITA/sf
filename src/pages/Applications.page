@@ -1,0 +1,19 @@
+<apex:page controller="ApplicationsPageController" sidebar="false" showHeader="false" applyBodyTag="false" applyHtmlTag="false">
+  <apex:composition template="Site_Template">
+    <apex:define name="page">
+      <link href="{!URLFor($Resource.ps, 'ps/applications.css')}" rel="stylesheet" />              
+        <apex:outputpanel layout="block" styleClass="row content">
+            <apex:outputpanel layout="block" styleClass="containerInternal enforceHeight">
+                <apex:outputpanel layout="block" styleClass="col-md-12">
+                    <h1 id="form-top-header">Applications</h1><br/><br/>
+                    <apex:outputpanel layout="block" styleClass="list-group">
+                    <apex:repeat value="{!applications}" var="a">                       
+                          <a class="list-group-item" href="{!a.Form_Application_Link__c}"><apex:outputText rendered="{!a.Program__r.Name != null}">{!a.Program__r.Name} - </apex:outputText><apex:outputText rendered="{!a.Program__r.Name == null}">(No Program) - </apex:outputText> {!a.Name}<apex:outputText rendered="{!a.Most_Recent_Case__r.Status == 'Denied'}"> - Denied</apex:outputText><apex:outputText rendered="{!a.Most_Recent_Case__r.Status == 'Successfully Closed'}"> - Accepted</apex:outputText><apex:outputText rendered="{!a.Most_Recent_Case__r.Status == 'New' || a.Most_Recent_Case__r.Status == 'In Progress' || a.Most_Recent_Case__r.Status == 'Action Required'}"> - Submitted</apex:outputText><apex:outputText rendered="{!a.Most_Recent_Case__r.Status == null}"> - New</apex:outputText></a>                       
+                    </apex:repeat>  
+                    </apex:outputPanel>                  
+                </apex:outputPanel>
+            </apex:outputPanel>
+        </apex:outputPanel> 
+    </apex:define>
+  </apex:composition>
+</apex:page>

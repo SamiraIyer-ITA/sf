@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Platform Event</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Platform Events</value>
+    </caseValues>
+    <fields>
+        <label><!-- Event Category --></label>
+        <name>EventCategory__c</name>
+    </fields>
+    <fields>
+        <label><!-- Event Name --></label>
+        <name>EventName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payload --></label>
+        <name>Payload__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Field</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Fields</value>
+    </caseValues>
+    <fields>
+        <label><!-- API --></label>
+        <name>API__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dependent Field --></label>
+        <name>Dependent_Field__c</name>
+        <relationshipLabel><!-- Fields --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Display Order --></label>
+        <name>Display_Order__c</name>
+    </fields>
+    <fields>
+        <label><!-- Field Header --></label>
+        <name>Field_Header__c</name>
+    </fields>
+    <fields>
+        <label><!-- Help Text --></label>
+        <name>Help_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Instructions --></label>
+        <name>Instructions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Display Location --></label>
+        <name>List_Card_Display__c</name>
+        <picklistValues>
+            <masterLabel>Content</masterLabel>
+            <translation><!-- Content --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Header</masterLabel>
+            <translation><!-- Header --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Read Only --></label>
+        <name>Read_Only__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reference --></label>
+        <name>Reference__c</name>
+    </fields>
+    <fields>
+        <help><!-- Is it required? --></help>
+        <label><!-- Required --></label>
+        <name>Required__c</name>
+    </fields>
+    <fields>
+        <label><!-- Section --></label>
+        <name>Section__c</name>
+        <relationshipLabel><!-- Fields --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Class --></label>
+        <name>Style__c</name>
+        <relationshipLabel><!-- Fields --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Validation Type --></label>
+        <name>Validation_Type__c</name>
+    </fields>
+    <layouts>
+        <layout>Question Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Field --></label>
+            <section>Field</section>
+        </sections>
+        <sections>
+            <label><!-- Preamble --></label>
+            <section>Preamble</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <description><!-- Input Field of type Text --></description>
+        <label><!-- Text Input --></label>
+        <name>Text_Input</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

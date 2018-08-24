@@ -1,0 +1,536 @@
+<apex:page controller="ToolkitSearchController" showHeader="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false" readOnly="true" action="{!refreshFilters}">
+<apex:composition template="Site_Template">
+    <apex:define name="page">
+    <link href="{!URLFor($Resource.ps, 'ps/it.css')}" rel="stylesheet" />
+    <script>
+    $(function() {
+        $(".blue-dropdown" ).click(
+            function(){ $(this).addClass('open') },
+            function(){ $(this).removeClass('open') }
+        );
+    });
+</script>
+<script>
+jQuery(document).ready(function($) {  
+$(window).load(function(){
+    $('#preloader').fadeOut('slow',function(){$(this).remove();});
+});
+});
+</script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('input[type="checkbox"]').click(function(){
+                var inputValue = $(this).attr("value");
+                $("." + inputValue).toggle();  
+            });
+        });
+    </script>
+    <script type="text/javascript">    
+        var delay = (function(){
+          var timer = 0;
+          return function(callback, ms){
+            clearTimeout (timer);
+            timer = setTimeout(callback, ms);
+          };
+        })();
+    </script>
+    <script type="text/javascript">
+        function enterPress(e){
+            if(e.keyCode==13){
+                if(e.preventDefault){ 
+                    e.preventDefault();
+                }
+                else{
+                    e.returnValue=false;
+                }
+                searchByText();
+                getResults();
+            }        
+        }
+    </script>   
+<script>
+function spinLoad(this1)
+{
+  //alert('asdasd');
+  this1.disabled=true; 
+  this1.innerHTML='<div id="preloader"></div>';
+}
+</script>
+<script language="javascript">
+    function scrollTo(hash) {
+        location.hash = "#" + hash;
+    }
+</script>   
+
+<body>
+ <div id="preloader"></div>
+    
+    <apex:outputpanel layout="block" styleClass="row content" style="padding-top:20px;">
+    <apex:outputpanel layout="block" styleClass="containerInternal enforceHeight" >
+    <apex:outputpanel layout="block" id="toolkit" styleClass="toolkit-search">
+    
+    <apex:actionStatus id="busyOverlay" onStart="spinLoad(this)" onStop="remove()"/>
+              
+    <h1 id="toolkit-h1">{!toolkitName} Toolkit Search</h1>
+    <h2 class="lead" id="description"><apex:outputText value="{!toolkitDescription}" escape="false" /></h2>
+    
+    
+    <apex:form id="myForm">
+    
+    <apex:outputpanel layout="block"  >
+    <apex:outputpanel layout="block" styleClass="row pad-none">
+    <apex:outputpanel layout="block"  rendered="{!hasTranslations}">
+       <label>Search the toolkit in</label>
+    <apex:selectList id="language" value="{!selectedLanguage}" style="height:50px;width:200px;border-color:#eaeef2;border-width:2px;" styleClass="itaFormField" size="1">  
+        <apex:selectOptions value="{!languageOptions}"/>
+        <apex:actionSupport event="onchange" id="changeLanguage" reRender="myForm" action="{!changeLanguage}" status="busyOverlay" oncomplete="refreshFilters()"/>
+    </apex:selectList>
+    </apex:outputpanel>
+    </apex:outputpanel>
+    
+    <apex:outputpanel layout="block" styleClass="searchcontainer">
+    <br/>
+    
+    
+    <script>
+$(document).ready(function(){
+    $(".searchString").focus(function(){
+        $(".searchstringButton").css("border-color", "#90a6bb");
+    });
+    $(".searchString").focusout(function(){
+        $(".searchstringButton").css("border-color", "#eaeef2");
+    });
+});
+</script>
+    
+    <h2 id="toolkit-h2">Search by Provider Name</h2> 
+<apex:inputText styleClass="bodySrchBox bodySrchBoxtertiary-bg-ita searchString" id="searchString" html-placeholder="{!usSolutionProviderLabel}" alt="{!usSolutionProviderLabel}" value="{!searchString}" dir="{!selectedLanguageDirection}" onkeypress="enterPress(event)"/>
+
+<apex:commandLink styleClass="bodySrchBtn bodySrchBtntertiary-bg-ita searchstringButton" action="{!getResultsForTextSearch}" status="busyOverlay" rerender="myForm"  dir="{!selectedLanguageDirection}" oncomplete="getResults();">
+<i class="fa fa-search valignTop faAltHover" style="font-size: 16px;"></i>
+</apex:commandLink>
+
+<apex:actionFunction name="searchByText" action="{!getResultsForTextSearch}" status="busyOverlay" rerender="myForm" />    
+<apex:actionFunction name="getResults" action="{!getResults}" status="busyOverlay" rerender="myForm"/>
+<apex:actionFunction name="refreshFilters" action="{!refreshFilters}" status="busyOverlay" rerender="myForm"/>
+</apex:outputpanel>
+
+
+</apex:outputpanel>
+    
+    <br/><br/>
+    <apex:outputpanel layout="block" styleClass="row pad-none" >
+        <h2 id="toolkit-h2">{!selectAnOptionLabel}</h2>
+    </apex:outputpanel>    
+    
+        <!--Debugging String value: {!temp}<br/>-->
+        <!--Debugging Int value: {!tempInt}<br/><br/>-->
+                       
+    <apex:outputpanel layout="block" styleClass="row pad-none navbar">
+<apex:repeat value="{!filterGroups}" var="filterGroup">      
+<div class="blue-dropdown col-lg-3 col-md-12 col-sm-12 mega-menu" >
+  <button id="dLabel" class="filter-dropdown-blue {!if(filterGroup.hasSelectedOption == true, 'disabled', '')}" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > 
+    <apex:outputText value="{!filterGroup.name}" dir="{!selectedLanguageDirection}"/> <i class="fa fa-chevron-down " id="dropdown-chev" aria-hidden="true"></i>
+  </button>
+  
+  <div class="dropdown-menu" id="dropdown-menu" aria-labelledby="dLabel">     
+    <div class="boo">
+    <apex:selectCheckboxes value="{!filterGroup.selectedOptions}" lang="en" dir="{!selectedLanguageDirection}" >
+        <apex:actionSupport event="onchange" action="{!refreshChoices}" rerender="myForm" status="busyOverlay" oncomplete="getResults();"></apex:actionSupport>
+        <apex:selectOptions value="{!filterGroup.availableOptions}"/>
+    </apex:selectCheckboxes>
+    </div>                                 
+  </div>
+  
+</div>
+</apex:repeat>
+
+
+</apex:outputpanel>
+    
+    <br/>
+    
+ <div class="row pad-none">    
+    <!-- a filter selection -->
+    <apex:actionFunction name="closeFilterItem" reRender="myForm" action="{!deselectFilterItem}" oncomplete="getResults();">
+        <apex:param name="optionToRemove" value=""/>
+    </apex:actionFunction>
+    
+    <apex:repeat value="{!filterGroups}" var="filterGroup">
+    <apex:repeat value="{!filterGroup.selectedOptions}" var="selectedOption">
+        <div class="col-md-3 {!selectedOption} box" id="filter-selection" >
+            
+            <div class="row pad-none" >
+            <div class="col-md-10 col-sm-9 col-xs-9" >
+            <span id="filter-selection-option">{!RIGHT(selectedOption,  (LEN(selectedOption) - FIND('|', selectedOption)))}               
+            </span>
+            </div>
+            
+            <div class="col-md-1 col-md-push-1" >
+            <button type="button" class="close" data-target="#filter-selection" data-dismiss="alert" onclick="closeFilterItem('{!selectedOption}');spinLoad(this);" >
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+            </button>
+            </div>
+            </div>
+            
+        </div>
+      </apex:repeat>
+    </apex:repeat>   
+                
+<!-- End of filters (subject to change css) -->   
+</div>  
+      
+    <!--start left side-->      
+    <div class="row pad-none" style="{!IF(filterSelected, 'display:block', 'display:none')}">     
+    <br/><br/><hr/><br/> 
+        <div class="{!if(hasResourceFilterGroup  == true, 'col-md-6', 'row pad-none')}">
+          <!--left side primary title-->  
+          <h2 id="resultsTop">{!usSolutionProviderLabel}</h2>
+          <br/>
+      
+          
+          <!--result cards-->
+          {!if(! hasProductResults, noResultsForCriteriaLabel + '.', '')}
+          <apex:outputpanel layout="block" styleClass="row pad-none"> 
+                      
+              <apex:outputpanel layout="block" styleClass="col-md-6 col-sm-6 col-xs-6">
+                   
+          <span class="paging-nav"></span>
+              </apex:outputPanel>
+              
+              <apex:outputpanel layout="block" styleClass="col-md-6 col-sm-6 col-xs-6">
+              <apex:outputpanel layout="block" styleClass="row pad-none">
+              <!--<br/>-->
+                  <apex:outputText value="{!totalProvidersLabel}: {!appProductResultsSize}" styleClass="pull-right" rendered="{!If(appProductResultsSize > 0, true, false)}"/>  
+              </apex:outputPanel>
+              </apex:outputPanel>
+              
+          </apex:outputPanel>         
+          
+          
+          
+          <!--<button class="prev pagination">prev</button>
+          <button class="next pagination">next</button>-->
+         
+          
+          <ul id="gallery" class="clearfix" style="list-style: none;padding-left: 0;">
+          <apex:repeat value="{!appProductResults}" var="apr" >          
+              <li class="row pad-none line-content" id="card">            
+                  <div class="row" id="row-in">         
+                  <div class="col-md-7">
+                      <apex:outputLink value="/provider?id={!apr.application.id}&uri={!selectedLanguage}">
+                          <h3 id="toolkit-h3">
+                              <apex:outputText value="{!apr.application.translatedDisplayName}" style="display:block;" />
+                              <apex:outputText value="{!apr.application.displayName}"/>
+                          </h3>
+                      </apex:outputLink>
+                      <!--<p id="location">
+                          <apex:outputText value="{!apr.application.city}"/>{!if(and(apr.application.city != null, apr.application.state != null), ', ', '')}
+                          <apex:outputText value="{!apr.application.state}"/>
+                      </p>-->
+                  </div>
+                  
+                  <div class="col-md-5">
+                      <p class="text-muted" id="solutions-for">{!solutionLabel}:</p>
+                      <ul id="solutions-for-list">
+                         
+                          <apex:repeat value="{!apr.products}" var="product" >
+                              <li><apex:outputText value="{!product.name}" dir="{!selectedLanguageDirection}"/></li>
+                          </apex:repeat>
+                         
+                      </ul>
+                  </div>  
+                  </div>                    
+              </li>                     
+          </apex:repeat>    
+       </ul>
+       
+      
+                
+          
+          
+          <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script>
+  /*
+*  by cpbaumann
+*/
+
+(function ( $, window, document, undefined ) {
+
+    "use strict";
+
+    var pluginName = 'Paginationwithhashchange2',
+        defaults = {
+            nextSelector: '.next',
+            prevSelector: '.prev',
+            counterSelector: '.counter',
+            pagingSelector: '.paging-nav',
+            itemsPerPage: 5,
+            initialPage: 1
+        };
+
+    var Range = (function () {
+
+        var i = 0,
+            minValue = 0,
+            maxValue = 5;
+
+        return {
+            get: function(){
+                return i;
+            },
+            set: function (val) {
+                i = val;
+            },
+            setborders: function (min, max) {
+                minValue = min;
+                maxValue = max;
+            },
+            plus: function () {
+                return (i < maxValue) ? ++i : i = minValue;
+            },
+            minus: function () {
+                return (i > minValue) ? --i : i = maxValue;
+            }
+        };
+    })();
+
+
+    var Hash = (function () {
+
+        return {
+            protocol: '//',
+            host: window.location.host,
+            pathname: window.location.pathname,
+            search: window.location.search,
+            set: function (hash) {
+                window.location = this.protocol +
+                    this.host +
+                    this.pathname +
+                    this.search +
+                    '#' + hash;
+            },
+            get: function () {
+                return window.location.hash.replace('#', '');
+            }
+        };
+    })();
+
+
+    function Paginationwithhashchange2( element, options ) {
+
+        this.element = element;
+        this.options = $.extend( {}, defaults, options) ;
+        this._defaults = defaults;
+        this._name = pluginName;
+        this.init();
+    }
+
+    Paginationwithhashchange2.prototype.init = function () {
+        
+        /*
+        * Vars
+        */
+        var next = $(this.options.nextSelector),
+            prev = $(this.options.prevSelector),
+            counter = $(this.options.counterSelector),
+            pagingSelector = this.options.pagingSelector,
+            itemsPerPage = this.options.itemsPerPage,
+            items = $(this.element),
+            numItems = items.children().length,
+            numPages = Math.ceil(numItems / itemsPerPage),
+            maxValue = numPages,
+            minValue = 1,
+            initValue = this.options.initialPage,
+            page;
+
+        /*
+        * Function
+        */
+        function plus() {
+
+            page = Range.plus();
+            counter.html(page);
+            Hash.set(page);
+            showPage(page);
+            setActiveState(page);
+        }
+
+        function minus() {
+
+            page = Range.minus();
+            counter.html(page);
+            Hash.set(page);
+            showPage(page);
+            setActiveState(page);
+        }
+
+        function pageNav() {
+        
+            var ListWrapper = '<ul></ul>',
+                ListElements = '',
+                i;
+
+            for (i = 1; i <= maxValue; i += 1) {
+                ListElements += '<li><a href="#' +
+                    i +
+                    '">' +
+                    i +
+                    '</a></li>';
+            }
+
+            $(ListElements)
+                .appendTo(
+                    $(ListWrapper)
+                        .appendTo(pagingSelector)
+                    );
+        }   
+    
+        function showPage (page) {
+        
+            items.children().hide();
+            var i,
+                s = (page - 1) * itemsPerPage,
+                max = page * itemsPerPage;
+
+            for (i = s; i < max; i += 1) {
+               items.children().eq(i).show();
+            }
+        }
+
+        function setInitalPage () {
+
+            var h = Hash.get();
+            return (h  === "") ? initValue : h;
+        }
+
+        function setActiveState (page) {
+
+            var p = page;
+            $(pagingSelector).each(function () {
+                $(this).find('li')
+                .removeClass('active')
+                    .eq(p - 1)
+                    .addClass('active');
+           });
+       }
+
+        function initital () {
+
+            page = setInitalPage();
+            Hash.set(page);
+            Range.setborders(minValue, maxValue);
+            Range.set(page);
+
+            counter.html(page);
+            pageNav();
+            showPage(page);
+            setActiveState(page);
+        }
+
+        function pageevent (e) {
+
+            e.preventDefault();
+            page = this.hash.replace('#', '');
+            Hash.set(page);
+            Range.set(page);
+            counter.html(page);
+            showPage(page);
+            setActiveState(page);
+            scrollTo('resultsTop');
+        }
+
+        /*
+        * Events, init
+        */
+        initital();
+        next.on('click', plus);
+        prev.on('click', minus);
+        $(pagingSelector).on('click', 'a', pageevent);
+    };
+
+    $.fn[pluginName] = function ( options ) {
+        return this.each(function () {
+            if (!$.data(this, 'plugin_' + pluginName)) {
+                $.data(this, 'plugin_' + pluginName, 
+                new Paginationwithhashchange2( this, options ));
+            }
+        });
+    };
+
+})( jQuery, window, document );
+  </script>
+  <script>
+    $(document).ready(function() {
+      $('#gallery').Paginationwithhashchange2({
+        nextSelector: '.next',
+        prevSelector: '.prev',
+        counterSelector: '.counter',
+        pagingSelector: '.paging-nav',
+        itemsPerPage: 10,
+        initialPage: 1
+      });
+    });
+  </script>
+          
+          
+       
+          <apex:outputpanel layout="block" styleClass="row pad-none">             
+              <apex:outputpanel layout="block" styleClass="col-md-6 col-sm-6 col-xs-6">
+                  <span class="paging-nav"></span>    
+     
+              </apex:outputPanel>
+              <apex:outputpanel layout="block" styleClass="col-md-6 col-sm-6 col-xs-6">
+              
+                  <apex:outputText value="{!totalProvidersLabel}: {!appProductResultsSize}" styleClass="pull-right" rendered="{!If(appProductResultsSize > 0, true, false)}" /> 
+              </apex:outputPanel>
+          </apex:outputPanel>  
+          
+          <!--end result card-->     
+        </div>
+    <!--end left side-->
+          
+    <!--start right side--> 
+    
+        <div class="col-md-5 col-md-push-1" id="descriptionside" style="{!IF(hasResourceFilterGroup , 'display:block', 'display:none')}" >
+            <apex:repeat value="{!filterGroups}" var="filterGroup">
+                <apex:outputPanel rendered="{!filterGroup.name != 'Solution' && filterGroup.filterGroupType == 'Resource'}">  <!--Solutions are rendered on the left side of the page-->
+                <div class="row pad-none"><h2 id="toolkit-h2"><apex:outputText value="{!filterGroup.name}" dir="{!selectedLanguageDirection}"/></h2></div> 
+                <div id="{!filterGroup.name}">
+                    {!if(! filterGroup.hasFilterGroupResults, noResultsForCriteriaLabel + '.', '')}
+                    <apex:repeat value="{!filterGroup.filterItemResults}" var="filterItem" >
+                        <!--{!filterItem.name}<br/>
+                        There are no links<br/>
+                        There is no item summary-->
+                        <p class="margin-bottom-none"><strong><apex:outputText value="{!filterItem.name}" dir="{!selectedLanguageDirection}" rendered="{! filterItem.summary != null && filterItem.linksSize != 1}" /></strong></p>  
+                        <div class="row pad-none"><apex:outputText escape="false" value="{!filterItem.summary}" dir="{!selectedLanguageDirection}"/></div>
+                        <div class="row pad-none"><apex:repeat value="{!filterItem.links}" var="link" >
+                            <ul style="list-style-type: none;margin:0;padding:0;">
+                            <li style="list-style-type: none;margin:0;padding:0;"><apex:outputLink value="{!link.url}" id="theLink" dir="{!selectedLanguageDirection}" target="_blank">{!link.name}</apex:outputLink></li>
+                            </ul>
+                        </apex:repeat></div><br/>
+                    </apex:repeat>
+                </div>
+                </apex:outputPanel>
+                <br/><br/>
+            </apex:repeat>
+        </div>
+    </div>            
+<br/><br/>
+    <!--end right side-->
+    
+    <div class="well"><p class="small" style="text-decoration:underline;">Disclaimer</p><p class="small"><apex:outputText value="{!disclaimerText}" escape="false"/></p></div>
+    
+    
+    </apex:form>
+    
+    </apex:outputpanel>
+    </apex:outputpanel>
+    </apex:outputpanel>
+              
+    </body>
+
+</apex:define>
+</apex:composition>
+</apex:page>

@@ -1,0 +1,295 @@
+<apex:page controller="form_controller" applyBodyTag="false" applyHtmlTag="false" sidebar="false" showHeader="false" action="{!redirect}">
+<apex:composition template="Site_Template">
+<apex:define name="page">
+
+<script>
+jQuery(document).ready(function($) {  
+$(window).load(function(){
+    $('#preloader').fadeOut('slow',function(){$(this).remove();});
+});
+});
+var form_validated = true;
+</script>
+<script>
+function spinLoad(this1)
+{
+  //alert('asdasd');
+  this1.disabled=true; 
+  this1.innerHTML='<div id="preloader"></div>';
+}
+</script>
+<script>
+function jump(){
+    window.scrollTo(0,0);
+}
+</script>
+   
+    <apex:actionStatus id="busyOverlay" onStart="spinLoad(this)" onStop="remove()"/>
+    
+    
+    <apex:outputpanel layout="block" styleclass="containerInternal enforceHeight">
+    <apex:outputpanel layout="block" styleClass="main" id="formbody">
+    <link href="{!URLFor($Resource.ps, 'ps/application.css')}" rel="stylesheet" />
+    <apex:outputpanel layout="block" styleClass="container application" id="formtemplate" >
+        <apex:outputpanel id="messageWrapper">
+            <div id="za-error"></div>
+           <apex:messages styleClass="alert alert-danger fade in itaNoUL"/> 
+            
+        </apex:outputpanel>
+    
+    <div class="alert alert-warning alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="margin-right:25px;margin-top:5px;"><span aria-hidden="true">&times;</span></button>
+  This application form has been optimized for Chrome, Edge, Firefox, and Safari.
+</div>
+    
+    
+    <!-- loop through the sections --> 
+    <apex:form id="form" rendered="{!ParticipantRecord != null}">
+    <apex:outputpanel layout="block" styleClass="row pad-up-down" style="padding-right:0;padding-left:0">
+            <apex:outputpanel layout="block" styleClass="row stepbox pad-down" >
+        
+       
+        
+        <h1 id="form-top-header">{!if(form.Header__c != null, form.Header__c,form.name)}</h1>
+    <apex:outputpanel layout="block" styleClass="row pad-top">
+    <apex:outputpanel layout="block" styleClass="col-md-6 pad-left-zero" >
+    <apex:outputtext rendered="{!form.OMB_Control_No__c != null}">
+        <p class="pull-left"><strong>OMB Control No.: </strong>  <span class="bluespan"> {!form.OMB_Control_No__c}</span></p>
+    </apex:outputtext>
+    </apex:outputpanel>
+    <apex:outputpanel layout="block" styleClass="col-md-6 pad-right-zero" >
+    <apex:outputtext rendered="{!form.OMB_Expiration_Date__c != null}">
+        <p class="pull-right"><strong>Exp. Date: </strong> <span class="bluespan"> <apex:outputText value="{0,date,MM/dd/yyyy}"> <apex:param value="{!form.OMB_Expiration_Date__c}" /> </apex:outputtext></span></p>
+    </apex:outputtext>
+    </apex:outputpanel>
+    </apex:outputpanel>
+    <apex:outputText escape="false" value="{!form.Instructions__c}" rendered="{!form.Instructions__c != null}" styleClass="test-justify article-body" />
+    
+    <h3>{!pricebook.Public_Display_Name__c}</h3>
+        <apex:outputtext rendered="{!pricebook.Public_Display_Instructions__c != null}">
+            <p>{!pricebook.Public_Display_Instructions__c}</p>            
+        </apex:outputtext>
+        
+        <br/><hr/>
+        
+        <apex:repeat value="{!sections}" var="section">
+          <apex:outputpanel layout="block" styleClass="row pad-none"  >  
+                
+                <apex:outputpanel layout="block" styleClass="row pad-zero" >
+                <apex:outputpanel layout="block" styleClass="col-md-9 col-xs-6 pad-left-zero" >
+                <apex:outputtext rendered="{!section.Header__c != null}">
+                    <h4>{!section.Header__c}</h4>               
+                    <a name="{!section.id}" />
+                </apex:outputtext>
+                </apex:outputPanel>
+                
+                <apex:outputpanel layout="block" styleClass="col-md-3 col-xs-6 pad-right-zero" >
+                <!-- TODO - need to figure out if it is a list that allows multiple -->
+                <apex:commandButton action="{!addRecordToSection}" value="Add" rendered="{!Section.Create__c == true && section.Object_API_Name__c != form.Object_API__c}" reRender="form" styleClass="btn btn-gray btn-sm" style="width:80px;" status="busyOverlay" >
+                    <apex:param name="newRecord" assignTo="{!newRecordObjectType}" value="{!section.Object_API_Name__c}" />
+                    <apex:param name="currentSection" assignTo="{!currentSection}" value="" />
+                </apex:commandButton>
+                </apex:outputPanel>   
+                             
+                </apex:outputPanel>
+                
+    <apex:outputtext escape="false" value="{!section.Instructions__c}" rendered="{!section.Instructions__c != null}" />
+                        
+                <!-- loop through the existing records --> 
+
+
+                
+                <!-- apex:commandButton action="{!saveSection}" value="Save Section" rendered="{!form.Object_API__c == section.Object_API_Name__c && (Section.Create__c == true || Section.Update__c == true)}" reRender="form" styleClass="btn btn-gray btn-sm" >
+                    <apex:param name="saveSection" assignTo="{!saveSectionId}" value="{!section.Id}" />
+                </apex:commandButton>
+                <!-- TODO - fix the rendering of section fields when there is no API name for the object in the section and it is 
+                supposed to default from the parent -->
+                <apex:repeat value="{!sObjectToRecords[section.Object_API_Name__c]}" var="record">
+                    <!-- TODO add headers --> 
+                    <!-- create / update access (Input fields) -->
+                    <apex:outputPanel rendered="{!record.Id == null && section.Create__c == true || record.Id != null && section.Update__c == true}" >
+                        
+                        <apex:commandButton action="{!deleteRecord}" value="Delete" styleClass="btn btn-gray btn-sm" rendered="{!section.Delete__c == true && record.Id != null && section.Object_API_Name__c = form.Object_API__c}" reRender="form">
+                            <apex:param name="deleteRecord" assignTo="{!deleteRecordId}" value="{!record.Id}" />
+                        </apex:commandButton>
+                        <apex:outputpanel layout="block" styleClass="row  pad-zero" style="padding-top: 10px" >
+                            
+                            <apex:outputpanel layout="block" >
+                            <apex:outputpanel layout="block" >  
+                            
+                            <p class="section-fields-r">
+                            <apex:repeat value="{!section.fields__r}" var="field" rendered="{!if(record['Id'] != null && currentSection != record['Id'], true, if(record['Id'] = null, true, false))}">
+                                {!if(field.List_Card_Display__c = 'Header', record[field.API__c], '')}
+                            </apex:repeat>
+                            </p>
+                            <apex:outputpanel layout="block"  id="edit"> 
+                                
+                                <apex:commandLink styleClass="pull-right" action="{!doNothing}" rerender="form" rendered="{!section.Update__c}" status="busyOverlay">
+                                    <i aria-hidden="true" class="fa fa-pencil-square-o" style="font-size:18px;"></i>
+                                    <apex:param name="currentSection" assignTo="{!currentSection}" value="{!record['Id']}" />
+                                </apex:commandLink>
+                            </apex:outputpanel>
+                            
+                                                         
+                               <apex:repeat value="{!section.fields__r}" var="field" rendered="{!if(record['Id'] != null && currentSection != record['Id'], true, if(record['Id'] = null, true, false))}">
+                                    <apex:outputpanel styleClass="section-fields" layout="block" rendered="{!!isBlank(record['Id']) && field.List_Card_Display__c = 'Content'}" >
+                                    <label>
+                                        {!field.Field_Header__c}
+                                    </label>
+                                    <div class="pad-zero marg-up-down section-fields-r" >
+                                    <div id="content-display">
+                                    <apex:outputpanel layout="block" rendered="{!field.Validation_Type__c = 'REFERENCE' && !isBlank(field.Reference__c) && !isBlank(record[field.API__c])}">
+                                    {!lookupMap[record[field.API__c]]}
+                                    </apex:outputpanel>
+                                            <apex:outputField rendered="{!field.Validation_Type__c != 'REFERENCE' || isBlank(field.Reference__c) || isBlank(record[field.API__c])}" value="{!record[field.API__c]}" styleClass=" pad-both-zero itaFormField" label="{!field.Field_Header__c}" />
+                                    </div> 
+                                    </div>
+                                    </apex:outputpanel>
+                                    
+                                </apex:repeat>
+                                <hr />
+                            </apex:outputpanel>
+                            
+                            </apex:outputpanel>
+                            
+                            <apex:outputpanel layout="block" rendered="{!if(!isBlank(record['Id']) && currentSection = record['Id'], true, if(currentSection != 'CANCELED' && record['Id'] = null, true, false))}" >
+                            <apex:repeat value="{!section.fields__r}" var="field">
+                                <apex:outputPanel layout="block" styleClass="{!if(field.Style__c != null, field.style__r.Class_Name__c, 'col-md-12 pad-none')}" style="margin-bottom:20px;" >
+                                    <apex:outputtext rendered="{!field.Field_Header__c != null}">
+                                        <label  >{!field.Field_Header__c}</label><br/>
+                                    </apex:outputtext>
+                                    <apex:outputtext rendered="{!field.Instructions__c != null}">
+                                        <span class="muted" id="instructions" ><small>({!field.Instructions__c})</small></span>
+                                    </apex:outputtext>
+                                    <apex:outputpanel rendered="{!field.Validation_Type__c = 'REFERENCE' && !isBlank(field.Reference__c)}">
+                                        <apex:selectList disabled="{!field.Read_Only__c}" value="{!record[field.API__c]}" size="1" onchange="form_validated = formValidate($(this));" styleClass="{!lower(field.Validation_Type__c)} {!if(field.Required__c, 'required', '')}">
+                                            <apex:selectOptions value="{!options[field.Reference__c]}" />
+                                        </apex:selectList>
+                                        <apex:outputPanel layout="block" styleClass="error-msg"></apex:outputPanel>
+                                    </apex:outputpanel>
+                                   <apex:outputpanel layout="block" id="eachtype">
+                                    <apex:outputpanel rendered="{!field.Read_Only__c}">
+                                        <apex:outputField rendered="{!field.Validation_Type__c != 'REFERENCE' || isBlank(field.Reference__c)}" value="{!record[field.API__c]}" styleClass=" pad-both-zero itaFormField {!lower(field.Validation_Type__c)} {!if(field.Required__c, 'required', '')}" label="{!field.Field_Header__c}" />
+                                        <apex:outputPanel layout="block" styleClass="error-msg"></apex:outputPanel>
+                                    </apex:outputpanel>                                    
+                                    <apex:outputpanel rendered="{!!field.Read_Only__c}">
+                                        <apex:inputField onchange="form_validated = formValidate($(this));" rendered="{!field.Validation_Type__c != 'REFERENCE' || isBlank(field.Reference__c)}" value="{!record[field.API__c]}" styleClass=" pad-both-zero itaFormField {!lower(field.Validation_Type__c)} {!if(field.Required__c, 'required', '')}" label="{!field.Field_Header__c}" />
+                                        <apex:outputPanel layout="block" styleClass="error-msg"></apex:outputPanel>
+                                    </apex:outputpanel>                                    
+                                    
+                                    
+                                    </apex:outputPanel> 
+                                </apex:outputPanel>                              
+                            </apex:repeat>
+                            
+                      <apex:outputpanel layout="block" >           
+       
+                                
+                            <apex:commandlink onclick="console.log('1:' + !form_validated ); console.log('2: '+!validateAllRequiredFields()); if(!form_validated || !validateAllRequiredFields()){ return false;}" action="{!SaveRecord}" styleClass="pull-right save-btn btn-sm" style="margin-top:20px;margin-bottom:20px;" rerender="form, messageWrapper" status="busyOverlay">
+                                <apex:param name="SaveRecord" assignTo="{!SaveRecordId}" value="{!if(record['Id'] != null, record['Id'], null)}" />
+                                <!-- @@TODO put in an additional check here to add in a different action if the record ID is null -->
+                                <apex:param name="currentSection" assignTo="{!currentSection}" value="" />
+                                Save
+                            </apex:commandlink>
+                            
+                            <apex:commandlink styleClass="btn btn-gray btn-sm pull-right" style="margin-top:20px;margin-bottom:20px;margin-right:5px;" action="{!doNothing}" rerender="form" status="busyOverlay">
+                                <apex:param name="currentSection" assignTo="{!currentSection}" value="CANCELED" />
+                                <apex:param name="deleteRecord"  assignTo="{!deleteRecordId}" value="{!record['Id']}" />
+                                Cancel
+                            </apex:commandlink> 
+                                  
+                                       
+                            <apex:commandLink action="{!deleteRecord}" styleClass="pull-right delete-btn btn-block" value="Delete" rendered="{!section.Delete__c == true && record['Id'] != null}" reRender="form"  status="busyOverlay">      
+                                <apex:param name="deleteRecord" assignTo="{!deleteRecordId}" value="{!record['Id']}" />
+                            </apex:commandLink>
+ 
+                            
+                           </apex:outputPanel> 
+                    </apex:outputPanel>
+                           
+                        </apex:outputpanel>
+                        <!-- apex:outputpanel layout="block" styleClass="{!record['Id']}" rendered="{!section.Object_API_Name__c = form.Object_API__c}">
+                            <apex:repeat value="{!section.fields__r}" var="field">
+                                <apex:outputPanel layout="block" styleClass="{!if(field.Style__c != null, field.style__r.Class_Name__c, 'col-md-12')}" >
+                                    <apex:outputtext rendered="{!field.Instructions__c != null}">
+                                        <p class="muted" id="instructions" ><small>{!field.Instructions__c}</small></p>
+                                    </apex:outputtext>
+                                    <apex:outputtext rendered="{!field.Field_Header__c != null}">
+                                        <label  >{!field.Field_Header__c}</label>
+                                    </apex:outputtext>
+                                    <apex:inputField value="{!record[field.API__c]}" styleClass="col-md-12 pad-both-zero itaFormField" label="{!field.Field_Header__c}" required="{!field.Required__c}" />
+                                </apex:outputPanel>
+                            </apex:repeat>
+                        </apex:outputpanel -->
+                        
+                    </apex:outputPanel>
+
+                    <!-- view access - but no update access (Output fields) -->
+                    <apex:outputPanel rendered="{!record.Id != null && section.Update__c != true}">
+                        <apex:repeat value="{!section.fields__r}" var="field">
+                            <apex:outputPanel layout="block" styleClass="{!if(field.Style__c != null, field.style__r.Class_Name__c, '')}" >
+                                <apex:outputtext rendered="{!field.Instructions__c != null}">
+                                <p class="muted" id="instructions" ><small>{!field.Instructions__c}</small></p>
+                                </apex:outputtext>
+                                <apex:outputtext rendered="{!field.Field_Header__c != null}">
+                                    <label >{!field.Field_Header__c} </label>
+                                </apex:outputtext>
+
+                                <p class="pad-zero marg-up-down section-fields-r" >
+                                <div id="content-display">
+                                <apex:outputField value="{!record[field.API__c]}" styleClass=" pad-both-zero itaFormField" label="{!field.Field_Header__c}" />
+                                </div>
+                                </p>
+                                
+                            </apex:outputPanel>
+                        </apex:repeat>
+                        <hr />
+                     </apex:outputPanel>
+                </apex:repeat> <!-- end existing record loop -->
+                <!-- loop through the fields 
+                <apex:repeat value="{!section.fields__r}" var="field">
+                    <apex:outputpanel layout="block" styleClass="{!if(field.Style__c != null, field.style__r.Class_Name__c, 'col-md-12')}">                   
+                         <apex:outputtext rendered="{!field.Instructions__c != null}">
+                            <p class="muted" id="instructions" ><small>{!field.Instructions__c}</small></p>
+                        </apex:outputtext>
+                        <apex:outputtext rendered="{!field.Field_Header__c != null}">
+                            <label for="{!field.id}" >{!field.Field_Header__c}</label>
+                        </apex:outputtext>
+                        <input id="{!field.id}" class="col-md-12 pad-both-zero itaFormField" type="text"  label="{!field.Field_Header__c}" required="{!field.Required__c}" placeholder="{!field.help_text__c}" title="{!field.help_text__c}" />                  
+                    </apex:outputpanel>
+                <br/>
+                </apex:repeat>--> 
+            </apex:outputpanel>
+            <br/>
+        </apex:repeat>
+        <apex:outputpanel styleClass="row pad-none pselector">  
+       
+    <c:ProductSelector wrt="{!form.Web_Resource_Type__c}" editProducts="{!if(form.Order_Status__c == 'In Progress', true, false)}"  pb="{!form.Product_Catalog__c+''}" order="{!CurrentOrder.id}" rendered="{!and(form.Product_Catalog__c != null, CurrentOrder != null)}" />
+    </apex:outputpanel>
+        </apex:outputpanel>
+            </apex:outputpanel>
+        
+    
+ 
+    
+<br/><br/>
+    
+    <apex:outputpanel layout="block" styleClass="row pad-none pull-left" id="submitButtonPanel" rendered="{!and(form.Product_Catalog__c != null, CurrentOrder != null && !form.Disable_Submit__c)}">        
+        <apex:commandButton id="form-submit" styleClass="itaLoginBtn pull-left" style="border-radius: 4px;text-transform:none;font-size:14px;width:130px;" rerender="messageWrapper" action="{!submit}" oncomplete="jump();" value="Submit" status="busyOverlay" />
+    </apex:outputpanel>
+    
+    <br/><br/>
+    </apex:form>
+    
+  <apex:outputpanel layout="block" styleClass="section clearfix">
+<apex:outputpanel layout="block" styleClass="call-to-action">
+</apex:outputpanel>
+</apex:outputpanel>
+    
+</apex:outputpanel>
+</apex:outputpanel>
+</apex:outputpanel>
+    
+    </apex:define>
+</apex:composition>
+</apex:page>

@@ -1,0 +1,140 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="true" docType="html-5.0" applyBodyTag="false" applyHtmlTag="false">
+<apex:composition template="Site_Template">
+    <apex:define name="page">
+
+<style>
+.article-title {
+font-size:40px;
+}
+</style>
+
+<div class="subheader secondary-bg-ita">
+        <div class="containerITA nopad">
+            <div class="row nopad">
+                <nav id="subnav">
+                <h4 id="sectionName">FAQ</h4>
+                    <span>
+                <!-- Button trigger modal -->
+                    <!-- c:boardSave /-->
+                </span>
+                </nav>
+            </div>
+        </div>
+    </div>
+             <!--<div class="containerITA">
+            <div class="row nopad">
+
+                        
+                        <div class="main col-md-10 col-md-offset-1">
+<div class="panel-group panel-transparent" id="accordion-3" style="border:0;">
+                                <div class="panel panel-default"  style="border:0;">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion-3" href="#collapseThree-3" class="collapsed">
+                                                <span id="question"></span>
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseThree-3" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <div class="article-body" id="entry"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>
+</div>
+</div>
+</div>-->
+
+<div class="containerITA">
+            <div class="row nopad">
+
+                        <!-- main start -->
+                        <!-- ================ -->
+                        <div class="main col-md-10 col-md-offset-1">
+
+                                            <div class="article-body" id="entry"></div>
+
+</div>
+</div>
+</div>
+
+
+
+<script src="//code.jquery.com/jquery-2.2.0.min.js" language="javascript"></script>
+<script type='text/javascript'>
+    (function($) {
+    $.QueryString = (function(a) {
+        if (a == "") return {};
+        var b = {};
+        for (var i = 0; i < a.length; ++i)
+        {
+            var p=a[i].split('=');
+            if (p.length != 2) continue;
+            b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+        }
+        return b;
+    })(window.location.search.substr(1).split('&'))
+})(jQuery);
+
+    id = $.QueryString['id'];
+url = 'https://api.govwizely.com/ita_faqs/' + encodeURIComponent(id) + '?api_key=Jnl2JctPOiUL9x7HVFR2m8Sr';
+$.ajax({
+
+  // The 'type' property sets the HTTP method.
+  // A value of 'PUT' or 'DELETE' will trigger a preflight request.
+  type: 'GET',
+
+  // The URL to make the request to.
+  url: url,
+
+  // The 'contentType' property sets the 'Content-Type' header.
+  // The JQuery default for this property is
+  // 'application/x-www-form-urlencoded; charset=UTF-8', which does not trigger
+  // a preflight. If you set this value to anything other than
+  // application/x-www-form-urlencoded, multipart/form-data, or text/plain,
+  // you will trigger a preflight request.
+  contentType: 'text/plain',
+
+  xhrFields: {
+    // The 'xhrFields' property sets additional fields on the XMLHttpRequest.
+    // This can be used to set the 'withCredentials' property.
+    // Set the value to 'true' if you'd like to pass cookies to the server.
+    // If this is enabled, your server must respond with the header
+    // 'Access-Control-Allow-Credentials: true'.
+    withCredentials: false
+  },
+
+  headers: {
+    // Set any custom headers here.
+    // If you set any non-simple headers, your server must include these
+    // headers in the 'Access-Control-Allow-Headers' response header.
+  },
+
+  success: function(data) {
+    var question = $('<h2 class="article-title"></h2>');
+    question.append(data.question);
+    var space = $('<hr/>');
+    var text2 = $('<span><strong>Last Published: </strong></span>');
+    var update_date = $('<i><span></span></i>');
+    update_date.append(data.update_date);
+    var answer = $('<p></p>');
+    answer.append(data.answer);
+    $('#entry').append(question, space, text2, update_date, answer);
+  },
+
+  error: function() {
+    $('#entry').append('page not found');
+    // Here's where you handle an error response.
+    // Note that if the error was due to a CORS issue,
+    // this function will still fire, but there won't be any additional
+    // information about the error.
+  }
+});
+    </script>
+
+    </apex:define>
+</apex:composition>
+</apex:page>

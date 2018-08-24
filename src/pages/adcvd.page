@@ -18,7 +18,6 @@
           <p id="prod-name">Case #{!order.ADCVD_Case_Number__c}</p>
           <p id="order-country">{!order.Country__c}</p>
           <p id="order-country">{!order.Product_Short_Name__c}</p>
-          <p id="order-country">{!order.Commodity__c}</p>
           </ol>          
           <nav id="toc" data-toggle="toc" ></nav>
       </div>

@@ -387,13 +387,13 @@ public class TestUtils {
         }
         return r;
     }
-	//create test Harmonized Tarrif Schedule with ADCVD Order
+    //create test Harmonized Tarrif Schedule with ADCVD Order
     public static List<Harmonized_Tariff_Schedule__c> createHTS(ADCVD_Order__c order, Integer count, Boolean doInsert){
         List<Harmonized_Tariff_Schedule__c> htsList = new List<Harmonized_Tariff_Schedule__c>();
         Integer htsNumber = 1111111111;
         for(Integer i = 0; i < count; i++){
             Harmonized_Tariff_Schedule__c hts = new Harmonized_Tariff_Schedule__c(
-            	ADCVD_Order__c = order.Id,
+                ADCVD_Order__c = order.Id,
                 HTS_Number__c = String.valueOf(htsNumber+i)
             );
             htsList.add(hts);
@@ -407,7 +407,7 @@ public class TestUtils {
         Integer htsNumber = 1111111111;
         for(Integer i = 0; i < count; i++){
             Harmonized_Tariff_Schedule__c hts = new Harmonized_Tariff_Schedule__c(
-            	Suspension_Agreement__c = SA.Id,
+                Suspension_Agreement__c = SA.Id,
                 HTS_Number__c = String.valueOf(htsNumber+i)
             );
             htsList.add(hts);
@@ -495,19 +495,19 @@ public class TestUtils {
         }
         return td;
     }
-	//create test Related_Organization__c with ADCVD Order parent
+    //create test Related_Organization__c with ADCVD Order parent
     public static Related_Organization__c createRelatedOrg(ADCVD_Order__c order, Boolean doInsert){
         Related_Organization__c relatedOrg = new Related_Organization__c(ADCVD_Order__c = order.Id);
         if(doInsert) insert relatedOrg;
         return relatedOrg;
     }
-	//create test Related_Organization__c with Customs Instructions parent
+    //create test Related_Organization__c with Customs Instructions parent
     public static Related_Organization__c createRelatedOrg(Custom_Instruction__c customInstruction, Boolean doInsert){
         Related_Organization__c relatedOrg = new Related_Organization__c(Custom_Instruction__c = customInstruction.Id);
         if(doInsert) insert relatedOrg;
         return relatedOrg;
     }
-	//create test Related_Organization__c with Investigation parent
+    //create test Related_Organization__c with Investigation parent
     public static Related_Organization__c createRelatedOrg(Investigation__c investigation, Boolean doInsert){
         Related_Organization__c relatedOrg = new Related_Organization__c(Investigation__c = investigation.Id);
         if(doInsert) insert relatedOrg;
@@ -679,4 +679,37 @@ public class TestUtils {
        insert ce;
        return ce;
     }
+    
+        public static Language__c createLanguage(String languageName, String direction, String iso) {
+        Language__c l = new Language__c(Name = languageName, Direction__c = direction, ISO_639_1__c = iso);
+        insert l;
+        return l;
+    }
+    
+    public static Translation__c createTranslation(String transName, Id productId, Id languageId) {
+        Translation__c t = new Translation__c(Name = transName, Product__c = productId, Language__c = languageId);
+        insert t;
+        return t;
+    }
+    
+    public static Content__c createContent(String contentName, String displayTitle, String typeName, Id recordTypeIdValue) {
+        Content__c c = new Content__c(name=contentName, display_title__c = displayTitle, type__c = typeName, RecordTypeId = recordTypeIdValue);
+        insert c;
+        return c;
+    }
+    
+    public static Web_Resource_Link__c createWebResourceLink(String displayName, String url, String status, String webResourceId) {
+        Web_Resource_Link__c wrl = new Web_Resource_Link__c(DisplayName__c = displayName, url__c = url, status__c = status, Web_Resource__c = webResourceId);
+        insert wrl;
+        return wrl;
+    }  
+    
+    public static Related_Resource__c createRelatedResource(Id primaryWebResourceId, Id relatedWebResourceId, Id productId) {
+        Related_Resource__c rr = new Related_Resource__c();
+        rr.Primary_Web_Resource__c = primaryWebResourceId;
+        rr.Related_Web_Resource__c = relatedWebResourceId;
+        rr.Product__c = productId;
+        insert rr;
+        return rr;
+    }    
 }

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Top Markets</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Top Markets</value>
+    </caseValues>
+    <fields>
+        <help><!-- Select the ITA business unit that is the owner of this content. --></help>
+        <label><!-- Approval Queue --></label>
+        <name>Approval_Queue__c</name>
+        <picklistValues>
+            <masterLabel>Industry &amp; Analysis</masterLabel>
+            <translation><!-- Industry &amp; Analysis --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- This rich-text area is where the body of your content should be placed. The content should not deviate from the overall theme and should stand on its own as a reliable source of information. Otherwise, a new topic should be created. --></help>
+        <label><!-- Atom --></label>
+        <name>Atom__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days Since Last Published Date --></label>
+        <name>Days_Since_Last_Published_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Draft Complete --></label>
+        <name>Draft_Complete__c</name>
+    </fields>
+    <fields>
+        <label><!-- Level 0 --></label>
+        <name>Level_0__c</name>
+        <picklistValues>
+            <masterLabel>Top Markets</masterLabel>
+            <translation><!-- Top Markets --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Select the applicable chapter from the publication that your content belongs to. --></help>
+        <label><!-- Level 1 --></label>
+        <name>Level_1__c</name>
+        <picklistValues>
+            <masterLabel>Country Case Study</masterLabel>
+            <translation><!-- Country Case Study --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Executive Summary</masterLabel>
+            <translation><!-- Executive Summary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Overall Market Rankings</masterLabel>
+            <translation><!-- Overall Market Rankings --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Choose the section within the chapter that your content is associated with. --></help>
+        <label><!-- Level 2 --></label>
+        <name>Level_2__c</name>
+        <picklistValues>
+            <masterLabel>Challenges &amp; Barriers to Exports</masterLabel>
+            <translation><!-- Challenges &amp; Barriers to Exports --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Opportunities for US Companies</masterLabel>
+            <translation><!-- Opportunities for US Companies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Overview</masterLabel>
+            <translation><!-- Overview --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sector Snapshot</masterLabel>
+            <translation><!-- Sector Snapshot --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Level 3 --></label>
+        <name>Level_3__c</name>
+        <picklistValues>
+            <masterLabel>NA</masterLabel>
+            <translation><!-- NA --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Mobile Title --></label>
+        <name>Mobile_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- Public URL --></label>
+        <name>Public_URL__c</name>
+    </fields>
+    <fields>
+        <help><!-- If there are any references that were used during the writing of the content, they can be highlighted here. The rich text editor allows for formatting and link creation. --></help>
+        <label><!-- References (Public) --></label>
+        <name>References__c</name>
+    </fields>
+    <fields>
+        <help><!-- Type a keyword, such as country name and click the magnifying glass to search available Series. --></help>
+        <label><!-- Series --></label>
+        <name>Series__c</name>
+        <relationshipLabel><!-- Top Markets Articles --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Stage is the phase of the process that your content is in. --></help>
+        <label><!-- Stage --></label>
+        <name>Stage__c</name>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Published</masterLabel>
+            <translation><!-- Published --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitted for Approval</masterLabel>
+            <translation><!-- Submitted for Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Under Review</masterLabel>
+            <translation><!-- Under Review --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- A Video component to display along with this article. --></help>
+        <label><!-- Video --></label>
+        <name>Video__c</name>
+        <relationshipLabel><!-- Top Markets --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Top Markets Layout</layout>
+        <sections>
+            <label><!-- Content --></label>
+            <section>Content</section>
+        </sections>
+        <sections>
+            <label><!-- Pins --></label>
+            <section>Pins</section>
+        </sections>
+        <sections>
+            <label><!-- References --></label>
+            <section>References</section>
+        </sections>
+        <sections>
+            <label><!-- Workflow --></label>
+            <section>Workflow</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please pick Level 1 (Mandatory field) --></errorMessage>
+        <name>Required_Level_1</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter the Mobile Title (Article Title is too large for Mobile view) --></errorMessage>
+        <name>Required_Mobile_Title</name>
+    </validationRules>
+</CustomObjectTranslation>

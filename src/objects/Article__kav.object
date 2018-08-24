@@ -1,0 +1,1760 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <articleTypeChannelDisplay>
+        <articleTypeTemplates>
+            <channel>App</channel>
+            <template>Tab</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Prm</channel>
+            <template>Tab</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Csp</channel>
+            <template>Tab</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Pkb</channel>
+            <template>Toc</template>
+        </articleTypeTemplates>
+    </articleTypeChannelDisplay>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Knowledge Management template for a Guided delivery of information to a customer.</description>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <fields>
+        <fullName>Approval_Queue__c</fullName>
+        <description>This field ties to Approval Queues.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select a Business Unit-specific approval queue for this article&apos;s approval workflow.</inlineHelpText>
+        <label>Approval Queue</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Enforcement &amp; Compliance</fullName>
+                    <default>false</default>
+                    <label>Enforcement &amp; Compliance</label>
+                </value>
+                <value>
+                    <fullName>Global Markets</fullName>
+                    <default>false</default>
+                    <label>Global Markets</label>
+                </value>
+                <value>
+                    <fullName>Industry &amp; Analysis</fullName>
+                    <default>false</default>
+                    <label>Industry &amp; Analysis</label>
+                </value>
+                <value>
+                    <fullName>Privacy Shield</fullName>
+                    <default>false</default>
+                    <label>Privacy Shield</label>
+                </value>
+                <value>
+                    <fullName>Stopfakes</fullName>
+                    <default>false</default>
+                    <label>Stopfakes</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Atom__c</fullName>
+        <description>Body of an Article</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This rich-text area is for the body of your content. The content should not deviate from the overall theme as indicated in the title and/or summary. This content should stand on its own as a cohesive and complete source of information.</inlineHelpText>
+        <label>Atom</label>
+        <length>11100</length>
+        <trackHistory>false</trackHistory>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Days_Since_Last_Published_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>TODAY() - DATEVALUE( LastPublishedDate )</formula>
+        <label>Days Since Last Published Date</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Draft_Complete__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Flag the draft version is ready for approval</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this box if the article is ready to move into the approval workflow. An article cannot move out of Draft Stage without this box being checked. If you&apos;re completely satisfied with your draft, then click the &quot;Submit for Approval&quot; button.</inlineHelpText>
+        <label>Draft Complete</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Guide__c</fullName>
+        <description>Sequence Levels 1 and 2.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the Guide to sequence Levels 1 and 2.</inlineHelpText>
+        <label>Guide</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>How to Export</fullName>
+                    <default>false</default>
+                    <label>How to Export</label>
+                </value>
+                <value>
+                    <fullName>Privacy Shield Framework</fullName>
+                    <default>false</default>
+                    <label>Privacy Shield Framework</label>
+                </value>
+                <value>
+                    <fullName>Privacy Shield Program</fullName>
+                    <default>false</default>
+                    <label>Privacy Shield Program</label>
+                </value>
+                <value>
+                    <fullName>STOPfakes</fullName>
+                    <default>false</default>
+                    <label>STOPfakes</label>
+                </value>
+                <value>
+                    <fullName>Trade Data</fullName>
+                    <default>false</default>
+                    <label>Trade Data</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Level_0__c</fullName>
+        <description>Sets available Pick lists for Template</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select a High Level Topic for your Guide.</inlineHelpText>
+        <label>Level 0</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Guide__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Export Education</fullName>
+                    <default>false</default>
+                    <label>Export Education</label>
+                </value>
+                <value>
+                    <fullName>Export Planning</fullName>
+                    <default>false</default>
+                    <label>Export Planning</label>
+                </value>
+                <value>
+                    <fullName>Product Preparation</fullName>
+                    <default>false</default>
+                    <label>Product Preparation</label>
+                </value>
+                <value>
+                    <fullName>Finding Foreign Markets</fullName>
+                    <default>false</default>
+                    <label>Finding Foreign Markets</label>
+                </value>
+                <value>
+                    <fullName>Logistics</fullName>
+                    <default>false</default>
+                    <label>Logistics</label>
+                </value>
+                <value>
+                    <fullName>Financial Considerations</fullName>
+                    <default>false</default>
+                    <label>Financial Considerations</label>
+                </value>
+                <value>
+                    <fullName>Legal Considerations</fullName>
+                    <default>false</default>
+                    <label>Legal Considerations</label>
+                </value>
+                <value>
+                    <fullName>Data Protection Authorities</fullName>
+                    <default>false</default>
+                    <label>Data Protection Authorities</label>
+                </value>
+                <value>
+                    <fullName>eCommerce Guide</fullName>
+                    <default>false</default>
+                    <label>eCommerce Guide</label>
+                </value>
+                <value>
+                    <fullName>Editors&apos; Picks</fullName>
+                    <default>false</default>
+                    <label>Editors&apos; Picks</label>
+                </value>
+                <value>
+                    <fullName>European Businesses</fullName>
+                    <default>false</default>
+                    <label>European Businesses</label>
+                </value>
+                <value>
+                    <fullName>Individuals in Europe</fullName>
+                    <default>false</default>
+                    <label>Individuals in Europe</label>
+                </value>
+                <value>
+                    <fullName>Privacy Shield Annex I</fullName>
+                    <default>false</default>
+                    <label>Privacy Shield Annex I</label>
+                </value>
+                <value>
+                    <fullName>Privacy Shield Letters</fullName>
+                    <default>false</default>
+                    <label>Privacy Shield Letters</label>
+                </value>
+                <value>
+                    <fullName>Privacy Shield Overview</fullName>
+                    <default>false</default>
+                    <label>Privacy Shield Overview</label>
+                </value>
+                <value>
+                    <fullName>Privacy Shield Principles</fullName>
+                    <default>false</default>
+                    <label>Privacy Shield Principles</label>
+                </value>
+                <value>
+                    <fullName>Privacy Shield Supplemental Principles</fullName>
+                    <default>false</default>
+                    <label>Privacy Shield Supplemental Principles</label>
+                </value>
+                <value>
+                    <fullName>Trade Finance Guide</fullName>
+                    <default>false</default>
+                    <label>Trade Finance Guide</label>
+                </value>
+                <value>
+                    <fullName>U.S. Businesses</fullName>
+                    <default>false</default>
+                    <label>U.S. Businesses</label>
+                </value>
+                <value>
+                    <fullName>Understanding IPR</fullName>
+                    <default>false</default>
+                    <label>Understanding IPR</label>
+                </value>
+                <value>
+                    <fullName>Protecting Your IPR</fullName>
+                    <default>false</default>
+                    <label>Protecting Your IPR</label>
+                </value>
+                <value>
+                    <fullName>How to Report and Prevent IPR Infringement</fullName>
+                    <default>false</default>
+                    <label>How to Report and Prevent IPR Infringement</label>
+                </value>
+                <value>
+                    <fullName>Consumer Guide</fullName>
+                    <default>false</default>
+                    <label>Consumer Guide</label>
+                </value>
+                <value>
+                    <fullName>U.S. Government Initiatives</fullName>
+                    <default>false</default>
+                    <label>U.S. Government Initiatives</label>
+                </value>
+                <value>
+                    <fullName>Global Initiatives</fullName>
+                    <default>false</default>
+                    <label>Global Initiatives</label>
+                </value>
+                <value>
+                    <fullName>IPR Resources</fullName>
+                    <default>false</default>
+                    <label>IPR Resources</label>
+                </value>
+                <value>
+                    <fullName>Trade Data Sources</fullName>
+                    <default>false</default>
+                    <label>Trade Data Sources</label>
+                </value>
+                <value>
+                    <fullName>IPR Protection and Enforcement Agencies</fullName>
+                    <default>false</default>
+                    <label>IPR Protection and Enforcement Agencies</label>
+                </value>
+                <value>
+                    <fullName>China IPR Webinar Series</fullName>
+                    <default>false</default>
+                    <label>China IPR Webinar Series</label>
+                </value>
+                <value>
+                    <fullName>STOPfakes News</fullName>
+                    <default>false</default>
+                    <label>STOPfakes News</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>How to Export</controllingFieldValue>
+                <valueName>Export Education</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>How to Export</controllingFieldValue>
+                <valueName>Export Planning</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>How to Export</controllingFieldValue>
+                <valueName>Product Preparation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>How to Export</controllingFieldValue>
+                <valueName>Finding Foreign Markets</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>How to Export</controllingFieldValue>
+                <valueName>Logistics</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>How to Export</controllingFieldValue>
+                <valueName>Financial Considerations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>How to Export</controllingFieldValue>
+                <valueName>Legal Considerations</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>How to Export</controllingFieldValue>
+                <valueName>eCommerce Guide</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>How to Export</controllingFieldValue>
+                <valueName>Trade Finance Guide</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Framework</controllingFieldValue>
+                <valueName>Privacy Shield Annex I</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Framework</controllingFieldValue>
+                <valueName>Privacy Shield Letters</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Framework</controllingFieldValue>
+                <valueName>Privacy Shield Overview</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Framework</controllingFieldValue>
+                <valueName>Privacy Shield Principles</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Framework</controllingFieldValue>
+                <valueName>Privacy Shield Supplemental Principles</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Program</controllingFieldValue>
+                <valueName>Data Protection Authorities</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Program</controllingFieldValue>
+                <valueName>European Businesses</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Program</controllingFieldValue>
+                <valueName>Individuals in Europe</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Program</controllingFieldValue>
+                <valueName>U.S. Businesses</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>STOPfakes</controllingFieldValue>
+                <valueName>Understanding IPR</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>STOPfakes</controllingFieldValue>
+                <valueName>Protecting Your IPR</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>STOPfakes</controllingFieldValue>
+                <valueName>How to Report and Prevent IPR Infringement</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>STOPfakes</controllingFieldValue>
+                <valueName>Consumer Guide</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>STOPfakes</controllingFieldValue>
+                <valueName>U.S. Government Initiatives</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>STOPfakes</controllingFieldValue>
+                <valueName>Global Initiatives</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>STOPfakes</controllingFieldValue>
+                <valueName>IPR Resources</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>STOPfakes</controllingFieldValue>
+                <valueName>IPR Protection and Enforcement Agencies</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>STOPfakes</controllingFieldValue>
+                <valueName>China IPR Webinar Series</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>STOPfakes</controllingFieldValue>
+                <valueName>STOPfakes News</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Trade Data</controllingFieldValue>
+                <valueName>Trade Data Sources</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Level_1__c</fullName>
+        <description>Level 1 section for this sequence.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select a Level 1 section for this sequence.</inlineHelpText>
+        <label>Level 1</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Level_0__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Access</fullName>
+                    <default>false</default>
+                    <label>Access</label>
+                </value>
+                <value>
+                    <fullName>Access Requests by Public Authorities</fullName>
+                    <default>false</default>
+                    <label>Access Requests by Public Authorities</label>
+                </value>
+                <value>
+                    <fullName>Accountability for Onward Transfer</fullName>
+                    <default>false</default>
+                    <label>Accountability for Onward Transfer</label>
+                </value>
+                <value>
+                    <fullName>Administration</fullName>
+                    <default>false</default>
+                    <label>Administration</label>
+                </value>
+                <value>
+                    <fullName>Agricultural Export Financing</fullName>
+                    <default>false</default>
+                    <label>Agricultural Export Financing</label>
+                </value>
+                <value>
+                    <fullName>Annex I</fullName>
+                    <default>false</default>
+                    <label>Annex I</label>
+                </value>
+                <value>
+                    <fullName>Arbitration Procedures</fullName>
+                    <default>false</default>
+                    <label>Arbitration Procedures</label>
+                </value>
+                <value>
+                    <fullName>Available Remedies</fullName>
+                    <default>false</default>
+                    <label>Available Remedies</label>
+                </value>
+                <value>
+                    <fullName>Benefits of Participation</fullName>
+                    <default>false</default>
+                    <label>Benefits of Participation</label>
+                </value>
+                <value>
+                    <fullName>Binding Nature of Decisions</fullName>
+                    <default>false</default>
+                    <label>Binding Nature of Decisions</label>
+                </value>
+                <value>
+                    <fullName>Business Culture</fullName>
+                    <default>false</default>
+                    <label>Business Culture</label>
+                </value>
+                <value>
+                    <fullName>Cash-in-Advance</fullName>
+                    <default>false</default>
+                    <label>Cash-in-Advance</label>
+                </value>
+                <value>
+                    <fullName>Certificates of Origin</fullName>
+                    <default>false</default>
+                    <label>Certificates of Origin</label>
+                </value>
+                <value>
+                    <fullName>Challenges (Trade Problems)</fullName>
+                    <default>false</default>
+                    <label>Challenges (Trade Problems)</label>
+                </value>
+                <value>
+                    <fullName>Choice</fullName>
+                    <default>false</default>
+                    <label>Choice</label>
+                </value>
+                <value>
+                    <fullName>Choice -- Timing of Opt-Out</fullName>
+                    <default>false</default>
+                    <label>Choice -- Timing of Opt-Out</label>
+                </value>
+                <value>
+                    <fullName>Consignment</fullName>
+                    <default>false</default>
+                    <label>Consignment</label>
+                </value>
+                <value>
+                    <fullName>Costs</fullName>
+                    <default>false</default>
+                    <label>Costs</label>
+                </value>
+                <value>
+                    <fullName>Country Briefs</fullName>
+                    <default>false</default>
+                    <label>Country Briefs</label>
+                </value>
+                <value>
+                    <fullName>Country Information</fullName>
+                    <default>false</default>
+                    <label>Country Information</label>
+                </value>
+                <value>
+                    <fullName>Credit</fullName>
+                    <default>false</default>
+                    <label>Credit</label>
+                </value>
+                <value>
+                    <fullName>Credit Insurance</fullName>
+                    <default>false</default>
+                    <label>Credit Insurance</label>
+                </value>
+                <value>
+                    <fullName>Data Integrity and Purpose Limitation</fullName>
+                    <default>false</default>
+                    <label>Data Integrity and Purpose Limitation</label>
+                </value>
+                <value>
+                    <fullName>Department of Commerce</fullName>
+                    <default>false</default>
+                    <label>Department of Commerce</label>
+                </value>
+                <value>
+                    <fullName>Department of Justice</fullName>
+                    <default>false</default>
+                    <label>Department of Justice</label>
+                </value>
+                <value>
+                    <fullName>Department of State</fullName>
+                    <default>false</default>
+                    <label>Department of State</label>
+                </value>
+                <value>
+                    <fullName>Department of Transportation</fullName>
+                    <default>false</default>
+                    <label>Department of Transportation</label>
+                </value>
+                <value>
+                    <fullName>Dispute Resolution and Enforcement</fullName>
+                    <default>false</default>
+                    <label>Dispute Resolution and Enforcement</label>
+                </value>
+                <value>
+                    <fullName>Documentary Collections</fullName>
+                    <default>false</default>
+                    <label>Documentary Collections</label>
+                </value>
+                <value>
+                    <fullName>Documentation</fullName>
+                    <default>false</default>
+                    <label>Documentation</label>
+                </value>
+                <value>
+                    <fullName>Enforcement</fullName>
+                    <default>false</default>
+                    <label>Enforcement</label>
+                </value>
+                <value>
+                    <fullName>European Commission</fullName>
+                    <default>false</default>
+                    <label>European Commission</label>
+                </value>
+                <value>
+                    <fullName>EWC</fullName>
+                    <default>false</default>
+                    <label>EWC</label>
+                </value>
+                <value>
+                    <fullName>Export Counseling</fullName>
+                    <default>false</default>
+                    <label>Export Counseling</label>
+                </value>
+                <value>
+                    <fullName>Export Factoring</fullName>
+                    <default>false</default>
+                    <label>Export Factoring</label>
+                </value>
+                <value>
+                    <fullName>Export Financing</fullName>
+                    <default>false</default>
+                    <label>Export Financing</label>
+                </value>
+                <value>
+                    <fullName>Export Planning</fullName>
+                    <default>false</default>
+                    <label>Export Planning</label>
+                </value>
+                <value>
+                    <fullName>Federal Trade Commission</fullName>
+                    <default>false</default>
+                    <label>Federal Trade Commission</label>
+                </value>
+                <value>
+                    <fullName>Finding Buyers</fullName>
+                    <default>false</default>
+                    <label>Finding Buyers</label>
+                </value>
+                <value>
+                    <fullName>Forfaiting</fullName>
+                    <default>false</default>
+                    <label>Forfaiting</label>
+                </value>
+                <value>
+                    <fullName>Foreign Buyer Financing</fullName>
+                    <default>false</default>
+                    <label>Foreign Buyer Financing</label>
+                </value>
+                <value>
+                    <fullName>Foreign Exchange</fullName>
+                    <default>false</default>
+                    <label>Foreign Exchange</label>
+                </value>
+                <value>
+                    <fullName>Foreign Standards &amp; Certifications</fullName>
+                    <default>false</default>
+                    <label>Foreign Standards &amp; Certifications</label>
+                </value>
+                <value>
+                    <fullName>Free Trade Agreements</fullName>
+                    <default>false</default>
+                    <label>Free Trade Agreements</label>
+                </value>
+                <value>
+                    <fullName>Getting Paid</fullName>
+                    <default>false</default>
+                    <label>Getting Paid</label>
+                </value>
+                <value>
+                    <fullName>Getting Started</fullName>
+                    <default>false</default>
+                    <label>Getting Started</label>
+                </value>
+                <value>
+                    <fullName>How to Join Privacy Shield</fullName>
+                    <default>false</default>
+                    <label>How to Join Privacy Shield</label>
+                </value>
+                <value>
+                    <fullName>How to Submit a Complaint</fullName>
+                    <default>false</default>
+                    <label>How to Submit a Complaint</label>
+                </value>
+                <value>
+                    <fullName>How to Submit a Request Relating to U.S. National Security Access to Data</fullName>
+                    <default>false</default>
+                    <label>How to Submit a Request Relating to U.S. National Security Access to Data</label>
+                </value>
+                <value>
+                    <fullName>Human Resources Data</fullName>
+                    <default>false</default>
+                    <label>Human Resources Data</label>
+                </value>
+                <value>
+                    <fullName>Identifying Market Opportunities</fullName>
+                    <default>false</default>
+                    <label>Identifying Market Opportunities</label>
+                </value>
+                <value>
+                    <fullName>Intellectual Property</fullName>
+                    <default>false</default>
+                    <label>Intellectual Property</label>
+                </value>
+                <value>
+                    <fullName>Introduction</fullName>
+                    <default>false</default>
+                    <label>Introduction</label>
+                </value>
+                <value>
+                    <fullName>Journalistic Exceptions</fullName>
+                    <default>false</default>
+                    <label>Journalistic Exceptions</label>
+                </value>
+                <value>
+                    <fullName>Legal Issues</fullName>
+                    <default>false</default>
+                    <label>Legal Issues</label>
+                </value>
+                <value>
+                    <fullName>Loan Programs</fullName>
+                    <default>false</default>
+                    <label>Loan Programs</label>
+                </value>
+                <value>
+                    <fullName>Market Research</fullName>
+                    <default>false</default>
+                    <label>Market Research</label>
+                </value>
+                <value>
+                    <fullName>Methods of Payment</fullName>
+                    <default>false</default>
+                    <label>Methods of Payment</label>
+                </value>
+                <value>
+                    <fullName>My Rights Under Privacy Shield</fullName>
+                    <default>false</default>
+                    <label>My Rights Under Privacy Shield</label>
+                </value>
+                <value>
+                    <fullName>Notice</fullName>
+                    <default>false</default>
+                    <label>Notice</label>
+                </value>
+                <value>
+                    <fullName>Obligatory Contracts for Onward Transfers</fullName>
+                    <default>false</default>
+                    <label>Obligatory Contracts for Onward Transfers</label>
+                </value>
+                <value>
+                    <fullName>Office of the Director of National Intelligence</fullName>
+                    <default>false</default>
+                    <label>Office of the Director of National Intelligence</label>
+                </value>
+                <value>
+                    <fullName>Open Account</fullName>
+                    <default>false</default>
+                    <label>Open Account</label>
+                </value>
+                <value>
+                    <fullName>Overview</fullName>
+                    <default>false</default>
+                    <label>Overview</label>
+                </value>
+                <value>
+                    <fullName>Payment</fullName>
+                    <default>false</default>
+                    <label>Payment</label>
+                </value>
+                <value>
+                    <fullName>Performing Due Diligence and Conducting Audits</fullName>
+                    <default>false</default>
+                    <label>Performing Due Diligence and Conducting Audits</label>
+                </value>
+                <value>
+                    <fullName>Pharmaceutical and Medical Products</fullName>
+                    <default>false</default>
+                    <label>Pharmaceutical and Medical Products</label>
+                </value>
+                <value>
+                    <fullName>Pre-Arbitration Requirements</fullName>
+                    <default>false</default>
+                    <label>Pre-Arbitration Requirements</label>
+                </value>
+                <value>
+                    <fullName>Pricing</fullName>
+                    <default>false</default>
+                    <label>Pricing</label>
+                </value>
+                <value>
+                    <fullName>Pricing Your Products</fullName>
+                    <default>false</default>
+                    <label>Pricing Your Products</label>
+                </value>
+                <value>
+                    <fullName>Privacy Shield Participants List</fullName>
+                    <default>false</default>
+                    <label>Privacy Shield Participants List</label>
+                </value>
+                <value>
+                    <fullName>Product Classification</fullName>
+                    <default>false</default>
+                    <label>Product Classification</label>
+                </value>
+                <value>
+                    <fullName>Protecting Your Brand</fullName>
+                    <default>false</default>
+                    <label>Protecting Your Brand</label>
+                </value>
+                <value>
+                    <fullName>Public Record and Publicly Available Information</fullName>
+                    <default>false</default>
+                    <label>Public Record and Publicly Available Information</label>
+                </value>
+                <value>
+                    <fullName>Recourse, Enforcement, and Liability</fullName>
+                    <default>false</default>
+                    <label>Recourse, Enforcement, and Liability</label>
+                </value>
+                <value>
+                    <fullName>Regulations - US</fullName>
+                    <default>false</default>
+                    <label>Regulations - US</label>
+                </value>
+                <value>
+                    <fullName>Requirements of Participation</fullName>
+                    <default>false</default>
+                    <label>Requirements of Participation</label>
+                </value>
+                <value>
+                    <fullName>Review and Enforcement</fullName>
+                    <default>false</default>
+                    <label>Review and Enforcement</label>
+                </value>
+                <value>
+                    <fullName>Risk Management</fullName>
+                    <default>false</default>
+                    <label>Risk Management</label>
+                </value>
+                <value>
+                    <fullName>Rules of Origin</fullName>
+                    <default>false</default>
+                    <label>Rules of Origin</label>
+                </value>
+                <value>
+                    <fullName>Sales Channels</fullName>
+                    <default>false</default>
+                    <label>Sales Channels</label>
+                </value>
+                <value>
+                    <fullName>Scope</fullName>
+                    <default>false</default>
+                    <label>Scope</label>
+                </value>
+                <value>
+                    <fullName>Secondary Liability</fullName>
+                    <default>false</default>
+                    <label>Secondary Liability</label>
+                </value>
+                <value>
+                    <fullName>Security</fullName>
+                    <default>false</default>
+                    <label>Security</label>
+                </value>
+                <value>
+                    <fullName>Self-Certification</fullName>
+                    <default>false</default>
+                    <label>Self-Certification</label>
+                </value>
+                <value>
+                    <fullName>Sensitive Data</fullName>
+                    <default>false</default>
+                    <label>Sensitive Data</label>
+                </value>
+                <value>
+                    <fullName>Shipping</fullName>
+                    <default>false</default>
+                    <label>Shipping</label>
+                </value>
+                <value>
+                    <fullName>Success Stories</fullName>
+                    <default>false</default>
+                    <label>Success Stories</label>
+                </value>
+                <value>
+                    <fullName>The Arbitration Panel</fullName>
+                    <default>false</default>
+                    <label>The Arbitration Panel</label>
+                </value>
+                <value>
+                    <fullName>The Role of Data Protection Authorities</fullName>
+                    <default>false</default>
+                    <label>The Role of Data Protection Authorities</label>
+                </value>
+                <value>
+                    <fullName>The Role of the Data Protection Authorities</fullName>
+                    <default>false</default>
+                    <label>The Role of the Data Protection Authorities</label>
+                </value>
+                <value>
+                    <fullName>Training</fullName>
+                    <default>false</default>
+                    <label>Training</label>
+                </value>
+                <value>
+                    <fullName>Travel Information</fullName>
+                    <default>false</default>
+                    <label>Travel Information</label>
+                </value>
+                <value>
+                    <fullName>Verification</fullName>
+                    <default>false</default>
+                    <label>Verification</label>
+                </value>
+                <value>
+                    <fullName>Website Optimization</fullName>
+                    <default>false</default>
+                    <label>Website Optimization</label>
+                </value>
+                <value>
+                    <fullName>Why Export?</fullName>
+                    <default>false</default>
+                    <label>Why Export?</label>
+                </value>
+                <value>
+                    <fullName>Withdrawal from Privacy Shield</fullName>
+                    <default>false</default>
+                    <label>Withdrawal from Privacy Shield</label>
+                </value>
+                <value>
+                    <fullName>How to Verify an Organization&apos;s Privacy Shield Commitments</fullName>
+                    <default>false</default>
+                    <label>How to Verify an Organization&apos;s Privacy Shield Commitments</label>
+                </value>
+                <value>
+                    <fullName>Contract Requirements for Data Transfers to a Processor</fullName>
+                    <default>false</default>
+                    <label>Contract Requirements for Data Transfers to a Processor</label>
+                </value>
+                <value>
+                    <fullName>U.S. Subsidiaries of European Businesses&apos; Participation in Privacy Shield</fullName>
+                    <default>false</default>
+                    <label>U.S. Subsidiaries of European Businesses&apos; Participation in Privacy Shield</label>
+                </value>
+                <value>
+                    <fullName>DPA Liaison at the Department of Commerce</fullName>
+                    <default>false</default>
+                    <label>DPA Liaison at the Department of Commerce</label>
+                </value>
+                <value>
+                    <fullName>DPA Liaison at the Federal Trade Commission</fullName>
+                    <default>false</default>
+                    <label>DPA Liaison at the Federal Trade Commission</label>
+                </value>
+                <value>
+                    <fullName>Privacy Shield Content for Use by DPAs</fullName>
+                    <default>false</default>
+                    <label>Privacy Shield Content for Use by DPAs</label>
+                </value>
+                <value>
+                    <fullName>Importance of IPR</fullName>
+                    <default>false</default>
+                    <label>Importance of IPR</label>
+                </value>
+                <value>
+                    <fullName>Copyrights</fullName>
+                    <default>false</default>
+                    <label>Copyrights</label>
+                </value>
+                <value>
+                    <fullName>Patents</fullName>
+                    <default>false</default>
+                    <label>Patents</label>
+                </value>
+                <value>
+                    <fullName>Trade Secrets</fullName>
+                    <default>false</default>
+                    <label>Trade Secrets</label>
+                </value>
+                <value>
+                    <fullName>Trademarks</fullName>
+                    <default>false</default>
+                    <label>Trademarks</label>
+                </value>
+                <value>
+                    <fullName>Protecting Intellectual Property in the U.S.</fullName>
+                    <default>false</default>
+                    <label>Protecting Intellectual Property in the U.S.</label>
+                </value>
+                <value>
+                    <fullName>Protecting Intellectual Property Abroad</fullName>
+                    <default>false</default>
+                    <label>Protecting Intellectual Property Abroad</label>
+                </value>
+                <value>
+                    <fullName>Reporting Counterfeit and Falsely Labeled Goods</fullName>
+                    <default>false</default>
+                    <label>Reporting Counterfeit and Falsely Labeled Goods</label>
+                </value>
+                <value>
+                    <fullName>Reporting IPR Infringement</fullName>
+                    <default>false</default>
+                    <label>Reporting IPR Infringement</label>
+                </value>
+                <value>
+                    <fullName>Preventing Illegal Imports</fullName>
+                    <default>false</default>
+                    <label>Preventing Illegal Imports</label>
+                </value>
+                <value>
+                    <fullName>Intellectual Property &amp; You</fullName>
+                    <default>false</default>
+                    <label>Intellectual Property &amp; You</label>
+                </value>
+                <value>
+                    <fullName>Report Fake &amp; Unsafe Goods</fullName>
+                    <default>false</default>
+                    <label>Report Fake &amp; Unsafe Goods</label>
+                </value>
+                <value>
+                    <fullName>Anti-Counterfeit Resources</fullName>
+                    <default>false</default>
+                    <label>Anti-Counterfeit Resources</label>
+                </value>
+                <value>
+                    <fullName>Access (Supplemental Principle)</fullName>
+                    <default>false</default>
+                    <label>Access (Supplemental Principle)</label>
+                </value>
+                <value>
+                    <fullName>Interagency Efforts</fullName>
+                    <default>false</default>
+                    <label>Interagency Efforts</label>
+                </value>
+                <value>
+                    <fullName>IPR-Related Trade Agreements</fullName>
+                    <default>false</default>
+                    <label>IPR-Related Trade Agreements</label>
+                </value>
+                <value>
+                    <fullName>Global Partners</fullName>
+                    <default>false</default>
+                    <label>Global Partners</label>
+                </value>
+                <value>
+                    <fullName>Bilateral Trade Dialogues on IPR</fullName>
+                    <default>false</default>
+                    <label>Bilateral Trade Dialogues on IPR</label>
+                </value>
+                <value>
+                    <fullName>Country IPR Resources</fullName>
+                    <default>false</default>
+                    <label>Country IPR Resources</label>
+                </value>
+                <value>
+                    <fullName>Industry IPR Resources</fullName>
+                    <default>false</default>
+                    <label>Industry IPR Resources</label>
+                </value>
+                <value>
+                    <fullName>2016</fullName>
+                    <default>false</default>
+                    <label>2016</label>
+                </value>
+                <value>
+                    <fullName>2015</fullName>
+                    <default>false</default>
+                    <label>2015</label>
+                </value>
+                <value>
+                    <fullName>2014</fullName>
+                    <default>false</default>
+                    <label>2014</label>
+                </value>
+                <value>
+                    <fullName>2013</fullName>
+                    <default>false</default>
+                    <label>2013</label>
+                </value>
+                <value>
+                    <fullName>2012</fullName>
+                    <default>false</default>
+                    <label>2012</label>
+                </value>
+                <value>
+                    <fullName>Strategic Partners in eCommerce</fullName>
+                    <default>false</default>
+                    <label>Strategic Partners in eCommerce</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Letters</controllingFieldValue>
+                <valueName>Department of Commerce</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Letters</controllingFieldValue>
+                <valueName>Department of Justice</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Letters</controllingFieldValue>
+                <valueName>Department of State</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Letters</controllingFieldValue>
+                <valueName>Department of Transportation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Letters</controllingFieldValue>
+                <valueName>European Commission</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Letters</controllingFieldValue>
+                <valueName>Federal Trade Commission</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Letters</controllingFieldValue>
+                <valueName>Office of the Director of National Intelligence</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Understanding IPR</controllingFieldValue>
+                <valueName>Importance of IPR</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Understanding IPR</controllingFieldValue>
+                <valueName>Copyrights</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Understanding IPR</controllingFieldValue>
+                <valueName>Patents</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Understanding IPR</controllingFieldValue>
+                <valueName>Trade Secrets</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Understanding IPR</controllingFieldValue>
+                <valueName>Trademarks</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Protecting Your IPR</controllingFieldValue>
+                <valueName>Protecting Intellectual Property in the U.S.</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Protecting Your IPR</controllingFieldValue>
+                <valueName>Protecting Intellectual Property Abroad</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>How to Report and Prevent IPR Infringement</controllingFieldValue>
+                <valueName>Reporting Counterfeit and Falsely Labeled Goods</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>How to Report and Prevent IPR Infringement</controllingFieldValue>
+                <valueName>Reporting IPR Infringement</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>How to Report and Prevent IPR Infringement</controllingFieldValue>
+                <valueName>Preventing Illegal Imports</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Consumer Guide</controllingFieldValue>
+                <valueName>Intellectual Property &amp; You</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Consumer Guide</controllingFieldValue>
+                <valueName>Report Fake &amp; Unsafe Goods</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Consumer Guide</controllingFieldValue>
+                <valueName>Anti-Counterfeit Resources</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>U.S. Government Initiatives</controllingFieldValue>
+                <valueName>Interagency Efforts</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>U.S. Government Initiatives</controllingFieldValue>
+                <valueName>IPR-Related Trade Agreements</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>U.S. Government Initiatives</controllingFieldValue>
+                <valueName>Bilateral Trade Dialogues on IPR</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Global Initiatives</controllingFieldValue>
+                <valueName>Global Partners</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>IPR Resources</controllingFieldValue>
+                <valueName>Country IPR Resources</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>IPR Resources</controllingFieldValue>
+                <valueName>Industry IPR Resources</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Trade Finance Guide</controllingFieldValue>
+                <valueName>Agricultural Export Financing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Trade Finance Guide</controllingFieldValue>
+                <valueName>Cash-in-Advance</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Trade Finance Guide</controllingFieldValue>
+                <valueName>Consignment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Trade Finance Guide</controllingFieldValue>
+                <valueName>Credit</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Trade Finance Guide</controllingFieldValue>
+                <valueName>Credit Insurance</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Trade Finance Guide</controllingFieldValue>
+                <valueName>Documentary Collections</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Trade Finance Guide</controllingFieldValue>
+                <valueName>EWC</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Trade Finance Guide</controllingFieldValue>
+                <valueName>Export Factoring</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Trade Finance Guide</controllingFieldValue>
+                <valueName>Forfaiting</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Trade Finance Guide</controllingFieldValue>
+                <valueName>Foreign Buyer Financing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Trade Finance Guide</controllingFieldValue>
+                <valueName>Foreign Exchange</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Trade Finance Guide</controllingFieldValue>
+                <valueName>Introduction</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Trade Finance Guide</controllingFieldValue>
+                <valueName>Loan Programs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Trade Finance Guide</controllingFieldValue>
+                <valueName>Open Account</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Trade Finance Guide</controllingFieldValue>
+                <valueName>Payment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>STOPfakes News</controllingFieldValue>
+                <valueName>2016</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>STOPfakes News</controllingFieldValue>
+                <valueName>2015</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>STOPfakes News</controllingFieldValue>
+                <valueName>2014</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>STOPfakes News</controllingFieldValue>
+                <valueName>2013</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>STOPfakes News</controllingFieldValue>
+                <valueName>2012</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>U.S. Businesses</controllingFieldValue>
+                <valueName>Administration</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>U.S. Businesses</controllingFieldValue>
+                <valueName>Benefits of Participation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>U.S. Businesses</controllingFieldValue>
+                <valueName>Enforcement</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>U.S. Businesses</controllingFieldValue>
+                <valueName>How to Join Privacy Shield</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>U.S. Businesses</controllingFieldValue>
+                <valueName>Requirements of Participation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>U.S. Businesses</controllingFieldValue>
+                <valueName>Withdrawal from Privacy Shield</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>European Businesses</controllingFieldValue>
+                <valueName>How to Verify an Organization&apos;s Privacy Shield Commitments</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>European Businesses</controllingFieldValue>
+                <valueName>Contract Requirements for Data Transfers to a Processor</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>European Businesses</controllingFieldValue>
+                <valueName>U.S. Subsidiaries of European Businesses&apos; Participation in Privacy Shield</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Individuals in Europe</controllingFieldValue>
+                <valueName>How to Submit a Complaint</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Individuals in Europe</controllingFieldValue>
+                <valueName>How to Submit a Request Relating to U.S. National Security Access to Data</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Individuals in Europe</controllingFieldValue>
+                <valueName>My Rights Under Privacy Shield</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Individuals in Europe</controllingFieldValue>
+                <controllingFieldValue>Data Protection Authorities</controllingFieldValue>
+                <valueName>Privacy Shield Participants List</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Data Protection Authorities</controllingFieldValue>
+                <valueName>DPA Liaison at the Department of Commerce</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Data Protection Authorities</controllingFieldValue>
+                <valueName>DPA Liaison at the Federal Trade Commission</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Data Protection Authorities</controllingFieldValue>
+                <valueName>Privacy Shield Content for Use by DPAs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Overview</controllingFieldValue>
+                <valueName>Overview</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Principles</controllingFieldValue>
+                <valueName>Access</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Principles</controllingFieldValue>
+                <valueName>Accountability for Onward Transfer</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Principles</controllingFieldValue>
+                <valueName>Choice</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Principles</controllingFieldValue>
+                <valueName>Data Integrity and Purpose Limitation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Principles</controllingFieldValue>
+                <valueName>Notice</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Principles</controllingFieldValue>
+                <valueName>Recourse, Enforcement, and Liability</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Principles</controllingFieldValue>
+                <valueName>Security</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>eCommerce Guide</controllingFieldValue>
+                <valueName>Country Briefs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>eCommerce Guide</controllingFieldValue>
+                <valueName>Getting Paid</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>eCommerce Guide</controllingFieldValue>
+                <valueName>Getting Started</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>eCommerce Guide</controllingFieldValue>
+                <valueName>Identifying Market Opportunities</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>eCommerce Guide</controllingFieldValue>
+                <valueName>Pricing Your Products</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>eCommerce Guide</controllingFieldValue>
+                <valueName>Protecting Your Brand</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>eCommerce Guide</controllingFieldValue>
+                <valueName>Success Stories</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>eCommerce Guide</controllingFieldValue>
+                <valueName>Website Optimization</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>eCommerce Guide</controllingFieldValue>
+                <valueName>Strategic Partners in eCommerce</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Education</controllingFieldValue>
+                <valueName>Business Culture</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Education</controllingFieldValue>
+                <valueName>Export Counseling</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Education</controllingFieldValue>
+                <valueName>Export Planning</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Education</controllingFieldValue>
+                <valueName>Training</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Export Education</controllingFieldValue>
+                <valueName>Why Export?</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finding Foreign Markets</controllingFieldValue>
+                <valueName>Finding Buyers</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finding Foreign Markets</controllingFieldValue>
+                <valueName>Free Trade Agreements</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finding Foreign Markets</controllingFieldValue>
+                <valueName>Market Research</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Finding Foreign Markets</controllingFieldValue>
+                <valueName>Sales Channels</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Legal Considerations</controllingFieldValue>
+                <valueName>Intellectual Property</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Legal Considerations</controllingFieldValue>
+                <valueName>Legal Issues</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Legal Considerations</controllingFieldValue>
+                <valueName>Regulations - US</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financial Considerations</controllingFieldValue>
+                <valueName>Export Financing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financial Considerations</controllingFieldValue>
+                <valueName>Methods of Payment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financial Considerations</controllingFieldValue>
+                <valueName>Pricing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financial Considerations</controllingFieldValue>
+                <valueName>Risk Management</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product Preparation</controllingFieldValue>
+                <valueName>Foreign Standards &amp; Certifications</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product Preparation</controllingFieldValue>
+                <valueName>Product Classification</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Product Preparation</controllingFieldValue>
+                <valueName>Rules of Origin</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Logistics</controllingFieldValue>
+                <valueName>Certificates of Origin</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Logistics</controllingFieldValue>
+                <valueName>Challenges (Trade Problems)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Logistics</controllingFieldValue>
+                <valueName>Documentation</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Logistics</controllingFieldValue>
+                <valueName>Shipping</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Supplemental Principles</controllingFieldValue>
+                <valueName>Access Requests by Public Authorities</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Supplemental Principles</controllingFieldValue>
+                <valueName>Choice -- Timing of Opt-Out</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Supplemental Principles</controllingFieldValue>
+                <valueName>Dispute Resolution and Enforcement</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Supplemental Principles</controllingFieldValue>
+                <valueName>Human Resources Data</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Supplemental Principles</controllingFieldValue>
+                <valueName>Journalistic Exceptions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Supplemental Principles</controllingFieldValue>
+                <valueName>Obligatory Contracts for Onward Transfers</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Supplemental Principles</controllingFieldValue>
+                <valueName>Performing Due Diligence and Conducting Audits</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Supplemental Principles</controllingFieldValue>
+                <valueName>Pharmaceutical and Medical Products</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Supplemental Principles</controllingFieldValue>
+                <valueName>Public Record and Publicly Available Information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Supplemental Principles</controllingFieldValue>
+                <valueName>Secondary Liability</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Supplemental Principles</controllingFieldValue>
+                <valueName>Self-Certification</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Supplemental Principles</controllingFieldValue>
+                <valueName>Sensitive Data</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Supplemental Principles</controllingFieldValue>
+                <valueName>The Role of the Data Protection Authorities</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Supplemental Principles</controllingFieldValue>
+                <valueName>Travel Information</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Supplemental Principles</controllingFieldValue>
+                <valueName>Verification</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Supplemental Principles</controllingFieldValue>
+                <valueName>Access (Supplemental Principle)</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Annex I</controllingFieldValue>
+                <valueName>Annex I</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Annex I</controllingFieldValue>
+                <valueName>Arbitration Procedures</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Annex I</controllingFieldValue>
+                <valueName>Available Remedies</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Annex I</controllingFieldValue>
+                <valueName>Binding Nature of Decisions</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Annex I</controllingFieldValue>
+                <valueName>Costs</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Annex I</controllingFieldValue>
+                <valueName>Pre-Arbitration Requirements</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Annex I</controllingFieldValue>
+                <valueName>Review and Enforcement</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Annex I</controllingFieldValue>
+                <valueName>Scope</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Privacy Shield Annex I</controllingFieldValue>
+                <valueName>The Arbitration Panel</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Level_2__c</fullName>
+        <description>Level 2 sections for this sequence.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select a Level 2 section for this sequence.</inlineHelpText>
+        <label>Level 2</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Level_1__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Level 2</fullName>
+                    <default>false</default>
+                    <label>Level 2</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Level_3__c</fullName>
+        <description>Level 3 section for this sequence.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select a Level 3 section for this sequence.</inlineHelpText>
+        <label>Level 3</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Level_2__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Article Level 3</fullName>
+                    <default>false</default>
+                    <label>Article Level 3</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Mobile_Title__c</fullName>
+        <description>Mobile title - Displays as the title in Mobile/Tablet View</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field is required if the Title is longer than 37 characters. The shorter Mobile Title makes content more readable when viewing articles on devices such as cell phones or tablets and will only appear in mobile settings.</inlineHelpText>
+        <label>Mobile Title</label>
+        <length>37</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Public_URL__c</fullName>
+        <description>Full Public URL for Article</description>
+        <externalId>false</externalId>
+        <formula>HYPERLINK($Label.export_gov&amp;&quot;/article?id=&quot;&amp;UrlName, $Label.export_gov&amp;&quot;/article?id=&quot;&amp;UrlName)</formula>
+        <label>Public URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>References__c</fullName>
+        <defaultValue>&quot;Prepared by the International Trade Administration. With its network of 108 offices across the United States and in more than 75 countries, the International Trade Administration of the U.S. Department of Commerce utilizes its global presence and international marketing expertise to help U.S. companies sell their products and services worldwide. Locate the trade specialist in the U.S. nearest you by visiting http://export.gov/usoffices.&quot;</defaultValue>
+        <description>Article references</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Highlight references you want the public to know were used during content creation.</inlineHelpText>
+        <label>References (Public)</label>
+        <length>1000</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Series__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Creates relationship to Series</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Type a keyword search available Article Series.</inlineHelpText>
+        <label>Series</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Series__c.Type__c</field>
+                <operation>equals</operation>
+                <value>Article</value>
+            </filterItems>
+            <infoMessage>Type a keyword search available Article Series.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Series__c</referenceTo>
+        <relationshipName>Articles</relationshipName>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Stage__c</fullName>
+        <description>Tracks the stages of an article through an approval process</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Stage tracks the movement of an article through the approval process. An article may be in one of the following stages: Draft, Under Review, Submitted for Approval, Rejected, Published.</inlineHelpText>
+        <label>Stage</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Draft</fullName>
+                    <default>true</default>
+                    <label>Draft</label>
+                </value>
+                <value>
+                    <fullName>Under Review</fullName>
+                    <default>false</default>
+                    <label>Under Review</label>
+                </value>
+                <value>
+                    <fullName>Submitted for Approval</fullName>
+                    <default>false</default>
+                    <label>Submitted for Approval</label>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                    <label>Rejected</label>
+                </value>
+                <value>
+                    <fullName>Published</fullName>
+                    <default>false</default>
+                    <label>Published</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Video__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>A Video component to display along with this article.</inlineHelpText>
+        <label>Video</label>
+        <referenceTo>Content__c</referenceTo>
+        <relationshipLabel>Guided</relationshipLabel>
+        <relationshipName>Guided</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <label>Guided</label>
+    <pluralLabel>Guided</pluralLabel>
+    <validationRules>
+        <fullName>Required_Level_0</fullName>
+        <active>true</active>
+        <description>Level 0 is mandatory</description>
+        <errorConditionFormula>ISBLANK(TEXT(Level_0__c))</errorConditionFormula>
+        <errorMessage>Please pick Level 0 (Mandatory field)</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Required_Mobile_Title</fullName>
+        <active>true</active>
+        <description>Mobile Title Needed if Article Title is larger than 37 characters</description>
+        <errorConditionFormula>AND( (LEN(Title)&gt;37) , ISBLANK( Mobile_Title__c ) )</errorConditionFormula>
+        <errorMessage>Please enter the Mobile Title (Article Title is too large for Mobile view)</errorMessage>
+    </validationRules>
+</CustomObject>

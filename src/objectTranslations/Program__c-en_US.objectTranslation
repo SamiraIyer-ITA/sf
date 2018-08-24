@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Program</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Programs</value>
+    </caseValues>
+    <fields>
+        <label><!-- Annual Message --></label>
+        <name>Annual_Message__c</name>
+    </fields>
+    <fields>
+        <label><!-- Approved Application Link --></label>
+        <name>Approved_Application_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- Default Expiration Reason --></label>
+        <lookupFilter>
+            <errorMessage><!-- You must select an Inactive Reason from the list related to this Program. --></errorMessage>
+        </lookupFilter>
+        <name>Default_Expiration_Reason__c</name>
+        <relationshipLabel><!-- Programs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Denied Application Link --></label>
+        <name>Denied_Application_Link__c</name>
+    </fields>
+    <fields>
+        <help><!-- What are the goals/intents of the Mission. --></help>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Disclaimer Text --></label>
+        <name>Disclaimer_Text__c</name>
+        <relationshipLabel><!-- Programs (Disclaimer Text) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Has_Translations --></label>
+        <name>Has_Translations__c</name>
+    </fields>
+    <fields>
+        <label><!-- Incorrect or Inactive Provider Message --></label>
+        <name>Incorrect_or_Inactive_Provider_Message__c</name>
+        <relationshipLabel><!-- Programs (Incorrect or Inactive Provider Message) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- New Application Link --></label>
+        <name>New_Application_Link__c</name>
+    </fields>
+    <fields>
+        <label><!-- Submitted Application Link --></label>
+        <name>Submitted_Application_Link__c</name>
+    </fields>
+    <fields>
+        <help><!-- Text to display in response to a Buyer&apos;s request for information from a Seller. --></help>
+        <label><!-- Thank You Response --></label>
+        <name>Thank_You_Response__c</name>
+        <relationshipLabel><!-- Programs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Toolkit_Search_Description --></label>
+        <name>Toolkit_Search_Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- Is this an active/available Program? --></help>
+        <label><!-- Active Program --></label>
+        <name>isActive__c</name>
+    </fields>
+    <layouts>
+        <layout>Mission Layout</layout>
+        <sections>
+            <label><!-- Applications Links --></label>
+            <section>Applications Links</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Messaging --></label>
+            <section>Messaging</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

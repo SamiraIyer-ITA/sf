@@ -1,0 +1,2009 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCategoryGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Air Traffic Control Equipment</label>
+                    <name>Air_Traffic_Control_Equipment</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Aircraft and Aircraft Parts</label>
+                    <name>Aircraft_and_Aircraft_Parts</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Airport and Ground Support Equipment</label>
+                    <name>Airport_and_Ground_Support_Equipment</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Aviation Security Equipment</label>
+                    <name>Aviation_Security_Equipment</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Avionics</label>
+                    <name>Avionics</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Helicopters</label>
+                    <name>Helicopters</name>
+                </dataCategory>
+                <label>Aviation</label>
+                <name>Aviation</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Defense Equipment</label>
+                <name>Defense_Equipment</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Satellites</label>
+                    <name>Satellites</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Space Launch Equipment</label>
+                    <name>Space_Launch_Equipment</name>
+                </dataCategory>
+                <label>Space</label>
+                <name>Space</name>
+            </dataCategory>
+            <label>Aerospace and Defense</label>
+            <name>Aerospace_and_Defense</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Agricultural Biotechnology</label>
+                <name>Agricultural_Biotechnology</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Fertilizers</label>
+                    <name>Fertilizers</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Pesticides</label>
+                    <name>Pesticides</name>
+                </dataCategory>
+                <label>Agricultural Chemicals</label>
+                <name>Agricultural_Chemicals</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Bulk Commodities</label>
+                    <name>Bulk_Commodities</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Value-Added Agriculture</label>
+                    <name>Value_Added_Agriculture</name>
+                </dataCategory>
+                <label>Agricultural Commodities</label>
+                <name>Agricultural_Commodities</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Agricultural Equipment and Machinery</label>
+                <name>Agricultural_Equipment_and_Machinery</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Forestry Equipment and Machinery</label>
+                <name>Forestry_Equipment_and_Machinery</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Livestock</label>
+                <name>Livestock</name>
+            </dataCategory>
+            <label>Agribusiness</label>
+            <name>Agribusiness</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Armored Services</label>
+                    <name>Armored_Services</name>
+                </dataCategory>
+                <label>Armored Vehicles</label>
+                <name>Armored_Vehicles</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Automotive Accessories</label>
+                    <name>Automotive_Accessories</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Automotive Aftermarket Parts</label>
+                    <name>Automotive_Aftermarket_Parts</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Automotive Specialty Equipment Parts</label>
+                    <name>Automotive_Specialty_Equipment_Parts</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Autonomous Vehicle Technology</label>
+                    <name>Autonomous_Vehicle_Technology</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>OEM Auto Parts</label>
+                    <name>OEM_Auto_Parts</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Remanufactured Auto Parts</label>
+                    <name>Remanufactured_Auto_Parts</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Tires</label>
+                    <name>Tires</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Used Auto Parts</label>
+                    <name>Used_Auto_Parts</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Vehicle Electronics</label>
+                    <name>Vehicle_Electronics</name>
+                </dataCategory>
+                <label>Automotive Parts</label>
+                <name>Automotive_Parts</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Automotive Franchises</label>
+                    <name>Automotive_Franchises</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Car Dealerships</label>
+                    <name>Car_Dealerships</name>
+                </dataCategory>
+                <label>Automotive Retailers</label>
+                <name>Automotive_Retailers</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>CNG Fueling Stations</label>
+                    <name>CNG_Fueling_Stations</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Electric Vehicle Charging Stations</label>
+                    <name>Electric_Vehicle_Charging_Stations</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Ethanol Fueling Stations</label>
+                    <name>Ethanol_Fueling_Stations</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Gasoline Service Stations</label>
+                    <name>Gasoline_Service_Stations</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Hydrogen Fueling Stations</label>
+                    <name>Hydrogen_Fueling_Stations</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>LNG Fueling Stations</label>
+                    <name>LNG_Fueling_Stations</name>
+                </dataCategory>
+                <label>Fueling Infrastructure Stations</label>
+                <name>Fueling_Infrastructure_Stations</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Burden Vehicles</label>
+                    <name>Burden_Vehicles</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Personnel Vehicles</label>
+                    <name>Personnel_Vehicles</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Tow Tractors</label>
+                    <name>Tow_Tractors</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Trams</label>
+                    <name>Trams</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Wagon Trucks</label>
+                    <name>Wagon_Trucks</name>
+                </dataCategory>
+                <label>Industrial Vehicles</label>
+                <name>Industrial_Vehicles</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>All Terrain Vehicles</label>
+                    <name>All_Terrain_Vehicles</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Golf Carts</label>
+                    <name>Golf_Carts</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Powersports Parts</label>
+                    <name>Powersports_Parts</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Snowmobiles</label>
+                    <name>Snowmobiles</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Utility Task Vehicles</label>
+                    <name>Utility_Task_Vehicles</name>
+                </dataCategory>
+                <label>Powersports</label>
+                <name>Powersports</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Motorhomes</label>
+                    <name>Motorhomes</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Travel Trailers</label>
+                    <name>Travel_Trailers</name>
+                </dataCategory>
+                <label>Recreational Vehicles</label>
+                <name>Recreational_Vehicles</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Autonomous Vehicles</label>
+                    <name>Autonomous_Vehicles</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Buses</label>
+                    <name>Buses</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Electric Vehicles</label>
+                    <name>Electric_Vehicles</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Limousines</label>
+                    <name>Limousines</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Medium and Heavy Duty Trucks</label>
+                    <name>Medium_and_Heavy_Duty_Trucks</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Motorcycles</label>
+                    <name>Motorcycles</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Passenger Cars and Light Trucks</label>
+                    <name>Passenger_Cars_and_Light_Trucks</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Passenger Vans</label>
+                    <name>Passenger_Vans</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Trailers</label>
+                    <name>Trailers</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Used Vehicles</label>
+                    <name>Used_Vehicles</name>
+                </dataCategory>
+                <label>Road Vehicles</label>
+                <name>Road_Vehicles</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Catering Vehicles</label>
+                    <name>Catering_Vehicles</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Custom Coaches</label>
+                    <name>Custom_Coaches</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Hospitality Vehicles</label>
+                    <name>Hospitality_Vehicles</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Military Vehicles</label>
+                    <name>Military_Vehicles</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Police Patrol Vehicles</label>
+                    <name>Police_Patrol_Vehicles</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Rescue Vehicles</label>
+                    <name>Rescue_Vehicles</name>
+                </dataCategory>
+                <label>Specialty Vehicles</label>
+                <name>Specialty_Vehicles</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Ride Sharing Services</label>
+                    <name>Ride_Sharing_Services</name>
+                </dataCategory>
+                <label>Vehicle Rental Services</label>
+                <name>Vehicle_Rental_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Vehicle Customization Services</label>
+                    <name>Vehicle_Customization_Services</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Vehicle Repair Services</label>
+                    <name>Vehicle_Repair_Services</name>
+                </dataCategory>
+                <label>Vehicle Services</label>
+                <name>Vehicle_Services</name>
+            </dataCategory>
+            <label>Automotive</label>
+            <name>Automotive</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Accounting Services</label>
+                <name>Accounting_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Corporate Training Services</label>
+                <name>Corporate_Training_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Due Diligence Investigation Services</label>
+                <name>Due_Diligence_Investigation_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Employment Services</label>
+                <name>Employment_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Event Management</label>
+                <name>Event_Management</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Industrial Design Services</label>
+                <name>Industrial_Design_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Patent and Trademark Law Services</label>
+                    <name>Patent_and_Trademark_Law_Services</name>
+                </dataCategory>
+                <label>Legal Services</label>
+                <name>Legal_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Business Development</label>
+                    <name>Business_Development</name>
+                </dataCategory>
+                <label>Management Consulting Services</label>
+                <name>Management_Consulting_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Direct Marketing Services</label>
+                    <name>Direct_Marketing_Services</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Market Research Services</label>
+                    <name>Market_Research_Services</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Public Relations Services</label>
+                    <name>Public_Relations_Services</name>
+                </dataCategory>
+                <label>Marketing Services</label>
+                <name>Marketing_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Operations and Maintenance Services</label>
+                <name>Operations_and_Maintenance_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Real Estate Services</label>
+                <name>Real_Estate_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Product Safety Testing and Certification</label>
+                    <name>Product_Safety_Testing_and_Certification</name>
+                </dataCategory>
+                <label>Scientific and Technical Services</label>
+                <name>Scientific_and_Technical_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Serviced Office Leasing</label>
+                <name>Serviced_Office_Leasing</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Trade Promotion Services</label>
+                <name>Trade_Promotion_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Translation and Interpretation Services</label>
+                <name>Translation_and_Interpretation_Services</name>
+            </dataCategory>
+            <label>Business and Professional Services</label>
+            <name>Business_and_Professional_Services</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Adhesives and Sealants</label>
+                <name>Adhesives_and_Sealants</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Chemical Production Machinery</label>
+                <name>Chemical_Production_Machinery</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Paint</label>
+                    <name>Paint</name>
+                </dataCategory>
+                <label>Coatings</label>
+                <name>Coatings</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Dyes and Pigments</label>
+                <name>Dyes_and_Pigments</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Explosives</label>
+                <name>Explosives</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Photographic &amp; Cinematographic Chemicals</label>
+                <name>Photographic_Cinematographic_Chemicals</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Plastic Materials and Resins</label>
+                <name>Plastic_Materials_and_Resins</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Plastic Products</label>
+                <name>Plastic_Products</name>
+            </dataCategory>
+            <label>Chemicals</label>
+            <name>Chemicals</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Artwork</label>
+                <name>Artwork</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Photographic Equipment</label>
+                    <name>Photographic_Equipment</name>
+                </dataCategory>
+                <label>Consumer Electronics</label>
+                <name>Consumer_Electronics</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Fragrances</label>
+                    <name>Fragrances</name>
+                </dataCategory>
+                <label>Cosmetics and Toiletries</label>
+                <name>Cosmetics_and_Toiletries</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Office Furniture</label>
+                    <name>Office_Furniture</name>
+                </dataCategory>
+                <label>Furniture</label>
+                <name>Furniture</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Giftware</label>
+                <name>Giftware</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Household Appliances</label>
+                <name>Household_Appliances</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Housewares</label>
+                <name>Housewares</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Jewelry</label>
+                <name>Jewelry</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Lawn and Garden Equipment</label>
+                <name>Lawn_and_Garden_Equipment</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Musical Instruments</label>
+                <name>Musical_Instruments</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Pet Foods and Supplies</label>
+                <name>Pet_Foods_and_Supplies</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Soaps and Detergents</label>
+                <name>Soaps_and_Detergents</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Bicycles</label>
+                    <name>Bicycles</name>
+                </dataCategory>
+                <label>Sporting Goods</label>
+                <name>Sporting_Goods</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Toys and Games</label>
+                <name>Toys_and_Games</name>
+            </dataCategory>
+            <label>Consumer Goods</label>
+            <name>Consumer_Goods</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Architecture Services</label>
+                    <name>Architecture_Services</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Construction Services</label>
+                    <name>Construction_Services</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Construction Technology</label>
+                    <name>Construction_Technology</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Engineering Services</label>
+                    <name>Engineering_Services</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Interior Design Services</label>
+                    <name>Interior_Design_Services</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Landscape Design Services</label>
+                    <name>Landscape_Design_Services</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Urban Planning and Design</label>
+                    <name>Urban_Planning_and_Design</name>
+                </dataCategory>
+                <label>Design and Construction Services</label>
+                <name>Design_and_Construction_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Asphalt</label>
+                    <name>Asphalt</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Cement and Concrete</label>
+                    <name>Cement_and_Concrete</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Ceramic Tile</label>
+                    <name>Ceramic_Tile</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Doors and Windows</label>
+                    <name>Doors_and_Windows</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Electrical Systems and Lighting</label>
+                    <name>Electrical_Systems_and_Lighting</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Glass</label>
+                    <name>Glass</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>HVAC Equipment</label>
+                    <name>HVAC_Equipment</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Insulation</label>
+                    <name>Insulation</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Lumber</label>
+                    <name>Lumber</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Masonry and Stone</label>
+                    <name>Masonry_and_Stone</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Metal Building Products</label>
+                    <name>Metal_Building_Products</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Plaster and Gypsum Board</label>
+                    <name>Plaster_and_Gypsum_Board</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Plumbing</label>
+                    <name>Plumbing</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Wood Products</label>
+                    <name>Wood_Products</name>
+                </dataCategory>
+                <label>Building Products</label>
+                <name>Building_Products</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Earthmoving Equipment</label>
+                    <name>Earthmoving_Equipment</name>
+                </dataCategory>
+                <label>Construction Equipment and Machinery</label>
+                <name>Construction_Equipment_and_Machinery</name>
+            </dataCategory>
+            <label>Design and Construction</label>
+            <name>Design_and_Construction</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Commission Agents</label>
+                    <name>Commission_Agents</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Custom Brokerage</label>
+                    <name>Custom_Brokerage</name>
+                </dataCategory>
+                <label>Export Management</label>
+                <name>Export_Management</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Express Delivery Services</label>
+                <name>Express_Delivery_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Freight Forwarding</label>
+                <name>Freight_Forwarding</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Intelligent Transportation Systems</label>
+                <name>Intelligent_Transportation_Systems</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Commercial Vessel Equipment</label>
+                    <name>Commercial_Vessel_Equipment</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Shipbuidling Equipment</label>
+                    <name>Shipbuidling_Equipment</name>
+                </dataCategory>
+                <label>Maritime Transportation</label>
+                <name>Maritime_Transportation</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Material Handling</label>
+                <name>Material_Handling</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Moving Services</label>
+                <name>Moving_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Railroad Equipment</label>
+                    <name>Railroad_Equipment</name>
+                </dataCategory>
+                <label>Rail Transportation</label>
+                <name>Rail_Transportation</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Trucking</label>
+                <name>Trucking</name>
+            </dataCategory>
+            <label>Distribution and Logistics</label>
+            <name>Distribution_and_Logistics</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Adult Education and Training</label>
+                <name>Adult_Education_and_Training</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Curriculum Development Services</label>
+                <name>Curriculum_Development_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Distance Learning</label>
+                <name>Distance_Learning</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Early Childhood Education</label>
+                <name>Early_Childhood_Education</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Education Accreditation Agencies</label>
+                <name>Education_Accreditation_Agencies</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Education Publishing</label>
+                <name>Education_Publishing</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Education Trade Fair Organizers</label>
+                <name>Education_Trade_Fair_Organizers</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Educational Consortiums</label>
+                <name>Educational_Consortiums</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Educational Technology</label>
+                <name>Educational_Technology</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Educational Tour Operators</label>
+                <name>Educational_Tour_Operators</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Exam Services</label>
+                <name>Exam_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Higher Education</label>
+                <name>Higher_Education</name>
+            </dataCategory>
+            <dataCategory>
+                <label>K-12 Education</label>
+                <name>K12_Education</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Language Learning</label>
+                <name>Language_Learning</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Professional Training Services</label>
+                <name>Professional_Training_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Special Education</label>
+                <name>Special_Education</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Student Recruitment Agencies</label>
+                <name>Student_Recruitment_Agencies</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Trade Schools</label>
+                <name>Trade_Schools</name>
+            </dataCategory>
+            <label>Education</label>
+            <name>Education</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Nuclear Fuels</label>
+                    <name>Nuclear_Fuels</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Nuclear Reactors</label>
+                    <name>Nuclear_Reactors</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Nuclear Waste Processing</label>
+                    <name>Nuclear_Waste_Processing</name>
+                </dataCategory>
+                <label>Civil Nuclear Power</label>
+                <name>Civil_Nuclear_Power</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Clean Coal Technology</label>
+                    <name>Clean_Coal_Technology</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Coal Gasification Systems</label>
+                    <name>Coal_Gasification_Systems</name>
+                </dataCategory>
+                <label>Coal</label>
+                <name>Coal</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Smart Grid</label>
+                    <name>Smart_Grid</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Stationary Fuel Cells</label>
+                    <name>Stationary_Fuel_Cells</name>
+                </dataCategory>
+                <label>Electricity Infrastructure</label>
+                <name>Electricity_Infrastructure</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Energy Storage</label>
+                    <name>Energy_Storage</name>
+                </dataCategory>
+                <label>Grid Transmission Distribution</label>
+                <name>Grid_Transmission_Distribution</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Mining Equipment and Machinery</label>
+                <name>Mining_Equipment_and_Machinery</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Oil and Gas Field Machinery</label>
+                    <name>Oil_and_Gas_Field_Machinery</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Petroleum Refineries</label>
+                    <name>Petroleum_Refineries</name>
+                </dataCategory>
+                <label>Oil and Gas</label>
+                <name>Oil_and_Gas</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Biomass Equipment</label>
+                    <name>Biomass_Equipment</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Geothermal Energy</label>
+                    <name>Geothermal_Energy</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Hydropower</label>
+                    <name>Hydropower</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Ocean Energy</label>
+                    <name>Ocean_Energy</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Renewable Energy Equipment</label>
+                    <name>Renewable_Energy_Equipment</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Solar Energy</label>
+                    <name>Solar_Energy</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Wind Energy</label>
+                    <name>Wind_Energy</name>
+                </dataCategory>
+                <label>Renewable Energy</label>
+                <name>Renewable_Energy</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Biodiesel</label>
+                    <name>Biodiesel</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Ethanol</label>
+                    <name>Ethanol</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Wood Pellets</label>
+                    <name>Wood_Pellets</name>
+                </dataCategory>
+                <label>Renewable Fuels</label>
+                <name>Renewable_Fuels</name>
+            </dataCategory>
+            <label>Energy</label>
+            <name>Energy</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Air Pollution Monitoring Equipment</label>
+                    <name>Air_Pollution_Monitoring_Equipment</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Air Pollution Monitoring Services</label>
+                    <name>Air_Pollution_Monitoring_Services</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Mobile Source Air Pollution Control</label>
+                    <name>Mobile_Source_Air_Pollution_Control</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Stationary Source Air Pollution Control</label>
+                    <name>Stationary_Source_Air_Pollution_Control</name>
+                </dataCategory>
+                <label>Air Pollution Control</label>
+                <name>Air_Pollution_Control</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Environmental Engineering Services</label>
+                    <name>Environmental_Engineering_Services</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Environmental Monitoring</label>
+                    <name>Environmental_Monitoring</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Groundwater Remediation</label>
+                    <name>Groundwater_Remediation</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Soil Remediation</label>
+                    <name>Soil_Remediation</name>
+                </dataCategory>
+                <label>Environmental Remediation</label>
+                <name>Environmental_Remediation</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Hazardous Waste</label>
+                    <name>Hazardous_Waste</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Medical Waste</label>
+                    <name>Medical_Waste</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Municipal Solid Waste</label>
+                    <name>Municipal_Solid_Waste</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Recycling</label>
+                    <name>Recycling</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Waste Management Services</label>
+                    <name>Waste_Management_Services</name>
+                </dataCategory>
+                <label>Waste Management and Recycling</label>
+                <name>Waste_Management_and_Recycling</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Industrial Wastewater</label>
+                    <name>Industrial_Wastewater</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Municipal Drinking Water</label>
+                    <name>Municipal_Drinking_Water</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Municipal Wastewater</label>
+                    <name>Municipal_Wastewater</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Process Water</label>
+                    <name>Process_Water</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Water Monitoring</label>
+                    <name>Water_Monitoring</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Water Treatment Services</label>
+                    <name>Water_Treatment_Services</name>
+                </dataCategory>
+                <label>Water and Wastewater</label>
+                <name>Water_and_Wastewater</name>
+            </dataCategory>
+            <label>Environmental Technology</label>
+            <name>Environmental_Technology</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Plastics Production Machinery</label>
+                <name>Plastics_Production_Machinery</name>
+            </dataCategory>
+            <dataCategory>
+                <label>3D Printing</label>
+                <name>X3D_Printing</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Fluid Power Components</label>
+                    <name>Fluid_Power_Components</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Pumps, Valves and Compressors</label>
+                    <name>Pumps_Valves_and_Compressors</name>
+                </dataCategory>
+                <label>Fluid Handling Equipment</label>
+                <name>Fluid_Handling_Equipment</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Cutting Tools</label>
+                    <name>Cutting_Tools</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Electric Motors</label>
+                    <name>Electric_Motors</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Hand Tools</label>
+                    <name>Hand_Tools</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Machine Tools</label>
+                    <name>Machine_Tools</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Nonroad Diesel Engines</label>
+                    <name>Nonroad_Diesel_Engines</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Rolling Mills</label>
+                    <name>Rolling_Mills</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Tooling Equipment and Supplies</label>
+                    <name>Tooling_Equipment_and_Supplies</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Welding Equipment</label>
+                    <name>Welding_Equipment</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Woodworking Machinery</label>
+                    <name>Woodworking_Machinery</name>
+                </dataCategory>
+                <label>Machinery and Tools</label>
+                <name>Machinery_and_Tools</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Materials Handling Machinery</label>
+                <name>Materials_Handling_Machinery</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Packaging Equipment</label>
+                <name>Packaging_Equipment</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Process Controls</label>
+                <name>Process_Controls</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Rental Equipment and Machinery</label>
+                <name>Rental_Equipment_and_Machinery</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Robotics</label>
+                <name>Robotics</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Medical Laboratory Supplies &amp; Equipment</label>
+                    <name>Medical_Laboratory_Supplies_and_Equipment</name>
+                </dataCategory>
+                <label>Scientific Laboratory Equipment</label>
+                <name>Scientific_Laboratory_Equipment</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Used and Reconditioned Equipment</label>
+                <name>Used_and_Reconditioned_Equipment</name>
+            </dataCategory>
+            <label>Equipment and Machinery</label>
+            <name>Equipment_and_Machinery</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Asset Management</label>
+                <name>Asset_Management</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Banking</label>
+                <name>Banking</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Debt Collection</label>
+                <name>Debt_Collection</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Financial Technology</label>
+                <name>Financial_Technology</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Insurance Services</label>
+                <name>Insurance_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Investment Services</label>
+                <name>Investment_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Leasing Services</label>
+                <name>Leasing_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Private Equity</label>
+                <name>Private_Equity</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Venture Capital</label>
+                <name>Venture_Capital</name>
+            </dataCategory>
+            <label>Financial Services</label>
+            <name>Financial_Services</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Baby Food</label>
+                <name>Baby_Food</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Bakeries</label>
+                <name>Bakeries</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Beer</label>
+                    <name>Beer</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Coffee</label>
+                    <name>Coffee</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Distilled Spirits</label>
+                    <name>Distilled_Spirits</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Wine</label>
+                    <name>Wine</name>
+                </dataCategory>
+                <label>Beverages</label>
+                <name>Beverages</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Condiments and Seasonings</label>
+                <name>Condiments_and_Seasonings</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Confectionary Products</label>
+                <name>Confectionary_Products</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Dairy Products</label>
+                <name>Dairy_Products</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Food Processing Equipment</label>
+                <name>Food_Processing_Equipment</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Fruit Products</label>
+                <name>Fruit_Products</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Grains and Legumes</label>
+                <name>Grains_and_Legumes</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Meat Processing</label>
+                <name>Meat_Processing</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Commercial Fishing Equipment</label>
+                    <name>Commercial_Fishing_Equipment</name>
+                </dataCategory>
+                <label>Seafood</label>
+                <name>Seafood</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Snack Foods</label>
+                <name>Snack_Foods</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Sweeteners</label>
+                <name>Sweeteners</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Vegetable Products</label>
+                <name>Vegetable_Products</name>
+            </dataCategory>
+            <label>Food and Beverage</label>
+            <name>Food_and_Beverage</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Franchising</label>
+            <name>Franchising</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Biologics</label>
+                    <name>Biologics</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Drug Development and Discovery</label>
+                    <name>Drug_Development_and_Discovery</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Generic Pharamceuticals</label>
+                    <name>Generic_Pharamceuticals</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Over the Counter Drugs</label>
+                    <name>Over_the_Counter_Drugs</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Pharmaceuticals</label>
+                    <name>Pharmaceuticals</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Vaccines</label>
+                    <name>Vaccines</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Vitamins and Supplements</label>
+                    <name>Vitamins_and_Supplements</name>
+                </dataCategory>
+                <label>Biopharmaceuticals</label>
+                <name>Biopharmaceuticals</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Death Care</label>
+                <name>Death_Care</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Electronic Health Records</label>
+                    <name>Electronic_Health_Records</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Health Data Analytics</label>
+                    <name>Health_Data_Analytics</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Health Information Exchange</label>
+                    <name>Health_Information_Exchange</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Mobile Health Applications</label>
+                    <name>Mobile_Health_Applications</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Telemedicine</label>
+                    <name>Telemedicine</name>
+                </dataCategory>
+                <label>Health Information Technology</label>
+                <name>Health_Information_Technology</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Healthcare Facilities</label>
+                <name>Healthcare_Facilities</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Global Health and Relief Services</label>
+                    <name>Global_Health_and_Relief_Services</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Healthcare Consulting Services</label>
+                    <name>Healthcare_Consulting_Services</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>International Patient Programs</label>
+                    <name>International_Patient_Programs</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Senior Care Services</label>
+                    <name>Senior_Care_Services</name>
+                </dataCategory>
+                <label>Healthcare Services</label>
+                <name>Healthcare_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Dental Equipment and Supplies</label>
+                    <name>Dental_Equipment_and_Supplies</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Electromedical/therapeutic Apparatus</label>
+                    <name>Electromedical_therapeutic_Apparatus</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>In Vitro Diagnostics</label>
+                    <name>In_Vitro_Diagnostics</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Irradiation Appartus</label>
+                    <name>Irradiation_Appartus</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Ophthalmic Goods</label>
+                    <name>Ophthalmic_Goods</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Surgical and Medical Instruments</label>
+                    <name>Surgical_and_Medical_Instruments</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Surgical Appliances</label>
+                    <name>Surgical_Appliances</name>
+                </dataCategory>
+                <label>Medical Devices</label>
+                <name>Medical_Devices</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Pet Care</label>
+                    <name>Pet_Care</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Veterinary Care</label>
+                    <name>Veterinary_Care</name>
+                </dataCategory>
+                <label>Veterinary Medicine and Animal Care</label>
+                <name>Veterinary_Medicine_and_Animal_Care</name>
+            </dataCategory>
+            <label>Healthcare</label>
+            <name>Healthcare</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Ceramics</label>
+                <name>Ceramics</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Composites</label>
+                <name>Composites</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Iron and Steel</label>
+                    <name>Iron_and_Steel</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Nonferrous Metals</label>
+                    <name>Nonferrous_Metals</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Precious Metals</label>
+                    <name>Precious_Metals</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Rare Earth Metals</label>
+                    <name>Rare_Earth_Metals</name>
+                </dataCategory>
+                <label>Metals</label>
+                <name>Metals</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Paper and Paperboard</label>
+                    <name>Paper_and_Paperboard</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Paper Product Machinery</label>
+                    <name>Paper_Product_Machinery</name>
+                </dataCategory>
+                <label>Pulp and Paper</label>
+                <name>Pulp_and_Paper</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Scrap Metals</label>
+                    <name>Scrap_Metals</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Scrap Pulp and Paper</label>
+                    <name>Scrap_Pulp_and_Paper</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Scrap Plastics</label>
+                    <name>Scrap_Plastics</name>
+                </dataCategory>
+                <label>Scrap Materials</label>
+                <name>Scrap_Materials</name>
+            </dataCategory>
+            <label>Industrial Materials</label>
+            <name>Industrial_Materials</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Audio-Visual Equipment</label>
+                <name>Audio_Visual_Equipment</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Business Equipment</label>
+                <name>Business_Equipment</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>IaaS Providers</label>
+                    <name>IaaS_Providers</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>PaaS Providers</label>
+                    <name>PaaS_Providers</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>SaaS Providers</label>
+                    <name>SaaS_Providers</name>
+                </dataCategory>
+                <label>Cloud Computing</label>
+                <name>Cloud_Computing</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Computer Peripherals</label>
+                    <name>Computer_Peripherals</name>
+                </dataCategory>
+                <label>Computer Hardware</label>
+                <name>Computer_Hardware</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Desktop Computers</label>
+                    <name>Desktop_Computers</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>High Performance Computers</label>
+                    <name>High_Performance_Computers</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Portable Computers</label>
+                    <name>Portable_Computers</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Workstation Computers</label>
+                    <name>Workstation_Computers</name>
+                </dataCategory>
+                <label>Computer Systems</label>
+                <name>Computer_Systems</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>CAD/CAM Systems</label>
+                    <name>CAD_CAM_Systems</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>CAE Systems</label>
+                    <name>CAE_Systems</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Virtual Prototyping</label>
+                    <name>Virtual_Prototyping</name>
+                </dataCategory>
+                <label>Computer-Aided Technologies</label>
+                <name>Computer_Aided_Technologies</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Electronic Components</label>
+                    <name>Electronic_Components</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Electronic Control Systems</label>
+                    <name>Electronic_Control_Systems</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Electronic Product Testing Equipment</label>
+                    <name>Electronic_Product_Testing_Equipment</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Printed Circuit Boards</label>
+                    <name>Printed_Circuit_Boards</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Semiconductor Manufacturing Equipment</label>
+                    <name>Semiconductor_Manufacturing_Equipment</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Semiconductors</label>
+                    <name>Semiconductors</name>
+                </dataCategory>
+                <label>Electronics</label>
+                <name>Electronics</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Content Delivery Networks</label>
+                    <name>Content_Delivery_Networks</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Internet Service Providers</label>
+                    <name>Internet_Service_Providers</name>
+                </dataCategory>
+                <label>Information Services</label>
+                <name>Information_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Computer Services</label>
+                    <name>Computer_Services</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Data Processing Services</label>
+                    <name>Data_Processing_Services</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>IT Consulting Services</label>
+                    <name>IT_Consulting_Services</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>IT Service Management</label>
+                    <name>IT_Service_Management</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Software Development Services</label>
+                    <name>Software_Development_Services</name>
+                </dataCategory>
+                <label>Information Technology Services</label>
+                <name>Information_Technology_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Analytics Software</label>
+                    <name>Analytics_Software</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Application Software</label>
+                    <name>Application_Software</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Mobile Applications</label>
+                    <name>Mobile_Applications</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Software Development Tools</label>
+                    <name>Software_Development_Tools</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>System Infrastructure Software</label>
+                    <name>System_Infrastructure_Software</name>
+                </dataCategory>
+                <label>Software</label>
+                <name>Software</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Telecommunications Equipment</label>
+                    <name>Telecommunications_Equipment</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Telecommunications Services</label>
+                    <name>Telecommunications_Services</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Wireless</label>
+                    <name>Wireless</name>
+                </dataCategory>
+                <label>Telecommunications</label>
+                <name>Telecommunications</name>
+            </dataCategory>
+            <label>Information and Communication Technology</label>
+            <name>Information_and_Communication_Technology</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Pleasure Boats and Accessories</label>
+                <name>Pleasure_Boats_and_Accessories</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Underwater Robotics</label>
+                <name>Underwater_Robotics</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Underwater Vehicles</label>
+                <name>Underwater_Vehicles</name>
+            </dataCategory>
+            <label>Marine Technology</label>
+            <name>Marine_Technology</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Cinema Advertising</label>
+                    <name>Cinema_Advertising</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Internet Advertising</label>
+                    <name>Internet_Advertising</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Out of Home Advertising</label>
+                    <name>Out_of_Home_Advertising</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Radio Advertising</label>
+                    <name>Radio_Advertising</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Television Advertising</label>
+                    <name>Television_Advertising</name>
+                </dataCategory>
+                <label>Advertising Services</label>
+                <name>Advertising_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Brand Merchandise Licensing</label>
+                <name>Brand_Merchandise_Licensing</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Film and Video Production Services</label>
+                    <name>Film_and_Video_Production_Services</name>
+                </dataCategory>
+                <label>Entertainment</label>
+                <name>Entertainment</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Film Industry</label>
+                <name>Film_Industry</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Music and Sound Recordings</label>
+                <name>Music_and_Sound_Recordings</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Performing Arts</label>
+                <name>Performing_Arts</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Graphic Design</label>
+                    <name>Graphic_Design</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Printing and Graphic Arts Equipment</label>
+                    <name>Printing_and_Graphic_Arts_Equipment</name>
+                </dataCategory>
+                <label>Printing</label>
+                <name>Printing</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Book Publishing</label>
+                    <name>Book_Publishing</name>
+                </dataCategory>
+                <label>Publishing</label>
+                <name>Publishing</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Television Broadcasting</label>
+                <name>Television_Broadcasting</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Video Games</label>
+                <name>Video_Games</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Photographic Services</label>
+                    <name>Photographic_Services</name>
+                </dataCategory>
+                <label>Visual Arts</label>
+                <name>Visual_Arts</name>
+            </dataCategory>
+            <label>Media and Entertainment</label>
+            <name>Media_and_Entertainment</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Business Associations</label>
+                <name>Business_Associations</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Chambers of Commerce</label>
+                <name>Chambers_of_Commerce</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Regional Economic Development</label>
+                <name>Regional_Economic_Development</name>
+            </dataCategory>
+            <label>Non-Profits and Associations</label>
+            <name>Non_Profits_and_Associations</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Public Sector</label>
+            <name>Public_Sector</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Catalog and Mail Order</label>
+                <name>Catalog_and_Mail_Order</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Convenience Stores</label>
+                <name>Convenience_Stores</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Department Stores</label>
+                <name>Department_Stores</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Direct Selling</label>
+                <name>Direct_Selling</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Discount Stores</label>
+                <name>Discount_Stores</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Drug Stores</label>
+                <name>Drug_Stores</name>
+            </dataCategory>
+            <dataCategory>
+                <label>eCommerce Industry</label>
+                <name>eCommerce_Industry</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Food and Grocery Retailing</label>
+                <name>Food_and_Grocery_Retailing</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Furniture Retailing</label>
+                <name>Furniture_Retailing</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Hardware Stores</label>
+                <name>Hardware_Stores</name>
+            </dataCategory>
+            <label>Retail Trade</label>
+            <name>Retail_Trade</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Access Control Systems</label>
+                <name>Access_Control_Systems</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Fire Safety and Rescue Equipment</label>
+                <name>Fire_Safety_and_Rescue_Equipment</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Firearms and Accessories</label>
+                <name>Firearms_and_Accessories</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Home Security Systems</label>
+                <name>Home_Security_Systems</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Industrial Safety and Security</label>
+                <name>Industrial_Safety_and_Security</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Police Equipment</label>
+                <name>Police_Equipment</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Protective Equipment</label>
+                <name>Protective_Equipment</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Safety Services</label>
+                <name>Safety_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Security and Safety Equipment</label>
+                <name>Security_and_Safety_Equipment</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Security Services</label>
+                <name>Security_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Cybersecurity</label>
+                <name>Cybersecurity</name>
+            </dataCategory>
+            <label>Safety and Security</label>
+            <name>Safety_and_Security</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Protective and Safety Clothing</label>
+                    <name>Protective_and_Safety_Clothing</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Used Clothing</label>
+                    <name>Used_Clothing</name>
+                </dataCategory>
+                <label>Apparel</label>
+                <name>Apparel</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Fabrics</label>
+                <name>Fabrics</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Footwear</label>
+                <name>Footwear</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Leather and Fur Products</label>
+                <name>Leather_and_Fur_Products</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Medical Textiles</label>
+                <name>Medical_Textiles</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Textile Equipment and Machinery</label>
+                <name>Textile_Equipment_and_Machinery</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Textile Made-Ups</label>
+                <name>Textile_Made_Ups</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Used Textiles and Apparel</label>
+                <name>Used_Textiles_and_Apparel</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Yarns</label>
+                <name>Yarns</name>
+            </dataCategory>
+            <label>Textiles and Apparel</label>
+            <name>Textiles_and_Apparel</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Campgrounds and RV Parks</label>
+                    <name>Campgrounds_and_RV_Parks</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Lodging</label>
+                    <name>Lodging</name>
+                </dataCategory>
+                <label>Accommodations</label>
+                <name>Accommodations</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Tourism Bureaus</label>
+                    <name>Tourism_Bureaus</name>
+                </dataCategory>
+                <label>Destination Management Organizations</label>
+                <name>Destination_Management_Organizations</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Hotel and Restaurant Equipment</label>
+                <name>Hotel_and_Restaurant_Equipment</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Air Transportation</label>
+                    <name>Air_Transportation</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Bus Services</label>
+                    <name>Bus_Services</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Car Rentals</label>
+                    <name>Car_Rentals</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Parking Lots and Garages</label>
+                    <name>Parking_Lots_and_Garages</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Rail Travel</label>
+                    <name>Rail_Travel</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Sightseeing Transportation Services</label>
+                    <name>Sightseeing_Transportation_Services</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Taxi Services</label>
+                    <name>Taxi_Services</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Urban Transit Systems</label>
+                    <name>Urban_Transit_Systems</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Water Transportation Services</label>
+                    <name>Water_Transportation_Services</name>
+                </dataCategory>
+                <label>Passenger Transportation Services</label>
+                <name>Passenger_Transportation_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Nightclubs</label>
+                    <name>Nightclubs</name>
+                </dataCategory>
+                <label>Restaurants and Bars</label>
+                <name>Restaurants_and_Bars</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Amusement Parks</label>
+                    <name>Amusement_Parks</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Casinos</label>
+                    <name>Casinos</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Heritage Sites</label>
+                    <name>Heritage_Sites</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Historical Sites</label>
+                    <name>Historical_Sites</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Museums</label>
+                    <name>Museums</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>National Parks</label>
+                    <name>National_Parks</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Shopping Destinations</label>
+                    <name>Shopping_Destinations</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Sporting Events</label>
+                    <name>Sporting_Events</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Ski Areas and Resorts</label>
+                    <name>Ski_Areas_and_Resorts</name>
+                </dataCategory>
+                <label>Tourist Attractions</label>
+                <name>Tourist_Attractions</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Travel Marketing Services</label>
+                <name>Travel_Marketing_Services</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>Corporate Travel Services</label>
+                    <name>Corporate_Travel_Services</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Receptive Travel Services</label>
+                    <name>Receptive_Travel_Services</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Tour Operators</label>
+                    <name>Tour_Operators</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Travel Agencies</label>
+                    <name>Travel_Agencies</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Travel Clubs</label>
+                    <name>Travel_Clubs</name>
+                </dataCategory>
+                <label>Travel Providers</label>
+                <name>Travel_Providers</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Travel Writers</label>
+                <name>Travel_Writers</name>
+            </dataCategory>
+            <label>Travel and Tourism</label>
+            <name>Travel_and_Tourism</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Wholesale Trade</label>
+            <name>Wholesale_Trade</name>
+        </dataCategory>
+        <label>Industry Taxonomy</label>
+        <name>Industry_Taxonomy</name>
+    </dataCategory>
+    <description>Industry Taxonomy</description>
+    <label>Industries</label>
+    <objectUsage>
+        <object>KnowledgeArticleVersion</object>
+    </objectUsage>
+</DataCategoryGroup>

@@ -59,10 +59,11 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
-    <enableSearch>true</enableSearch>
+    <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
@@ -260,11 +261,13 @@
                 <value>
                     <fullName>SA</fullName>
                     <default>true</default>
+                    <label>SA</label>
                 </value>
                 <value>
                     <fullName>Suspension Office</fullName>
                     <default>false</default>
                     <isActive>false</isActive>
+                    <label>Suspension Office</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -333,61 +336,6 @@
         <type>Text</type>
         <unique>true</unique>
     </fields>
-    <fields>
-        <fullName>Type__c</fullName>
-        <description>This field displays the Type of Suspension Agreement</description>
-        <externalId>false</externalId>
-        <label>Type</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>AD - 734(b) - Cessation of Exports</fullName>
-                    <default>false</default>
-                    <label>AD - 734(b) - Cessation of Exports</label>
-                </value>
-                <value>
-                    <fullName>AD - 734(b) - Normal Value</fullName>
-                    <default>false</default>
-                    <label>AD - 734(b) - Normal Value</label>
-                </value>
-                <value>
-                    <fullName>AD - 734(c) - Reference Price</fullName>
-                    <default>false</default>
-                    <label>AD - 734(c) - Reference Price</label>
-                </value>
-                <value>
-                    <fullName>AD - 734(l) - NME</fullName>
-                    <default>false</default>
-                    <label>AD - 734(l) - NME</label>
-                </value>
-                <value>
-                    <fullName>CVD - 704(b) - Elimination of Subsidy</fullName>
-                    <default>false</default>
-                    <label>CVD - 704(b) - Elimination of Subsidy</label>
-                </value>
-                <value>
-                    <fullName>CVD - 704(b) - Cessation of Exports</fullName>
-                    <default>false</default>
-                    <label>CVD - 704(b) - Cessation of Exports</label>
-                </value>
-                <value>
-                    <fullName>CVD - 704(c) - Other than Quantitative Restriction</fullName>
-                    <default>false</default>
-                    <label>CVD - 704(c) - Other than Quantitative Restriction</label>
-                </value>
-                <value>
-                    <fullName>CVD - 704(c) - Quantitative Restriction</fullName>
-                    <default>false</default>
-                    <label>CVD - 704(c) - Quantitative Restriction</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
     <label>Suspension Agreement</label>
     <listViews>
         <fullName>All</fullName>
@@ -411,18 +359,7 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Suspension Agreements</pluralLabel>
-    <searchLayouts>
-        <customTabListAdditionalFields>ADCVD_Case__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>ADCVD_Case_Number__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>ADCVD_Case_Type__c</customTabListAdditionalFields>
-        <lookupDialogsAdditionalFields>ADCVD_Case__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>ADCVD_Case_Number__c</lookupDialogsAdditionalFields>
-        <searchResultsAdditionalFields>ADCVD_Case_Type__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ADCVD_Case_Number__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ADCVD_Case__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Product_Short_Name_Text_Value__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Case_Concat_Text_Values__c</searchResultsAdditionalFields>
-    </searchLayouts>
+    <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
         <fullName>Cannot_Edit_Locked_Record</fullName>
@@ -433,4 +370,5 @@ PRIORVALUE(Locked__c) == true
 )</errorConditionFormula>
         <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>

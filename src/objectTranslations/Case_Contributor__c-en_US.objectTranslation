@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Case Contributor</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Case Contributors</value>
+    </caseValues>
+    <fields>
+        <label><!-- Case Contributor ID --></label>
+        <name>Case_Contributor_ID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Link of associated Case record --></help>
+        <label><!-- Case ID --></label>
+        <name>Case_ID__c</name>
+        <relationshipLabel><!-- Case Contributors --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Contributor Name --></label>
+        <name>Contributor_Name__c</name>
+        <relationshipLabel><!-- Case Contributors --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Contributor --></label>
+        <name>Contributor__c</name>
+    </fields>
+    <fields>
+        <label><!-- Inactive --></label>
+        <name>Inactive__c</name>
+    </fields>
+    <fields>
+        <label><!-- Office --></label>
+        <name>Office__c</name>
+    </fields>
+    <fields>
+        <label><!-- Organization --></label>
+        <name>Organization__c</name>
+        <relationshipLabel><!-- Case Contributors --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Original Office --></label>
+        <name>Original_Office__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Unit --></label>
+        <name>RH_Lev_1_GM_All__c</name>
+    </fields>
+    <fields>
+        <label><!-- User DAS --></label>
+        <name>RH_Lev_2_DAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Region --></label>
+        <name>RH_Lev_3_Region_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Sub-region --></label>
+        <name>RH_Lev_4_Region_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Country --></label>
+        <name>RH_Lev_5_Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Office --></label>
+        <name>RH_Lev_6_Office__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Agency --></label>
+        <name>RH_Lev_7_Individual__c</name>
+    </fields>
+    <fields>
+        <label><!-- Running User is Case Contributor --></label>
+        <name>Running_User_is_Case_Contributor__c</name>
+    </fields>
+    <layouts>
+        <layout>Case Contributor Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Contributor Name is Required. --></errorMessage>
+        <name>Required_Case_Contributor_Name</name>
+    </validationRules>
+</CustomObjectTranslation>

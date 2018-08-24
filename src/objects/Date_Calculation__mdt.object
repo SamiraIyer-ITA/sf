@@ -1175,7 +1175,7 @@
                 <sorted>false</sorted>
                 <value>
                     <fullName>Admin Review Opportunity Notice</fullName>
-                    <default>false</default>
+                    <default>true</default>
                     <label>Admin Review Opportunity Notice</label>
                 </value>
                 <value>
@@ -1482,7 +1482,7 @@
                 <sorted>false</sorted>
                 <value>
                     <fullName>Admin Review Opportunity Notice</fullName>
-                    <default>false</default>
+                    <default>true</default>
                     <label>Admin Review Opportunity Notice</label>
                 </value>
                 <value>
@@ -1789,7 +1789,7 @@
                 <sorted>false</sorted>
                 <value>
                     <fullName>Admin Review Opportunity Notice</fullName>
-                    <default>false</default>
+                    <default>true</default>
                     <label>Admin Review Opportunity Notice</label>
                 </value>
                 <value>
@@ -2091,7 +2091,7 @@
                 <sorted>false</sorted>
                 <value>
                     <fullName>Admin Review Opportunity Notice</fullName>
-                    <default>false</default>
+                    <default>true</default>
                     <label>Admin Review Opportunity Notice</label>
                 </value>
                 <value>
@@ -2393,7 +2393,7 @@
                 <sorted>false</sorted>
                 <value>
                     <fullName>Admin Review Opportunity Notice</fullName>
-                    <default>false</default>
+                    <default>true</default>
                     <label>Admin Review Opportunity Notice</label>
                 </value>
                 <value>
@@ -2695,7 +2695,7 @@
                 <sorted>false</sorted>
                 <value>
                     <fullName>Admin Review Opportunity Notice</fullName>
-                    <default>false</default>
+                    <default>true</default>
                     <label>Admin Review Opportunity Notice</label>
                 </value>
                 <value>
@@ -2997,7 +2997,7 @@
                 <sorted>false</sorted>
                 <value>
                     <fullName>Admin Review Opportunity Notice</fullName>
-                    <default>false</default>
+                    <default>true</default>
                     <label>Admin Review Opportunity Notice</label>
                 </value>
                 <value>
@@ -3299,7 +3299,7 @@
                 <sorted>false</sorted>
                 <value>
                     <fullName>Admin Review Opportunity Notice</fullName>
-                    <default>false</default>
+                    <default>true</default>
                     <label>Admin Review Opportunity Notice</label>
                 </value>
                 <value>
@@ -3583,32 +3583,331 @@
         </valueSet>
     </fields>
     <label>Date Calculation</label>
+    <listViews>
+        <fullName>AD_Investigation_All_Calculations</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Active_Calculation__c</columns>
+        <columns>Calculated_Date_Field_Name__c</columns>
+        <columns>Order_of_Execution__c</columns>
+        <columns>Tolling_Service__c</columns>
+        <columns>Base_Date_Field_1_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ADCVD_Objects__c</field>
+            <operation>equals</operation>
+            <value>Inv_AD</value>
+        </filters>
+        <label>AD Investigation All Calculations</label>
+    </listViews>
+    <listViews>
+        <fullName>AD_Investigation_Base_Calculations</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Active_Calculation__c</columns>
+        <columns>Calculated_Date_Field_Name__c</columns>
+        <columns>Order_of_Execution__c</columns>
+        <columns>Tolling_Service__c</columns>
+        <columns>Base_Date_Field_1_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ADCVD_Objects__c</field>
+            <operation>equals</operation>
+            <value>Inv_AD</value>
+        </filters>
+        <filters>
+            <field>Calculated_Date_Field_Name__c</field>
+            <operation>notContain</operation>
+            <value>Next</value>
+        </filters>
+        <label>AD Investigation Base Calculations</label>
+    </listViews>
+    <listViews>
+        <fullName>AD_Investigation_Next_Announcement</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Active_Calculation__c</columns>
+        <columns>Calculated_Date_Field_Name__c</columns>
+        <columns>Order_of_Execution__c</columns>
+        <columns>Base_Date_Field_1_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ADCVD_Objects__c</field>
+            <operation>equals</operation>
+            <value>Inv_AD</value>
+        </filters>
+        <filters>
+            <field>Calculated_Date_Field_Name__c</field>
+            <operation>equals</operation>
+            <value>Next_Announcement_Date__c</value>
+        </filters>
+        <label>AD Investigation Next Announcement</label>
+    </listViews>
+    <listViews>
+        <fullName>AD_Investigation_Next_Due_to_DAS_Calc</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Active_Calculation__c</columns>
+        <columns>Calculated_Date_Field_Name__c</columns>
+        <columns>Order_of_Execution__c</columns>
+        <columns>Base_Date_Field_1_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ADCVD_Objects__c</field>
+            <operation>equals</operation>
+            <value>Inv_AD</value>
+        </filters>
+        <filters>
+            <field>Calculated_Date_Field_Name__c</field>
+            <operation>equals</operation>
+            <value>Next_Due_to_DAS_Deadline__c</value>
+        </filters>
+        <label>AD Investigation Next Due to DAS Calc</label>
+    </listViews>
+    <listViews>
+        <fullName>AD_Investigation_Next_Major_Calculation</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Active_Calculation__c</columns>
+        <columns>Calculated_Date_Field_Name__c</columns>
+        <columns>Order_of_Execution__c</columns>
+        <columns>Base_Date_Field_1_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ADCVD_Objects__c</field>
+            <operation>equals</operation>
+            <value>Inv_AD</value>
+        </filters>
+        <filters>
+            <field>Calculated_Date_Field_Name__c</field>
+            <operation>equals</operation>
+            <value>Next_Major_Deadline__c</value>
+        </filters>
+        <label>AD Investigation Next Major Calculation</label>
+    </listViews>
+    <listViews>
+        <fullName>AD_Investigation_Next_Office_Calculation</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Active_Calculation__c</columns>
+        <columns>Calculated_Date_Field_Name__c</columns>
+        <columns>Order_of_Execution__c</columns>
+        <columns>Base_Date_Field_1_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ADCVD_Objects__c</field>
+            <operation>equals</operation>
+            <value>Inv_AD</value>
+        </filters>
+        <filters>
+            <field>Calculated_Date_Field_Name__c</field>
+            <operation>equals</operation>
+            <value>Next_Office_Deadline__c</value>
+        </filters>
+        <label>AD Investigation Next Office Calculation</label>
+    </listViews>
+    <listViews>
+        <fullName>CVD_Investigation_Base_Calculations</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Active_Calculation__c</columns>
+        <columns>Calculated_Date_Field_Name__c</columns>
+        <columns>Order_of_Execution__c</columns>
+        <columns>Tolling_Service__c</columns>
+        <columns>Base_Date_Field_1_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ADCVD_Objects__c</field>
+            <operation>equals</operation>
+            <value>Inv_CVD</value>
+        </filters>
+        <filters>
+            <field>Calculated_Date_Field_Name__c</field>
+            <operation>notContain</operation>
+            <value>Next</value>
+        </filters>
+        <label>CVD Investigation Base Calculations</label>
+    </listViews>
+    <listViews>
+        <fullName>Remand_All_Calculations</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Active_Calculation__c</columns>
+        <columns>Calculated_Date_Field_Name__c</columns>
+        <columns>Order_of_Execution__c</columns>
+        <columns>Tolling_Service__c</columns>
+        <columns>Base_Date_Field_1_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ADCVD_Objects__c</field>
+            <operation>equals</operation>
+            <value>Lit_Rem</value>
+        </filters>
+        <label>Remand All Calculations</label>
+    </listViews>
+    <listViews>
+        <fullName>Segment_ACR_All_Calculations</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Active_Calculation__c</columns>
+        <columns>Calculated_Date_Field_Name__c</columns>
+        <columns>Order_of_Execution__c</columns>
+        <columns>Base_Date_Field_1_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ADCVD_Objects__c</field>
+            <operation>equals</operation>
+            <value>Seg_ACR</value>
+        </filters>
+        <label>Segment - ACR All Calculations</label>
+    </listViews>
+    <listViews>
+        <fullName>Segment_AR_All_Calculations</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Active_Calculation__c</columns>
+        <columns>Calculated_Date_Field_Name__c</columns>
+        <columns>Order_of_Execution__c</columns>
+        <columns>Base_Date_Field_1_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ADCVD_Objects__c</field>
+            <operation>equals</operation>
+            <value>Seg_AR</value>
+        </filters>
+        <label>Segment - AR All Calculations</label>
+    </listViews>
+    <listViews>
+        <fullName>Segment_AR_Next_Major_Calculation</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Active_Calculation__c</columns>
+        <columns>Calculated_Date_Field_Name__c</columns>
+        <columns>Order_of_Execution__c</columns>
+        <columns>Base_Date_Field_1_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ADCVD_Objects__c</field>
+            <operation>equals</operation>
+            <value>Seg_AR</value>
+        </filters>
+        <filters>
+            <field>Calculated_Date_Field_Name__c</field>
+            <operation>equals</operation>
+            <value>Next_Major_Deadline__c</value>
+        </filters>
+        <label>Segment - AR Next Major Calculation</label>
+    </listViews>
+    <listViews>
+        <fullName>Segment_CCR_All_Calculations</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Active_Calculation__c</columns>
+        <columns>Calculated_Date_Field_Name__c</columns>
+        <columns>Order_of_Execution__c</columns>
+        <columns>Base_Date_Field_1_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ADCVD_Objects__c</field>
+            <operation>equals</operation>
+            <value>Seg_CCR</value>
+        </filters>
+        <label>Segment - CCR All Calculations</label>
+    </listViews>
+    <listViews>
+        <fullName>Segment_ER_All_Calculations</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Active_Calculation__c</columns>
+        <columns>Calculated_Date_Field_Name__c</columns>
+        <columns>Order_of_Execution__c</columns>
+        <columns>Base_Date_Field_1_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ADCVD_Objects__c</field>
+            <operation>equals</operation>
+            <value>Seg_ER</value>
+        </filters>
+        <label>Segment - ER All Calculations</label>
+    </listViews>
+    <listViews>
+        <fullName>Segment_NSR_All_Calculations</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Active_Calculation__c</columns>
+        <columns>Calculated_Date_Field_Name__c</columns>
+        <columns>Order_of_Execution__c</columns>
+        <columns>Base_Date_Field_1_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ADCVD_Objects__c</field>
+            <operation>equals</operation>
+            <value>Seg_NSR</value>
+        </filters>
+        <label>Segment - NSR All Calculations</label>
+    </listViews>
+    <listViews>
+        <fullName>Segment_SI_All_Calculations</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Active_Calculation__c</columns>
+        <columns>Calculated_Date_Field_Name__c</columns>
+        <columns>Order_of_Execution__c</columns>
+        <columns>Base_Date_Field_1_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ADCVD_Objects__c</field>
+            <operation>equals</operation>
+            <value>Seg_SI</value>
+        </filters>
+        <label>Segment - SI All Calculations</label>
+    </listViews>
+    <listViews>
+        <fullName>Segment_SI_Next_Major_Calculation</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Active_Calculation__c</columns>
+        <columns>Calculated_Date_Field_Name__c</columns>
+        <columns>Order_of_Execution__c</columns>
+        <columns>Base_Date_Field_1_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ADCVD_Objects__c</field>
+            <operation>equals</operation>
+            <value>Seg_SI</value>
+        </filters>
+        <filters>
+            <field>Calculated_Date_Field_Name__c</field>
+            <operation>equals</operation>
+            <value>Next_Major_Deadline__c</value>
+        </filters>
+        <label>Segment - SI Next Major Calculation</label>
+    </listViews>
+    <listViews>
+        <fullName>Segment_SI_Next_Office_Calculation</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Active_Calculation__c</columns>
+        <columns>Calculated_Date_Field_Name__c</columns>
+        <columns>Order_of_Execution__c</columns>
+        <columns>Base_Date_Field_1_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ADCVD_Objects__c</field>
+            <operation>equals</operation>
+            <value>Seg_SI</value>
+        </filters>
+        <filters>
+            <field>Calculated_Date_Field_Name__c</field>
+            <operation>equals</operation>
+            <value>Next_Office_Deadline__c</value>
+        </filters>
+        <label>Segment - SI Next Office Calculation</label>
+    </listViews>
+    <listViews>
+        <fullName>Segment_SSR_All_Calculations</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Active_Calculation__c</columns>
+        <columns>Calculated_Date_Field_Name__c</columns>
+        <columns>Order_of_Execution__c</columns>
+        <columns>Base_Date_Field_1_Name__c</columns>
+        <columns>Number_of_Extensions__c</columns>
+        <columns>Extension_Field_1_Name__c</columns>
+        <columns>Extension_Field_2_Name__c</columns>
+        <columns>Extension_Object_1_Name__c</columns>
+        <columns>Extension_Object_2_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ADCVD_Objects__c</field>
+            <operation>equals</operation>
+            <value>Seg_SSR</value>
+        </filters>
+        <label>Segment - SSR All Calculations</label>
+    </listViews>
     <pluralLabel>Date Calculations</pluralLabel>
-    <validationRules>
-        <fullName>Base_Field_Count_must_match_Base_Fields</fullName>
-        <active>true</active>
-        <errorConditionFormula>OR (ISBLANK(Number_of_Base_Date_Fields__c), IF(ISBLANK(Base_Date_Field_1_Name__c),0,1) +
-IF(ISBLANK(Base_Date_Field_2_Name__c),0,1) +
-IF(ISBLANK(Base_Date_Field_3_Name__c),0,1) +
-IF(ISBLANK(Base_Date_Field_4_Name__c),0,1) +
-IF(ISBLANK(Base_Date_Field_5_Name__c),0,1) +
-IF(ISBLANK(Base_Date_Field_6_Name__c),0,1) &lt;&gt; Number_of_Base_Date_Fields__c)</errorConditionFormula>
-        <errorMessage>Number of Base Date Fields and actual date fields entered must match</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Conditional_Fields_and_total_must_match</fullName>
-        <active>true</active>
-        <errorConditionFormula>OR (ISBLANK( Number_of_Conditionals__c ), 
-IF(ISBLANK(Conditional_Field_1_Name__c ),0,1) +
-IF(ISBLANK(Conditional_Field_2_Name__c ),0,1) +
-IF(ISBLANK(Conditional_Field_3_Name__c ),0,1) +
-IF(ISBLANK(Conditional_Field_4_Name__c ),0,1) +
-IF(ISBLANK(Conditional_Field_5_Name__c ),0,1) +
-IF(ISBLANK(Conditional_Field_6_Name__c ),0,1) +
-IF(ISBLANK(Conditional_Field_7_Name__c ),0,1) +
-IF(ISBLANK(Conditional_Field_8_Name__c ),0,1) &lt;&gt; Number_of_Conditionals__c )</errorConditionFormula>
-        <errorMessage>Number of Conditionals and actual conditional fields entered must match</errorMessage>
-    </validationRules>
     <validationRules>
         <fullName>Correct_Date_Format</fullName>
         <active>true</active>

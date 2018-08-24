@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Table to store font-based social icons per Site.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Determines if Social Icon is displayed on website.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If Checked, Social Icon will display above the Site&apos;s navigation bar.</inlineHelpText>
+        <label>Active</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Icon__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Master-Detail relationship with Atom object - Icon Record Type.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Search for the Icon required for this Social Icon</inlineHelpText>
+        <label>Atom</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Content__c.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Icon</value>
+            </filterItems>
+            <filterItems>
+                <field>Content__c.Icon_Type__c</field>
+                <operation>equals</operation>
+                <value>Social</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Content__c</referenceTo>
+        <relationshipLabel>Social Icons</relationshipLabel>
+        <relationshipName>Social_Icons</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Site__c</fullName>
+        <description>Master-Detail relationship with the Site object.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Search for the Site associated to this Social Icon</inlineHelpText>
+        <label>Site</label>
+        <referenceTo>Site__c</referenceTo>
+        <relationshipLabel>Social Icons</relationshipLabel>
+        <relationshipName>Social_Icons</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>true</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Sort_Order__c</fullName>
+        <description>The order in which the social icons will display on the page</description>
+        <externalId>false</externalId>
+        <label>Sort Order</label>
+        <precision>2</precision>
+        <required>true</required>
+        <scale>1</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>URL__c</fullName>
+        <description>URL of the designated social media</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the URL for this Social Icon</inlineHelpText>
+        <label>URL</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <label>Social Icon</label>
+    <nameField>
+        <label>Social Icon Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Social Icons</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

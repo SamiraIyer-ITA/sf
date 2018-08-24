@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Gm_shared_Susa</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Gm shared Susa</label>
+        <sharedTo>
+            <role>GM_Advocacy</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>IP_Case_Reason__c</field>
+            <operation>equals</operation>
+            <value>Connections,Research &amp; Counseling,Information Assistance</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>ITA_Case_Access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Default ITA Case Access. Grants R/W access to the all internal users for all record types.</description>
+        <label>ITA Case Access</label>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Participation,Commercial Diplomacy,Media,Export Promotion,Data Protection Authority,European Business,Dispute Resolution and Enforcement,Advocacy,Investment Promotion,Export_Feedback,Outreach,PS_Feedback,Privacy Shield</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+</SharingRules>

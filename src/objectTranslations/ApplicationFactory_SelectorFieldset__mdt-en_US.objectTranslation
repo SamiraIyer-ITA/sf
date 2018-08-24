@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Application Factory - Selector Fieldset</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Application Factory - Selector Fieldsets</value>
+    </caseValues>
+    <fields>
+        <help><!-- Indicates whether the fieldset should be added to the selector in real time. --></help>
+        <label><!-- Is Active --></label>
+        <name>IsActive__c</name>
+    </fields>
+    <fields>
+        <help><!-- Specifies the related SObject that will include the fieldset in its selector. --></help>
+        <label><!-- SObject Type --></label>
+        <name>SObjectType__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Tab for accessing the New Toolkit Support Case Flow.</description>
+    <frameHeight>600</frameHeight>
+    <hasSidebar>true</hasSidebar>
+    <label>Toolkit Support</label>
+    <mobileReady>true</mobileReady>
+    <motif>Custom94: Stethoscope</motif>
+    <url>https://trade.my.salesforce.com/flow/Toolkit_Support_Case_Intake</url>
+    <urlEncodingKey>UTF-8</urlEncodingKey>
+</CustomTab>

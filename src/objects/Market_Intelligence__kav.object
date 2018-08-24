@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <articleTypeChannelDisplay>
+        <articleTypeTemplates>
+            <channel>App</channel>
+            <template>Tab</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Prm</channel>
+            <template>Tab</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Csp</channel>
+            <template>Tab</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Pkb</channel>
+            <template>Toc</template>
+        </articleTypeTemplates>
+    </articleTypeChannelDisplay>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Provide current awareness, market research in order to deliver timely information to clients.</description>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <fields>
+        <fullName>Approver__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Atom Approver</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Atom Approver</inlineHelpText>
+        <label>Approver</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>User.UserType</field>
+                <operation>equals</operation>
+                <value>Standard</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Markets_Intelligence</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Atom__c</fullName>
+        <externalId>false</externalId>
+        <label>Atom</label>
+        <length>5000</length>
+        <trackHistory>false</trackHistory>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Citation_Source__c</fullName>
+        <externalId>false</externalId>
+        <label>Citation Source</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Commercial Service</fullName>
+                    <default>false</default>
+                    <label>Commercial Service</label>
+                </value>
+                <value>
+                    <fullName>I&amp;A</fullName>
+                    <default>false</default>
+                    <label>I&amp;A</label>
+                </value>
+                <value>
+                    <fullName>E&amp;C</fullName>
+                    <default>false</default>
+                    <label>E&amp;C</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Citation__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE( Citation_Source__c ,
+ &apos;Commercial Service&apos;, &quot;Prepared by the U.S. Commercial Service. Located in over 75 countries and 108 offices across the U.S., the U.S. Commercial Service of the U.S. Department of Commerce has a global network of international marketing experts to help U.S. companies export their products and services worldwide. Locate a U.S. Commercial Service trade specialist by visiting https://www.export.gov/locations.&quot;,
+ &apos;I&amp;A&apos;, &quot;Prepared by the International Trade Administration. With its network of 108 offices across the United States and in more than 75 countries, the International Trade Administration of the U.S. Department of Commerce utilizes its global presence and international marketing expertise to help U.S. companies sell their products and services worldwide. Locate the trade specialist in the U.S. nearest you by visiting http://export.gov/usoffices.&quot;,
+ &apos;E&amp;C&apos;, &quot;Prepared by Enforcement and Compliance (E&amp;C) which works to safeguard and enhance the competitive strength of U.S. industries against unfair trade through the enforcement of U.S. antidumping duty and countervailing duty trade laws and ensures compliance with trade agreements negotiated on behalf of U.S. industries. E&amp;C promotes the creation and maintenance of U.S. jobs and economic growth by supporting the negotiation of international trade agreements to open foreign markets. Contact E&amp;C at: (202) 482-0063, ECCommunications@trade.gov.&quot;,
+&quot; &quot;)</formula>
+        <label>Citation</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Days_Since_Last_Published_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>TODAY() - DATEVALUE( LastPublishedDate )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Days Since Last Published Date</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Draft_Complete__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Draft Complete</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Expiration_Date__c</fullName>
+        <defaultValue>DATE( YEAR( TODAY())+2, MONTH( TODAY()), DAY( TODAY() ) )</defaultValue>
+        <description>The date this record should be archived</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date this record should be archived</inlineHelpText>
+        <label>Expiration Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Level_0__c</fullName>
+        <externalId>false</externalId>
+        <label>Level 0</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Level_1__c</fullName>
+        <externalId>false</externalId>
+        <label>Level 1</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Level_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Level 2</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Level_3__c</fullName>
+        <externalId>false</externalId>
+        <label>Level 3</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Mobile_Title__c</fullName>
+        <externalId>false</externalId>
+        <label>Mobile Title</label>
+        <length>37</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Public_URL__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK($Label.export_gov&amp;&quot;/article?id=&quot;&amp;UrlName, $Label.export_gov&amp;&quot;/article?id=&quot;&amp;UrlName)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Public URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>References__c</fullName>
+        <externalId>false</externalId>
+        <label>Custom Citation</label>
+        <length>1000</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Series__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Series</label>
+        <referenceTo>Series__c</referenceTo>
+        <relationshipLabel>Markets Intelligence</relationshipLabel>
+        <relationshipName>Markets_Intelligence</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Stage__c</fullName>
+        <externalId>false</externalId>
+        <label>Stage</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Draft</fullName>
+                    <default>true</default>
+                    <label>Draft</label>
+                </value>
+                <value>
+                    <fullName>Under Review</fullName>
+                    <default>false</default>
+                    <label>Under Review</label>
+                </value>
+                <value>
+                    <fullName>Draft: Submitted for Approval</fullName>
+                    <default>false</default>
+                    <label>Draft: Submitted for Approval</label>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                    <label>Rejected</label>
+                </value>
+                <value>
+                    <fullName>Published</fullName>
+                    <default>false</default>
+                    <label>Published</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Video__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>A Video component to display along with this article.</inlineHelpText>
+        <label>Video</label>
+        <referenceTo>Content__c</referenceTo>
+        <relationshipLabel>Markets Intelligence</relationshipLabel>
+        <relationshipName>Markets_Intelligence</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <label>Market Intelligence</label>
+    <pluralLabel>Markets Intelligence</pluralLabel>
+    <validationRules>
+        <fullName>Required_Mobile_Title</fullName>
+        <active>true</active>
+        <description>Mobile Title Needed if Article Title is larger than 37 characters</description>
+        <errorConditionFormula>AND( (LEN(Title)&gt;37) , ISBLANK( Mobile_Title__c ) )</errorConditionFormula>
+        <errorMessage>Please enter the Mobile Title (Article Title is too large for Mobile view)</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Summary_Character_Limit_750</fullName>
+        <active>true</active>
+        <description>Limiting number of Characters in Summary to 750</description>
+        <errorConditionFormula>(LEN(Summary) &gt;= 750)</errorConditionFormula>
+        <errorMessage>Limiting number of Characters in Summary to 750</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Title_Character_Limit_60</fullName>
+        <active>true</active>
+        <description>Limiting number of Characters in Title to 60</description>
+        <errorConditionFormula>(LEN(Title) &gt;= 60)</errorConditionFormula>
+        <errorMessage>Title Character Limit is 60</errorMessage>
+    </validationRules>
+</CustomObject>

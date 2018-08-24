@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Toolkit Search Label</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Toolkit Search Labels</value>
+    </caseValues>
+    <fields>
+        <label><!-- Block --></label>
+        <name>Block__c</name>
+    </fields>
+    <fields>
+        <label><!-- Category --></label>
+        <name>Category__c</name>
+    </fields>
+    <fields>
+        <label><!-- Class --></label>
+        <name>Class__c</name>
+    </fields>
+    <fields>
+        <label><!-- EPA Regulation --></label>
+        <name>EPA_Regulation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Environmental Issue --></label>
+        <name>Environmental_Issue__c</name>
+    </fields>
+    <fields>
+        <label><!-- Issue --></label>
+        <name>Issue__c</name>
+    </fields>
+    <fields>
+        <label><!-- NoResultsLabel --></label>
+        <name>NoResultsLabel__c</name>
+    </fields>
+    <fields>
+        <label><!-- Offering --></label>
+        <name>Offering__c</name>
+    </fields>
+    <fields>
+        <label><!-- Performance Improvement Areas --></label>
+        <name>Performance_Improvement_Areas__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project Phase --></label>
+        <name>Project_Phase__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sector --></label>
+        <name>Sector__c</name>
+    </fields>
+    <fields>
+        <label><!-- SelectAnOption --></label>
+        <name>SelectAnOption__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shore --></label>
+        <name>Shore__c</name>
+    </fields>
+    <fields>
+        <label><!-- Solution Provider --></label>
+        <name>Solution_Provider__c</name>
+    </fields>
+    <fields>
+        <label><!-- Solution --></label>
+        <name>Solution__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Providers --></label>
+        <name>TotalProviders__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Providers --></label>
+        <name>Total_Providers__c</name>
+    </fields>
+    <fields>
+        <label><!-- Use Case --></label>
+        <name>Use_Case__c</name>
+    </fields>
+    <layouts>
+        <layout>Toolkit Search Label Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Other Information --></label>
+            <section>Other Information</section>
+        </sections>
+        <sections>
+            <label><!-- Product Labels --></label>
+            <section>Product Labels</section>
+        </sections>
+        <sections>
+            <label><!-- Text Labels --></label>
+            <section>Text Labels</section>
+        </sections>
+        <sections>
+            <label><!-- Web Resource Type Labels --></label>
+            <section>Web Resource Type Labels</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

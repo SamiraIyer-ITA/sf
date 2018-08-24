@@ -206,6 +206,115 @@
         <unique>false</unique>
     </fields>
     <label>Constant</label>
+    <listViews>
+        <fullName>ADCVD_Order_Staffing_View</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Staffing_Assignment_Default__c</columns>
+        <columns>ADCVD_Objects__c</columns>
+        <columns>Staffing_Role__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Staffing_Assignment_Default__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>ADCVD_Objects__c</field>
+            <operation>equals</operation>
+            <value>ADCVD_Order</value>
+        </filters>
+        <label>ADCVD Order Staffing View</label>
+    </listViews>
+    <listViews>
+        <fullName>Investigation_Staffing_View</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Staffing_Assignment_Default__c</columns>
+        <columns>ADCVD_Objects__c</columns>
+        <columns>Staffing_Role__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Staffing_Assignment_Default__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>ADCVD_Objects__c</field>
+            <operation>contains</operation>
+            <value>Inv</value>
+        </filters>
+        <label>Investigation Staffing View</label>
+    </listViews>
+    <listViews>
+        <fullName>Petition_Staffing_View</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Staffing_Assignment_Default__c</columns>
+        <columns>ADCVD_Objects__c</columns>
+        <columns>Staffing_Role__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Staffing_Assignment_Default__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>ADCVD_Objects__c</field>
+            <operation>equals</operation>
+            <value>Petition</value>
+        </filters>
+        <label>Petition Staffing View</label>
+    </listViews>
+    <listViews>
+        <fullName>Related_Organization_Staffing_View</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Staffing_Assignment_Default__c</columns>
+        <columns>ADCVD_Objects__c</columns>
+        <columns>Staffing_Role__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Staffing_Assignment_Default__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>ADCVD_Objects__c</field>
+            <operation>contains</operation>
+            <value>Related</value>
+        </filters>
+        <label>Related Organization Staffing View</label>
+    </listViews>
+    <listViews>
+        <fullName>Segment_Staffing_View</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Staffing_Assignment_Default__c</columns>
+        <columns>ADCVD_Objects__c</columns>
+        <columns>Staffing_Role__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Staffing_Assignment_Default__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>ADCVD_Objects__c</field>
+            <operation>contains</operation>
+            <value>Seg</value>
+        </filters>
+        <label>Segment Staffing View</label>
+    </listViews>
+    <listViews>
+        <fullName>Staffing_View</fullName>
+        <columns>MasterLabel</columns>
+        <columns>Staffing_Assignment_Default__c</columns>
+        <columns>ADCVD_Objects__c</columns>
+        <columns>Staffing_Role__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Staffing_Assignment_Default__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Staffing View</label>
+    </listViews>
     <pluralLabel>Constants</pluralLabel>
     <visibility>Public</visibility>
 </CustomObject>

@@ -1,0 +1,818 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Guided</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Guided</value>
+    </caseValues>
+    <fields>
+        <help><!-- Select a Business Unit-specific approval queue for this article&apos;s approval workflow. --></help>
+        <label><!-- Approval Queue --></label>
+        <name>Approval_Queue__c</name>
+        <picklistValues>
+            <masterLabel>Enforcement &amp; Compliance</masterLabel>
+            <translation><!-- Enforcement &amp; Compliance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Global Markets</masterLabel>
+            <translation><!-- Global Markets --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Industry &amp; Analysis</masterLabel>
+            <translation><!-- Industry &amp; Analysis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Privacy Shield</masterLabel>
+            <translation><!-- Privacy Shield --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stopfakes</masterLabel>
+            <translation><!-- Stopfakes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- This rich-text area is for the body of your content. The content should not deviate from the overall theme as indicated in the title and/or summary. This content should stand on its own as a cohesive and complete source of information. --></help>
+        <label><!-- Atom --></label>
+        <name>Atom__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days Since Last Published Date --></label>
+        <name>Days_Since_Last_Published_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check this box if the article is ready to move into the approval workflow. An article cannot move out of Draft Stage without this box being checked. If you&apos;re completely satisfied with your draft, then click the &quot;Submit for Approval&quot; button. --></help>
+        <label><!-- Draft Complete --></label>
+        <name>Draft_Complete__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select the Guide to sequence Levels 1 and 2. --></help>
+        <label><!-- Guide --></label>
+        <name>Guide__c</name>
+        <picklistValues>
+            <masterLabel>How to Export</masterLabel>
+            <translation><!-- How to Export --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Privacy Shield Framework</masterLabel>
+            <translation><!-- Privacy Shield Framework --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Privacy Shield Program</masterLabel>
+            <translation><!-- Privacy Shield Program --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>STOPfakes</masterLabel>
+            <translation><!-- STOPfakes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trade Data</masterLabel>
+            <translation><!-- Trade Data --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Select a High Level Topic for your Guide. --></help>
+        <label><!-- Level 0 --></label>
+        <name>Level_0__c</name>
+        <picklistValues>
+            <masterLabel>China IPR Webinar Series</masterLabel>
+            <translation><!-- China IPR Webinar Series --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Consumer Guide</masterLabel>
+            <translation><!-- Consumer Guide --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Protection Authorities</masterLabel>
+            <translation><!-- Data Protection Authorities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Editors&apos; Picks</masterLabel>
+            <translation><!-- Editors&apos; Picks --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>European Businesses</masterLabel>
+            <translation><!-- European Businesses --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Export Education</masterLabel>
+            <translation><!-- Export Education --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Export Planning</masterLabel>
+            <translation><!-- Export Planning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Financial Considerations</masterLabel>
+            <translation><!-- Financial Considerations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finding Foreign Markets</masterLabel>
+            <translation><!-- Finding Foreign Markets --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Global Initiatives</masterLabel>
+            <translation><!-- Global Initiatives --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>How to Report and Prevent IPR Infringement</masterLabel>
+            <translation><!-- How to Report and Prevent IPR Infringement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IPR Protection and Enforcement Agencies</masterLabel>
+            <translation><!-- IPR Protection and Enforcement Agencies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IPR Resources</masterLabel>
+            <translation><!-- IPR Resources --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Individuals in Europe</masterLabel>
+            <translation><!-- Individuals in Europe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legal Considerations</masterLabel>
+            <translation><!-- Legal Considerations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Logistics</masterLabel>
+            <translation><!-- Logistics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Privacy Shield Annex I</masterLabel>
+            <translation><!-- Privacy Shield Annex I --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Privacy Shield Letters</masterLabel>
+            <translation><!-- Privacy Shield Letters --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Privacy Shield Overview</masterLabel>
+            <translation><!-- Privacy Shield Overview --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Privacy Shield Principles</masterLabel>
+            <translation><!-- Privacy Shield Principles --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Privacy Shield Supplemental Principles</masterLabel>
+            <translation><!-- Privacy Shield Supplemental Principles --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Preparation</masterLabel>
+            <translation><!-- Product Preparation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Protecting Your IPR</masterLabel>
+            <translation><!-- Protecting Your IPR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>STOPfakes News</masterLabel>
+            <translation><!-- STOPfakes News --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trade Data Sources</masterLabel>
+            <translation><!-- Trade Data Sources --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trade Finance Guide</masterLabel>
+            <translation><!-- Trade Finance Guide --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>U.S. Businesses</masterLabel>
+            <translation><!-- U.S. Businesses --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>U.S. Government Initiatives</masterLabel>
+            <translation><!-- U.S. Government Initiatives --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Understanding IPR</masterLabel>
+            <translation><!-- Understanding IPR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eCommerce Guide</masterLabel>
+            <translation><!-- eCommerce Guide --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Select a Level 1 section for this sequence. --></help>
+        <label><!-- Level 1 --></label>
+        <name>Level_1__c</name>
+        <picklistValues>
+            <masterLabel>2012</masterLabel>
+            <translation><!-- 2012 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2013</masterLabel>
+            <translation><!-- 2013 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2014</masterLabel>
+            <translation><!-- 2014 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2015</masterLabel>
+            <translation><!-- 2015 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2016</masterLabel>
+            <translation><!-- 2016 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Access</masterLabel>
+            <translation><!-- Access --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Access (Supplemental Principle)</masterLabel>
+            <translation><!-- Access (Supplemental Principle) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Access Requests by Public Authorities</masterLabel>
+            <translation><!-- Access Requests by Public Authorities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accountability for Onward Transfer</masterLabel>
+            <translation><!-- Accountability for Onward Transfer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Administration</masterLabel>
+            <translation><!-- Administration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Agricultural Export Financing</masterLabel>
+            <translation><!-- Agricultural Export Financing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Annex I</masterLabel>
+            <translation><!-- Annex I --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Anti-Counterfeit Resources</masterLabel>
+            <translation><!-- Anti-Counterfeit Resources --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Arbitration Procedures</masterLabel>
+            <translation><!-- Arbitration Procedures --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Available Remedies</masterLabel>
+            <translation><!-- Available Remedies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Benefits of Participation</masterLabel>
+            <translation><!-- Benefits of Participation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bilateral Trade Dialogues on IPR</masterLabel>
+            <translation><!-- Bilateral Trade Dialogues on IPR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Binding Nature of Decisions</masterLabel>
+            <translation><!-- Binding Nature of Decisions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business Culture</masterLabel>
+            <translation><!-- Business Culture --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cash-in-Advance</masterLabel>
+            <translation><!-- Cash-in-Advance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Certificates of Origin</masterLabel>
+            <translation><!-- Certificates of Origin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Challenges (Trade Problems)</masterLabel>
+            <translation><!-- Challenges (Trade Problems) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Choice</masterLabel>
+            <translation><!-- Choice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Choice -- Timing of Opt-Out</masterLabel>
+            <translation><!-- Choice - -  Timing of Opt-Out --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Consignment</masterLabel>
+            <translation><!-- Consignment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contract Requirements for Data Transfers to a Processor</masterLabel>
+            <translation><!-- Contract Requirements for Data Transfers to a Processor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Copyrights</masterLabel>
+            <translation><!-- Copyrights --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Costs</masterLabel>
+            <translation><!-- Costs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Country Briefs</masterLabel>
+            <translation><!-- Country Briefs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Country IPR Resources</masterLabel>
+            <translation><!-- Country IPR Resources --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Country Information</masterLabel>
+            <translation><!-- Country Information --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit</masterLabel>
+            <translation><!-- Credit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Insurance</masterLabel>
+            <translation><!-- Credit Insurance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DPA Liaison at the Department of Commerce</masterLabel>
+            <translation><!-- DPA Liaison at the Department of Commerce --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DPA Liaison at the Federal Trade Commission</masterLabel>
+            <translation><!-- DPA Liaison at the Federal Trade Commission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Integrity and Purpose Limitation</masterLabel>
+            <translation><!-- Data Integrity and Purpose Limitation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Department of Commerce</masterLabel>
+            <translation><!-- Department of Commerce --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Department of Justice</masterLabel>
+            <translation><!-- Department of Justice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Department of State</masterLabel>
+            <translation><!-- Department of State --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Department of Transportation</masterLabel>
+            <translation><!-- Department of Transportation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dispute Resolution and Enforcement</masterLabel>
+            <translation><!-- Dispute Resolution and Enforcement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Documentary Collections</masterLabel>
+            <translation><!-- Documentary Collections --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Documentation</masterLabel>
+            <translation><!-- Documentation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EWC</masterLabel>
+            <translation><!-- EWC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enforcement</masterLabel>
+            <translation><!-- Enforcement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>European Commission</masterLabel>
+            <translation><!-- European Commission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Export Counseling</masterLabel>
+            <translation><!-- Export Counseling --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Export Factoring</masterLabel>
+            <translation><!-- Export Factoring --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Export Financing</masterLabel>
+            <translation><!-- Export Financing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Export Planning</masterLabel>
+            <translation><!-- Export Planning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Federal Trade Commission</masterLabel>
+            <translation><!-- Federal Trade Commission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finding Buyers</masterLabel>
+            <translation><!-- Finding Buyers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Foreign Buyer Financing</masterLabel>
+            <translation><!-- Foreign Buyer Financing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Foreign Exchange</masterLabel>
+            <translation><!-- Foreign Exchange --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Foreign Standards &amp; Certifications</masterLabel>
+            <translation><!-- Foreign Standards &amp; Certifications --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forfaiting</masterLabel>
+            <translation><!-- Forfaiting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Free Trade Agreements</masterLabel>
+            <translation><!-- Free Trade Agreements --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Getting Paid</masterLabel>
+            <translation><!-- Getting Paid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Getting Started</masterLabel>
+            <translation><!-- Getting Started --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Global Partners</masterLabel>
+            <translation><!-- Global Partners --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>How to Join Privacy Shield</masterLabel>
+            <translation><!-- How to Join Privacy Shield --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>How to Submit a Complaint</masterLabel>
+            <translation><!-- How to Submit a Complaint --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>How to Submit a Request Relating to U.S. National Security Access to Data</masterLabel>
+            <translation><!-- How to Submit a Request Relating to U.S. National Security Access to Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>How to Verify an Organization&apos;s Privacy Shield Commitments</masterLabel>
+            <translation><!-- How to Verify an Organization&apos;s Privacy Shield Commitments --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Human Resources Data</masterLabel>
+            <translation><!-- Human Resources Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IPR-Related Trade Agreements</masterLabel>
+            <translation><!-- IPR-Related Trade Agreements --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Identifying Market Opportunities</masterLabel>
+            <translation><!-- Identifying Market Opportunities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Importance of IPR</masterLabel>
+            <translation><!-- Importance of IPR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Industry IPR Resources</masterLabel>
+            <translation><!-- Industry IPR Resources --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Intellectual Property</masterLabel>
+            <translation><!-- Intellectual Property --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Intellectual Property &amp; You</masterLabel>
+            <translation><!-- Intellectual Property &amp; You --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interagency Efforts</masterLabel>
+            <translation><!-- Interagency Efforts --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Introduction</masterLabel>
+            <translation><!-- Introduction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Journalistic Exceptions</masterLabel>
+            <translation><!-- Journalistic Exceptions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legal Issues</masterLabel>
+            <translation><!-- Legal Issues --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loan Programs</masterLabel>
+            <translation><!-- Loan Programs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Market Research</masterLabel>
+            <translation><!-- Market Research --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Methods of Payment</masterLabel>
+            <translation><!-- Methods of Payment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>My Rights Under Privacy Shield</masterLabel>
+            <translation><!-- My Rights Under Privacy Shield --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Notice</masterLabel>
+            <translation><!-- Notice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Obligatory Contracts for Onward Transfers</masterLabel>
+            <translation><!-- Obligatory Contracts for Onward Transfers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Office of the Director of National Intelligence</masterLabel>
+            <translation><!-- Office of the Director of National Intelligence --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open Account</masterLabel>
+            <translation><!-- Open Account --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Overview</masterLabel>
+            <translation><!-- Overview --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patents</masterLabel>
+            <translation><!-- Patents --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payment</masterLabel>
+            <translation><!-- Payment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Performing Due Diligence and Conducting Audits</masterLabel>
+            <translation><!-- Performing Due Diligence and Conducting Audits --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pharmaceutical and Medical Products</masterLabel>
+            <translation><!-- Pharmaceutical and Medical Products --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pre-Arbitration Requirements</masterLabel>
+            <translation><!-- Pre-Arbitration Requirements --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preventing Illegal Imports</masterLabel>
+            <translation><!-- Preventing Illegal Imports --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pricing</masterLabel>
+            <translation><!-- Pricing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pricing Your Products</masterLabel>
+            <translation><!-- Pricing Your Products --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Privacy Shield Content for Use by DPAs</masterLabel>
+            <translation><!-- Privacy Shield Content for Use by DPAs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Privacy Shield Participants List</masterLabel>
+            <translation><!-- Privacy Shield Participants List --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Classification</masterLabel>
+            <translation><!-- Product Classification --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Protecting Intellectual Property Abroad</masterLabel>
+            <translation><!-- Protecting Intellectual Property Abroad --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Protecting Intellectual Property in the U.S.</masterLabel>
+            <translation><!-- Protecting Intellectual Property in the U.S. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Protecting Your Brand</masterLabel>
+            <translation><!-- Protecting Your Brand --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Public Record and Publicly Available Information</masterLabel>
+            <translation><!-- Public Record and Publicly Available Information --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recourse, Enforcement, and Liability</masterLabel>
+            <translation><!-- Recourse, Enforcement, and Liability --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regulations - US</masterLabel>
+            <translation><!-- Regulations - US --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Report Fake &amp; Unsafe Goods</masterLabel>
+            <translation><!-- Report Fake &amp; Unsafe Goods --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reporting Counterfeit and Falsely Labeled Goods</masterLabel>
+            <translation><!-- Reporting Counterfeit and Falsely Labeled Goods --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reporting IPR Infringement</masterLabel>
+            <translation><!-- Reporting IPR Infringement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Requirements of Participation</masterLabel>
+            <translation><!-- Requirements of Participation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Review and Enforcement</masterLabel>
+            <translation><!-- Review and Enforcement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Risk Management</masterLabel>
+            <translation><!-- Risk Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rules of Origin</masterLabel>
+            <translation><!-- Rules of Origin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales Channels</masterLabel>
+            <translation><!-- Sales Channels --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scope</masterLabel>
+            <translation><!-- Scope --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Secondary Liability</masterLabel>
+            <translation><!-- Secondary Liability --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Security</masterLabel>
+            <translation><!-- Security --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Self-Certification</masterLabel>
+            <translation><!-- Self-Certification --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sensitive Data</masterLabel>
+            <translation><!-- Sensitive Data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shipping</masterLabel>
+            <translation><!-- Shipping --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Strategic Partners in eCommerce</masterLabel>
+            <translation><!-- Strategic Partners in eCommerce --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Success Stories</masterLabel>
+            <translation><!-- Success Stories --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>The Arbitration Panel</masterLabel>
+            <translation><!-- The Arbitration Panel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>The Role of Data Protection Authorities</masterLabel>
+            <translation><!-- The Role of Data Protection Authorities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>The Role of the Data Protection Authorities</masterLabel>
+            <translation><!-- The Role of the Data Protection Authorities --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trade Secrets</masterLabel>
+            <translation><!-- Trade Secrets --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trademarks</masterLabel>
+            <translation><!-- Trademarks --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Training</masterLabel>
+            <translation><!-- Training --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Travel Information</masterLabel>
+            <translation><!-- Travel Information --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>U.S. Subsidiaries of European Businesses&apos; Participation in Privacy Shield</masterLabel>
+            <translation><!-- U.S. Subsidiaries of European Businesses&apos; Participation in Privacy Shield --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Verification</masterLabel>
+            <translation><!-- Verification --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Website Optimization</masterLabel>
+            <translation><!-- Website Optimization --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Why Export?</masterLabel>
+            <translation><!-- Why Export? --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Withdrawal from Privacy Shield</masterLabel>
+            <translation><!-- Withdrawal from Privacy Shield --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Select a Level 2 section for this sequence. --></help>
+        <label><!-- Level 2 --></label>
+        <name>Level_2__c</name>
+        <picklistValues>
+            <masterLabel>Level 2</masterLabel>
+            <translation><!-- Level 2 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Select a Level 3 section for this sequence. --></help>
+        <label><!-- Level 3 --></label>
+        <name>Level_3__c</name>
+        <picklistValues>
+            <masterLabel>Article Level 3</masterLabel>
+            <translation><!-- Article Level 3 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- This field is required if the Title is longer than 37 characters. The shorter Mobile Title makes content more readable when viewing articles on devices such as cell phones or tablets and will only appear in mobile settings. --></help>
+        <label><!-- Mobile Title --></label>
+        <name>Mobile_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- Public URL --></label>
+        <name>Public_URL__c</name>
+    </fields>
+    <fields>
+        <help><!-- Highlight references you want the public to know were used during content creation. --></help>
+        <label><!-- References (Public) --></label>
+        <name>References__c</name>
+    </fields>
+    <fields>
+        <help><!-- Type a keyword search available Article Series. --></help>
+        <label><!-- Series --></label>
+        <name>Series__c</name>
+        <relationshipLabel><!-- Guided --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Stage tracks the movement of an article through the approval process. An article may be in one of the following stages: Draft, Under Review, Submitted for Approval, Rejected, Published. --></help>
+        <label><!-- Stage --></label>
+        <name>Stage__c</name>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Published</masterLabel>
+            <translation><!-- Published --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitted for Approval</masterLabel>
+            <translation><!-- Submitted for Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Under Review</masterLabel>
+            <translation><!-- Under Review --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- A Video component to display along with this article. --></help>
+        <label><!-- Video --></label>
+        <name>Video__c</name>
+        <relationshipLabel><!-- Guided --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Article Layout</layout>
+        <sections>
+            <label><!-- Content --></label>
+            <section>Content</section>
+        </sections>
+        <sections>
+            <label><!-- Pins --></label>
+            <section>Pins</section>
+        </sections>
+        <sections>
+            <label><!-- References --></label>
+            <section>References</section>
+        </sections>
+        <sections>
+            <label><!-- Workflow --></label>
+            <section>Workflow</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please pick Level 0 (Mandatory field) --></errorMessage>
+        <name>Required_Level_0</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter the Mobile Title (Article Title is too large for Mobile view) --></errorMessage>
+        <name>Required_Mobile_Title</name>
+    </validationRules>
+</CustomObjectTranslation>

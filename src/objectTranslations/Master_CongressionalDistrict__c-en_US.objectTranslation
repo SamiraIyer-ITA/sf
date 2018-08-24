@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Master CongressionalDistrict</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Master CongressionalDistricts</value>
+    </caseValues>
+    <fields>
+        <label><!-- Congressional Dist --></label>
+        <name>Congressional_Dist__c</name>
+    </fields>
+    <fields>
+        <label><!-- County Name --></label>
+        <name>County_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Max4 --></label>
+        <name>Max4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Max9Zip --></label>
+        <name>Max9Zip__c</name>
+    </fields>
+    <fields>
+        <label><!-- Min4 --></label>
+        <name>Min4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Min9Zip --></label>
+        <name>Min9Zip__c</name>
+    </fields>
+    <fields>
+        <label><!-- State Code --></label>
+        <name>State_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- zip --></label>
+        <name>zip_Plus4__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

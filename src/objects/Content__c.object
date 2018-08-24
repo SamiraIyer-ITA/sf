@@ -1,0 +1,1164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Alt_Text__c</fullName>
+        <externalId>false</externalId>
+        <formula>Name &amp; &quot; &quot; &amp; &quot;Icon&quot;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Alt Text</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Approver__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Atom Approver - Atom Owner should not be the Approver</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please select an Approver.</inlineHelpText>
+        <label>Approver</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>2 AND (1 OR 3)</booleanFilter>
+            <filterItems>
+                <field>$Source.OwnerId</field>
+                <operation>notEqual</operation>
+                <valueField>User.Id</valueField>
+            </filterItems>
+            <filterItems>
+                <field>User.UserType</field>
+                <operation>equals</operation>
+                <value>Standard</value>
+            </filterItems>
+            <filterItems>
+                <field>$Source.OwnerId</field>
+                <operation>equals</operation>
+                <value>005t0000000M9mC, 005t0000000EgPX, 005t0000000XfoB, 005t0000000Xs72, 005t0000000XoPY, 005t0000000Xo28, 005t0000000XoSu, 005t0000000qzA1</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Atoms</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Button_Path__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>If linking to internal pages, the syntax is /page?id=RECORD_ID</inlineHelpText>
+        <label>Button URL</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Button_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Button Display Text</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Class_Name__c</fullName>
+        <description>technical name of class</description>
+        <externalId>false</externalId>
+        <label>Class Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Content__c</fullName>
+        <description>The Atom Body (Formatting should be done here)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Atom Body (Formatting should be done here)</inlineHelpText>
+        <label>Atom</label>
+        <length>10000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Current_Version__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF ( Version_Number__c &lt;&gt; VALUE( RIGHT(Updated_Version__c, 1) ), Updated_Version__c, IF ( AND((Version_Number__c = 0),(ISPICKVAL(Status__c, &quot;Draft&quot;))), &apos;Draft Version&apos;, 
+
+IF ( AND((Version_Number__c = 0),(ISPICKVAL(Status__c, &quot;Draft: Submitted for Approval&quot;))), &apos;Draft Version&apos;, 
+
+IF ( AND((Version_Number__c = 0),(ISPICKVAL(Status__c, &quot;Online&quot;))), &quot;Version 1&quot;, 
+
+IF ( AND((Version_Number__c = 0),(ISPICKVAL(Status__c, &quot;Draft: Rejected&quot;))), &quot;Version 1&quot;, 
+
+&quot;Version&quot; + &quot; &quot; + TEXT(Version_Number__c))))))</formula>
+        <label>Version</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Display_Title__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Public display title on the web. If this field is blank, the Atom Name can used as the display title.</inlineHelpText>
+        <label>Atom Title</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Endpoint__c</fullName>
+        <description>The API destination</description>
+        <externalId>false</externalId>
+        <label>Source URL</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Icon_Type__c</fullName>
+        <description>Type of icon</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the type of icon you are adding to the Icon library.</inlineHelpText>
+        <label>Icon Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Social</fullName>
+                    <default>false</default>
+                    <label>Social</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Image__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Image</label>
+        <referenceTo>Image__c</referenceTo>
+        <relationshipName>Content</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>LMOV__c</fullName>
+        <description>Roll-up Summary to find out the last &apos;Online&apos; Version of a Content/Atom.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Roll-up Summary to find out the last &apos;Online&apos; Version of a Content/Atom.</inlineHelpText>
+        <label>Last Modified Online Version</label>
+        <summarizedField>Content_Version__c.LastModifiedDate</summarizedField>
+        <summaryFilterItems>
+            <field>Content_Version__c.Publishing_Status__c</field>
+            <operation>equals</operation>
+            <value>Online</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Content_Version__c.Atom__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Series_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Series Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Country Commercial</fullName>
+                    <default>false</default>
+                    <label>Country Commercial</label>
+                </value>
+                <value>
+                    <fullName>State Report</fullName>
+                    <default>false</default>
+                    <label>State Report</label>
+                </value>
+                <value>
+                    <fullName>Top Markets</fullName>
+                    <default>false</default>
+                    <label>Top Markets</label>
+                </value>
+                <value>
+                    <fullName>Article</fullName>
+                    <default>false</default>
+                    <label>Article</label>
+                </value>
+                <value>
+                    <fullName>Basic Guide to Exporting</fullName>
+                    <default>false</default>
+                    <label>Basic Guide to Exporting</label>
+                </value>
+                <value>
+                    <fullName>FAQ</fullName>
+                    <default>false</default>
+                    <label>FAQ</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>Publishing Status (Controlled by Atom Approval Process)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Publishing Status</inlineHelpText>
+        <label>Publishing Status</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Draft</fullName>
+                    <default>true</default>
+                    <label>Draft</label>
+                </value>
+                <value>
+                    <fullName>Draft: Submitted for Approval</fullName>
+                    <default>false</default>
+                    <label>Draft: Submitted for Approval</label>
+                </value>
+                <value>
+                    <fullName>Online</fullName>
+                    <default>false</default>
+                    <label>Online</label>
+                </value>
+                <value>
+                    <fullName>Draft: Rejected</fullName>
+                    <default>false</default>
+                    <label>Draft: Rejected</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Summary__c</fullName>
+        <externalId>false</externalId>
+        <label>Summary</label>
+        <length>2000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Web_Resource_Type</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Updated_Version__c</fullName>
+        <description>Copying the latest Updated Version from Latest Content Version (Process Builder)</description>
+        <externalId>false</externalId>
+        <label>Updated Version #</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Version_Number__c</fullName>
+        <description>Roll Summary &apos;Count&apos; of Number of &apos;Content Versions&apos; in Related List.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Version Number</inlineHelpText>
+        <label>Number of Versions</label>
+        <summaryForeignKey>Content_Version__c.Atom__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Version__c</fullName>
+        <description>If Status = &apos;Draft&apos;, then Version = Draft Version
+If Status = &apos;Draft: Submitted for Approval&apos;, then Version = &apos;Draft Version&apos;
+If Status = &apos;Online&apos;, then Version = &apos;Version 1&apos;</description>
+        <externalId>false</externalId>
+        <formula>IF ( AND((Version_Number__c = 0),(ISPICKVAL(Status__c, &quot;Draft&quot;))), &apos;Draft Version&apos;, 
+
+IF ( AND((Version_Number__c = 0),(ISPICKVAL(Status__c, &quot;Draft: Submitted for Approval&quot;))), &apos;Draft Version&apos;, 
+
+IF ( AND((Version_Number__c = 0),(ISPICKVAL(Status__c, &quot;Online&quot;))), &quot;Version 1&quot;,
+
+IF ( AND((Version_Number__c = 0),(ISPICKVAL(Status__c, &quot;Draft: Rejected&quot;))), &quot;Version 1&quot;,
+
+&quot;Version&quot; + &quot; &quot; + TEXT(Version_Number__c)))))</formula>
+        <inlineHelpText>Version Number</inlineHelpText>
+        <label>All Versions</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Video_Description__c</fullName>
+        <description>Description accompanying the related video resources</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Description accompanying the related video resources</inlineHelpText>
+        <label>Video Description</label>
+        <length>10000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Video_Download__c</fullName>
+        <description>URL that allows user to download a video from ITA-side server</description>
+        <externalId>false</externalId>
+        <inlineHelpText>URL that allows user to download a video from ITA-side server. Link should be from &quot;trade.gov&quot;.</inlineHelpText>
+        <label>Video Download</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Video_File_Size__c</fullName>
+        <description>File size of downloadable video</description>
+        <externalId>false</externalId>
+        <inlineHelpText>File size of downloadable video. Example: 10.4 MB</inlineHelpText>
+        <label>Video File Size</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Web_Resource_Links__c</fullName>
+        <externalId>false</externalId>
+        <label>Web Resource Links</label>
+        <summaryForeignKey>Web_Resource_Link__c.Web_Resource__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>api_type__c</fullName>
+        <externalId>false</externalId>
+        <label>api type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>trade events</fullName>
+                    <default>false</default>
+                    <label>trade events</label>
+                </value>
+                <value>
+                    <fullName>market research library</fullName>
+                    <default>false</default>
+                    <label>market research library</label>
+                </value>
+                <value>
+                    <fullName>trade leads</fullName>
+                    <default>false</default>
+                    <label>trade leads</label>
+                </value>
+                <value>
+                    <fullName>search</fullName>
+                    <default>false</default>
+                    <label>search</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Atom</label>
+    <listViews>
+        <fullName>APIs</fullName>
+        <columns>NAME</columns>
+        <columns>Display_Title__c</columns>
+        <columns>api_type__c</columns>
+        <columns>Endpoint__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <columns>UPDATEDBY_USER.ALIAS</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>RECORDTYPE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Content__c.API</value>
+        </filters>
+        <label>APIs</label>
+    </listViews>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Display_Title__c</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Carousels</fullName>
+        <columns>NAME</columns>
+        <columns>Display_Title__c</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>RECORDTYPE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Content__c.Carousel</value>
+        </filters>
+        <label>Carousels</label>
+    </listViews>
+    <listViews>
+        <fullName>Draft_Generic</fullName>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Content__c.Draft_Generic_Content</value>
+        </filters>
+        <label>Draft Generic</label>
+    </listViews>
+    <listViews>
+        <fullName>Generic_Content</fullName>
+        <columns>NAME</columns>
+        <columns>Display_Title__c</columns>
+        <columns>Status__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>RECORDTYPE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Content__c.RichText</value>
+        </filters>
+        <label>Generic Content</label>
+    </listViews>
+    <listViews>
+        <fullName>Icon_Library</fullName>
+        <columns>NAME</columns>
+        <columns>Display_Title__c</columns>
+        <columns>Icon_Type__c</columns>
+        <columns>Alt_Text__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>Class_Name__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Content__c.Icon</value>
+        </filters>
+        <label>Icon Library</label>
+    </listViews>
+    <listViews>
+        <fullName>My_Content</fullName>
+        <columns>NAME</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <columns>RECORDTYPE</columns>
+        <filterScope>Mine</filterScope>
+        <label>My Atoms</label>
+    </listViews>
+    <listViews>
+        <fullName>Search</fullName>
+        <columns>NAME</columns>
+        <columns>Display_Title__c</columns>
+        <columns>api_type__c</columns>
+        <columns>Endpoint__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <columns>UPDATEDBY_USER.ALIAS</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>RECORDTYPE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Content__c.API</value>
+        </filters>
+        <filters>
+            <field>api_type__c</field>
+            <operation>equals</operation>
+            <value>search</value>
+        </filters>
+        <label>Search</label>
+    </listViews>
+    <listViews>
+        <fullName>Series</fullName>
+        <columns>NAME</columns>
+        <columns>Display_Title__c</columns>
+        <columns>Series_Type__c</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>RECORDTYPE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Content__c.Series_List</value>
+        </filters>
+        <label>Knowledge Series</label>
+    </listViews>
+    <listViews>
+        <fullName>Video</fullName>
+        <columns>NAME</columns>
+        <columns>Display_Title__c</columns>
+        <columns>api_type__c</columns>
+        <columns>Endpoint__c</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>RECORDTYPE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Content__c.Video</value>
+        </filters>
+        <label>Video</label>
+    </listViews>
+    <listViews>
+        <fullName>Web_Resources</fullName>
+        <columns>Type__c</columns>
+        <columns>OBJECT_ID</columns>
+        <columns>NAME</columns>
+        <columns>Display_Title__c</columns>
+        <columns>Summary__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Content__c.Web_Resource</value>
+        </filters>
+        <label>Web Resources</label>
+        <sharedTo>
+            <role>System_Admin</role>
+        </sharedTo>
+    </listViews>
+    <nameField>
+        <label>Atom Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Atoms</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>API</fullName>
+        <active>true</active>
+        <description>Page information from other web sources (e.g. Events)</description>
+        <label>API</label>
+        <picklistValues>
+            <picklist>Series_Type__c</picklist>
+            <values>
+                <fullName>Article</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Basic Guide to Exporting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Country Commercial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FAQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Report</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Top Markets</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Sub-Sector</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>api_type__c</picklist>
+            <values>
+                <fullName>market research library</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>search</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>trade events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>trade leads</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Carousel</fullName>
+        <active>true</active>
+        <description>Large images, with title and description, which slide across the page; aka Hero Box</description>
+        <label>Carousel</label>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Sub-Sector</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Draft_Generic_Content</fullName>
+        <active>true</active>
+        <description>Generic Content Record type (Submit for Approval) --&gt; Text Record Type (Modify) - Only &apos;Modify&apos; button</description>
+        <label>Draft Generic Content</label>
+        <picklistValues>
+            <picklist>Icon_Type__c</picklist>
+            <values>
+                <fullName>Social</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Series_Type__c</picklist>
+            <values>
+                <fullName>Article</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Basic Guide to Exporting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Country Commercial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FAQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Report</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Top Markets</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Draft</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Draft%3A Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft%3A Submitted for Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Sub-Sector</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>api_type__c</picklist>
+            <values>
+                <fullName>market research library</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>search</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>trade events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>trade leads</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Icon</fullName>
+        <active>true</active>
+        <description>Icon Library</description>
+        <label>Icon</label>
+        <picklistValues>
+            <picklist>Icon_Type__c</picklist>
+            <values>
+                <fullName>Social</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Series_Type__c</picklist>
+            <values>
+                <fullName>Article</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Basic Guide to Exporting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Country Commercial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FAQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Report</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Top Markets</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Sub-Sector</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>api_type__c</picklist>
+            <values>
+                <fullName>market research library</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>search</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>trade events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>trade leads</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>RichText</fullName>
+        <active>true</active>
+        <description>Basic display (Editable View) of an Atom - With &apos;Edit and &apos;Submit for Approval&apos; buttons</description>
+        <label>Generic Content</label>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Draft</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Draft%3A Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft%3A Submitted for Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Sub-Sector</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Series_List</fullName>
+        <active>true</active>
+        <description>List of Series by Type</description>
+        <label>Series List</label>
+        <picklistValues>
+            <picklist>Icon_Type__c</picklist>
+            <values>
+                <fullName>Social</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Series_Type__c</picklist>
+            <values>
+                <fullName>Article</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Basic Guide to Exporting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Country Commercial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FAQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Report</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Top Markets</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Sub-Sector</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>api_type__c</picklist>
+            <values>
+                <fullName>market research library</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>search</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>trade events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>trade leads</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Video</fullName>
+        <active>true</active>
+        <description>Video media which is stored on an external system; ex: You Tube or Vimeo</description>
+        <label>Video</label>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>Sub-Sector</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Web_Resource</fullName>
+        <active>true</active>
+        <label>Web Resource</label>
+        <picklistValues>
+            <picklist>Icon_Type__c</picklist>
+            <values>
+                <fullName>Social</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Series_Type__c</picklist>
+            <values>
+                <fullName>Article</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Basic Guide to Exporting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Country Commercial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FAQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Report</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Top Markets</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Draft</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Draft%3A Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft%3A Submitted for Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Online</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>EPA Regulation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental Issue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Performance Improvement Area</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Project Phase</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sector</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sub-Sector</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Use Case</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>api_type__c</picklist>
+            <values>
+                <fullName>market research library</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>search</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>trade events</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>trade leads</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>Display_Title__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Display_Title__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Display_Title__c</searchFilterFields>
+        <searchFilterFields>RECORDTYPE</searchFilterFields>
+        <searchFilterFields>Series_Type__c</searchFilterFields>
+        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>Carousel_Manager</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Carousel Manager</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/carouselManager?id={!Content__c.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Modify</fullName>
+        <availability>online</availability>
+        <description>&apos;Modify&apos; button (creates new versions) of the &apos;Online / Published&apos; Atoms</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Modify</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/35.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/35.0/apex.js&quot;)}
+
+var Ver = new sforce.SObject(&quot;Content_Version__c&quot;); 
+
+var content = &quot;{!JSEncode(Content__c.Content__c)}&quot;;
+
+Ver.Name = &quot;{!Content__c.Display_Title__c}&quot;;
+Ver.Atom_Title__c = &quot;{!Content__c.Display_Title__c}&quot;;
+Ver.Atom__c = &quot;{!Content__c.Id}&quot;;
+Ver.Content__c = content;
+
+Ver.Publishing_Status__c = &quot;Draft&quot;;
+
+Ver.Version_Number__c = &apos;{!Content__c.Version_Number__c + 1}&apos;;
+
+var result = sforce.connection.create([Ver]); 	
+console.log(result);
+
+
+if(result[0].success == &quot;true&quot;){ 
+  window.location = &quot;/&quot; + result[0].id + &quot;/e?retURL=%2F&quot; + result[0].id; 
+} else { 
+  console.log(result); 
+}</url>
+    </webLinks>
+</CustomObject>

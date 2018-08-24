@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>david@eigenpath.com</contactEmail>
+    <label>elasticsearch</label>
+    <oauthConfig>
+        <callbackUrl>https://example.com/oauth2/callback</callbackUrl>
+        <consumerKey>3MVG9NEgrsZAHtHRtCY3kuaCxJsgVpZhtfZxRvjI48xefUyMFpduJkCg0hcTnZqJ.IqFutSDTNKsgC2T_SkCq</consumerKey>
+        <scopes>Api</scopes>
+    </oauthConfig>
+</ConnectedApp>

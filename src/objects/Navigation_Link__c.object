@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Navigation_Group__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The Navigation Group that this Navigation Link will appear on</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Navigation Group that this Navigation Link will appear on</inlineHelpText>
+        <label>Navigation Group</label>
+        <referenceTo>Navigation_Group__c</referenceTo>
+        <relationshipLabel>Navigation Links</relationshipLabel>
+        <relationshipName>Navigation_Links</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Navigation_Section__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>If this link should be displayed under a Navigation Section this field should contain the name of the Navigation Section</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If this link should be displayed under a Navigation Section this field should contain the name of the Navigation Section</inlineHelpText>
+        <label>Navigation Section</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Navigation_Link__c.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>Section</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Navigation_Link__c</referenceTo>
+        <relationshipLabel>Navigation Links</relationshipLabel>
+        <relationshipName>Navigation_Links</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Page__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>If this field is populated, the Navigation link will direct the user to the Page specified</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If this field is populated, the Navigation link will direct the user to the Page specified</inlineHelpText>
+        <label>Page Link</label>
+        <referenceTo>Page__c</referenceTo>
+        <relationshipLabel>Navigation Links</relationshipLabel>
+        <relationshipName>Navigation_Links</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Redirect__c</fullName>
+        <description>If this field is populated, the Navigation link will direct the user to the URL specified (take priority over page)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If this field is populated, the Navigation link will direct the user to the URL specified (takes priority over Page field)</inlineHelpText>
+        <label>Custom URL</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Section__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The Team Object that this Navigation Link will appear on</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The MicroSite which this Navigation Link will appear.</inlineHelpText>
+        <label>MicroSite</label>
+        <referenceTo>Section__c</referenceTo>
+        <relationshipLabel>Navigation Links</relationshipLabel>
+        <relationshipName>Navigation_Links</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Sort_Order__c</fullName>
+        <description>The Order in which the Navigation Link will be displayed under the Navigation Group or Navigation Section</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Order in which the Navigation Link will be displayed under the Navigation Group or Navigation Section</inlineHelpText>
+        <label>Sort Order</label>
+        <precision>17</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Navigation Link</label>
+    <nameField>
+        <label>Navigation Link</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Navigation Links</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Link</fullName>
+        <active>true</active>
+        <description>Navigation Link items that direct a user to a link</description>
+        <label>Link</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Section</fullName>
+        <active>true</active>
+        <description>Groups of Navigation Link items inside a MegaMenu</description>
+        <label>Mega Section</label>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Must_have_a_Link</fullName>
+        <active>true</active>
+        <description>Checks to see if there is a link for the navigation item.</description>
+        <errorConditionFormula>IF(AND(Page__c=null,  Redirect__c= null), true, false)</errorConditionFormula>
+        <errorMessage>Please choose either Page Link or Custom URL.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Page_Link_or_Custom_URL</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF(AND(Page__c!=null,  Redirect__c!= null), true, false)</errorConditionFormula>
+        <errorMessage>Please choose either Page Link or Custom URL.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

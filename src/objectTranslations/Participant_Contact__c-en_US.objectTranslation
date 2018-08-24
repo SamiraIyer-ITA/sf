@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Application Contact</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Application Contacts</value>
+    </caseValues>
+    <fields>
+        <label><!-- Contact Office --></label>
+        <name>Contact_Office__c</name>
+    </fields>
+    <fields>
+        <label><!-- CRM Contact --></label>
+        <name>Contact__c</name>
+        <relationshipLabel><!-- Application Contacts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Email --></label>
+        <name>Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fax --></label>
+        <name>Fax__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Name --></label>
+        <name>First_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Language --></label>
+        <name>Language__c</name>
+        <relationshipLabel><!-- Application Contacts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Last Name --></label>
+        <name>Last_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Application --></label>
+        <name>Participant__c</name>
+        <relationshipLabel><!-- Application Contacts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Phone --></label>
+        <name>Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Role --></label>
+        <name>Role__c</name>
+        <picklistValues>
+            <masterLabel>Corporate Officer</masterLabel>
+            <translation><!-- Corporate Officer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>International Contact</masterLabel>
+            <translation><!-- International Contact --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Organization Contact</masterLabel>
+            <translation><!-- Organization Contact --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Organization Corporate Officer</masterLabel>
+            <translation><!-- Organization Corporate Officer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Portal Administrator</masterLabel>
+            <translation><!-- Portal Administrator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Primary Contact</masterLabel>
+            <translation><!-- Primary Contact --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Job Title for Participant Contact --></help>
+        <label><!-- Title --></label>
+        <name>Title__c</name>
+    </fields>
+    <layouts>
+        <layout>Participant Contact Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Profile --></label>
+            <section>Profile</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <description><!-- For use with Application Contacts on the Privacy Shield Application. --></description>
+        <label><!-- Privacy Shield Application Contact --></label>
+        <name>Privacy_Shield_Application_Contact</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- For use with Application Contacts on Toolkit Applications that require Primary and Regional Roles. --></description>
+        <label><!-- Regional Toolkit Application Contact --></label>
+        <name>Regional_Toolkit_Application_Contact</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- For use with Application Contacts on Toolkit Applications. --></description>
+        <label><!-- Toolkit Application Contact --></label>
+        <name>Toolkit_Application_Contact</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

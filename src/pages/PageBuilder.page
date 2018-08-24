@@ -1,0 +1,25 @@
+<apex:page controller="PageBuilder_Controller">
+<link href="{!URLFor($Resource.WebManagement, 'WebManagement/css/PageBuilder.css')}" rel="stylesheet" />
+<apex:form >
+<h1 class="headerText">Select a Template</h1>
+<apex:messages title="Error!" />
+<fieldset>
+    <legend>Page Name</legend>
+    <div class = "requiredInput">
+        <div style="border: solid 2px #ff0000; width: 2px; position: relative; display: inline; margin-right: 3px;"></div>
+        <apex:inputText value="{!PageName}" html-placeholder="Page Name" />
+    </div>
+</fieldset>
+    <apex:repeat value="{!Templates}" var="template">
+        <div class="template">
+            <h4>{!template.name}</h4>            
+            <p>{!template.Description__c}</p>
+            <apex:commandLink styleClass="img" action="{!BuildPage}" >
+                <apex:param value="{!template.id}" name="template" id="template" />
+                <img src="/servlet/servlet.FileDownload?file={!template.image__c}" />
+            </apex:commandLink>
+
+        </div>
+    </apex:repeat>
+</apex:form>
+</apex:page>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>MicroSite</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>MicroSites</value>
+    </caseValues>
+    <fields>
+        <label><!-- MicroSite Public URL --></label>
+        <name>MicroSite_Public_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- MicroSite Homepage --></label>
+        <name>Page__c</name>
+        <relationshipLabel><!-- MicroSites --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Section Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Initiative --></label>
+        <name>Initiative</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Office --></label>
+        <name>Office</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Program --></label>
+        <name>Program</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Service --></label>
+        <name>Service</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

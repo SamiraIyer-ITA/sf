@@ -45,6 +45,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -335,50 +336,48 @@ $Profile.Name
     <validationRules>
         <fullName>Related_Recusal_must_have_a_primary</fullName>
         <active>true</active>
-        <description>Related recusals must be aligned to a primary recusal.</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND(RecordType.DeveloperName = &apos;Related&apos;,
-     isBlank(Primary_Recusal_Aligned_To__c)
+     Primary_Recusal_Aligned_To__c  = null
 ))</errorConditionFormula>
         <errorMessage>Related recusals be aligned to a primary recusal</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Related_Recusal_one_parent_Investigation</fullName>
-        <active>false</active>
-        <description>Related recusals must only have one parent record</description>
+        <active>true</active>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND(
 	RecordType.DeveloperName = &apos;Related&apos;,
 	OR(
 		AND(
-		ISBLANK(ADCVD_Order__c),
-		 NOT(ISBLANK(Investigation__c)),
-		 NOT(ISBLANK(Litigation__c)),
-		 ISBLANK(Petition__c),
-		 ISBLANK(Related_Organization__c),
-		 ISBLANK(Segment__c)
+		ADCVD_Order__c = null,
+		 Investigation__c != null,
+		 Litigation__c != null,
+		 Petition__c = null,
+		 Related_Organization__c = null,
+		 Segment__c = null
 		),
 		AND(
-		ISBLANK(ADCVD_Order__c),
-		 NOT(ISBLANK(Investigation__c)),
-		 ISBLANK(Litigation__c),
-		 NOT(ISBLANK(Petition__c)),
-		 ISBLANK(Related_Organization__c),
-		 ISBLANK(Segment__c)
+		ADCVD_Order__c = null,
+		 Investigation__c != null,
+		 Litigation__c = null,
+		 Petition__c != null,
+		 Related_Organization__c = null,
+		 Segment__c = null
 		),
 		AND(
-		ISBLANK(ADCVD_Order__c),
-		 NOT(ISBLANK(Investigation__c)),
-		 ISBLANK(Litigation__c),
-		 ISBLANK(Petition__c),
-		 NOT(ISBLANK(Related_Organization__c)),
-		 ISBLANK(Segment__c)
+		ADCVD_Order__c = null,
+		 Investigation__c != null,
+		 Litigation__c = null,
+		 Petition__c = null,
+		 Related_Organization__c != null,
+		 Segment__c = null
 		),
 		AND(
-		ISBLANK(ADCVD_Order__c),
-		 NOT(ISBLANK(Investigation__c)),
-		 ISBLANK(Litigation__c),
-		 ISBLANK(Petition__c),
-		 ISBLANK(Related_Organization__c),
-		 NOT(ISBLANK(Segment__c))
+		ADCVD_Order__c = null,
+		 Investigation__c != null,
+		 Litigation__c = null,
+		 Petition__c = null,
+		 Related_Organization__c = null,
+		 Segment__c != null
 		)
 	)
 ))</errorConditionFormula>
@@ -386,34 +385,33 @@ $Profile.Name
     </validationRules>
     <validationRules>
         <fullName>Related_Recusal_one_parent_Litigation</fullName>
-        <active>false</active>
-        <description>Related recusals must have only one parent record</description>
+        <active>true</active>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND(
 	RecordType.DeveloperName = &apos;Related&apos;,
 	OR(
 		AND(
-		ISBLANK(ADCVD_Order__c),
-		 ISBLANK(Investigation__c),
-		 NOT(ISBLANK(Litigation__c)),
-		 NOT(ISBLANK(Petition__c)),
-		 ISBLANK(Related_Organization__c),
-		 ISBLANK(Segment__c)
+		ADCVD_Order__c = null,
+		 Investigation__c = null,
+		 Litigation__c != null,
+		 Petition__c != null,
+		 Related_Organization__c = null,
+		 Segment__c = null
 		),
 		AND(
-		ISBLANK(ADCVD_Order__c),
-		 ISBLANK(Investigation__c),
-		 NOT(ISBLANK(Litigation__c)),
-		 ISBLANK(Petition__c),
-		 NOT(ISBLANK(Related_Organization__c)),
-		 ISBLANK(Segment__c)
+		ADCVD_Order__c = null,
+		 Investigation__c = null,
+		 Litigation__c != null,
+		 Petition__c = null,
+		 Related_Organization__c != null,
+		 Segment__c = null
 		),
 		AND(
-		ISBLANK(ADCVD_Order__c),
-		 ISBLANK(Investigation__c),
-		 NOT(ISBLANK(Litigation__c)),
-		 ISBLANK(Petition__c),
-		 ISBLANK(Related_Organization__c),
-		 NOT(ISBLANK(Segment__c))
+		ADCVD_Order__c = null,
+		 Investigation__c = null,
+		 Litigation__c != null,
+		 Petition__c = null,
+		 Related_Organization__c = null,
+		 Segment__c != null
 		)
 	)
 ))</errorConditionFormula>
@@ -421,26 +419,25 @@ $Profile.Name
     </validationRules>
     <validationRules>
         <fullName>Related_Recusal_one_parent_Petition</fullName>
-        <active>false</active>
-        <description>Related recusals must only have one parent</description>
+        <active>true</active>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND(
 	RecordType.DeveloperName = &apos;Related&apos;,
 	OR(
 		AND(
-		ISBLANK(ADCVD_Order__c),
-		 ISBLANK(Investigation__c),
-		 ISBLANK(Litigation__c),
-		 NOT(ISBLANK(Petition__c)),
-		 NOT(ISBLANK(Related_Organization__c)),
-		 ISBLANK(Segment__c)
+		ADCVD_Order__c = null,
+		 Investigation__c = null,
+		 Litigation__c = null,
+		 Petition__c != null,
+		 Related_Organization__c != null,
+		 Segment__c = null
 		),
 		AND(
-		ISBLANK(ADCVD_Order__c),
-		 ISBLANK(Investigation__c),
-		 NOT(ISBLANK(Litigation__c)),
-		 ISBLANK(Petition__c),
-		 ISBLANK(Related_Organization__c),
-		 NOT(ISBLANK(Segment__c))
+		ADCVD_Order__c = null,
+		 Investigation__c = null,
+		 Litigation__c != null,
+		 Petition__c = null,
+		 Related_Organization__c = null,
+		 Segment__c != null
 		)
 	)
 ))</errorConditionFormula>
@@ -448,18 +445,17 @@ $Profile.Name
     </validationRules>
     <validationRules>
         <fullName>Related_Recusal_one_parent_rel_org</fullName>
-        <active>false</active>
-        <description>Related recusals must have only one parent related organization record.</description>
+        <active>true</active>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND(
 	RecordType.DeveloperName = &apos;Related&apos;,
 	OR(
 		AND(
-		ISBLANK(ADCVD_Order__c),
-		 ISBLANK(Investigation__c),
-		 ISBLANK(Litigation__c),
-		 ISBLANK(Petition__c),
-		 NOT(ISBLANK(Related_Organization__c)),
-		 ISBLANK(Segment__c)
+		ADCVD_Order__c = null,
+		 Investigation__c = null,
+		 Litigation__c = null,
+		 Petition__c = null,
+		 Related_Organization__c != null,
+		 Segment__c != null
 		)
 	)
 ))</errorConditionFormula>
@@ -468,177 +464,57 @@ $Profile.Name
     <validationRules>
         <fullName>Related_Recusals_must_have_a_parent</fullName>
         <active>true</active>
-        <description>Related recusals must only have one parent record</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND(RecordType.DeveloperName = &apos;Related&apos;,
-ISBLANK(ADCVD_Order__c), 
-ISBLANK(Investigation__c), 
-ISBLANK(Litigation__c), 
-ISBLANK(Petition__c), 
-ISBLANK(Related_Organization__c), 
-ISBLANK(Segment__c) 
-), OR(AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND(
-	RecordType.DeveloperName = &apos;Related&apos;,
-	OR(
-		AND(
-		 NOT(ISBLANK(ADCVD_Order__c)),
-		 NOT(ISBLANK(Investigation__c)),
-		 ISBLANK(Litigation__c),
-		 ISBLANK(Petition__c),
-		 ISBLANK(Related_Organization__c),
-		 ISBLANK(Segment__c)
-		),
-		AND(
-		 NOT(ISBLANK(ADCVD_Order__c)),
-		 ISBLANK(Investigation__c),
-		 ISBLANK(Litigation__c),
-		 NOT(ISBLANK(Petition__c)),
-		 ISBLANK(Related_Organization__c),
-		 ISBLANK(Segment__c)
-		),
-		AND(
-		 NOT(ISBLANK(ADCVD_Order__c)),
-		 ISBLANK(Investigation__c),
-		 ISBLANK(Litigation__c),
-		 ISBLANK(Petition__c),
-		 NOT(ISBLANK(Related_Organization__c)),
-		 ISBLANK(Segment__c)
-		),
-		AND(
-		 NOT(ISBLANK(ADCVD_Order__c)),
-		 ISBLANK(Investigation__c),
-		 ISBLANK(Litigation__c),
-		 ISBLANK(Petition__c),
-		 ISBLANK(Related_Organization__c),
-		 NOT(ISBLANK(Segment__c))
-		),
-		AND( 
-		 ISBLANK(ADCVD_Order__c), 
-		 NOT(ISBLANK(Investigation__c)), 
-		 NOT(ISBLANK(Litigation__c)), 
-		 ISBLANK(Petition__c), 
-		 ISBLANK(Related_Organization__c), 
-		 ISBLANK(Segment__c) 
-		), 
-		AND( 
-		 ISBLANK(ADCVD_Order__c), 
-		 NOT(ISBLANK(Investigation__c)), 
-		 ISBLANK(Litigation__c), 
-		 NOT(ISBLANK(Petition__c)), 
-		 ISBLANK(Related_Organization__c), 
-		 ISBLANK(Segment__c) 
-		), 
-		AND( 
-		 ISBLANK(ADCVD_Order__c), 
-		 NOT(ISBLANK(Investigation__c)), 
-		 ISBLANK(Litigation__c), 
-		 ISBLANK(Petition__c), 
-		 NOT(ISBLANK(Related_Organization__c)), 
-		 ISBLANK(Segment__c) 
-		), 
-		AND( 
-		 ISBLANK(ADCVD_Order__c), 
-		 NOT(ISBLANK(Investigation__c)), 
-		 ISBLANK(Litigation__c), 
-		 ISBLANK(Petition__c), 
-		 ISBLANK(Related_Organization__c), 
-		 NOT(ISBLANK(Segment__c)) 
-		), 
-		AND( 
-		 ISBLANK(ADCVD_Order__c), 
-		 ISBLANK(Investigation__c), 
-		 NOT(ISBLANK(Litigation__c)), 
-		 NOT(ISBLANK(Petition__c)), 
-		 ISBLANK(Related_Organization__c), 
-		 ISBLANK(Segment__c) 
-		), 
-		AND( 
-		 ISBLANK(ADCVD_Order__c), 
-		 ISBLANK(Investigation__c), 
-		 NOT(ISBLANK(Litigation__c)), 
-		 ISBLANK(Petition__c), 
-		 NOT(ISBLANK(Related_Organization__c)), 
-		 ISBLANK(Segment__c) 
-		), 
-		AND( 
-		 ISBLANK(ADCVD_Order__c), 
-		 ISBLANK(Investigation__c), 
-		 NOT(ISBLANK(Litigation__c)), 
-		 ISBLANK(Petition__c), 
-		 ISBLANK(Related_Organization__c), 
-		 NOT(ISBLANK(Segment__c)) 
-		), 
-		AND( 
-		 ISBLANK(ADCVD_Order__c), 
-		 ISBLANK(Investigation__c), 
-		 ISBLANK(Litigation__c), 
-		 ISBLANK(Petition__c), 
-		 NOT(ISBLANK(Related_Organization__c)), 
-		 ISBLANK(Segment__c) 
-		),
-		AND( 
-		 ISBLANK(ADCVD_Order__c), 
-		 ISBLANK(Investigation__c), 
-		 ISBLANK(Litigation__c), 
-		 NOT(ISBLANK(Petition__c)), 
-		 NOT(ISBLANK(Related_Organization__c)), 
-		 ISBLANK(Segment__c) 
-		), 
-		AND( 
-		 ISBLANK(ADCVD_Order__c), 
-		 ISBLANK(Investigation__c), 
-		 NOT(ISBLANK(Litigation__c)), 
-		 ISBLANK(Petition__c), 
-		 ISBLANK(Related_Organization__c), 
-		 NOT(ISBLANK(Segment__c))
-		)	
-	)
-)	
-)
-)
-)</errorConditionFormula>
-        <errorMessage>Related Recusals must have one parent record.</errorMessage>
+ADCVD_Order__c = null,
+ Investigation__c = null,
+ Litigation__c = null,
+ Petition__c = null,
+ Related_Organization__c = null,
+ Segment__c = null
+))</errorConditionFormula>
+        <errorMessage>Related Recusals must have one parent record</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Related_Recusals_one_parent_ADCVD_Order</fullName>
-        <active>false</active>
-        <description>Related Recusals must have only one parent that&apos;s either an ADCVD Order, Investigation, Petition Related Organization or a Segment.</description>
+        <active>true</active>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND(
 	RecordType.DeveloperName = &apos;Related&apos;,
 	OR(
 		AND(
-		NOT(ISBLANK(ADCVD_Order__c)),
-		 NOT(ISBLANK(Investigation__c)),
-		 ISBLANK(Litigation__c),
-		 ISBLANK(Petition__c),
-		 ISBLANK(Related_Organization__c),
-		 ISBLANK(Segment__c)
+		ADCVD_Order__c != null,
+		 Investigation__c != null,
+		 Litigation__c = null,
+		 Petition__c = null,
+		 Related_Organization__c = null,
+		 Segment__c = null
 		),
 		AND(
-		NOT(ISBLANK(ADCVD_Order__c)),
-		 ISBLANK(Investigation__c),
-		 ISBLANK(Litigation__c),
-		 NOT(ISBLANK(Petition__c)),
-		 ISBLANK(Related_Organization__c),
-		 ISBLANK(Segment__c)
+		ADCVD_Order__c != null,
+		 Investigation__c = null,
+		 Litigation__c = null,
+		 Petition__c != null,
+		 Related_Organization__c = null,
+		 Segment__c = null
 		),
 		AND(
-		NOT(ISBLANK(ADCVD_Order__c)),
-		 ISBLANK(Investigation__c),
-		 ISBLANK(Litigation__c),
-		 ISBLANK(Petition__c),
-		 NOT(ISBLANK(Related_Organization__c)),
-		 ISBLANK(Segment__c)
+		ADCVD_Order__c != null,
+		 Investigation__c = null,
+		 Litigation__c = null,
+		 Petition__c = null,
+		 Related_Organization__c != null,
+		 Segment__c = null
 		),
 		AND(
-		NOT(ISBLANK(ADCVD_Order__c)),
-		 ISBLANK(Investigation__c),
-		 ISBLANK(Litigation__c),
-		 ISBLANK(Petition__c),
-		 ISBLANK(Related_Organization__c),
-		 NOT(ISBLANK(Segment__c))
+		ADCVD_Order__c != null,
+		 Investigation__c = null,
+		 Litigation__c = null,
+		 Petition__c = null,
+		 Related_Organization__c = null,
+		 Segment__c != null
 		)
 	)
 ))</errorConditionFormula>
         <errorMessage>Related Recusals must have one parent record</errorMessage>
     </validationRules>
+    <visibility>Public</visibility>
 </CustomObject>

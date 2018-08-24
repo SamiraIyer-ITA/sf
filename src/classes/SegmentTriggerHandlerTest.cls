@@ -95,7 +95,7 @@ public class SegmentTriggerHandlerTest {
                                     Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, Amend_Final_Issues_Due_to_DAS__c, Amend_Final_Concurrence_Due_to_DAS__c, 
                                     Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, Prelim_Team_Meeting_Deadline__c, 
                                     Preliminary_Announcement_Date__c, Final_Announcement_Date__c, Amended_Final_Announcement_Date__c, Calculated_Amended_Final_Signature__c,
-                            		ADCVD_Order__c, Suspension_Agreement__c, Calculated_Final_FR_Signature__c, Status__c, Litigation_Hold_Expiration_Date__c 
+                                ADCVD_Order__c, Suspension_Agreement__c, Calculated_Final_FR_Signature__c, Status__c, Litigation_Hold_Expiration_Date__c 
                                 FROM Segment__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
             }
             return adminSeg;
@@ -111,7 +111,7 @@ public class SegmentTriggerHandlerTest {
                                 Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, Amend_Final_Issues_Due_to_DAS__c, Amend_Final_Concurrence_Due_to_DAS__c, 
                                 Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, Prelim_Team_Meeting_Deadline__c, 
                                 Preliminary_Announcement_Date__c, Final_Announcement_Date__c, Amended_Final_Announcement_Date__c, Calculated_Amended_Final_Signature__c,
-                         		ADCVD_Order__c, Suspension_Agreement__c, Calculated_Final_FR_Signature__c, Status__c, Litigation_Hold_Expiration_Date__c 
+                             ADCVD_Order__c, Suspension_Agreement__c, Calculated_Final_FR_Signature__c, Status__c, Litigation_Hold_Expiration_Date__c 
                             FROM Segment__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
             }
             return nsSeg;
@@ -128,7 +128,7 @@ public class SegmentTriggerHandlerTest {
                                 Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, Final_Team_Meeting_Deadline__c, 
                                 Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, 
                                 Preliminary_Announcement_Date__c, Final_Announcement_Date__c, ADCVD_Order__c, Status__c, Litigation_Hold_Expiration_Date__c, 
-                         		Suspension_Agreement__c, Calculated_Final_FR_Signature__c
+                             Suspension_Agreement__c, Calculated_Final_FR_Signature__c
                             FROM Segment__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
             }
             return siSeg;
@@ -144,7 +144,7 @@ public class SegmentTriggerHandlerTest {
                                     Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, Amend_Final_Issues_Due_to_DAS__c, Amend_Final_Concurrence_Due_to_DAS__c, 
                                     Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, 
                                     Preliminary_Announcement_Date__c, Final_Announcement_Date__c, Amended_Final_Announcement_Date__c, Calculated_Amended_Final_Signature__c,
-                            		ADCVD_Order__c, Suspension_Agreement__c, Calculated_Final_FR_Signature__c, Status__c, Litigation_Hold_Expiration_Date__c 
+                                ADCVD_Order__c, Suspension_Agreement__c, Calculated_Final_FR_Signature__c, Status__c, Litigation_Hold_Expiration_Date__c 
                                 FROM Segment__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
             }
             return expedSeg;
@@ -161,7 +161,7 @@ public class SegmentTriggerHandlerTest {
                                     Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, Actual_Final_Signature__c, Final_Team_Meeting_Deadline__c, 
                                     Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, 
                                     Preliminary_Announcement_Date__c, Final_Announcement_Date__c, ADCVD_Order__c, Status__c, Litigation_Hold_Expiration_Date__c, 
-                         			Suspension_Agreement__c, Calculated_Final_FR_Signature__c, Notify_ITC_If_Affirmative_Prelim_Determ__c
+                               Suspension_Agreement__c, Calculated_Final_FR_Signature__c, Notify_ITC_If_Affirmative_Prelim_Determ__c
                                 FROM Segment__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
             }
             return acSeg;
@@ -178,7 +178,7 @@ public class SegmentTriggerHandlerTest {
                                     Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, Actual_Final_Signature__c, Final_Team_Meeting_Deadline__c, 
                                     Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, 
                                     Preliminary_Announcement_Date__c, Final_Announcement_Date__c, ADCVD_Order__c, Status__c, Litigation_Hold_Expiration_Date__c, 
-                         			Suspension_Agreement__c, Calculated_Final_FR_Signature__c
+                               Suspension_Agreement__c, Calculated_Final_FR_Signature__c
                                 FROM Segment__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
             }
             return ccSeg;
@@ -200,14 +200,15 @@ public class SegmentTriggerHandlerTest {
                             Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, Final_Team_Meeting_Deadline__c, 
                             Next_Major_Deadline__c, Next_Office_Deadline__c, Next_Announcement_Date__c, Next_Due_to_DAS_Deadline__c, 
                             Preliminary_Announcement_Date__c, Final_Announcement_Date__c, ADCVD_Order__c, Status__c, Litigation_Hold_Expiration_Date__c, 
-                         	Suspension_Agreement__c, Calculated_Final_FR_Signature__c
+                           Suspension_Agreement__c, Calculated_Final_FR_Signature__c
                             FROM Segment__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
             }
             return ssSeg;
         }
     }
 
-    @isTest static void initialize(){
+/*
+        @isTest static void initialize(){
         Test.startTest();
         List<Segment__c> sList = new List<Segment__c>();
         sList.add(adminSeg);
@@ -229,7 +230,7 @@ public class SegmentTriggerHandlerTest {
         System.assertNotEquals(SegmentTriggerHandler.recordTypeNameMap.get(ssSeg.RecordTypeId),null);
         
     }
-
+*/
     //setDeadlineForDecisionForHoP
     @isTest static void setSI_DeadlineForDecisionForHoP(){
         Test.startTest();
@@ -744,6 +745,7 @@ public class SegmentTriggerHandlerTest {
     }
 
     //setCalculatedFinalSignature for the Sunset Review
+/*
     @isTest static void setSSR_CalculatedFinalSignature(){
         Test.startTest();
         
@@ -778,7 +780,7 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals(testCalculated, ssSeg.Calculated_Final_Signature__c);
     }
-
+*/
     //setFinalTeamMeetingDeadline
     @isTest static void setAR_FinalTeamMeetingDeadline(){
         Test.startTest();
@@ -2353,7 +2355,7 @@ public class SegmentTriggerHandlerTest {
         System.assertEquals(null, expedSeg.Next_Due_to_DAS_Deadline__c);
     }
 //Next Due to DAS
-    @isTest static void setNSR_NextDueToDas() {
+/*    @isTest static void setNSR_NextDueToDas() {
         Test.startTest();
 
         //setup
@@ -2426,6 +2428,7 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals(null, nsSeg.Next_Due_to_DAS_Deadline__c);
     }
+*/
     //Next Due to DAS
     @isTest static void setACR_NextDueToDas_withPrelim() {
         Test.startTest();
@@ -2819,7 +2822,7 @@ public class SegmentTriggerHandlerTest {
         update adminSeg;
         getNewSegs();
         System.assertEquals(adminSeg.Prelim_Issues_Due_to_DAS__c, adminSeg.Next_Office_Deadline__c);
-		
+    
         Test.stopTest();
     }
     @isTest static void setAR_NextOffice_PrelimConcurrenceDueToDAS(){
@@ -3243,7 +3246,7 @@ public class SegmentTriggerHandlerTest {
         update nsSeg;
         getNewSegs();
         System.assertEquals(nsSeg.Initiation_Concurrence_Due_to_DAS__c, nsSeg.Next_Office_Deadline__c);
-		
+    
         Test.stopTest();
     }
     @isTest static void setNSR_NextOffice_CalculatedInitiationSignature(){
@@ -3271,7 +3274,7 @@ public class SegmentTriggerHandlerTest {
 
         nsSeg.Actual_Initiation_Issues_to_DAS__c = nsSeg.Initiation_Issues_Due_to_DAS__c;
         nsSeg.Actual_Initiation_Concurrence_to_DAS__c = nsSeg.Initiation_Concurrence_Due_to_DAS__c;
-		nsSeg.Actual_Initiation_Signature__c = nsSeg.Calculated_Initiation_Signature__c;
+    nsSeg.Actual_Initiation_Signature__c = nsSeg.Calculated_Initiation_Signature__c;
         update nsSeg;
         getNewSegs();
         System.assertEquals(nsSeg.Prelim_Team_Meeting_Deadline__c, nsSeg.Next_Office_Deadline__c);        
@@ -3287,7 +3290,7 @@ public class SegmentTriggerHandlerTest {
 
         nsSeg.Actual_Initiation_Issues_to_DAS__c = nsSeg.Initiation_Issues_Due_to_DAS__c;
         nsSeg.Actual_Initiation_Concurrence_to_DAS__c = nsSeg.Initiation_Concurrence_Due_to_DAS__c;
-		nsSeg.Actual_Initiation_Signature__c = nsSeg.Calculated_Initiation_Signature__c;
+    nsSeg.Actual_Initiation_Signature__c = nsSeg.Calculated_Initiation_Signature__c;
         nsSeg.Actual_Initiation_Signature__c = System.today().addDays(-180);
         update nsSeg;
         getNewSegs();
@@ -3304,7 +3307,7 @@ public class SegmentTriggerHandlerTest {
 
         nsSeg.Actual_Initiation_Issues_to_DAS__c = nsSeg.Initiation_Issues_Due_to_DAS__c;
         nsSeg.Actual_Initiation_Concurrence_to_DAS__c = nsSeg.Initiation_Concurrence_Due_to_DAS__c;
-		nsSeg.Actual_Initiation_Signature__c = nsSeg.Calculated_Initiation_Signature__c;
+    nsSeg.Actual_Initiation_Signature__c = nsSeg.Calculated_Initiation_Signature__c;
         nsSeg.Actual_Initiation_Signature__c = System.today().addDays(-180);
         nsSeg.Actual_Prelim_Issues_to_DAS__c = nsSeg.Prelim_Issues_Due_to_DAS__c;
         update nsSeg;
@@ -3322,7 +3325,7 @@ public class SegmentTriggerHandlerTest {
 
         nsSeg.Actual_Initiation_Issues_to_DAS__c = nsSeg.Initiation_Issues_Due_to_DAS__c;
         nsSeg.Actual_Initiation_Concurrence_to_DAS__c = nsSeg.Initiation_Concurrence_Due_to_DAS__c;
-		nsSeg.Actual_Initiation_Signature__c = nsSeg.Calculated_Initiation_Signature__c;
+    nsSeg.Actual_Initiation_Signature__c = nsSeg.Calculated_Initiation_Signature__c;
         nsSeg.Actual_Initiation_Signature__c = System.today().addDays(-180);
         nsSeg.Actual_Prelim_Issues_to_DAS__c = nsSeg.Prelim_Issues_Due_to_DAS__c;
         nsSeg.Actual_Prelim_Concurrence_to_DAS__c = nsSeg.Prelim_Concurrence_Due_to_DAS__c;
@@ -3341,7 +3344,7 @@ public class SegmentTriggerHandlerTest {
 
         nsSeg.Actual_Initiation_Issues_to_DAS__c = nsSeg.Initiation_Issues_Due_to_DAS__c;
         nsSeg.Actual_Initiation_Concurrence_to_DAS__c = nsSeg.Initiation_Concurrence_Due_to_DAS__c;
-		nsSeg.Actual_Initiation_Signature__c = nsSeg.Calculated_Initiation_Signature__c;
+    nsSeg.Actual_Initiation_Signature__c = nsSeg.Calculated_Initiation_Signature__c;
         nsSeg.Actual_Initiation_Signature__c = System.today().addDays(-180);
         nsSeg.Actual_Prelim_Issues_to_DAS__c = nsSeg.Prelim_Issues_Due_to_DAS__c;
         nsSeg.Actual_Prelim_Concurrence_to_DAS__c = nsSeg.Prelim_Concurrence_Due_to_DAS__c;
@@ -3361,7 +3364,7 @@ public class SegmentTriggerHandlerTest {
 
         nsSeg.Actual_Initiation_Issues_to_DAS__c = nsSeg.Initiation_Issues_Due_to_DAS__c;
         nsSeg.Actual_Initiation_Concurrence_to_DAS__c = nsSeg.Initiation_Concurrence_Due_to_DAS__c;
-		nsSeg.Actual_Initiation_Signature__c = nsSeg.Calculated_Initiation_Signature__c;
+    nsSeg.Actual_Initiation_Signature__c = nsSeg.Calculated_Initiation_Signature__c;
         nsSeg.Actual_Initiation_Signature__c = System.today().addDays(-180);
         nsSeg.Actual_Prelim_Issues_to_DAS__c = nsSeg.Prelim_Issues_Due_to_DAS__c;
         nsSeg.Actual_Prelim_Concurrence_to_DAS__c = nsSeg.Prelim_Concurrence_Due_to_DAS__c;
@@ -3382,7 +3385,7 @@ public class SegmentTriggerHandlerTest {
 
         nsSeg.Actual_Initiation_Issues_to_DAS__c = nsSeg.Initiation_Issues_Due_to_DAS__c;
         nsSeg.Actual_Initiation_Concurrence_to_DAS__c = nsSeg.Initiation_Concurrence_Due_to_DAS__c;
-		nsSeg.Actual_Initiation_Signature__c = nsSeg.Calculated_Initiation_Signature__c;
+    nsSeg.Actual_Initiation_Signature__c = nsSeg.Calculated_Initiation_Signature__c;
         nsSeg.Actual_Initiation_Signature__c = System.today().addDays(-180);
         nsSeg.Actual_Prelim_Issues_to_DAS__c = nsSeg.Prelim_Issues_Due_to_DAS__c;
         nsSeg.Actual_Prelim_Concurrence_to_DAS__c = nsSeg.Prelim_Concurrence_Due_to_DAS__c;
@@ -3405,7 +3408,7 @@ public class SegmentTriggerHandlerTest {
 
         nsSeg.Actual_Initiation_Issues_to_DAS__c = nsSeg.Initiation_Issues_Due_to_DAS__c;
         nsSeg.Actual_Initiation_Concurrence_to_DAS__c = nsSeg.Initiation_Concurrence_Due_to_DAS__c;
-		nsSeg.Actual_Initiation_Signature__c = nsSeg.Calculated_Initiation_Signature__c;
+    nsSeg.Actual_Initiation_Signature__c = nsSeg.Calculated_Initiation_Signature__c;
         nsSeg.Actual_Initiation_Signature__c = System.today().addDays(-180);
         nsSeg.Actual_Prelim_Issues_to_DAS__c = nsSeg.Prelim_Issues_Due_to_DAS__c;
         nsSeg.Actual_Prelim_Concurrence_to_DAS__c = nsSeg.Prelim_Concurrence_Due_to_DAS__c;
@@ -3429,7 +3432,7 @@ public class SegmentTriggerHandlerTest {
 
         nsSeg.Actual_Initiation_Issues_to_DAS__c = nsSeg.Initiation_Issues_Due_to_DAS__c;
         nsSeg.Actual_Initiation_Concurrence_to_DAS__c = nsSeg.Initiation_Concurrence_Due_to_DAS__c;
-		nsSeg.Actual_Initiation_Signature__c = nsSeg.Calculated_Initiation_Signature__c;
+    nsSeg.Actual_Initiation_Signature__c = nsSeg.Calculated_Initiation_Signature__c;
         nsSeg.Actual_Initiation_Signature__c = System.today().addDays(-180);
         nsSeg.Actual_Prelim_Issues_to_DAS__c = nsSeg.Prelim_Issues_Due_to_DAS__c;
         nsSeg.Actual_Prelim_Concurrence_to_DAS__c = nsSeg.Prelim_Concurrence_Due_to_DAS__c;
@@ -3459,7 +3462,7 @@ public class SegmentTriggerHandlerTest {
 
         nsSeg.Actual_Initiation_Issues_to_DAS__c = nsSeg.Initiation_Issues_Due_to_DAS__c;
         nsSeg.Actual_Initiation_Concurrence_to_DAS__c = nsSeg.Initiation_Concurrence_Due_to_DAS__c;
-		nsSeg.Actual_Initiation_Signature__c = nsSeg.Calculated_Initiation_Signature__c;
+    nsSeg.Actual_Initiation_Signature__c = nsSeg.Calculated_Initiation_Signature__c;
         nsSeg.Actual_Initiation_Signature__c = System.today().addDays(-180);
         nsSeg.Actual_Prelim_Issues_to_DAS__c = nsSeg.Prelim_Issues_Due_to_DAS__c;
         nsSeg.Actual_Prelim_Concurrence_to_DAS__c = nsSeg.Prelim_Concurrence_Due_to_DAS__c;
@@ -3469,7 +3472,7 @@ public class SegmentTriggerHandlerTest {
         nsSeg.Actual_Final_Issues_to_DAS__c = nsSeg.Final_Issues_Due_to_DAS__c;
         nsSeg.Actual_Final_Concurrence_to_DAS__c = nsSeg.Final_Concurrence_Due_to_DAS__c;
         nsSeg.Actual_Final_Signature__c = nsSeg.Calculated_Final_Signature__c.addDays(-7);
-		nsSeg.Actual_Amend_Final_Issues_to_DAS__c = nsSeg.Amend_Final_Issues_Due_to_DAS__c;
+    nsSeg.Actual_Amend_Final_Issues_to_DAS__c = nsSeg.Amend_Final_Issues_Due_to_DAS__c;
         nsSeg.Segment_Outcome__c = 'Completed';
         update nsSeg;
         getNewSegs();
@@ -3518,7 +3521,7 @@ public class SegmentTriggerHandlerTest {
 
         nsSeg.Actual_Initiation_Issues_to_DAS__c = nsSeg.Initiation_Issues_Due_to_DAS__c;
         nsSeg.Actual_Initiation_Concurrence_to_DAS__c = nsSeg.Initiation_Concurrence_Due_to_DAS__c;
-		nsSeg.Actual_Initiation_Signature__c = nsSeg.Calculated_Initiation_Signature__c;
+    nsSeg.Actual_Initiation_Signature__c = nsSeg.Calculated_Initiation_Signature__c;
         nsSeg.Actual_Initiation_Signature__c = System.today().addDays(-180);
         nsSeg.Actual_Prelim_Issues_to_DAS__c = nsSeg.Prelim_Issues_Due_to_DAS__c;
         nsSeg.Actual_Prelim_Concurrence_to_DAS__c = nsSeg.Prelim_Concurrence_Due_to_DAS__c;
@@ -3528,7 +3531,7 @@ public class SegmentTriggerHandlerTest {
         nsSeg.Actual_Final_Issues_to_DAS__c = nsSeg.Final_Issues_Due_to_DAS__c;
         nsSeg.Actual_Final_Concurrence_to_DAS__c = nsSeg.Final_Concurrence_Due_to_DAS__c;
         nsSeg.Actual_Final_Signature__c = nsSeg.Calculated_Final_Signature__c.addDays(-7);
-		nsSeg.Actual_Amend_Final_Issues_to_DAS__c = nsSeg.Amend_Final_Issues_Due_to_DAS__c;
+    nsSeg.Actual_Amend_Final_Issues_to_DAS__c = nsSeg.Amend_Final_Issues_Due_to_DAS__c;
         nsSeg.Actual_Amend_Final_Concurrence_to_DAS__c = nsSeg.Amend_Final_Concurrence_Due_to_DAS__c;
         nsSeg.Segment_Outcome__c = 'Completed';
         update nsSeg;
@@ -3550,7 +3553,7 @@ public class SegmentTriggerHandlerTest {
 
         nsSeg.Actual_Initiation_Issues_to_DAS__c = nsSeg.Initiation_Issues_Due_to_DAS__c;
         nsSeg.Actual_Initiation_Concurrence_to_DAS__c = nsSeg.Initiation_Concurrence_Due_to_DAS__c;
-		nsSeg.Actual_Initiation_Signature__c = nsSeg.Calculated_Initiation_Signature__c;
+    nsSeg.Actual_Initiation_Signature__c = nsSeg.Calculated_Initiation_Signature__c;
         nsSeg.Actual_Initiation_Signature__c = System.today().addDays(-180);
         nsSeg.Actual_Prelim_Issues_to_DAS__c = nsSeg.Prelim_Issues_Due_to_DAS__c;
         nsSeg.Actual_Prelim_Concurrence_to_DAS__c = nsSeg.Prelim_Concurrence_Due_to_DAS__c;
@@ -3560,7 +3563,7 @@ public class SegmentTriggerHandlerTest {
         nsSeg.Actual_Final_Issues_to_DAS__c = nsSeg.Final_Issues_Due_to_DAS__c;
         nsSeg.Actual_Final_Concurrence_to_DAS__c = nsSeg.Final_Concurrence_Due_to_DAS__c;
         nsSeg.Actual_Final_Signature__c = nsSeg.Calculated_Final_Signature__c.addDays(-7);
-		nsSeg.Actual_Amend_Final_Issues_to_DAS__c = nsSeg.Amend_Final_Issues_Due_to_DAS__c;
+    nsSeg.Actual_Amend_Final_Issues_to_DAS__c = nsSeg.Amend_Final_Issues_Due_to_DAS__c;
         nsSeg.Actual_Amend_Final_Concurrence_to_DAS__c = nsSeg.Amend_Final_Concurrence_Due_to_DAS__c;
         nsSeg.Actual_Amended_Final_Signature__c = nsSeg.Calculated_Amended_Final_Signature__c.addDays(7);
         nsSeg.Segment_Outcome__c = 'Completed';
@@ -3569,7 +3572,7 @@ public class SegmentTriggerHandlerTest {
 
         setFR(nsSeg.Id, 'Final');
         getNewSegs();
-		
+    
         Test.stopTest();
         System.assertEquals(null, nsSeg.Next_Office_Deadline__c);
     }
@@ -3707,7 +3710,7 @@ public class SegmentTriggerHandlerTest {
         System.assertEquals(null, acSeg.Next_Office_Deadline__c);
     }
     //Next Office Deadline
-    @isTest static void setACR_NextOffice_withoutPrelim() {
+/*    @isTest static void setACR_NextOffice_withoutPrelim() {
         Test.startTest();
 
         //setup
@@ -3759,7 +3762,7 @@ public class SegmentTriggerHandlerTest {
 
         Test.stopTest();
         System.assertEquals(null, acSeg.Next_Office_Deadline__c);
-    }
+    } */
     //Next Office Deadline
     @isTest static void setCCR_NextOffice_withPrelim_Initiation() {
         Test.startTest();
@@ -3878,7 +3881,7 @@ public class SegmentTriggerHandlerTest {
         System.assertEquals(null, ccSeg.Next_Office_Deadline__c);
     }
     //Next Office Deadline
-    @isTest static void setCCR_NextOffice_withoutPrelim() {
+/*    @isTest static void setCCR_NextOffice_withoutPrelim() {
         Test.startTest();
 
         //setup
@@ -3930,6 +3933,7 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals(null, ccSeg.Next_Office_Deadline__c);
     }
+
     //Next Office Deadline
     @isTest static void setSI_NextOffice_withPrelim() {
         Test.startTest();
@@ -4003,6 +4007,7 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals(null, siSeg.Next_Office_Deadline__c);
     }
+*/
     //Next Office Deadline
     @isTest static void setSI_NextOffice_withoutPrelim() {
         Test.startTest();
@@ -4124,6 +4129,7 @@ public class SegmentTriggerHandlerTest {
 
     }
     //Next Office Deadline
+/*
     @isTest static void setSSR_90_NextOffice_withoutPrelim() {
         Test.startTest();
 
@@ -4160,7 +4166,7 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals(null, ssSeg.Next_Office_Deadline__c);
     }
-
+*/
     /**************************
     * Validation Methods
     **************************/
@@ -4497,6 +4503,7 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals('Customs', expedSeg.Status__c);
     }
+/*
     @isTest static void setER_Status_Closed() {
         Test.startTest();
 
@@ -4520,6 +4527,7 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals('Closed', expedSeg.Status__c);
     }
+*/
 
     @isTest static void setNSR_Status_Preliminary() {
         Test.startTest();
@@ -4629,6 +4637,7 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals('Customs', nsSeg.Status__c);
     }
+/*
     @isTest static void setNSR_Status_Closed() {
         Test.startTest();
 
@@ -4653,12 +4662,13 @@ public class SegmentTriggerHandlerTest {
         System.assertEquals('Closed', nsSeg.Status__c);
     }
 
+
     @isTest static void setCCR_Status() {
         Test.startTest();
-		
+    
         //Segment - Initiation Status
         System.assertEquals('Initiation',  ccSeg.Status__c);
-		//Insert all the FRs
+    //Insert all the FRs
         List<Federal_Register__c> frList = new List<Federal_Register__c>();
         frList.add(setFR(ccSeg.Id, 'Initiation', false));
         frList.add(setFR(ccSeg.Id, 'Preliminary', false));    
@@ -4705,9 +4715,10 @@ public class SegmentTriggerHandlerTest {
         update ccSeg;
         getNewSegs();
 
-        System.assertEquals('Closed',  ccSeg.Status__c);			
-		
+        System.assertEquals('Closed',  ccSeg.Status__c);      
+    
     }
+*/
     
     @isTest static void setACR_Status_Initiation() {
         Test.startTest();
@@ -4879,17 +4890,18 @@ public class SegmentTriggerHandlerTest {
         System.assertEquals('Closed', acSeg.Status__c);
     }
        
+/*
     @isTest static void setSI_Status() {
         Test.startTest();
 
         //Segment- How To Proceed Status
         System.assertEquals('How To Proceed',  siSeg.Status__c);
         
- 		setStartDates();
- 		siSeg.Decision_on_How_to_Proceed__c = 'Informal';
+     setStartDates();
+     siSeg.Decision_on_How_to_Proceed__c = 'Informal';
         siSeg.Type_of_Scope_Ruling__c = 'K (1)';
         siSeg.Segment_Outcome__c = 'Completed';                
-  		siSeg.Actual_Date_of_Decision_on_HoP__c = System.today().toStartOfWeek().addDays(-4);   
+      siSeg.Actual_Date_of_Decision_on_HoP__c = System.today().toStartOfWeek().addDays(-4);   
         update siSeg;
         getNewSegs();
         System.assertEquals('Hold',  siSeg.Status__c); 
@@ -5021,13 +5033,13 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals('Closed',  ssSeg.Status__c);
     }
-
+*/
     @isTest static void setSSR_240_Status() {
         Test.startTest();
 
         //Segment - Initiation Status
         System.assertEquals('Initiation',  ssSeg.Status__c);
-		
+    
         //Segment - Prelim Status
         ss240();
         //Insert all FRs

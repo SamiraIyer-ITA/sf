@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <articleTypeChannelDisplay>
+        <articleTypeTemplates>
+            <channel>App</channel>
+            <template>Tab</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Prm</channel>
+            <template>Tab</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Csp</channel>
+            <template>Tab</template>
+        </articleTypeTemplates>
+        <articleTypeTemplates>
+            <channel>Pkb</channel>
+            <template>Toc</template>
+        </articleTypeTemplates>
+    </articleTypeChannelDisplay>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Knowledge Managment template for Frequently Asked Questions.</description>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <fields>
+        <fullName>Approval_Queue__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the approval queue for this FAQ.</inlineHelpText>
+        <label>Approval Queue</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Enforcement &amp; Compliance</fullName>
+                    <default>false</default>
+                    <label>Enforcement &amp; Compliance</label>
+                </value>
+                <value>
+                    <fullName>Global Markets</fullName>
+                    <default>false</default>
+                    <label>Global Markets</label>
+                </value>
+                <value>
+                    <fullName>Industry &amp; Analysis</fullName>
+                    <default>false</default>
+                    <label>Industry &amp; Analysis</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Atom__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter your answer to the Frequently Ask Question</inlineHelpText>
+        <label>Answer</label>
+        <length>10000</length>
+        <trackHistory>false</trackHistory>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Days_Since_Last_Published_Date__c</fullName>
+        <description>Days since Last Published Date</description>
+        <externalId>false</externalId>
+        <formula>TODAY() -  DATEVALUE(LastPublishedDate)</formula>
+        <inlineHelpText>Days since Last Published Date</inlineHelpText>
+        <label>Days Since Last Published Date</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Draft_Complete__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Check this box, if your document is ready to go into workflow. If you&apos;re completely satisfied with your draft, then click &quot;Submit for Approval&quot; button.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Flag the draft version is ready for approval</inlineHelpText>
+        <label>Draft Complete</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Level_0__c</fullName>
+        <externalId>false</externalId>
+        <label>Level 0</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Related FAQs</fullName>
+                    <default>true</default>
+                    <label>Related FAQs</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Level_1__c</fullName>
+        <externalId>false</externalId>
+        <label>Level 1</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Level_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Level 2</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Level_3__c</fullName>
+        <externalId>false</externalId>
+        <label>Level 3</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>N/A</fullName>
+                    <default>false</default>
+                    <label>N/A</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Mobile_Title__c</fullName>
+        <externalId>false</externalId>
+        <label>Mobile Title</label>
+        <length>37</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Public_URL__c</fullName>
+        <description>Public URL</description>
+        <externalId>false</externalId>
+        <formula>HYPERLINK($Label.export_gov&amp;&quot;/article?id=&quot;&amp;UrlName, $Label.export_gov&amp;&quot;/article?id=&quot;&amp;UrlName)</formula>
+        <inlineHelpText>Public URL</inlineHelpText>
+        <label>Public URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>References__c</fullName>
+        <description>References</description>
+        <externalId>false</externalId>
+        <inlineHelpText>References</inlineHelpText>
+        <label>References (Public)</label>
+        <length>10000</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Series__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Creates relationship to Series</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Type a keyword and click the magnifying glass to search available Series.</inlineHelpText>
+        <label>Series</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Series__c.Type__c</field>
+                <operation>equals</operation>
+                <value>FAQ</value>
+            </filterItems>
+            <infoMessage>Type a keyword search to find available FAQ Series.</infoMessage>
+            <isOptional>true</isOptional>
+        </lookupFilter>
+        <referenceTo>Series__c</referenceTo>
+        <relationshipLabel>FAQs</relationshipLabel>
+        <relationshipName>FAQs</relationshipName>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Stage__c</fullName>
+        <description>Tracks the stages of a FAQ through an approval process</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Stage is the phase of the process that your content is in.</inlineHelpText>
+        <label>Stage</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Draft</fullName>
+                    <default>true</default>
+                    <label>Draft</label>
+                </value>
+                <value>
+                    <fullName>Under Review</fullName>
+                    <default>false</default>
+                    <label>Under Review</label>
+                </value>
+                <value>
+                    <fullName>Submit for Approval</fullName>
+                    <default>false</default>
+                    <label>Submit for Approval</label>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                    <label>Rejected</label>
+                </value>
+                <value>
+                    <fullName>Published</fullName>
+                    <default>false</default>
+                    <label>Published</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Video__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>A Video component to display along with this article.</inlineHelpText>
+        <label>Video</label>
+        <referenceTo>Content__c</referenceTo>
+        <relationshipLabel>FAQs</relationshipLabel>
+        <relationshipName>FAQs</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <label>FAQ</label>
+    <pluralLabel>FAQs</pluralLabel>
+    <validationRules>
+        <fullName>Required_Level_0</fullName>
+        <active>true</active>
+        <description>Level 0 is mandatory</description>
+        <errorConditionFormula>ISBLANK(TEXT(Level_0__c))</errorConditionFormula>
+        <errorMessage>Please pick Level 0 (Mandatory field)</errorMessage>
+    </validationRules>
+</CustomObject>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>Chatter_Group__c</fullName>
+        <description>If this field is populated, the Navigation group will direct the user to the Chatter Group populated</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If this field is populated, the Navigation group will direct the user to the Chatter Group populated</inlineHelpText>
+        <label>Chatter Group</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Page__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>If this field is populated, the Navigation group will direct the user to the Page populated (Chatter Group takes priority)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Page this Navigation Group will link to if the Navigation Group is clicked.</inlineHelpText>
+        <label>Page Link</label>
+        <referenceTo>Page__c</referenceTo>
+        <relationshipLabel>Navigation</relationshipLabel>
+        <relationshipName>Navigation_Groups</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Site__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>The Site that this Navigation Group will appear on</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Site that this Navigation Group will appear on</inlineHelpText>
+        <label>Site</label>
+        <referenceTo>Site__c</referenceTo>
+        <relationshipLabel>Navigation</relationshipLabel>
+        <relationshipName>Navigation_Groups</relationshipName>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Sort_Order__c</fullName>
+        <description>The Order in which the Navigation Group will be displayed</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Order in which the Navigation Group will be displayed</inlineHelpText>
+        <label>Sort Order</label>
+        <precision>17</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>URL__c</fullName>
+        <description>If this field is populated, the Navigation group link will be directed to this URL.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field allows you to link to an external web site. If populated with a URL, it will override the Page field. Note: http:// is not needed.</inlineHelpText>
+        <label>Custom URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>isMegaMenu__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>When checked this Navigation option will be a MegaMenu (Having multiple sections in one dropdown)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>When checked this Navigation option will be a MegaMenu (Having multiple sections in one dropdown)</inlineHelpText>
+        <label>Mega Navigation Group</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Navigation</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Page__c</columns>
+        <columns>isMegaMenu__c</columns>
+        <columns>Site__c</columns>
+        <columns>Sort_Order__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Export_gov</fullName>
+        <columns>NAME</columns>
+        <columns>isMegaMenu__c</columns>
+        <columns>Site__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Site__c</field>
+            <operation>equals</operation>
+            <value>Export.gov</value>
+        </filters>
+        <label>Export.gov</label>
+    </listViews>
+    <listViews>
+        <fullName>SUSA_Navigation</fullName>
+        <columns>NAME</columns>
+        <columns>Sort_Order__c</columns>
+        <columns>isMegaMenu__c</columns>
+        <columns>Site__c</columns>
+        <columns>Page__c</columns>
+        <columns>URL__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Site__c</field>
+            <operation>equals</operation>
+            <value>SelectUSA</value>
+        </filters>
+        <label>SUSA</label>
+    </listViews>
+    <nameField>
+        <label>Navigation Group</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Navigation</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

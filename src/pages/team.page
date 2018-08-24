@@ -1,0 +1,25 @@
+<apex:page controller="teamController" showHeader="false" applyBodyTag="false" applyHtmlTag="false" >
+<apex:composition template="Site_Template">
+<apex:define name="page">
+    <div class="containerITA itaBr">
+    <apex:messages />
+    <center><h1 class="text-center">{!rt.name}</h1> <div class="itaBr"></div></center><div class="separator"></div>
+         <div class="col-md-12">
+                    <ul class="factionList"> 
+                        <apex:repeat value="{!teamList}" var="f" >
+                                
+                                    <div class="col-md-6">
+                                        <li>  
+                                            <apex:outputLink value="apex/page?id={!f.page__r.id}">
+                                               <apex:outputText value="{!f.name}" id="theValue"/>
+                                            </apex:outputLink>    
+                                        </li>
+                                    </div>
+                              
+                        </apex:repeat> 
+                    </ul>
+        </div>
+    </div>
+</apex:define>
+</apex:composition>
+</apex:page>

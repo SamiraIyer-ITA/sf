@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Junction object between Content, Pages, and Rows.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Button_Text__c</fullName>
+        <description>The text that will display on the button</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The text that will display on the button</inlineHelpText>
+        <label>Button Text</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Button_Title__c</fullName>
+        <description>Allows a better description of the button.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Like an Alt tag for an image, use the title for the button to describe where the link will go.</inlineHelpText>
+        <label>Button Title</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Button_URL__c</fullName>
+        <description>The location the button will direct to, either internal or externally</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Your Row Element will link to this URL. URLs can point to a Page, custom Visualforce page, or an external website. If you link to a non-government website, you must check the &quot;Is this a Non-Government Site?&quot; check box.</inlineHelpText>
+        <label>Custom URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Content_Container__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The Content Container that will be used by this specified Content</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the percentage width of your content. If no value is given, the content will span 100% of the page.</inlineHelpText>
+        <label>Width</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Content_Container__c.Type__c</field>
+                <operation>equals</operation>
+                <value>Width</value>
+            </filterItems>
+            <infoMessage>Search for the percentage width you would like your content (ex: 50%).</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Content_Container__c</referenceTo>
+        <relationshipName>Page_Contents</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Content__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The Atom that will be used in this page Content Container</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Atom that will be used in this page Content Container</inlineHelpText>
+        <label>Atom</label>
+        <referenceTo>Content__c</referenceTo>
+        <relationshipName>Page_Contents</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Display_Content_Name__c</fullName>
+        <defaultValue>true</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Displays a Header above the atom. If the Override Header field is populated with text, said text will display above the atom instead of the atom&apos;s original header.</inlineHelpText>
+        <label>Display Header</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Display_Title__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK(Content__r.Display_Title__c),   Content__r.Name, Content__r.Display_Title__c  )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>The Header is the Content Title for this piece of Content. If no title has been specified, the Content Name will be the Header. To display this Header, make sure the Display Header box is checked.</inlineHelpText>
+        <label>Header</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Header__c</fullName>
+        <externalId>false</externalId>
+        <label>Override Header</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Page__c</fullName>
+        <description>The Page this Atom will be displayed on</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Page this Atom will be displayed on</inlineHelpText>
+        <label>Page</label>
+        <referenceTo>Page__c</referenceTo>
+        <relationshipLabel>Elements</relationshipLabel>
+        <relationshipName>Page_Contents</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Placeholder__c</fullName>
+        <description>The placeholder text that is displayed in an empty text box.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The placeholder text that is displayed in an empty text box.</inlineHelpText>
+        <label>Placeholder</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Row__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>A Row is a horizontal segment of a web page, which has a Style applied to it. Content is displayed inside of a row.</inlineHelpText>
+        <label>Row Name</label>
+        <referenceTo>Row__c</referenceTo>
+        <relationshipName>Page_Content</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>SortOrder__c</fullName>
+        <description>The Order in which the Content will be displayed in a Row</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Controls the order in which content is displayed WITHIN a Row. This is only applicable if there is more than 1 piece of content in a Row.</inlineHelpText>
+        <label>Order inside Row</label>
+        <precision>17</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>button_page__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This is a lookup that the call to action button will direct to</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Your Row Element will link to this Page.</inlineHelpText>
+        <label>Page Link</label>
+        <referenceTo>Page__c</referenceTo>
+        <relationshipName>Row_Elements</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>nongov__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>If this box is checked the link will be treated as a non-government site, the site will be opened in a new link</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If this box is checked the link will be treated as a non-government site, the site will be opened in a new link</inlineHelpText>
+        <label>Is this an External Website?</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Element</label>
+    <nameField>
+        <displayFormat>E {0}</displayFormat>
+        <label>Element Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Elements</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>API</fullName>
+        <active>true</active>
+        <description>Application program interface for external data sources</description>
+        <label>API</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Carousel</fullName>
+        <active>true</active>
+        <description>Large images, with title and description, which slide across the page; aka Hero Box</description>
+        <label>Carousel</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Generic_Content</fullName>
+        <active>true</active>
+        <description>Basic display of content in text or image format</description>
+        <label>Generic Content</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Icon</fullName>
+        <active>true</active>
+        <description>Use a link and a single line of text to provide a link to another page.</description>
+        <label>Icon</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Series_List</fullName>
+        <active>true</active>
+        <description>List of Knowledge Series by Type</description>
+        <label>Series List</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Video</fullName>
+        <active>true</active>
+        <description>Video media which is stored on an external system; ex: You Tube or Vimeo</description>
+        <label>Video</label>
+    </recordTypes>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Content__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Page__c</lookupDialogsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <fullName>Button_Text_URL</fullName>
+        <active>true</active>
+        <description>If Button Text is entered a URL or Page must be entered too.</description>
+        <errorConditionFormula>AND( Button_Text__c != null , ISBLANK( Button_URL__c ),ISBLANK( button_page__c  )  )</errorConditionFormula>
+        <errorDisplayField>Button_Text__c</errorDisplayField>
+        <errorMessage>Remove the Button Text or enter a Button URL or Page.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Button_page_or_url</fullName>
+        <active>true</active>
+        <description>makes sure only a page url or page is populated</description>
+        <errorConditionFormula>if(and(button_page__c!=null, Button_URL__c != null), true, false )</errorConditionFormula>
+        <errorMessage>Both Button URL and Button Page cannot be populated</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Content_Types_Must_Match</fullName>
+        <active>true</active>
+        <errorConditionFormula>and(Content__r.RecordType.Name !=  RecordType.Name,  Content__c != null)</errorConditionFormula>
+        <errorDisplayField>Content__c</errorDisplayField>
+        <errorMessage>The Type of Content must match the Content of this Page-Content.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

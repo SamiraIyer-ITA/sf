@@ -32,14 +32,9 @@ public without sharing class ADCVDOrderTriggerHandler {
             calculateOrderStatuses(newList);
             runCustomValidations(newList);
         }
-        if (isAfter && isInsert) {
+        if(isAfter && isInsert) {
             newList = new LockedRecordHandler().removeLockedRecords(newList);
-            initialize(newList, newMap);
             StaffingAssignmentExtension createStaff = new StaffingAssignmentExtension(newList);
-        }
-        if (isAfter && isUpdate) {
-            newList = new LockedRecordHandler().removeLockedRecords(newList);
-            initialize(newList, newMap);
         }
     }
 
@@ -49,10 +44,8 @@ public without sharing class ADCVDOrderTriggerHandler {
     @TestVisible private static Map<Id,Investigation__c> investigationsInScopeMap = new Map<Id,Investigation__c>();
     @TestVisible private static Map<Id,List<Segment__c>> orderIdToSegmentMap = new Map<Id,List<Segment__c>>();
     @TestVisible private static Map<Id,String> orderIdToSegmentStatusMap = new Map<Id,String>();
-    @TestVisible private static Map<Id, FederalRegisterMapper.MappedFRs> frUtilMap = new Map<Id, FederalRegisterMapper.MappedFRs>();
-    @TestVisible private static ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.mapperMap.get('ADCVD_Case__c');
-    @TestVisible private static ADCVD_OrderMapper orderMapper;
-    @TestVisible private static FederalRegisterMapper frMapper;
+    @TestVisible private static Map<Id,ADCVD_FederalRegisterUtility> frUtilMap = new Map<Id,ADCVD_FederalRegisterUtility>();
+
 
     /*****************************************
     * Methods called directly by mainEntry()
@@ -65,52 +58,19 @@ public without sharing class ADCVDOrderTriggerHandler {
      * @return         [description]
      */
     @TestVisible private static void initialize(List<ADCVD_Order__c> newList, Map<Id,ADCVD_Order__c> newMap) {
-        Set<Id> caseIdSet = getCaseIdSet(newList);
-        for (ADCVD_Order__c ao : newList) {
-            caseIdSet.add(ao.ADCVD_Case__c);
-        }
-        caseMapper = caseMapper.getInstance(caseIdSet);
-        InvestigationMapper is = (InvestigationMapper) caseMapper.getMapper('Investigation__c').getInstance();
-        investigationsInScopeMap = (Map<Id,Investigation__c>) caseMapper.getMapper('Investigation__c').getInstance().getMap(true);
         if(newMap != null) {
-            addNewOrderToMappers(newMap);
-            frMapper = (FederalRegisterMapper) caseMapper.getMapper('Federal_Register__c').getInstance();
-            frUtilMap = frMapper.getMappedFRs(newMap.keySet(), caseMapper);
         	setOrderIdToSegmentMap(newMap.keySet());
             setOrderIdToSegmentStatusMap(newMap.keySet());
+            ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get Segments with an Id
+            frUtilMap = listInstance.utilMap;
         }
-    }
-    @TestVisible private static Set<Id> getCaseIdSet (List<ADCVD_Order__c> newList) {
-        Set<Id> caseIdSet = new Set<Id>();
-        Set<Id> invIdSet = new Set<Id>();
-        for (ADCVD_Order__c ao : newList) {
-            invIdSet.add(ao.Investigation__c);
-        }
-        for (Investigation__c i : [SELECT ADCVD_Case__c FROM Investigation__c WHERE Id IN: invIdSet]) {
-            caseIdSet.add(i.ADCVD_Case__c);
-        }
-        return caseIdSet;
+        investigationsInScopeMap = findInvestigationsInScopeMap(newList);
     }
 
     @TestVisible private static void setCaseValues(List<ADCVD_Order__c> newList) {
         ParentValuesService pvs = new ParentValuesService();
         for (ADCVD_Order__c ao : newList) {
             ao = (ADCVD_Order__c) pvs.setCaseValuesFromParent(investigationsInScopeMap.get(ao.Investigation__c), ao);
-        }
-    }
-
-    @TestVisible private static void addNewOrderToMappers(Map<Id,ADCVD_Order__c> newMap) {
-        Map<Id,List<ADCVD_Order__c>> caseToOrderMap = new Map<Id,List<ADCVD_Order__c>>();
-        orderMapper = (ADCVD_OrderMapper) caseMapper.getMapper('ADCVD_Order__c').getInstance();
-        for (ADCVD_Order__c ao : newMap.values()) {
-            orderMapper.addOrderToMap(ao);
-            List<ADCVD_Order__c> tempList = caseToOrderMap.get(ao.ADCVD_Case__c) != null ?
-                                                   caseToOrderMap.get(ao.ADCVD_Case__c) : new List<ADCVD_Order__c>();
-            tempList.add(ao);
-            caseToOrderMap.put(ao.ADCVD_Case__c, tempList);
-        }
-        for (Id caseId : caseToOrderMap.keySet()) {
-            caseMapper.setCaseIdToOrderMap(caseId, caseToOrderMap.get(caseId));
         }
     }
 
@@ -147,6 +107,26 @@ public without sharing class ADCVDOrderTriggerHandler {
     /***********************************
     * Helper Methods
     ***********************************/
+
+    //returns a set of Investigation Ids in scope of the ADCVD Orders in trigger
+    @TestVisible private static Set<Id> findIdsInScope(List<ADCVD_Order__c> newList) {
+        Set<Id> investigationIdSet = new Set<Id>();
+        for (ADCVD_Order__c ao : newList) {
+            investigationIdSet.add(ao.Investigation__c);
+        }
+        return investigationIdSet;
+    }
+    //returns a map of the Investigation__c objects in the form: key = Id, value = Investigation object
+    //This pulls the investigation fields needed via the Investigation lookup field and adds them to the map
+    @TestVisible private static Map<Id,Investigation__c> findInvestigationsInScopeMap(List<ADCVD_Order__c> newList) {
+        Map<Id,Investigation__c> returnMap = new Map<Id,Investigation__c>();
+        Set<Id> investigationIdSet = findIdsInScope(newList);
+        for (Investigation__c i : [SELECT Id, ADCVD_Case_Type__c, ADCVD_Case__c 
+                                    FROM Investigation__c WHERE Id IN: investigationIdSet]) {
+            returnMap.put(i.Id, i);
+        }
+        return returnMap;
+    }
 
     //used to set Offset Variables
 	@TestVisible private static Map<String,Constant__mdt> orderCalcOffsets() {
@@ -211,7 +191,7 @@ public without sharing class ADCVDOrderTriggerHandler {
     @TestVisible private static void setAnniversaryMonth(ADCVD_Order__c o) {
         Date orderPublishedDate = null;
         if (o.Id != null && frUtilMap != null) {
-            orderPublishedDate = frUtilMap.get(o.Id) != null ? frUtilMap.get(o.Id).typeToPublishedDateMap.get('Order') : null;
+            orderPublishedDate = frUtilMap.get(o.Id) != null ? frUtilMap.get(o.Id).orderPublishedDate : null;
         }
         if (orderPublishedDate != null) {
             o.Anniversary_Month__c = utils.getMonthFromDate(orderPublishedDate);
@@ -224,9 +204,9 @@ public without sharing class ADCVDOrderTriggerHandler {
     @TestVisible private static void setNextSunsetInitiationDate(ADCVD_Order__c o) {
     	Date nextSSR = null;
     	if (o.Id != null && frUtilMap != null) {
-    		nextSSR = frUtilMap.get(o.Id) != null ? frUtilMap.get(o.Id).typeToPublishedDateMap.get('Order') : null;//set to orderPublishedDate if populated
-    		nextSSR = frUtilMap.get(o.Id) != null && frUtilMap.get(o.Id).typeToPublishedDateMap.get('Continuation') != null ? frUtilMap.get(o.Id).typeToPublishedDateMap.get('Continuation') : nextSSR;//overwrite to continuationPublishedDate if populated
-    		nextSSR = frUtilMap.get(o.Id) != null && frUtilMap.get(o.Id).typeToPublishedDateMap.get('Revocation') != null ? null : nextSSR;//overwrite to null if revocationPublishedDate is populated
+    		nextSSR = frUtilMap.get(o.Id) != null ? frUtilMap.get(o.Id).orderPublishedDate : null;//set to orderPublishedDate if populated
+    		nextSSR = frUtilMap.get(o.Id) != null && frUtilMap.get(o.Id).continuationPublishedDate != null ? frUtilMap.get(o.Id).continuationPublishedDate : nextSSR;//overwrite to continuationPublishedDate if populated
+    		nextSSR = frUtilMap.get(o.Id) != null && frUtilMap.get(o.Id).revocationPublishedDate != null ? null : nextSSR;//overwrite to null if revocationPublishedDate is populated
     	}
     	if (nextSSR != null) {
     		o.Next_Sunset_Initiation_Date__c = nextSSR.toStartOfMonth().addYears(SUNSET_INIT_YEARS).addMonths(SUNSET_INIT_MONTHS);
@@ -256,8 +236,8 @@ public without sharing class ADCVDOrderTriggerHandler {
 	            Date orderPublished = null;
 	            Date revocationPublished = null;
 	            if (o.Id != null && frUtilMap != null) {
-	            	revocationPublished = frUtilMap.get(o.Id) != null ? frUtilMap.get(o.Id).typeToPublishedDateMap.get('Revocation') : null;
-	                orderPublished = frUtilMap.get(o.Id) != null ? frUtilMap.get(o.Id).typeToPublishedDateMap.get('Order') : null;
+	            	revocationPublished = frUtilMap.get(o.Id) != null ? frUtilMap.get(o.Id).revocationPublishedDate : null;
+	                orderPublished = frUtilMap.get(o.Id) != null ? frUtilMap.get(o.Id).orderPublishedDate : null;
 		        }
 	            if (orderPublished == null) {//set if updated and still does not have an Order FR
 	                o.Status__c = 'Order FR Needed';
@@ -282,13 +262,13 @@ public without sharing class ADCVDOrderTriggerHandler {
     @TestVisible private static void validateEffectiveDateOfRevocation(ADCVD_Order__c o) {
         String maxDateName = '';
         Date maxDate = null;
-        if (o.Id != null && frUtilMap != null && frUtilMap.get(o.Id) != null && frUtilMap.get(o.Id).typeToPublishedDateMap.get('Revocation') != null) {
-            if (frUtilMap.get(o.Id).typeToPublishedDateMap.get('Order') != null) {
-                maxDate = frUtilMap.get(o.Id).typeToPublishedDateMap.get('Order');
+        if (o.Id != null && frUtilMap != null && frUtilMap.get(o.Id) != null && frUtilMap.get(o.Id).revocationPublishedDate != null) {
+            if (frUtilMap.get(o.Id).orderPublishedDate != null) {
+                maxDate = frUtilMap.get(o.Id).orderPublishedDate;
                 maxDateName = 'Order Federal Register Published Date: ' + maxDate.format();
             }
-            if (frUtilMap.get(o.Id).typeToPublishedDateMap.get('Continuation') != null) {
-                maxDate = frUtilMap.get(o.Id).typeToPublishedDateMap.get('Continuation');
+            if (frUtilMap.get(o.Id).continuationPublishedDate != null) {
+                maxDate = frUtilMap.get(o.Id).continuationPublishedDate;
                 maxDateName = 'most recent Continuation Federal Register Published Date: ' + maxDate.format();
             }
             maxDate = maxDate != null ? maxDate.addYears(EFFECTIVE_DATE_REVO_YEARS).addMonths(EFFECTIVE_DATE_REVO_MONTHS) : null;

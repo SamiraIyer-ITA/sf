@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Country Commercial</name>
+    <queueMembers>
+        <publicGroups>
+            <publicGroup>KM_Submitters</publicGroup>
+        </publicGroups>
+        <users>
+            <user>david.corderman@trade.gov</user>
+            <user>janel.edens@trade.gov</user>
+            <user>jennifer.stone@trade.gov</user>
+            <user>jessica.gilles@trade.gov</user>
+            <user>john.harlow@trade.gov</user>
+            <user>john.larsen@trade.gov</user>
+            <user>ozlem.tekin@trade.gov</user>
+            <user>quality.administrator@trade.gov</user>
+            <user>roza.pace@trade.gov</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>KnowledgeArticleVersion</sobjectType>
+    </queueSobject>
+    <queueSobject>
+        <sobjectType>Series__c</sobjectType>
+    </queueSobject>
+</Queue>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Application Factory - Domain</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Application Factory - Domains</value>
+    </caseValues>
+    <fields>
+        <help><!-- The Apex class to be instantiated. --></help>
+        <label><!-- Domain Class --></label>
+        <name>DomainClass__c</name>
+    </fields>
+    <fields>
+        <help><!-- Specifies the selector&apos;s related SObject Type. --></help>
+        <label><!-- SObject Type --></label>
+        <name>SObjectType__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

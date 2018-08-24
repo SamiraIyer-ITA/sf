@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>ADCVD Objects</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>ADCVD Objects</value>
+    </caseValues>
+    <fields>
+        <label><!-- Number of Date Calculations --></label>
+        <name>Number_of_Date_Calculations__c</name>
+    </fields>
+    <fields>
+        <label><!-- Object API Name --></label>
+        <name>Object_API_Name__c</name>
+        <picklistValues>
+            <masterLabel>ADCVD_Order__c</masterLabel>
+            <translation><!-- ADCVD_Order__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Federal_Register__c</masterLabel>
+            <translation><!-- Federal_Register__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Investigation__c</masterLabel>
+            <translation><!-- Investigation__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Issue__c</masterLabel>
+            <translation><!-- Issue__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Litigation__c</masterLabel>
+            <translation><!-- Litigation__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petition__c</masterLabel>
+            <translation><!-- Petition__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recusal__c</masterLabel>
+            <translation><!-- Recusal__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Related_Organization__c</masterLabel>
+            <translation><!-- Related_Organization__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Segment__c</masterLabel>
+            <translation><!-- Segment__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Staffing_Assignment__c</masterLabel>
+            <translation><!-- Staffing_Assignment__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suspension_Agreement__c</masterLabel>
+            <translation><!-- Suspension_Agreement__c --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Record Type Name --></label>
+        <name>Record_Type_Name__c</name>
+        <picklistValues>
+            <masterLabel>AD</masterLabel>
+            <translation><!-- AD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Administrative_Review</masterLabel>
+            <translation><!-- Administrative_Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Anti_Circumvention_Review</masterLabel>
+            <translation><!-- Anti_Circumvention_Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CVD</masterLabel>
+            <translation><!-- CVD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Changed_Circumstances_Review</masterLabel>
+            <translation><!-- Changed_Circumstances_Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Expedited_Review</masterLabel>
+            <translation><!-- Expedited_Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>International_Litigation</masterLabel>
+            <translation><!-- International_Litigation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New_Shipper_Review</masterLabel>
+            <translation><!-- New_Shipper_Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Primary</masterLabel>
+            <translation><!-- Primary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Related</masterLabel>
+            <translation><!-- Related --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Remand</masterLabel>
+            <translation><!-- Remand --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scope_Inquiry</masterLabel>
+            <translation><!-- Scope_Inquiry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sunset_Review</masterLabel>
+            <translation><!-- Sunset_Review --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Admin Review Opportunity Notice</masterLabel>
+            <translation><!-- Admin Review Opportunity Notice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amended Final</masterLabel>
+            <translation><!-- Amended Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amended Preliminary</masterLabel>
+            <translation><!-- Amended Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuation</masterLabel>
+            <translation><!-- Continuation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuation or Revocation</masterLabel>
+            <translation><!-- Continuation or Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Correction</masterLabel>
+            <translation><!-- Correction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deadline for Decision on how to proceed</masterLabel>
+            <translation><!-- Deadline for Decision on how to proceed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Final</masterLabel>
+            <translation><!-- Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Final</masterLabel>
+            <translation><!-- ITC Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Preliminary</masterLabel>
+            <translation><!-- ITC Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation</masterLabel>
+            <translation><!-- Initiation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation/Prelim</masterLabel>
+            <translation><!-- Initiation/Prelim --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order</masterLabel>
+            <translation><!-- Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petitioner</masterLabel>
+            <translation><!-- Petitioner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Post Litigation</masterLabel>
+            <translation><!-- Post Litigation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Postponement</masterLabel>
+            <translation><!-- Postponement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preliminary</masterLabel>
+            <translation><!-- Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly Scope</masterLabel>
+            <translation><!-- Quarterly Scope --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rescission</masterLabel>
+            <translation><!-- Rescission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Respondent</masterLabel>
+            <translation><!-- Respondent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Revocation</masterLabel>
+            <translation><!-- Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suspension Agreement</masterLabel>
+            <translation><!-- Suspension Agreement --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>ADCVD Objects Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

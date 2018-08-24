@@ -1,0 +1,7 @@
+<apex:page sidebar="false" showHeader="false" controller="article_controller" applyBodyTag="false" applyHtmlTag="false">
+ <apex:composition template="Site_Template">
+     <apex:define name="page">
+        <iframe src="https://public.tableau.com/views/U_S_FDIDashboard/FDIDashboard?:showVizHome=no&:embed=y&:toolbar=n" style="height: 1000px; overflow: auto; width: 100%; max-width: 100%; border-style: none;" />
+     </apex:define>
+ </apex:composition>
+</apex:page>

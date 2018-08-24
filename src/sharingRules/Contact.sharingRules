@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>DSP_Contact_Access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Grants R/W access to the DSP Scrum Team Public Group for Contact records with the Partner Contact Record Type.</description>
+        <label>DSP Contact Access</label>
+        <sharedTo>
+            <group>DSP_Scrum_Team</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Partner Contacts</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>ITA_Contact_Access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Default Contact Access for ITA User Account RT.  Grants R/W access to all internal users for the ITA User Account RT except for Contacts associated with Researcher Accounts.</description>
+        <label>ITA Contact Access</label>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>ITA Contacts</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>ResearcherHIDDEN__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+</SharingRules>

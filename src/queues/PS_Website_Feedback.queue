@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>PS: Website Feedback</name>
+    <queueMembers>
+        <users>
+            <user>caitlin.fennessy@trade.gov</user>
+            <user>grace.harter@trade.gov</user>
+            <user>michelle.sylvester-jose@trade.gov</user>
+            <user>nasreen.djouini@trade.gov</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

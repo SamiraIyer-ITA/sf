@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Third Party Master List - Framework</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Third Party Master List - Frameworks</value>
+    </caseValues>
+    <fields>
+        <label><!-- Framework --></label>
+        <name>Framework__c</name>
+        <relationshipLabel><!-- Third Party Master List - Frameworks --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Third Party Master List --></label>
+        <name>Third_Party_Master_List__c</name>
+        <relationshipLabel><!-- Third Party Master List - Frameworks --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

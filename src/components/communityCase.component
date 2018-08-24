@@ -1,0 +1,72 @@
+<apex:component controller="CaseList" allowDML="true" >
+<apex:form id="caseForm">
+    <style>
+        .modal-header h4 {
+        color:#fff;
+        }
+    </style>
+    
+    <button type="button" id="app-assitance" class="btn btn-gray btn-sm pull-right" onclick="$('#caseModal').show();" title="Open a new case">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Assistance
+    </button> 
+    <apex:outputpanel layout="block" styleClass="nobreak">
+    <br/>
+    </apex:outputpanel>
+    <div id="caseModal" class="ita-modal" aria-hidden="true">
+        <div class="modal-dialog-insight">
+            <apex:outputpanel id="caseModalInnerWrapper">
+            <div class="modal-content">
+                <button type="button" class="close" style="padding-right:10px;padding-top:10px;" onclick="this.form.reset(); $('#caseModal').hide();" aria-hidden="true"><i class="glyphicon glyphicon-remove-sign"></i></button>
+                <div class="modal-header">
+                    <h5 class="modal-title">{!currentDomain.Name} Assistance</h5>
+                </div>
+                <div class="row" style="padding-left:10px;padding-right:10px;">
+                    <apex:outputPanel id="caseRecord" >
+                        <!-- -Error Section - Start- -->
+                        <apex:messages styleClass="alert alert-danger fade in itaNoUL" />
+                        <!-- -Error Section - End- -->
+                        
+                            <apex:outputPanel >
+                            <h3>Participation&nbsp;<font color="#999999">|</font>&nbsp;Case</h3>
+                            <br/><br/>
+                            <div class="col-md-12" style="margin: 0 0 30px 0; padding: 15px 20px; border-radius: 3px; background-color: #ADDFAD; border: 1px solid #4cae4c">
+                                <div class="col-md-6"><h4>Status:&nbsp;<font color="#4cae4c"><apex:OutputField value="{!c.Status}"/></font></h4></div>
+                                <div class="col-md-6 " style="float:right;"><h4 class="itaCaseRight"><b>{!$User.FirstName} {!$User.LastName}</b></h4> </div>    
+                            </div>
+                            <div class="col-md-12" style="margin: 0 0 30px 0; padding: 15px 20px; border-radius: 3px; border: 1px solid lightgray; padding: 20px;">      
+                                <div class="col-md-3 itaBr">
+                                    <div class="itaFormLabel2">Assistance:<font color="red">*</font></div>
+                                </div>
+                                <div class="col-md-7 itaBr"><apex:inputField value="{!psC.type}"  styleClass="caseType form-control itaNoMargin" required="true"/> </div>
+                                <div class="col-md-1"></div> 
+                                <div class="col-md-3 itaBr">
+                                    <div class="itaFormLabel2">Subject:<font color="red">*</font></div>
+                                </div>
+                                <div class="col-md-7 itaBr"><apex:inputField value="{!psC.Subject}"  styleClass="caseSubject itaFormField" required="true"/></div>
+                                <div class="col-md-1"></div> 
+                                <div class="col-md-3 itaBr">
+                                    <div class="itaFormLabel2">Description:<font color="red">*</font></div>
+                                </div>
+                                <div class="col-md-7 itaBr">
+                                <p>{!recordtype}</p>
+                                <apex:inputField value="{!psC.description}"  styleClass="itaFormField" style="width:100%; height: 100px;" required="true"/>
+                                </div>
+                                <div class="col-md-1"></div> 
+                                <div class="col-md-4 itaBr"></div>
+                                <!--input type="text" value="{!psC.id}" id="psCId" /-->
+                                <div class="col-md-4 itaBr">
+                                    <apex:commandButton action="{!psSave}" value="Submit" oncomplete="this.form.reset(); $('#caseModal').hide();" reRender="caseForm" /> 
+                                </div>  
+                                <div class="col-md-4"></div>                        
+                            </div>
+                        </apex:outputPanel>
+                        
+                    </apex:outputPanel>
+                </div>
+            </div>
+            </apex:outputpanel>
+        </div>
+    </div>
+    </apex:form>
+    
+</apex:component>

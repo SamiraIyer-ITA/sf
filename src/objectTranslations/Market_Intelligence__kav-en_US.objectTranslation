@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Market Intelligence</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Markets Intelligence</value>
+    </caseValues>
+    <fields>
+        <help><!-- Atom Approver --></help>
+        <label><!-- Approver --></label>
+        <name>Approver__c</name>
+        <relationshipLabel><!-- Markets Intelligence --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Atom --></label>
+        <name>Atom__c</name>
+    </fields>
+    <fields>
+        <label><!-- Citation Source --></label>
+        <name>Citation_Source__c</name>
+        <picklistValues>
+            <masterLabel>Commercial Service</masterLabel>
+            <translation><!-- Commercial Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E&amp;C</masterLabel>
+            <translation><!-- E&amp;C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>I&amp;A</masterLabel>
+            <translation><!-- I&amp;A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Citation --></label>
+        <name>Citation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days Since Last Published Date --></label>
+        <name>Days_Since_Last_Published_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Draft Complete --></label>
+        <name>Draft_Complete__c</name>
+    </fields>
+    <fields>
+        <help><!-- The date this record should be archived --></help>
+        <label><!-- Expiration Date --></label>
+        <name>Expiration_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Level 0 --></label>
+        <name>Level_0__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Level 1 --></label>
+        <name>Level_1__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Level 2 --></label>
+        <name>Level_2__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Level 3 --></label>
+        <name>Level_3__c</name>
+        <picklistValues>
+            <masterLabel>N/A</masterLabel>
+            <translation><!-- N/A --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Mobile Title --></label>
+        <name>Mobile_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- Public URL --></label>
+        <name>Public_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Custom Citation --></label>
+        <name>References__c</name>
+    </fields>
+    <fields>
+        <label><!-- Series --></label>
+        <name>Series__c</name>
+        <relationshipLabel><!-- Markets Intelligence --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Stage --></label>
+        <name>Stage__c</name>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft: Submitted for Approval</masterLabel>
+            <translation><!-- Draft: Submitted for Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Published</masterLabel>
+            <translation><!-- Published --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Under Review</masterLabel>
+            <translation><!-- Under Review --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- A Video component to display along with this article. --></help>
+        <label><!-- Video --></label>
+        <name>Video__c</name>
+        <relationshipLabel><!-- Markets Intelligence --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Market Intelligence Layout</layout>
+        <sections>
+            <label><!-- Citation --></label>
+            <section>Citation</section>
+        </sections>
+        <sections>
+            <label><!-- Content --></label>
+            <section>Content</section>
+        </sections>
+        <sections>
+            <label><!-- Workflow --></label>
+            <section>Workflow</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please enter the Mobile Title (Article Title is too large for Mobile view) --></errorMessage>
+        <name>Required_Mobile_Title</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Limiting number of Characters in Summary to 750 --></errorMessage>
+        <name>Summary_Character_Limit_750</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Title Character Limit is 60 --></errorMessage>
+        <name>Title_Character_Limit_60</name>
+    </validationRules>
+</CustomObjectTranslation>

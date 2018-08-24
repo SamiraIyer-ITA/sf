@@ -1,0 +1,2440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Date Calculation</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Date Calculations</value>
+    </caseValues>
+    <fields>
+        <label><!-- ADCVD Objects --></label>
+        <name>ADCVD_Objects__c</name>
+        <relationshipLabel><!-- Date Calculations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Active Calculation --></label>
+        <name>Active_Calculation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Date Field Name --></label>
+        <name>Actual_Date_Field_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Base Date Field 1 Lookup Field Name --></label>
+        <name>Base_Date_Field_1_Lookup_Field_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Base Date Field 1 Name --></label>
+        <name>Base_Date_Field_1_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Base Date Field 1 Object --></label>
+        <name>Base_Date_Field_1_Object__c</name>
+    </fields>
+    <fields>
+        <label><!-- Base Date Field 1 Type --></label>
+        <name>Base_Date_Field_1_Type__c</name>
+        <picklistValues>
+            <masterLabel>Admin Review Opportunity Notice</masterLabel>
+            <translation><!-- Admin Review Opportunity Notice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amended Final</masterLabel>
+            <translation><!-- Amended Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amended Preliminary</masterLabel>
+            <translation><!-- Amended Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuation</masterLabel>
+            <translation><!-- Continuation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuation or Revocation</masterLabel>
+            <translation><!-- Continuation or Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Correction</masterLabel>
+            <translation><!-- Correction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deadline for Decision on how to proceed</masterLabel>
+            <translation><!-- Deadline for Decision on how to proceed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Final</masterLabel>
+            <translation><!-- Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Final</masterLabel>
+            <translation><!-- ITC Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Preliminary</masterLabel>
+            <translation><!-- ITC Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation</masterLabel>
+            <translation><!-- Initiation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation/Prelim</masterLabel>
+            <translation><!-- Initiation/Prelim --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order</masterLabel>
+            <translation><!-- Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petitioner</masterLabel>
+            <translation><!-- Petitioner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Post Litigation</masterLabel>
+            <translation><!-- Post Litigation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Postponement</masterLabel>
+            <translation><!-- Postponement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preliminary</masterLabel>
+            <translation><!-- Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly Scope</masterLabel>
+            <translation><!-- Quarterly Scope --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rescission</masterLabel>
+            <translation><!-- Rescission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Respondent</masterLabel>
+            <translation><!-- Respondent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Revocation</masterLabel>
+            <translation><!-- Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suspension Agreement</masterLabel>
+            <translation><!-- Suspension Agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Termination</masterLabel>
+            <translation><!-- Termination --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Base Date Field 2 Lookup Field Name --></label>
+        <name>Base_Date_Field_2_Lookup_Field_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Base Date Field 2 Name --></label>
+        <name>Base_Date_Field_2_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Base Date Field 2 Object --></label>
+        <name>Base_Date_Field_2_Object__c</name>
+    </fields>
+    <fields>
+        <label><!-- Base Date Field 2 Type --></label>
+        <name>Base_Date_Field_2_Type__c</name>
+        <picklistValues>
+            <masterLabel>Admin Review Opportunity Notice</masterLabel>
+            <translation><!-- Admin Review Opportunity Notice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amended Final</masterLabel>
+            <translation><!-- Amended Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amended Preliminary</masterLabel>
+            <translation><!-- Amended Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuation</masterLabel>
+            <translation><!-- Continuation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuation or Revocation</masterLabel>
+            <translation><!-- Continuation or Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Correction</masterLabel>
+            <translation><!-- Correction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deadline for Decision on how to proceed</masterLabel>
+            <translation><!-- Deadline for Decision on how to proceed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Final</masterLabel>
+            <translation><!-- Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Final</masterLabel>
+            <translation><!-- ITC Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Preliminary</masterLabel>
+            <translation><!-- ITC Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation</masterLabel>
+            <translation><!-- Initiation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation/Prelim</masterLabel>
+            <translation><!-- Initiation/Prelim --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order</masterLabel>
+            <translation><!-- Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petitioner</masterLabel>
+            <translation><!-- Petitioner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Post Litigation</masterLabel>
+            <translation><!-- Post Litigation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Postponement</masterLabel>
+            <translation><!-- Postponement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preliminary</masterLabel>
+            <translation><!-- Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly Scope</masterLabel>
+            <translation><!-- Quarterly Scope --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rescission</masterLabel>
+            <translation><!-- Rescission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Respondent</masterLabel>
+            <translation><!-- Respondent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Revocation</masterLabel>
+            <translation><!-- Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suspension Agreement</masterLabel>
+            <translation><!-- Suspension Agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Termination</masterLabel>
+            <translation><!-- Termination --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Base Date Field 3 Lookup Field Name --></label>
+        <name>Base_Date_Field_3_Lookup_Field_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Base Date Field 3 Name --></label>
+        <name>Base_Date_Field_3_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Base Date Field 3 Object --></label>
+        <name>Base_Date_Field_3_Object__c</name>
+    </fields>
+    <fields>
+        <label><!-- Base Date Field 3 Type --></label>
+        <name>Base_Date_Field_3_Type__c</name>
+        <picklistValues>
+            <masterLabel>Admin Review Opportunity Notice</masterLabel>
+            <translation><!-- Admin Review Opportunity Notice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amended Final</masterLabel>
+            <translation><!-- Amended Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amended Preliminary</masterLabel>
+            <translation><!-- Amended Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuation</masterLabel>
+            <translation><!-- Continuation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuation or Revocation</masterLabel>
+            <translation><!-- Continuation or Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Correction</masterLabel>
+            <translation><!-- Correction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deadline for Decision on how to proceed</masterLabel>
+            <translation><!-- Deadline for Decision on how to proceed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Final</masterLabel>
+            <translation><!-- Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Final</masterLabel>
+            <translation><!-- ITC Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Preliminary</masterLabel>
+            <translation><!-- ITC Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation</masterLabel>
+            <translation><!-- Initiation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation/Prelim</masterLabel>
+            <translation><!-- Initiation/Prelim --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order</masterLabel>
+            <translation><!-- Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petitioner</masterLabel>
+            <translation><!-- Petitioner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Post Litigation</masterLabel>
+            <translation><!-- Post Litigation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Postponement</masterLabel>
+            <translation><!-- Postponement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preliminary</masterLabel>
+            <translation><!-- Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly Scope</masterLabel>
+            <translation><!-- Quarterly Scope --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rescission</masterLabel>
+            <translation><!-- Rescission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Respondent</masterLabel>
+            <translation><!-- Respondent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Revocation</masterLabel>
+            <translation><!-- Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suspension Agreement</masterLabel>
+            <translation><!-- Suspension Agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Termination</masterLabel>
+            <translation><!-- Termination --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Base Date Field 4 Lookup Field Name --></label>
+        <name>Base_Date_Field_4_Lookup_Field_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Base Date Field 4 Name --></label>
+        <name>Base_Date_Field_4_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Base Date Field 4 Object --></label>
+        <name>Base_Date_Field_4_Object__c</name>
+    </fields>
+    <fields>
+        <label><!-- Base Date Field 4 Type --></label>
+        <name>Base_Date_Field_4_Type__c</name>
+        <picklistValues>
+            <masterLabel>Admin Review Opportunity Notice</masterLabel>
+            <translation><!-- Admin Review Opportunity Notice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amended Final</masterLabel>
+            <translation><!-- Amended Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amended Preliminary</masterLabel>
+            <translation><!-- Amended Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuation</masterLabel>
+            <translation><!-- Continuation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuation or Revocation</masterLabel>
+            <translation><!-- Continuation or Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Correction</masterLabel>
+            <translation><!-- Correction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deadline for Decision on how to proceed</masterLabel>
+            <translation><!-- Deadline for Decision on how to proceed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Final</masterLabel>
+            <translation><!-- Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Final</masterLabel>
+            <translation><!-- ITC Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Preliminary</masterLabel>
+            <translation><!-- ITC Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation</masterLabel>
+            <translation><!-- Initiation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation/Prelim</masterLabel>
+            <translation><!-- Initiation/Prelim --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order</masterLabel>
+            <translation><!-- Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petitioner</masterLabel>
+            <translation><!-- Petitioner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Post Litigation</masterLabel>
+            <translation><!-- Post Litigation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Postponement</masterLabel>
+            <translation><!-- Postponement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preliminary</masterLabel>
+            <translation><!-- Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly Scope</masterLabel>
+            <translation><!-- Quarterly Scope --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rescission</masterLabel>
+            <translation><!-- Rescission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Respondent</masterLabel>
+            <translation><!-- Respondent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Revocation</masterLabel>
+            <translation><!-- Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suspension Agreement</masterLabel>
+            <translation><!-- Suspension Agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Termination</masterLabel>
+            <translation><!-- Termination --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Base Date Field 5 Lookup Field Name --></label>
+        <name>Base_Date_Field_5_Lookup_Field_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Base Date Field 5 Name --></label>
+        <name>Base_Date_Field_5_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Base Date Field 5 Object --></label>
+        <name>Base_Date_Field_5_Object__c</name>
+    </fields>
+    <fields>
+        <label><!-- Base Date Field 5 Type --></label>
+        <name>Base_Date_Field_5_Type__c</name>
+        <picklistValues>
+            <masterLabel>Admin Review Opportunity Notice</masterLabel>
+            <translation><!-- Admin Review Opportunity Notice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amended Final</masterLabel>
+            <translation><!-- Amended Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amended Preliminary</masterLabel>
+            <translation><!-- Amended Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuation</masterLabel>
+            <translation><!-- Continuation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuation or Revocation</masterLabel>
+            <translation><!-- Continuation or Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Correction</masterLabel>
+            <translation><!-- Correction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deadline for Decision on how to proceed</masterLabel>
+            <translation><!-- Deadline for Decision on how to proceed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Final</masterLabel>
+            <translation><!-- Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Final</masterLabel>
+            <translation><!-- ITC Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Preliminary</masterLabel>
+            <translation><!-- ITC Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation</masterLabel>
+            <translation><!-- Initiation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation/Prelim</masterLabel>
+            <translation><!-- Initiation/Prelim --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order</masterLabel>
+            <translation><!-- Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petitioner</masterLabel>
+            <translation><!-- Petitioner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Post Litigation</masterLabel>
+            <translation><!-- Post Litigation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Postponement</masterLabel>
+            <translation><!-- Postponement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preliminary</masterLabel>
+            <translation><!-- Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly Scope</masterLabel>
+            <translation><!-- Quarterly Scope --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rescission</masterLabel>
+            <translation><!-- Rescission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Respondent</masterLabel>
+            <translation><!-- Respondent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Revocation</masterLabel>
+            <translation><!-- Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suspension Agreement</masterLabel>
+            <translation><!-- Suspension Agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Termination</masterLabel>
+            <translation><!-- Termination --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Base Date Field 6 Lookup Field Name --></label>
+        <name>Base_Date_Field_6_Lookup_Field_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Base Date Field 6 Name --></label>
+        <name>Base_Date_Field_6_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Base Date Field 6 Object --></label>
+        <name>Base_Date_Field_6_Object__c</name>
+    </fields>
+    <fields>
+        <label><!-- Base Date Field 6 Type --></label>
+        <name>Base_Date_Field_6_Type__c</name>
+        <picklistValues>
+            <masterLabel>Admin Review Opportunity Notice</masterLabel>
+            <translation><!-- Admin Review Opportunity Notice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amended Final</masterLabel>
+            <translation><!-- Amended Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amended Preliminary</masterLabel>
+            <translation><!-- Amended Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuation</masterLabel>
+            <translation><!-- Continuation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuation or Revocation</masterLabel>
+            <translation><!-- Continuation or Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Correction</masterLabel>
+            <translation><!-- Correction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deadline for Decision on how to proceed</masterLabel>
+            <translation><!-- Deadline for Decision on how to proceed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Final</masterLabel>
+            <translation><!-- Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Final</masterLabel>
+            <translation><!-- ITC Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Preliminary</masterLabel>
+            <translation><!-- ITC Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation</masterLabel>
+            <translation><!-- Initiation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation/Prelim</masterLabel>
+            <translation><!-- Initiation/Prelim --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order</masterLabel>
+            <translation><!-- Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petitioner</masterLabel>
+            <translation><!-- Petitioner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Post Litigation</masterLabel>
+            <translation><!-- Post Litigation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Postponement</masterLabel>
+            <translation><!-- Postponement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preliminary</masterLabel>
+            <translation><!-- Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly Scope</masterLabel>
+            <translation><!-- Quarterly Scope --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rescission</masterLabel>
+            <translation><!-- Rescission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Respondent</masterLabel>
+            <translation><!-- Respondent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Revocation</masterLabel>
+            <translation><!-- Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suspension Agreement</masterLabel>
+            <translation><!-- Suspension Agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Termination</masterLabel>
+            <translation><!-- Termination --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Calculated Date Field Name --></label>
+        <name>Calculated_Date_Field_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 1 Lookup Field Name --></label>
+        <name>Conditional_Field_1_Lookup_Field_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 1 Name --></label>
+        <name>Conditional_Field_1_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 1 Object --></label>
+        <name>Conditional_Field_1_Object__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 1 Operator --></label>
+        <name>Conditional_Field_1_Operator__c</name>
+        <picklistValues>
+            <masterLabel>Equals</masterLabel>
+            <translation><!-- Equals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greater Than</masterLabel>
+            <translation><!-- Greater Than --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greater Than Or Equals To</masterLabel>
+            <translation><!-- Greater Than Or Equals To --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Less Than</masterLabel>
+            <translation><!-- Less Than --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Less Than Or Equals To</masterLabel>
+            <translation><!-- Less Than Or Equals To --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Equals To</masterLabel>
+            <translation><!-- Not Equals To --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Until Past</masterLabel>
+            <translation><!-- Until Past --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 1 Result --></label>
+        <name>Conditional_Field_1_Result__c</name>
+        <picklistValues>
+            <masterLabel>Align</masterLabel>
+            <translation><!-- Align --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Execute</masterLabel>
+            <translation><!-- Execute --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Skip</masterLabel>
+            <translation><!-- Skip --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 1</masterLabel>
+            <translation><!-- Use Constant 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 2</masterLabel>
+            <translation><!-- Use Constant 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 3</masterLabel>
+            <translation><!-- Use Constant 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 4</masterLabel>
+            <translation><!-- Use Constant 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 1</masterLabel>
+            <translation><!-- Use Date 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 2</masterLabel>
+            <translation><!-- Use Date 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 3</masterLabel>
+            <translation><!-- Use Date 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 4</masterLabel>
+            <translation><!-- Use Date 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 5</masterLabel>
+            <translation><!-- Use Date 5 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 6</masterLabel>
+            <translation><!-- Use Date 6 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 7</masterLabel>
+            <translation><!-- Use Date 7 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 8</masterLabel>
+            <translation><!-- Use Date 8 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 1 Type --></label>
+        <name>Conditional_Field_1_Type__c</name>
+        <picklistValues>
+            <masterLabel>Admin Review Opportunity Notice</masterLabel>
+            <translation><!-- Admin Review Opportunity Notice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amended Final</masterLabel>
+            <translation><!-- Amended Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amended Preliminary</masterLabel>
+            <translation><!-- Amended Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuation</masterLabel>
+            <translation><!-- Continuation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuation or Revocation</masterLabel>
+            <translation><!-- Continuation or Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Correction</masterLabel>
+            <translation><!-- Correction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deadline for Decision on how to proceed</masterLabel>
+            <translation><!-- Deadline for Decision on how to proceed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Final</masterLabel>
+            <translation><!-- Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Final</masterLabel>
+            <translation><!-- ITC Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Preliminary</masterLabel>
+            <translation><!-- ITC Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation</masterLabel>
+            <translation><!-- Initiation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation/Prelim</masterLabel>
+            <translation><!-- Initiation/Prelim --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order</masterLabel>
+            <translation><!-- Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petitioner</masterLabel>
+            <translation><!-- Petitioner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Post Litigation</masterLabel>
+            <translation><!-- Post Litigation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Postponement</masterLabel>
+            <translation><!-- Postponement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preliminary</masterLabel>
+            <translation><!-- Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly Scope</masterLabel>
+            <translation><!-- Quarterly Scope --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rescission</masterLabel>
+            <translation><!-- Rescission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Respondent</masterLabel>
+            <translation><!-- Respondent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Revocation</masterLabel>
+            <translation><!-- Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suspension Agreement</masterLabel>
+            <translation><!-- Suspension Agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Termination</masterLabel>
+            <translation><!-- Termination --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 1 Value --></label>
+        <name>Conditional_Field_1_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 2 Lookup Field Name --></label>
+        <name>Conditional_Field_2_Lookup_Field_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 2 Name --></label>
+        <name>Conditional_Field_2_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 2 Object --></label>
+        <name>Conditional_Field_2_Object__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 2 Operator --></label>
+        <name>Conditional_Field_2_Operator__c</name>
+        <picklistValues>
+            <masterLabel>Equals</masterLabel>
+            <translation><!-- Equals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greater Than</masterLabel>
+            <translation><!-- Greater Than --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greater Than Or Equals To</masterLabel>
+            <translation><!-- Greater Than Or Equals To --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Less Than</masterLabel>
+            <translation><!-- Less Than --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Less Than Or Equals To</masterLabel>
+            <translation><!-- Less Than Or Equals To --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Equals To</masterLabel>
+            <translation><!-- Not Equals To --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Until Past</masterLabel>
+            <translation><!-- Until Past --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 2 Result --></label>
+        <name>Conditional_Field_2_Result__c</name>
+        <picklistValues>
+            <masterLabel>Align</masterLabel>
+            <translation><!-- Align --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Execute</masterLabel>
+            <translation><!-- Execute --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Skip</masterLabel>
+            <translation><!-- Skip --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 1</masterLabel>
+            <translation><!-- Use Constant 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 2</masterLabel>
+            <translation><!-- Use Constant 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 3</masterLabel>
+            <translation><!-- Use Constant 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 4</masterLabel>
+            <translation><!-- Use Constant 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 1</masterLabel>
+            <translation><!-- Use Date 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 2</masterLabel>
+            <translation><!-- Use Date 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 3</masterLabel>
+            <translation><!-- Use Date 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 4</masterLabel>
+            <translation><!-- Use Date 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 5</masterLabel>
+            <translation><!-- Use Date 5 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 6</masterLabel>
+            <translation><!-- Use Date 6 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 7</masterLabel>
+            <translation><!-- Use Date 7 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 8</masterLabel>
+            <translation><!-- Use Date 8 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 2 Type --></label>
+        <name>Conditional_Field_2_Type__c</name>
+        <picklistValues>
+            <masterLabel>Admin Review Opportunity Notice</masterLabel>
+            <translation><!-- Admin Review Opportunity Notice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amended Final</masterLabel>
+            <translation><!-- Amended Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amended Preliminary</masterLabel>
+            <translation><!-- Amended Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuation</masterLabel>
+            <translation><!-- Continuation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuation or Revocation</masterLabel>
+            <translation><!-- Continuation or Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Correction</masterLabel>
+            <translation><!-- Correction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deadline for Decision on how to proceed</masterLabel>
+            <translation><!-- Deadline for Decision on how to proceed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Final</masterLabel>
+            <translation><!-- Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Final</masterLabel>
+            <translation><!-- ITC Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Preliminary</masterLabel>
+            <translation><!-- ITC Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation</masterLabel>
+            <translation><!-- Initiation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation/Prelim</masterLabel>
+            <translation><!-- Initiation/Prelim --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order</masterLabel>
+            <translation><!-- Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petitioner</masterLabel>
+            <translation><!-- Petitioner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Post Litigation</masterLabel>
+            <translation><!-- Post Litigation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Postponement</masterLabel>
+            <translation><!-- Postponement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preliminary</masterLabel>
+            <translation><!-- Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly Scope</masterLabel>
+            <translation><!-- Quarterly Scope --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rescission</masterLabel>
+            <translation><!-- Rescission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Respondent</masterLabel>
+            <translation><!-- Respondent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Revocation</masterLabel>
+            <translation><!-- Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suspension Agreement</masterLabel>
+            <translation><!-- Suspension Agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Termination</masterLabel>
+            <translation><!-- Termination --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 2 Value --></label>
+        <name>Conditional_Field_2_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 3 Lookup Field Name --></label>
+        <name>Conditional_Field_3_Lookup_Field_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 3 Name --></label>
+        <name>Conditional_Field_3_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 3 Object --></label>
+        <name>Conditional_Field_3_Object__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 3 Operator --></label>
+        <name>Conditional_Field_3_Operator__c</name>
+        <picklistValues>
+            <masterLabel>Equals</masterLabel>
+            <translation><!-- Equals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greater Than</masterLabel>
+            <translation><!-- Greater Than --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greater Than Or Equals To</masterLabel>
+            <translation><!-- Greater Than Or Equals To --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Less Than</masterLabel>
+            <translation><!-- Less Than --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Less Than Or Equals To</masterLabel>
+            <translation><!-- Less Than Or Equals To --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Equals To</masterLabel>
+            <translation><!-- Not Equals To --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Until Past</masterLabel>
+            <translation><!-- Until Past --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 3 Result --></label>
+        <name>Conditional_Field_3_Result__c</name>
+        <picklistValues>
+            <masterLabel>Align</masterLabel>
+            <translation><!-- Align --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Execute</masterLabel>
+            <translation><!-- Execute --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Skip</masterLabel>
+            <translation><!-- Skip --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 1</masterLabel>
+            <translation><!-- Use Constant 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 2</masterLabel>
+            <translation><!-- Use Constant 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 3</masterLabel>
+            <translation><!-- Use Constant 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 4</masterLabel>
+            <translation><!-- Use Constant 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 1</masterLabel>
+            <translation><!-- Use Date 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 2</masterLabel>
+            <translation><!-- Use Date 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 3</masterLabel>
+            <translation><!-- Use Date 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 4</masterLabel>
+            <translation><!-- Use Date 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 5</masterLabel>
+            <translation><!-- Use Date 5 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 6</masterLabel>
+            <translation><!-- Use Date 6 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 7</masterLabel>
+            <translation><!-- Use Date 7 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 8</masterLabel>
+            <translation><!-- Use Date 8 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 3 Type --></label>
+        <name>Conditional_Field_3_Type__c</name>
+        <picklistValues>
+            <masterLabel>Admin Review Opportunity Notice</masterLabel>
+            <translation><!-- Admin Review Opportunity Notice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amended Final</masterLabel>
+            <translation><!-- Amended Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amended Preliminary</masterLabel>
+            <translation><!-- Amended Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuation</masterLabel>
+            <translation><!-- Continuation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuation or Revocation</masterLabel>
+            <translation><!-- Continuation or Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Correction</masterLabel>
+            <translation><!-- Correction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deadline for Decision on how to proceed</masterLabel>
+            <translation><!-- Deadline for Decision on how to proceed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Final</masterLabel>
+            <translation><!-- Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Final</masterLabel>
+            <translation><!-- ITC Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Preliminary</masterLabel>
+            <translation><!-- ITC Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation</masterLabel>
+            <translation><!-- Initiation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation/Prelim</masterLabel>
+            <translation><!-- Initiation/Prelim --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order</masterLabel>
+            <translation><!-- Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petitioner</masterLabel>
+            <translation><!-- Petitioner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Post Litigation</masterLabel>
+            <translation><!-- Post Litigation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Postponement</masterLabel>
+            <translation><!-- Postponement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preliminary</masterLabel>
+            <translation><!-- Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly Scope</masterLabel>
+            <translation><!-- Quarterly Scope --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rescission</masterLabel>
+            <translation><!-- Rescission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Respondent</masterLabel>
+            <translation><!-- Respondent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Revocation</masterLabel>
+            <translation><!-- Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suspension Agreement</masterLabel>
+            <translation><!-- Suspension Agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Termination</masterLabel>
+            <translation><!-- Termination --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 3 Value --></label>
+        <name>Conditional_Field_3_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 4 Lookup Field Name --></label>
+        <name>Conditional_Field_4_Lookup_Field_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 4 Name --></label>
+        <name>Conditional_Field_4_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 4 Object --></label>
+        <name>Conditional_Field_4_Object__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 4 Operator --></label>
+        <name>Conditional_Field_4_Operator__c</name>
+        <picklistValues>
+            <masterLabel>Equals</masterLabel>
+            <translation><!-- Equals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greater Than</masterLabel>
+            <translation><!-- Greater Than --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greater Than Or Equals To</masterLabel>
+            <translation><!-- Greater Than Or Equals To --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Less Than</masterLabel>
+            <translation><!-- Less Than --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Less Than Or Equals To</masterLabel>
+            <translation><!-- Less Than Or Equals To --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Equals To</masterLabel>
+            <translation><!-- Not Equals To --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 4 Result --></label>
+        <name>Conditional_Field_4_Result__c</name>
+        <picklistValues>
+            <masterLabel>Align</masterLabel>
+            <translation><!-- Align --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Execute</masterLabel>
+            <translation><!-- Execute --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Skip</masterLabel>
+            <translation><!-- Skip --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 1</masterLabel>
+            <translation><!-- Use Constant 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 2</masterLabel>
+            <translation><!-- Use Constant 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 3</masterLabel>
+            <translation><!-- Use Constant 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 4</masterLabel>
+            <translation><!-- Use Constant 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 1</masterLabel>
+            <translation><!-- Use Date 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 2</masterLabel>
+            <translation><!-- Use Date 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 3</masterLabel>
+            <translation><!-- Use Date 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 4</masterLabel>
+            <translation><!-- Use Date 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 5</masterLabel>
+            <translation><!-- Use Date 5 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 6</masterLabel>
+            <translation><!-- Use Date 6 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 7</masterLabel>
+            <translation><!-- Use Date 7 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 8</masterLabel>
+            <translation><!-- Use Date 8 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 4 Type --></label>
+        <name>Conditional_Field_4_Type__c</name>
+        <picklistValues>
+            <masterLabel>Admin Review Opportunity Notice</masterLabel>
+            <translation><!-- Admin Review Opportunity Notice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amended Final</masterLabel>
+            <translation><!-- Amended Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amended Preliminary</masterLabel>
+            <translation><!-- Amended Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuation</masterLabel>
+            <translation><!-- Continuation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuation or Revocation</masterLabel>
+            <translation><!-- Continuation or Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Correction</masterLabel>
+            <translation><!-- Correction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deadline for Decision on how to proceed</masterLabel>
+            <translation><!-- Deadline for Decision on how to proceed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Final</masterLabel>
+            <translation><!-- Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Final</masterLabel>
+            <translation><!-- ITC Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Preliminary</masterLabel>
+            <translation><!-- ITC Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation</masterLabel>
+            <translation><!-- Initiation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation/Prelim</masterLabel>
+            <translation><!-- Initiation/Prelim --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order</masterLabel>
+            <translation><!-- Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petitioner</masterLabel>
+            <translation><!-- Petitioner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Post Litigation</masterLabel>
+            <translation><!-- Post Litigation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Postponement</masterLabel>
+            <translation><!-- Postponement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preliminary</masterLabel>
+            <translation><!-- Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly Scope</masterLabel>
+            <translation><!-- Quarterly Scope --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rescission</masterLabel>
+            <translation><!-- Rescission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Respondent</masterLabel>
+            <translation><!-- Respondent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Revocation</masterLabel>
+            <translation><!-- Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suspension Agreement</masterLabel>
+            <translation><!-- Suspension Agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Termination</masterLabel>
+            <translation><!-- Termination --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 4 Value --></label>
+        <name>Conditional_Field_4_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 5 Lookup Field Name --></label>
+        <name>Conditional_Field_5_Lookup_Field_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 5 Name --></label>
+        <name>Conditional_Field_5_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 5 Object --></label>
+        <name>Conditional_Field_5_Object__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 5 Operator --></label>
+        <name>Conditional_Field_5_Operator__c</name>
+        <picklistValues>
+            <masterLabel>Equals</masterLabel>
+            <translation><!-- Equals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greater Than</masterLabel>
+            <translation><!-- Greater Than --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greater Than Or Equals To</masterLabel>
+            <translation><!-- Greater Than Or Equals To --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Less Than</masterLabel>
+            <translation><!-- Less Than --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Less Than Or Equals To</masterLabel>
+            <translation><!-- Less Than Or Equals To --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Equals To</masterLabel>
+            <translation><!-- Not Equals To --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 5 Result --></label>
+        <name>Conditional_Field_5_Result__c</name>
+        <picklistValues>
+            <masterLabel>Align</masterLabel>
+            <translation><!-- Align --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Execute</masterLabel>
+            <translation><!-- Execute --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Skip</masterLabel>
+            <translation><!-- Skip --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 1</masterLabel>
+            <translation><!-- Use Constant 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 2</masterLabel>
+            <translation><!-- Use Constant 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 3</masterLabel>
+            <translation><!-- Use Constant 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 4</masterLabel>
+            <translation><!-- Use Constant 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 1</masterLabel>
+            <translation><!-- Use Date 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 2</masterLabel>
+            <translation><!-- Use Date 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 3</masterLabel>
+            <translation><!-- Use Date 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 4</masterLabel>
+            <translation><!-- Use Date 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 5</masterLabel>
+            <translation><!-- Use Date 5 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 6</masterLabel>
+            <translation><!-- Use Date 6 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 7</masterLabel>
+            <translation><!-- Use Date 7 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 8</masterLabel>
+            <translation><!-- Use Date 8 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 5 Type --></label>
+        <name>Conditional_Field_5_Type__c</name>
+        <picklistValues>
+            <masterLabel>Admin Review Opportunity Notice</masterLabel>
+            <translation><!-- Admin Review Opportunity Notice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amended Final</masterLabel>
+            <translation><!-- Amended Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amended Preliminary</masterLabel>
+            <translation><!-- Amended Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuation</masterLabel>
+            <translation><!-- Continuation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuation or Revocation</masterLabel>
+            <translation><!-- Continuation or Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Correction</masterLabel>
+            <translation><!-- Correction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deadline for Decision on how to proceed</masterLabel>
+            <translation><!-- Deadline for Decision on how to proceed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Final</masterLabel>
+            <translation><!-- Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Final</masterLabel>
+            <translation><!-- ITC Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Preliminary</masterLabel>
+            <translation><!-- ITC Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation</masterLabel>
+            <translation><!-- Initiation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation/Prelim</masterLabel>
+            <translation><!-- Initiation/Prelim --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order</masterLabel>
+            <translation><!-- Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petitioner</masterLabel>
+            <translation><!-- Petitioner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Post Litigation</masterLabel>
+            <translation><!-- Post Litigation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Postponement</masterLabel>
+            <translation><!-- Postponement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preliminary</masterLabel>
+            <translation><!-- Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly Scope</masterLabel>
+            <translation><!-- Quarterly Scope --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rescission</masterLabel>
+            <translation><!-- Rescission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Respondent</masterLabel>
+            <translation><!-- Respondent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Revocation</masterLabel>
+            <translation><!-- Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suspension Agreement</masterLabel>
+            <translation><!-- Suspension Agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Termination</masterLabel>
+            <translation><!-- Termination --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 5 Value --></label>
+        <name>Conditional_Field_5_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 6 Lookup Field Name --></label>
+        <name>Conditional_Field_6_Lookup_Field_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 6 Name --></label>
+        <name>Conditional_Field_6_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 6 Object --></label>
+        <name>Conditional_Field_6_Object__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 6 Operator --></label>
+        <name>Conditional_Field_6_Operator__c</name>
+        <picklistValues>
+            <masterLabel>Equals</masterLabel>
+            <translation><!-- Equals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greater Than</masterLabel>
+            <translation><!-- Greater Than --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greater Than Or Equals To</masterLabel>
+            <translation><!-- Greater Than Or Equals To --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Less Than</masterLabel>
+            <translation><!-- Less Than --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Less Than Or Equals To</masterLabel>
+            <translation><!-- Less Than Or Equals To --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Equals To</masterLabel>
+            <translation><!-- Not Equals To --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 6 Result --></label>
+        <name>Conditional_Field_6_Result__c</name>
+        <picklistValues>
+            <masterLabel>Align</masterLabel>
+            <translation><!-- Align --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Execute</masterLabel>
+            <translation><!-- Execute --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Skip</masterLabel>
+            <translation><!-- Skip --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 1</masterLabel>
+            <translation><!-- Use Constant 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 2</masterLabel>
+            <translation><!-- Use Constant 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 3</masterLabel>
+            <translation><!-- Use Constant 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 4</masterLabel>
+            <translation><!-- Use Constant 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 1</masterLabel>
+            <translation><!-- Use Date 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 2</masterLabel>
+            <translation><!-- Use Date 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 3</masterLabel>
+            <translation><!-- Use Date 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 4</masterLabel>
+            <translation><!-- Use Date 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 5</masterLabel>
+            <translation><!-- Use Date 5 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 6</masterLabel>
+            <translation><!-- Use Date 6 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 7</masterLabel>
+            <translation><!-- Use Date 7 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 8</masterLabel>
+            <translation><!-- Use Date 8 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 6 Type --></label>
+        <name>Conditional_Field_6_Type__c</name>
+        <picklistValues>
+            <masterLabel>Admin Review Opportunity Notice</masterLabel>
+            <translation><!-- Admin Review Opportunity Notice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amended Final</masterLabel>
+            <translation><!-- Amended Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amended Preliminary</masterLabel>
+            <translation><!-- Amended Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuation</masterLabel>
+            <translation><!-- Continuation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuation or Revocation</masterLabel>
+            <translation><!-- Continuation or Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Correction</masterLabel>
+            <translation><!-- Correction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deadline for Decision on how to proceed</masterLabel>
+            <translation><!-- Deadline for Decision on how to proceed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Final</masterLabel>
+            <translation><!-- Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Final</masterLabel>
+            <translation><!-- ITC Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Preliminary</masterLabel>
+            <translation><!-- ITC Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation</masterLabel>
+            <translation><!-- Initiation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation/Prelim</masterLabel>
+            <translation><!-- Initiation/Prelim --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order</masterLabel>
+            <translation><!-- Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petitioner</masterLabel>
+            <translation><!-- Petitioner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Post Litigation</masterLabel>
+            <translation><!-- Post Litigation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Postponement</masterLabel>
+            <translation><!-- Postponement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preliminary</masterLabel>
+            <translation><!-- Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly Scope</masterLabel>
+            <translation><!-- Quarterly Scope --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rescission</masterLabel>
+            <translation><!-- Rescission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Respondent</masterLabel>
+            <translation><!-- Respondent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Revocation</masterLabel>
+            <translation><!-- Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suspension Agreement</masterLabel>
+            <translation><!-- Suspension Agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Termination</masterLabel>
+            <translation><!-- Termination --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 6 Value --></label>
+        <name>Conditional_Field_6_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 7 Lookup Field Name --></label>
+        <name>Conditional_Field_7_Lookup_Field_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 7 Name --></label>
+        <name>Conditional_Field_7_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 7 Object --></label>
+        <name>Conditional_Field_7_Object__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 7 Operator --></label>
+        <name>Conditional_Field_7_Operator__c</name>
+        <picklistValues>
+            <masterLabel>Equals</masterLabel>
+            <translation><!-- Equals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greater Than</masterLabel>
+            <translation><!-- Greater Than --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greater Than Or Equals To</masterLabel>
+            <translation><!-- Greater Than Or Equals To --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Less Than</masterLabel>
+            <translation><!-- Less Than --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Less Than Or Equals To</masterLabel>
+            <translation><!-- Less Than Or Equals To --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Equals To</masterLabel>
+            <translation><!-- Not Equals To --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 7 Result --></label>
+        <name>Conditional_Field_7_Result__c</name>
+        <picklistValues>
+            <masterLabel>Align</masterLabel>
+            <translation><!-- Align --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Execute</masterLabel>
+            <translation><!-- Execute --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Skip</masterLabel>
+            <translation><!-- Skip --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 1</masterLabel>
+            <translation><!-- Use Constant 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 2</masterLabel>
+            <translation><!-- Use Constant 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 3</masterLabel>
+            <translation><!-- Use Constant 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 4</masterLabel>
+            <translation><!-- Use Constant 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 1</masterLabel>
+            <translation><!-- Use Date 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 2</masterLabel>
+            <translation><!-- Use Date 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 3</masterLabel>
+            <translation><!-- Use Date 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 4</masterLabel>
+            <translation><!-- Use Date 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 5</masterLabel>
+            <translation><!-- Use Date 5 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 6</masterLabel>
+            <translation><!-- Use Date 6 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 7</masterLabel>
+            <translation><!-- Use Date 7 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 8</masterLabel>
+            <translation><!-- Use Date 8 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 7 Type --></label>
+        <name>Conditional_Field_7_Type__c</name>
+        <picklistValues>
+            <masterLabel>Admin Review Opportunity Notice</masterLabel>
+            <translation><!-- Admin Review Opportunity Notice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amended Final</masterLabel>
+            <translation><!-- Amended Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amended Preliminary</masterLabel>
+            <translation><!-- Amended Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuation</masterLabel>
+            <translation><!-- Continuation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuation or Revocation</masterLabel>
+            <translation><!-- Continuation or Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Correction</masterLabel>
+            <translation><!-- Correction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deadline for Decision on how to proceed</masterLabel>
+            <translation><!-- Deadline for Decision on how to proceed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Final</masterLabel>
+            <translation><!-- Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Final</masterLabel>
+            <translation><!-- ITC Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Preliminary</masterLabel>
+            <translation><!-- ITC Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation</masterLabel>
+            <translation><!-- Initiation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation/Prelim</masterLabel>
+            <translation><!-- Initiation/Prelim --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order</masterLabel>
+            <translation><!-- Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petitioner</masterLabel>
+            <translation><!-- Petitioner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Post Litigation</masterLabel>
+            <translation><!-- Post Litigation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Postponement</masterLabel>
+            <translation><!-- Postponement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preliminary</masterLabel>
+            <translation><!-- Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly Scope</masterLabel>
+            <translation><!-- Quarterly Scope --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rescission</masterLabel>
+            <translation><!-- Rescission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Respondent</masterLabel>
+            <translation><!-- Respondent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Revocation</masterLabel>
+            <translation><!-- Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suspension Agreement</masterLabel>
+            <translation><!-- Suspension Agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Termination</masterLabel>
+            <translation><!-- Termination --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 7 Value --></label>
+        <name>Conditional_Field_7_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 8 Lookup Field Name --></label>
+        <name>Conditional_Field_8_Lookup_Field_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 8 Name --></label>
+        <name>Conditional_Field_8_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 8 Object --></label>
+        <name>Conditional_Field_8_Object__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 8 Operator --></label>
+        <name>Conditional_Field_8_Operator__c</name>
+        <picklistValues>
+            <masterLabel>Equals</masterLabel>
+            <translation><!-- Equals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greater Than</masterLabel>
+            <translation><!-- Greater Than --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greater Than Or Equals To</masterLabel>
+            <translation><!-- Greater Than Or Equals To --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Less Than</masterLabel>
+            <translation><!-- Less Than --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Less Than Or Equals To</masterLabel>
+            <translation><!-- Less Than Or Equals To --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Equals To</masterLabel>
+            <translation><!-- Not Equals To --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 8 Result --></label>
+        <name>Conditional_Field_8_Result__c</name>
+        <picklistValues>
+            <masterLabel>Align</masterLabel>
+            <translation><!-- Align --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Execute</masterLabel>
+            <translation><!-- Execute --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Skip</masterLabel>
+            <translation><!-- Skip --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 1</masterLabel>
+            <translation><!-- Use Constant 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 2</masterLabel>
+            <translation><!-- Use Constant 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 3</masterLabel>
+            <translation><!-- Use Constant 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Constant 4</masterLabel>
+            <translation><!-- Use Constant 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 1</masterLabel>
+            <translation><!-- Use Date 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 2</masterLabel>
+            <translation><!-- Use Date 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 3</masterLabel>
+            <translation><!-- Use Date 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 4</masterLabel>
+            <translation><!-- Use Date 4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 5</masterLabel>
+            <translation><!-- Use Date 5 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 6</masterLabel>
+            <translation><!-- Use Date 6 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 7</masterLabel>
+            <translation><!-- Use Date 7 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Use Date 8</masterLabel>
+            <translation><!-- Use Date 8 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 8 Type --></label>
+        <name>Conditional_Field_8_Type__c</name>
+        <picklistValues>
+            <masterLabel>Admin Review Opportunity Notice</masterLabel>
+            <translation><!-- Admin Review Opportunity Notice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amended Final</masterLabel>
+            <translation><!-- Amended Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amended Preliminary</masterLabel>
+            <translation><!-- Amended Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuation</masterLabel>
+            <translation><!-- Continuation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Continuation or Revocation</masterLabel>
+            <translation><!-- Continuation or Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Correction</masterLabel>
+            <translation><!-- Correction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deadline for Decision on how to proceed</masterLabel>
+            <translation><!-- Deadline for Decision on how to proceed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Final</masterLabel>
+            <translation><!-- Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Final</masterLabel>
+            <translation><!-- ITC Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ITC Preliminary</masterLabel>
+            <translation><!-- ITC Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation</masterLabel>
+            <translation><!-- Initiation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiation/Prelim</masterLabel>
+            <translation><!-- Initiation/Prelim --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order</masterLabel>
+            <translation><!-- Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petitioner</masterLabel>
+            <translation><!-- Petitioner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Post Litigation</masterLabel>
+            <translation><!-- Post Litigation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Postponement</masterLabel>
+            <translation><!-- Postponement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preliminary</masterLabel>
+            <translation><!-- Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly Scope</masterLabel>
+            <translation><!-- Quarterly Scope --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rescission</masterLabel>
+            <translation><!-- Rescission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Respondent</masterLabel>
+            <translation><!-- Respondent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Revocation</masterLabel>
+            <translation><!-- Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suspension Agreement</masterLabel>
+            <translation><!-- Suspension Agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Termination</masterLabel>
+            <translation><!-- Termination --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Conditional Field 8 Value --></label>
+        <name>Conditional_Field_8_Value__c</name>
+    </fields>
+    <fields>
+        <label><!-- Constant 1 --></label>
+        <name>Constant_1__c</name>
+        <relationshipLabel><!-- Date Calculations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Constant 2 --></label>
+        <name>Constant_2__c</name>
+        <relationshipLabel><!-- Date Calculations (Constant 2) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Constant 3 --></label>
+        <name>Constant_3__c</name>
+        <relationshipLabel><!-- Date Calculations (Constant 3) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Constant 4 --></label>
+        <name>Constant_4__c</name>
+        <relationshipLabel><!-- Date Calculations (Constant 4) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Extension Field 1 Name --></label>
+        <name>Extension_Field_1_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Extension Field 2 Name --></label>
+        <name>Extension_Field_2_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Extension Object 1 Name --></label>
+        <name>Extension_Object_1_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Extension Object 2 Name --></label>
+        <name>Extension_Object_2_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Base Date Fields --></label>
+        <name>Number_of_Base_Date_Fields__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Conditionals --></label>
+        <name>Number_of_Conditionals__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Extensions --></label>
+        <name>Number_of_Extensions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order of Execution --></label>
+        <name>Order_of_Execution__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tolling Service --></label>
+        <name>Tolling_Service__c</name>
+        <picklistValues>
+            <masterLabel>Count Back Business Days</masterLabel>
+            <translation><!-- Count Back Business Days --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Get Calculated Date</masterLabel>
+            <translation><!-- Get Calculated Date --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Date Calculation Layout</layout>
+        <sections>
+            <label><!-- Base Date Fields --></label>
+            <section>Base Date Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Condition 1 --></label>
+            <section>Condition 1</section>
+        </sections>
+        <sections>
+            <label><!-- Condition 2 --></label>
+            <section>Condition 2</section>
+        </sections>
+        <sections>
+            <label><!-- Condition 3 --></label>
+            <section>Condition 3</section>
+        </sections>
+        <sections>
+            <label><!-- Condition 4 --></label>
+            <section>Condition 4</section>
+        </sections>
+        <sections>
+            <label><!-- Condition 5 --></label>
+            <section>Condition 5</section>
+        </sections>
+        <sections>
+            <label><!-- Condition 6 --></label>
+            <section>Condition 6</section>
+        </sections>
+        <sections>
+            <label><!-- Condition 7 --></label>
+            <section>Condition 7</section>
+        </sections>
+        <sections>
+            <label><!-- Condition 8 --></label>
+            <section>Condition 8</section>
+        </sections>
+        <sections>
+            <label><!-- Constants --></label>
+            <section>Constants</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Extensions --></label>
+            <section>Extensions</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- You must use the format mm/dd/yyyy when entering a date --></errorMessage>
+        <name>Correct_Date_Format</name>
+    </validationRules>
+</CustomObjectTranslation>

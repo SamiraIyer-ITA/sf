@@ -1,0 +1,375 @@
+<apex:page id="Registration" showHeader="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false" controller="tradeRegistration_Controller" title="{!$Label.site.user_registration}" action="{!validate}">
+
+<!--
+- The MIL Corporation
+- ITA Trade Community Registration
+- Product Tag: Registration / Work#:
+- Created: 2016.02.17: MIL Corp
+ -->
+
+<apex:composition template="Site_Template">
+<apex:define name="page">
+    <head>
+        <title>Trade Registration</title>
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet"/>
+        <link href="{!URLFor($Resource.ps, 'ps/application.css')}" rel="stylesheet" />
+
+    </head>
+<script>
+    var form_validated = true;
+
+    function displaydiv(value){
+        if(value!='Researcher'){
+            document.getElementById('company').style.display='';
+            document.getElementById('company').className="";
+            document.getElementById('zippy').className='col-md-6 pad-right-zero';
+        }else {
+            document.getElementById('company').style.display='none';
+            document.getElementById('zippy').className='col-md-6 pad-left-zero';
+        }
+    }
+
+    function rerender(value) {
+        if(value=='US'){
+             document.getElementById('postalcode').innerHTML= 'Postal Code';
+             document.getElementById('state').innerHTML= 'State';
+        }else{
+            document.getElementById('postalcode').innerHTML= 'Postal Code (optional)';
+            document.getElementById('state').innerHTML= 'State (optional)';
+        }
+    }
+    
+    $(document).ready(function() {
+        $('input[type=password][name$="theForm:password"]').keyup(function() {
+            // set password variable
+            var pswd = $(this).val();
+            
+            //validate the length
+            if (pswd.length < {!minimumPasswordCharacters}) {
+                $('#pswd_length').removeClass('valid').addClass('invalid');
+            } else {
+                $('#pswd_length').removeClass('invalid').addClass('valid');
+            }
+            
+            //validate lower case letter
+            var requireLowerCase = {!passwordRequireLowerCase};
+            if (requireLowerCase && pswd.match(/[a-z]/)) {
+                $('#pswd_lowerCase').removeClass('invalid').addClass('valid');
+            } else {
+                $('#pswd_lowerCase').removeClass('valid').addClass('invalid');
+            }
+            
+            //validate upper case letter
+            var requireUpperCase = {!passwordRequireUpperCase};
+            if (requireUpperCase && pswd.match(/[A-Z]/)) {
+                $('#pswd_upperCase').removeClass('invalid').addClass('valid');
+            } else {
+                $('#pswd_upperCase').removeClass('valid').addClass('invalid');
+            }
+            
+            //validate number
+            var requireNumeric = {!passwordRequireNumeric};
+            if (requireNumeric && pswd.match(/\d/)) {
+                $('#pswd_number').removeClass('invalid').addClass('valid');
+            } else {
+                $('#pswd_number').removeClass('valid').addClass('invalid');
+            }
+            
+            //validate special character
+            var requireSpecialChar = {!passwordRequireSpecialChar};
+            if (requireSpecialChar && pswd.match(/[!#$%\-_=+<>]/)) {
+                $('#pswd_specialChar').removeClass('invalid').addClass('valid');
+            } else {
+                $('#pswd_specialChar').removeClass('valid').addClass('invalid');
+            }
+            
+            
+        }).focus(function() {
+            $('#pswd_info').show();
+        }).blur(function() {
+            $('#pswd_info').hide();
+        });
+    });
+</script>
+<script>
+function jump(){
+    window.scrollTo(0,0);
+}
+</script>
+
+<script>
+jQuery(document).ready(function($) {  
+$(window).load(function(){
+    $('#preloader').fadeOut('slow',function(){$(this).remove();});
+});
+});
+var form_validated = true;
+</script>
+<script>
+function spinLoad(this1)
+{
+  //alert('asdasd');
+  this1.disabled=true;
+  this1.innerHTML='<div id="preloader"></div>';
+}
+</script>
+
+ <div class="container-fluid" id="reglayout">
+
+    <div class="row reglayout_zeropad">
+
+    <apex:form id="theForm" forceSSL="true">
+    
+
+<apex:actionFunction name="ShowHideOrgName" action="{!doNothing}" rerender="OrgName"/>
+<apex:actionStatus id="busyOverlay" onStart="spinLoad(this)" onStop="remove()"/>    
+
+    <apex:outputpanel layout="block" styleClass="containerInternal enforceHeight" >
+    <div class="col-md-6 col-md-push-6 col-sm-12 reglayout_zeropad" id="rightside" >
+    
+    <div class="formboxreg">
+<!-- Center Reg Box Start -->
+        <div id="main_wrapper" class="itaCaseBox itaFormBox">
+                    <!-- --Email Field Start-- 
+                    <div style="display:{!if(page == 0,'','none')};" id="email">
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                            <center><h2 class="itaFormHeader">Join us today</h2></center>
+                                <div class="itaFormLabel">E-mail</div>
+                                <apex:inputText id="email" value="{!c.email}" label="{!$Label.site.email}" styleClass="itaFormField" />
+                                <apex:commandButton action="{!checkUser}" value="SIGN UP" id="register" styleClass="itaLoginBtn"/>
+                                <br /><div class="itaFormLabel" style="float:left;">Already registered? <a href="{!$Site.Prefix}/communitieslogin">Log In</a></div>
+                            </div>
+                        </div> 
+                    </div>
+                    --Email Field End-- -->
+<!-- --Error Section - Start- -->
+    <apex:outputpanel id="messageWrapper">
+        <apex:messages styleClass="alert alert-danger fade in itaNoUL" style="list-style-type:none;"/>
+    </apex:outputpanel>
+    <!-- --Error Section - End- -->
+     <!--<div class="col-sm-6 col-sm-pull-6" style="display:{!if(webSite == 'Privacy Shield','','none')}">
+        <h1>{!webSite}</h1>
+    </div> -->
+                    <div class="row stepbox">
+<div class="row pad-none">                        
+<h2 class="itaFormHeader text-center">Join us today</h2>
+</div>
+<div class="row pad-none">
+<p id="already_registered">
+Already Registered? <a href="/CommunitiesLogin">Log In</a>
+</p></div>
+
+     <div class="col-md-6 pad-left-zero" >
+    <div class="row pad-none">
+        <label for="firstname">*First Name</label><br />
+        <apex:inputField id="firstName" value="{!c.firstName}" label="First Name" onchange="form_validated = formValidate($(this));" styleClass="itaFormField required"/><br />
+        <apex:outputPanel layout="block" styleClass="error-msg"></apex:outputPanel>
+    </div>
+    </div>
+    
+    <div class="col-md-6 pad-right-zero" >
+    <div class="row pad-none">
+        <label for="lastname">*Last Name</label><br /> 
+        <apex:inputText id="lastName" value="{!c.lastName}" onchange="form_validated = formValidate($(this));" label="Last Name" styleClass="itaFormField required"/><br />
+        <apex:outputPanel layout="block" styleClass="error-msg"></apex:outputPanel>
+    </div>
+    </div>
+    
+    <div class="col-md-12 pad-right-zero pad-left-zero">
+    <div class="row pad-none">
+    <label for="email">*E-mail</label><br />    
+    <apex:inputText value="{!c.email}" onchange="form_validated = formValidate($(this));" label="{!$Label.site.email}" styleClass="itaFormField required email" /><br />
+    <apex:outputPanel layout="block" styleClass="error-msg"></apex:outputPanel>
+    </div>
+    </div>
+
+    <div class="col-md-12 pad-right-zero pad-left-zero">
+    <div class="row pad-none">
+    <label for="password">*Password</label><br />    
+    <apex:inputSecret id="password" value="{!password}" styleClass="itaFormField"/><br />
+
+                    <div id="pswd_info">
+                                    <h5>Password must have:</h5>
+                                    <ul style="list-style-type:none;">
+                                        <li id="pswd_length" class="invalid">At least <strong>{!minimumPasswordCharacters} characters</strong></li>
+                                        <li id="pswd_lowerCase" class="invalid" style="display:{!IF(passwordRequireLowerCase, 'block', 'none')}">At least <strong>one lower case letter</strong></li>
+                                        <li id="pswd_upperCase" class="invalid" style="display:{!IF(passwordRequireUpperCase, 'block', 'none')}">At least <strong>one upper case letter</strong></li>
+                                        <li id="pswd_number" class="invalid" style="display:{!IF(passwordRequireNumeric, 'block', 'none')}">At least <strong>one number</strong></li>
+                                        <li id="pswd_specialChar" class="invalid" style="display:{!IF(passwordRequireSpecialChar, 'block', 'none')}">At least <strong>one special character</strong></li>
+                                    </ul>
+                                </div>
+</div>
+</div>
+
+    <div class="col-md-12 pad-right-zero pad-left-zero">
+    <div class="row pad-none">
+    <label for="confirmpassword">*Confirm Password</label><br />    
+    <apex:inputSecret id="confirmPassword" value="{!confirmPassword}" styleClass="itaFormField"/><br />
+    
+    
+    
+    </div>
+    </div>
+    
+    <hr/>
+   
+    
+    <div class="col-md-6 pad-left-zero" >
+    <div class="row pad-none">
+    <label for="registrationtype">*Organization Type</label><br />    
+    <apex:selectList id="accounttype" onchange="displaydiv(this.value); form_validated = formValidate($(this)); ShowHideOrgName();" value="{!a.Account_Type__c}" styleClass="itaFormField required" size="1" style="height:50px;">
+        <apex:selectOption itemLabel="--None--" itemValue="" />
+        <apex:selectOptions value="{!accountTypeOptions}" />
+    </apex:selectList>
+    <apex:outputPanel layout="block" styleClass="error-msg"></apex:outputPanel>
+    </div>
+    </div>
+    
+        <div id="company" class="{!if(a.Account_Type__c = 'Researcher', ' hidden-lg hidden-md hidden-sm hidden-xs', '')}">
+    <apex:outputpanel id="OrgName" layout="block" styleclass="col-md-6 pad-right-zero" >
+    <div class="row pad-none">
+    <label for="company">*Organization Name</label><br />    
+    <apex:inputText id="companyname" value="{!a.Name}" onchange="form_validated = formValidate($(this));" label="company name" maxlength="80" styleClass="itaFormField {!if(a.Account_Type__c != 'Researcher', 'required', '')}"/><br />
+    <apex:outputPanel layout="block" styleClass="error-msg"></apex:outputPanel>
+    </div>
+    </apex:outputpanel>
+    </div>
+    
+    <div class="col-md-6 pad-left-zero" >
+    <div class="row pad-none">
+    <label for="country">*Country</label><br />    
+    <apex:inputField id="companyCountry" onchange="rerender(this.value);  form_validated = formValidate($(this));" label="company country" value="{!a.BillingCountryCode}" styleClass="itaFormField required" /> 
+    <apex:outputPanel layout="block" styleClass="error-msg"></apex:outputPanel>
+    </div>
+    </div>
+    
+
+
+    <div id="zippy" class="col-md-6 pad-right-zero" >
+    <div class="row pad-none">
+    <label for="postalcode">*Postal Code</label><br />    
+  <apex:inputText id="companyzip" value="{!a.BillingPostalCode}" maxlength="10" label="company zip" onchange="form_validated = formValidate($(this));" styleClass="itaFormField required zip"/>
+  <apex:outputPanel layout="block" styleClass="error-msg"></apex:outputPanel>
+            <apex:actionFunction name="rerenderpostalcode" rerender="postalcode" /> 
+    </div>
+    </div>
+    
+    <script>
+        var captchaCallback = function() {
+            grecaptcha.reset();
+        };
+    </script>
+    
+<div class="row pad-none" >
+<div class="col-md-12 pad-both-zero" >
+    
+       <div id="captchadiv" class="g-recaptcha pull-left" data-sitekey="{!captcha_Site_Key}" style="transform:scale(0.8);-webkit-transform:scale(0.8);transform-origin:0 0;-webkit-transform-origin:0 0;"></div>
+    </div>  
+  </div>
+  
+    
+    <div class="row pad-none" >
+    <div class="col-md-12 pad-left-zero" >   
+      <apex:commandButton action="{!newContact}" oncomplete="captchaCallback();jump();" value="Sign Up" id="RegisterPage1" styleClass="itaLoginBtn pull-left" style="width:100px;border-radius:4px;text-transform:none;" onclick="console.log('1:' + !form_validated ); console.log('2: '+!validateAllRequiredFields()); if(!form_validated || !validateAllRequiredFields()){ return false;}" status="busyOverlay" reRender="messageWrapper"/>
+    <br/><br/>
+    <div class="itaFormLabel">ITA Employee? <a href="{!EmployeeLoginLink}">Log In</a></div>
+    </div> 
+    </div>  
+    
+         
+
+      </div>
+      </div></div>
+
+            </div>
+            </apex:outputpanel>
+            
+
+
+
+<apex:outputpanel layout="block" styleClass="containerInternal enforceHeight" >
+<div class="col-md-6 col-md-pull-6 col-sm-12 intro reglayout_zeropad" id="leftside">
+
+      <div class="blupromoside" >
+      
+        <br/><br/>
+           <!-- --Logo Branding Start-- -->
+        <!--<div id="logo_wrapper" class="col-md-12">
+                    <center><img id="logo" class="standard_logo" src="/resource/1471565135000/logos/logos/ITA-Emblem.png" width="200" alt="Trade Community" border="0" name="logo"/></center>
+        </div>-->
+    <!-- --Log0 Branding End-- -->
+    <div class="itaFormBox ">
+        <h2 class="itaFormHeaderblu">Welcome to {!webSite}</h2>
+        
+        
+ <apex:outputpanel layout="block" rendered="{!webSite == 'Export.gov'}">
+<p class="lead itaFormHeaderblu" >Thank you for your interest in Export.gov administered by the U.S. Department of Commerce's International Trade Administration (ITA). </p>
+        <ul class="lead itaFormHeaderblu">
+            
+            <li class="itaFormHeaderblu">Registering with Export.gov allows U.S. companies to take advantage of online government services that help businesses expand in global markets.</li>
+            
+            <li class="itaFormHeaderblu">ITA currently offers the following service to U.S. companies that create an account on Export.gov: 
+              <ul>
+                <li class="itaFormHeaderblu"><a href="https://www.export.gov/industries">Industry Toolkits </a></li>
+              </ul>
+            </li>
+              <li class="itaFormHeaderblu">We anticipate adding new online service offerings in 2018.</li>
+            
+            </ul> 
+</apex:outputpanel>
+
+
+<apex:outputpanel layout="block" rendered="{!webSite == 'Privacy Shield'}">
+<ul class="lead itaFormHeaderblu">
+        <li class="itaFormHeaderblu">Thank you for your interest in the EU-U.S. and Swiss-U.S. Privacy Shield Frameworks administered by the U.S. Department of Commerce's International Trade Administration (ITA)</li>
+
+        <li class="itaFormHeaderblu">Register today to self-certify to the Privacy Shield Principles. Please begin by logging in if you are already an ITA community member; otherwise, please begin by signing up to become one</li>
+
+        <li class="itaFormHeaderblu">If you have any questions concerning the Privacy Shield self-certification process, please contact the Privacy Shield team here: <a href="https://www.privacyshield.gov/assistance">https://www.privacyshield.gov/assistance</a></li>
+</ul> 
+</apex:outputpanel>
+        
+
+        <br/>
+        <hr id="blue_line"/>
+        <br/>
+        
+        <h2 class="itaFormHeaderblu">Single Sign-Up</h2>
+        <p class="lead itaFormHeaderblu">Sign-up today on <span id="sitename">{!webSite}</span> and enjoy access to all the sites operated by the International Trade Administration. One account and credentials will be used across all of our brands.</p>
+<br/>
+        <div class="row reglayout_zeropad">
+         <div class="col-md-6 col-sm-6 col-xs-6">
+        
+        <apex:image alt="white color export logo" url="{!URLFOR($Resource.logos, 'logos/navy2.png')}" /><br/><br/>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6">
+        <apex:image alt="white color selectusa logo" url="{!URLFOR($Resource.logos, 'logos/SelectUSA_logo_2016hr.png')}"/><br/><br/>
+        </div>
+        </div>
+        <br/>
+        <div class="row reglayout_zeropad">
+        <div class="col-md-6 col-sm-6 col-xs-6">
+        <apex:image alt="white color privacy shield logo" url="{!URLFOR($Resource.logos, 'logos/privacy_shield.png')}" width="190"/><br/><br/>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6">
+        <apex:image alt="white color stopfakes logo" url="{!URLFOR($Resource.logos, 'logos/stop_fakes.png')}"/><br/><br/>
+        </div>
+        </div>
+</div>
+</div>
+
+</div>
+</apex:outputpanel>
+
+
+      
+      </apex:form>
+
+    </div>
+    </div><!-- /.container -->   
+    
+    
+</apex:define>
+</apex:composition>
+</apex:page>

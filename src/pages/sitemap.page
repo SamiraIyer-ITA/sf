@@ -1,0 +1,13 @@
+<apex:page applyBodyTag="false" controller="SiteMap_Controller" applyHtmlTag="false" showHeader="false" contentType="application/xml" >{!xml}
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <apex:repeat value="{!pages}" var="page">
+        <url>
+            <loc>https://{!domain}{!if(!isBlank(HTMLENCODE(page.Clean_URL__c)), page.Clean_URL__c, '?id='+page.id)}</loc>
+            <changefreq>{!if(!isblank(page.Update_Frequency__c), page.Update_Frequency__c ,'monthly')}</changefreq>
+            <lastmod>{!year(datevalue(page.lastmodifieddate))}-{!lpad(text(month(datevalue(page.lastmodifieddate))), 2, '0')}-{!lpad(text(day(datevalue(page.lastmodifieddate))), 2, '0')}</lastmod>
+            <priority>1.0</priority>
+        </url>
+    </apex:repeat>
+</urlset>
+</apex:page>

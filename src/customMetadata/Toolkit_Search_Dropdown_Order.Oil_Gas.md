@@ -4,7 +4,7 @@
     <protected>false</protected>
     <values>
         <field>Category__c</field>
-        <value xsi:type="xsd:double">3.0</value>
+        <value xsi:type="xsd:double">4.0</value>
     </values>
     <values>
         <field>Class__c</field>
@@ -12,7 +12,7 @@
     </values>
     <values>
         <field>Offering__c</field>
-        <value xsi:type="xsd:double">6.0</value>
+        <value xsi:type="xsd:double">5.0</value>
     </values>
     <values>
         <field>Primary_Web_Resource__c</field>
@@ -20,10 +20,10 @@
     </values>
     <values>
         <field>Related_Web_Resource__c</field>
-        <value xsi:type="xsd:double">5.0</value>
+        <value xsi:type="xsd:double">6.0</value>
     </values>
     <values>
         <field>Solution__c</field>
-        <value xsi:type="xsd:double">4.0</value>
+        <value xsi:type="xsd:double">3.0</value>
     </values>
 </CustomMetadata>

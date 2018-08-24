@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>PrivacyShield</name>
+    <queueMembers>
+        <users>
+            <user>alysha.taylor@trade.gov</user>
+            <user>andres.lahiguera@trade.gov</user>
+            <user>andrew.steele@trade.gov</user>
+            <user>blake.murray@trade.gov</user>
+            <user>david.ritchie@trade.gov</user>
+            <user>grace.harter@trade.gov</user>
+            <user>joshua.blume@trade.gov</user>
+            <user>michelle.sylvester-jose@trade.gov</user>
+            <user>nasreen.djouini@trade.gov</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

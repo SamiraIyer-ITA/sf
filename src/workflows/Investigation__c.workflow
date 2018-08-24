@@ -45,11 +45,7 @@
         </actions>
         <active>true</active>
         <description>This workflow rule updates the concatenated text field on Investigation with, Commodity, Country and ADCVD Case Type.</description>
-        <formula>AND($Setup.Master_Automation__c.WorkflowRulesEnabled__c == true, (IF( ISNEW() || 
-( ISCHANGED( ADCVD_Case_Type__c ) 
-|| ISCHANGED( Country__c ) 
-|| ISCHANGED( Commodity__c ) ) 
-, True, False)))</formula>
+        <formula>AND($Setup.Master_Automation__c.WorkflowRulesEnabled__c == true, (IF( ISNEW() ||  ( ISCHANGED( ADCVD_Case_Type__c )  || ISCHANGED( Country__c )  || ISCHANGED( Commodity__c ) )  , True, False)))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

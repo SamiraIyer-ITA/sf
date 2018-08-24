@@ -1,0 +1,331 @@
+<apex:page sidebar="false" showHeader="false" action="{!redirectForInactive}"  controller="provider" applyBodyTag="false" applyHtmlTag="false"> 
+ <apex:composition template="Site_Template">
+     <apex:define name="page">
+     <link href="{!URLFor($Resource.ps, 'ps/provider.css')}" rel="stylesheet" />
+     <style>
+     blockquote {
+     margin: 0;
+     padding: 0;
+     }
+     
+     </style>
+     <script>
+jQuery(document).ready(function($) {  
+$(window).load(function(){
+    $('#preloader').fadeOut('slow',function(){$(this).remove();});
+});
+});
+</script>
+<script>
+function spinLoad(this1)
+{
+  //alert('asdasd');
+  this1.disabled=true; 
+  this1.innerHTML='<div id="preloader"></div>';
+}
+</script>   
+<script language="javascript">
+function jump(){
+    window.scrollTo(0,0);
+}
+</script>
+
+<apex:actionStatus id="busyOverlay" onStart="spinLoad(this)" onStop="remove()"/>
+
+ <div class="container-fluid" id="reglayout">
+    <div class="row reglayout_zeropad">
+    
+<apex:outputpanel layout="block" styleClass="row containerInternal enforceHeight" rendered="{!NotFoundDisplayMessage != null}" >
+ <apex:outputpanel layout="block" styleClass="col-md-12 text-center" >   
+    <apex:outputtext escape="false" value="{!NotFoundDisplayMessage}" />
+ </apex:outputpanel>  
+</apex:outputpanel>
+<ol class="breadcrumb" id="breadcrumbs">
+<apex:outputpanel layout="block" styleClass="containerInternal enforceHeight" rendered="{!NotFoundDisplayMessage == null}">
+<ol class="breadcrumb" id="breadcrumbs2">
+  <li><a href="/toolkitSearch?program={!application.program__r.id}">{!application.program__r.name} Toolkit Search</a></li>
+  <li class="active">{!application.program__r.name}</li>
+  <li >Provider Profile: {!application.Public_Display_Name__c}</li>
+    </ol>
+</apex:outputpanel>
+</ol>
+    
+<apex:outputpanel layout="block" styleClass="containerInternal enforceHeight" rendered="{!NotFoundDisplayMessage == null}" >  
+<div class=" col-md-6 col-sm-12 reglayout_zeropad" id="leftside">
+<apex:form >
+    
+        <apex:outputpanel id="pagecontent">        
+      <div class="blupromoside" >
+       <br/>       
+   <apex:outputpanel rendered="{!availablelanguages.size > 1}" layout="block" styleClass="row pad-none" >
+   
+    
+    <apex:outputpanel styleClass="col-md-5 pad-none">
+    <label>Translate this page into</label>
+    <apex:selectList value="{!SelectedLanguage}" styleClass="itaFormField" style="height:50px;" id="language-form" size="1" >
+        <apex:selectoptions value="{!availableLanguages}"/>
+        <apex:actionSupport event="onchange" action="{!translate}" status="busyOverlay" reRender="pagecontent, CasePanel" oncomplete="onloadCallback();"/>
+    </apex:selectList>
+    </apex:outputpanel>
+    
+    
+   </apex:outputpanel>
+    
+    <div class="itaFormBox" id="formbox">
+
+        <!--Left    side -->
+        <h2 id="provider-header" dir="{!Translation.Direction}" >{!Translation.Name}</h2>
+       <!--field not needed (buisness request)<p class="lead" >{!application.Purpose__c} </p>-->
+       
+       <p id="purpose" dir="{!Translation.Direction}" >{!Translation.body}</p>
+       
+       <!--///////////////////////////////////////////////////////////////////////////////////////////////////-->
+       <br/>
+           
+        <!--<div>
+            <table cellpadding="10" cellspacing="10" style="width:100%">
+                <tr>
+                    <td>
+                        FAA Contractor
+                    </td>
+                    <td>
+                        <apex:inputField value="{!applicationNew.FAAContractor__c}" >
+                            <apex:actionSupport event="onclick" action="{!contractObjData}" reRender="contractPanel"/>
+                        </apex:inputField>
+                    </td>
+                </tr>
+            </table>
+        </div> -->
+        <apex:outputPanel id="contractPanel" rendered="{!if(applicationNew.FAAContractor__c, true, false)}">
+        <h2 id="provider-subheader"><apex:outputText value="FAA Contract" styleClass="{!IF(Translation.Direction == 'rtl', 'pull-right', '')} rendered = {!if(applicationNew.FAAContractor__c,true,false)}" /></h2>   
+            <!--<table cellpadding="10" cellspacing="10" style="width:100%" >
+                <tr>
+                    
+                    <td>
+                        Products/Services    
+                    </td>
+                </tr>
+                <apex:repeat value="{!contractList}" var="contract">
+                    <tr>
+                        
+                        <td>
+                            <li><apex:outputText value="{!contract.ProductsServices__c}" style="{!IF(Translation.Direction == 'rtl', 'text-right', 'text-align:left')}" /></li>
+                        </td>
+                    </tr>
+                </apex:repeat>
+            </table>-->
+            <p>Products/Services</p>
+            <div  class="row pad-none">
+      
+                <div class="boo">
+                
+                <ul>
+                    <apex:repeat value="{!contractList}" var="contract">
+                          
+                           
+                          <li id="purpose1" dir="{!Translation.Direction}" style="{!IF(Translation.Direction == 'rtl', 'text-right;font-size:15px', 'text-align:left;font-size:15px')}">{!contract.ProductsServices__c}</li>
+                    </apex:repeat>
+                    </ul>
+                </div>
+                   
+            </div>
+        </apex:outputPanel>
+       
+        <!--///////////////////////////////////////////////////////////////////////////////////////////////////-->
+       <br/>
+       <h2 id="provider-subheader"><apex:outputText value="{!FieldTranslations['Solutions Offered']}" styleClass="{!IF(Translation.Direction == 'rtl', 'pull-right', '')}" /></h2>   
+            
+       <div  class="row pad-none">
+      
+<div class="boo">
+<ul>
+    <apex:repeat value="{!Translation.assets}" var="asset">
+          
+           <li id="purpose" dir="{!Translation.Direction}" style="{!IF(Translation.Direction == 'rtl', 'text-right', 'text-align:left')}">{!asset}</li>
+          
+    </apex:repeat>
+    </ul>
+</div>
+   
+</div>
+</div>
+</div>
+    </apex:outputpanel>
+</apex:form>
+
+</div>
+
+
+</apex:outputpanel>
+    
+ 
+
+    <apex:outputpanel layout="block" styleClass="containerInternal enforceHeight" rendered="{!NotFoundDisplayMessage == null}">
+    <div class=" col-md-6 col-sm-12  reglayout_zeropad" id="rightside" >
+
+    <div class="formboxreg">
+        <div id="main_wrapper" class="itaCaseBox itaFormBox">
+
+<br/><br/>
+<hr class="hidden-lg hidden-md hidden-sm"/>
+<apex:outputpanel id="CasePanel">
+        <apex:outputpanel id="messageWrapper">
+           <apex:messages styleClass="alert alert-danger fade in itaNoUL" style="list-style-type:none;"/> 
+        </apex:outputpanel>
+<apex:outputpanel rendered="{!CaseSubmitted}" layout="block" styleClass="row stepbox">
+    <h2><apex:outputText value="{!Translation.ThanksHeader}" styleClass="{!IF(Translation.Direction == 'rtl', 'pull-right', 'pull-left')}" /></h2>
+    <apex:outputtext value="{!Translation.Thanks}" dir="{!Translation.Direction}" escape="false"  />
+</apex:outputpanel>
+<apex:outputpanel rendered="{!!CaseSubmitted}" layout="block" styleClass="row stepbox">
+    
+<!--Right  side -->
+<!--dummy placeholder contact form fields from mockup--> 
+
+<h2 class="itaFormHeader text-center" id="form-header-custom"><apex:outputText value="{!FieldTranslations['Contact']} {!Translation.Name}" /></h2>
+
+<apex:form >
+
+    <div class="col-md-6 pad-left-zero" >
+    <div class="row pad-none">
+        <label for="firstname" class="{!IF(Translation.Direction == 'rtl', 'pull-right', '')}">*{!FieldTranslations['First Name']}</label><br />
+        <apex:inputText styleClass="pad-both-zero itaFormField required" onchange="form_validated = formValidate($(this));" value="{!firstName}" dir="{!Translation.Direction}"/>
+        <apex:outputPanel layout="block" styleClass="error-msg"></apex:outputPanel>
+    </div>
+    </div>
+        
+    <div class="col-md-6 pad-right-zero">
+    <div class="row pad-none">
+        <label for="lastname" class="{!IF(Translation.Direction == 'rtl', 'pull-right', '')}">*{!FieldTranslations['Last Name']}</label><br />
+        <apex:inputText styleClass="itaFormField required" onchange="form_validated = formValidate($(this));" value="{!lastName}" dir="{!Translation.Direction}"/>
+        <apex:outputPanel layout="block" styleClass="error-msg"></apex:outputPanel>
+    </div>
+    </div>
+    
+    <div class="col-md-12 pad-right-zero pad-left-zero">
+    <div class="row pad-none">
+        <label for="email" class="{!IF(Translation.Direction == 'rtl', 'pull-right', 'pull-left')}">*{!FieldTranslations['Email']}</label><br />
+        <apex:inputField styleClass="itaFormField required email" style="{!IF(Translation.Direction == 'rtl', 'text-align:right', 'text-align:left')}" value="{!c.SuppliedEmail}" onchange="form_validated = formValidate($(this));" /> 
+        <apex:outputPanel layout="block" styleClass="error-msg"></apex:outputPanel>
+    </div>
+    </div>
+    
+    <div class="col-md-12 pad-right-zero pad-left-zero">
+    <div class="row pad-none">
+        <label for="title" class="{!IF(Translation.Direction == 'rtl', 'pull-right', 'pull-left')}">*{!FieldTranslations['Title']}</label><br />
+        <apex:inputText styleClass="itaFormField required" id="title" onchange="form_validated = formValidate($(this));" value="{!c.Subject}" dir="{!Translation.Direction}"/> 
+        <apex:outputPanel layout="block" styleClass="error-msg"></apex:outputPanel>
+    </div>
+    </div>
+    
+    <div class="col-md-12 pad-right-zero pad-left-zero">
+    <div class="row pad-none">
+        <label for="companyname" class="{!IF(Translation.Direction == 'rtl', 'pull-right', 'pull-left')}">*{!FieldTranslations['Company or Organization Name']}</label><br />
+        <apex:inputText styleClass="itaFormField required" id="companyname" onchange="form_validated = formValidate($(this));" value="{!c.SuppliedCompany}" dir="{!Translation.Direction}"/> 
+        <apex:outputPanel layout="block" styleClass="error-msg"></apex:outputPanel>
+    </div>
+    </div>
+    
+    
+    <div class="col-md-12 pad-right-zero pad-left-zero">
+    <div class="row pad-none">
+        <label for="phonenumber" class="{!IF(Translation.Direction == 'rtl', 'pull-right', 'pull-left')}">*Phone Number</label><br />
+        <apex:inputText styleClass="itaFormField required phone"  id="phonenumber" onchange="form_validated = formValidate($(this));" value="{!c.SuppliedPhone}" dir="{!Translation.Direction}"/> 
+        <apex:outputPanel layout="block" styleClass="error-msg"></apex:outputPanel>
+    </div>
+    </div>
+     
+    
+    <div class="col-md-12 pad-right-zero pad-left-zero">
+    <div class="row pad-none">
+    <label for="locatedCountry" class="{!IF(Translation.Direction == 'rtl', 'pull-right', 'pull-left')}">*Country in which you are located</label><br />
+    
+       <apex:inputField id="locatedCountry" label="located country" value="{!c.SuppliedCountry__c}" onchange="form_validated = formValidate($(this));" styleClass="itaFormField form-control required"/>
+       <apex:outputPanel layout="block" styleClass="error-msg" ></apex:outputPanel>
+      
+    </div>
+    </div>
+    
+    
+    
+    <div class="col-md-12 pad-right-zero pad-left-zero">
+    <div class="row pad-none">
+    <label for="companyexportingto" class="{!IF(Translation.Direction == 'rtl', 'pull-right', 'pull-left')}">*{!FieldTranslations['Country where you are seeking to import the U.S. product or service']}</label><br />
+    
+    
+       <apex:inputField id="importCountry" label="import country" value="{!c.ImportCountry__c}" onchange="form_validated = formValidate($(this));" styleClass="itaFormField form-control required" />
+       <apex:outputPanel layout="block" styleClass="error-msg"></apex:outputPanel>
+        
+       
+    </div>
+    </div>
+    
+    
+    <div class="col-md-12 pad-right-zero pad-left-zero">
+    <div class="row pad-none">
+    <label for="message" class="{!IF(Translation.Direction == 'rtl', 'pull-right', 'pull-left')}">*{!FieldTranslations['Write a message to this U.S. solution provider']}</label><br />
+    
+    <apex:inputTextarea value="{!c.Description}" html-maxlength="500" onchange="form_validated = formValidate($(this));" onkeyup="calculateRemaining($(this).val(), 500, 'MessageCharacters');"  styleClass="itaFormField col-md-12 required" style="height:200px;" richText="false" rows="5" dir="{!Translation.Direction}" />
+    <apex:outputPanel layout="block" styleClass="error-msg col-md-12"></apex:outputPanel>
+    <small><span id="remaining-chars" class="initiallyHidden"><span id="MessageCharacters">500</span> Characters Remaining</span></small>
+    </div>
+    </div>
+                                    
+        <script>
+function calculateRemaining(text, limit, targetText){
+    console.log(text);
+    console.log(limit);
+    console.log(targetText);
+    var remaining = limit - text.length;
+    $('#'+targetText).parent().show();
+    $('#'+targetText).html(remaining);
+}
+    </script>
+    
+    <script>
+    var onloadCallback = function() {
+        grecaptcha.render('captchadiv', {'sitekey' : '{!captcha_Site_Key}'});
+    };
+    </script>
+    
+    <apex:outputpanel id="CaptchaPanel" layout="block" styleClass="row pad-none" >
+        <div id="captchadiv" class="g-recaptcha pull-left" data-sitekey="{!captcha_Site_Key}" style="transform:scale(0.8);-webkit-transform:scale(0.8);transform-origin:0 0;-webkit-transform-origin:0 0;"></div>
+    </apex:outputpanel>
+    
+    
+    
+    <apex:outputpanel layout="block" styleClass="row pad-none" >                          
+    <apex:commandButton onclick="console.log('1:' + !form_validated ); console.log('2: '+!validateAllRequiredFields()); if(!form_validated || !validateAllRequiredFields()){ return false;}" value="{!FieldTranslations['Send']}" action="{!submitCase}" styleClass="itaLoginBtn  pull-left" style="width:100px;margin:0;" rerender="CasePanel, messageWrapper" oncomplete="jump(); onloadCallback();" status="busyOverlay" />    
+    </apex:outputpanel>
+    
+
+
+       
+       
+</apex:form>
+       <div>
+
+        <br/>
+        <apex:outputpanel layout="block" styleclass="row pad-none"> 
+            <p class="small"><apex:outputtext escape="false" value="{!Translation.DisclaimerText}" /></p>
+        </apex:outputPanel>   
+        </div>
+    </apex:outputpanel>
+    </apex:outputpanel>
+    </div>
+<!--End dummy placeholder contact form fields from mockup--> 
+
+      </div>
+      
+
+            </div>
+            </apex:outputpanel>           
+
+    </div>
+    </div><!-- /.container -->   
+    
+            <br/><br/>
+         </apex:define>
+ </apex:composition>
+ 
+ 
+</apex:page>
