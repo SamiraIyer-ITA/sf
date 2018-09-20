@@ -848,6 +848,16 @@
             <field>Case_ID__c.IP_Case_Origin__c</field>
             <table>WIN__c.Related_Cases_and_Orgs__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Case_ID__c.Related_Case__c</field>
+            <table>WIN__c.Related_Cases_and_Orgs__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Case_ID__c.Related_Case__c.CaseNumber</field>
+            <table>WIN__c.Related_Cases_and_Orgs__r</table>
+        </columns>
         <masterLabel>Related Cases</masterLabel>
     </sections>
 </ReportType>

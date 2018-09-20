@@ -173,6 +173,14 @@
                 <behavior>Edit</behavior>
                 <field>Lotus_Notes_History_Data__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>CreatedById</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>OwnerId</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -350,11 +358,21 @@
         <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
-        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Account__c</fields>
         <fields>Type__c</fields>
         <relatedList>Related_Organization__c.Segment__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>ADCVD_Case__c</fields>
+        <fields>CBP_Case_Number_Text__c</fields>
+        <fields>CBP_Instructions_Category__c</fields>
+        <fields>Message_Date__c</fields>
+        <fields>Message_No__c</fields>
+        <fields>Message_Status__c</fields>
+        <fields>Public_Indicator__c</fields>
+        <relatedList>Custom_Instruction__c.Segment__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

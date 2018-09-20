@@ -194,14 +194,12 @@
         <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
-        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Account__c</fields>
         <fields>Type__c</fields>
         <relatedList>Related_Organization__c.Segment__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>IMN_NO__c</fields>
         <fields>CBP_Instructions_Category__c</fields>

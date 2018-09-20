@@ -1053,6 +1053,8 @@ public class SegmentTriggerHandlerTest {
         System.assertEquals(testCalculated, ssSeg.Update_ACE_Customs_Module__c);
     }
 
+//Commented on 8/26
+/*  
     //sets Update_ACE_Customs_Module__c for 120/240 day Sunset Reviews based on Actual_Revocation_or_Continuation_FR__c
     @isTest static void setSSR_120and240_UpdateAceCustomsModuleActual(){
         Test.startTest();
@@ -1084,6 +1086,7 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals(testActual, ssSeg.Update_ACE_Customs_Module__c);
     }
+*/
 
     //sets Update_ACE_Customs_Module__c for 120/240 day Sunset Reviews based on Published_Date__c
     @isTest static void setSSR_120and240_UpdateAceCustomsModulePublishedDate(){
@@ -1168,6 +1171,9 @@ public class SegmentTriggerHandlerTest {
     }
 
     //sets Issue_Liquidation_Revocation_Instruction__c for 120/240 day Sunset Reviews based on Actual_Revocation_or_Continuation_FR__c
+
+//Commented on 8/26
+/*  
     @isTest static void setSSR_120and240_IssueLiquidationRevocationInstructionActual(){
         Test.startTest();
 
@@ -1199,6 +1205,7 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals(testActual, ssSeg.Issue_Liquidation_Revocation_Instruction__c);
     }
+*/
 
     //sets Issue_Liquidation_Revocation_Instruction__c for 120/240 day Sunset Reviews based on Published_Date__c
     @isTest static void setSSR_120and240_IssueLiquidationRevocationInstructionPublished(){
@@ -2236,6 +2243,8 @@ public class SegmentTriggerHandlerTest {
         System.assertEquals(null, ssSeg.Next_Announcement_Date__c);
     }
 
+//Commented on 8/26
+/*  
     //Next Due to DAS
     @isTest static void setAR_NextDueToDas() {
         Test.startTest();
@@ -2295,6 +2304,9 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals(null, adminSeg.Next_Due_to_DAS_Deadline__c);
     }
+*/
+//Commented on 8/26
+/*  
     //Next Due to DAS
     @isTest static void setER_NextDueToDas() {
         Test.startTest();
@@ -2354,6 +2366,7 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals(null, expedSeg.Next_Due_to_DAS_Deadline__c);
     }
+*/  
 //Next Due to DAS
 /*    @isTest static void setNSR_NextDueToDas() {
         Test.startTest();
@@ -2429,6 +2442,8 @@ public class SegmentTriggerHandlerTest {
         System.assertEquals(null, nsSeg.Next_Due_to_DAS_Deadline__c);
     }
 */
+//Commented on 8/26
+/*
     //Next Due to DAS
     @isTest static void setACR_NextDueToDas_withPrelim() {
         Test.startTest();
@@ -2494,6 +2509,7 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals(null, acSeg.Next_Due_to_DAS_Deadline__c);
     }
+*/  
     //Next Due to DAS
     @isTest static void setACR_NextDueToDas_withoutPrelim() {
         Test.startTest();
@@ -2539,6 +2555,9 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals(null, acSeg.Next_Due_to_DAS_Deadline__c);
     }
+
+//Commented on 8/26
+/*  
     //Next Due to DAS
     @isTest static void setCCR_NextDueToDas_withPrelim() {
         Test.startTest();
@@ -2599,6 +2618,8 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals(null, ccSeg.Next_Due_to_DAS_Deadline__c);
     }
+*/
+    
     //Next Due to DAS
     @isTest static void setCCR_NextDueToDas_withoutPrelim() {
         Test.startTest();
@@ -2643,6 +2664,9 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals(null, ccSeg.Next_Due_to_DAS_Deadline__c);
     }
+    
+//Commented on 8/26
+/*  
     //Next Due to DAS
     @isTest static void setSI_NextDueToDas_withPrelim() {
         Test.startTest();
@@ -2705,6 +2729,8 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals(null, siSeg.Next_Due_to_DAS_Deadline__c);
     }
+*/  
+    
     //Next Due to DAS
     @isTest static void setSI_NextDueToDas_withoutPrelim() {
         Test.startTest();
@@ -2736,6 +2762,9 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals(null, siSeg.Next_Due_to_DAS_Deadline__c);
     }
+
+//Commented on 8/26
+/*  
     //Next Due to DAS
     @isTest static void setSSR_240_NextDueToDas_withPrelim() {
         Test.startTest();
@@ -2779,6 +2808,8 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals(null, ssSeg.Next_Due_to_DAS_Deadline__c);
     }
+*/  
+    
     //Next Due to DAS
     @isTest static void setSSR_90_NextDueToDas_withoutPrelim() {
         Test.startTest();
@@ -2986,6 +3017,9 @@ public class SegmentTriggerHandlerTest {
         System.assertEquals(adminSeg.Calculated_Final_FR_Signature__c, adminSeg.Next_Office_Deadline__c);
 
     }
+    
+//Commented on 8/26
+/* 
     @isTest static void setAR_NextOffice_AmendFinalIssuesDueToDAS(){
         Test.startTest();
 
@@ -3014,6 +3048,9 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals(adminSeg.Amend_Final_Issues_Due_to_DAS__c, adminSeg.Next_Office_Deadline__c);
     }
+*/  
+//Commented on 8/26
+/*
     @isTest static void setAR_NextOffice_AmendFinalConcurrenceDueToDAS(){
         Test.startTest();
 
@@ -3044,6 +3081,9 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals(adminSeg.Amend_Final_Concurrence_Due_to_DAS__c, adminSeg.Next_Office_Deadline__c);
     }
+*/  
+//Commented on 8/26
+/*  
     @isTest static void setAR_NextOffice_CalculatedAmendedFinalSignature(){
         Test.startTest();
 
@@ -3075,6 +3115,10 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals(adminSeg.Calculated_Amended_Final_Signature__c, adminSeg.Next_Office_Deadline__c);
     }
+*/  
+
+//Commented on 8/26
+/*  
     @isTest static void setAR_NextOffice_Null(){
         Test.startTest();
 
@@ -3108,7 +3152,7 @@ public class SegmentTriggerHandlerTest {
         System.assertEquals(null, adminSeg.Next_Office_Deadline__c);
 
     }
-
+*/
     
     //Next Office Deadline
     @isTest static void setER_NextOffice_Prelim() {
@@ -3172,6 +3216,9 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals(expedSeg.Calculated_Final_Signature__c, expedSeg.Next_Office_Deadline__c);
     }
+    
+//Commented on 8/26
+/*  
     @isTest static void setER_NextOffice_AmendFinal() {
         Test.startTest();
 
@@ -3207,6 +3254,8 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals(expedSeg.Calculated_Amended_Final_Signature__c, expedSeg.Next_Office_Deadline__c);
     }
+*/
+    
     @isTest static void setER_NextOffice_Null() {
         Test.startTest();
 
@@ -3249,6 +3298,9 @@ public class SegmentTriggerHandlerTest {
     
         Test.stopTest();
     }
+    
+//Commented on 8/26
+/*  
     @isTest static void setNSR_NextOffice_CalculatedInitiationSignature(){
         Test.startTest();
 
@@ -3264,6 +3316,8 @@ public class SegmentTriggerHandlerTest {
         System.assertEquals(nsSeg.Calculated_Initiation_Signature__c, nsSeg.Next_Office_Deadline__c);
         Test.stopTest();
     }
+*/  
+    
     @isTest static void setNSR_NextOffice_PrelimTeamMeetingDeadline(){
         Test.startTest();
 
@@ -3422,6 +3476,9 @@ public class SegmentTriggerHandlerTest {
         System.assertEquals(nsSeg.Calculated_Final_Signature__c, nsSeg.Next_Office_Deadline__c);
         Test.stopTest();
     }
+    
+//Commented on 8/26
+/*  
     @isTest static void setNSR_NextOffice_AmendFinalIssuesDueToDAS(){
         Test.startTest();
 
@@ -3452,6 +3509,9 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals(nsSeg.Amend_Final_Issues_Due_to_DAS__c, nsSeg.Next_Office_Deadline__c);
     }
+*/  
+//Commented on 8/26
+/*  
     @isTest static void setNSR_NextOffice_AmendFinalConcurrenceDueToDAS(){
         Test.startTest();
 
@@ -3483,6 +3543,8 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals(nsSeg.Amend_Final_Concurrence_Due_to_DAS__c, nsSeg.Next_Office_Deadline__c);
     }
+*/  
+    
     @isTest static void setNSR_NextOffice_CalculatedFinalFRSig(){
         Test.startTest();
 
@@ -4066,6 +4128,9 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals(ssSeg.Calculated_Preliminary_Signature__c, ssSeg.Next_Office_Deadline__c);
     }
+    
+//Commented on 8/26
+/*  
     @isTest static void setSSR_240_NextOffice_withPrelim_Final() {
         Test.startTest();
 
@@ -4100,6 +4165,9 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals(ssSeg.Calculated_Final_Signature__c, ssSeg.Next_Office_Deadline__c);
     }
+*/  
+//Commented on 8/26
+/*  
      @isTest static void setSSR_240_NextOffice_withPrelim_Null() {
         Test.startTest();
 
@@ -4128,6 +4196,7 @@ public class SegmentTriggerHandlerTest {
         System.assertEquals(null, ssSeg.Next_Office_Deadline__c);
 
     }
+*/
     //Next Office Deadline
 /*
     @isTest static void setSSR_90_NextOffice_withoutPrelim() {
@@ -4373,6 +4442,9 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals('Customs', adminSeg.Status__c);
     }
+
+    //Commented on 8/26
+/*  
     @isTest static void setAR_Status_Closed() {
         Test.startTest();
 
@@ -4394,7 +4466,7 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals('Closed', adminSeg.Status__c);    
     }
-
+*/
     @isTest static void setER_Status_Preliminary() {
         Test.startTest();
 
@@ -4746,6 +4818,8 @@ public class SegmentTriggerHandlerTest {
         System.assertEquals('Prelim', acSeg.Status__c);
     }
 
+//Commented on 8/26
+/*    
     @isTest static void setACR_Status_Final() {
         Test.startTest();
         setStartDates();
@@ -4765,7 +4839,8 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals('Final', acSeg.Status__c);
     }
-
+*/
+    
     @isTest static void setACR_Status_Hold() {
         Test.startTest();
         setStartDates();
@@ -5034,6 +5109,9 @@ public class SegmentTriggerHandlerTest {
         System.assertEquals('Closed',  ssSeg.Status__c);
     }
 */
+
+//Commented on 8/26
+/*
     @isTest static void setSSR_240_Status() {
         Test.startTest();
 
@@ -5086,7 +5164,7 @@ public class SegmentTriggerHandlerTest {
         
         System.assertEquals('Closed',  ssSeg.Status__c);
     }
-
+*/
 
     @testSetup static void dataSetup() {
         //create custom setting configuration to activate triggers, workflow rules, and validation rules

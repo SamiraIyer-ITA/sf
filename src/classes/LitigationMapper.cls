@@ -24,7 +24,6 @@ public without sharing class LitigationMapper implements ADCVD_IMapper {
 	}
 	public static LitigationMapper getInstance () {
 		if (instance == null) {
-			System.debug('LitigationMapper instance: ' + instance);
 			return getNewInstance();
 		}
 		return instance;

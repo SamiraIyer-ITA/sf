@@ -415,6 +415,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ILitigationSelector</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>Insight</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -449,6 +453,10 @@
     <classAccesses>
         <apexClass>Landing_Controller</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Landing_Controller2</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>LayoutDescriberHelper</apexClass>
@@ -644,6 +652,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>RefundController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>RelatedOrganizationMapper</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -884,6 +896,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TEST_URLRewriter</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TEST_URLRewriter2</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1377,6 +1393,10 @@
     <classAccesses>
         <apexClass>urlRewriter</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>urlRewriter2</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <custom>true</custom>
     <description>Custom profile for Customer Community Users.</description>
@@ -2347,6 +2367,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Custom_Instruction__c.ADCVD_Case_Number_Text__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Custom_Instruction__c.ADCVD_Case_Type_Text__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Custom_Instruction__c.ADCVD_Case__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2372,6 +2402,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Custom_Instruction__c.CBP_Case_Number_Text__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Custom_Instruction__c.CBP_Instructions_Category__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2382,12 +2417,32 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Custom_Instruction__c.Case_Concat_Text__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Custom_Instruction__c.Commodity_Text__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Custom_Instruction__c.Countervailed_Programs__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Custom_Instruction__c.Country__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Custom_Instruction__c.Country_in_which_factors_were_valued__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Custom_Instruction__c.Customs_Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2422,7 +2477,47 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Custom_Instruction__c.Message_Period_Covered_Begin_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Custom_Instruction__c.Message_Period_Covered_End_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Custom_Instruction__c.Message_Period_of_Review_Begin_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Custom_Instruction__c.Message_Period_of_Review_End_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Custom_Instruction__c.Message_Status__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Custom_Instruction__c.Petition__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Custom_Instruction__c.Product_Short_Name_Text__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Custom_Instruction__c.Product_Text__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Custom_Instruction__c.Public_Indicator__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5837,7 +5932,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Related_Organization__c.ADCVD_Case_Number_Text__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Related_Organization__c.ADCVD_Case_Number__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Related_Organization__c.ADCVD_Case_Type_Text__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5862,12 +5967,32 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Related_Organization__c.CBP_Case_Number_Text__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Related_Organization__c.CBP_Case_Number__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Related_Organization__c.Case_Concat_Text_Values__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Related_Organization__c.Case_Concat_Text__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Related_Organization__c.Commodity_Text__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Related_Organization__c.Country_Text__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5883,6 +6008,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Related_Organization__c.Exporter__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Related_Organization__c.IO_Parent__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5932,7 +6062,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Related_Organization__c.Product_Short_Name_Text__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Related_Organization__c.Product_Short_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Related_Organization__c.Product_Text__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9802,6 +9942,14 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>Site_Template2</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>Site_Template2_css</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>StaffingAssignment</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -9938,6 +10086,10 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>landing2</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>mrlsearch</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -9956,6 +10108,10 @@
     <pageAccesses>
         <apexPage>page</apexPage>
         <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>page2</apexPage>
+        <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>pageforbidden</apexPage>
@@ -10506,6 +10662,10 @@
     <tabVisibilities>
         <tab>Content__c</tab>
         <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Custom_Instruction__c</tab>
+        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Decision_Log__c</tab>

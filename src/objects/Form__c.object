@@ -270,6 +270,7 @@
         <columns>Header__c</columns>
         <columns>Preview__c</columns>
         <columns>Product_Catalog__c</columns>
+        <columns>OBJECT_ID</columns>
         <columns>Case_RecordType__c</columns>
         <columns>LAST_UPDATE</columns>
         <filterScope>Everything</filterScope>

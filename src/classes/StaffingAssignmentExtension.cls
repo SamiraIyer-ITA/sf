@@ -35,7 +35,8 @@ public without sharing class StaffingAssignmentExtension {
     public SObject parentRecord {get {
         if (parentRecord == null && parentId != null) {
             String soqlQuery = 'SELECT Id, ADCVD_Case_Number__c, ADCVD_Case_Type__c, Country__c, Product__c FROM ';
-            soqlQuery += parentSObjectType;
+            String soqlQueryRO = 'SELECT Id,ADCVD_Case_Number_Text__c,Commodity_Text__c,ADCVD_Case_Type_Text__c,CBP_Case_Number_Text__c,Country_Text__c,Product_Text__c,Product_Short_Name_Text__c FROM ';
+            soqlQuery = (parentSObjectType == 'Related_Organization__c')? (soqlQueryRO += parentSObjectType): (soqlQuery+=parentSObjectType);
             soqlQuery += ' WHERE Id =: parentId';
             System.debug('soqlQuery: '+ soqlQuery);
             List<SObject> tempList = database.query(soqlQuery);
@@ -356,7 +357,7 @@ public without sharing class StaffingAssignmentExtension {
                 for (Related_Organization__c r : [SELECT Id FROM Related_Organization__c 
                                                 WHERE Investigation__c =: parentId
                                                 OR Petition__c =: parentId
-                                                OR Legal_Representation__c =: parentId
+                                                //OR Legal_Representation__c =: parentId
                                                 OR Segment__c =: parentId]) {
                     parentIdSet.add(r.Id);
                 }

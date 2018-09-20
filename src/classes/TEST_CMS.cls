@@ -613,4 +613,105 @@ public class TEST_CMS{
         system.assertEquals(controller.getPages().size(), 2);
         system.assertEquals(controller.getXML(), '<?xml version="1.0" encoding="UTF-8"?>');
     }
+
+    public static testMethod void Landing2(){
+        //NOTE:  This test assumes that the previous tests pass, and so uses the setup data that was also used in SingleSiteDomain() test method.
+        //The navigation in this test sets up a single page but does not create content as it is only testing the navigation links.
+        Site__c site = new Site__c();
+        site.name = 'Export';
+        site.domain__c = URL.getSalesforceBaseUrl().getHost();
+        site.title__c = 'Export.gov';
+        site.Site_CSS__c = '/css/sample.css' ;
+        site.site_logo__c = '/img/sample.png';
+        site.UseAsDefault__c = false;
+        insert site;
+        Navigation_Group__c[] groups = new Navigation_Group__c[]{};
+        groups.add(new Navigation_Group__c(Site__c = site.id, name = 'Test'));
+        insert groups;
+        Page__c home = new Page__c(name = 'Test Home Page');
+        insert home;
+        Section__c section = new Section__c(name='section 1', page__c = home.id);
+        insert section;
+        Page__c pg = new Page__c(name = 'Test Page', section__c = section.id);
+        insert pg;
+        Content__c content = new Content__c(content__c = '<h1>Hello World!</h1>');
+        insert content;
+        Page_Content__c pc = new Page_Content__c(page__c = pg.id, content__c = content.id);
+        insert pc;
+        Navigation_Link__c link = new Navigation_Link__c(Navigation_Group__c = groups[0].id, Page__c=pg.id);
+        insert link;
+        PageReference pageRef = Page.landing;
+        Test.setCurrentPage(pageRef);
+        Site_Template_Controller controller = new Site_Template_Controller();
+        Landing_Controller2 landing = new Landing_Controller2();
+        landing.redirect();
+    }
+
+    public static testMethod void Landing_withPage2(){
+        //NOTE:  This test assumes that the previous tests pass, and so uses the setup data that was also used in SingleSiteDomain() test method.
+        //The navigation in this test sets up a single page but does not create content as it is only testing the navigation links.
+        Page__c pg = new Page__c(name = 'Test Page');
+        insert pg;
+        Site__c site = new Site__c();
+        site.name = 'Export';
+        site.domain__c = URL.getSalesforceBaseUrl().getHost();
+        site.title__c = 'Export.gov';
+        site.Site_CSS__c = '/css/sample.css' ;
+        site.site_logo__c = '/img/sample.png';
+        site.UseAsDefault__c = false;
+        site.default_page__c = pg.id;
+        insert site;
+        Navigation_Group__c[] groups = new Navigation_Group__c[]{};
+        groups.add(new Navigation_Group__c(Site__c = site.id, name = 'Test'));
+        insert groups;
+        Page__c home = new Page__c(name = 'Test Home Page');
+        insert home;
+        Section__c section = new Section__c(name='section 1', page__c = home.id);
+        insert section;
+        Content__c content = new Content__c(content__c = '<h1>Hello World!</h1>');
+        insert content;
+        Page_Content__c pc = new Page_Content__c(page__c = pg.id, content__c = content.id);
+        insert pc;
+        Navigation_Link__c link = new Navigation_Link__c(Navigation_Group__c = groups[0].id, Page__c=pg.id);
+        insert link;
+        PageReference pageRef = Page.landing;
+        Test.setCurrentPage(pageRef);
+        Site_Template_Controller controller = new Site_Template_Controller();
+        Landing_Controller2 landing = new Landing_Controller2();
+        landing.redirect();
+    }
+
+    public static testMethod void Landing_withRedirect2(){
+        //NOTE:  This test assumes that the previous tests pass, and so uses the setup data that was also used in SingleSiteDomain() test method.
+        //The navigation in this test sets up a single page but does not create content as it is only testing the navigation links.
+        Page__c pg = new Page__c(name = 'Test Page');
+        insert pg;
+        Site__c site = new Site__c();
+        site.name = 'Export';
+        site.domain__c = URL.getSalesforceBaseUrl().getHost();
+        site.title__c = 'Export.gov';
+        site.Site_CSS__c = '/css/sample.css' ;
+        site.site_logo__c = '/img/sample.png';
+        site.UseAsDefault__c = false;
+        site.VisualForce_Redirect__c = 'apex/market_intelligence_latest';
+        insert site;
+        Navigation_Group__c[] groups = new Navigation_Group__c[]{};
+        groups.add(new Navigation_Group__c(Site__c = site.id, name = 'Test'));
+        insert groups;
+        Page__c home = new Page__c(name = 'Test Home Page');
+        insert home;
+        Section__c section = new Section__c(name='section 1', page__c = home.id);
+        insert section;
+        Content__c content = new Content__c(content__c = '<h1>Hello World!</h1>');
+        insert content;
+        Page_Content__c pc = new Page_Content__c(page__c = pg.id, content__c = content.id);
+        insert pc;
+        Navigation_Link__c link = new Navigation_Link__c(Navigation_Group__c = groups[0].id, Page__c=pg.id);
+        insert link;
+        PageReference pageRef = Page.landing;
+        Test.setCurrentPage(pageRef);
+        Site_Template_Controller controller = new Site_Template_Controller();
+        Landing_Controller2 landing = new Landing_Controller2();
+        landing.redirect();
+    }
 }

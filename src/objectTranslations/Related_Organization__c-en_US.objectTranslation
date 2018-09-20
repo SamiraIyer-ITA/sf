@@ -9,8 +9,16 @@
         <value>Interested Organizations</value>
     </caseValues>
     <fields>
+        <label><!-- ADCVD Case_Number --></label>
+        <name>ADCVD_Case_Number_Text__c</name>
+    </fields>
+    <fields>
         <label><!-- ADCVD Case Number --></label>
         <name>ADCVD_Case_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- ADCVD Case Type --></label>
+        <name>ADCVD_Case_Type_Text__c</name>
     </fields>
     <fields>
         <label><!-- ADCVD Case Type --></label>
@@ -46,11 +54,27 @@
     </fields>
     <fields>
         <label><!-- CBP Case Number --></label>
+        <name>CBP_Case_Number_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- CBP Case Number --></label>
         <name>CBP_Case_Number__c</name>
     </fields>
     <fields>
         <label><!-- Case Concat Text Values --></label>
         <name>Case_Concat_Text_Values__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Concat Text --></label>
+        <name>Case_Concat_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commodity --></label>
+        <name>Commodity_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>Country_Text__c</name>
     </fields>
     <fields>
         <label><!-- Country --></label>
@@ -67,6 +91,10 @@
     <fields>
         <label><!-- Exporter --></label>
         <name>Exporter__c</name>
+    </fields>
+    <fields>
+        <label><!-- IO Parent --></label>
+        <name>IO_Parent__c</name>
     </fields>
     <fields>
         <label><!-- Investigation --></label>
@@ -110,10 +138,18 @@
     </fields>
     <fields>
         <label><!-- Product Short Name --></label>
+        <name>Product_Short_Name_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Short Name --></label>
         <name>Product_Short_Name__c</name>
     </fields>
     <fields>
         <label><!-- Product --></label>
+        <name>Product_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Deprecated --></label>
         <name>Product__c</name>
     </fields>
     <fields>

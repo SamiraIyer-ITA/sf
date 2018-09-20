@@ -53,8 +53,8 @@ public class ParentValuesServiceTest {
 	private static Related_Organization__c testRelOrg {
 		get {
 			if (testRelOrg == null) {
-				testRelOrg = [SELECT Id, Litigation__c, Petition__c, Investigation__c, ADCVD_Case_Number__c, Country__c, Litigation__r.Petition__c, Litigation__r.Investigation__c, Litigation__r.Segment__c 
-								FROM Related_Organization__c WHERE Litigation__c =: testRemand.Id LIMIT 1];
+				testRelOrg = [SELECT Id, Litigation__c, Petition__c, Investigation__c, ADCVD_Case_Number_Text__c, Country_Text__c, Litigation__r.Petition__c, Litigation__r.Investigation__c, Litigation__r.Segment__c 
+								FROM Related_Organization__c WHERE Investigation__c =: iAD.Id LIMIT 1];
 			}
 			return testRelOrg;
 		} set;
@@ -81,10 +81,10 @@ public class ParentValuesServiceTest {
 	@isTest static void getParentSObjectType() {
 		Test.startTest();
 		Test.stopTest();
-		System.assertEquals(iAD.ADCVD_Case_Number__c, testInvestigationSA.ADCVD_Case_Number__c);
+		System.assertEquals(iAD.ADCVD_Case_Number__c, testInvestigationSA.ADCVD_Case_Number__c );
 		System.assertEquals(iAD.Country__c, testInvestigationSA.Country__c);
 		System.assertEquals(iAD.Product__c, testInvestigationSA.Product__c);
-		System.assertEquals(iAD.ADCVD_Case_Number__c, testRelOrgSA.ADCVD_Case_Number__c);
+		System.assertEquals(iAD.ADCVD_Case_Number__c, testRelOrgSA.ADCVD_Case_Number__c );
 		System.assertEquals(iAD.Country__c, testRelOrgSA.Country__c);
 		System.assertEquals(iAD.Product__c, testRelOrgSA.Product__c);
 	}
@@ -97,18 +97,17 @@ public class ParentValuesServiceTest {
         //create test data
 		User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
 		ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
-		ADCVD_Case__c testCVDCase = TestUtils.createADCVDCase('C-123-123', 'CVD', true);
+		//ADCVD_Case__c testCVDCase = TestUtils.createADCVDCase('C-123-123', 'CVD', true);
 		Petition__c testADPetition = TestUtils.createPetition(testADCase, petitionDate, true);
-		Petition__c testCVDPetition = TestUtils.createPetition(testCVDCase, petitionDate, true);
+		//Petition__c testCVDPetition = TestUtils.createPetition(testCVDCase, petitionDate, true);
 		Investigation__c testADinvestigation = TestUtils.createInvestigation(testADPetition, true);
-		Investigation__c testCVDinvestigation = TestUtils.createInvestigation(testCVDPetition, true);
-		Litigation__c testLitigation = TestUtils.createLitigation(testADinvestigation.Id, 'Investigation__c', petitionDate, 'Remand', true);
+		//Investigation__c testCVDinvestigation = TestUtils.createInvestigation(testCVDPetition, true);
+		Litigation__c testLitigation = TestUtils.createLitigation(testADinvestigation.Id, 'Investigation__c', petitionDate, 'Remand', false);
+		testLitigation.ADCVD_Case__c = testADCase.Id;
+		insert testLitigation;
 		Account testAccount = TestUtils.createAccount(false);
 		testAccount.BillingState = '';
 		insert testAccount;
-		Related_Organization__c testOrg = new Related_Organization__c (
-			Litigation__c = testLitigation.Id,
-			Account__c = testAccount.Id);
-		insert testOrg;
+		Related_Organization__c testOrg = TestUtils.createRelatedOrg(testADinvestigation, true);
 	}
 }

@@ -3186,7 +3186,6 @@ OR(Final_Extension_of_days__c &gt; 60, Final_Extension_of_days__c &lt; 0)
         <active>true</active>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,And (
 $RecordType.DeveloperName = &quot;AD&quot;, 
-NOT(ISPICKVAL( Petition__r.Petition_Outcome__c , &apos;Self-Initiated&apos;)),
 OR(Prelim_Extension_of_days__c &gt; 50,  Prelim_Extension_of_days__c &lt; 0)
 ))</errorConditionFormula>
         <errorMessage>Preliminary extension # of days on AD Investigation can only range from 1 to 50 days.</errorMessage>

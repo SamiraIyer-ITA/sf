@@ -57,9 +57,12 @@ public without sharing class SegmentTriggerHandler {
 
 	@TestVisible private static Map<Id,String> recordTypeNameMap = new Map<Id,String>();
 	@TestVisible private static Map<Id,ADCVD_Order__c> ordersInScopeMap = new Map<Id,ADCVD_Order__c>();
-	@TestVisible private static Map<Id,Suspension_Agreement__c> suspAgreementsInScopeMap = new Map<Id,Suspension_Agreement__c>();
-    @TestVisible private static Map<Id,ADCVD_FederalRegisterUtility> frUtilMap = new Map<Id,ADCVD_FederalRegisterUtility>();
-	@TestVisible private static String ssrType = '';
+	@TestVisible private static Map<Id,Suspension_Agreement__c> suspAgrmntsInScopeMap = new Map<Id,Suspension_Agreement__c>();
+    @TestVisible private static FederalRegisterMapper frMapper;
+    @TestVisible private static Map<Id, FederalRegisterMapper.MappedFRs> frUtilMap = new Map<Id, FederalRegisterMapper.MappedFRs>();
+    @TestVisible private static ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.mapperMap.get('ADCVD_Case__c');
+    @TestVisible private static SegmentMapper segMapper;
+    @TestVisible private static String ssrType = '';
 	@TestVisible private static Map<Id,List<Litigation__c>> segmentIdToLitigationMap = new Map<Id,List<Litigation__c>>();
 	@TestVisible private static Map<Id,String> segmentIdToLitigationStatusMap = new Map<Id,String>();
 
@@ -70,26 +73,61 @@ public without sharing class SegmentTriggerHandler {
 
 	//Setup Methods used to set class level variables
 	@TestVisible private static void initialize(List<Segment__c> newList, Map<Id,Segment__c> newMap) {
-		recordTypeNameMap = utils.getRecordTypeDeveloperNameMap('Segment__c');
+		Set<Id> caseIdSet = getCaseIdSet(newList);
+        caseMapper = caseMapper.getInstance(caseIdSet);
+        recordTypeNameMap = Utils.getRecordTypeDeveloperNameMap('Segment__c');
+        ADCVD_OrderMapper aos = (ADCVD_OrderMapper) caseMapper.getMapper('ADCVD_Order__c').getInstance();
+        ordersInScopeMap = (Map<Id,ADCVD_Order__c>) caseMapper.getMapper('ADCVD_Order__c').getInstance().getMap(true);
+        Suspension_AgreementMapper sas = (Suspension_AgreementMapper) caseMapper.getMapper('Suspension_Agreement__c').getInstance();
+        suspAgrmntsInScopeMap = (Map<Id,Suspension_Agreement__c>) caseMapper.getMapper('Suspension_Agreement__c').getInstance().getMap(true);
+
 		if(newMap != null) {
-			ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get Segments with an Id
-			frUtilMap = listInstance.utilMap;
+			addNewSegmentToMappers(newMap);
+            frMapper = (FederalRegisterMapper) caseMapper.getMapper('Federal_Register__c').getInstance();
+            frUtilMap = frMapper.getMappedFRs(newMap.keySet(), caseMapper);
 		}
-		findParentsInScopeMap(newList);
 	}
+
+	@TestVisible private static Set<Id> getCaseIdSet (List<Segment__c> newList) {
+        Set<Id> caseIdSet = new Set<Id>();
+        Set<Id> orderIdSet = new Set<Id>();
+        Set<Id> suspAgrmtIdSet = new Set<Id>();
+        for (Segment__c s : newList) {
+            orderIdSet.add(s.ADCVD_Order__c);
+            suspAgrmtIdSet.add(s.Suspension_Agreement__c);
+        }
+        for (ADCVD_Order__c ao : [SELECT ADCVD_Case__c FROM ADCVD_Order__c WHERE Id IN: orderIdSet]) {
+            caseIdSet.add(ao.ADCVD_Case__c);
+        }
+        for (Suspension_Agreement__c sa : [SELECT ADCVD_Case__c FROM Suspension_Agreement__c WHERE Id IN: suspAgrmtIdSet]) {
+            caseIdSet.add(sa.ADCVD_Case__c);
+        }
+        return caseIdSet;
+    }
 
 	@TestVisible private static void setCaseValues(List<Segment__c> newList) {
         ParentValuesService pvs = new ParentValuesService();
-        if (!ordersInScopeMap.isEmpty()) {
-	        for (Segment__c s : newList) {
-	            s = (Segment__c) pvs.setCaseValuesFromParent(ordersInScopeMap.get(s.ADCVD_Order__c), s);
-	        }
-	    }
-	    if (!suspAgreementsInScopeMap.isEmpty()) {
-	        for (Segment__c s : newList) {
-	            s = (Segment__c) pvs.setCaseValuesFromParent(suspAgreementsInScopeMap.get(s.Suspension_Agreement__c), s);
-	        }
-	    }
+        for (Segment__c s : newList) {
+        	if (ordersInScopeMap.containsKey(s.ADCVD_Order__c)) {
+        		s = (Segment__c) pvs.setCaseValuesFromParent(ordersInScopeMap.get(s.ADCVD_Order__c), s);
+        	} else if (suspAgrmntsInScopeMap.containsKey(s.Suspension_Agreement__c)) {
+        		s = (Segment__c) pvs.setCaseValuesFromParent(suspAgrmntsInScopeMap.get(s.Suspension_Agreement__c), s);
+        	}
+        }
+    }
+    @TestVisible private static void addNewSegmentToMappers(Map<Id,Segment__c> newMap) {
+        Map<Id,List<Segment__c>> caseToSegmentMap = new Map<Id,List<Segment__c>>();
+        segMapper = (SegmentMapper) caseMapper.getMapper('Segment__c').getInstance();
+        for (Segment__c s : newMap.values()) {
+            segMapper.addSegmentToMap(s);
+            List<Segment__c> tempList = caseToSegmentMap.get(s.ADCVD_Case__c) != null ?
+                                                   caseToSegmentMap.get(s.ADCVD_Case__c) : new List<Segment__c>();
+            tempList.add(s);
+            caseToSegmentMap.put(s.ADCVD_Case__c, tempList);
+        }
+        for (Id caseId : caseToSegmentMap.keySet()) {
+            caseMapper.setCaseIdToSegmentMap(caseId, caseToSegmentMap.get(caseId));
+        }
     }
 
 	//Syncs Order Fields to Segment only on insert
@@ -175,39 +213,6 @@ public without sharing class SegmentTriggerHandler {
 	/***********************************
 	* Helper Methods
 	***********************************/
-
-	//returns two sets of Ids, mapped to the object type: ADCVD Orders and Suspension Agreements
-    @TestVisible private static Map<String,Set<Id>> findIdsInScope(List<Segment__c> newList) {
-        Map<String,Set<Id>> parentIdsSetMap = new Map<String,Set<Id>>();
-        Set<Id> saIds = new Set<Id>();
-        Set<Id> orderIds = new Set<Id>();
-        for (Segment__c s : newList) {
-        	if (s.ADCVD_Order__c != null) {orderIds.add(s.ADCVD_Order__c);}
-            if (s.Suspension_Agreement__c != null) {saIds.add(s.Suspension_Agreement__c);}
-        }
-        if (!orderIds.isEmpty()) parentIdsSetMap.put('ADCVD_Order__c', orderIds);
-        if (!saIds.isEmpty()) parentIdsSetMap.put('Suspension_Agreement__c', saIds);
-        return parentIdsSetMap;
-    }
-    //returns a map of the parent objects in the form: key = Id, value = parent object
-    //This pulls the parent fields needed via the parent lookup field and adds them to the map
-    @TestVisible private static void findParentsInScopeMap(List<Segment__c> newList) {
-        Map<String,Set<Id>> parentIdsSetMap = findIdsInScope(newList);
-        if (parentIdsSetMap.get('ADCVD_Order__c') != null) {
-        	Set<Id> tempSet = parentIdsSetMap.get('ADCVD_Order__c');
-	        for (ADCVD_Order__c ao : [SELECT Id, ADCVD_Case_Type__c, ADCVD_Case__c 
-	                                    FROM ADCVD_Order__c WHERE Id IN: tempSet]) {
-	            ordersInScopeMap.put(ao.Id, ao);
-	        }
-	    }
-	    if (parentIdsSetMap.get('Suspension_Agreement__c') != null) {
-        	Set<Id> tempSet = parentIdsSetMap.get('Suspension_Agreement__c');
-	        for (Suspension_Agreement__c sa : [SELECT Id, ADCVD_Case_Type__c, ADCVD_Case__c 
-	                                    FROM Suspension_Agreement__c WHERE Id IN: tempSet]) {
-	            suspAgreementsInScopeMap.put(sa.Id, sa);
-	        }
-	    }
-    }
 
 	//Called from mainEntry->calculateSegmentDates for lists
 	@TestVisible private static void setSsrType(List<Segment__c> newList) {
@@ -318,7 +323,7 @@ public without sharing class SegmentTriggerHandler {
 		if (s.Segment_Outcome__c != 'Full Rescission') {return;}
 		Date rescissionPublished = null;
 		if(s.Id != null && frUtilMap != null) {
-			rescissionPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).rescissionPublishedDate : null;
+			rescissionPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).typeToPublishedDateMap.get('Rescission') : null;
 		}
 		if (rescissionPublished == null) {
 			s.addError('You must enter a Rescission Federal Register to set Segment Outcome to "Full Rescission".');
@@ -329,7 +334,7 @@ public without sharing class SegmentTriggerHandler {
 		if (s.Segment_Outcome__c != 'Completed' || recordTypeNameMap.get(s.RecordTypeId) == SCOPE_INQUIRY) {return;}
 		Date finalPublished = null;
 		if(s.Id != null && frUtilMap != null) {
-			finalPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).finalPublishedDate : null;
+			finalPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).typeToPublishedDateMap.get('Final') : null;
 		}
 		if (finalPublished == null || s.Actual_Final_Signature__c == null) {
 			s.addError('You must enter a Final Federal Register and an Actual Final Signature to set Segment Outcome to "Completed".');
@@ -370,7 +375,7 @@ public without sharing class SegmentTriggerHandler {
 	@TestVisible private static void setInitiationStatus(Segment__c s) {
 		Date initPublished = null;
 		if(s.Id != null && frUtilMap != null) {
-			initPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).initiationPublishedDate : null;
+			initPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).typeToPublishedDateMap.get('Initiation') : null;
 		}
 		if (recordTypeNameMap.get(s.RecordTypeId) == ANTI_CIRCUMVENTION_REVIEW) {
 			if (initPublished == null || s.Actual_Initiation_Signature__c == null) {
@@ -399,8 +404,8 @@ public without sharing class SegmentTriggerHandler {
 		Date prelimPublished = null;
 		Date initPublished = null;
 		if(s.Id != null && frUtilMap != null) {
-			prelimPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).preliminaryPublishedDate : null;
-			initPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).initiationPublishedDate : null;
+			prelimPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).typeToPublishedDateMap.get('Preliminary') : null;
+			initPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).typeToPublishedDateMap.get('Initiation') : null;
 		}
 		if (recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW) {		   
 			if ((prelimPublished == null || s.Actual_Preliminary_Signature__c == null) && s.Segment_Outcome__c == null) {
@@ -410,7 +415,7 @@ public without sharing class SegmentTriggerHandler {
 			if ((prelimPublished == null || s.Actual_Preliminary_Signature__c == null) && s.Segment_Outcome__c == null) {
 				s.Status__c = 'Prelim';
 			}
-		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW && s.Administrative_Review_Aligned_To__c == null) {
 			if ((prelimPublished == null || s.Actual_Preliminary_Signature__c == null) && s.Segment_Outcome__c == null) {
 				s.Status__c = 'Prelim';
 			}
@@ -454,9 +459,9 @@ public without sharing class SegmentTriggerHandler {
 		Date prelimPublished = null;
 		Date finalPublished = null;
 		if (s.Id != null && frUtilMap != null) {
-			initPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).initiationPublishedDate : null;
-			prelimPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).preliminaryPublishedDate : null;
-			finalPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).finalPublishedDate : null;
+			initPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).typeToPublishedDateMap.get('Initiation') : null;
+			prelimPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).typeToPublishedDateMap.get('Preliminary') : null;
+			finalPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).typeToPublishedDateMap.get('Final') : null;
 		}
 		if (recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW) {
 			if (prelimPublished != null 
@@ -470,7 +475,7 @@ public without sharing class SegmentTriggerHandler {
 				&& (s.Actual_Final_Signature__c == null || finalPublished == null || s.Segment_Outcome__c == null)) {
 					s.Status__c = 'Final';
 			}
-		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW && s.Administrative_Review_Aligned_To__c == null) {
 			if (prelimPublished != null 
 				&& s.Actual_Preliminary_Signature__c != null 
 				&& (s.Actual_Final_Signature__c == null || finalPublished == null || s.Segment_Outcome__c == null)) {
@@ -535,12 +540,12 @@ public without sharing class SegmentTriggerHandler {
 		Date prelimPublished = null;
 		Date finalPublished = null;
 		if(s.Id != null && frUtilMap != null) {
-			prelimPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).preliminaryPublishedDate : null;
-			finalPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).finalPublishedDate : null;
+			prelimPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).typeToPublishedDateMap.get('Preliminary') : null;
+			finalPublished = frUtilMap.get(s.Id) != null ? frUtilMap.get(s.Id).typeToPublishedDateMap.get('Final') : null;
 		}
 		if (recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW
 			|| recordTypeNameMap.get(s.RecordTypeId) == EXPEDITED_REVIEW
-			|| (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW)) {
+			|| (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW && s.Administrative_Review_Aligned_To__c == null)) {
 			if (prelimPublished != null 
 				&& finalPublished != null 
 				&& s.Actual_Preliminary_Signature__c != null 
@@ -554,7 +559,8 @@ public without sharing class SegmentTriggerHandler {
 	}
 
 	@TestVisible private static void setHoldStatus(Segment__c s) {
-		if ((s.Will_you_Amend_the_Final__c != 'Yes' || s.Actual_Amended_Final_Signature__c != null)) {
+		if ((recordTypeNameMap.get(s.RecordTypeId) != NEW_SHIPPER_REVIEW || s.Administrative_Review_Aligned_To__c == null) 
+			&& (s.Will_you_Amend_the_Final__c != 'Yes' || s.Actual_Amended_Final_Signature__c != null)) {
 			if (s.Litigation_Hold_Expiration_Date__c != null 
 				&& s.Litigation_YesNo__c == null 
 				&& s.Segment_Outcome__c != null) {
@@ -564,22 +570,29 @@ public without sharing class SegmentTriggerHandler {
 	}
 
 	@TestVisible private static void setLitigationStatus(Segment__c s) {
-		if (s.Litigation_YesNo__c == 'Yes' && s.Litigation_Resolved__c == 'No' && s.Segment_Outcome__c != null) {
-			s.Status__c = 'Litigation';
+		if (recordTypeNameMap.get(s.RecordTypeId) != NEW_SHIPPER_REVIEW || s.Administrative_Review_Aligned_To__c == null) {
+			if (s.Litigation_YesNo__c == 'Yes' && s.Litigation_Resolved__c == 'No' && s.Segment_Outcome__c != null) {
+				s.Status__c = 'Litigation';
+			}
 		}
 	}
 
 	@TestVisible private static void setCustomsInstructionsStatus(Segment__c s) {
-		if ((s.Litigation_YesNo__c == 'No' || (s.Litigation_YesNo__c == 'Yes' && s.Litigation_Resolved__c == 'Yes')) 
-			&& s.Have_Custom_Instruction_been_sent__c != 'Yes') { 
-	           s.Status__c = 'Customs';
+		if (recordTypeNameMap.get(s.RecordTypeId) != NEW_SHIPPER_REVIEW || s.Administrative_Review_Aligned_To__c == null) {
+			if ((s.Litigation_YesNo__c == 'No' 
+				|| (s.Litigation_YesNo__c == 'Yes' && s.Litigation_Resolved__c == 'Yes')) 
+				&& s.Have_Custom_Instruction_been_sent__c != 'Yes') { 
+	                s.Status__c = 'Customs';
+	        }
 	    }
 	}
 
 	@TestVisible private static void setClosedStatus(Segment__c s) {
-		if ((s.Litigation_YesNo__c == 'No' || (s.Litigation_YesNo__c == 'Yes' && s.Litigation_Resolved__c == 'Yes')) 
-			&& s.Have_Custom_Instruction_been_sent__c == 'Yes') { 
-	           s.Status__c = 'Closed';
+		if (recordTypeNameMap.get(s.RecordTypeId) != NEW_SHIPPER_REVIEW || s.Administrative_Review_Aligned_To__c == null) {
+			if ((s.Litigation_YesNo__c == 'No' || (s.Litigation_YesNo__c == 'Yes' && s.Litigation_Resolved__c == 'Yes')) 
+				&& s.Have_Custom_Instruction_been_sent__c == 'Yes') { 
+	                s.Status__c = 'Closed';
 	        }
+	    }
 	}
 }

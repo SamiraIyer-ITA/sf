@@ -37,6 +37,7 @@ public without sharing class ADCVD_CaseMapper implements ADCVD_IMapper {
 		mapperMap.put('Segment__c', (ADCVD_IMapper) new SegmentMapper());
 		mapperMap.put('Federal_Register__c', (ADCVD_IMapper) new FederalRegisterMapper());
 		mapperMap.put('Litigation__c', (ADCVD_IMapper) new LitigationMapper());
+		mapperMap.put('Related_Organization__c', (ADCVD_IMapper) new RelatedOrganizationMapper());
 		mapperMap.put('ADCVD_Case__c', (ADCVD_IMapper) new ADCVD_CaseMapper());
 	}
 	//Master map of unlocked cases for execution
@@ -102,6 +103,7 @@ public without sharing class ADCVD_CaseMapper implements ADCVD_IMapper {
 			setCaseIdToOrderMap(ac.Id, ac.ADCVD_Orders__r);
 			setCaseIdToSuspAgrmtMap(ac.Id, ac.Suspension_Agreements__r);
 			setCaseIdToSegmentMap(ac.Id, ac.Segments__r);
+			setCaseIdToLitigationMap(ac.Id, ac.Litigation__r);
 			setCaseIdToFrMap(ac.Id, ac.Federal_Registers__r);
 			setCaseIdToStaffingMap(ac.Id, ac.Staffing_Assignments__r);
 			setCaseIdToRelOrgMap(ac.Id, ac.Interested_Organizations__r);

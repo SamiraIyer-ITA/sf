@@ -3,6 +3,9 @@
     <doesSendEmailToMembers>true</doesSendEmailToMembers>
     <name>Environmental SolutionsToolkit</name>
     <queueMembers>
+        <publicGroups>
+            <publicGroup>Environmental_Tech_Toolkit</publicGroup>
+        </publicGroups>
         <users>
             <user>tracy.gerstle@trade.gov</user>
         </users>

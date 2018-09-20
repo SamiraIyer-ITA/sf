@@ -63,10 +63,34 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
+        <fullName>ADCVD_Case_Number_Text__c</fullName>
+        <description>ADCVD Case Number Text field</description>
+        <externalId>false</externalId>
+        <label>ADCVD Case_Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>ADCVD_Case_Number__c</fullName>
         <externalId>false</externalId>
         <label>ADCVD Case Number</label>
         <length>28</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ADCVD_Case_Type_Text__c</fullName>
+        <description>ADCVD Case Type Text field</description>
+        <externalId>false</externalId>
+        <label>ADCVD Case Type</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -144,6 +168,18 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>CBP_Case_Number_Text__c</fullName>
+        <description>ADCVD CBP Case Number Text field</description>
+        <externalId>false</externalId>
+        <label>CBP Case Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>CBP_Case_Number__c</fullName>
         <externalId>false</externalId>
         <label>CBP Case Number</label>
@@ -162,6 +198,39 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Case_Concat_Text__c</fullName>
+        <description>ADCVD Case Concat Text field</description>
+        <externalId>false</externalId>
+        <label>Case Concat Text</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Commodity_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Commodity</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Country_Text__c</fullName>
+        <description>Country Text field</description>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Country__c</fullName>
@@ -208,6 +277,17 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>IO_Parent__c</fullName>
+        <externalId>false</externalId>
+        <label>IO Parent</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Investigation__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -224,8 +304,18 @@
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Legal Representation</label>
-        <referenceTo>Related_Organization__c</referenceTo>
-        <relationshipName>Related_Organizations</relationshipName>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.Is_Law_Firm__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Interested Organizations</relationshipLabel>
+        <relationshipName>Interested_Organizations</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -305,6 +395,18 @@
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Product_Short_Name_Text__c</fullName>
+        <description>Product Short Name Text field</description>
+        <externalId>false</externalId>
+        <label>Product Short Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Product_Short_Name__c</fullName>
         <externalId>false</externalId>
         <label>Product Short Name</label>
@@ -316,9 +418,21 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Product__c</fullName>
+        <fullName>Product_Text__c</fullName>
+        <description>Product Text field</description>
         <externalId>false</externalId>
         <label>Product</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Deprecated</label>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>

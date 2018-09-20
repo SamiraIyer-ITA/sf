@@ -469,12 +469,12 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Environmental Toolkit --></label>
-            <section>Environmental Toolkit</section>
-        </sections>
-        <sections>
             <label><!-- Purpose --></label>
             <section>Purpose</section>
+        </sections>
+        <sections>
+            <label><!-- Toolkit Details --></label>
+            <section>Toolkit Details</section>
         </sections>
     </layouts>
     <layouts>

@@ -38,7 +38,15 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>FR_Parent__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>OwnerId</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ADCVD_Case__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

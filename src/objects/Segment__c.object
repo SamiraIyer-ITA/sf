@@ -2729,6 +2729,24 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
         <label>All Segments in Litigation</label>
     </listViews>
     <listViews>
+        <fullName>NSRs</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number__c</columns>
+        <columns>Country__c</columns>
+        <columns>ADCVD_Case_Type__c</columns>
+        <columns>Product__c</columns>
+        <columns>Status__c</columns>
+        <columns>Calculated_Final_Signature__c</columns>
+        <columns>Actual_Final_Signature__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Segment__c.New_Shipper_Review</value>
+        </filters>
+        <label>NSRs</label>
+    </listViews>
+    <listViews>
         <fullName>Segment_ClosedLocked_Queue_Segment</fullName>
         <filterScope>Queue</filterScope>
         <label>Segment ClosedLocked Queue</label>
@@ -2754,6 +2772,25 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
         <sharedTo>
             <allInternalUsers></allInternalUsers>
         </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Suspension_Agreement_Segments</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number__c</columns>
+        <columns>Country__c</columns>
+        <columns>ADCVD_Case_Type__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Product__c</columns>
+        <columns>Status__c</columns>
+        <columns>Period_Covered_End_Date__c</columns>
+        <columns>Product_Description__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Office__c</field>
+            <operation>equals</operation>
+            <value>SA</value>
+        </filters>
+        <label>Suspension Agreement Segments</label>
     </listViews>
     <nameField>
         <displayFormat>S-{0000}</displayFormat>

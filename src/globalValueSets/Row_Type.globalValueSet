@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Hero</fullName>
+        <default>false</default>
+        <label>Hero</label>
+    </customValue>
+    <customValue>
+        <fullName>Tagline</fullName>
+        <default>false</default>
+        <label>Tagline</label>
+    </customValue>
+    <customValue>
+        <fullName>Promotional</fullName>
+        <default>false</default>
+        <label>Promotional</label>
+    </customValue>
+    <customValue>
+        <fullName>Key Offerings</fullName>
+        <default>false</default>
+        <label>Key Offerings</label>
+    </customValue>
+    <customValue>
+        <fullName>Announcements</fullName>
+        <default>false</default>
+        <label>Announcements</label>
+    </customValue>
+    <customValue>
+        <fullName>Generic</fullName>
+        <default>true</default>
+        <label>Generic</label>
+    </customValue>
+    <description>The Type of a Row or Row Version.</description>
+    <masterLabel>Row Type</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

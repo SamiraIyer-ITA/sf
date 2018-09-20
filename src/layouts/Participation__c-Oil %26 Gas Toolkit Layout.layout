@@ -55,7 +55,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Environmental Toolkit</label>
+        <label>Toolkit Details</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -254,7 +254,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h35000000ND62</masterLabel>
+        <masterLabel>00ht0000002RNEe</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>2</sizeY>
         <summaryLayoutItems>

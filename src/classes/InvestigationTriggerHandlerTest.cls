@@ -220,6 +220,7 @@ public class InvestigationTriggerHandlerTest {
 
   //setCalcAmendedPrelimDeterminationSig
   //Test has 2 parts that test two dates each: AD and CVD
+  /*
   @isTest static void setCalcAmendedPrelimDeterminationSig() {
     Test.startTest();
     //AD investigation
@@ -271,7 +272,64 @@ public class InvestigationTriggerHandlerTest {
     Test.stopTest();
     System.assertEquals(testActual,
       [SELECT Id, Calc_Amended_Prelim_Determination_Sig__c FROM Investigation__c WHERE Id =: iCVD.Id LIMIT 1].Calc_Amended_Prelim_Determination_Sig__c);
-  }
+  }*/
+  //Above method was split into two parts
+  @isTest static void setADCalcAmendedPrelimDeterminationSig() {
+        Test.startTest();
+        //AD investigation
+        //AD based on calculated
+        System.assertEquals(null, iAD.Calc_Amended_Prelim_Determination_Sig__c);
+        iAD.Amend_the_Preliminary_Determination__c = 'No';
+        update iAD;
+        System.assertEquals(null, [SELECT Id, Calc_Amended_Prelim_Determination_Sig__c FROM Investigation__c WHERE Id =: iAD.Id LIMIT 1].Calc_Amended_Prelim_Determination_Sig__c);
+        iAD.Amend_the_Preliminary_Determination__c = 'Yes';
+        update iAD;
+        iAD = null;//trigger a new query to database
+        //iAD.Actual_Preliminary_Signature__c is null, so compare Calculated_Preliminary_Signature__c
+        testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(iAD.Calculated_Preliminary_Signature__c.addDays(31));
+        System.assertEquals(testCalculated,
+                            [SELECT Id, Calc_Amended_Prelim_Determination_Sig__c FROM Investigation__c WHERE Id =: iAD.Id LIMIT 1].Calc_Amended_Prelim_Determination_Sig__c);
+        
+        //AD based on Actual
+        iAD.Actual_Preliminary_Signature__c = iAD.Calculated_Preliminary_Signature__c.addDays(-14);//set iAD.Actual_Preliminary_Signature__c
+        update iAD;//calculate based on actual
+        iAD = null;//trigger a new query to database
+        //iAD.Actual_Preliminary_Signature__c is set, so compare iAD.Actual_Preliminary_Signature__c
+        testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(iAD.Actual_Preliminary_Signature__c.addDays(31));
+        
+        Test.stopTest();
+        System.assertEquals(testActual,
+                            [SELECT Id, Calc_Amended_Prelim_Determination_Sig__c FROM Investigation__c WHERE Id =: iAD.Id LIMIT 1].Calc_Amended_Prelim_Determination_Sig__c);
+    }
+    @isTest static void setCVDCalcAmendedPrelimDeterminationSig() {
+        Test.startTest();
+        //CVD investigation
+        //CVD based on calculated
+        System.assertEquals(null, iCVD.Calc_Amended_Prelim_Determination_Sig__c);
+        iCVD.Amend_the_Preliminary_Determination__c = 'No';
+        update iCVD;
+        System.assertEquals(null, [SELECT Id, Calc_Amended_Prelim_Determination_Sig__c FROM Investigation__c WHERE Id =: iCVD.Id LIMIT 1].Calc_Amended_Prelim_Determination_Sig__c);
+        iCVD.Amend_the_Preliminary_Determination__c = 'Yes';
+        update iCVD;
+        iCVD = null;//trigger a new query to database
+        //iCVD.Actual_Preliminary_Signature__c is null, so compare Calculated_Preliminary_Signature__c
+        testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(iCVD.Calculated_Preliminary_Signature__c.addDays(31));
+        System.assertEquals(testCalculated,
+                            [SELECT Id, Calc_Amended_Prelim_Determination_Sig__c FROM Investigation__c WHERE Id =: iCVD.Id LIMIT 1].Calc_Amended_Prelim_Determination_Sig__c);
+        
+        //CVD based on Actual
+        iCVD.Actual_Preliminary_Signature__c = iCVD.Calculated_Preliminary_Signature__c.addDays(-14);//set iCVD.Actual_Preliminary_Signature__c
+        update iCVD;//calculate based on actual
+        iCVD = null;//trigger a new query to database
+        //iCVD.Actual_Preliminary_Signature__c is set, so compare iCVD.Actual_Preliminary_Signature__c
+        testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(iCVD.Actual_Preliminary_Signature__c.addDays(31));
+        
+        Test.stopTest();
+        System.assertEquals(testActual,
+                            [SELECT Id, Calc_Amended_Prelim_Determination_Sig__c FROM Investigation__c WHERE Id =: iCVD.Id LIMIT 1].Calc_Amended_Prelim_Determination_Sig__c);
+    }
+    
+    
   //setPrelimTeamMeetingDeadline
   //Test has 2 parts that test two dates each: AD and CVD
   @isTest static void setPrelimTeamMeetingDeadline() {
@@ -1191,7 +1249,13 @@ public class InvestigationTriggerHandlerTest {
     frList.add(testAdPrelimFR);
     Federal_Register__c testCvdPrelimFR = TestUtils.createFR(testCVDinvestigation.Id, 'Investigation__c', testPublishedDate.addDays(140), 'Preliminary', false);
     frList.add(testCvdPrelimFR);
+    //Add initiation federal registers
+    Federal_Register__c testAdInitiationFR = TestUtils.createFR(testADPetition.Id, 'Petition__c', petitionDate, 'Initiation', false);
+    frList.add(testAdInitiationFR);
+    Federal_Register__c testCvdInitiationFR = TestUtils.createFR(testCVDPetition.Id, 'Petition__c', petitionDate, 'Initiation', false);
+    frList.add(testCvdInitiationFR);
     insert frList;
+    
     ADCVD_Order__c testAdOrder = TestUtils.createOrder(testADinvestigation, false);
     orderList.add(testAdOrder);
     ADCVD_Order__c testCvdOrder = TestUtils.createOrder(testCVDinvestigation, false);

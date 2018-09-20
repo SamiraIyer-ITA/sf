@@ -14,4 +14,5 @@
     <tabs>Tolling_Day__c</tabs>
     <tabs>standard-report</tabs>
     <tabs>Staffing_Assignment__c</tabs>
+    <tabs>Custom_Instruction__c</tabs>
 </CustomApplication>

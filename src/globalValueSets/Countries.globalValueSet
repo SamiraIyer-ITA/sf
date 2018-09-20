@@ -1195,6 +1195,41 @@
         <default>false</default>
         <label>Zimbabwe</label>
     </customValue>
+    <customValue>
+        <fullName>Czechoslovakia</fullName>
+        <default>false</default>
+        <label>Czechoslovakia</label>
+    </customValue>
+    <customValue>
+        <fullName>European Community</fullName>
+        <default>false</default>
+        <label>European Community</label>
+    </customValue>
+    <customValue>
+        <fullName>Germany East</fullName>
+        <default>false</default>
+        <label>Germany East</label>
+    </customValue>
+    <customValue>
+        <fullName>Germany West</fullName>
+        <default>false</default>
+        <label>Germany West</label>
+    </customValue>
+    <customValue>
+        <fullName>Hong Kong</fullName>
+        <default>false</default>
+        <label>Hong Kong</label>
+    </customValue>
+    <customValue>
+        <fullName>USSR</fullName>
+        <default>false</default>
+        <label>USSR</label>
+    </customValue>
+    <customValue>
+        <fullName>Yugoslavia</fullName>
+        <default>false</default>
+        <label>Yugoslavia</label>
+    </customValue>
     <masterLabel>Countries</masterLabel>
     <sorted>false</sorted>
 </GlobalValueSet>

@@ -41,6 +41,10 @@
                 <field>IsProtected</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Synced_for_Final__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Required</behavior>
                 <field>NamespacePrefix</field>
             </layoutItems>
@@ -82,7 +86,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hr0000002Au9n</masterLabel>
+        <masterLabel>00ht0000002GcGf</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

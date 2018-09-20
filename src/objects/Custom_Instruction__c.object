@@ -49,10 +49,32 @@
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
-    <enableSearch>false</enableSearch>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>ADCVD_Case_Number_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>ADCVD Case Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ADCVD_Case_Type_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>ADCVD Case Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>ADCVD_Case__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -148,6 +170,17 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>CBP_Case_Number_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>CBP Case Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>CBP_Instructions_Category__c</fullName>
         <externalId>false</externalId>
         <label>CBP Instructions Category</label>
@@ -160,13 +193,120 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
+                    <fullName>ADL</fullName>
+                    <default>false</default>
+                    <label>ADL</label>
+                </value>
+                <value>
+                    <fullName>ADM</fullName>
+                    <default>false</default>
+                    <label>ADM</label>
+                </value>
+                <value>
+                    <fullName>ARF-Admin Review Final</fullName>
+                    <default>false</default>
+                    <label>ARF-Admin Review Final</label>
+                </value>
+                <value>
+                    <fullName>ARP-Admin Review Prelim</fullName>
+                    <default>false</default>
+                    <label>ARP-Admin Review Prelim</label>
+                </value>
+                <value>
+                    <fullName>CIE</fullName>
+                    <default>false</default>
+                    <label>CIE</label>
+                </value>
+                <value>
+                    <fullName>COR</fullName>
+                    <default>false</default>
+                    <label>COR</label>
+                </value>
+                <value>
+                    <fullName>FIN-Final Determination</fullName>
+                    <default>false</default>
+                    <label>FIN-Final Determination</label>
+                </value>
+                <value>
+                    <fullName>FNO-Final Det w/Order</fullName>
+                    <default>false</default>
+                    <label>FNO-Final Det w/Order</label>
+                </value>
+                <value>
+                    <fullName>INF-Information Notice</fullName>
+                    <default>false</default>
+                    <label>INF-Information Notice</label>
+                </value>
+                <value>
+                    <fullName>INI-Initiation of Review</fullName>
+                    <default>false</default>
+                    <label>INI-Initiation of Review</label>
+                </value>
+                <value>
+                    <fullName>INJ-Injunction</fullName>
+                    <default>false</default>
+                    <label>INJ-Injunction</label>
+                </value>
+                <value>
+                    <fullName>INQ-Inquiry</fullName>
+                    <default>false</default>
+                    <label>INQ-Inquiry</label>
+                </value>
+                <value>
+                    <fullName>LIQ-Liquidation</fullName>
+                    <default>false</default>
+                    <label>LIQ-Liquidation</label>
+                </value>
+                <value>
+                    <fullName>NSR-New Shipper Review</fullName>
+                    <default>false</default>
+                    <label>NSR-New Shipper Review</label>
+                </value>
+                <value>
+                    <fullName>ORD-Order</fullName>
+                    <default>false</default>
+                    <label>ORD-Order</label>
+                </value>
+                <value>
+                    <fullName>OTH-Other</fullName>
+                    <default>false</default>
+                    <label>OTH-Other</label>
+                </value>
+                <value>
+                    <fullName>PRE-Preliminary</fullName>
+                    <default>false</default>
+                    <label>PRE-Preliminary</label>
+                </value>
+                <value>
+                    <fullName>REV-Revocation</fullName>
+                    <default>false</default>
+                    <label>REV-Revocation</label>
+                </value>
+                <value>
+                    <fullName>SCO-Scope</fullName>
+                    <default>false</default>
+                    <label>SCO-Scope</label>
+                </value>
+                <value>
+                    <fullName>TER-Termination Notice</fullName>
+                    <default>false</default>
+                    <label>TER-Termination Notice</label>
+                </value>
+                <value>
+                    <fullName>WRIT-Writ of Mandamus</fullName>
+                    <default>false</default>
+                    <label>WRIT-Writ of Mandamus</label>
+                </value>
+                <value>
                     <fullName>coming</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>coming</label>
                 </value>
                 <value>
                     <fullName>later</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>later</label>
                 </value>
             </valueSetDefinition>
@@ -185,17 +325,146 @@
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
+                    <fullName>ADRV-Administrative Review</fullName>
+                    <default>false</default>
+                    <label>ADRV-Administrative Review</label>
+                </value>
+                <value>
+                    <fullName>AFF-Affirmative</fullName>
+                    <default>false</default>
+                    <label>AFF-Affirmative</label>
+                </value>
+                <value>
+                    <fullName>ALI-Auto Liquidation</fullName>
+                    <default>false</default>
+                    <label>ALI-Auto Liquidation</label>
+                </value>
+                <value>
+                    <fullName>ALIWE-Auto Liq Exception</fullName>
+                    <default>false</default>
+                    <label>ALIWE-Auto Liq Exception</label>
+                </value>
+                <value>
+                    <fullName>AMD-Amend</fullName>
+                    <default>false</default>
+                    <label>AMD-Amend</label>
+                </value>
+                <value>
+                    <fullName>COR-Correction</fullName>
+                    <default>false</default>
+                    <label>COR-Correction</label>
+                </value>
+                <value>
+                    <fullName>CTDIS-Court ORD Dissolved</fullName>
+                    <default>false</default>
+                    <label>CTDIS-Court ORD Dissolved</label>
+                </value>
+                <value>
+                    <fullName>FRM-Firm</fullName>
+                    <default>false</default>
+                    <label>FRM-Firm</label>
+                </value>
+                <value>
+                    <fullName>GAP-Gap Period</fullName>
+                    <default>false</default>
+                    <label>GAP-Gap Period</label>
+                </value>
+                <value>
+                    <fullName>INSCO-In Scope</fullName>
+                    <default>false</default>
+                    <label>INSCO-In Scope</label>
+                </value>
+                <value>
+                    <fullName>NAFTA-NA Free Trd Agmt</fullName>
+                    <default>false</default>
+                    <label>NAFTA-NA Free Trd Agmt</label>
+                </value>
+                <value>
+                    <fullName>NEG-Negative</fullName>
+                    <default>false</default>
+                    <label>NEG-Negative</label>
+                </value>
+                <value>
+                    <fullName>ORD-Order</fullName>
+                    <default>false</default>
+                    <label>ORD-Order</label>
+                </value>
+                <value>
+                    <fullName>OUTSCO-Out of Scope</fullName>
+                    <default>false</default>
+                    <label>OUTSCO-Out of Scope</label>
+                </value>
+                <value>
+                    <fullName>PARRES-Partial Rescission</fullName>
+                    <default>false</default>
+                    <label>PARRES-Partial Rescission</label>
+                </value>
+                <value>
+                    <fullName>PRELIM-Preliminary</fullName>
+                    <default>false</default>
+                    <label>PRELIM-Preliminary</label>
+                </value>
+                <value>
+                    <fullName>REF-Refund</fullName>
+                    <default>false</default>
+                    <label>REF-Refund</label>
+                </value>
+                <value>
+                    <fullName>RES-Rescission</fullName>
+                    <default>false</default>
+                    <label>RES-Rescission</label>
+                </value>
+                <value>
+                    <fullName>REV-Revocation</fullName>
+                    <default>false</default>
+                    <label>REV-Revocation</label>
+                </value>
+                <value>
+                    <fullName>TMI-Mat Injury Threat</fullName>
+                    <default>false</default>
+                    <label>TMI-Mat Injury Threat</label>
+                </value>
+                <value>
+                    <fullName>TRO-Temp Rest Order</fullName>
+                    <default>false</default>
+                    <label>TRO-Temp Rest Order</label>
+                </value>
+                <value>
                     <fullName>coming</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>coming</label>
                 </value>
                 <value>
                     <fullName>later</fullName>
                     <default>false</default>
+                    <isActive>false</isActive>
                     <label>later</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Case_Concat_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Case Concat Text</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Commodity_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Commodity</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Countervailed_Programs__c</fullName>
@@ -205,6 +474,17 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Country__c</fullName>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Country_in_which_factors_were_valued__c</fullName>
@@ -219,6 +499,56 @@
         <valueSet>
             <restricted>true</restricted>
             <valueSetName>Countries</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Customs_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Customs Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                    <label>Active</label>
+                </value>
+                <value>
+                    <fullName>Inactive - Company Deactivated</fullName>
+                    <default>false</default>
+                    <label>Inactive - Company Deactivated</label>
+                </value>
+                <value>
+                    <fullName>Inactive - Company Revoked</fullName>
+                    <default>false</default>
+                    <label>Inactive - Company Revoked</label>
+                </value>
+                <value>
+                    <fullName>Inactive - Deactivated</fullName>
+                    <default>false</default>
+                    <label>Inactive - Deactivated</label>
+                </value>
+                <value>
+                    <fullName>Inactive - Final Exclusion</fullName>
+                    <default>false</default>
+                    <label>Inactive - Final Exclusion</label>
+                </value>
+                <value>
+                    <fullName>Inactive - Order Revoked</fullName>
+                    <default>false</default>
+                    <label>Inactive - Order Revoked</label>
+                </value>
+                <value>
+                    <fullName>Inactive - Termination</fullName>
+                    <default>false</default>
+                    <label>Inactive - Termination</label>
+                </value>
+            </valueSetDefinition>
         </valueSet>
     </fields>
     <fields>
@@ -277,13 +607,88 @@
         <fullName>Message_No__c</fullName>
         <externalId>false</externalId>
         <label>Message No.</label>
-        <precision>18</precision>
+        <length>255</length>
         <required>false</required>
-        <scale>0</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Number</type>
+        <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Message_Period_Covered_Begin_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Message Period Covered Begin Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Message_Period_Covered_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Message Period Covered End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Message_Period_of_Review_Begin_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Message Period of Review Begin Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Message_Period_of_Review_End_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Message Period of Review End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Message_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Message Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Active</fullName>
+                    <default>false</default>
+                    <label>Active</label>
+                </value>
+                <value>
+                    <fullName>Inactive</fullName>
+                    <default>false</default>
+                    <label>Inactive</label>
+                </value>
+                <value>
+                    <fullName>Deleted</fullName>
+                    <default>false</default>
+                    <label>Deleted</label>
+                </value>
+                <value>
+                    <fullName>Draft</fullName>
+                    <default>false</default>
+                    <label>Draft</label>
+                </value>
+                <value>
+                    <fullName>New</fullName>
+                    <default>false</default>
+                    <label>New</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Petition__c</fullName>
@@ -297,6 +702,41 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Product_Short_Name_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Short Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Public_Indicator__c</fullName>
+        <externalId>false</externalId>
+        <label>Public Indicator</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>YesNo</valueSetName>
+        </valueSet>
     </fields>
     <fields>
         <fullName>Segment__c</fullName>
@@ -326,7 +766,30 @@
     </fields>
     <label>Custom Instruction</label>
     <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>CBP_Case_Number_Text__c</columns>
+        <columns>CBP_Instructions_Category__c</columns>
+        <columns>Message_Date__c</columns>
+        <columns>Message_No__c</columns>
+        <columns>Message_Status__c</columns>
+        <columns>Public_Indicator__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
         <fullName>Customs_Instructions_ClosedLocked_Queue_Custom_Instruction</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>CBP_Case_Number_Text__c</columns>
+        <columns>CBP_Instructions_Category__c</columns>
+        <columns>Message_Date__c</columns>
+        <columns>Message_No__c</columns>
+        <columns>Message_Status__c</columns>
+        <columns>Public_Indicator__c</columns>
         <filterScope>Queue</filterScope>
         <label>Customs Instructions-ClosedLocked Queue</label>
         <queue>Customs_Instructions_ClosedLocked_Queue</queue>
@@ -336,6 +799,14 @@
     </listViews>
     <listViews>
         <fullName>Customs_Instructions_MigratedLockedQueue_Custom_Instruction</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>CBP_Case_Number_Text__c</columns>
+        <columns>Message_Date__c</columns>
+        <columns>Message_No__c</columns>
+        <columns>Message_Status__c</columns>
+        <columns>Public_Indicator__c</columns>
         <filterScope>Queue</filterScope>
         <label>Customs Instructions-MigratedLockedQueue</label>
         <queue>Customs_Instructions_MigratedLockedQueue</queue>
@@ -345,12 +816,42 @@
     </listViews>
     <listViews>
         <fullName>Customs_Instructions_Open_Queue_Custom_Instruction</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>CBP_Case_Number_Text__c</columns>
+        <columns>CBP_Instructions_Category__c</columns>
+        <columns>Message_Date__c</columns>
+        <columns>Message_No__c</columns>
+        <columns>Message_Status__c</columns>
+        <columns>Public_Indicator__c</columns>
         <filterScope>Queue</filterScope>
         <label>Customs Instructions-Open Queue</label>
         <queue>Customs_Instructions_Open_Queue</queue>
         <sharedTo>
             <allInternalUsers></allInternalUsers>
         </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Recently_Created_by_Check</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>ADCVD_Order__c</columns>
+        <columns>Segment__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATEDBY_USER</field>
+            <operation>equals</operation>
+            <value>Jacinta Green</value>
+        </filters>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>8/30/2018 12:00 AM</value>
+        </filters>
+        <label>Recently Created by Check</label>
     </listViews>
     <nameField>
         <displayFormat>CI-{000000}</displayFormat>

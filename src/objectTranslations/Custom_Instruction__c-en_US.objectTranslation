@@ -9,6 +9,14 @@
         <value>Custom Instructions</value>
     </caseValues>
     <fields>
+        <label><!-- ADCVD Case Number --></label>
+        <name>ADCVD_Case_Number_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- ADCVD Case Type --></label>
+        <name>ADCVD_Case_Type_Text__c</name>
+    </fields>
+    <fields>
         <label><!-- ADCVD Case --></label>
         <name>ADCVD_Case__c</name>
         <relationshipLabel><!-- Custom Instructions --></relationshipLabel>
@@ -55,37 +63,237 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- CBP Case Number --></label>
+        <name>CBP_Case_Number_Text__c</name>
+    </fields>
+    <fields>
         <label><!-- CBP Instructions Category --></label>
         <name>CBP_Instructions_Category__c</name>
         <picklistValues>
-            <masterLabel>coming</masterLabel>
-            <translation><!-- coming --></translation>
+            <masterLabel>ADL</masterLabel>
+            <translation><!-- ADL --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>later</masterLabel>
-            <translation><!-- later --></translation>
+            <masterLabel>ADM</masterLabel>
+            <translation><!-- ADM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ARF-Admin Review Final</masterLabel>
+            <translation><!-- ARF-Admin Review Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ARP-Admin Review Prelim</masterLabel>
+            <translation><!-- ARP-Admin Review Prelim --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CIE</masterLabel>
+            <translation><!-- CIE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>COR</masterLabel>
+            <translation><!-- COR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FIN-Final Determination</masterLabel>
+            <translation><!-- FIN-Final Determination --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FNO-Final Det w/Order</masterLabel>
+            <translation><!-- FNO-Final Det w/Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>INF-Information Notice</masterLabel>
+            <translation><!-- INF-Information Notice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>INI-Initiation of Review</masterLabel>
+            <translation><!-- INI-Initiation of Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>INJ-Injunction</masterLabel>
+            <translation><!-- INJ-Injunction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>INQ-Inquiry</masterLabel>
+            <translation><!-- INQ-Inquiry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LIQ-Liquidation</masterLabel>
+            <translation><!-- LIQ-Liquidation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NSR-New Shipper Review</masterLabel>
+            <translation><!-- NSR-New Shipper Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ORD-Order</masterLabel>
+            <translation><!-- ORD-Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OTH-Other</masterLabel>
+            <translation><!-- OTH-Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PRE-Preliminary</masterLabel>
+            <translation><!-- PRE-Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>REV-Revocation</masterLabel>
+            <translation><!-- REV-Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SCO-Scope</masterLabel>
+            <translation><!-- SCO-Scope --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TER-Termination Notice</masterLabel>
+            <translation><!-- TER-Termination Notice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WRIT-Writ of Mandamus</masterLabel>
+            <translation><!-- WRIT-Writ of Mandamus --></translation>
         </picklistValues>
     </fields>
     <fields>
         <label><!-- CBP Instructions Sub-Category --></label>
         <name>CBP_Instructions_Sub_Category__c</name>
         <picklistValues>
-            <masterLabel>coming</masterLabel>
-            <translation><!-- coming --></translation>
+            <masterLabel>ADRV-Administrative Review</masterLabel>
+            <translation><!-- ADRV-Administrative Review --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>later</masterLabel>
-            <translation><!-- later --></translation>
+            <masterLabel>AFF-Affirmative</masterLabel>
+            <translation><!-- AFF-Affirmative --></translation>
         </picklistValues>
+        <picklistValues>
+            <masterLabel>ALI-Auto Liquidation</masterLabel>
+            <translation><!-- ALI-Auto Liquidation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ALIWE-Auto Liq Exception</masterLabel>
+            <translation><!-- ALIWE-Auto Liq Exception --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AMD-Amend</masterLabel>
+            <translation><!-- AMD-Amend --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>COR-Correction</masterLabel>
+            <translation><!-- COR-Correction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CTDIS-Court ORD Dissolved</masterLabel>
+            <translation><!-- CTDIS-Court ORD Dissolved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FRM-Firm</masterLabel>
+            <translation><!-- FRM-Firm --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GAP-Gap Period</masterLabel>
+            <translation><!-- GAP-Gap Period --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>INSCO-In Scope</masterLabel>
+            <translation><!-- INSCO-In Scope --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NAFTA-NA Free Trd Agmt</masterLabel>
+            <translation><!-- NAFTA-NA Free Trd Agmt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NEG-Negative</masterLabel>
+            <translation><!-- NEG-Negative --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ORD-Order</masterLabel>
+            <translation><!-- ORD-Order --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OUTSCO-Out of Scope</masterLabel>
+            <translation><!-- OUTSCO-Out of Scope --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PARRES-Partial Rescission</masterLabel>
+            <translation><!-- PARRES-Partial Rescission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PRELIM-Preliminary</masterLabel>
+            <translation><!-- PRELIM-Preliminary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>REF-Refund</masterLabel>
+            <translation><!-- REF-Refund --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RES-Rescission</masterLabel>
+            <translation><!-- RES-Rescission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>REV-Revocation</masterLabel>
+            <translation><!-- REV-Revocation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TMI-Mat Injury Threat</masterLabel>
+            <translation><!-- TMI-Mat Injury Threat --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TRO-Temp Rest Order</masterLabel>
+            <translation><!-- TRO-Temp Rest Order --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Case Concat Text --></label>
+        <name>Case_Concat_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commodity --></label>
+        <name>Commodity_Text__c</name>
     </fields>
     <fields>
         <label><!-- Countervailed Programs --></label>
         <name>Countervailed_Programs__c</name>
     </fields>
     <fields>
+        <label><!-- Country --></label>
+        <name>Country__c</name>
+    </fields>
+    <fields>
         <help><!-- Name of Country in which factors were valued --></help>
         <label><!-- Country in which factors were valued --></label>
         <name>Country_in_which_factors_were_valued__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customs Status --></label>
+        <name>Customs_Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive - Company Deactivated</masterLabel>
+            <translation><!-- Inactive - Company Deactivated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive - Company Revoked</masterLabel>
+            <translation><!-- Inactive - Company Revoked --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive - Deactivated</masterLabel>
+            <translation><!-- Inactive - Deactivated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive - Final Exclusion</masterLabel>
+            <translation><!-- Inactive - Final Exclusion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive - Order Revoked</masterLabel>
+            <translation><!-- Inactive - Order Revoked --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive - Termination</masterLabel>
+            <translation><!-- Inactive - Termination --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Date Message Loaded in ACE --></label>
@@ -113,9 +321,61 @@
         <name>Message_No__c</name>
     </fields>
     <fields>
+        <label><!-- Message Period Covered Begin Date --></label>
+        <name>Message_Period_Covered_Begin_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Message Period Covered End Date --></label>
+        <name>Message_Period_Covered_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Message Period of Review Begin Date --></label>
+        <name>Message_Period_of_Review_Begin_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Message Period of Review End Date --></label>
+        <name>Message_Period_of_Review_End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Message Status --></label>
+        <name>Message_Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deleted</masterLabel>
+            <translation><!-- Deleted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Petition --></label>
         <name>Petition__c</name>
         <relationshipLabel><!-- Custom Instructions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Product Short Name --></label>
+        <name>Product_Short_Name_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Public Indicator --></label>
+        <name>Public_Indicator__c</name>
     </fields>
     <fields>
         <label><!-- Segment --></label>

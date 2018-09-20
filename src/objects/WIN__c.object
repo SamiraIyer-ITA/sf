@@ -1447,6 +1447,20 @@ Other Government entities that were involved with the WIN.</description>
     </fields>
     <label>WIN</label>
     <listViews>
+        <fullName>Advocacy_Wins</fullName>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>WIN_Type__c</field>
+            <operation>equals</operation>
+            <value>Advocacy</value>
+        </filters>
+        <label>Advocacy Wins</label>
+        <sharedTo>
+            <group>Data_Admin_Team</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>All_Open_WINs</fullName>
         <columns>NAME</columns>
         <columns>Organization__c</columns>

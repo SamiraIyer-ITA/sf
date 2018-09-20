@@ -24,7 +24,6 @@ public without sharing class SegmentMapper implements ADCVD_IMapper {
 	}
 	public static SegmentMapper getInstance () {
 		if (instance == null) {
-			System.debug('SegmentMapper instance: ' + instance);
 			return getNewInstance();
 		}
 		return instance;
