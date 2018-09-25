@@ -38,17 +38,21 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Interested_Organization_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
     </actionOverrides>
     <allowInChatterGroups>true</allowInChatterGroups>
     <compactLayoutAssignment>IntOrganizationsInfo</compactLayoutAssignment>
     <compactLayouts>
         <fullName>IntOrganizationsInfo</fullName>
-        <fields>ADCVD_Order__c</fields>
-        <fields>Product_Short_Name__c</fields>
-        <fields>Country__c</fields>
-        <fields>ADCVD_Case_Type__c</fields>
+        <fields>ADCVD_Case__c</fields>
         <fields>Account__c</fields>
+        <fields>ADCVD_Case_Type_Text__c</fields>
+        <fields>Country_Text__c</fields>
+        <fields>Product_Text__c</fields>
         <label>IntOrganizationsInfo</label>
     </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
@@ -143,6 +147,28 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>ADCVD_Entity_Alias__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the alias(es) for the interested organization.</inlineHelpText>
+        <label>ADCVD Entity Alias</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>ADCVD_Entity_Name__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The interested organization name will be preserved in this field, regardless of changes in ITA CRM.</inlineHelpText>
+        <label>ADCVD Entity Name</label>
+        <length>255</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>ADCVD_Order__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -156,13 +182,23 @@
     </fields>
     <fields>
         <fullName>Account__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
+        <deleteConstraint>Restrict</deleteConstraint>
         <externalId>false</externalId>
-        <label>Organization</label>
+        <inlineHelpText>Search for existing organizations in the ITA CRM or create a new organization record in the ITA CRM.</inlineHelpText>
+        <label>ITA CRM Organization</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordTypeId</field>
+                <operation>notEqual</operation>
+                <value>ITA CRM Law Firm</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Account</referenceTo>
-        <relationshipLabel>Interested Organizations</relationshipLabel>
+        <relationshipLabel>ADCVD Cases</relationshipLabel>
         <relationshipName>Related_Organizations</relationshipName>
-        <required>false</required>
+        <required>true</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
@@ -300,21 +336,36 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Legal_Representation__c</fullName>
+        <fullName>Lead_Attorney__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Legal Representation</label>
+        <label>Lead Attorney</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>ADCVD Cases</relationshipLabel>
+        <relationshipName>Interested_Organizations</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Legal_Representation__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Search for existing legal representation in the ITA CRM application or create a new law firm record in the ITA CRM.</inlineHelpText>
+        <label>ITA CRM Law Firm</label>
         <lookupFilter>
             <active>true</active>
+            <errorMessage>There are no law firms that match this search.</errorMessage>
             <filterItems>
-                <field>Account.Is_Law_Firm__c</field>
+                <field>Account.RecordTypeId</field>
                 <operation>equals</operation>
-                <value>True</value>
+                <value>ITA CRM Law Firm</value>
             </filterItems>
             <isOptional>false</isOptional>
         </lookupFilter>
         <referenceTo>Account</referenceTo>
-        <relationshipLabel>Interested Organizations</relationshipLabel>
+        <relationshipLabel>ADCVD Cases</relationshipLabel>
         <relationshipName>Interested_Organizations</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -556,8 +607,8 @@
     </fields>
     <label>Interested Organization</label>
     <nameField>
-        <displayFormat>RO-{000000}</displayFormat>
-        <label>Related Organization Name</label>
+        <displayFormat>IO-{000000}</displayFormat>
+        <label>Interested Organization</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
@@ -2585,7 +2636,20 @@
             </values>
         </picklistValues>
     </recordTypes>
-    <searchLayouts/>
+    <searchLayouts>
+        <searchFilterFields>OBJECT_ID</searchFilterFields>
+        <searchFilterFields>ADCVD_Case__c</searchFilterFields>
+        <searchFilterFields>ADCVD_Case_Number_Text__c</searchFilterFields>
+        <searchFilterFields>ADCVD_Case_Type_Text__c</searchFilterFields>
+        <searchFilterFields>ADCVD_Order__c</searchFilterFields>
+        <searchFilterFields>Case_Concat_Text__c</searchFilterFields>
+        <searchResultsAdditionalFields>OBJECT_ID</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADCVD_Case__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADCVD_Case_Number_Text__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADCVD_Case_Type_Text__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADCVD_Order__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Case_Concat_Text__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
         <fullName>Cannot_Edit_Locked_Record</fullName>
@@ -2602,6 +2666,42 @@ PRIORVALUE(Locked__c) == true
         <description>Custom Instructions must have a parent (ADCVD Order, Investigation, Petition, Segment, or Suspension Agreement)</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND(NOT(ISBLANK(Custom_Instruction__c)), ISBLANK( Segment__c ),  ISBLANK( ADCVD_Order__c ), ISBLANK( Petition__c ),  ISBLANK( Investigation__c ),  ISBLANK( Segment__r.Suspension_Agreement__c )))</errorConditionFormula>
         <errorMessage>Custom Instructions must have a parent.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Interested_Org_must_have_a_parent</fullName>
+        <active>true</active>
+        <description>Interested Organizations without a Custom Instructions must have an ADCVD Order, Investigation, Petition, Segment or a related ADCVD Case. If Customs Instructions is the parent, a Segment record must also be included as a reference.</description>
+        <errorConditionFormula>AND(
+  $Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,    
+  OR(
+     IF(NOT(ISBLANK(ADCVD_Order__c)),1,0) +
+     IF(NOT(ISBLANK(Investigation__c)),1,0) +
+     IF(NOT(ISBLANK(Litigation__c)),1,0) +
+     IF(NOT(ISBLANK(Petition__c)),1,0) +
+     IF(NOT(ISBLANK(Segment__c)),1,0) &lt;&gt; 1
+    ,
+     AND(NOT(ISBLANK(Custom_Instruction__c)),ISBLANK(Segment__c))
+   )
+ )</errorConditionFormula>
+        <errorMessage>Interested Organizations are required to have a parent, and only one parent should be entered. If Customs Instructions are the parent, a Segment must also be referenced.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Only_Admin_can_reparent_Interested_Org</fullName>
+        <active>true</active>
+        <description>Only Admin can re-parent an Interested Organization.</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,
+   AND(NOT(ISNEW()), $Profile.Name != &apos;System Administrator&apos;,
+    OR( 
+       ISCHANGED(ADCVD_Case__c), 
+       ISCHANGED(Petition__c),
+       ISCHANGED(Investigation__c),
+       ISCHANGED(ADCVD_Order__c),  
+       ISCHANGED(Segment__c), 
+       ISCHANGED(Custom_Instruction__c)  
+     ) 
+   )
+ )</errorConditionFormula>
+        <errorMessage>Only Admin can re-parent an Interested Organization.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Segment_must_be_populated_if_ci_is</fullName>
