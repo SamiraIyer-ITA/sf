@@ -5918,7 +5918,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Related_Organization__c.ADCVD_Case_Number_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5928,7 +5928,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Related_Organization__c.ADCVD_Case_Type_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5938,8 +5938,13 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Related_Organization__c.ADCVD_Case__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Related_Organization__c.ADCVD_Entity_Alias__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5949,11 +5954,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Related_Organization__c.Account__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Related_Organization__c.CBP_Case_Number_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5968,17 +5968,17 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Related_Organization__c.Case_Concat_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Related_Organization__c.Commodity_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Related_Organization__c.Country_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5998,7 +5998,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Related_Organization__c.IO_Parent__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -6008,7 +6008,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
+        <field>Related_Organization__c.Lead_Attorney__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Related_Organization__c.Legal_Representation__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -6048,7 +6053,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Related_Organization__c.Product_Short_Name_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -6058,7 +6063,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Related_Organization__c.Product_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -10925,7 +10930,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Related_Organization__c.Petitioner_Respondent</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -11249,7 +11253,7 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Related_Organization__c</tab>
-        <visibility>Hidden</visibility>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Section__c</tab>

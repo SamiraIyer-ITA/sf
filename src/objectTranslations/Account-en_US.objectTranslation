@@ -568,6 +568,36 @@
         </sections>
     </layouts>
     <layouts>
+        <layout>ITA CRM Law Firm</layout>
+        <sections>
+            <label><!-- Data.com --></label>
+            <section>Data.com</section>
+        </sections>
+        <sections>
+            <label><!-- Hierarchies --></label>
+            <section>Hierarchies</section>
+        </sections>
+        <sections>
+            <label><!-- ITA --></label>
+            <section>ITA</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>ITA CRM Organization</layout>
+        <sections>
+            <label><!-- Data.com --></label>
+            <section>Data.com</section>
+        </sections>
+        <sections>
+            <label><!-- Hierarchies --></label>
+            <section>Hierarchies</section>
+        </sections>
+        <sections>
+            <label><!-- ITA --></label>
+            <section>ITA</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>Individual Account</layout>
         <sections>
             <label><!-- Data.com --></label>

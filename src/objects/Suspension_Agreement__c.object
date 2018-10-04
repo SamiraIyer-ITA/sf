@@ -351,6 +351,11 @@
         <columns>LAST_UPDATE</columns>
         <columns>UPDATEDBY_USER</columns>
         <filterScope>Everything</filterScope>
+        <filters>
+            <field>UPDATEDBY_USER</field>
+            <operation>notContain</operation>
+            <value>sandip menon</value>
+        </filters>
         <label>All</label>
     </listViews>
     <nameField>

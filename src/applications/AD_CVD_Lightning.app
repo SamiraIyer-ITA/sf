@@ -72,6 +72,24 @@
         <type>Flexipage</type>
         <pageOrSobjectType>Investigation__c</pageOrSobjectType>
     </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Interested_Organization_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Related_Organization__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override updated by Lightning App Builder during activation.</comment>
+        <content>ITA_CRM_Lightning_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+    </actionOverrides>
     <brand>
         <headerColor>#1589EE</headerColor>
         <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
@@ -1378,6 +1396,59 @@
         <recordType>Investigation__c.AD</recordType>
         <type>Flexipage</type>
         <profile>Integrated User Profile</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ITA_CRM_Lightning_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.ITA_User_Account_RT</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Interested_Organization_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Related_Organization__c</pageOrSobjectType>
+        <recordType>Related_Organization__c.Customs_Instructions_Only</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Interested_Organization_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Related_Organization__c</pageOrSobjectType>
+        <recordType>Related_Organization__c.Petitioner_Respondent</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ITA_CRM_Lightning_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ITA_CRM_Lightning_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Individual</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>ITA_CRM_Lightning_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Partner_Account</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
     </profileActionOverrides>
     <tabs>standard-home</tabs>
     <tabs>standard-Feed</tabs>

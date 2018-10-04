@@ -5940,13 +5940,13 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Related_Organization__c.ADCVD_Order__c</field>
-        <readable>true</readable>
+        <editable>false</editable>
+        <field>Related_Organization__c.ADCVD_Entity_Alias__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Related_Organization__c.Account__c</field>
+        <field>Related_Organization__c.ADCVD_Order__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6003,6 +6003,11 @@
         <editable>true</editable>
         <field>Related_Organization__c.Investigation__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Related_Organization__c.Lead_Attorney__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -9994,6 +9999,13 @@
         <apexPage>trade_events_search</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>ADCVD_Front_Office_Home_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+    </profileActionOverrides>
     <recordTypeVisibilities>
         <default>true</default>
         <personAccountDefault>true</personAccountDefault>

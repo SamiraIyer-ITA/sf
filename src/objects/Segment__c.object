@@ -2774,6 +2774,56 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>Segments_without_outcomes</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number__c</columns>
+        <columns>Country__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Product__c</columns>
+        <columns>Period_Covered_End_Date__c</columns>
+        <columns>Segment_Outcome__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Segment_Outcome__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Hold,Litigation,Customs,Closed</value>
+        </filters>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Segment__c.Administrative_Review</value>
+        </filters>
+        <label>Segments without outcomes</label>
+    </listViews>
+    <listViews>
+        <fullName>Sunset_Reviews</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number__c</columns>
+        <columns>Country__c</columns>
+        <columns>ADCVD_Case_Type__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Product__c</columns>
+        <columns>Status__c</columns>
+        <columns>Period_Covered_End_Date__c</columns>
+        <columns>Product_Description__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Segment__c.Sunset_Review</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </filters>
+        <label>Sunset Reviews</label>
+    </listViews>
+    <listViews>
         <fullName>Suspension_Agreement_Segments</fullName>
         <columns>NAME</columns>
         <columns>ADCVD_Case_Number__c</columns>
