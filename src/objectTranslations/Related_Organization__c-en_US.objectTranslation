@@ -43,14 +43,25 @@
         <relationshipLabel><!-- Interested Organizations --></relationshipLabel>
     </fields>
     <fields>
+        <help><!-- Enter the alias(es) for the interested organization. --></help>
+        <label><!-- ADCVD Entity Alias --></label>
+        <name>ADCVD_Entity_Alias__c</name>
+    </fields>
+    <fields>
+        <help><!-- The interested organization name will be preserved in this field, regardless of changes in ITA CRM. --></help>
+        <label><!-- ADCVD Entity Name --></label>
+        <name>ADCVD_Entity_Name__c</name>
+    </fields>
+    <fields>
         <label><!-- ADCVD Order --></label>
         <name>ADCVD_Order__c</name>
         <relationshipLabel><!-- Interested Organizations --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Organization --></label>
+        <help><!-- Search for existing organizations in the ITA CRM or create a new organization record in the ITA CRM. --></help>
+        <label><!-- ITA CRM Organization --></label>
         <name>Account__c</name>
-        <relationshipLabel><!-- Interested Organizations --></relationshipLabel>
+        <relationshipLabel><!-- ADCVD Cases --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- CBP Case Number --></label>
@@ -102,9 +113,18 @@
         <relationshipLabel><!-- Interested Organizations --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Legal Representation --></label>
+        <label><!-- Lead Attorney --></label>
+        <name>Lead_Attorney__c</name>
+        <relationshipLabel><!-- ADCVD Cases --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Search for existing legal representation in the ITA CRM application or create a new law firm record in the ITA CRM. --></help>
+        <label><!-- ITA CRM Law Firm --></label>
+        <lookupFilter>
+            <errorMessage><!-- There are no law firms that match this search. --></errorMessage>
+        </lookupFilter>
         <name>Legal_Representation__c</name>
-        <relationshipLabel><!-- Interested Organizations --></relationshipLabel>
+        <relationshipLabel><!-- ADCVD Cases --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Link --></label>
@@ -204,8 +224,20 @@
     <layouts>
         <layout>Related Organization Layout</layout>
         <sections>
+            <label><!-- ADCVD Case Information --></label>
+            <section>ADCVD Case Information</section>
+        </sections>
+        <sections>
+            <label><!-- Also Known As --></label>
+            <section>Also Known As</section>
+        </sections>
+        <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
         </sections>
     </layouts>
     <recordTypes>
@@ -224,6 +256,14 @@
     <validationRules>
         <errorMessage><!-- Custom Instructions must have a parent. --></errorMessage>
         <name>Custom_Instructions_must_have_a_parent</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Interested Organizations are required to have a parent, and only one parent should be entered. If Customs Instructions are the parent, a Segment must also be referenced. --></errorMessage>
+        <name>Interested_Org_must_have_a_parent</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only Admin can re-parent an Interested Organization. --></errorMessage>
+        <name>Only_Admin_can_reparent_Interested_Org</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- You must have a segment if you have custom instructions. --></errorMessage>

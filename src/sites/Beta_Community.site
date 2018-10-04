@@ -19,7 +19,6 @@
         <primary>false</primary>
     </customWebAddresses>
     <customWebAddresses>
-        <certificate>CA_Signed_Cert_for_salesforce_trade_gov_Domain</certificate>
         <domainName>salesforce.trade.gov</domainName>
         <primary>false</primary>
     </customWebAddresses>

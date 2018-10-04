@@ -5941,12 +5941,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Related_Organization__c.ADCVD_Order__c</field>
-        <readable>true</readable>
+        <field>Related_Organization__c.ADCVD_Entity_Alias__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Related_Organization__c.Account__c</field>
+        <field>Related_Organization__c.ADCVD_Order__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6003,6 +6003,11 @@
         <editable>false</editable>
         <field>Related_Organization__c.Investigation__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Related_Organization__c.Lead_Attorney__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>

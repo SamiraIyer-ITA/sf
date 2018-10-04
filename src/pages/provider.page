@@ -30,6 +30,7 @@ function jump(){
 }
 </script>
 
+
 <apex:actionStatus id="busyOverlay" onStart="spinLoad(this)" onStop="remove()"/>
 
  <div class="container-fluid" id="reglayout">
@@ -49,6 +50,15 @@ function jump(){
     </ol>
 </apex:outputpanel>
 </ol>
+
+<script>
+$("#breadcrumbs2 a:contains('U.S. Environmental Solutions Toolkit Search')").attr('href', 'https://www.export.gov/et_search');
+$("#breadcrumbs2 a:contains('Oil & Gas Toolkit Search')").attr('href', 'https://www.export.gov/og_search');
+$("#breadcrumbs2 a:contains('Renewable Energy Toolkit Search')").attr('href', 'https://www.export.gov/re_search');
+$("#breadcrumbs2 a:contains('NextGen Toolkit Search')").attr('href', 'https://www.export.gov/ng_search');
+$("#breadcrumbs2 a:contains('SmartGrid Toolkit Search')").attr('href', 'https://www.export.gov/sg_search');
+$("#breadcrumbs2 a:contains('Civil Nuclear Toolkit Search')").attr('href', 'https://www.export.gov/cn_search');
+</script>
     
 <apex:outputpanel layout="block" styleClass="containerInternal enforceHeight" rendered="{!NotFoundDisplayMessage == null}" >  
 <div class=" col-md-6 col-sm-12 reglayout_zeropad" id="leftside">

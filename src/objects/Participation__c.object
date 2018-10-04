@@ -749,6 +749,25 @@ Program__r.New_Application_Link__c
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>NextGen_Applications</fullName>
+        <columns>NAME</columns>
+        <columns>FAAContractor__c</columns>
+        <columns>Program__c</columns>
+        <columns>State__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>UPDATEDBY_USER.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Program__c</field>
+            <operation>contains</operation>
+            <value>NextGen</value>
+        </filters>
+        <label>NextGen Applications</label>
+        <sharedTo>
+            <group>Nextgen_Toolkit</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>Toolkit_Applications</fullName>
         <columns>NAME</columns>
         <columns>Organization__c</columns>

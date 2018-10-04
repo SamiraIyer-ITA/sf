@@ -460,7 +460,7 @@
         <fullName>Third_Country_Case_Number_s__c</fullName>
         <externalId>false</externalId>
         <label>Third Country Case Number(s)</label>
-        <length>128</length>
+        <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>

@@ -59,6 +59,10 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Third_Country_Case_Number_s__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Lotus_Notes_History_Data__c</field>
             </layoutItems>
             <layoutItems>

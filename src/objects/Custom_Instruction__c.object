@@ -853,6 +853,29 @@
         </filters>
         <label>Recently Created by Check</label>
     </listViews>
+    <listViews>
+        <fullName>Work_Check</fullName>
+        <columns>NAME</columns>
+        <columns>CBP_Case_Number_Text__c</columns>
+        <columns>CBP_Instructions_Category__c</columns>
+        <columns>Message_Date__c</columns>
+        <columns>Message_No__c</columns>
+        <columns>Message_Period_Covered_Begin_Date__c</columns>
+        <columns>Message_Period_Covered_End_Date__c</columns>
+        <columns>Message_Period_of_Review_Begin_Date__c</columns>
+        <columns>Message_Period_of_Review_End_Date__c</columns>
+        <columns>ADCVD_Order__c</columns>
+        <columns>Investigation__c</columns>
+        <columns>Segment__c</columns>
+        <columns>Suspension_Agreement__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CBP_Case_Number_Text__c</field>
+            <operation>equals</operation>
+            <value>A-570-848</value>
+        </filters>
+        <label>Work Check</label>
+    </listViews>
     <nameField>
         <displayFormat>CI-{000000}</displayFormat>
         <label>Custom Instruction Name</label>
