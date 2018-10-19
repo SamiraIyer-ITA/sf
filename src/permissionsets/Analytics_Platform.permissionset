@@ -918,6 +918,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Custom_Instruction__c.Country_Text__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Custom_Instruction__c.Country__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -6426,10 +6431,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>InsightsAppDashboardEditor</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>InsightsAppEQLEditor</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

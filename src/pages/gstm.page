@@ -1,4 +1,4 @@
-<apex:page sidebar="false" showHeader="false" controller="article_controller" standardStylesheets="false"  applyBodyTag="false" applyHtmlTag="false">
+<apex:page sidebar="false" showHeader="false" standardStylesheets="false"  applyBodyTag="false" applyHtmlTag="false">
  <apex:composition template="Site_Template2">
      <apex:define name="page">
    
@@ -15,8 +15,8 @@
         Explorer.render('explorer-app');
       });
     </script>
-  <!--<link href="{!URLFor($Resource.steelsearch, 'steelsearch/explorer.css')}" rel="stylesheet" />-->
-      <link href="https://internationaltradeadministration.github.io/steel-search/explorer.css" rel="stylesheet" />
+ <link href="{!URLFor($Resource.steelsearch, 'steelsearch/explorer.css')}" rel="stylesheet" />
+  <!--      <link href="https://internationaltradeadministration.github.io/steel-search/explorer.css" rel="stylesheet" />-->
        <main id="main-content"> 
   <section class="usa-section">              
         <div>
@@ -24,8 +24,8 @@
         </div>
 </section>    
 </main>
-  <!--<script type="text/javascript" src="{!URLFor($Resource.steelsearch, 'steelsearch/bundle.js')}"></script>-->
-      <script type="text/javascript" src="https://internationaltradeadministration.github.io/steel-search/bundle.js"></script>
+  <script type="text/javascript" src="{!URLFor($Resource.steelsearch, 'steelsearch/bundle.js')}"></script> 
+  <!--    <script type="text/javascript" src="https://internationaltradeadministration.github.io/steel-search/bundle.js"></script>-->
 </body>
      </apex:define>
  </apex:composition>

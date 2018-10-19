@@ -4,6 +4,7 @@
         <componentInstances>
             <componentInstanceProperties>
                 <name>dashboardId</name>
+                <value>Next_Deadlines_Dashboard_View</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>height</name>

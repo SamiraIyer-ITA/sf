@@ -24,6 +24,10 @@
                 <behavior>Readonly</behavior>
                 <field>Activity_Assigned_Office__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Type</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

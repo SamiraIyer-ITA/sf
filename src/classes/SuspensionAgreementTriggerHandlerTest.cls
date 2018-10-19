@@ -1,5 +1,19 @@
-@isTest
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on May 16 2017
+ *    MIL Corporation
+ * 
+ **/
+ @isTest
 public class SuspensionAgreementTriggerHandlerTest {
+    /************************************************
+    * This class performs unit tests on the SuspensionAgreementTriggerHandler
+    * under these condititions.
+    * 1. Test to ensure that class variables initialize
+    * 2. Test to ensure that date calculations are logically correct
+    *************************************************/
+    
     private static Date suspDate = System.today();
     private static Date testActual = System.today();//reusable date variable for each test to add roll forward logic allowing data normalization
     private static Date testCalculated = System.today();//reusable date variable for each test to add roll forward logic allowing data normalization
@@ -16,7 +30,7 @@ public class SuspensionAgreementTriggerHandlerTest {
     private static Suspension_Agreement__c sa{
         get{
             if (sa == null) {
-                sa = [SELECT Id, Anniversary_Month__c, Suspension_Date__c, Investigation__c, Office__c, Next_Sunset_Initiation_Date__c, Termination_Date__c FROM Suspension_Agreement__c LIMIT 1];
+                sa = [SELECT Id, ADCVD_Case__c, Anniversary_Month__c, Suspension_Date__c, Investigation__c, Office__c, Next_Sunset_Initiation_Date__c, Termination_Date__c FROM Suspension_Agreement__c LIMIT 1];
             }
             return sa;
         }
@@ -57,13 +71,12 @@ public class SuspensionAgreementTriggerHandlerTest {
     }
 
     //Test to check if Suspension Agreement is auto-populated with ADCVD Case number
-    /*@isTest static void setCaseValuesFromParent() {
+    @isTest static void setCaseValuesFromParent() {
         Test.startTest();
         ADCVD_Case__c testCase = TestUtils.createADCVDCase('A-111-123', 'AD ME', true);
-        Petition__c testPetition = TestUtils.createPetition(suspDate.addDays(-14),'AD ME', false);
-        testPetition.ADCVD_Case__c = testCase.Id;
-        insert testPetition;        
-        Investigation__c testInvestigation = TestUtils.createInvestigation('AD', testPetition, true);
+        Petition__c testPetition = TestUtils.createPetition(testCase,suspDate.addDays(-14), true);
+        //insert testPetition;
+        Investigation__c testInvestigation = TestUtils.createInvestigation(testPetition, true);
         Suspension_Agreement__c testSuspAgr = TestUtils.createSuspensionAgreement(testInvestigation, suspDate, true); 
         Test.stopTest();
         Suspension_Agreement__c savedSuspAgrmnt = [SELECT Id, ADCVD_Case__c, ADCVD_Case_Number__c
@@ -71,13 +84,24 @@ public class SuspensionAgreementTriggerHandlerTest {
         System.assertEquals(testCase.Id, savedSuspAgrmnt.ADCVD_Case__c);
         System.assertEquals(testCase.ADCVD_Case_Number__c, savedSuspAgrmnt.ADCVD_Case_Number__c);
         System.assertEquals(testPetition.ADCVD_Case__c, savedSuspAgrmnt.ADCVD_Case__c);
-    }    
+    }
        
 
     @isTest static void setNextSunsetInitiationDate() {
         Test.startTest();
-        System.assertEquals(null, sa.Next_Sunset_Initiation_Date__c); 
-        setFR(sa.Id, 'Suspension Agreement', true); 
+        System.assertEquals(null, sa.Next_Sunset_Initiation_Date__c);
+        //Create a JSON string from the Federal Register object to be able to modify the CreatedDate
+        String frJSON = JSON.serialize(new Federal_Register__c());
+        Map<String, Object> frJSONMap = (Map<String, Object>)JSON.deserializeUntyped(frJSON);
+        frJSONMap.put('CreatedDate',Date.Today().addDays(-1));
+        frJSONMap.put('Type__c','Suspension Agreement');
+        frJSONMap.put('Cite_Number__c','3rfef');
+        frJSONMap.put('Published_Date__c',Date.today().addDays(5));
+        frJSONMap.put('Suspension_Agreement__c', sa.Id);
+        String frJSON2 = JSON.serialize(frJSONMap);
+        //Deserialize string back to FR object and commit to database
+        Federal_Register__c suspensionAgreementFR = (Federal_Register__c)JSON.deserializeStrict(frJSON2, Federal_Register__c.class);
+        insert suspensionAgreementFR;
         sa = null;
         testCalculated = suspDate.toStartOfMonth().addYears(4).addMonths(11);
         System.assertEquals(testCalculated, sa.Next_Sunset_Initiation_Date__c);
@@ -89,11 +113,11 @@ public class SuspensionAgreementTriggerHandlerTest {
         suspDate = suspDate.addMonths(1);
         setFR(sa.Id, 'Termination', true);
         sa = null;
-
         Test.stopTest();
         System.assertEquals(null, sa.Next_Sunset_Initiation_Date__c);
+
     }
-    */
+
     @isTest static void setAnniversaryMonth() {
         Test.startTest();
         setFR(sa.Id, 'Suspension Agreement', true);
@@ -104,40 +128,6 @@ public class SuspensionAgreementTriggerHandlerTest {
         System.assertEquals(month, sa.Anniversary_Month__c);
     }
 
-/*    @isTest static void validateEffectiveDateOfTermination() {
-        Test.startTest();
-
-        //add setup FRs
-        List<Federal_Register__c> frList = new List<Federal_Register__c>();
-        suspensionAgreementFR =  setFR(sa.Id, 'Suspension Agreement', false);
-        termFR = setFR(sa.Id, 'Termination', false);
-        frList.add(suspensionAgreementFR);
-        frList.add(termFR);
-        insert frList;
-
-        //test validation on order FR
-        sa.Effective_Date_of_Termination__c = suspDate.addYears(6);
-        String validationError = attemptUpsert(sa);
-        System.assert(validationError.contains('Suspension Agreement Federal Register Published Date:'));
-
-        //add continuation FR
-        continuationFR = setFR(sa.Id, 'Continuation', false);
-        continuationFR.Published_Date__c = continuationFR.Published_Date__c.addDays(14);
-        insert continuationFR;
-
-        //test validationon continuation FR
-        validationError = attemptUpsert(sa);
-        System.assert(validationError.contains('most recent Continuation Federal Register Published Date:'));
-
-        //test successful insert
-        sa.Effective_Date_of_Termination__c = suspDate.addYears(-2);
-        validationError = attemptUpsert(sa);
-
-        Test.stopTest();
-        System.assert(validationError.contains('Success'));
-
-    }
-*/
     @testSetup static void dataSetup() {
         Test.startTest();
         //create custom setting configuration to activate triggers, workflow rules, and validation rules
@@ -149,14 +139,7 @@ public class SuspensionAgreementTriggerHandlerTest {
         Petition__c testADPetition = TestUtils.createPetition(testADCase, suspDate.addDays(-14), true);
         Investigation__c testADinvestigation = TestUtils.createInvestigation(testADPetition, true);
         Suspension_Agreement__c testADSuspAgreement = TestUtils.createSuspensionAgreement(testADinvestigation, suspDate, true);
-        /*List<Segment__c> segsToInsert = new List<Segment__c>();
-        System.runAs(testUser) {
-            for(String segRecordTypeName : utils.getRecordTypeDeveloperNameMap('Segment__c').values()) {
-                Segment__c testSeg = TestUtils.createSegment(testSuspAgr, segRecordTypeName, false);
-                segsToInsert.add(testSeg);
-            }
-            insert segsToInsert;
-        }*/
+
     }
 
     private static Federal_Register__c setFR(Id parentId, String frType, Boolean doInsert) {

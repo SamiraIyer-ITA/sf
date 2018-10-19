@@ -1,18 +1,33 @@
-public without sharing class SuspensionAgreementTriggerHandler {
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on May 16 2017
+ *    MIL Corporation
+ * 
+ **/
+ public without sharing class SuspensionAgreementTriggerHandler {
+     /***********************************************************
+   * This class handles all trigger contexts for the Suspension_Agreement__c
+   * object.  It provides methods that:
+   * 1. Organize the flow of logic for each trigger context
+   * 2. Initialize class variables
+   * 3. Help in the mapping of related objects
+   * 4. Retrieve constant values saved in custom metadata
+   * 5. Performs custom validations not possible with validation rules
+   ***********************************************************/
 
 	private static Map<String,Constant__mdt> saCalcOffsets = saCalcOffsets();
 
 	//FINAL ADCVD Order Offsets
-	private static FINAL Integer SUNSET_INIT_YEARS				    = ((Integer)saCalcOffsets.get('Susp_Agr_Sunset_Initiation_Years').Number_Value__c);//Next_Sunset_Initiation_Date__c
-	private static FINAL Integer SUNSET_INIT_MONTHS				    = ((Integer)saCalcOffsets.get('Susp_Agr_Sunset_Initiation_Months').Number_Value__c);//Next_Sunset_Initiation_Date__c
+    private static FINAL Integer SUNSET_INIT_YEARS				    = ((Integer)saCalcOffsets.get('Susp_Agr_Sunset_Initiation_Years').Number_Value__c);//Next_Sunset_Initiation_Date__c
+    private static FINAL Integer SUNSET_INIT_MONTHS				    = ((Integer)saCalcOffsets.get('Susp_Agr_Sunset_Initiation_Months').Number_Value__c);//Next_Sunset_Initiation_Date__c
     private static FINAL Integer EFFECTIVE_DATE_TERM_MONTHS         = ((Integer)saCalcOffsets.get('Susp_Agr_Effective_Termination_Months').Number_Value__c);//Effective_Date_of_Termination__c
     private static FINAL Integer EFFECTIVE_DATE_TERM_YEARS          = ((Integer)saCalcOffsets.get('Susp_Agr_Effective_Termination_Years').Number_Value__c);//Effective_Date_of_Termination__c
 
 
     public static boolean preventRecursion = false;
-    public static void mainEntry(List<Suspension_Agreement__c> newList, List<Suspension_Agreement__c> oldList, Map<Id, Suspension_Agreement__c> newMap, 
-        Map<Id, Suspension_Agreement__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete, 
-        Boolean isBefore, Boolean isAfter) {
+    public static void mainEntry(List<Suspension_Agreement__c> newList, List<Suspension_Agreement__c> oldList, Map<Id, Suspension_Agreement__c> newMap,
+            Map<Id, Suspension_Agreement__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete, Boolean isBefore, Boolean isAfter) {
         
         if (!AppConfigService.triggerEnabled) {return;}
 
@@ -35,8 +50,10 @@ public without sharing class SuspensionAgreementTriggerHandler {
      * Class Level Variables
     *****************************/
     
-	@TestVisible private static Map<Id,Investigation__c> investigationsInScopeMap = new Map<Id,Investigation__c>();
-    @TestVisible private static Map<Id,ADCVD_FederalRegisterUtility> frUtilMap = new Map<Id,ADCVD_FederalRegisterUtility>();
+    @TestVisible private static Map<Id,Investigation__c> investigationsInScopeMap = new Map<Id,Investigation__c>();
+    @TestVisible private static Map<Id, FederalRegisterMapper.MappedFRs> frUtilMap = new Map<Id, FederalRegisterMapper.MappedFRs>();
+    @TestVisible private static FederalRegisterMapper frMapper;
+    @TestVisible private static ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.mapperMap.get('ADCVD_Case__c');
 
     
     /******************************************
@@ -44,11 +61,13 @@ public without sharing class SuspensionAgreementTriggerHandler {
     ******************************************/
 	  
     @TestVisible private static void initialize(List<Suspension_Agreement__c> newList, Map<Id,Suspension_Agreement__c> newMap) {
+        Set<Id> caseIdSet = getCaseIdSet(newList);
         if(newMap != null) {
-            ADCVD_FederalRegisterUtility listInstance = ADCVD_FederalRegisterUtility.getInstance(newMap.values());//pass newMap to only get Segments with an Id
-            frUtilMap = listInstance.utilMap;
+            frMapper = (FederalRegisterMapper) caseMapper.getMapper('Federal_Register__c').getInstance();
+            frUtilMap = frMapper.getMappedFRs(newMap.keySet(), caseMapper);
         }
-        investigationsInScopeMap = findInvestigationsInScopeMap(newList); //find the parent Investigation 
+        caseMapper = caseMapper.getInstance(caseIdSet);
+        investigationsInScopeMap = (Map<Id,Investigation__c>) caseMapper.getMapper('Investigation__c').getInstance().getMap(true);// findPetitionsInScopeMap(newList); //find the parent Investigation
     }
 
 	//set ADCVD Case value from Investigations     
@@ -56,7 +75,6 @@ public without sharing class SuspensionAgreementTriggerHandler {
         ParentValuesService pvs = new ParentValuesService();
         for (Suspension_Agreement__c sa : newList) {
             sa = (Suspension_Agreement__c) pvs.setCaseValuesFromParent(investigationsInScopeMap.get(sa.Investigation__c), sa);
-            //System.debug('# setCaseValues SuspAgrmnt Record = ' + sa);
         }
     }
      
@@ -73,6 +91,14 @@ public without sharing class SuspensionAgreementTriggerHandler {
         }
     }
 
+    @TestVisible private static Set<Id> getCaseIdSet(List<Suspension_Agreement__c> newList) {
+        //Look directly in the lookup field of Suspension Agreement
+        Set<Id> caseIdSet = new Set<Id>();
+        for (Suspension_Agreement__c sa : newList) {
+            caseIdSet.add(sa.ADCVD_Case__c);
+        }
+        return caseIdSet;
+    }
 
     /***********************************
     * Helper Methods
@@ -86,27 +112,12 @@ public without sharing class SuspensionAgreementTriggerHandler {
         }
         return investigationIdSet;
     }
-     
-    //returns a map of the Investigation__c objects in the form: key = Id, value = Investigation object
-    //This pulls the investigation fields needed via the Investigation lookup field and adds them to the map
-    @TestVisible private static Map<Id,Investigation__c> findInvestigationsInScopeMap(List<Suspension_Agreement__c> newList) {
-        Map<Id,Investigation__c> returnMap = new Map<Id,Investigation__c>();
-        Set<Id> investigationIdSet = findIdsInScope(newList);
-        for (Investigation__c i : [SELECT Id, ADCVD_Case_Type__c, ADCVD_Case__c 
-                                    FROM Investigation__c WHERE Id IN: investigationIdSet]) {
-            returnMap.put(i.Id, i);
-        }
-        return returnMap;
-    }
       
     //used to set Offset Variables
 	@TestVisible private static Map<String,Constant__mdt> saCalcOffsets() {
 		if(saCalcOffsets == null || saCalcOffsets.size() < 1) {
 			Map<String,Constant__mdt> returnMap = new Map<String,Constant__mdt>();
-			List<Constant__mdt> tempList = [SELECT QualifiedAPIName, Used_with_Field_Named__c, Number_Value__c, 
-													ADCVD_Objects__r.Object_API_Name__c, ADCVD_Objects__r.Record_Type_Name__c 
-											FROM Constant__mdt 
-											WHERE Suspension_Agreement_Calculation_Offset__c =: true];
+			List<Constant__mdt> tempList = new ADCVD_ConstantMetadataSelector().selectBySuspensionAgreementCalculationOffset(true);
 			for(Constant__mdt sc : tempList) {
 				returnMap.put(sc.QualifiedAPIName, sc);
 			}
@@ -125,7 +136,7 @@ public without sharing class SuspensionAgreementTriggerHandler {
     @TestVisible private static void setAnniversaryMonth(Suspension_Agreement__c sa) {
         Date suspensionAgreementPublishedDate = null;
         if (sa.Id != null && frUtilMap != null) {
-            suspensionAgreementPublishedDate = frUtilMap.get(sa.Id) != null ? frUtilMap.get(sa.Id).suspensionAgreementPublishedDate : null;
+            suspensionAgreementPublishedDate = frUtilMap.get(sa.Id) != null ? frUtilMap.get(sa.Id).typeToPublishedDateMap.get('Suspension Agreement') : null;
         }
         if (suspensionAgreementPublishedDate != null) {
             sa.Anniversary_Month__c = utils.getMonthFromDate(suspensionAgreementPublishedDate);
@@ -137,11 +148,13 @@ public without sharing class SuspensionAgreementTriggerHandler {
     //Next_Sunset_Initiation_Date__c
     @TestVisible private static void setNextSunsetInitiationDate(Suspension_Agreement__c sa) {
     	Date nextSSR = null;
-    	if (sa.Id != null && frUtilMap != null) {
-    		nextSSR = frUtilMap.get(sa.Id) != null ? frUtilMap.get(sa.Id).suspensionAgreementPublishedDate : null;//set to suspensionAgreementPublishedDate if populated
-    		nextSSR = (frUtilMap.get(sa.Id) != null && frUtilMap.get(sa.Id).continuationPublishedDate != null) ? frUtilMap.get(sa.Id).continuationPublishedDate : nextSSR;//overwrite to continuationPublishedDate if populated
-    		nextSSR = (frUtilMap.get(sa.Id) != null && frUtilMap.get(sa.Id).terminationPublishedDate != null) ? null : nextSSR;//overwrite to null if revocationPublishedDate is populated
-    	}
+    	if (sa.Id != null && frUtilMap.containsKey(sa.Id)) {
+            nextSSR = frUtilMap.get(sa.Id).typeToPublishedDateMap.get('Suspension Agreement'); //set to suspensionAgreementPublishedDate if populated
+            Federal_Register__c continuationFR = frUtilMap.get(sa.Id).frsByType.get('Continuation');
+            Federal_Register__c suspensionAgreementFR = frUtilMap.get(sa.Id).frsByType.get('Suspension Agreement');
+            nextSSR = (continuationFR != null && suspensionAgreementFR !=null && continuationFR.CreatedDate > suspensionAgreementFR.CreatedDate) ? frUtilMap.get(sa.Id).typeToPublishedDateMap.get('Continuation') : nextSSR;//overwrite to continuationPublishedDate if populated
+            nextSSR = (frUtilMap.get(sa.Id).typeToPublishedDateMap.get('Termination') != null) ? null : nextSSR;//overwrite to null if revocationPublishedDate is populated
+        }
     	if (nextSSR != null) {
     		sa.Next_Sunset_Initiation_Date__c = nextSSR.toStartOfMonth().addYears(SUNSET_INIT_YEARS).addMonths(SUNSET_INIT_MONTHS);
     	} else {
@@ -158,13 +171,13 @@ public without sharing class SuspensionAgreementTriggerHandler {
     @TestVisible private static void validateEffectiveDateOfTermination(Suspension_Agreement__c sa) {
         String maxDateName = '';
         Date maxDate = null;
-        if (sa.Id != null && frUtilMap != null && frUtilMap.get(sa.Id) != null && frUtilMap.get(sa.Id).terminationPublishedDate != null) {
-            if (frUtilMap.get(sa.Id).suspensionAgreementPublishedDate != null) {
-                maxDate = frUtilMap.get(sa.Id).suspensionAgreementPublishedDate;
+        if (sa.Id != null && frUtilMap != null && frUtilMap.get(sa.Id) != null && frUtilMap.get(sa.Id).typeToPublishedDateMap.get('Termination')  != null) {
+            if (frUtilMap.get(sa.Id).typeToPublishedDateMap.get('Suspension Agreement') != null) {
+                maxDate = frUtilMap.get(sa.Id).typeToPublishedDateMap.get('Suspension Agreement');
                 maxDateName = 'Suspension Agreement Federal Register Published Date: ' + maxDate.format();
             }
-            if (frUtilMap.get(sa.Id).continuationPublishedDate != null) {
-                maxDate = frUtilMap.get(sa.Id).continuationPublishedDate;
+            if (frUtilMap.get(sa.Id).typeToPublishedDateMap.get('Continuation') != null) {
+                maxDate = frUtilMap.get(sa.Id).typeToPublishedDateMap.get('Continuation');
                 maxDateName = 'most recent Continuation Federal Register Published Date: ' + maxDate.format();
             }
             maxDate = maxDate != null ? maxDate.addYears(EFFECTIVE_DATE_TERM_YEARS).addMonths(EFFECTIVE_DATE_TERM_MONTHS) : null;

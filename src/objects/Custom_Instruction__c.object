@@ -45,11 +45,10 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
-    <enableSearch>true</enableSearch>
+    <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
@@ -476,6 +475,17 @@
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Country_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Country__c</fullName>
         <externalId>false</externalId>
         <label>Country</label>
@@ -607,11 +617,12 @@
         <fullName>Message_No__c</fullName>
         <externalId>false</externalId>
         <label>Message No.</label>
-        <length>255</length>
+        <precision>18</precision>
         <required>false</required>
+        <scale>0</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -781,15 +792,6 @@
     </listViews>
     <listViews>
         <fullName>Customs_Instructions_ClosedLocked_Queue_Custom_Instruction</fullName>
-        <columns>NAME</columns>
-        <columns>ADCVD_Case__c</columns>
-        <columns>ADCVD_Case_Type_Text__c</columns>
-        <columns>CBP_Case_Number_Text__c</columns>
-        <columns>CBP_Instructions_Category__c</columns>
-        <columns>Message_Date__c</columns>
-        <columns>Message_No__c</columns>
-        <columns>Message_Status__c</columns>
-        <columns>Public_Indicator__c</columns>
         <filterScope>Queue</filterScope>
         <label>Customs Instructions-ClosedLocked Queue</label>
         <queue>Customs_Instructions_ClosedLocked_Queue</queue>
@@ -799,14 +801,6 @@
     </listViews>
     <listViews>
         <fullName>Customs_Instructions_MigratedLockedQueue_Custom_Instruction</fullName>
-        <columns>NAME</columns>
-        <columns>ADCVD_Case__c</columns>
-        <columns>ADCVD_Case_Type_Text__c</columns>
-        <columns>CBP_Case_Number_Text__c</columns>
-        <columns>Message_Date__c</columns>
-        <columns>Message_No__c</columns>
-        <columns>Message_Status__c</columns>
-        <columns>Public_Indicator__c</columns>
         <filterScope>Queue</filterScope>
         <label>Customs Instructions-MigratedLockedQueue</label>
         <queue>Customs_Instructions_MigratedLockedQueue</queue>
@@ -816,15 +810,6 @@
     </listViews>
     <listViews>
         <fullName>Customs_Instructions_Open_Queue_Custom_Instruction</fullName>
-        <columns>NAME</columns>
-        <columns>ADCVD_Case__c</columns>
-        <columns>ADCVD_Case_Type_Text__c</columns>
-        <columns>CBP_Case_Number_Text__c</columns>
-        <columns>CBP_Instructions_Category__c</columns>
-        <columns>Message_Date__c</columns>
-        <columns>Message_No__c</columns>
-        <columns>Message_Status__c</columns>
-        <columns>Public_Indicator__c</columns>
         <filterScope>Queue</filterScope>
         <label>Customs Instructions-Open Queue</label>
         <queue>Customs_Instructions_Open_Queue</queue>

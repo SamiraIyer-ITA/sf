@@ -256,6 +256,10 @@
     </fields>
     <fields>
         <label><!-- Country --></label>
+        <name>Country_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
         <name>Country__c</name>
     </fields>
     <fields>

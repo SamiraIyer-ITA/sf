@@ -38,6 +38,7 @@ public without sharing class ADCVD_CaseMapper implements ADCVD_IMapper {
 		mapperMap.put('Federal_Register__c', (ADCVD_IMapper) new FederalRegisterMapper());
 		mapperMap.put('Litigation__c', (ADCVD_IMapper) new LitigationMapper());
 		mapperMap.put('Related_Organization__c', (ADCVD_IMapper) new RelatedOrganizationMapper());
+		mapperMap.put('Custom_Instruction__c', (ADCVD_IMapper) new CustomInstructionMapper());
 		mapperMap.put('ADCVD_Case__c', (ADCVD_IMapper) new ADCVD_CaseMapper());
 	}
 	//Master map of unlocked cases for execution
@@ -55,6 +56,7 @@ public without sharing class ADCVD_CaseMapper implements ADCVD_IMapper {
 	public static Map<Id,Set<Id>> caseIdToFrIdMap = new Map<Id,Set<Id>>();
 	public static Map<Id,Set<Id>> caseIdToStaffingIdMap = new Map<Id,Set<Id>>();
 	public static Map<Id,Set<Id>> caseIdToRelOrgIdMap = new Map<Id,Set<Id>>();
+	public static Map<Id,Set<Id>> caseIdToCstInstIdMap = new Map<Id,Set<Id>>();
 
 	/*
 	Maps of parent objects to child objects.  If there is a specific use case,
@@ -68,25 +70,10 @@ public without sharing class ADCVD_CaseMapper implements ADCVD_IMapper {
 	//private constructor used via the getInstance() method.  Performs a query on the ADCVD_Case__c table
 	//with subqueries to get the Ids of all the related records. The returned list of cases is then used to populate
 	//the in class maps
+	@TestVisible
 	private ADCVD_CaseMapper(Set<Id> caseIdSet) {
 		if (instance == null) {
-			List<ADCVD_Case__c> tempList = new List<ADCVD_Case__c>();
-			String queryString = Utils.soqlBuilderAllFields('ADCVD_Case__c', false);
-			String petitionSubQuery = ', (SELECT Id, ADCVD_Case__c FROM Petitions__r)';
-			String investigationSubQuery = ', (SELECT Id, Petition__c, ADCVD_Case__c FROM Investigations__r)';
-			String adcvdOrderSubQuery = ', (SELECT Id, Investigation__c, ADCVD_Case__c FROM ADCVD_Orders__r)';
-			String suspAgrmtSubQuery = ', (SELECT Id, Investigation__c, ADCVD_Case__c FROM Suspension_Agreements__r)';
-			String segmentSubQuery = ', (SELECT Id, ADCVD_Order__c, Suspension_Agreement__c, ADCVD_Case__c FROM Segments__r)';
-			String litigationSubQuery = ', (SELECT Id, Petition__c, Investigation__c, Segment__c, ADCVD_Case__c FROM Litigation__r)';
-			String frSubQuery = ', (SELECT Id, Petition__c, Investigation__c, ADCVD_Order__c, Suspension_Agreement__c, Segment__c, ADCVD_Case__c FROM Federal_Registers__r)';
-			String staffingSubQuery = ', (SELECT Id, Petition__c, Investigation__c, ADCVD_Order__c, Segment__c, Related_Organization__c, ADCVD_Case__c FROM Staffing_Assignments__r)';
-			String relOrgSubQuery = ', (SELECT Id, Petition__c, Investigation__c, ADCVD_Order__c, Segment__c, Litigation__c, ADCVD_Case__c FROM Interested_Organizations__r)';
-			queryString += petitionSubQuery + investigationSubQuery + adcvdOrderSubQuery +
-							suspAgrmtSubQuery + segmentSubQuery + litigationSubQuery + 
-							frSubQuery + staffingSubQuery + relOrgSubQuery + ' FROM ADCVD_Case__c WHERE Id IN:caseIdSet';
-			System.debug(LoggingLevel.DEBUG,'queryString: ' + queryString);
-			tempList = database.query(queryString);
-			mapCaseIdsToMaps(tempList);
+			mapCaseIdsToMaps(ADCVD_CaseSelector.newInstance().selectByIdWithRelations(caseIdSet));
 		}
 	}
 
@@ -94,10 +81,7 @@ public without sharing class ADCVD_CaseMapper implements ADCVD_IMapper {
 	//per object scope maps (case to petitions, etc)
 	private void mapCaseIdsToMaps(List<ADCVD_Case__c> caseList) {
 		for (ADCVD_Case__c ac : caseList) {
-			if (!ac.Locked__c) {
-				idToUnlockedCaseMap.put(ac.Id, ac);
-			}
-			idToAllCaseMap.put(ac.Id, ac);
+			addCaseToMap(ac);
 			setCaseIdToPetitionMap(ac.Id, ac.Petitions__r);
 			setCaseIdToInvestigationMap(ac.Id, ac.Investigations__r);
 			setCaseIdToOrderMap(ac.Id, ac.ADCVD_Orders__r);
@@ -107,6 +91,7 @@ public without sharing class ADCVD_CaseMapper implements ADCVD_IMapper {
 			setCaseIdToFrMap(ac.Id, ac.Federal_Registers__r);
 			setCaseIdToStaffingMap(ac.Id, ac.Staffing_Assignments__r);
 			setCaseIdToRelOrgMap(ac.Id, ac.Interested_Organizations__r);
+			setCaseIdToCstInstMap(ac.Id, ac.Custom_Instructions__r);
 		}
 	}
 	//accepts a case Id and an object name and returns the set of Ids for that case and object
@@ -127,6 +112,8 @@ public without sharing class ADCVD_CaseMapper implements ADCVD_IMapper {
 			return caseIdToStaffingIdMap.get(caseId);
 		} else if (objectName == 'Related_Organization__c') {
 			return caseIdToRelOrgIdMap.get(caseId);
+		} else if (objectName == 'Custom_Instruction__c') {
+			return caseIdToCstInstIdMap.get(caseId);
 		}
 		return new Set<Id>();
 	}
@@ -157,6 +144,9 @@ public without sharing class ADCVD_CaseMapper implements ADCVD_IMapper {
 	}
 	public void setCaseIdToRelOrgMap(Id caseId, List<Related_Organization__c> relOrgList) {
 		caseIdToRelOrgIdMap.put(caseId, getIdSetForMaps(caseIdToRelOrgIdMap.get(caseId), relOrgList, 'Related_Organization__c'));
+	}
+	public void setCaseIdToCstInstMap(Id caseId, List<Custom_Instruction__c> cstInstList) {
+		caseIdToCstInstIdMap.put(caseId, getIdSetForMaps(caseIdToCstInstIdMap.get(caseId), cstInstList, 'Custom_Instruction__c'));
 	}
 	//This method returns the Ids from List of SObjects in a Set.  It also uses the same
 	//for loop to populate the related Id Maps.  This two functions need to happen together
@@ -211,6 +201,13 @@ public without sharing class ADCVD_CaseMapper implements ADCVD_IMapper {
 	//then update this map with the new one)
 	public void putMapper(String objectName, ADCVD_IMapper mapper) {
 		mapperMap.put(objectName, mapper);
+	}
+	//method to add new or updated Cases to the maps
+	public void addCaseToMap(ADCVD_Case__c ac) {
+		if (!ac.Locked__c) {
+			idToUnlockedCaseMap.put(ac.Id, ac);
+		}
+		idToAllCaseMap.put(ac.id, ac);
 	}
 	//method to return a related set of Ids, which Ids will be returned is based on the logic in the inner classes.
 	//(i.e. an investigation Id param will return a set of Ids with that investigation Id,

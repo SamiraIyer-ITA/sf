@@ -1069,6 +1069,11 @@ Permission Set created for Technical Team (for Cary Freeman).</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Custom_Instruction__c.Country_Text__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Custom_Instruction__c.Country__c</field>
         <readable>false</readable>
     </fieldPermissions>

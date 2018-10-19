@@ -262,13 +262,6 @@
         </platformActionListItems>
     </platformActionList>
     <relatedLists>
-        <fields>NAME</fields>
-        <fields>Type__c</fields>
-        <fields>Published_Date__c</fields>
-        <fields>Cite_Number__c</fields>
-        <relatedList>Federal_Register__c.Litigation__c</relatedList>
-    </relatedLists>
-    <relatedLists>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Account__c</fields>
