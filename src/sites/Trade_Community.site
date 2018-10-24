@@ -65,6 +65,12 @@
     <siteAdmin>john.harlow@trade.gov</siteAdmin>
     <siteRedirectMappings>
         <action>Permanent</action>
+        <isActive>true</isActive>
+        <source>/</source>
+        <target>/welcome</target>
+    </siteRedirectMappings>
+    <siteRedirectMappings>
+        <action>Permanent</action>
         <isActive>false</isActive>
         <source>/business-tools</source>
         <target>https://www.stopfakes.gov/business-guide-to-intellectual-property-rights</target>

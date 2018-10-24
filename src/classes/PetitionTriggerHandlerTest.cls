@@ -17,7 +17,7 @@ public class PetitionTriggerHandlerTest {
     * 3. Test to ensure that status calculations are logically correct
     *************************************************/
 
-    private static Date petitionDate = System.today();
+    private static Date petitionDate = Date.newInstance(2018, 10, 7);
     private static User u{
         get{
             if(u == null){
@@ -257,7 +257,7 @@ public class PetitionTriggerHandlerTest {
         System.assertEquals(p.Calculated_Initiation_Signature__c, p.Next_Major_Deadline__c);
 
         p.Petition_Outcome__c = 'Initiated from Petition';
-        p.Actual_Initiation_Signature__c = System.today().toStartofWeek().addDays(-5);
+        p.Actual_Initiation_Signature__c = Date.newInstance(2018, 10, 7).toStartofWeek().addDays(-5);
         update p;
 
         Test.stopTest();
@@ -298,7 +298,7 @@ public class PetitionTriggerHandlerTest {
             [SELECT Id, Next_Due_to_DAS_Deadline__c FROM Petition__c WHERE Id =: p.Id LIMIT 1].Next_Due_to_DAS_Deadline__c);
 
         p.Petition_Outcome__c = 'Initiated from Petition';
-        p.Actual_Initiation_Signature__c = System.today().toStartofWeek().addDays(-5);
+        p.Actual_Initiation_Signature__c = Date.newInstance(2018, 10, 7).toStartofWeek().addDays(-5);
         update p;
 
         Test.stopTest();

@@ -105,6 +105,9 @@ public class ParentSortingServiceTest {
 		Account testAccount = TestUtils.createAccount(false);
 		testAccount.BillingState = '';
 		insert testAccount;
-		Related_Organization__c testOrg = TestUtils.createRelatedOrg(testADinvestigation, true);
+		Related_Organization__c testOrg = TestUtils.createRelatedOrg(testADinvestigation, false);
+        testOrg.ADCVD_Entity_Name__c = 'kraken';
+        testOrg.Account__c = testAccount.Id;
+        insert testOrg;
 	}
 }
