@@ -963,6 +963,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Custom_Instruction__c.CI_Parent__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Custom_Instruction__c.Case_Concat_Text__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -6513,6 +6518,14 @@
         <recordType>Case.U_S_Business</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>CreateCustomizeFilters</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>EditPublicFilters</name>
+    </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageCases</name>

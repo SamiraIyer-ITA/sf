@@ -12,12 +12,7 @@ public without sharing class Suspension_AgreementMapper implements ADCVD_IMapper
 	public Suspension_AgreementMapper() {}
 	private Suspension_AgreementMapper(Set<Id> suspAgrmtIdSet) {
 		if (idToUnlockedSuspAgrmtMap.isEmpty()) {
-			
-			List<Suspension_Agreement__c> tempList = new List<Suspension_Agreement__c>();
-			String queryString = Utils.soqlBuilderAllFields('Suspension_Agreement__c', false);
-			queryString += ' FROM Suspension_Agreement__c WHERE Id IN: suspAgrmtIdSet';
-			tempList = database.query(queryString);
-			for (Suspension_Agreement__c sa : tempList) {
+			for (Suspension_Agreement__c sa : SuspensionAgreementSelector.newInstance().selectById(suspAgrmtIdSet)) {
 				addSuspAgrmtToMap(sa);
 			}
 		}

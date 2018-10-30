@@ -6,19 +6,13 @@ public without sharing class InvestigationMapper implements ADCVD_IMapper{
 	public InvestigationMapper() {}
 	private InvestigationMapper(Set<Id> investigationIdSet) {
 		if (idToUnlockedInvestigationMap.isEmpty()) {
-			
-			List<Investigation__c> tempList = new List<Investigation__c>();
-			String queryString = Utils.soqlBuilderAllFields('Investigation__c', false);
-			queryString += ' FROM Investigation__c WHERE Id IN: investigationIdSet';
-			tempList = database.query(queryString);
-			for (Investigation__c i : tempList) {
+			for (Investigation__c i : InvestigationSelector.newInstance().selectById(investigationIdSet)) {
 				addInvToMap(i);
 			}
 		}
 	}
 	public static InvestigationMapper getInstance () {
 		if (instance == null) {
-			System.debug('InvestigationMapper instance: ' + instance);
 			return getNewInstance();
 		}
 		return instance;
@@ -53,8 +47,7 @@ public without sharing class InvestigationMapper implements ADCVD_IMapper{
 	public static List<Investigation__c> allInvestigations {
 		get {
 			if (allInvestigations == null) {
-				String query = Utils.soqlBuilderAllFields('Investigation__c', true);
-				allInvestigations = database.query(query);
+				allInvestigations = InvestigationSelector.newInstance().selectAllToLimit();
 			}
 			return allInvestigations;
 		} set;

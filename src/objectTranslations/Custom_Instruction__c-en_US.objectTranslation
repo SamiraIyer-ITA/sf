@@ -243,6 +243,10 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- CI Parent --></label>
+        <name>CI_Parent__c</name>
+    </fields>
+    <fields>
         <label><!-- Case Concat Text --></label>
         <name>Case_Concat_Text__c</name>
     </fields>

@@ -18,11 +18,7 @@ public without sharing class PetitionMapper implements ADCVD_IMapper {
 	//private contructor used via the getNewInstance method
 	private PetitionMapper(Set<Id> petitionIdSet) {
 		if(idToUnlockedPetitionMap.isEmpty()) {
-			List<Petition__c> tempList = new List<Petition__c>();
-			String queryString = Utils.soqlBuilderAllFields('Petition__c', false);
-			queryString += ' FROM Petition__c WHERE Id IN: petitionIdSet';
-			tempList = database.query(queryString);
-			for (Petition__c p : tempList) {
+			for (Petition__c p : PetitionSelector.newInstance().selectById(petitionIdSet)) {
 				addPetToMap(p);
 			}
 		}

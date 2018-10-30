@@ -335,6 +335,14 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CustomInstructionTriggerHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CustomInstructionTriggerHandlerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CustomMetadataSelector</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -2489,6 +2497,11 @@
         <editable>true</editable>
         <field>Custom_Instruction__c.CBP_Instructions_Sub_Category__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Custom_Instruction__c.CI_Parent__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -11240,7 +11253,7 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Custom_Instruction__c</tab>
-        <visibility>DefaultOff</visibility>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Decision_Log__c</tab>
