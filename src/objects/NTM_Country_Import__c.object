@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>NTM_Country_Import_LPL</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Details for a product that is imported by a country, for use with the New to Market application</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>Avg_US__c</fullName>
+        <description>The average value of the US imports</description>
+        <externalId>false</externalId>
+        <formula>Sum_US__c / Data_Years__c</formula>
+        <label>Avg US Imports</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Avg_World__c</fullName>
+        <description>The average value of the World imports</description>
+        <externalId>false</externalId>
+        <formula>Sum_World__c / Data_Years__c</formula>
+        <label>Avg World Imports</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Country__c</fullName>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <referenceTo>NTM_Country__c</referenceTo>
+        <relationshipLabel>NTM Country Imports</relationshipLabel>
+        <relationshipName>NTM_Country_Imports</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Data_Years__c</fullName>
+        <description>The number of years of import data available for this product</description>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(US_1__c), 0, 1) + IF(ISBLANK(US_2__c), 0, 1) + IF(ISBLANK(US_3__c), 0, 1) + IF(ISBLANK(US_4__c), 0, 1) + IF(ISBLANK(US_5__c), 0, 1)</formula>
+        <label>Data Years</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Key__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <defaultValue>&quot;(auto)&quot;</defaultValue>
+        <description>External ID field; Autopopulated by Workflow</description>
+        <externalId>true</externalId>
+        <inlineHelpText>External ID field; Autopopulated by Workflow</inlineHelpText>
+        <label>Key</label>
+        <length>86</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <referenceTo>NTM_Product__c</referenceTo>
+        <relationshipLabel>NTM Country Imports</relationshipLabel>
+        <relationshipName>NTM_Country_Imports</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Sum_US__c</fullName>
+        <description>Total amount of US imports for all available years</description>
+        <externalId>false</externalId>
+        <formula>US_1__c + US_2__c + US_3__c + US_4__c + US_5__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sum US Imports</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sum_World__c</fullName>
+        <description>Total amount of World imports for all available years</description>
+        <externalId>false</externalId>
+        <formula>World_1__c + World_2__c + World_3__c + World_4__c + World_5__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sum World Imports</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tariff__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Tariff for importing a product into a country</description>
+        <externalId>false</externalId>
+        <label>Tariff</label>
+        <precision>6</precision>
+        <required>true</required>
+        <scale>3</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>US_1__c</fullName>
+        <description>Imports from the US for the most recent year</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Country imports from the US, by year, in dollars</inlineHelpText>
+        <label>US Imports Now-1</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>US_2__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Country imports from the US, by year, in dollars</inlineHelpText>
+        <label>US Imports Now-2</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>US_3__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Country imports from the US, by year, in dollars</inlineHelpText>
+        <label>US Imports Now-3</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>US_4__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Country imports from the US, by year, in dollars</inlineHelpText>
+        <label>US Imports Now-4</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>US_5__c</fullName>
+        <description>Imports from the US for the year, five years ago</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Country imports from the US, by year, in dollars</inlineHelpText>
+        <label>US Imports Now-5</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>World_1__c</fullName>
+        <description>Total imports from the world for the most recent year</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Country imports from the world, by year, in dollars</inlineHelpText>
+        <label>World Imports Now-1</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>World_2__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Country imports from the world, by year, in dollars</inlineHelpText>
+        <label>World Imports Now-2</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>World_3__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Country imports from the world, by year, in dollars</inlineHelpText>
+        <label>World Imports Now-3</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>World_4__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Country imports from the world, by year, in dollars</inlineHelpText>
+        <label>World Imports Now-4</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>World_5__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Country imports from the world, by year, in dollars</inlineHelpText>
+        <label>World Imports Now-5</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Year_First__c</fullName>
+        <description>The earliest year with World import data</description>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(World_5__c), IF(ISBLANK(World_4__c), IF(ISBLANK(World_3__c), IF(ISBLANK(World_2__c), IF(ISBLANK(World_1__c), 0, 1), 2), 3), 4), 5)</formula>
+        <inlineHelpText>The earliest year with World import data</inlineHelpText>
+        <label>Year_First</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Year_Last__c</fullName>
+        <description>The latest year with World import data</description>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(World_1__c), IF(ISBLANK(World_2__c), IF(ISBLANK(World_3__c), IF(ISBLANK(World_4__c), IF(ISBLANK(World_5__c), 0, 5), 4), 3), 2), 1)</formula>
+        <inlineHelpText>The latest year with World import data</inlineHelpText>
+        <label>Year_Last</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>NTM Country Import</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Country__c</columns>
+        <columns>Product__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>NTM Country Import Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>NTM Country Imports</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Key__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Key__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Key__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>Key__c</searchFilterFields>
+        <searchResultsAdditionalFields>Key__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Import_Years_Match</fullName>
+        <active>true</active>
+        <description>US and World import data must be available for the same years</description>
+        <errorConditionFormula>(ISBLANK(US_1__c) &lt;&gt; ISBLANK(World_1__c)) || (ISBLANK(US_2__c) &lt;&gt; ISBLANK(World_2__c)) || (ISBLANK(US_3__c) &lt;&gt; ISBLANK(World_3__c)) || (ISBLANK(US_4__c) &lt;&gt; ISBLANK(World_4__c)) || (ISBLANK(US_5__c) &lt;&gt; ISBLANK(World_5__c))</errorConditionFormula>
+        <errorMessage>US and World import values must be available for the same years</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Positive_Imports</fullName>
+        <active>true</active>
+        <errorConditionFormula>US_1__c &lt; 0 || US_2__c &lt; 0 || US_3__c &lt; 0 || US_4__c &lt; 0 || US_5__c &lt; 0 || World_1__c &lt; 0 || World_2__c &lt; 0 || World_3__c &lt; 0 || World_4__c &lt; 0 || World_5__c &lt; 0</errorConditionFormula>
+        <errorMessage>Import values must not be negative</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Tariff</fullName>
+        <active>true</active>
+        <errorConditionFormula>Tariff__c &gt; 100 || Tariff__c &lt; 0</errorConditionFormula>
+        <errorDisplayField>Tariff__c</errorDisplayField>
+        <errorMessage>Tariff percent must be between 0% and 100%</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

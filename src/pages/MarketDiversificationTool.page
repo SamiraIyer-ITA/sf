@@ -1,0 +1,38 @@
+<apex:page readOnly="true" docType="html-5.0" applyHtmlTag="false" applyBodyTag="false" showHeader="false" sidebar="false" standardStylesheets="false" title="New To Market" >
+ <apex:composition template="Site_Template2">
+     <apex:define name="page">
+     
+<nav style="border:none;margin-top:15px;margin-bottom:15px;">
+<div class="usa-grid">
+<ul style="list-style-type: none;padding:0;">  
+<h4>Market Diversification</h4>
+<li style="display:inline;">
+     <a href="/marketdiversification" style="font-size:1.3rem;padding-right: 1.5rem;margin-right:1rem;text-transform: capitalize;"><span> WHY USE THIS TOOL </span></a>
+</li>
+<li style="display:inline;">
+     <a href="/marketdiversification/About-the-Tool" style="font-size:1.3rem;padding-right: 1.5rem;margin-right:1rem;text-transform: capitalize;"><span> ABOUT THE TOOL </span></a>
+</li>
+<li style="display:inline;">
+     <a href="/marketdiversification/Market-Diversification-Tool" style="font-size:1.3rem;padding-right: 1.5rem;margin-right:1rem;text-transform: capitalize;"><span> MARKET DIVERSIFICATION TOOL </span></a>
+</li>
+<li style="display:inline;">
+     <a href="/marketdiversification/How-to-Interpret-Your-Results" style="font-size:1.3rem;padding-right: 1.5rem;margin-right:1rem;text-transform: capitalize;"><span> INTERPRET YOUR RESULTS </span></a>
+</li>
+<li style="display:inline;">
+     <a href="/marketdiversification/FAQs" style="font-size:1.3rem;padding-right: 1.5rem;margin-right:1rem;text-transform: capitalize;"><span> FAQS </span></a>
+</li>
+<li style="display:inline;">
+     <a href="/marketdiversification/Data-Availability" style="font-size:1.3rem;padding-right: 1.5rem;margin-right:1rem;text-transform: capitalize;"><span> DATA AVAILABILITY </span></a>
+</li>
+<li style="display:inline;">
+     <a href="/marketdiversification/Contact-Us" style="font-size:1.3rem;padding-right: 1.5rem;margin-right:1rem;text-transform: capitalize;"><span> CONTACT US </span></a>
+</li>  
+</ul>
+</div>
+</nav>
+ 
+   <c:ntm />
+      
+     </apex:define>
+ </apex:composition>
+</apex:page>

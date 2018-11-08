@@ -400,6 +400,41 @@
         <label>All</label>
     </listViews>
     <listViews>
+        <fullName>FRs_with_Multiple_parents</fullName>
+        <booleanFilter>(1 AND 2) OR (1 AND 3) OR (1 AND 4) OR (1 AND 5) OR (2 AND 3) OR (2 AND 4) OR (2 AND 5) OR (3 AND 4) OR (3 AND 5)</booleanFilter>
+        <columns>NAME</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>ADCVD_Case__c</columns>
+        <columns>Petition__c</columns>
+        <columns>Investigation__c</columns>
+        <columns>ADCVD_Order__c</columns>
+        <columns>Suspension_Agreement__c</columns>
+        <columns>Segment__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ADCVD_Order__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <filters>
+            <field>Segment__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <filters>
+            <field>Investigation__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <filters>
+            <field>Suspension_Agreement__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <filters>
+            <field>Petition__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>FRs with Multiple parents</label>
+    </listViews>
+    <listViews>
         <fullName>FederalRegister_ClosedLocked_Queue_Federal_Register</fullName>
         <filterScope>Queue</filterScope>
         <label>FederalRegister ClosedLocked Queue</label>
@@ -416,6 +451,43 @@
         <sharedTo>
             <allInternalUsers></allInternalUsers>
         </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Missing_Published_Dates</fullName>
+        <columns>NAME</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>ADCVD_Case__c</columns>
+        <columns>Petition__c</columns>
+        <columns>Investigation__c</columns>
+        <columns>ADCVD_Order__c</columns>
+        <columns>Segment__c</columns>
+        <columns>Suspension_Agreement__c</columns>
+        <columns>Published_Date__c</columns>
+        <columns>Cite_Number__c</columns>
+        <columns>Type__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Petition__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>ADCVD_Order__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>Investigation__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>Segment__c</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>Suspension_Agreement__c</field>
+            <operation>equals</operation>
+        </filters>
+        <label>Unparented FRs</label>
     </listViews>
     <nameField>
         <displayFormat>FR-{000000}</displayFormat>

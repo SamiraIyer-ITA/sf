@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>NTM Country</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>NTM Countries</value>
+    </caseValues>
+    <fields>
+        <help><!-- Cost to resolve a contract despute --></help>
+        <label><!-- Contract Cost --></label>
+        <name>Contract_Cost__c</name>
+    </fields>
+    <fields>
+        <label><!-- Distance from Population Centers --></label>
+        <name>Distance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Free Trade Agreement --></label>
+        <name>Free_Trade_Agreement__c</name>
+    </fields>
+    <fields>
+        <label><!-- GDP CAGR --></label>
+        <name>GDP__c</name>
+    </fields>
+    <fields>
+        <label><!-- ISO Alpha-2 --></label>
+        <name>ISO_Alpha_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Import Costs --></label>
+        <name>Import_Costs__c</name>
+    </fields>
+    <fields>
+        <label><!-- Landlocked --></label>
+        <name>Landlocked__c</name>
+    </fields>
+    <fields>
+        <label><!-- Languages --></label>
+        <name>Languages__c</name>
+        <picklistValues>
+            <masterLabel>Albanian</masterLabel>
+            <translation><!-- Albanian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Arabic</masterLabel>
+            <translation><!-- Arabic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Armenian</masterLabel>
+            <translation><!-- Armenian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Azerbaijani</masterLabel>
+            <translation><!-- Azerbaijani --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Belarusian</masterLabel>
+            <translation><!-- Belarusian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bengali</masterLabel>
+            <translation><!-- Bengali --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bosnian</masterLabel>
+            <translation><!-- Bosnian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bulgarian</masterLabel>
+            <translation><!-- Bulgarian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Burmese</masterLabel>
+            <translation><!-- Burmese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cantonese</masterLabel>
+            <translation><!-- Cantonese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Catalan</masterLabel>
+            <translation><!-- Catalan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Creole</masterLabel>
+            <translation><!-- Creole --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Croatian</masterLabel>
+            <translation><!-- Croatian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Czech</masterLabel>
+            <translation><!-- Czech --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Danish</masterLabel>
+            <translation><!-- Danish --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dari</masterLabel>
+            <translation><!-- Dari --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dutch</masterLabel>
+            <translation><!-- Dutch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dzongkha</masterLabel>
+            <translation><!-- Dzongkha --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>English</masterLabel>
+            <translation><!-- English --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Estonian</masterLabel>
+            <translation><!-- Estonian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Filipino</masterLabel>
+            <translation><!-- Filipino --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finnish</masterLabel>
+            <translation><!-- Finnish --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>French</masterLabel>
+            <translation><!-- French --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Georgian</masterLabel>
+            <translation><!-- Georgian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>German</masterLabel>
+            <translation><!-- German --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greek</masterLabel>
+            <translation><!-- Greek --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hebrew</masterLabel>
+            <translation><!-- Hebrew --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hindi</masterLabel>
+            <translation><!-- Hindi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hungarian</masterLabel>
+            <translation><!-- Hungarian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Icelandic</masterLabel>
+            <translation><!-- Icelandic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Italian</masterLabel>
+            <translation><!-- Italian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Japanese</masterLabel>
+            <translation><!-- Japanese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Khmer</masterLabel>
+            <translation><!-- Khmer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Korean</masterLabel>
+            <translation><!-- Korean --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kyrgyz</masterLabel>
+            <translation><!-- Kyrgyz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lao</masterLabel>
+            <translation><!-- Lao --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Latvian</masterLabel>
+            <translation><!-- Latvian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lithuanian</masterLabel>
+            <translation><!-- Lithuanian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Macedonian</masterLabel>
+            <translation><!-- Macedonian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Malay</masterLabel>
+            <translation><!-- Malay --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maltese</masterLabel>
+            <translation><!-- Maltese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mandarin</masterLabel>
+            <translation><!-- Mandarin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marshallese</masterLabel>
+            <translation><!-- Marshallese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mongolian</masterLabel>
+            <translation><!-- Mongolian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Montenegrin</masterLabel>
+            <translation><!-- Montenegrin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nepali</masterLabel>
+            <translation><!-- Nepali --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Norwegian</masterLabel>
+            <translation><!-- Norwegian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pashto</masterLabel>
+            <translation><!-- Pashto --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Persian</masterLabel>
+            <translation><!-- Persian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Poland</masterLabel>
+            <translation><!-- Poland --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Portuguese</masterLabel>
+            <translation><!-- Portuguese --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Punjabi</masterLabel>
+            <translation><!-- Punjabi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Romanian</masterLabel>
+            <translation><!-- Romanian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Russian</masterLabel>
+            <translation><!-- Russian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Samoan</masterLabel>
+            <translation><!-- Samoan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Serbian</masterLabel>
+            <translation><!-- Serbian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sinhala</masterLabel>
+            <translation><!-- Sinhala --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Slovakia</masterLabel>
+            <translation><!-- Slovakia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Slovenia</masterLabel>
+            <translation><!-- Slovenia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Somali</masterLabel>
+            <translation><!-- Somali --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spanish</masterLabel>
+            <translation><!-- Spanish --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Swedish</masterLabel>
+            <translation><!-- Swedish --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tajik</masterLabel>
+            <translation><!-- Tajik --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Thai</masterLabel>
+            <translation><!-- Thai --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tongan</masterLabel>
+            <translation><!-- Tongan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Turkish</masterLabel>
+            <translation><!-- Turkish --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Turkmen</masterLabel>
+            <translation><!-- Turkmen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ukrainian</masterLabel>
+            <translation><!-- Ukrainian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Urdu</masterLabel>
+            <translation><!-- Urdu --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Uzbek</masterLabel>
+            <translation><!-- Uzbek --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vietnamese</masterLabel>
+            <translation><!-- Vietnamese --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- LPI ranks 160 countries on six aspects of trade that are important factors when exporting to a country --></help>
+        <label><!-- Logistics Performance Index Score --></label>
+        <name>Logistics_Score__c</name>
+    </fields>
+    <fields>
+        <label><!-- NTM Country Name External ID --></label>
+        <name>NTMCountryNameXID__c</name>
+    </fields>
+    <fields>
+        <help><!-- The region in which this country&apos;s imports should be incorporated for calculations --></help>
+        <label><!-- Region (Calculate) --></label>
+        <name>Region_Calculate__c</name>
+        <relationshipLabel><!-- Countries - Region (Calculate) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The region that the country&apos;s performance should be compared to --></help>
+        <label><!-- Region (Compare) --></label>
+        <name>Region_Compare__c</name>
+        <relationshipLabel><!-- Countries - Region (Compare) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Rule of Law --></label>
+        <name>Rule_of_Law__c</name>
+    </fields>
+    <layouts>
+        <layout>NTM Country Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Distance must not be negative --></errorMessage>
+        <name>Distance</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- GDP must be less than 100% --></errorMessage>
+        <name>GDP</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Import Costs must not be negative --></errorMessage>
+        <name>Import_Costs</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- LPI Score must not be negative --></errorMessage>
+        <name>LPI</name>
+    </validationRules>
+</CustomObjectTranslation>

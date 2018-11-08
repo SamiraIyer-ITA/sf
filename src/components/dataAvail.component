@@ -1,0 +1,11 @@
+<apex:component controller="NewToMarketDataAvailabilityController" allowDML="true">
+<style>
+#a0xr0000000YL2dAAGusa span {
+    border-bottom: 0.7rem solid #0071bc;
+    padding-bottom: 0.9rem;
+}
+</style>
+    <apex:pageBlock title="Data Availability Table">
+        <apex:outputText value="{!csvFile}" escape="false" />
+    </apex:pageBlock>
+</apex:component>

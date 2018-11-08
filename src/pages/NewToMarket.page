@@ -1,0 +1,9 @@
+<apex:page readOnly="true" docType="html-5.0" applyHtmlTag="false" applyBodyTag="false" showHeader="false" sidebar="false" standardStylesheets="false" title="New To Market" >
+ <apex:composition template="Site_Template2">
+     <apex:define name="page">
+ 
+   <c:ntm />
+      
+     </apex:define>
+ </apex:composition>
+</apex:page>

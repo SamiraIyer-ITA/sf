@@ -9,6 +9,10 @@
         <value>Elements</value>
     </caseValues>
     <fields>
+        <label><!-- AutorabitExtId__c --></label>
+        <name>AutorabitExtId__c</name>
+    </fields>
+    <fields>
         <help><!-- The text that will display on the button --></help>
         <label><!-- Button Text --></label>
         <name>Button_Text__c</name>

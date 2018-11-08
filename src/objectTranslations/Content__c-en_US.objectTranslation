@@ -19,6 +19,10 @@
         <relationshipLabel><!-- Atoms --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- AutorabitExtId__c --></label>
+        <name>AutorabitExtId__c</name>
+    </fields>
+    <fields>
         <help><!-- If linking to internal pages, the syntax is /page?id=RECORD_ID --></help>
         <label><!-- Button URL --></label>
         <name>Button_Path__c</name>

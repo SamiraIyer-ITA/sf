@@ -9,6 +9,10 @@
         <value>Sites</value>
     </caseValues>
     <fields>
+        <label><!-- AutorabitExtId__c --></label>
+        <name>AutorabitExtId__c</name>
+    </fields>
+    <fields>
         <help><!-- The Page the site will default to, when a user logs on to the site Domain --></help>
         <label><!-- Site Homepage --></label>
         <name>Default_Page__c</name>

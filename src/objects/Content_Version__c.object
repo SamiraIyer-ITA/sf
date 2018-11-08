@@ -75,7 +75,7 @@
             <filterItems>
                 <field>$Source.CreatedById</field>
                 <operation>equals</operation>
-                <value>005t0000000M9mC, 005t0000000EgPX, 005t0000000XfoB, 005t0000000Xs72, 005t0000000XoPY, 005t0000000Xo28, 005t0000000XoSu, 005t0000000qzA1, 005t0000000l25M</value>
+                <value>005t0000000M9mC, 005t0000000EgPX, 005t0000000XfoB, 005t0000000Xs72, 005t0000000XoPY, 005t0000000Xo28, 005t0000000XoSu, 005t0000000qzA1, 005t0000000l25M, 005t0000000Y1IJ</value>
             </filterItems>
             <isOptional>false</isOptional>
         </lookupFilter>

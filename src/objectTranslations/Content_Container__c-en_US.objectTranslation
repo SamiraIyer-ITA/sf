@@ -9,6 +9,10 @@
         <value>Containers</value>
     </caseValues>
     <fields>
+        <label><!-- AutorabitExtId__c --></label>
+        <name>AutorabitExtId__c</name>
+    </fields>
+    <fields>
         <help><!-- The Name of the container class --></help>
         <label><!-- Class Name --></label>
         <name>Class_Name__c</name>

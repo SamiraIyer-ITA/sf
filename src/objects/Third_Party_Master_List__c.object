@@ -132,6 +132,7 @@
         <columns>Website__c</columns>
         <columns>HR_Data__c</columns>
         <columns>NonHR_Data__c</columns>
+        <columns>LAST_UPDATE</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>

@@ -1,0 +1,102 @@
+<apex:page sidebar="false" showHeader="false" controller="article_controller" applyBodyTag="false" standardStylesheets="false" applyHtmlTag="false">
+ <apex:composition template="Site_Template2">
+     <apex:define name="page">
+ <nav style="border:none;margin-top:15px;margin-bottom:15px;">
+<div class="usa-grid">
+<ul style="list-style-type: none;padding:0;">  
+<h4>FTA Tariff Tool</h4>
+<li style="display:inline;">
+     <a href="/fta" style="font-size:1.3rem;padding-right: 1.5rem;margin-right:1rem;text-transform: capitalize;"><span> HOME </span></a>
+</li>
+<li style="display:inline;">
+     <a href="/fta/tariff-rates-search" style="font-size:1.3rem;padding-right: 1.5rem;margin-right:1rem;text-transform: capitalize;"><span> FTA TARIFF TOOL </span></a>
+</li>
+<li style="display:inline;">
+     <a href="/fta/about-the-tool" style="font-size:1.3rem;padding-right: 1.5rem;margin-right:1rem;text-transform: capitalize;"><span> ABOUT THE TOOL </span></a>
+</li>
+<li style="display:inline;">
+     <a href="/fta/user-guide" style="font-size:1.3rem;padding-right: 1.5rem;margin-right:1rem;text-transform: capitalize;"><span> USER GUIDE </span></a>
+</li>
+<li style="display:inline;">
+     <a href="/fta/faqs" style="font-size:1.3rem;padding-right: 1.5rem;margin-right:1rem;text-transform: capitalize;"><span> FAQS </span></a>
+</li>
+<li style="display:inline;">
+     <a href="/fta/contact-us" style="font-size:1.3rem;padding-right: 1.5rem;margin-right:1rem;text-transform: capitalize;"><span> CONTACT US </span></a>
+</li>  
+</ul>
+</div>
+</nav>
+  <head>
+    <title>FTA Tariff Tool</title>
+    
+  <link href="{!URLFor($Resource.ftasearch, 'ftasearch/explorer.css')}" rel="stylesheet" />
+  <style>
+   #modal {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    height: 100%;
+    width: 100%;
+}
+.modalcontent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    width: 40%;
+    padding: 20px;
+}
+@media (max-width:992px) {
+.modalcontent {
+    width: 80%;
+}
+}
+.fa-paper-plane {
+display:none;
+}
+#a0xr0000000edg2AAAusa span {
+    border-bottom: 0.7rem solid #0071bc;
+    padding-bottom: 0.9rem;
+}
+      </style>
+      
+      <script src="https://code.jquery.com/jquery-3.1.0.slim.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        Explorer.render('explorer-app', {x: 500, y: 800});
+      });
+    </script>
+
+   <script type="text/javascript">
+  window.onload = function () {
+    document.getElementById('button').onclick = function () {
+        document.getElementById('modal').style.display = "none"
+    };
+};  
+</script>   
+          
+           
+  </head>
+  <body>
+  
+  
+   <div id="modal">
+    <div class="modalcontent">
+         <h3>Disclaimer</h3>
+            <p>These tariff schedules are included in the tariff nomenclature of the United States and its FTA partners at the time the individual agreements were negotiated and are provided here as a public service for general reference. Every effort has been made to ensure that the information presented is complete and accurate. However, the actual tariff classification, assessment, and update to the nomenclature is up to the customs authorities in the United States or the FTA partner countries. Copies needed for legal purposes should be obtained from the appropriate customs agency.</p>
+        <button id="button">Close</button>
+    </div>
+</div>
+
+    <div id="explorer-app"></div>
+    
+  <script type="text/javascript" src="{!URLFor($Resource.ftasearch, 'ftasearch/bundle.js')}"></script></body>
+
+
+     </apex:define>
+ </apex:composition>
+</apex:page>
