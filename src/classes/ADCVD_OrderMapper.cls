@@ -13,12 +13,7 @@ public without sharing class ADCVD_OrderMapper implements ADCVD_IMapper{
 	public ADCVD_OrderMapper() {}
 	private ADCVD_OrderMapper(Set<Id> orderIdSet) {
 		if (idToUnlockedOrderMap.isEmpty()) {
-			
-			List<ADCVD_Order__c> tempList = new List<ADCVD_Order__c>();
-			String queryString = Utils.soqlBuilderAllFields('ADCVD_Order__c', false);
-			queryString += ' FROM ADCVD_Order__c WHERE Id IN: orderIdSet';
-			tempList = database.query(queryString);
-			for (ADCVD_Order__c ao : tempList) {
+			for (ADCVD_Order__c ao : ADCVD_OrderSelector.newInstance().selectById(orderIdSet)) {
 				addOrderToMap(ao);
 			}
 		}

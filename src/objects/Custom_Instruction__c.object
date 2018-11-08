@@ -444,6 +444,17 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>CI_Parent__c</fullName>
+        <externalId>false</externalId>
+        <label>CI Parent</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Case_Concat_Text__c</fullName>
         <externalId>false</externalId>
         <label>Case Concat Text</label>
@@ -778,14 +789,13 @@
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
-        <columns>ADCVD_Case__c</columns>
-        <columns>ADCVD_Case_Type_Text__c</columns>
-        <columns>CBP_Case_Number_Text__c</columns>
-        <columns>CBP_Instructions_Category__c</columns>
-        <columns>Message_Date__c</columns>
-        <columns>Message_No__c</columns>
-        <columns>Message_Status__c</columns>
-        <columns>Public_Indicator__c</columns>
+        <columns>Petition__c</columns>
+        <columns>Investigation__c</columns>
+        <columns>ADCVD_Order__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Country__c</columns>
+        <columns>Suspension_Agreement__c</columns>
+        <columns>Segment__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
@@ -816,50 +826,6 @@
             <allInternalUsers></allInternalUsers>
         </sharedTo>
     </listViews>
-    <listViews>
-        <fullName>Recently_Created_by_Check</fullName>
-        <columns>NAME</columns>
-        <columns>ADCVD_Case__c</columns>
-        <columns>CREATEDBY_USER</columns>
-        <columns>CREATED_DATE</columns>
-        <columns>ADCVD_Order__c</columns>
-        <columns>Segment__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>CREATEDBY_USER</field>
-            <operation>equals</operation>
-            <value>Jacinta Green</value>
-        </filters>
-        <filters>
-            <field>CREATED_DATE</field>
-            <operation>equals</operation>
-            <value>8/30/2018 12:00 AM</value>
-        </filters>
-        <label>Recently Created by Check</label>
-    </listViews>
-    <listViews>
-        <fullName>Work_Check</fullName>
-        <columns>NAME</columns>
-        <columns>CBP_Case_Number_Text__c</columns>
-        <columns>CBP_Instructions_Category__c</columns>
-        <columns>Message_Date__c</columns>
-        <columns>Message_No__c</columns>
-        <columns>Message_Period_Covered_Begin_Date__c</columns>
-        <columns>Message_Period_Covered_End_Date__c</columns>
-        <columns>Message_Period_of_Review_Begin_Date__c</columns>
-        <columns>Message_Period_of_Review_End_Date__c</columns>
-        <columns>ADCVD_Order__c</columns>
-        <columns>Investigation__c</columns>
-        <columns>Segment__c</columns>
-        <columns>Suspension_Agreement__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>CBP_Case_Number_Text__c</field>
-            <operation>equals</operation>
-            <value>A-570-848</value>
-        </filters>
-        <label>Work Check</label>
-    </listViews>
     <nameField>
         <displayFormat>CI-{000000}</displayFormat>
         <label>Custom Instruction Name</label>
@@ -882,7 +848,7 @@ PRIORVALUE(Locked__c) == true
     </validationRules>
     <validationRules>
         <fullName>Only_Admin_reparents_Custom_Instruction</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Custom Instruction records can only be reparented by a System Administrator.</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
 Locked__c == false, 

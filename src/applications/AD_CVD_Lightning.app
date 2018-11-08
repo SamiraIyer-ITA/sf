@@ -1465,7 +1465,6 @@
     <tabs>standard-Dashboard</tabs>
     <tabs>Next_Major_Deadline_Dashboard</tabs>
     <tabs>Next_Deadlines_Abbr</tabs>
-    <tabs>Custom_Instruction__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>AD_CVD_Lightning_UtilityBar</utilityBar>
 </CustomApplication>

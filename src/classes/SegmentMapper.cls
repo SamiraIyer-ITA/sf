@@ -12,12 +12,7 @@ public without sharing class SegmentMapper implements ADCVD_IMapper {
 	public SegmentMapper() {}
 	private SegmentMapper(Set<Id> segmentIdSet) {
 		if (idToUnlockedSegmentMap.isEmpty()) {
-			
-			List<Segment__c> tempList = new List<Segment__c>();
-			String queryString = Utils.soqlBuilderAllFields('Segment__c', false);
-			queryString += ' FROM Segment__c WHERE Id IN: segmentIdSet';
-			tempList = database.query(queryString);
-			for (Segment__c s : tempList) {
+			for (Segment__c s : SegmentSelector.newInstance().selectById(segmentIdSet)) {
 				addSegmentToMap(s);
 			}
 		}

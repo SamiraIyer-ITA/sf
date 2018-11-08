@@ -1,8 +1,10 @@
-public class CustomInstructionSelector extends fflibext_SObjectSelector
+public class CustomInstructionSelector
+    extends fflibext_SObjectSelector
+    implements ICustomInstructionSelector
 {
-    public static CustomInstructionSelector newInstance()
+    public static ICustomInstructionSelector newInstance()
     {
-        return (CustomInstructionSelector) fflibext_Application.Selector.newInstance(Custom_Instruction__c.SObjectType);
+        return (ICustomInstructionSelector) fflibext_Application.Selector.newInstance(Custom_Instruction__c.SObjectType);
     }
     @TestVisible
     private Schema.sObjectType getSObjectType()
@@ -43,5 +45,14 @@ public class CustomInstructionSelector extends fflibext_SObjectSelector
     public List<Custom_Instruction__c> selectById(Set<Id> idSet)
     {
         return (List<Custom_Instruction__c>) selectSObjectsById(idSet);
+    }
+    public List<Custom_Instruction__c> selectAllToLimit()
+    {
+        return
+            (List<Custom_Instruction__c>)
+            Database.query(
+                newQueryFactory()
+                .setLimit(Limits.getLimitQueryRows())
+                .toSOQL());
     }
 }
