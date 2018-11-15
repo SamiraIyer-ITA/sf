@@ -13,6 +13,10 @@
         <name>Assistance_Text__c</name>
     </fields>
     <fields>
+        <label><!-- AutorabitExtId__c --></label>
+        <name>AutorabitExtId__c</name>
+    </fields>
+    <fields>
         <label><!-- Sliding Image --></label>
         <lookupFilter>
             <errorMessage><!-- You must look up to a Carousel. --></errorMessage>

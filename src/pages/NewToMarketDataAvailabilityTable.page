@@ -1,0 +1,5 @@
+<apex:page showheader="false" sidebar="false" controller="NewToMarketDataAvailabilityController">
+    <apex:pageBlock title="Data Availability Table">
+        <apex:outputText value="{!csvFile}" escape="false" />
+    </apex:pageBlock>
+</apex:page>

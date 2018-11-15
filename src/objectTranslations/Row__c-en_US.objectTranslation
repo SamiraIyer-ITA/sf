@@ -9,6 +9,10 @@
         <value>Rows</value>
     </caseValues>
     <fields>
+        <label><!-- AutorabitExtId__c --></label>
+        <name>AutorabitExtId__c</name>
+    </fields>
+    <fields>
         <help><!-- Choose the Primary, Secondary, or Tertiary style for this row. If this field is blank, the row will be white. --></help>
         <label><!-- Color --></label>
         <name>Container__c</name>

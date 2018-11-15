@@ -1,0 +1,1357 @@
+<apex:component controller="NewToMarketController" allowDML="true">
+
+<!-- The readOnly attribute above is necessary for this application. It relaxes the limit on list sizes to 10,000 items. Our products list is ~5000. -->
+<html>
+    <head>
+
+        <meta name="description" content="The Market Diversification Tool can help identify potential new export markets using your current trade patterns."/>
+        <meta charset="UTF-8"/>       
+        <!-- uswds core -->
+        
+        <!-- ntm page specific -->
+        <apex:stylesheet value="{!URLFOR($Resource.uswds_1_3_1, 'uswds-1.3.1/css/ntm.css')}"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+        <style>
+          .paging-nav ol,
+.paging-nav ul {
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+  margin-top:0;
+}
+
+.paging-nav li {
+  float: left;
+  cursor: pointer;
+  margin: 0 .5em 0 0;
+}
+
+.paging-nav a {
+  display: block;
+  cursor: pointer;
+  padding: 6px 12px;
+  line-height: 1.42857143;
+  color: #337ab7;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  text-align: center;
+  text-decoration: none;
+}
+
+.paging-nav a:hover {
+    color: #23527c;
+    background-color: #eee;
+    border-color: #ddd;
+}
+
+.paging-nav .active a {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+.modal {
+z-index: 10000;
+}
+.usa-width-one-whole span { 
+font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+font-size: 1.7rem;
+font-weight: 400;
+}
+.usa-width-one-whole p {
+font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+font-size: 1.7rem;
+font-weight: 400;
+}
+@media screen
+{
+    .noPrint{}
+    .noScreen{display:none;}
+}
+@media print
+{    
+    .usa-header, .usa-section-dark, .usa-footer, .paging-nav, .download-results, .usa-alert-info, .usa-button-secondary
+    {
+        display: none !important;
+    }
+    
+    .noPrint{display:none;}
+    .noScreen{}
+    
+}
+#a0xr0000000YBzRAAWusa span {
+    border-bottom: 0.7rem solid #0071bc;
+    padding-bottom: 0.9rem;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    border: none;
+    border-radius:15px;
+    padding: 0 10px;
+}
+.useac td {
+padding: 0.8rem;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 520px;
+    background-color: black;
+    color: #fff;
+    border-radius: 6px;
+    padding: 10px 20px;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 110%;
+    
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 15%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+}
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+        </style>
+        
+       <!--Font Awesome library-->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
+      <script src="https://use.fonticons.com/ffe176a3.js" type="text/javascript"></script>
+      <script src="https://use.fonticons.com/ffe176a3.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                $('.ntm-select2').select2({
+                    templateSelection: formatSelection,
+                    maximumSelectionLength: 100
+                });
+                bindFunctions();
+                if(!getCookie('ntm-disclaimer')) {
+                    loadModal();
+                }
+            });
+            
+            $(document).keyup(function(e) {
+              if (e.keyCode == 27 && $(".modal").hasClass("active")) {
+                closeModal();
+              }
+            });
+            
+            // Customize the display of a dropdown value after
+            // selection.
+            function formatSelection(val) {
+              return val.id;
+            }
+            
+            /*****
+             * Modal Functions
+             *****/
+            
+            function bindModalClose() {
+              $(".close, .overlay").bind("click", function(e){
+                e.preventDefault();
+                closeModal();
+              });
+            }
+      
+           function bindLoadSubmission() {
+              $(".js-load-submission").bind("click", function(e) {
+                  e.preventDefault();
+                  loadModal();
+              });
+            }
+        
+           function bindFunctions() {
+              bindLoadSubmission();
+              bindModalClose();
+            }
+        
+            function closeModal() {
+              $(".overlay").removeClass("active");
+              $(".modal").removeClass("active");
+              $("body").removeClass("no-scroll");
+              $(".modal").removeAttr("tabindex");
+              $(".modal").attr("aria-hidden", "true");
+              if(lastFocus) {
+                lastFocus.focus();
+              }
+              
+              // Only set cookie once disclaimer has been dismissed
+              var d = new Date();
+              var daysUntilExpire = 1;
+              var expires = (d.getTime() + (daysUntilExpire*24*60*60*1000))/1000;
+              setCookie('ntm-disclaimer', 1, expires,null,null,true);
+            }
+        
+           function loadModal() {
+              $(".overlay").addClass("active");
+              $(".modal").addClass("active");
+              $("body").addClass("no-scroll");
+              lastFocus = document.activeElement;
+              $(".modal").attr({
+                  'tabindex': '0',
+                  'aria-hidden': 'false'});
+              $(".modal").focus();
+            }
+        </script>
+    </head>
+    <body>
+   
+      <section>
+        <div class="modal" aria-hidden="true">
+          <button type="button" class="close usa-button" id="modal_close" aria-label="close">Close</button>
+          <div class="modal-inner" role="dialog" aria-labelledby="disclaimer-header">
+            <h2 id="disclaimer-header">Disclaimer</h2>
+            <p>Consistent with its mission, the International Trade Administration (ITA) provides the information on this website for informational purposes, to assist U.S. exporters seeking to identify potential new export markets. The market rankings provided by the tool do not have official or legal status and should not be taken as a business recommendation or as business counseling. The information in this tool does not constitute legal advice. ITA has taken every effort to ensure that the information presented is accurate and that the algorithm provides useful results; however, ITA assumes no responsibility or liability for any errors or omissions. ITA advises users to independently verify any information contained in this tool prior to relying on it. Users are further advised to conduct their own due diligence and seek the advice of legal counsel before entering into business ventures or other commercial arrangements in these markets. ITA assumes no responsibility or liability for the actions users may take based on the information provided.</p>
+          </div>
+        </div>
+        <div class="overlay"></div>
+      </section>
+
+      <a class="usa-skipnav" href="#main-content">Skip to main content</a>
+      
+  
+  
+  
+      
+      <main id="main-content">
+        <!--<section class="usa-hero">
+          <section class="usa-section usa-graphic_list clearfix primary-ita-img">
+                <div>
+                    <div class="usa-grid usa-graphic_list-row">
+                         <div class="containerInternal ignoreHeight" id="a17r000000178shAAA">
+                                    <div class="usa-hero-callout" id="a17r000000178shAAA_a0zr0000000StFlAAK">  
+                                        <div class="call-to-action">
+                                            
+                                                <h2>Find new international markets for your business.</h2>
+                                        <p class="usa-font-lead"><p>ITA can help your business navigate the global market. Test</p></p>
+                                            
+                                            <a class="usa-button usa-button-big" href="/services" target="_self" title="" value="Connect">Get Started</a><div class="itaBr"></div>
+                                        </div>
+                                    </div> 
+                        
+                        </div>   
+                    </div>
+                </div>
+                </section>
+        </section>-->
+        
+        
+        
+
+        <!--<section class="usa-section">
+          <!--<div class="usa-grid">
+            <div class="usa-width-one-third">
+              <h2>Helping American companies expand their exports to new markets.</h2>
+            </div>
+            <div class="usa-width-two-thirds">
+              <p>Among U.S. companies that export, more than half only export to one market.</p>
+              <p>The New to Market tool can help identify potential new export markets using your current trade patterns. Based on the products you export and the markets you currently export to, the tool ranks potential markets you may want to consider as future export markets.</p>
+              <p>The ranking algorithm:</p>
+              <ol>
+                <li>Compares potential export markets to the market where you are already exporting, based on the premise that it may be easier to export to similar countries;</li>
+                <li>Examines product-specific trade data to see whether potential markets are primed for more exports from the U.S. of the product(s) in question; and</li>
+                <li>Takes into account data reflecting whether potential export markets are generally good markets for exporting and doing business</li>
+              </ol>
+            </div>
+          </div>
+          <div class="usa-grid">
+            <div class="usa-width-one-whole">
+              <div class="usa-alert usa-alert-info">
+                <div class="usa-alert-body">
+                  <h3 class="usa-alert-heading">Required Information</h3>
+                  <p class="usa-alert-text">The products you are currently exporting are identified below by their <a href="https://www.export.gov/article?id=What-is-a-Harmonized" target="_blank">Harmonized System</a> number. This may be the first six digits of your Schedule B number. The <a href="https://uscensus.prod.3ceonline.com/">Schedule B Search Engine</a> can help identify your products.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>-->
+
+        <!-- Main Form -->
+        <section class="usa-section usa-section-dark">
+        <div class="usa-grid">
+<p class="site-subheading"><a href="https://beta.trade.gov/welcome">trade.gov</a> / Market Diversification Tool</p>
+</div><br/>
+          <div class="usa-grid">
+            <div class="usa-width-one-whole" id="main-form">
+              <apex:form >
+                <fieldset>
+                  <legend>Data for Calculation</legend>
+                  <apex:outputPanel id="products" layout="block">
+                      <!-- Normal products input -->
+                      <apex:outputPanel rendered="{!ISBLANK(productsError)}" layout="block">
+                          <div class="usa-grid" style="padding-left: 0;margin-top: 3rem;">
+                          <apex:outputLabel value="Products" for="ntm-products" style="font-size: 2rem;font-weight:600;width:7%;" styleClass="usa-width-one-twelfth"/>
+                          <div class="tooltip usa-width-one-twelfth" style="width:2%;"><i class="fa fa-info-circle" aria-hidden="true"></i><span class="tooltiptext">Identify the products you are currently exporting by their 6-digit Harmonized System numbers. This may be the first six digits of your Schedule B number. Do not use periods (enter 611300, not 6113.00)</span></div></div>
+                          
+                          <span>Enter the 6-digit <a href="https://www.export.gov/article?id=Determine-your-HS-or-Schedule-B-number" target="_blank">Harmonized System</a> numbers, separated by commas.</span>
+                          <apex:inputText value="{!productsString}" alt="Products input" title="Products input" id="ntm-products">
+                              <apex:actionsupport event="onchange" action="{!validateProducts}" rerender="products"/>
+                          </apex:inputText>
+                      </apex:outputPanel>
+                      <!-- Can't validate products input -->
+                      <apex:outputPanel rendered="{!!ISBLANK(productsError)}" styleClass="usa-input-error" layout="block">
+                          <div class="usa-grid" style="padding-left: 0;margin-top: 3rem;">
+                              <apex:outputLabel value="Products" styleClass="usa-input-error-label" for="ntm-products-error" style="font-size: 2rem;font-weight:600; float: left; display: inline; margin-right: 0.5em;">
+                              </apex:outputLabel>
+                              <div class="tooltip usa-width-one-twelfth" style="width:2%; display: inline;"><i class="fa fa-info-circle" aria-hidden="true"></i><span class="tooltiptext">Identify the products you are currently exporting by their 6-digit Harmonized System numbers. This may be the first six digits of your Schedule B number. Do not use periods (enter 611300, not 6113.00)</span></div></div>
+
+                              <span>Enter the 6-digit <a href="https://www.export.gov/article?id=Determine-your-HS-or-Schedule-B-number" target="_blank">Harmonized System</a> numbers, separated by commas.</span>
+                          <apex:inputText value="{!productsString}" id="ntm-products-error" html-aria-describedby="input-error-message">
+                              <apex:actionsupport event="onchange" action="{!validateProducts}" rerender="products"/>
+                          </apex:inputText>
+                          <span class="usa-input-error-message" id="input-error-message" role="alert"><apex:outputText value="{!productsError}" escape="false"/></span>
+                      </apex:outputPanel>
+                  </apex:outputPanel>
+    
+                  <apex:outputPanel >
+                  <apex:outputLabel value="Current Markets" for="ntm-country-current" style="font-size: 2rem;font-weight:600;"/>
+                  <apex:outputLabel value="Enter the markets to which you currently export." for="ntm-country-current" style="margin-top:0;"/>
+                  <apex:selectList value="{!userCountriesExisting}" multiselect="true" id="ntm-country-current" title="Current Markets select" styleClass="ntm-select2">
+                      <apex:selectOptions value="{!countries}"/>
+                  </apex:selectList>
+                  </apex:outputPanel>
+                  
+                  <!-- Although we do use the values of this radio selection in Apex,
+                       we need to use standard HTML elements here. The apex:selectRadio
+                       does not generate HTML in the format the US Web Design Standards
+                       needs. Additionally, we need to run some javascript when the
+                       selection changes. So it's easier to use this format and use an
+                       apex:actionFunction to pass the necessary info back into Apex. -->
+                  <fieldset class="usa-fieldset-inputs usa-sans" id="ntm-geo">
+                      <apex:outputLabel value="New Markets" style="font-size:2rem;font-weight:600;"/>
+                      <span>Enter the market(s) where you are interested in exporting.</span>
+                      <ul class="usa-unstyled-list" style="margin-top:10px;">
+                          <li>
+                              <input id="all-geo" type="radio" checked="true" name="ntm-geo" alt="Search All (Regions & Countries)" title="Search All (Regions & Countries)" value="all"/>
+                              <label for="all-geo">Search All (Regions &amp; Countries)</label>
+                          </li>
+                          <li>
+                              <input id="region-geo" type="radio" name="ntm-geo" alt="Specific Regions (Latin America, Pacific Rim, etc.) option" title="Specific Regions (Latin America, Pacific Rim, etc.) option" value="region"/>
+                              <label for="region-geo">Specific Regions (Latin America, Pacific Rim, etc.)</label>
+                          </li>
+                          <li>
+                              <input id="country-geo" type="radio" name="ntm-geo" alt="Specific Countries option" title="Specific Countries option" value="country"/>
+                              <label for="country-geo">Specific Countries</label>
+                          </li>
+                      </ul>
+                  </fieldset>
+                  
+                  <apex:outputPanel id="geoFilter" layout="block">
+                      <apex:outputPanel rendered="{!userGeography = 'country'}" layout="block">
+                          <apex:outputLabel value="Prospective Countries to Evaluate" for="ntm-country-future"><span class="tooltip" style="margin-left:10px;"><i class="fa fa-info-circle" aria-hidden="true"></i><span class="tooltiptext">It is recommended that you search for at least five countries.</span></span></apex:outputLabel>
+                          
+                              <apex:selectList value="{!userCountriesNew}" multiselect="true" id="ntm-country-future" styleClass="ntm-select2">
+                              <apex:selectOptions value="{!countries}"/>
+                          </apex:selectList>
+                      </apex:outputPanel>
+                      <apex:outputPanel rendered="{!userGeography = 'region'}" layout="block">
+                          <apex:outputLabel value="Prospective Regions to Evaluate" for="ntm-region-future"/>
+                          <apex:selectList value="{!userRegionsNew}" multiselect="true" id="ntm-region-future" styleClass="ntm-select2">
+                              <apex:selectOptions value="{!regions}"/>
+                          </apex:selectList>
+                      </apex:outputPanel>
+                  </apex:outputPanel>
+
+                  <!-- Zip code input -->
+                  <apex:outputPanel id="zip" layout="block">
+                      <apex:outputLabel value="Zip Code" for="ntm-zip" style="font-size:2rem;font-weight:600;"/><span>Enter your company's zip code.</span>
+                      <apex:input type="text" value="{!zipCode}" id="ntm-zip" alt="Zip Codes input" title="Zip Codes input"/>
+                      <span class="usa-input-error-message" rendered="{!!ISBLANK(zipError)}" id="input-error-message" role="alert"><apex:outputText value="{!zipError}"/></span>
+                  </apex:outputPanel>
+
+                  <fieldset class="usa-fieldset-inputs usa-sans" id="ntm-limit">
+                      <apex:outputLabel value="Results" style="font-size:2rem;font-weight:600;"/>
+                      <span>Limit the results.</span>
+                      <ul class="usa-unstyled-list" style="margin-top:10px;">
+                          <li>
+                              <input id="top10-limit" type="radio" name="ntm-limit" alt="Display top 10 results" title="Display top 10 results" value="10"/>
+                              <label for="top10-limit">Display top 10 results</label>
+                          </li>
+                          <li>
+                              <input id="top25-limit" type="radio" name="ntm-limit" alt="Display top 25 results" title="Display top 25 results" value="25"/>
+                              <label for="top25-limit">Display top 25 results</label>
+                          </li>
+                          <li>
+                              <input id="top50-limit" type="radio" name="ntm-limit" alt="Display top 50 results" title="Display top 50 results" value="50"/>
+                              <label for="top50-limit">Display top 50 results</label>
+                          </li>
+                          <li>
+                              <input id="all-limit" type="radio" checked="true" name="ntm-limit" alt="Display all results" title="Display all results" value="all"/>
+                              <label for="all-limit">Display all results</label>
+                          </li>
+                      </ul>
+                  </fieldset>
+                  
+                  <script type="text/javascript">
+                      // This code block controls the logic for the filter
+                      // input box for country/region. This is necessary
+                      // because we only want the proper box to display
+                      // based on the radio selection. But for accessibility,
+                      // we only want the page to dynamically change after a
+                      // user has first indicated a selection.
+                      var ntmFormExtended = true;
+                      
+                      $('#ntm-geo input').change(function() {
+                          var selectedGeo = $('#ntm-geo input[type=radio]:checked').val();
+                          if(!ntmFormExtended) {
+                              // Update submit button text
+                              if(selectedGeo === 'all') {
+                                  $('#ntm-submit').val('Submit');
+                              } else {
+                                  $('#ntm-submit').val('Next');
+                              }
+                          } else {
+                              rerenderGeoFilter(selectedGeo);
+                          }
+                      });
+                      
+                      function validateForm() {
+                          var selectedResultLimit = $('#ntm-limit input[type=radio]:checked').val();
+                          var selectedGeo = $('#ntm-geo input[type=radio]:checked').val();
+                          if(selectedGeo === 'all' || ntmFormExtended) {
+                              submitForm(selectedResultLimit); // apex:actionFunction command
+                          } else {
+                              ntmFormExtended = true;
+                              $('#ntm-submit').val('Submit');
+                              rerenderGeoFilter(selectedGeo);
+                          }
+                      }
+                      
+                      function resetSelect2() {
+                          $('.ntm-select2').select2({
+                              templateSelection: formatSelection,
+                              maximumSelectionLength: 100
+                          });
+                      }
+                  </script>
+
+                  <input type="submit" value="Submit" id="ntm-submit" onclick="validateForm(); return false;"/>
+                  <apex:actionFunction action="{!generateTradeResults}" rerender="zip,out" name="submitForm" status="status" oncomplete="scrollTo();">
+                      <apex:param name="selectedResultLimit" value="" assignTo="{!resultLimit}"/>
+                  </apex:actionFunction>
+                  <apex:actionFunction rerender="geoFilter" name="rerenderGeoFilter" oncomplete="resetSelect2();">
+                      <apex:param name="geoParam" value="" assignTo="{!userGeography}"/>
+                  </apex:actionFunction>
+                  <apex:actionStatus id="status">
+                    <apex:facet name="start">
+                      <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.25; z-index: 1000; background-color: black;">
+                          &nbsp;
+                      </div>
+                      <div style="position: fixed; left: 0; top: 0; bottom: 0; right: 0; z-index: 1001; margin: 15% 50%">
+                        <div style="display: inline-block; padding: 1rem; background-color: #fff; width: 14rem; border-radius: 1rem;">
+                          <img src="/img/loading.gif" style="margin-right: 3px;" />
+                          <span style="display: inline-block; padding: 10px 0px; color: black;">Calculating...</span>
+                        </div>
+                      </div>
+                    </apex:facet>
+                  </apex:actionStatus>
+                </fieldset>
+              </apex:form>
+            </div>
+          </div>
+        </section>
+
+<script>
+function scrollTo() {
+    var errorAlert = document.getElementById('results-error');
+    if (errorAlert) {document.querySelector('#results-error').scrollIntoView();}
+    else{document.querySelector('#resultstart').scrollIntoView();}
+}
+</script>
+        <!-- Calculated Results -->
+        <section class="usa-section usa-grid results">
+          <apex:outputPanel id="out" layout="block">
+            <!-- Error Message -->
+            <apex:outputPanel rendered="{!!ISBLANK(errorMessage)}" styleClass="usa-width-one-whole" layout="block">
+              <div id="results-error" class="usa-alert usa-alert-error" role="alert">
+                <div class="usa-alert-body">
+                  <h3 class="usa-alert-heading">Error Status</h3>
+                  <p class="usa-alert-text"><apex:outputText value=" {!errorMessage}"/></p>
+                </div>
+              </div>
+            </apex:outputPanel>
+
+            <script>
+            function expandZipCodeResult(zipId) {
+              if($('#'+zipId).css('display')=='none') {
+                $('#'+zipId).show();
+              } else {
+                $('#'+zipId).hide();
+              }
+            }
+            </script>
+
+
+
+
+            
+
+            <apex:outputPanel rendered="{!!results.empty}" styleClass="usa-width-one-whole" style="margin-top:20px;" layout="block">
+              
+            <div class="usa-grid" style="padding:0;">
+            <div class="usa-width-one-whole" id="resultstart">
+            <button onclick="myFunction()" class="usa-button usa-button-secondary" style="float:right;margin-right:0;">Print Results</button>       
+            </div>
+            </div>
+              
+              <!-- Weights -->
+              <ul class="usa-accordion-bordered usa-alert usa-alert-info">
+                <li>
+                  <button class="usa-alert-body usa-accordion-button" aria-expanded="false" aria-controls="weights">
+                      <span class="usa-alert-heading">Result Ranking</span>
+                      <span class="usa-alert-text">The cumulative scores and rankings below are based on the weighting of a suite of indices. Modify the weights here.</span>
+                  </button>
+                  <div id="weights" class="usa-accordion-content">
+                    <apex:form styleClass="usa-form-large weights-form" id="weights-form">
+                      <fieldset>
+                        <legend>Index Weighting</legend>
+                        <div class="usa-alert usa-alert-info">
+                          <div class="usa-alert-body">
+                            <h3 class="usa-alert-heading">Weights must:</h3>
+                          </div>
+                          <ul class="usa-checklist">
+                            <li>Be a positive decimal between 0 and 1</li>
+                            <li>Total 1 all together</li>
+                          </ul>
+                        </div>
+
+                        <div>
+                          <div class="usa-input-grid usa-input-grid-small">
+                            <apex:outputLabel value="Trade Growth" for="weight-trade"/>
+                              <apex:input value="{!weightTrade}" id="weight-trade" type="number" html-step="0.001" html-min="0" html-max="1" html-aria-describedby="trade-tip">
+                                  <apex:actionSupport event="onchange" action="{!calculateWeights}" reRender="current-weights"  />
+                              </apex:input>
+                            <div role="tooltip" id="trade-tip">Potential change in U.S. exports to the market. Factors how U.S. exports could change if:<ul>
+                                <li>the share gap is eliminated</li>
+                                <li>the market’s pattern of import growth or decline continues</li>
+                                <li>the market’s GDP pattern of growth or decline continues</li></ul>
+                            </div>
+                          </div>
+
+                          <div class="usa-input-grid usa-input-grid-small">
+                            <apex:outputLabel value="Historic Trade" for="weight-historic"/>
+                              <apex:input value="{!weightHistoric}" id="weight-historic" type="number" html-step="0.001" html-min="0" html-max="1" html-aria-describedby="historic-tip">
+                                  <apex:actionSupport event="onchange" action="{!calculateWeights}" reRender="current-weights"  />
+                              </apex:input>
+                            <div role="tooltip" id="historic-tip">How much the market has typically imported of the selected product from the United States.</div>
+                          </div>
+
+                          <div class="usa-input-grid usa-input-grid-small">
+                            <apex:outputLabel value="Tariff" for="weight-tariff"/>
+                              <apex:input value="{!weightTariff}" id="weight-tariff" type="number" html-step="0.001" html-min="0" html-max="1" html-aria-describedby="tariff-tip">
+                                  <apex:actionSupport event="onchange" action="{!calculateWeights}" reRender="current-weights"  />
+                              </apex:input>
+                            <div role="tooltip" id="tariff-tip">The maximum average tariff (either most-favored nation or preferential) among the selected products.
+</div>
+                          </div>
+
+                          <div class="usa-input-grid usa-input-grid-small">
+                            <apex:outputLabel value="Import Costs" for="weight-import-costs"/>
+                              <apex:input value="{!weightImportCosts}" id="weight-import-costs" type="number" html-step="0.001" html-min="0" html-max="1" html-aria-describedby="import-costs-tip">
+                                  <apex:actionSupport event="onchange" action="{!calculateWeights}" reRender="current-weights"  />
+                              </apex:input>
+                            <div role="tooltip" id="import-costs-tip">The sum of border compliance costs (customs regulations, inspections, goods handling) and documentary compliance costs (obtaining, preparing, processing, and submitting import documentation).
+</div>
+                          </div>
+
+                          <div class="usa-input-grid usa-input-grid-small">
+                            <apex:outputLabel value="Distance" for="weight-distance"/>
+                              <apex:input value="{!weightDistance}" id="weight-distance" type="number" html-step="0.001" html-min="0" html-max="1" html-aria-describedby="distance-tip">
+                                  <apex:actionSupport event="onchange" action="{!calculateWeights}" reRender="current-weights"  />
+                              </apex:input>
+                            <div role="tooltip" id="distance-tip">A bilateral distance measurement between the U.S. and the market.</div>
+                          </div>
+                          
+                          <div class="usa-input-grid usa-input-grid-small">
+                            <apex:outputLabel value="Rule of Law" for="weight-rule-of-law"/>
+                              <apex:input value="{!weightRuleOfLaw}" id="weight-rule-of-law" type="number" html-step="0.001" html-min="0" html-max="1" html-aria-describedby="rule-of-law-tip">
+                                  <apex:actionSupport event="onchange" action="{!calculateWeights}" reRender="current-weights"  />
+                              </apex:input>
+                            <div role="tooltip" id="rule-of-law-tip">Reflects perceptions of how much people have confidence in, and abide by, the rules and laws in the market.</div>
+                          </div>
+
+                          <div class="usa-input-grid usa-input-grid-small">
+                            <apex:outputLabel value="Logistics Index" for="weight-logistics"/>
+                              <apex:input value="{!weightLogistics}" id="weight-logistics" type="number" html-step="0.001" html-min="0" html-max="1" html-aria-describedby="logistics-tip">
+                                  <apex:actionSupport event="onchange" action="{!calculateWeights}" reRender="current-weights"  />
+                              </apex:input>
+                            <div role="tooltip" id="logistics-tip">A general measure of the logistics friendliness of the market.</div>
+                          </div>
+                          
+                          <div class="usa-input-grid usa-input-grid-small">
+                            <apex:outputLabel value="Language Match" for="weight-language"/>
+                              <apex:input value="{!weightLanguage}" id="weight-language" type="number" html-step="0.001" html-min="0" html-max="1" html-aria-describedby="language-tip">
+                                  <apex:actionSupport event="onchange" action="{!calculateWeights}" reRender="current-weights"  />
+                              </apex:input>
+                            <div role="tooltip" id="language-tip">If an official language of the market is English or if it shares an official language with one or more of the countries to which you are already exporting.</div>
+                          </div>
+
+                          <div class="usa-input-grid usa-input-grid-small">
+                            <apex:outputLabel value="FTA with U.S." for="weight-fta"/>
+                              <apex:input value="{!weightFTA}" id="weight-fta" type="number" html-step="0.001" html-min="0" html-max="1" html-aria-describedby="fta-tip">
+                                  <apex:actionSupport event="onchange" action="{!calculateWeights}" reRender="current-weights"  />
+                              </apex:input>
+                            <div role="tooltip" id="fta-tip">Whether the market has a free trade agreement (FTA) with the United States</div>
+                          </div>
+                          
+                          <div class="usa-input-grid usa-input-grid-small">
+                            <apex:outputLabel value="Landlocked" for="weight-landlocked"/>
+                              <apex:input value="{!weightLandlocked}" id="weight-landlocked" type="number" html-step="0.001" html-min="0" html-max="1" html-aria-describedby="landlocked-tip">
+                                  <apex:actionSupport event="onchange" action="{!calculateWeights}" reRender="current-weights"  />
+                              </apex:input>
+                            <div role="tooltip" id="landlocked-tip">Whether the market is landlocked</div>
+                          </div>
+                         
+                          <div class="usa-input-grid usa-input-grid-small">
+                            <apex:outputLabel value="Enforcing Contracts" for="weight-contracts"/>
+                              <apex:input value="{!weightContracts}" id="weight-contracts" type="number" html-step="0.001" html-min="0" html-max="1" html-aria-describedby="contracts-tip">
+                                  <apex:actionSupport event="onchange" action="{!calculateWeights}" reRender="current-weights"  />
+                              </apex:input>
+                            <div role="tooltip" id="contracts-tip">The ease of resolving commercial disputes in local courts, measured as the share of the claim you can expect to pay to resolve the case.</div>
+                          </div>
+                        </div>
+
+                        <apex:commandButton action="{!updateWeights}" rerender="weights-error,results-accordion" style="clear: both;" value="Update Weights" id="weight-submit"/>
+                          <apex:outputLabel value="{!currentWeights}" id="current-weights"/>
+                      </fieldset>
+                    </apex:form>
+                    <apex:outputPanel id="weights-error" layout="block">
+                      <apex:outputPanel rendered="{!!ISBLANK(weightsError)}" styleClass="usa-width-one-whole" layout="block">
+                        <div class="usa-alert usa-alert-error" role="alert">
+                          <div class="usa-alert-body">
+                            <h3 class="usa-alert-heading">Error Status</h3>
+                            <p class="usa-alert-text"><apex:outputText value=" {!weightsError}"/></p>
+                          </div>
+                        </div>
+                      </apex:outputPanel>
+                    </apex:outputPanel>
+                  </div>
+                </li>
+              </ul>
+
+              
+              <!-- List of Selected Products -->
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">HS Number</th>
+                    <th scope="col">Description</th>
+                  </tr>
+                </thead>
+                <apex:repeat value="{!selectedProducts}" var="product">
+                  <tbody>
+                    <tr>
+                      <th scope="row"><apex:outputText value="{!product.name}"/></th>
+                      <td><apex:outputText value="{!product.HS4_HS6_Description__c}"/></td>
+                    </tr>
+                  </tbody>
+                </apex:repeat>
+              </table>
+            
+
+              <!-- Results -->
+              <h2 id="resultStart">Export Destination Ranking</h2>              
+              
+              
+              <apex:outputPanel id="results-accordion" style="clear: both;" layout="block">
+              <div style="float: right;margin-right: -10px;margin-bottom: 10px;">
+              <a href="#" target="_blank" class="download-results usa-button usa-button-secondary"  onclick="loadCSV();return false;">Download Export Results (.csv)</a>
+              
+              </div>
+              <span class="paging-nav"></span>
+                <ul class="usa-accordion-bordered noPrint" id="gallery">
+                  <apex:variable value="1" var="num"/>
+                  <apex:repeat value="{!results}" var="country">
+                    <li id="card">
+                      <button class="usa-accordion-button" aria-expanded="false" aria-controls="country-{!num}">
+                        <span class="country-stats">
+                          <span class="stat-header" style="font-weight:700;font-size: 140%;margin-bottom: 0em;">
+                            <apex:outputText value="{!country.name}"/> - <apex:outputText value=" {0, number, 0.0}"><apex:param value="{!country.total_score}"/></apex:outputText>
+                          </span>
+                          <span class="stat">
+                            <span class="stat-title">Average Imports from the U.S.: </span><apex:outputText value="{0, number, $0,000}"><apex:param value="{!country.country_us_avg}"/></apex:outputText>
+                          </span>
+                          <span class="stat">
+                            <span class="stat-title">Maximum Average Tariff: </span><apex:outputText value=" {0, number, 0.0}"><apex:param value="{!country.max_tariff}"/></apex:outputText>
+                          </span>
+                        </span>
+                      </button>
+                      <div id="country-{!num}" class="usa-accordion-content">
+                        <h3>Trade Statistics:</h3>
+                        <ul class="country-stats">
+                          <li class="stat">
+                            <span class="stat-title">Average Imports from the World</span><apex:outputText value="{0, number, $0,000}"><apex:param value="{!country.country_world_avg}"/></apex:outputText>
+                          </li>
+                          <li class="stat">
+                            <span class="stat-title">U.S. Import Share</span><apex:outputText value=" {0, number, 0.0}%"><apex:param value="{!100*country.country_us_share}"/></apex:outputText>
+                          </li>
+                          <li class="stat">
+                            <span class="stat-title">Import Share Gap</span><apex:outputText value=" {0, number, 0.0}%"><apex:param value="{!100*country.share_gap}"/></apex:outputText>
+                          </li>
+                          <li class="stat">
+                            <span class="stat-title">Import Growth</span><apex:outputText value=" {0, number, 0.0}%"><apex:param value="{!100*country.world_cagr}"/></apex:outputText>
+                          </li>
+                          <li class="stat">
+                            <span class="stat-title">GDP Growth</span><apex:outputText value=" {0, number, 0.0}%"><apex:param value="{!country.gdp}"/></apex:outputText>
+                          </li>
+                          <li class="stat">
+                            <span class="stat-title">Distance</span><apex:outputText value=" {0, number, 0.0}km"><apex:param value="{!country.distance}"/></apex:outputText>
+                          </li>
+                          <li class="stat">
+                            <span class="stat-title">Cost to Import (Border and Documentary Compliance)</span><apex:outputText value="{0, number, $#,##0}"><apex:param value="{!country.import_costs}"/></apex:outputText>
+                          </li>
+                          <li class="stat">
+                            <span class="stat-title">Enforcing Contracts (Cost as % of Claim)</span><apex:outputText value=" {0, number, 0.0}%"><apex:param value="{!country.contract_cost}"/></apex:outputText>
+                          </li>
+                          <li class="stat">
+                            <span class="stat-title">Rule of Law</span><apex:outputText value=" {0, number, 0.00}"><apex:param value="{!country.rule_of_law}"/></apex:outputText>
+                          </li>
+                          <li class="stat">
+                            <span class="stat-title">International Logistics Performance Index Score</span><apex:outputText value=" {0, number, 0.00}"><apex:param value="{!country.logistics_score}"/></apex:outputText>
+                          </li>
+                          <li class="stat">
+                            <span class="stat-title">Language Match</span><apex:outputText value="{!IF(country.language_match, 'YES', 'NO')}"/>
+                          </li>
+                          <li class="stat">
+                            <span class="stat-title">Free Trade Agreement with US</span><apex:outputText value="{!IF(country.free_trade_agreement, 'YES', 'NO')}"/>
+                          </li>
+                          <li class="stat">
+                            <span class="stat-title">Landlocked</span><apex:outputText value="{!IF(country.landlocked, 'YES', 'NO')}"/>
+                          </li>
+                        </ul>
+                        <a href="/How-to-Interpret-Your-Results" target="_blank">Click here for more information on the indicators used in the calculations</a>
+                      </div>
+                    </li>
+                    <apex:variable var="num" value="{!VALUE(num) + 1}"/>
+                  </apex:repeat>
+                </ul>
+                
+              
+                
+                
+                
+                <!-- This variable and the JavaScript must be within the results-accordion so it is rerendered with the results -->
+                <apex:variable var="csv" value="{!csvData}"/>
+                <script type="text/javascript">
+                  function loadCSV() {
+                      var fileName = 'New_To_Market_Export.csv';
+                      var exportData = base64_decode('{!csv}');
+
+                      var blob = new Blob([exportData], { type: 'text/csv;charset=utf-8;' });
+                      if (navigator.msSaveBlob) { // IE 10+
+                          navigator.msSaveBlob(blob, fileName);
+                      } else {
+                          var link = document.createElement("a");
+                          if (link.download !== undefined) { // feature detection
+                              // Browsers that support HTML5 download attribute
+                              var url = URL.createObjectURL(blob);
+                              link.setAttribute("href", url);
+                              link.setAttribute("download", fileName);
+                              link.style.visibility = 'hidden';
+                              document.body.appendChild(link);
+                              link.click();
+                              document.body.removeChild(link);
+                          }
+                      }
+                  }
+                </script>
+
+
+
+                <script>
+                    /*
+                  *  by cpbaumann
+                  */
+
+                    (function ( $, window, document, undefined ) {
+
+                        "use strict";
+
+                        var pluginName = 'Paginationwithhashchange2',
+                            defaults = {
+                                nextSelector: '.next',
+                                prevSelector: '.prev',
+                                counterSelector: '.counter',
+                                pagingSelector: '.paging-nav',
+                                itemsPerPage: 5,
+                                initialPage: 1
+                            };
+
+                        var Range = (function () {
+
+                            var i = 0,
+                                minValue = 0,
+                                maxValue = 5;
+
+                            return {
+                                get: function(){
+                                    return i;
+                                },
+                                set: function (val) {
+                                    i = val;
+                                },
+                                setborders: function (min, max) {
+                                    minValue = min;
+                                    maxValue = max;
+                                },
+                                plus: function () {
+                                    return (i < maxValue) ? ++i : i = minValue;
+                                },
+                                minus: function () {
+                                    return (i > minValue) ? --i : i = maxValue;
+                                }
+                            };
+                        })();
+
+
+                        var Hash = (function () {
+
+                            return {
+                                protocol: '//',
+                                host: window.location.host,
+                                pathname: window.location.pathname,
+                                search: window.location.search,
+                                set: function (hash) {
+                                    window.location = this.protocol +
+                                        this.host +
+                                        this.pathname +
+                                        this.search +
+                                        '#' + hash;
+                                },
+                                get: function () {
+                                    return window.location.hash.replace('#', '');
+                                }
+                            };
+                        })();
+
+
+                        function Paginationwithhashchange2( element, options ) {
+
+                            this.element = element;
+                            this.options = $.extend( {}, defaults, options) ;
+                            this._defaults = defaults;
+                            this._name = pluginName;
+                            this.init();
+                        }
+
+                        Paginationwithhashchange2.prototype.init = function () {
+
+                            /*
+                            * Vars
+                            */
+                            var next = $(this.options.nextSelector),
+                                prev = $(this.options.prevSelector),
+                                counter = $(this.options.counterSelector),
+                                pagingSelector = this.options.pagingSelector,
+                                itemsPerPage = this.options.itemsPerPage,
+                                items = $(this.element),
+                                numItems = items.children().length,
+                                numPages = Math.ceil(numItems / itemsPerPage),
+                                maxValue = numPages,
+                                minValue = 1,
+                                initValue = this.options.initialPage,
+                                page;
+
+                            /*
+                            * Function
+                            */
+                            function plus() {
+
+                                page = Range.plus();
+                                counter.html(page);
+                                Hash.set(page);
+                                showPage(page);
+                                setActiveState(page);
+                            }
+
+                            function minus() {
+
+                                page = Range.minus();
+                                counter.html(page);
+                                Hash.set(page);
+                                showPage(page);
+                                setActiveState(page);
+                            }
+
+                            function pageNav() {
+
+                                var ListWrapper = '<ul></ul>',
+                                    ListElements = '',
+                                    i;
+
+                                for (i = 1; i <= maxValue; i += 1) {
+                                    ListElements += '<li><a href="#' +
+                                        i +
+                                        '">' +
+                                        i +
+                                        '</a></li>';
+                                }
+
+                                $(ListElements)
+                                    .appendTo(
+                                        $(ListWrapper)
+                                            .appendTo(pagingSelector)
+                                    );
+                            }
+
+                            function showPage (page) {
+
+                                items.children().hide();
+                                var i,
+                                    s = (page - 1) * itemsPerPage,
+                                    max = page * itemsPerPage;
+
+                                for (i = s; i < max; i += 1) {
+                                    items.children().eq(i).show();
+                                }
+                            }
+
+                            function setInitalPage () {
+
+                                var h = Hash.get();
+                                return (h  === "") ? initValue : h;
+                            }
+
+                            function setActiveState (page) {
+
+                                var p = page;
+                                $(pagingSelector).each(function () {
+                                    $(this).find('li')
+                                        .removeClass('active')
+                                        .eq(p - 1)
+                                        .addClass('active');
+                                });
+                            }
+
+                            function initital () {
+
+                                page = setInitalPage();
+                                Hash.set(page);
+                                Range.setborders(minValue, maxValue);
+                                Range.set(page);
+
+                                counter.html(page);
+                                pageNav();
+                                showPage(page);
+                                setActiveState(page);
+                            }
+
+                            function pageevent (e) {
+
+                                e.preventDefault();
+                                page = this.hash.replace('#', '');
+                                Hash.set(page);
+                                Range.set(page);
+                                counter.html(page);
+                                showPage(page);
+                                setActiveState(page);
+                                scrollTo('resultsTop');
+                            }
+
+                            /*
+                            * Events, init
+                            */
+                            initital();
+                            next.on('click', plus);
+                            prev.on('click', minus);
+                            $(pagingSelector).on('click', 'a', pageevent);
+                        };
+
+                        $.fn[pluginName] = function ( options ) {
+                            return this.each(function () {
+                                if (!$.data(this, 'plugin_' + pluginName)) {
+                                    $.data(this, 'plugin_' + pluginName,
+                                        new Paginationwithhashchange2( this, options ));
+                                }
+                            });
+                        };
+
+                    })( jQuery, window, document );
+                </script>
+                <script>
+                    $(document).ready(function() {
+                        $('#gallery').Paginationwithhashchange2({
+                            nextSelector: '.next',
+                            prevSelector: '.prev',
+                            counterSelector: '.counter',
+                            pagingSelector: '.paging-nav',
+                            itemsPerPage: 10,
+                            initialPage: 1
+                        });
+                    });
+                </script>
+
+                <span class="paging-nav"></span>
+                
+                <!--This section is only for the print window START-->
+                <ul id="gallery" class="noScreen">
+                  <apex:variable value="1" var="num"/>
+                  <apex:repeat value="{!results}" var="country">
+                    <div id="card">
+                      
+                        <span class="country-stats">
+                          <span class="stat-header" style="font-weight:700;font-size: 140%;margin-bottom: 0em;">
+                            <apex:outputText value="{!country.name}"/> - <apex:outputText value=" {0, number, 0.0}"><apex:param value="{!country.total_score}"/></apex:outputText>
+                          </span>
+                          <span class="stat">
+                            <span class="stat-title">Average Imports from the U.S.: </span><apex:outputText value="{0, number, $0,000}"><apex:param value="{!country.country_us_avg}"/></apex:outputText>
+                          </span>
+                          <span class="stat">
+                            <span class="stat-title">Maximum Average Tariff: </span><apex:outputText value=" {0, number, 0.0}"><apex:param value="{!country.max_tariff}"/></apex:outputText>
+                          </span>
+                        </span>
+                      
+                      <div id="country-{!num}">
+                        <h3>Trade Statistics:</h3>
+                        <ul class="country-stats">
+                          <li class="stat">
+                            <span class="stat-title">Average Imports from the World</span><apex:outputText value="{0, number, $0,000}"><apex:param value="{!country.country_world_avg}"/></apex:outputText>
+                          </li>
+                          <li class="stat">
+                            <span class="stat-title">U.S. Import Share</span><apex:outputText value=" {0, number, 0.0}%"><apex:param value="{!100*country.country_us_share}"/></apex:outputText>
+                          </li>
+                          <li class="stat">
+                            <span class="stat-title">Import Share Gap</span><apex:outputText value=" {0, number, 0.0}%"><apex:param value="{!100*country.share_gap}"/></apex:outputText>
+                          </li>
+                          <li class="stat">
+                            <span class="stat-title">Import Growth</span><apex:outputText value=" {0, number, 0.0}%"><apex:param value="{!100*country.world_cagr}"/></apex:outputText>
+                          </li>
+                          <li class="stat">
+                            <span class="stat-title">GDP Growth</span><apex:outputText value=" {0, number, 0.0}%"><apex:param value="{!country.gdp}"/></apex:outputText>
+                          </li>
+                          <li class="stat">
+                            <span class="stat-title">Distance</span><apex:outputText value=" {0, number, 0.0}"><apex:param value="{!country.distance}"/></apex:outputText>
+                          </li>
+                          <li class="stat">
+                            <span class="stat-title">Cost to Import</span><apex:outputText value="{0, number, $#,##0}"><apex:param value="{!country.import_costs}"/></apex:outputText>
+                          </li>
+                          <li class="stat">
+                            <span class="stat-title">Enforcing Contracts (Cost as % of Claim)</span><apex:outputText value=" {0, number, 0.0}"><apex:param value="{!country.contract_cost}"/></apex:outputText>
+                          </li>
+                          <li class="stat">
+                            <span class="stat-title">Rule of Law</span><apex:outputText value=" {0, number, 0.00}"><apex:param value="{!country.rule_of_law}"/></apex:outputText>
+                          </li>
+                          <li class="stat">
+                            <span class="stat-title">International Logistics Performance Index Score</span><apex:outputText value=" {0, number, 0.00}"><apex:param value="{!country.logistics_score}"/></apex:outputText>
+                          </li>
+                          <li class="stat">
+                            <span class="stat-title">Language Match</span><apex:outputText value="{!IF(country.language_match, 'YES', 'NO')}"/>
+                          </li>
+                          <li class="stat">
+                            <span class="stat-title">Free Trade Agreement with US</span><apex:outputText value="{!IF(country.free_trade_agreement, 'YES', 'NO')}"/>
+                          </li>
+                          <li class="stat">
+                            <span class="stat-title">Landlocked</span><apex:outputText value="{!IF(country.landlocked, 'YES', 'NO')}"/>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <apex:variable var="num" value="{!VALUE(num) + 1}"/>
+                  </apex:repeat>
+                </ul>
+                <!--This section is only for the print window END-->
+
+              </apex:outputPanel>
+              
+              <br/>
+               
+                <apex:outputPanel id="zip-results" rendered="{!!results.empty}" styleClass="usa-width-one-whole" layout="block">            
+            <h2>Your Local U.S Commercial Service Office</h2>
+            <apex:repeat value="{!USEAC_Info}" var="useacinfo" rendered="{!ISBLANK(zipError)}">
+              <p><a href="" onclick="expandZipCodeResult('{!useacinfo.Id}')" style="pointer:cursor"><apex:outputText value="{!useacinfo.zip_code}"/> - <apex:outputText value="{!useacinfo.office_name}"/></a></p>
+              <table id="{!useacinfo.id}" style="display:none;margin:0;" class="useac">
+                <tbody>
+                  <tr><td>ZIP Code</td><td><apex:outputText value="{!useacinfo.zip_code}"/></td></tr>
+                  <tr><td>ZIP Code City</td><td><apex:outputText value="{!useacinfo.zip_city}"/></td></tr>
+                  <tr><td>Post</td><td><apex:outputText value="{!useacinfo.post}"/></td></tr>
+                  <tr><td>Office Name</td><td><apex:outputText value="{!useacinfo.office_name}"/></td></tr>
+                  <tr><td>Country</td><td><apex:outputText value="{!useacinfo.country}"/></td></tr>
+                  <tr><td>State</td><td><apex:outputText value="{!useacinfo.state}"/></td></tr>
+                  <tr><td>Post City</td><td><apex:outputText value="{!useacinfo.post_city}"/></td></tr>
+                  <tr><td>Address</td><td><ul>
+                  <apex:repeat value="{!useacinfo.address}" var="add">
+                  <p><apex:outputText value="{!add}"/></p>
+                  </apex:repeat>
+                  </ul></td></tr>
+                  <tr><td>Email</td><td><apex:outputText value="{!useacinfo.email}"/></td></tr>
+                  <tr><td>Fax</td><td><apex:outputText value="{!useacinfo.fax}"/></td></tr>
+                  <tr><td>Phone</td><td><apex:outputText value="{!useacinfo.phone}"/></td></tr>
+                </tbody>
+              </table>
+            </apex:repeat>
+            <p class="usa-input-error-message"><apex:outputText value="{!zipError}"/><br/></p>
+            </apex:outputPanel> 
+              
+              
+
+<!--Why do we need two sets of download and print buttons? <div style="float:right;margin-top:-60px;margin-right: -10px;">
+              <a href="#" class="download-results usa-button usa-button-secondary" onclick="loadCSV();return false;">Download Export Results (.csv)</a>              
+</div>
+<br/><br/>
+ <button onclick="myFunction()" class="usa-button usa-button-secondary">Print Results</button>-->
+
+<script>
+function myFunction() {
+    window.print();
+}
+</script>       
+
+            </apex:outputPanel>
+          </apex:outputPanel> <!-- id=out -->
+        </section>
+        
+        <!-- FAQ -->
+        <section class="usa-section" style="padding-top:0;margin-top:-20px;">
+          <div class="usa-grid">
+          
+           
+            <!--<h2>Using This Report</h2>
+            <p>The Market Diversification Tool is meant to be a starting point for research into potential export markets. The International Trade Administration strongly encourages all users to do additional analysis and thoroughly research any potential markets.</p>
+
+            <h3>Understand Your Results</h3>
+            <p>The ranking of countries in the results will depend on a variety of factors, including the weights applied to the various indicators. The results report includes a number of indicators, and better understanding them can add nuance to the results and help you decide whether the results seem valid.</p>
+            <p>Details on interpreting your report are available <a href="/How-to-Interpret-Your-Results" target="_blank">here</a>.</p>
+
+            <h3>Take a Closer Look at the Trade Data</h3>
+            <p>The trade data provided in the tool is an average (usually over five years), rather than annual data. It shows how much the country imported from the U.S. and from the world. It doesn’t show, however, what the other major exporters to that country are. In other words, it doesn’t show who you would be competing against in that market.</p>
+            <p>Annual data and additional trade data can be obtained through the UN Comtrade Database at <a href="https://comtrade.un.org" target="_blank">https://comtrade.un.org</a>.</p>
+            <p>Instructions on how to use the Comtrade Database are available <a href="https://comtrade.un.org/" target="_blank">here</a>.</p>
+            
+            <h3>Get a Better Idea of the Tariffs You Might Face</h3>
+            <p>The Market Diversification Tool provides only the average tariff for the six-digit subheading where your product is classified, not the actual tariff you would face in the market. If you have selected more than one product, it provides the maximum of the average tariffs for those products. However, most countries have more than one tariff line per six-digit subheading.</p>
+            <p>To get information on the more detailed national line tariffs, we recommend using the Customs Info Database. The International Trade Administration provides exporters who use Export.gov with free Access to the Customs Info Database, which provides detailed tariff information for many countries. You can create an account at <a href="http://export.customsinfo.com" target="_blank">http://export.customsinfo.com</a>.</p>
+            
+            <h3>Review More Market Research</h3>
+            <h4>Export.gov Market Research</h4>
+            <p>Export.gov has a wealth of market research articles on various industries and countries that can provide additional information on potential markets. <a href="https://www.export.gov/Market-Intelligence" target="_blank">https://www.export.gov/Market-Intelligence</a></p>
+            <h4>Country Commercial Guides</h4>
+            <p>The ITA’s Country Commercial Guides have information on market conditions, opportunities, regulations, and business customs for over 125 countries. They are prepared by trade and industry experts at U.S. embassies worldwide. <a href="https://www.export.gov/ccg" target="_blank">https://www.export.gov/ccg</a></p>
+            <h4>Top Markets Reports</h4>
+            <p>The International Trade Administration’s Top Markets Series is meant to help exporters determine their next export market by comparing opportunities across borders. Each report ranks future export opportunities within a particular industry based on a sector-specific methodology. The reports provide a detailed assessment of the competitiveness landscape within a sector, as well as the opportunities and challenges facing U.S. exporters in key markets. <a href="http://trade.gov/topmarkets" target="_blank">http://trade.gov/topmarkets</a></p>
+
+            <h3>Contact Your Local U.S Commercial Service Office</h3>
+            <p>USEACs are located in more than 100 U.S. cities and provide counseling and a variety of products and services to assist small and midsized U.S. businesses export their products and services. USEAC staff can help you develop an export strategy, evaluate export markets, and find potential partners overseas. <a href="http://www.export.gov/eac" target="_blank">http://www.export.gov/eac</a></p>-->
+          
+          
+          
+        <!--new content 10/23/18 Son-533--> 
+            <h2>Using This Report</h2>
+            <p>The Market Diversification Tool is meant to be a starting point for research into potential export markets. The International Trade Administration strongly encourages all users to do additional analysis and thoroughly research any potential markets. Here are some steps you may want to take:</p>
+
+            <h3>Better Understand Your Results</h3>
+            <p>The ranking of markets in the results will depend on a variety of factors, including the weights applied to the various indicators. The results report includes many indicators, and better understanding them can add nuance and context to the results and help you decide whether they seem valid.</p>
+            <p>Instructions for interpreting your results available <a href="/How-to-Interpret-Your-Results" target="_blank">here</a>.</p>
+
+            <h3>Take A Closer Look At The Trade Data</h3>
+            <p>The trade data provided in the tool is an average (usually over five years, but no less than three years), rather than annual data. It shows how much the market imported from the United States and from the world and what the U.S. share was. However, it does not provide information on other exporters to that market beyond the United States. In other words, it doesn't show who you would be competing against in that market.</p>
+            <p>Additional trade data can be easily obtained from a number of sources, including through the UN Comtrade Database <a href="https://comtrade.un.org/" target="_blank">here</a>.</p>
+            <p>Click <a href="{!URLFOR($Resource.mdt_tradedata_resource)}" target="_blank">here</a> for instructions on how to use the UN Comtrade Database and other trade data resources to do additional research on your product.</p>
+            <p>Additional trade data resources can be found <a href="https://www.trade.gov/mas/ian/tradestatistics/index.asp" target="_blank">here</a>.</p>
+
+            <h3>Get a Better Idea of the Tariffs You Might Face</h3>
+            <p>The Market Diversification Tool provides only the estimated average tariff for the six-digit HS subheading where your product is classified, not the actual national line tariff you would face in the market. If you have selected more than one product, it provides the maximum of the average tariffs for the selected products. Most countries have more than one tariff line per six-digit subheading, so knowing the precise tariff you will face is important.</p>
+            <p>To get information on the more detailed national line tariffs, we recommend using the CUSTOMS Info database. The International Trade Administration provides exporters who use Export.gov with free access to the CUSTOMS Info database, which provides detailed tariff information for many markets. You can create an account at <a href="http://export.customsinfo.com" target="_blank">http://export.customsinfo.com</a>. This can help you better understand the barriers you face in exporting to a given market. The database also has information on other taxes you might face in a market, such as VAT taxes. Click <a href="https://www.export.gov/article?id=Customs-Info-Database-a-Global-Tariff-Lookup-Tool-User-Guide" target="_blank">here</a> for instructions on how to use the database.</p>
+            <p>If you are considering exporting to a Free Trade Agreement partner, you may also want to utilize the FTA Tariff Tool at <a href="https://2016.export.gov/fta/ftatarifftool/" target="_blank">https://2016.export.gov/fta/ftatarifftool/</a>. The FTA Tariff Tool incorporates all products (agricultural and non-agricultural goods) classified within all 97 chapters of the Harmonized System and includes information on product-specific rules of origin to determine the eligibility of the reduced tariff rates under with any U.S. FTA Partner. The Tariff Tool not only provides information on current tariff lines, but also provides transparency on future tariffs and the year in which those products become duty free.</p>
+
+            <h3>Review More Market Research</h3>
+            <h4>Export.gov Market Research</h4>
+            <p>Export.gov has a wealth of market research articles on various industries and markets that can provide additional information on potential export destinations. <a href="https://www.export.gov/Market-Intelligence" target="_blank">https://www.export.gov/Market-Intelligence</a></p>
+            <h4>Country Commercial Guides</h4>
+            <p>The ITA's Country Commercial Guides have information on market conditions, opportunities, regulations, and business customs for over 125 countries. They are prepared by trade and industry experts at U.S. embassies worldwide. <a href="https://www.export.gov/ccg" target="_blank">https://www.export.gov/ccg</a></p>
+            <h4>Top Markets Reports</h4>
+            <p>The International Trade Administration's Top Markets Series is meant to help exporters determine their next export market by comparing opportunities across borders. Each report ranks future export opportunities within an industry based on a sector-specific methodology. The reports provide a detailed assessment of the competitiveness landscape within a sector, as well as the opportunities and challenges facing U.S. exporters in key markets. <a href="http://trade.gov/topmarkets" target="_blank">http://trade.gov/topmarkets</a></p>
+
+            <h3>Contact Your Local U.S Commercial Service Office</h3>
+            <p>U.S. Commercial Service offices, called Export Assistance Centers (USEACs), are located in more than 100 U.S. cities and provide counseling and a variety of products and services to assist small and midsized U.S. businesses export their products and services. USEAC staff can help you develop an export strategy, evaluate export markets, and find potential partners overseas. If you've entered your zip code, the Market Diversification Tool has provided the contact information for your local Commercial Service office above. You can also search here: <a href="http://www.export.gov/eac" target="_blank">http://www.export.gov/eac</a></p>
+             
+          
+            <h2>Data Sources</h2>
+
+            <h3>Trade Data</h3>
+            <p>Trade data in the tool comes from the United Nations Comtrade Database, United Nations Commodity Trade Statistics Database, Department of Economic and Social Affairs/Statistics.</p>
+            <p>ITA obtains UN data under a restricted license that excludes certain public release. The tool only provides data averaged over a multi-year span. Annual data and additional trade data can be obtained through the UN Comtrade Database at <a href="https://comtrade.un.org/" target="_blank">https://comtrade.un.org/</a>.</p>
+
+            <h3>Tariff Data</h3>
+            <p>For countries with which the United States has a Free Trade Agreement, tariff data was compiled from the final negotiated schedules for each agreement. The schedules for each FTA can be found at <a href="https://ustr.gov/trade-agreements/free-trade-agreements" target="_blank">https://ustr.gov/trade-agreements/free-trade-agreements</a>.</p>
+            <p>For countries with which the United States does not have a Free Trade Agreement, tariff schedules provided to the World Trade Organization by individual members were used.</p>
+            <p>World Trade Organization, Tariff Analysis Online facility provides access to the WTO's Integrated Database (IDB) and Consolidated Tariff Schedules (CTS). <a href="https://tao.wto.org/" target="_blank">https://tao.wto.org/</a></p>
+            <p>This data has been modified from its original format. In the case of tariff schedules provided to the WTO in the current nomenclature, simple averages at the six-digit subheading have been calculated. In the case of tariff schedules provided to the WTO in older nomenclatures, the tariff data was averaged first and then converted into the most recent nomenclature. Where markets used specific or compound tariffs, rather than ad valorem tariffs, every effort was made to accurately calculate ad valorem equivalents for the specific or compound tariffs so that they could be averaged with other tariff lines.</p>
+            <p>Tariff data is only provided as an average tariff across an entire six-digit subheading, not at the national line level. It is recommended that all users identify the national line tariffs they will face in the markets they are interested in.</p>
+
+            <h3>Language Data</h3>
+            <p>The World Factbook. Washington, DC: Central Intelligence Agency, 2017. <a href="https://www.cia.gov/library/publications/the-world-factbook/" target="_blank">https://www.cia.gov/library/publications/the-world-factbook/</a>.</p>
+
+            <h3>Distance</h3>
+            <p>GeoDist Database, Centre d'Etudes Prospectives et d'Informations Internationales. Bilateral US file, "dist" indicator. <a href="http://www.cepii.fr/CEPII/en/bdd_modele/bdd_modele.asp" target="_blank">http://www.cepii.fr/CEPII/en/bdd_modele/bdd_modele.asp</a></p>
+
+            <h3>Rule of Law</h3>
+            <p>Worldwide Governance Indicators, The World Bank, Rule of Law: Estimate. <a href="http://info.worldbank.org/governance/wgi/#reports" target="_blank">http://info.worldbank.org/governance/wgi/#reports</a></p>
+
+            <h3>Cost to Import</h3>
+            <p>Doing Business, The World Bank, Trading Across Borders, Cost to Import: Border Compliance (USD) and Cost to Import: Documentary Compliance (USD). <a href="http://www.doingbusiness.org/data/exploretopics/trading-across-borders" target="_blank">http://www.doingbusiness.org/data/exploretopics/trading-across-borders</a></p>
+
+            <h3>Enforcing Contracts</h3>
+            <p>Doing Business, The World Bank, Enforcing Contracts, Cost (% of claim). <a href="http://www.doingbusiness.org/data/exploretopics/enforcing-contracts" target="_blank">http://www.doingbusiness.org/data/exploretopics/enforcing-contracts</a></p>
+
+            <h3>International Logistics Performance Index</h3>
+            <p>Logistics Performance Index, The World Bank, International LPI Global Ranking and LPI Score. <a href="https://lpi.worldbank.org/international/global" target="_blank">https://lpi.worldbank.org/international/global</a></p>
+
+            <h3>Gross Domestic Product</h3>
+            <p>World Development Indicators, The World Bank, GDP (current US$) (NY.GDP.MKTP.CD). <a href="http://databank.worldbank.org/data/home.aspx" target="_blank">http://databank.worldbank.org/data/home.aspx</a></p>  
+          
+          
+          </div>
+        </section>
+      
+
+      </main>
+      
+      <script type="text/javascript">
+      /***********
+       * Utility Functions
+       ***********/
+
+      // equivalent to PHP base64_decode
+      // https://github.com/kvz/locutus/blob/master/src/php/url/base64_decode.js
+      // September 8, 2017
+      function base64_decode (encodedData) {
+
+      // decodeUTF8string()
+      // Internal function to decode properly UTF8 string
+      // Adapted from Solution #1 at https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding
+      var decodeUTF8string = function (str) {
+        // Going backwards: from bytestream, to percent-encoding, to original string.
+        return decodeURIComponent(str.split('').map(function (c) {
+          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+        }).join(''))
+      }
+    
+      if (typeof window !== 'undefined') {
+        if (typeof window.atob !== 'undefined') {
+          return decodeUTF8string(window.atob(encodedData))
+        }
+      } else {
+        return new Buffer(encodedData, 'base64').toString('utf-8')
+      }
+    
+      var b64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
+      var o1
+      var o2
+      var o3
+      var h1
+      var h2
+      var h3
+      var h4
+      var bits
+      var i = 0
+      var ac = 0
+      var dec = ''
+      var tmpArr = []
+    
+      if (!encodedData) {
+        return encodedData
+      }
+    
+      encodedData += ''
+    
+      do {
+        // unpack four hexets into three octets using index points in b64
+        h1 = b64.indexOf(encodedData.charAt(i++))
+        h2 = b64.indexOf(encodedData.charAt(i++))
+        h3 = b64.indexOf(encodedData.charAt(i++))
+        h4 = b64.indexOf(encodedData.charAt(i++))
+    
+        bits = h1 << 18 | h2 << 12 | h3 << 6 | h4
+    
+        o1 = bits >> 16 & 0xff
+        o2 = bits >> 8 & 0xff
+        o3 = bits & 0xff
+    
+        if (h3 === 64) {
+          tmpArr[ac++] = String.fromCharCode(o1)
+        } else if (h4 === 64) {
+          tmpArr[ac++] = String.fromCharCode(o1, o2)
+        } else {
+          tmpArr[ac++] = String.fromCharCode(o1, o2, o3)
+        }
+      } while (i < encodedData.length)
+    
+      dec = tmpArr.join('')
+    
+      return decodeUTF8string(dec.replace(/\0+$/, ''))
+      }
+    
+      // equivalent to PHP setcookie
+      // https://github.com/kvz/locutus/blob/master/src/php/network/setcookie.js
+      // September 8, 2017
+      function setCookie(name, opt_value, opt_expires, opt_path, opt_domain, opt_secure) {
+          return setrawcookie(name, encodeURIComponent(opt_value), opt_expires, opt_path, opt_domain, opt_secure);
+      }
+      
+      
+      // equivalent to PHP setrawcookie
+      // https://github.com/kvz/locutus/blob/master/src/php/network/setrawcookie.js
+      // September 8, 2017
+      function setrawcookie (name, value, expires, path, domain, secure) {
+          if (typeof expires === 'string' && (/^\d+$/).test(expires)) {
+              expires = parseInt(expires, 10);
+          }
+
+          if (expires instanceof Date) {
+              expires = expires.toUTCString();
+          } else if (typeof expires === 'number') {
+              expires = (new Date(expires * 1e3)).toUTCString();
+          }
+
+          var r = [name + '=' + value],
+              s = {},
+              i = '';
+          s = {
+              expires: expires,
+              path: path,
+              domain: domain
+          };
+          for (i in s) {
+              if (s.hasOwnProperty(i)) { // Exclude items on Object.prototype
+                  s[i] && r.push(i + '=' + s[i]);
+              }
+          }
+
+          return secure && r.push('secure'), document.cookie = r.join(";"), true;
+      }
+      
+      // via http://www.quirksmode.org/js/cookies.html
+      // September 10, 2017
+      function getCookie(name) {
+          var nameEQ = name + "=";
+          var ca = document.cookie.split(';');
+          for (var i=0; i < ca.length; i++) {
+              var c = ca[i];
+              while (c.charAt(0) === ' ') {
+                  c = c.substring(1,c.length);
+              }
+              if (c.indexOf(nameEQ) === 0) {
+                  return decodeURIComponent(c.substring(nameEQ.length,c.length));
+              }
+          }
+          return null;
+      }
+      </script>
+    </body>
+</html>
+
+</apex:component>

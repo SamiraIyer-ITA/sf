@@ -12,24 +12,21 @@
         <meta property="dcterms:subject" content="data category 1, data category 2, .. data category N" />
         </apex:define>
     <apex:define name="sectionalNav">
-
     <apex:outputPanel rendered="{!section != null}">
-        <div class="subheader">
-            <div>
-               <div class="container">
-                   <nav id="subnav">  
-                        <h4 id="sectionName">{!section.name}</h4>
-                        <div class="subNavLinks">
-                            <apex:repeat value="{!section.navigation_links__r}" var="link">
-                                 <a href="{!if(link.Redirect__c != '', link.Redirect__c, link.Page__r.Clean_URL__c)}"> {!upper(link.name)} </a>
-                            </apex:repeat>
-                        </div>
-                    </nav>
-                </div>
-              </div>
-        </div>  
-    </apex:outputPanel>
-    </apex:define>
+<nav style="border:none;margin-top:15px;margin-bottom:15px;">
+<div class="usa-grid">
+<ul style="list-style-type: none;padding:0;">  
+<h4>{!section.name}</h4>   
+<apex:repeat value="{!section.navigation_links__r}" var="link">
+<li style="display:inline;">
+     <a href="{!if(link.Redirect__c != '', link.Redirect__c, link.Page__r.Clean_URL__c)}" style="font-size:1.3rem;padding-right: 1.5rem;margin-right:1rem;text-transform: capitalize;"><span> {!upper(link.name)} </span></a>
+</li>
+</apex:repeat>  
+</ul>
+</div>
+</nav>
+</apex:outputPanel>
+</apex:define>
     <apex:define name="page">
         <apex:outputtext rendered="{!Page__c.page__r.Display_Page_Name__c}"><div class=" itaBr"><h2>{!Page__c.name}</h2></div></apex:outputtext>
 
@@ -239,6 +236,14 @@ selectActiveSegment();-->
 $(window).resize(function() {processPage();});
 $(window).load(function() {processPage();});
 
+        </script>
+        
+               <script>
+        $(document).ready(function(){
+ if (window.location.href.indexOf("DefaultMDT") > -1) {
+ location.replace("DataAvailability");
+ }
+});
         </script>
 
   <apex:outputPanel rendered="{!page.Pop_Up_Active__c}">

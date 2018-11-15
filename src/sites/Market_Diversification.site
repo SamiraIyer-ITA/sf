@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomSite xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>false</active>
+    <allowHomePage>false</allowHomePage>
+    <allowStandardAnswersPages>false</allowStandardAnswersPages>
+    <allowStandardIdeasPages>false</allowStandardIdeasPages>
+    <allowStandardLookups>false</allowStandardLookups>
+    <allowStandardPortalPages>true</allowStandardPortalPages>
+    <allowStandardSearch>false</allowStandardSearch>
+    <authorizationRequiredPage>CommunitiesLogin</authorizationRequiredPage>
+    <bandwidthExceededPage>BandwidthExceeded</bandwidthExceededPage>
+    <browserXssProtection>false</browserXssProtection>
+    <clickjackProtectionLevel>SameOriginOnly</clickjackProtectionLevel>
+    <contentSniffingProtection>false</contentSniffingProtection>
+    <cspUpgradeInsecureRequests>false</cspUpgradeInsecureRequests>
+    <fileNotFoundPage>FileNotFound</fileNotFoundPage>
+    <forgotPasswordPage>ForgotPassword</forgotPasswordPage>
+    <genericErrorPage>Exception</genericErrorPage>
+    <inMaintenancePage>InMaintenance</inMaintenancePage>
+    <inactiveIndexPage>assistance</inactiveIndexPage>
+    <indexPage>landing2</indexPage>
+    <masterLabel>Market Diversification</masterLabel>
+    <referrerPolicyOriginWhenCrossOrigin>false</referrerPolicyOriginWhenCrossOrigin>
+    <requireHttps>true</requireHttps>
+    <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
+    <robotsTxtPage>Robots</robotsTxtPage>
+    <selfRegPage>CommunitiesSelfReg</selfRegPage>
+    <siteAdmin>sandip.menon@trade.gov</siteAdmin>
+    <siteTemplate>Site_Template2_MDT</siteTemplate>
+    <siteType>ChatterNetwork</siteType>
+    <subdomain>trade</subdomain>
+    <urlPathPrefix>mdt</urlPathPrefix>
+</CustomSite>

@@ -196,7 +196,8 @@ public class InvestigationTriggerHandlerTest {
   }
 
   //setCalculatedPreliminarySignature
-  
+
+/*  
   @isTest static void setCVDCalculatedPreliminarySignature() {
     Test.startTest();
     //CVD investigation
@@ -217,6 +218,7 @@ public class InvestigationTriggerHandlerTest {
     System.assertEquals(testActual,
       [SELECT Id, Calculated_Preliminary_Signature__c FROM Investigation__c WHERE Id =: iCVD.Id LIMIT 1].Calculated_Preliminary_Signature__c);
   }
+*/
 
   //setCalcAmendedPrelimDeterminationSig
   //Test has 2 parts that test two dates each: AD and CVD
@@ -352,7 +354,8 @@ public class InvestigationTriggerHandlerTest {
   }
   //setCalculatedFinalSignature
   //Test has 7 parts: AD Calculated, AD Actual, CVD Calculated, CVD Actual, AD FR Published Date, CVD Aligned to AD, CVD stays Aligned on AD update
-   
+
+/*  
   @isTest static void setADCalculatedPrelimExtensionRequestFile() {
     Test.startTest();
     //AD investigation
@@ -373,8 +376,11 @@ public class InvestigationTriggerHandlerTest {
     System.assertEquals(testActual,
       [SELECT Id, Calculated_Prelim_Extension_Request_File__c FROM Investigation__c WHERE Id =: iAD.Id LIMIT 1].Calculated_Prelim_Extension_Request_File__c);
   }
-
+*/
+  
   //setCalculatedPrelimExtensionRequestFile
+
+/*
   @isTest static void setCVDCalculatedPrelimExtensionRequestFile() {
     Test.startTest();
     //CVD investigation
@@ -397,7 +403,11 @@ public class InvestigationTriggerHandlerTest {
     System.assertEquals(testActual,
       [SELECT Id, Calculated_Prelim_Extension_Request_File__c FROM Investigation__c WHERE Id =: iCVD.Id LIMIT 1].Calculated_Prelim_Extension_Request_File__c);
   }
+*/
+
   //setCalculatedPostponementOfPrelimDeterFR
+
+/*
   @isTest static void setADCalculatedPostponementOfPrelimDeterFR() {
     Test.startTest();
     //AD investigation
@@ -418,8 +428,11 @@ public class InvestigationTriggerHandlerTest {
     System.assertEquals(testActual,
       [SELECT Id, Calculated_Postponement_of_PrelimDeterFR__c FROM Investigation__c WHERE Id =: iAD.Id LIMIT 1].Calculated_Postponement_of_PrelimDeterFR__c);
   }
+*/
 
   //setCalculatedPostponementOfPrelimDeterFR
+
+/*
   @isTest static void setCVDCalculatedPostponementOfPrelimDeterFR() {
     Test.startTest();
     //CVD investigation
@@ -448,6 +461,8 @@ public class InvestigationTriggerHandlerTest {
     System.assertEquals(testActual,
       [SELECT Id, Calculated_Postponement_of_PrelimDeterFR__c FROM Investigation__c WHERE Id =: iCVD.Id LIMIT 1].Calculated_Postponement_of_PrelimDeterFR__c);
   }
+*/  
+  
   //setCalculatedITCPrelimDetermination
   //Test has 2 parts that test two dates each: AD and CVD
 

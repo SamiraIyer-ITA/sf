@@ -354,6 +354,12 @@
     <siteRedirectMappings>
         <action>Permanent</action>
         <isActive>true</isActive>
+        <source>/marketdiversification</source>
+        <target>https://www.export.gov</target>
+    </siteRedirectMappings>
+    <siteRedirectMappings>
+        <action>Permanent</action>
+        <isActive>true</isActive>
         <source>/news/interpol-launches-turn-back-crime-campaign</source>
         <target>https://www.stopfakes.gov/article?id=INTERPOL</target>
     </siteRedirectMappings>
