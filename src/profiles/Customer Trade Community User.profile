@@ -725,6 +725,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>PrepareSandbox</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PrepareSandboxTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>PrintAnalyticsWidgetController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -778,6 +786,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>RelatedOrganizationTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>RevertUserEmailsBatchable</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -11404,6 +11416,10 @@
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <userLicense>Customer Community Login</userLicense>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ActivitiesAccess</name>
+    </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>AllowUniversalSearch</name>

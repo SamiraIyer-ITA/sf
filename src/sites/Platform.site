@@ -27,7 +27,7 @@
     <referrerPolicyOriginWhenCrossOrigin>false</referrerPolicyOriginWhenCrossOrigin>
     <requireHttps>false</requireHttps>
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
-    <siteAdmin>john.harlow@trade.gov</siteAdmin>
+    <siteAdmin>sandip.menon@trade.gov</siteAdmin>
     <siteTemplate>SiteTemplate</siteTemplate>
     <siteType>Visualforce</siteType>
     <subdomain>tradesites</subdomain>
