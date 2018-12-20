@@ -12,6 +12,7 @@
     <tabs>standard-report</tabs>
     <tabs>standard-Dashboard</tabs>
     <tabs>standard-home</tabs>
+    <tabs>standard-WaveHomeLightning</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>LightningService_UtilityBar</utilityBar>
     <workspaceConfig>
@@ -26,6 +27,9 @@
         </mappings>
         <mappings>
             <tab>standard-Dashboard</tab>
+        </mappings>
+        <mappings>
+            <tab>standard-WaveHomeLightning</tab>
         </mappings>
         <mappings>
             <tab>standard-home</tab>

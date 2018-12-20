@@ -79,7 +79,8 @@
             <field>ContactEmail</field>
             <type>email</type>
         </recipients>
-        <senderType>CurrentUser</senderType>
+        <senderAddress>noreply@trade.gov</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
         <template>Participation_App_Templates/Toolkit_Application_Submitted</template>
     </alerts>
     <alerts>
@@ -649,7 +650,7 @@
         <criteriaItems>
             <field>Case.CreatedDate</field>
             <operation>greaterOrEqual</operation>
-            <value>9/30/2015 9:00 PM</value>
+            <value>10/1/2015</value>
         </criteriaItems>
         <description>No Fee-Based Services Used with Case Closed = Administratively Closed or Unable to Resolve</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -693,7 +694,7 @@
         <criteriaItems>
             <field>Case.CreatedDate</field>
             <operation>greaterOrEqual</operation>
-            <value>9/30/2015 9:00 PM</value>
+            <value>10/1/2015</value>
         </criteriaItems>
         <description>No Fee-Based Services Used with Case Closed = Successfully Closed</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -968,7 +969,7 @@
         <criteriaItems>
             <field>Case.CreatedDate</field>
             <operation>greaterOrEqual</operation>
-            <value>9/30/2015 9:00 PM</value>
+            <value>10/1/2015</value>
         </criteriaItems>
         <description>No Fee-Based Services Used with Case Closed = Administratively Closed or Unable to Resolve</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
@@ -1018,7 +1019,7 @@
         <criteriaItems>
             <field>Case.CreatedDate</field>
             <operation>greaterOrEqual</operation>
-            <value>9/30/2015 9:00 PM</value>
+            <value>10/1/2015</value>
         </criteriaItems>
         <description>No Fee-Based Services Used with Case Closed = Successfully Closed</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
