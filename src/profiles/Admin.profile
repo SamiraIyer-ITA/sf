@@ -709,6 +709,14 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>PrepareSandbox</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PrepareSandboxTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>PrintAnalyticsWidgetController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -762,6 +770,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>RelatedOrganizationTriggerHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>RevertUserEmailsBatchable</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -5137,19 +5149,19 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>NTM_Search_Log__c.Geographies_to_Evaluate__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>NTM_Search_Log__c.Markets_Already_Exporting_To__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>NTM_Search_Log__c.Milliseconds_to_return_results__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -5157,9 +5169,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>NTM_Search_Log__c.Products_Currently_Exporting__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -5167,9 +5179,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>NTM_Search_Log__c.Zip_Code__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -11834,6 +11846,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ActivateOrder</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ActivitiesAccess</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

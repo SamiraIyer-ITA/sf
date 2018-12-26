@@ -352,7 +352,7 @@
         <filterScope>Everything</filterScope>
         <filters>
             <field>UPDATEDBY_USER</field>
-            <operation>notContain</operation>
+            <operation>notEqual</operation>
             <value>sandip menon</value>
         </filters>
         <label>All</label>

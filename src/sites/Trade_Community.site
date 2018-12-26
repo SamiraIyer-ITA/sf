@@ -62,7 +62,7 @@
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <robotsTxtPage>Robots</robotsTxtPage>
     <selfRegPage>Registration</selfRegPage>
-    <siteAdmin>john.harlow@trade.gov</siteAdmin>
+    <siteAdmin>sandip.menon@trade.gov</siteAdmin>
     <siteRedirectMappings>
         <action>Permanent</action>
         <isActive>true</isActive>
