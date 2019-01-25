@@ -1111,10 +1111,10 @@ public class Test_PayGovWsdl {
         tmp.tcs_app_id = null;
         tmp.PCRefundWithoutPaygovTrackingId = null;
     }
-    static testmethod void test58() {
-        
-    PayGovTCSSingleService.TCSSinglePort tmp = new PayGovTCSSingleService.TCSSinglePort();
-        tmp.endpoint_x = null;
+    @isTest static void test58() {
+        insert new PaymentSettings__c(name='PAY_GOV_TCS_SINGLE_SERVICE_ENDPOINT', value__c = 'Test');
+    	PayGovTCSSingleService.TCSSinglePort tmp = new PayGovTCSSingleService.TCSSinglePort();
+        //tmp.endpoint_x = null;
         tmp.inputHttpHeaders_x = null;
         tmp.outputHttpHeaders_x = null;
         //tmp.clientCertName_x = null;
@@ -1122,6 +1122,7 @@ public class Test_PayGovWsdl {
         //tmp.clientCertPasswd_x = null;
         tmp.timeout_x = 60000;
         Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
+        Test.startTest();
         //tmp.processPCManualAuthorization('','',null);
         tmp.processPCForce(null, null, null);
         tmp.processPCSale(null, null, null);
@@ -1133,5 +1134,6 @@ public class Test_PayGovWsdl {
         tmp.processPCRefund(null, null, null);
         tmp.processACHPrenotification(null, null, null);
         tmp.processPCAuthorization(null, null, null);
+        Test.stopTest();
     }
 }
