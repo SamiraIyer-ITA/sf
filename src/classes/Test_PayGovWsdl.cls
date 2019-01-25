@@ -1117,9 +1117,9 @@ public class Test_PayGovWsdl {
         tmp.endpoint_x = null;
         tmp.inputHttpHeaders_x = null;
         tmp.outputHttpHeaders_x = null;
-        tmp.clientCertName_x = null;
-        tmp.clientCert_x = null;
-        tmp.clientCertPasswd_x = null;
+        //tmp.clientCertName_x = null;
+        //tmp.clientCert_x = null;
+        //tmp.clientCertPasswd_x = null;
         tmp.timeout_x = 60000;
         Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
         //tmp.processPCManualAuthorization('','',null);
