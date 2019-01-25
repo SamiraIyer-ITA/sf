@@ -1,9 +1,9 @@
 //Methods to communicate with pay.gov (synchronously)
 
 public class PayGovTCSSingleService {
-    public static final String SERVICE_ENDPOINT = 'https://tcs.pay.gov:443/tcscollections/services/TCSSingleService';
+    //public static final String SERVICE_ENDPOINT = 'https://tcs.pay.gov:443/tcscollections/services/TCSSingleService';
     
-    //@TestVisible private static final String SERVICE_ENDPOINT = PaymentSettings__c.getAll().get('PAY_GOV_TCS_SINGLE_SERVICE_ENDPOINT').value__c;
+    @TestVisible private static final String SERVICE_ENDPOINT = PaymentSettings__c.getAll().get('PAY_GOV_TCS_SINGLE_SERVICE_ENDPOINT').value__c;
 
     public class baseLineItemType {
         private String[] apex_schema_type_info = new String[]{'http://fms.treas.gov/tcs/schemas','true','false'};
