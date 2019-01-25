@@ -15,4 +15,3 @@ TEST_PaymentDetailsControllerMockImpl
 TEST_PaymentTriggerHandler
 Test_PaymentController
 Test_PayGovWsdl
-TEST_ECOMM
