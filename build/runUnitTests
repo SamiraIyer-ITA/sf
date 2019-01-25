@@ -14,4 +14,3 @@ TEST_PaymentDetailsControllerCallout
 TEST_PaymentDetailsControllerMockImpl
 TEST_PaymentTriggerHandler
 Test_PaymentController
-PaymentDetailsLightningControllerTest
