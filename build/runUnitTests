@@ -7,3 +7,4 @@ TEST_PayGovTCSSingleServiceMockImpl
 Test_PaymentController
 TEST_PayGovTCSSingleServiceCalloutTest
 TEST_PayGovTCSSingleQueryCalloutTest
+PaymentDetailsLightningControllerTest
