@@ -20,7 +20,7 @@
     </values>
     <values>
         <field>Litigation_Calculation_Offset__c</field>
-        <value xsi:type="xsd:boolean">true</value>
+        <value xsi:type="xsd:boolean">false</value>
     </values>
     <values>
         <field>Number_Value__c</field>
@@ -56,6 +56,6 @@
     </values>
     <values>
         <field>Used_with_Field_Named__c</field>
-        <value xsi:type="xsd:string">Calculated_Preliminary_Signature__c or Calculated_Draft_Remand_release_to_party__c</value>
+        <value xsi:type="xsd:string">Calculated_Preliminary_Signature__c</value>
     </values>
 </CustomMetadata>

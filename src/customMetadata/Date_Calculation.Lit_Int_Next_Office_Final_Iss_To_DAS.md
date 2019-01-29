@@ -388,6 +388,6 @@
     </values>
     <values>
         <field>Tolling_Service__c</field>
-        <value xsi:type="xsd:string">Get Calculated Date</value>
+        <value xsi:nil="true"/>
     </values>
 </CustomMetadata>

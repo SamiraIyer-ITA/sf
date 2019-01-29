@@ -20,7 +20,7 @@
     </values>
     <values>
         <field>Litigation_Calculation_Offset__c</field>
-        <value xsi:type="xsd:boolean">true</value>
+        <value xsi:type="xsd:boolean">false</value>
     </values>
     <values>
         <field>Number_Value__c</field>
