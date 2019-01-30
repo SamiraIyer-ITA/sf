@@ -298,6 +298,15 @@
         <fields>ASSET.IS_COMPETITOR_PRODUCT</fields>
         <relatedList>RelatedAssetList</relatedList>
     </relatedLists>
+    <relatedLists>
+        <fields>RECORDTYPE</fields>
+        <fields>Country__c</fields>
+        <fields>Trade_Region__c</fields>
+        <fields>Industry__c</fields>
+        <fields>Sector__c</fields>
+        <fields>Sub_Sector__c</fields>
+        <relatedList>Taxonomy_Tagging__c.Related_Organization__c</relatedList>
+    </relatedLists>
     <relatedObjects>ParentId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

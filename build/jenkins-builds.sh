@@ -1,5 +1,4 @@
 set +x
-# test
 
 # Quiet down pushd, popd.
 pushd() {
@@ -44,7 +43,6 @@ types=" approvalProcess  \
         globalValueSet \
         group \
         js \
-	pathAssistant \
         labels \
         layout \
         liveChatButton \
@@ -52,7 +50,9 @@ types=" approvalProcess  \
         mdt \
         namedCredential \
         object \
+	objectTranslation \
         page \
+	pathAssistant \
 	permissionset \
 	profile \
         queue \
@@ -124,6 +124,17 @@ function makePackage() {
                 fi
         fi
   done < $gitfiles
+  profile_count=`ls -1 build/profiles | wc -l`
+  if [ $profile_count > 0 ]; then
+	  cp -rp build/profiles $sandbox/src
+	  ls -1 $sandbox/src/profiles
+  fi
+
+  permset_count=`ls -1 build/permissionsets | wc -l`
+  if [ $profile_count > 0 ]; then
+          cp -rp build/permisstionsets $sandbox/src
+          ls -1 $sandbox/src/permissionsets
+  fi
 
 # Compress package
 
