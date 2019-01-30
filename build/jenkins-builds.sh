@@ -132,7 +132,7 @@ function makePackage() {
 
   permset_count=`ls -1 build/permissionsets | wc -l`
   if [ $profile_count > 0 ]; then
-          cp -rp build/permisstionsets $sandbox/src
+          cp -rp build/permissionsets $sandbox/src
           ls -1 $sandbox/src/permissionsets
   fi
 
