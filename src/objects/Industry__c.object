@@ -117,7 +117,7 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
-            <restricted>true</restricted>
+            <restricted>false</restricted>
             <valueSetName>Industry_1</valueSetName>
         </valueSet>
     </fields>
