@@ -1,4 +1,9 @@
 src/flexipages/Taxonomy_Tagging_Default.flexipage
+src/globalValueSets/Country.globalValueSet
+src/globalValueSets/Industry.globalValueSet
+src/globalValueSets/Sector.globalValueSet
+src/globalValueSets/Sub_Sector.globalValueSet
+src/globalValueSets/Trade_Region.globalValueSet
 src/layouts/Account-Account Layout.layout
 src/layouts/Account-ITA CRM Law Firm.layout
 src/layouts/Account-ITA CRM Organization.layout
@@ -30,4 +35,8 @@ src/layouts/WIN__c-Investment Promotion Locked.layout
 src/layouts/WIN__c-Investment Promotion Open.layout
 src/layouts/WIN__c-WIN Layout.layout
 src/layouts/WIN__c-WIN User Layout.layout
+src/objectTranslations/Industry__c-en_US.objectTranslation
+src/objectTranslations/RelatedCountries__c-en_US.objectTranslation
+src/objects/Industry__c.object
+src/objects/RelatedCountries__c.object
 src/tabs/Taxonomy_Tagging__c.tab
