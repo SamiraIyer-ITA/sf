@@ -30,10 +30,4 @@ src/layouts/WIN__c-Investment Promotion Locked.layout
 src/layouts/WIN__c-Investment Promotion Open.layout
 src/layouts/WIN__c-WIN Layout.layout
 src/layouts/WIN__c-WIN User Layout.layout
-src/objectTranslations/Industry__c-en_US.objectTranslation
-src/objectTranslations/RelatedCountries__c-en_US.objectTranslation
-src/objectTranslations/Taxonomy_Tagging__c-en_US.objectTranslation
-src/objects/Industry__c.object
-src/objects/RelatedCountries__c.object
-src/objects/Taxonomy_Tagging__c.object
 src/tabs/Taxonomy_Tagging__c.tab
