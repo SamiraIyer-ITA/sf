@@ -1,14 +1,17 @@
-/*************************************
-* This class accepts the parent records, performs logic to see if any posts 
-* are needed, gets those posts stored in the org using the CustomMetadataSelector,
-* gets the Staffing Personnel to mention using the StaffingAssignmentsSelector,
-* and posts those to Chatter using the ConnectApiHelper.
+/**
 *
-* Author: Joshua Moody
-* Created On: 1/11/2018
-***************************************/
-
-public class ChatterPostService {
+*    Created by Joshua Moody
+*    on Jan 11 2018
+*    MIL Corporation
+*
+**/
+public without sharing class ChatterPostService {
+ 	/***********************************************************************
+	* This class accepts the parent records, performs logic to see if any posts 
+	* are needed, gets those posts stored in the org using the CustomMetadataSelector,
+	* gets the Staffing Personnel to mention using the StaffingAssignmentSelector,
+	* and posts those to Chatter using the ConnectApiHelper.
+	***********************************************************************/
 	public void getChatterPosts(Map<Id,SObject> oldMap, Map<Id,SObject> newMap, String sObjectName) {
 		List<Automated_Chatter_Post__mdt> postsList = CustomMetadataSelector.getPostsList(sObjectName);//get all posts for this SObjectType
 		StaffingAssignmentsSelector.setParentIdsToStaffLists(newMap.keySet(), sObjectName);//initialized map of all staffing assignments in scope for all parent records

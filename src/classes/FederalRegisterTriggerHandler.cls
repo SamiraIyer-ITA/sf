@@ -1,4 +1,21 @@
-public without sharing class FederalRegisterTriggerHandler {
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Feb 21 2017
+ *    MIL Corporation
+ * 
+ **/
+ public without sharing class FederalRegisterTriggerHandler {
+     /***********************************************************
+   * This class handles all trigger contexts for the Federal_Register__c
+   * object.  It provides methods that:
+   * 1. Organize the flow of logic for each trigger context
+   * 2. Initialize class variables
+   * 3. Help in the mapping of related objects
+   * 4. Query and map parents that are affected by the new
+   * or updated Federal Register records
+   * 5. Update the parents in scope
+   ***********************************************************/ 
 	
     public static void mainEntry(List<Federal_Register__c> newList, List<Federal_Register__c> oldList, Map<Id, Federal_Register__c> newMap, 
         Map<Id, Federal_Register__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete, 

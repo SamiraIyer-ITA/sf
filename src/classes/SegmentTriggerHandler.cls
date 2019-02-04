@@ -1,4 +1,23 @@
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Feb 23 2017
+ *    MIL Corporation
+ * 
+ **/
 public without sharing class SegmentTriggerHandler {
+ 	/***********************************************************
+   * This class handles all trigger contexts for the Segment__c
+   * object.  It provides methods that:
+   * 1. Organize the flow of logic for each trigger context
+   * 2. Initialize class variables
+   * 3. Help in the mapping of related objects
+   * 4. Call services classes to do date calculations
+   * 5. Retrieve constant values saved in custom metadata
+   * 6. Performs status calculations
+   * 7. Performs custom validations not possible with validation rules
+   * 8. Calls service classes to create Staffing Assignments and Chatter Posts
+   ***********************************************************/
 
 	@TestVisible private static Set<String> activeSegmentStatuses = new Set<String>();
 	private static Map<String,Constant__mdt> segmentCalcOffsets = segmentCalcOffsets();

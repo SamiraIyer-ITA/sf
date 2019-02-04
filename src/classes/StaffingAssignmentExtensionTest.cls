@@ -1,5 +1,21 @@
-@isTest
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Oct 3 2017
+ *    MIL Corporation
+ * 
+ **/
+ @isTest
 public class StaffingAssignmentExtensionTest {
+     /************************************************
+    * This class performs unit tests on the StaffingAssignmentExtension
+    * under these condititions.
+    * 1. Test to ensure that an order's staffing assignments display and
+    * are updated correctly
+    * 2. Test to ensure that staffing assignments are created on insert
+    * 3. Test to ensure the UI is correctly detected
+    *************************************************/
+    
 	static Petition__c p {
 		get {
 			if (p == null) {
