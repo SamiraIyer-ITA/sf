@@ -1,5 +1,19 @@
-@isTest
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Sep 19 2017
+ *    MIL Corporation
+ * 
+ **/
+ @isTest
 public class ParentSortingServiceTest {
+ 	/************************************************
+    * This class performs unit tests on the ParentSortingService
+    * under these condititions.
+    * 1. Test to ensure that the correct parent is returned
+    * 2. Test to ensure that the correct grandparent is returned
+    *************************************************/
+    
 	private static Date petitionDate = System.today();
 	private static Investigation__c iAD {
 		get {
