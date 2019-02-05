@@ -311,8 +311,6 @@
         <type>Picklist</type>
         <valueSet>
             <controllingField>Industry__c</controllingField>
-            <restricted>true</restricted>
-            <valueSetName>Sector_1</valueSetName>
             <valueSettings>
                 <controllingFieldValue>Retail Trade</controllingFieldValue>
                 <valueName>Catalog and Mail Order</valueName>
