@@ -7,4 +7,13 @@
         <field>Harmonized_Tariff_Schedule__c.HTS_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Harmonized_Tariff_Schedule__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
 </Profile>
