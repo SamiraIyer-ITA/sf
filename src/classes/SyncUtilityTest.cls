@@ -1,5 +1,25 @@
-@isTest
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Feb 19 2017
+ *    MIL Corporation
+ * 
+ **/
+ @isTest
 public class SyncUtilityTest {
+ 	/************************************************
+    * This class performs unit tests on the SyncUtility
+    * under these condititions.
+    * 1. Test to ensure that in class variabled initialize
+    * 2. Test to ensure that source objects are read correctly
+    * 3. Test to ensure that custom metadata fields to sync
+    * for the current target object and source objects are
+    * read correctly for query
+    * 4. Test to ensure the values of the fields in scope
+    * from the source in scope are populated correctly
+    * on the target object
+    *************************************************/
+    
 	private static Date petitionDate = System.today();
 	private static String targetObjectName = '';
 	private static Set<String> currentSources = new Set<String>();

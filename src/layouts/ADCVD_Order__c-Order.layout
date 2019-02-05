@@ -148,6 +148,7 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>HTS_Number__c</fields>
+        <fields>HTS_Type__c</fields>
         <relatedList>Harmonized_Tariff_Schedule__c.ADCVD_Order__c</relatedList>
         <sortField>HTS_Number__c</sortField>
         <sortOrder>Asc</sortOrder>

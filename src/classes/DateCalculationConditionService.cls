@@ -1,5 +1,26 @@
-public without sharing class DateCalculationConditionService {
-	@TestVisible private SObject record {get; set;}
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on August 3 2017
+ *    MIL Corporation
+ * 
+ **/
+ public without sharing class DateCalculationConditionService {
+     /***********************************************************
+    * This class has 2 constructors: one is empty for construction
+    * of this class in another class without starting calculations,
+    * the second one accepts a single record, a Date_Calculation__mdt
+    * custom metadata record for that record, and an Integer for 
+    * the condition in consideration.  The purpose of this class
+    * is to use the condition to read the custom metadata record
+    * and using that logic, return a true or false if the record
+    * meets the condition specified in the custom metadata.
+    * This class provides methods to:
+    * 1. Check the condition (main method)
+    * 2. Get the condition result (an overloaded method since the 
+    * input can be many datatypes)
+    ***********************************************************/
+    @TestVisible private SObject record {get; set;}
 	@TestVisible private Date_Calculation__mdt dc {get; set;}
 	@TestVisible private Integer condition {get; set;}
 
