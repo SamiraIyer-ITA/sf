@@ -8,7 +8,7 @@
  @isTest
 public class LitigationTriggerHandlerTest {
  	/************************************************
-    * This class performs unit tests on the ADCVDOrderTriggerHandler
+    * This class performs unit tests on the LitigationTriggerHandler
     * under these condititions.
     * 1. Test to ensure that class variables initialize
     * 2. Test to ensure that date calculations are logically correct
@@ -72,7 +72,7 @@ public class LitigationTriggerHandlerTest {
 	@isTest static void setCalculatedInitiationSignature(){
 		Test.startTest();
 		//International Litigation
-		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(intLit.Request_Filed__c.addDays(7));
+		testCalculated = intLit.Request_Filed__c.addDays(7);
 
 		Test.stopTest();
 		System.assertEquals(testCalculated,
@@ -88,7 +88,7 @@ public class LitigationTriggerHandlerTest {
 		intLit = null;
 
 		//International Litigation
-		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(intLit.Request_Filed__c.addDays(45).addDays(7));
+		testCalculated = intLit.Request_Filed__c.addDays(45).addDays(7);
 
 		Test.stopTest();
 		System.assertEquals(testCalculated,
@@ -101,19 +101,19 @@ public class LitigationTriggerHandlerTest {
 
 		intLit.Final_Extension_of_days__c = 7;
 		remand.Final_Extension_of_days__c = 7;
-		remand.Expected_Final_Signature_Before_Ext__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(litigationDate.addDays(-21));
+		remand.Expected_Final_Signature_Before_Ext__c = litigationDate.addDays(-21);
 		List<Litigation__c> updateList = new List<Litigation__c>{intLit, remand};
 		update updateList;
 		intLit = null;
 		remand = null;
 
 		//International Litigation
-		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(intLit.Request_Filed__c.addDays(180).addDays(7));
+		testCalculated = intLit.Request_Filed__c.addDays(180).addDays(7);
 		System.assertEquals(testCalculated,
 			[SELECT Id, Calculated_Final_Signature__c FROM Litigation__c WHERE Id =:intLit.Id  LIMIT 1].Calculated_Final_Signature__c);
 
 		//Remand
-		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(remand.Expected_Final_Signature_Before_Ext__c.addDays(7));
+		testCalculated = remand.Expected_Final_Signature_Before_Ext__c.addDays(7);
 
 		Test.stopTest();
 		System.assertEquals(testCalculated,
@@ -124,12 +124,12 @@ public class LitigationTriggerHandlerTest {
 	@isTest static void setCalculatedDraftRemandReleaseToParty(){
 		Test.startTest();
 
-		remand.Expected_Final_Signature_Before_Ext__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(litigationDate.addDays(35));
+		remand.Expected_Final_Signature_Before_Ext__c = litigationDate.addDays(35);
 		update remand;
 		remand = null;
 
 		//Remand
-		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(remand.Expected_Final_Signature_Before_Ext__c.addDays(-30));
+		testCalculated = remand.Expected_Final_Signature_Before_Ext__c.addDays(-28);
 
 
 		Test.stopTest();
@@ -141,12 +141,12 @@ public class LitigationTriggerHandlerTest {
 	@isTest static void setCalculatedAmendedFinalSignature(){
 		Test.startTest();
 
-		remand.Court_of_Panel_s_Ruling__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(litigationDate.addDays(35));
+		remand.Court_of_Panel_s_Ruling__c = litigationDate.addDays(35);
 		update remand;
 		remand = null;
 
 		//Remand
-		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(remand.Court_of_Panel_s_Ruling__c.addDays(7));
+		testCalculated = remand.Court_of_Panel_s_Ruling__c.addDays(7);
 
 		Test.stopTest();
 		System.assertEquals(testCalculated,
