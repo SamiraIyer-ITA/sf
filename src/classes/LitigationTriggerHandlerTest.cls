@@ -8,7 +8,7 @@
  @isTest
 public class LitigationTriggerHandlerTest {
  	/************************************************
-    * This class performs unit tests on the ADCVDOrderTriggerHandler
+    * This class performs unit tests on the LitigationTriggerHandler
     * under these condititions.
     * 1. Test to ensure that class variables initialize
     * 2. Test to ensure that date calculations are logically correct
