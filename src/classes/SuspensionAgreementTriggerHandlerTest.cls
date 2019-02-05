@@ -14,9 +14,11 @@ public class SuspensionAgreementTriggerHandlerTest {
     * 2. Test to ensure that date calculations are logically correct
     *************************************************/
     
-    private static Date suspDate = System.today();
-    private static Date testActual = System.today();//reusable date variable for each test to add roll forward logic allowing data normalization
-    private static Date testCalculated = System.today();//reusable date variable for each test to add roll forward logic allowing data normalization
+    private static Date baseDate = Date.newInstance(2018, 10, 7);
+
+    private static Date suspDate = baseDate;
+    private static Date testActual = baseDate;//reusable date variable for each test to add roll forward logic allowing data normalization
+    private static Date testCalculated = baseDate;//reusable date variable for each test to add roll forward logic allowing data normalization
     private static User u{
         get{
             if(u == null){
@@ -93,10 +95,10 @@ public class SuspensionAgreementTriggerHandlerTest {
         //Create a JSON string from the Federal Register object to be able to modify the CreatedDate
         String frJSON = JSON.serialize(new Federal_Register__c());
         Map<String, Object> frJSONMap = (Map<String, Object>)JSON.deserializeUntyped(frJSON);
-        frJSONMap.put('CreatedDate',Date.Today().addDays(-1));
+        frJSONMap.put('CreatedDate', baseDate.addDays(-1));
         frJSONMap.put('Type__c','Suspension Agreement');
         frJSONMap.put('Cite_Number__c','3rfef');
-        frJSONMap.put('Published_Date__c',Date.today().addDays(5));
+        frJSONMap.put('Published_Date__c', baseDate.addDays(5));
         frJSONMap.put('Suspension_Agreement__c', sa.Id);
         String frJSON2 = JSON.serialize(frJSONMap);
         //Deserialize string back to FR object and commit to database
