@@ -1,10 +1,20 @@
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Mar 8 2017
+ *    MIL Corporation
+ * 
+ **/
+
 public without sharing class CascadeUtility {
 
-	//This is the utility that is called to use any of the Cascade Services
-	//Each Cascade Service will need a class named as it's object without the
-	//ending "__c" and with "CS" in its place.  Then add that service to the
-	//Service__mdt as a record with the Service_Type__c "Cascade Services" and
-	//Service_Object_Name__c as the name of the object without the ending "__c".
+	/********** In the Process of deprecating for the Mapper Classes**********
+	* This is the utility that is called to use any of the Cascade Services
+	* Each Cascade Service will need a class named as it's object without the
+	* ending "__c" and with "CS" in its place.  Then add that service to the
+	* Service__mdt as a record with the Service_Type__c "Cascade Services" and
+	* Service_Object_Name__c as the name of the object without the ending "__c".
+	************************************************************************/
 	
 	//used for exceptions with the service name is not found from the Service_mdt
 	public class NameException extends Exception{}

@@ -1,4 +1,23 @@
-public without sharing class InvestigationTriggerHandler {
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Feb 15 2017
+ *    MIL Corporation
+ * 
+ **/
+ public without sharing class InvestigationTriggerHandler {
+    
+    /***********************************************************
+   * This class handles all trigger contexts for the Investigation__c
+   * object.  It provides methods that:
+   * 1. Organize the flow of logic for each trigger context
+   * 2. Initialize class variables
+   * 3. Help in the mapping of related objects
+   * 4. Call services classes to do date calculations
+   * 5. Retrieve constant values saved in custom metadata
+   * 6. Performs status calculations
+   * 7. Performs custom validations not possible with validation rules
+   ***********************************************************/ 
 	
     @TestVisible private static Set<String> outcomesThatTermInvestigations = new Set<String>();
     @TestVisible private static Set<String> activeLitigationStatuses = new Set<String>();

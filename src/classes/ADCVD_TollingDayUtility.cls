@@ -1,4 +1,25 @@
-public without sharing class ADCVD_TollingDayUtility {
+/**
+ * 
+ *    Created by Tim Barsotti
+ *    on Feb 6 2017
+ *    MIL Corporation
+ *
+ * 
+ **/
+ public without sharing class ADCVD_TollingDayUtility {
+ 	/*****************************************************
+	* This class 
+	* 1. Queries tolling day records
+	* 2. Converts them to a set of dates
+	* 3. Checks if a date is a holiday
+	* 4. Checks if a date is a tolling day
+	* 5. Checks if a date is a workday
+	* 6. Checks if a date is a weekend
+	* 7. Provides methods to roll forward or roll back from
+	* a date that is not a workday.
+	* 8. Provides a method to count back a specific number
+	* of working days
+	*****************************************************/
 	@TestVisible private static List<Tolling_Day__c> tollingDayList {
 		get {
 			if(tollingDayList == null) {

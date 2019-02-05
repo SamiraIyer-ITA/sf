@@ -1,4 +1,19 @@
-public without sharing class RecusalCS implements ADCVD_CascadeService {
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Apr 3 2017
+ *    MIL Corporation
+ * 
+ **/
+ public without sharing class RecusalCS implements ADCVD_CascadeService {
+
+ 	/**********Deprecating - replacing with mappers*******************
+	* This class queries Recusals and stores them in class
+	* for faster reference by classes.
+	* This class provides methods to:
+	* 1. Query Recusals in scope of the parents/grandparents
+	* 2. Map those records for the easiest consumption by classes
+	******************************************************************/
 
 	/**
 	 * Implements the ADCVD_CascadeService for Recusal__c objects
