@@ -1,5 +1,24 @@
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Oct 3 2017
+ *    MIL Corporation
+ * 
+ **/
+
 @isTest
 public class SunsetReviewControllerTest {
+
+    /************************************************
+    * This class performs unit tests on the SunsetReviewController
+    * under these condititions.
+    * 1. Test to ensure that the correct fields are displayed for 90, 120, 240
+    * day sunset reviews
+    * 2. Test to ensure that dml is executed correctly
+    * 3. Test to ensure that edit mode went back to false
+    * 4. Test to ensure that UX is correctly detected
+    *************************************************/
+    
     static Petition__c p {
         get {
             if (p == null) {
