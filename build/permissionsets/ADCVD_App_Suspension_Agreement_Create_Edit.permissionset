@@ -3,6 +3,11 @@
     <description>Permission set equivalent to an &quot;ADCVD Standard Suspension Agreement&quot; Profile.</description>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Suspension_Agreement__c.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Suspension_Agreement__c.Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
