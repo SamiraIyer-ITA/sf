@@ -126,6 +126,10 @@
     </types>
     <types>
         <members>*</members>
+        <name>PathAssistant</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>PermissionSet</name>
     </types>
     <types>
