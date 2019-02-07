@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Permission set equivalent to an &quot;ADCVD Standard Suspension Agreement&quot; Profile.</description>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Suspension_Agreement__c.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <label>ADCVD App: Suspension Agreement - Create/Edit</label>
+</PermissionSet>

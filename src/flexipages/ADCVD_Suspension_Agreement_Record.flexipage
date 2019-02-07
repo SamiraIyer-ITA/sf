@@ -157,6 +157,17 @@
         </componentInstances>
         <componentInstances>
             <componentInstanceProperties>
+                <name>hideUpdateButton</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>variant</name>
+                <value>linear</value>
+            </componentInstanceProperties>
+            <componentName>runtime_sales_pathassistant:pathAssistant</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
                 <name>tabs</name>
                 <value>facet-2f0b0a8f-fa49-4460-92cc-936550fb9ea5</value>
             </componentInstanceProperties>
