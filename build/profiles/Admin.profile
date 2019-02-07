@@ -3,6 +3,11 @@
     <custom>false</custom>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Suspension_Agreement__c.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermission>
+        <editable>true</editable>
         <field>Suspension_Agreement__c.Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
