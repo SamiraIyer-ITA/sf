@@ -1533,6 +1533,7 @@
         <enabled>true</enabled>
         <name>Edit_ADCVD_Locked_Records</name>
     </customPermissions>
+    <description>System Administrator</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>ADCVD_Case__c.ADCVD_Case_Number__c</field>
@@ -2210,6 +2211,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Constant__mdt.Parent_Value__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Constant__mdt.Petition_Calculation_Offset__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2246,11 +2252,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Constant__mdt.Used_with_Field_Named__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Content_Container__c.AutorabitExtId__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2306,11 +2307,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Content__c.Approver__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Content__c.AutorabitExtId__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3691,6 +3687,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Harmonized_Tariff_Schedule__c.HTS_Number_Length__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Harmonized_Tariff_Schedule__c.HTS_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5240,11 +5241,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Page_Content__c.AutorabitExtId__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Page_Content__c.Button_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5311,11 +5307,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Page__c.Assistance_Text__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Page__c.AutorabitExtId__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6499,11 +6490,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Row__c.AutorabitExtId__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Row__c.Container__c</field>
         <readable>true</readable>
@@ -7330,11 +7316,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Site__c.AutorabitExtId__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Site__c.Default_Page__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7965,6 +7946,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Suspension_Agreement__c.Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Suspension_Agreement__c.Suspension_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7976,6 +7962,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Suspension_Agreement__c.This_Investigation_has_a_Susp_Agreement__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Suspension_Agreement__c.Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -11159,10 +11150,6 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>susa_reading_room</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>susa_social_media</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
