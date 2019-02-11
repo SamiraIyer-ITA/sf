@@ -1014,30 +1014,6 @@ public class InvestigationTriggerHandlerTest {
   }
 
   //Next Office Deadline
-  @isTest static void setNextOfficeDeadlineADCalcITCPrelim() {
-    Test.startTest();
-    //45 day offset to Petition_Filed__c, 
-    //-3 adjustment days for weekends
-    adP.Petition_Filed__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(System.today().addDays(-42));
-    update adP;
-
-    Test.stopTest();
-    System.assertEquals(iAD.Calculated_ITC_Prelim_Determination__c, iAD.Next_Office_Deadline__c);
-  }
-
-  //Next Office Deadline
-  @isTest static void setNextOfficeDeadlineCVDCalcITCPrelim() {
-    Test.startTest();
-    //45 day offset to Petition_Filed__c, 
-    //-3 adjustment days for weekends
-    cvdP.Petition_Filed__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(System.today().addDays(-42));
-    update cvdP;
-
-    Test.stopTest();
-    System.assertEquals(iCVD.Calculated_ITC_Prelim_Determination__c, iCVD.Next_Office_Deadline__c);
-  }
-
-  //Next Office Deadline
   @isTest static void setNextOfficeDeadlineADCalcPrelimExt() {
     Test.startTest();
     //115 day offset to Calculated_Initiation_Signature__c, 
