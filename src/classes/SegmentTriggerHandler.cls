@@ -594,15 +594,15 @@ public without sharing class SegmentTriggerHandler {
     }
 
 	 @TestVisible private static void setCustomsInstructionsStatus(Segment__c s) {
-         if ( (s.Litigation_YesNo__c == 'Yes' && s.Litigation_Resolved__c == 'Yes' && s.Have_Custom_Instruction_been_sent__c != 'Yes' && !String.isBlank(s.Segment_Outcome__c))
-                 || (s.Litigation_YesNo__c == 'No'  && s.Have_Custom_Instruction_been_sent__c != 'Yes' && !String.isBlank(s.Segment_Outcome__c)) ) {
+         if ((s.Litigation_YesNo__c == 'No' || (s.Litigation_YesNo__c == 'Yes' && s.Litigation_Resolved__c == 'Yes'))
+           && s.Have_Custom_Instruction_been_sent__c != 'Yes' && s.Segment_Outcome__c != null) {
              s.Status__c = 'Customs';
          }
      }
 
 	@TestVisible private static void setClosedStatus(Segment__c s) {
         if ((s.Litigation_YesNo__c == 'No' || (s.Litigation_YesNo__c == 'Yes' && s.Litigation_Resolved__c == 'Yes'))
-            && s.Have_Custom_Instruction_been_sent__c == 'Yes') {
+            && s.Have_Custom_Instruction_been_sent__c == 'Yes' && s.Segment_Outcome__c != null) {
                 s.Status__c = 'Closed';
         }
 	}
