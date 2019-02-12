@@ -589,29 +589,22 @@ public without sharing class SegmentTriggerHandler {
 	}
 
 	@TestVisible private static void setLitigationStatus(Segment__c s) {
-		if (recordTypeNameMap.get(s.RecordTypeId) != NEW_SHIPPER_REVIEW || s.Administrative_Review_Aligned_To__c == null) {
-			if (s.Litigation_YesNo__c == 'Yes' && s.Litigation_Resolved__c == 'No' && s.Segment_Outcome__c != null) {
-				s.Status__c = 'Litigation';
-			}
-		}
-	}
+        if (s.Litigation_YesNo__c == 'Yes' && s.Litigation_Resolved__c == 'No' && s.Segment_Outcome__c != null) {
+            s.Status__c = 'Litigation';
+        }
+    }
 
-	@TestVisible private static void setCustomsInstructionsStatus(Segment__c s) {
-		if (recordTypeNameMap.get(s.RecordTypeId) != NEW_SHIPPER_REVIEW || s.Administrative_Review_Aligned_To__c == null) {
-			if ((s.Litigation_YesNo__c == 'No' 
-				|| (s.Litigation_YesNo__c == 'Yes' && s.Litigation_Resolved__c == 'Yes')) 
-				&& s.Have_Custom_Instruction_been_sent__c != 'Yes') { 
-	                s.Status__c = 'Customs';
-	        }
-	    }
-	}
+	 @TestVisible private static void setCustomsInstructionsStatus(Segment__c s) {
+		 if ((s.Litigation_YesNo__c == 'No' || (s.Litigation_YesNo__c == 'Yes' && s.Litigation_Resolved__c == 'Yes'))
+			 && s.Have_Custom_Instruction_been_sent__c != 'Yes' && s.Segment_Outcome__c != null) {
+             s.Status__c = 'Customs';
+         }
+     }
 
 	@TestVisible private static void setClosedStatus(Segment__c s) {
-		if (recordTypeNameMap.get(s.RecordTypeId) != NEW_SHIPPER_REVIEW || s.Administrative_Review_Aligned_To__c == null) {
-			if ((s.Litigation_YesNo__c == 'No' || (s.Litigation_YesNo__c == 'Yes' && s.Litigation_Resolved__c == 'Yes')) 
-				&& s.Have_Custom_Instruction_been_sent__c == 'Yes') { 
-	                s.Status__c = 'Closed';
-	        }
-	    }
+        if ((s.Litigation_YesNo__c == 'No' || (s.Litigation_YesNo__c == 'Yes' && s.Litigation_Resolved__c == 'Yes'))
+            && s.Have_Custom_Instruction_been_sent__c == 'Yes' && s.Segment_Outcome__c != null) {
+                s.Status__c = 'Closed';
+        }
 	}
 }
