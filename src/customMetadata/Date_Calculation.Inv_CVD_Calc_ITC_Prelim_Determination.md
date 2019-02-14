@@ -32,15 +32,15 @@
     </values>
     <values>
         <field>Base_Date_Field_2_Lookup_Field_Name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Petition__c</value>
     </values>
     <values>
         <field>Base_Date_Field_2_Name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Initiation_Announcement_Date__c</value>
     </values>
     <values>
         <field>Base_Date_Field_2_Object__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Petition__c</value>
     </values>
     <values>
         <field>Base_Date_Field_2_Type__c</field>
@@ -116,23 +116,23 @@
     </values>
     <values>
         <field>Conditional_Field_1_Lookup_Field_Name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Petition__c</value>
     </values>
     <values>
         <field>Conditional_Field_1_Name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Petition_Outcome__c</value>
     </values>
     <values>
         <field>Conditional_Field_1_Object__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Petition__c</value>
     </values>
     <values>
         <field>Conditional_Field_1_Operator__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Equals</value>
     </values>
     <values>
         <field>Conditional_Field_1_Result__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Use Date 2</value>
     </values>
     <values>
         <field>Conditional_Field_1_Type__c</field>
@@ -140,7 +140,7 @@
     </values>
     <values>
         <field>Conditional_Field_1_Value__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Self-Initiated</value>
     </values>
     <values>
         <field>Conditional_Field_2_Lookup_Field_Name__c</field>
@@ -376,7 +376,7 @@
     </values>
     <values>
         <field>Number_of_Conditionals__c</field>
-        <value xsi:type="xsd:double">0.0</value>
+        <value xsi:type="xsd:double">1.0</value>
     </values>
     <values>
         <field>Number_of_Extensions__c</field>

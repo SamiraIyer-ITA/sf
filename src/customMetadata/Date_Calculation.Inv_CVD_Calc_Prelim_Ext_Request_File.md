@@ -48,19 +48,19 @@
     </values>
     <values>
         <field>Base_Date_Field_3_Lookup_Field_Name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Petition__c</value>
     </values>
     <values>
         <field>Base_Date_Field_3_Name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Published_Date__c</value>
     </values>
     <values>
         <field>Base_Date_Field_3_Object__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Federal_Register__c</value>
     </values>
     <values>
         <field>Base_Date_Field_3_Type__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Initiation</value>
     </values>
     <values>
         <field>Base_Date_Field_4_Lookup_Field_Name__c</field>
@@ -116,23 +116,23 @@
     </values>
     <values>
         <field>Conditional_Field_1_Lookup_Field_Name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Petition__c</value>
     </values>
     <values>
         <field>Conditional_Field_1_Name__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Petition_Outcome__c</value>
     </values>
     <values>
         <field>Conditional_Field_1_Object__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Petition__c</value>
     </values>
     <values>
         <field>Conditional_Field_1_Operator__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Equals</value>
     </values>
     <values>
         <field>Conditional_Field_1_Result__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Use Date 3</value>
     </values>
     <values>
         <field>Conditional_Field_1_Type__c</field>
@@ -140,7 +140,7 @@
     </values>
     <values>
         <field>Conditional_Field_1_Value__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">Self-Initiated</value>
     </values>
     <values>
         <field>Conditional_Field_2_Lookup_Field_Name__c</field>
@@ -376,7 +376,7 @@
     </values>
     <values>
         <field>Number_of_Conditionals__c</field>
-        <value xsi:type="xsd:double">0.0</value>
+        <value xsi:type="xsd:double">1.0</value>
     </values>
     <values>
         <field>Number_of_Extensions__c</field>
