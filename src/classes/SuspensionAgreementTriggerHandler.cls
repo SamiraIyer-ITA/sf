@@ -165,7 +165,7 @@
             suspensionAgreementPublishedDate = frUtilMap.get(sa.Id) != null ? frUtilMap.get(sa.Id).typeToPublishedDateMap.get('Suspension Agreement') : null;
         }
         if (suspensionAgreementPublishedDate != null) {
-            sa.Anniversary_Month__c = utils.getMonthFromDate(suspensionAgreementPublishedDate);
+            sa.Anniversary_Month__c = Utils.getMonthFromDate(suspensionAgreementPublishedDate);
         } else {
             sa.Anniversary_Month__c = null;
         }
@@ -178,7 +178,9 @@
             nextSSR = frUtilMap.get(sa.Id).typeToPublishedDateMap.get('Suspension Agreement'); //set to suspensionAgreementPublishedDate if populated
             Federal_Register__c continuationFR = frUtilMap.get(sa.Id).frsByType.get('Continuation');
             Federal_Register__c suspensionAgreementFR = frUtilMap.get(sa.Id).frsByType.get('Suspension Agreement');
-            nextSSR = (continuationFR != null && suspensionAgreementFR !=null && continuationFR.CreatedDate > suspensionAgreementFR.CreatedDate) ? frUtilMap.get(sa.Id).typeToPublishedDateMap.get('Continuation') : nextSSR;//overwrite to continuationPublishedDate if populated
+            nextSSR = (continuationFR != null && suspensionAgreementFR !=null
+                && continuationFR.Published_Date__c > suspensionAgreementFR.Published_Date__c)
+                ? frUtilMap.get(sa.Id).typeToPublishedDateMap.get('Continuation') : nextSSR;//overwrite to continuationPublishedDate if populated
             nextSSR = (frUtilMap.get(sa.Id).typeToPublishedDateMap.get('Termination') != null) ? null : nextSSR;//overwrite to null if revocationPublishedDate is populated
         }
     	if (nextSSR != null) {
