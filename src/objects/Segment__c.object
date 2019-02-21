@@ -13917,7 +13917,7 @@ SI = Scope Inquiry
 SR = Sunset Review</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND( 
 $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,Actual_Date_of_Decision_on_HoP__c &gt; Deadline_for_Decision_on_How_to_Proceed__c))</errorConditionFormula>
-        <errorMessage>&quot;Actual Date of Decision&quot; date cannot be after &quot;Deadline for Decision&quot; date.</errorMessage>
+        <errorMessage>Actual Date of Decision on How to Proceed (HOP) cannot be later than Deadline for Decision on HOP</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>SI_Actual_Final_Signature</fullName>
