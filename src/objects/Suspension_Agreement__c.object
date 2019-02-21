@@ -512,9 +512,9 @@
         <columns>UPDATEDBY_USER</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>UPDATEDBY_USER</field>
-            <operation>notEqual</operation>
-            <value>sandip menon</value>
+             <field>Status__c</field>
+             <operation>equals</operation>
+             <value>Current - Active</value>
         </filters>
         <label>All</label>
     </listViews>
