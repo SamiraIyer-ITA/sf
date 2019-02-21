@@ -116,6 +116,17 @@ C-###-### for CVD</inlineHelpText>
         </valueSet>
     </fields>
     <fields>
+        <fullName>Batch_Update__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field is used for triggering a mass batch update via ADCVDStandardCaseFieldsBatch class, which then runs an update an all related child records. To update changes in logic on to the records.</description>
+        <externalId>false</externalId>
+        <label>Batch Update</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>CBP_Case_Number__c</fullName>
         <caseSensitive>true</caseSensitive>
         <externalId>false</externalId>
