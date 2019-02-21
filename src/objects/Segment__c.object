@@ -468,11 +468,36 @@
         <label>Review Information</label>
     </fieldSets>
     <fields>
+        <fullName>ADCVD_Case_Number_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>ADCVD Case Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>ADCVD_Case_Number__c</fullName>
         <externalId>false</externalId>
         <formula>(ADCVD_Case__r.ADCVD_Case_Number__c)</formula>
         <label>ADCVD Case Number Text Value</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ADCVD_Case_Type_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>ADCVD Case Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -866,6 +891,18 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>CBP_Case_Number_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>CBP Case Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>CBP_Case_Number__c</fullName>
         <externalId>false</externalId>
         <formula>IF(NOT(ISNULL(ADCVD_Order__c)), ADCVD_Order__r.CBP_Case_Number__c , Suspension_Agreement__r.CBP_Case_Number__c )</formula>
@@ -978,6 +1015,18 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Commodity_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Commodity</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Commodity__c</fullName>
         <externalId>false</externalId>
         <formula>TEXT(ADCVD_Case__r.Commodity__c)</formula>
@@ -1023,6 +1072,18 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Country_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Country__c</fullName>
@@ -1978,6 +2039,18 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Product_Short_Name_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Short Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Product_Short_Name__c</fullName>
         <externalId>false</externalId>
         <formula>(ADCVD_Case__r.Product_Short_Name__c)</formula>
@@ -1996,6 +2069,18 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Product_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Product__c</fullName>

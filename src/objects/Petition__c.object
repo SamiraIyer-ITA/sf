@@ -66,6 +66,18 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
+        <fullName>ADCVD_Case_Number_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>ADCVD Case Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>ADCVD_Case_Number__c</fullName>
         <caseSensitive>false</caseSensitive>
         <description>Referenced from parent Petition case</description>
@@ -78,6 +90,18 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>ADCVD_Case_Type_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>ADCVD Case Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>ADCVD_Case_Type__c</fullName>
@@ -160,6 +184,18 @@ C-###-### for CVD</inlineHelpText>
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>CBP_Case_Number_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>CBP Case Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>CBP_Case_Number__c</fullName>
         <caseSensitive>true</caseSensitive>
         <externalId>false</externalId>
@@ -239,6 +275,18 @@ C-###-### for CVD</inlineHelpText>
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>Commodity_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Commodity</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Commodity__c</fullName>
@@ -1036,10 +1084,34 @@ C-###-### for CVD</inlineHelpText>
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Product_Short_Name_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Short Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Product_Short_Name__c</fullName>
         <description>Product Short Name</description>
         <externalId>false</externalId>
         <label>Product Short Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Product</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
