@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Staffing_Assignment__c$Segment__c.Country__c</field>
+    </columns>
+    <columns>
+        <field>Staffing_Assignment__c$Segment__c.Product__c</field>
+    </columns>
+    <columns>
+        <field>Staffing_Assignment__c$Segment__c.ADCVD_Case__c</field>
+    </columns>
+    <columns>
+        <field>Staffing_Assignment__c$Segment__c.RecordType</field>
+    </columns>
+    <columns>
+        <field>Staffing_Assignment__c$Segment__c.Status__c</field>
+    </columns>
+    <columns>
+        <field>Staffing_Assignment__c$Segment__c.Calculated_Preliminary_Signature__c</field>
+    </columns>
+    <columns>
+        <field>Staffing_Assignment__c$Segment__c.Calculated_Final_Signature__c</field>
+    </columns>
+    <columns>
+        <field>Staffing_Assignment__c$Segment__c.Calculated_Initiation_Signature__c</field>
+    </columns>
+    <columns>
+        <field>Staffing_Assignment__c$Segment__c.Link__c</field>
+    </columns>
+    <description>Staffing Assignments - Segments</description>
+    <filter>
+        <criteriaItems>
+            <column>Staffing_Assignment__c$Segment__c.Next_Major_Deadline__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>3/5/2018</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <name>Jennifer Moats Base Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>SA_Petition_Investigation_Orders_and_Segment__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Staffing_Assignment__c$Segment__c.RecordType</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Staffing_Assignment__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

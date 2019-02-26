@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>User$Name</field>
+    </columns>
+    <columns>
+        <field>User.IdpEventLog$UserId$App</field>
+    </columns>
+    <columns>
+        <field>User.IdpEventLog$UserId$InitiatedBy</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>User*User$RH_Lev_1_Top_Level__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>GM All</value>
+        </criteriaItems>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Month</dateGranularity>
+        <field>User.IdpEventLog$UserId$Timestamp</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>User*User$RH_Lev_2_DAS_Level__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Mobile login frequency</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Identity_Users__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>User.IdpEventLog$UserId$Timestamp</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

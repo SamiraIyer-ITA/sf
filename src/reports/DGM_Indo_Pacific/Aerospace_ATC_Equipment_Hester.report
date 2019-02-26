@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account.OrgIndustryHierarchy__r$Industry__c</field>
+    </columns>
+    <columns>
+        <field>Account.OrgIndustryHierarchy__r$Sector__c</field>
+    </columns>
+    <columns>
+        <field>Account.OrgIndustryHierarchy__r$Sub_Sector__c</field>
+    </columns>
+    <columns>
+        <field>Account$NaicsCode</field>
+    </columns>
+    <columns>
+        <field>Account$NaicsDesc</field>
+    </columns>
+    <columns>
+        <field>Account$BillingStateCode</field>
+    </columns>
+    <columns>
+        <field>Account$County_Name__c</field>
+    </columns>
+    <columns>
+        <field>Account$BillingCity</field>
+    </columns>
+    <description>Aerospace_ATC Equipment Suppliers_all US states</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.OrgIndustryHierarchy__r$Industry__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Aerospace and Defense</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.OrgIndustryHierarchy__r$Sector__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Aviation</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.OrgIndustryHierarchy__r$Sub_Sector__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Air Traffic Control Equipment</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$BillingCountryCode</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>US</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Aerospace_ATC Equipment_Hester</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Organizations_with_Industry_Hierarchies__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Account$Actual_Create_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

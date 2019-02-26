@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>SUBJECT</field>
+    </columns>
+    <columns>
+        <field>CLOSED_DATEONLY</field>
+    </columns>
+    <columns>
+        <field>CLOSED_DATE</field>
+    </columns>
+    <columns>
+        <field>Case.Actual_Create_Date__c</field>
+    </columns>
+    <columns>
+        <field>Case.CD_Relevant_Agreement__c</field>
+    </columns>
+    <description>All Compliance cases with a GP issue initiated in the last 5 years</description>
+    <filter>
+        <booleanFilter>(1 AND 2 AND (3 OR 4)) AND 5</booleanFilter>
+        <criteriaItems>
+            <column>RECORDTYPE</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Case.Commercial_Diplomacy</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case.CD_Relevant_Agreement__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Yes</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case.Trade_Barrier__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>government procurement</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case.CD_Trade_Barrier__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>includes</operator>
+            <value>Government Procurement</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>STATUS</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Successfully Closed</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Government Procurement Compliance</name>
+    <params>
+        <name>units</name>
+        <value>h</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CaseList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Case.Actual_Create_Date__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Case.Actual_Create_Date__c</dateColumn>
+        <endDate>2015-09-30</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2011-10-01</startDate>
+    </timeFrameFilter>
+</Report>

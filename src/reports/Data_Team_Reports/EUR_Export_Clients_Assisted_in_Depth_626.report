@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>Account.Organization_One__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <description>Count of unique orgs</description>
+        <developerName>FORMULA1</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Org Count</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <columns>
+        <field>SUBJECT</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>RECORDTYPE</field>
+    </columns>
+    <columns>
+        <field>STATUS</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Case.Case_One__c</field>
+    </columns>
+    <filter>
+        <booleanFilter>((1 AND 2) OR (3 AND 4)) AND 6 AND 7 AND 8 AND 10 AND (5 OR 9 OR 11)</booleanFilter>
+        <criteriaItems>
+            <column>Case.Actual_Create_Date__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>greaterOrEqual</operator>
+            <value>10/1/2016 12:00 AM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case.Actual_Create_Date__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>lessOrEqual</operator>
+            <value>9/30/2017 12:00 AM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CLOSED_DATEONLY</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>greaterOrEqual</operator>
+            <value>10/1/2016 12:00 AM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CLOSED_DATEONLY</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>lessOrEqual</operator>
+            <value>9/30/2017 12:00 AM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case_Contributor__c.RH_Lev_3_Region_2__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>Europe</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>RECORDTYPE</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Case.Investment_Promotion</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case.Request_Case_Removal__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ACCOUNT.COUNTRY_CODE</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>US</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case_Contributor__c.RH_Lev_3_Region_2__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>GM CS-EMEA HQ</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ACCOUNT_RECORDTYPE</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Account.ITA_User_Account_RT</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case_Contributor__c.RH_Lev_2_DAS__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>GM CS-EUR-HQ DAS Office</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case_Contributor__c.RH_Lev_5_Country__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case_Contributor__c.RH_Lev_6_Office__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case_Contributor__c.Contributor_Name__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>EUR Export Clients Assisted in Depth 626</name>
+    <params>
+        <name>units</name>
+        <value>d</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CaseCustomEntity$Case_Contributor__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>SUBJECT</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATEONLY</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

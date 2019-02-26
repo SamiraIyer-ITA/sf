@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Case$CaseNumber</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Case$Advocacy_Expected_US_Export_Content__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Case$Case_One__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Case$Record_Type__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Advocacy</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$Request_Case_Removal__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$Advocacy_Project_Status__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Due Diligence In Progress,Approved</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case.Case_Industry_Hierarchy__r$Industry__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Aerospace and Defense,Construction,Energy,Healthcare,Information and Communications Technology,Safety &amp; Security</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case.Case_Industry_Hierarchy__r$Sector__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>AC Cases by Sector Top Industries</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Cases_with_Industry_Hierarchies__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Case$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

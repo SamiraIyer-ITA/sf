@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>WIN__c.WIN_One__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <description>count of unique WINs</description>
+        <developerName>FORMULA1</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>WIN Count</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <columns>
+        <field>WIN__c$Name</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Actual_Create_Date__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$First_Line_Approval_Date__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Final_Line_Approval_Date__c</field>
+    </columns>
+    <description>Report displaying Investment Promotion WINs with final line approval in the current fiscal year, grouped by DAS and office of WIN contributors.</description>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>WIN__c.Contributors__r$RH_Lev_2_DAS__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>WIN__c.Contributors__r$RH_Lev_6_Office__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Investment WINs by DAS</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>WINs_with_Contributors__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>WIN__c$Final_Line_Approval_Date__c</dateColumn>
+        <interval>INTERVAL_PREVFY</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Case$Id</field>
+    </columns>
+    <columns>
+        <field>Case$CaseNumber</field>
+    </columns>
+    <columns>
+        <field>Case.Countries__r$Country__c</field>
+    </columns>
+    <filter>
+        <booleanFilter>1 AND ((2 AND 3) OR (4 AND 5))</booleanFilter>
+        <criteriaItems>
+            <column>Case$Record_Type__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Export Promotion</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$Actual_Create_Date__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>greaterOrEqual</operator>
+            <value>10/1/2015 12:00 AM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$Actual_Create_Date__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>lessOrEqual</operator>
+            <value>9/30/2016 12:00 AM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$Actual_Case_Closed_Date__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>greaterOrEqual</operator>
+            <value>10/1/2015 12:00 AM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$Actual_Case_Closed_Date__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>lessOrEqual</operator>
+            <value>9/30/2016 12:00 AM</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Desk Officer EP Cases Related Countries</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Cases_With_Countries__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Case$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

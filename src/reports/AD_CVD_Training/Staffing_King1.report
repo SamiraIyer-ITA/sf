@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Staffing_Assignment__c$ADCVD_Case_Number__c</field>
+    </columns>
+    <columns>
+        <field>Staffing_Assignment__c$Product__c</field>
+    </columns>
+    <columns>
+        <field>Staffing_Assignment__c$Country__c</field>
+    </columns>
+    <columns>
+        <field>Staffing_Assignment__c$ADCVD_Order__c.Link__c</field>
+    </columns>
+    <columns>
+        <field>Staffing_Assignment__c$Petition__c.Link__c</field>
+    </columns>
+    <columns>
+        <field>Staffing_Assignment__c$Investigation__c.Link__c</field>
+    </columns>
+    <columns>
+        <field>Staffing_Assignment__c$Segment__c.Link__c</field>
+    </columns>
+    <columns>
+        <field>Staffing_Assignment__c$User__c</field>
+    </columns>
+    <columns>
+        <field>Staffing_Assignment__c$Title__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Staffing_Assignment__c$Title__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Analyst,Senior Legal</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Staffing_Assignment__c$User__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>deborah king</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Staffing - King</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>SA_Petition_Investigation_Orders_and_Segment__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Staffing_Assignment__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

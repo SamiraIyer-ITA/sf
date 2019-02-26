@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Case$CaseNumber</field>
+    </columns>
+    <columns>
+        <field>Case$Subject</field>
+    </columns>
+    <columns>
+        <field>Case.Activities$Subject</field>
+    </columns>
+    <columns>
+        <field>Case$Actual_Create_Date__c</field>
+    </columns>
+    <columns>
+        <field>Case.Activities$Actual_Create_Date__c</field>
+    </columns>
+    <columns>
+        <field>Case.Activities$LastModifiedDate</field>
+    </columns>
+    <description>Not verified with JS</description>
+    <filter>
+        <criteriaItems>
+            <column>Case$Actual_Create_Date__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>greaterThan</operator>
+            <value>10/1/2015 12:00 AM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$IsClosed</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$Potential_Primary_Outcome__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Compliance with trade agreement,Reduced/Eliminated threat to US business,Reduced/Removed/Prevented trade barrier</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Cases w Activities Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Case_with_Activities__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Case$Actual_Case_Closed_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

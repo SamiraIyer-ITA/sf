@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Segment__c$Product__c</field>
+    </columns>
+    <columns>
+        <field>Segment__c$RecordType</field>
+    </columns>
+    <columns>
+        <field>Segment__c$Owner</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Segment__c$ADCVD_Order__c.Investigation__c.Status__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>notContain</operator>
+            <value>Hold,Litigation,Customs,Closed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Segment__c$ADCVD_Order__c.Investigation__c.Petition__c.Petition_Outcome__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>notContain</operator>
+            <value>Deficient Petition/Did Not Initiate,Initiated from Petition,Petition Withdrawn/Did Not Initiate,Self-Initiated</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Segment__c$ADCVD_Order__c.Investigation__c.Investigation_Outcome__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>notContain</operator>
+            <value>DOC Negative Final,ITC Negative Final,ITC Negative Prelim,Petition Withdrawn After Initiation,Suspension Agreement,Order</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Segment__c$Country__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Segments Needing Outcomes</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Segments_Federal_Registers__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>false</showGrandTotal>
+    <showSubTotals>false</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Segment__c$Actual_Amended_Final_Signature__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

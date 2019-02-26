@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account$TracHier__Owner__c</field>
+    </columns>
+    <columns>
+        <field>Account.OrgIndustryHierarchy__r$Industry__c</field>
+    </columns>
+    <description>MA ORGs w/o Industry owned outside of MA</description>
+    <filter>
+        <booleanFilter>1 AND 2 AND (3 and 4 and 5 and 6)</booleanFilter>
+        <criteriaItems>
+            <column>Account$BillingStateCode</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>MA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.OrgIndustryHierarchy__r$Industry__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$TracHier__Owner__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Maryanne Burke</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$TracHier__Owner__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value>James Paul</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$TracHier__Owner__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Letitia Kress</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$TracHier__Owner__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Michelle Ouellette</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>MA ORGs w/o Industry owned outside of MA</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Organizations_with_or_without_Industries__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Account$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

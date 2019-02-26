@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>WIN__c.WIN_One__c</field>
+    </columns>
+    <filter>
+        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+        <criteriaItems>
+            <column>WIN__c.WIN_Type__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Advocacy</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c.Request_WIN_Removal__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c.Final_Line_Approver__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>jennifer pilat</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c.Final_Line_Approver__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>americo tadeu</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>WIN__c.Organization__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>AC WINs by Org</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$WIN__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>WIN__c.Final_Line_Approval_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

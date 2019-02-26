@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>WIN__c$Name</field>
+    </columns>
+    <columns>
+        <field>WIN__c$WIN_Name__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Actual_Create_Date__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$First_Line_Approval_Date__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Final_Line_Approval_Date__c</field>
+    </columns>
+    <filter>
+        <booleanFilter>1 AND 2 AND (3 OR 4)</booleanFilter>
+        <criteriaItems>
+            <column>WIN__c.Contributors__r$RH_Lev_2_DAS__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>GM CS-USA-HQ DAS Office</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$Request_WIN_Removal__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c.Contributors__r$Contributor__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>melissa hill</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$Owner</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>melissa hill</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <name>WIN by Specialist</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>WINs_with_Contributors__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>WIN__c$Final_Line_Approval_Date__c</dateColumn>
+        <interval>INTERVAL_CURFY</interval>
+    </timeFrameFilter>
+</Report>

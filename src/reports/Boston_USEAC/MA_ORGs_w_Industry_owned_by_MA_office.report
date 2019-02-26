@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$TracHier__Owner__c</field>
+    </columns>
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account.OrgIndustryHierarchy__r$Industry__c</field>
+    </columns>
+    <filter>
+        <booleanFilter>((1 AND (2 or 3 or 4 or 5)))</booleanFilter>
+        <criteriaItems>
+            <column>Account$BillingStateCode</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>MA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$TracHier__Owner__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Maryanne Burke</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$TracHier__Owner__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>James Paul</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$TracHier__Owner__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Letitia Kress</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$TracHier__Owner__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Michelle Ouellette</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>MA ORGs w/ Industry owned by MA office</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Organizations_with_or_without_Industries__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Account.OrgIndustryHierarchy__r$Industry__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Account$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>
