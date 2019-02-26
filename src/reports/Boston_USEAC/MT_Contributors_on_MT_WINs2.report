@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>WIN__c$Name</field>
+    </columns>
+    <crossFilters>
+        <criteriaItems>
+            <column>Industry__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Marine Technology</value>
+        </criteriaItems>
+        <operation>with</operation>
+        <primaryTableColumn>WIN__c$Id</primaryTableColumn>
+        <relatedTable>Industry__c</relatedTable>
+        <relatedTableJoinColumn>WIN_Industrial_Hierarchy__c</relatedTableJoinColumn>
+    </crossFilters>
+    <filter>
+        <booleanFilter>1 OR 2 OR 3 OR 4 OR 5 OR 6 OR 7</booleanFilter>
+        <criteriaItems>
+            <column>WIN__c.Contributors__r$Contributor__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Martin Herbst,Glen Roberts,Cynthia Torres,Delia Valdivia,Kristin Houston,Jason Sproule,Aron Davidson,Julie Osman,Joanne Vliet,Anthony Sargis,Danielle Blakely,Dan Bjerk,Eduardo Torres,Jorge Arce,Mohmoud Chikh-Ali,Amy Benson,Patricia Cook,Brian Miller,Brittany Banta,Jeffrey Porter,Bill Burwell,Maryanne Burke,Matthew Woodlee,Robert Stackpole</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c.Contributors__r$Contributor__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Jessica Gordon,Margaret Gottlieb,Hector Rodriguez,Justin Oslowski,Debora Sykes,John Tracy,Frances Selema,Scott Goddin,Tony Pu,Keith Yatsuhashi,Phil Minard,Brie Knox,Matt Baker,Brendan Kelly,Karen Taylor,Janet Bauermeister,Giancarlo Cavallo,Jason Evans,Jim Rice,John Vanderwolf,Russell Adise,Ann Ngo,Damian Felton,Manuel Cafala,Doug Hartley</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c.Contributors__r$Contributor__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Robee Sallegue,Manfred Weinschenk,Karel Vantomme,Partricia Marega,Ebe Raso,Luz Betancur,Claudia Melkonian,Joshua Halpern,Hengyan Tian,Vivien Bao,Kimmy Lee,Marsha McDaniel,Julio Carbo,Damjan Bencic,Veronika Novakova,Aleksander Moos,Sheila Andujar,Mai Abdelhalim,Cherine Maher,Dennis Simmons,PJ Menner</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c.Contributors__r$Contributor__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Rose-Marie Faria,Myrline Mikal-Goide,Claus Faltin,Nils Roeher,Moritz Holst,Rossana Lobo,Antappa Badigair,Sham Shamsudeen,Smita Sherigar,Thomas (Pat) Cassidy,Shibu Mathews,Yanuar Wibisana,Maria Calabria,Gregory Briscoe,Sayoko Koto,Randall Liew,Alicia Herrera,Hector Jimenez,Philip Hammerstein,Janet Coulthart,Benedicta Nkwoh,Heming Bjorna</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c.Contributors__r$Contributor__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Emily Shaffe,Malik Attiq,John Coronado,Cesar Jochamowitz,Yna Quiambao,Aleksandra Prus,Pedro Ferreira,Ana Vila,Dinah McDougall,Irina Podsushnaya,Hawcheng Ng,Jaisvir Sewpaul,Keenton Chiang,Myoung Soo Lah,Keith Silver,Angela Turrin,Gregory Harris,Daphne Fan,Berrin Erturk,Josette Fiore,Mariangles Perez Manoileff,Regina Cunha</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c.Contributors__r$Contributor__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Victor Cambronero,Lidia Sosa,Reene Sepp,Ana Polanco,Ignatius Indriartoto,Andrew Billard,Anasia Silviati,Assad Barsoum,Irit van der Veur,Maria Andrews,Fareedon Hartoga,Muna Farkouh,John Osura,Humphrey Lilech,Naaman Tayyar,Enrique Tellez,Jeanne Santiago,Mahmoud Skhiri,Monica Eremia,Vladislav Borodulin,Robyn Kessler,Timur Uddin,Ken Walsh</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c.Contributors__r$Contributor__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Gulnara Kenzhebulatova,Wasif Shah,Mohammed Shujauddin,Ishtiag Hussain,Lenka Janovska,Lucia Maskova,Gunilla LaRoche,Suttharud Liangwonnaporn,Ashok Ghosh,Olena Stephanska,Huong Nguyen,My Tran,George Demetriou,Maria Cassar</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <aggregateType>RowCount</aggregateType>
+        <dateGranularity>Day</dateGranularity>
+        <field>WIN__c.Contributors__r$Contributor__c</field>
+        <sortByName>RowCount</sortByName>
+        <sortOrder>Desc</sortOrder>
+        <sortType>Aggregate</sortType>
+    </groupingsDown>
+    <name>MT Contributors on MT WINs</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>WINs_with_Contributors__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>WIN__c$First_Line_Approval_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

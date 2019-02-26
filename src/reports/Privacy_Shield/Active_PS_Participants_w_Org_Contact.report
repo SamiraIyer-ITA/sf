@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Participant_Contact__c.First_Name__c</field>
+    </columns>
+    <columns>
+        <field>Participant_Contact__c.Last_Name__c</field>
+    </columns>
+    <columns>
+        <field>Participant_Contact__c.Email__c</field>
+    </columns>
+    <crossFilters>
+        <criteriaItems>
+            <column>Status</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Active</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>InstallDate</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>greaterOrEqual</operator>
+            <value>8/1/2017</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Name</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>EU-US Certification</value>
+        </criteriaItems>
+        <operation>with</operation>
+        <primaryTableColumn>CUST_ID</primaryTableColumn>
+        <relatedTable>Asset</relatedTable>
+        <relatedTableJoinColumn>Participant__c</relatedTableJoinColumn>
+    </crossFilters>
+    <description>Email Addresses for Org Contacts with Active listings (EU -U.S. Privacy Shield only)</description>
+    <filter>
+        <criteriaItems>
+            <column>Participant_Contact__c.Role__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Organization Contact</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Active PS Participants - w Org Contact</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntityCustomEntity$Participation__c$Participant_Contact__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>CUST_NAME</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Custom_Instruction__c.CBP_Case_Number_Text__c</field>
+    </columns>
+    <columns>
+        <field>Custom_Instruction__c.ADCVD_Case__c</field>
+    </columns>
+    <columns>
+        <field>Custom_Instruction__c.Customs_Status__c</field>
+    </columns>
+    <columns>
+        <field>Custom_Instruction__c.Message_No__c</field>
+    </columns>
+    <columns>
+        <field>Custom_Instruction__c.Message_Date__c</field>
+    </columns>
+    <columns>
+        <field>Custom_Instruction__c.CBP_Instructions_Category__c</field>
+    </columns>
+    <columns>
+        <field>Custom_Instruction__c.CBP_Instructions_Sub_Category__c</field>
+    </columns>
+    <columns>
+        <field>CUST_CREATED_DATE</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>CUST_CREATED_NAME</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>startsWith</operator>
+            <value>C</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CUST_CREATED_DATE</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>greaterOrEqual</operator>
+            <value>10/8/2018 12:00 AM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CUST_CREATED_DATE</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>lessOrEqual</operator>
+            <value>10/12/2018 12:00 AM</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Corri Messages October Week 2</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Custom_Instruction__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Custom_Instruction__c.CBP_Case_Number_Text__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Custom_Instruction__c.Date_Message_Loaded_in_ACE__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

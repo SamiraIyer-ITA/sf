@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>WIN__c.WIN_Type__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c.Calendar_Year_of_Results__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c.Final_Line_Approval_Date__c</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_ACC_ADDR1_STATE_CODE</field>
+    </columns>
+    <columns>
+        <field>CUST_OWNER_NAME</field>
+    </columns>
+    <columns>
+        <field>WIN__c.Owner_Office__c</field>
+    </columns>
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <crossFilters>
+        <criteriaItems>
+            <column>Office__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>GM-CS USA-Field-NorthEast-Boston</value>
+        </criteriaItems>
+        <operation>with</operation>
+        <primaryTableColumn>CUST_ID</primaryTableColumn>
+        <relatedTable>WIN_Contributor__c</relatedTable>
+        <relatedTableJoinColumn>WIN__c</relatedTableJoinColumn>
+    </crossFilters>
+    <description>Shows all WINs authored by overseas for Massachusetts where MA office is credited on the WIN</description>
+    <filter>
+        <criteriaItems>
+            <column>FK_ACC_ADDR1_STATE_CODE</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>MA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c.Owner_Office__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>notContain</operator>
+            <value>GM-CS USA-Field-NorthEast-Boston</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>MA WINs w Intl Authors and MA credited</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$WIN__c@WIN__c.Organization__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>WIN__c.Calendar_Year_of_Results__c</sortColumn>
+    <sortOrder>Desc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <endDate>2018-09-30</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2016-10-01</startDate>
+    </timeFrameFilter>
+</Report>

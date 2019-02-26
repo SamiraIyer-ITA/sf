@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Participation__c$Name</field>
+    </columns>
+    <columns>
+        <field>Participation__c.Artifacts__r$Type__c</field>
+    </columns>
+    <columns>
+        <field>Participation__c.Artifacts__r$External_Artifact_URL__c</field>
+    </columns>
+    <description>Does not distinguish between pending, inactive and active applications</description>
+    <filter>
+        <criteriaItems>
+            <column>Participation__c.Artifacts__r$External_Artifact_URL__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Participation__c.Artifacts__r$isCurrent__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Participation__c$RecordType</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Participation__c.Privacy_Shield</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <name>PS Apps with URLS</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Applications_with_Artifacts__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Participation__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

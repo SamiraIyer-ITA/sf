@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>Contact.Contact_One__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA1</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Contact Count</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <columns>
+        <field>Contact$Name</field>
+    </columns>
+    <columns>
+        <field>Contact$Account</field>
+    </columns>
+    <columns>
+        <field>Contact.Activities$Subject</field>
+    </columns>
+    <columns>
+        <field>Contact$Email</field>
+    </columns>
+    <columns>
+        <field>Contact$MailingCity</field>
+    </columns>
+    <columns>
+        <field>Contact$MailingStateCode</field>
+    </columns>
+    <columns>
+        <field>Contact$MailingCountryCode</field>
+    </columns>
+    <description>Report displaying contacts assisted with activities by a member of I&amp;A</description>
+    <filter>
+        <criteriaItems>
+            <column>Contact.Activities$RH_Lev_1_GM_All__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>IA All</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact$RecordType</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Contact.ITA_Contacts</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Contact.Activities$RH_Lev_6_Office__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Contact.Activities$Owner</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Contacts with I&amp;A Activities</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Contacts_with_activities__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Contact.Activities$ActivityDate</dateColumn>
+        <interval>INTERVAL_PREVCURFY</interval>
+    </timeFrameFilter>
+</Report>

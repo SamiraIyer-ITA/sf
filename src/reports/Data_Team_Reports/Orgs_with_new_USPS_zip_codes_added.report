@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>USERS.NAME</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>Account.Congressional_District_formula__c</field>
+    </columns>
+    <columns>
+        <field>ADDRESS1_ZIP</field>
+    </columns>
+    <columns>
+        <field>Account.zipCodeLen__c</field>
+    </columns>
+    <columns>
+        <field>ADDRESS1_STATE_CODE</field>
+    </columns>
+    <columns>
+        <field>DUE_DATE</field>
+    </columns>
+    <columns>
+        <field>LAST_UPDATE</field>
+    </columns>
+    <columns>
+        <field>CLEAN_STATUS</field>
+    </columns>
+    <description>For January 2018 the US Postal Service added five new 5-digit ZIP codes</description>
+    <filter>
+        <criteriaItems>
+            <column>ADDRESS1_ZIP</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>09002,46288,09856,09857,09860,09862</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Orgs with new USPS zip codes added</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Account.Actual_Create_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

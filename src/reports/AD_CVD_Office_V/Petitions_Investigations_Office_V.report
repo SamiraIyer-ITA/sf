@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Petition__c.Investigations__r$Link__c</field>
+    </columns>
+    <columns>
+        <field>Petition__c.Investigations__r$Product__c</field>
+    </columns>
+    <columns>
+        <field>Petition__c.Investigations__r$Country__c</field>
+    </columns>
+    <description>Petitions &amp; Investigations - Office V</description>
+    <filter>
+        <criteriaItems>
+            <column>Petition__c$Office__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>V</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Petition__c.Investigations__r$Status__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Hold</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Petitions &amp; Investigations - Office V</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>ADCVD_View_Reports__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Petition__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

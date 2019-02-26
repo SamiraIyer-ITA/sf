@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_13712809</developerName>
+        <masterLabel>Clients Assisted Type</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>Case$Record_Type__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Advocacy</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Commercial Diplomacy</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Export Promotion</sourceValue>
+            </sourceValues>
+            <value>Export Clients</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Investment Promotion</sourceValue>
+            </sourceValues>
+            <value>Investment Clients</value>
+        </values>
+    </buckets>
+    <columns>
+        <field>Case$CaseNumber</field>
+    </columns>
+    <columns>
+        <field>Case$Account</field>
+    </columns>
+    <columns>
+        <field>Case$Subject</field>
+    </columns>
+    <columns>
+        <field>Case$Record_Type__c</field>
+    </columns>
+    <columns>
+        <field>Case$Status</field>
+    </columns>
+    <columns>
+        <field>Case$CreatedDate</field>
+    </columns>
+    <columns>
+        <field>Case$ClosedDate</field>
+    </columns>
+    <columns>
+        <field>Case.Case_Industry_Hierarchy__r$Sub_Sector__c</field>
+    </columns>
+    <columns>
+        <field>Case$Owner</field>
+    </columns>
+    <columns>
+        <field>Case$Account.BillingStateCode</field>
+    </columns>
+    <columns>
+        <field>Case$Account.Congressional_District_formula__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Case$Case_One__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Case$Account.Organization_One__c</field>
+    </columns>
+    <filter>
+        <booleanFilter>(((((1 AND 2 AND ((3 AND 6) OR (4 AND 7)) AND 5))))) AND 8</booleanFilter>
+        <criteriaItems>
+            <column>Case.Case_Industry_Hierarchy__r$Industry__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Franchising</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$Account.RecordType</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Account.ITA_User_Account_RT</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$CreatedDate</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>greaterOrEqual</operator>
+            <value>10/1/2015 12:00 AM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$ClosedDate</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>greaterOrEqual</operator>
+            <value>10/1/2015 12:00 AM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$Request_Case_Removal__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$CreatedDate</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>lessOrEqual</operator>
+            <value>9/30/2017 12:00 AM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$ClosedDate</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>lessOrEqual</operator>
+            <value>9/30/2017 12:00 AM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$Account.BillingCountryCode</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>US</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <aggregateType>Sum</aggregateType>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case.Case_Industry_Hierarchy__r$Industry__c</field>
+        <sortByName>Case$Account.Organization_One__c</sortByName>
+        <sortOrder>Asc</sortOrder>
+        <sortType>Aggregate</sortType>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>BucketField_13712809</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Global Teams Clients Assisted</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Cases_with_Industry_Hierarchies__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Case$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

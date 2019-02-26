@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account.Cases$CaseNumber</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Average</aggregateTypes>
+        <field>Account.Cases$Days_Open__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Account.Cases$RecordType</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Case.Advocacy</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Cases$Advocacy_Project_Status__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Due Diligence In Progress</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account.Cases$Owner</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account.Cases$Advocacy_Pro__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>AC Cases under due diligence avg days</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Organizations_with_Cases__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Account$Actual_Create_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <block>
+        <blockInfo>
+            <blockId>B1</blockId>
+            <joinTable>a</joinTable>
+        </blockInfo>
+        <columns>
+            <field>OWNER</field>
+        </columns>
+        <columns>
+            <field>CONTACT.NAME</field>
+        </columns>
+        <columns>
+            <field>CONTACT.EMAIL</field>
+        </columns>
+        <columns>
+            <field>SUBJECT</field>
+        </columns>
+        <columns>
+            <field>ACCOUNT.NAME</field>
+        </columns>
+        <columns>
+            <field>ACCOUNT.OWNER</field>
+        </columns>
+        <columns>
+            <field>RECORDTYPE</field>
+        </columns>
+        <columns>
+            <field>OPEN</field>
+        </columns>
+        <columns>
+            <field>CLOSED</field>
+        </columns>
+        <filter>
+            <criteriaItems>
+                <column>OWNER</column>
+                <isUnlocked>true</isUnlocked>
+                <operator>contains</operator>
+                <value>data migration</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>CONTACT.EMAIL</column>
+                <isUnlocked>true</isUnlocked>
+                <operator>equals</operator>
+                <value>email@unknown.dm</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>CONTACT.NAME</column>
+                <isUnlocked>true</isUnlocked>
+                <operator>notContain</operator>
+                <value>Unknown</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>ACCOUNT_RECORDTYPE</column>
+                <isUnlocked>true</isUnlocked>
+                <operator>equals</operator>
+                <value>Account.ITA_User_Account_RT</value>
+            </criteriaItems>
+        </filter>
+        <format>Summary</format>
+        <name>Cases with Case Contributors block 3</name>
+        <params>
+            <name>units</name>
+            <value>h</value>
+        </params>
+        <params>
+            <name>co</name>
+            <value>1</value>
+        </params>
+        <reportType>CaseCustomEntity$Case_Contributor__c</reportType>
+        <scope>organization</scope>
+        <showGrandTotal>true</showGrandTotal>
+        <showSubTotals>true</showSubTotals>
+        <timeFrameFilter>
+            <dateColumn>CREATED_DATEONLY</dateColumn>
+            <interval>INTERVAL_CUSTOM</interval>
+        </timeFrameFilter>
+    </block>
+    <blockInfo>
+        <blockId xsi:nil="true"/>
+        <joinTable>a</joinTable>
+    </blockInfo>
+    <description>Contacts with a name but unknown email attached to cases with known contributors.</description>
+    <format>MultiBlock</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case_Contributor__c.Contributor_Name__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>DM Contact Owner w/cases + contributors</name>
+    <reportType>CaseCustomEntity$Case_Contributor__c</reportType>
+    <showDetails>true</showDetails>
+</Report>

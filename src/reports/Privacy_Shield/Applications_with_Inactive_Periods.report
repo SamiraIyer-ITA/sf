@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <crossFilters>
+        <criteriaItems>
+            <column>Start_Date__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>greaterOrEqual</operator>
+            <value>8/1/2017</value>
+        </criteriaItems>
+        <operation>with</operation>
+        <primaryTableColumn>CUST_ID</primaryTableColumn>
+        <relatedTable>Inactive_Period__c</relatedTable>
+        <relatedTableJoinColumn>Participation__c</relatedTableJoinColumn>
+    </crossFilters>
+    <crossFilters>
+        <criteriaItems>
+            <column>Status</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Active</value>
+        </criteriaItems>
+        <operation>with</operation>
+        <primaryTableColumn>CUST_ID</primaryTableColumn>
+        <relatedTable>Asset</relatedTable>
+        <relatedTableJoinColumn>Participant__c</relatedTableJoinColumn>
+    </crossFilters>
+    <description>To view organizations that were inactive at one point in time</description>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Participation__c.Organization__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Applications with Inactive Periods</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Participation__c@Participation__c.Program__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>CUST_NAME</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account$CleanStatus</field>
+    </columns>
+    <columns>
+        <field>Account$LastModifiedBy</field>
+    </columns>
+    <columns>
+        <field>Account$LastModifiedDate</field>
+    </columns>
+    <description>This is a revised report.</description>
+    <filter>
+        <criteriaItems>
+            <column>Account$CleanStatus</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>1,5,6</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$RecordType</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Account.ITA_User_Account_RT</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Accounts w/ Select Clean Status 7/1 Rev</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Accounts_with_Clean_Info__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Account$LastModifiedDate</sortColumn>
+    <sortOrder>Desc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Account$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

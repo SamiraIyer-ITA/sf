@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Investigation__c$Id</field>
+    </columns>
+    <columns>
+        <field>Investigation__c$Name</field>
+    </columns>
+    <columns>
+        <field>Investigation__c$ADCVD_Case_Number__c</field>
+    </columns>
+    <columns>
+        <field>Investigation__c$CreatedBy</field>
+    </columns>
+    <columns>
+        <field>Investigation__c$Locked__c</field>
+    </columns>
+    <columns>
+        <field>Investigation__c$Status__c</field>
+    </columns>
+    <description>Investigations Created Manually</description>
+    <filter>
+        <criteriaItems>
+            <column>Investigation__c$CreatedBy</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Data Migration</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Investigations Created Manually</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Investigations__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Investigation__c$Actual_Amended_Final_Signature__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact$Name</field>
+    </columns>
+    <columns>
+        <field>Contact.Activities$Owner</field>
+    </columns>
+    <columns>
+        <field>Contact.Activities$Subject</field>
+    </columns>
+    <columns>
+        <field>Contact$Email</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Contact.Activities$Subject</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>MTB</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>MTB Activity Contacts</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Contacts_with_activities__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Contact$LastActivityDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

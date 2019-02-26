@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <block>
+        <blockInfo>
+            <blockId>B1</blockId>
+            <joinTable>WIN__c</joinTable>
+        </blockInfo>
+        <columns>
+            <field>WIN__c$Name</field>
+        </columns>
+        <columns>
+            <field>WIN__c.Related_Countries__r$Country__c</field>
+        </columns>
+        <format>Summary</format>
+        <name>WINs With Countries block 1</name>
+        <params>
+            <name>co</name>
+            <value>1</value>
+        </params>
+        <reportType>WINs_With_Countries__c</reportType>
+        <scope>organization</scope>
+        <showGrandTotal>true</showGrandTotal>
+        <showSubTotals>true</showSubTotals>
+        <timeFrameFilter>
+            <dateColumn>WIN__c$CreatedDate</dateColumn>
+            <interval>INTERVAL_CUSTOM</interval>
+        </timeFrameFilter>
+    </block>
+    <block>
+        <blockInfo>
+            <blockId>B0</blockId>
+            <joinTable>WIN__c</joinTable>
+        </blockInfo>
+        <columns>
+            <field>WIN__c.WINIndustrialHierarchy__r$Industry__c</field>
+        </columns>
+        <columns>
+            <field>WIN__c.WINIndustrialHierarchy__r$Sector__c</field>
+        </columns>
+        <columns>
+            <field>WIN__c.WINIndustrialHierarchy__r$Sub_Sector__c</field>
+        </columns>
+        <format>Summary</format>
+        <name>WINs with Industries block 2</name>
+        <params>
+            <name>co</name>
+            <value>1</value>
+        </params>
+        <reportType>WINs_with_Industries__c</reportType>
+        <scope>organization</scope>
+        <showGrandTotal>true</showGrandTotal>
+        <showSubTotals>true</showSubTotals>
+        <timeFrameFilter>
+            <dateColumn>WIN__c$CreatedDate</dateColumn>
+            <interval>INTERVAL_CUSTOM</interval>
+        </timeFrameFilter>
+    </block>
+    <blockInfo>
+        <blockId xsi:nil="true"/>
+        <joinTable>WIN__c</joinTable>
+    </blockInfo>
+    <description>Joined report lists WINs and their associated country records and in the 2nd block the associated industries.  Join is at WIN number (as Name is not unique)</description>
+    <format>MultiBlock</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>WIN__c$WIN_Name__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Revised WIN w Country w Industry</name>
+    <reportType>WINs_With_Countries__c</reportType>
+    <showDetails>true</showDetails>
+</Report>

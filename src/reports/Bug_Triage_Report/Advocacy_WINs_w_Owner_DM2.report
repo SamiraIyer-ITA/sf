@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_ID</field>
+    </columns>
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>WIN__c.CTS_ID__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>CUST_RECORDTYPE</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>WIN__c.Advocacy,WIN__c.Advocacy_Locked</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CUST_OWNER_NAME</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Data Migration 2</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Advocacy WINs w Owner DM2</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$WIN__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>WIN__c.WIN_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

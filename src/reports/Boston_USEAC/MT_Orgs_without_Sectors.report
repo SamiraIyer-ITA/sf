@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account.OrgIndustryHierarchy__r$Industry__c</field>
+    </columns>
+    <columns>
+        <field>Account.OrgIndustryHierarchy__r$Sector__c</field>
+    </columns>
+    <columns>
+        <field>Account.OrgIndustryHierarchy__r$Sub_Sector__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Account.OrgIndustryHierarchy__r$Industry__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Marine Technology</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.OrgIndustryHierarchy__r$Sector__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Maritime Transportation</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.OrgIndustryHierarchy__r$Sector__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Pleasure Boats &amp; Accessories</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.OrgIndustryHierarchy__r$Sector__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Underwater Robotics</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.OrgIndustryHierarchy__r$Sector__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Underwater Vehicles</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$RecordType</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Account.ITA_User_Account_RT</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>MT Orgs without Sectors</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Organizations_with_Industry_Hierarchies__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Account$Actual_Create_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

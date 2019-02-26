@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>OWNER</field>
+    </columns>
+    <columns>
+        <field>SUBJECT</field>
+    </columns>
+    <columns>
+        <field>Case.Actual_Create_Date__c</field>
+    </columns>
+    <columns>
+        <field>CLOSED_DATEONLY</field>
+    </columns>
+    <description>Number of Investment Promotion cases opened or closed in the current fiscal year where the SUSA case reason is Ombudsman</description>
+    <filter>
+        <booleanFilter>((1 AND 2 AND ((3 AND 4) OR (5 AND 6))) AND 7) AND 8</booleanFilter>
+        <criteriaItems>
+            <column>RECORDTYPE</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Case.Investment_Promotion</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case.IP_Case_Reason__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Ombudsman</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case.Actual_Create_Date__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>greaterOrEqual</operator>
+            <value>10/1/2014 12:00 AM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case.Actual_Create_Date__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>lessOrEqual</operator>
+            <value>6/30/2015 12:00 AM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CLOSED_DATEONLY</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>greaterOrEqual</operator>
+            <value>10/1/2014 12:00 AM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CLOSED_DATEONLY</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>lessOrEqual</operator>
+            <value>6/30/2015 12:00 AM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>RECORDTYPE</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Case.Salesforce_Support</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ACCOUNT_RECORDTYPE</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Account.ITA_User_Account_RT</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>SUSA Ombudsman Cases FY15</name>
+    <params>
+        <name>units</name>
+        <value>h</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CaseList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATEONLY</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

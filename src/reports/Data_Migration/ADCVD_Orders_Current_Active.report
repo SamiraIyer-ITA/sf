@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Segment__c$ADCVD_Order__c.Status__c</field>
+    </columns>
+    <columns>
+        <field>Segment__c$ADCVD_Order__c.Segment_Status__c</field>
+    </columns>
+    <columns>
+        <field>Segment__c$Name</field>
+    </columns>
+    <columns>
+        <field>Segment__c$Status__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Segment__c$ADCVD_Order__c.Locked__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Segment__c$Status__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Initiation,How To Proceed,Prelim,Final,Amend Final</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Segment__c$ADCVD_Order__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>ADCVD Orders - Current Active</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Segments_Federal_Registers__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>false</showGrandTotal>
+    <showSubTotals>false</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Segment__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>
