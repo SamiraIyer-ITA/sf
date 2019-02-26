@@ -7,13 +7,13 @@
         <field>Petition__c.Investigations__r$Name</field>
     </columns>
     <columns>
-        <field>Petition__c.Investigations__r$ADCVD_Case_Number__c</field>
+        <field>Petition__c.Investigations__r$ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
         <field>Petition__c.Investigations__r$Product__c</field>
     </columns>
     <columns>
-        <field>Petition__c.Investigations__r$Country__c</field>
+        <field>Petition__c.Investigations__r$Country_Text__c</field>
     </columns>
     <columns>
         <field>Petition__c.Investigations__r$Period_Covered_Start_Date__c</field>

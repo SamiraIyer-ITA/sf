@@ -1008,11 +1008,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Country_Text__c</field>
-            <table>Federal_Register__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Petition__c.CreatedBy</field>
             <table>Federal_Register__c</table>
         </columns>
