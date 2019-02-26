@@ -19,7 +19,7 @@
     </groupingsDown>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Petition__c.Investigations__r.Suspension_Agreements__r$Country__c</field>
+        <field>Petition__c.Investigations__r.Suspension_Agreements__r$Country_Text__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Suspension Agreements by Product</name>
