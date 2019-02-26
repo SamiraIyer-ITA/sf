@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Payment__c.Pay_Gov_Tracking_Id__c</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>Payment__c.Transaction_Status__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Order.Participant__c</field>
+    </columns>
+    <columns>
+        <field>Payment__c.Payment_Date__c</field>
+    </columns>
+    <description>Failed Status Payments in Salesforce</description>
+    <filter>
+        <criteriaItems>
+            <column>Payment__c.Transaction_Status__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Failed</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Failed PS Payments</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Payment__c@Payment__c.Order__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Payment__c.Payment_Date__c</sortColumn>
+    <sortOrder>Desc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Payment__c.Payment_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Case$CaseNumber</field>
+    </columns>
+    <columns>
+        <field>Case$Subject</field>
+    </columns>
+    <columns>
+        <field>Case$Description</field>
+    </columns>
+    <columns>
+        <field>Case.Countries__r$Country__c</field>
+    </columns>
+    <columns>
+        <field>Case$Account</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Case$Description</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>hydrovision</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case.Countries__r$Country__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Algeria,Angola,Benin,Burkina Faso,Cameroon,Cape Verde,Central African Republic,Chad,Comoros,Congo,&quot;Congo, the Democratic Republic of the&quot;,Cote d’Ivoire,Egypt,Equatorial Guinea,Eritrea,Ethiopia,Gabon,Gambia,Ghana,Guinea,Guinea-Bissau,Kenya,Liberia,Madagascar,Malawi,Mali,Mauritania,Mauritius,Mayotte,Morocco,Mozambique,Namibia,Niger,Nigeria,Reunion,Rwanda,Sao Tome and Principe,Senegal,Seychelles,Sierra Leone,Somalia,South Africa,South Sudan,Sudan,Swaziland,&quot;Tanzania, United Republic of&quot;,Togo,Uganda,Western Sahara,Zambia,Zimbabwe</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>FY18 Hydrovision Africa Delegates</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Cases_With_Countries__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Case$CreatedDate</dateColumn>
+        <interval>INTERVAL_PREVFY</interval>
+    </timeFrameFilter>
+</Report>

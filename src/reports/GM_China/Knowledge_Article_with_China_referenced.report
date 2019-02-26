@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>KnowledgeArticle$LastPublishedDate</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle$CreatedBy</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle$Title</field>
+    </columns>
+    <columns>
+        <field>KnowledgeArticle$ArticleNumber</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>KnowledgeArticle$ArticleType</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>ka7</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>KnowledgeArticle$Summary</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>china</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Knowledge Article with China referenced</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Knowledge_Articles_w_Author_info__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>KnowledgeArticle$ArticleNumber</sortColumn>
+    <sortOrder>Desc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>KnowledgeArticle$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

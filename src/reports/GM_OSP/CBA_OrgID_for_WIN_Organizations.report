@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>WIN__c.Final_Line_Approval_Date__c</field>
+    </columns>
+    <columns>
+        <field>CUST_ID</field>
+    </columns>
+    <columns>
+        <field>WIN__c.WIN_18_ID__c</field>
+    </columns>
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_ACC_ID</field>
+    </columns>
+    <description>A 5th report created by Laura for CBA Analysis in order to calculate unique # of clients assisted that had at least 1 WIN.</description>
+    <filter>
+        <criteriaItems>
+            <column>WIN__c.Request_WIN_Removal__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CUST_RECORDTYPE</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>WIN__c.Advocacy,WIN__c.Advocacy_Locked,WIN__c.Commercial_Diplomacy,WIN__c.Commercial_Diplomacy_Locked,WIN__c.Export_Promotion,WIN__c.Export_Promotion_Locked,WIN__c.Investment_Promotion,WIN__c.Investment_Promotion_Locked</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>CBA_OrgID for WIN Organizations</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$WIN__c@WIN__c.Organization__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>WIN__c.Final_Line_Approval_Date__c</dateColumn>
+        <interval>INTERVAL_PREV2FY</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>WIN__c.Final_Line_Approval_Date__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c.WIN_Name__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>WIN__c.Primary_Outcome__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Reduced/Removed/Prevented trade barrier</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c.Request_WIN_Removal__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c.Internal_Comment__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>notContain</operator>
+            <value>barrier</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>FY19 TBRRP submission for OSP review</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$WIN__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>WIN__c.Final_Line_Approval_Date__c</dateColumn>
+        <interval>INTERVAL_LAST30</interval>
+    </timeFrameFilter>
+</Report>

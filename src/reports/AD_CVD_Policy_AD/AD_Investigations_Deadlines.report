@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Petition__c.Investigations__r$Link__c</field>
+    </columns>
+    <columns>
+        <field>Petition__c.Investigations__r$ADCVD_Case_Number__c</field>
+    </columns>
+    <columns>
+        <field>Petition__c.Investigations__r$Product__c</field>
+    </columns>
+    <columns>
+        <field>Petition__c.Investigations__r$Country__c</field>
+    </columns>
+    <columns>
+        <field>Petition__c.Investigations__r$Status__c</field>
+    </columns>
+    <columns>
+        <field>Petition__c.Investigations__r$Calculated_Preliminary_Signature__c</field>
+    </columns>
+    <columns>
+        <field>Petition__c.Investigations__r$Calc_Amended_Prelim_Determination_Sig__c</field>
+    </columns>
+    <columns>
+        <field>Petition__c.Investigations__r$Calculated_Final_Signature__c</field>
+    </columns>
+    <columns>
+        <field>Petition__c.Investigations__r$Calculated_Amended_Final_Signature__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Petition__c.Investigations__r$Status__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Pending Order,Hold,Litigation,Customs,Closed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Petition__c.Investigations__r$ADCVD_Case_Type__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>AD ME,Ad NME</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>AD Investigations Deadlines</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>PetInvOrderFedReg__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Petition__c$Actual_Initiation_Signature__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

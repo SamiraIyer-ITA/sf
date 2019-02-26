@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>WIN__c$Name</field>
+    </columns>
+    <columns>
+        <field>WIN__c.WINIndustrialHierarchy__r$Name</field>
+    </columns>
+    <columns>
+        <field>WIN__c.WINIndustrialHierarchy__r$Industry__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c.WINIndustrialHierarchy__r$Sector__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c.WINIndustrialHierarchy__r$Sub_Sector__c</field>
+    </columns>
+    <format>Tabular</format>
+    <name>Impact Report - WINs</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>WINs_with_Industries__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>WIN__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

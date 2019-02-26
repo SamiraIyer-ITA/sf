@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>WIN__c.WIN_One__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA1</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>WIN Count</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>WIN__c.WIN_One__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA2</developerName>
+        <downGroupingContext>GRAND_SUMMARY</downGroupingContext>
+        <isActive>false</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Unique WIN Count</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <columns>
+        <field>WIN__c$Name</field>
+    </columns>
+    <columns>
+        <field>WIN__c$First_Approver__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$First_Line_Approval__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Final_Line_Approval__c</field>
+    </columns>
+    <filter>
+        <booleanFilter>(((1 AND 2 AND ((3 AND 4) )) AND 5) AND 6) AND 7</booleanFilter>
+        <criteriaItems>
+            <column>WIN__c.Contributors__r$RH_Lev_1_GM_All__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>GM All</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$Actual_Create_Date__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>greaterOrEqual</operator>
+            <value>10/1/2014 12:00 AM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$Actual_Create_Date__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>lessOrEqual</operator>
+            <value>9/30/2015 12:00 AM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$Final_Line_Approval__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Approved</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$Request_WIN_Removal__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$First_Line_Approval__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Approved</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>WIN__c$Owner_Office__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Pending Export WINs_SS</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>WINs_with_Contributors__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>WIN__c$First_Line_Approval__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>WIN__c$Final_Line_Approval_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

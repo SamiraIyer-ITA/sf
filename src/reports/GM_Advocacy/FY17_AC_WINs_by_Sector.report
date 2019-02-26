@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>WIN__c$Name</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>WIN__c$WIN_One__c</field>
+    </columns>
+    <filter>
+        <booleanFilter>1 AND (2 OR 3) AND 4 AND 5</booleanFilter>
+        <criteriaItems>
+            <column>WIN__c$Request_WIN_Removal__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$Final_Approver__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Jennifer Pilat</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$Final_Approver__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Americo Tadeu</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c.WINIndustrialHierarchy__r$Industry__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Aerospace and Defense,Construction,Energy,Healthcare,Information and Communications Technology,Safety &amp; Security</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN__c$RecordType</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>WIN__c.Advocacy,WIN__c.Advocacy_Locked</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>WIN__c.WINIndustrialHierarchy__r$Sector__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>FY17 AC WINs by Sector</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>WINs_with_Industries__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>WIN__c$Final_Line_Approval_Date__c</dateColumn>
+        <interval>INTERVAL_CURFY</interval>
+    </timeFrameFilter>
+</Report>

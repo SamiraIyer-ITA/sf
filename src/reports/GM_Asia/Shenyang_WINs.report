@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>WIN__c.Final_Line_Approver__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c.Final_Line_Approval_Date__c</field>
+    </columns>
+    <description>Shenyang WINs for current FY</description>
+    <filter>
+        <criteriaItems>
+            <column>WIN__c.Owner_Office__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>GM-CS China-Field-China-Shenyang</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Shenyang WINs</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$WIN__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CUST_LAST_UPDATE</dateColumn>
+        <interval>INTERVAL_CURFY</interval>
+    </timeFrameFilter>
+</Report>

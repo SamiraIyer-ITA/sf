@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>WIN__c$WIN_Name__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Name</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Actual_Create_Date__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$First_Line_Approval__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Final_Line_Approval__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Owner</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Cleared_For__c</field>
+    </columns>
+    <crossFilters>
+        <criteriaItems>
+            <column>Industry__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Education</value>
+        </criteriaItems>
+        <operation>with</operation>
+        <primaryTableColumn>WIN__c$Id</primaryTableColumn>
+        <relatedTable>Industry__c</relatedTable>
+        <relatedTableJoinColumn>WIN_Industrial_Hierarchy__c</relatedTableJoinColumn>
+    </crossFilters>
+    <description>Report template displays WINs with related countries and industries. Can filter and display country fields; can filter but not display industry</description>
+    <filter>
+        <criteriaItems>
+            <column>WIN__c.Related_Countries__r$Country__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>China,India,Japan,&quot;Korea, Republic of&quot;</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>WIN__c.Related_Countries__r$Country__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>WINs with Countries &amp; Industries</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>WINs_With_Countries__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>WIN__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

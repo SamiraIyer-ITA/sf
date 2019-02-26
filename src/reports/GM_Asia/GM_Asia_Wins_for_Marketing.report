@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>WIN__c$Name</field>
+    </columns>
+    <columns>
+        <field>WIN__c.Related_Countries__r$Country__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Specific_Product__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Description_of_Objectives_Met__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Narrative__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Cleared_For__c</field>
+    </columns>
+    <description>Approved WINs for last 2 FYs with country, product and what it is cleared for.</description>
+    <filter>
+        <criteriaItems>
+            <column>WIN__c.Related_Countries__r$Country__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>Australia,Bangladesh,Cambodia,Fiji,India,Indonesia,Japan,&quot;Korea, Democratic People’s Republic of&quot;,&quot;Korea, Republic of&quot;,Lao People’s Democratic Republic,Malaysia,Myanmar,Nauru,Nepal,New Zealand,Papua New Guinea,Philippines,Singapore,Sri Lanka,Taiwan,Thailand,Vanuatu,Vietnam</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>GM Asia Wins for Marketing</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>WINs_With_Countries__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>WIN__c.Related_Countries__r$Country__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>WIN__c$First_Line_Approval_Date__c</dateColumn>
+        <interval>INTERVAL_PREV2FY</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Trade_Agreement__ka$CreatedDate</field>
+    </columns>
+    <columns>
+        <field>Trade_Agreement__ka$ArticleNumber</field>
+    </columns>
+    <columns>
+        <field>Trade_Agreement__ka$LastPublishedDate</field>
+    </columns>
+    <columns>
+        <field>Trade_Agreement__ka$ArchivedDate</field>
+    </columns>
+    <description>Trade Agreements Expired Articles</description>
+    <format>Summary</format>
+    <name>Trade Agreements Expired Articles</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Trade_Agreement_Resources__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Trade_Agreement__ka$ArchivedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>
