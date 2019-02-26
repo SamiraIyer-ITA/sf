@@ -7,3 +7,4 @@ src/reports/Data_Migration/CCR_Case_Info.report
 src/reports/Data_Migration/ER_Case_Info.report
 src/reports/Data_Migration/NSR_Case_Info.report
 src/reports/Data_Migration/SSR_Case_Info.report
+src/reports/ADCVD/Investigations_Segments_and_Staffing.report
