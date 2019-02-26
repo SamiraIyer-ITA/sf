@@ -1,5 +1,4 @@
 set +x
-
 # Quiet down pushd, popd.
 pushd() {
         command pushd "$@" > /dev/null
