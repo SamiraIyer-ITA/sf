@@ -168,7 +168,6 @@
         <members>ADCVD/Investigation_Count_by_Country</members>
         <members>ADCVD/Investigation_Counts_of_Investigations</members>
         <members>ADCVD/Investigation_Investigations_by_Product</members>
-        <members>ADCVD/Investigations_Segments_and_Staffing</members>
         <members>ADCVD/Investigations_by_Country</members>
         <members>ADCVD/Investigations_by_Product</members>
         <members>ADCVD/Not_Yet_Final_for_All_Segments</members>
@@ -307,16 +306,8 @@
         <members>AD_CVD_Training/Tires_NSR</members>
         <members>AD_CVD_Training/reviews_2_years</members>
         <members>AD_CVD_Training/segments1</members>
-        <members>Data_Migration/ACR_Case_Info</members>
         <members>Data_Migration/ADCVD_Order_Case_Info</members>
-        <members>Data_Migration/AR_Case_Info</members>
-        <members>Data_Migration/CCR_Case_Info</members>
-        <members>Data_Migration/ER_Case_Info</members>
         <members>Data_Migration/Investigations_Case_Info</members>
-        <members>Data_Migration/NSR_Case_Info</members>
-        <members>Data_Migration/SI_Case_Info</members>
-        <members>Data_Migration/SI_Case_Info1</members>
-        <members>Data_Migration/SSR_Case_Info</members>
         <members>Data_Migration/Segments_Editable</members>
         <name>Report</name>
     </types>
