@@ -38,7 +38,11 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Primary_Recusal_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
     </actionOverrides>
     <allowInChatterGroups>true</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
@@ -96,25 +100,25 @@
         <relationshipLabel>Recusals</relationshipLabel>
         <relationshipName>Recusals</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Actor_End_Date__c</fullName>
         <externalId>false</externalId>
-        <label>Actor End Date</label>
+        <label>Acting User End Date</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
         <fullName>Actor_Start_Date__c</fullName>
         <externalId>false</externalId>
-        <label>Actor Start Date</label>
+        <label>Acting User Start Date</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -122,11 +126,11 @@
         <fullName>Actor__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Actor</label>
+        <label>Acting User</label>
         <referenceTo>User</referenceTo>
         <relationshipName>Recusals1</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -165,10 +169,11 @@
     </fields>
     <fields>
         <fullName>End_Date__c</fullName>
+        <defaultValue>DATEVALUE(&apos;2099-01-02&apos;)</defaultValue>
         <externalId>false</externalId>
         <label>End Date</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -181,7 +186,7 @@
         <relationshipLabel>Recusals</relationshipLabel>
         <relationshipName>Recusals</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -194,7 +199,7 @@
         <relationshipLabel>Recusals</relationshipLabel>
         <relationshipName>Recusals</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -216,7 +221,7 @@
         <relationshipLabel>Recusals</relationshipLabel>
         <relationshipName>Recusals</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -238,7 +243,7 @@
         <relationshipLabel>Aligned Recusals</relationshipLabel>
         <relationshipName>Recusals</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -269,7 +274,7 @@
         <externalId>false</externalId>
         <label>Reason for Recusal</label>
         <length>131072</length>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>5</visibleLines>
@@ -283,7 +288,7 @@
         <relationshipLabel>Recusals</relationshipLabel>
         <relationshipName>Recusals</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -296,7 +301,7 @@
         <relationshipLabel>Recusals</relationshipLabel>
         <relationshipName>Recusals</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -305,7 +310,7 @@
         <externalId>false</externalId>
         <label>Start Date</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -317,7 +322,7 @@
         <referenceTo>User</referenceTo>
         <relationshipName>Recusals</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -375,7 +380,7 @@
     </recordTypes>
     <recordTypes>
         <fullName>Related</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Recusals that link a primary recusal and a record</description>
         <label>Related</label>
     </recordTypes>

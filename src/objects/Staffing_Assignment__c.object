@@ -142,7 +142,7 @@
         <relationshipLabel>Staffing Assignments</relationshipLabel>
         <relationshipName>Staffing_Assignments</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -155,7 +155,7 @@
         <relationshipLabel>Staffing Assignments</relationshipLabel>
         <relationshipName>Staffing_Assignments</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -234,7 +234,7 @@
         <relationshipLabel>Staffing Assignments</relationshipLabel>
         <relationshipName>Staffing_Assignments</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -290,7 +290,7 @@ IF( Segment__c != null, Segment__r.Link__c ,
         <relationshipLabel>Staffing Assignments</relationshipLabel>
         <relationshipName>Staffing_Assignments</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -390,7 +390,7 @@ IF( Segment__c != null, Segment__r.Link__c ,
         <relationshipLabel>Staffing Assignments</relationshipLabel>
         <relationshipName>Staffing_Assignments</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -403,7 +403,7 @@ IF( Segment__c != null, Segment__r.Link__c ,
         <relationshipLabel>Staffing Assignments</relationshipLabel>
         <relationshipName>Staffing_Assignments</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -412,7 +412,7 @@ IF( Segment__c != null, Segment__r.Link__c ,
         <externalId>false</externalId>
         <label>Title</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -518,7 +518,7 @@ IF( Segment__c != null, Segment__r.Link__c ,
         <referenceTo>User</referenceTo>
         <relationshipName>Staffing_Assignments</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>

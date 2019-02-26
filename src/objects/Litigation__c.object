@@ -155,7 +155,7 @@
         <label>Actual Draft Remand (released to party)</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -185,7 +185,7 @@
         <label>Actual Final Signature</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -195,7 +195,7 @@
         <label>Actual Initiation Signature</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -225,7 +225,7 @@
         <label>Actual Preliminary Signature</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -259,7 +259,7 @@
         <label>Calculated Amended Final Signature</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -269,7 +269,7 @@
         <label>Calculated Draft Remand release to party</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -279,7 +279,7 @@
         <label>Calculated Final Signature</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -289,7 +289,7 @@
         <label>Calculated Initiation Signature</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -299,7 +299,7 @@
         <label>Calculated Preliminary Signature</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -409,7 +409,7 @@
         <label>Expected Final Signature Before Ext</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -444,7 +444,7 @@
         <required>false</required>
         <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -477,7 +477,7 @@
         <required>false</required>
         <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -743,7 +743,7 @@
         <required>false</required>
         <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -844,7 +844,7 @@
         <label>Request Filed</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -894,7 +894,7 @@
         <label>Status</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -3129,7 +3129,7 @@ NOT( ISNULL( Actual_Preliminary_Signature__c ))
         <fullName>Calc_Draft_Must_Be_Less_Than_Calc_Final</fullName>
         <active>true</active>
         <errorConditionFormula>Calculated_Draft_Remand_release_to_party__c  &gt;=  Calculated_Final_Signature__c</errorConditionFormula>
-        <errorMessage>Please account for weekends or holidays when adjusting the extension number of days.</errorMessage>
+        <errorMessage>The Calculated Draft Remand must occur before the Calculated Final Signature.  Please remember extending to a weekend or holiday will cause the Calculated Draft Remand to roll to the next business day.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Cannot_Edit_Locked_Record</fullName>
@@ -3184,7 +3184,7 @@ OR(ISCHANGED(Petition__c),ISCHANGED(Segment__c),ISCHANGED(Investigation__c)),$Pr
     </validationRules>
     <validationRules>
         <fullName>Prelim_Extension_of_days</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>Calculated_Draft_Remand_release_to_party__c  &gt;=  Calculated_Final_Signature__c</errorConditionFormula>
         <errorMessage>Please account for weekends or holidays when adjusting the extension number of days.</errorMessage>
     </validationRules>
