@@ -499,11 +499,6 @@
 
     <fieldPermissions>
         <editable>false</editable>
-        <field>Federal_Register__c.ADCVD_Case_Number__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Federal_Register__c.ADCVD_Case_Type__c</field>
         <readable>false</readable>
     </fieldPermissions>
