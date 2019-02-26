@@ -14,7 +14,7 @@
         <groupingColumn>ADCVD_Order__c$Status__c</groupingColumn>
         <legendPosition>Right</legendPosition>
         <location>CHART_TOP</location>
-        <secondaryGroupingColumn>ADCVD_Order__c$ADCVD_Case_Type__c</secondaryGroupingColumn>
+        <secondaryGroupingColumn>ADCVD_Order__c$ADCVD_Case_Type_Text__c</secondaryGroupingColumn>
         <showAxisLabels>true</showAxisLabels>
         <showPercentage>false</showPercentage>
         <showTotal>false</showTotal>
@@ -30,16 +30,16 @@
         <field>ADCVD_Order__c$Name</field>
     </columns>
     <columns>
-        <field>ADCVD_Order__c$ADCVD_Case_Number__c</field>
+        <field>ADCVD_Order__c$ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
-        <field>ADCVD_Order__c$Product__c</field>
+        <field>ADCVD_Order__c$Product_Text__c</field>
     </columns>
     <columns>
-        <field>ADCVD_Order__c$Country__c</field>
+        <field>ADCVD_Order__c$Country_Text__c</field>
     </columns>
     <columns>
-        <field>ADCVD_Order__c$Commodity__c</field>
+        <field>ADCVD_Order__c$Commodity_Text__c</field>
     </columns>
     <columns>
         <field>ADCVD_Order__c$Office__c</field>
@@ -56,7 +56,7 @@
     <format>Matrix</format>
     <groupingsAcross>
         <dateGranularity>Day</dateGranularity>
-        <field>ADCVD_Order__c$ADCVD_Case_Type__c</field>
+        <field>ADCVD_Order__c$ADCVD_Case_Type_Text__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsAcross>
     <groupingsDown>

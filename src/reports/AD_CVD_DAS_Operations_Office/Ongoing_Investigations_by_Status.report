@@ -7,19 +7,19 @@
         <field>Investigation__c$Next_Announcement_Date__c</field>
     </columns>
     <columns>
-        <field>Investigation__c$ADCVD_Case_Number__c</field>
+        <field>Investigation__c$ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
-        <field>Investigation__c$Product__c</field>
+        <field>Investigation__c$Product_Text__c</field>
     </columns>
     <columns>
-        <field>Investigation__c$Country__c</field>
+        <field>Investigation__c$Country_Text__c</field>
     </columns>
     <columns>
         <field>Investigation__c$RecordType</field>
     </columns>
     <columns>
-        <field>Investigation__c$Commodity__c</field>
+        <field>Investigation__c$Commodity_Text__c</field>
     </columns>
     <columns>
         <field>Investigation__c$Name</field>
@@ -55,7 +55,7 @@
     <showDetails>true</showDetails>
     <showGrandTotal>true</showGrandTotal>
     <showSubTotals>true</showSubTotals>
-    <sortColumn>Investigation__c$Country__c</sortColumn>
+    <sortColumn>Investigation__c$Country_Text__c</sortColumn>
     <sortOrder>Asc</sortOrder>
     <timeFrameFilter>
         <dateColumn>Investigation__c$Actual_Amended_Final_Signature__c</dateColumn>

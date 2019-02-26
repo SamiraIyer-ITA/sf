@@ -31,10 +31,10 @@
         <field>Investigation__c$Name</field>
     </columns>
     <columns>
-        <field>Investigation__c$Product__c</field>
+        <field>Investigation__c$Product_Text__c</field>
     </columns>
     <columns>
-        <field>Investigation__c$Country__c</field>
+        <field>Investigation__c$Country_Text__c</field>
     </columns>
     <columns>
         <field>Investigation__c$Status__c</field>
@@ -49,7 +49,7 @@
         <field>Investigation__c$Litigation_Hold_Expiration_Date__c</field>
     </columns>
     <columns>
-        <field>Investigation__c$Commodity__c</field>
+        <field>Investigation__c$Commodity_Text__c</field>
     </columns>
     <description>Displays number of active investigations by office</description>
     <filter>
@@ -82,7 +82,7 @@
     <showDetails>true</showDetails>
     <showGrandTotal>true</showGrandTotal>
     <showSubTotals>true</showSubTotals>
-    <sortColumn>Investigation__c$Product__c</sortColumn>
+    <sortColumn>Investigation__c$Product_Text__c</sortColumn>
     <sortOrder>Asc</sortOrder>
     <timeFrameFilter>
         <dateColumn>Investigation__c$Actual_Amended_Final_Signature__c</dateColumn>

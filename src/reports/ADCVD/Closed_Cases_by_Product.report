@@ -23,7 +23,7 @@
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Investigation__c$Product__c</field>
+        <field>Investigation__c$Product_Text__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Closed Cases by Product</name>

@@ -4,10 +4,10 @@
         <field>Investigation__c$ADCVD_Case__c</field>
     </columns>
     <columns>
-        <field>Investigation__c$Country__c</field>
+        <field>Investigation__c$Country_Text__c</field>
     </columns>
     <columns>
-        <field>Investigation__c$Product_Short_Name__c</field>
+        <field>Investigation__c$Product_Short_Name_Text__c</field>
     </columns>
     <columns>
         <field>Investigation__c$Next_Major_Deadline__c</field>

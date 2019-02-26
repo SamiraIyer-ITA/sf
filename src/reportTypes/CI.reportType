@@ -73,7 +73,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Country__c</field>
+            <field>Country_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
@@ -273,7 +273,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Order__c.ADCVD_Case_Type__c</field>
+            <field>ADCVD_Order__c.ADCVD_Case_Type_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
@@ -288,27 +288,27 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Order__c.CBP_Case_Number__c</field>
+            <field>ADCVD_Order__c.CBP_Case_Number_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Order__c.Commodity__c</field>
+            <field>ADCVD_Order__c.Commodity_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Order__c.Country__c</field>
+            <field>ADCVD_Order__c.Country_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Order__c.Product__c</field>
+            <field>ADCVD_Order__c.Product_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Order__c.Product_Short_Name__c</field>
+            <field>ADCVD_Order__c.Product_Short_Name_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
@@ -328,22 +328,22 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Investigation__c.ADCVD_Case_Type__c</field>
+            <field>Investigation__c.ADCVD_Case_Type_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Investigation__c.ADCVD_Case_Number__c</field>
+            <field>Investigation__c.ADCVD_Case_Number_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Investigation__c.Country__c</field>
+            <field>Investigation__c.Country_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Investigation__c.CBP_Case_Number__c</field>
+            <field>Investigation__c.CBP_Case_Number_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
@@ -358,12 +358,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Investigation__c.Product__c</field>
+            <field>Investigation__c.Product_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Investigation__c.Product_Short_Name__c</field>
+            <field>Investigation__c.Product_Short_Name_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
@@ -378,12 +378,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.ADCVD_Case_Number__c</field>
+            <field>Petition__c.ADCVD_Case_Number_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.ADCVD_Case_Type__c</field>
+            <field>Petition__c.ADCVD_Case_Type_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
@@ -398,12 +398,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.CBP_Case_Number__c</field>
-            <table>Custom_Instruction__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Country__c</field>
+            <field>Petition__c.CBP_Case_Number_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
@@ -413,17 +408,22 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Commodity__c</field>
+            <field>Petition__c.Country_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Product__c</field>
+            <field>Petition__c.Commodity_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Product_Short_Name__c</field>
+            <field>Petition__c.Product_Text__c</field>
+            <table>Custom_Instruction__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Petition__c.Product_Short_Name_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
@@ -433,7 +433,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Investigation__c.Commodity__c</field>
+            <field>Investigation__c.Commodity_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
@@ -443,37 +443,37 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Segment__c.ADCVD_Case_Number__c</field>
+            <field>Segment__c.ADCVD_Case_Number_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Segment__c.ADCVD_Case_Type__c</field>
+            <field>Segment__c.ADCVD_Case_Type_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Segment__c.CBP_Case_Number__c</field>
+            <field>Segment__c.CBP_Case_Number_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Segment__c.Country__c</field>
+            <field>Segment__c.Country_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Segment__c.Commodity__c</field>
+            <field>Segment__c.Commodity_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Segment__c.Product__c</field>
+            <field>Segment__c.Product_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Segment__c.Product_Short_Name__c</field>
+            <field>Segment__c.Product_Short_Name_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
@@ -493,37 +493,37 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Suspension_Agreement__c.ADCVD_Case_Number__c</field>
+            <field>Suspension_Agreement__c.ADCVD_Case_Number_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Suspension_Agreement__c.ADCVD_Case_Type__c</field>
+            <field>Suspension_Agreement__c.ADCVD_Case_Type_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Suspension_Agreement__c.Commodity__c</field>
+            <field>Suspension_Agreement__c.Commodity_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Suspension_Agreement__c.Country__c</field>
+            <field>Suspension_Agreement__c.Country_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Suspension_Agreement__c.CBP_Case_Number__c</field>
+            <field>Suspension_Agreement__c.CBP_Case_Number_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Suspension_Agreement__c.Product__c</field>
+            <field>Suspension_Agreement__c.Product_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Suspension_Agreement__c.Product_Short_Name__c</field>
+            <field>Suspension_Agreement__c.Product_Short_Name_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>

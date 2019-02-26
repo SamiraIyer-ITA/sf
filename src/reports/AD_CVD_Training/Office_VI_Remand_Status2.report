@@ -7,13 +7,13 @@
         <field>Litigation__c$Investigation__c.Office__c</field>
     </columns>
     <columns>
-        <field>Litigation__c$ADCVD_Case_Number__c</field>
+        <field>Litigation__c$ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
-        <field>Litigation__c$Country__c</field>
+        <field>Litigation__c$Country_Text__c</field>
     </columns>
     <columns>
-        <field>Litigation__c$Product_Short_Name__c</field>
+        <field>Litigation__c$Product_Short_Name_Text__c</field>
     </columns>
     <columns>
         <field>Litigation__c$Investigation__c.Litigation_YesNo__c</field>
