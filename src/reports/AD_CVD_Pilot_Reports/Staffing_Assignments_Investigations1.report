@@ -13,7 +13,7 @@
         <field>Staffing_Assignment__c$User__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$Product__c</field>
+        <field>Staffing_Assignment__c$Product_Text__c</field>
     </columns>
     <description>Staffing Assignments - Investigations</description>
     <filter>

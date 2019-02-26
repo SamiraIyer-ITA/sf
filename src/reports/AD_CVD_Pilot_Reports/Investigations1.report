@@ -4,13 +4,13 @@
         <field>Investigation__c$Link__c</field>
     </columns>
     <columns>
-        <field>Investigation__c$ADCVD_Case_Number__c</field>
+        <field>Investigation__c$ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
-        <field>Investigation__c$Product__c</field>
+        <field>Investigation__c$Product_Text__c</field>
     </columns>
     <columns>
-        <field>Investigation__c$Country__c</field>
+        <field>Investigation__c$Country_Text__c</field>
     </columns>
     <columns>
         <field>Investigation__c$Investigation_Outcome__c</field>

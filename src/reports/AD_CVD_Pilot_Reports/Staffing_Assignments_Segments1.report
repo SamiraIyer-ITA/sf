@@ -10,13 +10,13 @@
         <field>Staffing_Assignment__c$User__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$ADCVD_Case_Number__c</field>
+        <field>Staffing_Assignment__c$ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$Country__c</field>
+        <field>Staffing_Assignment__c$Country_Text__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$Product__c</field>
+        <field>Staffing_Assignment__c$Product_Text__c</field>
     </columns>
     <columns>
         <field>Staffing_Assignment__c$Segment__c.Period_Covered_Start_Date__c</field>
@@ -25,7 +25,7 @@
         <field>Staffing_Assignment__c$Segment__c.Period_Covered_End_Date__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$ADCVD_Case_Type__c</field>
+        <field>Staffing_Assignment__c$ADCVD_Case_Type_Text__c</field>
     </columns>
     <columns>
         <field>Staffing_Assignment__c$Segment__c</field>

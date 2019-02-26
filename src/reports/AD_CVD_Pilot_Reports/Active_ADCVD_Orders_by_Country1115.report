@@ -11,7 +11,7 @@
         <chartType>Donut</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>false</expandOthers>
-        <groupingColumn>ADCVD_Order__c$Commodity__c</groupingColumn>
+        <groupingColumn>ADCVD_Order__c$Commodity_Text__c</groupingColumn>
         <legendPosition>Right</legendPosition>
         <location>CHART_BOTTOM</location>
         <showAxisLabels>true</showAxisLabels>
@@ -29,16 +29,16 @@
         <field>ADCVD_Order__c$Name</field>
     </columns>
     <columns>
-        <field>ADCVD_Order__c$ADCVD_Case_Number__c</field>
+        <field>ADCVD_Order__c$ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
-        <field>ADCVD_Order__c$Product__c</field>
+        <field>ADCVD_Order__c$Product_Text__c</field>
     </columns>
     <columns>
-        <field>ADCVD_Order__c$Country__c</field>
+        <field>ADCVD_Order__c$Country_Text__c</field>
     </columns>
     <columns>
-        <field>ADCVD_Order__c$ADCVD_Case_Type__c</field>
+        <field>ADCVD_Order__c$ADCVD_Case_Type_Text__c</field>
     </columns>
     <columns>
         <field>ADCVD_Order__c$Anniversary_Month__c</field>
@@ -58,7 +58,7 @@
             <value>Order</value>
         </criteriaItems>
         <criteriaItems>
-            <column>ADCVD_Order__c$Country__c</column>
+            <column>ADCVD_Order__c$Country_Text__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value>China</value>
@@ -67,7 +67,7 @@
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>ADCVD_Order__c$Commodity__c</field>
+        <field>ADCVD_Order__c$Commodity_Text__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>China AD/CVD Orders in Existence</name>
@@ -80,7 +80,7 @@
     <showDetails>true</showDetails>
     <showGrandTotal>true</showGrandTotal>
     <showSubTotals>true</showSubTotals>
-    <sortColumn>ADCVD_Order__c$ADCVD_Case_Type__c</sortColumn>
+    <sortColumn>ADCVD_Order__c$ADCVD_Case_Type_Text__c</sortColumn>
     <sortOrder>Asc</sortOrder>
     <timeFrameFilter>
         <dateColumn>ADCVD_Order__c$Effective_Date_for_Most_Recent_SunsetFR__c</dateColumn>

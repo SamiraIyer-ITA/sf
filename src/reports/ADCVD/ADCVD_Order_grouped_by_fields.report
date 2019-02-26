@@ -4,13 +4,13 @@
         <field>ADCVD_Order__c$Name</field>
     </columns>
     <columns>
-        <field>ADCVD_Order__c$Product__c</field>
+        <field>ADCVD_Order__c$Product_Text__c</field>
     </columns>
     <columns>
-        <field>ADCVD_Order__c$Country__c</field>
+        <field>ADCVD_Order__c$Country_Text__c</field>
     </columns>
     <columns>
-        <field>ADCVD_Order__c$ADCVD_Case_Type__c</field>
+        <field>ADCVD_Order__c$ADCVD_Case_Type_Text__c</field>
     </columns>
     <columns>
         <field>ADCVD_Order__c.Federal_Register__r$Type__c</field>

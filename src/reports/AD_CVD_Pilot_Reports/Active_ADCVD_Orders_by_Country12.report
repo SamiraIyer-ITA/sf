@@ -4,13 +4,13 @@
         <field>ADCVD_Order__c$Name</field>
     </columns>
     <columns>
-        <field>ADCVD_Order__c$ADCVD_Case_Number__c</field>
+        <field>ADCVD_Order__c$ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
-        <field>ADCVD_Order__c$Product__c</field>
+        <field>ADCVD_Order__c$Product_Text__c</field>
     </columns>
     <columns>
-        <field>ADCVD_Order__c$ADCVD_Case_Type__c</field>
+        <field>ADCVD_Order__c$ADCVD_Case_Type_Text__c</field>
     </columns>
     <columns>
         <field>ADCVD_Order__c$Office__c</field>
@@ -28,17 +28,17 @@
         <field>ADCVD_Order__c$Next_Sunset_Initiation_Date__c</field>
     </columns>
     <columns>
-        <field>ADCVD_Order__c$Commodity__c</field>
+        <field>ADCVD_Order__c$Commodity_Text__c</field>
     </columns>
     <columns>
         <field>ADCVD_Order__c$Anniversary_Month__c</field>
     </columns>
     <columns>
-        <field>ADCVD_Order__c$Country__c</field>
+        <field>ADCVD_Order__c$Country_Text__c</field>
     </columns>
     <filter>
         <criteriaItems>
-            <column>ADCVD_Order__c$Commodity__c</column>
+            <column>ADCVD_Order__c$Commodity_Text__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>notEqual</operator>
             <value></value>
@@ -72,7 +72,7 @@
     <showDetails>true</showDetails>
     <showGrandTotal>true</showGrandTotal>
     <showSubTotals>true</showSubTotals>
-    <sortColumn>ADCVD_Order__c$Product__c</sortColumn>
+    <sortColumn>ADCVD_Order__c$Product_Text__c</sortColumn>
     <sortOrder>Asc</sortOrder>
     <timeFrameFilter>
         <dateColumn>ADCVD_Order__c$Effective_Date_for_Most_Recent_SunsetFR__c</dateColumn>

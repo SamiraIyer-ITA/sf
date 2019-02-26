@@ -10,10 +10,10 @@
         <field>Staffing_Assignment__c$User__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$Product__c</field>
+        <field>Staffing_Assignment__c$Product_Text__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$ADCVD_Case_Type__c</field>
+        <field>Staffing_Assignment__c$ADCVD_Case_Type_Text__c</field>
     </columns>
     <description>Staffing Assignments - ADCVD Orders</description>
     <filter>

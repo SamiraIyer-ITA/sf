@@ -10,22 +10,22 @@
         <field>Segment__c$Segment_Outcome__c</field>
     </columns>
     <columns>
-        <field>Segment__c$ADCVD_Case_Number__c</field>
+        <field>Segment__c$ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
-        <field>Segment__c$ADCVD_Case_Type__c</field>
+        <field>Segment__c$ADCVD_Case_Type_Text__c</field>
     </columns>
     <columns>
-        <field>Segment__c$Country__c</field>
+        <field>Segment__c$Country_Text__c</field>
     </columns>
     <columns>
-        <field>Segment__c$Product__c</field>
+        <field>Segment__c$Product_Text__c</field>
     </columns>
     <columns>
-        <field>Segment__c$Product_Short_Name__c</field>
+        <field>Segment__c$Product_Short_Name_Text__c</field>
     </columns>
     <columns>
-        <field>Segment__c$Commodity__c</field>
+        <field>Segment__c$Commodity_Text__c</field>
     </columns>
     <columns>
         <field>Segment__c$Period_Covered_Start_Date__c</field>
@@ -54,31 +54,31 @@
             <value>Segment__c.Administrative_Review</value>
         </criteriaItems>
         <criteriaItems>
-            <column>Segment__c$ADCVD_Case_Number__c</column>
+            <column>Segment__c$ADCVD_Case_Number_Text__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value></value>
         </criteriaItems>
         <criteriaItems>
-            <column>Segment__c$ADCVD_Case_Type__c</column>
+            <column>Segment__c$ADCVD_Case_Type_Text__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value></value>
         </criteriaItems>
         <criteriaItems>
-            <column>Segment__c$Country__c</column>
+            <column>Segment__c$Country_Text__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value></value>
         </criteriaItems>
         <criteriaItems>
-            <column>Segment__c$Product__c</column>
+            <column>Segment__c$Product_Text__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value></value>
         </criteriaItems>
         <criteriaItems>
-            <column>Segment__c$Product_Short_Name__c</column>
+            <column>Segment__c$Product_Short_Name_Text__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value></value>
@@ -96,7 +96,7 @@
             <value></value>
         </criteriaItems>
         <criteriaItems>
-            <column>Segment__c$Commodity__c</column>
+            <column>Segment__c$Commodity_Text__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value></value>
