@@ -292,10 +292,6 @@
                 <behavior>Edit</behavior>
                 <field>Office__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Commodity_Text__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

@@ -2324,7 +2324,7 @@ ISBLANK(TEXT(Actual_Initiation_Signature__c))
         <fullName>CBP_Case_number_for_AD_and_CVD_Format</fullName>
         <active>false</active>
         <description>CBP Case Number must be formatted specifically this way.</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,IF(TEXT(ADCVD_Case_Type_Text__c) = &quot;CVD&quot;, 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,IF(ADCVD_Case_Type_Text__c = &quot;CVD&quot;, 
 (NOT(OR(ISBLANK( CBP_Case_Number_Text__c ),REGEX( CBP_Case_Number_Text__c ,&quot;C-[0-9]{3}-[0-9]{3}&quot;)))), 
 (NOT(OR(ISBLANK(CBP_Case_Number_Text__c ),REGEX( CBP_Case_Number_Text__c ,&quot;A-[0-9]{3}-[0-9]{3}&quot;)))) ))</errorConditionFormula>
         <errorDisplayField>CBP_Case_Number_Text__c</errorDisplayField>
@@ -2348,14 +2348,14 @@ IF(
   OR(
     AND(
       OR(
-         ISPICKVAL(ADCVD_Case_Type_Text__c, &apos;AD ME&apos;),
-         ISPICKVAL(ADCVD_Case_Type_Text__c, &apos;AD NME&apos;)
+         ADCVD_Case_Type_Text__c = &apos;AD ME&apos;,
+         ADCVD_Case_Type_Text__c = &apos;AD NME&apos;
          ),
          NOT(BEGINS(ADCVD_Case_Number_Text__c, &quot;A&quot;))
       )
       ,
      AND(
-         ISPICKVAL(ADCVD_Case_Type_Text__c, &apos;CVD&apos;),
+         ADCVD_Case_Type_Text__c = &apos;CVD&apos;,
          NOT(BEGINS(ADCVD_Case_Number_Text__c, &quot;C&quot;))
         )
       ),
@@ -2369,7 +2369,7 @@ IF(
         <fullName>Case_number_for_AD_and_CVD_Format</fullName>
         <active>false</active>
         <description>Case Number must be formatted specifically this way.</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,IF(TEXT(ADCVD_Case_Type_Text__c) = &quot;CVD&quot;, 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,IF(ADCVD_Case_Type_Text__c = &quot;CVD&quot;, 
 (NOT(OR(ISBLANK(ADCVD_Case_Number_Text__c),REGEX( ADCVD_Case_Number_Text__c,&quot;C-[0-9]{3}-[0-9]{3}&quot;)))), 
 (NOT(OR(ISBLANK(ADCVD_Case_Number_Text__c),REGEX( ADCVD_Case_Number_Text__c,&quot;A-[0-9]{3}-[0-9]{3}&quot;)))) ))</errorConditionFormula>
         <errorDisplayField>ADCVD_Case_Number_Text__c</errorDisplayField>

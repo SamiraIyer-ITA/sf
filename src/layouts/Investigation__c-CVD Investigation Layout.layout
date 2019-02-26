@@ -313,10 +313,6 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Commodity_Text__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Period_Covered_Start_Date__c</field>
             </layoutItems>
             <layoutItems>
