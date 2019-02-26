@@ -122,7 +122,7 @@
         <relationshipLabel>Harmonized Tariff Schedules</relationshipLabel>
         <relationshipName>Harmonized_Tariff_Schedules</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -229,7 +229,7 @@
         <label>HTS Number</label>
         <length>10</length>
         <required>true</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -341,7 +341,7 @@
         <relationshipLabel>Harmonized Tariff Schedules</relationshipLabel>
         <relationshipName>Harmonized_Tariff_Schedules</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -371,7 +371,7 @@
     </listViews>
     <nameField>
         <label>Harmonized Tariff Schedule Name</label>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Text</type>
     </nameField>
     <pluralLabel>Harmonized Tariff Schedules</pluralLabel>

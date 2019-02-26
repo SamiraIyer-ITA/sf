@@ -38,7 +38,11 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
+        <comment>Action override updated by Lightning App Builder during activation.</comment>
+        <content>Federal_Register_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
@@ -55,7 +59,7 @@
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
-    <enableHistory>false</enableHistory>
+    <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
     <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
@@ -90,6 +94,7 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>ADCVD Case Type Deprecated</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -103,6 +108,7 @@
         <relationshipLabel>Federal Registers</relationshipLabel>
         <relationshipName>Federal_Registers</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -115,6 +121,7 @@
         <relationshipLabel>Federal Registers</relationshipLabel>
         <relationshipName>Federal_Register</relationshipName>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -134,6 +141,7 @@
         <externalId>false</externalId>
         <label>Case Concat Text Values</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
@@ -143,6 +151,7 @@
         <label>Cite Number</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -176,6 +185,7 @@
         <label>Country</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -187,6 +197,7 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Country Deprecated</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -196,6 +207,7 @@
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Do Delete</label>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -206,6 +218,7 @@
         <label>External Id</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>true</unique>
@@ -216,6 +229,7 @@
         <label>FR Parent</label>
         <length>80</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -227,6 +241,7 @@
         <inlineHelpText>FR URL</inlineHelpText>
         <label>FR URL</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Url</type>
     </fields>
@@ -235,6 +250,7 @@
         <externalId>false</externalId>
         <label>IDM URL</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Url</type>
     </fields>
@@ -247,6 +263,7 @@
         <relationshipLabel>Federal Registers</relationshipLabel>
         <relationshipName>Federal_Registers</relationshipName>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -259,6 +276,7 @@
         <relationshipLabel>Federal Registers</relationshipLabel>
         <relationshipName>Federal_Registers</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -267,6 +285,7 @@
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Record Locked</label>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -279,6 +298,7 @@
         <relationshipLabel>Federal Registers</relationshipLabel>
         <relationshipName>Federal_Registers</relationshipName>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -287,6 +307,7 @@
         <externalId>false</externalId>
         <label>Product Short Name Text Value</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
@@ -308,6 +329,7 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Product Short Name Deprecated</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -317,6 +339,7 @@
         <externalId>false</externalId>
         <label>Product Text Value</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
@@ -338,6 +361,7 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Product Deprecated</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -347,6 +371,7 @@
         <externalId>false</externalId>
         <label>Published Date</label>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -359,6 +384,7 @@
         <relationshipLabel>Federal Registers</relationshipLabel>
         <relationshipName>Federal_Registers</relationshipName>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -371,6 +397,7 @@
         <relationshipLabel>Federal Registers</relationshipLabel>
         <relationshipName>Federal_Registers</relationshipName>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -379,6 +406,7 @@
         <externalId>false</externalId>
         <label>Type</label>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -578,6 +606,7 @@
     <nameField>
         <displayFormat>FR-{000000}</displayFormat>
         <label>Federal Register Number</label>
+        <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Federal Registers</pluralLabel>
@@ -614,8 +643,8 @@ ISBLANK( ADCVD_Order__c )))</errorConditionFormula>
         <active>true</active>
         <description>You cannot create a federal register without a single parent record: either an Investigation, Petition, Order, Suspension Agreement or Segment attached to it. If all four of these lookup fields are empty, the validation error message will trigger.</description>
         <errorConditionFormula>AND(
-$Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
-Locked__c == false, 
+    $Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
+    Locked__c == false, 
 ISNEW(),  
 OR( 
   (AND 
@@ -626,14 +655,14 @@ OR(
   ISBLANK(Suspension_Agreement__c) 
   )
   ),
-  (	
+    (	
 	IF(ISBLANK(Petition__c),0,1)+ 
 	IF(ISBLANK(Segment__c),0,1)+ 
         IF(ISBLANK(ADCVD_Order__c),0,1)+
 	IF(ISBLANK(Investigation__c),0,1)+ 
 	IF(ISBLANK(Suspension_Agreement__c),0,1) &gt;1
-   )
-  ) 
+        )
+    )
 )</errorConditionFormula>
         <errorMessage>You must have either a Petition, Investigation,  ADCVD Order, Suspension Agreement or Segment associated to this Federal Register.</errorMessage>
     </validationRules>

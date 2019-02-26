@@ -65,7 +65,7 @@
     <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
         <fullName>ADCVD_Case_Number_Text__c</fullName>
         <externalId>false</externalId>
@@ -155,7 +155,7 @@
         <relationshipName>Investigations</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -251,7 +251,7 @@
         <label>Actual Final Signature</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -283,7 +283,7 @@
         <label>Actual Preliminary Signature</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -335,7 +335,7 @@
         <label>Amend the Preliminary Determination?</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -409,7 +409,7 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
         <label>Calc Amended Prelim Determination Sig</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -421,7 +421,7 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
         <label>Calculated Amended Final Signature</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -433,7 +433,7 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
         <label>Calculated Final Signature</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -505,7 +505,7 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
         <label>Calculated Preliminary Signature</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -1081,7 +1081,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
         <required>false</required>
         <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -1208,7 +1208,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
         <label>Investigation Outcome</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -1538,7 +1538,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
         <label>Petition Initiation Signature</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -1554,18 +1554,17 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
     </fields>
     <fields>
         <fullName>Petition__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Petition</label>
         <referenceTo>Petition__c</referenceTo>
         <relationshipLabel>Investigations</relationshipLabel>
         <relationshipName>Investigations</relationshipName>
-        <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>MasterDetail</type>
-        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Prelim_Concurrence_Due_to_DAS__c</fullName>
@@ -1587,7 +1586,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
         <required>false</required>
         <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -1792,7 +1791,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
         <label>Status</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -1855,7 +1854,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
         <label>Termination of Suspension/Gap Period Beg</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -1892,7 +1891,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
         <label>Upstream Subsidy Allegation?</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -1908,7 +1907,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
         <label>Will you Amend the Final?</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
