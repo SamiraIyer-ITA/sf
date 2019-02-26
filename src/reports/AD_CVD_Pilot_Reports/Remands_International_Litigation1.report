@@ -13,10 +13,10 @@
         <field>Litigation__c.Segment__c</field>
     </columns>
     <columns>
-        <field>Litigation__c.Product__c</field>
+        <field>Litigation__c.Product_Text__c</field>
     </columns>
     <columns>
-        <field>Litigation__c.Country__c</field>
+        <field>Litigation__c.Country_Text__c</field>
     </columns>
     <columns>
         <field>Litigation__c.Status__c</field>

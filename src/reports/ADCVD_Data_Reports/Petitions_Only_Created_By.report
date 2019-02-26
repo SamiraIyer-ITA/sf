@@ -4,7 +4,7 @@
         <field>CUST_ID</field>
     </columns>
     <columns>
-        <field>Petition__c.ADCVD_Case_Number__c</field>
+        <field>Petition__c.ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
         <field>CUST_NAME</field>

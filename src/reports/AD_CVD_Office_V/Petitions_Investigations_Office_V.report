@@ -4,7 +4,7 @@
         <field>Petition__c.Investigations__r$Link__c</field>
     </columns>
     <columns>
-        <field>Petition__c.Investigations__r$Product__c</field>
+        <field>Petition__c.Investigations__r$Product_Text__c</field>
     </columns>
     <columns>
         <field>Petition__c.Investigations__r$Country_Text__c</field>

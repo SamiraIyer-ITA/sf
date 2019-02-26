@@ -139,10 +139,10 @@
         <field>Staffing_Assignment__c$ADCVD_Order__c.ADCVD_Case__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$ADCVD_Order__c.ADCVD_Case_Number__c</field>
+        <field>Staffing_Assignment__c$ADCVD_Order__c.ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$ADCVD_Order__c.ADCVD_Case_Type__c</field>
+        <field>Staffing_Assignment__c$ADCVD_Order__c.ADCVD_Case_Type_Text__c</field>
     </columns>
     <columns>
         <field>Staffing_Assignment__c$ADCVD_Order__c.Name</field>
@@ -157,13 +157,13 @@
         <field>Staffing_Assignment__c$ADCVD_Order__c.Anniversary_Month__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$ADCVD_Order__c.CBP_Case_Number__c</field>
+        <field>Staffing_Assignment__c$ADCVD_Order__c.CBP_Case_Number_Text__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$ADCVD_Order__c.Commodity__c</field>
+        <field>Staffing_Assignment__c$ADCVD_Order__c.Commodity_Text__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$ADCVD_Order__c.Country__c</field>
+        <field>Staffing_Assignment__c$ADCVD_Order__c.Country_Text__c</field>
     </columns>
     <columns>
         <field>Staffing_Assignment__c$ADCVD_Order__c.CreatedBy</field>
@@ -211,10 +211,10 @@
         <field>Staffing_Assignment__c$ADCVD_Order__c.Petition_Filed__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$ADCVD_Order__c.Product__c</field>
+        <field>Staffing_Assignment__c$ADCVD_Order__c.Product_Text__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$ADCVD_Order__c.Product_Short_Name__c</field>
+        <field>Staffing_Assignment__c$ADCVD_Order__c.Product_Short_Name_Text__c</field>
     </columns>
     <columns>
         <field>Staffing_Assignment__c$ADCVD_Order__c.Locked__c</field>
@@ -274,10 +274,10 @@
         <field>Staffing_Assignment__c$Investigation__c.ADCVD_Case__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$Investigation__c.ADCVD_Case_Number__c</field>
+        <field>Staffing_Assignment__c$Investigation__c.ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$Investigation__c.ADCVD_Case_Type__c</field>
+        <field>Staffing_Assignment__c$Investigation__c.ADCVD_Case_Type_Text__c</field>
     </columns>
     <columns>
         <field>Staffing_Assignment__c$Investigation__c.AD_Investigation_Aligned_To__c</field>
@@ -331,16 +331,16 @@
         <field>Staffing_Assignment__c$Investigation__c.Calculated_Preliminary_Signature__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$Investigation__c.CBP_Case_Number__c</field>
+        <field>Staffing_Assignment__c$Investigation__c.CBP_Case_Number_Text__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$Investigation__c.Commodity__c</field>
+        <field>Staffing_Assignment__c$Investigation__c.Commodity_Text__c</field>
     </columns>
     <columns>
         <field>Staffing_Assignment__c$Investigation__c.Countervailed_Programs__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$Investigation__c.Country__c</field>
+        <field>Staffing_Assignment__c$Investigation__c.Country_Text__c</field>
     </columns>
     <columns>
         <field>Staffing_Assignment__c$Investigation__c.Country_in_which_factors_were_valued__c</field>
@@ -502,10 +502,10 @@
         <field>Staffing_Assignment__c$Investigation__c.Prelim_Team_Meeting_Deadline__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$Investigation__c.Product__c</field>
+        <field>Staffing_Assignment__c$Investigation__c.Product_Text__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$Investigation__c.Product_Short_Name__c</field>
+        <field>Staffing_Assignment__c$Investigation__c.Product_Short_Name_Text__c</field>
     </columns>
     <columns>
         <field>Staffing_Assignment__c$Investigation__c.Range_of_Rates_Final__c</field>
@@ -571,10 +571,10 @@
         <field>Staffing_Assignment__c$Petition__c.ADCVD_Case__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$Petition__c.ADCVD_Case_Number__c</field>
+        <field>Staffing_Assignment__c$Petition__c.ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$Petition__c.ADCVD_Case_Type__c</field>
+        <field>Staffing_Assignment__c$Petition__c.ADCVD_Case_Type_Text__c</field>
     </columns>
     <columns>
         <field>Staffing_Assignment__c$Petition__c.Calculated_Initiation_Signature__c</field>
@@ -586,13 +586,13 @@
         <field>Staffing_Assignment__c$Petition__c.Case_Type__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$Petition__c.CBP_Case_Number__c</field>
+        <field>Staffing_Assignment__c$Petition__c.CBP_Case_Number_Text__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$Petition__c.Commodity__c</field>
+        <field>Staffing_Assignment__c$Petition__c.Commodity_Text__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$Petition__c.Country__c</field>
+        <field>Staffing_Assignment__c$Petition__c.Country_Text__c</field>
     </columns>
     <columns>
         <field>Staffing_Assignment__c$Petition__c.CreatedBy</field>
@@ -685,10 +685,10 @@
         <field>Staffing_Assignment__c$Petition__c.Petition_Outcome__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$Petition__c.Product__c</field>
+        <field>Staffing_Assignment__c$Petition__c.Product_Text__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$Petition__c.Product_Short_Name__c</field>
+        <field>Staffing_Assignment__c$Petition__c.Product_Short_Name_Text__c</field>
     </columns>
     <columns>
         <field>Staffing_Assignment__c$Petition__c.Locked__c</field>
@@ -757,10 +757,10 @@
         <field>Staffing_Assignment__c$Segment__c.ADCVD_Case__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$Segment__c.ADCVD_Case_Number__c</field>
+        <field>Staffing_Assignment__c$Segment__c.ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$Segment__c.ADCVD_Case_Type__c</field>
+        <field>Staffing_Assignment__c$Segment__c.ADCVD_Case_Type_Text__c</field>
     </columns>
     <columns>
         <field>Staffing_Assignment__c$Segment__c.ADCVD_Order__c</field>
@@ -823,7 +823,7 @@
         <field>Staffing_Assignment__c$Segment__c.Case_Briefs_Due__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$Segment__c.CBP_Case_Number__c</field>
+        <field>Staffing_Assignment__c$Segment__c.CBP_Case_Number_Text__c</field>
     </columns>
     <columns>
         <field>Staffing_Assignment__c$Segment__c.Choose_Following_Respondent_Selection__c</field>
@@ -832,7 +832,7 @@
         <field>Staffing_Assignment__c$Segment__c.Comments_on_Adequacy_Determination_Filed__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$Segment__c.Commodity__c</field>
+        <field>Staffing_Assignment__c$Segment__c.Commodity_Text__c</field>
     </columns>
     <columns>
         <field>Staffing_Assignment__c$Segment__c.Continuation_or_Revocation__c</field>
@@ -841,7 +841,7 @@
         <field>Staffing_Assignment__c$Segment__c.Countervailed_Programs__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$Segment__c.Country__c</field>
+        <field>Staffing_Assignment__c$Segment__c.Country_Text__c</field>
     </columns>
     <columns>
         <field>Staffing_Assignment__c$Segment__c.Country_in_which_factors_were_valued__c</field>
@@ -1063,13 +1063,13 @@
         <field>Staffing_Assignment__c$Segment__c.Prelim_Team_Meeting_Deadline__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$Segment__c.Product__c</field>
+        <field>Staffing_Assignment__c$Segment__c.Product_Text__c</field>
     </columns>
     <columns>
         <field>Staffing_Assignment__c$Segment__c.Product_Description__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$Segment__c.Product_Short_Name__c</field>
+        <field>Staffing_Assignment__c$Segment__c.Product_Short_Name_Text__c</field>
     </columns>
     <columns>
         <field>Staffing_Assignment__c$Segment__c.Range_of_Rates_Final__c</field>

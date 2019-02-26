@@ -11,7 +11,7 @@
         <chartType>HorizontalBar</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>true</expandOthers>
-        <groupingColumn>Segment__c.Product_Short_Name__c</groupingColumn>
+        <groupingColumn>Segment__c.Product_Short_Name_Text__c</groupingColumn>
         <location>CHART_BOTTOM</location>
         <showAxisLabels>true</showAxisLabels>
         <showPercentage>false</showPercentage>
@@ -28,10 +28,10 @@
         <field>Segment__c.Link__c</field>
     </columns>
     <columns>
-        <field>Segment__c.ADCVD_Case_Number__c</field>
+        <field>Segment__c.ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
-        <field>Segment__c.Country__c</field>
+        <field>Segment__c.Country_Text__c</field>
     </columns>
     <columns>
         <field>Segment__c.Product_Description__c</field>
@@ -60,7 +60,7 @@
     <format>Matrix</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Segment__c.Product_Short_Name__c</field>
+        <field>Segment__c.Product_Short_Name_Text__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Office VI Scope Inquiries w/ Description</name>

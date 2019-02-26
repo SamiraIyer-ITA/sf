@@ -11,7 +11,7 @@
         <chartType>Donut</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>false</expandOthers>
-        <groupingColumn>ADCVD_Order__c.Commodity__c</groupingColumn>
+        <groupingColumn>ADCVD_Order__c.Commodity_Text__c</groupingColumn>
         <legendPosition>Right</legendPosition>
         <location>CHART_BOTTOM</location>
         <showAxisLabels>true</showAxisLabels>
@@ -29,10 +29,10 @@
         <field>CUST_NAME</field>
     </columns>
     <columns>
-        <field>ADCVD_Order__c.ADCVD_Case_Number__c</field>
+        <field>ADCVD_Order__c.ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
-        <field>ADCVD_Order__c.Product__c</field>
+        <field>ADCVD_Order__c.Product_Text__c</field>
     </columns>
     <columns>
         <field>ADCVD_Order__c.Petition_Filed__c</field>
@@ -48,7 +48,7 @@
     </columns>
     <filter>
         <criteriaItems>
-            <column>ADCVD_Order__c.Commodity__c</column>
+            <column>ADCVD_Order__c.Commodity_Text__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>notEqual</operator>
             <value></value>
@@ -57,7 +57,7 @@
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>ADCVD_Order__c.Commodity__c</field>
+        <field>ADCVD_Order__c.Commodity_Text__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Copy of ADCVD Order By Commodities</name>

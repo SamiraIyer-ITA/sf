@@ -7,17 +7,17 @@
         <field>FK_NAME</field>
     </columns>
     <columns>
-        <field>ADCVD_Order__c.CBP_Case_Number__c</field>
+        <field>ADCVD_Order__c.CBP_Case_Number_Text__c</field>
     </columns>
     <columns>
-        <field>ADCVD_Order__c.Product__c</field>
+        <field>ADCVD_Order__c.Product_Text__c</field>
     </columns>
     <columns>
-        <field>ADCVD_Order__c.Country__c</field>
+        <field>ADCVD_Order__c.Country_Text__c</field>
     </columns>
     <filter>
         <criteriaItems>
-            <column>ADCVD_Order__c.CBP_Case_Number__c</column>
+            <column>ADCVD_Order__c.CBP_Case_Number_Text__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value></value>
