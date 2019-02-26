@@ -14,7 +14,7 @@
     </columns>
     <filter>
         <criteriaItems>
-            <column>Investigation__c$Petition__c.ADCVD_Case_Type__c</column>
+            <column>Investigation__c$Petition__c.ADCVD_Case_Type_Text__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value>CVD</value>

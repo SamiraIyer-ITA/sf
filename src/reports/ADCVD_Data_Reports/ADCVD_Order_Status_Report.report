@@ -4,7 +4,7 @@
         <field>CUST_NAME</field>
     </columns>
     <columns>
-        <field>ADCVD_Order__c.Product__c</field>
+        <field>ADCVD_Order__c.Product_Text__c</field>
     </columns>
     <columns>
         <field>ADCVD_Order__c.ADCVD_Order_Name__c</field>
@@ -30,7 +30,7 @@
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>ADCVD_Order__c.Country__c</field>
+        <field>ADCVD_Order__c.Country_Text__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <groupingsDown>

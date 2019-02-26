@@ -11,7 +11,7 @@
         <chartType>VerticalColumn</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>true</expandOthers>
-        <groupingColumn>Investigation__c.Commodity__c</groupingColumn>
+        <groupingColumn>Investigation__c.Commodity_Text__c</groupingColumn>
         <location>CHART_BOTTOM</location>
         <showAxisLabels>true</showAxisLabels>
         <showPercentage>false</showPercentage>
@@ -28,14 +28,14 @@
         <field>CHILD_NAME</field>
     </columns>
     <columns>
-        <field>Petition__c.Country__c</field>
+        <field>Petition__c.Country_Text__c</field>
     </columns>
     <columns>
-        <field>Petition__c.Product_Short_Name__c</field>
+        <field>Petition__c.Product_Short_Name_Text__c</field>
     </columns>
     <filter>
         <criteriaItems>
-            <column>Investigation__c.Commodity__c</column>
+            <column>Investigation__c.Commodity_Text__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>notEqual</operator>
             <value></value>
@@ -44,7 +44,7 @@
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Investigation__c.Commodity__c</field>
+        <field>Investigation__c.Commodity_Text__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Investigations by Commodity</name>

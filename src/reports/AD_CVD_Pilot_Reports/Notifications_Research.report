@@ -4,10 +4,10 @@
         <field>FK_NAME</field>
     </columns>
     <columns>
-        <field>FK_$Segment__c.Country__c</field>
+        <field>FK_$Segment__c.Country_Text__c</field>
     </columns>
     <columns>
-        <field>FK_$Segment__c.Product__c</field>
+        <field>FK_$Segment__c.Product_Text__c</field>
     </columns>
     <columns>
         <field>FK_$Segment__c.Calculated_Preliminary_Signature__c</field>

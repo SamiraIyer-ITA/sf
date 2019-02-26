@@ -7,10 +7,10 @@
         <field>FK_NAME</field>
     </columns>
     <columns>
-        <field>FK_$Investigation__c.Country__c</field>
+        <field>FK_$Investigation__c.Country_Text__c</field>
     </columns>
     <columns>
-        <field>FK_$Investigation__c.Product__c</field>
+        <field>FK_$Investigation__c.Product_Text__c</field>
     </columns>
     <columns>
         <field>FK_$Investigation__c.Calculated_Preliminary_Signature__c</field>

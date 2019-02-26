@@ -4,10 +4,10 @@
         <field>Petition__c$ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
-        <field>Petition__c.Investigations__r.Court_Orders__r$Product__c</field>
+        <field>Petition__c.Investigations__r.Court_Orders__r$Product_Text__c</field>
     </columns>
     <columns>
-        <field>Petition__c.Investigations__r.Court_Orders__r$Country__c</field>
+        <field>Petition__c.Investigations__r.Court_Orders__r$Country_Text__c</field>
     </columns>
     <columns>
         <field>Petition__c.Investigations__r.Court_Orders__r$Link__c</field>
@@ -23,13 +23,13 @@
             <value>Revoked-Incomplete,Revoked-Complete</value>
         </criteriaItems>
         <criteriaItems>
-            <column>Petition__c.Investigations__r.Court_Orders__r$ADCVD_Case_Number__c</column>
+            <column>Petition__c.Investigations__r.Court_Orders__r$ADCVD_Case_Number_Text__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>notEqual</operator>
             <value>C-507-501</value>
         </criteriaItems>
         <criteriaItems>
-            <column>Petition__c.Investigations__r.Court_Orders__r$ADCVD_Case_Number__c</column>
+            <column>Petition__c.Investigations__r.Court_Orders__r$ADCVD_Case_Number_Text__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>notEqual</operator>
             <value>C-507-601</value>

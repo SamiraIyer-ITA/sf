@@ -7,7 +7,7 @@
         <field>FK_NAME</field>
     </columns>
     <columns>
-        <field>FK_$ADCVD_Order__c.ADCVD_Case_Number__c</field>
+        <field>FK_$ADCVD_Order__c.ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
         <field>Federal_Register__c.Type__c</field>

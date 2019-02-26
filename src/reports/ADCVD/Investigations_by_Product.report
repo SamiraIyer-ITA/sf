@@ -4,7 +4,7 @@
         <field>Investigation__c$Country_Text__c</field>
     </columns>
     <columns>
-        <field>Investigation__c$Petition__c.ADCVD_Case_Type__c</field>
+        <field>Investigation__c$Petition__c.ADCVD_Case_Type_Text__c</field>
     </columns>
     <columns>
         <field>Investigation__c$ADCVD_Case_Number_Text__c</field>
