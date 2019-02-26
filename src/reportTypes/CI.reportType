@@ -403,11 +403,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Country_Text__c</field>
-            <table>Custom_Instruction__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Petition__c.Commodity_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
