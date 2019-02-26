@@ -10,7 +10,7 @@
         <field>Petition__c$Country_Text__c</field>
     </columns>
     <columns>
-        <field>Petition__c.Investigations__r.Suspension_Agreements__r$ADCVD_Case_Type__c</field>
+        <field>Petition__c.Investigations__r.Suspension_Agreements__r$ADCVD_Case_Type_Text__c</field>
     </columns>
     <columns>
         <field>Petition__c.Investigations__r.Suspension_Agreements__r$Suspension_Date__c</field>

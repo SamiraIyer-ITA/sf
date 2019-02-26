@@ -4,13 +4,13 @@
         <field>Petition__c.Investigations__r$Link__c</field>
     </columns>
     <columns>
-        <field>Petition__c.Investigations__r$ADCVD_Case_Number__c</field>
+        <field>Petition__c.Investigations__r$ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
         <field>Petition__c.Investigations__r$Product__c</field>
     </columns>
     <columns>
-        <field>Petition__c.Investigations__r$Country__c</field>
+        <field>Petition__c.Investigations__r$Country_Text__c</field>
     </columns>
     <columns>
         <field>Petition__c.Investigations__r$Status__c</field>
@@ -35,7 +35,7 @@
             <value>Pending Order,Hold,Litigation,Customs,Closed</value>
         </criteriaItems>
         <criteriaItems>
-            <column>Petition__c.Investigations__r$ADCVD_Case_Type__c</column>
+            <column>Petition__c.Investigations__r$ADCVD_Case_Type_Text__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value>AD ME,Ad NME</value>

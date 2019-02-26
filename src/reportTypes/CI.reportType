@@ -78,11 +78,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Country_Text__c</field>
-            <table>Custom_Instruction__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Country_in_which_factors_were_valued__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
@@ -399,11 +394,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Petition__c.CBP_Case_Number_Text__c</field>
-            <table>Custom_Instruction__c</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition__c.Country_Text__c</field>
             <table>Custom_Instruction__c</table>
         </columns>
         <columns>

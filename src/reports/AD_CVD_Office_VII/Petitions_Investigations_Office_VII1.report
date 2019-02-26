@@ -13,7 +13,7 @@
         <field>Petition__c.Investigations__r$Office__c</field>
     </columns>
     <columns>
-        <field>Petition__c.Investigations__r$ADCVD_Case_Number__c</field>
+        <field>Petition__c.Investigations__r$ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
         <field>Petition__c.Investigations__r.Court_Orders__r.Federal_Register__r$Name</field>
