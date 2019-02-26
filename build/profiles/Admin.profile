@@ -496,15 +496,15 @@
         <field>Litigation__c.Product_Text__c</field>
         <readable>true</readable>
     </fieldPermissions>
-
-    <fieldPermissions>
+`
+<fieldPermissions>
         <editable>false</editable>
-        <field>Federal_Register__c.ADCVD_Case_Type__c</field>
+        <field>Federal_Register__c.ADCVD_Case_Number__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Federal_Register__c.CBP_Case_Number__c</field>
+        <field>Federal_Register__c.ADCVD_Case_Type__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -565,37 +565,7 @@
 
     <fieldPermissions>
         <editable>false</editable>
-        <field>Custom_Instruction__c.ADCVD_Case_Number__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Custom_Instruction__c.ADCVD_Case_Type__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Custom_Instruction__c.CBP_Case_Number__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Custom_Instruction__c.Commodity__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Custom_Instruction__c.Country__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Custom_Instruction__c.Product_Short_Name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Custom_Instruction__c.Product__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -647,11 +617,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Staffing_Assignment__c.CBP_Case_Number__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Staffing_Assignment__c.Commodity__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -718,11 +683,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Related_Organization__c.CBP_Case_Number__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Related_Organization__c.Commodity__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -849,17 +809,7 @@
 
     <fieldPermissions>
         <editable>false</editable>
-        <field>Harmonized_Tariff_Schedule__c.ADCVD_Case_Number__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Harmonized_Tariff_Schedule__c.ADCVD_Case_Type__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Harmonized_Tariff_Schedule__c.CBP_Case_Number__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
