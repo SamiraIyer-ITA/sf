@@ -288,7 +288,7 @@
     </values>
     <values>
         <field>Conditional_Field_7_Name__c</field>
-        <value xsi:type="xsd:string">Country__c</value>
+        <value xsi:type="xsd:string">Country_Text__c</value>
     </values>
     <values>
         <field>Conditional_Field_7_Object__c</field>

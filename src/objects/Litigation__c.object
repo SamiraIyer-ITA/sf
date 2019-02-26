@@ -51,8 +51,8 @@
         <fields>ADCVD_Case__c</fields>
         <fields>RecordTypeId</fields>
         <fields>Office__c</fields>
-        <fields>Product_Short_Name__c</fields>
-        <fields>Country__c</fields>
+        <fields>Product_Short_Name_Text__c</fields>
+        <fields>Country_Text__c</fields>
         <fields>Period_Covered_End_Date__c</fields>
         <fields>Product_Description__c</fields>
         <label>Basic Case Info</label>
@@ -82,7 +82,7 @@
     <fields>
         <fullName>ADCVD_Case_Number__c</fullName>
         <externalId>false</externalId>
-        <label>ADCVD Case Number Text Value</label>
+        <label>ADCVD Case Number Text Value Deprecated</label>
         <length>28</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -106,7 +106,7 @@
     <fields>
         <fullName>ADCVD_Case_Type__c</fullName>
         <externalId>false</externalId>
-        <label>ADCVD Case Type</label>
+        <label>ADCVD Case Type Deprecated</label>
         <length>28</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -244,7 +244,7 @@
     <fields>
         <fullName>CBP_Case_Number__c</fullName>
         <externalId>false</externalId>
-        <label>CBP Case Number</label>
+        <label>CBP Case Number Deprecated</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -328,7 +328,7 @@
     <fields>
         <fullName>Commodity__c</fullName>
         <externalId>false</externalId>
-        <label>Commodity</label>
+        <label>Commodity Deprecated</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -352,7 +352,7 @@
     <fields>
         <fullName>Country__c</fullName>
         <externalId>false</externalId>
-        <label>Country</label>
+        <label>Country Deprecated</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -551,7 +551,7 @@
     <fields>
         <fullName>Litigation_Name__c</fullName>
         <externalId>false</externalId>
-        <formula>ADCVD_Case_Number__c + &apos;--&apos;+ Name</formula>
+        <formula>ADCVD_Case_Number_Text__c + &apos;--&apos;+ Name</formula>
         <label>Litigation Name</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -805,7 +805,7 @@
     <fields>
         <fullName>Product_Short_Name__c</fullName>
         <externalId>false</externalId>
-        <label>Product Short Name</label>
+        <label>Product Short Name Deprecated</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -829,7 +829,7 @@
     <fields>
         <fullName>Product__c</fullName>
         <externalId>false</externalId>
-        <label>Product</label>
+        <label>Product Deprecated</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -949,10 +949,10 @@
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
-        <columns>ADCVD_Case_Number__c</columns>
-        <columns>Country__c</columns>
-        <columns>ADCVD_Case_Type__c</columns>
-        <columns>Product__c</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>Product_Text__c</columns>
         <columns>RECORDTYPE</columns>
         <columns>Litigation_Name__c</columns>
         <columns>Status__c</columns>

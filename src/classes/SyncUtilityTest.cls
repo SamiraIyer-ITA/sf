@@ -35,7 +35,7 @@ public class SyncUtilityTest {
 	private static List<Petition__c> pList {
 		get {
 			if(pList == null) {
-				pList = [SELECT Id, ADCVD_Case_Number__c, Commodity__c FROM Petition__c];
+				pList = [SELECT Id, ADCVD_Case_Number_Text__c, Commodity_Text__c FROM Petition__c];
 			}
 			return pList;
 		}
@@ -93,7 +93,7 @@ public class SyncUtilityTest {
 		SyncUtility.setSyncFieldMap();//grabs CMT for investigation
 		System.assertNotEquals(null, SyncUtility.syncFieldMap.get('Petition__c'));//syncFieldMap has Petition values
 		currentFieldMappings = SyncUtility.syncFieldMap.get('Petition__c');//map the Petition mappings to current
-		System.assertEquals(currentFieldMappings.get('ADCVD_Case_Number__c'), 'ADCVD_Case_Number__c');//confirm a mapping is correct
+		System.assertEquals(currentFieldMappings.get('ADCVD_Case_Number_Text__c'), 'ADCVD_Case_Number_Text__c');//confirm a mapping is correct
 		currentFieldMappings = SyncUtility.syncFieldMap.get('Investigation__c');//map the Investigation mappings to current
 		System.assertEquals(currentFieldMappings.get('Calculated_Final_Signature__c'),'Calculated_Final_Signature__c');//confirm a mapping is correct
 		Test.stopTest();
@@ -105,7 +105,7 @@ public class SyncUtilityTest {
 		SyncUtility.setSourceObjectNames(currentSources(null), true);//sets sourceObjectNames to all in utility
 		SyncUtility.setSyncFieldMap();//grabs CMT for investigation
 		SyncUtility.setSourceObjectsMap();//map source objects to source map
-		System.assertEquals('Foodstuffs', ((Petition__c)SyncUtility.sourceObjectsMap.get(pList[0].Id)).Commodity__c);//confirm source object map queried correctly
+		System.assertEquals('Foodstuffs', ((Petition__c)SyncUtility.sourceObjectsMap.get(pList[0].Id)).Commodity_Text__c);//confirm source object map queried correctly
 		for(Investigation__c i : iList) {
 			if(i.RecordTypeId == utils.getRecordTypeIdMap(i).get('AD')){
 				System.assertEquals(i.Id, SyncUtility.sourceObjectsMap.get(i.Id).Id);//the AD investigation was queried
@@ -127,7 +127,7 @@ public class SyncUtilityTest {
 		SyncUtility.setSourceObjectsMap();//map source objects to source map
 		SyncUtility.setTargetObjectValues();//set the source value to the target value
 		System.assertEquals(i.Calculated_Final_Signature__c, iAD.Calculated_Final_Signature__c);//the CVD investigation is aligned to the AD
-		System.assertEquals(i.Commodity__c, pList[0].Commodity__c);//the Petition synced to Investigation
+		System.assertEquals(i.Commodity_Text__c, pList[0].Commodity_Text__c);//the Petition synced to Investigation
 		Test.stopTest();
 	}
 
@@ -148,10 +148,10 @@ public class SyncUtilityTest {
 		insert cList;
 
 		Petition__c testADPetition = TestUtils.createPetition(testADCase, petitionDate,false);
-		testAdPetition.Commodity__c = 'Foodstuffs';
+		testAdPetition.Commodity_Text__c = 'Foodstuffs';
 		petitionsToInsert.add(testAdPetition);
 		Petition__c testCvdPetition = TestUtils.createPetition(testCVDCase, petitionDate,false);
-		testCvdPetition.Commodity__c = 'Foodstuffs';
+		testCvdPetition.Commodity_Text__c = 'Foodstuffs';
 		petitionsToInsert.add(testCvdPetition);
 		insert petitionsToInsert;
 

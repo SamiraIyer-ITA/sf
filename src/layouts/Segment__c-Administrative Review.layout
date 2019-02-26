@@ -205,6 +205,14 @@
                 <behavior>Edit</behavior>
                 <field>Suspension_Agreement__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Product_Text__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>CBP_Case_Number_Text__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -219,6 +227,22 @@
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ADCVD_Case_Type_Text__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Commodity_Text__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Country_Text__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Product_Short_Name_Text__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -231,18 +255,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Office__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>ADCVD_Case_Type__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Product__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Product_Short_Name__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -402,10 +414,10 @@
     <relatedLists>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
-        <fields>ADCVD_Case_Number__c</fields>
-        <fields>Country__c</fields>
-        <fields>ADCVD_Case_Type__c</fields>
-        <fields>Product__c</fields>
+        <fields>ADCVD_Case_Number_Text__c</fields>
+        <fields>Country_Text__c</fields>
+        <fields>ADCVD_Case_Type_Text__c</fields>
+        <fields>Product_Text__c</fields>
         <fields>RECORDTYPE</fields>
         <fields>Period_Covered_Start_Date__c</fields>
         <fields>Period_Covered_End_Date__c</fields>
