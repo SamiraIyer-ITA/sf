@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Activity$Account</field>
+    </columns>
+    <columns>
+        <field>Activity$Subject</field>
+    </columns>
+    <columns>
+        <field>Activity$ActivityDate</field>
+    </columns>
+    <columns>
+        <field>Activity$Priority</field>
+    </columns>
+    <columns>
+        <field>Activity$Status</field>
+    </columns>
+    <columns>
+        <field>Activity$Owner</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Activity$Account.RecordType</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Account.Partner_Account</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Admin_All Partner Activities</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Activities__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Activity$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

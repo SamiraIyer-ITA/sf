@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>Case.Case_One__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA1</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Case count</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>Account.Organization_One__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA2</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Org Count</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account.Cases$Subject</field>
+    </columns>
+    <columns>
+        <field>Account.Cases$IP_Case_Origin__c</field>
+    </columns>
+    <columns>
+        <field>Account.Cases$IP_Case_Reason__c</field>
+    </columns>
+    <columns>
+        <field>Account.Cases$IP_Client_Type__c</field>
+    </columns>
+    <columns>
+        <field>Account.Cases$IP_EDO_Type__c</field>
+    </columns>
+    <description>Report displaying organizations with a U.S. address assisted with investment promotion cases (all time), where client type is not equal to foreign firm, foreign EDO, or foreign government, grouped by the organization&apos;s state of address</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.Cases$IP_Client_Type__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Foreign Firm,Foreign EDO,Foreign Government</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$RecordType</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Account.ITA_User_Account_RT</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account$BillingStateCode</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>SUSA Clients Assisted ID by Org State</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Orgs_for_client_assists_Case_Case_Contributor__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Account$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

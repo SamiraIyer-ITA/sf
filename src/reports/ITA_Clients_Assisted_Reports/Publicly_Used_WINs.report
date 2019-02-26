@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>WIN__c.Organization__c</field>
+    </columns>
+    <columns>
+        <field>CUST_OWNER_NAME</field>
+    </columns>
+    <columns>
+        <field>WIN__c.Owner_Office__c</field>
+    </columns>
+    <crossFilters>
+        <criteriaItems>
+            <column>Body</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>Used Publicly</value>
+        </criteriaItems>
+        <operation>with</operation>
+        <primaryTableColumn>CUST_ID</primaryTableColumn>
+        <relatedTable>WIN__Feed</relatedTable>
+        <relatedTableJoinColumn>Parent</relatedTableJoinColumn>
+    </crossFilters>
+    <format>Tabular</format>
+    <name>Publicly Used WINs</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$WIN__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>WIN__c.Final_Line_Approval_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

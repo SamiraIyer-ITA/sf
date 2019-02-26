@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>ADCVD_Order__c.CBP_Case_Number__c</field>
+    </columns>
+    <columns>
+        <field>ADCVD_Order__c.Product__c</field>
+    </columns>
+    <columns>
+        <field>ADCVD_Order__c.Country__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>ADCVD_Order__c.CBP_Case_Number__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value></value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>FK_$Investigation__c.Investigation_Outcome__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Missing CBP Case Numbers 2</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$ADCVD_Order__c@ADCVD_Order__c.Investigation__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>ADCVD_Order__c.Effective_Date_for_Most_Recent_SunsetFR__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

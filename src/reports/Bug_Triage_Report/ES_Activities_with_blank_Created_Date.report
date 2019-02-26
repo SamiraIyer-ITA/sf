@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Activity$Subject</field>
+    </columns>
+    <columns>
+        <field>Activity$Actual_Create_Date__c</field>
+    </columns>
+    <columns>
+        <field>Activity$CreatedDate</field>
+    </columns>
+    <columns>
+        <field>Activity$CTS_Activity_ID__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Activity$Actual_Create_Date__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Activity$CTS_Activity_ID__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>ES-</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>ES Activities with blank Created Date</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Activities__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Activity$CreatedDate</sortColumn>
+    <sortOrder>Desc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Activity$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

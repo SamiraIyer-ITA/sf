@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>USERS.NAME</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>ADDRESS1_COUNTRY_CODE</field>
+    </columns>
+    <columns>
+        <field>LAST_UPDATE</field>
+    </columns>
+    <columns>
+        <field>ADDRESS1_STATE_CODE</field>
+    </columns>
+    <description>These orgs have inconsistent values between ITA taxonomy, countries in SF (countries from objects and related lists) and data.com</description>
+    <filter>
+        <criteriaItems>
+            <column>ADDRESS1_COUNTRY_CODE</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>AQ,BQ,BV,IO,BN,CC,CG,CD,CU,CW,FK,TF,GG,GW,HM,VA,IR,IM,KP,KR,LY,MO,MK,YT,MD,MN,ME,MM,NU,PS,PN,RE,RU,BL,SH,MF,PM,RS,SX,GS,SS,SJ,TZ,TN,VE,VG,WF,EH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>RECORDTYPE</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Account.ITA_User_Account_RT</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Orgs with inconsistent countries</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>ADDRESS1_COUNTRY_CODE</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

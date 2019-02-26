@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Federal_Register__c$Name</field>
+    </columns>
+    <columns>
+        <field>Federal_Register__c$Type__c</field>
+    </columns>
+    <columns>
+        <field>Federal_Register__c$Published_Date__c</field>
+    </columns>
+    <columns>
+        <field>Federal_Register__c$CreatedBy</field>
+    </columns>
+    <columns>
+        <field>Federal_Register__c$CreatedDate</field>
+    </columns>
+    <description>Continuation FRs</description>
+    <filter>
+        <criteriaItems>
+            <column>Federal_Register__c$Type__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Continuation</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Federal_Register__c$CreatedBy</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>contains</operator>
+            <value>Sandip</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Continuation FRs</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>FR_Petitions_Investigations_Order_and_Segments__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Federal_Register__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

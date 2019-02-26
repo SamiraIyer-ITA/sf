@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Case$CaseNumber</field>
+    </columns>
+    <columns>
+        <field>Case.Countries__r$Country__c</field>
+    </columns>
+    <columns>
+        <field>Case$Subject</field>
+    </columns>
+    <columns>
+        <field>Case$Account</field>
+    </columns>
+    <columns>
+        <field>Case$Description</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Case$Record_Type__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Commercial Diplomacy</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$Potential_Primary_Outcome__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Compliance with trade agreement,Reduced/Removed/Prevented trade barrier</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$Status</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>New,In Progress,Action Required</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case.Countries__r$Country__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Australia,Bangladesh,Cambodia,Fiji,India,Indonesia,&quot;Korea, Democratic People’s Republic of&quot;,&quot;Korea, Republic of&quot;,Lao People’s Democratic Republic,Malaysia,Myanmar,Nepal,New Zealand,Pakistan,Papua New Guinea,Philippines,Singapore,Solomon Islands,Sri Lanka,Taiwan,Thailand,Timor-Leste,Tonga,Tuvalu,Vanuatu,Vietnam,Wallis and Futuna</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Asia TB Cases in Progress</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Cases_With_Countries__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Case.Countries__r$Country__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Case$Actual_Create_Date__c</dateColumn>
+        <interval>INTERVAL_PREVCUR2FY</interval>
+    </timeFrameFilter>
+</Report>

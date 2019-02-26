@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>DataDotComCleanMetrics$AccountsCount</field>
+    </columns>
+    <columns>
+        <field>DataDotComCleanMetrics$AccountsMatched</field>
+    </columns>
+    <columns>
+        <field>DataDotComCleanMetrics$AccountsUpdatedUser</field>
+    </columns>
+    <columns>
+        <field>DataDotComCleanMetrics$AccountsUpdatedJob</field>
+    </columns>
+    <columns>
+        <field>DataDotComCleanMetrics$AccountsProcessedByClean</field>
+    </columns>
+    <columns>
+        <field>DataDotComCleanMetrics$MetricsDate</field>
+    </columns>
+    <format>Tabular</format>
+    <name>Data.com Clean Metrics 7/1 to 12/31 2015</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>DDC_clean__Data_com_Clean_Metrics__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>DataDotComCleanMetrics$MetricsDate</sortColumn>
+    <sortOrder>Desc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>DataDotComCleanMetrics$MetricsDate</dateColumn>
+        <interval>INTERVAL_CURPREV1</interval>
+    </timeFrameFilter>
+</Report>

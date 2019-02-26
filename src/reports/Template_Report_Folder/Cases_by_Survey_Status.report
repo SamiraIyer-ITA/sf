@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Case$CaseNumber</field>
+    </columns>
+    <columns>
+        <field>Case$Subject</field>
+    </columns>
+    <columns>
+        <field>Case$Owner</field>
+    </columns>
+    <columns>
+        <field>Case$Owners_Office__c</field>
+    </columns>
+    <columns>
+        <field>Case$ClosedDate</field>
+    </columns>
+    <columns>
+        <field>Case$Survey_Send_Time__c</field>
+    </columns>
+    <columns>
+        <field>Case.Survey_Results__r$Name</field>
+    </columns>
+    <columns>
+        <field>Case$Contact</field>
+    </columns>
+    <columns>
+        <field>Case$Copy_Contact_Email__c</field>
+    </columns>
+    <description>Report displaying case record information of cases closed in the current FQ, grouped by survey status (sent or unsent)</description>
+    <filter>
+        <criteriaItems>
+            <column>Case$Fee__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Administration,Business Facilitation Service,BuyUSA.gov Business Service Provider,Customized Market Research,Featured US Exporters (FUSE),Gold Key Matching Service,HQ Use Only - Administration,Initial Market Check,International Company Profile,International Partner Search,Platinum Key Service,Quicktake,Single Company Promotion,Tourism Research Programs,Single Location Promotion,Trade Mission</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$Record_Type__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Commercial Diplomacy,Export Promotion</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Case$Account.RecordType</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Account.ITA_User_Account_RT</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Case$Sent_Survey__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Cases by Survey Status</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Cases_with_or_without_Survey_Results__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Case.Survey_Results__r$Name</sortColumn>
+    <sortOrder>Desc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Case$ClosedDate</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>
