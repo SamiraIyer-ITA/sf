@@ -19,10 +19,10 @@
         <field>CUST_CREATED_NAME</field>
     </columns>
     <columns>
-        <field>Segment__c.Product__c</field>
+        <field>Segment__c.Product_Text__c</field>
     </columns>
     <columns>
-        <field>Segment__c.Country__c</field>
+        <field>Segment__c.Country_Text__c</field>
     </columns>
     <columns>
         <field>CUST_RECORDTYPE</field>
@@ -51,7 +51,7 @@
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Segment__c.ADCVD_Case_Number__c</field>
+        <field>Segment__c.ADCVD_Case_Number_Text__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Segments - Unlocked (Prod Migration)</name>

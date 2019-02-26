@@ -14,7 +14,7 @@
     <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Petition__c.Investigations__r.Suspension_Agreements__r$Product__c</field>
+        <field>Petition__c.Investigations__r.Suspension_Agreements__r$Product_Text__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <groupingsDown>

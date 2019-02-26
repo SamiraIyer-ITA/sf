@@ -4,13 +4,13 @@
         <field>CUST_NAME</field>
     </columns>
     <columns>
-        <field>Petition__c.ADCVD_Case_Number__c</field>
+        <field>Petition__c.ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
-        <field>Petition__c.Product__c</field>
+        <field>Petition__c.Product_Text__c</field>
     </columns>
     <columns>
-        <field>Petition__c.Product_Short_Name__c</field>
+        <field>Petition__c.Product_Short_Name_Text__c</field>
     </columns>
     <columns>
         <field>Petition__c.Actual_Initiation_Signature__c</field>
@@ -20,7 +20,7 @@
     </columns>
     <filter>
         <criteriaItems>
-            <column>Petition__c.Product_Short_Name__c</column>
+            <column>Petition__c.Product_Short_Name_Text__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value></value>

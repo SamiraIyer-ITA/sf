@@ -7,22 +7,22 @@
         <field>Petition__c.Status__c</field>
     </columns>
     <columns>
-        <field>Petition__c.ADCVD_Case_Number__c</field>
+        <field>Petition__c.ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
-        <field>Petition__c.ADCVD_Case_Type__c</field>
+        <field>Petition__c.ADCVD_Case_Type_Text__c</field>
     </columns>
     <columns>
-        <field>Petition__c.Country__c</field>
+        <field>Petition__c.Country_Text__c</field>
     </columns>
     <columns>
-        <field>Petition__c.Product__c</field>
+        <field>Petition__c.Product_Text__c</field>
     </columns>
     <columns>
-        <field>Petition__c.Product_Short_Name__c</field>
+        <field>Petition__c.Product_Short_Name_Text__c</field>
     </columns>
     <columns>
-        <field>Petition__c.Commodity__c</field>
+        <field>Petition__c.Commodity_Text__c</field>
     </columns>
     <columns>
         <field>Petition__c.Office__c</field>
@@ -36,37 +36,37 @@
             <value>0</value>
         </criteriaItems>
         <criteriaItems>
-            <column>Petition__c.ADCVD_Case_Number__c</column>
+            <column>Petition__c.ADCVD_Case_Number_Text__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value></value>
         </criteriaItems>
         <criteriaItems>
-            <column>Petition__c.ADCVD_Case_Type__c</column>
+            <column>Petition__c.ADCVD_Case_Type_Text__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value></value>
         </criteriaItems>
         <criteriaItems>
-            <column>Petition__c.Product__c</column>
+            <column>Petition__c.Product_Text__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value></value>
         </criteriaItems>
         <criteriaItems>
-            <column>Petition__c.Country__c</column>
+            <column>Petition__c.Country_Text__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value></value>
         </criteriaItems>
         <criteriaItems>
-            <column>Petition__c.Product_Short_Name__c</column>
+            <column>Petition__c.Product_Short_Name_Text__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value></value>
         </criteriaItems>
         <criteriaItems>
-            <column>Petition__c.Commodity__c</column>
+            <column>Petition__c.Commodity_Text__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value></value>
@@ -94,7 +94,7 @@
     <showDetails>true</showDetails>
     <showGrandTotal>false</showGrandTotal>
     <showSubTotals>false</showSubTotals>
-    <sortColumn>Petition__c.Product_Short_Name__c</sortColumn>
+    <sortColumn>Petition__c.Product_Short_Name_Text__c</sortColumn>
     <sortOrder>Asc</sortOrder>
     <timeFrameFilter>
         <dateColumn>CUST_CREATED_DATE</dateColumn>

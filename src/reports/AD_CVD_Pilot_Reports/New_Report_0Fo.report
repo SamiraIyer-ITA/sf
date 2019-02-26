@@ -7,17 +7,17 @@
         <field>FK_NAME</field>
     </columns>
     <columns>
-        <field>FK_$ADCVD_Order__c.Country__c</field>
+        <field>FK_$ADCVD_Order__c.Country_Text__c</field>
     </columns>
     <columns>
-        <field>FK_$ADCVD_Order__c.Product__c</field>
+        <field>FK_$ADCVD_Order__c.Product_Text__c</field>
     </columns>
     <columns>
-        <field>FK_$ADCVD_Order__c.Commodity__c</field>
+        <field>FK_$ADCVD_Order__c.Commodity_Text__c</field>
     </columns>
     <filter>
         <criteriaItems>
-            <column>FK_$ADCVD_Order__c.Country__c</column>
+            <column>FK_$ADCVD_Order__c.Country_Text__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value>Russia</value>

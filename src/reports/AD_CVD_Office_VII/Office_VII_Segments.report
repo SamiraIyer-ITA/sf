@@ -4,19 +4,19 @@
         <field>Segment__c.Link__c</field>
     </columns>
     <columns>
-        <field>Segment__c.Product__c</field>
+        <field>Segment__c.Product_Text__c</field>
     </columns>
     <columns>
         <field>Segment__c.Product_Description__c</field>
     </columns>
     <columns>
-        <field>Segment__c.ADCVD_Case_Number__c</field>
+        <field>Segment__c.ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
-        <field>Segment__c.ADCVD_Case_Type__c</field>
+        <field>Segment__c.ADCVD_Case_Type_Text__c</field>
     </columns>
     <columns>
-        <field>Segment__c.Country__c</field>
+        <field>Segment__c.Country_Text__c</field>
     </columns>
     <columns>
         <field>CUST_RECORDTYPE</field>

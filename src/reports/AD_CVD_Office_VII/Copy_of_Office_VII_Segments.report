@@ -10,10 +10,10 @@
         <field>Segment__c.Actual_Revocation_or_Continuation_FR__c</field>
     </columns>
     <columns>
-        <field>Segment__c.ADCVD_Case_Number__c</field>
+        <field>Segment__c.ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
-        <field>Segment__c.ADCVD_Case_Type__c</field>
+        <field>Segment__c.ADCVD_Case_Type_Text__c</field>
     </columns>
     <columns>
         <field>Segment__c.Adequacy_Determination_Letter__c</field>
@@ -73,7 +73,7 @@
         <field>Segment__c.Case_Briefs_Due__c</field>
     </columns>
     <columns>
-        <field>Segment__c.CBP_Case_Number__c</field>
+        <field>Segment__c.CBP_Case_Number_Text__c</field>
     </columns>
     <columns>
         <field>Segment__c.Choose_Following_Respondent_Selection__c</field>
@@ -82,7 +82,7 @@
         <field>Segment__c.Comments_on_Adequacy_Determination_Filed__c</field>
     </columns>
     <columns>
-        <field>Segment__c.Commodity__c</field>
+        <field>Segment__c.Commodity_Text__c</field>
     </columns>
     <columns>
         <field>Segment__c.Continuation_or_Revocation__c</field>
@@ -91,7 +91,7 @@
         <field>Segment__c.Countervailed_Programs__c</field>
     </columns>
     <columns>
-        <field>Segment__c.Country__c</field>
+        <field>Segment__c.Country_Text__c</field>
     </columns>
     <columns>
         <field>Segment__c.Country_in_which_factors_were_valued__c</field>
@@ -298,13 +298,13 @@
         <field>Segment__c.Prelim_Team_Meeting_Deadline__c</field>
     </columns>
     <columns>
-        <field>Segment__c.Product__c</field>
+        <field>Segment__c.Product_Text__c</field>
     </columns>
     <columns>
         <field>Segment__c.Product_Description__c</field>
     </columns>
     <columns>
-        <field>Segment__c.Product_Short_Name__c</field>
+        <field>Segment__c.Product_Short_Name_Text__c</field>
     </columns>
     <columns>
         <field>Segment__c.Range_of_Rates_Final__c</field>
@@ -427,10 +427,10 @@
         <field>FK_CUSTENT_OWNER_ALIAS</field>
     </columns>
     <columns>
-        <field>FK_$ADCVD_Order__c.ADCVD_Case_Number__c</field>
+        <field>FK_$ADCVD_Order__c.ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
-        <field>FK_$ADCVD_Order__c.ADCVD_Case_Type__c</field>
+        <field>FK_$ADCVD_Order__c.ADCVD_Case_Type_Text__c</field>
     </columns>
     <columns>
         <field>FK_$ADCVD_Order__c.ADCVD_Order_Name__c</field>
@@ -439,13 +439,13 @@
         <field>FK_$ADCVD_Order__c.Anniversary_Month__c</field>
     </columns>
     <columns>
-        <field>FK_$ADCVD_Order__c.CBP_Case_Number__c</field>
+        <field>FK_$ADCVD_Order__c.CBP_Case_Number_Text__c</field>
     </columns>
     <columns>
-        <field>FK_$ADCVD_Order__c.Commodity__c</field>
+        <field>FK_$ADCVD_Order__c.Commodity_Text__c</field>
     </columns>
     <columns>
-        <field>FK_$ADCVD_Order__c.Country__c</field>
+        <field>FK_$ADCVD_Order__c.Country_Text__c</field>
     </columns>
     <columns>
         <field>FK_$ADCVD_Order__c.Effective_Date_for_Most_Recent_SunsetFR__c</field>
@@ -475,10 +475,10 @@
         <field>FK_$ADCVD_Order__c.Petition_Filed__c</field>
     </columns>
     <columns>
-        <field>FK_$ADCVD_Order__c.Product_Short_Name__c</field>
+        <field>FK_$ADCVD_Order__c.Product_Short_Name_Text__c</field>
     </columns>
     <columns>
-        <field>FK_$ADCVD_Order__c.Product__c</field>
+        <field>FK_$ADCVD_Order__c.Product_Text__c</field>
     </columns>
     <columns>
         <field>FK_$ADCVD_Order__c.Revocation_Reason__c</field>

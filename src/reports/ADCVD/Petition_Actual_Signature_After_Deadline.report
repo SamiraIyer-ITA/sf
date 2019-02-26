@@ -35,13 +35,13 @@
         <field>Petition__c.Calculated_Initiation_Signature__c</field>
     </columns>
     <columns>
-        <field>Petition__c.ADCVD_Case_Number__c</field>
+        <field>Petition__c.ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
-        <field>Petition__c.Commodity__c</field>
+        <field>Petition__c.Commodity_Text__c</field>
     </columns>
     <columns>
-        <field>Petition__c.Country__c</field>
+        <field>Petition__c.Country_Text__c</field>
     </columns>
     <format>Summary</format>
     <groupingsDown>

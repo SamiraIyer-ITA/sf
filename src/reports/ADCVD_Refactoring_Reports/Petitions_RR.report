@@ -10,10 +10,10 @@
         <field>Petition__c.ADCVD_Case__c</field>
     </columns>
     <columns>
-        <field>Petition__c.ADCVD_Case_Type__c</field>
+        <field>Petition__c.ADCVD_Case_Type_Text__c</field>
     </columns>
     <columns>
-        <field>Petition__c.Country__c</field>
+        <field>Petition__c.Country_Text__c</field>
     </columns>
     <columns>
         <field>CUST_LAST_UPDATE</field>
