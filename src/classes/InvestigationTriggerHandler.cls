@@ -102,7 +102,7 @@
     private static void setRecordType(List<Investigation__c> newList) {
         for (Investigation__c i: newList) {
             if (petitionsInScopeMap.get(i.Petition__c) != null) {
-                String petitionType = petitionsInScopeMap.get(i.Petition__c).ADCVD_Case_Type__c;    
+                String petitionType = petitionsInScopeMap.get(i.Petition__c).ADCVD_Case_Type_Text__c;    
                 if (petitionType.contains(CVDRECORD)) {
                     i.RecordTypeId = MetadataHelper.getRecordTypeIdByName(INVESTIGATION, CVDRECORD);
                 } else if (petitionType.contains(ADRECORD)) {

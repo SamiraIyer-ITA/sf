@@ -49,11 +49,11 @@
     <compactLayouts>
         <fullName>Basic_Case_Info</fullName>
         <fields>ADCVD_Case__c</fields>
-        <fields>Product__c</fields>
-        <fields>Product_Short_Name__c</fields>
-        <fields>Country__c</fields>
-        <fields>Commodity__c</fields>
-        <fields>ADCVD_Case_Number__c</fields>
+        <fields>Product_Text__c</fields>
+        <fields>Product_Short_Name_Text__c</fields>
+        <fields>Country_Text__c</fields>
+        <fields>Commodity_Text__c</fields>
+        <fields>ADCVD_Case_Number_Text__c</fields>
         <label>Basic Case Info</label>
     </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
@@ -81,7 +81,7 @@
         <fullName>ADCVD_Case_Number__c</fullName>
         <externalId>false</externalId>
         <formula>ADCVD_Case__r.Name</formula>
-        <label>ADCVD Case Number Text Value</label>
+        <label>ADCVD Case Number Text Value Deprecated</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -102,7 +102,7 @@
         <fullName>ADCVD_Case_Type__c</fullName>
         <externalId>false</externalId>
         <formula>TEXT(ADCVD_Case__r.ADCVD_Case_Type__c)</formula>
-        <label>ADCVD Case Type</label>
+        <label>ADCVD Case Type Deprecated</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -156,7 +156,7 @@
         <fullName>CBP_Case_Number__c</fullName>
         <externalId>false</externalId>
         <formula>ADCVD_Case__r.CBP_Case_Number__c</formula>
-        <label>CBP Case Number</label>
+        <label>CBP Case Number Deprecated</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -185,7 +185,7 @@
         <fullName>Commodity__c</fullName>
         <externalId>false</externalId>
         <formula>TEXT(ADCVD_Case__r.Commodity__c)</formula>
-        <label>Commodity</label>
+        <label>Commodity Deprecated</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -206,7 +206,7 @@
         <fullName>Country__c</fullName>
         <externalId>false</externalId>
         <formula>TEXT(ADCVD_Case__r.Country__c)</formula>
-        <label>Country</label>
+        <label>Country Deprecated</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -350,7 +350,7 @@
         <externalId>false</externalId>
         <formula>ADCVD_Case__r.Product_Short_Name__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Product Short Name</label>
+        <label>Product Short Name Deprecated</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -379,7 +379,7 @@
         <fullName>Product__c</fullName>
         <externalId>false</externalId>
         <formula>ADCVD_Case__r.Product__c</formula>
-        <label>Product</label>
+        <label>Product Deprecated</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -501,11 +501,11 @@
         <fullName>All</fullName>
         <columns>NAME</columns>
         <columns>Investigation__c</columns>
-        <columns>ADCVD_Case_Number__c</columns>
-        <columns>Country__c</columns>
-        <columns>ADCVD_Case_Type__c</columns>
-        <columns>Product__c</columns>
-        <columns>Commodity__c</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Commodity_Text__c</columns>
         <columns>Suspension_Date__c</columns>
         <columns>Termination_Date__c</columns>
         <columns>LAST_UPDATE</columns>

@@ -183,10 +183,6 @@ public without sharing class PetitionTriggerHandler {
     @TestVisible private static Map<String,Constant__mdt> setPetitionConstants() {
         if(petitionConstants == null || petitionConstants.size() < 1) {
             Map<String,Constant__mdt> returnMap = new Map<String,Constant__mdt>();
-            /*List<Constant__mdt> tempList = [SELECT QualifiedAPIName, Used_with_Field_Named__c, Number_Value__c, 
-                                                    ADCVD_Objects__r.Object_API_Name__c, ADCVD_Objects__r.Record_Type_Name__c 
-                                            FROM Constant__mdt 
-                                            WHERE Petition_Calculation_Offset__c =: true];*/
             for(Constant__mdt ic : [SELECT QualifiedAPIName, Used_with_Field_Named__c, Number_Value__c, String_Value__c, 
                                                     ADCVD_Objects__r.Object_API_Name__c, ADCVD_Objects__r.Record_Type_Name__c,
                                                     Litigation_Calculation_Offset__c 

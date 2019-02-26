@@ -42,6 +42,15 @@
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Basic_Case_Info</fullName>
+        <fields>ADCVD_Case__c</fields>
+        <fields>Product_Text__c</fields>
+        <fields>Product_Short_Name_Text__c</fields>
+        <fields>Country_Text__c</fields>
+        <fields>Commodity_Text__c</fields>
+        <label>Basic Case Info</label>
+    </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
@@ -499,7 +508,7 @@
     <fields>
         <fullName>Country__c</fullName>
         <externalId>false</externalId>
-        <label>Country</label>
+        <label>Country Deprecated</label>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -793,7 +802,7 @@
         <columns>Investigation__c</columns>
         <columns>ADCVD_Order__c</columns>
         <columns>Product_Text__c</columns>
-        <columns>Country__c</columns>
+        <columns>Country_Text__c</columns>
         <columns>Suspension_Agreement__c</columns>
         <columns>Segment__c</columns>
         <filterScope>Everything</filterScope>

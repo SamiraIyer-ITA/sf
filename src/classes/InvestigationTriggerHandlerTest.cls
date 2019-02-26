@@ -521,7 +521,7 @@ public class InvestigationTriggerHandlerTest {
     Test.startTest();
 
     //NAFTA Country Hold Time
-    adP.Country__c = 'Mexico';
+    adP.Country_Text__c = 'Mexico';
     update adP;
 
     Federal_Register__c adPrelimItcFR = setFR(iAD.Id, 'ITC Preliminary', true);
@@ -539,7 +539,7 @@ public class InvestigationTriggerHandlerTest {
     Test.startTest();
 
     //NAFTA Country Hold Time
-    adP.Country__c = 'Mexico';
+    adP.Country_Text__c = 'Mexico';
     update adP;
 
     Federal_Register__c adFinalItcFR =  setFR(iAD.Id, 'ITC Final', true);
@@ -557,7 +557,7 @@ public class InvestigationTriggerHandlerTest {
     Test.startTest();
 
     //NAFTA Country Hold Time
-    adP.Country__c = 'Mexico';
+    adP.Country_Text__c = 'Mexico';
     update adP;
 
     iAD.Actual_Final_Signature__c = petitionDate.addDays(56);
@@ -582,7 +582,7 @@ public class InvestigationTriggerHandlerTest {
     Test.startTest();
 
     //NAFTA Country Hold Time
-    adP.Country__c = 'Mexico';
+    adP.Country_Text__c = 'Mexico';
     update adP;
 
     //Data setup

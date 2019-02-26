@@ -51,8 +51,8 @@
         <fields>ADCVD_Case__c</fields>
         <fields>Office__c</fields>
         <fields>RecordTypeId</fields>
-        <fields>Product_Short_Name__c</fields>
-        <fields>Country__c</fields>
+        <fields>Product_Short_Name_Text__c</fields>
+        <fields>Country_Text__c</fields>
         <fields>Period_Covered_End_Date__c</fields>
         <fields>Product_Description__c</fields>
         <label>Basic Case Info</label>
@@ -483,7 +483,7 @@
         <fullName>ADCVD_Case_Number__c</fullName>
         <externalId>false</externalId>
         <formula>(ADCVD_Case__r.ADCVD_Case_Number__c)</formula>
-        <label>ADCVD Case Number Text Value</label>
+        <label>ADCVD Case Number Text Value Deprecated</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -506,7 +506,7 @@
         <fullName>ADCVD_Case_Type__c</fullName>
         <externalId>false</externalId>
         <formula>TEXT(ADCVD_Case__r.ADCVD_Case_Type__c)</formula>
-        <label>ADCVD Case Type</label>
+        <label>ADCVD Case Type Deprecated</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -906,7 +906,7 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
         <fullName>CBP_Case_Number__c</fullName>
         <externalId>false</externalId>
         <formula>IF(NOT(ISNULL(ADCVD_Order__c)), ADCVD_Order__r.CBP_Case_Number__c , Suspension_Agreement__r.CBP_Case_Number__c )</formula>
-        <label>CBP Case Number</label>
+        <label>CBP Case Number Deprecated</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -1030,7 +1030,7 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
         <fullName>Commodity__c</fullName>
         <externalId>false</externalId>
         <formula>TEXT(ADCVD_Case__r.Commodity__c)</formula>
-        <label>Commodity</label>
+        <label>Commodity Deprecated</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -1089,7 +1089,7 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
         <fullName>Country__c</fullName>
         <externalId>false</externalId>
         <formula>TEXT(ADCVD_Case__r.Country__c)</formula>
-        <label>Country</label>
+        <label>Country Deprecated</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -2055,7 +2055,7 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
         <externalId>false</externalId>
         <formula>(ADCVD_Case__r.Product_Short_Name__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Product Short Name</label>
+        <label>Product Short Name Deprecated</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -2086,7 +2086,7 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
         <fullName>Product__c</fullName>
         <externalId>false</externalId>
         <formula>(ADCVD_Case__r.Product__c)</formula>
-        <label>Product</label>
+        <label>Product Deprecated</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -2229,7 +2229,7 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
     <fields>
         <fullName>Segment_Name__c</fullName>
         <externalId>false</externalId>
-        <formula>ADCVD_Case_Number__c +&apos;--&apos;+ Name</formula>
+        <formula>ADCVD_Case_Number_Text__c +&apos;--&apos;+ Name</formula>
         <label>Segment Name</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -2704,11 +2704,11 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
-        <columns>ADCVD_Case_Number__c</columns>
-        <columns>Country__c</columns>
-        <columns>ADCVD_Case_Type__c</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
         <columns>RECORDTYPE</columns>
-        <columns>Product__c</columns>
+        <columns>Product_Text__c</columns>
         <columns>Status__c</columns>
         <columns>Period_Covered_End_Date__c</columns>
         <columns>Product_Description__c</columns>
@@ -2718,11 +2718,11 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
     <listViews>
         <fullName>All_Active_Segments</fullName>
         <columns>NAME</columns>
-        <columns>ADCVD_Case_Number__c</columns>
-        <columns>Country__c</columns>
-        <columns>ADCVD_Case_Type__c</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
         <columns>RECORDTYPE</columns>
-        <columns>Product__c</columns>
+        <columns>Product_Text__c</columns>
         <columns>Calculated_Preliminary_Signature__c</columns>
         <columns>Next_Major_Deadline__c</columns>
         <columns>Next_Due_to_DAS_Deadline__c</columns>
@@ -2743,12 +2743,12 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
     <listViews>
         <fullName>All_Closed_Segments</fullName>
         <columns>NAME</columns>
-        <columns>ADCVD_Case_Number__c</columns>
-        <columns>Country__c</columns>
-        <columns>ADCVD_Case_Type__c</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
         <columns>RECORDTYPE</columns>
-        <columns>Product__c</columns>
-        <columns>Commodity__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Commodity_Text__c</columns>
         <columns>Status__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
@@ -2761,12 +2761,12 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
     <listViews>
         <fullName>All_Open_Segments</fullName>
         <columns>NAME</columns>
-        <columns>ADCVD_Case_Number__c</columns>
-        <columns>Country__c</columns>
-        <columns>ADCVD_Case_Type__c</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
         <columns>RECORDTYPE</columns>
-        <columns>Product__c</columns>
-        <columns>Commodity__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Commodity_Text__c</columns>
         <columns>Status__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
@@ -2779,12 +2779,12 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
     <listViews>
         <fullName>All_Segment_in_Litigation_Hold</fullName>
         <columns>NAME</columns>
-        <columns>ADCVD_Case_Number__c</columns>
-        <columns>Country__c</columns>
-        <columns>ADCVD_Case_Type__c</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
         <columns>RECORDTYPE</columns>
-        <columns>Product__c</columns>
-        <columns>Commodity__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Commodity_Text__c</columns>
         <columns>Status__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
@@ -2797,12 +2797,12 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
     <listViews>
         <fullName>All_Segments_in_Litigation</fullName>
         <columns>NAME</columns>
-        <columns>ADCVD_Case_Number__c</columns>
-        <columns>Country__c</columns>
-        <columns>ADCVD_Case_Type__c</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
         <columns>RECORDTYPE</columns>
-        <columns>Product__c</columns>
-        <columns>Commodity__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Commodity_Text__c</columns>
         <columns>Status__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
@@ -2815,10 +2815,10 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
     <listViews>
         <fullName>NSRs</fullName>
         <columns>NAME</columns>
-        <columns>ADCVD_Case_Number__c</columns>
-        <columns>Country__c</columns>
-        <columns>ADCVD_Case_Type__c</columns>
-        <columns>Product__c</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>Product_Text__c</columns>
         <columns>Status__c</columns>
         <columns>Calculated_Final_Signature__c</columns>
         <columns>Actual_Final_Signature__c</columns>
@@ -2860,10 +2860,10 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
     <listViews>
         <fullName>Segments_without_outcomes</fullName>
         <columns>NAME</columns>
-        <columns>ADCVD_Case_Number__c</columns>
-        <columns>Country__c</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
         <columns>RECORDTYPE</columns>
-        <columns>Product__c</columns>
+        <columns>Product_Text__c</columns>
         <columns>Period_Covered_End_Date__c</columns>
         <columns>Segment_Outcome__c</columns>
         <filterScope>Everything</filterScope>
@@ -2886,11 +2886,11 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
     <listViews>
         <fullName>Sunset_Reviews</fullName>
         <columns>NAME</columns>
-        <columns>ADCVD_Case_Number__c</columns>
-        <columns>Country__c</columns>
-        <columns>ADCVD_Case_Type__c</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
         <columns>RECORDTYPE</columns>
-        <columns>Product__c</columns>
+        <columns>Product_Text__c</columns>
         <columns>Status__c</columns>
         <columns>Period_Covered_End_Date__c</columns>
         <columns>Product_Description__c</columns>
@@ -2910,11 +2910,11 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
     <listViews>
         <fullName>Suspension_Agreement_Segments</fullName>
         <columns>NAME</columns>
-        <columns>ADCVD_Case_Number__c</columns>
-        <columns>Country__c</columns>
-        <columns>ADCVD_Case_Type__c</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
         <columns>RECORDTYPE</columns>
-        <columns>Product__c</columns>
+        <columns>Product_Text__c</columns>
         <columns>Status__c</columns>
         <columns>Period_Covered_End_Date__c</columns>
         <columns>Product_Description__c</columns>
@@ -13363,42 +13363,42 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
         </picklistValues>
     </recordTypes>
     <searchLayouts>
-        <customTabListAdditionalFields>ADCVD_Case_Number__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Country__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>ADCVD_Case_Type__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Product__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ADCVD_Case_Number_Text__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Country_Text__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ADCVD_Case_Type_Text__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Product_Text__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
         <customTabListAdditionalFields>Period_Covered_Start_Date__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Period_Covered_End_Date__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Product_Description__c</customTabListAdditionalFields>
-        <lookupDialogsAdditionalFields>ADCVD_Case_Number__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Country__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>ADCVD_Case_Type__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Product__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ADCVD_Case_Number_Text__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Country_Text__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ADCVD_Case_Type_Text__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Product_Text__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Period_Covered_Start_Date__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Period_Covered_End_Date__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Product_Description__c</lookupDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>ADCVD_Case_Number__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Country__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>ADCVD_Case_Type__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Product__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ADCVD_Case_Number_Text__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Country_Text__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ADCVD_Case_Type_Text__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Product_Text__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>RECORDTYPE</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Period_Covered_Start_Date__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Period_Covered_End_Date__c</lookupPhoneDialogsAdditionalFields>
-        <searchFilterFields>ADCVD_Case_Number__c</searchFilterFields>
-        <searchFilterFields>Country__c</searchFilterFields>
-        <searchFilterFields>ADCVD_Case_Type__c</searchFilterFields>
-        <searchFilterFields>Product__c</searchFilterFields>
+        <searchFilterFields>ADCVD_Case_Number_Text__c</searchFilterFields>
+        <searchFilterFields>Country_Text__c</searchFilterFields>
+        <searchFilterFields>ADCVD_Case_Type_Text__c</searchFilterFields>
+        <searchFilterFields>Product_Text__c</searchFilterFields>
         <searchFilterFields>RECORDTYPE</searchFilterFields>
         <searchFilterFields>Period_Covered_Start_Date__c</searchFilterFields>
         <searchFilterFields>Period_Covered_End_Date__c</searchFilterFields>
         <searchFilterFields>Product_Description__c</searchFilterFields>
         <searchFilterFields>Segment_Name__c</searchFilterFields>
-        <searchResultsAdditionalFields>ADCVD_Case_Number__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Country__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ADCVD_Case_Type__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Product__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADCVD_Case_Number_Text__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Country_Text__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADCVD_Case_Type_Text__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Product_Text__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Period_Covered_Start_Date__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Period_Covered_End_Date__c</searchResultsAdditionalFields>
