@@ -65,7 +65,7 @@ public without sharing class SegmentTriggerHandler {
 		if (isAfter && isUpdate) {
 			recalculateNewShipperReviews(newMap);
 			recalculateOrders(newMap, oldMap);
-			if (!Test.isRunningTest()) {new ChatterPostService().getChatterPosts(oldMap, newMap, 'Segment__c');}
+			new ChatterPostService().getChatterPosts(oldMap, newMap, 'Segment__c');
 		}
 	}
 
