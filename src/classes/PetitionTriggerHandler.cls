@@ -42,7 +42,7 @@ public without sharing class PetitionTriggerHandler {
             newList = new LockedRecordHandler().removeLockedRecords(newList);
             initialize(newList, newMap);
             alertsOnDates(newList);
-            newList = setCaseValuesFromParent(newList);
+            setCaseValues(newList);
             calculatePetitionDates(newList);
             calculatePetitionStatuses(newList);
         }
@@ -112,20 +112,11 @@ public without sharing class PetitionTriggerHandler {
         }
     }
 
-    @TestVisible private static List<Petition__c> setCaseValuesFromParent (List<Petition__c> newList) {
-        Map<Id,ADCVD_Case__c> parentCasesMap = new Map<Id,ADCVD_Case__c>();
+    @TestVisible private static void setCaseValues (List<Petition__c> newList) {
         ParentValuesService pvs = new ParentValuesService();
         for (Petition__c p : newList) {
-            parentCasesMap.put(p.ADCVD_Case__c, new ADCVD_Case__c());
+            p = (Petition__c)pvs.setCaseValuesFromParent(caseMapper.getMap(true).get(p.ADCVD_Case__c), p);
         }
-        for (ADCVD_Case__c ac : [SELECT Id, ADCVD_Case_Number__c, ADCVD_Case_Type__c, CBP_Case_Number__c, Commodity__c, Country__c, Product__c, Product_Short_Name__c
-                                    FROM ADCVD_Case__c WHERE Id IN: parentCasesMap.keySet()]) {
-            parentCasesMap.put(ac.Id, ac);
-        }
-        for (Petition__c p : newList) {
-            p = (Petition__c)pvs.setCaseValuesFromParent(parentCasesMap.get(p.ADCVD_Case__c), p);
-        }
-        return newList;
     }
 
     @TestVisible private static void addNewPetToMappers(Map<Id,Petition__c> newMap) {
