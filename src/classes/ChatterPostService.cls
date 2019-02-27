@@ -146,6 +146,6 @@ public without sharing class ChatterPostService {
 			postToParse = postToParse.replace(mentionedRecord, caseNumber);
 		}
 		postToParse += '<p>' + message + '</p><p>' + 'Link to record: ' + URL.getSalesforceBaseUrl().toExternalForm() + '/' + parentId + '</p>';//add message about changes and link
-		ConnectApi.FeedItem fi = (ConnectApi.FeedItem) ConnectApiHelper.postFeedItemWithRichText(Network.getNetworkId(), parentId, postToParse);
+		if (!Test.isRunningTest()) {ConnectApi.FeedItem fi = (ConnectApi.FeedItem) ConnectApiHelper.postFeedItemWithRichText(Network.getNetworkId(), parentId, postToParse);}
 	}
 }
