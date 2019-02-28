@@ -7,33 +7,33 @@
         <field>CUST_NAME</field>
     </columns>
     <columns>
-        <field>ADCVD_Case__c.ADCVD_Case_Number__c</field>
+        <field>ADCVD_Case__c.ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
-        <field>ADCVD_Case__c.ADCVD_Case_Type__c</field>
+        <field>ADCVD_Case__c.ADCVD_Case_Type_Text__c</field>
     </columns>
     <columns>
-        <field>ADCVD_Case__c.CBP_Case_Number__c</field>
+        <field>ADCVD_Case__c.CBP_Case_Number_Text__c</field>
     </columns>
     <columns>
-        <field>ADCVD_Case__c.Commodity__c</field>
-    </columns>
-    <columns>
-        <field>ADCVD_Case__c.Country__c</field>
+        <field>ADCVD_Case__c.Commodity_Text__c</field>
     </columns>
     <columns>
         <field>ADCVD_Case__c.Country_Text__c</field>
     </columns>
     <columns>
-        <field>ADCVD_Case__c.Product__c</field>
+        <field>ADCVD_Case__c.Country_Text__c</field>
     </columns>
     <columns>
-        <field>ADCVD_Case__c.Product_Short_Name__c</field>
+        <field>ADCVD_Case__c.Product_Text__c</field>
+    </columns>
+    <columns>
+        <field>ADCVD_Case__c.Product_Short_Name_Text__c</field>
     </columns>
     <description>ADCVD Cases - Missing Values in Commodity</description>
     <filter>
         <criteriaItems>
-            <column>ADCVD_Case__c.Commodity__c</column>
+            <column>ADCVD_Case__c.Commodity_Text__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value></value>
