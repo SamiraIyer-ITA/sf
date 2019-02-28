@@ -240,7 +240,8 @@
         <members>AD_CVD_Office_V/Office_V_Staffing</members>
         <members>AD_CVD_Office_V/Office_V_Staffing_Segments_and_Deadline</members>
         <members>AD_CVD_Office_V/Office_V_orders_by_Anniv_Month</members>
-        <members>AD_CVD_Office_V/Orders_Office_V</members>
+	<members>AD_CVD_Office_V/Orders_Office_V</members>
+	<members>AD_CVD_Office_VI/Litigation_Office_VI_gIX</members>
         <members>AD_CVD_Office_VI/Investigations_Alignments3</members>
         <members>AD_CVD_Office_VI/Investigations_Alignments31</members>
         <members>AD_CVD_Office_VI/Office_VI_Order_List</members>
