@@ -88,19 +88,19 @@
         <field>Staffing_Assignment__c$ADCVD_Case__c.Id</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$ADCVD_Case__c.ADCVD_Case_Number_Text__c</field>
+        <field>Staffing_Assignment__c$ADCVD_Case__c.ADCVD_Case_Number__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$ADCVD_Case__c.ADCVD_Case_Type_Text__c</field>
+        <field>Staffing_Assignment__c$ADCVD_Case__c.ADCVD_Case_Type__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$ADCVD_Case__c.CBP_Case_Number_Text__c</field>
+        <field>Staffing_Assignment__c$ADCVD_Case__c.CBP_Case_Number__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$ADCVD_Case__c.Commodity_Text__c</field>
+        <field>Staffing_Assignment__c$ADCVD_Case__c.Commodity__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$ADCVD_Case__c.Country_Text__c</field>
+        <field>Staffing_Assignment__c$ADCVD_Case__c.Country__c</field>
     </columns>
     <columns>
         <field>Staffing_Assignment__c$ADCVD_Case__c.Country_Text__c</field>
@@ -124,10 +124,10 @@
         <field>Staffing_Assignment__c$ADCVD_Case__c.Owner</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$ADCVD_Case__c.Product_Text__c</field>
+        <field>Staffing_Assignment__c$ADCVD_Case__c.Product__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$ADCVD_Case__c.Product_Short_Name_Text__c</field>
+        <field>Staffing_Assignment__c$ADCVD_Case__c.Product_Short_Name__c</field>
     </columns>
     <columns>
         <field>Staffing_Assignment__c$ADCVD_Case__c.Locked__c</field>
