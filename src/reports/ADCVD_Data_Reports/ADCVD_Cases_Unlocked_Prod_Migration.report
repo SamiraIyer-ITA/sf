@@ -4,13 +4,13 @@
         <field>CUST_NAME</field>
     </columns>
     <columns>
-        <field>ADCVD_Case__c.ADCVD_Case_Type_Text__c</field>
+        <field>ADCVD_Case__c.ADCVD_Case_Type__c</field>
     </columns>
     <columns>
-        <field>ADCVD_Case__c.Country_Text__c</field>
+        <field>ADCVD_Case__c.Country__c</field>
     </columns>
     <columns>
-        <field>ADCVD_Case__c.Product_Text__c</field>
+        <field>ADCVD_Case__c.Product__c</field>
     </columns>
     <columns>
         <field>ADCVD_Case__c.Locked__c</field>

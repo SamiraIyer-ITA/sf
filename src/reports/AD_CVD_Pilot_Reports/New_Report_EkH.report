@@ -7,17 +7,17 @@
         <field>ADCVD_Case__c.Investigations__r$Name</field>
     </columns>
     <columns>
-        <field>ADCVD_Case__c$Product_Text__c</field>
+        <field>ADCVD_Case__c$Product__c</field>
     </columns>
     <columns>
-        <field>ADCVD_Case__c$Country_Text__c</field>
+        <field>ADCVD_Case__c$Country__c</field>
     </columns>
     <columns>
-        <field>ADCVD_Case__c$CBP_Case_Number_Text__c</field>
+        <field>ADCVD_Case__c$CBP_Case_Number__c</field>
     </columns>
     <filter>
         <criteriaItems>
-            <column>ADCVD_Case__c$CBP_Case_Number_Text__c</column>
+            <column>ADCVD_Case__c$CBP_Case_Number__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value></value>
