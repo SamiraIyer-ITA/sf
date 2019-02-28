@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>Permission set equivalent to an &quot;ADCVD Standard Suspension Agreement&quot; Profile.</description>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Suspension_Agreement__c.ADCVD_Case_Number_Text__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
+    <description>ADCVD App: Suspension Agreement - Read Only</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Suspension_Agreement__c.ADCVD_Case_Number__c</field>
@@ -27,12 +22,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Suspension_Agreement__c.Additional_Notes__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Suspension_Agreement__c.Anniversary_Month__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -72,19 +67,19 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Suspension_Agreement__c.Effective_Date_of_Termination__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Suspension_Agreement__c.Enforcement_Concerns__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Suspension_Agreement__c.Investigation__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -94,20 +89,20 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Suspension_Agreement__c.Lotus_Notes_History_Data__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Suspension_Agreement__c.Next_Sunset_Initiation_Date_UI__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Suspension_Agreement__c.Next_Sunset_Initiation_Date__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Suspension_Agreement__c.Notations_Amendments__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -119,7 +114,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Suspension_Agreement__c.Product_Short_Name_Text_Value__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -134,7 +129,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Suspension_Agreement__c.Product_Text_Value__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -152,12 +147,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Suspension_Agreement__c.Suspension_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Suspension_Agreement__c.Termination_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -172,7 +167,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
-    <label>ADCVD App: Suspension Agreement - Create/Edit</label>
+    <label>ADCVD App: Suspension Agreement - Read Only</label>
     <objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
@@ -192,9 +187,9 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>true</allowCreate>
+        <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
-        <allowEdit>true</allowEdit>
+        <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Suspension_Agreement__c</object>
