@@ -199,8 +199,6 @@
         <members>ADCVD/Segments_by_Product2</members>
         <members>ADCVD/Suspension_Agreement_by_Product</members>
         <members>ADCVD/Suspension_Agreements_by_Product</members>
-        <members>ADCVD_Data_Reports/ADCVD_Cases_Missing_Values</members>
-        <members>ADCVD_Data_Reports/ADCVD_Cases_Unlocked_Prod_Migration</members>
         <members>ADCVD_Data_Reports/ADCVD_Order_Status_Report</members>
         <members>ADCVD_Data_Reports/All_Segments</members>
         <members>ADCVD_Data_Reports/Investigations_Created_Manually</members>
@@ -318,11 +316,9 @@
         <members>AD_CVD_Pilot_Reports/Investigations_Alignments2</members>
         <members>AD_CVD_Pilot_Reports/Jennifer_Order_Count_Check</members>
         <members>AD_CVD_Pilot_Reports/Jennifer_s_Order_FR_Migration_Report</members>
-        <members>AD_CVD_Pilot_Reports/New_ADCVD_Cases_Report_rPh</members>
         <members>AD_CVD_Pilot_Reports/New_ADCVD_Orders_with_HTS_Numbers_Report_aR9</members>
         <members>AD_CVD_Pilot_Reports/New_Investigations_Report_6z0</members>
         <members>AD_CVD_Pilot_Reports/New_Report_0Fo</members>
-        <members>AD_CVD_Pilot_Reports/New_Report_EkH</members>
         <members>AD_CVD_Pilot_Reports/New_Report_L2E</members>
         <members>AD_CVD_Pilot_Reports/New_Report_dDo</members>
         <members>AD_CVD_Pilot_Reports/New_Segments_Federal_Registers_Report_2kS</members>
