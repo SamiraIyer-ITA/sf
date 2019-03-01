@@ -7,16 +7,16 @@
         <field>CHILD_NAME</field>
     </columns>
     <columns>
-        <field>Investigation__c.ADCVD_Case_Number_Text__c</field>
+        <field>Investigation__c.ADCVD_Case_Number__c</field>
     </columns>
     <columns>
-        <field>Investigation__c.Product_Text__c</field>
+        <field>Investigation__c.Product__c</field>
     </columns>
     <columns>
-        <field>Investigation__c.Country_Text__c</field>
+        <field>Investigation__c.Country__c</field>
     </columns>
     <columns>
-        <field>Investigation__c.ADCVD_Case_Type_Text__c</field>
+        <field>Investigation__c.ADCVD_Case_Type__c</field>
     </columns>
     <columns>
         <field>Investigation__c.Investigation_Outcome__c</field>
@@ -60,7 +60,7 @@
         <name>co</name>
         <value>1</value>
     </params>
-    <reportType>CustomEntity$Investigation__c@Investigation__c.ADCVD_Case__c</reportType>
+    <reportType>CustomEntityCustomEntity$Petition__c$Investigation__c@Investigation__c.ADCVD_Case__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
     <showGrandTotal>true</showGrandTotal>

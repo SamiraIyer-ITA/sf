@@ -173,7 +173,6 @@
         <members>ADCVD/Investigation_Counts_of_Investigations</members>
         <members>ADCVD/Investigation_Investigations_by_Product</members>
         <members>ADCVD/Investigations_Needing_Outcomes</members>
-        <members>ADCVD/Investigations_by_Commodity</members>
         <members>ADCVD/Investigations_by_Country</members>
         <members>ADCVD/Investigations_by_Product</members>
         <members>ADCVD/Not_Yet_Final_for_All_Segments</members>
@@ -232,14 +231,10 @@
         <members>AD_CVD_DAS_Operations_Office/Active_ADCVD_Orders_by_Country1113</members>
         <members>AD_CVD_DAS_Operations_Office/Active_ADCVD_Orders_by_Product</members>
         <members>AD_CVD_DAS_Operations_Office/All_Segment_Determinations</members>
-        <members>AD_CVD_DAS_Operations_Office/Determinations_from_01_20_2017</members>
         <members>AD_CVD_DAS_Operations_Office/Initiations_Current_FY_DAS</members>
-        <members>AD_CVD_DAS_Operations_Office/Inv_Determinations</members>
-        <members>AD_CVD_DAS_Operations_Office/Investigation_Determinations</members>
         <members>AD_CVD_DAS_Operations_Office/Investigations_Expired_Holds</members>
         <members>AD_CVD_DAS_Operations_Office/Investigations_Status_Report_by_Office</members>
         <members>AD_CVD_DAS_Operations_Office/Investigations_Status_Report_by_Office11</members>
-        <members>AD_CVD_DAS_Operations_Office/Monthly_Investigation_Metrics11</members>
         <members>AD_CVD_DAS_Operations_Office/Office_VII_Order_by_Anniv_Month1</members>
         <members>AD_CVD_DAS_Operations_Office/Ongoing_Investigations_by_Country</members>
         <members>AD_CVD_DAS_Operations_Office/Ongoing_Investigations_by_Status</members>
@@ -267,8 +262,6 @@
         <members>AD_CVD_Office_III/OfficeIII_Prelim_Segment_Metrics</members>
         <members>AD_CVD_Office_III/OfficeIII_RegStatutory_Segment_Metrics</members>
         <members>AD_CVD_Office_III/Office_III_Calculated_Investigations</members>
-        <members>AD_CVD_Office_III/Office_III_Final_Investigation_Metrics</members>
-        <members>AD_CVD_Office_III/Office_III_Investigation_Metrics</members>
         <members>AD_CVD_Office_III/Office_III_Orders_by_Anniv_Month</members>
         <members>AD_CVD_Office_III/Orders_Office_III</members>
         <members>AD_CVD_Office_III/Petitions_Investigations_Office_III</members>
