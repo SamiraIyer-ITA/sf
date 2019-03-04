@@ -1,4 +1,3 @@
-src/reportTypes/Investigations_and_Segments_with_Staffing.reportType
 src/reports/Data_Migration/ACR_Case_Info.report
 src/reports/Data_Migration/AR_Case_Info.report
 src/reports/Data_Migration/SI_Case_Info1.report
