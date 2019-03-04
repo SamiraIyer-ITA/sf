@@ -13,7 +13,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Type_Text__c</field>
+            <field>ADCVD_Case_Type__c</field>
             <table>Harmonized_Tariff_Schedule__c</table>
         </columns>
         <columns>
@@ -28,12 +28,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Commodity_Text__c</field>
+            <field>Commodity__c</field>
             <table>Harmonized_Tariff_Schedule__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Country_Text__c</field>
+            <field>Country__c</field>
             <table>Harmonized_Tariff_Schedule__c</table>
         </columns>
         <columns>
@@ -88,12 +88,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Product_Text__c</field>
+            <field>Product__c</field>
             <table>Harmonized_Tariff_Schedule__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Product_Short_Name_Text__c</field>
+            <field>Product_Short_Name__c</field>
             <table>Harmonized_Tariff_Schedule__c</table>
         </columns>
         <columns>
@@ -218,12 +218,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Order__c.ADCVD_Case_Number_Text__c</field>
+            <field>ADCVD_Order__c.ADCVD_Case_Number__c</field>
             <table>Harmonized_Tariff_Schedule__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Order__c.ADCVD_Case_Type_Text__c</field>
+            <field>ADCVD_Order__c.ADCVD_Case_Type__c</field>
             <table>Harmonized_Tariff_Schedule__c</table>
         </columns>
         <columns>
@@ -253,17 +253,17 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Order__c.CBP_Case_Number_Text__c</field>
+            <field>ADCVD_Order__c.CBP_Case_Number__c</field>
             <table>Harmonized_Tariff_Schedule__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Order__c.Commodity_Text__c</field>
+            <field>ADCVD_Order__c.Commodity__c</field>
             <table>Harmonized_Tariff_Schedule__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Order__c.Country_Text__c</field>
+            <field>ADCVD_Order__c.Country__c</field>
             <table>Harmonized_Tariff_Schedule__c</table>
         </columns>
         <columns>
@@ -343,12 +343,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Order__c.Product_Text__c</field>
+            <field>ADCVD_Order__c.Product__c</field>
             <table>Harmonized_Tariff_Schedule__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Order__c.Product_Short_Name_Text__c</field>
+            <field>ADCVD_Order__c.Product_Short_Name__c</field>
             <table>Harmonized_Tariff_Schedule__c</table>
         </columns>
         <columns>
@@ -398,12 +398,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Suspension_Agreement__c.ADCVD_Case_Number_Text__c</field>
+            <field>Suspension_Agreement__c.ADCVD_Case_Number__c</field>
             <table>Harmonized_Tariff_Schedule__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Suspension_Agreement__c.ADCVD_Case_Type_Text__c</field>
+            <field>Suspension_Agreement__c.ADCVD_Case_Type__c</field>
             <table>Harmonized_Tariff_Schedule__c</table>
         </columns>
         <columns>
@@ -423,17 +423,17 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Suspension_Agreement__c.CBP_Case_Number_Text__c</field>
+            <field>Suspension_Agreement__c.CBP_Case_Number__c</field>
             <table>Harmonized_Tariff_Schedule__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Suspension_Agreement__c.Commodity_Text__c</field>
+            <field>Suspension_Agreement__c.Commodity__c</field>
             <table>Harmonized_Tariff_Schedule__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Suspension_Agreement__c.Country_Text__c</field>
+            <field>Suspension_Agreement__c.Country__c</field>
             <table>Harmonized_Tariff_Schedule__c</table>
         </columns>
         <columns>
@@ -498,12 +498,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Suspension_Agreement__c.Product_Text__c</field>
+            <field>Suspension_Agreement__c.Product__c</field>
             <table>Harmonized_Tariff_Schedule__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Suspension_Agreement__c.Product_Short_Name_Text__c</field>
+            <field>Suspension_Agreement__c.Product_Short_Name__c</field>
             <table>Harmonized_Tariff_Schedule__c</table>
         </columns>
         <columns>
@@ -564,6 +564,101 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Suspension_Agreement__c.ADCVD_Case__c.Id</field>
+            <table>Harmonized_Tariff_Schedule__c</table>
+        </columns>
+                <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case_Type_Text__c</field>
+            <table>Harmonized_Tariff_Schedule__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Commodity_Text__c</field>
+            <table>Harmonized_Tariff_Schedule__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Country_Text__c</field>
+            <table>Harmonized_Tariff_Schedule__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product_Text__c</field>
+            <table>Harmonized_Tariff_Schedule__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product_Short_Name_Text__c</field>
+            <table>Harmonized_Tariff_Schedule__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Order__c.ADCVD_Case_Number_Text__c</field>
+            <table>Harmonized_Tariff_Schedule__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Order__c.ADCVD_Case_Type_Text__c</field>
+            <table>Harmonized_Tariff_Schedule__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Order__c.CBP_Case_Number_Text__c</field>
+            <table>Harmonized_Tariff_Schedule__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Order__c.Commodity_Text__c</field>
+            <table>Harmonized_Tariff_Schedule__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Order__c.Country_Text__c</field>
+            <table>Harmonized_Tariff_Schedule__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Order__c.Product_Text__c</field>
+            <table>Harmonized_Tariff_Schedule__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Order__c.Product_Short_Name_Text__c</field>
+            <table>Harmonized_Tariff_Schedule__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Suspension_Agreement__c.ADCVD_Case_Number_Text__c</field>
+            <table>Harmonized_Tariff_Schedule__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Suspension_Agreement__c.ADCVD_Case_Type_Text__c</field>
+            <table>Harmonized_Tariff_Schedule__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Suspension_Agreement__c.CBP_Case_Number_Text__c</field>
+            <table>Harmonized_Tariff_Schedule__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Suspension_Agreement__c.Commodity_Text__c</field>
+            <table>Harmonized_Tariff_Schedule__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Suspension_Agreement__c.Country_Text__c</field>
+            <table>Harmonized_Tariff_Schedule__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Suspension_Agreement__c.Product_Text__c</field>
+            <table>Harmonized_Tariff_Schedule__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Suspension_Agreement__c.Product_Short_Name_Text__c</field>
             <table>Harmonized_Tariff_Schedule__c</table>
         </columns>
         <masterLabel>Harmonized Tariff Schedules</masterLabel>

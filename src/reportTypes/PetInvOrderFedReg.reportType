@@ -60,27 +60,27 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Number_Text__c</field>
+            <field>ADCVD_Case_Number__c</field>
             <table>Petition__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Type_Text__c</field>
+            <field>ADCVD_Case_Type__c</field>
             <table>Petition__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Product_Text__c</field>
+            <field>Product__c</field>
             <table>Petition__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Country_Text__c</field>
+            <field>Country__c</field>
             <table>Petition__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Commodity_Text__c</field>
+            <field>Commodity__c</field>
             <table>Petition__c</table>
         </columns>
         <columns>
@@ -166,6 +166,36 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Office__c</field>
+            <table>Petition__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product_Short_Name__c</field>
+            <table>Petition__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case_Number_Text__c</field>
+            <table>Petition__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case_Type_Text__c</field>
+            <table>Petition__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product_Text__c</field>
+            <table>Petition__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Country_Text__c</field>
+            <table>Petition__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Commodity_Text__c</field>
             <table>Petition__c</table>
         </columns>
         <columns>
@@ -283,12 +313,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Number_Text__c</field>
+            <field>ADCVD_Case_Number__c</field>
             <table>Petition__c.Investigations__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Type_Text__c</field>
+            <field>ADCVD_Case_Type__c</field>
             <table>Petition__c.Investigations__r</table>
         </columns>
         <columns>
@@ -298,12 +328,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Country_Text__c</field>
+            <field>Country__c</field>
             <table>Petition__c.Investigations__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Product_Text__c</field>
+            <field>Product__c</field>
             <table>Petition__c.Investigations__r</table>
         </columns>
         <columns>
@@ -323,7 +353,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Commodity_Text__c</field>
+            <field>Commodity__c</field>
             <table>Petition__c.Investigations__r</table>
         </columns>
         <columns>
@@ -541,6 +571,31 @@
             <field>Will_you_Issue_a_Post_Preliminary_Determ__c</field>
             <table>Petition__c.Investigations__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case_Number_Text__c</field>
+            <table>Petition__c.Investigations__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case_Type_Text__c</field>
+            <table>Petition__c.Investigations__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Country_Text__c</field>
+            <table>Petition__c.Investigations__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product_Text__c</field>
+            <table>Petition__c.Investigations__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Commodity_Text__c</field>
+            <table>Petition__c.Investigations__r</table>
+        </columns>
         <masterLabel>Investigations</masterLabel>
     </sections>
     <sections>
@@ -636,6 +691,41 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case_Type__c</field>
+            <table>Petition__c.Investigations__r.Court_Orders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case_Number__c</field>
+            <table>Petition__c.Investigations__r.Court_Orders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product__c</field>
+            <table>Petition__c.Investigations__r.Court_Orders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Country__c</field>
+            <table>Petition__c.Investigations__r.Court_Orders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Commodity__c</field>
+            <table>Petition__c.Investigations__r.Court_Orders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Petition_Filed__c</field>
+            <table>Petition__c.Investigations__r.Court_Orders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Segment_Status__c</field>
+            <table>Petition__c.Investigations__r.Court_Orders__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>ADCVD_Case_Type_Text__c</field>
             <table>Petition__c.Investigations__r.Court_Orders__r</table>
         </columns>
@@ -657,16 +747,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Commodity_Text__c</field>
-            <table>Petition__c.Investigations__r.Court_Orders__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Petition_Filed__c</field>
-            <table>Petition__c.Investigations__r.Court_Orders__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Segment_Status__c</field>
             <table>Petition__c.Investigations__r.Court_Orders__r</table>
         </columns>
         <masterLabel>ADCVD Orders</masterLabel>

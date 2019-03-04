@@ -52,12 +52,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Number_Text__c</field>
+            <field>ADCVD_Case_Number__c</field>
             <table>Segment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Type_Text__c</field>
+            <field>ADCVD_Case_Type__c</field>
             <table>Segment__c</table>
         </columns>
         <columns>
@@ -212,7 +212,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>CBP_Case_Number_Text__c</field>
+            <field>CBP_Case_Number__c</field>
             <table>Segment__c</table>
         </columns>
         <columns>
@@ -257,7 +257,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Commodity_Text__c</field>
+            <field>Commodity__c</field>
             <table>Segment__c</table>
         </columns>
         <columns>
@@ -272,7 +272,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Country_Text__c</field>
+            <field>Country__c</field>
             <table>Segment__c</table>
         </columns>
         <columns>
@@ -622,12 +622,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Product_Short_Name_Text__c</field>
+            <field>Product_Short_Name__c</field>
             <table>Segment__c</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Product_Text__c</field>
+            <field>Product__c</field>
             <table>Segment__c</table>
         </columns>
         <columns>
@@ -830,6 +830,41 @@
             <field>Product_Text_Value__c</field>
             <table>Segment__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case_Number_Text__c</field>
+            <table>Segment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case_Type_Text__c</field>
+            <table>Segment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CBP_Case_Number_Text__c</field>
+            <table>Segment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Commodity_Text__c</field>
+            <table>Segment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Country_Text__c</field>
+            <table>Segment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product_Short_Name_Text__c</field>
+            <table>Segment__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product_Text__c</field>
+            <table>Segment__c</table>
+        </columns>
         <masterLabel>Segments</masterLabel>
     </sections>
     <sections>
@@ -875,12 +910,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Number_Text__c</field>
+            <field>ADCVD_Case_Number__c</field>
             <table>Segment__c.Litigation__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>ADCVD_Case_Type_Text__c</field>
+            <field>ADCVD_Case_Type__c</field>
             <table>Segment__c.Litigation__r</table>
         </columns>
         <columns>
@@ -960,7 +995,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Country_Text__c</field>
+            <field>Country__c</field>
             <table>Segment__c.Litigation__r</table>
         </columns>
         <columns>
@@ -1110,12 +1145,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Product_Short_Name_Text__c</field>
+            <field>Product_Short_Name__c</field>
             <table>Segment__c.Litigation__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Product_Text__c</field>
+            <field>Product__c</field>
             <table>Segment__c.Litigation__r</table>
         </columns>
         <columns>
@@ -1140,12 +1175,12 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>CBP_Case_Number_Text__c</field>
+            <field>CBP_Case_Number__c</field>
             <table>Segment__c.Litigation__r</table>
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Commodity_Text__c</field>
+            <field>Commodity__c</field>
             <table>Segment__c.Litigation__r</table>
         </columns>
         <columns>
@@ -1181,6 +1216,41 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Product_Short_Name_Text_Value__c</field>
+            <table>Segment__c.Litigation__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case_Number_Text__c</field>
+            <table>Segment__c.Litigation__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case_Type_Text__c</field>
+            <table>Segment__c.Litigation__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Country_Text__c</field>
+            <table>Segment__c.Litigation__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product_Short_Name_Text__c</field>
+            <table>Segment__c.Litigation__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product_Text__c</field>
+            <table>Segment__c.Litigation__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CBP_Case_Number_Text__c</field>
+            <table>Segment__c.Litigation__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Commodity_Text__c</field>
             <table>Segment__c.Litigation__r</table>
         </columns>
         <masterLabel>Litigation</masterLabel>
