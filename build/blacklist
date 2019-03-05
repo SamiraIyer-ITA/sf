@@ -6,6 +6,6 @@ src/reports/Data_Migration/CCR_Case_Info.report
 src/reports/Data_Migration/ER_Case_Info.report
 src/reports/Data_Migration/NSR_Case_Info.report
 src/reports/Data_Migration/SSR_Case_Info.report
-reportTypes/Investigations_and_Segments_with_Staffing.reportType
+src/reportTypes/Investigations_and_Segments_with_Staffing.reportType
 src/reports/ADCVD/Investigations_Segments_and_Staffing.report
 src/reports/unfiled$public/Investigations_Segments_and_Staffing.report
