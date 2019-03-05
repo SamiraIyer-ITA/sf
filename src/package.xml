@@ -457,6 +457,14 @@
         <members>unfiled$public/Test_Notifications_2</members>
         <members>unfiled$public/X3_5_18_Deadline_Check</members>
         <members>unfiled$public/test138</members>
+        <members>ADCVD_Data_Reports/Petitions_Manually_Entered1</members>
+        <members>ADCVD/Investigations_by_Commodity1</members>
+        <members>AD_CVD_Office_III/Office_III_Final_Investigation_Metrics1</members>
+        <members>AD_CVD_Office_III/Office_III_Prelim_Investigation_Metrics1</members>
+        <members>AD_CVD_DAS_Operations_Office/Investigation_Determinations1</members>
+        <members>AD_CVD_DAS_Operations_Office/Inv_Determinations1</members>
+        <members>AD_CVD_DAS_Operations_Office/Final_Investigation_Determinations</members>
+        <members>AD_CVD_DAS_Operations_Office/Determinations_from_01_20_20171</members>
         <name>Report</name>
     </types>
     <types>
