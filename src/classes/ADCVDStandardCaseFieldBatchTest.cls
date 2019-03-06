@@ -185,7 +185,7 @@ public class ADCVDStandardCaseFieldBatchTest {
     @testSetup static void dataSetup(){
         //create custom setting configuration to activate triggers, workflow rules, and validation rules
         Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
-        AppConfig__c ac = TestUtils.createAppConfig('ADCVDStandardCaseFieldBatch', true, true);
+        AppConfig__c ac = TestUtils.createAppConfig('ADCVDStandardCaseFieldsBatch', true, true);
         //create test data
         User testUser = TestUtils.createAdminUser(true, 'myemail@email.com.testita', 1);
         Account testAccount = TestUtils.createAccount(true);
@@ -196,6 +196,7 @@ public class ADCVDStandardCaseFieldBatchTest {
         Suspension_Agreement__c suspensionAgreement = TestUtils.createSuspensionAgreement(testADinvestigation, Date.today(), true);
         Segment__c segment = TestUtils.createSegment(testADOrder, 'Administrative_Review', true);
         Litigation__c litigation = TestUtils.createLitigation(testADPetition.Id, 'Petition__c', Date.today(), 'International_Litigation', true);
+        Test.startTest();
         Federal_Register__c federalRegister = TestUtils.createFR(testADOrder.Id, 'ADCVD_Order__c', Date.today(), 'Order', true);
         Related_Organization__c relatedOrganization = TestUtils.createRelatedOrg(testADPetition, false);
         relatedOrganization.ADCVD_Entity_Name__c = 'test entity';
@@ -207,8 +208,6 @@ public class ADCVDStandardCaseFieldBatchTest {
         AttachmentWriterController newAttachmentWriterController = new AttachmentWriterController(standardController);
         newAttachmentWriterController.attachmentBody = 'This is the hts number 3425.3525';
         CreateHTSRecordsController htsRecordsController = new CreateHTSRecordsController(newAttachmentWriterController);
-
-        Test.startTest();
         Custom_Instruction__c customInstruction = TestUtils.createCustomInstruction('Investigation__c', testADinvestigation.Id, true);
         Test.stopTest();
 

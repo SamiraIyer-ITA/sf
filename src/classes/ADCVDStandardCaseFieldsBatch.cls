@@ -220,7 +220,7 @@ global class ADCVDStandardCaseFieldsBatch implements Database.Batchable<SObject>
         FROM AsyncApexJob WHERE Id =
                 :BC.getJobId()];
         //Grab email addresses from custom settings
-        AppConfig__c appConfigObj = AppConfig__c.getValues('ADCVDStandardCaseFieldBatch');
+        AppConfig__c appConfigObj = AppConfig__c.getValues('ADCVDStandardCaseFieldsBatch');
         String adcvdAdminEmail =  ((String)appConfigObj.get('ADCVD_Admin__c') != null ? (String)appConfigObj.get('ADCVD_Admin__c') : '');
         String adcvdDeveloperEmail = ((String)appConfigObj.get('ADCVD_Developer__c') != null ? (String)appConfigObj.get('ADCVD_Developer__c') : '');
         // Send an email to the Apex job's submitter notifying of job completion.
