@@ -2293,6 +2293,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Investigation__c.Petition__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Investigation__c.Prelim_Concurrence_Due_to_DAS__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -6044,7 +6049,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Suspension_Agreement__c.ADCVD_Case_Type_Text__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -6069,7 +6074,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Suspension_Agreement__c.CBP_Case_Number_Text__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -6084,7 +6089,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Suspension_Agreement__c.Commodity_Text__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -6094,7 +6099,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Suspension_Agreement__c.Country_Text__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -6110,6 +6115,11 @@
         <editable>false</editable>
         <field>Suspension_Agreement__c.Enforcement_Concerns__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Suspension_Agreement__c.Investigation__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -6149,7 +6159,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Suspension_Agreement__c.Product_Short_Name_Text__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -6164,7 +6174,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Suspension_Agreement__c.Product_Text__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>

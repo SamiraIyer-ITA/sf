@@ -2444,6 +2444,11 @@ Permission Set created for Technical Team (for Cary Freeman).</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Investigation__c.Petition__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Investigation__c.Prelim_Concurrence_Due_to_DAS__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -6415,6 +6420,11 @@ Permission Set created for Technical Team (for Cary Freeman).</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Suspension_Agreement__c.Enforcement_Concerns__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Suspension_Agreement__c.Investigation__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

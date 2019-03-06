@@ -2760,6 +2760,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Investigation__c.Petition__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Investigation__c.Prelim_Concurrence_Due_to_DAS__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -6746,6 +6751,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Suspension_Agreement__c.Enforcement_Concerns__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Suspension_Agreement__c.Investigation__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
