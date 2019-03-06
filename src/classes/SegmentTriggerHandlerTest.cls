@@ -1430,7 +1430,7 @@ public class SegmentTriggerHandlerTest {
         //compare Published_Date__c
         System.assertEquals(testCalculated, ssSeg.Inform_Cluster_Coordinator_if_No_Respons__c);
     }
-
+/*
     //setLitigationHoldExpirationDate
     @isTest static void setAR_LitigationHoldExpirationDate() {
         Test.startTest();
@@ -1587,6 +1587,7 @@ public class SegmentTriggerHandlerTest {
         Test.stopTest();
         System.assertEquals(testCalculated, ssSeg.Litigation_Hold_Expiration_Date__c);
     }
+*/
     //setPreliminaryAnnouncementDate
     @isTest static void setAR_PreliminaryAnnouncementDate() {
         Test.startTest();
