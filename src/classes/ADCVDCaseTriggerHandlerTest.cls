@@ -96,7 +96,7 @@ public with sharing class ADCVDCaseTriggerHandlerTest {
 
     @testSetup static void dataSetup(){
         Master_Automation__c ma = TestUtils.createMasterAutomation(true, true, true);
-        AppConfig__c ac = TestUtils.createAppConfig('ADCVDStandardCaseFieldBatch', true, true);
+        AppConfig__c ac = TestUtils.createAppConfig('ADCVDStandardCaseFieldsBatch', true, true);
         //create test data
         ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-534-124', 'AD ME', false);
         ADCVD_Case__c testCVDCase = TestUtils.createADCVDCase('C-352-523', 'CVD', false);
