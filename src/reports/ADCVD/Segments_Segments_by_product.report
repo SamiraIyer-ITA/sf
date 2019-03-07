@@ -11,7 +11,7 @@
         <chartType>Donut</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>false</expandOthers>
-        <groupingColumn>Segment__c$Product__c</groupingColumn>
+        <groupingColumn>Segment__c$Product_Text__c</groupingColumn>
         <legendPosition>Right</legendPosition>
         <location>CHART_TOP</location>
         <showAxisLabels>true</showAxisLabels>
@@ -29,10 +29,10 @@
         <field>Segment__c$Name</field>
     </columns>
     <columns>
-        <field>Segment__c$ADCVD_Case_Number__c</field>
+        <field>Segment__c$ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
-        <field>Segment__c$Country__c</field>
+        <field>Segment__c$Country_Text__c</field>
     </columns>
     <columns>
         <field>Segment__c$Actual_Final_Signature__c</field>
@@ -49,12 +49,12 @@
     <format>Matrix</format>
     <groupingsAcross>
         <dateGranularity>Day</dateGranularity>
-        <field>Segment__c$ADCVD_Case_Type__c</field>
+        <field>Segment__c$ADCVD_Case_Type_Text__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsAcross>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>Segment__c$Product__c</field>
+        <field>Segment__c$Product_Text__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Segments - Segments by product</name>

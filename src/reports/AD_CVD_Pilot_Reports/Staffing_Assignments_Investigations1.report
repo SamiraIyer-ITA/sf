@@ -4,7 +4,7 @@
         <field>Staffing_Assignment__c$Name</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$Investigation__c.ADCVD_Case_Number__c</field>
+        <field>Staffing_Assignment__c$Investigation__c.ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
         <field>Staffing_Assignment__c$Title__c</field>
@@ -13,7 +13,7 @@
         <field>Staffing_Assignment__c$User__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$Product__c</field>
+        <field>Staffing_Assignment__c$Product_Text__c</field>
     </columns>
     <description>Staffing Assignments - Investigations</description>
     <filter>

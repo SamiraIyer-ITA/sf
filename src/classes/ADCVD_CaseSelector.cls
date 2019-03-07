@@ -97,6 +97,11 @@ public with sharing class ADCVD_CaseSelector
             .selectField(Custom_Instruction__c.ADCVD_Order__c)
             .selectField(Custom_Instruction__c.Suspension_Agreement__c)
             .selectField(Custom_Instruction__c.Segment__c);
+        qf.subselectQuery(Harmonized_Tariff_Schedule__c.SObjectType, true)
+            .selectField(Harmonized_Tariff_Schedule__c.Id)
+            .selectField(Harmonized_Tariff_Schedule__c.ADCVD_Case__c)
+            .selectField(Harmonized_Tariff_Schedule__c.ADCVD_Order__c)
+            .selectField(Harmonized_Tariff_Schedule__c.Suspension_Agreement__c);
         qf.setCondition(ADCVD_Case__c.Id + ' in :idSet');
         return Database.query(qf.toSOQL());
     }

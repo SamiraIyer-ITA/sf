@@ -49,23 +49,23 @@
     <compactLayouts>
         <fullName>Basic_Case_Info</fullName>
         <fields>ADCVD_Case__c</fields>
-        <fields>Product__c</fields>
-        <fields>Product_Short_Name__c</fields>
-        <fields>Country__c</fields>
-        <fields>Commodity__c</fields>
-        <fields>ADCVD_Case_Number__c</fields>
+        <fields>Product_Text__c</fields>
+        <fields>Product_Short_Name_Text__c</fields>
+        <fields>Country_Text__c</fields>
+        <fields>Commodity_Text__c</fields>
+        <fields>ADCVD_Case_Number_Text__c</fields>
         <label>Basic Case Info</label>
     </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
-    <enableHistory>false</enableHistory>
+    <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
-    <enableSearch>false</enableSearch>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
         <fullName>ADCVD_Case_Number_Text__c</fullName>
         <externalId>false</externalId>
@@ -81,8 +81,9 @@
         <fullName>ADCVD_Case_Number__c</fullName>
         <externalId>false</externalId>
         <formula>ADCVD_Case__r.Name</formula>
-        <label>ADCVD Case Number Text Value</label>
+        <label>ADCVD Case Number Text Value Deprecated</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -102,8 +103,9 @@
         <fullName>ADCVD_Case_Type__c</fullName>
         <externalId>false</externalId>
         <formula>TEXT(ADCVD_Case__r.ADCVD_Case_Type__c)</formula>
-        <label>ADCVD Case Type</label>
+        <label>ADCVD Case Type Deprecated</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -117,6 +119,7 @@
         <relationshipLabel>Suspension Agreements</relationshipLabel>
         <relationshipName>Suspension_Agreements</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -125,6 +128,7 @@
         <externalId>false</externalId>
         <label>Additional Notes</label>
         <length>32768</length>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>4</visibleLines>
@@ -134,6 +138,7 @@
         <externalId>false</externalId>
         <label>Anniversary Month</label>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -156,8 +161,9 @@
         <fullName>CBP_Case_Number__c</fullName>
         <externalId>false</externalId>
         <formula>ADCVD_Case__r.CBP_Case_Number__c</formula>
-        <label>CBP Case Number</label>
+        <label>CBP Case Number Deprecated</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -167,6 +173,7 @@
         <externalId>false</externalId>
         <label>Case Concat Text Values</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
@@ -185,8 +192,9 @@
         <fullName>Commodity__c</fullName>
         <externalId>false</externalId>
         <formula>TEXT(ADCVD_Case__r.Commodity__c)</formula>
-        <label>Commodity</label>
+        <label>Commodity Deprecated</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -206,8 +214,9 @@
         <fullName>Country__c</fullName>
         <externalId>false</externalId>
         <formula>TEXT(ADCVD_Case__r.Country__c)</formula>
-        <label>Country</label>
+        <label>Country Deprecated</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -217,6 +226,7 @@
         <externalId>false</externalId>
         <label>Effective Date of Termination</label>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -225,28 +235,30 @@
         <externalId>false</externalId>
         <label>Enforcement Concerns</label>
         <length>32768</length>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>Investigation__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Investigation</label>
         <referenceTo>Investigation__c</referenceTo>
         <relationshipLabel>Suspension Agreements</relationshipLabel>
         <relationshipName>Suspension_Agreements</relationshipName>
-        <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>MasterDetail</type>
-        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Locked__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Record Locked</label>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -255,6 +267,7 @@
         <externalId>false</externalId>
         <label>Lotus Notes History Data</label>
         <length>32768</length>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>4</visibleLines>
@@ -280,6 +293,7 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Next Sunset Initiation Date</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -289,6 +303,7 @@
         <externalId>false</externalId>
         <label>Next Sunset Initiation Date</label>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -297,6 +312,7 @@
         <externalId>false</externalId>
         <label>Notations/Amendments</label>
         <length>32768</length>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>4</visibleLines>
@@ -306,6 +322,7 @@
         <externalId>false</externalId>
         <label>Office</label>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -331,6 +348,7 @@
         <externalId>false</externalId>
         <label>Product Short Name Text Value</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
@@ -350,8 +368,9 @@
         <externalId>false</externalId>
         <formula>ADCVD_Case__r.Product_Short_Name__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Product Short Name</label>
+        <label>Product Short Name Deprecated</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -361,6 +380,7 @@
         <externalId>false</externalId>
         <label>Product Text Value</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
@@ -379,8 +399,9 @@
         <fullName>Product__c</fullName>
         <externalId>false</externalId>
         <formula>ADCVD_Case__r.Product__c</formula>
-        <label>Product</label>
+        <label>Product Deprecated</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -390,6 +411,7 @@
         <externalId>false</externalId>
         <label>Status</label>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -419,6 +441,7 @@
         <externalId>false</externalId>
         <label>Suspension Date</label>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -427,6 +450,7 @@
         <externalId>false</externalId>
         <label>Termination Date</label>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -437,6 +461,7 @@
         <label>This Investigation has a Susp. Agreement</label>
         <length>18</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>true</unique>
@@ -447,6 +472,7 @@
         <externalId>false</externalId>
         <label>Type</label>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -501,11 +527,11 @@
         <fullName>All</fullName>
         <columns>NAME</columns>
         <columns>Investigation__c</columns>
-        <columns>ADCVD_Case_Number__c</columns>
-        <columns>Country__c</columns>
-        <columns>ADCVD_Case_Type__c</columns>
-        <columns>Product__c</columns>
-        <columns>Commodity__c</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Commodity_Text__c</columns>
         <columns>Suspension_Date__c</columns>
         <columns>Termination_Date__c</columns>
         <columns>LAST_UPDATE</columns>
@@ -521,11 +547,12 @@
     <nameField>
         <displayFormat>SA-{00000000}</displayFormat>
         <label>Suspension Agreement Number</label>
+        <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Suspension Agreements</pluralLabel>
     <searchLayouts/>
-    <sharingModel>ControlledByParent</sharingModel>
+    <sharingModel>ReadWrite</sharingModel>
     <validationRules>
         <fullName>Cannot_Edit_Locked_Record</fullName>
         <active>true</active>

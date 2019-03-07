@@ -336,6 +336,41 @@
             <field>USTR_Notification_to_Implement_Final_Res__c</field>
             <table>Litigation__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case_Number_Text__c</field>
+            <table>Litigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case_Type_Text__c</field>
+            <table>Litigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CBP_Case_Number_Text__c</field>
+            <table>Litigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Commodity_Text__c</field>
+            <table>Litigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Country_Text__c</field>
+            <table>Litigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product_Text__c</field>
+            <table>Litigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product_Short_Name_Text__c</field>
+            <table>Litigation__c</table>
+        </columns>
         <masterLabel>Litigation</masterLabel>
     </sections>
     <sections>
@@ -864,6 +899,41 @@
             <field>Investigation__c.Will_you_Issue_a_Post_Preliminary_Determ__c</field>
             <table>Litigation__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Investigation__c.ADCVD_Case_Number_Text__c</field>
+            <table>Litigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Investigation__c.ADCVD_Case_Type_Text__c</field>
+            <table>Litigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Investigation__c.CBP_Case_Number_Text__c</field>
+            <table>Litigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Investigation__c.Commodity_Text__c</field>
+            <table>Litigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Investigation__c.Country_Text__c</field>
+            <table>Litigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Investigation__c.Product_Text__c</field>
+            <table>Litigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Investigation__c.Product_Short_Name_Text__c</field>
+            <table>Litigation__c</table>
+        </columns>
         <masterLabel>Investigation Fields</masterLabel>
     </sections>
     <sections>
@@ -1110,6 +1180,41 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Petition__c.Tolling_Update__c</field>
+            <table>Litigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Petition__c.ADCVD_Case_Number_Text__c</field>
+            <table>Litigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Petition__c.ADCVD_Case_Type_Text__c</field>
+            <table>Litigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Petition__c.CBP_Case_Number_Text__c</field>
+            <table>Litigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Petition__c.Commodity_Text__c</field>
+            <table>Litigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Petition__c.Country_Text__c</field>
+            <table>Litigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Petition__c.Product_Text__c</field>
+            <table>Litigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Petition__c.Product_Short_Name_Text__c</field>
             <table>Litigation__c</table>
         </columns>
         <masterLabel>Petition Fields</masterLabel>
@@ -1868,6 +1973,41 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Segment__c.Will_you_Amend_the_Final__c</field>
+            <table>Litigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Segment__c.ADCVD_Case_Number_Text__c</field>
+            <table>Litigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Segment__c.ADCVD_Case_Type_Text__c</field>
+            <table>Litigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Segment__c.CBP_Case_Number_Text__c</field>
+            <table>Litigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Segment__c.Commodity_Text__c</field>
+            <table>Litigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Segment__c.Country_Text__c</field>
+            <table>Litigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Segment__c.Product_Text__c</field>
+            <table>Litigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Segment__c.Product_Short_Name_Text__c</field>
             <table>Litigation__c</table>
         </columns>
         <masterLabel>Segment Fields</masterLabel>

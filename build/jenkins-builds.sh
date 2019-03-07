@@ -58,6 +58,7 @@ types=" approvalProcess  \
         queue \
         quickAction \
         reportType \
+	report \
         resource \
         role \
         settings \

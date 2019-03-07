@@ -549,6 +549,41 @@
             <field>Will_you_Issue_a_Post_Preliminary_Determ__c</field>
             <table>Investigation__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case_Number_Text__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case_Type_Text__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CBP_Case_Number_Text__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product_Text__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product_Short_Name_Text__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Commodity_Text__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Country_Text__c</field>
+            <table>Investigation__c</table>
+        </columns>
         <masterLabel>Investigations</masterLabel>
     </sections>
     <sections>
@@ -1337,6 +1372,41 @@
             <field>Will_you_Amend_the_Final__c</field>
             <table>Investigation__c.Segments__r</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case_Number_Text__c</field>
+            <table>Investigation__c.Segments__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case_Type_Text__c</field>
+            <table>Investigation__c.Segments__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CBP_Case_Number_Text__c</field>
+            <table>Investigation__c.Segments__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Commodity_Text__c</field>
+            <table>Investigation__c.Segments__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Country_Text__c</field>
+            <table>Investigation__c.Segments__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product_Text__c</field>
+            <table>Investigation__c.Segments__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product_Short_Name_Text__c</field>
+            <table>Investigation__c.Segments__r</table>
+        </columns>
         <masterLabel>Segments</masterLabel>
     </sections>
     <sections>
@@ -1468,6 +1538,41 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>User__c</field>
+            <table>Investigation__c.Segments__r.Staffing_Assignments__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case_Number_Text__c</field>
+            <table>Investigation__c.Segments__r.Staffing_Assignments__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case_Type_Text__c</field>
+            <table>Investigation__c.Segments__r.Staffing_Assignments__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CBP_Case_Number_Text__c</field>
+            <table>Investigation__c.Segments__r.Staffing_Assignments__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Commodity_Text__c</field>
+            <table>Investigation__c.Segments__r.Staffing_Assignments__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Country_Text__c</field>
+            <table>Investigation__c.Segments__r.Staffing_Assignments__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product_Text__c</field>
+            <table>Investigation__c.Segments__r.Staffing_Assignments__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product_Short_Name_Text__c</field>
             <table>Investigation__c.Segments__r.Staffing_Assignments__r</table>
         </columns>
         <masterLabel>Staffing Assignments</masterLabel>

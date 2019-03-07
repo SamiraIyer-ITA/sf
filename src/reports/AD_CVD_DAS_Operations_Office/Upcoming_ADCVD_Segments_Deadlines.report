@@ -36,10 +36,10 @@
         <field>Segment__c$Name</field>
     </columns>
     <columns>
-        <field>Segment__c$Product__c</field>
+        <field>Segment__c$Product_Text__c</field>
     </columns>
     <columns>
-        <field>Segment__c$Country__c</field>
+        <field>Segment__c$Country_Text__c</field>
     </columns>
     <columns>
         <field>Segment__c$Status__c</field>
@@ -48,7 +48,7 @@
         <field>Segment__c$RecordType</field>
     </columns>
     <columns>
-        <field>Segment__c$ADCVD_Case_Type__c</field>
+        <field>Segment__c$ADCVD_Case_Type_Text__c</field>
     </columns>
     <columns>
         <field>Segment__c$Segment_Name__c</field>

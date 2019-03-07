@@ -10,10 +10,10 @@
         <field>Staffing_Assignment__c$User__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$Product__c</field>
+        <field>Staffing_Assignment__c$Product_Text__c</field>
     </columns>
     <columns>
-        <field>Staffing_Assignment__c$ADCVD_Case_Type__c</field>
+        <field>Staffing_Assignment__c$ADCVD_Case_Type_Text__c</field>
     </columns>
     <description>Staffing Assignments - ADCVD Orders</description>
     <filter>
@@ -24,7 +24,7 @@
             <value></value>
         </criteriaItems>
         <criteriaItems>
-            <column>Staffing_Assignment__c$ADCVD_Case_Number__c</column>
+            <column>Staffing_Assignment__c$ADCVD_Case_Number_Text__c</column>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
             <value></value>

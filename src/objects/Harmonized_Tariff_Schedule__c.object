@@ -49,10 +49,10 @@
     <compactLayouts>
         <fullName>Basic_Case_Info</fullName>
         <fields>ADCVD_Case__c</fields>
-        <fields>Product__c</fields>
-        <fields>Product_Short_Name__c</fields>
-        <fields>Country__c</fields>
-        <fields>Commodity__c</fields>
+        <fields>Product_Text__c</fields>
+        <fields>Product_Short_Name_Text__c</fields>
+        <fields>Country_Text__c</fields>
+        <fields>Commodity_Text__c</fields>
         <label>Basic Case Info</label>
     </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
@@ -93,7 +93,7 @@
         <externalId>false</externalId>
         <formula>TEXT(ADCVD_Case__r.ADCVD_Case_Type__c )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>ADCVD Case Type</label>
+        <label>ADCVD Case Type Deprecated</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -122,7 +122,7 @@
         <relationshipLabel>Harmonized Tariff Schedules</relationshipLabel>
         <relationshipName>Harmonized_Tariff_Schedules</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -162,7 +162,7 @@
         <externalId>false</externalId>
         <formula>TEXT(ADCVD_Case__r.Commodity__c )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Commodity</label>
+        <label>Commodity Deprecated</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -185,7 +185,7 @@
         <externalId>false</externalId>
         <formula>TEXT(ADCVD_Case__r.Country__c )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Country</label>
+        <label>Country Deprecated</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -229,7 +229,7 @@
         <label>HTS Number</label>
         <length>10</length>
         <required>true</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -293,7 +293,7 @@
         <externalId>false</externalId>
         <formula>ADCVD_Case__r.Product_Short_Name__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Product Short Name</label>
+        <label>Product Short Name Deprecated</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -325,7 +325,7 @@
         <externalId>false</externalId>
         <formula>ADCVD_Case__r.Product__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Product</label>
+        <label>Product Deprecated</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -341,7 +341,7 @@
         <relationshipLabel>Harmonized Tariff Schedules</relationshipLabel>
         <relationshipName>Harmonized_Tariff_Schedules</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -371,7 +371,7 @@
     </listViews>
     <nameField>
         <label>Harmonized Tariff Schedule Name</label>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Text</type>
     </nameField>
     <pluralLabel>Harmonized Tariff Schedules</pluralLabel>

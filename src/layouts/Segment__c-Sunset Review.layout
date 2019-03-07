@@ -77,15 +77,15 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Product__c</field>
+                <field>Product_Text__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Product_Short_Name__c</field>
+                <field>Product_Short_Name_Text__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Commodity__c</field>
+                <field>Commodity_Text__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -211,6 +211,9 @@
         <fields>Message_Date__c</fields>
         <fields>Message_No__c</fields>
         <relatedList>Custom_Instruction__c.Segment__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

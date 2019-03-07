@@ -50,9 +50,9 @@
         <fullName>Basic_Case_Info</fullName>
         <fields>ADCVD_Case__c</fields>
         <fields>Office__c</fields>
-        <fields>Product_Short_Name__c</fields>
-        <fields>Country__c</fields>
-        <fields>Commodity__c</fields>
+        <fields>Product_Short_Name_Text__c</fields>
+        <fields>Country_Text__c</fields>
+        <fields>Commodity_Text__c</fields>
         <label>Basic Case Info</label>
     </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
@@ -61,7 +61,7 @@
     <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
-    <enableSearch>false</enableSearch>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
@@ -82,7 +82,7 @@
         <caseSensitive>false</caseSensitive>
         <description>Referenced from parent Petition case</description>
         <externalId>false</externalId>
-        <label>ADCVD Case Number Text Value</label>
+        <label>ADCVD Case Number Text Value Deprecated</label>
         <length>28</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -110,7 +110,7 @@
         <inlineHelpText>This should be in the following format:
 A-###-### for AD 
 C-###-### for CVD</inlineHelpText>
-        <label>ADCVD Case Type</label>
+        <label>ADCVD Case Type Deprecated</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -179,7 +179,7 @@ C-###-### for CVD</inlineHelpText>
         <label>Actual Initiation Signature</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -199,7 +199,7 @@ C-###-### for CVD</inlineHelpText>
         <fullName>CBP_Case_Number__c</fullName>
         <caseSensitive>true</caseSensitive>
         <externalId>false</externalId>
-        <label>CBP Case Number</label>
+        <label>CBP Case Number Deprecated</label>
         <length>28</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -214,7 +214,7 @@ C-###-### for CVD</inlineHelpText>
         <label>Calculated Initiation Signature</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -292,7 +292,7 @@ C-###-### for CVD</inlineHelpText>
         <fullName>Commodity__c</fullName>
         <description>Referenced from parent petition</description>
         <externalId>false</externalId>
-        <label>Commodity</label>
+        <label>Commodity Deprecated</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -362,8 +362,8 @@ C-###-### for CVD</inlineHelpText>
     <fields>
         <fullName>Country_Text__c</fullName>
         <externalId>false</externalId>
-        <label>Country Text</label>
-        <length>30</length>
+        <label>Country</label>
+        <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -375,7 +375,7 @@ C-###-### for CVD</inlineHelpText>
         <fullName>Country__c</fullName>
         <description>Referenced from parent Petition</description>
         <externalId>false</externalId>
-        <label>Country</label>
+        <label>Country Deprecated</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -784,7 +784,7 @@ C-###-### for CVD</inlineHelpText>
         <required>false</required>
         <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -992,14 +992,14 @@ C-###-### for CVD</inlineHelpText>
         <label>Petition Filed</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
         <fullName>Petition_Name__c</fullName>
         <externalId>false</externalId>
-        <formula>ADCVD_Case_Number__c +&apos;--&apos;+  Name</formula>
+        <formula>ADCVD_Case_Number_Text__c +&apos;--&apos;+  Name</formula>
         <label>Petition Name</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1013,7 +1013,7 @@ C-###-### for CVD</inlineHelpText>
         <label>Petition Outcome</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -1099,7 +1099,7 @@ C-###-### for CVD</inlineHelpText>
         <fullName>Product_Short_Name__c</fullName>
         <description>Product Short Name</description>
         <externalId>false</externalId>
-        <label>Product Short Name</label>
+        <label>Product Short Name Deprecated</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1124,7 +1124,7 @@ C-###-### for CVD</inlineHelpText>
         <fullName>Product__c</fullName>
         <description>Referenced from parent Petition</description>
         <externalId>false</externalId>
-        <label>Product</label>
+        <label>Product Deprecated</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1151,7 +1151,7 @@ C-###-### for CVD</inlineHelpText>
         <label>Status</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -1246,11 +1246,11 @@ C-###-### for CVD</inlineHelpText>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
-        <columns>ADCVD_Case_Number__c</columns>
-        <columns>Country__c</columns>
-        <columns>ADCVD_Case_Type__c</columns>
-        <columns>Product__c</columns>
-        <columns>Commodity__c</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Commodity_Text__c</columns>
         <columns>Office__c</columns>
         <columns>Status__c</columns>
         <columns>Petition_Outcome__c</columns>
@@ -1261,11 +1261,11 @@ C-###-### for CVD</inlineHelpText>
     <listViews>
         <fullName>All_Closed_Petitions</fullName>
         <columns>NAME</columns>
-        <columns>ADCVD_Case_Number__c</columns>
-        <columns>Country__c</columns>
-        <columns>ADCVD_Case_Type__c</columns>
-        <columns>Product__c</columns>
-        <columns>Commodity__c</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Commodity_Text__c</columns>
         <columns>Office__c</columns>
         <columns>Status__c</columns>
         <filterScope>Everything</filterScope>
@@ -1279,11 +1279,11 @@ C-###-### for CVD</inlineHelpText>
     <listViews>
         <fullName>All_Open_Petitions</fullName>
         <columns>NAME</columns>
-        <columns>ADCVD_Case_Number__c</columns>
-        <columns>Country__c</columns>
-        <columns>ADCVD_Case_Type__c</columns>
-        <columns>Product__c</columns>
-        <columns>Commodity__c</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Commodity_Text__c</columns>
         <columns>Office__c</columns>
         <columns>Status__c</columns>
         <filterScope>Everything</filterScope>
@@ -2252,33 +2252,33 @@ C-###-### for CVD</inlineHelpText>
         </picklistValues>
     </recordTypes>
     <searchLayouts>
-        <customTabListAdditionalFields>ADCVD_Case_Number__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Country__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>ADCVD_Case_Type__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Product__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Commodity__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ADCVD_Case_Number_Text__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Country_Text__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ADCVD_Case_Type_Text__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Product_Text__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Commodity_Text__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
-        <lookupDialogsAdditionalFields>ADCVD_Case_Number__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Country__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>ADCVD_Case_Type__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Product__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Commodity__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ADCVD_Case_Number_Text__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Country_Text__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ADCVD_Case_Type_Text__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Product_Text__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Commodity_Text__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>ADCVD_Case_Number__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Country__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>ADCVD_Case_Type__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Product__c</lookupPhoneDialogsAdditionalFields>
-        <searchFilterFields>ADCVD_Case_Number__c</searchFilterFields>
-        <searchFilterFields>Country__c</searchFilterFields>
-        <searchFilterFields>ADCVD_Case_Type__c</searchFilterFields>
-        <searchFilterFields>Product__c</searchFilterFields>
-        <searchFilterFields>Commodity__c</searchFilterFields>
+        <lookupPhoneDialogsAdditionalFields>ADCVD_Case_Number_Text__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Country_Text__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ADCVD_Case_Type_Text__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Product_Text__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>ADCVD_Case_Number_Text__c</searchFilterFields>
+        <searchFilterFields>Country_Text__c</searchFilterFields>
+        <searchFilterFields>ADCVD_Case_Type_Text__c</searchFilterFields>
+        <searchFilterFields>Product_Text__c</searchFilterFields>
+        <searchFilterFields>Commodity_Text__c</searchFilterFields>
         <searchFilterFields>Status__c</searchFilterFields>
-        <searchResultsAdditionalFields>ADCVD_Case_Number__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Country__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ADCVD_Case_Type__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Product__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Commodity__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADCVD_Case_Number_Text__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Country_Text__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADCVD_Case_Type_Text__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Product_Text__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Commodity_Text__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
@@ -2324,10 +2324,10 @@ ISBLANK(TEXT(Actual_Initiation_Signature__c))
         <fullName>CBP_Case_number_for_AD_and_CVD_Format</fullName>
         <active>false</active>
         <description>CBP Case Number must be formatted specifically this way.</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,IF(TEXT(ADCVD_Case_Type__c) = &quot;CVD&quot;, 
-(NOT(OR(ISBLANK( CBP_Case_Number__c ),REGEX( CBP_Case_Number__c ,&quot;C-[0-9]{3}-[0-9]{3}&quot;)))), 
-(NOT(OR(ISBLANK(CBP_Case_Number__c ),REGEX( CBP_Case_Number__c ,&quot;A-[0-9]{3}-[0-9]{3}&quot;)))) ))</errorConditionFormula>
-        <errorDisplayField>CBP_Case_Number__c</errorDisplayField>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,IF(ADCVD_Case_Type_Text__c = &quot;CVD&quot;, 
+(NOT(OR(ISBLANK( CBP_Case_Number_Text__c ),REGEX( CBP_Case_Number_Text__c ,&quot;C-[0-9]{3}-[0-9]{3}&quot;)))), 
+(NOT(OR(ISBLANK(CBP_Case_Number_Text__c ),REGEX( CBP_Case_Number_Text__c ,&quot;A-[0-9]{3}-[0-9]{3}&quot;)))) ))</errorConditionFormula>
+        <errorDisplayField>CBP_Case_Number_Text__c</errorDisplayField>
         <errorMessage>Format should be A-###-### or C-###-###</errorMessage>
     </validationRules>
     <validationRules>
@@ -2348,31 +2348,31 @@ IF(
   OR(
     AND(
       OR(
-         ISPICKVAL(ADCVD_Case_Type__c, &apos;AD ME&apos;),
-         ISPICKVAL(ADCVD_Case_Type__c, &apos;AD NME&apos;)
+         ADCVD_Case_Type_Text__c = &apos;AD ME&apos;,
+         ADCVD_Case_Type_Text__c = &apos;AD NME&apos;
          ),
-         NOT(BEGINS(ADCVD_Case_Number__c, &quot;A&quot;))
+         NOT(BEGINS(ADCVD_Case_Number_Text__c, &quot;A&quot;))
       )
       ,
      AND(
-         ISPICKVAL(ADCVD_Case_Type__c, &apos;CVD&apos;),
-         NOT(BEGINS(ADCVD_Case_Number__c, &quot;C&quot;))
+         ADCVD_Case_Type_Text__c = &apos;CVD&apos;,
+         NOT(BEGINS(ADCVD_Case_Number_Text__c, &quot;C&quot;))
         )
       ),
      1, 0
     ) = 1
   )</errorConditionFormula>
-        <errorDisplayField>ADCVD_Case_Type__c</errorDisplayField>
+        <errorDisplayField>ADCVD_Case_Type_Text__c</errorDisplayField>
         <errorMessage>ADCVD Case Type field does not match with the ADCVD Case Number format. For AD cases the ADCVD Case Number format should be A-###-### and for CVD cases the format should be C-###-###.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Case_number_for_AD_and_CVD_Format</fullName>
         <active>false</active>
         <description>Case Number must be formatted specifically this way.</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,IF(TEXT(ADCVD_Case_Type__c) = &quot;CVD&quot;, 
-(NOT(OR(ISBLANK(ADCVD_Case_Number__c),REGEX( ADCVD_Case_Number__c,&quot;C-[0-9]{3}-[0-9]{3}&quot;)))), 
-(NOT(OR(ISBLANK(ADCVD_Case_Number__c),REGEX( ADCVD_Case_Number__c,&quot;A-[0-9]{3}-[0-9]{3}&quot;)))) ))</errorConditionFormula>
-        <errorDisplayField>ADCVD_Case_Number__c</errorDisplayField>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,IF(ADCVD_Case_Type_Text__c = &quot;CVD&quot;, 
+(NOT(OR(ISBLANK(ADCVD_Case_Number_Text__c),REGEX( ADCVD_Case_Number_Text__c,&quot;C-[0-9]{3}-[0-9]{3}&quot;)))), 
+(NOT(OR(ISBLANK(ADCVD_Case_Number_Text__c),REGEX( ADCVD_Case_Number_Text__c,&quot;A-[0-9]{3}-[0-9]{3}&quot;)))) ))</errorConditionFormula>
+        <errorDisplayField>ADCVD_Case_Number_Text__c</errorDisplayField>
         <errorMessage>Format should be A-###-### or C-###-###</errorMessage>
     </validationRules>
     <validationRules>

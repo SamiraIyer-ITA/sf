@@ -15,7 +15,7 @@
         <chartType>VerticalColumnGroupedLine</chartType>
         <enableHoverLabels>false</enableHoverLabels>
         <expandOthers>true</expandOthers>
-        <groupingColumn>ADCVD_Order__c$ADCVD_Case_Type__c</groupingColumn>
+        <groupingColumn>ADCVD_Order__c$ADCVD_Case_Type_Text__c</groupingColumn>
         <legendPosition>Right</legendPosition>
         <location>CHART_TOP</location>
         <secondaryGroupingColumn>ADCVD_Order__c.Federal_Register__r$Published_Date__c</secondaryGroupingColumn>
@@ -31,13 +31,13 @@
         <titleSize>18</titleSize>
     </chart>
     <columns>
-        <field>ADCVD_Order__c$ADCVD_Case_Number__c</field>
+        <field>ADCVD_Order__c$ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
-        <field>ADCVD_Order__c$Product__c</field>
+        <field>ADCVD_Order__c$Product_Text__c</field>
     </columns>
     <columns>
-        <field>ADCVD_Order__c$Country__c</field>
+        <field>ADCVD_Order__c$Country_Text__c</field>
     </columns>
     <columns>
         <field>ADCVD_Order__c$Revocation_Reason__c</field>
@@ -59,7 +59,7 @@
     </groupingsAcross>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
-        <field>ADCVD_Order__c$ADCVD_Case_Type__c</field>
+        <field>ADCVD_Order__c$ADCVD_Case_Type_Text__c</field>
         <sortOrder>Asc</sortOrder>
     </groupingsDown>
     <name>Continuations by Fiscal Year</name>

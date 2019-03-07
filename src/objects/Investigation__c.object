@@ -50,8 +50,8 @@
         <fullName>Basic_Case_Info</fullName>
         <fields>ADCVD_Case__c</fields>
         <fields>Office__c</fields>
-        <fields>Product_Short_Name__c</fields>
-        <fields>Country__c</fields>
+        <fields>Product_Short_Name_Text__c</fields>
+        <fields>Country_Text__c</fields>
         <fields>Period_Covered_Start_Date__c</fields>
         <fields>Period_Covered_End_Date__c</fields>
         <label>Basic Case Info</label>
@@ -62,10 +62,10 @@
     <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
-    <enableSearch>false</enableSearch>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
         <fullName>ADCVD_Case_Number_Text__c</fullName>
         <externalId>false</externalId>
@@ -81,7 +81,7 @@
     <fields>
         <fullName>ADCVD_Case_Number__c</fullName>
         <externalId>false</externalId>
-        <label>ADCVD Case Number Text Value</label>
+        <label>ADCVD Case Number Text Value Deprecated</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -105,7 +105,7 @@
     <fields>
         <fullName>ADCVD_Case_Type__c</fullName>
         <externalId>false</externalId>
-        <label>ADCVD Case Type</label>
+        <label>ADCVD Case Type Deprecated</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -136,16 +136,11 @@
         <label>AD Investigation Aligned To</label>
         <lookupFilter>
             <active>true</active>
-            <booleanFilter>1 AND 2 AND 3</booleanFilter>
+            <booleanFilter>1 AND 2</booleanFilter>
             <filterItems>
                 <field>Investigation__c.RecordTypeId</field>
                 <operation>equals</operation>
                 <value>AD</value>
-            </filterItems>
-            <filterItems>
-                <field>Investigation__c.Commodity__c</field>
-                <operation>equals</operation>
-                <valueField>$Source.Commodity__c</valueField>
             </filterItems>
             <filterItems>
                 <field>Investigation__c.Petition_Initiation_Signature__c</field>
@@ -160,7 +155,7 @@
         <relationshipName>Investigations</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -256,7 +251,7 @@
         <label>Actual Final Signature</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -288,7 +283,7 @@
         <label>Actual Preliminary Signature</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -340,7 +335,7 @@
         <label>Amend the Preliminary Determination?</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -397,7 +392,7 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
     <fields>
         <fullName>CBP_Case_Number__c</fullName>
         <externalId>false</externalId>
-        <label>CBP Case Number</label>
+        <label>CBP Case Number Deprecated</label>
         <length>28</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -414,7 +409,7 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
         <label>Calc Amended Prelim Determination Sig</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -426,7 +421,7 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
         <label>Calculated Amended Final Signature</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -438,7 +433,7 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
         <label>Calculated Final Signature</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -510,7 +505,7 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
         <label>Calculated Preliminary Signature</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -539,7 +534,7 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
     <fields>
         <fullName>Commodity__c</fullName>
         <externalId>false</externalId>
-        <label>Commodity</label>
+        <label>Commodity Deprecated</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -633,7 +628,7 @@ Final_Announcement_Date__c ,&apos;Final&apos;,
     <fields>
         <fullName>Country__c</fullName>
         <externalId>false</externalId>
-        <label>Country</label>
+        <label>Country Deprecated</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1086,7 +1081,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
         <required>false</required>
         <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -1199,7 +1194,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
     <fields>
         <fullName>Investigation_Name__c</fullName>
         <externalId>false</externalId>
-        <formula>ADCVD_Case_Number__c +&apos;--&apos;+ Name</formula>
+        <formula>ADCVD_Case_Number_Text__c +&apos;--&apos;+ Name</formula>
         <label>Investigation Name</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1213,7 +1208,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
         <label>Investigation Outcome</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -1543,7 +1538,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
         <label>Petition Initiation Signature</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -1559,18 +1554,17 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
     </fields>
     <fields>
         <fullName>Petition__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Petition</label>
         <referenceTo>Petition__c</referenceTo>
         <relationshipLabel>Investigations</relationshipLabel>
         <relationshipName>Investigations</relationshipName>
-        <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>MasterDetail</type>
-        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Prelim_Concurrence_Due_to_DAS__c</fullName>
@@ -1592,7 +1586,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
         <required>false</required>
         <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -1670,7 +1664,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
         <fullName>Product_Short_Name__c</fullName>
         <description>Petition Product Short Name</description>
         <externalId>false</externalId>
-        <label>Product Short Name</label>
+        <label>Product Short Name Deprecated</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1694,7 +1688,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
     <fields>
         <fullName>Product__c</fullName>
         <externalId>false</externalId>
-        <label>Product</label>
+        <label>Product Deprecated</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1797,7 +1791,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
         <label>Status</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -1860,7 +1854,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
         <label>Termination of Suspension/Gap Period Beg</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -1897,7 +1891,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
         <label>Upstream Subsidy Allegation?</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -1913,7 +1907,7 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
         <label>Will you Amend the Final?</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -1941,12 +1935,12 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
-        <columns>ADCVD_Case_Number__c</columns>
-        <columns>Country__c</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
         <columns>RECORDTYPE</columns>
-        <columns>ADCVD_Case_Type__c</columns>
-        <columns>Product__c</columns>
-        <columns>Commodity__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Commodity_Text__c</columns>
         <columns>Office__c</columns>
         <columns>Status__c</columns>
         <filterScope>Everything</filterScope>
@@ -1955,10 +1949,10 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
     <listViews>
         <fullName>All_Active_Investigations</fullName>
         <columns>NAME</columns>
-        <columns>ADCVD_Case_Number__c</columns>
-        <columns>Country__c</columns>
-        <columns>ADCVD_Case_Type__c</columns>
-        <columns>Product__c</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>Product_Text__c</columns>
         <columns>Office__c</columns>
         <columns>Status__c</columns>
         <columns>Calculated_Preliminary_Signature__c</columns>
@@ -1973,11 +1967,11 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
     <listViews>
         <fullName>All_Closed_Investigations</fullName>
         <columns>NAME</columns>
-        <columns>ADCVD_Case_Number__c</columns>
-        <columns>Country__c</columns>
-        <columns>ADCVD_Case_Type__c</columns>
-        <columns>Product__c</columns>
-        <columns>Commodity__c</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Commodity_Text__c</columns>
         <columns>Office__c</columns>
         <columns>Status__c</columns>
         <filterScope>Everything</filterScope>
@@ -1991,12 +1985,12 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
     <listViews>
         <fullName>All_Investigations_in_Litigation</fullName>
         <columns>NAME</columns>
-        <columns>ADCVD_Case_Number__c</columns>
-        <columns>Country__c</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
         <columns>RECORDTYPE</columns>
-        <columns>ADCVD_Case_Type__c</columns>
-        <columns>Product__c</columns>
-        <columns>Commodity__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Commodity_Text__c</columns>
         <columns>Office__c</columns>
         <columns>Status__c</columns>
         <filterScope>Everything</filterScope>
@@ -2010,12 +2004,12 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
     <listViews>
         <fullName>All_Investigations_in_Litigation_Hold</fullName>
         <columns>NAME</columns>
-        <columns>ADCVD_Case_Number__c</columns>
-        <columns>Country__c</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
         <columns>RECORDTYPE</columns>
-        <columns>ADCVD_Case_Type__c</columns>
-        <columns>Product__c</columns>
-        <columns>Commodity__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Commodity_Text__c</columns>
         <columns>Office__c</columns>
         <columns>Status__c</columns>
         <filterScope>Everything</filterScope>
@@ -2029,12 +2023,12 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
     <listViews>
         <fullName>All_Open_Investigations</fullName>
         <columns>NAME</columns>
-        <columns>ADCVD_Case_Number__c</columns>
-        <columns>Country__c</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
         <columns>RECORDTYPE</columns>
-        <columns>ADCVD_Case_Type__c</columns>
-        <columns>Product__c</columns>
-        <columns>Commodity__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Commodity_Text__c</columns>
         <columns>Office__c</columns>
         <columns>Status__c</columns>
         <filterScope>Everything</filterScope>
@@ -3170,41 +3164,41 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
         </picklistValues>
     </recordTypes>
     <searchLayouts>
-        <customTabListAdditionalFields>ADCVD_Case_Number__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Country__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>ADCVD_Case_Type__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Product__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Commodity__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ADCVD_Case_Number_Text__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Country_Text__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ADCVD_Case_Type_Text__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Product_Text__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Commodity_Text__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
         <excludedStandardButtons>Accept</excludedStandardButtons>
         <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
         <excludedStandardButtons>Forward</excludedStandardButtons>
-        <lookupDialogsAdditionalFields>ADCVD_Case_Number__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Country__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>ADCVD_Case_Type__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Product__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Commodity__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ADCVD_Case_Number_Text__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Country_Text__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ADCVD_Case_Type_Text__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Product_Text__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Commodity_Text__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>ADCVD_Case_Number__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Country__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>ADCVD_Case_Type__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Product__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ADCVD_Case_Number_Text__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Country_Text__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ADCVD_Case_Type_Text__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Product_Text__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Status__c</lookupPhoneDialogsAdditionalFields>
-        <searchFilterFields>ADCVD_Case_Number__c</searchFilterFields>
-        <searchFilterFields>Country__c</searchFilterFields>
-        <searchFilterFields>ADCVD_Case_Type__c</searchFilterFields>
-        <searchFilterFields>Product__c</searchFilterFields>
-        <searchFilterFields>Commodity__c</searchFilterFields>
+        <searchFilterFields>ADCVD_Case_Number_Text__c</searchFilterFields>
+        <searchFilterFields>Country_Text__c</searchFilterFields>
+        <searchFilterFields>ADCVD_Case_Type_Text__c</searchFilterFields>
+        <searchFilterFields>Product_Text__c</searchFilterFields>
+        <searchFilterFields>Commodity_Text__c</searchFilterFields>
         <searchFilterFields>Status__c</searchFilterFields>
         <searchFilterFields>NAME</searchFilterFields>
-        <searchResultsAdditionalFields>ADCVD_Case_Number__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Country__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ADCVD_Case_Type__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Product__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Commodity__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADCVD_Case_Number_Text__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Country_Text__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADCVD_Case_Type_Text__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Product_Text__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Commodity_Text__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ControlledByParent</sharingModel>
+    <sharingModel>ReadWrite</sharingModel>
     <validationRules>
         <fullName>Actual_Amended_Final_Signature_Not_Blank</fullName>
         <active>true</active>

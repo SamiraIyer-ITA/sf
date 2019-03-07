@@ -155,6 +155,36 @@
             <field>This_Investigation_has_an_Order__c</field>
             <table>ADCVD_Order__c</table>
         </columns>
+                <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case_Number_Text__c</field>
+            <table>ADCVD_Order__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case_Type_Text__c</field>
+            <table>ADCVD_Order__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Commodity_Text__c</field>
+            <table>ADCVD_Order__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Country_Text__c</field>
+            <table>ADCVD_Order__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product_Text__c</field>
+            <table>ADCVD_Order__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product_Short_Name_Text__c</field>
+            <table>ADCVD_Order__c</table>
+        </columns>
         <masterLabel>ADCVD Orders</masterLabel>
     </sections>
     <sections>

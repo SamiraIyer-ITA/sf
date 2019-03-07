@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Report xmlns="http://soap.sforce.com/2006/04/metadata">
     <columns>
-        <field>Investigation__c$ADCVD_Case_Number__c</field>
+        <field>Investigation__c$ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
         <field>Investigation__c$Link__c</field>
@@ -28,10 +28,10 @@
         <field>Investigation__c$Next_Major_Deadline__c</field>
     </columns>
     <columns>
-        <field>Investigation__c$Product__c</field>
+        <field>Investigation__c$Product_Text__c</field>
     </columns>
     <columns>
-        <field>Investigation__c$Country__c</field>
+        <field>Investigation__c$Country_Text__c</field>
     </columns>
     <columns>
         <field>Investigation__c$RecordType</field>

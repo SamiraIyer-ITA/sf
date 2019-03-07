@@ -156,7 +156,7 @@ public class InvestigationTriggerHandlerTest {
   private static Petition__c adP{
     get{
       if (adP == null) {
-        adP = [SELECT Id, Petition_Filed__c, Actual_Initiation_Signature__c, Calculated_Initiation_Signature__c FROM Petition__c WHERE ADCVD_Case_Type__c LIKE 'AD%' LIMIT 1];
+        adP = [SELECT Id, Petition_Filed__c, Actual_Initiation_Signature__c, Calculated_Initiation_Signature__c FROM Petition__c WHERE ADCVD_Case_Type_Text__c LIKE 'AD%' LIMIT 1];
       }
       return adP;
     }
@@ -164,7 +164,7 @@ public class InvestigationTriggerHandlerTest {
   private static Petition__c cvdP{
     get{
       if (cvdP == null) {
-        cvdP = [SELECT Id, Petition_Filed__c, Actual_Initiation_Signature__c, Calculated_Initiation_Signature__c FROM Petition__c WHERE ADCVD_Case_Type__c LIKE 'CVD%' LIMIT 1];
+        cvdP = [SELECT Id, Petition_Filed__c, Actual_Initiation_Signature__c, Calculated_Initiation_Signature__c FROM Petition__c WHERE ADCVD_Case_Type_Text__c LIKE 'CVD%' LIMIT 1];
       }
       return cvdP;
     }
@@ -521,7 +521,7 @@ public class InvestigationTriggerHandlerTest {
     Test.startTest();
 
     //NAFTA Country Hold Time
-    adP.Country__c = 'Mexico';
+    adP.Country_Text__c = 'Mexico';
     update adP;
 
     Federal_Register__c adPrelimItcFR = setFR(iAD.Id, 'ITC Preliminary', true);
@@ -539,7 +539,7 @@ public class InvestigationTriggerHandlerTest {
     Test.startTest();
 
     //NAFTA Country Hold Time
-    adP.Country__c = 'Mexico';
+    adP.Country_Text__c = 'Mexico';
     update adP;
 
     Federal_Register__c adFinalItcFR =  setFR(iAD.Id, 'ITC Final', true);
@@ -557,7 +557,7 @@ public class InvestigationTriggerHandlerTest {
     Test.startTest();
 
     //NAFTA Country Hold Time
-    adP.Country__c = 'Mexico';
+    adP.Country_Text__c = 'Mexico';
     update adP;
 
     iAD.Actual_Final_Signature__c = petitionDate.addDays(56);
@@ -582,7 +582,7 @@ public class InvestigationTriggerHandlerTest {
     Test.startTest();
 
     //NAFTA Country Hold Time
-    adP.Country__c = 'Mexico';
+    adP.Country_Text__c = 'Mexico';
     update adP;
 
     //Data setup

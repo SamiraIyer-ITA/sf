@@ -21,7 +21,7 @@
         <name>co</name>
         <value>1</value>
     </params>
-    <reportType>CustomEntityCustomEntity$Petition__c$Investigation__c</reportType>
+    <reportType>CustomEntity$Investigation__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
     <showGrandTotal>true</showGrandTotal>

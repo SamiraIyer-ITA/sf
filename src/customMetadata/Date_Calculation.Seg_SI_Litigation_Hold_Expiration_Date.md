@@ -204,7 +204,7 @@
     </values>
     <values>
         <field>Conditional_Field_4_Name__c</field>
-        <value xsi:type="xsd:string">Country__c</value>
+        <value xsi:type="xsd:string">Country_Text__c</value>
     </values>
     <values>
         <field>Conditional_Field_4_Object__c</field>

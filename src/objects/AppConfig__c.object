@@ -35,6 +35,17 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Batch_Size__c</fullName>
+        <externalId>false</externalId>
+        <label>Batch Size</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>ChronExp_LitigationSegement__c</fullName>
         <defaultValue>&quot;0 &quot; + TEXT(MINUTE(TIMEVALUE(NOW() + 30))) + &quot; &quot; +  TEXT(HOUR(TIMEVALUE(NOW() + 30))) + &quot; &quot; + TEXT(Day(TODAY())) + &quot; &quot; + TEXT(MONTH(TODAY())) + &quot;? &quot;</defaultValue>
         <description>Chron Trigger Expression used for ScheduledDispatcher of RefreshLitigationSegmentDates class.</description>

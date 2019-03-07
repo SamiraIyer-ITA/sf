@@ -4,19 +4,19 @@
         <field>Investigation__c$Next_Major_Deadline__c</field>
     </columns>
     <columns>
-        <field>Investigation__c$Product__c</field>
+        <field>Investigation__c$Product_Text__c</field>
     </columns>
     <columns>
         <field>Investigation__c$RecordType</field>
     </columns>
     <columns>
-        <field>Investigation__c$Country__c</field>
+        <field>Investigation__c$Country_Text__c</field>
     </columns>
     <columns>
         <field>Investigation__c$Status__c</field>
     </columns>
     <columns>
-        <field>Investigation__c$Commodity__c</field>
+        <field>Investigation__c$Commodity_Text__c</field>
     </columns>
     <columns>
         <field>Investigation__c$Link__c</field>

@@ -38,17 +38,30 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
+        <comment>Action override updated by Lightning App Builder during activation.</comment>
+        <content>Custom_Instruction_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Basic_Case_Info</fullName>
+        <fields>ADCVD_Case__c</fields>
+        <fields>Product_Text__c</fields>
+        <fields>Product_Short_Name_Text__c</fields>
+        <fields>Country_Text__c</fields>
+        <fields>Commodity_Text__c</fields>
+        <label>Basic Case Info</label>
+    </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
-    <enableSearch>false</enableSearch>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
@@ -96,7 +109,7 @@
         <relationshipLabel>Custom Instructions</relationshipLabel>
         <relationshipName>Custom_Instructions</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -184,7 +197,7 @@
         <externalId>false</externalId>
         <label>CBP Instructions Category</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -316,7 +329,7 @@
         <externalId>false</externalId>
         <label>CBP Instructions Sub-Category</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -499,7 +512,7 @@
     <fields>
         <fullName>Country__c</fullName>
         <externalId>false</externalId>
-        <label>Country</label>
+        <label>Country Deprecated</label>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -602,7 +615,7 @@
         <relationshipLabel>Custom Instructions</relationshipLabel>
         <relationshipName>Custom_Instructions</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -620,7 +633,7 @@
         <externalId>false</externalId>
         <label>Message Date</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -630,7 +643,7 @@
         <label>Message No.</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -720,7 +733,7 @@
         <relationshipLabel>Custom Instructions</relationshipLabel>
         <relationshipName>Custom_Instructions</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -768,7 +781,7 @@
         <relationshipLabel>Custom Instructions</relationshipLabel>
         <relationshipName>Custom_Instructions</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -793,7 +806,7 @@
         <columns>Investigation__c</columns>
         <columns>ADCVD_Order__c</columns>
         <columns>Product_Text__c</columns>
-        <columns>Country__c</columns>
+        <columns>Country_Text__c</columns>
         <columns>Suspension_Agreement__c</columns>
         <columns>Segment__c</columns>
         <filterScope>Everything</filterScope>
@@ -851,7 +864,7 @@ PRIORVALUE(Locked__c) == true
         <active>false</active>
         <description>Custom Instruction records can only be reparented by a System Administrator.</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
-Locked__c == false, 
+    Locked__c == false,
 NOT( ISNEW() ), 
 OR(ISCHANGED(ADCVD_Order__c), ISCHANGED(Investigation__c),ISCHANGED(Petition__c),ISCHANGED(Segment__c),ISCHANGED(Suspension_Agreement__c)),
 $Profile.Name 

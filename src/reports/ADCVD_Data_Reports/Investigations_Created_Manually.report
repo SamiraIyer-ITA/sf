@@ -7,7 +7,7 @@
         <field>Investigation__c$Name</field>
     </columns>
     <columns>
-        <field>Investigation__c$ADCVD_Case_Number__c</field>
+        <field>Investigation__c$ADCVD_Case_Number_Text__c</field>
     </columns>
     <columns>
         <field>Investigation__c$CreatedBy</field>

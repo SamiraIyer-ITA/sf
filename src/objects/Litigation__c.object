@@ -51,8 +51,8 @@
         <fields>ADCVD_Case__c</fields>
         <fields>RecordTypeId</fields>
         <fields>Office__c</fields>
-        <fields>Product_Short_Name__c</fields>
-        <fields>Country__c</fields>
+        <fields>Product_Short_Name_Text__c</fields>
+        <fields>Country_Text__c</fields>
         <fields>Period_Covered_End_Date__c</fields>
         <fields>Product_Description__c</fields>
         <label>Basic Case Info</label>
@@ -63,7 +63,7 @@
     <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
-    <enableSearch>false</enableSearch>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
@@ -82,7 +82,7 @@
     <fields>
         <fullName>ADCVD_Case_Number__c</fullName>
         <externalId>false</externalId>
-        <label>ADCVD Case Number Text Value</label>
+        <label>ADCVD Case Number Text Value Deprecated</label>
         <length>28</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -106,7 +106,7 @@
     <fields>
         <fullName>ADCVD_Case_Type__c</fullName>
         <externalId>false</externalId>
-        <label>ADCVD Case Type</label>
+        <label>ADCVD Case Type Deprecated</label>
         <length>28</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -155,7 +155,7 @@
         <label>Actual Draft Remand (released to party)</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -185,7 +185,7 @@
         <label>Actual Final Signature</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -195,7 +195,7 @@
         <label>Actual Initiation Signature</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -225,7 +225,7 @@
         <label>Actual Preliminary Signature</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -244,7 +244,7 @@
     <fields>
         <fullName>CBP_Case_Number__c</fullName>
         <externalId>false</externalId>
-        <label>CBP Case Number</label>
+        <label>CBP Case Number Deprecated</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -259,7 +259,7 @@
         <label>Calculated Amended Final Signature</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -269,7 +269,7 @@
         <label>Calculated Draft Remand release to party</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -279,7 +279,7 @@
         <label>Calculated Final Signature</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -289,7 +289,7 @@
         <label>Calculated Initiation Signature</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -299,7 +299,7 @@
         <label>Calculated Preliminary Signature</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -328,7 +328,7 @@
     <fields>
         <fullName>Commodity__c</fullName>
         <externalId>false</externalId>
-        <label>Commodity</label>
+        <label>Commodity Deprecated</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -352,7 +352,7 @@
     <fields>
         <fullName>Country__c</fullName>
         <externalId>false</externalId>
-        <label>Country</label>
+        <label>Country Deprecated</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -409,7 +409,7 @@
         <label>Expected Final Signature Before Ext</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -444,7 +444,7 @@
         <required>false</required>
         <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -477,7 +477,7 @@
         <required>false</required>
         <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -551,7 +551,7 @@
     <fields>
         <fullName>Litigation_Name__c</fullName>
         <externalId>false</externalId>
-        <formula>ADCVD_Case_Number__c + &apos;--&apos;+ Name</formula>
+        <formula>ADCVD_Case_Number_Text__c + &apos;--&apos;+ Name</formula>
         <label>Litigation Name</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -743,7 +743,7 @@
         <required>false</required>
         <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -805,7 +805,7 @@
     <fields>
         <fullName>Product_Short_Name__c</fullName>
         <externalId>false</externalId>
-        <label>Product Short Name</label>
+        <label>Product Short Name Deprecated</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -829,7 +829,7 @@
     <fields>
         <fullName>Product__c</fullName>
         <externalId>false</externalId>
-        <label>Product</label>
+        <label>Product Deprecated</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -844,7 +844,7 @@
         <label>Request Filed</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -894,7 +894,7 @@
         <label>Status</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -949,10 +949,10 @@
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
-        <columns>ADCVD_Case_Number__c</columns>
-        <columns>Country__c</columns>
-        <columns>ADCVD_Case_Type__c</columns>
-        <columns>Product__c</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>Product_Text__c</columns>
         <columns>RECORDTYPE</columns>
         <columns>Litigation_Name__c</columns>
         <columns>Status__c</columns>
@@ -3129,7 +3129,7 @@ NOT( ISNULL( Actual_Preliminary_Signature__c ))
         <fullName>Calc_Draft_Must_Be_Less_Than_Calc_Final</fullName>
         <active>true</active>
         <errorConditionFormula>Calculated_Draft_Remand_release_to_party__c  &gt;=  Calculated_Final_Signature__c</errorConditionFormula>
-        <errorMessage>Please account for weekends or holidays when adjusting the extension number of days.</errorMessage>
+        <errorMessage>The Calculated Draft Remand must occur before the Calculated Final Signature.  Please remember extending to a weekend or holiday will cause the Calculated Draft Remand to roll to the next business day.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Cannot_Edit_Locked_Record</fullName>
@@ -3184,7 +3184,7 @@ OR(ISCHANGED(Petition__c),ISCHANGED(Segment__c),ISCHANGED(Investigation__c)),$Pr
     </validationRules>
     <validationRules>
         <fullName>Prelim_Extension_of_days</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>Calculated_Draft_Remand_release_to_party__c  &gt;=  Calculated_Final_Signature__c</errorConditionFormula>
         <errorMessage>Please account for weekends or holidays when adjusting the extension number of days.</errorMessage>
     </validationRules>
