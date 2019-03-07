@@ -623,10 +623,16 @@ PRIORVALUE(Locked__c) == true
     </validationRules>
     <validationRules>
         <fullName>Cannot_reparent_a_federal_register</fullName>
-        <active>false</active>
+        <active>true</active>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND( $Profile.Name != &apos;System Administrator&apos;,
-        OR( ISCHANGED( Investigation__c ) , ISCHANGED( 
-Petition__c ) , ISCHANGED( Segment__c ) ) ))</errorConditionFormula>
+OR( ISCHANGED( Investigation__c ),
+ISCHANGED( Petition__c ),
+ISCHANGED( Segment__c ),
+ISCHANGED( ADCVD_Order__c ),
+ISCHANGED( Suspension_Agreement__c ),
+ISCHANGED( Litigation__c ),
+ISCHANGED( ADCVD_Case__c )
+ ) ))</errorConditionFormula>
         <errorMessage>Cannot re-parent a federal register.</errorMessage>
     </validationRules>
     <validationRules>
@@ -641,30 +647,86 @@ ISBLANK( ADCVD_Order__c )))</errorConditionFormula>
     <validationRules>
         <fullName>Ensure_there_is_only_one_parent</fullName>
         <active>true</active>
-        <description>You cannot create a federal register without a single parent record: either an Investigation, Petition, Order, Suspension Agreement or Segment attached to it. If all four of these lookup fields are empty, the validation error message will trigger.</description>
+        <description>You cannot create a federal register without a single parent record: either an Investigation, Petition, Order, Suspension Agreement, or Segment attached to it. If all four of these lookup fields are empty, the validation error message will trigger.</description>
         <errorConditionFormula>AND(
     $Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
     Locked__c == false, 
-ISNEW(),  
-OR( 
-  (AND 
-  ( ISBLANK(Petition__c),
-  ISBLANK(Segment__c),
-  ISBLANK(Investigation__c), 
-  ISBLANK(ADCVD_Order__c),
-  ISBLANK(Suspension_Agreement__c) 
-  )
-  ),
     (	
 	IF(ISBLANK(Petition__c),0,1)+ 
 	IF(ISBLANK(Segment__c),0,1)+ 
         IF(ISBLANK(ADCVD_Order__c),0,1)+
 	IF(ISBLANK(Investigation__c),0,1)+ 
-	IF(ISBLANK(Suspension_Agreement__c),0,1) &gt;1
+	IF(ISBLANK(Suspension_Agreement__c),0,1) &lt;&gt;1
+   )
+)</errorConditionFormula>
+        <errorMessage>You must have only one of the following: Petition, Investigation,  ADCVD Order, Suspension Agreement or Segment associated to this Federal Register.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Limit_FR_Type_for_ADCVD_Order</fullName>
+        <active>true</active>
+        <description>When the ADCVD Order lookup field is populated, this validation rule will limit the values that can be accepted in the Type__c field.</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, 
+NOT(ISBLANK( ADCVD_Order__c )),
+CASE(Type__c, 
+&apos;Initiation&apos;, 1,
+&apos;Preliminary&apos;, 1,
+&apos;Amended Preliminary&apos;, 1,
+&apos;Final&apos;, 1,
+&apos;Amended Final&apos;, 1,
+&apos;ITC Preliminary&apos;, 1,
+&apos;ITC Final&apos;, 1,
+&apos;Postponement&apos;, 1,
+&apos;Admin Review Opportunity Notice&apos;, 1,
+&apos;Rescission&apos;, 1,
+&apos;Quarterly Scope&apos;, 1,
+&apos;Suspension Agreement&apos;, 1,
+&apos;Withdrawn&apos;, 1,
+0) = 1
+)</errorConditionFormula>
+        <errorDisplayField>Type__c</errorDisplayField>
+        <errorMessage>That Type is not allowed for a Federal Register of an ADCVD Order.  Please update your Federal Register Type.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Limit_FR_Type_for_SSR</fullName>
+        <active>true</active>
+        <description>When the Segment lookup field is populated with a Sunset Review (SSR), this validation rule will limit the values that can be accepted in the Type__c field.</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, 
+NOT(ISBLANK( Segment__c )),
+Segment__r.RecordType.DeveloperName = &apos;Sunset_Review&apos;,
+CASE(Type__c, 
+&apos;Continuation&apos;, 1,
+&apos;Order&apos;, 1,
+&apos;Admin Review Opportunity Notice&apos;, 1,
+&apos;Rescission&apos;, 1,
+&apos;Revocation&apos;, 1,
+&apos;Quarterly Scope&apos;, 1,
+&apos;Suspension Agreement&apos;, 1,
+&apos;Withdrawn&apos;, 1,
+0) = 1
+)</errorConditionFormula>
+        <errorDisplayField>Type__c</errorDisplayField>
+        <errorMessage>That Type is not allowed for a Federal Register of a Sunset Review.  Please update your Federal Register Type.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Only_Admin_reparents_Federal_Register</fullName>
+        <active>true</active>
+        <description>Federal Register records can only be reparented by a System Administrator.</description>
+        <errorConditionFormula>AND(
+    $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+    Locked__c == false,
+    AND(
+        $Profile.Name != &apos;System Administrator&apos;,
+        NOT($Permission.ADCVD_App_Modify_Parents),
+        OR(
+            ISCHANGED( Investigation__c ),
+            ISCHANGED( Petition__c ),
+            ISCHANGED( Segment__c ),
+            ISCHANGED( ADCVD_Order__c ),
+            ISCHANGED( Suspension_Agreement__c )
         )
     )
 )</errorConditionFormula>
-        <errorMessage>You must have either a Petition, Investigation,  ADCVD Order, Suspension Agreement or Segment associated to this Federal Register.</errorMessage>
+        <errorMessage>Federal Register records can only be reparented by a System Administrator.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Limit_FR_Type_for_ADCVD_Order</fullName>
