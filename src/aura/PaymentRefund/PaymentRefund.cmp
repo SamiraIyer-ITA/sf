@@ -1,0 +1,44 @@
+<aura:component description="Component to issue a refund for a credit card payment."
+                implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId,flexipage:availableForRecordHome,force:lightningQuickAction"
+                extends="c:Base"
+                controller="RefundLightningController"
+                access="global">
+
+    <aura:attribute name="refundLightningController" type="RefundLightningController" access="private" description="The RefundLightningController, populated on init."/>
+
+    <lightning:layout>
+        <lightning:layoutItem size="12">
+
+            <article class="slds-card">
+                <div class="slds-card__body slds-card__body_inner slds-m-top--x-small" >
+
+                    <div class="slds-tabs_default slds-m-bottom_none">
+                        <ul class="slds-tabs_default__nav" role="tablist">
+                            <li class="slds-tabs_default__item slds-is-active" title="Refund Payment" role="presentation" style="margin-top:0px;padding-top:0px;">
+                                <a class="slds-tabs_default__link" href="javascript:void(0);" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-default-1" id="tab-default-1__item">Refund Payment</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div aura:id="spinner" class="slds-align--absolute-center slds-hide">
+                        <lightning:spinner variant="brand" size="large" alternativeText="Please wait.  Refunding payment."/>
+                    </div>
+
+                    <br/>
+                    <aura:if isTrue="{!!v.refundLightningController.refundObject.Transaction_Amount__c}">
+                        <lightning:buttonGroup>
+                            <lightning:button label="Issue Refund" value="" onclick="{!c.doIssueRefund}"/>
+                        </lightning:buttonGroup>
+                        <aura:set attribute="else">
+                            <div class="slds-text-color_success">
+                                <ui:outputCurrency aura:id="refundAmount" value="{!v.refundLightningController.refundObject.Transaction_Amount__c}" format="$##,##,###,###.00"/> has been successfully refunded.
+                            </div>
+                        </aura:set>
+                    </aura:if>
+
+                </div>
+            </article>
+        </lightning:layoutItem>
+    </lightning:layout>
+
+</aura:component>

@@ -50,7 +50,7 @@ public class Test_PaymentController {
         system.assertEquals(myController.agencyTrackingId, null);
         myController.amount = '5.00';
         myController.PrivacyShieldPayment();
-        myController.eventsServicesPayment();
+        myController.eventServicePayment();
         myController.agencyTrackingId = 'Thisismytestid';
         
         myController.getAgencyTrackingId();
@@ -131,7 +131,7 @@ public class Test_PaymentController {
             
             myController.agencyTrackingId = 'sp000968';
             myController.getAgencyTrackingId();
-            myController.eventsServicesPayment();
+            myController.eventServicePayment();
          Test.stopTest();
     }
     static testMethod void testClass7(){

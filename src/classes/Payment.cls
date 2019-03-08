@@ -1,58 +1,69 @@
 public without sharing class Payment {
     
     public static final String LANGUAGE = 'en';
-    //public static final String PAY_GOV_URL = 'https://qa.pay.gov/tcsonline/payment.do';  //QA
-    //public static final String PAY_GOV_URL = 'https://www.pay.gov/tcsonline/payment.do';  //Production
-    
-    //private static final String PRIVACY_SHIELD_APP_ID = 'TCSITAUSMASSHQA';  //QA
-    //private static final String PRIVACY_SHIELD_APP_ID = 'TCSITAUSMASSH';  //Production
-    //private static final String EVENTS_SERVICES_APP_ID = 'TCSITAUSFCSEMENUQA';  //QA
-    //private static final String EVENTS_SERVICES_APP_ID = 'TCSITAUSFCSEMENU';  //Production
     
     @TestVisible private static final String PRIVACY_SHIELD_APP_ID = PaymentSettings__c.getAll().get('PRIVACY_SHIELD_APP_ID').value__c;  
     @TestVisible private static final String EVENTS_SERVICES_APP_ID = PaymentSettings__c.getAll().get('EVENTS_SERVICES_APP_ID').value__c; 
-    @TestVisible private static final String PAY_GOV_URL = PaymentSettings__c.getAll().get('PAY_GOV_TCS_ONLINE_URL').value__c; 
+    @TestVisible private static final String PAY_GOV_URL = PaymentSettings__c.getAll().get('PAY_GOV_TCS_ONLINE_URL').value__c;
     
-    public String getAgencyTrackingId() {
+    public PaymentValueObject getAgencyTrackingId() {
+        RecordLog.push('Payment.getAgencyTrackingId');
         Payment__c paymentObject = new Payment__c();
-        insert paymentObject;
-        //Since name is an Auto-Number field, must query the paymentObject to get the value
-        paymentObject = [SELECT Name FROM payment__c WHERE Id = :paymentObject.id LIMIT 1];
-        return paymentObject.Name;
-    }
-    
-    public String getAgencyTrackingId(Id OrderId){
-        Payment__c paymentObject = new Payment__c();
-            paymentObject.Order__c = OrderId;
-        insert paymentObject;
-        //Since Name is an Auto-Number field, must query the paymentObject to get the value
-        paymentObject = [SELECT Name FROM payment__c WHERE Id = :paymentObject.id LIMIT 1];
-        return paymentObject.Name;        
-    }
-    public String getAgencyTrackingId(String PaymentName, Id OrderId){
-        //List<Payment__c> pmtList = [SELECT Name FROM payment__c WHERE Name = :PaymentName AND Transaction_Status__c = '' AND Order__c =: OrderId LIMIT 1];
-        //if(pmtList.size() > 0) {
-        //    return pmtList[0].Name;
-        //} else {
-            Payment__c paymentObject = new Payment__c();
-            paymentObject.Order__c = OrderId;
+        RecordLog.message('Inserting Payment');
+        try {
             insert paymentObject;
-            //Since Name is an Auto-Number field, must query the paymentObject to get the value
-            paymentObject = [SELECT Name FROM payment__c WHERE Id = :paymentObject.Id LIMIT 1];
-            return paymentObject.Name;     
-        //}
-           
+        } catch (Exception e) {
+            RecordLog.message('Exception: ' + e.getMessage());
+            RecordLog.emit('No Payment Id');
+            throw e;
+        }
+        RecordLog.message('Payment inserted');
+        //Since name is an Auto-Number field, must query the paymentObject to get the value
+        paymentObject = [SELECT Name FROM payment__c WHERE Id = :paymentObject.Id LIMIT 1];
+        PaymentValueObject pvo = new PaymentValueObject();
+        pvo.agencyTrackingId = paymentObject.Name;
+        pvo.paymentId = paymentObject.Id;
+        RecordLog.message('Agency Tracking Id: ' + paymentObject.Name);
+        RecordLog.emit(paymentObject.Id);
+        return pvo;
+    }
+    
+    public PaymentValueObject getAgencyTrackingId(Id orderId) {
+        RecordLog.push('Payment.getAgencyTrackingId');
+        RecordLog.message('Order Id: ' + orderId);
+        Payment__c paymentObject = new Payment__c();
+        paymentObject.Order__c = OrderId;
+        RecordLog.message('Inserting Payment');
+        try {
+            insert paymentObject;
+        } catch (Exception e) {
+            RecordLog.message('Exception: ' + e.getMessage());
+            RecordLog.emit('No Payment Id');
+            throw e;
+        }
+        RecordLog.message('Payment inserted');
+        //Since Name is an Auto-Number field, must query the paymentObject to get the value
+        paymentObject = [SELECT Id, Name FROM Payment__c WHERE Id = :paymentObject.Id LIMIT 1];
+        PaymentValueObject pvo = new PaymentValueObject();
+        pvo.agencyTrackingId = paymentObject.Name;
+        pvo.paymentId = paymentObject.Id;
+        RecordLog.message('Agency Tracking Id: ' + paymentObject.Name);
+        RecordLog.emit(paymentObject.Id);
+        return pvo;
     }
     
     //Step 1: Get a token FROM pay.gov for the transaction    
-    public String getToken(String agency_tracking_id, String tcs_app_id, String transaction_type, String transaction_amount, String url_success, String url_cancel ) {
-        return getToken(agency_tracking_id, tcs_app_id, transaction_type, transaction_amount, url_success, url_cancel, null, null, null, null, null, null, null, null);
+    public String getToken(Id paymentId, String agency_tracking_id, String tcs_app_id, String transaction_type, String transaction_amount, String url_success, String url_cancel) {
+        return getToken(paymentId, agency_tracking_id, tcs_app_id, transaction_type, transaction_amount, url_success, url_cancel, null, null, null, null, null, null, null, null);
     }
     
-    public String getToken(String agency_tracking_id, String tcs_app_id, String transaction_type, String transaction_amount, String url_success, String url_cancel,
+    public String getToken(Id paymentId, String agency_tracking_id, String tcs_app_id, String transaction_type, String transaction_amount, String url_success, String url_cancel,
         String account_holder_name, String billing_address, String billing_address2, String billing_city, String billing_state, String billing_zip,
         String billing_country, String email_address) {
-            
+
+        RecordLog.push('Payment.getToken');
+        RecordLog.message('TCS App Id: ' + tcs_app_id);
+
         PayGovTCSOnline.StartOnlineCollectionRequest startOnlineCollectionRequest = new PayGovTCSOnline.StartOnlineCollectionRequest();
         
         //POPULATE REQUIRED ELEMENTS
@@ -95,10 +106,12 @@ public without sharing class Payment {
         PayGovTCSOnline.CustomCollectionFields customFields = new PayGovTCSOnline.CustomCollectionFields();
         if (tcs_app_id.equals(PRIVACY_SHIELD_APP_ID)) {
             //Privacy Shield
-            //TODO: Does the Fund Code Fiscal Year (3rd element below) need to be dynamic?
             customFields.custom_field_1 = '55:0023:' + getCurrentFiscalYear() + ':SAFH232-000:35-05-0001-01-00-00-00:05-20-00-00:' + transaction_amount + '::::::::';  //Product #1 of this transaction.  transaction_amount must have 2 decimals, e.g. 100.00
+        } else if (tcs_app_id.equals(EVENTS_SERVICES_APP_ID)) {
+            //Events/Services - To be determined
+            customFields.custom_field_1 = '::::::::::::::';
         } else {
-            //Events/Services - To be dynamically filled in
+            //Unknown application
             customFields.custom_field_1 = '::::::::::::::';
         }
         customFields.custom_field_2 = '::::::::::::::';  //Product #2 of this transaction 
@@ -114,30 +127,45 @@ public without sharing class Payment {
         customFields.custom_field_12 = '::::::::::::::';  //For reconciliation purposes
         
         startOnlineCollectionRequest.custom_fields= customFields;
-        
-        //system.debug(startOnlineCollectionRequest);
+
+        RecordLog.message('Transaction Amount: ' + transaction_amount);
+        RecordLog.message('Transaction Type: ' + transaction_type);
+        RecordLog.message('Custom Field 1: ' + customFields.custom_field_1);
         
         PayGovTCSOnline.TCSOnlineServicePort payGovOnline = new  PayGovTCSOnline.TCSOnlineServicePort();
-        PayGovTCSOnline.StartOnlineCollectionResponse startOnlineCollectionResponse = payGovOnline.startOnlineCollection(startOnlineCollectionRequest);
+        PayGovTCSOnline.StartOnlineCollectionResponse startOnlineCollectionResponse;
+        //RecordLog.emit() will be called in payGovOnline.startOnlineCollection
+        try {
+            startOnlineCollectionResponse = payGovOnline.startOnlineCollection(startOnlineCollectionRequest, paymentId);
+        } catch (Exception e) {
+            //An error occurred when contacting pay.gov
+            throw e;
+        }
         return startOnlineCollectionResponse.token;
     }
     
     //Step 2: Use the token in a Url redirect to pay.gov
-    public PageReference redirectToPayGov(String token, String tcs_app_id) {
+    public PageReference redirectToPayGov(Id paymentId, String token, String tcs_app_id) {
+        RecordLog.push('Payment.redirectToPayGov');
+        RecordLog.message('TCS App Id: ' + tcs_app_id);
         String redirectUrl = Payment.PAY_GOV_URL + '?token=' + token + '&tcsAppID=' + tcs_app_id;
-        //System.debug('Pay.gov redirect URL = ' + redirectUrl);
+        RecordLog.message('Redirect URL: ' + redirectUrl);
+        RecordLog.emit(paymentId);
         return new PageReference(redirectUrl);
     }
     
     //Step 3: Complete the transaction, receiving and saving the transaction details
-    public PayGovTCSOnline.CompleteOnlineCollectionWithDetailsResponse completeTransaction(String token, String tcs_app_id) {
+    public PayGovTCSOnline.CompleteOnlineCollectionWithDetailsResponse completeTransaction(Id paymentId, String token, String tcs_app_id) {
+        RecordLog.push('Payment.completeTransaction');
+        RecordLog.message('TCS App Id: ' + tcs_app_id);
         PayGovTCSOnline.CompleteOnlineCollectionWithDetailsRequest completeOnlineCollectionWithDetailsRequest = new PayGovTCSOnline.CompleteOnlineCollectionWithDetailsRequest();
         completeOnlineCollectionWithDetailsRequest.tcs_app_id = tcs_app_id;
         completeOnlineCollectionWithDetailsRequest.token = token;
-        PayGovTCSOnline.TCSOnlineServicePort payGovOnline = new  PayGovTCSOnline.TCSOnlineServicePort();
+        PayGovTCSOnline.TCSOnlineServicePort payGovOnline = new PayGovTCSOnline.TCSOnlineServicePort();
         PayGovTCSOnline.CompleteOnlineCollectionWithDetailsResponse completeOnlineCollectionWithDetailsResponse;
+        //RecordLog.emit() will be called in payGovOnline.completeOnlineCollectionWithDetails
         try {
-            completeOnlineCollectionWithDetailsResponse = payGovOnline.completeOnlineCollectionWithDetails(completeOnlineCollectionWithDetailsRequest);
+            completeOnlineCollectionWithDetailsResponse = payGovOnline.completeOnlineCollectionWithDetails(completeOnlineCollectionWithDetailsRequest, paymentId);
         } catch (Exception e) {
             //The payment failed
             //Return null and handle this in the calling controller
@@ -148,31 +176,42 @@ public without sharing class Payment {
     
     //Step 4: Save the transaction details
     public Payment__c saveTransactionDetails(Payment__c paymentObject, PayGovTCSOnline.CompleteOnlineCollectionWithDetailsResponse completeOnlineCollectionWithDetailsResponse) {
+        RecordLog.push('Payment.saveTransactionDetails');
+
         paymentObject.Pay_Gov_Tracking_Id__c = String.valueOf(completeOnlineCollectionWithDetailsResponse.paygov_tracking_id);
         paymentObject.Transaction_Amount__c = Decimal.valueof(completeOnlineCollectionWithDetailsResponse.transaction_amount);
+
+        RecordLog.message('Pay.gov Tracking Id: ' + paymentObject.Pay_Gov_Tracking_Id__c);
+        RecordLog.message('Transaction Amount: ' + paymentObject.Transaction_Amount__c);
         
         //The transaction datetime returned from pay.gov is correct for EST, but the timezone thinks it's GMT
         //So convert the datetime to GMT for it to be properly stored
         DateTime transDate = completeOnlineCollectionWithDetailsResponse.transaction_date;
+        RecordLog.message('Original Transaction Date: ' + String.valueOf(transDate));
+        RecordLog.message('Original Transaction Date as GMT: ' + String.valueOfGmt(transDate));
         DateTime transDateGMT = transDate.addSeconds(getTimeZoneOffset());
         paymentObject.Transaction_Date__c = transDateGMT;  //Datetimes need to be either GMT or have a timezone specified
+        RecordLog.message('Adjusted Transaction Date: ' + String.valueOf(transDateGMT));
        
         String paymentDate = String.valueOf(completeOnlineCollectionWithDetailsResponse.payment_date);
+        RecordLog.message('Payment Date: ' + paymentDate);
         paymentObject.Payment_Date__c = Date.valueOf(paymentDate);
         paymentObject.Transaction_Status__c = completeOnlineCollectionWithDetailsResponse.transaction_status;
+        RecordLog.message('Transaction Status: ' + paymentObject.Transaction_Status__c);
         paymentObject.Payment_Type__c = completeOnlineCollectionWithDetailsResponse.payment_type;
-         
-        update paymentObject;
-        
+        RecordLog.message('Payment Type: ' + paymentObject.Payment_Type__c);
+        RecordLog.message('Updating the Payment');
+
+        try {
+            update paymentObject;
+        } catch (Exception e) {
+            RecordLog.message('Exception: ' + e.getMessage());
+            throw e;
+        } finally {
+            RecordLog.emit(paymentObject.Id);
+        }
         return paymentObject;
     }
-    
-    /*@TestVisible private static Datetime getEST(Datetime dtTime)
-    {    
-        Date d = dtTime.dateGmt();
-        Time t = dtTime.timeGmt();
-        return Datetime.newInstance(d,t);
-    }*/
     
     @TestVisible private static Integer getTimeZoneOffset() {
         Timezone tz = Timezone.getTimeZone('America/New_York');
@@ -196,6 +235,11 @@ public without sharing class Payment {
         }
 
         return String.valueOf(year);
+    }
+
+    public class PaymentValueObject {
+        public String agencyTrackingId;
+        public Id paymentId;
     }
 
 }

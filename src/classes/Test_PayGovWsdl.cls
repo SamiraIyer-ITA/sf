@@ -488,7 +488,7 @@ public class Test_PayGovWsdl {
         PCAuthorizationQueryResponseTmp.app_batch_id = null;
     }
     
-    static testmethod void test1() {
+    /*static testmethod void test1() {
 
     PayGovTCSSingleService.baseLineItemType tmp = new PayGovTCSSingleService.baseLineItemType();
     }
@@ -903,7 +903,7 @@ public class Test_PayGovWsdl {
         tmp.agency_id = null;
         tmp.tcs_app_id = null;
         tmp.PCForce = null;
-    }
+    }*/
     static testmethod void test39() {
         
     PayGovTCSSingleService.PCRefundResponseType tmp = new PayGovTCSSingleService.PCRefundResponseType();
@@ -918,13 +918,13 @@ public class Test_PayGovWsdl {
         tmp.transaction_status = null;
         tmp.transaction_date = null;
     }
-    static testmethod void test40() {
+    /*static testmethod void test40() {
 
     PayGovTCSSingleService.PCForceWithoutPaygovTrackingIdResponse_element tmp = new PayGovTCSSingleService.PCForceWithoutPaygovTrackingIdResponse_element();
         tmp.agency_id = null;
         tmp.tcs_app_id = null;
         tmp.PCForceWithoutPaygovTrackingId = null;
-    }
+    }*/
     static testmethod void test41() {
         
     PayGovTCSSingleService.PCRefundRequest_element tmp = new PayGovTCSSingleService.PCRefundRequest_element();
@@ -932,7 +932,7 @@ public class Test_PayGovWsdl {
         tmp.tcs_app_id = null;
         tmp.PCRefund = null;
     }
-    static testmethod void test42() {
+    /*static testmethod void test42() {
         
     PayGovTCSSingleService.PCManualAuthorizationRequestType tmp = new PayGovTCSSingleService.PCManualAuthorizationRequestType();
         tmp.agency_tracking_id = null;
@@ -1110,30 +1110,15 @@ public class Test_PayGovWsdl {
         tmp.agency_id = null;
         tmp.tcs_app_id = null;
         tmp.PCRefundWithoutPaygovTrackingId = null;
-    }
-    @isTest static void test58() {
-        insert new PaymentSettings__c(name='PAY_GOV_TCS_SINGLE_SERVICE_ENDPOINT', value__c = 'Test');
-    	PayGovTCSSingleService.TCSSinglePort tmp = new PayGovTCSSingleService.TCSSinglePort();
-        //tmp.endpoint_x = null;
+    }*/
+    static testmethod void test58() {
+        
+    PayGovTCSSingleService.TCSSinglePort tmp = new PayGovTCSSingleService.TCSSinglePort();
+        tmp.endpoint_x = null;
         tmp.inputHttpHeaders_x = null;
         tmp.outputHttpHeaders_x = null;
-        //tmp.clientCertName_x = null;
-        //tmp.clientCert_x = null;
-        //tmp.clientCertPasswd_x = null;
         tmp.timeout_x = 60000;
         Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
-        Test.startTest();
-        //tmp.processPCManualAuthorization('','',null);
-        tmp.processPCForce(null, null, null);
-        tmp.processPCSale(null, null, null);
-        tmp.processPCCancel(null, null, null);
-        tmp.processPCRefundWithoutPaygovTrackingId(null, null, null);
-        tmp.processACHDebit(null, null, null);
-        tmp.processPCForceWithoutPaygovTrackingId(null, null, null);
-        tmp.processACHCancel(null, null, null);
         tmp.processPCRefund(null, null, null);
-        tmp.processACHPrenotification(null, null, null);
-        tmp.processPCAuthorization(null, null, null);
-        Test.stopTest();
     }
 }

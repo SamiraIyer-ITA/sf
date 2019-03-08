@@ -16,6 +16,7 @@ public without sharing class PaymentController {
     public String agencyTrackingId {get;set;}
     public boolean paymentCancelled {get;set;}  //The user clicked on the Cancel link on pay.gov
     public boolean paymentError {get;set;}      //The user attempted payment but it was declined
+    public Id paymentId {get;set;}
     
     public PaymentController() {
         //Note that agencyTrackingId will only be populated when returning to this page FROM cancelling payment at pay.gov
@@ -44,7 +45,7 @@ public without sharing class PaymentController {
         }
     }
     
-    public PageReference eventsServicesPayment() {
+    public PageReference eventServicePayment() {
         if (agencyTrackingId != null && ! agencyTrackingId.trim().equals('')) {
                 return payment(EVENTS_SERVICES_APP_ID, EVENTS_SERVICES_APP);
         } else {
@@ -65,9 +66,13 @@ public without sharing class PaymentController {
             //Get a tracking id
             Payment payment = new Payment();
             if(ApexPages.currentPage().getParameters().get('opp') != null){
-                agencyTrackingId = payment.getAgencyTrackingId(ApexPages.currentPage().getParameters().get('opp'));
+                payment.PaymentValueObject pvo = payment.getAgencyTrackingId(ApexPages.currentPage().getParameters().get('opp'));
+                agencyTrackingId = pvo.agencyTrackingId;
+                paymentId = pvo.paymentId;
             }else{
-                agencyTrackingId = payment.getAgencyTrackingId();
+                payment.PaymentValueObject pvo = payment.getAgencyTrackingId();
+                agencyTrackingId = pvo.agencyTrackingId;
+                paymentId = pvo.paymentId;
             }
             return null;
         }
@@ -82,11 +87,11 @@ public without sharing class PaymentController {
         String url_cancel = getBaseUrl() + '/apex/Payment?id=' + agencyTrackingId + '&opp=' +oppIdParam + '&app=' + application + '&cancel=true';
         System.debug('Amount = ' + amount);
         System.debug('Agency Tracking Id = ' + agencyTrackingId);
-        String token = payment.getToken(agencyTrackingId, tcs_app_id, transaction_type, amount, url_success, url_cancel );
+        String token = payment.getToken(paymentId, agencyTrackingId, tcs_app_id, transaction_type, amount, url_success, url_cancel );
         System.debug('Pay.gov token = ' + token);
         
         //Redirect to Pay.gov
-        PageReference pageRef = payment.redirectToPayGov(token, tcs_app_id);
+        PageReference pageRef = payment.redirectToPayGov(paymentId, token, tcs_app_id);
         pageRef.setRedirect(true);
         return pageRef;
     }
