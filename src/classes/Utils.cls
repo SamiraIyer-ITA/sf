@@ -145,48 +145,48 @@ public without sharing class Utils {
 	}
 
 	//Helper Method returns Month from a Date in String format
-    public static String getMonthFromDate(Date dt) {
-        String monthString = '';
-        if (dt != null) {
-            Datetime tempDt = Datetime.newInstance(dt, Time.newInstance(0,0,0,0));
-            monthString = tempDt.format('MMMMM');
-        }
-        return monthString;
-    }
+	public static String getMonthFromDate(Date dt) {
+		String monthString = '';
+		if (dt != null) {
+			Datetime tempDt = Datetime.newInstance(dt, Time.newInstance(0,0,0,0));
+			monthString = tempDt.format('MMMMM');
+		}
+		return monthString;
+	}
 
-    public static String soqlBuilderAllFields(String soType, Boolean finishSOQL) {
-        Map<String, Schema.SObjectType> schemaMap = utils.cachedGD;
-        Map<String, Schema.SObjectField> fieldMap = schemaMap.get(soType).getDescribe().fields.getMap();
-        Set<String> searchFields = new Set<String>();
-        String commaSeparatedFields = '';
-        for (String fieldName : fieldMap.keyset()){
-            searchFields.add(fieldName.toLowerCase());
-        }
-        for (String s: searchFields) {
-            if (commaSeparatedFields != '') {
-                commaSeparatedFields = commaSeparatedFields + ', ' + s;
-            } else {
-                commaSeparatedFields = s;
-            }
-        }
-        String query = 'SELECT ' + commaSeparatedFields;
-        if (finishSOQL) {
-        	query += ' FROM ' + soType;
-        }
-        return query;
-    }
+	public static String soqlBuilderAllFields(String soType, Boolean finishSOQL) {
+		Map<String, Schema.SObjectType> schemaMap = utils.cachedGD;
+		Map<String, Schema.SObjectField> fieldMap = schemaMap.get(soType).getDescribe().fields.getMap();
+		Set<String> searchFields = new Set<String>();
+		String commaSeparatedFields = '';
+		for (String fieldName : fieldMap.keyset()){
+			searchFields.add(fieldName.toLowerCase());
+		}
+		for (String s: searchFields) {
+			if (commaSeparatedFields != '') {
+				commaSeparatedFields = commaSeparatedFields + ', ' + s;
+			} else {
+				commaSeparatedFields = s;
+			}
+		}
+		String query = 'SELECT ' + commaSeparatedFields;
+		if (finishSOQL) {
+			query += ' FROM ' + soType;
+		}
+		return query;
+	}
 
-    public static Set<String> allFieldsSet(String soType) {
-        Map<String, Schema.SObjectType> schemaMap = utils.cachedGD;
-        Map<String, Schema.SObjectField> fieldMap = schemaMap.get(soType).getDescribe().fields.getMap();
-        Set<String> returnSet = new Set<String>();
-        for (String fieldName : fieldMap.keyset()){
-            returnSet.add(fieldName.toLowerCase());
-        }
-        return returnSet;
-    }
+	public static Set<String> allFieldsSet(String soType) {
+		Map<String, Schema.SObjectType> schemaMap = utils.cachedGD;
+		Map<String, Schema.SObjectField> fieldMap = schemaMap.get(soType).getDescribe().fields.getMap();
+		Set<String> returnSet = new Set<String>();
+		for (String fieldName : fieldMap.keyset()){
+			returnSet.add(fieldName.toLowerCase());
+		}
+		return returnSet;
+	}
 
-    public static List<SObject> getSObjectsInContext(String sObjectName, Set<Id> sObjectIdSet, Set<String> fields) {
+	public static List<SObject> getSObjectsInContext(String sObjectName, Set<Id> sObjectIdSet, Set<String> fields) {
 		String query = '';
 		for (String fieldName : fields) {
 			if (String.isBlank(query)) {
@@ -200,10 +200,302 @@ public without sharing class Utils {
 		return database.query(query);
 	}
 
-    public static List<SObject> castRecordsToType(List<SObject> records, String soType) {
-	    String listType = 'List<' + soType + '>';
-	    List<SObject> returnList = (List<SObject>)Type.forName(listType).newInstance();
-	    returnList.addAll(records);
-	    return returnList;
+	public static List<SObject> castRecordsToType(List<SObject> records, String soType) {
+		String listType = 'List<' + soType + '>';
+		List<SObject> returnList = (List<SObject>)Type.forName(listType).newInstance();
+		returnList.addAll(records);
+		return returnList;
 	}
+
+	public static String convMultiLineTextToOne(String text) {
+		if (text != null && text.indexOf('\r\n') != -1) {
+			text = text.replace('\r\n', ' ');
+		}
+		return text;
+	}
+
+	// Gets the Alpha3 or Numeric country code from the Salesforce Alpha2
+	public static String getCountryCodeFromAlpha2(String alpha2, CountryCodeType cc) {
+		String countryCode;
+		Map<String, String[]> countryMap = alpha2CountryCodeMap();
+		String[] countryCodes = countryMap.get(alpha2);
+		if (countryCodes != null && countryCodes.size() > 0) {
+			if (cc == CountryCodeType.ALPHA3) {
+				countryCode = countryCodes[0];
+			}
+			if (cc == CountryCodeType.NUMERIC) {
+				countryCode = countryCodes[1];
+			}
+		}
+		return countryCode;
+	}
+
+	private static Map<String, String[]> alpha2CountryCodeMap() {
+		return new Map<String, String[]>{
+			'AW' => new String[]{ 'ABW', '533' },
+			'AF' => new String[]{ 'AFG', '004' },
+			'AO' => new String[]{ 'AGO', '024' },
+			'AI' => new String[]{ 'AIA', '660' },
+			'AX' => new String[]{ 'ALA', '248' },
+			'AL' => new String[]{ 'ALB', '008' },
+			'AD' => new String[]{ 'AND', '020' },
+			'AE' => new String[]{ 'ARE', '784' },
+			'AR' => new String[]{ 'ARG', '032' },
+			'AM' => new String[]{ 'ARM', '051' },
+			'AS' => new String[]{ 'ASM', '016' },
+			'AQ' => new String[]{ 'ATA', '010' },
+			'TF' => new String[]{ 'ATF', '260' },
+			'AG' => new String[]{ 'ATG', '028' },
+			'AU' => new String[]{ 'AUS', '036' },
+			'AT' => new String[]{ 'AUT', '040' },
+			'AZ' => new String[]{ 'AZE', '031' },
+			'BI' => new String[]{ 'BDI', '108' },
+			'BE' => new String[]{ 'BEL', '056' },
+			'BJ' => new String[]{ 'BEN', '204' },
+			'BQ' => new String[]{ 'BES', '535' },
+			'BF' => new String[]{ 'BFA', '854' },
+			'BD' => new String[]{ 'BGD', '050' },
+			'BG' => new String[]{ 'BGR', '100' },
+			'BH' => new String[]{ 'BHR', '048' },
+			'BS' => new String[]{ 'BHS', '044' },
+			'BA' => new String[]{ 'BIH', '070' },
+			'BL' => new String[]{ 'BLM', '652' },
+			'BY' => new String[]{ 'BLR', '112' },
+			'BZ' => new String[]{ 'BLZ', '084' },
+			'BM' => new String[]{ 'BMU', '060' },
+			'BO' => new String[]{ 'BOL', '068' },
+			'BR' => new String[]{ 'BRA', '076' },
+			'BB' => new String[]{ 'BRB', '052' },
+			'BN' => new String[]{ 'BRN', '096' },
+			'BT' => new String[]{ 'BTN', '064' },
+			'BV' => new String[]{ 'BVT', '074' },
+			'BW' => new String[]{ 'BWA', '072' },
+			'CF' => new String[]{ 'CAF', '140' },
+			'CA' => new String[]{ 'CAN', '124' },
+			'CC' => new String[]{ 'CCK', '166' },
+			'CH' => new String[]{ 'CHE', '756' },
+			'CL' => new String[]{ 'CHL', '152' },
+			'CN' => new String[]{ 'CHN', '156' },
+			'CI' => new String[]{ 'CIV', '384' },
+			'CM' => new String[]{ 'CMR', '120' },
+			'CD' => new String[]{ 'COD', '180' },
+			'CG' => new String[]{ 'COG', '178' },
+			'CK' => new String[]{ 'COK', '184' },
+			'CO' => new String[]{ 'COL', '170' },
+			'KM' => new String[]{ 'COM', '174' },
+			'CV' => new String[]{ 'CPV', '132' },
+			'CR' => new String[]{ 'CRI', '188' },
+			'CU' => new String[]{ 'CUB', '192' },
+			'CW' => new String[]{ 'CUW', '531' },
+			'CX' => new String[]{ 'CXR', '162' },
+			'KY' => new String[]{ 'CYM', '136' },
+			'CY' => new String[]{ 'CYP', '196' },
+			'CZ' => new String[]{ 'CZE', '203' },
+			'DE' => new String[]{ 'DEU', '276' },
+			'DJ' => new String[]{ 'DJI', '262' },
+			'DM' => new String[]{ 'DMA', '212' },
+			'DK' => new String[]{ 'DNK', '208' },
+			'DO' => new String[]{ 'DOM', '214' },
+			'DZ' => new String[]{ 'DZA', '012' },
+			'EC' => new String[]{ 'ECU', '218' },
+			'EG' => new String[]{ 'EGY', '818' },
+			'ER' => new String[]{ 'ERI', '232' },
+			'EH' => new String[]{ 'ESH', '732' },
+			'ES' => new String[]{ 'ESP', '724' },
+			'EE' => new String[]{ 'EST', '233' },
+			'ET' => new String[]{ 'ETH', '231' },
+			'FI' => new String[]{ 'FIN', '246' },
+			'FJ' => new String[]{ 'FJI', '242' },
+			'FK' => new String[]{ 'FLK', '238' },
+			'FR' => new String[]{ 'FRA', '250' },
+			'FO' => new String[]{ 'FRO', '234' },
+			'FM' => new String[]{ 'FSM', '583' },
+			'GA' => new String[]{ 'GAB', '266' },
+			'GB' => new String[]{ 'GBR', '826' },
+			'GE' => new String[]{ 'GEO', '268' },
+			'GG' => new String[]{ 'GGY', '831' },
+			'GH' => new String[]{ 'GHA', '288' },
+			'GI' => new String[]{ 'GIB', '292' },
+			'GN' => new String[]{ 'GIN', '324' },
+			'GP' => new String[]{ 'GLP', '312' },
+			'GM' => new String[]{ 'GMB', '270' },
+			'GW' => new String[]{ 'GNB', '624' },
+			'GQ' => new String[]{ 'GNQ', '226' },
+			'GR' => new String[]{ 'GRC', '300' },
+			'GD' => new String[]{ 'GRD', '308' },
+			'GL' => new String[]{ 'GRL', '304' },
+			'GT' => new String[]{ 'GTM', '320' },
+			'GF' => new String[]{ 'GUF', '254' },
+			'GU' => new String[]{ 'GUM', '316' },
+			'GY' => new String[]{ 'GUY', '328' },
+			'HK' => new String[]{ 'HKG', '344' },
+			'HM' => new String[]{ 'HMD', '334' },
+			'HN' => new String[]{ 'HND', '340' },
+			'HR' => new String[]{ 'HRV', '191' },
+			'HT' => new String[]{ 'HTI', '332' },
+			'HU' => new String[]{ 'HUN', '348' },
+			'ID' => new String[]{ 'IDN', '360' },
+			'IM' => new String[]{ 'IMN', '833' },
+			'IN' => new String[]{ 'IND', '356' },
+			'IO' => new String[]{ 'IOT', '086' },
+			'IE' => new String[]{ 'IRL', '372' },
+			'IR' => new String[]{ 'IRN', '364' },
+			'IQ' => new String[]{ 'IRQ', '368' },
+			'IS' => new String[]{ 'ISL', '352' },
+			'IL' => new String[]{ 'ISR', '376' },
+			'IT' => new String[]{ 'ITA', '380' },
+			'JM' => new String[]{ 'JAM', '388' },
+			'JE' => new String[]{ 'JEY', '832' },
+			'JO' => new String[]{ 'JOR', '400' },
+			'JP' => new String[]{ 'JPN', '392' },
+			'KZ' => new String[]{ 'KAZ', '398' },
+			'KE' => new String[]{ 'KEN', '404' },
+			'KG' => new String[]{ 'KGZ', '417' },
+			'KH' => new String[]{ 'KHM', '116' },
+			'KI' => new String[]{ 'KIR', '296' },
+			'KN' => new String[]{ 'KNA', '659' },
+			'KR' => new String[]{ 'KOR', '410' },
+			'KW' => new String[]{ 'KWT', '414' },
+			'LA' => new String[]{ 'LAO', '418' },
+			'LB' => new String[]{ 'LBN', '422' },
+			'LR' => new String[]{ 'LBR', '430' },
+			'LY' => new String[]{ 'LBY', '434' },
+			'LC' => new String[]{ 'LCA', '662' },
+			'LI' => new String[]{ 'LIE', '438' },
+			'LK' => new String[]{ 'LKA', '144' },
+			'LS' => new String[]{ 'LSO', '426' },
+			'LT' => new String[]{ 'LTU', '440' },
+			'LU' => new String[]{ 'LUX', '442' },
+			'LV' => new String[]{ 'LVA', '428' },
+			'MO' => new String[]{ 'MAC', '446' },
+			'MF' => new String[]{ 'MAF', '663' },
+			'MA' => new String[]{ 'MAR', '504' },
+			'MC' => new String[]{ 'MCO', '492' },
+			'MD' => new String[]{ 'MDA', '498' },
+			'MG' => new String[]{ 'MDG', '450' },
+			'MV' => new String[]{ 'MDV', '462' },
+			'MX' => new String[]{ 'MEX', '484' },
+			'MH' => new String[]{ 'MHL', '584' },
+			'MK' => new String[]{ 'MKD', '807' },
+			'ML' => new String[]{ 'MLI', '466' },
+			'MT' => new String[]{ 'MLT', '470' },
+			'MM' => new String[]{ 'MMR', '104' },
+			'ME' => new String[]{ 'MNE', '499' },
+			'MN' => new String[]{ 'MNG', '496' },
+			'MP' => new String[]{ 'MNP', '580' },
+			'MZ' => new String[]{ 'MOZ', '508' },
+			'MR' => new String[]{ 'MRT', '478' },
+			'MS' => new String[]{ 'MSR', '500' },
+			'MQ' => new String[]{ 'MTQ', '474' },
+			'MU' => new String[]{ 'MUS', '480' },
+			'MW' => new String[]{ 'MWI', '454' },
+			'MY' => new String[]{ 'MYS', '458' },
+			'YT' => new String[]{ 'MYT', '175' },
+			'NA' => new String[]{ 'NAM', '516' },
+			'NC' => new String[]{ 'NCL', '540' },
+			'NE' => new String[]{ 'NER', '562' },
+			'NF' => new String[]{ 'NFK', '574' },
+			'NG' => new String[]{ 'NGA', '566' },
+			'NI' => new String[]{ 'NIC', '558' },
+			'NU' => new String[]{ 'NIU', '570' },
+			'NL' => new String[]{ 'NLD', '528' },
+			'NO' => new String[]{ 'NOR', '578' },
+			'NP' => new String[]{ 'NPL', '524' },
+			'NR' => new String[]{ 'NRU', '520' },
+			'NZ' => new String[]{ 'NZL', '554' },
+			'OM' => new String[]{ 'OMN', '512' },
+			'PK' => new String[]{ 'PAK', '586' },
+			'PA' => new String[]{ 'PAN', '591' },
+			'PN' => new String[]{ 'PCN', '612' },
+			'PE' => new String[]{ 'PER', '604' },
+			'PH' => new String[]{ 'PHL', '608' },
+			'PW' => new String[]{ 'PLW', '585' },
+			'PG' => new String[]{ 'PNG', '598' },
+			'PL' => new String[]{ 'POL', '616' },
+			'PR' => new String[]{ 'PRI', '630' },
+			'KP' => new String[]{ 'PRK', '408' },
+			'PT' => new String[]{ 'PRT', '620' },
+			'PY' => new String[]{ 'PRY', '600' },
+			'PS' => new String[]{ 'PSE', '275' },
+			'PF' => new String[]{ 'PYF', '258' },
+			'QA' => new String[]{ 'QAT', '634' },
+			'RE' => new String[]{ 'REU', '638' },
+			'RO' => new String[]{ 'ROU', '642' },
+			'RU' => new String[]{ 'RUS', '643' },
+			'RW' => new String[]{ 'RWA', '646' },
+			'SA' => new String[]{ 'SAU', '682' },
+			'SD' => new String[]{ 'SDN', '729' },
+			'SN' => new String[]{ 'SEN', '686' },
+			'SG' => new String[]{ 'SGP', '702' },
+			'GS' => new String[]{ 'SGS', '239' },
+			'SH' => new String[]{ 'SHN', '654' },
+			'SJ' => new String[]{ 'SJM', '744' },
+			'SB' => new String[]{ 'SLB', '090' },
+			'SL' => new String[]{ 'SLE', '694' },
+			'SV' => new String[]{ 'SLV', '222' },
+			'SM' => new String[]{ 'SMR', '674' },
+			'SO' => new String[]{ 'SOM', '706' },
+			'PM' => new String[]{ 'SPM', '666' },
+			'RS' => new String[]{ 'SRB', '688' },
+			'SS' => new String[]{ 'SSD', '728' },
+			'ST' => new String[]{ 'STP', '678' },
+			'SR' => new String[]{ 'SUR', '740' },
+			'SK' => new String[]{ 'SVK', '703' },
+			'SI' => new String[]{ 'SVN', '705' },
+			'SE' => new String[]{ 'SWE', '752' },
+			'SZ' => new String[]{ 'SWZ', '748' },
+			'SX' => new String[]{ 'SXM', '534' },
+			'SC' => new String[]{ 'SYC', '690' },
+			'SY' => new String[]{ 'SYR', '760' },
+			'TC' => new String[]{ 'TCA', '796' },
+			'TD' => new String[]{ 'TCD', '148' },
+			'TG' => new String[]{ 'TGO', '768' },
+			'TH' => new String[]{ 'THA', '764' },
+			'TJ' => new String[]{ 'TJK', '762' },
+			'TK' => new String[]{ 'TKL', '772' },
+			'TM' => new String[]{ 'TKM', '795' },
+			'TL' => new String[]{ 'TLS', '626' },
+			'TO' => new String[]{ 'TON', '776' },
+			'TT' => new String[]{ 'TTO', '780' },
+			'TN' => new String[]{ 'TUN', '788' },
+			'TR' => new String[]{ 'TUR', '792' },
+			'TV' => new String[]{ 'TUV', '798' },
+			'TW' => new String[]{ 'TWN', '158' },
+			'TZ' => new String[]{ 'TZA', '834' },
+			'UG' => new String[]{ 'UGA', '800' },
+			'UA' => new String[]{ 'UKR', '804' },
+			'UM' => new String[]{ 'UMI', '581' },
+			'UY' => new String[]{ 'URY', '858' },
+			'US' => new String[]{ 'USA', '840' },
+			'UZ' => new String[]{ 'UZB', '860' },
+			'VA' => new String[]{ 'VAT', '336' },
+			'VC' => new String[]{ 'VCT', '670' },
+			'VE' => new String[]{ 'VEN', '862' },
+			'VG' => new String[]{ 'VGB', '092' },
+			'VI' => new String[]{ 'VIR', '850' },
+			'VN' => new String[]{ 'VNM', '704' },
+			'VU' => new String[]{ 'VUT', '548' },
+			'WF' => new String[]{ 'WLF', '876' },
+			'WS' => new String[]{ 'WSM', '882' },
+			'YE' => new String[]{ 'YEM', '887' },
+			'ZA' => new String[]{ 'ZAF', '710' },
+			'ZM' => new String[]{ 'ZMB', '894' },
+			'ZW' => new String[]{ 'ZWE', '716' }
+		};
+	}
+
+	public enum CountryCodeType { ALPHA2, ALPHA3, NUMERIC }
+
+	public static void setAddressLines(String street, SObject so, String address1Fld, String address2Fld) {
+		if (street != null) {
+			if (street.indexOf('\n') != -1) {
+				String[] lines = street.split('\n', 2);
+				so.put(address1Fld, lines[0]);
+				so.put(address2Fld, lines[1]);
+			} else {
+				so.put(address1Fld, street);
+			}
+		}
+	}
+
 }
