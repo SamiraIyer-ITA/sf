@@ -2986,33 +2986,6 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
         <label>NSRs</label>
     </listViews>
     <listViews>
-        <fullName>Segment_ClosedLocked_Queue_Segment</fullName>
-        <filterScope>Queue</filterScope>
-        <label>Segment ClosedLocked Queue</label>
-        <queue>Segment_ClosedLocked_Queue</queue>
-        <sharedTo>
-            <allInternalUsers></allInternalUsers>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>Segment_Open_Queue_Segment</fullName>
-        <filterScope>Queue</filterScope>
-        <label>Segment Open Queue</label>
-        <queue>Segment_Open_Queue</queue>
-        <sharedTo>
-            <allInternalUsers></allInternalUsers>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>Segments_MigratedClosedLocked_Queue_Segment</fullName>
-        <filterScope>Queue</filterScope>
-        <label>Segments MigratedClosedLocked Queue</label>
-        <queue>Segments_MigratedClosedLocked_Queue</queue>
-        <sharedTo>
-            <allInternalUsers></allInternalUsers>
-        </sharedTo>
-    </listViews>
-    <listViews>
         <fullName>Segments_without_outcomes</fullName>
         <columns>NAME</columns>
         <columns>ADCVD_Case_Number_Text__c</columns>

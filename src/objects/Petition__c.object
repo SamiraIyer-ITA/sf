@@ -1294,33 +1294,6 @@ C-###-### for CVD</inlineHelpText>
         </filters>
         <label>All Open Petitions</label>
     </listViews>
-    <listViews>
-        <fullName>Petitions_ClosedLocked_Queue_Petition</fullName>
-        <filterScope>Queue</filterScope>
-        <label>Petitions-ClosedLocked Queue</label>
-        <queue>Petitions_ClosedLocked_Queue</queue>
-        <sharedTo>
-            <allInternalUsers></allInternalUsers>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>Petitions_MigratedClosedLocked_Queue_Petition</fullName>
-        <filterScope>Queue</filterScope>
-        <label>Petitions-MigratedClosedLocked Queue</label>
-        <queue>Petitions_MigratedClosedLocked_Queue</queue>
-        <sharedTo>
-            <allInternalUsers></allInternalUsers>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>Petitions_Open_Queue_Petition</fullName>
-        <filterScope>Queue</filterScope>
-        <label>Petitions-Open Queue</label>
-        <queue>Petitions_Open_Queue</queue>
-        <sharedTo>
-            <allInternalUsers></allInternalUsers>
-        </sharedTo>
-    </listViews>
     <nameField>
         <displayFormat>P-{00000}</displayFormat>
         <label>Petition Number</label>
