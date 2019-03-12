@@ -3171,8 +3171,8 @@ CASE(  Next_Announcement_Date__c  , Preliminary_Announcement_Date__c ,  Text(Pre
         <customTabListAdditionalFields>Commodity_Text__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
         <excludedStandardButtons>Accept</excludedStandardButtons>
-        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
         <excludedStandardButtons>Forward</excludedStandardButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
         <lookupDialogsAdditionalFields>ADCVD_Case_Number_Text__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Country_Text__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ADCVD_Case_Type_Text__c</lookupDialogsAdditionalFields>

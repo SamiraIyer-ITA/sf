@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>ADCVD_App_Modify_Parents</name>
+    </customPermissions>
+    <description>Users in this group will be able to modify parent fields</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>ADCVD App Modify Parents</label>
+</PermissionSet>
