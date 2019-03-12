@@ -1,0 +1,82 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,lightning:actionOverride" Controller="SectionLightningController" access="global" >
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	<aura:attribute name="section" type="Form_Section__c" default="{'sobjectType':'Form_Section__c'}"/>
+    <aura:attribute name="actionType" type="String" default="New Section"/>
+    <aura:attribute name="supportedObjects" type="String[]"/>
+    <aura:attribute name="wrapper" type="object"/>
+    <aura:attribute name="objectapi" type="String"/>
+    <aura:attribute name="message" type="String"/>
+
+    <div aura:id="editDialog" role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal slds-fade-in-open">
+        <div class="modal-container slds-modal__container">
+        <div class="modal-header slds-modal__header">
+        	<h2 class="title slds-text-heading--medium">{!v.actionType}{!v.section.Name}</h2>
+        </div>
+        <div class="slds-modal__content">
+        <lightning:recordEditForm aura:id="edit" recordId="{!v.recordId}" objectApiName="Form_Section__c" class="slds-box slds-theme_default">
+            <aura:if isTrue="{! and(v.message != '', v.message != null, v.message != 'Success')}" >
+                <div class="slds-box slds-theme–alert-texture slds-theme–error">
+                    <lightning:icon iconName="utility:error" size="medium" alternativeText="error" Class="iconContainer"/>&nbsp;
+                    <span class="slds-text-body–regular">
+                        <aura:unescapedHtml value="{!v.message}"/>
+                    </span>
+                </div>
+            </aura:if>
+                <div class="slds-section slds-is-open">
+                    <h3 class="slds-section__title slds-theme_shade">
+                        <!-- Information -->
+                        <span class="slds-truncate slds-p-horizontal_small" title="Information">Information</span>
+                    </h3>
+                    <div aria-hidden="false" class="slds-section__content">
+
+                    <lightning:inputField aura:id="sectionDisplayOrder" fieldName="Display_Order__c"/>
+                    <aura:if isTrue="{!v.actionType == 'New Section'}">
+                    	<lightning:inputField aura:id="sectionForm" fieldName="Form__c" onchange="{!c.doInit}"/>
+                    </aura:if>    
+                    <lightning:select name="objectapi" label="Object API" value="{! v.section.Object_API_Name__c }">
+                        <option value="">--Default From Parent--</option>
+                        <aura:iteration items="{!v.wrapper.supportedObjects}" var="item">
+                            <option value="{!item}" selected="{!item==v.section.Object_API_Name__c}">>{!item}</option>
+                        </aura:iteration>
+                    </lightning:select>
+
+                    <aura:if isTrue="{!v.actionType != 'New Section'}">
+                    	<lightning:outputField aura:id="sectionFormRO" fieldName="Form__c"/>
+                    </aura:if>                    
+                    <lightning:inputField aura:id="sectionRecordType" fieldName="Record_Type__c"/>
+                    </div>
+                </div>
+        
+                <div class="slds-section slds-is-open">
+                    <h3 class="slds-section__title slds-theme_shade">
+                        <!-- Preamble -->
+                        <span class="slds-truncate slds-p-horizontal_small" title="Preamble">Preamble</span>
+                    </h3>
+                    <div aria-hidden="false" class="slds-section__content">
+                        <lightning:inputField aura:id="sectionHeader" fieldName="Header__c"/>
+                        <lightning:inputField aura:id="sectionInstructions" fieldName="Instructions__c"/>
+                    </div>
+                </div>
+        
+                <div class="slds-section slds-is-open">
+                    <h3 class="slds-section__title slds-theme_shade">
+                        <!-- Permissions -->
+                        <span class="slds-truncate slds-p-horizontal_small" title="Permissions">Permissions</span>
+                    </h3>
+                    <div aria-hidden="false" class="slds-section__content">
+                        <lightning:inputField aura:id="sectionCreate" fieldName="Create__c"/>
+                        <lightning:inputField aura:id="sectionUpdate" fieldName="Update__c"/>
+                        <lightning:inputField aura:id="sectionDelete" fieldName="Delete__c"/>
+                        <lightning:inputField aura:id="sectionWhereClause" fieldName="Where_Clause__c"/>
+                    </div>
+                </div>
+        </lightning:recordEditForm>
+        </div>
+        <div class="slds-modal__footer">                
+            <lightning:button variant="neutral" label="Cancel" onclick="{!c.onCancel}" />
+            <lightning:button variant="brand" label="Save" onclick="{!c.onSave}" />
+        </div>        
+        </div>
+    </div>
+    <div aura:id="overlay" class="slds-backdrop slds-backdrop--open"></div>
+</aura:component>
