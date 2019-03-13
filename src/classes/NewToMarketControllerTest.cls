@@ -79,7 +79,7 @@ private class NewToMarketControllerTest {
     static testMethod void pageLoad() {
         //Needs description here
         
-        PageReference pageRef = Page.NewToMarket;
+        PageReference pageRef = Page.MarketDiversificationTool;
         Test.setCurrentPage(pageRef);
         
         NewToMarketController n = new NewToMarketController();
@@ -127,7 +127,7 @@ private class NewToMarketControllerTest {
         NTM_Country_Import__c ntmci = new NTM_Country_Import__c(Product__c=product1.Id,Country__c=c1.Id);
         insert ntmci;
 
-        PageReference pageRef = Page.NewToMarket;
+        PageReference pageRef = Page.MarketDiversificationTool;
         Test.setCurrentPage(pageRef);
         
         NewToMarketController n = new NewToMarketController();
@@ -168,7 +168,7 @@ private class NewToMarketControllerTest {
         NTM_Country_Import__c ntmci = new NTM_Country_Import__c(Product__c=product1.Id,Country__c=c1.Id);
         insert ntmci;
 
-        PageReference pageRef = Page.NewToMarket;
+        PageReference pageRef = Page.MarketDiversificationTool;
         Test.setCurrentPage(pageRef);
         
         NewToMarketController n = new NewToMarketController();
@@ -214,7 +214,7 @@ private class NewToMarketControllerTest {
         NTM_Country_Import__c ntmci = new NTM_Country_Import__c(Product__c=product1.Id,Country__c=c1.Id);
         insert ntmci;
 
-        PageReference pageRef = Page.NewToMarket;
+        PageReference pageRef = Page.MarketDiversificationTool;
         Test.setCurrentPage(pageRef);
         
         NewToMarketController n = new NewToMarketController();
@@ -243,7 +243,8 @@ private class NewToMarketControllerTest {
         n.generateStatistics(m2,m3); 
     
     }
-    
+
+/*    
     static testMethod void TEST_generateStatisticsWithSufficientData() {
         //Generate Statistics with sufficient Products for a comparison, but not enough to generate statistics
         
@@ -270,7 +271,7 @@ private class NewToMarketControllerTest {
         NTM_Country_Import__c ntmci3 = new NTM_Country_Import__c(Product__c=product1.Id,Country__c=c3.Id,Tariff__c=3,US_1__c=57100,US_2__c=90350,US_3__c=41200,US_4__c=180859.4826,US_5__c=88940.40201,World_1__c=63550,World_2__c=90350,World_3__c=50825,World_4__c=318422.6375,World_5__c=128981.081);
         insert ntmci3;
         
-        PageReference pageRef = Page.NewToMarket;
+        PageReference pageRef = Page.MarketDiversificationTool;
         Test.setCurrentPage(pageRef);
         
         NewToMarketController n = new NewToMarketController();
@@ -306,6 +307,8 @@ private class NewToMarketControllerTest {
         n.generateTradeResults();
     }
 
+*/
+/*
     static testMethod void TEST_UpdateWeights() {
         //Cover updateweights function
         
@@ -332,7 +335,7 @@ private class NewToMarketControllerTest {
         NTM_Country_Import__c ntmci3 = new NTM_Country_Import__c(Product__c=product1.Id,Country__c=c3.Id,Tariff__c=3,US_1__c=57100,US_2__c=90350,US_3__c=41200,US_4__c=180859.4826,US_5__c=88940.40201,World_1__c=63550,World_2__c=90350,World_3__c=50825,World_4__c=318422.6375,World_5__c=128981.081);
         insert ntmci3;
         
-        PageReference pageRef = Page.NewToMarket;
+        PageReference pageRef = Page.MarketDiversificationTool;
         Test.setCurrentPage(pageRef);
         
         NewToMarketController n = new NewToMarketController();
@@ -375,6 +378,8 @@ private class NewToMarketControllerTest {
         n.updateWeights();
     }
     
+*/
+/*
     static testMethod void TEST_GenerateCSV() {
         //Generate Statistics and then generate CSV
         
@@ -401,7 +406,7 @@ private class NewToMarketControllerTest {
         NTM_Country_Import__c ntmci3 = new NTM_Country_Import__c(Product__c=product1.Id,Country__c=c3.Id,Tariff__c=3,US_1__c=57100,US_2__c=90350,US_3__c=41200,US_4__c=180859.4826,US_5__c=88940.40201,World_1__c=63550,World_2__c=90350,World_3__c=50825,World_4__c=318422.6375,World_5__c=128981.081);
         insert ntmci3;
         
-        PageReference pageRef = Page.NewToMarket;
+        PageReference pageRef = Page.MarketDiversificationTool;
         Test.setCurrentPage(pageRef);
         
         NewToMarketController n = new NewToMarketController();
@@ -425,7 +430,7 @@ private class NewToMarketControllerTest {
         n.generateTradeResults();      
         csv = n.csvData;
     }
-    
+ */   
     static testMethod void TEST_Coverage_USEAC() {
         //provide coverage to uncoverable class USEAC, async not supported in test w/o mock http callout (to-do, replace this)        
         NewToMarketController n = new NewToMarketController();
@@ -448,9 +453,9 @@ private class NewToMarketControllerTest {
         System.assertEquals(1,n.USEAC_Info.size());
     }
     
-    static testMethod void TEST_BlankZip() {
-    	//test zip code rejection
-    	NTM_Region__c r1 = new NTM_Region__c(Name='Caribbean');
+/*    static testMethod void TEST_BlankZip() {
+        //test zip code rejection
+        NTM_Region__c r1 = new NTM_Region__c(Name='Caribbean');
         insert r1;
         NTM_Region__c r2 = new NTM_Region__c(Name='South America');
         insert r2;
@@ -473,7 +478,7 @@ private class NewToMarketControllerTest {
         NTM_Country_Import__c ntmci3 = new NTM_Country_Import__c(Product__c=product1.Id,Country__c=c3.Id,Tariff__c=3,US_1__c=57100,US_2__c=90350,US_3__c=41200,US_4__c=180859.4826,US_5__c=88940.40201,World_1__c=63550,World_2__c=90350,World_3__c=50825,World_4__c=318422.6375,World_5__c=128981.081);
         insert ntmci3;
         
-        PageReference pageRef = Page.NewToMarket;
+        PageReference pageRef = Page.MarketDiversificationTool;
         Test.setCurrentPage(pageRef);
         
         NewToMarketController n = new NewToMarketController();
@@ -492,7 +497,7 @@ private class NewToMarketControllerTest {
         List<SelectOption> l3 = n.getRegions();
         
         n.generateTradeResults();
-        System.assertEquals('Please enter a valid zip code',n.zipError);
+        System.assertEquals('Please enter a valid zip code',n.zipError); 
     }
-    
+*/    
 }
