@@ -69,11 +69,21 @@ public class NewToMarketController {
         USEAC_Info = null;
     }
     
+    public void rejectZipUnable() {
+        zipError = 'No response from USEAC zip code service';
+        USEAC_Info = null;
+    }
+    
+    public void rejectZipNotFound() {
+        zipError = 'Unable to display U.S Commercial Service Office for this zip code';
+        USEAC_Info = null;
+    }
+    
     public void validateZip() {
         String zip = zipCode + '';
         if(zip == '') {
-        	rejectZip();
-        	return;
+            rejectZip();
+            return;
         }
         zipError = 'Loading...';
         HttpRequest req = new HttpRequest();
@@ -83,17 +93,24 @@ public class NewToMarketController {
         } catch(Exception e) {
             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Unable to get USEAC Zip info: \n'+e.getMessage()));
             System.debug('Unable to get USEAC Zip info: \n'+e.getMessage()+'\n'+e.getStackTraceString());
-            rejectZip();
+            rejectZipUnable();
             return;
         }
         Http http = new Http();
         HTTPResponse res = http.send(req);
         Map<String, Object> item = (Map<String, Object>) JSON.deserializeUntyped(res.getBody());
+        System.debug('WEYHRAUCH '+JSON.serialize(item.get('results')));
         if(JSON.serialize(item.get('results')) == '[]') {
             rejectZip();
             return;
         }
-        USEAC_Info = (List<USEAC>)JSON.deserialize(JSON.serialize(item.get('results')), List<USEAC>.class);
+        
+        try {
+            USEAC_Info = (List<USEAC>)JSON.deserialize(JSON.serialize(item.get('results')), List<USEAC>.class);
+        } catch(Exception e) {
+            rejectZipNotFound();
+            return;
+        }
         zipError = null; 
     }
 
@@ -304,77 +321,77 @@ public class NewToMarketController {
     // average imports for countries where those products are imported
     @TestVisible private Map<Id, AggregateResult> queryCountries() {
         if(userGeography == 'country') {
-        	try {
-	            return new Map<Id, AggregateResult>([
-	                SELECT Country__c Id, MIN(Year_First__c) Year_First, MIN(Year_Last__c) Year_Last, MAX(Tariff__c) Max_Tariff, SUM(Avg_US__c) US_Avg, SUM(Avg_World__c) World_Avg
-	                FROM NTM_Country_Import__c
-	                WHERE Product__r.Name IN :userProducts
-	                AND Data_Years__c >= 3
-	                AND Country__r.Name IN :userCountriesNew
-	                AND Country__r.Name NOT IN :userCountriesExisting
-	                AND Country__r.Contract_Cost__c != null
-	                AND Country__r.Distance__c != null
-	                AND Country__r.GDP__c != null
-	                AND Country__r.Import_Costs__c != null
-	                AND Country__r.Logistics_Score__c != null
-	                AND Country__r.Rule_of_Law__c != null
-	                GROUP BY Country__c
-	                HAVING Sum(Avg_World__c) > 0
-	            ]);
-	        } catch(Exception e) {
-	        	System.debug('Unable to query country results: \n'+e.getMessage()+'\n'+e.getStackTraceString());
-	        	ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Unable to query country results: \n'+e.getMessage()));
-	        	return new Map<Id, AggregateResult>();
-	        }
+            try {
+                return new Map<Id, AggregateResult>([
+                    SELECT Country__c Id, MIN(Year_First__c) Year_First, MIN(Year_Last__c) Year_Last, MAX(Tariff__c) Max_Tariff, SUM(Avg_US__c) US_Avg, SUM(Avg_World__c) World_Avg
+                    FROM NTM_Country_Import__c
+                    WHERE Product__r.Name IN :userProducts
+                    AND Data_Years__c >= 3
+                    AND Country__r.Name IN :userCountriesNew
+                    AND Country__r.Name NOT IN :userCountriesExisting
+                    AND Country__r.Contract_Cost__c != null
+                    AND Country__r.Distance__c != null
+                    AND Country__r.GDP__c != null
+                    AND Country__r.Import_Costs__c != null
+                    AND Country__r.Logistics_Score__c != null
+                    AND Country__r.Rule_of_Law__c != null
+                    GROUP BY Country__c
+                    HAVING Sum(Avg_World__c) > 0
+                ]);
+            } catch(Exception e) {
+                System.debug('Unable to query country results: \n'+e.getMessage()+'\n'+e.getStackTraceString());
+                ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Unable to query country results: \n'+e.getMessage()));
+                return new Map<Id, AggregateResult>();
+            }
         }
         if(userGeography == 'region') {
-        	try {
-	            return new Map<Id, AggregateResult>([
-	                SELECT Country__c Id, MIN(Year_First__c) Year_First, MIN(Year_Last__c) Year_Last, MAX(Tariff__c) Max_Tariff, SUM(Avg_US__c) US_Avg, SUM(Avg_World__c) World_Avg
-	                FROM NTM_Country_Import__c
-	                WHERE Product__r.Name IN :userProducts
-	                AND Data_Years__c >= 3
-	                AND Country__c IN
-	                    (SELECT Country__c FROM NTM_Search_Region__c
-	                     WHERE Region__r.Name IN :userRegionsNew)
-	                AND Country__r.Name NOT IN :userCountriesExisting
-	                AND Country__r.Contract_Cost__c != null
-	                AND Country__r.Distance__c != null
-	                AND Country__r.GDP__c != null
-	                AND Country__r.Import_Costs__c != null
-	                AND Country__r.Logistics_Score__c != null
-	                AND Country__r.Rule_of_Law__c != null
-	                GROUP BY Country__c
-	                HAVING Sum(Avg_World__c) > 0
-	            ]);
-	        } catch(Exception e) {
-	        	System.debug('Unable to query country results: \n'+e.getMessage()+'\n'+e.getStackTraceString());
-	        	ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Unable to query country results: \n'+e.getMessage()));
-	        	return new Map<Id, AggregateResult>();
-	        }        	
+            try {
+                return new Map<Id, AggregateResult>([
+                    SELECT Country__c Id, MIN(Year_First__c) Year_First, MIN(Year_Last__c) Year_Last, MAX(Tariff__c) Max_Tariff, SUM(Avg_US__c) US_Avg, SUM(Avg_World__c) World_Avg
+                    FROM NTM_Country_Import__c
+                    WHERE Product__r.Name IN :userProducts
+                    AND Data_Years__c >= 3
+                    AND Country__c IN
+                        (SELECT Country__c FROM NTM_Search_Region__c
+                         WHERE Region__r.Name IN :userRegionsNew)
+                    AND Country__r.Name NOT IN :userCountriesExisting
+                    AND Country__r.Contract_Cost__c != null
+                    AND Country__r.Distance__c != null
+                    AND Country__r.GDP__c != null
+                    AND Country__r.Import_Costs__c != null
+                    AND Country__r.Logistics_Score__c != null
+                    AND Country__r.Rule_of_Law__c != null
+                    GROUP BY Country__c
+                    HAVING Sum(Avg_World__c) > 0
+                ]);
+            } catch(Exception e) {
+                System.debug('Unable to query country results: \n'+e.getMessage()+'\n'+e.getStackTraceString());
+                ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Unable to query country results: \n'+e.getMessage()));
+                return new Map<Id, AggregateResult>();
+            }           
         }
         
         try {
         // Else: all geographies are selected
-	        return new Map<Id, AggregateResult>([
-	            SELECT Country__c Id, MIN(Year_First__c) Year_First, MIN(Year_Last__c) Year_Last, MAX(Tariff__c) Max_Tariff, SUM(Avg_US__c) US_Avg, SUM(Avg_World__c) World_Avg
-	            FROM NTM_Country_Import__c
-	            WHERE Product__r.Name IN :userProducts
-	            AND Data_Years__c >= 3
-	            AND Country__r.Name NOT IN :userCountriesExisting
-	            AND Country__r.Contract_Cost__c != null
-	            AND Country__r.Distance__c != null
-	            AND Country__r.GDP__c != null
-	            AND Country__r.Import_Costs__c != null
-	            AND Country__r.Logistics_Score__c != null
-	            AND Country__r.Rule_of_Law__c != null
-	            GROUP BY Country__c
-	            HAVING Sum(Avg_World__c) > 0
-	        ]);
+            return new Map<Id, AggregateResult>([
+                SELECT Country__c Id, MIN(Year_First__c) Year_First, MIN(Year_Last__c) Year_Last, MAX(Tariff__c) Max_Tariff, SUM(Avg_US__c) US_Avg, SUM(Avg_World__c) World_Avg
+                FROM NTM_Country_Import__c
+                WHERE Product__r.Name IN :userProducts
+                AND Data_Years__c >= 3
+                AND Country__r.Name NOT IN :userCountriesExisting
+                AND Country__r.Contract_Cost__c != null
+                AND Country__r.Distance__c != null
+                AND Country__r.GDP__c != null
+                AND Country__r.Import_Costs__c != null
+                AND Country__r.Logistics_Score__c != null
+                AND Country__r.Rule_of_Law__c != null
+                GROUP BY Country__c
+                HAVING Sum(Avg_World__c) > 0
+            ]);
         } catch(Exception e) {
-        	System.debug('Unable to query country results: \n'+e.getMessage()+'\n'+e.getStackTraceString());
-        	ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Unable to query country results: \n'+e.getMessage()));
-        	return new Map<Id, AggregateResult>();
+            System.debug('Unable to query country results: \n'+e.getMessage()+'\n'+e.getStackTraceString());
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Unable to query country results: \n'+e.getMessage()));
+            return new Map<Id, AggregateResult>();
         }
     }
     
@@ -410,21 +427,21 @@ public class NewToMarketController {
         try {
         for(NTM_Country__c thisCountry : [SELECT Id, Name, Contract_Cost__c, Distance__c, Free_Trade_Agreement__c, GDP__c, Import_Costs__c, ISO_Alpha_2__c, Landlocked__c, Languages__c, Region_Calculate__c, Region_Compare__c, Rule_of_Law__c, Logistics_Score__c
                          FROM NTM_Country__c]) {
-        	idToCountryMap.put(thisCountry.Id,thisCountry);
+            idToCountryMap.put(thisCountry.Id,thisCountry);
         }
         } catch(Exception e) {
-        	ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Unable to generate trade statistics: \n'+e.getMessage()));
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Unable to generate trade statistics: \n'+e.getMessage()));
             System.debug('Unable to generate trade statistics: \n'+e.getMessage()+'\n'+e.getStackTraceString());
         }
-		Map<Id,AggregateResult> countryIdToImportMap = new Map<Id,AggregateResult>();
-		try {
-			for(AggregateResult thisImport : [SELECT Country__c, SUM(World_1__c) W1, SUM(World_2__c) W2, SUM(World_3__c) W3, SUM(World_4__c) W4, SUM(World_5__c) W5 FROM NTM_Country_Import__c WHERE Product__r.Name IN :userProducts GROUP BY Country__c]) {
-				countryIdToImportMap.put((Id)thisImport.get('Country__c'),thisImport);
-			}
-		} catch (Exception e) {
-			ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Unable to generate trade statistics: \n'+e.getMessage()));
-            System.debug('Unable to generate trade statistics: \n'+e.getMessage()+'\n'+e.getStackTraceString());	
-		}
+        Map<Id,AggregateResult> countryIdToImportMap = new Map<Id,AggregateResult>();
+        try {
+            for(AggregateResult thisImport : [SELECT Country__c, SUM(World_1__c) W1, SUM(World_2__c) W2, SUM(World_3__c) W3, SUM(World_4__c) W4, SUM(World_5__c) W5 FROM NTM_Country_Import__c WHERE Product__r.Name IN :userProducts GROUP BY Country__c]) {
+                countryIdToImportMap.put((Id)thisImport.get('Country__c'),thisImport);
+            }
+        } catch (Exception e) {
+            ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Unable to generate trade statistics: \n'+e.getMessage()));
+            System.debug('Unable to generate trade statistics: \n'+e.getMessage()+'\n'+e.getStackTraceString());    
+        }
 
         // Arbitrary JOINs cannot be done in SOQL that are not related to an
         // explicit Salesforce object relationship. To combine country and region
@@ -491,32 +508,32 @@ public class NewToMarketController {
                 Decimal world_last = (Decimal) cagr.get('World_Last');
                 */
                 try {
-	                SObject cagr = countryIdToImportMap.get(countryId);
-	                Decimal world_first = (Decimal) cagr.get('W'+year_first);
-	                Decimal world_last = (Decimal) cagr.get('W'+year_last);
-	                
-	                // Because here year 1 is the latest and 5 is the oldest, we need to flip
-	                // the subtraction in the exponent for CAGR.
-	                if(world_first == 0) {
-	                    stat.world_cagr = 0;
-	                } else {
-	                    stat.world_cagr = math.pow((Double)(world_last / world_first), (Double)(1 / (year_first - year_last))) - 1;
-	                }
-	                if(stat.country_world_avg == 0) {
-	                    stat.world_cagr_alt = 0;
-	                } else {
-	                    stat.world_cagr_alt = math.pow((Double)(world_last / stat.country_world_avg), (Double) 0.5) - 1;
-	                }
-	                
-	                stat.trade_projection = (
-	                                         (stat.country_us_avg + stat.share_gap_value) * 
-	                                         (1+((stat.world_cagr + stat.world_cagr_alt)/2)) *
-	                                         (1+(stat.gdp/100))
-	                                        )
-	                                        - stat.country_us_avg;
+                    SObject cagr = countryIdToImportMap.get(countryId);
+                    Decimal world_first = (Decimal) cagr.get('W'+year_first);
+                    Decimal world_last = (Decimal) cagr.get('W'+year_last);
+                    
+                    // Because here year 1 is the latest and 5 is the oldest, we need to flip
+                    // the subtraction in the exponent for CAGR.
+                    if(world_first == 0) {
+                        stat.world_cagr = 0;
+                    } else {
+                        stat.world_cagr = math.pow((Double)(world_last / world_first), (Double)(1 / (year_first - year_last))) - 1;
+                    }
+                    if(stat.country_world_avg == 0) {
+                        stat.world_cagr_alt = 0;
+                    } else {
+                        stat.world_cagr_alt = math.pow((Double)(world_last / stat.country_world_avg), (Double) 0.5) - 1;
+                    }
+                    
+                    stat.trade_projection = (
+                                             (stat.country_us_avg + stat.share_gap_value) * 
+                                             (1+((stat.world_cagr + stat.world_cagr_alt)/2)) *
+                                             (1+(stat.gdp/100))
+                                            )
+                                            - stat.country_us_avg;
                 } catch(Exception e) {
-                	ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Unable to generate trade statistics: \n'+e.getMessage()));
-            		System.debug('Unable to generate trade statistics: \n'+e.getMessage()+'\n'+e.getStackTraceString());
+                    ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Unable to generate trade statistics: \n'+e.getMessage()));
+                    System.debug('Unable to generate trade statistics: \n'+e.getMessage()+'\n'+e.getStackTraceString());
                 }
             }
             
