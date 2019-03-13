@@ -209,7 +209,7 @@ public without sharing class Utils {
 
 	public static String convMultiLineTextToOne(String text) {
 		if (text != null && text.indexOf('\r\n') != -1) {
-			text = text.replace('\r\n', ' ');
+			text = text.replace('\r\n', ', ');
 		}
 		return text;
 	}
