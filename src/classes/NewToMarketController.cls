@@ -65,17 +65,17 @@ public class NewToMarketController {
     @TestVisible private Map<String, Decimal> weights { get; set; }
 
     public void rejectZip() {
-        zipError = 'Please enter a valid zip code';
+        zipError = 'Please enter a valid zip code.';
         USEAC_Info = null;
     }
     
     public void rejectZipUnable() {
-        zipError = 'No response from USEAC zip code service';
+        zipError = 'No response from USEAC zip code service.';
         USEAC_Info = null;
     }
     
     public void rejectZipNotFound() {
-        zipError = 'Unable to display U.S Commercial Service Office for this zip code';
+        zipError = 'Unable to display U.S Commercial Service Office for this zip code. Please use a different zip code or leave the zip code field blank and try again.';
         USEAC_Info = null;
     }
     
@@ -99,7 +99,7 @@ public class NewToMarketController {
         Http http = new Http();
         HTTPResponse res = http.send(req);
         Map<String, Object> item = (Map<String, Object>) JSON.deserializeUntyped(res.getBody());
-        System.debug('WEYHRAUCH '+JSON.serialize(item.get('results')));
+
         if(JSON.serialize(item.get('results')) == '[]') {
             rejectZip();
             return;
