@@ -4,7 +4,7 @@
     <protected>false</protected>
     <values>
         <field>Destination_Field__c</field>
-        <value xsi:type="xsd:string">Product__c</value>
+        <value xsi:type="xsd:string">Product_Text__c</value>
     </values>
     <values>
         <field>Destination_Object__c</field>
@@ -12,7 +12,7 @@
     </values>
     <values>
         <field>Source_Field__c</field>
-        <value xsi:type="xsd:string">Product__c</value>
+        <value xsi:type="xsd:string">Product_Text__c</value>
     </values>
     <values>
         <field>Source_Object__c</field>

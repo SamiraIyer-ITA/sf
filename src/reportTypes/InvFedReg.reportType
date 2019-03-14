@@ -370,6 +370,31 @@
             <field>Will_you_Issue_a_Post_Preliminary_Determ__c</field>
             <table>Investigation__c</table>
         </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case_Number_Text__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>ADCVD_Case_Type_Text__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Country_Text__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Product_Text__c</field>
+            <table>Investigation__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Commodity_Text__c</field>
+            <table>Investigation__c</table>
+        </columns>
         <masterLabel>Investigations</masterLabel>
     </sections>
     <sections>
@@ -468,6 +493,7 @@
             <field>Do_Delete__c</field>
             <table>Investigation__c.Federal_Registers__r</table>
         </columns>
+
         <masterLabel>Federal Registers</masterLabel>
     </sections>
 </ReportType>

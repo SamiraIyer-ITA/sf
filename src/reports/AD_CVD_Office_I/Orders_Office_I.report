@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>ADCVD_Order__c$ADCVD_Case_Number_Text__c</field>
+    </columns>
+    <columns>
+        <field>ADCVD_Order__c$Name</field>
+    </columns>
+    <columns>
+        <field>ADCVD_Order__c$Office__c</field>
+    </columns>
+    <columns>
+        <field>ADCVD_Order__c$CBP_Case_Number_Text__c</field>
+    </columns>
+    <columns>
+        <field>ADCVD_Order__c.Federal_Register__r$Name</field>
+    </columns>
+    <description>Orders - Office I</description>
+    <filter>
+        <criteriaItems>
+            <column>ADCVD_Order__c$Office__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>I</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ADCVD_Order__c.Federal_Register__r$Type__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Order</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Orders - Office I</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>ADCVD_Orders_Federal_Registers__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>ADCVD_Order__c$Name</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>ADCVD_Order__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

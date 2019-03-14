@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Petition__c$ADCVD_Case_Number_Text__c</field>
+    </columns>
+    <columns>
+        <field>Petition__c$Product_Text__c</field>
+    </columns>
+    <columns>
+        <field>Petition__c$Country_Text__c</field>
+    </columns>
+    <columns>
+        <field>Petition__c$Petition_Filed__c</field>
+    </columns>
+    <columns>
+        <field>Petition__c$Calculated_Initiation_Signature__c</field>
+    </columns>
+    <columns>
+        <field>Petition__c$Actual_Initiation_Signature__c</field>
+    </columns>
+    <columns>
+        <field>Petition__c$Petition_Outcome__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Petition__c$Office__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>VIII</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Petition__c$Status__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>In Progress,Closed</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Office VIII Petitions</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>PetInvOrderFedReg__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Petition__c$Petition_Filed__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

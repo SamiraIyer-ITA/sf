@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_$Investigation__c.Country_Text__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Investigation__c.Product_Text__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Investigation__c.Calculated_Preliminary_Signature__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Investigation__c.Calculated_Final_Signature__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>FK_$Investigation__c.Prelim_Extension_of_days__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>FK_$Investigation__c.Final_Extension_of_days__c</field>
+    </columns>
+    <columns>
+        <field>FK_LAST_UPDATE</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Staffing_Assignment__c.User__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Thomas Schauer</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Test Notifications 2</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Staffing_Assignment__c@Staffing_Assignment__c.Investigation__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

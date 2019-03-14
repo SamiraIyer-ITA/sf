@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Petition__c$ADCVD_Case_Number_Text__c</field>
+    </columns>
+    <columns>
+        <field>Petition__c$Product_Text__c</field>
+    </columns>
+    <columns>
+        <field>Petition__c$ADCVD_Case_Type_Text__c</field>
+    </columns>
+    <columns>
+        <field>Petition__c$Country_Text__c</field>
+    </columns>
+    <columns>
+        <field>Petition__c$Status__c</field>
+    </columns>
+    <columns>
+        <field>Petition__c$Office__c</field>
+    </columns>
+    <columns>
+        <field>Petition__c.Investigations__r$Actual_Preliminary_Signature__c</field>
+    </columns>
+    <columns>
+        <field>Petition__c.Investigations__r$Name</field>
+    </columns>
+    <description>Office III Prelim Investigation Metrics</description>
+    <filter>
+        <criteriaItems>
+            <column>Petition__c$Office__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>III</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Petition__c.Investigations__r$RecordType</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Office III Prelim Investigation Metrics</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Petitions_Investigations_Orders_Segments__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Petition__c$Actual_Initiation_Signature__c</dateColumn>
+        <interval>INTERVAL_CURFY</interval>
+    </timeFrameFilter>
+</Report>

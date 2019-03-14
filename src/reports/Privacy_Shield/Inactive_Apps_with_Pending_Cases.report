@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Participation__c$Name</field>
+    </columns>
+    <columns>
+        <field>Participation__c.Inactive_Periods__r$Asset__c.Name</field>
+    </columns>
+    <columns>
+        <field>Participation__c.Inactive_Periods__r$Asset__c.UsageEndDate</field>
+    </columns>
+    <columns>
+        <field>Participation__c.Inactive_Periods__r$Start_Date__c</field>
+    </columns>
+    <crossFilters>
+        <criteriaItems>
+            <column>Name</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>EU-US Certification</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Status</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Inactive</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Inactive_Status_Reason__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Lapse</value>
+        </criteriaItems>
+        <operation>with</operation>
+        <primaryTableColumn>Participation__c$Id</primaryTableColumn>
+        <relatedTable>Asset</relatedTable>
+        <relatedTableJoinColumn>Participant__c</relatedTableJoinColumn>
+    </crossFilters>
+    <crossFilters>
+        <criteriaItems>
+            <column>Status</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>New,Action Required</value>
+        </criteriaItems>
+        <operation>with</operation>
+        <primaryTableColumn>Participation__c$Id</primaryTableColumn>
+        <relatedTable>Case</relatedTable>
+        <relatedTableJoinColumn>Participation_Profile__c</relatedTableJoinColumn>
+    </crossFilters>
+    <description>List of Inactive-Lapse Assets with the start dates of the inactive periods and open cases.</description>
+    <format>Tabular</format>
+    <name>Inactive Apps with Pending Cases</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Applications_Assets_Inactive_Periods__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Participation__c.Inactive_Periods__r$Asset__c.Name</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Participation__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

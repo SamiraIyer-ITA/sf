@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>ADCVD_Order__c$Link__c</field>
+    </columns>
+    <columns>
+        <field>ADCVD_Order__c$ADCVD_Case_Number_Text__c</field>
+    </columns>
+    <columns>
+        <field>ADCVD_Order__c$Product_Text__c</field>
+    </columns>
+    <columns>
+        <field>ADCVD_Order__c$Country_Text__c</field>
+    </columns>
+    <columns>
+        <field>ADCVD_Order__c$Anniversary_Month__c</field>
+    </columns>
+    <columns>
+        <field>ADCVD_Order__c$Status__c</field>
+    </columns>
+    <description>Office VI Orders w/ Anniversary Month</description>
+    <filter>
+        <criteriaItems>
+            <column>ADCVD_Order__c$Office__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>VI</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ADCVD_Order__c$Status__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Revoked-Incomplete,Revoked-Complete</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Office VI Order List</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>ADCVD_Orders_Federal_Registers__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>ADCVD_Order__c$Anniversary_Month__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>ADCVD_Order__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

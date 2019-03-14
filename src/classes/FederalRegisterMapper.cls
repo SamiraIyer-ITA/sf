@@ -153,14 +153,14 @@ public without sharing class FederalRegisterMapper implements ADCVD_IMapper{
         public void mapFR(Federal_Register__c fr) {
             Federal_Register__c mappedFR = frsByType.get(fr.Type__c) != null ? frsByType.get(fr.Type__c) : null;
             switch on fr.Type__c {
-                when 'Continuation' {
-                    if (mappedFR == null || (mappedFR != null && fr.CreatedDate > mappedFR.CreatedDate)) {
+                when 'Continuation', 'Suspension Agreement' {
+                    if (mappedFR == null || (mappedFR != null && fr.Published_Date__c > mappedFR.Published_Date__c)) {
                         frsByType.put(fr.Type__c, fr);
                         typeToPublishedDateMap.put(fr.Type__c, fr.Published_Date__c);
                     }
                 }
                 when else {
-                    if (mappedFR == null || (mappedFR != null && fr.CreatedDate < mappedFR.CreatedDate)) {
+                    if (mappedFR == null || (mappedFR != null && fr.Published_Date__c < mappedFR.Published_Date__c)) {
                         frsByType.put(fr.Type__c, fr);
                         typeToPublishedDateMap.put(fr.Type__c, fr.Published_Date__c);
                     }

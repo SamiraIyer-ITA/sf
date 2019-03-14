@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_$ADCVD_Order__c.Country_Text__c</field>
+    </columns>
+    <columns>
+        <field>FK_$ADCVD_Order__c.Product_Text__c</field>
+    </columns>
+    <columns>
+        <field>FK_$ADCVD_Order__c.Commodity_Text__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>FK_$ADCVD_Order__c.Country_Text__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Russia</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>HTS Numbers</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Harmonized_Tariff_Schedule__c@Harmonized_Tariff_Schedule__c.ADCVD_Order__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

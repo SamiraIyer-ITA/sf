@@ -65,7 +65,7 @@ public without sharing class SegmentTriggerHandler {
 		if (isAfter && isUpdate) {
 			recalculateNewShipperReviews(newMap);
 			recalculateOrders(newMap, oldMap);
-			if (!Test.isRunningTest()) {new ChatterPostService().getChatterPosts(oldMap, newMap, 'Segment__c');}
+			new ChatterPostService().getChatterPosts(oldMap, newMap, 'Segment__c');
 		}
 	}
 
@@ -434,7 +434,7 @@ public without sharing class SegmentTriggerHandler {
 			if ((prelimPublished == null || s.Actual_Preliminary_Signature__c == null) && s.Segment_Outcome__c == null) {
 				s.Status__c = 'Prelim';
 			}
-		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW && s.Administrative_Review_Aligned_To__c == null) {
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
 			if ((prelimPublished == null || s.Actual_Preliminary_Signature__c == null) && s.Segment_Outcome__c == null) {
 				s.Status__c = 'Prelim';
 			}
@@ -494,7 +494,7 @@ public without sharing class SegmentTriggerHandler {
 				&& (s.Actual_Final_Signature__c == null || finalPublished == null || s.Segment_Outcome__c == null)) {
 					s.Status__c = 'Final';
 			}
-		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW && s.Administrative_Review_Aligned_To__c == null) {
+		} else if (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW) {
 			if (prelimPublished != null 
 				&& s.Actual_Preliminary_Signature__c != null 
 				&& (s.Actual_Final_Signature__c == null || finalPublished == null || s.Segment_Outcome__c == null)) {
@@ -564,7 +564,7 @@ public without sharing class SegmentTriggerHandler {
 		}
 		if (recordTypeNameMap.get(s.RecordTypeId) == ADMIN_REVIEW
 			|| recordTypeNameMap.get(s.RecordTypeId) == EXPEDITED_REVIEW
-			|| (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW && s.Administrative_Review_Aligned_To__c == null)) {
+			|| (recordTypeNameMap.get(s.RecordTypeId) == NEW_SHIPPER_REVIEW)) {
 			if (prelimPublished != null 
 				&& finalPublished != null 
 				&& s.Actual_Preliminary_Signature__c != null 
@@ -578,8 +578,7 @@ public without sharing class SegmentTriggerHandler {
 	}
 
 	@TestVisible private static void setHoldStatus(Segment__c s) {
-		if ((recordTypeNameMap.get(s.RecordTypeId) != NEW_SHIPPER_REVIEW || s.Administrative_Review_Aligned_To__c == null) 
-			&& (s.Will_you_Amend_the_Final__c != 'Yes' || s.Actual_Amended_Final_Signature__c != null)) {
+		if ((s.Will_you_Amend_the_Final__c != 'Yes' || s.Actual_Amended_Final_Signature__c != null)) {
 			if (s.Litigation_Hold_Expiration_Date__c != null 
 				&& s.Litigation_YesNo__c == null 
 				&& s.Segment_Outcome__c != null) {
@@ -589,29 +588,22 @@ public without sharing class SegmentTriggerHandler {
 	}
 
 	@TestVisible private static void setLitigationStatus(Segment__c s) {
-		if (recordTypeNameMap.get(s.RecordTypeId) != NEW_SHIPPER_REVIEW || s.Administrative_Review_Aligned_To__c == null) {
-			if (s.Litigation_YesNo__c == 'Yes' && s.Litigation_Resolved__c == 'No' && s.Segment_Outcome__c != null) {
-				s.Status__c = 'Litigation';
-			}
-		}
-	}
+        if (s.Litigation_YesNo__c == 'Yes' && s.Litigation_Resolved__c == 'No' && s.Segment_Outcome__c != null) {
+            s.Status__c = 'Litigation';
+        }
+    }
 
-	@TestVisible private static void setCustomsInstructionsStatus(Segment__c s) {
-		if (recordTypeNameMap.get(s.RecordTypeId) != NEW_SHIPPER_REVIEW || s.Administrative_Review_Aligned_To__c == null) {
-			if ((s.Litigation_YesNo__c == 'No' 
-				|| (s.Litigation_YesNo__c == 'Yes' && s.Litigation_Resolved__c == 'Yes')) 
-				&& s.Have_Custom_Instruction_been_sent__c != 'Yes') { 
-	                s.Status__c = 'Customs';
-	        }
-	    }
-	}
+	 @TestVisible private static void setCustomsInstructionsStatus(Segment__c s) {
+         if ((s.Litigation_YesNo__c == 'No' || (s.Litigation_YesNo__c == 'Yes' && s.Litigation_Resolved__c == 'Yes'))
+           && s.Have_Custom_Instruction_been_sent__c != 'Yes' && s.Segment_Outcome__c != null) {
+             s.Status__c = 'Customs';
+         }
+     }
 
 	@TestVisible private static void setClosedStatus(Segment__c s) {
-		if (recordTypeNameMap.get(s.RecordTypeId) != NEW_SHIPPER_REVIEW || s.Administrative_Review_Aligned_To__c == null) {
-			if ((s.Litigation_YesNo__c == 'No' || (s.Litigation_YesNo__c == 'Yes' && s.Litigation_Resolved__c == 'Yes')) 
-				&& s.Have_Custom_Instruction_been_sent__c == 'Yes') { 
-	                s.Status__c = 'Closed';
-	        }
-	    }
+        if ((s.Litigation_YesNo__c == 'No' || (s.Litigation_YesNo__c == 'Yes' && s.Litigation_Resolved__c == 'Yes'))
+            && s.Have_Custom_Instruction_been_sent__c == 'Yes' && s.Segment_Outcome__c != null) {
+                s.Status__c = 'Closed';
+        }
 	}
 }

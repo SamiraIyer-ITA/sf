@@ -336,16 +336,16 @@ public class PetitionTriggerHandlerTest {
         ADCVD_Case__c testADCase = TestUtils.createADCVDCase('A-123-123', 'AD ME', true);
         Petition__c p = TestUtils.createPetition(testADCase, petitionDate, true);
         Test.stopTest();
-        Petition__c savedPetition = [SELECT Id, ADCVD_Case_Number__c, ADCVD_Case_Type__c, CBP_Case_Number__c, Commodity__c,
-                                            Country__c, Product__c, Product_Short_Name__c
+        Petition__c savedPetition = [SELECT Id, ADCVD_Case_Number_Text__c, ADCVD_Case_Type_Text__c, CBP_Case_Number_Text__c, Commodity_Text__c,
+                                            Country_Text__c, Product_Text__c, Product_Short_Name_Text__c
                                         FROM Petition__c WHERE ADCVD_Case__c =: testADCase.Id];
-        System.assertEquals(testADCase.ADCVD_Case_Number__c, savedPetition.ADCVD_Case_Number__c);
-        System.assertEquals(testADCase.ADCVD_Case_Type__c, savedPetition.ADCVD_Case_Type__c);
-        System.assertEquals(testADCase.CBP_Case_Number__c, savedPetition.CBP_Case_Number__c);
-        System.assertEquals(testADCase.Commodity__c, savedPetition.Commodity__c);
-        System.assertEquals(testADCase.Country__c, savedPetition.Country__c);
-        System.assertEquals(testADCase.Product__c, savedPetition.Product__c);
-        System.assertEquals(testADCase.Product_Short_Name__c, savedPetition.Product_Short_Name__c);
+        System.assertEquals(testADCase.ADCVD_Case_Number__c, savedPetition.ADCVD_Case_Number_Text__c);
+        System.assertEquals(testADCase.ADCVD_Case_Type__c, savedPetition.ADCVD_Case_Type_Text__c);
+        System.assertEquals(testADCase.CBP_Case_Number__c, savedPetition.CBP_Case_Number_Text__c);
+        System.assertEquals(testADCase.Commodity__c, savedPetition.Commodity_Text__c);
+        System.assertEquals(testADCase.Country__c, savedPetition.Country_Text__c);
+        System.assertEquals(testADCase.Product__c, savedPetition.Product_Text__c);
+        System.assertEquals(testADCase.Product_Short_Name__c, savedPetition.Product_Short_Name_Text__c);
     }
 
     @testSetup static void dataSetup() {

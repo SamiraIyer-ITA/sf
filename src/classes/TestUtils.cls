@@ -250,6 +250,7 @@ public class TestUtils {
         app.ADCVD_Admin__c = 'joshua.moody@trade.gov';
         app.TriggersEnabled__c = triggersEnabled;
         app.AppEnabled__c = true;
+        app.Batch_Size__c = 200;
         app.Go_Live_Date__c = Date.newInstance(2018, 2, 15);
         app.ChronExp_LitigationSegement__c = ' 0 ' + string.valueOf((system.now().addMinutes(30)).minute()) + ' ' + string.valueOf((system.now().addMinutes(30)).hour()) + ' ' + string.valueOf(system.today().day()) + ' ' + string.valueOf(system.today().Month()) + ' ?';
         system.debug('app.ChronExp_LitigationSegement__c = ' + app.ChronExp_LitigationSegement__c);
@@ -531,6 +532,15 @@ public class TestUtils {
         if(doInsert) insert relatedOrg;
         return relatedOrg;
     }
+
+     public static Custom_Instruction__c createCustomInstruction(String parentObjectName, Id parentId, Boolean doInsert){
+        Custom_Instruction__c customInstruction = new Custom_Instruction__c();
+        customInstruction.put(parentObjectName, parentId);
+        if(doInsert){
+            insert customInstruction;
+        }
+        return customInstruction;
+     }
     
     public static User createGenericUser(string username, string email, String profileId) {
         User user = new User();

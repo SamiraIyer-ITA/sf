@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <aggregates>
+        <calculatedFormula>Account.Organization_One__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <description>Organization count for Assists</description>
+        <developerName>FORMULA1</developerName>
+        <downGroupingContext>GRAND_SUMMARY</downGroupingContext>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Org Count</masterLabel>
+        <reportType>Orgs_for_client_assists_org_activities__c</reportType>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>Account.Organization_One__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <description>Org Count for Cases</description>
+        <developerName>FORMULA2</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Org Count Cases</masterLabel>
+        <reportType>Orgs_for_client_assists_Case_Case_Contributor__c</reportType>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>IF(
+OR((B1#Account.Organization_One__c:SUM =1), (B0#Account.Organization_One__c:SUM =1)),1,0)</calculatedFormula>
+        <datatype>number</datatype>
+        <description>Total number of Organizations Assisted</description>
+        <developerName>FORMULA3</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>true</isCrossBlock>
+        <masterLabel>Total Orgs Assisted</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <block>
+        <blockInfo>
+            <aggregateReferences>
+                <aggregate>FORMULA1</aggregate>
+            </aggregateReferences>
+            <blockId>B1</blockId>
+            <joinTable>Account</joinTable>
+        </blockInfo>
+        <columns>
+            <field>Account.Activities$Subject</field>
+        </columns>
+        <filter>
+            <booleanFilter>((((1 AND 2) AND 3) AND 4) AND 5) AND 6</booleanFilter>
+            <criteriaItems>
+                <column>Account.Activities$ActivityDate</column>
+                <isUnlocked>false</isUnlocked>
+                <operator>greaterOrEqual</operator>
+                <value>10/1/2014 12:00 AM</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>Account.Activities$ActivityDate</column>
+                <isUnlocked>false</isUnlocked>
+                <operator>lessOrEqual</operator>
+                <value>9/30/2015 12:00 AM</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>Account.Activities$Running_User_is_Owner__c</column>
+                <isUnlocked>false</isUnlocked>
+                <operator>equals</operator>
+                <value>1</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>Account.Activities$Investment_Promotion__c</column>
+                <isUnlocked>false</isUnlocked>
+                <operator>equals</operator>
+                <value>0</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>Account$BillingCountryCode</column>
+                <isUnlocked>false</isUnlocked>
+                <operator>equals</operator>
+                <value>US</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>Account$RecordType</column>
+                <isUnlocked>true</isUnlocked>
+                <operator>equals</operator>
+                <value>Account.ITA_User_Account_RT</value>
+            </criteriaItems>
+        </filter>
+        <format>Summary</format>
+        <name>Orgs for client assists org acti block 1</name>
+        <params>
+            <name>co</name>
+            <value>1</value>
+        </params>
+        <reportType>Orgs_for_client_assists_org_activities__c</reportType>
+        <scope>organization</scope>
+        <showGrandTotal>true</showGrandTotal>
+        <showSubTotals>true</showSubTotals>
+        <timeFrameFilter>
+            <dateColumn>Account$CreatedDate</dateColumn>
+            <interval>INTERVAL_CUSTOM</interval>
+        </timeFrameFilter>
+    </block>
+    <block>
+        <blockInfo>
+            <aggregateReferences>
+                <aggregate>FORMULA2</aggregate>
+            </aggregateReferences>
+            <aggregateReferences>
+                <aggregate>FORMULA3</aggregate>
+            </aggregateReferences>
+            <blockId>B0</blockId>
+            <joinTable>Account</joinTable>
+        </blockInfo>
+        <columns>
+            <field>Account$NameLocal</field>
+        </columns>
+        <filter>
+            <booleanFilter>((((1 AND 3) OR (2 AND 4)) AND 5) AND 6) AND 7</booleanFilter>
+            <criteriaItems>
+                <column>Account.Cases$CreatedDate</column>
+                <isUnlocked>false</isUnlocked>
+                <operator>greaterOrEqual</operator>
+                <value>10/1/2014 12:00 AM</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>Account.Cases$ClosedDate</column>
+                <isUnlocked>false</isUnlocked>
+                <operator>lessOrEqual</operator>
+                <value>9/30/2015 12:00 AM</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>Account.Cases$CreatedDate</column>
+                <isUnlocked>false</isUnlocked>
+                <operator>lessOrEqual</operator>
+                <value>9/30/2015 12:00 AM</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>Account.Cases$ClosedDate</column>
+                <isUnlocked>false</isUnlocked>
+                <operator>greaterOrEqual</operator>
+                <value>10/1/2014 12:00 AM</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>Account.Cases.Case_Contributors__r$Running_User_is_Case_Contributor__c</column>
+                <isUnlocked>false</isUnlocked>
+                <operator>equals</operator>
+                <value>1</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>Account$BillingCountryCode</column>
+                <isUnlocked>false</isUnlocked>
+                <operator>equals</operator>
+                <value>US</value>
+            </criteriaItems>
+            <criteriaItems>
+                <column>Account$RecordType</column>
+                <isUnlocked>true</isUnlocked>
+                <operator>equals</operator>
+                <value>Account.ITA_User_Account_RT</value>
+            </criteriaItems>
+        </filter>
+        <format>Summary</format>
+        <name>Orgs for client assists Case Cas block 2</name>
+        <params>
+            <name>co</name>
+            <value>1</value>
+        </params>
+        <reportType>Orgs_for_client_assists_Case_Case_Contributor__c</reportType>
+        <scope>organization</scope>
+        <showGrandTotal>true</showGrandTotal>
+        <showSubTotals>true</showSubTotals>
+        <timeFrameFilter>
+            <dateColumn>Account$CreatedDate</dateColumn>
+            <interval>INTERVAL_CUSTOM</interval>
+        </timeFrameFilter>
+    </block>
+    <blockInfo>
+        <blockId xsi:nil="true"/>
+        <joinTable>Account</joinTable>
+    </blockInfo>
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <axisBinding>y</axisBinding>
+            <column>B0#FORMULA3</column>
+        </chartSummaries>
+        <chartType>LineCumulative</chartType>
+        <enableHoverLabels>false</enableHoverLabels>
+        <expandOthers>true</expandOthers>
+        <groupingColumn>Account$Name</groupingColumn>
+        <location>CHART_TOP</location>
+        <showAxisLabels>true</showAxisLabels>
+        <showPercentage>false</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>true</showValues>
+        <size>Tiny</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <description>My Export Clients Assisted using Running User for details.</description>
+    <format>MultiBlock</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account$Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>My Export Clients Assisted Running User</name>
+    <reportType>Orgs_for_client_assists_org_activities__c</reportType>
+    <showDetails>true</showDetails>
+</Report>

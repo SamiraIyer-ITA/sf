@@ -38,17 +38,30 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
+        <comment>Action override updated by Lightning App Builder during activation.</comment>
+        <content>Custom_Instruction_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Basic_Case_Info</fullName>
+        <fields>ADCVD_Case__c</fields>
+        <fields>Product_Text__c</fields>
+        <fields>Product_Short_Name_Text__c</fields>
+        <fields>Country_Text__c</fields>
+        <fields>Commodity_Text__c</fields>
+        <label>Basic Case Info</label>
+    </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
-    <enableSearch>false</enableSearch>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
@@ -96,7 +109,7 @@
         <relationshipLabel>Custom Instructions</relationshipLabel>
         <relationshipName>Custom_Instructions</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -184,7 +197,7 @@
         <externalId>false</externalId>
         <label>CBP Instructions Category</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -316,7 +329,7 @@
         <externalId>false</externalId>
         <label>CBP Instructions Sub-Category</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -499,7 +512,7 @@
     <fields>
         <fullName>Country__c</fullName>
         <externalId>false</externalId>
-        <label>Country</label>
+        <label>Country Deprecated</label>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -602,7 +615,7 @@
         <relationshipLabel>Custom Instructions</relationshipLabel>
         <relationshipName>Custom_Instructions</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -620,7 +633,7 @@
         <externalId>false</externalId>
         <label>Message Date</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -630,7 +643,7 @@
         <label>Message No.</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -720,7 +733,7 @@
         <relationshipLabel>Custom Instructions</relationshipLabel>
         <relationshipName>Custom_Instructions</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -768,7 +781,7 @@
         <relationshipLabel>Custom Instructions</relationshipLabel>
         <relationshipName>Custom_Instructions</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -793,7 +806,7 @@
         <columns>Investigation__c</columns>
         <columns>ADCVD_Order__c</columns>
         <columns>Product_Text__c</columns>
-        <columns>Country__c</columns>
+        <columns>Country_Text__c</columns>
         <columns>Suspension_Agreement__c</columns>
         <columns>Segment__c</columns>
         <filterScope>Everything</filterScope>
@@ -847,18 +860,42 @@ PRIORVALUE(Locked__c) == true
         <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Only_Admin_reparents_Custom_Instruction</fullName>
-        <active>false</active>
-        <description>Custom Instruction records can only be reparented by a System Administrator.</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
-Locked__c == false, 
-NOT( ISNEW() ), 
-OR(ISCHANGED(ADCVD_Order__c), ISCHANGED(Investigation__c),ISCHANGED(Petition__c),ISCHANGED(Segment__c),ISCHANGED(Suspension_Agreement__c)),
-$Profile.Name 
-&lt;&gt; 
-&quot;System Administrator&quot; 
+        <fullName>Ensure_there_is_only_one_parent</fullName>
+        <active>true</active>
+        <description>This validation rule makes sure you cannot create a Custom Instruction without a Investigation, Petition, Orders, Suspension Agreement, or Segment attached to it. If all three of these lookup fields are empty, the validation error message will trigger.</description>
+        <errorConditionFormula>AND(
+    $Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
+    Locked__c == false, 
+    (	
+	IF(ISBLANK(Petition__c),0,1)+ 
+	IF(ISBLANK(Segment__c),0,1)+ 
+        IF(ISBLANK(ADCVD_Order__c),0,1)+
+	IF(ISBLANK(Investigation__c),0,1)+ 
+	IF(ISBLANK(Suspension_Agreement__c),0,1) &lt;&gt;1
+   )
 )</errorConditionFormula>
-        <errorMessage>You are not authorized to edit this field. Only a System Administrator can edit the parent ADCVD Order, Investigation, Petition, Segment, or Suspension Agreement for this record.</errorMessage>
+        <errorMessage>You must have only one of the following: Petition, Investigation,  ADCVD Order, Suspension Agreement, or Segment associated to this Custom Instruction.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Only_Admin_reparents_Custom_Instruction</fullName>
+        <active>true</active>
+        <description>Custom Instruction records can only be reparented by a System Administrator.</description>
+        <errorConditionFormula>AND(
+    $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+    Locked__c == false,
+    AND(
+        $Profile.Name != &apos;System Administrator&apos;,
+        NOT($Permission.ADCVD_App_Modify_Parents),
+        OR(
+            ISCHANGED( Investigation__c ),
+            ISCHANGED( Petition__c ),
+            ISCHANGED( Segment__c ),
+            ISCHANGED( ADCVD_Order__c ),
+            ISCHANGED( Suspension_Agreement__c )
+        )
+    )
+)</errorConditionFormula>
+        <errorMessage>Custom Instruction records can only be reparented by a System Administrator.</errorMessage>
     </validationRules>
     <visibility>Public</visibility>
 </CustomObject>

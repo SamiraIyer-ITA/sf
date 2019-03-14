@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>WIN__c$Final_Line_Approval_Date__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Id</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Name</field>
+    </columns>
+    <columns>
+        <field>WIN__c.Related_Countries__r$Country__c</field>
+    </columns>
+    <crossFilters>
+        <criteriaItems>
+            <column>RH_Lev_1_GM_All__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>GM All</value>
+        </criteriaItems>
+        <operation>with</operation>
+        <primaryTableColumn>WIN__c$Id</primaryTableColumn>
+        <relatedTable>WIN_Contributor__c</relatedTable>
+        <relatedTableJoinColumn>WIN__c</relatedTableJoinColumn>
+    </crossFilters>
+    <description>Revised by Leslie. Part 3 (of 3) reports to review WINs for CBA, FY18Q2. 02092018</description>
+    <filter>
+        <criteriaItems>
+            <column>WIN__c$Request_WIN_Removal__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>CBA WINs w countries</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>WINs_With_Countries__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>WIN__c$Final_Line_Approval_Date__c</dateColumn>
+        <interval>INTERVAL_PREV2FY</interval>
+    </timeFrameFilter>
+</Report>

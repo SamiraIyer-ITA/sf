@@ -53,9 +53,9 @@
     <compactLayouts>
         <fullName>StaffingAssignmentInfo</fullName>
         <fields>ADCVD_Case__c</fields>
-        <fields>ADCVD_Case_Type__c</fields>
-        <fields>Country__c</fields>
-        <fields>Product__c</fields>
+        <fields>ADCVD_Case_Type_Text__c</fields>
+        <fields>Country_Text__c</fields>
+        <fields>Product_Text__c</fields>
         <fields>Name</fields>
         <label>StaffingAssignmentInfo</label>
     </compactLayouts>
@@ -66,15 +66,37 @@
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
-    <enableSearch>false</enableSearch>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
+        <fullName>ADCVD_Case_Number_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>ADCVD Case Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>ADCVD_Case_Number__c</fullName>
         <externalId>false</externalId>
-        <label>ADCVD Case Number Text Value</label>
+        <label>ADCVD Case Number Text Value Deprecated</label>
         <length>28</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ADCVD_Case_Type_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>ADCVD Case Type</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -84,7 +106,7 @@
     <fields>
         <fullName>ADCVD_Case_Type__c</fullName>
         <externalId>false</externalId>
-        <label>ADCVD Case Type</label>
+        <label>ADCVD Case Type Deprecated</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -120,7 +142,7 @@
         <relationshipLabel>Staffing Assignments</relationshipLabel>
         <relationshipName>Staffing_Assignments</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -133,14 +155,25 @@
         <relationshipLabel>Staffing Assignments</relationshipLabel>
         <relationshipName>Staffing_Assignments</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>CBP_Case_Number__c</fullName>
+        <fullName>CBP_Case_Number_Text__c</fullName>
         <externalId>false</externalId>
         <label>CBP Case Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CBP_Case_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>CBP Case Number Deprecated</label>
         <length>28</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -158,9 +191,31 @@
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Country__c</fullName>
+        <fullName>Commodity_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Commodity</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Country_Text__c</fullName>
         <externalId>false</externalId>
         <label>Country</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Country__c</fullName>
+        <externalId>false</externalId>
+        <label>Country Deprecated</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -179,7 +234,7 @@
         <relationshipLabel>Staffing Assignments</relationshipLabel>
         <relationshipName>Staffing_Assignments</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -235,7 +290,7 @@ IF( Segment__c != null, Segment__r.Link__c ,
         <relationshipLabel>Staffing Assignments</relationshipLabel>
         <relationshipName>Staffing_Assignments</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -249,11 +304,33 @@ IF( Segment__c != null, Segment__r.Link__c ,
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Product_Short_Name_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Short Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Product_Short_Name__c</fullName>
         <externalId>false</externalId>
         <formula>ADCVD_Case__r.Product_Short_Name__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Product Short Name</label>
+        <label>Product Short Name Deprecated</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -263,7 +340,7 @@ IF( Segment__c != null, Segment__r.Link__c ,
     <fields>
         <fullName>Product__c</fullName>
         <externalId>false</externalId>
-        <label>Product</label>
+        <label>Product Deprecated</label>
         <length>80</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -313,7 +390,7 @@ IF( Segment__c != null, Segment__r.Link__c ,
         <relationshipLabel>Staffing Assignments</relationshipLabel>
         <relationshipName>Staffing_Assignments</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -326,7 +403,7 @@ IF( Segment__c != null, Segment__r.Link__c ,
         <relationshipLabel>Staffing Assignments</relationshipLabel>
         <relationshipName>Staffing_Assignments</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -335,7 +412,7 @@ IF( Segment__c != null, Segment__r.Link__c ,
         <externalId>false</externalId>
         <label>Title</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
@@ -441,7 +518,7 @@ IF( Segment__c != null, Segment__r.Link__c ,
         <referenceTo>User</referenceTo>
         <relationshipName>Staffing_Assignments</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -452,8 +529,8 @@ IF( Segment__c != null, Segment__r.Link__c ,
         <columns>Parent__c</columns>
         <columns>Title__c</columns>
         <columns>User__c</columns>
-        <columns>Product__c</columns>
-        <columns>Country__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Country_Text__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Title__c</field>
@@ -488,8 +565,8 @@ IF( Segment__c != null, Segment__r.Link__c ,
         <columns>Parent__c</columns>
         <columns>Title__c</columns>
         <columns>User__c</columns>
-        <columns>Product__c</columns>
-        <columns>Country__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Country_Text__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Title__c</field>
@@ -514,8 +591,8 @@ IF( Segment__c != null, Segment__r.Link__c ,
         <columns>Parent__c</columns>
         <columns>Title__c</columns>
         <columns>User__c</columns>
-        <columns>Product__c</columns>
-        <columns>Country__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Country_Text__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Title__c</field>
@@ -535,8 +612,8 @@ IF( Segment__c != null, Segment__r.Link__c ,
         <columns>Title__c</columns>
         <columns>User__c</columns>
         <columns>Parent__c</columns>
-        <columns>Product__c</columns>
-        <columns>Country__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Country_Text__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>User__c</field>
@@ -593,8 +670,8 @@ IF( Segment__c != null, Segment__r.Link__c ,
         <columns>Parent__c</columns>
         <columns>Title__c</columns>
         <columns>User__c</columns>
-        <columns>Product__c</columns>
-        <columns>Country__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Country_Text__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Title__c</field>
@@ -638,8 +715,8 @@ IF( Segment__c != null, Segment__r.Link__c ,
     <listViews>
         <fullName>Test_Test_Staffing_List</fullName>
         <columns>NAME</columns>
-        <columns>Product__c</columns>
-        <columns>Country__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Country_Text__c</columns>
         <columns>Title__c</columns>
         <columns>User__c</columns>
         <columns>Segment__c</columns>
@@ -657,8 +734,8 @@ IF( Segment__c != null, Segment__r.Link__c ,
     <listViews>
         <fullName>Test_Test_Staffing_List_Invest</fullName>
         <columns>NAME</columns>
-        <columns>Product__c</columns>
-        <columns>Country__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Country_Text__c</columns>
         <columns>Title__c</columns>
         <columns>User__c</columns>
         <columns>Investigation__c</columns>
@@ -676,8 +753,8 @@ IF( Segment__c != null, Segment__r.Link__c ,
     <listViews>
         <fullName>Test_Test_Staffing_List_Petitions</fullName>
         <columns>NAME</columns>
-        <columns>Product__c</columns>
-        <columns>Country__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Country_Text__c</columns>
         <columns>Title__c</columns>
         <columns>User__c</columns>
         <columns>Petition__c</columns>
@@ -724,10 +801,10 @@ IF( Segment__c != null, Segment__r.Link__c ,
         <searchFilterFields>User__c</searchFilterFields>
         <searchFilterFields>Related_Organization__c</searchFilterFields>
         <searchResultsAdditionalFields>Parent__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ADCVD_Case_Number__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Country__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ADCVD_Case_Type__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Product__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADCVD_Case_Number_Text__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Country_Text__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ADCVD_Case_Type_Text__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Product_Text__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Title__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>User__c</searchResultsAdditionalFields>
     </searchLayouts>

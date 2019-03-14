@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account.Cases$CaseNumber</field>
+    </columns>
+    <columns>
+        <field>Account.Cases$Owner</field>
+    </columns>
+    <columns>
+        <field>Account.Cases$Contact</field>
+    </columns>
+    <columns>
+        <field>Account.Cases$Status</field>
+    </columns>
+    <columns>
+        <field>Account.Cases$IP_Client_Type__c</field>
+    </columns>
+    <columns>
+        <field>Account.Cases$RecordType</field>
+    </columns>
+    <columns>
+        <field>Account.Cases$Description</field>
+    </columns>
+    <description>SUSA 2016 Cases with Exhibitors</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.Cases$Owner</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>anthony diaz</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Cases$Subject</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>2016 SelectUSA Summit Exhibitor</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account.Cases$Actual_Create_Date__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account$Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>SUSA Summit 2016 - Exhibitor Cases</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Organizations_with_Cases__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Account.Cases$Actual_Create_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2016-07-11</startDate>
+    </timeFrameFilter>
+</Report>

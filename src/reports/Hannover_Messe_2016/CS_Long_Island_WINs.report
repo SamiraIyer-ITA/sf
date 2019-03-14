@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>WIN_Contributor__c.WIN__c</field>
+    </columns>
+    <columns>
+        <field>WIN_Contributor__c.Contributor__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>WIN_Contributor__c.RH_Lev_2_DAS__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>GM CS-USA-HQ DAS Office</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>WIN_Contributor__c.RH_Lev_6_Office__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>GM-CS USA-Field-NorthEast-LongIsland</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>CS Long Island WINs</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$WIN_Contributor__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

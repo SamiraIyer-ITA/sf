@@ -61,7 +61,7 @@ public without sharing class StaffingAssignmentExtension {
      *********************************/
     public SObject parentRecord {get {
         if (parentRecord == null && parentId != null) {
-            String soqlQuery = 'SELECT Id, ADCVD_Case_Number__c, ADCVD_Case_Type__c, Country__c, Product__c FROM ';
+            String soqlQuery = 'SELECT Id, ADCVD_Case__c, ADCVD_Case_Number_Text__c, ADCVD_Case_Type_Text__c, Country_Text__c, Product_Text__c FROM ';
             String soqlQueryRO = 'SELECT Id,ADCVD_Case_Number_Text__c,Commodity_Text__c,ADCVD_Case_Type_Text__c,CBP_Case_Number_Text__c,Country_Text__c,Product_Text__c,Product_Short_Name_Text__c FROM ';
             soqlQuery = (parentSObjectType == 'Related_Organization__c')? (soqlQueryRO += parentSObjectType): (soqlQuery+=parentSObjectType);
             soqlQuery += ' WHERE Id =: parentId';
@@ -492,7 +492,7 @@ public without sharing class StaffingAssignmentExtension {
     //method used to create Staffing Assignments via the "add row" method
     public static Staffing_Assignment__c createNewStaffingAssignment(String parentIdAsString, SObject parentRecord) {
         Staffing_Assignment__c newSA = createNewStaffingAssignment(parentIdAsString);
-        if (String.isBlank(newSA.ADCVD_Case_Number__c)) {
+        if (String.isBlank(newSA.ADCVD_Case_Number_Text__c)) {
             ParentValuesService pvs = new ParentValuesService();
             newSA = (Staffing_Assignment__c)pvs.setCaseValuesFromParent(parentRecord, newSA);
         }

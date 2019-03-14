@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>WIN__c.Contributors__r$CreatedDate</field>
+    </columns>
+    <columns>
+        <field>WIN__c$WIN_Name__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Organization__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Name</field>
+    </columns>
+    <columns>
+        <field>WIN__c.Contributors__r$Contributor__c</field>
+    </columns>
+    <columns>
+        <field>WIN__c$Owner</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>WIN__c.Contributors__r$Contributor__c</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>Claudia Salgado</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Claudia Salgado WINS</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>WINs_with_Contributors__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>WIN__c.Contributors__r$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

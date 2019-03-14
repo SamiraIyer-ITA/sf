@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Case_Solution__ka$CreatedDate</field>
+    </columns>
+    <columns>
+        <field>Case_Solution__ka$ArticleNumber</field>
+    </columns>
+    <columns>
+        <field>Case_Solution__ka$LastPublishedDate</field>
+    </columns>
+    <columns>
+        <field>Case_Solution__ka$ArchivedDate</field>
+    </columns>
+    <description>Case Solutions due to expire next month</description>
+    <format>Summary</format>
+    <name>CS Due to Expire Next Month</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Case_Solution_Resources__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Case_Solution__ka$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

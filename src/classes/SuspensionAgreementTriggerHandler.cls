@@ -54,7 +54,7 @@
     @TestVisible private static Map<Id, FederalRegisterMapper.MappedFRs> frUtilMap = new Map<Id, FederalRegisterMapper.MappedFRs>();
     @TestVisible private static FederalRegisterMapper frMapper;
     @TestVisible private static ADCVD_CaseMapper caseMapper = (ADCVD_CaseMapper) ADCVD_CaseMapper.mapperMap.get('ADCVD_Case__c');
-
+	@TestVisible private static Suspension_AgreementMapper saMapper;
     
     /******************************************
     * Methods called directly by mainEntry()
@@ -62,12 +62,31 @@
 	  
     @TestVisible private static void initialize(List<Suspension_Agreement__c> newList, Map<Id,Suspension_Agreement__c> newMap) {
         Set<Id> caseIdSet = getCaseIdSet(newList);
+        for (Suspension_Agreement__c sa : newList) {
+            caseIdSet.add(sa.ADCVD_Case__c);
+        }
+        caseMapper = caseMapper.getInstance(caseIdSet);
+        InvestigationMapper is = (InvestigationMapper) caseMapper.getMapper('Investigation__c').getInstance();
+        investigationsInScopeMap = (Map<Id,Investigation__c>) caseMapper.getMapper('Investigation__c').getInstance().getMap(true);
         if(newMap != null) {
+            addNewSuspAgrmtToMappers(newMap);
             frMapper = (FederalRegisterMapper) caseMapper.getMapper('Federal_Register__c').getInstance();
             frUtilMap = frMapper.getMappedFRs(newMap.keySet(), caseMapper);
         }
         caseMapper = caseMapper.getInstance(caseIdSet);
         investigationsInScopeMap = (Map<Id,Investigation__c>) caseMapper.getMapper('Investigation__c').getInstance().getMap(true);// findPetitionsInScopeMap(newList); //find the parent Investigation
+    }
+    
+    @TestVisible private static Set<Id> getCaseIdSet(List<Suspension_Agreement__c> newList) {
+        Set<Id> caseIdSet = new Set<Id>();
+        Set<Id> invIdSet = new Set<Id>();
+        for (Suspension_Agreement__c sa : newList) {
+            invIdSet.add(sa.Investigation__c);
+        }
+        for (Investigation__c i : [SELECT ADCVD_Case__c FROM Investigation__c WHERE Id IN: invIdSet]) {
+            caseIdSet.add(i.ADCVD_Case__c);
+        }
+        return caseIdSet;
     }
 
 	//set ADCVD Case value from Investigations     
@@ -77,6 +96,22 @@
             sa = (Suspension_Agreement__c) pvs.setCaseValuesFromParent(investigationsInScopeMap.get(sa.Investigation__c), sa);
         }
     }
+    
+    @TestVisible private static void addNewSuspAgrmtToMappers(Map<Id,Suspension_Agreement__c> newMap) {
+        Map<Id,List<Suspension_Agreement__c>> caseToSuspAgrmtMap = new Map<Id,List<Suspension_Agreement__c>>();
+        saMapper = (Suspension_AgreementMapper) caseMapper.getMapper('Suspension_Agreement__c').getInstance();
+        for (Suspension_Agreement__c sa : newMap.values()) {
+            saMapper.addSuspAgrmtToMap(sa);
+            List<Suspension_Agreement__c> tempList = caseToSuspAgrmtMap.get(sa.ADCVD_Case__c) != null ?
+                                                   caseToSuspAgrmtMap.get(sa.ADCVD_Case__c) : new List<Suspension_Agreement__c>();
+            tempList.add(sa);
+            caseToSuspAgrmtMap.put(sa.ADCVD_Case__c, tempList);
+        }
+        for (Id caseId : caseToSuspAgrmtMap.keySet()) {
+            caseMapper.setCaseIdToSuspAgrmtMap(caseId, caseToSuspAgrmtMap.get(caseId));
+        }
+    }
+
      
     @TestVisible private static void calculateDates(List<Suspension_Agreement__c> newList) {
 		for (Suspension_Agreement__c sa : newList) {
@@ -89,15 +124,6 @@
         for (Suspension_Agreement__c sa : newList) {
             validateEffectiveDateOfTermination(sa);
         }
-    }
-
-    @TestVisible private static Set<Id> getCaseIdSet(List<Suspension_Agreement__c> newList) {
-        //Look directly in the lookup field of Suspension Agreement
-        Set<Id> caseIdSet = new Set<Id>();
-        for (Suspension_Agreement__c sa : newList) {
-            caseIdSet.add(sa.ADCVD_Case__c);
-        }
-        return caseIdSet;
     }
 
     /***********************************
@@ -139,7 +165,7 @@
             suspensionAgreementPublishedDate = frUtilMap.get(sa.Id) != null ? frUtilMap.get(sa.Id).typeToPublishedDateMap.get('Suspension Agreement') : null;
         }
         if (suspensionAgreementPublishedDate != null) {
-            sa.Anniversary_Month__c = utils.getMonthFromDate(suspensionAgreementPublishedDate);
+            sa.Anniversary_Month__c = Utils.getMonthFromDate(suspensionAgreementPublishedDate);
         } else {
             sa.Anniversary_Month__c = null;
         }
@@ -152,7 +178,9 @@
             nextSSR = frUtilMap.get(sa.Id).typeToPublishedDateMap.get('Suspension Agreement'); //set to suspensionAgreementPublishedDate if populated
             Federal_Register__c continuationFR = frUtilMap.get(sa.Id).frsByType.get('Continuation');
             Federal_Register__c suspensionAgreementFR = frUtilMap.get(sa.Id).frsByType.get('Suspension Agreement');
-            nextSSR = (continuationFR != null && suspensionAgreementFR !=null && continuationFR.CreatedDate > suspensionAgreementFR.CreatedDate) ? frUtilMap.get(sa.Id).typeToPublishedDateMap.get('Continuation') : nextSSR;//overwrite to continuationPublishedDate if populated
+            nextSSR = (continuationFR != null && suspensionAgreementFR !=null
+                && continuationFR.Published_Date__c > suspensionAgreementFR.Published_Date__c)
+                ? frUtilMap.get(sa.Id).typeToPublishedDateMap.get('Continuation') : nextSSR;//overwrite to continuationPublishedDate if populated
             nextSSR = (frUtilMap.get(sa.Id).typeToPublishedDateMap.get('Termination') != null) ? null : nextSSR;//overwrite to null if revocationPublishedDate is populated
         }
     	if (nextSSR != null) {

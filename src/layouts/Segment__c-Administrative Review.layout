@@ -234,15 +234,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>ADCVD_Case_Type__c</field>
+                <field>Product_Text__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Product__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Product_Short_Name__c</field>
+                <field>Product_Short_Name_Text__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -402,10 +398,10 @@
     <relatedLists>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
-        <fields>ADCVD_Case_Number__c</fields>
-        <fields>Country__c</fields>
-        <fields>ADCVD_Case_Type__c</fields>
-        <fields>Product__c</fields>
+        <fields>ADCVD_Case_Number_Text__c</fields>
+        <fields>Country_Text__c</fields>
+        <fields>ADCVD_Case_Type_Text__c</fields>
+        <fields>Product_Text__c</fields>
         <fields>RECORDTYPE</fields>
         <fields>Period_Covered_Start_Date__c</fields>
         <fields>Period_Covered_End_Date__c</fields>
@@ -440,6 +436,9 @@
         <fields>NAME</fields>
         <fields>Status__c</fields>
         <relatedList>Litigation__c.Segment__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

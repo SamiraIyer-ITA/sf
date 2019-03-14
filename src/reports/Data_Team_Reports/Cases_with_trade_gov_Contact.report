@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact$Name</field>
+    </columns>
+    <columns>
+        <field>Contact.Cases$Owner</field>
+    </columns>
+    <columns>
+        <field>Contact.Cases$Subject</field>
+    </columns>
+    <columns>
+        <field>Contact.Cases$CaseNumber</field>
+    </columns>
+    <columns>
+        <field>Contact$Email</field>
+    </columns>
+    <columns>
+        <field>Contact.Cases$Owners_Office__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Contact$Email</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>contains</operator>
+            <value>@trade.gov</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact$Account.RecordType</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>equals</operator>
+            <value>Account.ITA_User_Account_RT</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.Cases$Owner</column>
+            <isUnlocked>false</isUnlocked>
+            <operator>notEqual</operator>
+            <value>Gabriela Fábio,Salesforce Support,Sandip Menon</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Cases with trade.gov Contact</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Contacts_with_Cases__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>Contact.Cases$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

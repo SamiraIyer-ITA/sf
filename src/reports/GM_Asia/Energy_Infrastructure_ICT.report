@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account.OrgIndustryHierarchy__r$Industry__c</field>
+    </columns>
+    <columns>
+        <field>Account.OrgIndustryHierarchy__r$Sector__c</field>
+    </columns>
+    <columns>
+        <field>Account.OrgIndustryHierarchy__r$Sub_Sector__c</field>
+    </columns>
+    <description>Companies whose sectors apply to the IndoPacific Roundtable discussions on ITAN, DCCP, EDGE</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.OrgIndustryHierarchy__r$Sector__c</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Access Control Systems,Air Pollution Control,Air Transportation,Asset Management,Banking,Civil Nuclear Power,Cloud Computing,Coal,Computer Hardware,Computer Systems,Construction Equipment and Machinery,Consumer Electronics,Cybersecurity,Design and Construction Services,Electricity Infrastructure,Financial Technology,Fueling Infrastructure Stations,Grid Transmission Distribution,Industrial Design Services,Industrial Safety and Security,Information Services,Information Technology Services,Intelligent Transportation Systems,Investment Services,Mining Equipment and Machinery,Oil and Gas,Passenger Transportation Services,Rail Transportation,Renewable Energy,Renewable Fuels,Telecommunications,Venture Capital</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$BillingCountryCode</column>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>US</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Energy, Infrastructure, ICT</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Organizations_with_Industry_Hierarchies__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <sortColumn>Account.OrgIndustryHierarchy__r$Industry__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Account$Actual_Create_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

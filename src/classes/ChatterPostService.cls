@@ -17,7 +17,7 @@ public without sharing class ChatterPostService {
 		StaffingAssignmentsSelector.setParentIdsToStaffLists(newMap.keySet(), sObjectName);//initialized map of all staffing assignments in scope for all parent records
 		for(Id i : newMap.keySet()) {
 			//initialize strings to be used in post
-			String caseNumber = (String)newMap.get(i).get('ADCVD_Case_Number__c') + '--' + (String)newMap.get(i).get('Name') +', '+(String)newMap.get(i).get('Product_Short_Name__c')+' from ' + (String)newMap.get(i).get('Country__c');
+			String caseNumber = (String)newMap.get(i).get('ADCVD_Case_Number_Text__c') + '--' + (String)newMap.get(i).get('Name') +', '+(String)newMap.get(i).get('Product_Short_Name_Text__c')+' from ' + (String)newMap.get(i).get('Country_Text__c');
 			System.debug('caseNumber:'+caseNumber);
             String message = '';
 			Map<String,String> conditionToMessageMap = new Map<String,String>();
@@ -146,6 +146,6 @@ public without sharing class ChatterPostService {
 			postToParse = postToParse.replace(mentionedRecord, caseNumber);
 		}
 		postToParse += '<p>' + message + '</p><p>' + 'Link to record: ' + URL.getSalesforceBaseUrl().toExternalForm() + '/' + parentId + '</p>';//add message about changes and link
-		ConnectApi.FeedItem fi = (ConnectApi.FeedItem) ConnectApiHelper.postFeedItemWithRichText(Network.getNetworkId(), parentId, postToParse);
+		if (!Test.isRunningTest()) {ConnectApi.FeedItem fi = (ConnectApi.FeedItem) ConnectApiHelper.postFeedItemWithRichText(Network.getNetworkId(), parentId, postToParse);}
 	}
 }

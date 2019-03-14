@@ -13,13 +13,13 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>CBP_Case_Number__c</field>
+                <field>CBP_Case_Number_Text__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>ADCVD_Case_Type__c</field>
+                <field>ADCVD_Case_Type_Text__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -94,21 +94,21 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Product__c</field>
+                <field>Product_Text__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Country__c</field>
+                <field>Country_Text__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Product_Short_Name__c</field>
+                <field>Product_Short_Name_Text__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Commodity__c</field>
+                <field>Commodity_Text__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -187,9 +187,6 @@
         <style>CustomLinks</style>
     </layoutSections>
     <miniLayout>
-        <fields>Product__c</fields>
-        <fields>Country__c</fields>
-        <fields>Commodity__c</fields>
         <relatedLists>
             <relatedList>Investigation__c.Petition__c</relatedList>
         </relatedLists>
@@ -242,6 +239,9 @@
         <fields>Status__c</fields>
         <fields>NAME</fields>
         <relatedList>Litigation__c.Petition__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

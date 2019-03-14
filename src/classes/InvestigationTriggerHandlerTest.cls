@@ -156,7 +156,7 @@ public class InvestigationTriggerHandlerTest {
   private static Petition__c adP{
     get{
       if (adP == null) {
-        adP = [SELECT Id, Petition_Filed__c, Actual_Initiation_Signature__c, Calculated_Initiation_Signature__c FROM Petition__c WHERE ADCVD_Case_Type__c LIKE 'AD%' LIMIT 1];
+        adP = [SELECT Id, Petition_Filed__c, Actual_Initiation_Signature__c, Calculated_Initiation_Signature__c FROM Petition__c WHERE ADCVD_Case_Type_Text__c LIKE 'AD%' LIMIT 1];
       }
       return adP;
     }
@@ -164,7 +164,7 @@ public class InvestigationTriggerHandlerTest {
   private static Petition__c cvdP{
     get{
       if (cvdP == null) {
-        cvdP = [SELECT Id, Petition_Filed__c, Actual_Initiation_Signature__c, Calculated_Initiation_Signature__c FROM Petition__c WHERE ADCVD_Case_Type__c LIKE 'CVD%' LIMIT 1];
+        cvdP = [SELECT Id, Petition_Filed__c, Actual_Initiation_Signature__c, Calculated_Initiation_Signature__c FROM Petition__c WHERE ADCVD_Case_Type_Text__c LIKE 'CVD%' LIMIT 1];
       }
       return cvdP;
     }
@@ -208,7 +208,7 @@ public class InvestigationTriggerHandlerTest {
       [SELECT Id, Calculated_Preliminary_Signature__c FROM Investigation__c WHERE Id =: iCVD.Id LIMIT 1].Calculated_Preliminary_Signature__c);
     //CVD based on actual
     cvdP.Petition_Outcome__c = 'Initiated from Petition';
-    cvdP.Actual_Initiation_Signature__c = cvdP.Calculated_Initiation_Signature__c.addDays(-14);//set cvdP.Actual_Initiation_Signature__c
+    cvdP.Actual_Initiation_Signature__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(cvdP.Calculated_Initiation_Signature__c.addDays(-14));//set cvdP.Actual_Initiation_Signature__c
     update cvdP;//update cvdP    
     update iCVD;
     //cvdP.Actual_Initiation_Signature__c is set, so compare Actual_Initiation_Signature__c + Prelim_Extension_of_days__c
@@ -367,7 +367,7 @@ public class InvestigationTriggerHandlerTest {
 
     //AD based on Actual
     adP.Petition_Outcome__c = 'Initiated from Petition';
-    adP.Actual_Initiation_Signature__c = adP.Calculated_Initiation_Signature__c.addDays(-14);//set adP.Actual_Initiation_Signature__c
+    adP.Actual_Initiation_Signature__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(adP.Calculated_Initiation_Signature__c.addDays(-14));//set adP.Actual_Initiation_Signature__c
     update adP;//update adP
     //adP.Actual_Initiation_Signature__c is set, so compare Actual_Initiation_Signature__c
     testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(adP.Actual_Initiation_Signature__c.addDays(115));
@@ -394,7 +394,7 @@ public class InvestigationTriggerHandlerTest {
 
     //CVD based on actual
     cvdP.Petition_Outcome__c = 'Initiated from Petition';
-    cvdP.Actual_Initiation_Signature__c = cvdP.Calculated_Initiation_Signature__c.addDays(-14);//set cvdP.Actual_Initiation_Signature__c
+    cvdP.Actual_Initiation_Signature__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(cvdP.Calculated_Initiation_Signature__c.addDays(-14));//set cvdP.Actual_Initiation_Signature__c
     update cvdP;//update cvdP
     //cvdP.Actual_Initiation_Signature__c is set, so compare Actual_Initiation_Signature__c
     testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(cvdP.Actual_Initiation_Signature__c.addDays(40));
@@ -419,7 +419,7 @@ public class InvestigationTriggerHandlerTest {
 
     //AD based on Actual
     adP.Petition_Outcome__c = 'Initiated from Petition';
-    adP.Actual_Initiation_Signature__c = adP.Calculated_Initiation_Signature__c.addDays(-14);//set adP.Actual_Initiation_Signature__c
+    adP.Actual_Initiation_Signature__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(adP.Calculated_Initiation_Signature__c.addDays(-14));//set adP.Actual_Initiation_Signature__c
     update adP;//update adP
     //adP.Actual_Initiation_Signature__c is set, so compare Actual_Initiation_Signature__c
     testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(adP.Actual_Initiation_Signature__c.addDays(120));
@@ -449,7 +449,7 @@ public class InvestigationTriggerHandlerTest {
     cvdP.Petition_Outcome__c = 'Initiated from Petition';
     System.debug(loggingLevel.Error, '*** iCVD.Petition_Initiation_Signature__c: ' + iCVD.Petition_Initiation_Signature__c);
     System.debug(loggingLevel.Error, '*** cvdP.Actual_Initiation_Signature__c: ' + cvdP.Actual_Initiation_Signature__c);
-    cvdP.Actual_Initiation_Signature__c = cvdP.Calculated_Initiation_Signature__c.addDays(-14);//set cvdP.Actual_Initiation_Signature__c
+    cvdP.Actual_Initiation_Signature__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(cvdP.Calculated_Initiation_Signature__c.addDays(-14));//set cvdP.Actual_Initiation_Signature__c
     System.debug(loggingLevel.Error, '*** cvdP.Actual_Initiation_Signature__c: ' + cvdP.Actual_Initiation_Signature__c);
     update cvdP;//update cvdP
     System.debug(loggingLevel.Error, '*** cvdP.Actual_Initiation_Signature__c: ' + cvdP.Actual_Initiation_Signature__c);
@@ -521,7 +521,7 @@ public class InvestigationTriggerHandlerTest {
     Test.startTest();
 
     //NAFTA Country Hold Time
-    adP.Country__c = 'Mexico';
+    adP.Country_Text__c = 'Mexico';
     update adP;
 
     Federal_Register__c adPrelimItcFR = setFR(iAD.Id, 'ITC Preliminary', true);
@@ -539,7 +539,7 @@ public class InvestigationTriggerHandlerTest {
     Test.startTest();
 
     //NAFTA Country Hold Time
-    adP.Country__c = 'Mexico';
+    adP.Country_Text__c = 'Mexico';
     update adP;
 
     Federal_Register__c adFinalItcFR =  setFR(iAD.Id, 'ITC Final', true);
@@ -557,7 +557,7 @@ public class InvestigationTriggerHandlerTest {
     Test.startTest();
 
     //NAFTA Country Hold Time
-    adP.Country__c = 'Mexico';
+    adP.Country_Text__c = 'Mexico';
     update adP;
 
     iAD.Actual_Final_Signature__c = petitionDate.addDays(56);
@@ -582,7 +582,7 @@ public class InvestigationTriggerHandlerTest {
     Test.startTest();
 
     //NAFTA Country Hold Time
-    adP.Country__c = 'Mexico';
+    adP.Country_Text__c = 'Mexico';
     update adP;
 
     //Data setup
@@ -1011,30 +1011,6 @@ public class InvestigationTriggerHandlerTest {
 
     Test.stopTest();
     System.assertEquals(null, iCVD.Next_Due_to_DAS_Deadline__c);
-  }
-
-  //Next Office Deadline
-  @isTest static void setNextOfficeDeadlineADCalcITCPrelim() {
-    Test.startTest();
-    //45 day offset to Petition_Filed__c, 
-    //-3 adjustment days for weekends
-    adP.Petition_Filed__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(System.today().addDays(-42));
-    update adP;
-
-    Test.stopTest();
-    System.assertEquals(iAD.Calculated_ITC_Prelim_Determination__c, iAD.Next_Office_Deadline__c);
-  }
-
-  //Next Office Deadline
-  @isTest static void setNextOfficeDeadlineCVDCalcITCPrelim() {
-    Test.startTest();
-    //45 day offset to Petition_Filed__c, 
-    //-3 adjustment days for weekends
-    cvdP.Petition_Filed__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(System.today().addDays(-42));
-    update cvdP;
-
-    Test.stopTest();
-    System.assertEquals(iCVD.Calculated_ITC_Prelim_Determination__c, iCVD.Next_Office_Deadline__c);
   }
 
   //Next Office Deadline
