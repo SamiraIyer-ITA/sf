@@ -70,7 +70,6 @@
          <layout>Taxonomy_Tagging__c-Trade Region</layout>
          <recordType>Taxonomy_Tagging__c.Trade_Region</recordType>
      </layoutAssignments>
-     <layoutAssignments>
      <objectPermissions>
          <allowCreate>true</allowCreate>
          <allowDelete>true</allowDelete>
