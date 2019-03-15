@@ -55,7 +55,6 @@
          <field>Taxonomy_Tagging__c.Trade_Region__c</field>
          <readable>true</readable>
      </fieldPermissions>
-     <fieldPermissions>
      <layoutAssignments>
          <layout>Taxonomy_Tagging__c-Country</layout>
          <recordType>Taxonomy_Tagging__c.Country</recordType>
