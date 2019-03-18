@@ -50,26 +50,49 @@
          <field>Taxonomy_Tagging__c.Taxonomy_One__c</field>
          <readable>true</readable>
      </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Taxonomy_Tagging__c.Trade_Issue_Category__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Taxonomy_Tagging__c.Trade_Issue__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
      <fieldPermissions>
          <editable>true</editable>
          <field>Taxonomy_Tagging__c.Trade_Region__c</field>
          <readable>true</readable>
      </fieldPermissions>
-     <layoutAssignments>
-         <layout>Taxonomy_Tagging__c-Country</layout>
-         <recordType>Taxonomy_Tagging__c.Country</recordType>
-     </layoutAssignments>
-     <layoutAssignments>
-         <layout>Taxonomy_Tagging__c-Industry</layout>
-         <recordType>Taxonomy_Tagging__c.Industry</recordType>
-     </layoutAssignments>
-     <layoutAssignments>
-         <layout>Taxonomy_Tagging__c-Taxonomy Tagging Layout</layout>
-     </layoutAssignments>
-     <layoutAssignments>
-         <layout>Taxonomy_Tagging__c-Trade Region</layout>
-         <recordType>Taxonomy_Tagging__c.Trade_Region</recordType>
-     </layoutAssignments>
+    <layoutAssignments>
+        <layout>Taxonomy_Tagging__c-Country</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Taxonomy_Tagging__c-Country</layout>
+        <recordType>Taxonomy_Tagging__c.Country</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Taxonomy_Tagging__c-Industry</layout>
+        <recordType>Taxonomy_Tagging__c.Industry</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Taxonomy_Tagging__c-Trade Issue</layout>
+        <recordType>Taxonomy_Tagging__c.Trade_Issue</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Taxonomy_Tagging__c-Trade Region</layout>
+        <recordType>Taxonomy_Tagging__c.Trade_Region</recordType>
+    </layoutAssignments>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Taxonomy_Tagging__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
      <recordTypeVisibilities>
          <default>true</default>
          <recordType>Taxonomy_Tagging__c.Country</recordType>
@@ -80,6 +103,11 @@
          <recordType>Taxonomy_Tagging__c.Industry</recordType>
          <visible>true</visible>
      </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Taxonomy_Tagging__c.Trade_Issue</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
      <recordTypeVisibilities>
          <default>false</default>
          <recordType>Taxonomy_Tagging__c.Trade_Region</recordType>
