@@ -77,7 +77,7 @@
     <masterLabel>Form LPL</masterLabel>
     <sobjectType>Form__c</sobjectType>
     <template>
-        <name>flexipage:recordHomeSingleColTemplateDesktop</name>
+        <name>flexipage:recordHomeLeftSidebarTemplateDesktop</name>
     </template>
     <type>RecordPage</type>
 </FlexiPage>
