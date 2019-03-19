@@ -42,7 +42,6 @@
     </actionOverrides>
     <allowInChatterGroups>true</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <compactLayouts>
         <fullName>Application_Compact_Layout</fullName>
         <fields>ParticipantNumber__c</fields>
