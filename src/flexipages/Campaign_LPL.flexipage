@@ -12,14 +12,20 @@
             </componentInstanceProperties>
             <componentName>force:highlightsPanel</componentName>
         </componentInstances>
+        <mode>Replace</mode>
         <name>header</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <name>subheader</name>
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
             <componentName>force:detailPanel</componentName>
         </componentInstances>
-        <name>Facet-50c1a3ac-f20a-48b4-8401-b88026071ece</name>
+        <mode>Replace</mode>
+        <name>detailTabContent</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -30,14 +36,15 @@
             </componentInstanceProperties>
             <componentName>force:relatedListContainer</componentName>
         </componentInstances>
-        <name>Facet-bdd53ff3-6060-477d-9a94-d3af84f2a01c</name>
+        <mode>Replace</mode>
+        <name>relatedTabContent</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
                 <name>body</name>
-                <value>Facet-50c1a3ac-f20a-48b4-8401-b88026071ece</value>
+                <value>detailTabContent</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
@@ -52,7 +59,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>body</name>
-                <value>Facet-bdd53ff3-6060-477d-9a94-d3af84f2a01c</value>
+                <value>relatedTabContent</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>title</name>
@@ -60,24 +67,67 @@
             </componentInstanceProperties>
             <componentName>flexipage:tab</componentName>
         </componentInstances>
-        <name>Facet-f697d393-fe2c-4289-bf24-dc3112cf8ae7</name>
+        <mode>Replace</mode>
+        <name>maintabs</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
             <componentInstanceProperties>
                 <name>tabs</name>
-                <value>Facet-f697d393-fe2c-4289-bf24-dc3112cf8ae7</value>
+                <value>maintabs</value>
             </componentInstanceProperties>
             <componentName>flexipage:tabset</componentName>
         </componentInstances>
+        <mode>Replace</mode>
         <name>main</name>
         <type>Region</type>
     </flexiPageRegions>
-    <masterLabel>Form LPL</masterLabel>
-    <sobjectType>Form__c</sobjectType>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentName>runtime_sales_activities:activityPanel</componentName>
+        </componentInstances>
+        <mode>Replace</mode>
+        <name>activityTabContent</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>active</name>
+                <value>true</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>body</name>
+                <value>activityTabContent</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>title</name>
+                <value>Standard.Tab.activity</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:tab</componentName>
+        </componentInstances>
+        <mode>Replace</mode>
+        <name>sidebartabs</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>tabs</name>
+                <value>sidebartabs</value>
+            </componentInstanceProperties>
+            <componentName>flexipage:tabset</componentName>
+        </componentInstances>
+        <mode>Replace</mode>
+        <name>sidebar</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <masterLabel>Campaign LPL</masterLabel>
+    <parentFlexiPage>runtime_sales_campaign__Campaign_rec_L_s</parentFlexiPage>
+    <sobjectType>Campaign</sobjectType>
     <template>
-        <name>flexipage:recordHomeSingleColTemplateDesktop</name>
+        <name>flexipage:recordHomeWithSubheaderTemplateDesktop</name>
     </template>
     <type>RecordPage</type>
 </FlexiPage>

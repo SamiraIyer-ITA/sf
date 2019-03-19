@@ -268,6 +268,10 @@
         </sections>
     </layouts>
     <quickActions>
+        <label><!-- AC Fields --></label>
+        <name>AC_Fields</name>
+    </quickActions>
+    <quickActions>
         <label><!-- Create New Industry --></label>
         <name>CaseTaxonomy</name>
     </quickActions>
@@ -284,7 +288,15 @@
         <name>NewChildCase</name>
     </quickActions>
     <quickActions>
+        <label><!-- SUSA Fields --></label>
+        <name>SUSA_Fields</name>
+    </quickActions>
+    <quickActions>
         <label><!-- SendEmail --></label>
         <name>SendEmail</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- TANC Fields --></label>
+        <name>TANC_Fields</name>
     </quickActions>
 </CustomObjectTranslation>

@@ -42,6 +42,14 @@
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>WIN_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>OwnerId</fields>
+        <fields>Calendar_Year_of_Results__c</fields>
+        <fields>RecordTypeId</fields>
+        <label>WIN Compact Layout</label>
+    </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
