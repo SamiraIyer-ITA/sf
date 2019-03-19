@@ -18,10 +18,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>agf__ADM_Work__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>SwitchtoClassic__c</field>
             </layoutItems>
         </layoutColumns>
