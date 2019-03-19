@@ -8,10 +8,6 @@
                 <value>false</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
-                <name>entityNames</name>
-                <value>[&quot;agf__ADM_Case__c&quot;]</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
                 <name>height</name>
                 <type>decorator</type>
                 <value>480</value>
@@ -40,7 +36,6 @@
                 <type>decorator</type>
                 <value>340</value>
             </componentInstanceProperties>
-            <componentName>flexipage:recentItems</componentName>
         </componentInstances>
         <componentInstances>
             <componentName>notes:utilityBarNoteList</componentName>

@@ -39,7 +39,6 @@
                 <type>decorator</type>
                 <value>340</value>
             </componentInstanceProperties>
-            <componentName>flexipage:recentItems</componentName>
         </componentInstances>
         <name>utilityItems</name>
         <type>Region</type>
