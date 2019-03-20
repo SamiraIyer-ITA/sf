@@ -14127,6 +14127,36 @@ When Segment Outcome is  &quot;Rejected&quot;, require Decision on How to Procee
         <errorMessage>When Segment Outcome field is &quot;Rejected&quot;, Decision on How to Proceed field should have &quot;Reject&quot; value selected. Please update your selection for Decision on How to Proceed field.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>SI_Outcome_Required_if_HTP_is_Informal</fullName>
+        <active>true</active>
+        <description>Segment Outcome is required because you have value in Decision on How to Proceed field as &apos;Informal&apos;,  AND you have a value in Actual Final Signature field OR you have a value in Actual Date of Decision on How to Proceed field.</description>
+        <errorConditionFormula>AND(
+    $Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
+    Locked__c == false,
+    RecordType.DeveloperName = &apos;Scope_Inquiry&apos;,
+    ISPICKVAL( Decision_on_How_to_Proceed__c, &apos;Informal&apos; ),
+    ISPICKVAL( Segment_Outcome__c, &apos;&apos; ),
+    OR(
+        NOT( ISBLANK( Actual_Final_Signature__c )),
+        NOT( ISBLANK( Actual_Date_of_Decision_on_HoP__c ))
+    )
+)</errorConditionFormula>
+        <errorMessage>Segment Outcome is required because you have value in Decision on How to Proceed field as &apos;Informal&apos;,  AND you have a value in Actual Final Signature field OR you have a value in Actual Date of Decision on How to Proceed field.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>SI_Outcome_Required_if_HTP_is_Reject</fullName>
+        <active>true</active>
+        <description>Require Segment Outcome when  Decision on How to Proceed field is &apos;Reject&apos;</description>
+        <errorConditionFormula>AND(
+    $Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
+    Locked__c == false,
+    RecordType.DeveloperName = &apos;Scope_Inquiry&apos;,
+    ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Reject&apos;),
+    ISPICKVAL(Segment_Outcome__c, &apos;&apos;)
+)</errorConditionFormula>
+        <errorMessage>Segment Outcome is required because you have value in Decision on How to Proceed field as &apos;Reject&apos;</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>SI_Prelim_Extension</fullName>
         <active>true</active>
         <description>Legend to the Initials Placed on each rule name
@@ -14257,34 +14287,16 @@ ISPICKVAL(Sunset_Review_Type__c , &apos;240&apos;))
     <validationRules>
         <fullName>Segment_Outcome_Required</fullName>
         <active>true</active>
-        <description>Segment Outcome is required when: 
-1) Actual Final Signature is entered (Record Type: All Types) 
-     OR
-2) Decision on How to Proceed is either &quot;Informal&quot; or &quot;Reject&quot; (Record Type: Scope Inquiry)</description>
+        <description>Segment Outcome is required when you have a value in Actual Final Signature field.</description>
         <errorConditionFormula>AND(
   $Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
   Locked__c == false,
-  OR(
     AND(
         NOT(ISNULL(Actual_Final_Signature__c )),
         ISPICKVAL(Segment_Outcome__c, &apos;&apos;)
-        ),
-    CASE(RecordType.DeveloperName,
-      &quot;Scope_Inquiry&quot;,
-        IF (
-             OR
-             (
-             AND (ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Informal&apos;), ISPICKVAL(Segment_Outcome__c, &apos;&apos;)),
-             AND (ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Reject&apos;), NOT(ISPICKVAL(Segment_Outcome__c, &apos;Rejected&apos;)))     
-             ),
-        1,0
-        )
-      ,
-      0
-    ) = 1
   )
 )</errorConditionFormula>
-        <errorMessage>Segment Outcome is required, because you have value in Decision on How to Proceed field as either &quot;Informal&quot; or &quot;Reject&quot;, AND/OR you have a value in Actual Final Signature field.</errorMessage>
+        <errorMessage>Segment Outcome is required because you have a value in Actual Final Signature field.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Segment_must_have_a_parent</fullName>
