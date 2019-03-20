@@ -396,6 +396,14 @@ PRIORVALUE(Locked__c) == true
         <errorMessage>This record is locked.  Please contact your administrator about unlocking this record.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>End_date_greater_or_equal_to_start_date</fullName>
+        <active>true</active>
+        <description>End Date must be greater than or equal to Start Date</description>
+        <errorConditionFormula>End_Date__c  &lt;  Start_Date__c</errorConditionFormula>
+        <errorDisplayField>End_Date__c</errorDisplayField>
+        <errorMessage>The End Date on a Recusal cannot be less than the Start Date.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Only_Admin_can_reparent_Recusal</fullName>
         <active>true</active>
         <description>Only a System Administrator can reparent a Recusal record.</description>
