@@ -229,6 +229,7 @@
     <recordTypes>
         <fullName>Privacy_Shield_Application_Contact</fullName>
         <active>true</active>
+        <compactLayoutAssignment>Application_Contact_Compact_Layout</compactLayoutAssignment>
         <description>For use with Application Contacts on the Privacy Shield Application.</description>
         <label>Privacy Shield Application Contact</label>
         <picklistValues>
@@ -254,6 +255,7 @@
     <recordTypes>
         <fullName>Regional_Toolkit_Application_Contact</fullName>
         <active>true</active>
+        <compactLayoutAssignment>Application_Contact_Compact_Layout</compactLayoutAssignment>
         <description>For use with Application Contacts on Toolkit Applications that require Primary and Regional Roles.</description>
         <label>Regional Toolkit Application Contact</label>
         <picklistValues>
@@ -271,6 +273,7 @@
     <recordTypes>
         <fullName>Toolkit_Application_Contact</fullName>
         <active>true</active>
+        <compactLayoutAssignment>Application_Contact_Compact_Layout</compactLayoutAssignment>
         <description>For use with Application Contacts on Toolkit Applications.</description>
         <label>Toolkit Application Contact</label>
         <picklistValues>

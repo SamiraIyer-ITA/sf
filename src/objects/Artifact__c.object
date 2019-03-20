@@ -177,6 +177,7 @@
     <recordTypes>
         <fullName>Privacy_Policy</fullName>
         <active>true</active>
+        <compactLayoutAssignment>Artifact_Compact_Layout</compactLayoutAssignment>
         <label>Privacy Policy</label>
         <picklistValues>
             <picklist>Type__c</picklist>

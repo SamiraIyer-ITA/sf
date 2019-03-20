@@ -246,6 +246,7 @@
     <recordTypes>
         <fullName>Text_Input</fullName>
         <active>true</active>
+        <compactLayoutAssignment>Field_Compact_Layout</compactLayoutAssignment>
         <description>Input Field of type Text</description>
         <label>Text Input</label>
         <picklistValues>
