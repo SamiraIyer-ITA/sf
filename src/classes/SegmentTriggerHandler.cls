@@ -58,17 +58,19 @@ public without sharing class SegmentTriggerHandler {
 			recalculateOrdersOnSegmentDelete(oldMap);
 		}
 		if(isAfter && isInsert) {
-			recalculateOrders(newMap, oldMap);
+			Map<Id, Segment__c> noLockedRecordsMap = (Map<Id, Segment__c>)new LockedRecordHandler().removeLockedRecords(newMap);
+			recalculateOrders(noLockedRecordsMap, oldMap);
+
 			newList = new LockedRecordHandler().removeLockedRecords(newList);
 			StaffingAssignmentExtension createStaff = new StaffingAssignmentExtension(newList);
 		}
 		if (isAfter && isUpdate) {
 			recalculateNewShipperReviews(newMap);
-			recalculateOrders(newMap, oldMap);
+			Map<Id, Segment__c> noLockedRecordsMap = (Map<Id, Segment__c>)new LockedRecordHandler().removeLockedRecords(newMap);
+			recalculateOrders(noLockedRecordsMap, oldMap);
 			new ChatterPostService().getChatterPosts(oldMap, newMap, 'Segment__c');
 		}
 	}
-
 
 	/****************************************
 	* Class Level Variables

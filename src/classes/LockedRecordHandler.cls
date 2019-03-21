@@ -9,28 +9,26 @@
  	/************************************************
     * This class checks the values of the Locked__c field
     * on records of all objects in the ADCVD App and removes
-    * them from the list so they are not triggered for updates.
+    * them from the list/map so they are not triggered for updates.
     * There are validation rules in place to keep almost all users
     * from being able to edit a locked record.  For those users
     * that can edit a locked record, this effectively disables
     * triggers so they can set any value without interference.
     * This class provides methods that:
     * 1. Build a set of Ids of locked records
-    * 2. Return a list with only unlocked (Locked__c == false) records
+    * 2. Return a list/map with only unlocked (Locked__c == false) records
     *************************************************/
 
-	public Set<Id> getLockedRecordSet(List<SObject> soList) {
-		Set<Id> returnSet = new Set<Id>();
-		for (SObject s : soList) {
-			Boolean locked = (Boolean) s.get('Locked__c');
-			if (locked) {
-				returnSet.add((Id)s.get('Id'));
-			} else {
-				continue;
+	 public Map<Id, SObject> removeLockedRecords(Map<Id, SObject> newMap) {
+		 Map<Id, SObject> returnMap = new Map<Id, SObject>();
+		 for (SObject s : newMap.values()) {
+			 if ((Boolean)s.get('Locked__c')) {
+                 returnMap.put((Id)s.get('Id'), s);
 			}
 		}
-		return returnSet;
+		 return returnMap;
 	}
+
 	public List<SObject> removeLockedRecords(List<SObject> initialList) {
 		List<SObject> returnList = new List<SObject>();
 		for (SObject s : initialList) {
