@@ -1491,6 +1491,11 @@ Other Government entities that were involved with the WIN.</description>
             <field>Final_Line_Approval_Date__c</field>
             <operation>equals</operation>
         </filters>
+        <filters>
+            <field>Final_Approver__c</field>
+            <operation>equals</operation>
+            <value>Leslie Britton</value>
+        </filters>
         <label>All Open WINs</label>
     </listViews>
     <listViews>
