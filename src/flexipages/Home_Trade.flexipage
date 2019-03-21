@@ -50,13 +50,6 @@
             <componentName>flexipage:richText</componentName>
         </componentInstances>
         <componentInstances>
-            <componentInstanceProperties>
-                <name>maxRecords</name>
-                <value>3</value>
-            </componentInstanceProperties>
-            <componentName>flexipage:recentItems</componentName>
-        </componentInstances>
-        <componentInstances>
             <componentName>home:recentRecordContainer</componentName>
         </componentInstances>
         <name>bottomLeft</name>
