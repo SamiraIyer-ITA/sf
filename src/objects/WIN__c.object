@@ -1746,10 +1746,10 @@ Other Government entities that were involved with the WIN.</description>
                 <fullName>2018</fullName>
                 <default>false</default>
             </values>
-            <value>
+            <values>
                 <fullName>2019</fullName>
                 <default>false</default>
-            </value>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Cleared_For__c</picklist>
