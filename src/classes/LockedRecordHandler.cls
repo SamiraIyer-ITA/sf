@@ -22,7 +22,7 @@
 	 public Map<Id, SObject> removeLockedRecords(Map<Id, SObject> newMap) {
 		 Map<Id, SObject> returnMap = new Map<Id, SObject>();
 		 for (SObject s : newMap.values()) {
-			 if ((Boolean)s.get('Locked__c')) {
+			 if (!(Boolean)s.get('Locked__c')) {
                  returnMap.put((Id)s.get('Id'), s);
 			}
 		}
