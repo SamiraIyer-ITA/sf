@@ -156,6 +156,48 @@ private class NewToMarketControllerTest {
         n.generateTradeResults();
     }
     
+    static testMethod void TEST_UpdateWeights_JW() {
+        NTM_Region__c r1 = new NTM_Region__c(Name='Caribbean');
+        insert r1;
+        Id r = (Id)[SELECT Id FROM NTM_Region__c WHERE Name='Caribbean'][0].get('Id');
+
+        NTM_Country__c c1 = new NTM_Country__c(name='Jamaica', ISO_Alpha_2__c='T1', Region_Compare__c=r, Languages__c='English');
+        insert c1;
+        NTM_Product__c product1 = new NTM_Product__c(name='000000',HS2_Description__c='desc2', HS4_Description__c='desc4', HS6_Description__c='desc6');
+        insert product1;
+        NTM_Country_Import__c ntmci = new NTM_Country_Import__c(Product__c=product1.Id,Country__c=c1.Id);
+        insert ntmci;
+
+        PageReference pageRef = Page.MarketDiversificationTool;
+        Test.setCurrentPage(pageRef);
+        
+        NewToMarketController n = new NewToMarketController();
+        
+        n.userProducts = new String[]{'000000'};
+        n.userCountriesExisting = new String[]{'Brazil'};
+        n.userCountriesNew = new String[]{'Jamaica'};
+        n.userRegionsNew = new String[]{'Caribbean'};
+        n.errorMessage = 'This is an error';
+        n.weightsError = 'This is a weights error';
+        
+        List<SelectOption> l1 = n.getCountries();
+        List<SelectOption> l2 = n.getProducts();
+        List<SelectOption> l3 = n.getRegions();
+        
+        String csv = n.csvData;
+        System.assertEquals(csv, '');
+        
+        n.userGeography = 'all';
+        Map<Id, AggregateResult> m1 = n.queryCountries();
+        n.userGeography = 'country';
+        Map<Id, AggregateResult> m2 = n.queryCountries();
+        n.userGeography = 'region';
+        Map<Id, AggregateResult> m3 = n.queryCountries();
+
+        n.generateTradeResults();
+        n.updateWeights();
+    }
+
     static testMethod void TEST_generateTradeResults_InvalidProduct() {
         NTM_Region__c r1 = new NTM_Region__c(Name='Caribbean');
         insert r1;
@@ -244,7 +286,18 @@ private class NewToMarketControllerTest {
     
     }
 
-/*    
+    static testMethod void TEST_zipCodeCoverage() {
+        NewToMarketController n = new NewToMarketController();
+        n.rejectZip();
+        System.assertEquals('Please enter a valid zip code.',n.zipError);
+        n.rejectZipUnable();
+        System.assertEquals('No response from USEAC zip code service.',n.zipError);
+        n.rejectZipNotFound();
+        System.assertEquals('Unable to display U.S Commercial Service Office for this zip code. Please use a different zip code or leave the zip code field blank and try again.',n.zipError);
+        n.validateZip();
+        System.assertEquals('No response from USEAC zip code service.',n.zipError);
+    }
+
     static testMethod void TEST_generateStatisticsWithSufficientData() {
         //Generate Statistics with sufficient Products for a comparison, but not enough to generate statistics
         
@@ -287,6 +340,7 @@ private class NewToMarketControllerTest {
         List<SelectOption> l1 = n.getCountries();
         List<SelectOption> l2 = n.getProducts();
         List<SelectOption> l3 = n.getRegions();
+        n.resultLimit = 'all';
         
         String csv = n.csvData;
         System.assertEquals(csv, '');
@@ -307,8 +361,6 @@ private class NewToMarketControllerTest {
         n.generateTradeResults();
     }
 
-*/
-/*
     static testMethod void TEST_UpdateWeights() {
         //Cover updateweights function
         
@@ -351,6 +403,7 @@ private class NewToMarketControllerTest {
         List<SelectOption> l1 = n.getCountries();
         List<SelectOption> l2 = n.getProducts();
         List<SelectOption> l3 = n.getRegions();
+        n.resultLimit = 'all';
         
         String csv = n.csvData;
         System.assertEquals(csv, '');
@@ -378,8 +431,6 @@ private class NewToMarketControllerTest {
         n.updateWeights();
     }
     
-*/
-/*
     static testMethod void TEST_GenerateCSV() {
         //Generate Statistics and then generate CSV
         
@@ -422,6 +473,7 @@ private class NewToMarketControllerTest {
         List<SelectOption> l1 = n.getCountries();
         List<SelectOption> l2 = n.getProducts();
         List<SelectOption> l3 = n.getRegions();
+        n.resultLimit = 'all';
         
         String csv = n.csvData;
         System.assertEquals(csv, '');
@@ -430,7 +482,7 @@ private class NewToMarketControllerTest {
         n.generateTradeResults();      
         csv = n.csvData;
     }
- */   
+    
     static testMethod void TEST_Coverage_USEAC() {
         //provide coverage to uncoverable class USEAC, async not supported in test w/o mock http callout (to-do, replace this)        
         NewToMarketController n = new NewToMarketController();
@@ -453,7 +505,7 @@ private class NewToMarketControllerTest {
         System.assertEquals(1,n.USEAC_Info.size());
     }
     
-/*    static testMethod void TEST_BlankZip() {
+    static testMethod void TEST_BlankZip() {
         //test zip code rejection
         NTM_Region__c r1 = new NTM_Region__c(Name='Caribbean');
         insert r1;
@@ -495,9 +547,9 @@ private class NewToMarketControllerTest {
         List<SelectOption> l1 = n.getCountries();
         List<SelectOption> l2 = n.getProducts();
         List<SelectOption> l3 = n.getRegions();
+        n.resultLimit = 'all';
         
         n.generateTradeResults();
         System.assertEquals('Please enter a valid zip code',n.zipError); 
-    }
-*/    
+    }    
 }
