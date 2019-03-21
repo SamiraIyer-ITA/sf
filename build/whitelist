@@ -176,7 +176,6 @@ src/quickActions/WIN__c.Add_Country.quickAction
 src/quickActions/WIN__c.SUSA_Fields.quickAction
 src/quickActions/WIN__c.Validate.quickAction
 src/quickActions/WIN__c.WIN_Approvals.quickAction
-src/reports/AD_CVD_DAS_Operations_Office/All_ADCVD_Orders_Issued_by_FY.report
 src/tabs/Lightning_Case.tab
 src/tabs/Record_Log__c.tab
 src/triggers/RecordLogEventTrigger.trigger
