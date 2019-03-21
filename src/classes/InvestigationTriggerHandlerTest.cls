@@ -208,7 +208,7 @@ public class InvestigationTriggerHandlerTest {
       [SELECT Id, Calculated_Preliminary_Signature__c FROM Investigation__c WHERE Id =: iCVD.Id LIMIT 1].Calculated_Preliminary_Signature__c);
     //CVD based on actual
     cvdP.Petition_Outcome__c = 'Initiated from Petition';
-    cvdP.Actual_Initiation_Signature__c = cvdP.Calculated_Initiation_Signature__c.addDays(-14);//set cvdP.Actual_Initiation_Signature__c
+    cvdP.Actual_Initiation_Signature__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(cvdP.Calculated_Initiation_Signature__c.addDays(-14));//set cvdP.Actual_Initiation_Signature__c
     update cvdP;//update cvdP    
     update iCVD;
     //cvdP.Actual_Initiation_Signature__c is set, so compare Actual_Initiation_Signature__c + Prelim_Extension_of_days__c
@@ -367,7 +367,7 @@ public class InvestigationTriggerHandlerTest {
 
     //AD based on Actual
     adP.Petition_Outcome__c = 'Initiated from Petition';
-    adP.Actual_Initiation_Signature__c = adP.Calculated_Initiation_Signature__c.addDays(-14);//set adP.Actual_Initiation_Signature__c
+    adP.Actual_Initiation_Signature__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(adP.Calculated_Initiation_Signature__c.addDays(-14));//set adP.Actual_Initiation_Signature__c
     update adP;//update adP
     //adP.Actual_Initiation_Signature__c is set, so compare Actual_Initiation_Signature__c
     testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(adP.Actual_Initiation_Signature__c.addDays(115));
@@ -394,7 +394,7 @@ public class InvestigationTriggerHandlerTest {
 
     //CVD based on actual
     cvdP.Petition_Outcome__c = 'Initiated from Petition';
-    cvdP.Actual_Initiation_Signature__c = cvdP.Calculated_Initiation_Signature__c.addDays(-14);//set cvdP.Actual_Initiation_Signature__c
+    cvdP.Actual_Initiation_Signature__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(cvdP.Calculated_Initiation_Signature__c.addDays(-14));//set cvdP.Actual_Initiation_Signature__c
     update cvdP;//update cvdP
     //cvdP.Actual_Initiation_Signature__c is set, so compare Actual_Initiation_Signature__c
     testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(cvdP.Actual_Initiation_Signature__c.addDays(40));
@@ -419,7 +419,7 @@ public class InvestigationTriggerHandlerTest {
 
     //AD based on Actual
     adP.Petition_Outcome__c = 'Initiated from Petition';
-    adP.Actual_Initiation_Signature__c = adP.Calculated_Initiation_Signature__c.addDays(-14);//set adP.Actual_Initiation_Signature__c
+    adP.Actual_Initiation_Signature__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(adP.Calculated_Initiation_Signature__c.addDays(-14));//set adP.Actual_Initiation_Signature__c
     update adP;//update adP
     //adP.Actual_Initiation_Signature__c is set, so compare Actual_Initiation_Signature__c
     testActual = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(adP.Actual_Initiation_Signature__c.addDays(120));
@@ -449,7 +449,7 @@ public class InvestigationTriggerHandlerTest {
     cvdP.Petition_Outcome__c = 'Initiated from Petition';
     System.debug(loggingLevel.Error, '*** iCVD.Petition_Initiation_Signature__c: ' + iCVD.Petition_Initiation_Signature__c);
     System.debug(loggingLevel.Error, '*** cvdP.Actual_Initiation_Signature__c: ' + cvdP.Actual_Initiation_Signature__c);
-    cvdP.Actual_Initiation_Signature__c = cvdP.Calculated_Initiation_Signature__c.addDays(-14);//set cvdP.Actual_Initiation_Signature__c
+    cvdP.Actual_Initiation_Signature__c = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(cvdP.Calculated_Initiation_Signature__c.addDays(-14));//set cvdP.Actual_Initiation_Signature__c
     System.debug(loggingLevel.Error, '*** cvdP.Actual_Initiation_Signature__c: ' + cvdP.Actual_Initiation_Signature__c);
     update cvdP;//update cvdP
     System.debug(loggingLevel.Error, '*** cvdP.Actual_Initiation_Signature__c: ' + cvdP.Actual_Initiation_Signature__c);

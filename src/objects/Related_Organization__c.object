@@ -2665,6 +2665,23 @@ PRIORVALUE(Locked__c) == true
         <errorMessage>Custom Instructions must have a parent.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Ensure_there_is_only_one_parent</fullName>
+        <active>true</active>
+        <description>This validation rule makes sure you cannot create a Interested Organization without a Investigation, Petition, Orders, Litigation or Segment attached to it. If all three of these lookup fields are empty, the validation error message will trigger.</description>
+        <errorConditionFormula>AND(
+    $Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
+    Locked__c == false, 
+    (	
+	IF(ISBLANK(Petition__c),0,1)+ 
+	IF(ISBLANK(Segment__c),0,1)+ 
+        IF(ISBLANK(ADCVD_Order__c),0,1)+
+	IF(ISBLANK(Investigation__c),0,1)+ 
+	IF(ISBLANK(Litigation__c),0,1) &lt;&gt;1
+   )
+)</errorConditionFormula>
+        <errorMessage>You must have only one of the following: Petition, Investigation,  ADCVD Order, Litigation, or Segment associated to this Interested Organization.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Interested_Org_must_have_a_parent</fullName>
         <active>true</active>
         <description>Interested Organizations without a Custom Instructions must have an ADCVD Order, Investigation, Petition, Segment or a related ADCVD Case. If Customs Instructions is the parent, a Segment record must also be included as a reference.</description>
@@ -2701,11 +2718,38 @@ PRIORVALUE(Locked__c) == true
         <errorMessage>Only Admin can re-parent an Interested Organization.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Only_Admin_reparents_Related_Org</fullName>
+        <active>true</active>
+        <description>Interested Organization records can only be reparented by a System Administrator.</description>
+        <errorConditionFormula>AND(
+    $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+    Locked__c == false,
+    AND(
+        $Profile.Name != &apos;System Administrator&apos;,
+        NOT($Permission.ADCVD_App_Modify_Parents),
+        OR(
+            ISCHANGED( Investigation__c ),
+            ISCHANGED( Petition__c ),
+            ISCHANGED( Segment__c ),
+            ISCHANGED( ADCVD_Order__c ),
+            ISCHANGED( Litigation__c )
+        )
+    )
+)</errorConditionFormula>
+        <errorMessage>Related Organization records can only be reparented by a System Administrator.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Segment_must_be_populated_if_ci_is</fullName>
         <active>true</active>
-        <description>Segment must be populated if Custom Instruction is</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND(NOT(ISBLANK( Custom_Instruction__c )), ISBLANK( Segment__c )))</errorConditionFormula>
-        <errorMessage>You must have a segment if you have custom instructions.</errorMessage>
+        <description>Segment must be populated if Custom Instruction is a parent</description>
+        <errorConditionFormula>AND(
+    $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+    Locked__c == false,
+    AND(
+        NOT(ISBLANK( Custom_Instruction__c )), ISBLANK( Segment__c )
+    )
+)</errorConditionFormula>
+        <errorMessage>You must have a segment if you have Custom Instructions.</errorMessage>
     </validationRules>
     <visibility>Public</visibility>
 </CustomObject>

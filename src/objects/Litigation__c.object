@@ -960,31 +960,40 @@
         <label>All</label>
     </listViews>
     <listViews>
-        <fullName>Litigations_ClosedLocked_Queue_Litigation</fullName>
-        <filterScope>Queue</filterScope>
-        <label>Litigations-ClosedLocked Queue</label>
-        <queue>Litigations_ClosedLocked_Queue</queue>
-        <sharedTo>
-            <allInternalUsers></allInternalUsers>
-        </sharedTo>
+        <fullName>All_Closed_Litigation</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Litigation_Name__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Closed</value>
+        </filters>
+        <label>All Closed Litigation</label>
     </listViews>
     <listViews>
-        <fullName>Litigations_MigratedClosedLocked_Queue_Litigation</fullName>
-        <filterScope>Queue</filterScope>
-        <label>Litigations-MigratedClosedLocked Queue</label>
-        <queue>Litigations_MigratedClosedLocked_Queue</queue>
-        <sharedTo>
-            <allInternalUsers></allInternalUsers>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>Litigations_Open_Queue_Litigation</fullName>
-        <filterScope>Queue</filterScope>
-        <label>Litigations-Open Queue</label>
-        <queue>Litigations_Open_Queue</queue>
-        <sharedTo>
-            <allInternalUsers></allInternalUsers>
-        </sharedTo>
+        <fullName>All_Open_Litigation</fullName>
+        <columns>NAME</columns>
+        <columns>ADCVD_Case_Number_Text__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Litigation_Name__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </filters>
+        <label>All Open Litigation</label>
     </listViews>
     <nameField>
         <displayFormat>L-{000000}</displayFormat>
