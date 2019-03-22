@@ -135,6 +135,9 @@
         <fields>Contributor_Name__c</fields>
         <relatedList>Case_Contributor__c.Case_ID__c</relatedList>
     </relatedLists>
+    <relatedLists>
+        <relatedList>RelatedFileList</relatedList>
+    </relatedLists>
     <relatedObjects>ContactId</relatedObjects>
     <runAssignmentRulesDefault>true</runAssignmentRulesDefault>
     <showEmailCheckbox>true</showEmailCheckbox>
