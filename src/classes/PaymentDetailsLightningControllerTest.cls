@@ -55,7 +55,12 @@ public class PaymentDetailsLightningControllerTest {
 		//Test retrieving the payment details
 		Test.startTest();
 		Test.setMock(WebServiceMock.class, new TEST_PayGovSingleQueryCCMockImpl());
-		PaymentDetailsLightningController paymentDetailsLightningController = PaymentDetailsLightningControllerCallout.getPaymentDetails(payment.Id);
+		PaymentDetailsLightningController paymentDetailsLightningController;
+		try {
+			paymentDetailsLightningController = PaymentDetailsLightningControllerCallout.getPaymentDetails(payment.Id);
+		} catch (Exception e) {
+			//This shouldn't happen
+		}
 		System.assertEquals(paymentDetailsLightningController.isCreditCard, true);
 		System.assertEquals(paymentDetailsLightningController.transactionAmount, 'transactionAmount');
 		Test.stopTest();
@@ -70,7 +75,12 @@ public class PaymentDetailsLightningControllerTest {
 		//Test retrieving the payment details
 		Test.startTest();
 		Test.setMock(WebServiceMock.class, new TEST_PayGovSingleQueryAchMockImpl());
-		PaymentDetailsLightningController paymentDetailsLightningController = PaymentDetailsLightningControllerCallout.getPaymentDetails(payment.Id);
+		PaymentDetailsLightningController paymentDetailsLightningController;
+		try {
+			paymentDetailsLightningController = PaymentDetailsLightningControllerCallout.getPaymentDetails(payment.Id);
+		} catch (Exception e) {
+			//This shouldn't happen
+		}
 		System.assertEquals(paymentDetailsLightningController.isAch, true);
 		System.assertEquals(paymentDetailsLightningController.transactionAmount, 'transactionAmount');
 		Test.stopTest();
