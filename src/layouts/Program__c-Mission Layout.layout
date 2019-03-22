@@ -193,6 +193,9 @@
         <fields>PRICEBOOK2.IS_ACTIVE</fields>
         <relatedList>Pricebook2.Program__c</relatedList>
     </relatedLists>
+    <relatedLists>
+        <relatedList>RelatedFileList</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>
