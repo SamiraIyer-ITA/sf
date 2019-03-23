@@ -1,10 +1,10 @@
 <aura:component description="Displays payment details on the payment page. Note that this component uses SLDS classes rather than lightning base components so it can match the Salesforce Page Layout."
-                implements="force:appHostable,flexipage:availableForAllPageTypes, force:hasRecordId, flexipage:availableForRecordHome"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId,flexipage:availableForRecordHome"
                 extends="c:Base"
                 controller="PaymentDetailsLightningController"
                 access="global">
 
-    <aura:attribute name="paymentDetailsController" type="PaymentDetailsController" access="private" description="The PaymentDetailsController, populated on init."/>
+    <aura:attribute name="paymentDetailsController" type="PaymentDetailsLightningController" access="private" description="The PaymentDetailsController, populated on init."/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
