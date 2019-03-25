@@ -1,0 +1,21 @@
+<aura:component description="Validation of a WIN record.  An LWC can't currently override an action, so Aura must be used."
+				implements="force:hasRecordId,force:lightningQuickAction"
+				extends="c:Base"
+				access="global">
+
+	<aura:attribute name="WINRecord" type="Object"/>
+	<aura:attribute name="recordError" type="String"/>
+	<aura:attribute name="validationMessage" type="String"/>
+
+	<force:recordData aura:id="recordLoader"
+					  recordId="{!v.recordId}"
+					  fields="First_Approver__c, Final_Approver__c, Country_in_Win__c, WIN_Contributors_Rollup__c, Industry_Rollup__c, Related_Cases_to_WIN_Count__c"
+					  targetError="{!v.recordError}"
+					  targetFields="{!v.WINRecord}"
+					  recordUpdated="{!c.handleRecordUpdated}"/>
+
+	<aura:if isTrue="{!v.validationMessage != null}">
+		<aura:unescapedHtml value="{!v.validationMessage}" />
+	</aura:if>
+
+</aura:component>

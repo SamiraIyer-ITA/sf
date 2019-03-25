@@ -40,5 +40,12 @@
         <label><!-- User Region --></label>
         <name>Region_2__c</name>
     </fields>
+    <layouts>
+        <layout>Department Taxonomy Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

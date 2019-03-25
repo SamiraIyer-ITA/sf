@@ -18,5 +18,12 @@
         <name>Third_Party_Master_List__c</name>
         <relationshipLabel><!-- Third Party Master List - Frameworks --></relationshipLabel>
     </fields>
+    <layouts>
+        <layout>Third Party Master List - Framework Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

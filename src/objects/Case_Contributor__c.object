@@ -41,7 +41,16 @@
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayoutAssignment>Case_Contributor_Compact_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Case_Contributor_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>Contributor_Name__c</fields>
+        <fields>Contributor__c</fields>
+        <fields>Organization__c</fields>
+        <fields>Inactive__c</fields>
+        <label>Case Contributor Compact Layout</label>
+    </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Case contributors</description>
     <enableActivities>false</enableActivities>

@@ -1174,18 +1174,19 @@ public without sharing class ps_enhanced_controller {
         update(toUpdate);
     }
 
+    public String agencyTrackingId {get;set;}
+    public Id paymentId {get;set;}
+
     public void getAgencyTrackingId() {
-        if (String.isNotEmpty(this.agencyTrackingId)) {
-            Payment payment = new Payment();
-            agencyTrackingId = payment.getAgencyTrackingId(this.agencyTrackingId, this.order.id);
-        } else {
-            //Get a tracking id
-            Payment payment = new Payment();
-            agencyTrackingId = payment.getAgencyTrackingId(this.order.id);
-        }
+        RecordLog.push('ps_enhanced_controller.getAgencyTrackingId');
+        Payment payment = new Payment();
+        RecordLog.message('Getting the Agency Tracking Id and Payment Id');
+        //payment.getAgencyTrackingId will call RecordLog.emit()
+        payment.PaymentValueObject pvo = payment.getAgencyTrackingId(this.order.Id);
+        this.agencyTrackingId = pvo.agencyTrackingId;
+        this.paymentId = pvo.paymentId;
     }
 
-    public String agencyTrackingId {get;set;}
     public boolean paymentCancelled {get;set;}
     private static final String PRIVACY_SHIELD_APP_ID = PaymentSettings__c.getAll().get('PRIVACY_SHIELD_APP_ID').value__c;  
     private static final String EVENTS_SERVICES_APP_ID = PaymentSettings__c.getAll().get('EVENTS_SERVICES_APP_ID').value__c;  
@@ -1208,19 +1209,26 @@ public without sharing class ps_enhanced_controller {
     }
 
     private PageReference payment(String tcs_app_id, String application) {
+        RecordLog.push('ps_enhanced_controller.payment');
         Payment payment = new Payment();
         String transaction_type = 'Sale';
         String url_success = getBaseUrl() + '/apex/PaymentConfirmation?id=' + agencyTrackingId + '&app=' + application+'&opp='+this.order.id;
+        RecordLog.message('Success URL: ' + url_success);
         ApexPages.addMessage(new ApexPages.message(ApexPages.severity.FATAL, 'url_success:  '+url_success));
         String url_cancel = getBaseUrl() + '/apex/Payment?id=' + agencyTrackingId + '&app=' + application+'&opp='+this.order.id;
+        RecordLog.message('Cancel URL: ' + url_cancel);
         System.debug('Agency Tracking Id = ' + agencyTrackingId);
         ApexPages.addMessage(new ApexPages.message(ApexPages.severity.FATAL, 'Agency Tracking Id:  '+agencyTrackingId));
-        String token = payment.getToken(agencyTrackingId, tcs_app_id, transaction_type, String.valueOf(this.order.totalamount), url_success, url_cancel ); 
-        System.debug('Pay.gov token = ' + token);
+        RecordLog.message('Getting pay.gov token');
+        //payment.getToken calls RecordLog.emit()
+        String token = payment.getToken(this.paymentId, this.agencyTrackingId, tcs_app_id, transaction_type, String.valueOf(this.order.totalamount), url_success, url_cancel );
+        RecordLog.message('Pay.gov token = ' + token);
         ApexPages.addMessage(new ApexPages.message(ApexPages.severity.FATAL, 'token:  '+token));
         this.showErrors = true;
         //Redirect to Pay.gov
-        PageReference pageRef = payment.redirectToPayGov(token, tcs_app_id);
+        RecordLog.message('Redirect to Pay.gov');
+        //payment.redirectToPayGov calls RecordLog.emit()
+        PageReference pageRef = payment.redirectToPayGov(this.paymentId, token, tcs_app_id);
         pageRef.setRedirect(true);
         return pageRef;
     }
