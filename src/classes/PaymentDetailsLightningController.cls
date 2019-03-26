@@ -137,42 +137,46 @@ public with sharing class PaymentDetailsLightningController {
                 //Credit Card Payment Details
                 paymentDetailsLightningController.isCreditCard = true;
                 PayGovTCSSingleQueryService.PCSaleQueryResponse[] pcSaleQueryResponse = plasticCardResults.pc_sale_query_response;
-                paymentDetailsLightningController.accountNumber = pcSaleQueryResponse[0].masked_account_number;
-                paymentDetailsLightningController.transactionStatus = pcSaleQueryResponse[0].transaction_status;
-                paymentDetailsLightningController.transactionAmount= pcSaleQueryResponse[0].transaction_amount;
-                paymentDetailsLightningController.returnCode = pcSaleQueryResponse[0].return_code;
-                paymentDetailsLightningController.returnDetail = pcSaleQueryResponse[0].return_detail;
-                paymentDetailsLightningController.accountHolderName = pcSaleQueryResponse[0].account_holder_name;
-                paymentDetailsLightningController.transactionDate = pcSaleQueryResponse[0].transaction_date;
-                paymentDetailsLightningController.approvalCode = pcSaleQueryResponse[0].approval_code;
-                paymentDetailsLightningController.authResponseCode = pcSaleQueryResponse[0].auth_response_code;
-                paymentDetailsLightningController.authResponseText = pcSaleQueryResponse[0].auth_response_text;
-                paymentDetailsLightningController.avsResponseCode = pcSaleQueryResponse[0].avs_response_code;
-                paymentDetailsLightningController.cscResult = pcSaleQueryResponse[0].csc_result;
-                paymentDetailsLightningController.billingAddress = pcSaleQueryResponse[0].billing_info.billing_address;
-                paymentDetailsLightningController.billingAddress2 = pcSaleQueryResponse[0].billing_info.billing_address_2;
-                paymentDetailsLightningController.billingCity = pcSaleQueryResponse[0].billing_info.billing_city;
-                paymentDetailsLightningController.billingState = pcSaleQueryResponse[0].billing_info.billing_state;
-                paymentDetailsLightningController.billingZip = pcSaleQueryResponse[0].billing_info.billing_zip;
-                paymentDetailsLightningController.billingCountry = pcSaleQueryResponse[0].billing_info.billing_country;
+                if (pcSaleQueryResponse != null && pcSaleQueryResponse.size() > 0) {
+                    paymentDetailsLightningController.accountNumber = pcSaleQueryResponse[0].masked_account_number;
+                    paymentDetailsLightningController.transactionStatus = pcSaleQueryResponse[0].transaction_status;
+                    paymentDetailsLightningController.transactionAmount = pcSaleQueryResponse[0].transaction_amount;
+                    paymentDetailsLightningController.returnCode = pcSaleQueryResponse[0].return_code;
+                    paymentDetailsLightningController.returnDetail = pcSaleQueryResponse[0].return_detail;
+                    paymentDetailsLightningController.accountHolderName = pcSaleQueryResponse[0].account_holder_name;
+                    paymentDetailsLightningController.transactionDate = pcSaleQueryResponse[0].transaction_date;
+                    paymentDetailsLightningController.approvalCode = pcSaleQueryResponse[0].approval_code;
+                    paymentDetailsLightningController.authResponseCode = pcSaleQueryResponse[0].auth_response_code;
+                    paymentDetailsLightningController.authResponseText = pcSaleQueryResponse[0].auth_response_text;
+                    paymentDetailsLightningController.avsResponseCode = pcSaleQueryResponse[0].avs_response_code;
+                    paymentDetailsLightningController.cscResult = pcSaleQueryResponse[0].csc_result;
+                    paymentDetailsLightningController.billingAddress = pcSaleQueryResponse[0].billing_info.billing_address;
+                    paymentDetailsLightningController.billingAddress2 = pcSaleQueryResponse[0].billing_info.billing_address_2;
+                    paymentDetailsLightningController.billingCity = pcSaleQueryResponse[0].billing_info.billing_city;
+                    paymentDetailsLightningController.billingState = pcSaleQueryResponse[0].billing_info.billing_state;
+                    paymentDetailsLightningController.billingZip = pcSaleQueryResponse[0].billing_info.billing_zip;
+                    paymentDetailsLightningController.billingCountry = pcSaleQueryResponse[0].billing_info.billing_country;
+                }
             } else {
                 //ACH Payment Details
                 paymentDetailsLightningController.isAch = true;
                 PayGovTCSSingleQueryService.ACHDebitQueryResponse[] achDebitQueryResponse = achResults.ach_debit_query_response;
-                paymentDetailsLightningController.accountNumber = achDebitQueryResponse[0].masked_account_number;
-                paymentDetailsLightningController.transactionStatus = achDebitQueryResponse[0].transaction_status;
-                paymentDetailsLightningController.transactionAmount= achDebitQueryResponse[0].transaction_amount;
-                paymentDetailsLightningController.returnCode = achDebitQueryResponse[0].return_code;
-                paymentDetailsLightningController.returnDetail = achDebitQueryResponse[0].return_detail;
-                paymentDetailsLightningController.accountHolderName = achDebitQueryResponse[0].account_holder_name;
-                paymentDetailsLightningController.transactionDate = achDebitQueryResponse[0].transaction_date;
-                paymentDetailsLightningController.accountType = achDebitQueryResponse[0].account_type;
-                paymentDetailsLightningController.effectiveDate = achDebitQueryResponse[0].effective_date;
-                paymentDetailsLightningController.routingTransitNumber = achDebitQueryResponse[0].routing_transit_number;
-                paymentDetailsLightningController.secCode = achDebitQueryResponse[0].sec_code;
-                paymentDetailsLightningController.returnReasonCode = achDebitQueryResponse[0].return_reason_code;
-                paymentDetailsLightningController.depositTicketNumber = achDebitQueryResponse[0].deposit_ticket_number;
-                paymentDetailsLightningController.debitVoucherNumber = achDebitQueryResponse[0].debit_voucher_number;
+                if (achDebitQueryResponse != null && achDebitQueryResponse.size() > 0) {
+                    paymentDetailsLightningController.accountNumber = achDebitQueryResponse[0].masked_account_number;
+                    paymentDetailsLightningController.transactionStatus = achDebitQueryResponse[0].transaction_status;
+                    paymentDetailsLightningController.transactionAmount = achDebitQueryResponse[0].transaction_amount;
+                    paymentDetailsLightningController.returnCode = achDebitQueryResponse[0].return_code;
+                    paymentDetailsLightningController.returnDetail = achDebitQueryResponse[0].return_detail;
+                    paymentDetailsLightningController.accountHolderName = achDebitQueryResponse[0].account_holder_name;
+                    paymentDetailsLightningController.transactionDate = achDebitQueryResponse[0].transaction_date;
+                    paymentDetailsLightningController.accountType = achDebitQueryResponse[0].account_type;
+                    paymentDetailsLightningController.effectiveDate = achDebitQueryResponse[0].effective_date;
+                    paymentDetailsLightningController.routingTransitNumber = achDebitQueryResponse[0].routing_transit_number;
+                    paymentDetailsLightningController.secCode = achDebitQueryResponse[0].sec_code;
+                    paymentDetailsLightningController.returnReasonCode = achDebitQueryResponse[0].return_reason_code;
+                    paymentDetailsLightningController.depositTicketNumber = achDebitQueryResponse[0].deposit_ticket_number;
+                    paymentDetailsLightningController.debitVoucherNumber = achDebitQueryResponse[0].debit_voucher_number;
+                }
             }
         } else {
             //Checking the details for a refund

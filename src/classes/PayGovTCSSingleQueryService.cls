@@ -982,7 +982,9 @@ public class PayGovTCSSingleQueryService {
             request_x.tcs_app_id = tcs_app_id;
             request_x.agency_tracking_id = agency_tracking_id;
             request_x.paygov_tracking_id = paygov_tracking_id;
-            request_x.recurring_payment_number = recurring_payment_number;
+            if (String.isNotBlank(recurring_payment_number)) {
+                request_x.recurring_payment_number = recurring_payment_number;
+            }
             PayGovTCSSingleQueryService.tcs_query_result response_x;
             Map<String, PayGovTCSSingleQueryService.tcs_query_result> response_map_x = new Map<String, PayGovTCSSingleQueryService.tcs_query_result>();
             response_map_x.put('response_x', response_x);
