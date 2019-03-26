@@ -19,16 +19,6 @@
     * 2. Return a list/map with only unlocked (Locked__c == false) records
     *************************************************/
 
-	 public Map<Id, SObject> removeLockedRecords(Map<Id, SObject> newMap) {
-		 Map<Id, SObject> returnMap = new Map<Id, SObject>();
-		 for (SObject s : newMap.values()) {
-			 if (!(Boolean)s.get('Locked__c')) {
-                 returnMap.put((Id)s.get('Id'), s);
-			}
-		}
-		 return returnMap;
-	}
-
 	public List<SObject> removeLockedRecords(List<SObject> initialList) {
 		List<SObject> returnList = new List<SObject>();
 		for (SObject s : initialList) {
