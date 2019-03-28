@@ -54,6 +54,14 @@
         <name>Taxonomy_One__c</name>
     </fields>
     <fields>
+        <label><!-- Trade Issue - Category --></label>
+        <name>Trade_Issue_Category__c</name>
+    </fields>
+    <fields>
+        <label><!-- Trade Issue --></label>
+        <name>Trade_Issue__c</name>
+    </fields>
+    <fields>
         <label><!-- Trade Region --></label>
         <name>Trade_Region__c</name>
     </fields>
@@ -109,6 +117,10 @@
     <recordTypes>
         <label><!-- Industry --></label>
         <name>Industry</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Trade Issue --></label>
+        <name>Trade_Issue</name>
     </recordTypes>
     <recordTypes>
         <label><!-- Trade Region --></label>
