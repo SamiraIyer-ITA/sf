@@ -306,6 +306,9 @@
         <fields>Sub_Sector__c</fields>
         <relatedList>Taxonomy_Tagging__c.Related_WIN__c</relatedList>
     </relatedLists>
+    <relatedLists>
+        <relatedList>RelatedContentNoteList</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>

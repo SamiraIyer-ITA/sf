@@ -375,6 +375,9 @@
         <relatedList>RelatedFileList</relatedList>
     </relatedLists>
     <relatedLists>
+        <relatedList>RelatedContentNoteList</relatedList>
+    </relatedLists>
+    <relatedLists>
         <relatedList>RelatedAttachmentList</relatedList>
     </relatedLists>
     <relatedLists>
