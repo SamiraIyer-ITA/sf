@@ -50,6 +50,16 @@
          <field>Taxonomy_Tagging__c.Taxonomy_One__c</field>
          <readable>true</readable>
      </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Taxonomy_Tagging__c.Trade_Issue_Category__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Taxonomy_Tagging__c.Trade_Issue__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
      <fieldPermissions>
          <editable>true</editable>
          <field>Taxonomy_Tagging__c.Trade_Region__c</field>
@@ -63,6 +73,10 @@
          <layout>Taxonomy_Tagging__c-Industry</layout>
          <recordType>Taxonomy_Tagging__c.Industry</recordType>
      </layoutAssignments>
+    <layoutAssignments>
+        <layout>Taxonomy_Tagging__c-Trade Issue</layout>
+        <recordType>Taxonomy_Tagging__c.Trade_Issue</recordType>
+    </layoutAssignments>
      <layoutAssignments>
          <layout>Taxonomy_Tagging__c-Taxonomy Tagging Layout</layout>
      </layoutAssignments>
@@ -80,6 +94,11 @@
          <recordType>Taxonomy_Tagging__c.Industry</recordType>
          <visible>true</visible>
      </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Taxonomy_Tagging__c.Trade_Issue</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
      <recordTypeVisibilities>
          <default>false</default>
          <recordType>Taxonomy_Tagging__c.Trade_Region</recordType>
