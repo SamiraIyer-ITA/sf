@@ -48,6 +48,14 @@
     </actionOverrides>
     <allowInChatterGroups>true</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Field_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>Field_Header__c</fields>
+        <fields>Reference__c</fields>
+        <fields>Display_Order__c</fields>
+        <label>Field Compact Layout</label>
+    </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
@@ -238,6 +246,7 @@
     <recordTypes>
         <fullName>Text_Input</fullName>
         <active>true</active>
+        <compactLayoutAssignment>Field_Compact_Layout</compactLayoutAssignment>
         <description>Input Field of type Text</description>
         <label>Text Input</label>
         <picklistValues>

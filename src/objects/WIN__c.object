@@ -41,7 +41,15 @@
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayoutAssignment>WIN_Compact_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>WIN_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>OwnerId</fields>
+        <fields>Calendar_Year_of_Results__c</fields>
+        <fields>RecordTypeId</fields>
+        <label>WIN Compact Layout</label>
+    </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
@@ -330,6 +338,11 @@
                     <fullName>2018</fullName>
                     <default>false</default>
                     <label>2018</label>
+                </value>
+                <value>
+                    <fullName>2019</fullName>
+                    <default>false</default>
+                    <label>2019</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -1478,6 +1491,11 @@ Other Government entities that were involved with the WIN.</description>
             <field>Final_Line_Approval_Date__c</field>
             <operation>equals</operation>
         </filters>
+        <filters>
+            <field>Final_Approver__c</field>
+            <operation>equals</operation>
+            <value>Leslie Britton</value>
+        </filters>
         <label>All Open WINs</label>
     </listViews>
     <listViews>
@@ -1668,6 +1686,7 @@ Other Government entities that were involved with the WIN.</description>
     <recordTypes>
         <fullName>Advocacy</fullName>
         <active>true</active>
+        <compactLayoutAssignment>WIN_Compact_Layout</compactLayoutAssignment>
         <description>Record type for creating an Advocacy WIN</description>
         <label>Advocacy</label>
         <picklistValues>
@@ -1725,6 +1744,10 @@ Other Government entities that were involved with the WIN.</description>
             </values>
             <values>
                 <fullName>2018</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2019</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1969,6 +1992,7 @@ Other Government entities that were involved with the WIN.</description>
     <recordTypes>
         <fullName>Advocacy_Locked</fullName>
         <active>true</active>
+        <compactLayoutAssignment>WIN_Compact_Layout</compactLayoutAssignment>
         <description>Record type used for locking an Advocacy WIN</description>
         <label>Advocacy Locked</label>
         <picklistValues>
@@ -2026,6 +2050,10 @@ Other Government entities that were involved with the WIN.</description>
             </values>
             <values>
                 <fullName>2018</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2019</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2270,6 +2298,7 @@ Other Government entities that were involved with the WIN.</description>
     <recordTypes>
         <fullName>Commercial_Diplomacy</fullName>
         <active>true</active>
+        <compactLayoutAssignment>WIN_Compact_Layout</compactLayoutAssignment>
         <description>Record type for creating a Commercial Diplomacy WIN</description>
         <label>Commercial Diplomacy</label>
         <picklistValues>
@@ -2327,6 +2356,10 @@ Other Government entities that were involved with the WIN.</description>
             </values>
             <values>
                 <fullName>2018</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2019</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2571,6 +2604,7 @@ Other Government entities that were involved with the WIN.</description>
     <recordTypes>
         <fullName>Commercial_Diplomacy_Locked</fullName>
         <active>true</active>
+        <compactLayoutAssignment>WIN_Compact_Layout</compactLayoutAssignment>
         <description>Record type used for locking a Commercial Diplomacy WIN</description>
         <label>Commercial Diplomacy Locked</label>
         <picklistValues>
@@ -2628,6 +2662,10 @@ Other Government entities that were involved with the WIN.</description>
             </values>
             <values>
                 <fullName>2018</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2019</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2872,6 +2910,7 @@ Other Government entities that were involved with the WIN.</description>
     <recordTypes>
         <fullName>Export_Promotion</fullName>
         <active>true</active>
+        <compactLayoutAssignment>WIN_Compact_Layout</compactLayoutAssignment>
         <description>Record type for creating an Export Promotion WIN</description>
         <label>Export Promotion</label>
         <picklistValues>
@@ -2929,6 +2968,10 @@ Other Government entities that were involved with the WIN.</description>
             </values>
             <values>
                 <fullName>2018</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2019</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3173,6 +3216,7 @@ Other Government entities that were involved with the WIN.</description>
     <recordTypes>
         <fullName>Export_Promotion_Locked</fullName>
         <active>true</active>
+        <compactLayoutAssignment>WIN_Compact_Layout</compactLayoutAssignment>
         <description>Record type used for locking an Export Promotion WIN</description>
         <label>Export Promotion Locked</label>
         <picklistValues>
@@ -3230,6 +3274,10 @@ Other Government entities that were involved with the WIN.</description>
             </values>
             <values>
                 <fullName>2018</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2019</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3474,6 +3522,7 @@ Other Government entities that were involved with the WIN.</description>
     <recordTypes>
         <fullName>Investment_Promotion</fullName>
         <active>true</active>
+        <compactLayoutAssignment>WIN_Compact_Layout</compactLayoutAssignment>
         <description>Record type for creating an Investment Promotion WIN</description>
         <label>Investment Promotion</label>
         <picklistValues>
@@ -3527,6 +3576,10 @@ Other Government entities that were involved with the WIN.</description>
             </values>
             <values>
                 <fullName>2018</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2019</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3771,6 +3824,7 @@ Other Government entities that were involved with the WIN.</description>
     <recordTypes>
         <fullName>Investment_Promotion_Locked</fullName>
         <active>true</active>
+        <compactLayoutAssignment>WIN_Compact_Layout</compactLayoutAssignment>
         <description>Record type used for locking an Investment Promotion WIN</description>
         <label>Investment Promotion Locked</label>
         <picklistValues>
@@ -3824,6 +3878,10 @@ Other Government entities that were involved with the WIN.</description>
             </values>
             <values>
                 <fullName>2018</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2019</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4068,6 +4126,7 @@ Other Government entities that were involved with the WIN.</description>
     <recordTypes>
         <fullName>WIN_Standard_Record_Type</fullName>
         <active>true</active>
+        <compactLayoutAssignment>WIN_Compact_Layout</compactLayoutAssignment>
         <description>Record type used for WIN Publisher action</description>
         <label>WIN Standard Record Type</label>
         <picklistValues>
@@ -4121,6 +4180,10 @@ Other Government entities that were involved with the WIN.</description>
             </values>
             <values>
                 <fullName>2018</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2019</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
