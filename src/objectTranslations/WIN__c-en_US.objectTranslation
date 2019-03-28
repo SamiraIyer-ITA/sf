@@ -135,6 +135,10 @@
             <masterLabel>2018</masterLabel>
             <translation><!-- 2018 --></translation>
         </picklistValues>
+        <picklistValues>
+            <masterLabel>2019</masterLabel>
+            <translation><!-- 2019 --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Clearance Notes --></label>
@@ -979,6 +983,10 @@
     <quickActions>
         <label><!-- SUSA Fields --></label>
         <name>SUSA_Fields</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Validate --></label>
+        <name>Validate</name>
     </quickActions>
     <quickActions>
         <label><!-- WIN Approvals --></label>
