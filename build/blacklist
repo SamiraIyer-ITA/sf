@@ -1,0 +1,5 @@
+src/quickActions/Case.New_Country.quickAction
+src/quickActions/Case.New_Trade_Issue.quickAction
+src/quickActions/Case.New_Industry.quickAction
+src/quickActions/Case.New_Trade_Region.quickAction
+src/layouts/Contact-ITA Contact Layout.layout
