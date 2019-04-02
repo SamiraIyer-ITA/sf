@@ -1,120 +1,120 @@
 <apex:page showHeader="false" applyBodyTag="false" applyHtmlTag="false" controller="Profile_Controller">
-    <apex:composition template="Site_Template">
-        <apex:define name="sectionalNav">
-            <head>
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-                <link href="{!URLFor($Resource.ps, 'ps/participant.css')}" rel="stylesheet" />
-            </head>
-        </apex:define>
-        <apex:define name="page">
-            
+	<apex:composition template="Site_Template">
+		<apex:define name="sectionalNav">
+			<head>
+				<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+				<link href="{!URLFor($Resource.ps, 'ps/participant.css')}" rel="stylesheet" />
+			</head>
+		</apex:define>
+		<apex:define name="page">
+
  
-        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-            <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" ></script>
-    <script src="https://afeld.github.io/bootstrap-toc/bootstrap-toc.js" charset="utf-8"></script>
-    <style>
-    .affix {
-    position: absolute;
-    }
-    </style>        
-            
-    
-          
+		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+			<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" ></script>
+	<script src="https://afeld.github.io/bootstrap-toc/bootstrap-toc.js" charset="utf-8"></script>
+	<style>
+	.affix {
+	position: absolute;
+	}
+	</style>
+
+
+
 <body data-spy="scroll" data-target="#toc">
-    <div class="container" style="background:#fafafa; " >
-      <div class="row">
-          <div style="{!IF(fatalError != null, 'display:block', 'display:none')}">
-          	    {!fatalError}
-          </div>
-          
-      	<div style="{!IF(fatalError == null, 'display:block', 'display:none')}">  <!--Don't display the bulk of this page if there is a fatal error.-->
-     
-        <div class="col-sm-3" >
-        
-         <div class="navbox" >
-          <p style="font-size:21px;">{!participation.public_display_name__c}</p>
-         <p style="margin-top:15px;text-indent:3px;color:#bababa;font-weight:normal;"><i  class="fa fa-circle {!if(isActive, 'activeITA', 'inactiveITA')}" aria-hidden="true"></i> {!if(isActive, 'Active', 'Inactive')} Participant</p>
-          
-        
-          <nav id="toc" data-spy="affix" data-toggle="toc" ></nav>
-          
-         </div>
-        </div>
-        
-        
-        
+	<div class="container" style="background:#fafafa; " >
+	  <div class="row">
+		  <div style="{!IF(fatalError != null, 'display:block', 'display:none')}">
+				{!fatalError}
+		  </div>
+
+		<div style="{!IF(fatalError == null, 'display:block', 'display:none')}">  <!--Don't display the bulk of this page if there is a fatal error.-->
+
+		<div class="col-sm-3" >
+
+		 <div class="navbox" >
+		  <p style="font-size:21px;">{!participation.public_display_name__c}</p>
+		 <p style="margin-top:15px;text-indent:3px;color:#bababa;font-weight:normal;"><i  class="fa fa-circle {!if(isActive, 'activeITA', 'inactiveITA')}" aria-hidden="true"></i> {!if(isActive, 'Active', 'Inactive')} Participant</p>
+
+
+		  <nav id="toc" data-spy="affix" data-toggle="toc" ></nav>
+
+		 </div>
+		</div>
+
+
+
 <div class="col-sm-9 rightbox" >
 
-         
-    <apex:outputPanel styleClass="panel panel-default" rendered="{!participation.covered_entities__r.size != 0}" layout="block">
-        <div class="panel-heading"> <h2>Other Covered Entities</h2></div>
-            <div class="panel-body">
-                     
-                <apex:repeat value="{!participation.covered_entities__r}" var="entitity">
-                    <div class="col-md-6" style="color:#586874; font-size:15px;margin-bottom:20px;"><i style="margin-right:3px;color:#bababa;" class="fa fa-shield" aria-hidden="true"></i> {!entitity.name}</div>
-                </apex:repeat>
-            
-        </div>
-      </apex:outputPanel>  
-      
-      
-      <apex:outputPanel styleClass="panel panel-default" rendered="{!participation.industries__r.size != 0}" layout="block">
-        <div class="panel-heading"> <h2>Industries</h2></div>
-            <div class="panel-body">
-            
-                <apex:repeat value="{!participation.industries__r}" var="industry">
-                    <div class="col-md-6">
-                        <ul style="margin-bottom:20px;">
-                            <li style="color:#586874;font-size:15px;" class="about"><i style="margin-right:3px;color:#bababa;" class="fa fa-thumb-tack" aria-hidden="true"></i> {!industry.Industry__c}</li>
-                            <li style="color:#586874;font-size:15px;margin-left:30px;" class="{!if(isBlank(industry.Sector__c), 'hidden', '')} about">  {!industry.Sector__c}</li>
-                            <li style="color:#586874;font-size:15px;margin-left:45px;" class="{!if(isBlank(industry.Sub_Sector__c), 'hidden', '')} about">  {!industry.Sub_Sector__c}</li>
-                        </ul>
-                    </div>
-                </apex:repeat>            
-        </div>
-      </apex:outputPanel>
+
+	<apex:outputPanel styleClass="panel panel-default" rendered="{!participation.covered_entities__r.size != 0}" layout="block">
+		<div class="panel-heading"> <h2>Other Covered Entities</h2></div>
+			<div class="panel-body">
+
+				<apex:repeat value="{!participation.covered_entities__r}" var="entitity">
+					<div class="col-md-6" style="color:#586874; font-size:15px;margin-bottom:20px;"><i style="margin-right:3px;color:#bababa;" class="fa fa-shield" aria-hidden="true"></i> {!entitity.name}</div>
+				</apex:repeat>
+
+		</div>
+	  </apex:outputPanel>
+
+
+	  <apex:outputPanel styleClass="panel panel-default" rendered="{!participation.industries__r.size != 0}" layout="block">
+		<div class="panel-heading"> <h2>Industries</h2></div>
+			<div class="panel-body">
+
+				<apex:repeat value="{!participation.industries__r}" var="industry">
+					<div class="col-md-6">
+						<ul style="margin-bottom:20px;">
+							<li style="color:#586874;font-size:15px;" class="about"><i style="margin-right:3px;color:#bababa;" class="fa fa-thumb-tack" aria-hidden="true"></i> {!industry.Industry__c}</li>
+							<li style="color:#586874;font-size:15px;margin-left:30px;" class="{!if(isBlank(industry.Sector__c), 'hidden', '')} about">  {!industry.Sector__c}</li>
+							<li style="color:#586874;font-size:15px;margin-left:45px;" class="{!if(isBlank(industry.Sub_Sector__c), 'hidden', '')} about">  {!industry.Sub_Sector__c}</li>
+						</ul>
+					</div>
+				</apex:repeat>
+		</div>
+	  </apex:outputPanel>
 
 
  <div class="panel panel-default" id="description-activities">
-    <div class="panel-heading"> <h2>Participation</h2></div>
-    <div class="panel-body">
-            
-                  
-                  <apex:repeat value="{!frameworks}" var="framework">
-                  
-                      <apex:outputPanel rendered="{!and(framework.status = 'Active', isActive) || and(framework.status = 'Inactive', isActive = false)}">
-                          <div class="col-md-12" rendered="{!and(framework.status = 'Active', isActive) }">
-                              <p class="text-muted uppercase">{!framework.framework} Framework: <span class="{!if(isActive, 'activeITA', 'inactiveITA')} inlineBlock">{!framework.Status} {!if(framework.status == 'Inactive', ' - ' + framework.inactive_reason, '')} </span></p>
-                              <div class="about" style="color:#586874;font-size: 15px;font-weight:400;">Original Certification Date:  {!month(assets[framework.product].installDate)}/{!day(assets[framework.product].installDate)}/{!year(assets[framework.product].installDate)}</div>
-                              <apex:outputtext rendered="{!framework.status = 'Active'}">
-                                  <div class="about" style="color:#586874;font-size: 15px;font-weight:400;">Next Certification Due Date: {!month(assets[framework.product].UsageEndDate)}/{!day(assets[framework.product].UsageEndDate)}/{!year(assets[framework.product].UsageEndDate)}</div>
-                              </apex:outputtext>
-                              <apex:outputText rendered="{!and(framework.status = 'Active', isActive) && or(framework.HRData, framework.NonHRData) }">
-                                  <div class="about" style="color:#586874;font-size: 15px;font-weight:400;">Data Collected: {!if (framework.HRData && framework.NonHRData, 'HR, NON-HR', '')} {!if ((!framework.NonHRData) && framework.HRData, 'HR', '')} {!if ((!framework.HRData) && framework.NonHRData, 'NON-HR', '')}</div>
-                              </apex:outputText>
-                              <apex:outputText rendered="{!and(framework.status = 'Inactive', framework.inactivePeriods.size != 0, framework.inactivePeriods[0].Start_Date__c != null)}">
-                                  <div class="about" style="color:#586874;font-size: 15px;font-weight:400;">Inactive Start Date: {!month(framework.inactivePeriods[0].Start_Date__c)}/{!day(framework.inactivePeriods[0].Start_Date__c)}/{!year(framework.inactivePeriods[0].Start_Date__c)}</div>
-                              </apex:outputText>
-                              
-                              <hr/>
-                          </div>
-                      </apex:outputPanel>
-                      
-                  </apex:repeat>    
-                       
-                  <div class="col-md-12">
-                      <apex:variable value="0" var="num" />
-                      <apex:outputtext >
-                          <p class="text-muted uppercase">
-                          Purpose of Data Collection</p>
-                          <p style="color:#586874;font-size: 15px;font-weight:400;">{!participation.Purpose__c}</p>
-                      </apex:outputtext>
-                  </div>  
+	<div class="panel-heading"> <h2>Participation</h2></div>
+	<div class="panel-body">
 
-                  
-                   
-    </div>
+
+				  <apex:repeat value="{!frameworks}" var="framework">
+
+					  <apex:outputPanel rendered="{!and(framework.status = 'Active', isActive) || and(framework.status = 'Inactive', isActive = false)}">
+						  <div class="col-md-12" rendered="{!and(framework.status = 'Active', isActive) }">
+							  <p class="text-muted uppercase">{!framework.framework} Framework: <span class="{!if(isActive, 'activeITA', 'inactiveITA')} inlineBlock">{!framework.Status} {!if(framework.status == 'Inactive', ' - ' + framework.inactive_reason, '')} </span></p>
+							  <div class="about" style="color:#586874;font-size: 15px;font-weight:400;">Original Certification Date:  {!month(assets[framework.product].installDate)}/{!day(assets[framework.product].installDate)}/{!year(assets[framework.product].installDate)}</div>
+							  <apex:outputtext rendered="{!framework.status = 'Active'}">
+								  <div class="about" style="color:#586874;font-size: 15px;font-weight:400;">Next Certification Due Date: {!month(assets[framework.product].UsageEndDate)}/{!day(assets[framework.product].UsageEndDate)}/{!year(assets[framework.product].UsageEndDate)}</div>
+							  </apex:outputtext>
+							  <apex:outputText rendered="{!and(framework.status = 'Active', isActive) && or(framework.HRData, framework.NonHRData) }">
+								  <div class="about" style="color:#586874;font-size: 15px;font-weight:400;">Data Collected: {!if (framework.HRData && framework.NonHRData, 'HR, NON-HR', '')} {!if ((!framework.NonHRData) && framework.HRData, 'HR', '')} {!if ((!framework.HRData) && framework.NonHRData, 'NON-HR', '')}</div>
+							  </apex:outputText>
+							  <apex:outputText rendered="{!and(framework.status = 'Inactive', framework.inactivePeriods.size != 0, framework.inactivePeriods[0].Start_Date__c != null)}">
+								  <div class="about" style="color:#586874;font-size: 15px;font-weight:400;">Inactive Start Date: {!month(framework.inactivePeriods[0].Start_Date__c)}/{!day(framework.inactivePeriods[0].Start_Date__c)}/{!year(framework.inactivePeriods[0].Start_Date__c)}</div>
+							  </apex:outputText>
+
+							  <hr/>
+						  </div>
+					  </apex:outputPanel>
+
+				  </apex:repeat>
+
+				  <div class="col-md-12">
+					  <apex:variable value="0" var="num" />
+					  <apex:outputtext >
+						  <p class="text-muted uppercase">
+						  Purpose of Data Collection</p>
+						  <p style="color:#586874;font-size: 15px;font-weight:400;">{!participation.Purpose__c}</p>
+					  </apex:outputtext>
+				  </div>
+
+
+
+	</div>
 </div>
 
 
@@ -122,144 +122,144 @@
 
 <apex:outputtext rendered="{!isActive}">
  <div class="panel panel-default" id="privacy-policy">
-    <div class="panel-heading"> <h2>Privacy Policy</h2></div>
-    <div class="panel-body">
-                  <div class="row" style="padding-left:0;padding-right:0;">
-                  <apex:repeat value="{!artifacts}" var="type">
-                  <div class="col-md-6">
-                      <p class="text-muted uppercase">{!type} Data</p><div class="itaBr"></div>
-                      <apex:repeat value="{!artifacts[type]}" var="artifact">
-                              <!--<div class="about"><p>{!artifact.name}</p></div>-->
-                              <apex:outputtext rendered="{!artifact.type__c != 'HR'}">
-                                  <div class="about" style="color:#586874;font-size: 15px;font-weight:400;">Document:  <a href="{!artifact.External_Artifact_URL__c}" target="_blank">{!artifact.name}</a></div>
-                              </apex:outputtext>
-                              <apex:outputtext rendered="{!artifact.type__c == 'HR'}">
-                                  <div class="about" style="color:#586874;font-size: 15px;font-weight:400;">{!artifact.name}</div>
-                              </apex:outputtext>
-                              <div class="about">
-                                  Description:  <br /><p>{!artifact.description__c}</p>
-                              </div>
-                              <div class="about" style="color:#586874;font-size: 15px;font-weight:400;">Effective Date: {!month(artifact.effective_date__c)}/{!day(artifact.effective_date__c)}/{!year(artifact.effective_date__c)}</div>
-                              
-                              <div class="itaBr"></div>
-                      </apex:repeat>
-                  </div>
-                  </apex:repeat>
-                  </div>
-                  <div class="col-md-12">
-                      <p class="text-muted uppercase">Verification Method</p>
-                      <apex:outputText rendered="{!verifier.name != null}">
-                           <a href="{!verifier.Website__c}" target="_blank">{!verifier.name}</a>
-                      </apex:outputText>
-                      <apex:outputText rendered="{!verifier.name = null}">
-                          <p>{!participation.Claiming_Self_Verified__c}</p>
-                      </apex:outputText>
-                  </div>
-    </div>
+	<div class="panel-heading"> <h2>Privacy Policy</h2></div>
+	<div class="panel-body">
+				  <div class="row" style="padding-left:0;padding-right:0;">
+				  <apex:repeat value="{!artifacts}" var="type">
+				  <div class="col-md-6">
+					  <p class="text-muted uppercase">{!type} Data</p><div class="itaBr"></div>
+					  <apex:repeat value="{!artifacts[type]}" var="artifact">
+							  <!--<div class="about"><p>{!artifact.name}</p></div>-->
+							  <apex:outputtext rendered="{!artifact.type__c != 'HR'}">
+								  <div class="about" style="color:#586874;font-size: 15px;font-weight:400;">Document:  <a href="{!artifact.External_Artifact_URL__c}" target="_blank">{!artifact.name}</a></div>
+							  </apex:outputtext>
+							  <apex:outputtext rendered="{!artifact.type__c == 'HR'}">
+								  <div class="about" style="color:#586874;font-size: 15px;font-weight:400;">{!artifact.name}</div>
+							  </apex:outputtext>
+							  <div class="about">
+								  Description:  <br /><p>{!artifact.description__c}</p>
+							  </div>
+							  <div class="about" style="color:#586874;font-size: 15px;font-weight:400;">Effective Date: {!month(artifact.effective_date__c)}/{!day(artifact.effective_date__c)}/{!year(artifact.effective_date__c)}</div>
+
+							  <div class="itaBr"></div>
+					  </apex:repeat>
+				  </div>
+				  </apex:repeat>
+				  </div>
+				  <div class="col-md-12">
+					  <p class="text-muted uppercase">Verification Method</p>
+					  <apex:outputText rendered="{!verifier.name != null}">
+						   <a href="{!verifier.Website__c}" target="_blank">{!verifier.name}</a>
+					  </apex:outputText>
+					  <apex:outputText rendered="{!verifier.name = null}">
+						  <p>{!participation.Claiming_Self_Verified__c}</p>
+					  </apex:outputText>
+				  </div>
+	</div>
 </div>
 </apex:outputtext>
 
 
 <div class="panel panel-default" id="dispute-resolution" >
-    <div class="panel-heading"> <h2>Dispute Resolution</h2></div>
-    <div class="panel-body">                
-                  <div class="col-md-12">
-                  <p class="text-muted uppercase">Questions or Complaints?</p>
-                  <p style="color:#586874;font-size: 15px;font-weight:400;">If you have a question or complaint{!if(isActive, ' regarding the covered data', '')}, please contact {!participation.name} at:</p>
-                  </div>
-                  
+	<div class="panel-heading"> <h2>Dispute Resolution</h2></div>
+	<div class="panel-body">
+				  <div class="col-md-12">
+				  <p class="text-muted uppercase">Questions or Complaints?</p>
+				  <p style="color:#586874;font-size: 15px;font-weight:400;">If you have a question or complaint{!if(isActive, ' regarding the covered data', '')}, please contact {!participation.name} at:</p>
+				  </div>
+
 
  
-                  
-                  <apex:repeat value="{!participation.participant_contacts__r}" var="primary">
-                      <div class="col-md-6">
-                           <div class="about"> {!primary.First_Name__c} {!primary.Last_Name__c} <br /><small>{!primary.title__c}</small></div>
-                           {!participation.name}
-                          <div class="{!if(isBlank(primary.contact_office__c), 'hidden', '')} about">  {!primary.Contact_Office__c}</div>
-                          <div class="about">{!participation.street__c}<br />
-                          {!participation.city__c}, {!participation.state__c}  {!participation.postal_code__c}</div>
-                      </div>
-                          
-                          
-                      <div class="col-md-6">
-                          <div class="{!if(isBlank(primary.email__c), 'hidden', '')} about"> <a href="mailto:{!primary.Email__c}">{!primary.Email__c}</a></div>
-                          <div class="{!if(isBlank(primary.phone__c), 'hidden', '')} about">Phone: <a href="tel:{!primary.phone__c}">{!primary.phone__c}</a></div>
-                          <div class="{!if(isBlank(primary.fax__c), 'hidden', '')} about">Fax: {!primary.fax__c}</div>                          
-                      </div>
-                  </apex:repeat>
-                  
-                  
-                  
-                  
-                  <div class="col-md-12">
-                      <div class="about">
-                      <apex:outputtext rendered="{!isActive}">
-                          <br/>
-                          <p style="color:#586874;font-size: 15px;font-weight:400;">Privacy Shield organizations must respond within 45 days of receiving a complaint.</p> 
-                          <div class="itaBr"></div>
-                          <apex:outputText rendered="{!OR(hasHr, hasNonHr)}" >
-                            <p style="color:#586874;font-size: 15px;font-weight:400;">If you have not received a timely or satisfactory response from {!participation.name} to your question or complaint, please contact the independent recourse mechanism listed below</p><br/>
-                          </apex:outputText>
-                      </apex:outputtext>
-                      </div>
-                  </div>
-                 
-                 
-                 
-                      
-             <apex:outputPanel rendered="{!hasHr && isActive}">   
-             <div class="{!IF(hasNonHr, 'col-md-6', 'col-md-12')}">  
-                    <p class="text-muted uppercase">HR RECOURSE MECHANISM</p>
-                    <apex:repeat rendered="{!isActive}" value="{!HrResolutionProviders}" var="thirdparty">
-                          <div class="about"> <a href="{!thirdparty.Third_Party_Master_List__r.Website__c}" target="_blank">{!thirdparty.Third_Party_Master_List__r.name}</a></div>
-                    </apex:repeat>
-                
-             </div>
-            </apex:outputPanel>
 
-            <apex:outputPanel rendered="{!hasNonHr && isActive}">         
-              <div class="{!IF(hasHR, 'col-md-6', 'col-md-12')}">  
-                  <p class="text-muted uppercase">NON-HR RECOURSE MECHANISM</p>
-                  <apex:repeat rendered="{!isActive}" value="{!NonHrResolutionProviders}" var="thirdparty">
-                        <div class="about"> <a href="{!if(!isBlank(thirdparty.Third_Party_Master_List__c), thirdparty.Third_Party_Master_List__r.Website__c, if(BEGINS(thirdparty.Website__c, 'http'), '', 'http://')+thirdparty.Website__c)}" target="_blank"> {!if(!isBlank(thirdparty.Third_Party_Master_List__c), thirdparty.Third_Party_Master_List__r.name, thirdparty.name)}</a></div>
-                  </apex:repeat>
-              </div>
-            </apex:outputPanel>         
-                  
-                  
-                <div class="col-md-12">
-                  <div class="about"><br/><br/>
-                  <p style="color:#586874;font-size: 12px;font-weight:400;"><span class="tooltipITA"
-                      data-toggle="tooltip" data-placement="top" title="This U.S. government agency cannot resolve individual complaints, but individual complaints that it receives may help it detect fraud and abuse, which may lead to investigations and eliminate unfair business practices.">
-                  </span>Appropriate statutory body with jurisdiction to investigate any claims against {!participation.name} regarding possible unfair or deceptive practices and violations of laws or regulations covering privacy   
-                      <apex:repeat value="{!statutorybodies}" var="thirdparty">  <a href="{!thirdparty.Third_Party_Master_List__r.Website__c}" target="_blank">{!thirdparty.Third_Party_Master_List__r.name}</a></apex:repeat>
-                  </p>
-                  </div>
-                </div>
-                  
-                  
-                  
-       </div>
+				  <apex:repeat value="{!participation.participant_contacts__r}" var="primary">
+					  <div class="col-md-6">
+						   <div class="about"> {!primary.First_Name__c} {!primary.Last_Name__c} <br /><small>{!primary.title__c}</small></div>
+						   {!participation.name}
+						  <div class="{!if(isBlank(primary.contact_office__c), 'hidden', '')} about">  {!primary.Contact_Office__c}</div>
+						  <div class="about">{!participation.street__c}<br />
+						  {!participation.city__c}, {!participation.state__c}  {!participation.postal_code__c}</div>
+					  </div>
+
+
+					  <div class="col-md-6">
+						  <div class="{!if(isBlank(primary.email__c), 'hidden', '')} about"> <a href="mailto:{!primary.Email__c}">{!primary.Email__c}</a></div>
+						  <div class="{!if(isBlank(primary.phone__c), 'hidden', '')} about">Phone: <a href="tel:{!primary.phone__c}">{!primary.phone__c}</a></div>
+						  <div class="{!if(isBlank(primary.fax__c), 'hidden', '')} about">Fax: {!primary.fax__c}</div>
+					  </div>
+				  </apex:repeat>
+
+
+
+
+				  <div class="col-md-12">
+					  <div class="about">
+					  <apex:outputtext rendered="{!isActive}">
+						  <br/>
+						  <p style="color:#586874;font-size: 15px;font-weight:400;">Privacy Shield organizations must respond within 45 days of receiving a complaint.</p>
+						  <div class="itaBr"></div>
+						  <apex:outputText rendered="{!OR(hasHr, hasNonHr)}" >
+							<p style="color:#586874;font-size: 15px;font-weight:400;">If you have not received a timely or satisfactory response from {!participation.name} to your question or complaint, please contact the independent recourse mechanism listed below</p><br/>
+						  </apex:outputText>
+					  </apex:outputtext>
+					  </div>
+				  </div>
+
+
+
+
+			 <apex:outputPanel rendered="{!hasHr && isActive}">
+			 <div class="{!IF(hasNonHr, 'col-md-6', 'col-md-12')}">
+					<p class="text-muted uppercase">HR RECOURSE MECHANISM</p>
+					<apex:repeat rendered="{!isActive}" value="{!HrResolutionProviders}" var="thirdparty">
+						  <div class="about"> <a href="{!thirdparty.Third_Party_Master_List__r.Website__c}" target="_blank">{!thirdparty.Third_Party_Master_List__r.name}</a></div>
+					</apex:repeat>
+
+			 </div>
+			</apex:outputPanel>
+
+			<apex:outputPanel rendered="{!hasNonHr && isActive}">
+			  <div class="{!IF(hasHR, 'col-md-6', 'col-md-12')}">
+				  <p class="text-muted uppercase">NON-HR RECOURSE MECHANISM</p>
+				  <apex:repeat rendered="{!isActive}" value="{!NonHrResolutionProviders}" var="thirdparty">
+						<div class="about"> <a href="{!if(!isBlank(thirdparty.Third_Party_Master_List__c), thirdparty.Third_Party_Master_List__r.Website__c, if(BEGINS(thirdparty.Website__c, 'http'), '', 'http://')+thirdparty.Website__c)}" target="_blank"> {!if(!isBlank(thirdparty.Third_Party_Master_List__c), thirdparty.Third_Party_Master_List__r.name, thirdparty.name)}</a></div>
+				  </apex:repeat>
+			  </div>
+			</apex:outputPanel>
+
+
+				<div class="col-md-12">
+				  <div class="about"><br/><br/>
+				  <p style="color:#586874;font-size: 12px;font-weight:400;"><span class="tooltipITA"
+					  data-toggle="tooltip" data-placement="top" title="This U.S. government agency cannot resolve individual complaints, but individual complaints that it receives may help it detect fraud and abuse, which may lead to investigations and eliminate unfair business practices.">
+				  </span>Appropriate statutory body with jurisdiction to investigate any claims against {!participation.name} regarding possible unfair or deceptive practices and violations of laws or regulations covering privacy
+					  <apex:repeat value="{!statutorybodies}" var="thirdparty">  <a href="{!thirdparty.Third_Party_Master_List__r.Website__c}" target="_blank">{!thirdparty.Third_Party_Master_List__r.name}</a></apex:repeat>
+				  </p>
+				  </div>
+				</div>
+
+
+
+	   </div>
    </div>
 </div>
 
 
-             </div>  <!--Fatal Error div-->
-         
-          </div>
-      </div>
-    
+			 </div>  <!--Fatal Error div-->
+
+		  </div>
+	  </div>
+
   </body>
-          
-           <script type="text/javascript">
-                jQuery(document).ready(function ($) {
-                    $('#tabs').tab();
-                    $('[data-toggle="tooltip"]').tooltip();  
-                    if({!isContact}){
-                        $('#disputeTab').tab('show');
-                    }
-                });
-            </script> 
-        </apex:define>
-    </apex:composition>
+
+		   <script type="text/javascript">
+				jQuery(document).ready(function ($) {
+					$('#tabs').tab();
+					$('[data-toggle="tooltip"]').tooltip();
+					if({!isContact}){
+						$('#disputeTab').tab('show');
+					}
+				});
+			</script>
+		</apex:define>
+	</apex:composition>
 </apex:page>
