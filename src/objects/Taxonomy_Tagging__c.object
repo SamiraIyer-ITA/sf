@@ -57,6 +57,19 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
+        <fullName>Category__c</fullName>
+        <description>Trade Issue categories.  Values provided by Taxonomy Board.</description>
+        <externalId>false</externalId>
+        <label>Category</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Trade_Issue_Category</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Country__c</fullName>
         <externalId>false</externalId>
         <label>Country</label>
@@ -2280,19 +2293,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Trade_Issue_Category__c</fullName>
-        <description>Trade Issue categories.  Values provided by Taxonomy Board.</description>
-        <externalId>false</externalId>
-        <label>Trade Issue - Category</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetName>Trade_Issue_Category</valueSetName>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Trade_Issue__c</fullName>
         <description>Specific trade issues for each trade issue category.  Values provided by Taxonomy Board</description>
         <externalId>false</externalId>
@@ -2301,7 +2301,7 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
         <valueSet>
-            <controllingField>Trade_Issue_Category__c</controllingField>
+            <controllingField>Category__c</controllingField>
             <restricted>true</restricted>
             <valueSetName>Trade_Issue_Trade_Issue</valueSetName>
             <valueSettings>
@@ -2501,6 +2501,21 @@
     <label>Taxonomy Tagging</label>
     <listViews>
         <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Category__c</columns>
+        <columns>Country__c</columns>
+        <columns>Industry__c</columns>
+        <columns>Related_Application__c</columns>
+        <columns>Related_Case__c</columns>
+        <columns>Related_Lead__c</columns>
+        <columns>Related_Organization__c</columns>
+        <columns>Related_WIN__c</columns>
+        <columns>Sector__c</columns>
+        <columns>Sub_Sector__c</columns>
+        <columns>Taxonomy_One__c</columns>
+        <columns>Trade_Issue__c</columns>
+        <columns>Trade_Region__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
@@ -5763,7 +5778,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Trade_Issue_Category__c</picklist>
+            <picklist>Category__c</picklist>
             <values>
                 <fullName>Customs and Border Measures</fullName>
                 <default>false</default>
@@ -9341,7 +9356,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Trade_Issue_Category__c</picklist>
+            <picklist>Category__c</picklist>
             <values>
                 <fullName>Customs and Border Measures</fullName>
                 <default>false</default>
@@ -12919,7 +12934,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Trade_Issue_Category__c</picklist>
+            <picklist>Category__c</picklist>
             <values>
                 <fullName>Customs and Border Measures</fullName>
                 <default>false</default>
@@ -16497,7 +16512,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Trade_Issue_Category__c</picklist>
+            <picklist>Category__c</picklist>
             <values>
                 <fullName>Customs and Border Measures</fullName>
                 <default>false</default>
@@ -16842,7 +16857,7 @@ IF(ISBLANK( Related_Application__c),0,1)
         <description>Depending on the Record Type, one top level record is required.  For Industry, the Industry field must be filled out; for Country, the Country field must be filled out, etc.</description>
         <errorConditionFormula>OR(AND(ISPICKVAL(Industry__c,&quot;&quot; ), RecordType.Name = &quot;Industry&quot;),
 AND(ISPICKVAL(Country__c,&quot;&quot; ), RecordType.Name = &quot;Country&quot;),
-AND(ISPICKVAL(Trade_Region__c,&quot;&quot; ), RecordType.Name = &quot;Trade_Region&quot;), AND(ISPICKVAL(Trade_Issue_Category__c ,&quot;&quot; ), RecordType.Name = &quot;Trade_Issue&quot;)
+AND(ISPICKVAL(Trade_Region__c,&quot;&quot; ), RecordType.Name = &quot;Trade_Region&quot;), AND(ISPICKVAL(Category__c ,&quot;&quot; ), RecordType.Name = &quot;Trade_Issue&quot;)
 )</errorConditionFormula>
         <errorMessage>You are required to choose a value before you can save this record.</errorMessage>
     </validationRules>

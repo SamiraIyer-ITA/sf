@@ -5,6 +5,11 @@
         <default>false</default>
         <visible>true</visible>
     </applicationVisibilities>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Taxonomy_Tagging__c.Category__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
      <fieldPermissions>
          <editable>true</editable>
          <field>Taxonomy_Tagging__c.Country__c</field>

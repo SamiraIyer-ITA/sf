@@ -55,7 +55,7 @@
     </fields>
     <fields>
         <label><!-- Trade Issue - Category --></label>
-        <name>Trade_Issue_Category__c</name>
+        <name>Category__c</name>
     </fields>
     <fields>
         <label><!-- Trade Issue --></label>

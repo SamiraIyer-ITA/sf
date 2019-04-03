@@ -57,7 +57,7 @@
      </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Taxonomy_Tagging__c.Trade_Issue_Category__c</field>
+        <field>Taxonomy_Tagging__c.Category__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

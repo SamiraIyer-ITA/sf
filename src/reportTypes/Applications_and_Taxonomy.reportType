@@ -290,7 +290,7 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Trade_Issue_Category__c</field>
+            <field>Category__c</field>
             <table>Participation__c.Taxonomy_Tagging__r</table>
         </columns>
         <columns>

@@ -135,18 +135,20 @@
         </relatedContentItems>
     </relatedContent>
     <relatedLists>
-        <fields>Country__c</fields>
-        <fields>CREATEDBY_USER</fields>
-        <relatedList>RelatedCountries__c.Case__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>RECORDTYPE</fields>
+        <fields>NAME</fields>
         <fields>Country__c</fields>
         <fields>Trade_Region__c</fields>
         <fields>Industry__c</fields>
         <fields>Sector__c</fields>
         <fields>Sub_Sector__c</fields>
+        <fields>Category__c</fields>
+        <fields>Trade_Issue__c</fields>
         <relatedList>Taxonomy_Tagging__c.Related_Case__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>Country__c</fields>
+        <fields>CREATEDBY_USER</fields>
+        <relatedList>RelatedCountries__c.Case__c</relatedList>
     </relatedLists>
     <relatedObjects>ContactId</relatedObjects>
     <relatedObjects>AccountId</relatedObjects>
