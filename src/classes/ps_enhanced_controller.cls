@@ -272,7 +272,8 @@ public without sharing class ps_enhanced_controller {
 		this.ProductPriceBookEntryMap = new Map<String, String>();
 		this.ProductPriceMap = new Map<String, Decimal>();
 		Id userId = UserInfo.getUserId();
-		this.industry = new Industry__c();
+		this.industry = new Taxonomy_Tagging__c();
+		this.industry.RecordTypeId = getIndustryRecordType();
 		this.entity = new Covered_Entity__c();
 		this.entities = new List<Covered_Entity__c>();
 		this.Verifier = new Third_Party__c();
@@ -666,14 +667,17 @@ public without sharing class ps_enhanced_controller {
 	}
 	//END ORGANIZATION CONTACT VARIABLES AND METHODS
 
-	//ORGANIZATION INDUSTRY METHODS AND VARIABLES
+	// ORGANIZATION INDUSTRY METHODS AND VARIABLES
+	public Taxonomy_Tagging__c industry {get; set;}
 	public Boolean showEditIndustry {get; set;}
+
+	private Id industryRecordId;
 
 	public PageReference deleteIndustry(){
 		if(ApexPages.currentPage().getParameters().get('entityId') != null){
-			for(Industry__c v : this.getIndustries()){
-				if(v.Id == ApexPages.currentPage().getParameters().get('entityId')) {
-					this.showErrors = !SafeDMLHandler.safeDelete(v, true);
+			for(Taxonomy_Tagging__c industryToDelete : this.getIndustries()){
+				if(industryToDelete.Id == ApexPages.currentPage().getParameters().get('entityId')) {
+					this.showErrors = !SafeDMLHandler.safeDelete(industryToDelete, true);
 					this.showEditIndustry = false;
 				}
 			}
@@ -682,27 +686,30 @@ public without sharing class ps_enhanced_controller {
 	}
 
 	public PageReference saveIndustry(){
-		this.industry.Participant__c = this.participation.Id;
+		// insert industry
+		this.industry.Related_Application__c = this.participation.Id;
 		this.showErrors = !SafeDMLHandler.safeUpsert(this.industry, true);
-		this.industry = new Industry__c();
-		this.industry.Participant__c = this.participation.Id;
+
+		// TODO: Find out why we recreate this object and reassigns the application id
+		this.industry = new Taxonomy_Tagging__c();
+		this.industry.RecordTypeId = getIndustryRecordType();
+		this.industry.Related_Application__c = this.participation.Id;
 		this.showEditIndustry = false;
 		return null;
 	}
 
-	public Industry__c industry {get; set;}
-		public Industry__c getIndustry(){
-			if(this.industry == null){
-				this.industry = new Industry__c();
-			}
-			return this.industry;
+	public Taxonomy_Tagging__c getIndustry(){
+		if(this.industry == null){
+			this.industry = new Taxonomy_Tagging__c();
 		}
+		return this.industry;
+	}
 
-	public Industry__c[] getIndustries(){
+	public Taxonomy_Tagging__c[] getIndustries(){
 		if (this.participation.Id != null) {
-			return [SELECT Id, Industry__c, Sector__c, Sub_Sector__c FROM Industry__c WHERE Participant__c = :THIS.participation.Id ORDER BY Industry__c ASC];
+			return [SELECT Id, Industry__c, Sector__c, Sub_Sector__c FROM Taxonomy_Tagging__c WHERE Related_Application__c = :THIS.participation.Id ORDER BY Industry__c ASC];
 		}
-		return new Industry__c[]{};
+		return new Taxonomy_Tagging__c[]{};
 	}
 
 	public void ShowIndustryEdit(){
@@ -715,7 +722,7 @@ public without sharing class ps_enhanced_controller {
 
 	public PageReference selectIndustry(){
 		if(ApexPages.currentPage().getParameters().get('industryId') != null){
-			for(Industry__c ind : this.getIndustries()){
+			for(Taxonomy_Tagging__c ind : this.getIndustries()){
 				if(ind.Id == ApexPages.currentPage().getParameters().get('industryId')){
 					this.industry = ind;
 					this.showEditIndustry = true;
@@ -724,6 +731,13 @@ public without sharing class ps_enhanced_controller {
 			}
 		}
 		return null;
+	}
+
+	private Id getIndustryRecordType(){
+		if(industryRecordId == null) {
+			industryRecordId = Schema.SObjectType.Taxonomy_Tagging__c.getRecordTypeInfosByDeveloperName().get('Industry').getRecordTypeId();
+		}
+		return industryRecordId;
 	}
 	//END ORGANIZATION INDUSTRY METHODS AND VARIABLES
 
