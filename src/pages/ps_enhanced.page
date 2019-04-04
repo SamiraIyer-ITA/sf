@@ -456,7 +456,7 @@ telInput.on("keyup change", reset);
                 </apex:outputpanel>
                 <hr /> 
                 <apex:outputPanel id="IndustryInfo">
-                    <p style="margin-bottom:5px;"><strong>Although your organizat	ion is not required to do so for purposes of its self-certification, please select the <u>industry sector(s)</u> applicable to your organization.</strong> </p>
+                    <p style="margin-bottom:5px;"><strong>Although your organization is not required to do so for purposes of its self-certification, please select the <u>industry sector(s)</u> applicable to your organization.</strong> </p>
                     <p style="margin-bottom:10px;font-size: 13px;"><b>Note:</b> Please add the industry sector(s) applicable to your organization. This is for information only.</p>
                     <apex:outputpanel layout="block" id="IndustryRecordWrapper">
                         <apex:commandbutton styleClass="btn btn-gray btn-sm pull-left" style="width:105px;height:35px;" action="{!ShowIndustryEdit}" value="New Industry" rerender="IndustryOuterWrapper" />
