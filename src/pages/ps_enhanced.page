@@ -456,7 +456,7 @@ telInput.on("keyup change", reset);
                 </apex:outputpanel>
                 <hr /> 
                 <apex:outputPanel id="IndustryInfo">
-                    <p style="margin-bottom:5px;"><strong>Although your organization is not required to do so for purposes of its self-certification, please select the <u>industry sector(s)</u> applicable to your organization.</strong> </p>
+                    <p style="margin-bottom:5px;"><strong>Although your organizat	ion is not required to do so for purposes of its self-certification, please select the <u>industry sector(s)</u> applicable to your organization.</strong> </p>
                     <p style="margin-bottom:10px;font-size: 13px;"><b>Note:</b> Please add the industry sector(s) applicable to your organization. This is for information only.</p>
                     <apex:outputpanel layout="block" id="IndustryRecordWrapper">
                         <apex:commandbutton styleClass="btn btn-gray btn-sm pull-left" style="width:105px;height:35px;" action="{!ShowIndustryEdit}" value="New Industry" rerender="IndustryOuterWrapper" />
@@ -467,15 +467,15 @@ telInput.on("keyup change", reset);
                                     <br/>
                                     <apex:outputpanel layout="block" styleClass="col-md-4 pad-left-zero">
                                         <label for="industry">*Industry</label>
-                                        <apex:inputField id="industry" styleClass="required_35" onchange="if (this.value) validate('35');" value="{!industry_taxonomy.Industry__c}" />
+                                        <apex:inputField id="industry" styleClass="required_35" onchange="if (this.value) validate('35');" value="{!industry.Industry__c}" />
                                     </apex:outputpanel>
                                     <apex:outputpanel layout="block" styleClass="col-md-4 pad-both-zero">
                                         <label for="sector">*Sector</label>
-                                        <apex:inputField id="sector" styleClass="required_35" onchange="if (this.value) validate('35');" value="{!industry_taxonomy.Sector__c}" />
+                                        <apex:inputField id="sector" styleClass="required_35" onchange="if (this.value) validate('35');" value="{!industry.Sector__c}" />
                                     </apex:outputpanel>
                                     <apex:outputpanel layout="block" styleClass="col-md-4 pad-right-zero">
                                         <label for="subsector">Sub-Sector</label>
-                                        <apex:inputField id="subsector" value="{!industry_taxonomy.Sub_Sector__c}" />
+                                        <apex:inputField id="subsector" value="{!industry.Sub_Sector__c}" />
                                     </apex:outputpanel>
                                     <br/><br/><br/><br/>
                                     <apex:commandLink styleClass="btn btn-gray btn-sm" action="{!HideIndustryEdit}" reRender="IndustryOuterWrapper" value="Cancel" />
