@@ -467,15 +467,15 @@ telInput.on("keyup change", reset);
                                     <br/>
                                     <apex:outputpanel layout="block" styleClass="col-md-4 pad-left-zero">
                                         <label for="industry">*Industry</label>
-                                        <apex:inputField id="industry" styleClass="required_35" onchange="if (this.value) validate('35');" value="{!industry.Industry__c}" />
+                                        <apex:inputField id="industry" styleClass="required_35" onchange="if (this.value) validate('35');" value="{!industry_taxonomy.Industry__c}" />
                                     </apex:outputpanel>
                                     <apex:outputpanel layout="block" styleClass="col-md-4 pad-both-zero">
                                         <label for="sector">*Sector</label>
-                                        <apex:inputField id="sector" styleClass="required_35" onchange="if (this.value) validate('35');" value="{!industry.Sector__c}" />
+                                        <apex:inputField id="sector" styleClass="required_35" onchange="if (this.value) validate('35');" value="{!industry_taxonomy.Sector__c}" />
                                     </apex:outputpanel>
                                     <apex:outputpanel layout="block" styleClass="col-md-4 pad-right-zero">
                                         <label for="subsector">Sub-Sector</label>
-                                        <apex:inputField id="subsector" value="{!industry.Sub_Sector__c}" />
+                                        <apex:inputField id="subsector" value="{!industry_taxonomy.Sub_Sector__c}" />
                                     </apex:outputpanel>
                                     <br/><br/><br/><br/>
                                     <apex:commandLink styleClass="btn btn-gray btn-sm" action="{!HideIndustryEdit}" reRender="IndustryOuterWrapper" value="Cancel" />
