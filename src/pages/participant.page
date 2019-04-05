@@ -59,11 +59,11 @@
       </apex:outputPanel>  
       
       
-      <apex:outputPanel styleClass="panel panel-default" rendered="{!participation.Taxonomy_Tagging__r.size != 0}" layout="block">
+      <apex:outputPanel styleClass="panel panel-default" rendered="{!participation.industries__r.size != 0}" layout="block">
         <div class="panel-heading"> <h2>Industries</h2></div>
             <div class="panel-body">
             
-                <apex:repeat value="{!participation.Taxonomy_Tagging__r}" var="industry">
+                <apex:repeat value="{!participation.industries__r}" var="industry">
                     <div class="col-md-6">
                         <ul style="margin-bottom:20px;">
                             <li style="color:#586874;font-size:15px;" class="about"><i style="margin-right:3px;color:#bababa;" class="fa fa-thumb-tack" aria-hidden="true"></i> {!industry.Industry__c}</li>

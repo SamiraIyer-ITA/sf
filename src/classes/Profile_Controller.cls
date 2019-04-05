@@ -17,8 +17,6 @@ public without sharing class Profile_Controller {
 	public Map<String, Asset> assets {get; set;}
 	public List<Order> OrderList {get; set;}
 
-	private Id industryRecordId;
-
 	public Boolean getIsContact(){
 		if (ApexPages.currentPage().getParameters().get('contact') != null) {
 			return true;
@@ -44,7 +42,6 @@ public without sharing class Profile_Controller {
 	public Boolean HasEditAccess {get; set;}
 
 	public Profile_Controller() {
-		getIndustryRecordType();
 		this.isActive = true;  //Default to true
 		this.status = 'Active';
 		if(ApexPages.currentPage().getParameters().get('status') != null && ApexPages.currentPage().getParameters().get('status') == 'Inactive'){
@@ -105,7 +102,7 @@ public without sharing class Profile_Controller {
 							   (SELECT Id, First_Name__c, Last_Name__c, Email__c, Fax__c, Phone__c, Contact_Office__c, Title__c FROM Participant_Contacts__r WHERE Role__c = 'Organization Contact' ORDER BY LastModifiedDate DESC LIMIT 1) primary_contact,
 							   (SELECT Id, NAME FROM covered_entities__r ORDER BY NAME ASC),
 							   (SELECT Id FROM orders__r),
-							   (SELECT Id, industry__c, sector__c, sub_sector__c FROM Taxonomy_Tagging__r WHERE RecordTypeId = :industryRecordId ORDER BY industry__c ASC, sector__c ASC, sub_sector__c ASC)
+							   (SELECT Id, industry__c, sector__c, sub_sector__c FROM industries__r ORDER BY industry__c ASC, sector__c ASC, sub_sector__c ASC)
 							   FROM Participation__c WHERE Id = :THIS.participationId LIMIT 1
 							 ];
 
@@ -198,13 +195,6 @@ public without sharing class Profile_Controller {
 		if(verifierId != null){
 			this.verifier = [SELECT Id, Name, Website__c FROM Third_Party_Master_List__c WHERE Id = :verifierId LIMIT 1];
 		}
-	}
-
-	private Id getIndustryRecordType(){
-		if(industryRecordId == null) {
-			industryRecordId = Schema.SObjectType.Taxonomy_Tagging__c.getRecordTypeInfosByDeveloperName().get('Industry').getRecordTypeId();
-		}
-		return industryRecordId;
 	}
 
 }
