@@ -2,3 +2,5 @@ Copying src/globalValueSets/Country.globalValueSet
 Copying src/globalValueSets/Industry.globalValueSet
 Copying src/globalValueSets/Sector.globalValueSet
 Copying src/globalValueSets/Sub_Sector.globalValueSet
+src/classes/ps_enhanced_controller.cls
+src/classes/Profile_Controller.cls
