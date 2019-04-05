@@ -1,6 +1,0 @@
-src/globalValueSets/Country.globalValueSet
-src/globalValueSets/Industry.globalValueSet
-src/globalValueSets/Sector.globalValueSet
-src/globalValueSets/Sub_Sector.globalValueSet
-src/classes/ps_enhanced_controller.cls
-src/classes/Profile_Controller.cls
