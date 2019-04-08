@@ -9090,6 +9090,71 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Taxonomy_Tagging__c.Category__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Taxonomy_Tagging__c.Country__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Taxonomy_Tagging__c.Industry__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Taxonomy_Tagging__c.Related_Application__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Taxonomy_Tagging__c.Related_Case__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Taxonomy_Tagging__c.Related_Lead__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Taxonomy_Tagging__c.Related_Organization__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Taxonomy_Tagging__c.Related_WIN__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Taxonomy_Tagging__c.Sector__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Taxonomy_Tagging__c.Sub_Sector__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Taxonomy_Tagging__c.Taxonomy_One__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Taxonomy_Tagging__c.Trade_Issue__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Taxonomy_Tagging__c.Trade_Region__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Template_Page_Content__c.Container__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -10890,6 +10955,25 @@
         <layout>Task-Task Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Taxonomy_Tagging__c-Country</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Taxonomy_Tagging__c-Country</layout>
+        <recordType>Taxonomy_Tagging__c.Country</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Taxonomy_Tagging__c-Country</layout>
+        <recordType>Taxonomy_Tagging__c.Industry</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Taxonomy_Tagging__c-Country</layout>
+        <recordType>Taxonomy_Tagging__c.Trade_Issue</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Taxonomy_Tagging__c-Country</layout>
+        <recordType>Taxonomy_Tagging__c.Trade_Region</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Template_Page_Content__c-_Page_Content Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -11407,6 +11491,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Sync_Utility__mdt</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Taxonomy_Tagging__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -12453,6 +12546,26 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Taxonomy_Tagging__c.Country</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Taxonomy_Tagging__c.Industry</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Taxonomy_Tagging__c.Trade_Issue</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Taxonomy_Tagging__c.Trade_Region</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Template_Page_Content__c.API</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
@@ -12764,6 +12877,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Suspension_Agreement__c</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Taxonomy_Tagging__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
