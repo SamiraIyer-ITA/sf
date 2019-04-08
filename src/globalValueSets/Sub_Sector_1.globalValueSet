@@ -396,6 +396,16 @@
         <label>Earthmoving Equipment</label>
     </customValue>
     <customValue>
+        <fullName>Educational Software</fullName>
+        <default>false</default>
+        <label>Educational Software</label>
+    </customValue>
+    <customValue>
+        <fullName>Educational Technology Hardware</fullName>
+        <default>false</default>
+        <label>Educational Technology Hardware</label>
+    </customValue>
+    <customValue>
         <fullName>Education Research Organizations</fullName>
         <default>false</default>
         <label>Education Research Organizations</label>
@@ -409,16 +419,6 @@
         <fullName>Education Web Design Services</fullName>
         <default>false</default>
         <label>Education Web Design Services</label>
-    </customValue>
-    <customValue>
-        <fullName>Educational Software</fullName>
-        <default>false</default>
-        <label>Educational Software</label>
-    </customValue>
-    <customValue>
-        <fullName>Educational Technology Hardware</fullName>
-        <default>false</default>
-        <label>Educational Technology Hardware</label>
     </customValue>
     <customValue>
         <fullName>Electrical Systems and Lighting</fullName>
@@ -891,6 +891,11 @@
         <label>Museums</label>
     </customValue>
     <customValue>
+        <fullName>Musical Instruments</fullName>
+        <default>false</default>
+        <label>Musical Instruments</label>
+    </customValue>
+    <customValue>
         <fullName>Music Labels</fullName>
         <default>false</default>
         <label>Music Labels</label>
@@ -914,11 +919,6 @@
         <fullName>Music Streaming Services</fullName>
         <default>false</default>
         <label>Music Streaming Services</label>
-    </customValue>
-    <customValue>
-        <fullName>Musical Instruments</fullName>
-        <default>false</default>
-        <label>Musical Instruments</label>
     </customValue>
     <customValue>
         <fullName>National Parks</fullName>
@@ -1069,6 +1069,11 @@
         <fullName>Pet Care</fullName>
         <default>false</default>
         <label>Pet Care</label>
+    </customValue>
+    <customValue>
+        <fullName>Petrochemicals</fullName>
+        <default>false</default>
+        <label>Petrochemicals</label>
     </customValue>
     <customValue>
         <fullName>Petroleum Refineries</fullName>

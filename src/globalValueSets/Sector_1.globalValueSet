@@ -341,6 +341,16 @@
         <label>Education Accreditation Agencies</label>
     </customValue>
     <customValue>
+        <fullName>Educational Tour Operators</fullName>
+        <default>false</default>
+        <label>Educational Tour Operators</label>
+    </customValue>
+    <customValue>
+        <fullName>Educational Toys and Games</fullName>
+        <default>false</default>
+        <label>Educational Toys and Games</label>
+    </customValue>
+    <customValue>
         <fullName>Education Consortiums</fullName>
         <default>false</default>
         <label>Education Consortiums</label>
@@ -359,16 +369,6 @@
         <fullName>Education Trade Fair Organizers</fullName>
         <default>false</default>
         <label>Education Trade Fair Organizers</label>
-    </customValue>
-    <customValue>
-        <fullName>Educational Tour Operators</fullName>
-        <default>false</default>
-        <label>Educational Tour Operators</label>
-    </customValue>
-    <customValue>
-        <fullName>Educational Toys and Games</fullName>
-        <default>false</default>
-        <label>Educational Toys and Games</label>
     </customValue>
     <customValue>
         <fullName>Electricity Infrastructure</fullName>
@@ -701,14 +701,14 @@
         <label>Moving Services</label>
     </customValue>
     <customValue>
-        <fullName>Music and Sound Recordings</fullName>
-        <default>false</default>
-        <label>Music and Sound Recordings</label>
-    </customValue>
-    <customValue>
         <fullName>Musical Instruments</fullName>
         <default>false</default>
         <label>Musical Instruments</label>
+    </customValue>
+    <customValue>
+        <fullName>Music and Sound Recordings</fullName>
+        <default>false</default>
+        <label>Music and Sound Recordings</label>
     </customValue>
     <customValue>
         <fullName>Oil and Gas</fullName>
@@ -764,6 +764,11 @@
         <fullName>Plastics</fullName>
         <default>false</default>
         <label>Plastics</label>
+    </customValue>
+    <customValue>
+        <fullName>Plastics Production Machinery</fullName>
+        <default>false</default>
+        <label>Plastics Production Machinery</label>
     </customValue>
     <customValue>
         <fullName>Pleasure Boats &amp; Accessories</fullName>
@@ -1087,10 +1092,10 @@
         <label>Construction Services</label>
     </customValue>
     <customValue>
-        <fullName>Automobiles</fullName>
+        <fullName>Building Products and Equipment</fullName>
         <default>false</default>
         <isActive>false</isActive>
-        <label>Automobiles</label>
+        <label>Building Products and Equipment</label>
     </customValue>
     <customValue>
         <fullName>Architecture Services</fullName>
@@ -1217,6 +1222,12 @@
         <default>false</default>
         <isActive>false</isActive>
         <label>Coatings and Adhesives</label>
+    </customValue>
+    <customValue>
+        <fullName>Automobiles</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Automobiles</label>
     </customValue>
     <customValue>
         <fullName>Engineering Services</fullName>
