@@ -258,19 +258,14 @@
             <sortOrder>1</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>ChangeRecordType</actionName>
+            <actionName>PrintableView</actionName>
             <actionType>StandardButton</actionType>
             <sortOrder>2</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>PrintableView</actionName>
-            <actionType>StandardButton</actionType>
-            <sortOrder>3</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
             <actionName>Delete</actionName>
             <actionType>StandardButton</actionType>
-            <sortOrder>4</sortOrder>
+            <sortOrder>3</sortOrder>
         </platformActionListItems>
     </platformActionList>
     <quickActionList>
@@ -291,6 +286,17 @@
         <relatedList>WIN_Contributor__c.WIN__c</relatedList>
         <sortField>Inactive__c</sortField>
         <sortOrder>Asc</sortOrder>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Country__c</fields>
+        <fields>Trade_Region__c</fields>
+        <fields>Industry__c</fields>
+        <fields>Sector__c</fields>
+        <fields>Sub_Sector__c</fields>
+        <fields>Category__c</fields>
+        <fields>Trade_Issue__c</fields>
+        <relatedList>Taxonomy_Tagging__c.Related_WIN__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>Country__c</fields>

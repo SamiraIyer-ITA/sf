@@ -339,6 +339,10 @@
         <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Taxonomy_Tagging__c.Related_WIN__c</relatedList>
+    </relatedLists>
+    <relatedLists>
         <fields>Country__c</fields>
         <fields>CREATEDBY_USER</fields>
         <relatedList>RelatedCountries__c.WIN__c</relatedList>

@@ -1,0 +1,981 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Aerospace and Defense</fullName>
+        <default>false</default>
+        <label>Aerospace and Defense</label>
+    </customValue>
+    <customValue>
+        <fullName>Agribusiness</fullName>
+        <default>false</default>
+        <label>Agribusiness</label>
+    </customValue>
+    <customValue>
+        <fullName>Automotive</fullName>
+        <default>false</default>
+        <label>Automotive</label>
+    </customValue>
+    <customValue>
+        <fullName>Business and Professional Services</fullName>
+        <default>false</default>
+        <label>Business and Professional Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Chemicals</fullName>
+        <default>false</default>
+        <label>Chemicals</label>
+    </customValue>
+    <customValue>
+        <fullName>Design and Construction</fullName>
+        <default>false</default>
+        <label>Design and Construction</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer Goods</fullName>
+        <default>false</default>
+        <label>Consumer Goods</label>
+    </customValue>
+    <customValue>
+        <fullName>Distribution and Logistics</fullName>
+        <default>false</default>
+        <label>Distribution and Logistics</label>
+    </customValue>
+    <customValue>
+        <fullName>Education</fullName>
+        <default>false</default>
+        <label>Education</label>
+    </customValue>
+    <customValue>
+        <fullName>Energy</fullName>
+        <default>false</default>
+        <label>Energy</label>
+    </customValue>
+    <customValue>
+        <fullName>Environmental Technology</fullName>
+        <default>false</default>
+        <label>Environmental Technology</label>
+    </customValue>
+    <customValue>
+        <fullName>Equipment and Machinery</fullName>
+        <default>false</default>
+        <label>Equipment and Machinery</label>
+    </customValue>
+    <customValue>
+        <fullName>Financial Services</fullName>
+        <default>false</default>
+        <label>Financial Services</label>
+    </customValue>
+    <customValue>
+        <fullName>Food and Beverage</fullName>
+        <default>false</default>
+        <label>Food and Beverage</label>
+    </customValue>
+    <customValue>
+        <fullName>Franchising</fullName>
+        <default>false</default>
+        <label>Franchising</label>
+    </customValue>
+    <customValue>
+        <fullName>Healthcare</fullName>
+        <default>false</default>
+        <label>Healthcare</label>
+    </customValue>
+    <customValue>
+        <fullName>Industrial Materials</fullName>
+        <default>false</default>
+        <label>Industrial Materials</label>
+    </customValue>
+    <customValue>
+        <fullName>Information and Communications Technology</fullName>
+        <default>false</default>
+        <label>Information and Communications Technology</label>
+    </customValue>
+    <customValue>
+        <fullName>Marine Technology</fullName>
+        <default>false</default>
+        <label>Marine Technology</label>
+    </customValue>
+    <customValue>
+        <fullName>Media and Entertainment</fullName>
+        <default>false</default>
+        <label>Media and Entertainment</label>
+    </customValue>
+    <customValue>
+        <fullName>Non-Profits and Associations</fullName>
+        <default>false</default>
+        <label>Non-Profits and Associations</label>
+    </customValue>
+    <customValue>
+        <fullName>Public Sector</fullName>
+        <default>false</default>
+        <label>Public Sector</label>
+    </customValue>
+    <customValue>
+        <fullName>Retail Trade</fullName>
+        <default>false</default>
+        <label>Retail Trade</label>
+    </customValue>
+    <customValue>
+        <fullName>Safety &amp; Security</fullName>
+        <default>false</default>
+        <label>Safety &amp; Security</label>
+    </customValue>
+    <customValue>
+        <fullName>Textiles and Apparel</fullName>
+        <default>false</default>
+        <label>Textiles and Apparel</label>
+    </customValue>
+    <customValue>
+        <fullName>Travel and Tourism</fullName>
+        <default>false</default>
+        <label>Travel and Tourism</label>
+    </customValue>
+    <customValue>
+        <fullName>Wholesale Trade</fullName>
+        <default>false</default>
+        <label>Wholesale Trade</label>
+    </customValue>
+    <customValue>
+        <fullName>Materials</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Materials</label>
+    </customValue>
+    <customValue>
+        <fullName>Automobiles</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Automobiles</label>
+    </customValue>
+    <customValue>
+        <fullName>Information technologies</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Information technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Other</label>
+    </customValue>
+    <customValue>
+        <fullName>Healthcare products</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Healthcare products</label>
+    </customValue>
+    <customValue>
+        <fullName>Aerospace</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Aerospace</label>
+    </customValue>
+    <customValue>
+        <fullName>Services industries</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Services industries</label>
+    </customValue>
+    <customValue>
+        <fullName>Other  Healthcare products</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Other  Healthcare products</label>
+    </customValue>
+    <customValue>
+        <fullName>Leather and Leather Products  Textile and Apparel  Textiles and apparel  footwear  Footwear  Travel goods</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Leather and Leather Products  Textile and Apparel  Textiles and apparel  footwear  Footwear  Travel goods</label>
+    </customValue>
+    <customValue>
+        <fullName>Textile and Apparel</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Textile and Apparel</label>
+    </customValue>
+    <customValue>
+        <fullName>All</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>All</label>
+    </customValue>
+    <customValue>
+        <fullName>Telecommunications</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Telecommunications</label>
+    </customValue>
+    <customValue>
+        <fullName>Telecommunications  Information technologies</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Telecommunications  Information technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>Machinery</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Machinery</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Other  Information technologies</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Other  Information technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>Services industries  Automobiles</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Services industries  Automobiles</label>
+    </customValue>
+    <customValue>
+        <fullName>Machinery  Materials  Energy</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Machinery  Materials  Energy</label>
+    </customValue>
+    <customValue>
+        <fullName>Services industries  Other</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Services industries  Other</label>
+    </customValue>
+    <customValue>
+        <fullName>Other  Automobiles</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Other  Automobiles</label>
+    </customValue>
+    <customValue>
+        <fullName>Aerospace  Energy  Services industries</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Aerospace  Energy  Services industries</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Machinery  Materials  Energy  Services industries  Information technologies  Healthcare products</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Machinery  Materials  Energy  Services industries  Information technologies  Healthcare products</label>
+    </customValue>
+    <customValue>
+        <fullName>Machinery  Environmental technologies</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Machinery  Environmental technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Automobiles</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Automobiles</label>
+    </customValue>
+    <customValue>
+        <fullName>E-commerce</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>E-commerce</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Healthcare products</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Healthcare products</label>
+    </customValue>
+    <customValue>
+        <fullName>Aerospace  Information technologies</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Aerospace  Information technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Services industries</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Services industries</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Machinery  Information technologies  Automobiles</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Machinery  Information technologies  Automobiles</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Materials</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Materials</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Other</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Other</label>
+    </customValue>
+    <customValue>
+        <fullName>Machinery  Materials</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Machinery  Materials</label>
+    </customValue>
+    <customValue>
+        <fullName>Materials  Energy  Healthcare products</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Materials  Energy  Healthcare products</label>
+    </customValue>
+    <customValue>
+        <fullName>Textile and Apparel  Consumer goods</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Textile and Apparel  Consumer goods</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Machinery  Information technologies  Automobiles  Healthcare products</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Machinery  Information technologies  Automobiles  Healthcare products</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Machinery  Materials  Environmental technologies  Information technologies  Healthcare products</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Machinery  Materials  Environmental technologies  Information technologies  Healthcare products</label>
+    </customValue>
+    <customValue>
+        <fullName>Energy  Other</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Energy  Other</label>
+    </customValue>
+    <customValue>
+        <fullName>Environmental technologies  Other</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Environmental technologies  Other</label>
+    </customValue>
+    <customValue>
+        <fullName>Environmental technologies</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Environmental technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Services industries  Healthcare products</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Services industries  Healthcare products</label>
+    </customValue>
+    <customValue>
+        <fullName>Materials  Other</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Materials  Other</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Materials  Other</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Materials  Other</label>
+    </customValue>
+    <customValue>
+        <fullName>Telecommunications  Services industries  Information technologies</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Telecommunications  Services industries  Information technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>Information technologies  Healthcare products</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Information technologies  Healthcare products</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Materials  Environmental technologies  Other</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Materials  Environmental technologies  Other</label>
+    </customValue>
+    <customValue>
+        <fullName>Other  Information technologies  E-commerce</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Other  Information technologies  E-commerce</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Materials  Healthcare products</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Materials  Healthcare products</label>
+    </customValue>
+    <customValue>
+        <fullName>Machinery  Other  Healthcare products</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Machinery  Other  Healthcare products</label>
+    </customValue>
+    <customValue>
+        <fullName>Machinery  Healthcare products</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Machinery  Healthcare products</label>
+    </customValue>
+    <customValue>
+        <fullName>Materials  Healthcare products</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Materials  Healthcare products</label>
+    </customValue>
+    <customValue>
+        <fullName>Telecommunications  Services industries</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Telecommunications  Services industries</label>
+    </customValue>
+    <customValue>
+        <fullName>Machinery  Information technologies</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Machinery  Information technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>Energy  Automobiles</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Energy  Automobiles</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Environmental technologies</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Environmental technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>Machinery  Other  Automobiles</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Machinery  Other  Automobiles</label>
+    </customValue>
+    <customValue>
+        <fullName>Materials  Energy  Automobiles</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Materials  Energy  Automobiles</label>
+    </customValue>
+    <customValue>
+        <fullName>Other  Information technologies</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Other  Information technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Machinery</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Machinery</label>
+    </customValue>
+    <customValue>
+        <fullName>Aerospace  Machinery  Energy</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Aerospace  Machinery  Energy</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Materials  Environmental technologies  Information technologies  Healthcare products</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Materials  Environmental technologies  Information technologies  Healthcare products</label>
+    </customValue>
+    <customValue>
+        <fullName>Machinery  Automobiles</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Machinery  Automobiles</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Machinery  Materials  Telecommunications  Information technologies</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Machinery  Materials  Telecommunications  Information technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Machinery  Materials  Information technologies</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Machinery  Materials  Information technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Environmental technologies  Information technologies</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Environmental technologies  Information technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Telecommunications</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Telecommunications</label>
+    </customValue>
+    <customValue>
+        <fullName>Aerospace  Textile and Apparel  Consumer goods  Machinery  Materials  Energy  Telecommunications  Services industries  Environmental technologies  Other  Information technologies  Automobiles  Healthcare products</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Aerospace  Textile and Apparel  Consumer goods  Machinery  Materials  Energy  Telecommunications  Services industries  Environmental technologies  Other  Information technologies  Automobiles  Healthcare products</label>
+    </customValue>
+    <customValue>
+        <fullName>Machinery  Energy</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Machinery  Energy</label>
+    </customValue>
+    <customValue>
+        <fullName>Leather and Leather Products  Textile and Apparel  Textiles and apparel  footwear  Services industries  Footwear  Travel goods</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Leather and Leather Products  Textile and Apparel  Textiles and apparel  footwear  Services industries  Footwear  Travel goods</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Machinery  Materials  Services industries  Healthcare products</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Machinery  Materials  Services industries  Healthcare products</label>
+    </customValue>
+    <customValue>
+        <fullName>Aerospace  Automobiles</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Aerospace  Automobiles</label>
+    </customValue>
+    <customValue>
+        <fullName>Materials  Services industries</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Materials  Services industries</label>
+    </customValue>
+    <customValue>
+        <fullName>Machinery  Materials  Energy  Services industries  Information technologies</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Machinery  Materials  Energy  Services industries  Information technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>Textile and Apparel  Consumer goods  Information technologies</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Textile and Apparel  Consumer goods  Information technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>Leather and Leather Products  Textile and Apparel  Consumer goods  Machinery  Textiles and apparel  footwear  Energy  Telecommunications  Information technologies  Automobiles  Footwear  Travel goods</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Leather and Leather Products  Textile and Apparel  Consumer goods  Machinery  Textiles and apparel  footwear  Energy  Telecommunications  Information technologies  Automobiles  Footwear  Travel goods</label>
+    </customValue>
+    <customValue>
+        <fullName>All  Automobiles</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>All  Automobiles</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Machinery  Telecommunications  Information technologies</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Machinery  Telecommunications  Information technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Telecommunications  Information technologies</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Telecommunications  Information technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Information technologies</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Information technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>Machinery  Materials  Automobiles</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Machinery  Materials  Automobiles</label>
+    </customValue>
+    <customValue>
+        <fullName>Machinery  Materials  Services industries  Automobiles</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Machinery  Materials  Services industries  Automobiles</label>
+    </customValue>
+    <customValue>
+        <fullName>Materials  Information technologies</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Materials  Information technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Other  Automobiles</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Other  Automobiles</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Other  Healthcare products</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Other  Healthcare products</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Materials  Energy  Telecommunications  Information technologies  Automobiles  Healthcare products</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Materials  Energy  Telecommunications  Information technologies  Automobiles  Healthcare products</label>
+    </customValue>
+    <customValue>
+        <fullName>Textile and Apparel  Consumer goods  Machinery  Materials  Other  Automobiles</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Textile and Apparel  Consumer goods  Machinery  Materials  Other  Automobiles</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Machinery  Materials  Energy  Services industries  Other  Automobiles</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Machinery  Materials  Energy  Services industries  Other  Automobiles</label>
+    </customValue>
+    <customValue>
+        <fullName>Aerospace  Machinery  Telecommunications  Other  Information technologies  Automobiles  Healthcare products</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Aerospace  Machinery  Telecommunications  Other  Information technologies  Automobiles  Healthcare products</label>
+    </customValue>
+    <customValue>
+        <fullName>Telecommunications  Information technologies  E-commerce</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Telecommunications  Information technologies  E-commerce</label>
+    </customValue>
+    <customValue>
+        <fullName>Travel and tourism  Services industries</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Travel and tourism  Services industries</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Machinery  Materials  Telecommunications  Environmental technologies  Information technologies  Healthcare products</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Machinery  Materials  Telecommunications  Environmental technologies  Information technologies  Healthcare products</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Machinery  Materials  Other  Automobiles</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Machinery  Materials  Other  Automobiles</label>
+    </customValue>
+    <customValue>
+        <fullName>Textile and Apparel  Healthcare products</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Textile and Apparel  Healthcare products</label>
+    </customValue>
+    <customValue>
+        <fullName>Textile and Apparel  Consumer goods  Machinery  Materials  Healthcare products</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Textile and Apparel  Consumer goods  Machinery  Materials  Healthcare products</label>
+    </customValue>
+    <customValue>
+        <fullName>Aerospace  Consumer goods  Machinery  Materials  Telecommunications  Services industries  Other  Information technologies  Automobiles  Healthcare products</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Aerospace  Consumer goods  Machinery  Materials  Telecommunications  Services industries  Other  Information technologies  Automobiles  Healthcare products</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Machinery  Energy  Environmental technologies</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Machinery  Energy  Environmental technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Machinery  Automobiles  Healthcare products</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Machinery  Automobiles  Healthcare products</label>
+    </customValue>
+    <customValue>
+        <fullName>Textile and Apparel  Energy  Other</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Textile and Apparel  Energy  Other</label>
+    </customValue>
+    <customValue>
+        <fullName>Telecommunications  Other  Information technologies</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Telecommunications  Other  Information technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>Materials  Environmental technologies</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Materials  Environmental technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>Textile and Apparel  Other</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Textile and Apparel  Other</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Services industries  Other</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Services industries  Other</label>
+    </customValue>
+    <customValue>
+        <fullName>Machinery  Other</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Machinery  Other</label>
+    </customValue>
+    <customValue>
+        <fullName>Textile and Apparel  Consumer goods  Other</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Textile and Apparel  Consumer goods  Other</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Machinery  Materials  Energy  Telecommunications  Services industries  Other  Information technologies  Automobiles  Healthcare products</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Machinery  Materials  Energy  Telecommunications  Services industries  Other  Information technologies  Automobiles  Healthcare products</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Machinery  Materials  Energy  Environmental technologies  Other  Information technologies  Automobiles  Healthcare products</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Machinery  Materials  Energy  Environmental technologies  Other  Information technologies  Automobiles  Healthcare products</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Materials  Services industries  Automobiles</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Materials  Services industries  Automobiles</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Machinery  Materials  Energy  Telecommunications  Information technologies  Healthcare products</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Machinery  Materials  Energy  Telecommunications  Information technologies  Healthcare products</label>
+    </customValue>
+    <customValue>
+        <fullName>Textile and Apparel  Materials</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Textile and Apparel  Materials</label>
+    </customValue>
+    <customValue>
+        <fullName>Aerospace  Other</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Aerospace  Other</label>
+    </customValue>
+    <customValue>
+        <fullName>Energy  Information technologies</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Energy  Information technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>Materials  Energy</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Materials  Energy</label>
+    </customValue>
+    <customValue>
+        <fullName>Aerospace  Consumer goods  Materials  Services industries  Other  Information technologies  Automobiles  Healthcare products</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Aerospace  Consumer goods  Materials  Services industries  Other  Information technologies  Automobiles  Healthcare products</label>
+    </customValue>
+    <customValue>
+        <fullName>Machinery  Energy  Services industries</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Machinery  Energy  Services industries</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer goods  Machinery  Telecommunications  Information technologies  Healthcare products</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer goods  Machinery  Telecommunications  Information technologies  Healthcare products</label>
+    </customValue>
+    <customValue>
+        <fullName>Energy  Other  Information technologies</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Energy  Other  Information technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>Textile and Apparel  Information technologies</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Textile and Apparel  Information technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>Services industries  Information technologies</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Services industries  Information technologies</label>
+    </customValue>
+    <customValue>
+        <fullName>Aerospace  Services industries</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Aerospace  Services industries</label>
+    </customValue>
+    <customValue>
+        <fullName>Machinery  Materials  Other</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Machinery  Materials  Other</label>
+    </customValue>
+    <customValue>
+        <fullName>Machinery  Telecommunications  Information technologies  Healthcare products</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Machinery  Telecommunications  Information technologies  Healthcare products</label>
+    </customValue>
+    <customValue>
+        <fullName>Leather and Leather Products  Textile and Apparel  Consumer goods  Textiles and apparel  footwear  Footwear  Travel goods</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Leather and Leather Products  Textile and Apparel  Consumer goods  Textiles and apparel  footwear  Footwear  Travel goods</label>
+    </customValue>
+    <customValue>
+        <fullName>Transportation and Logistics</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Transportation and Logistics</label>
+    </customValue>
+    <customValue>
+        <fullName>Energy (incl utilities, wind, solar, renewable)</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Energy (incl utilities, wind, solar, renewable)</label>
+    </customValue>
+    <customValue>
+        <fullName>Consumer and Retail</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Consumer and Retail</label>
+    </customValue>
+    <customValue>
+        <fullName>Other: Please specify below</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Other: Please specify below</label>
+    </customValue>
+    <customValue>
+        <fullName>Professional Services (incl legal, architectural &amp; engineering)</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Professional Services (incl legal, architectural &amp; engineering)</label>
+    </customValue>
+    <customValue>
+        <fullName>Automotive (incl parts)</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Automotive (incl parts)</label>
+    </customValue>
+    <customValue>
+        <fullName>Mining (incl quarry, oil &amp; gas extraction)</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Mining (incl quarry, oil &amp; gas extraction)</label>
+    </customValue>
+    <customValue>
+        <fullName>Food Processing &amp; Packaging</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Food Processing &amp; Packaging</label>
+    </customValue>
+    <customValue>
+        <fullName>Machinery and Equipment</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Machinery and Equipment</label>
+    </customValue>
+    <customValue>
+        <fullName>Biotechnology (the science of biology)</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Biotechnology (the science of biology)</label>
+    </customValue>
+    <customValue>
+        <fullName>Agribusiness (incl forestry, fishing, hunting)</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Agribusiness (incl forestry, fishing, hunting)</label>
+    </customValue>
+    <customValue>
+        <fullName>Pharmaceuticals (the science of chemistry)</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Pharmaceuticals (the science of chemistry)</label>
+    </customValue>
+    <customValue>
+        <fullName>Travel, Tourism &amp; Hospitality</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Travel, Tourism &amp; Hospitality</label>
+    </customValue>
+    <customValue>
+        <fullName>Research and Development</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Research and Development</label>
+    </customValue>
+    <customValue>
+        <fullName>Construction (incl building and development)</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Construction (incl building and development)</label>
+    </customValue>
+    <customValue>
+        <fullName>Education and Training</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Education and Training</label>
+    </customValue>
+    <customValue>
+        <fullName>Healthcare and Medical Technology</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Healthcare and Medical Technology</label>
+    </customValue>
+    <customValue>
+        <fullName>Financial Services (incl banking, insurance)</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Financial Services (incl banking, insurance)</label>
+    </customValue>
+    <customValue>
+        <fullName>Environmental Technology (incl cleantech)</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Environmental Technology (incl cleantech)</label>
+    </customValue>
+    <customValue>
+        <fullName>Entertainment (incl media, publishing)</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Entertainment (incl media, publishing)</label>
+    </customValue>
+    <description>The Industry taxonomy taken from the &quot;Thesaurus of International Trade Terms&quot; on trade.gov dev site.</description>
+    <masterLabel>Industry</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

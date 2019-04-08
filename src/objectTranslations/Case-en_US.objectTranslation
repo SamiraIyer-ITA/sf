@@ -2104,6 +2104,14 @@
         <name>NewChildCase</name>
     </quickActions>
     <quickActions>
+        <label><!-- New Trade Issue --></label>
+        <name>New_Trade_Issue</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Trade Region --></label>
+        <name>New_Trade_Region</name>
+    </quickActions>
+    <quickActions>
         <label><!-- SUSA Fields --></label>
         <name>SUSA_Fields</name>
     </quickActions>

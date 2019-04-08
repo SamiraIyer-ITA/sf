@@ -187,44 +187,39 @@
             <sortOrder>5</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>ChangeRecordType</actionName>
+            <actionName>Delete</actionName>
             <actionType>StandardButton</actionType>
             <sortOrder>6</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>Delete</actionName>
+            <actionName>AccountHierarchy</actionName>
             <actionType>StandardButton</actionType>
             <sortOrder>7</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>XClean</actionName>
-            <actionType>StandardButton</actionType>
-            <sortOrder>11</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
-            <actionName>PartnerScorecard</actionName>
-            <actionType>StandardButton</actionType>
-            <sortOrder>12</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
-            <actionName>AccountHierarchy</actionName>
+            <actionName>DisableCustomerPortalAccount</actionName>
             <actionType>StandardButton</actionType>
             <sortOrder>8</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>DisableCustomerPortalAccount</actionName>
+            <actionName>CreateSurveyInvitation</actionName>
             <actionType>StandardButton</actionType>
             <sortOrder>9</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
-            <actionName>CreateSurveyInvitation</actionName>
+            <actionName>XClean</actionName>
             <actionType>StandardButton</actionType>
             <sortOrder>10</sortOrder>
         </platformActionListItems>
         <platformActionListItems>
+            <actionName>PartnerScorecard</actionName>
+            <actionType>StandardButton</actionType>
+            <sortOrder>11</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
             <actionName>PrintableView</actionName>
             <actionType>StandardButton</actionType>
-            <sortOrder>13</sortOrder>
+            <sortOrder>12</sortOrder>
         </platformActionListItems>
     </platformActionList>
     <relatedContent>
@@ -247,6 +242,17 @@
         <fields>CONTACT.PHONE1</fields>
         <fields>CORE.USERS.LAST_NAME</fields>
         <relatedList>RelatedContactList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>RECORDTYPE</fields>
+        <fields>Country__c</fields>
+        <fields>Trade_Region__c</fields>
+        <fields>Industry__c</fields>
+        <fields>Sector__c</fields>
+        <fields>Sub_Sector__c</fields>
+        <fields>Category__c</fields>
+        <fields>Trade_Issue__c</fields>
+        <relatedList>Taxonomy_Tagging__c.Related_Organization__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>Industry__c</fields>

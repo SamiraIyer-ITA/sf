@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Taxonomy Tagging</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Taxonomy Tagging</value>
+    </caseValues>
+    <fields>
+        <label><!-- Country --></label>
+        <name>Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- Industry --></label>
+        <name>Industry__c</name>
+    </fields>
+    <fields>
+        <label><!-- Related Application --></label>
+        <name>Related_Application__c</name>
+        <relationshipLabel><!-- Taxonomy Tagging --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Related Case --></label>
+        <name>Related_Case__c</name>
+        <relationshipLabel><!-- Taxonomy Tagging --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Related Lead --></label>
+        <name>Related_Lead__c</name>
+        <relationshipLabel><!-- Taxonomy Tagging --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Related Organization --></label>
+        <name>Related_Organization__c</name>
+        <relationshipLabel><!-- Taxonomy Tagging --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Related WIN --></label>
+        <name>Related_WIN__c</name>
+        <relationshipLabel><!-- Taxonomy Tagging --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Sector --></label>
+        <name>Sector__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sub-Sector --></label>
+        <name>Sub_Sector__c</name>
+    </fields>
+    <fields>
+        <label><!-- Taxonomy One --></label>
+        <name>Taxonomy_One__c</name>
+    </fields>
+    <fields>
+        <label><!-- Trade Issue - Category --></label>
+        <name>Category__c</name>
+    </fields>
+    <fields>
+        <label><!-- Trade Issue --></label>
+        <name>Trade_Issue__c</name>
+    </fields>
+    <fields>
+        <label><!-- Trade Region --></label>
+        <name>Trade_Region__c</name>
+    </fields>
+    <layouts>
+        <layout>Country</layout>
+        <sections>
+            <label><!-- Country --></label>
+            <section>Country</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Related Records --></label>
+            <section>Related Records</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Industry</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Industry --></label>
+            <section>Industry</section>
+        </sections>
+        <sections>
+            <label><!-- Related Records --></label>
+            <section>Related Records</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Trade Region</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Related Records --></label>
+            <section>Related Records</section>
+        </sections>
+        <sections>
+            <label><!-- Trade Region --></label>
+            <section>Trade Region</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Country --></label>
+        <name>Country</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Industry --></label>
+        <name>Industry</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Trade Issue --></label>
+        <name>Trade_Issue</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Trade Region --></label>
+        <name>Trade_Region</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- You may only select one Related Record --></errorMessage>
+        <name>Only_Choose_One_Related_Record</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You are required to choose an Industry, Country or Trade Region --></errorMessage>
+        <name>Require_One_Taxonomy_Field</name>
+    </validationRules>
+</CustomObjectTranslation>
