@@ -159,14 +159,6 @@ public without sharing class StaffingAssignmentExtension {
         return userIdSet;
         } set;
     }
-    //map of userId to class instance with recusal information
-    public Map<Id,ADCVD_RecusalUtility> recUtil{get {
-        if(recUtil == null) {
-            populateRecusalMap(userIdSet, parentId, parentSObjectType);
-        }
-        return recUtil;
-        } set;
-    }
 
     /**********************************************
      * Variables for Staff Assignments and Wrapper
@@ -217,6 +209,21 @@ public without sharing class StaffingAssignmentExtension {
     } 
     private static Map<Id,Related_Organization__c> relOrgMap = new Map<Id,Related_Organization__c>();
 
+    private static Set<Id> usersWithActiveRecusals {
+        get {
+            if (usersWithActiveRecusals == null) {
+                usersWithActiveRecusals = new Set<Id>();
+                Date today = System.today();
+                for (Recusal__c r : [SELECT Id, Start_Date__c, End_Date__c, User__c FROM Recusal__c
+                                    WHERE Start_Date__c <= today
+                                    AND End_Date__c >= today]) {
+                    usersWithActiveRecusals.add(r.User__c);
+                }
+            }
+            return usersWithActiveRecusals;
+        }set;
+    }
+
 
     /*********************
      * Constructors
@@ -249,37 +256,16 @@ public without sharing class StaffingAssignmentExtension {
         }
     }
 
-    /*CONSTRUCTOR to be invoked from after insert triggers 
-        adds and inserts default values for staffing object
-    */
-    public boolean fromTrigger = false;
-    public StaffingAssignmentExtension (List<sObject> newList) {
-        fromTrigger = true;
-        overwriteSegments = false;
-        for(sObject sobj : newList) {
-            String parentId = (String)sObj.get('Id');
-            parentRecordMap.put(parentId, sobj);
-            parentSObjectType = utils.findObjectNameFromRecordIdPrefix(parentId);
-            if (parentSObjectType == RELATED_ORG) {
-                List<Related_Organization__c> tempList = (List<Related_Organization__c>) newList;
-                if (tempList[0].ADCVD_Order__c != null) {break;}
-            }
-            staffWrapperList.addAll(addStaffWrapper(parentId, parentSObjectType, new List<Staffing_Assignment__c>(), new Set<Id>(), null));
-        }
-        save();
-    }
     //Primary method to initialize data on page load
     private void init(Staffing_Assignment__c sa){
         overwriteSegments = false;
         staffList = getstaffList(parentId, parentSObjectType);
-        populateRecusalMap(userIdSet, parentId, parentSObjectType);
         staffWrapperList = addStaffWrapper(parentId, parentSObjectType, staffList, userIdSet, null);
         System.debug(staffWrapperList);
     }
     private void init(Staffing_Assignment__c sa, Integer addWrapper) {
         overwriteSegments = false;
         staffList = getstaffList(parentId, parentSObjectType);
-        populateRecusalMap(userIdSet, parentId, parentSObjectType);
         staffWrapperList = addStaffWrapper(parentId, parentSObjectType, staffList, userIdSet, addWrapper);
         System.debug(staffWrapperList);
     }
@@ -328,30 +314,21 @@ public without sharing class StaffingAssignmentExtension {
         }
         upsert staffListToUpsert;
         delete staffListToDelete;
-        //if classic, use retURL
-        //if(isSalesforceClassic  && !fromTrigger) {
-        //    return new PageReference(getReturnUrl());
-        //} else {//else return null, allowing oncomplete JS to fire and redirect in LEX/SF1
-            return null;
-        //}
-        
+        return null;
+
     }
 
     public PageReference cancel() {
-        //if(isSalesforceClassic && !fromTrigger) {
-        //    return new PageReference(getReturnUrl());
-        //} else {
-            return null;
-        //}
+        return null;
     }
 
     public PageReference checkParent() {
         if(parentId == null || parentSObjectType == null) {
-            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 
-            'New Staffing Assignments cannot be created from this page. ' + 
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,
+            'New Staffing Assignments cannot be created from this page. ' +
             'Navigate to the record that you would like to add a Staffing Assignment to and click the "New Staffing Assignment" button on that record\'s related list'));
             noParentError = true;
-        }        
+        }
         return null;
     }
 
@@ -541,7 +518,7 @@ public without sharing class StaffingAssignmentExtension {
             }
         }
         //for all the Staffing Assignments with and without users, create the wrappers
-        sawOuterInstance = new StaffingAssignmentWrapper(parentId, parentSObjectType, staffList, recUtil, userIdSet);
+        sawOuterInstance = new StaffingAssignmentWrapper(parentId, parentSObjectType, staffList, userIdSet);
         returnList = sawOuterInstance.innerWrapperList.clone();
         if(addWrapper != null) {
             for(Integer i = 0; i < addWrapper; i++) {
@@ -552,18 +529,6 @@ public without sharing class StaffingAssignmentExtension {
             }
         }
         return returnList;
-    }
-
-    //populate Recusal Utility map
-    private void populateRecusalMap(Set<Id> userIdSet, Id parentId, String parentSObjectType) {
-        recUtil = new Map<Id,ADCVD_RecusalUtility>();
-        if (recUtil.isEmpty()) {
-            SObject so = utils.cachedGD.get(parentSObjectType).newSObject(parentId);
-            List<SObject> soList = new List<SObject>();
-            soList.add(so);
-            ADCVD_RecusalUtility listInstance = ADCVD_RecusalUtility.getInstance(userIdSet, soList);
-            recUtil = listInstance.utilMap;
-        }
     }
 
     private Staffing_Assignment__c setSaParent(Id parentId, String parentSObjectType) {
@@ -642,18 +607,14 @@ public without sharing class StaffingAssignmentExtension {
             } set;
         }
         //constructor used to create a class instance for holding repeated variables
-        public StaffingAssignmentWrapper(Id parentId, String parentSObjectType, List<Staffing_Assignment__c> staffList, Map<Id,ADCVD_RecusalUtility> recUtil, Set<Id> userIdSet) {
+        public StaffingAssignmentWrapper(Id parentId, String parentSObjectType, List<Staffing_Assignment__c> staffList, Set<Id> userIdSet) {
             this.parentId = parentId;
             this.parentSObjectType = parentSObjectType;
             this.staffList = staffList;
-            this.recUtil = recUtil;
             this.userIdSet = userIdSet;
-            populateRecusalStatus(parentId, userIdSet, recUtil);
+            populateRecusalStatus(parentId, userIdSet);
             //for all the Staffing Assignments with and without users, create the wrappers
             for(Staffing_Assignment__c sa : staffList) {
-                if(sa != null && sa.User__c != null && recUtil != null) {
-                    userInstance = recUtil.get(sa.User__c);
-                }
                 StaffingAssignmentWrapper saw = new staffingAssignmentWrapper(parentId, parentSObjectType, sa, recusalStatusMap, recusalLinkMap, recusalLinkTextMap);
                 innerWrapperList.add(saw);
             }
@@ -679,33 +640,20 @@ public without sharing class StaffingAssignmentExtension {
             return overrideRole;
         }
         //Initializes SelectOption lists
-        private void populateRecusalStatus(Id parentId, Set<Id> userIdSet, Map<Id,ADCVD_RecusalUtility> recUtil){
+        private void populateRecusalStatus(Id parentId, Set<Id> userIdSet){
             recusalStatusMap = new Map<Id,String>();
             recusalLinkMap = new Map<Id,String>();
             recusalLinkTextMap = new Map<Id,String>();
             for (Id userId : userIdSet) {
-                String recusalStatus = '';
-                if (recUtil != null && recUtil.get(userId) != null) {
-                    userInstance = recUtil.get(userId);
+                recusalStatusMap.put(userId, 'This user does not have any active recusals.');
+                recusalLinkMap.put(userId, '');
+                recusalLinkTextMap.put(userId, '');
                 }
-                if(userInstance != null) {
-                    if (userInstance.primaryRecusalList != null && !userInstance.primaryRecusalList.isEmpty()) {
-                        recusalStatus += 'This user has active recusals.' + '<br/>';
-                    }
-                    if (userInstance.recusedFromThisRecordMap != null && userInstance.recusedFromThisRecordMap.get(parentId) != null 
-                        && userInstance.recusedFromThisRecordMap.get(parentId) == true) {//clarity that this is a map to a boolean
-                        recusalStatus += 'This user has been recused from this record.' + '<br/>';
-                    }
-                }
-                if (recusalStatus == null || String.isBlank(recusalStatus)) {
-                    recusalStatus += 'This user does not have any active recusals.';
-                }
-                recusalStatusMap.put(userId, recusalStatus);
-
+            for (Id userId : usersWithActiveRecusals) {
+                recusalStatusMap.put(userId, 'This user has active recusals.' + '<br/>');
+                String recusalLinkText = recusalStatusMap.containsKey(userId) ? 'Review Recusals' : '';
                 String recusalLink = '/apex/ReviewRecusalPage?userId=' + userId + '&parentId=' + parentId;
                 recusalLinkMap.put(userId, recusalLink);
-
-                String recusalLinkText = recusalStatus.contains('This user does not') ? '' : 'Review Recusals';
                 recusalLinkTextMap.put(userId, recusalLinkText);
             }
         }
