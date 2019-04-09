@@ -1,5 +1,23 @@
-public without sharing class ReviewRecusalExtension {
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Apr 4 2017
+ *    MIL Corporation
+ * 
+ **/
+ public without sharing class ReviewRecusalExtension {
+ 	/***********************************************************
+    * This class is the controller/extension for a page that displays
+    * information about a user's recusals.
+    * This class provides methods to:
+    * 1. Dynamically display in the correct UX (can be updated to 
+    * using the lightningStylesheets tag, which is currently in beta)
+    * 2. Get the record that is related to the recusal
+    * 3. Display in a list all the primary and related recusals for 
+    * a user
+    ***********************************************************/
 
+    
 	/*********************************
  	* Variables to manage UI
  	********************************/
@@ -20,6 +38,14 @@ public without sharing class ReviewRecusalExtension {
         return isSalesforceClassic;
         } set;
     }
+
+	 public String recusalLink {
+		 get {
+			 recusalLink = '';
+			 recusalLink = AppConfig__c.getValues('Recusal Link').Link__c;
+			 return recusalLink;
+	 	} set;
+	 }
 
     /**********************************
      * Variables for a parent record
