@@ -13689,7 +13689,7 @@ NOT( ISNULL( Actual_Amended_Final_Signature__c ))
     </validationRules>
     <validationRules>
         <fullName>Actual_Final_Signature_Not_Blank</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>You cannot enter an Actual Final Signature Date until the Calculate Final Signature Date is not populated</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND(
 ISNULL( Calculated_Final_Signature__c ),
@@ -13699,7 +13699,7 @@ NOT(ISNULL( Actual_Final_Signature__c ))
     </validationRules>
     <validationRules>
         <fullName>Actual_Initiation_Signature_Not_Blank</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>You cannot enter an Actual Initiation Signature Date until the Calculate initiation Signature Date in not populated</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND( 
 ISNULL( Calculated_Initiation_Signature__c ), 
@@ -13709,7 +13709,7 @@ NOT( ISNULL( Actual_Initiation_Signature__c ))
     </validationRules>
     <validationRules>
         <fullName>Actual_Preliminary_Signature_Not_Blank</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>You cannot enter an Actual Preliminary Signature Date until the Calculate Preliminary Signature Date in not populated</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND( 
 ISNULL( Calculated_Preliminary_Signature__c ), 
@@ -14340,6 +14340,46 @@ IF(
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND($RecordType.DeveloperName = &quot;Administrative Review&quot;,
 OR(AND(NOT(ISBLANK( Prelim_Extension__c)),  Final_Extension_of_days__c  &gt; 60),AND(ISBLANK( Prelim_Extension__c ),  Final_Extension_of_days__c &gt; 180))))</errorConditionFormula>
         <errorMessage>Final extension # of days can only range from 0-180 days.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1104ActualFinalSignatureNotBlank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Final Signature Date until the Calculate Final Signature Date is populated</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND(
+            ISNULL( Calculated_Final_Signature__c ),
+            NOT(ISNULL( Actual_Final_Signature__c ))
+            ))</errorConditionFormula>
+        <errorMessage>Calculated Final Signature Date must be populated in order to enter Actual Final Signature Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1104ActualInitiationSignatureNotBlank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Initiation Signature Date until the Calculate initiation Signature Date is populated</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &apos;Expedited_Review&apos;,
+            AND(
+            ISNULL( Calculated_Initiation_Signature__c ),
+            NOT( ISNULL( Actual_Initiation_Signature__c ))
+            )
+            )</errorConditionFormula>
+        <errorDisplayField>Calculated_Initiation_Signature__c</errorDisplayField>
+        <errorMessage>Calculated Initiation Signature Date must be populated in order to enter Actual Initiation Signature Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1104ActualPrelimSigNotBlank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Preliminary Signature Date until the Calculate Preliminary Signature Date is populated</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &apos;Expedited_Review&apos;,
+            AND(
+            ISNULL( Calculated_Preliminary_Signature__c ),
+            NOT( ISNULL( Actual_Preliminary_Signature__c ))
+            ))</errorConditionFormula>
+        <errorDisplayField>Calculated_Preliminary_Signature__c</errorDisplayField>
+        <errorMessage>Calculated Preliminary Signature Date must be populated in order to enter Actual Preliminary Signature Date</errorMessage>
     </validationRules>
     <visibility>Public</visibility>
 </CustomObject>
