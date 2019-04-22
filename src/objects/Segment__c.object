@@ -13851,9 +13851,9 @@ SR = Sunset Review</description>
         <fullName>Actual_Final_Signature_Not_Blank</fullName>
         <active>false</active>
         <description>You cannot enter an Actual Final Signature Date until the Calculate Final Signature Date is not populated</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND( 
-ISNULL( Calculated_Final_Signature__c ), 
-NOT(ISNULL( Actual_Final_Signature__c )) 
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND(
+ISNULL( Calculated_Final_Signature__c ),
+NOT(ISNULL( Actual_Final_Signature__c ))
 ))</errorConditionFormula>
         <errorMessage>Calculated Final Signature Date must be populated in order to enter Actual Final Signature Date</errorMessage>
     </validationRules>
@@ -13985,7 +13985,7 @@ ISPICKVAL(Segment_Outcome__c, &apos;Withdrawn&apos;))
     </validationRules>
     <validationRules>
         <fullName>ER_Final_Extension</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Legend to the Initials Placed on each rule name
 AR = Admin Review
 ACR = Anti-Circumvention Review
@@ -14002,7 +14002,7 @@ SR = Sunset Review</description>
     </validationRules>
     <validationRules>
         <fullName>ER_Prelim_Extension</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Legend to the Initials Placed on each rule name
 AR = Admin Review
 ACR = Anti-Circumvention Review
@@ -14029,7 +14029,7 @@ SR = Sunset Review</description>
     </validationRules>
     <validationRules>
         <fullName>NSR_Final_Extension</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Legend to the Initials Placed on each rule name
 AR = Admin Review
 ACR = Anti-Circumvention Review
@@ -14046,7 +14046,7 @@ SR = Sunset Review</description>
     </validationRules>
     <validationRules>
         <fullName>NSR_Prelim_Extension</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, And (
  $RecordType.DeveloperName = &quot;New_Shipper_Review&quot;, 
  Prelim_Extension__c &gt; 120 || Prelim_Extension__c &lt; 0
@@ -14500,6 +14500,273 @@ IF(
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND($RecordType.DeveloperName = &quot;Administrative Review&quot;,
             OR(AND(NOT(ISBLANK( Prelim_Extension__c)),  Final_Extension_of_days__c  &gt; 60),AND(ISBLANK( Prelim_Extension__c ),  Final_Extension_of_days__c &gt; 180))))</errorConditionFormula>
         <errorMessage>Final extension # of days can only range from 0-180 days.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1104ActualFinalSignatureNotBlank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Final Signature Date until the Calculate Final Signature Date is populated</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND(
+            ISNULL( Calculated_Final_Signature__c ),
+            NOT(ISNULL( Actual_Final_Signature__c ))
+            ))</errorConditionFormula>
+        <errorMessage>Calculated Final Signature Date must be populated in order to enter Actual Final Signature Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1104ActualInitiationSignatureNotBlank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Initiation Signature Date until the Calculate initiation Signature Date is populated</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &apos;Expedited_Review&apos;,
+            AND(
+            ISNULL( Calculated_Initiation_Signature__c ),
+            NOT( ISNULL( Actual_Initiation_Signature__c ))
+            )
+            )</errorConditionFormula>
+        <errorDisplayField>Calculated_Initiation_Signature__c</errorDisplayField>
+        <errorMessage>Calculated Initiation Signature Date must be populated in order to enter Actual Initiation Signature Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1104ActualPrelimSigNotBlank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Preliminary Signature Date until the Calculate Preliminary Signature Date is populated</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &apos;Expedited_Review&apos;,
+            AND(
+            ISNULL( Calculated_Preliminary_Signature__c ),
+            NOT( ISNULL( Actual_Preliminary_Signature__c ))
+            ))</errorConditionFormula>
+        <errorDisplayField>Calculated_Preliminary_Signature__c</errorDisplayField>
+        <errorMessage>Calculated Preliminary Signature Date must be populated in order to enter Actual Preliminary Signature Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1104CustomInstructionRequired</fullName>
+        <active>true</active>
+        <description>Cannot answer Have Custom Instruction been sent unless Litigation is populated.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Expedited_Review&quot;,
+            AND(
+            ISBLANK(TEXT(Litigation_YesNo__c )),
+            NOT(ISBLANK(TEXT(Have_Custom_Instruction_been_sent__c)))
+            )
+            )</errorConditionFormula>
+        <errorDisplayField>Litigation_YesNo__c</errorDisplayField>
+        <errorMessage>Litigation cannot be blank when Have Custom Instruction is populated</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1104LitigationResolvedRequired</fullName>
+        <active>true</active>
+        <description>Litigation Resolved cannot be blank if Litigation is &apos;Yes&apos;</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Expedited_Review&quot;,
+            AND(
+            ISPICKVAL( Litigation_YesNo__c , &apos;Yes&apos;),
+            ISBLANK( TEXT( Litigation_Resolved__c ))
+            )
+            )</errorConditionFormula>
+        <errorDisplayField>Litigation_Resolved__c</errorDisplayField>
+        <errorMessage>Litigation Resolved cannot be blank when Litigation is &quot;Yes&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1104OnlyAdminReparentsSegments</fullName>
+        <active>true</active>
+        <description>Segment records can only be reparented by a System Administrator.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            NOT( ISNEW() ),
+            $RecordType.DeveloperName = &quot;Expedited_Review&quot;,
+            OR(
+            ISCHANGED(ADCVD_Order__c ),
+            ISCHANGED(Suspension_Agreement__c),
+            ISCHANGED(ADCVD_Case__c),
+            ISCHANGED(Investigation__c)),
+            $Profile.Name &lt;&gt; &quot;System Administrator&quot;
+            )</errorConditionFormula>
+        <errorMessage>You are not authorized to edit this field. Only a System Administrator can edit the parent ADCVD Order, Suspension Agreement or ADCVD Case for this record.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1104SegmentMustHaveParent</fullName>
+        <active>true</active>
+        <description>A segment must have an ADCVD Order or Suspension Agreement as parent</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Expedited_Review&quot;,
+            AND (
+            ISBLANK(ADCVD_Order__c ),
+            ISBLANK( Suspension_Agreement__c )
+            )
+            )</errorConditionFormula>
+        <errorMessage>Every Segment must have a ADCVD Order or a Suspension Agreement as parent</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1104FinalExtension</fullName>
+        <active>true</active>
+        <description>Final Extension (# of days) cannot exceed more than 60 days</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Expedited_Review&quot;,
+            Final_Extension_of_days__c &gt; 60 || Final_Extension_of_days__c &lt; 0
+            )</errorConditionFormula>
+        <errorDisplayField>Final_Extension_of_days__c</errorDisplayField>
+        <errorMessage>Final Extension (# of days) cannot exceed more than 60 days</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1104PrelimExtension</fullName>
+        <active>true</active>
+        <description>Cannot exceed more than 120 days</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Expedited_Review&quot;,
+            Prelim_Extension__c &gt; 120 || Prelim_Extension__c &lt; 0
+            )</errorConditionFormula>
+        <errorDisplayField>Prelim_Extension__c</errorDisplayField>
+        <errorMessage>Cannot exceed more than 120 days</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1105ActualFinalSignatureNotBlank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Final Signature Date until the Calculate Final Signature Date is populated</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;New_Shipper_Review&quot;,
+            AND(
+            ISNULL( Calculated_Final_Signature__c ),
+            NOT(ISNULL( Actual_Final_Signature__c ))
+            )
+            )</errorConditionFormula>
+        <errorDisplayField>Calculated_Final_Signature__c</errorDisplayField>
+        <errorMessage>Calculated Final Signature Date must be populated in order to enter Actual Final Signature Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1105ActualInitiationSignatureNotBlank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Initiation Signature Date until the Calculate initiation Signature Date is populated</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;New_Shipper_Review&quot;,
+            AND(
+            ISNULL( Calculated_Initiation_Signature__c ),
+            NOT( ISNULL( Actual_Initiation_Signature__c ))
+            )
+            )</errorConditionFormula>
+        <errorDisplayField>Calculated_Initiation_Signature__c</errorDisplayField>
+        <errorMessage>Calculated Initiation Signature Date must be populated in order to enter Actual Initiation Signature Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1105ActualPrelimSigNotBlank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Preliminary Signature Date until the Calculate Preliminary Signature Date is populated</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;New_Shipper_Review&quot;,
+            AND(
+            ISNULL( Calculated_Preliminary_Signature__c ),
+            NOT( ISNULL( Actual_Preliminary_Signature__c ))
+            )
+            )</errorConditionFormula>
+        <errorDisplayField>Calculated_Preliminary_Signature__c</errorDisplayField>
+        <errorMessage>Calculated Preliminary Signature Date must be populated in order to enter Actual Preliminary Signature Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1105CustomInstructionRequired</fullName>
+        <active>true</active>
+        <description>Cannot answer Have Custom Instruction been sent unless Litigation is populated.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;New_Shipper_Review&quot;,
+            AND(
+            ISBLANK(TEXT(Litigation_YesNo__c )),
+            NOT(ISBLANK(TEXT(Have_Custom_Instruction_been_sent__c)))
+            )
+            )</errorConditionFormula>
+        <errorDisplayField>Litigation_YesNo__c</errorDisplayField>
+        <errorMessage>Litigation cannot be blank when Have Custom Instruction is populated</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1105LitigationResolvedRequired</fullName>
+        <active>true</active>
+        <description>Litigation Resolved cannot be blank if Litigation is &apos;Yes&apos;</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;New_Shipper_Review&quot;,
+            AND(
+            ISPICKVAL( Litigation_YesNo__c , &apos;Yes&apos;),
+            ISBLANK( TEXT( Litigation_Resolved__c ))
+            )
+            )</errorConditionFormula>
+        <errorDisplayField>Litigation_Resolved__c</errorDisplayField>
+        <errorMessage>Litigation Resolved cannot be blank when Litigation is &quot;Yes&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1105OnlyAdminReparentsSegments</fullName>
+        <active>true</active>
+        <description>Segment records can only be reparented by a System Administrator.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            NOT( ISNEW() ),
+            $RecordType.DeveloperName = &quot;New_Shipper_Review&quot;,
+            OR(
+            ISCHANGED(ADCVD_Order__c ),
+            ISCHANGED(Suspension_Agreement__c),
+            ISCHANGED(ADCVD_Case__c),
+            ISCHANGED(Investigation__c)),
+            $Profile.Name &lt;&gt; &quot;System Administrator&quot;
+            )</errorConditionFormula>
+        <errorMessage>You are not authorized to edit this field. Only a System Administrator can edit the parent ADCVD Order, Suspension Agreement or ADCVD Case for this record.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1105SegmentMustHaveParent</fullName>
+        <active>true</active>
+        <description>A segment must have an ADCVD Order or Suspension Agreement as parent</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;New_Shipper_Review&quot;,
+            AND (
+            ISBLANK(ADCVD_Order__c ),
+            ISBLANK( Suspension_Agreement__c )
+            )
+            )</errorConditionFormula>
+        <errorMessage>Every Segment must have a ADCVD Order or a Suspension Agreement as parent</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1105FinalExtension</fullName>
+        <active>true</active>
+        <description>The bound for Final Extension # of Days is 1 to 60 days.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;New_Shipper_Review&quot;,
+            Final_Extension_of_days__c &gt; 60 || Final_Extension_of_days__c &lt; 0
+            )</errorConditionFormula>
+        <errorMessage>The bound for Final Extension # of Days is 1 to 60 days.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1105PrelimExtension</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;New_Shipper_Review&quot;,
+            Prelim_Extension__c &gt; 120 || Prelim_Extension__c &lt; 0
+            )</errorConditionFormula>
+        <errorMessage>The bound for Preliminary Extension # of Days is 1 to 120 days.</errorMessage>
     </validationRules>
     <visibility>Public</visibility>
 </CustomObject>
