@@ -13691,10 +13691,10 @@ NOT( ISNULL( Actual_Amended_Final_Signature__c ))
         <fullName>Actual_Final_Signature_Not_Blank</fullName>
         <active>false</active>
         <description>You cannot enter an Actual Final Signature Date until the Calculate Final Signature Date is not populated</description>
-        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND( 
-ISNULL( Calculated_Final_Signature__c ), 
-NOT(ISNULL( Actual_Final_Signature__c )) 
-))</errorConditionFormula>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND(
+            ISNULL( Calculated_Final_Signature__c ),
+            NOT(ISNULL( Actual_Final_Signature__c ))
+            ))</errorConditionFormula>
         <errorMessage>Calculated Final Signature Date must be populated in order to enter Actual Final Signature Date</errorMessage>
     </validationRules>
     <validationRules>
