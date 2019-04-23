@@ -5,6 +5,7 @@
         <editable>true</editable>
         <field>Investigation__c.Investigation_Outcome__c</field>
         <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Suspension_Agreement__c.ADCVD_Case_Number_Text__c</field>
