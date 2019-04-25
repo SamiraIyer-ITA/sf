@@ -1,4 +1,5 @@
 #!/bin/bash
+set +x
 
 # Quiet down pushd, popd.
 pushd() {
@@ -18,7 +19,7 @@ git_diff="git diff -w --name-only origin/$base_branch"
 
 # Salesforce ant files
 antfiles="src/package.xml"
-propfile="../build.properties_$JOB_BASE_NAME"
+propfile="build.properties_$JOB_BASE_NAME"
 buildXML="$sandbox/build.xml"
 # [ -f "../builds/build.properties" ] && rm ../builds/build.properties
 
@@ -212,7 +213,8 @@ $git_diff > $gitfiles
 
 [ -f "$whitelist" ] && cat $whitelist >> $gitfiles
 
-cat "$gitfiles" | grep src > $gitfiles
+cat "$gitfiles" | grep src > $gitfiles-tmp
+mv "$gitfiles-tmp" $gitfiles
 
 # Creating string for archive name
 # archive="Salesforce-`echo $GIT_BRANCH | cut -f 3 -d '/' | cut -f 2 -d '-'`.zip"
