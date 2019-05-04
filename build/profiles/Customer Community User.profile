@@ -31,7 +31,7 @@
         <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>RelatedCountries__c</object>
+        <object>Industry__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
 </Profile>
