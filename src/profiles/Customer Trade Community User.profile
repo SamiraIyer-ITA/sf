@@ -4611,7 +4611,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Industry__c.Industry__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4621,14 +4621,14 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Industry__c.Organization__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Industry__c.Participant__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -4636,9 +4636,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Industry__c.Sector__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -4646,9 +4646,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Industry__c.Sub_Sector__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -11026,15 +11026,15 @@
         <recordType>Taxonomy_Tagging__c.Country</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Taxonomy_Tagging__c-Country</layout>
+        <layout>Taxonomy_Tagging__c-Industry</layout>
         <recordType>Taxonomy_Tagging__c.Industry</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Taxonomy_Tagging__c-Country</layout>
+        <layout>Taxonomy_Tagging__c-Trade Issue</layout>
         <recordType>Taxonomy_Tagging__c.Trade_Issue</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Taxonomy_Tagging__c-Country</layout>
+        <layout>Taxonomy_Tagging__c-Trade Region</layout>
         <recordType>Taxonomy_Tagging__c.Trade_Region</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -11369,13 +11369,13 @@
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Industry__c</object>
-        <viewAllRecords>false</viewAllRecords>
+        <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
@@ -11519,6 +11519,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Publication_Template__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>RelatedCountries__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
