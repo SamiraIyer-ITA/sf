@@ -104,6 +104,21 @@
     <platformActionList>
         <actionListContext>Record</actionListContext>
         <platformActionListItems>
+            <actionName>Share</actionName>
+            <actionType>StandardButton</actionType>
+            <sortOrder>9</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
+            <actionName>CaseHierarchy</actionName>
+            <actionType>StandardButton</actionType>
+            <sortOrder>10</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
+            <actionName>PrintableView</actionName>
+            <actionType>StandardButton</actionType>
+            <sortOrder>11</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
             <actionName>LogACall</actionName>
             <actionType>QuickAction</actionType>
             <sortOrder>0</sortOrder>
@@ -147,21 +162,6 @@
             <actionName>Clone</actionName>
             <actionType>StandardButton</actionType>
             <sortOrder>8</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
-            <actionName>Share</actionName>
-            <actionType>StandardButton</actionType>
-            <sortOrder>9</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
-            <actionName>CaseHierarchy</actionName>
-            <actionType>StandardButton</actionType>
-            <sortOrder>10</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
-            <actionName>PrintableView</actionName>
-            <actionType>StandardButton</actionType>
-            <sortOrder>11</sortOrder>
         </platformActionListItems>
     </platformActionList>
     <relatedContent>
@@ -226,19 +226,6 @@
         <fields>Category__c</fields>
         <fields>Trade_Issue__c</fields>
         <relatedList>Taxonomy_Tagging__c.Related_Case__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>Country__c</fields>
-        <fields>CREATEDBY_USER</fields>
-        <relatedList>RelatedCountries__c.Case__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>Industry__c</fields>
-        <fields>Sector__c</fields>
-        <fields>Sub_Sector__c</fields>
-        <relatedList>Industry__c.Case_Industrial_Hierarchy__c</relatedList>
-        <sortField>Industry__c</sortField>
-        <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedObjects>ContactId</relatedObjects>
     <relatedObjects>AccountId</relatedObjects>
