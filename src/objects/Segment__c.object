@@ -13789,7 +13789,7 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
     </validationRules>
     <validationRules>
         <fullName>A1102DeficientOrWithdrawnDateRequired</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>The Deficient or Withdrawn date is required when Segment Outcome is &quot;Deficient&quot; or &quot;Withdrawn&quot;</description>
         <errorConditionFormula>AND(
             $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
@@ -13884,7 +13884,7 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
             OR (
             ISPICKVAL(Type_of_Circumvention_Inquiry__c, &apos;Merchandise Completed or Assembled in United States&apos;),
             ISPICKVAL(Type_of_Circumvention_Inquiry__c, &apos;Merchandise Completed or Assembled in other Foreign Countries&apos;),
-            ISPICKVAL(Type_of_Circumvention_Inquiry__c, &apos;Minor Altercations of Merchandise&apos;)
+            ISPICKVAL(Type_of_Circumvention_Inquiry__c, &apos;Minor Alterations of Merchandise&apos;)
             ),
             ISBLANK(
             TEXT(Preliminary_Determination__c)
@@ -13986,7 +13986,7 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
     </validationRules>
     <validationRules>
         <fullName>A1103DeficientOrWithdrawnDateRequired</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>The Deficient or Withdrawn date is required when Segment Outcome is &quot;Deficient&quot; or &quot;Withdrawn&quot;</description>
         <errorConditionFormula>AND(
             $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
@@ -14800,7 +14800,7 @@ OR (ISPICKVAL(Type_of_Circumvention_Inquiry__c, &apos;Merchandise Completed or A
 
 ISPICKVAL(Type_of_Circumvention_Inquiry__c, &apos;Merchandise Completed or Assembled in other Foreign Countries&apos;),
 
-ISPICKVAL(Type_of_Circumvention_Inquiry__c, &apos;Minor Altercations of Merchandise&apos;)
+ISPICKVAL(Type_of_Circumvention_Inquiry__c, &apos;Minor Alterations of Merchandise&apos;)
 ),
 
 ISBLANK(TEXT(Preliminary_Determination__c))
