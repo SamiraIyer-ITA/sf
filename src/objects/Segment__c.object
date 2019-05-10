@@ -14350,6 +14350,119 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
         <errorMessage>Every Segment must have a ADCVD Order or a Suspension Agreement as parent</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>A1107ActualFinalSignatureNotBlank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Final Signature Date until the Calculate Final Signature Date is not populated</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &apos;Sunset_Review&apos;,
+            ISNULL( Calculated_Final_Signature__c ),
+            NOT(ISNULL( Actual_Final_Signature__c ))
+            )</errorConditionFormula>
+        <errorDisplayField>Calculated_Final_Signature__c</errorDisplayField>
+        <errorMessage>Calculated Final Signature Date must be populated in order to enter Actual Final Signature Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1107ActualPrelimSigNotBlank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Preliminary Signature Date until the Calculate Preliminary Signature Date is populated</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Sunset_Review&quot;,
+            ISNULL( Calculated_Preliminary_Signature__c ),
+            NOT( ISNULL( Actual_Preliminary_Signature__c ))
+            )</errorConditionFormula>
+        <errorDisplayField>Calculated_Preliminary_Signature__c</errorDisplayField>
+        <errorMessage>Calculated Preliminary Signature Date must be populated in order to enter Actual Preliminary Signature Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1107CalcPrelimSigNotGTCalcFinalSig</fullName>
+        <active>true</active>
+        <description>Calculated Preliminary Signature should not be greater than Calculated Final Signature</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Sunset_Review&quot;,
+            Calculated_Preliminary_Signature__c &gt; Calculated_Final_Signature__c
+            )</errorConditionFormula>
+        <errorDisplayField>Calculated_Preliminary_Signature__c</errorDisplayField>
+        <errorMessage>Calculated Preliminary Signature should not be greater than Calculated Final Signature</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1107CustomInstructionRequired</fullName>
+        <active>true</active>
+        <description>Cannot answer Have Custom Instruction been sent unless Litigation is populated.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Sunset_Review&quot;,
+            ISBLANK(TEXT(Litigation_YesNo__c )),
+            NOT(ISBLANK(TEXT(Have_Custom_Instruction_been_sent__c)))
+            )</errorConditionFormula>
+        <errorDisplayField>Litigation_YesNo__c</errorDisplayField>
+        <errorMessage>Litigation cannot be blank when Have Custom Instruction is populated</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1107FinalExtension</fullName>
+        <active>true</active>
+        <description>Final Extension cannot be greater than 90 days.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Sunset_Review&quot;,
+            Final_Extension_of_days__c &gt; 90
+            )</errorConditionFormula>
+        <errorDisplayField>Final_Extension_of_days__c</errorDisplayField>
+        <errorMessage>Final Extension cannot be greater than 90 days.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1107LitigationResolvedRequired</fullName>
+        <active>true</active>
+        <description>Litigation Resolved cannot be blank if Litigation is &apos;Yes&apos;</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Sunset_Review&quot;,
+            ISPICKVAL( Litigation_YesNo__c , &apos;Yes&apos;),
+            ISBLANK( TEXT( Litigation_Resolved__c ))
+            )</errorConditionFormula>
+        <errorDisplayField>Litigation_Resolved__c</errorDisplayField>
+        <errorMessage>Litigation Resolved cannot be blank when Litigation is &quot;Yes&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1107OnlyAdminReparentsSegments</fullName>
+        <active>true</active>
+        <description>Segment records can only be reparented by a System Administrator.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            NOT( ISNEW() ),
+            $RecordType.DeveloperName = &quot;Sunset_Review&quot;,
+            OR(
+            ISCHANGED(ADCVD_Order__c ),
+            ISCHANGED(Suspension_Agreement__c),
+            ISCHANGED(ADCVD_Case__c),
+            ISCHANGED(Investigation__c)),
+            $Profile.Name &lt;&gt; &quot;System Administrator&quot;
+            )</errorConditionFormula>
+        <errorMessage>You are not authorized to edit this field. Only a System Administrator can edit the parent ADCVD Order, Suspension Agreement or ADCVD Case for this record.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1107SegmentMustHaveParent</fullName>
+        <active>true</active>
+        <description>A segment must have an ADCVD Order or Suspension Agreement as parent</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Sunset_Review&quot;,
+            ISBLANK(ADCVD_Order__c ),
+            ISBLANK( Suspension_Agreement__c )
+            )</errorConditionFormula>
+        <errorMessage>Every Segment must have a ADCVD Order or a Suspension Agreement as parent</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>ACR_Final_Extension</fullName>
         <active>false</active>
         <description>Legend to the Initials Placed on each rule name
