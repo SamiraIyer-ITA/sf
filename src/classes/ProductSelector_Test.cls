@@ -1,9 +1,8 @@
+/*
+	Test class for the ProductSelector class
+*/
 @IsTest
 public class ProductSelector_Test{
-
-	/*
-	Test class for the ProductSelector class
-	*/
 
 	public static testMethod void createOrder() {
 		Account acct = TestUtils.createAccount(true);

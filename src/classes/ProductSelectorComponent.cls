@@ -506,25 +506,16 @@ public with sharing class ProductSelectorComponent {
 		setSelectedProducts();
 		if(this.productsToAdd.size() != 0) this.productsToAdd = new List<Id>();
 		if(this.productsToRemove.size() != 0) this.productsToRemove = new List<Id>();
-		System.debug('###################################################### \nMethod: addRemoveProducts; \nVariableName: this.Tier3Selected, \nVariableValue: ' + JSON.serializePretty(this.Tier3Selected));
-		System.debug('###################################################### \nMethod: addRemoveProducts; \nVariableName: this.Tier3VisibleSelectOptions, \nVariableValue: ' + JSON.serializePretty(this.Tier3VisibleSelectOptions));
 		this.currentProducts = getSelectedProductStrings();
 		this.tier1SelectedSet = new Set<String>(this.Tier1Selected);
 		this.tier2SelectedSet = new Set<String>(this.Tier2Selected);
-		System.debug('#######################################-: addRemoveProducts :- this.currentProducts = ' + JSON.serializePretty(this.currentProducts) + '*******************************');
-		System.debug('#######################################-: addRemoveProducts :- this.tier1SelectedSet = ' + JSON.serializePretty(this.tier1SelectedSet) + '*******************************');
-		System.debug('#######################################-: addRemoveProducts :- this.= tier2SelectedSet = ' + JSON.serializePretty(this.tier2SelectedSet) + '*******************************');
-		System.debug('#######################################-: addRemoveProducts :- this.SelectedProductsMap! = ' + JSON.serializePretty(this.SelectedProductsMap));
-
 		for(String p : this.currentProducts){
 			if(!this.SelectedProductsMap.keySet().contains(p)){
-				System.debug('#######################################-: addRemoveProducts :- ADDING; PRODUCT = ' + JSON.serializePretty(p));
 				this.productsToAdd.add(p);
 			}
 		}
 		for(Product2 p : this.SelectedProductsMap.values()){
 			if(!this.currentProducts.contains(p.Id)){
-				System.debug('#######################################-: addRemoveProducts :- REMOVING; PRODUCT = ' + JSON.serializePretty(p));
 				this.productsToRemove.add(p.Id);
 			}
 		}
@@ -535,11 +526,9 @@ public with sharing class ProductSelectorComponent {
 		}
 		this.Tier2Selected = new List<String>(this.tier2SelectedSet);
 		if(productsToAdd.size() != 0){
-			System.debug('#######################################-: addRemoveProducts :- CALLING AddProductsToOrder WITH THESE PRODUCT IDs = ' + JSON.serializePretty(productsToAdd));
 			ProductSelector.addProductsToOrder(this.OrderId, new List<Id>(productsToAdd));
 		}
 		if(productsToRemove.size() != 0){
-			System.debug('#######################################-: addRemoveProducts :- CALLING RemoveProductsToOrder WITH THESE PRODUCT IDs = ' + JSON.serializePretty(productsToRemove));
 			ProductSelector.removeProductsFromOrder(this.OrderId, new List<Id>(productsToRemove));
 		}
 
@@ -547,7 +536,6 @@ public with sharing class ProductSelectorComponent {
 	}
 
 	private void addRemoveProducts_WebVersion(){
-		System.debug('###################################################### \nMethod: addRemoveProducts_WebVersion; \nVariableName: this.Tier3Selected, \nVariableValue: ' + JSON.serializePretty(this.Tier3Selected));
 		for(Product2 product : this.SelectedProductsMap.values()){
 			String productId = product.Id;
 			String productClass = product.Class__c;
@@ -583,18 +571,9 @@ public with sharing class ProductSelectorComponent {
 					}
 			}
 		}
-		System.debug('###################################################### \nMethod: addRemoveProducts_WebVersion; \nVariableName: this.Tier3Selected, \nVariableValue: ' + JSON.serializePretty(this.Tier3Selected));
 	}
 
 	private void addRemoveProducts_PriceBookVersion(){
-		System.debug('#######################################-: addRemoveProducts_PriceBookVersion :- this.SelectedProductsMap.values() = ' + this.SelectedProductsMap.values());
-		System.debug('#######################################-: addRemoveProducts_PriceBookVersion :- this.Tier1Selected = ' + this.Tier1Selected);
-		System.debug('#######################################-: addRemoveProducts_PriceBookVersion :- this.Tier1SelectedSet = ' + this.tier1SelectedSet);
-		System.debug('#######################################-: addRemoveProducts_PriceBookVersion :- this.Tier2Selected = ' + this.Tier2Selected);
-		System.debug('#######################################-: addRemoveProducts_PriceBookVersion :- this.Tier2SelectedSet = ' + this.tier2SelectedSet);
-		System.debug('#######################################-: addRemoveProducts_PriceBookVersion :- this.Tier3Selected = ' + this.Tier3Selected);
-		System.debug('#######################################-: addRemoveProducts_PriceBookVersion :- this.Tier3VisibleSelectOptions = ' + this.Tier3VisibleSelectOptions);
-
 		for(Product2 product : this.SelectedProductsMap.values()){
 			String productId = product.Id;
 			String productClass = product.Class__c;
@@ -605,7 +584,6 @@ public with sharing class ProductSelectorComponent {
 			*/
 			if(String.isNotBlank(productClass) && !tier1SelectedSet.contains(productClass)){
 				this.productsToRemove.add(productId);
-				System.debug('###################################################### \nMethod: addRemoveProducts_PriceBookVersion; \nVariableName: productId, \nVariableValue: ' + JSON.serializePretty(productId));
 			}
 			/*
 				If a product category exists in the selected options but doesn't exist in the tier2selected set anymore then
@@ -615,11 +593,9 @@ public with sharing class ProductSelectorComponent {
 				this.productsToRemove.add(productId);
 				if(this.Tier3Selected.keySet().contains(productCategory)){
 					this.Tier3Selected.remove(productCategory);
-					System.debug('###################################################### \nMethod: addRemoveProducts_PriceBookVersion; \nVariableName: productCategory, \nVariableValue: ' + JSON.serializePretty(productCategory));
 				}
 				if(this.Tier3VisibleSelectOptions.keySet().contains(productCategory)){
 					this.Tier3VisibleSelectOptions.remove(productCategory);
-					System.debug('###################################################### \nMethod: addRemoveProducts_PriceBookVersion; \nVariableName: productCategory, \nVariableValue: ' + JSON.serializePretty(productCategory));
 				}
 			}
 		}
@@ -644,16 +620,12 @@ public with sharing class ProductSelectorComponent {
 	private Set<String> getSelectedProductStrings(){
 		Set<String> currentProductsSet = new Set<String>();
 		currentProductsSet.addAll(this.Tier1Selected);
-		System.debug('###################################################### \nMethod: getSelectedProductStrings; \nVariableName: this.Tier1Selected, \nVariableValue: ' + JSON.serializePretty(this.Tier1Selected));
 
 		currentProductsSet.addAll(this.Tier2Selected);
-		System.debug('###################################################### \nMethod: getSelectedProductStrings; \nVariableName: this.Tier2Selected, \nVariableValue: ' + JSON.serializePretty(this.Tier2Selected));
 
 		for(List<String> productId : this.Tier3Selected.values()){
 			currentProductsSet.addAll(productId);
-			System.debug('###################################################### \nMethod: getSelectedProductStrings; \nVariableName: productId, \nVariableValue: ' + JSON.serializePretty(productId));
 		}
-		System.debug('###################################################### \nMethod: getSelectedProductStrings; \nVariableName: this.Tier3Selected, \nVariableValue: ' + JSON.serializePretty(this.Tier3Selected));
 
 		for(List<String> productId : this.Tier4Selected.values()){
 			currentProductsSet.addAll(productId);

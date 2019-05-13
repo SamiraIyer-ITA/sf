@@ -46,12 +46,8 @@ global class ProductSelector {
 		];
 
 		PricebookEntry[] pricebookEntries = [SELECT Id, UnitPrice FROM PricebookEntry WHERE Pricebook2Id = :order.Pricebook2Id AND Product2Id IN :products];
-        system.debug('Products:  '+products);
-        PricebookEntry[] pbes = [select id, unitprice from pricebookentry where pricebook2Id = :order.pricebook2id and product2id in :products];
-        system.debug(pbes);
 		for(PricebookEntry pbe : pricebookEntries){
 			orderItems.add(new OrderItem(OrderId = orderId, Quantity = 1, PricebookEntryId = pbe.Id, UnitPrice = pbe.UnitPrice));
-			System.debug('###################################################### \nMethod: addProductsToOrder; \nVariableName: pbe, \nVariableValue: ' + JSON.serializePretty(pbe));
 		}
 
 		upsert orderItems;
@@ -128,19 +124,16 @@ global class ProductSelector {
 			WHERE OrderId = :orderId
 		];
 
-
 		List<Id> productIds = new List<Id>();
 		for (OrderItem oi: orderItems) {
 			productIds.add(oi.Product2Id);
 		}
-
 
 		List<Product2> products = [
 			SELECT Id, ProductCode, Description, Family, Class__c, Category__c, Name
 			FROM Product2
 			WHERE Id IN :productIds
 		];
-
 
 		// TODO: if productIds.size() and products.size() are NOT the same #
 		//  then you have added the same product more than once!!!
