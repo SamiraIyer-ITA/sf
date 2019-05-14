@@ -238,6 +238,8 @@ public class Test_ShoppingCart{
 			ProductSelectorComponent controller = new ProductSelectorComponent();
 			controller.OrderId = order.Id;
 			controller.PriceBookId = pricebook.Id;
+			order.Pricebook2Id = controller.PriceBookId;
+			update order;
 			controller.WebResourceType = 'Environmental Issue';
 			System.assertEquals(controller.getInit(), '');
 			System.assertEquals(controller.PriceBookEntries.size(), 3);
@@ -255,6 +257,7 @@ public class Test_ShoppingCart{
 			System.assertEquals(controller.ProductSelector.getAllOrderProducts(controller.OrderId).size(), 0); //there should not be any products yet;
 			controller.refreshPage();
 			controller.addRemoveProducts();
+			System.assertEquals(controller.ProductSelector.getAllOrderProducts(controller.OrderId).size(), 1); // should be 1 product now
 		}
 	}
 }
