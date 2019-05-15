@@ -97,11 +97,6 @@
         <fields>Trade_Issue__c</fields>
         <relatedList>Taxonomy_Tagging__c.Related_Case__c</relatedList>
     </relatedLists>
-    <relatedLists>
-        <fields>Country__c</fields>
-        <fields>CREATEDBY_USER</fields>
-        <relatedList>RelatedCountries__c.Case__c</relatedList>
-    </relatedLists>
     <relatedObjects>ContactId</relatedObjects>
     <relatedObjects>AccountId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>
