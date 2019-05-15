@@ -301,11 +301,6 @@
         <relatedList>Taxonomy_Tagging__c.Related_WIN__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>Country__c</fields>
-        <fields>CREATEDBY_USER</fields>
-        <relatedList>RelatedCountries__c.WIN__c</relatedList>
-    </relatedLists>
-    <relatedLists>
         <relatedList>RelatedContentNoteList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
