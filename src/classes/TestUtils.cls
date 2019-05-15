@@ -583,7 +583,10 @@ public class TestUtils {
 	}
 
 	public static Product2 createProduct(String name, Boolean active){
-		Product2 product = new Product2(Name=name, IsActive = active);
+		Product2 product = new Product2(
+			Name=name, 
+			IsActive = active
+		);
 		insert product;
 		return product;
 	}
