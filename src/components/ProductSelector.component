@@ -1,46 +1,113 @@
-<apex:component controller="ProductSelectorComponent" allowDML="true" >   
-<apex:attribute name="wrt" type="string" assignTo="{!webresourcetype}" required="true" description="Type of Web Resource needed initially to drive product selection." />
-<apex:attribute name="pb" type="string" assignTo="{!pricebookid}" required="true" description="ID of the Pricebook to use for product selection." />
-<apex:attribute name="order" type="string" assignTo="{!orderId}" required="true" description="ID of the Order to use for product selection." />
-<apex:attribute name="editProducts" type="boolean" assignTo="{!ShowProductSelector}" required="false" description="Is the list of products editable?" />
+<apex:component controller="ProductSelectorComponent" allowDML="true">
 
-{!init}
+	<apex:attribute name="wrt" type="string" assignTo="{!WebResourceType}" required="true" description="Type of Web Resource needed initially to drive product selection." />
+	<apex:attribute name="pb" type="string" assignTo="{!PriceBookId}" required="true" description="ID of the Pricebook to use for product selection." />
+	<apex:attribute name="order" type="string" assignTo="{!OrderId}" required="true" description="ID of the Order to use for product selection." />
+	<apex:attribute name="editProducts" type="boolean" assignTo="{!ShowProductSelector}" required="false" description="Is the list of products editable?" />
 
-<apex:outputpanel layout="block"  >
-<link href="{!URLFor($Resource.ps, 'ps/selector.css')}" rel="stylesheet" />  
-<apex:outputpanel rendered="{!ShowProductSelector}">
-    <h3 class="sub-section">We specialize in these areas:</h3>
-        
-        <div class="boo"><apex:selectCheckboxes value="{!cat1}" onchange="reload();"><apex:selectOptions value="{!options1}" /></apex:selectCheckboxes></div>
-        
-    <br/><br/>
-    <apex:actionFunction action="{!doNothing}" name="reload" rerender="output, products" status="busyOverlay" />
-    <apex:outputpanel id="output">
-        <apex:outputtext rendered="{!cat1.size != 0}"><h3 class="sub-section">With these types of products and services:</h3></apex:outputtext>
-        <div class="boo"><apex:selectCheckboxes value="{!cat2a}" onchange="reload();"><apex:selectOptions value="{!options2a}" /></apex:selectCheckboxes></div>
-        <br/><br/>
-        <apex:outputtext rendered="{!ShowSpecifically}"><h3 class="sub-section">Specific products and services:</h3></apex:outputtext>
-    
-        <apex:repeat value="{!Options3A1}" var="class">
-            <div class="mytextdiv" id="first-class"><div class="mytexttitle">{!class}</div><div class="divider"></div></div>
-            <div class="boo"><apex:selectCheckboxes value="{!cat3a1[class]}" onchange="reload();"><apex:selectoptions value="{!options3a1[class]}" /></apex:selectCheckboxes></div>
-        </apex:repeat>
-        
-        
-        <apex:repeat value="{!options4a1}" var="class">
-            <div class="mytextdiv"><div class="mytexttitle">{!class}</div><div class="divider"></div></div>
-            <div class="boo"><apex:selectCheckboxes value="{!cat4a1[class]}" onchange="reload();"><apex:selectOptions value="{!options4a1[class]}" /></apex:selectCheckboxes></div>
-        </apex:repeat>
-        
-    </apex:outputpanel>
-</apex:outputpanel>
-<apex:outputpanel id="products">
-<apex:outputpanel styleClass="products-selected" rendered="{!selectedProducts != null && selectedProducts.size != 0}"><strong>Solutions we offer:</strong></apex:outputpanel><br/>
-<apex:variable var="countProducts" value="{!1}"   /> 
-<apex:repeat value="{!selectedProducts}" var="product">
-    <span class="products-selected">{!selectedProductMap[product]}</span>{!if(countProducts != selectedProducts.size, ', ', '')}&nbsp; 
-    <apex:variable value="{!countProducts+1}" var="countProducts"/>
-</apex:repeat>
-</apex:outputPanel>
-</apex:outputPanel>
+	{!init}
+
+	<script>
+		let timeStarted;
+		let timeFinished;
+		function reloadJS(){
+			console.log("*******************************************************************************************");
+			console.log("###################################-reloadJS- GO/START");
+			timeStarted = performance.now();
+			reload();
+		}
+		function doneWithReload(){
+			timeFinished = performance.now();
+			let duration = timeFinished - timeStarted;
+			let seconds = duration / 1000;
+			console.log("###################################-doneWithReload- DURATION: " + duration + " ms OR " + seconds + " seconds.");
+			console.log("*******************************************************************************************");
+		}
+	</script>
+
+	<apex:actionFunction action="{!refreshPage}" name="reload" rerender="output, products" status="busyOverlay" onComplete="doneWithReload();"/>
+
+	<apex:outputPanel layout="block">
+
+		<!-- PRODUCT SELECTOR START -->
+		<link href="{!URLFor($Resource.ps, 'ps/selector.css')}" rel="stylesheet" />
+
+		<apex:outputPanel rendered="{!ShowProductSelector}">
+
+			<h3 class="sub-section">We specialize in these areas:</h3>
+
+			<div class="boo">
+				<apex:selectCheckboxes value="{!Tier1Selected}" onChange="reloadJS();">
+					<apex:selectOptions value="{!Tier1VisibleSelectOptions}"/>
+				</apex:selectCheckboxes>
+			</div>
+
+			<br/><br/>
+
+			<apex:outputPanel id="output">
+
+				<apex:outputtext rendered="{!Tier1Selected.size != 0}">
+					<h3 class="sub-section">With these types of products and services:</h3>
+				</apex:outputtext>
+
+				<div class="boo">
+					<apex:selectCheckboxes value="{!Tier2Selected}" onChange="reloadJS();">
+						<apex:selectOptions value="{!Tier2VisibleSelectOptions}"/>
+					</apex:selectCheckboxes>
+				</div>
+
+				<br/><br/>
+
+				<apex:outputtext rendered="{!showSpecificProductsHeader}">
+					<h3 class="sub-section">Specific products and services:</h3>
+				</apex:outputtext>
+
+				<apex:repeat value="{!Tier3VisibleSelectOptions}" var="class">
+					<div class="mytextdiv" id="first-class">
+						<div class="mytexttitle">{!class}</div>
+						<div class="divider"></div>
+					</div>
+					<div class="boo">
+						<apex:selectCheckboxes value="{!Tier3Selected[class]}" onChange="reloadJS();">
+							<apex:selectoptions value="{!Tier3VisibleSelectOptions[class]}"/>
+						</apex:selectCheckboxes>
+					</div>
+				</apex:repeat>
+
+				<apex:repeat value="{!Tier4VisibleSelectOptions}" var="class">
+					<div class="mytextdiv">
+						<div class="mytexttitle">{!class}</div>
+						<div class="divider"></div>
+					</div>
+					<div class="boo">
+						<apex:selectCheckboxes value="{!Tier4Selected[class]}" onChange="reloadJS();">
+							<apex:selectOptions value="{!Tier4VisibleSelectOptions[class]}"/>
+						</apex:selectCheckboxes>
+					</div>
+				</apex:repeat>
+
+			</apex:outputPanel>
+
+		</apex:outputPanel>
+		<!-- PRODUCT SELECTOR END -->
+
+		<!-- PRODUCT VIEWER START -->
+		<apex:outputPanel id="products">
+			<apex:outputPanel styleClass="products-selected" rendered="{!!ISBLANK(SelectedProductIds)}">
+				<strong>Solutions we offer:</strong>
+			</apex:outputPanel>
+			<br/>
+			<apex:variable var="countProducts" value="{!1}"/>
+			<apex:repeat value="{!SelectedProductIds}" var="productId">
+				<span class="products-selected">
+					{!AvailableProductsMap[productId]}
+				</span>
+				{!if(countProducts != SelectedProductIds.size, ', ', '')}&nbsp;
+				<apex:variable value="{!countProducts+1}" var="countProducts"/>
+			</apex:repeat>
+		</apex:outputPanel>
+		<!-- PRODUCT VIEWER END -->
+
+	</apex:outputPanel>
+
 </apex:component>
