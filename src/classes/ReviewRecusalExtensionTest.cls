@@ -54,14 +54,14 @@ private class ReviewRecusalExtensionTest {
 
         Test.stopTest();
 	}
-	@isTest static void relatedRecusalTest() {
+	/*@isTest static void relatedRecusalTest() {
         Test.startTest();
 		relatedRecusalSetup();
 		System.assertNotEquals(null, ext.parentFieldNames);
 		ext.cancel();
 
         Test.stopTest();
-	}
+	}*/
     @isTest static void uxContext() {
     	Test.startTest();
     	primaryRecusalSetup();
@@ -95,7 +95,7 @@ private class ReviewRecusalExtensionTest {
         con = new ApexPages.StandardController(r);
     	ext = new ReviewRecusalExtension(con);
 	}
-	private static void relatedRecusalSetup(){
+	/*private static void relatedRecusalSetup(){
 		pageRef = Page.ReviewRecusalPage;
         pageRef.getParameters().put('parentId', p.Id);
         pageRef.getParameters().put('userId', u.Id);
@@ -105,5 +105,5 @@ private class ReviewRecusalExtensionTest {
         Recusal__c related = TestUtils.createRecusal(primary.Id, p.Id, 'Petition__c', true);
         con = new ApexPages.StandardController(related);
     	ext = new ReviewRecusalExtension(con);
-	}
+	}*/
 }
