@@ -14350,6 +14350,435 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
         <errorMessage>Every Segment must have a ADCVD Order or a Suspension Agreement as parent</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>A1106AccessBarcode</fullName>
+        <active>true</active>
+        <description>&quot;Access Barcode&quot; is required only if &quot;Decision on How to Proceed&quot; is either &quot;Formal&quot; or &quot;Informal&quot;.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Reject&quot;),
+            NOT(ISBLANK(Access_Barcode__c))
+            )</errorConditionFormula>
+        <errorDisplayField>Access_Barcode__c</errorDisplayField>
+        <errorMessage>&quot;Access Barcode&quot; is required only if &quot;Decision on How to Proceed&quot; is either &quot;Formal&quot; or &quot;Informal&quot;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1106ActFinalSigAfterCalcFinSig</fullName>
+        <active>true</active>
+        <description>&quot;Actual Final Signature&quot; cannot be after &quot;Calculated Final Signature&quot;.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;),
+            Actual_Final_Signature__c &gt; Calculated_Final_Signature__c
+            )</errorConditionFormula>
+        <errorDisplayField>Actual_Final_Signature__c</errorDisplayField>
+        <errorMessage>&quot;Actual Final Signature&quot; cannot be after &quot;Calculated Final Signature&quot;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1106ActualDateDecisionHOPReq</fullName>
+        <active>true</active>
+        <description>If Segment Outcome field is not empty,then Actual date of Decision - How to Proceed field is required.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            NOT(ISBLANK(TEXT(Segment_Outcome__c))),
+            ISBLANK(Actual_Date_of_Decision_on_HoP__c)
+            )</errorConditionFormula>
+        <errorDisplayField>Actual_Date_of_Decision_on_HoP__c</errorDisplayField>
+        <errorMessage>Actual date of Decision - How to Proceed field, is required since you have selected a value in the Segment Outcome field.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1106ActualDateOfDecisionOnHOPBound</fullName>
+        <active>true</active>
+        <description>Actual Date of Decision on How to Proceed (HOP) cannot be later than Deadline for Decision on HOP</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            Actual_Date_of_Decision_on_HoP__c &gt; Deadline_for_Decision_on_How_to_Proceed__c
+            )</errorConditionFormula>
+        <errorDisplayField>Actual_Date_of_Decision_on_HoP__c</errorDisplayField>
+        <errorMessage>Actual Date of Decision on How to Proceed (HOP) cannot be later than Deadline for Decision on HOP</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1106ActualFinalSignatureNotBlank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Final Signature Date until the Calculate Final Signature Date is not populated</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &apos;Scope_Inquiry&apos;,
+            ISNULL( Calculated_Final_Signature__c ),
+            NOT(ISNULL( Actual_Final_Signature__c ))
+            )</errorConditionFormula>
+        <errorDisplayField>Calculated_Final_Signature__c</errorDisplayField>
+        <errorMessage>Calculated Final Signature Date must be populated in order to enter Actual Final Signature Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1106ActualFinalSignatureNotFormal</fullName>
+        <active>true</active>
+        <description>&quot;Actual Final Signature&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            NOT(ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;)),
+            NOT( ISBLANK( Actual_Final_Signature__c ))
+            )</errorConditionFormula>
+        <errorDisplayField>Actual_Final_Signature__c</errorDisplayField>
+        <errorMessage>&quot;Actual Final Signature&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1106ActualPrelimSigAfterCalcPrelimSig</fullName>
+        <active>true</active>
+        <description>&quot;Actual Preliminary Signature&quot; cannot be after &quot;Calculated Preliminary Signature&quot;.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;),
+            Actual_Preliminary_Signature__c &gt;  Calculated_Preliminary_Signature__c
+            )</errorConditionFormula>
+        <errorDisplayField>Actual_Preliminary_Signature__c</errorDisplayField>
+        <errorMessage>&quot;Actual Preliminary Signature&quot; cannot be after &quot;Calculated Preliminary Signature&quot;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1106ActualPrelimSigNotBlank</fullName>
+        <active>true</active>
+        <description>You cannot enter an Actual Preliminary Signature Date until the Calculate Preliminary Signature Date is populated</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            ISNULL( Calculated_Preliminary_Signature__c ),
+            NOT( ISNULL( Actual_Preliminary_Signature__c ))
+            )</errorConditionFormula>
+        <errorDisplayField>Calculated_Preliminary_Signature__c</errorDisplayField>
+        <errorMessage>Calculated Preliminary Signature Date must be populated in order to enter Actual Preliminary Signature Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1106ActualPrelimSigNotFormal</fullName>
+        <active>true</active>
+        <description>&quot;Actual Preliminary Signature&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            NOT(ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;)),
+            NOT(ISBLANK(Actual_Preliminary_Signature__c))
+            )</errorConditionFormula>
+        <errorDisplayField>Actual_Preliminary_Signature__c</errorDisplayField>
+        <errorMessage>&quot;Actual Preliminary Signature&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1106CustomInstructionRequired</fullName>
+        <active>true</active>
+        <description>Cannot answer Have Custom Instruction been sent unless Litigation is populated.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            ISBLANK(TEXT(Litigation_YesNo__c )),
+            NOT(ISBLANK(TEXT(Have_Custom_Instruction_been_sent__c)))
+            )</errorConditionFormula>
+        <errorDisplayField>Litigation_YesNo__c</errorDisplayField>
+        <errorMessage>Litigation cannot be blank when Have Custom Instruction is populated</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1106DecisionHOPOutcomeRejected</fullName>
+        <active>true</active>
+        <description>When Segment Outcome is &quot;Rejected&quot;, require Decision on How to Proceed as &quot;Reject&quot;</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            ISPICKVAL(Segment_Outcome__c, &apos;Rejected&apos;),
+            NOT(ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Reject&apos;))
+            )</errorConditionFormula>
+        <errorDisplayField>Decision_on_How_to_Proceed__c</errorDisplayField>
+        <errorMessage>When Segment Outcome field is &quot;Rejected&quot;, Decision on How to Proceed field should have &quot;Reject&quot; value selected.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1106DecisionHOPReq</fullName>
+        <active>true</active>
+        <description>If Segment Outcome field is not empty,then Decision on How to Proceed field is required.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            NOT(ISBLANK(TEXT(Segment_Outcome__c))),
+            ISBLANK(TEXT(Decision_on_How_to_Proceed__c))
+            )</errorConditionFormula>
+        <errorDisplayField>Decision_on_How_to_Proceed__c</errorDisplayField>
+        <errorMessage>Decision on How to Proceed is required since you have selected a value in the Segment Outcome field.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1106DecisionOnHowToProceedRequired</fullName>
+        <active>true</active>
+        <description>Record Type: Scope Inquiry - Decision on How to Proceed field is required when value is set for the field Actual Date of Decision on How to Proceed.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            NOT(ISBLANK( Actual_Date_of_Decision_on_HoP__c)),
+            ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;&apos;)
+            )</errorConditionFormula>
+        <errorDisplayField>Decision_on_How_to_Proceed__c</errorDisplayField>
+        <errorMessage>&quot;Decision on How to Proceed&quot; field is required when value is entered for &quot;Actual Date of Decision - How to Proceed&quot; field</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1106LitigationResolvedRequired</fullName>
+        <active>true</active>
+        <description>Litigation Resolved cannot be blank if Litigation is &apos;Yes&apos;</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            ISPICKVAL( Litigation_YesNo__c , &apos;Yes&apos;),
+            ISBLANK( TEXT( Litigation_Resolved__c ))
+            )</errorConditionFormula>
+        <errorDisplayField>Litigation_Resolved__c</errorDisplayField>
+        <errorMessage>Litigation Resolved cannot be blank when Litigation is &quot;Yes&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1106OnlyAdminReparentsSegments</fullName>
+        <active>true</active>
+        <description>Segment records can only be reparented by a System Administrator.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            NOT( ISNEW() ),
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            OR(
+            ISCHANGED(ADCVD_Order__c ),
+            ISCHANGED(Suspension_Agreement__c),
+            ISCHANGED(ADCVD_Case__c),
+            ISCHANGED(Investigation__c)),
+            $Profile.Name &lt;&gt; &quot;System Administrator&quot;
+            )</errorConditionFormula>
+        <errorMessage>You are not authorized to edit this field. Only a System Administrator can edit the parent ADCVD Order, Suspension Agreement or ADCVD Case for this record.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1106OutcomeReqActFinalSigBlank</fullName>
+        <active>true</active>
+        <description>Segment Outcome is required when Actual Final Signature is entered</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            NOT(ISNULL(Actual_Final_Signature__c )),
+            ISPICKVAL(Segment_Outcome__c, &apos;&apos;)
+            )</errorConditionFormula>
+        <errorDisplayField>Segment_Outcome__c</errorDisplayField>
+        <errorMessage>Segment Outcome is required because you have a value in Actual Final Signature field.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1106OutcomeReqDecOnHowToProcInformal</fullName>
+        <active>true</active>
+        <description>Segment Outcome is required when Decision on How to Proceed is &quot;Informal&quot;</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Informal&apos;),
+            ISPICKVAL(Segment_Outcome__c, &apos;&apos;)
+            )</errorConditionFormula>
+        <errorDisplayField>Segment_Outcome__c</errorDisplayField>
+        <errorMessage>Segment Outcome is required because the Decision on How to Proceed field is &quot;Informal&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1106OutcomeReqDecOnHowToProcReject</fullName>
+        <active>true</active>
+        <description>Segment Outcome is required when Decision on How to Proceed is &quot;Reject&quot;</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Reject&apos;),
+            NOT(ISPICKVAL(Segment_Outcome__c, &apos;Rejected&apos;))
+            )</errorConditionFormula>
+        <errorDisplayField>Segment_Outcome__c</errorDisplayField>
+        <errorMessage>Segment Outcome is required because you have value in Decision on How to Proceed field as &quot;Reject&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1106PrelimExtFinalExtRequired</fullName>
+        <active>true</active>
+        <description>Prelim AND/OR Final Extensions should be empty based on certain other field selections.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            OR (
+            NOT(ISNULL(Prelim_Extension__c)),
+            NOT(ISNULL(Final_Extension_of_days__c ))
+            ),
+            NOT(ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Formal&apos;))
+            )</errorConditionFormula>
+        <errorMessage>&quot;Prelim Extension (# of days)&quot; AND / OR &quot;Final Extension (# of days)&quot; cannot contain values based on your current field selections.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1106PrelimExtension</fullName>
+        <active>true</active>
+        <description>The bound for &quot;Preliminary Extension (#of days)&quot; is 1 to 120 days.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;),
+            OR(
+                Prelim_Extension__c &gt; 120,
+                Prelim_Extension__c &lt; 0
+            )
+            )</errorConditionFormula>
+        <errorDisplayField>Prelim_Extension__c</errorDisplayField>
+        <errorMessage>The bound for &quot;Preliminary Extension (#of days)&quot; is 1 to 120 days.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1106PrelimExtensionNotFormal</fullName>
+        <active>true</active>
+        <description>&quot;Preliminary Extension (# of days)&quot;  is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            NOT(ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;)),
+            NOT(ISBLANK( Prelim_Extension__c ))
+            )</errorConditionFormula>
+        <errorDisplayField>Prelim_Extension__c</errorDisplayField>
+        <errorMessage>&quot;Preliminary Extension (# of days)&quot;  is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1106ProductDeterminedToBeInScope</fullName>
+        <active>true</active>
+        <description>If Decision on How to Proceed is Reject, then Was Product Determined to be in Scope should be null.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Reject&quot;),
+            NOT(ISBLANK(TEXT(  Was_product_determined_to_be_in_scope__c )))
+            )</errorConditionFormula>
+        <errorDisplayField>Was_product_determined_to_be_in_scope__c</errorDisplayField>
+        <errorMessage>If Decision on How to Proceed is Reject, then Was Product Determined to be in Scope should be null.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1106ProductPDetermineToBeInScopeNF</fullName>
+        <active>true</active>
+        <description>&quot;Was the Product Preliminary Determined to be in Scope?&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            NOT(ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;)),
+            OR(
+                ISPICKVAL( Was_Product_Prelim_Determine_in_Scope__c, &quot;Yes&quot;),
+                ISPICKVAL( Was_Product_Prelim_Determine_in_Scope__c, &quot;No&quot;))
+            )</errorConditionFormula>
+        <errorDisplayField>Was_Product_Prelim_Determine_in_Scope__c</errorDisplayField>
+        <errorMessage>&quot;Was the Product Preliminary Determined to be in Scope?&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1106ScopeChangesHTS</fullName>
+        <active>true</active>
+        <description>&quot;HTS Changes&quot; is required only if &quot;Decision on How to Proceed&quot; is either &quot;Formal&quot; or &quot;Informal&quot;.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Reject&quot;),
+            NOT(ISBLANK(HTS_Changes__c))
+            )</errorConditionFormula>
+        <errorDisplayField>HTS_Changes__c</errorDisplayField>
+        <errorMessage>&quot;HTS Changes&quot; is required only if &quot;Decision on How to Proceed&quot; is either &quot;Formal&quot; or &quot;Informal&quot;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1106ScopeChangesLanguage</fullName>
+        <active>true</active>
+        <description>&quot;Scope Language Change(s)&quot; is required only if &quot;Decision on How to Proceed&quot; is either &quot;Formal&quot; or &quot;Informal&quot;.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Reject&quot;),
+            NOT(ISBLANK(Scope_Language_Changes__c))
+            )</errorConditionFormula>
+        <errorDisplayField>Scope_Language_Changes__c</errorDisplayField>
+        <errorMessage>&quot;Scope Language Change(s)&quot; is required only if &quot;Decision on How to Proceed&quot; is either &quot;Formal&quot; or &quot;Informal&quot;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1106SegmentMustHaveParent</fullName>
+        <active>true</active>
+        <description>A segment must have an ADCVD Order or Suspension Agreement as parent</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            ISBLANK(ADCVD_Order__c ),
+            ISBLANK( Suspension_Agreement__c )
+            )</errorConditionFormula>
+        <errorMessage>Every Segment must have a ADCVD Order or a Suspension Agreement as parent</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1106TypeOfScopeRulingNotRequiredReject</fullName>
+        <active>true</active>
+        <description>Type of Scope Ruling must be blank when value set for Decision on How to Proceed is &quot;Reject&quot;</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Reject&apos;),
+            NOT(ISBLANK(TEXT(Type_of_Scope_Ruling__c)))
+            )</errorConditionFormula>
+        <errorDisplayField>Type_of_Scope_Ruling__c</errorDisplayField>
+        <errorMessage>Type of Scope Ruling must be blank when Decision on How to Proceed is &quot;Reject&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1106TypeOfScopeRulingRequiredFormal</fullName>
+        <active>true</active>
+        <description>Type of Scope Ruling is required when value set for Decision on How to Proceed is &quot;Formal&quot;</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Formal&apos;),
+            ISBLANK(TEXT(Type_of_Scope_Ruling__c))
+            )</errorConditionFormula>
+        <errorDisplayField>Type_of_Scope_Ruling__c</errorDisplayField>
+        <errorMessage>Type of Scope Ruling is required when Decision on How to Proceed is &quot;Formal&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1106TypeOfScopeRulingRequiredInformal</fullName>
+        <active>true</active>
+        <description>Type of Scope Ruling is required when value set for Decision on How to Proceed is &quot;Informal&quot;</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            ISPICKVAL(Decision_on_How_to_Proceed__c, &apos;Informal&apos;),
+            ISBLANK(TEXT(Type_of_Scope_Ruling__c))
+            )</errorConditionFormula>
+        <errorDisplayField>Type_of_Scope_Ruling__c</errorDisplayField>
+        <errorMessage>Type of Scope Ruling is required when Decision on How to Proceed is &quot;Informal&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1106WasProductDeterminedToBeInScope</fullName>
+        <active>true</active>
+        <description>&quot;Was the Product Determined to be in Scope?&quot; is required only if &quot;Decision on How to Proceed&quot; is either &quot;Formal&quot; or &quot;Informal&quot;.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Reject&quot;),
+            NOT(ISBLANK(TEXT(  Was_product_determined_to_be_in_scope__c )))
+            )</errorConditionFormula>
+        <errorDisplayField>Was_product_determined_to_be_in_scope__c</errorDisplayField>
+        <errorMessage>&quot;Was the Product Determined to be in Scope?&quot; is required only if &quot;Decision on How to Proceed&quot; is either &quot;Formal&quot; or &quot;Informal&quot;.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>A1107ActualFinalSignatureNotBlank</fullName>
         <active>true</active>
         <description>You cannot enter an Actual Final Signature Date until the Calculate Final Signature Date is not populated</description>
@@ -14730,7 +15159,7 @@ PRIORVALUE(Locked__c) == true
     </validationRules>
     <validationRules>
         <fullName>Decision_on_How_to_Proceed_Required</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Record Type: Scope Inquiry
 Decision on How to Proceed field is required when value is set for the field Actual Date of Decision on How to Proceed.</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND(
@@ -14835,7 +15264,7 @@ OR(ISCHANGED(ADCVD_Order__c ),ISCHANGED(Suspension_Agreement__c),ISCHANGED(ADCVD
     </validationRules>
     <validationRules>
         <fullName>PrelimExtension_FinalExtensions_Required</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Record Types: Scope Inquiry, Changed Circumstance and Anti-Circumvention.
 Prelim AND/OR Final Extensions should be empty based on certain other field selections.</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, CASE(RecordType.DeveloperName,
@@ -14923,7 +15352,7 @@ ISBLANK(TEXT(Preliminary_Determination__c))
     </validationRules>
     <validationRules>
         <fullName>SI_Access_Barcode</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Legend to the Initials Placed on each rule name
 AR = Admin Review
 ACR = Anti-Circumvention Review
@@ -14939,7 +15368,7 @@ $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_Ho
     </validationRules>
     <validationRules>
         <fullName>SI_ActualDateDecisionHOP_DecisionHOP_Req</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>If Segment Outcome field is not empty.,then Decision on How to Proceed field is required AND Actual date of Decision - How to Proceed field is required.</description>
         <errorConditionFormula>AND(
   $Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
@@ -14963,7 +15392,7 @@ $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_Ho
     </validationRules>
     <validationRules>
         <fullName>SI_Actual_Date_of_Decision_on_HOP_Bound</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Legend to the Initials Placed on each rule name
 AR = Admin Review
 ACR = Anti-Circumvention Review
@@ -14978,7 +15407,7 @@ $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,Actual_Date_of_Decision_on
     </validationRules>
     <validationRules>
         <fullName>SI_Actual_Final_Signature</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, AND( 
 $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;),  Actual_Final_Signature__c &gt;  Calculated_Final_Signature__c))</errorConditionFormula>
         <errorMessage>&quot;Actual Final Signature&quot; cannot be after &quot;Calculated Final Signature&quot;.</errorMessage>
@@ -15001,7 +15430,7 @@ $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, NOT(ISPICKVAL( Decision_o
     </validationRules>
     <validationRules>
         <fullName>SI_Actual_Prelim_Signature</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Legend to the Initials Placed on each rule name
 AR = Admin Review
 ACR = Anti-Circumvention Review
@@ -15016,7 +15445,7 @@ $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_Ho
     </validationRules>
     <validationRules>
         <fullName>SI_Actual_Prelim_Signature_NF</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Legend to the Initials Placed on each rule name
 AR = Admin Review
 ACR = Anti-Circumvention Review
@@ -15032,7 +15461,7 @@ $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, NOT(ISPICKVAL( Decision_o
     </validationRules>
     <validationRules>
         <fullName>SI_DecisionHOP_SegmentOutcome_Rejected</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Record Type: Scope Inquiry
 When Segment Outcome is  &quot;Rejected&quot;, require Decision on How to Proceed as &quot;Reject&quot;</description>
         <errorConditionFormula>AND(
@@ -15055,7 +15484,7 @@ When Segment Outcome is  &quot;Rejected&quot;, require Decision on How to Procee
     </validationRules>
     <validationRules>
         <fullName>SI_Prelim_Extension</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Legend to the Initials Placed on each rule name
 AR = Admin Review
 ACR = Anti-Circumvention Review
@@ -15072,7 +15501,7 @@ OR(Prelim_Extension__c &gt; 120, Prelim_Extension__c &lt; 0)
     </validationRules>
     <validationRules>
         <fullName>SI_Prelim_Extension_NF</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Legend to the Initials Placed on each rule name
 AR = Admin Review
 ACR = Anti-Circumvention Review
@@ -15088,7 +15517,7 @@ $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, NOT(ISPICKVAL( Decision_o
     </validationRules>
     <validationRules>
         <fullName>SI_Product_Determined_To_Be_In_Scope</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Legend to the Initials Placed on each rule name
 AR = Admin Review
 ACR = Anti-Circumvention Review
@@ -15104,7 +15533,7 @@ $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_Ho
     </validationRules>
     <validationRules>
         <fullName>SI_Product_P_Determine_to_be_in_Scope_NF</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Legend to the Initials Placed on each rule name
 AR = Admin Review
 ACR = Anti-Circumvention Review
@@ -15120,7 +15549,7 @@ $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, NOT(ISPICKVAL( Decision_o
     </validationRules>
     <validationRules>
         <fullName>SI_Scope_Changes_HTS</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Legend to the Initials Placed on each rule name
 AR = Admin Review
 ACR = Anti-Circumvention Review
@@ -15136,7 +15565,7 @@ $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_Ho
     </validationRules>
     <validationRules>
         <fullName>SI_Scope_Changes_Language</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Legend to the Initials Placed on each rule name
 AR = Admin Review
 ACR = Anti-Circumvention Review
@@ -15152,7 +15581,7 @@ $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_Ho
     </validationRules>
     <validationRules>
         <fullName>SI_Was_Product_Determined_To_Be_In_Scope</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Legend to the Initials Placed on each rule name
 AR = Admin Review
 ACR = Anti-Circumvention Review
@@ -15183,7 +15612,7 @@ ISPICKVAL(Sunset_Review_Type__c , &apos;240&apos;))
     </validationRules>
     <validationRules>
         <fullName>Segment_Outcome_Required</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Segment Outcome is required when: 
 1) Actual Final Signature is entered (Record Type: All Types) 
      OR
@@ -15237,7 +15666,7 @@ CASE
     </validationRules>
     <validationRules>
         <fullName>Type_of_Scope_Ruling_Required</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Record Type: Scope Inquiry
 Type of Scope Ruling is required when value set for Decision on How to Proceed is &quot;Formal&quot; or &quot;Informal&quot;, but not when &quot;Reject&quot;</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,  
