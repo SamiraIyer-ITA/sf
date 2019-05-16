@@ -182,13 +182,9 @@ public with sharing class ProductSelectorComponent {
 		Set<String> tier1VisibleDupeCheckSet = new Set<String>();
 		for(PricebookEntry priceBookEntryItem : this.PriceBookEntries){
 			String productId = priceBookEntryItem.Product2Id;
-			System.debug('#######################################-Line: 185-' + productId);
 			String productName = priceBookEntryItem.Product2.Name;
-			System.debug('#######################################-Line: 187-' + productName);
 			String productClass = priceBookEntryItem.Product2.Class__c;
-			System.debug('#######################################-Line: 189-' + productClass);
 			String value = (!String.isBlank(productClass)) ? productClass : productName;
-			System.debug('#######################################-Line: 191-' + value);
 			if(this.SelectedProductsMap.keySet().contains(productId)){
 				if(this.Tier1DuplicateTracker.contains(productClass)){
 					continue;
@@ -247,9 +243,7 @@ public with sharing class ProductSelectorComponent {
 			if(String.isNotEmpty(productClass)){
 				if(!this.Tier2DuplicateTracker.contains(productClass)){
 					this.Tier2DuplicateTracker.add(productClass);
-					// TODO: FILLING OUT THE SELECTED VALUE LIST HERE FOR TIER2
 					this.Tier2Selected.add(productClass);
-					// TODO: END OF TIER 2 SELECTED FILLING
 					this.Tier2VisibleSelectOptions.add(new SelectOption(productClass, productClass));
 				}
 			} else {
@@ -261,14 +255,12 @@ public with sharing class ProductSelectorComponent {
 				this.Tier3DuplicateTracker.put(productClass, new Set<String>());
 			}
 			if(String.isNotBlank(productClass) && String.isBlank(productCategory)){
-				// TODO: FILLING OUT THE SELECTED VALUE LIST HERE FOR TIER3
 				if(!this.Tier3Selected.keySet().contains(productClass)){
 					this.Tier3Selected.put(productClass, new List<String>());
 				}
 				if(!this.Tier3Selected.keySet().contains(productId) && this.Tier2DuplicateTracker.contains(productClass)){
 					this.Tier3Selected.get(productClass).add(productId);
 				}
-				// TODO: END TIER3SELECTED
 			}
 			if(!this.Tier3VisibleSelectOptions.keySet().contains(productClass)){
 				this.Tier3VisibleSelectOptions.put(productClass, new List<SelectOption>());
@@ -287,19 +279,16 @@ public with sharing class ProductSelectorComponent {
 			if(String.isNotBlank(productCategory) && !this.Tier4VisibleSelectOptions.keySet().contains(productClassCategoryString)){
 				this.Tier4VisibleSelectOptions.put(productClassCategoryString, new List<SelectOption>());
 			}
-			// TODO: FILLING OUT TIER4 SELECTED HERE
 			if(String.isNotBlank(productCategory) && !this.Tier4Selected.keySet().contains(productClassCategoryString)){
 				this.Tier4Selected.put(productClassCategoryString, new List<String>());
 			}
 			if(String.isNotBlank(productCategory) && !new Set<String>(this.Tier4Selected.get(productClassCategoryString)).contains(productId)){
 				this.Tier4Selected.get(productClassCategoryString).add(productId);
 			}
-			// TODO: END TIER 4 SELECTED
 		}
 	}
 
 	private void populateTier234_WebResourceVersion_ForEveryWebResource(){
-		// FIRST LEVEL FOR LOOP
 		for(Related_Resource__c rr : this.RelatedWebResources.values()){
 			String productId = rr.Product__c;
 			String productName = rr.Product__r.Name;
@@ -310,8 +299,6 @@ public with sharing class ProductSelectorComponent {
 			String key = String.isNotBlank(productCategory) ? productClassCategoryString : productId;
 			String value = String.isNotBlank(productCategory) ? productCategory : productName;
 
-			// SECOND LOOP LEVEL DEEP
-			// Tier 2
 			for (String tier1SelectedPrimaryResourceId : this.Tier1Selected){
 				if(primaryResourceId == tier1SelectedPrimaryResourceId){
 					if(String.isNotBlank(productClass)){
@@ -324,8 +311,6 @@ public with sharing class ProductSelectorComponent {
 						this.Tier2VisibleSelectOptions.add(new SelectOption(productId, productName));
 					}
 
-					// THIRD LOOP LEVEL DEEP
-					// Tier 3
 					for (String tier2ProductClass : this.Tier2Selected) {
 						if (!isProductId(tier2ProductClass)) {
 							// first time; init t3DupeTracker
@@ -355,7 +340,6 @@ public with sharing class ProductSelectorComponent {
 				Set<String> tier1SelectedSet = new Set<String>(this.Tier1Selected);
 				Set<String> tier2SelectedSet = new Set<String>(this.Tier2Selected);
 
-				// Tier 4
 				for (String tier3String : this.Tier3Selected.keySet()){
 
 					Set<String> tier3SelectedSpecific = new Set<String>( this.Tier3Selected.get(tier3String) );
@@ -402,7 +386,6 @@ public with sharing class ProductSelectorComponent {
 			String key = !String.isBlank(productCategory) ? productCategory : productId;
 			String value = !String.isBlank(productCategory) ? productCategory : selectedProduct.Name;
 
-			// TIER 2 //////////////////////////////////////////////////////////////
 			if(this.Tier2Selected != null){
 				Set<String> tier2SelectedSet = new Set<String>(this.Tier2Selected);
 				if(tier2SelectedSet != null && !tier2SelectedSet.contains(key)){
@@ -414,27 +397,21 @@ public with sharing class ProductSelectorComponent {
 				this.Tier2VisibleSelectOptions.add(new SelectOption(key, value));
 			}
 
-			// TIER 3 ////////////////////////////////////////////////////////////////
 			if(!String.isBlank(productCategory)){
-				// if first time, init t3selected
 				if(!this.Tier3Selected.keySet().contains(productCategory)){
 					this.Tier3Selected.put(productCategory, new List<String>());
 				}
 
-				// if first time, init t3VisibleSelectOptions
 				if(!this.Tier3VisibleSelectOptions.keySet().contains(productCategory)){
 					this.Tier3VisibleSelectOptions.put(productCategory, new List<SelectOption>());
 				}
 
-				// if first time, init t3DupeTracker
 				if(!this.Tier3DuplicateTracker.keySet().contains(productCategory)){
 					this.Tier3DuplicateTracker.put(productCategory, new Set<String>());
 				}
 
-				// adding the product id with no other conditions???
 				this.Tier3Selected.get(productCategory).add(productId);
 
-				// if a veteran (and t3DupeTracker DOES NOT have this product), then add it
 				if(!this.Tier3DuplicateTracker.get(productCategory).contains(productId)){
 					this.Tier3DuplicateTracker.get(productCategory).add(productId);
 					this.Tier3VisibleSelectOptions.get(productCategory).add(new SelectOption(productId, productName));
