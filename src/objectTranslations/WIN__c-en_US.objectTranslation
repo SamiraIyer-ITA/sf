@@ -135,6 +135,10 @@
             <masterLabel>2018</masterLabel>
             <translation><!-- 2018 --></translation>
         </picklistValues>
+        <picklistValues>
+            <masterLabel>2019</masterLabel>
+            <translation><!-- 2019 --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Clearance Notes --></label>
@@ -937,6 +941,22 @@
         </sections>
     </layouts>
     <quickActions>
+        <label><!-- AC Fields --></label>
+        <name>AC_Fields</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Add Contributor --></label>
+        <name>Add_Contributor</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Add Country --></label>
+        <name>Add_Country</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Add Industry --></label>
+        <name>Add_Industry</name>
+    </quickActions>
+    <quickActions>
         <label><!-- Edit Advocacy WIN --></label>
         <name>Edit_Advocacy_WIN</name>
     </quickActions>
@@ -959,6 +979,18 @@
     <quickActions>
         <label><!-- New Industry --></label>
         <name>NewTaxonomy</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- SUSA Fields --></label>
+        <name>SUSA_Fields</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Validate --></label>
+        <name>Validate</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- WIN Approvals --></label>
+        <name>WIN_Approvals</name>
     </quickActions>
     <recordTypes>
         <description><!-- Record type for creating an Advocacy WIN --></description>
