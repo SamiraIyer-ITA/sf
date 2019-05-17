@@ -119,7 +119,8 @@ public without sharing class Payment {
 		//3 digit ISO code
 		startOnlineCollectionRequest.billing_country = userElementFormat(billing_country, 3);
 		//80 char limit
-		startOnlineCollectionRequest.email_address = userElementFormat(email_address, 80);
+		//Email address is unnecessary at this time and a plus sign in an email address is invalid for pay.gov
+		//startOnlineCollectionRequest.email_address = userElementFormat(email_address, 80);
 
 		//END OPTIONAL ELEMENTS
 
