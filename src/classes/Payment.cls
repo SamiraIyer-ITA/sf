@@ -276,7 +276,7 @@ public without sharing class Payment {
 			];
 			if (!users.isEmpty()) {
 				User paymentUser = users[0];
-				name = paymentUser.Name;
+				name = Accents.removeDiacritics(paymentUser.Name);
 				email = paymentUser.Email;
                 street = paymentUser.Street != null ? Utils.convMultiLineTextToOne(paymentUser.Street) : null;
 				city = paymentUser.City;
