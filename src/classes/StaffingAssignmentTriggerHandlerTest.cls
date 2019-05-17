@@ -93,7 +93,7 @@ public class StaffingAssignmentTriggerHandlerTest {
                         Id = fflib_IDGenerator.generate(Petition__c.SObjectType),
                         Locked__c = false,
                         ADCVD_Case__c = adcvdCaseList[0].Id,
-                        Country__c = 'Mexico'
+                        Country_Text__c = 'Mexico'
                 )
         );
         //Create Investigation record
@@ -103,7 +103,8 @@ public class StaffingAssignmentTriggerHandlerTest {
                         Id = fflib_IDGenerator.generate(Investigation__c.SObjectType),
                         Locked__c = false,
                         ADCVD_Case__c = adcvdCaseList[0].Id,
-                        Petition__c = petitionList[0].Id
+                        Petition__c = petitionList[0].Id,
+                        Country_Text__c = 'Mexico'
                 )
         );
         //Create ADCVD Order record
@@ -113,7 +114,8 @@ public class StaffingAssignmentTriggerHandlerTest {
                         Id = fflib_IDGenerator.generate(ADCVD_Order__c.SObjectType),
                         Locked__c = false,
                         ADCVD_Case__c = adcvdCaseList[0].Id,
-                        Investigation__c = investigationList[0].Id
+                        Investigation__c = investigationList[0].Id,
+                        Country_Text__c = 'Mexico'
                 )
         );
         //Create Related Organization record
@@ -123,7 +125,8 @@ public class StaffingAssignmentTriggerHandlerTest {
                         Id = fflib_IDGenerator.generate(Related_Organization__c.SObjectType),
                         Locked__c = false,
                         ADCVD_Case__c = adcvdCaseList[0].Id,
-                        Investigation__c = investigationList[0].Id
+                        Investigation__c = investigationList[0].Id,
+                        Country_Text__c = 'Mexico'
                 )
         );
         //Create Segment record
@@ -133,7 +136,8 @@ public class StaffingAssignmentTriggerHandlerTest {
                         Id = fflib_IDGenerator.generate(Segment__c.SObjectType),
                         Locked__c = false,
                         ADCVD_Case__c = adcvdCaseList[0].Id,
-                        ADCVD_Order__c = orderList[0].Id
+                        ADCVD_Order__c = orderList[0].Id,
+                        Country_Text__c = 'Mexico'
                 )
         );
         //Create Staffing Assignment records

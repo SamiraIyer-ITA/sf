@@ -12,7 +12,7 @@ private class StaffingAssignmentMapperTest {
     @isTest static void testStaffingAssignmentMapper() {
 
         dataSetup();
-
+        selectorSetup();
         Test.startTest();
         StaffingAssignmentMapper staffMapper = new StaffingAssignmentMapper(new Set<Id>{
                 staffList[0].Id, staffList[1].Id
@@ -70,13 +70,17 @@ private class StaffingAssignmentMapperTest {
         staffList.add(
                 new Staffing_Assignment__c(
                         Id = fflib_IDGenerator.generate(Staffing_Assignment__c.SObjectType),
-                        Locked__c = false
+                        Locked__c = false,
+                        Staff_Parent__c = 'Petition__c',
+                        Petition__c = petitionsList[0].Id
                 )
         );
         staffList.add(
                 new Staffing_Assignment__c(
                         Id = fflib_IDGenerator.generate(Staffing_Assignment__c.SObjectType),
-                        Locked__c = true
+                        Locked__c = true,
+                        Staff_Parent__c = 'Petition__c',
+                        Petition__c = petitionsList[0].Id
                 )
         );
         //Create relationship between ADCVD Case and Staffing Assignments
