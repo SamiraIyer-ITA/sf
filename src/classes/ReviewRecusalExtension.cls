@@ -67,7 +67,7 @@
     //Get the parentId by checking the parent fields on the Recusal
     public Id parentId {get {
     	if(rec != null && rec.Primary_Recusal_Aligned_To__c != null && rec.RecordTypeId == utils.getRecordTypeIdMap('Recusal__c').get('Related')) {
-	    	if (rec.Petition__c != null) {
+	    	/*if (rec.Petition__c != null) {
 				parentId = rec.Petition__c;
 			} else if (rec.Investigation__c != null) {
 				parentId = rec.Investigation__c;
@@ -81,7 +81,7 @@
 				parentId = rec.Related_Organization__c;
 			} else {
 				parentId = rec.Id;
-			}
+			}*/
 		}
 		return parentId;
     	} set;
@@ -103,7 +103,7 @@
     /******************************************
      * Variables for Users
      *****************************************/
-    public User user {get {
+    /*public User user {get {
  		if(user == null) {
  			user = new User();
  			for(User u : [SELECT Id, Name From User Where Id =: userId]) {
@@ -112,7 +112,7 @@
  		}
  		return user;
  		} set;
- 	}
+ 	}*/
 	public Id userId {get; set;}
 	//Set of all Ids from users with Staffing Roles
 	public Set<Id> userIdSet {get {
