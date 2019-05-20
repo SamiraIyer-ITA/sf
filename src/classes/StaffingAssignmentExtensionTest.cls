@@ -77,6 +77,14 @@ public class StaffingAssignmentExtensionTest {
     @isTest static void petitionTest() {
         Test.startTest();
         petitionSetup();
+        ext.addRow();
+        ext.cancel();
+
+        Test.stopTest();
+    }
+    @isTest static void investigationTest() {
+        Test.startTest();
+        investigationSetup();
         ext.cancel();
 
         Test.stopTest();
