@@ -290,7 +290,7 @@ public without sharing class StaffingAssignmentExtension {
             }
         }
         //propogate staffing assignment to child segments of the order
-        if(overwriteSegments) {
+        /*if(overwriteSegments) {
             for(Segment__c s: [SELECT Id, (SELECT Id, User__c, Title__c FROM Staffing_Assignments__r) FROM Segment__c WHERE ADCVD_Order__c =: parentId]) {
                 if(s.Staffing_Assignments__r != null) {
                     //delete staffing assignments
@@ -311,7 +311,7 @@ public without sharing class StaffingAssignmentExtension {
                     }
                 }
             }
-        }
+        }*/
         upsert staffListToUpsert;
         delete staffListToDelete;
         return null;
