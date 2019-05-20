@@ -503,6 +503,11 @@
                     <default>false</default>
                     <label>Termination</label>
                 </value>
+                <value>
+                    <fullName>Critical Circumstances</fullName> 
+                    <default>false</default>
+                    <label>Critical Circumstances</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
