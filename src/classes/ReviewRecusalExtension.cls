@@ -1,5 +1,23 @@
-public without sharing class ReviewRecusalExtension {
+/**
+ * 
+ *    Created by Joshua Moody
+ *    on Apr 4 2017
+ *    MIL Corporation
+ * 
+ **/
+ public without sharing class ReviewRecusalExtension {
+ 	/***********************************************************
+    * This class is the controller/extension for a page that displays
+    * information about a user's recusals.
+    * This class provides methods to:
+    * 1. Dynamically display in the correct UX (can be updated to 
+    * using the lightningStylesheets tag, which is currently in beta)
+    * 2. Get the record that is related to the recusal
+    * 3. Display in a list all the primary and related recusals for 
+    * a user
+    ***********************************************************/
 
+    
 	/*********************************
  	* Variables to manage UI
  	********************************/
@@ -21,6 +39,14 @@ public without sharing class ReviewRecusalExtension {
         } set;
     }
 
+	 public String recusalLink {
+		 get {
+			 recusalLink = '';
+			 recusalLink = AppConfig__c.getValues('Recusal Link').Link__c;
+			 return recusalLink;
+	 	} set;
+	 }
+
     /**********************************
      * Variables for a parent record
      *********************************/
@@ -41,7 +67,7 @@ public without sharing class ReviewRecusalExtension {
     //Get the parentId by checking the parent fields on the Recusal
     public Id parentId {get {
     	if(rec != null && rec.Primary_Recusal_Aligned_To__c != null && rec.RecordTypeId == utils.getRecordTypeIdMap('Recusal__c').get('Related')) {
-	    	if (rec.Petition__c != null) {
+	    	/*if (rec.Petition__c != null) {
 				parentId = rec.Petition__c;
 			} else if (rec.Investigation__c != null) {
 				parentId = rec.Investigation__c;
@@ -55,7 +81,7 @@ public without sharing class ReviewRecusalExtension {
 				parentId = rec.Related_Organization__c;
 			} else {
 				parentId = rec.Id;
-			}
+			}*/
 		}
 		return parentId;
     	} set;
@@ -77,7 +103,7 @@ public without sharing class ReviewRecusalExtension {
     /******************************************
      * Variables for Users
      *****************************************/
-    public User user {get {
+    /*public User user {get {
  		if(user == null) {
  			user = new User();
  			for(User u : [SELECT Id, Name From User Where Id =: userId]) {
@@ -86,7 +112,7 @@ public without sharing class ReviewRecusalExtension {
  		}
  		return user;
  		} set;
- 	}
+ 	}*/
 	public Id userId {get; set;}
 	//Set of all Ids from users with Staffing Roles
 	public Set<Id> userIdSet {get {

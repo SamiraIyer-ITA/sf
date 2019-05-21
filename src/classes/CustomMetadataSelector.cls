@@ -19,7 +19,7 @@ public without sharing class CustomMetadataSelector {
 		get {
 			if (allAdcvdObjects == null) {
 				String query = Utils.soqlBuilderAllFields('ADCVD_Objects__mdt', true);
-				allAdcvdObjects = database.query(query);
+				allAdcvdObjects = Database.query(query);
 			}
 			return allAdcvdObjects;
 		} set;
@@ -30,7 +30,7 @@ public without sharing class CustomMetadataSelector {
 			if (allConstants == null) {
 				String query = Utils.soqlBuilderAllFields('Constant__mdt', false);
 				query += ', ADCVD_Objects__r.Object_API_Name__c, ADCVD_Objects__r.Record_Type_Name__c FROM Constant__mdt';
-				allConstants = database.query(query);
+				allConstants = Database.query(query);
 			}
 			return allConstants;
 		} set;
@@ -41,7 +41,7 @@ public without sharing class CustomMetadataSelector {
 			if (allPosts == null) {
 				String query = Utils.soqlBuilderAllFields('Automated_Chatter_Post__mdt', false);
 				query += ', ADCVD_Objects__r.Object_API_Name__c, ADCVD_Objects__r.Record_Type_Name__c FROM Automated_Chatter_Post__mdt';
-				allPosts = database.query(query);
+				allPosts = Database.query(query);
 			}
 			return allPosts;
 		} set;
@@ -57,9 +57,77 @@ public without sharing class CustomMetadataSelector {
 						'Constant_2__r.Used_with_Field_Named__c, Constant_3__r.Number_Value__c, Constant_3__r.String_Value__c, ' +
 						'Constant_3__r.Used_with_Field_Named__c, Constant_4__r.Number_Value__c, Constant_4__r.String_Value__c, ' +
 						'Constant_4__r.Used_with_Field_Named__c FROM Date_Calculation__mdt';
-				allDateCalculations = database.query(query);
+				allDateCalculations = Database.query(query);
 			}
 			return allDateCalculations;
+		} set;
+	}
+	public static Map<String, Map<String, Integer>> defaultRoleMap {
+		get {
+			if (defaultRoleMap == null) {
+				defaultRoleMap = new Map<String, Map<String, Integer>>();
+				List<Constant__mdt> tempList = new List<Constant__mdt>();
+				String query = Utils.soqlBuilderAllFields('Constant__mdt', false);
+				query += ', ADCVD_Objects__r.Object_API_Name__c, ADCVD_Objects__r.Record_Type_Name__c, ADCVD_Objects__r.Type__c FROM Constant__mdt';
+				query += ' WHERE Staffing_Assignment_Default__c = true AND Staffing_Role__c != null AND Number_Value__c != null';
+				tempList = Database.query(query);
+				for (Constant__mdt c : tempList) {
+					Map<String, Integer> tempMap = new Map<String, Integer>();
+					if (defaultRoleMap.get(c.ADCVD_Objects__r.Object_API_Name__c) != null) {
+						tempMap = defaultRoleMap.get(c.ADCVD_Objects__r.Object_API_Name__c);
+					}
+					Integer tempInteger = c.Number_Value__c != null ? (Integer) c.Number_Value__c : 0;
+					tempMap.put(c.Staffing_Role__c, tempInteger);
+					defaultRoleMap.put(c.ADCVD_Objects__r.Object_API_Name__c, tempMap);
+				}
+			}
+			return defaultRoleMap;
+		} set;
+	}
+
+	//returns an SObjectType as the key and all it's potential parent SObjectTypes as value in a set
+    public static Map<SObjectType, Set<SObjectType>> childToParentsSObjectMap {
+        get {
+            if (childToParentsSObjectMap == null) {
+				childToParentsSObjectMap = new Map<SObjectType, Set<SObjectType>>();
+                for (ADCVD_Objects__mdt ao : [SELECT Object_API_Name__c, Record_Type_Name__c,
+                                            (SELECT String_Value__c FROM Constants__r WHERE Parent_Value__c =: true)
+                                            FROM ADCVD_Objects__mdt]) {
+					if (ao.Constants__r != null && !ao.Constants__r.isEmpty()) {
+						SObjectType keyType = Utils.cachedGD.get(ao.Object_API_Name__c);
+						Set<SObjectType> tempSet = childToParentsSObjectMap.get(keyType) != null
+											? childToParentsSObjectMap.get(keyType) : new Set<SObjectType>();
+						for (Constant__mdt c : ao.Constants__r) {
+							tempSet.add(Utils.cachedGD.get(c.String_Value__c));
+						}
+						childToParentsSObjectMap.put(keyType, tempSet);
+					}
+				}
+            }
+			return childToParentsSObjectMap;
+        } set;
+    }
+	//same logic as parentToChildMap but returns strings instead of SObjectTypes.
+	//can be removed after all sobject references are using SObjectType instead of strings
+	public static Map<String, Set<String>> childToParentsStringMap {
+		get {
+			if (childToParentsStringMap == null) {
+				childToParentsStringMap = new Map<String, Set<String>>();
+				for (ADCVD_Objects__mdt ao : [SELECT Object_API_Name__c, Record_Type_Name__c,
+				(SELECT String_Value__c FROM Constants__r WHERE Parent_Value__c =: true)
+				FROM ADCVD_Objects__mdt]) {
+					if (ao.Constants__r != null && !ao.Constants__r.isEmpty()) {
+						String keyType = ao.Object_API_Name__c;
+						Set<String> tempSet = childToParentsStringMap.get(keyType) != null
+							? childToParentsStringMap.get(keyType) : new Set<String>();
+						for (Constant__mdt c : ao.Constants__r) {
+							tempSet.add(c.String_Value__c);
+						}
+						childToParentsStringMap.put(keyType, tempSet);
+					}
+				}
+			}
+			return childToParentsStringMap;
 		} set;
 	}
 
@@ -77,7 +145,7 @@ public without sharing class CustomMetadataSelector {
 
 	public static Constant__mdt getConstant(String idOrQualifiedApiName) {
 		Constant__mdt returnConstant = null;
-		if (idOrQualifiedApiName instanceOf Id) {
+		if (idOrQualifiedApiName instanceof Id) {
 			Id i = (Id) idOrQualifiedApiName;
 			for (Constant__mdt c : allConstants) {
 				if (c.Id == i) {
@@ -108,5 +176,13 @@ public without sharing class CustomMetadataSelector {
 			}
 		}
 		return sObjectToPostMap.get(sObjectName);
+	}
+
+	public Map<String,Integer> getDefaultUserRolesMap(String parentSObjectType) {
+		return defaultRoleMap.get(parentSObjectType);
+	}
+
+	public Set<String> getParentsForChildSObject(String childSObjectType) {
+		return childToParentsStringMap.get(childSObjectType);
 	}
 }
