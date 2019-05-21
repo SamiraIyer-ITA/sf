@@ -53,8 +53,6 @@ types=" approvalProcess  \
 	objectTranslation \
         page \
 	pathAssistant \
-	permissionset \
-	profile \
         queue \
         quickAction \
         reportType \
