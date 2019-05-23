@@ -56,7 +56,7 @@ public without sharing class PetitionTriggerHandler {
         if(isAfter && isInsert) {
             newList = new LockedRecordHandler().removeLockedRecords(newList);
             initialize(newList, newMap);
-            StaffingAssignmentExtension createStaff = new StaffingAssignmentExtension(newList);
+            new StaffingAssignmentService().createStaffFromDefaults(newList, 'Petition__c');
             
         }
         if(isAfter && isUpdate) {
