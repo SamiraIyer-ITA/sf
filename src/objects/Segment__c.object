@@ -14551,7 +14551,7 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
     <validationRules>
         <fullName>A1106FinalExtensionNotFormal</fullName>
         <active>true</active>
-        <description>&quot;Preliminary Extension (# of days)&quot; must be blank if &quot;Decision on How to Proceed is not &apos;Formal&apos;.</description>
+        <description>&quot;Preliminary Extension (# of days)&quot; must be blank if &quot;Decision on How to Proceed&quot; is not &apos;Formal&apos;.</description>
         <errorConditionFormula>AND(
             $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
             Locked__c == false,
@@ -14560,7 +14560,7 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
             NOT(ISBLANK( Final_Extension_of_days__c ))
             )</errorConditionFormula>
         <errorDisplayField>Final_Extension_of_days__c</errorDisplayField>
-        <errorMessage>&quot;Final Extension (# of days)&quot; must be blank if &quot;Decision on How to Proceed is not &apos;Formal&apos;.</errorMessage>
+        <errorMessage>&quot;Final Extension (# of days)&quot; must be blank if &quot;Decision on How to Proceed&quot; is not &apos;Formal&apos;.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>A1106LitigationResolvedRequired</fullName>
@@ -14672,7 +14672,7 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
     <validationRules>
         <fullName>A1106PrelimExtensionNotFormal</fullName>
         <active>true</active>
-        <description>&quot;Preliminary Extension (# of days)&quot; must be blank if &quot;Decision on How to Proceed is not &apos;Formal&apos;.</description>
+        <description>&quot;Preliminary Extension (# of days)&quot; must be blank if &quot;Decision on How to Proceed&quot; is not &apos;Formal&apos;.</description>
         <errorConditionFormula>AND(
             $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
             Locked__c == false,
@@ -14681,7 +14681,7 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
             NOT(ISBLANK( Prelim_Extension__c ))
             )</errorConditionFormula>
         <errorDisplayField>Prelim_Extension__c</errorDisplayField>
-        <errorMessage>&quot;Preliminary Extension (# of days)&quot; must be blank if &quot;Decision on How to Proceed is not &apos;Formal&apos;.</errorMessage>
+        <errorMessage>&quot;Preliminary Extension (# of days)&quot; must be blank if &quot;Decision on How to Proceed&quot; is not &apos;Formal&apos;.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>A1106ProductDeterminedToBeInScope</fullName>
