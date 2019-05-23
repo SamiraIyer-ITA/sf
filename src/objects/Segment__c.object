@@ -2760,6 +2760,12 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
                     <default>false</default>
                     <label>No</label>
                 </value>
+                <value>
+                    <fullName>Maybe</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Maybe</label>
+                </value>
             </valueSetDefinition>
         </valueSet>
     </fields>
@@ -11960,6 +11966,17 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Was_Product_Prelim_Determine_in_Scope__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Was_Product_Prelim_Determine_on_Scope__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -14532,6 +14549,20 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
         <errorMessage>&quot;Decision on How to Proceed&quot; field is required when value is entered for &quot;Actual Date of Decision - How to Proceed&quot; field</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>A1106FinalExtensionNotFormal</fullName>
+        <active>true</active>
+        <description>&quot;Preliminary Extension (# of days)&quot; must be blank if &quot;Decision on How to Proceed is not &apos;Formal&apos;.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            NOT(ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;)),
+            NOT(ISBLANK( Final_Extension_of_days__c ))
+            )</errorConditionFormula>
+        <errorDisplayField>Final_Extension_of_days__c</errorDisplayField>
+        <errorMessage>&quot;Final Extension (# of days)&quot; must be blank if &quot;Decision on How to Proceed is not &apos;Formal&apos;.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>A1106LitigationResolvedRequired</fullName>
         <active>true</active>
         <description>Litigation Resolved cannot be blank if Litigation is &apos;Yes&apos;</description>
@@ -14639,23 +14670,9 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
         <errorMessage>The bound for &quot;Preliminary Extension (#of days)&quot; is 1 to 120 days.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>A1106FinalExtensionNotFormal</fullName>
-        <active>true</active>
-        <description>&quot;Preliminary Extension (# of days)&quot;  is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</description>
-        <errorConditionFormula>AND(
-            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
-            Locked__c == false,
-            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
-            NOT(ISPICKVAL( Decision_on_How_to_Proceed__c, &quot;Formal&quot;)),
-            NOT(ISBLANK( Final_Extension_of_days__c ))
-            )</errorConditionFormula>
-        <errorDisplayField>Final_Extension_of_days__c</errorDisplayField>
-        <errorMessage>&quot;Final Extension (# of days)&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>A1106PrelimExtensionNotFormal</fullName>
         <active>true</active>
-        <description>&quot;Preliminary Extension (# of days)&quot;  is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</description>
+        <description>&quot;Preliminary Extension (# of days)&quot; must be blank if &quot;Decision on How to Proceed is not &apos;Formal&apos;.</description>
         <errorConditionFormula>AND(
             $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
             Locked__c == false,
@@ -14664,7 +14681,7 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
             NOT(ISBLANK( Prelim_Extension__c ))
             )</errorConditionFormula>
         <errorDisplayField>Prelim_Extension__c</errorDisplayField>
-        <errorMessage>&quot;Preliminary Extension (# of days)&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</errorMessage>
+        <errorMessage>&quot;Preliminary Extension (# of days)&quot; must be blank if &quot;Decision on How to Proceed is not &apos;Formal&apos;.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>A1106ProductDeterminedToBeInScope</fullName>
