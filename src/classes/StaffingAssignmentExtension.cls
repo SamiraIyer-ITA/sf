@@ -101,8 +101,6 @@ public without sharing class StaffingAssignmentExtension {
         return parentSObjectType;
         } set;
     }
-    //Maps to checkbox in UI when parent is ADCVD order. If checked, will trigger an overwrite of segment Staffing Assignments on save
-    public Boolean overwriteSegments {get; set;}
 
     /***********************************
      * Variable for Staffing Assigment
@@ -258,13 +256,11 @@ public without sharing class StaffingAssignmentExtension {
 
     //Primary method to initialize data on page load
     private void init(Staffing_Assignment__c sa){
-        overwriteSegments = false;
         staffList = getstaffList(parentId, parentSObjectType);
         staffWrapperList = addStaffWrapper(parentId, parentSObjectType, staffList, userIdSet, null);
         System.debug(staffWrapperList);
     }
     private void init(Staffing_Assignment__c sa, Integer addWrapper) {
-        overwriteSegments = false;
         staffList = getstaffList(parentId, parentSObjectType);
         staffWrapperList = addStaffWrapper(parentId, parentSObjectType, staffList, userIdSet, addWrapper);
         System.debug(staffWrapperList);
@@ -289,29 +285,6 @@ public without sharing class StaffingAssignmentExtension {
                 staffListToDelete.add(saw.sa);//If Title field is not populated, delete
             }
         }
-        //propogate staffing assignment to child segments of the order
-        /*if(overwriteSegments) {
-            for(Segment__c s: [SELECT Id, (SELECT Id, User__c, Title__c FROM Staffing_Assignments__r) FROM Segment__c WHERE ADCVD_Order__c =: parentId]) {
-                if(s.Staffing_Assignments__r != null) {
-                    //delete staffing assignments
-                    for (Staffing_Assignment__c segStaff : s.Staffing_Assignments__r) {
-                        if (defaultUserRolesMap.keySet().contains(segStaff.Title__c)) {
-                            staffListToDelete.add(segStaff);
-                        }
-                    }
-                }
-                //add new staffing assignments to segments
-                for(staffingAssignmentWrapper saw: staffWrapperList) {
-                    if(!String.isBlank(saw.sa.Title__c)){ 
-                        Staffing_Assignment__c newSa = new Staffing_Assignment__c();
-                        newSa.User__c = saw.sa.User__c;
-                        newSa.Title__c = saw.sa.Title__c;
-                        newSa.Segment__c = s.Id;
-                        staffListToUpsert.add(newSa);
-                    }
-                }
-            }
-        }*/
         upsert staffListToUpsert;
         delete staffListToDelete;
         return null;

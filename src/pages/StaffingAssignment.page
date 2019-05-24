@@ -130,15 +130,6 @@
                                                         </table>
                                                 </div>                                          
                                         </apex:outputPanel>
-                                        <apex:outputPanel id="options-ltng" rendered="{!parentSObjectType == 'ADCVD_Order__c'}">
-                                            <div class=" slds-has-dividers--bottom-space">
-                                                <p class="slds-section-title--divider slds-size--2-of-2 slds-form-element__label slds-text-title--caps slds-p-top--large">Options</p>
-                                                <div class="slds-section slds-p-around--xx-small">
-                                                    <apex:outputLabel for="overwriteSegments" title="Push this Staffing Assignment to related segments and overwrite existing assignments?" value="Push this Staffing Assignment to related segments and overwrite existing assignments?" styleClass="slds-output slds-p-around--xx-small"/>
-                                                    <apex:inputCheckbox value="{!overwriteSegments}" id="overwriteSegments" rendered="{!parentSObjectType == 'ADCVD_Order__c'}" styleClass="slds-checkbox slds-p-around--xx-small"/>
-                                                </div>
-                                            </div>
-                                        </apex:outputPanel>
                                 </apex:outputPanel>
                         </div>
                         </div>
@@ -223,18 +214,6 @@
         <apex:pageBlockButtons > 
             <apex:commandButton action="{!addrow}" reRender="pb" title="Add New Assignment" value="Add New Assignment" rendered="{!!noParentError}"/>
         </apex:pageBlockButtons>
-        </apex:pageBlock>
-        <apex:pageBlock >
-            <apex:pageBlockSection title="Options"  rendered="{!parentSObjectType == 'ADCVD_Order__c'}">
-                <apex:pageBlockSectionItem >
-                    <apex:outputLabel for="overwriteSegments" title="Push this Staffing Assignment to related segments and overwrite existing assignments?" value="Push this Staffing Assignment to related segments and overwrite existing assignments?" />
-                    <apex:inputCheckbox value="{!overwriteSegments}" id="overwriteSegments" rendered="{!parentSObjectType == 'ADCVD_Order__c'}" />
-                </apex:pageBlockSectionItem>
-            </apex:pageBlockSection>
-            <apex:pageBlockButtons >
-                <apex:commandButton action="{!save}" reRender="page" title="Save" value="Save" rendered="{!!noParentError}"/>
-                <apex:commandButton action="{!cancel}" title="Cancel" value="Cancel"/>
-            </apex:pageBlockButtons>
         </apex:pageBlock>
     </apex:form>
 </apex:page>
