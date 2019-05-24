@@ -524,8 +524,6 @@ public with sharing class ProductSelectorComponent {
 			}
 			// remove products associated with a tier 2 item that has been unselected
 			if(String.isNotBlank(productClass) && !this.tier2SelectedSet.contains(productClass)){
-				this.productsToRemove.add(productId);
-				this.currentProducts.remove(productId);
 				if(this.Tier3Selected.keySet().contains(productClass)){
 					this.Tier3Selected.remove(productClass);
 				}
@@ -538,8 +536,6 @@ public with sharing class ProductSelectorComponent {
 				( String.isNotBlank(productCategory) && !this.Tier3Selected.containsKey(productClass) )
 				|| ( this.Tier3Selected.containsKey(productClass) && !tier3SpecificClassSelectedSet.contains(productClassCategoryString) )
 			){
-					this.productsToRemove.add(productId);
-					this.currentProducts.remove(productId);
 					if(this.Tier4Selected.get(productClassCategoryString) != null){
 						this.Tier4Selected.remove(productClassCategoryString);
 					}
