@@ -49,6 +49,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
@@ -366,8 +367,21 @@
                 <valueName>Environmental Remediation</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>Environmental Technology</controllingFieldValue>
+                <valueName>Waste Management and Recycling</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Environmental Technology</controllingFieldValue>
+                <valueName>Water and Wastewater</valueName>
+            </valueSettings>
+            <valueSettings>
                 <controllingFieldValue>Equipment and Machinery</controllingFieldValue>
                 <valueName>3D Printing</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Equipment and Machinery</controllingFieldValue>
+                <controllingFieldValue>Healthcare</controllingFieldValue>
+                <valueName>Biopharmaceuticals</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Equipment and Machinery</controllingFieldValue>
@@ -393,6 +407,27 @@
             <valueSettings>
                 <controllingFieldValue>Equipment and Machinery</controllingFieldValue>
                 <valueName>Packaging Equipment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Equipment and Machinery</controllingFieldValue>
+                <valueName>Plastics Production Machinery</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Equipment and Machinery</controllingFieldValue>
+                <valueName>Process Controls</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Equipment and Machinery</controllingFieldValue>
+                <valueName>Robotics</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Equipment and Machinery</controllingFieldValue>
+                <controllingFieldValue>Healthcare</controllingFieldValue>
+                <valueName>Scientific Laboratory Equipment</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Equipment and Machinery</controllingFieldValue>
+                <valueName>Used and Reconditioned Equipment</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Financial Services</controllingFieldValue>
@@ -421,6 +456,14 @@
             <valueSettings>
                 <controllingFieldValue>Financial Services</controllingFieldValue>
                 <valueName>Leasing Services</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financial Services</controllingFieldValue>
+                <valueName>Private Equity</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Financial Services</controllingFieldValue>
+                <valueName>Venture Capital</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Food and Beverage</controllingFieldValue>
@@ -463,8 +506,24 @@
                 <valueName>Meat Processing</valueName>
             </valueSettings>
             <valueSettings>
-                <controllingFieldValue>Healthcare</controllingFieldValue>
-                <valueName>Biopharmaceuticals</valueName>
+                <controllingFieldValue>Food and Beverage</controllingFieldValue>
+                <valueName>Seafood</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Food and Beverage</controllingFieldValue>
+                <valueName>Snack Foods</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Food and Beverage</controllingFieldValue>
+                <valueName>Sweeteners</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Food and Beverage</controllingFieldValue>
+                <valueName>Vegetable Products</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Food and Beverage</controllingFieldValue>
+                <valueName>Vitamins and Supplements</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Healthcare</controllingFieldValue>
@@ -617,6 +676,7 @@
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Agribusiness</controllingFieldValue>
+                <controllingFieldValue>Automotive</controllingFieldValue>
                 <valueName>Specialty Vehicles</valueName>
             </valueSettings>
             <valueSettings>
@@ -870,6 +930,14 @@
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Education</controllingFieldValue>
+                <valueName>Educational Tour Operators</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Education</controllingFieldValue>
+                <valueName>Educational Toys and Games</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Education</controllingFieldValue>
                 <valueName>Education Consortiums</valueName>
             </valueSettings>
             <valueSettings>
@@ -883,14 +951,6 @@
             <valueSettings>
                 <controllingFieldValue>Education</controllingFieldValue>
                 <valueName>Education Trade Fair Organizers</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Education</controllingFieldValue>
-                <valueName>Educational Tour Operators</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Education</controllingFieldValue>
-                <valueName>Educational Toys and Games</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Education</controllingFieldValue>
@@ -1095,6 +1155,10 @@
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Music and Sound Recordings</controllingFieldValue>
+                <valueName>Musical Instruments</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Music and Sound Recordings</controllingFieldValue>
                 <valueName>Music Labels</valueName>
             </valueSettings>
             <valueSettings>
@@ -1112,10 +1176,6 @@
             <valueSettings>
                 <controllingFieldValue>Music and Sound Recordings</controllingFieldValue>
                 <valueName>Music Streaming Services</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Music and Sound Recordings</controllingFieldValue>
-                <valueName>Musical Instruments</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Music and Sound Recordings</controllingFieldValue>
@@ -1148,6 +1208,10 @@
             <valueSettings>
                 <controllingFieldValue>Oil and Gas</controllingFieldValue>
                 <valueName>Oil &amp; Gas Field Machinery</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Oil and Gas</controllingFieldValue>
+                <valueName>Petrochemicals</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Oil and Gas</controllingFieldValue>
@@ -1269,6 +1333,7 @@
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Aviation</controllingFieldValue>
+                <controllingFieldValue>Defense Equipment</controllingFieldValue>
                 <valueName>Helicopters</valueName>
             </valueSettings>
             <valueSettings>
@@ -1292,7 +1357,13 @@
                 <valueName>Lodging</valueName>
             </valueSettings>
             <valueSettings>
+                <controllingFieldValue>Adult Education and Training</controllingFieldValue>
+                <controllingFieldValue>Higher Education</controllingFieldValue>
+                <valueName>Executive Education</valueName>
+            </valueSettings>
+            <valueSettings>
                 <controllingFieldValue>Plastics</controllingFieldValue>
+                <controllingFieldValue>Plastic Products</controllingFieldValue>
                 <valueName>Plastics Materials and Resins</valueName>
             </valueSettings>
             <valueSettings>
@@ -1553,8 +1624,7 @@
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Software</controllingFieldValue>
-                <controllingFieldValue>Information Technology Services</controllingFieldValue>
-                <valueName>Software Development Services</valueName>
+                <valueName>Software Development Tools</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Software</controllingFieldValue>
@@ -1638,15 +1708,15 @@
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Education Technology</controllingFieldValue>
-                <valueName>Education Web Design Services</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Education Technology</controllingFieldValue>
                 <valueName>Educational Software</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Education Technology</controllingFieldValue>
                 <valueName>Educational Technology Hardware</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Education Technology</controllingFieldValue>
+                <valueName>Education Web Design Services</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Electricity Infrastructure</controllingFieldValue>
@@ -1914,10 +1984,6 @@
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Higher Education</controllingFieldValue>
-                <valueName>Executive Education</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Higher Education</controllingFieldValue>
                 <valueName>Graduate Schools</valueName>
             </valueSettings>
             <valueSettings>
@@ -2011,6 +2077,10 @@
             <valueSettings>
                 <controllingFieldValue>Information Technology Services</controllingFieldValue>
                 <valueName>IT Service Management</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Information Technology Services</controllingFieldValue>
+                <valueName>Software Development Services</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Design and Construction Services</controllingFieldValue>
@@ -2530,6 +2600,45 @@
         <active>true</active>
         <label>Country</label>
         <picklistValues>
+            <picklist>Category__c</picklist>
+            <values>
+                <fullName>Customs and Border Measures</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Trade Remedies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government Procurement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intellectual Property Rights</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Investment and Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Law and Corruption</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Location Measures</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Standards%2C Regulatory and Technical Requirements</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Owned Enterprises</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Country__c</picklist>
             <values>
                 <fullName>Afghanistan</fullName>
@@ -3412,7 +3521,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Tunesia</fullName>
+                <fullName>Tunisia</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4215,6 +4324,10 @@
             </values>
             <values>
                 <fullName>Plastics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plastics Production Machinery</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5333,6 +5446,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Petrochemicals</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Petroleum Refineries</fullName>
                 <default>false</default>
             </values>
@@ -5774,45 +5891,6 @@
             </values>
             <values>
                 <fullName>Workstation Computers</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Category__c</picklist>
-            <values>
-                <fullName>Customs and Border Measures</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Foreign Trade Remedies</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Government Procurement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Intellectual Property Rights</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Investment and Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Law and Corruption</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Location Measures</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Standards%2C Regulatory and Technical Requirements</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>State Owned Enterprises</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6108,6 +6186,45 @@
         <active>true</active>
         <label>Industry</label>
         <picklistValues>
+            <picklist>Category__c</picklist>
+            <values>
+                <fullName>Customs and Border Measures</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Trade Remedies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government Procurement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intellectual Property Rights</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Investment and Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Law and Corruption</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Location Measures</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Standards%2C Regulatory and Technical Requirements</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Owned Enterprises</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Country__c</picklist>
             <values>
                 <fullName>Afghanistan</fullName>
@@ -6990,7 +7107,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Tunesia</fullName>
+                <fullName>Tunisia</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7793,6 +7910,10 @@
             </values>
             <values>
                 <fullName>Plastics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plastics Production Machinery</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8911,6 +9032,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Petrochemicals</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Petroleum Refineries</fullName>
                 <default>false</default>
             </values>
@@ -9352,45 +9477,6 @@
             </values>
             <values>
                 <fullName>Workstation Computers</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Category__c</picklist>
-            <values>
-                <fullName>Customs and Border Measures</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Foreign Trade Remedies</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Government Procurement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Intellectual Property Rights</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Investment and Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Law and Corruption</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Location Measures</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Standards%2C Regulatory and Technical Requirements</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>State Owned Enterprises</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9686,6 +9772,45 @@
         <active>true</active>
         <label>Trade Issue</label>
         <picklistValues>
+            <picklist>Category__c</picklist>
+            <values>
+                <fullName>Customs and Border Measures</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Trade Remedies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government Procurement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intellectual Property Rights</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Investment and Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Law and Corruption</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Location Measures</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Standards%2C Regulatory and Technical Requirements</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Owned Enterprises</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Country__c</picklist>
             <values>
                 <fullName>Afghanistan</fullName>
@@ -10568,7 +10693,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Tunesia</fullName>
+                <fullName>Tunisia</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12930,45 +13055,6 @@
             </values>
             <values>
                 <fullName>Workstation Computers</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Category__c</picklist>
-            <values>
-                <fullName>Customs and Border Measures</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Foreign Trade Remedies</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Government Procurement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Intellectual Property Rights</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Investment and Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Law and Corruption</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Location Measures</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Standards%2C Regulatory and Technical Requirements</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>State Owned Enterprises</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13264,6 +13350,45 @@
         <active>true</active>
         <label>Trade Region</label>
         <picklistValues>
+            <picklist>Category__c</picklist>
+            <values>
+                <fullName>Customs and Border Measures</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foreign Trade Remedies</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government Procurement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Intellectual Property Rights</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Investment and Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Law and Corruption</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Location Measures</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Standards%2C Regulatory and Technical Requirements</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State Owned Enterprises</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Country__c</picklist>
             <values>
                 <fullName>Afghanistan</fullName>
@@ -14146,7 +14271,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Tunesia</fullName>
+                <fullName>Tunisia</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16508,45 +16633,6 @@
             </values>
             <values>
                 <fullName>Workstation Computers</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Category__c</picklist>
-            <values>
-                <fullName>Customs and Border Measures</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Foreign Trade Remedies</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Government Procurement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Intellectual Property Rights</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Investment and Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Law and Corruption</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Location Measures</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Standards%2C Regulatory and Technical Requirements</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>State Owned Enterprises</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

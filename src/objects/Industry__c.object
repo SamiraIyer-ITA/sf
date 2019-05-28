@@ -416,6 +416,10 @@
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Equipment and Machinery</controllingFieldValue>
+                <valueName>Plastics Production Machinery</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Equipment and Machinery</controllingFieldValue>
                 <valueName>Process Controls</valueName>
             </valueSettings>
             <valueSettings>
@@ -934,6 +938,14 @@
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Education</controllingFieldValue>
+                <valueName>Educational Tour Operators</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Education</controllingFieldValue>
+                <valueName>Educational Toys and Games</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Education</controllingFieldValue>
                 <valueName>Education Consortiums</valueName>
             </valueSettings>
             <valueSettings>
@@ -947,14 +959,6 @@
             <valueSettings>
                 <controllingFieldValue>Education</controllingFieldValue>
                 <valueName>Education Trade Fair Organizers</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Education</controllingFieldValue>
-                <valueName>Educational Tour Operators</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Education</controllingFieldValue>
-                <valueName>Educational Toys and Games</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Education</controllingFieldValue>
@@ -1169,6 +1173,10 @@
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Music and Sound Recordings</controllingFieldValue>
+                <valueName>Musical Instruments</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Music and Sound Recordings</controllingFieldValue>
                 <valueName>Music Labels</valueName>
             </valueSettings>
             <valueSettings>
@@ -1186,10 +1194,6 @@
             <valueSettings>
                 <controllingFieldValue>Music and Sound Recordings</controllingFieldValue>
                 <valueName>Music Streaming Services</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Music and Sound Recordings</controllingFieldValue>
-                <valueName>Musical Instruments</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Music and Sound Recordings</controllingFieldValue>
@@ -1222,6 +1226,10 @@
             <valueSettings>
                 <controllingFieldValue>Oil and Gas</controllingFieldValue>
                 <valueName>Oil &amp; Gas Field Machinery</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Oil and Gas</controllingFieldValue>
+                <valueName>Petrochemicals</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Oil and Gas</controllingFieldValue>
@@ -1711,15 +1719,15 @@
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Education Technology</controllingFieldValue>
-                <valueName>Education Web Design Services</valueName>
-            </valueSettings>
-            <valueSettings>
-                <controllingFieldValue>Education Technology</controllingFieldValue>
                 <valueName>Educational Software</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Education Technology</controllingFieldValue>
                 <valueName>Educational Technology Hardware</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Education Technology</controllingFieldValue>
+                <valueName>Education Web Design Services</valueName>
             </valueSettings>
             <valueSettings>
                 <controllingFieldValue>Electricity Infrastructure</controllingFieldValue>

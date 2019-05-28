@@ -58,6 +58,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -504,7 +505,7 @@
                     <label>Termination</label>
                 </value>
                 <value>
-                    <fullName>Critical Circumstances</fullName> 
+                    <fullName>Critical Circumstances</fullName>
                     <default>false</default>
                     <label>Critical Circumstances</label>
                 </value>
