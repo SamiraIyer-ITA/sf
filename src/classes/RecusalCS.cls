@@ -33,13 +33,9 @@
 	 */
 	public static Map<Id,List<SObject>> getParentIdToObjectsMap(String parentObjectName, Set<Id> parentIdSet) {
 		Map<Id,List<Recusal__c>> returnMap = new Map<Id,List<Recusal__c>>();
-		Date today = System.today();
 		//query all potential parents for the Recusals whose parent is in the parentIdSet
-		for(Recusal__c r : [SELECT Id, Actor__c, Actor_Start_Date__c, Actor_End_Date__c, Start_Date__c, End_Date__c, User__c, Primary_Recusal_Aligned_To__c, 
-								Petition__c, Investigation__c, ADCVD_Order__c, Segment__c, Litigation__c, Related_Organization__c, Related_Organization__r.Account__c 
-							FROM Recusal__c 
-							WHERE User__c IN: parentIdSet AND Start_Date__c <=: today AND End_Date__c >=: today
-							]) {
+		for(Recusal__c r : RecusalSelector.newInstance().selectByUserAndDate(parentIdSet, Date.today()))
+		{
 			//create a temporary set for this Recusal that contains all it's potential parents
 			Set<Id> tempSet = new Set<Id>{
 				r.Id, r.Petition__c, r.Investigation__c, r.ADCVD_Order__c, r.Segment__c, r.Litigation__c, 

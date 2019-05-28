@@ -89,6 +89,16 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Link__c</fullName>
+        <externalId>false</externalId>
+        <label>Link</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Primary_Admin__c</fullName>
         <description>PrimaryAdmin to be notified by schedulable classes for ADCVD app&apos;s schedulable classes</description>
         <externalId>false</externalId>
