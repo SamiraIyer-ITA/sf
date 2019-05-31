@@ -9,11 +9,6 @@
         <sharedToType>User</sharedToType>
     </shares>
     <shares>
-        <accessLevel>Manage</accessLevel>
-        <sharedTo>john.harlow@trade.gov</sharedTo>
-        <sharedToType>User</sharedToType>
-    </shares>
-    <shares>
         <accessLevel>View</accessLevel>
         <sharedTo>john.seo@trade.gov</sharedTo>
         <sharedToType>User</sharedToType>
@@ -25,7 +20,12 @@
     </shares>
     <shares>
         <accessLevel>Manage</accessLevel>
-        <sharedTo>scott.pelak@trade.gov</sharedTo>
+        <sharedTo>sandip.menon@trade.gov</sharedTo>
+        <sharedToType>User</sharedToType>
+    </shares>
+    <shares>
+        <accessLevel>Manage</accessLevel>
+        <sharedTo>michael.griswold@trade.gov</sharedTo>
         <sharedToType>User</sharedToType>
     </shares>
     <templateOrigin>wow_demo__Wow_Demo</templateOrigin>
