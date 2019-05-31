@@ -186,7 +186,6 @@
     </types>
     <types>
         <members>*</members>
-        <members>Client_Assisted_Trending_Metrics</members>
         <name>WaveDashboard</name>
     </types>
     <types>
