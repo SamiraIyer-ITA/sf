@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WaveApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assetIcon>/analytics/wave/web/proto/images/app/icons/11.png</assetIcon>
+    <folder>SharedApp</folder>
+    <masterLabel>Shared App</masterLabel>
+    <shares>
+        <accessLevel>View</accessLevel>
+        <sharedTo>AllInternalUsers</sharedTo>
+        <sharedToType>Organization</sharedToType>
+    </shares>
+    <shares>
+        <accessLevel>Manage</accessLevel>
+        <sharedTo>integration@00dr00000008yu0eai.com</sharedTo>
+        <sharedToType>User</sharedToType>
+    </shares>
+    <shares>
+        <accessLevel>Manage</accessLevel>
+        <sharedTo>laura.kesy@trade.gov</sharedTo>
+        <sharedToType>User</sharedToType>
+    </shares>
+</WaveApplication>
