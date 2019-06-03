@@ -9,11 +9,11 @@
         <value>Interested Organizations</value>
     </caseValues>
     <fields>
-        <label><!-- ADCVD Case_Number --></label>
+        <label><!-- ADCVD Case Number --></label>
         <name>ADCVD_Case_Number_Text__c</name>
     </fields>
     <fields>
-        <label><!-- ADCVD Case Number --></label>
+        <label><!-- ADCVD Case Text Value Deprecated --></label>
         <name>ADCVD_Case_Number__c</name>
     </fields>
     <fields>
@@ -21,7 +21,7 @@
         <name>ADCVD_Case_Type_Text__c</name>
     </fields>
     <fields>
-        <label><!-- ADCVD Case Type --></label>
+        <label><!-- ADCVD Case Type Deprecated --></label>
         <name>ADCVD_Case_Type__c</name>
         <picklistValues>
             <masterLabel>AD ME</masterLabel>
@@ -68,11 +68,11 @@
         <name>CBP_Case_Number_Text__c</name>
     </fields>
     <fields>
-        <label><!-- CBP Case Number --></label>
+        <label><!-- CBP Case Number Deprecated --></label>
         <name>CBP_Case_Number__c</name>
     </fields>
     <fields>
-        <label><!-- Case Concat Text Values --></label>
+        <label><!-- Case Concat Text Values Deprecated --></label>
         <name>Case_Concat_Text_Values__c</name>
     </fields>
     <fields>
@@ -88,7 +88,7 @@
         <name>Country_Text__c</name>
     </fields>
     <fields>
-        <label><!-- Country --></label>
+        <label><!-- Country Deprecated --></label>
         <name>Country__c</name>
     </fields>
     <fields>
@@ -153,7 +153,7 @@
         <name>Producer__c</name>
     </fields>
     <fields>
-        <label><!-- Product Short Name Text Value --></label>
+        <label><!-- Product Short Name Text Value Deprecated --></label>
         <name>Product_Short_Name_Text_Value__c</name>
     </fields>
     <fields>
@@ -161,7 +161,7 @@
         <name>Product_Short_Name_Text__c</name>
     </fields>
     <fields>
-        <label><!-- Product Short Name --></label>
+        <label><!-- Product Short Name Deprecated --></label>
         <name>Product_Short_Name__c</name>
     </fields>
     <fields>
@@ -173,7 +173,7 @@
         <name>Product__c</name>
     </fields>
     <fields>
-        <label><!-- Related Organization Name --></label>
+        <label><!-- Interested Organization Name --></label>
         <name>Related_Organization_Name__c</name>
     </fields>
     <fields>
@@ -258,6 +258,10 @@
         <name>Custom_Instructions_must_have_a_parent</name>
     </validationRules>
     <validationRules>
+        <errorMessage><!-- You must have only one of the following: Petition, Investigation,  ADCVD Order, Litigation, or Segment associated to this Interested Organization. --></errorMessage>
+        <name>Ensure_there_is_only_one_parent</name>
+    </validationRules>
+    <validationRules>
         <errorMessage><!-- Interested Organizations are required to have a parent, and only one parent should be entered. If Customs Instructions are the parent, a Segment must also be referenced. --></errorMessage>
         <name>Interested_Org_must_have_a_parent</name>
     </validationRules>
@@ -266,7 +270,11 @@
         <name>Only_Admin_can_reparent_Interested_Org</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- You must have a segment if you have custom instructions. --></errorMessage>
+        <errorMessage><!-- Related Organization records can only be reparented by a System Administrator. --></errorMessage>
+        <name>Only_Admin_reparents_Related_Org</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You must have a segment if you have Custom Instructions. --></errorMessage>
         <name>Segment_must_be_populated_if_ci_is</name>
     </validationRules>
 </CustomObjectTranslation>

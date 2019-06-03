@@ -9,8 +9,8 @@
                                 <div class="col-md-3"></div>
                                 <div id="main_wrapper" class="col-md-6 itaCaseBox itaFormBox">
 
-                                    <apex:form>
-                                        <apex:pagemessages/>
+                                    <apex:form >
+                                        <apex:pagemessages />
                                         <apex:actionFunction name="privacyShieldPayment" action="{!privacyShieldPayment}"></apex:actionFunction>
                                         <apex:actionFunction name="eventServicePayment" action="{!eventServicePayment}"></apex:actionFunction>
                                         <div class="col-md-12">

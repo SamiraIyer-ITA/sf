@@ -42,9 +42,19 @@
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Third_Party_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>RecordTypeId</fields>
+        <fields>Asset__c</fields>
+        <fields>HR_Data__c</fields>
+        <fields>NonHR_Data__c</fields>
+        <label>Third Party Compact Layout</label>
+    </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -205,6 +215,7 @@
     <recordTypes>
         <fullName>Resolution_Provider</fullName>
         <active>true</active>
+        <compactLayoutAssignment>Third_Party_Compact_Layout</compactLayoutAssignment>
         <label>Resolution Provider</label>
         <picklistValues>
             <picklist>Type__c</picklist>
@@ -221,6 +232,7 @@
     <recordTypes>
         <fullName>Statutory_Body</fullName>
         <active>true</active>
+        <compactLayoutAssignment>Third_Party_Compact_Layout</compactLayoutAssignment>
         <label>Statutory Body</label>
         <picklistValues>
             <picklist>Type__c</picklist>
@@ -237,6 +249,7 @@
     <recordTypes>
         <fullName>Verification</fullName>
         <active>true</active>
+        <compactLayoutAssignment>Third_Party_Compact_Layout</compactLayoutAssignment>
         <label>Verification Method</label>
         <picklistValues>
             <picklist>Type__c</picklist>

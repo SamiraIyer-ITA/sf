@@ -54,6 +54,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -783,6 +784,7 @@ Program__r.New_Application_Link__c
         <columns>OBJECT_ID</columns>
         <columns>RECORDTYPE</columns>
         <columns>LAST_UPDATE</columns>
+        <columns>OWNER.ALIAS</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>RECORDTYPE</field>
@@ -2550,10 +2552,10 @@ Program__r.New_Application_Link__c
     <validationRules>
         <fullName>US_Postal_Code_Format</fullName>
         <active>true</active>
-        <description>US Postal Code must be in 5 digit or 5+4 format</description>
-        <errorConditionFormula>AND(
-isPickVal(Country__c, &apos;US&apos;),
-NOT(REGEX(Postal_Code__c, &quot;\\d{9}|\\d{5}(-\\d{4})?&quot;))
+        <description>US Postal Code must be in 5 digit or 5+4 format.</description>
+        <errorConditionFormula>AND( 
+isPickVal(Country__c, &apos;US&apos;), 
+NOT(REGEX(Postal_Code__c, &quot;\\d{9}|\\d{5}(-\\d{4})?&quot;)) 
 )</errorConditionFormula>
         <errorDisplayField>Postal_Code__c</errorDisplayField>
         <errorMessage>US Postal Code must be in 5 digit or 5+4 format.</errorMessage>

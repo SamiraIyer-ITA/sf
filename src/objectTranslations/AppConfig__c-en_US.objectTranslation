@@ -23,6 +23,10 @@
         <name>AppEnabled__c</name>
     </fields>
     <fields>
+        <label><!-- Batch Size --></label>
+        <name>Batch_Size__c</name>
+    </fields>
+    <fields>
         <help><!-- Used by ADCVD Application Schedulable Classes. --></help>
         <label><!-- ChronExpr LitigationSegement --></label>
         <name>ChronExp_LitigationSegement__c</name>
@@ -39,6 +43,10 @@
     <fields>
         <label><!-- Go Live Date --></label>
         <name>Go_Live_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Link --></label>
+        <name>Link__c</name>
     </fields>
     <fields>
         <help><!-- Used by schedulable classes in finish methods --></help>

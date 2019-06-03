@@ -26,7 +26,7 @@
 							<div class="col-md-12">
 								<div class="col-md-3"></div>
 								<div id="main_wrapper" class="col-md-12 itaCaseBox itaFormBox">
-									<apex:form>
+									<apex:form >
 										<apex:pagemessages />
 
 										<div class="col-md-12">
