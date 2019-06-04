@@ -250,6 +250,7 @@ public with sharing class ProductSelectorComponent {
 				if(!this.Tier2DuplicateTracker.contains(productId)){
 					this.Tier2DuplicateTracker.add(productId);
 					this.Tier2VisibleSelectOptions.add(new SelectOption(productId, productName));
+					this.Tier2Selected.add(productId);
 					continue;
 				}
 			}
@@ -356,10 +357,10 @@ public with sharing class ProductSelectorComponent {
 
 					Set<String> tier3SelectedSpecific = new Set<String>( this.Tier3Selected.get(tier3String) );
 					if(tier1SelectedSet.contains(primaryResourceId)
-						&& tier2SelectedSet.contains(rr.Product__r.Class__c)
-						&& String.isNotBlank(productCategory)
-						&& tier3SelectedSpecific.contains(productClassCategoryString)
-						&& !this.Tier4DuplicateTracker.keySet().contains(productClassCategoryString))
+							&& tier2SelectedSet.contains(rr.Product__r.Class__c)
+							&& String.isNotBlank(productCategory)
+							&& tier3SelectedSpecific.contains(productClassCategoryString)
+							&& !this.Tier4DuplicateTracker.keySet().contains(productClassCategoryString))
 					{
 						if(!this.Tier4DuplicateTracker.keySet().contains(productClassCategoryString)){
 							this.Tier4DuplicateTracker.put(productClassCategoryString, new Set<String>());
