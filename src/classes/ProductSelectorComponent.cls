@@ -250,6 +250,7 @@ public with sharing class ProductSelectorComponent {
 				if(!this.Tier2DuplicateTracker.contains(productId)){
 					this.Tier2DuplicateTracker.add(productId);
 					this.Tier2VisibleSelectOptions.add(new SelectOption(productId, productName));
+					continue;
 				}
 			}
 
@@ -276,7 +277,7 @@ public with sharing class ProductSelectorComponent {
 					this.Tier3Selected.get(productClass).add(key);
 				}
 			} else {
-				if(this.Tier3VisibleSelectOptions != null && !this.Tier3VisibleSelectOptions.containsKey(primaryResourceId)){
+				/*if(this.Tier3VisibleSelectOptions != null && !this.Tier3VisibleSelectOptions.containsKey(primaryResourceId)){
 					this.Tier3VisibleSelectOptions.put(primaryResourceId, new List<SelectOption>());
 				}
 				if(!this.Tier3DuplicateTracker.containsKey(productId)){
@@ -284,7 +285,8 @@ public with sharing class ProductSelectorComponent {
 					List<SelectOption> options = this.Tier3VisibleSelectOptions.get(primaryResourceId);
 					options.add(new SelectOption(productId, productName));
 					this.Tier3VisibleSelectOptions.put(primaryResourceId, options);
-				}
+					continue;
+				}*/
 			}
 
 			// TIER 4 /////////////////////////////////////////////////////////////
@@ -302,12 +304,14 @@ public with sharing class ProductSelectorComponent {
 					this.Tier4Selected.get(productClassCategoryString).add(productId);
 				}
 			} else {
-				if(!this.Tier4DuplicateTracker.containsKey(productId)){
+				/*if(!this.Tier4DuplicateTracker.containsKey(productId)){
 					this.Tier4DuplicateTracker.put(productId, new Set<String>());
 					List<SelectOption> options = this.Tier4VisibleSelectOptions.get(primaryResourceId);
+					if(options == null) options = new List<SelectOption>();
 					options.add(new SelectOption(productId, productName));
 					this.Tier4VisibleSelectOptions.put(primaryResourceId, options);
-				}
+					continue;
+				}*/
 			}
 		}
 	}
