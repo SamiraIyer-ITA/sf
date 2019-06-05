@@ -247,43 +247,56 @@ public with sharing class ProductSelectorComponent {
 					this.Tier2VisibleSelectOptions.add(new SelectOption(productClass, productClass));
 				}
 			} else {
-				this.Tier2VisibleSelectOptions.add(new SelectOption(productId, productName));
+				if(!this.Tier2DuplicateTracker.contains(productId)){
+					this.Tier2DuplicateTracker.add(productId);
+					this.Tier2VisibleSelectOptions.add(new SelectOption(productId, productName));
+					this.Tier2Selected.add(productId);
+					continue;
+				}
 			}
 
 			// TIER 3 ////////////////////////////////////////////////////////////
-			if(String.isNotBlank(productCategory) && !this.Tier3DuplicateTracker.keySet().contains(productClass)){
-				this.Tier3DuplicateTracker.put(productClass, new Set<String>());
-			}
-			if(String.isNotBlank(productClass) && String.isBlank(productCategory)){
-				if(!this.Tier3Selected.keySet().contains(productClass)){
+			if(String.isNotBlank(productClass)){
+				if (String.isNotBlank(productCategory) && !this.Tier3DuplicateTracker.keySet().contains(productClass)) {
+					this.Tier3DuplicateTracker.put(productClass, new Set<String>());
+				}
+				if (String.isBlank(productCategory)) {
+					if (!this.Tier3Selected.keySet().contains(productClass)) {
+						this.Tier3Selected.put(productClass, new List<String>());
+					}
+					if (!this.Tier3Selected.keySet().contains(productId) && this.Tier2DuplicateTracker.contains(productClass)) {
+						this.Tier3Selected.get(productClass).add(productId);
+					}
+				}
+				if (!this.Tier3VisibleSelectOptions.keySet().contains(productClass)) {
+					this.Tier3VisibleSelectOptions.put(productClass, new List<SelectOption>());
+				}
+				if (String.isNotBlank(productCategory) && !this.Tier3Selected.keySet().contains(productClass)) {
 					this.Tier3Selected.put(productClass, new List<String>());
 				}
-				if(!this.Tier3Selected.keySet().contains(productId) && this.Tier2DuplicateTracker.contains(productClass)){
-					this.Tier3Selected.get(productClass).add(productId);
+				if (String.isNotBlank(productCategory) && !new Set<String>(this.Tier3Selected.get(productClass)).contains(key)) {
+					this.Tier3Selected.get(productClass).add(key);
 				}
-			}
-			if(!this.Tier3VisibleSelectOptions.keySet().contains(productClass)){
-				this.Tier3VisibleSelectOptions.put(productClass, new List<SelectOption>());
-			}
-			if(String.isNotBlank(productCategory) && !this.Tier3Selected.keySet().contains(productClass)){
-				this.Tier3Selected.put(productClass, new List<String>());
-			}
-			if(String.isNotBlank(productCategory) && !new Set<String>(this.Tier3Selected.get(productClass)).contains(key)){
-				this.Tier3Selected.get(productClass).add(key);
+			} else {
+				// do nothing for now
 			}
 
 			// TIER 4 /////////////////////////////////////////////////////////////
-			if(String.isNotBlank(productCategory) && !this.Tier4DuplicateTracker.keySet().contains(productClassCategoryString)){
-				this.Tier4DuplicateTracker.put(productClassCategoryString, new Set<String>());
-			}
-			if(String.isNotBlank(productCategory) && !this.Tier4VisibleSelectOptions.keySet().contains(productClassCategoryString)){
-				this.Tier4VisibleSelectOptions.put(productClassCategoryString, new List<SelectOption>());
-			}
-			if(String.isNotBlank(productCategory) && !this.Tier4Selected.keySet().contains(productClassCategoryString)){
-				this.Tier4Selected.put(productClassCategoryString, new List<String>());
-			}
-			if(String.isNotBlank(productCategory) && !new Set<String>(this.Tier4Selected.get(productClassCategoryString)).contains(productId)){
-				this.Tier4Selected.get(productClassCategoryString).add(productId);
+			if(String.isNotBlank(productCategory)) {
+				if (!this.Tier4DuplicateTracker.keySet().contains(productClassCategoryString)) {
+					this.Tier4DuplicateTracker.put(productClassCategoryString, new Set<String>());
+				}
+				if (!this.Tier4VisibleSelectOptions.keySet().contains(productClassCategoryString)) {
+					this.Tier4VisibleSelectOptions.put(productClassCategoryString, new List<SelectOption>());
+				}
+				if (!this.Tier4Selected.keySet().contains(productClassCategoryString)) {
+					this.Tier4Selected.put(productClassCategoryString, new List<String>());
+				}
+				if (!new Set<String>(this.Tier4Selected.get(productClassCategoryString)).contains(productId)) {
+					this.Tier4Selected.get(productClassCategoryString).add(productId);
+				}
+			} else {
+				// do nothing for now
 			}
 		}
 	}
@@ -329,8 +342,8 @@ public with sharing class ProductSelectorComponent {
 							if (String.isNotBlank(productClass) &&
 								tier2ProductClass == productClass &&
 								!this.Tier3DuplicateTracker.get(tier2ProductClass).contains(key)) {
-								this.Tier3VisibleSelectOptions.get(tier2ProductClass).add(new SelectOption(key, value));
-								this.Tier3DuplicateTracker.get(tier2ProductClass).add(key);
+									this.Tier3VisibleSelectOptions.get(tier2ProductClass).add(new SelectOption(key, value));
+									this.Tier3DuplicateTracker.get(tier2ProductClass).add(key);
 							}
 						}
 					}
@@ -344,10 +357,10 @@ public with sharing class ProductSelectorComponent {
 
 					Set<String> tier3SelectedSpecific = new Set<String>( this.Tier3Selected.get(tier3String) );
 					if(tier1SelectedSet.contains(primaryResourceId)
-						&& tier2SelectedSet.contains(rr.Product__r.Class__c)
-						&& String.isNotBlank(productCategory)
-						&& tier3SelectedSpecific.contains(productClassCategoryString)
-						&& !this.Tier4DuplicateTracker.keySet().contains(productClassCategoryString))
+							&& tier2SelectedSet.contains(rr.Product__r.Class__c)
+							&& String.isNotBlank(productCategory)
+							&& tier3SelectedSpecific.contains(productClassCategoryString)
+							&& !this.Tier4DuplicateTracker.keySet().contains(productClassCategoryString))
 					{
 						if(!this.Tier4DuplicateTracker.keySet().contains(productClassCategoryString)){
 							this.Tier4DuplicateTracker.put(productClassCategoryString, new Set<String>());
@@ -368,10 +381,8 @@ public with sharing class ProductSelectorComponent {
 						&& tier3SelectedSpecific.contains(productClassCategoryString)
 						&& !this.Tier4DuplicateTracker.get(productClassCategoryString).contains(productId))
 					{
-						if(String.isNotBlank(productCategory) ){
 							this.Tier4DuplicateTracker.get(productClassCategoryString).add(productId);
 							this.Tier4VisibleSelectOptions.get(productClassCategoryString).add(new SelectOption(productId, productName));
-						}
 					}
 				}
 			}
@@ -471,7 +482,7 @@ public with sharing class ProductSelectorComponent {
 		}
 	}
 
-	/* These properties are only used in the next three methods. Rather than confuse the reader as to where they are used
+	/* These properties are only used in the next few methods. Rather than confuse the reader as to where they are used
 		I've put them directly next to the first method in which they are used. They are properties because I didn't want to
 		pass them to the methods they are used.
 	 */
@@ -524,8 +535,6 @@ public with sharing class ProductSelectorComponent {
 			}
 			// remove products associated with a tier 2 item that has been unselected
 			if(String.isNotBlank(productClass) && !this.tier2SelectedSet.contains(productClass)){
-				this.productsToRemove.add(productId);
-				this.currentProducts.remove(productId);
 				if(this.Tier3Selected.keySet().contains(productClass)){
 					this.Tier3Selected.remove(productClass);
 				}
@@ -538,8 +547,6 @@ public with sharing class ProductSelectorComponent {
 				( String.isNotBlank(productCategory) && !this.Tier3Selected.containsKey(productClass) )
 				|| ( this.Tier3Selected.containsKey(productClass) && !tier3SpecificClassSelectedSet.contains(productClassCategoryString) )
 			){
-					this.productsToRemove.add(productId);
-					this.currentProducts.remove(productId);
 					if(this.Tier4Selected.get(productClassCategoryString) != null){
 						this.Tier4Selected.remove(productClassCategoryString);
 					}
