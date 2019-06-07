@@ -182,6 +182,43 @@
     </types>
     <types>
         <members>*</members>
+        <name>WaveApplication</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>WaveDashboard</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>WaveDataflow</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>WaveDataset</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>WaveLens</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>WaveTemplateBundle</name>
+    </types>
+    <types>
+        <members>*</members>
+        <members>Clients_Assisted_Regional_Leaderboard_3_0</members>
+        <members>Clients_Assisted_Regional_Leaderboard_FY18_v2_0</members>
+        <members>Copy_of_Clients_Assisted_Regional_Leaderboard_FY181</members>
+        <members>Metric_Trends_List_Filters</members>
+        <members>Region_Leaderboard_FY2019</members>
+        <members>Regional_Metrics_Table_v2_0</members>
+        <members>Regions_Leaderboard</members>
+        <members>WINs_Metrics_Breakdown</members>
+        <members>WINs_Metrics_Breakdown_3_1</members>
+        <name>WaveXmd</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>Workflow</name>
     </types>
     <version>45.0</version>
