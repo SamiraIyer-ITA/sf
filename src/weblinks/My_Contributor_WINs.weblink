@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomPageWebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <availability>online</availability>
+    <description>My Contributor WINs report
+/00Or0000000PEtS</description>
+    <displayType>link</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>My Contributor WINs</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>/00Ot0000000VCCN?pv0={!User.Id}</url>
+</CustomPageWebLink>

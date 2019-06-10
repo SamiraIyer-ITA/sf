@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Segment__c</entityName>
+    <fieldName>Status__c</fieldName>
+    <masterLabel>Sunset Review</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Segment_Outcome__c</fieldNames>
+        <fieldNames>Name</fieldNames>
+        <info>&lt;p&gt;All possible work has been completed on this review and this review is now closed.&lt;/p&gt;</info>
+        <picklistValueName>Closed</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Have_Custom_Instruction_been_sent__c</fieldNames>
+        <info>&lt;p&gt;This is a status in which you confirm that all Customs instructions have been sent for the review. Once you can confirm that all Customs Instructions have been sent, this will close out the review.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;WARNING:&lt;/b&gt; This is not the only point at which Customs instructions should be sent. Reference the Deadlines for CBP Instructions in ACE document provided by the Customs Liaison Unit.&lt;/p&gt;</info>
+        <picklistValueName>Customs</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Litigation_Hold_Expiration_Date__c</fieldNames>
+        <fieldNames>Litigation_YesNo__c</fieldNames>
+        <fieldNames>Litigation_Resolved__c</fieldNames>
+        <fieldNames>Injunction__c</fieldNames>
+        <fieldNames>Lotus_Notes_Litigation_ID__c</fieldNames>
+        <info>&lt;p&gt;This stage of the review represents the time in which we determine whether there will be any litigation on the work or not.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;1) The litigation hold expiration date is set to &lt;span style=&quot;font-size: 13px;&quot;&gt;30 days from the last action taken in the review for non-NAFTA countries and 45 days from the last action taken in the review for NAFTA countries, i.e., Canada and Mexico&lt;/span&gt;&lt;/p&gt;&lt;p&gt;2) If we are sued on the review, enter the information in the Litigation field. If there is an injunction, enter that information as well.&lt;/p&gt;</info>
+        <picklistValueName>Hold</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Notice_of_Intent_to_Participate__c</fieldNames>
+        <fieldNames>Notice_of_intent_to_participate_Ips__c</fieldNames>
+        <fieldNames>Notify_Cluster_Coordinator_No_Interest__c</fieldNames>
+        <fieldNames>Notification_of_ITC_of_Inadequate_Resp__c</fieldNames>
+        <fieldNames>Domestic_Party_File_Substan_Response__c</fieldNames>
+        <picklistValueName>Initiation</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Litigation_YesNo__c</fieldNames>
+        <fieldNames>Litigation_Resolved__c</fieldNames>
+        <fieldNames>Injunction__c</fieldNames>
+        <fieldNames>Lotus_Notes_Litigation_ID__c</fieldNames>
+        <info>&lt;p&gt;This stage of the review represents that we are in litigation on the review.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;1) When entering this status, enter the Lotus Notes Litigation ID # and add any remands or international litigation that result from the litigation.&lt;/p&gt;&lt;p&gt;2) Once the litigation is resolved, enter that in the Litigation Resolved field and continue the steps to close out the review.&lt;/p&gt;</info>
+        <picklistValueName>Litigation</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>Sunset_Review</recordTypeName>
+</PathAssistant>

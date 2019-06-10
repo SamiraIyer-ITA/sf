@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Litigation__c</entityName>
+    <fieldName>Status__c</fieldName>
+    <masterLabel>International Litigation Status</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>International_Litigation_Type__c</fieldNames>
+        <fieldNames>Investigation__c</fieldNames>
+        <fieldNames>Litigation_Name__c</fieldNames>
+        <info>&lt;p&gt;All possible work has been completed on this review and this review is now closed.&lt;/p&gt;</info>
+        <picklistValueName>Closed</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Final_Team_Meeting_Deadline__c</fieldNames>
+        <fieldNames>Final_Extension_of_days__c</fieldNames>
+        <fieldNames>Final_Issues_Due_to_DAS__c</fieldNames>
+        <fieldNames>Final_Concurrence_Due_to_DAS__c</fieldNames>
+        <fieldNames>Calculated_Final_Signature__c</fieldNames>
+        <picklistValueName>Final</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Prelim_Team_Meeting_Deadline__c</fieldNames>
+        <fieldNames>Prelim_Extension_of_days__c</fieldNames>
+        <fieldNames>Prelim_Issues_Due_to_DAS__c</fieldNames>
+        <fieldNames>Prelim_Concurrence_Due_to_DAS__c</fieldNames>
+        <fieldNames>Calculated_Preliminary_Signature__c</fieldNames>
+        <picklistValueName>Preliminary</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>International_Litigation</recordTypeName>
+</PathAssistant>

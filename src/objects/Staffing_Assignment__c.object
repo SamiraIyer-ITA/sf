@@ -62,6 +62,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableEnhancedLookup>false</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
@@ -695,6 +696,19 @@ IF( Segment__c != null, Segment__r.Link__c ,
             <value>--AO-</value>
         </filters>
         <label>Policy and Legal Staffing Combined</label>
+    </listViews>
+    <listViews>
+        <fullName>Restaffing_Office_Director</fullName>
+        <columns>NAME</columns>
+        <columns>Title__c</columns>
+        <columns>User__c</columns>
+        <columns>Parent__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Parent__c</field>
+            <operation>equals</operation>
+        </filters>
+        <label>Restaffing Office Director</label>
     </listViews>
     <listViews>
         <fullName>Staffing_Assignments_ClosedLocked_Queue_Staffing_Assignment</fullName>
