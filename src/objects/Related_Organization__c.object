@@ -189,7 +189,7 @@
         <lookupFilter>
             <active>true</active>
             <filterItems>
-                <field>Account.RecordTypeId</field>
+                <field>Account.RecordType.Name</field>
                 <operation>notEqual</operation>
                 <value>ITA CRM Law Firm</value>
             </filterItems>
