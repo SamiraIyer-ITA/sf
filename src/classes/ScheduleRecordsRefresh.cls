@@ -61,7 +61,7 @@ public class ScheduleRecordsRefresh implements ScheduledRecordsRefreshDispatcher
 
 		//Litigations
 		List<Litigation__c> litigationsToRefresh = new List<Litigation__c> ();
-		for (Litigation__c l : LitigationSelector.newInstance().selectByWhereClause(wc)) {
+		/*for (Litigation__c l : LitigationSelector.newInstance().selectByWhereClause(wc)) {
 
 			//if true make false. if false make true
 			l.Schedule_Refresh__c = toggleScheduleRefresh(l.Schedule_Refresh__c);
@@ -70,7 +70,7 @@ public class ScheduleRecordsRefresh implements ScheduledRecordsRefreshDispatcher
 			caseIdSet.add(l.ADCVD_Case__c);
 			//add litigation to list
 			litigationsToRefresh.add(l);
-		}
+		}*/
 
 		//2 - Instantiate caseMapper based on case ids from all objects
 		caseMapper = caseMapper.getInstance(caseIdSet);
