@@ -7,15 +7,14 @@ public class ScheduleRecordsRefresh implements ScheduledRecordsRefreshDispatcher
 	public String successText = '';
 	public String failureText = '';
 	public AppConfig__c AC = AppConfig__c.getValues('default');
-
+	private static final String wc = ' Next_Announcement_Date__c = YESTERDAY OR Next_Due_to_DAS_Deadline__c = YESTERDAY OR Next_Office_Deadline__c = YESTERDAY) FOR UPDATE';
 
 	public void execute(SchedulableContext sc) {
+		checkLimits();
 		refreshDueDates();
 	}
 
-	public void refreshDueDates() {
-
-		checkLimits();
+	@TestVisible public void refreshDueDates() {
 
 		//set for cases associated with each object
 		Set<Id> caseIdSet = new Set<Id>();
@@ -23,18 +22,10 @@ public class ScheduleRecordsRefresh implements ScheduledRecordsRefreshDispatcher
 		//1 - Loop through all objects to get lists to update later
 		//Petitions
 		List<Petition__c> petitionsToRefresh = new List<Petition__c> ();
-		for (Petition__c p : [SELECT Id, Schedule_Refresh__c, ADCVD_Case__c
-							  FROM Petition__c
-							  WHERE (Next_Announcement_Date__c = yesterday
-								  OR Next_Due_to_DAS_Deadline__c = yesterday
-								  OR Next_Office_Deadline__c = yesterday)
-							  FOR UPDATE ]){
+		for (Petition__c p : PetitionSelector.newInstance().selectByWhereClause(wc)) {
 
-			if (p.Schedule_Refresh__c){
-				p.Schedule_Refresh__c = false;
-			} else {
-				p.Schedule_Refresh__c = true;
-			}
+			//if true make false. if false make true
+			p.Schedule_Refresh__c = toggleScheduleRefresh(p.Schedule_Refresh__c);
 
 			//add case id to set
 			caseIdSet.add(p.ADCVD_Case__c);
@@ -44,18 +35,10 @@ public class ScheduleRecordsRefresh implements ScheduledRecordsRefreshDispatcher
 
 		//Investigations
 		List<Investigation__c> investigationsToRefresh = new List<Investigation__c> ();
-		for (Investigation__c i : [SELECT Id, Schedule_Refresh__c, ADCVD_Case__c
-								   FROM Investigation__c
-								   WHERE (Next_Announcement_Date__c = yesterday
-									   OR Next_Due_to_DAS_Deadline__c = yesterday
-									   OR Next_Office_Deadline__c = yesterday)
-								   FOR UPDATE]) {
+		for (Investigation__c i : InvestigationSelector.newInstance().selectByWhereClause(wc)) {
 
-			if (i.Schedule_Refresh__c){
-				i.Schedule_Refresh__c = false;
-			} else {
-				i.Schedule_Refresh__c = true;
-			}
+			//if true make false. if false make true
+			i.Schedule_Refresh__c = toggleScheduleRefresh(i.Schedule_Refresh__c);
 
 			//add case id to set
 			caseIdSet.add(i.ADCVD_Case__c);
@@ -65,18 +48,10 @@ public class ScheduleRecordsRefresh implements ScheduledRecordsRefreshDispatcher
 
 		//Segments
 		List<Segment__c> segmentsToRefresh = new List<Segment__c> ();
-		for (Segment__c s : [SELECT Id, Schedule_Refresh__c, ADCVD_Case__c
-							 FROM Segment__c
-							 WHERE (Next_Announcement_Date__c = yesterday
-								 OR Next_Due_to_DAS_Deadline__c = yesterday
-								 OR Next_Office_Deadline__c = yesterday)
-							 FOR UPDATE]){
+		for (Segment__c s : SegmentSelector.newInstance().selectByWhereClause(wc)) {
 
-			if (s.Schedule_Refresh__c){
-				s.Schedule_Refresh__c = false;
-			} else {
-				s.Schedule_Refresh__c = true;
-			}
+			//if true make false. if false make true
+			s.Schedule_Refresh__c = toggleScheduleRefresh(s.Schedule_Refresh__c);
 
 			//add case id to set
 			caseIdSet.add(s.ADCVD_Case__c);
@@ -86,18 +61,10 @@ public class ScheduleRecordsRefresh implements ScheduledRecordsRefreshDispatcher
 
 		//Litigations
 		List<Litigation__c> litigationsToRefresh = new List<Litigation__c> ();
-		for (Litigation__c l : [SELECT Id, Schedule_Refresh__c, ADCVD_Case__c
-								FROM Litigation__c
-								WHERE (Next_Announcement_Date__c =yesterday
-									OR Next_Due_to_DAS_Deadline__c = yesterday
-									OR Next_Office_Deadline__c = yesterday)
-								FOR UPDATE]) {
+		for (Litigation__c l : LitigationSelector.newInstance().selectByWhereClause(wc)) {
 
-			if (l.Schedule_Refresh__c){
-				l.Schedule_Refresh__c = false;
-			} else {
-				l.Schedule_Refresh__c = true;
-			}
+			//if true make false. if false make true
+			l.Schedule_Refresh__c = toggleScheduleRefresh(l.Schedule_Refresh__c);
 
 			//add case id to set
 			caseIdSet.add(l.ADCVD_Case__c);
@@ -109,7 +76,6 @@ public class ScheduleRecordsRefresh implements ScheduledRecordsRefreshDispatcher
 		caseMapper = caseMapper.getInstance(caseIdSet);
 
 		//3 - DML operations for all objects
-
 		//Petitions
 		List<Database.SaveResult> petitionSRs = Database.update(petitionsToRefresh, false);
 		for (Integer k = 0; k < petitionsToRefresh.size(); k++) {
@@ -156,8 +122,12 @@ public class ScheduleRecordsRefresh implements ScheduledRecordsRefreshDispatcher
 		if (String.isNotEmpty(successText) && String.isNotEmpty(failureText)) emailtext = emailtext += successText + 'Partial Success! The following errors occurred: \n' + failureText;
 
 		Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
-		String[] toAddresses = new String[]{AC.Primary_Admin__c};
-		String[] ccAddresses = new String[]{AC.ADCVD_Admin__c};
+		String[] toAddresses = new String[]{
+				AC.Primary_Admin__c
+		};
+		String[] ccAddresses = new String[]{
+				AC.ADCVD_Admin__c
+		};
 		mail.setToAddresses(toAddresses);
 		mail.setCcAddresses(ccAddresses);
 		mail.setReplyTo('noreply@trade.gov');
@@ -167,14 +137,16 @@ public class ScheduleRecordsRefresh implements ScheduledRecordsRefreshDispatcher
 		mail.PlainTextBody = emailtext;
 		mail.Subject = 'ScheduleRecordsRefresh Job Results ' + System.now();
 		mail.saveAsActivity = false;
-		Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail });
+		Messaging.sendEmail(new Messaging.SingleEmailMessage[]{
+				mail
+		});
 	}
 
-	public void checkLimits(){
+	public void checkLimits() {
 		Integer emailMax = limits.getLimitEmailInvocations();
 		Integer emailActual = limits.getEmailInvocations();
 		emailAllowed = emailMax - emailActual;
-		if(emailAllowed > 2) Messaging.reserveSingleEmailCapacity(2);
+		if (emailAllowed > 2) Messaging.reserveSingleEmailCapacity(2);
 	}
 
 	public void writeMessages(Database.SaveResult sr, Id objectId, String objectLabel) {
@@ -184,12 +156,21 @@ public class ScheduleRecordsRefresh implements ScheduledRecordsRefreshDispatcher
 					URL.getSalesforceBaseUrl().toExternalForm() + '/' + sr.getId() + '\n';
 		} else {
 			// Operation failed, so get all errors
-			for(Database.Error err : sr.getErrors()) {
+			for (Database.Error err : sr.getErrors()) {
 				failureText = failureText + 'The following error has occurred for ' + objectLabel + ': ' +
 						URL.getSalesforceBaseUrl().toExternalForm() + '/' + objectId + '\n';
 				failureText = failureText + err.getStatusCode() + ': ' + err.getMessage() + '\n';
 				failureText = failureText + 'Investigation fields that affected this error: ' + err.getFields() + '\n';
 			}
 		}
+	}
+
+	private Boolean toggleScheduleRefresh(Boolean b) {
+		if (b) {
+			return false;
+		} else {
+			return true;
+		}
+
 	}
 }
