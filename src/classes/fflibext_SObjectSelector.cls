@@ -1,6 +1,9 @@
 public abstract class fflibext_SObjectSelector extends fflib_SObjectSelector {
 	private static Map<SObjectType, Set<String>> standardSObjectFieldsNotToIncludeSetBySObjectTYpeMap = new Map<SObjectType, Set<String>>();
 
+	//A set of dates going back 7 days starting yesterday. Used as a parameter in a Database call
+	public static Set<Date> dateSet7Days = ScheduleRecordsRefresh.calculateDateSet7Days();
+
 	static {
 		// Put the fields in as strings and not SObjectFields because sometimes you want to exclude
 		//  a field that is only present in certain orgs.  Account.OperatinHoursId and Account.NameLocal

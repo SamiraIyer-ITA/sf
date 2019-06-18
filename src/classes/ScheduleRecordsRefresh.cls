@@ -7,7 +7,7 @@ public class ScheduleRecordsRefresh implements ScheduledRecordsRefreshDispatcher
 	public String successText = '';
 	public String failureText = '';
 	public AppConfig__c AC = AppConfig__c.getValues('default');
-	public static final String wc = '(Next_Announcement_Date__c = LAST_N_DAYS:7 OR Next_Due_to_DAS_Deadline__c = LAST_N_DAYS:7 OR Next_Office_Deadline__c = LAST_N_DAYS:7)';
+	public static String wc = '(Next_Announcement_Date__c IN :dateSet7Days OR Next_Due_to_DAS_Deadline__c IN :dateSet7Days OR Next_Office_Deadline__c IN :dateSet7Days)';
 
 	//object lists for update
 	@TestVisible private List<Petition__c> petitionsToRefresh = new List<Petition__c> ();
@@ -21,6 +21,15 @@ public class ScheduleRecordsRefresh implements ScheduledRecordsRefreshDispatcher
 	public void execute(SchedulableContext sc) {
 		checkLimits();
 		refreshDueDates();
+	}
+
+
+	public static Set<Date> calculateDateSet7Days() {
+		Set<Date> returnSet = new Set<Date>();
+		for (Integer i=1; i<=7; i++) {
+			returnSet.add(System.today().addDays(-i));
+		}
+		return returnSet;
 	}
 
 	@TestVisible public void refreshDueDates() {
