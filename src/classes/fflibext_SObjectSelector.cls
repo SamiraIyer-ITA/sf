@@ -1,5 +1,4 @@
-public abstract class fflibext_SObjectSelector
-		extends fflib_SObjectSelector {
+public abstract class fflibext_SObjectSelector extends fflib_SObjectSelector {
 	private static Map<SObjectType, Set<String>> standardSObjectFieldsNotToIncludeSetBySObjectTYpeMap = new Map<SObjectType, Set<String>>();
 
 	static {

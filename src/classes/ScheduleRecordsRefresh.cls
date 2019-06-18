@@ -7,7 +7,16 @@ public class ScheduleRecordsRefresh implements ScheduledRecordsRefreshDispatcher
 	public String successText = '';
 	public String failureText = '';
 	public AppConfig__c AC = AppConfig__c.getValues('default');
-	private static final String wc = ' Next_Announcement_Date__c = YESTERDAY OR Next_Due_to_DAS_Deadline__c = YESTERDAY OR Next_Office_Deadline__c = YESTERDAY) FOR UPDATE';
+	public static final String wc = '(Next_Announcement_Date__c = LAST_N_DAYS:7 OR Next_Due_to_DAS_Deadline__c = LAST_N_DAYS:7 OR Next_Office_Deadline__c = LAST_N_DAYS:7)';
+
+	//object lists for update
+	@TestVisible private List<Petition__c> petitionsToRefresh = new List<Petition__c> ();
+	@TestVisible private List<Investigation__c> investigationsToRefresh = new List<Investigation__c> ();
+	@TestVisible private List<Segment__c> segmentsToRefresh = new List<Segment__c> ();
+	@TestVisible private List<Litigation__c> litigationsToRefresh = new List<Litigation__c> ();
+
+	//set for cases associated with each object
+	@TestVisible private Set<Id> caseIdSet = new Set<Id>();
 
 	public void execute(SchedulableContext sc) {
 		checkLimits();
@@ -16,15 +25,11 @@ public class ScheduleRecordsRefresh implements ScheduledRecordsRefreshDispatcher
 
 	@TestVisible public void refreshDueDates() {
 
-		//set for cases associated with each object
-		Set<Id> caseIdSet = new Set<Id>();
-
 		//1 - Loop through all objects to get lists to update later
+
 		//Petitions
-		List<Petition__c> petitionsToRefresh = new List<Petition__c> ();
 		for (Petition__c p : PetitionSelector.newInstance().selectByWhereClause(wc)) {
 
-			//if true make false. if false make true
 			p.Schedule_Refresh__c = toggleScheduleRefresh(p.Schedule_Refresh__c);
 
 			//add case id to set
@@ -34,10 +39,8 @@ public class ScheduleRecordsRefresh implements ScheduledRecordsRefreshDispatcher
 		}
 
 		//Investigations
-		List<Investigation__c> investigationsToRefresh = new List<Investigation__c> ();
 		for (Investigation__c i : InvestigationSelector.newInstance().selectByWhereClause(wc)) {
 
-			//if true make false. if false make true
 			i.Schedule_Refresh__c = toggleScheduleRefresh(i.Schedule_Refresh__c);
 
 			//add case id to set
@@ -47,10 +50,8 @@ public class ScheduleRecordsRefresh implements ScheduledRecordsRefreshDispatcher
 		}
 
 		//Segments
-		List<Segment__c> segmentsToRefresh = new List<Segment__c> ();
 		for (Segment__c s : SegmentSelector.newInstance().selectByWhereClause(wc)) {
 
-			//if true make false. if false make true
 			s.Schedule_Refresh__c = toggleScheduleRefresh(s.Schedule_Refresh__c);
 
 			//add case id to set
@@ -60,60 +61,45 @@ public class ScheduleRecordsRefresh implements ScheduledRecordsRefreshDispatcher
 		}
 
 		//Litigations
-		List<Litigation__c> litigationsToRefresh = new List<Litigation__c> ();
-		/*for (Litigation__c l : LitigationSelector.newInstance().selectByWhereClause(wc)) {
+		for (Litigation__c l : LitigationSelector.newInstance().selectByWhereClause(wc)) {
 
-			//if true make false. if false make true
 			l.Schedule_Refresh__c = toggleScheduleRefresh(l.Schedule_Refresh__c);
 
 			//add case id to set
 			caseIdSet.add(l.ADCVD_Case__c);
 			//add litigation to list
 			litigationsToRefresh.add(l);
-		}*/
+		}
 
 		//2 - Instantiate caseMapper based on case ids from all objects
 		caseMapper = caseMapper.getInstance(caseIdSet);
 
 		//3 - DML operations for all objects
 		//Petitions
-		List<Database.SaveResult> petitionSRs = Database.update(petitionsToRefresh, false);
-		for (Integer k = 0; k < petitionsToRefresh.size(); k++) {
-			Database.SaveResult sr = petitionSRs[k];
-			Id objectId = petitionsToRefresh[k].Id;
-			String objectLabel = 'Petition';
-			writeMessages(sr, objectId, objectLabel);
-		}
+		updateSObjectLists('Petition', petitionsToRefresh);
 
 		//Investigations
-		List<Database.SaveResult> investigationSRs = Database.update(investigationsToRefresh, false);
-		for (Integer k = 0; k < investigationsToRefresh.size(); k++) {
-			Database.SaveResult sr = investigationSRs[k];
-			Id objectId = investigationsToRefresh[k].Id;
-			String objectLabel = 'Investigation';
-			writeMessages(sr, objectId, objectLabel);
-		}
+		updateSObjectLists('Investigation', investigationsToRefresh);
 
 		//Segments
-		List<Database.SaveResult> segmentSRs = Database.update(segmentsToRefresh, false);
-		for (Integer k = 0; k < segmentsToRefresh.size(); k++) {
-			Database.SaveResult sr = segmentSRs[k];
-			Id objectId = segmentsToRefresh[k].Id;
-			String objectLabel = 'Segment';
-			writeMessages(sr, objectId, objectLabel);
-		}
+		updateSObjectLists('Segment', segmentsToRefresh);
 
 		//Litigations
-		List<Database.SaveResult> litigationSRs = Database.update(litigationsToRefresh, false);
-		for (Integer k = 0; k < litigationsToRefresh.size(); k++) {
-			Database.SaveResult sr = litigationSRs[k];
-			Id objectId = litigationsToRefresh[k].Id;
-			String objectLabel = 'Litigation';
-			writeMessages(sr, objectId, objectLabel);
-		}
+		updateSObjectLists('Litigation', litigationsToRefresh);
+
 		finish();
 	}
 
+	private void updateSObjectLists(String sObjectName, List<SObject> l) {
+		List<Database.SaveResult> srList = Database.update(l, false);
+		for (Integer k = 0; k < l.size(); k++) {
+			Database.SaveResult sr = srList[k];
+			Id objectId = l[k].Id;
+			String objectLabel = sObjectName;
+			writeMessages(sr, objectId, objectLabel);
+		}
+
+	}
 	public void finish() {
 		String emailtext = '';
 		if (String.isEmpty(successText) && String.isEmpty(failureText)) emailtext = 'No records were processed for update during this execution.';
@@ -137,9 +123,7 @@ public class ScheduleRecordsRefresh implements ScheduledRecordsRefreshDispatcher
 		mail.PlainTextBody = emailtext;
 		mail.Subject = 'ScheduleRecordsRefresh Job Results ' + System.now();
 		mail.saveAsActivity = false;
-		Messaging.sendEmail(new Messaging.SingleEmailMessage[]{
-				mail
-		});
+		Messaging.sendEmail(new Messaging.SingleEmailMessage[]{mail});
 	}
 
 	public void checkLimits() {
@@ -152,13 +136,11 @@ public class ScheduleRecordsRefresh implements ScheduledRecordsRefreshDispatcher
 	public void writeMessages(Database.SaveResult sr, Id objectId, String objectLabel) {
 		if (sr.isSuccess()) {
 			// Operation was successful, so get the ID of the record that was processed
-			successText = successText + 'Successfully updated ' + objectLabel + ': ' +
-					URL.getSalesforceBaseUrl().toExternalForm() + '/' + sr.getId() + '\n';
+			successText = successText + 'Successfully updated ' + objectLabel + ': ' + URL.getSalesforceBaseUrl().toExternalForm() + '/' + sr.getId() + '\n';
 		} else {
 			// Operation failed, so get all errors
 			for (Database.Error err : sr.getErrors()) {
-				failureText = failureText + 'The following error has occurred for ' + objectLabel + ': ' +
-						URL.getSalesforceBaseUrl().toExternalForm() + '/' + objectId + '\n';
+				failureText = failureText + 'The following error has occurred for ' + objectLabel + ': ' + URL.getSalesforceBaseUrl().toExternalForm() + '/' + objectId + '\n';
 				failureText = failureText + err.getStatusCode() + ': ' + err.getMessage() + '\n';
 				failureText = failureText + 'Investigation fields that affected this error: ' + err.getFields() + '\n';
 			}

@@ -1,6 +1,5 @@
-public without sharing class PetitionSelector
-		extends fflibext_SObjectSelector
-		implements IPetitionSelector {
+public without sharing class PetitionSelector extends fflibext_SObjectSelector implements IPetitionSelector {
+
 	public static IPetitionSelector newInstance() {
 		return (IPetitionSelector) fflibext_Application.Selector.newInstance(Petition__c.SObjectType);
 	}

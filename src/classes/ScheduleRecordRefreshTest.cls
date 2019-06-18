@@ -8,20 +8,13 @@
 
 @IsTest
 public class ScheduleRecordRefreshTest {
-/*
-	private static Date petitionDate = Date.newInstance(2019, 3, 5);
-	private static Date publishDate = Date.newInstance(2019, 3, 5);
-*/
 
 	private static List<ADCVD_Case__c> adcvdCaseList { get; set; }
 	private static List<Petition__c> petitionList { get; set; }
 	private static List<Investigation__c> investigationList { get; set; }
 	private static List<ADCVD_Order__c> orderList { get; set; }
-	//private static List<Related_Organization__c> relOrgList { get; set; }
 	private static List<Litigation__c> litigationList { get; set; }
 	private static List<Segment__c> segmentList { get; set; }
-	//private static List<Staffing_Assignment__c> staffList { get; set; }
-	//private static Map<Id, Staffing_Assignment__c> staffMap { get; set; }
 
 	@IsTest
 	static void testRefreshDueDates() {
@@ -39,10 +32,22 @@ public class ScheduleRecordRefreshTest {
 		ScheduleRecordsRefresh srr = new ScheduleRecordsRefresh();
 		srr.refreshDueDates();
 
+		System.assertEquals(1, srr.petitionsToRefresh.size());
+		System.assertEquals(1, srr.segmentsToRefresh.size());
+		System.assertEquals(1, srr.investigationsToRefresh.size());
+		System.assertEquals(1, srr.litigationsToRefresh.size());
+		System.assertEquals(1, srr.caseIdSet.size());
+
+		System.assertEquals(true, srr.petitionsToRefresh.get(0).Schedule_Refresh__c);
+		System.assertEquals(false, srr.segmentsToRefresh.get(0).Schedule_Refresh__c);
+		System.assertEquals(true, srr.investigationsToRefresh.get(0).Schedule_Refresh__c);
+		System.assertEquals(true, srr.litigationsToRefresh.get(0).Schedule_Refresh__c);
+
 		Test.stopTest();
 	}
 
 	@testSetup static void dataSetup() {
+		TestUtils.createAppConfig('default', true, true);
 		// Create ADCVD_Case record
 		adcvdCaseList = new List<ADCVD_Case__c>();
 		adcvdCaseList.add(
@@ -52,6 +57,7 @@ public class ScheduleRecordRefreshTest {
 						Country__c = 'Mexico'
 				)
 		);
+
 		//Create Petition record
 		petitionList = new List<Petition__c>();
 		petitionList.add(
@@ -60,11 +66,13 @@ public class ScheduleRecordRefreshTest {
 						Locked__c = false,
 						ADCVD_Case__c = adcvdCaseList[0].Id,
 						Country_Text__c = 'Mexico',
+						Schedule_Refresh__c = false,
 						Next_Announcement_Date__c = System.today().addDays(-1),
 						Next_Due_to_DAS_Deadline__c = System.today().addDays(-1),
 						Next_Office_Deadline__c = System.today().addDays(-1)
 				)
 		);
+
 		//Create Investigation record
 		investigationList = new List<Investigation__c>();
 		investigationList.add(
@@ -73,11 +81,13 @@ public class ScheduleRecordRefreshTest {
 						Locked__c = false,
 						ADCVD_Case__c = adcvdCaseList[0].Id,
 						Petition__c = petitionList[0].Id,
+						Schedule_Refresh__c = false,
 						Next_Announcement_Date__c = System.today().addDays(-1),
 						Next_Due_to_DAS_Deadline__c = System.today().addDays(-1),
 						Next_Office_Deadline__c = System.today().addDays(-1)
 				)
 		);
+
 		//Create ADCVD Order record
 		orderList = new List<ADCVD_Order__c>();
 		orderList.add(
@@ -88,18 +98,7 @@ public class ScheduleRecordRefreshTest {
 						Investigation__c = investigationList[0].Id
 				)
 		);
-/*
-		//Create Related Organization record
-		relOrgList = new List<Related_Organization__c>();
-		relOrgList.add(
-				new Related_Organization__c(
-						Id = fflib_IDGenerator.generate(Related_Organization__c.SObjectType),
-						Locked__c = false,
-						ADCVD_Case__c = adcvdCaseList[0].Id,
-						Investigation__c = investigationList[0].Id
-				)
-		);
-*/
+
 		//Create Litigation record
 		litigationList = new List<Litigation__c>();
 		litigationList.add(
@@ -107,12 +106,14 @@ public class ScheduleRecordRefreshTest {
 						Id = fflib_IDGenerator.generate(Litigation__c.SObjectType),
 						Locked__c = false,
 						ADCVD_Case__c = adcvdCaseList[0].Id,
+						Schedule_Refresh__c = false,
 						Next_Announcement_Date__c = System.today().addDays(-1),
 						Next_Due_to_DAS_Deadline__c = System.today().addDays(-1),
 						Next_Office_Deadline__c = System.today().addDays(-1)
 
 				)
 		);
+
 		//Create Segment record
 		segmentList = new List<Segment__c>();
 		segmentList.add(
@@ -120,40 +121,13 @@ public class ScheduleRecordRefreshTest {
 						Id = fflib_IDGenerator.generate(Segment__c.SObjectType),
 						Locked__c = false,
 						ADCVD_Case__c = adcvdCaseList[0].Id,
+						Schedule_Refresh__c = true,
 						Next_Announcement_Date__c = System.today().addDays(-1),
 						Next_Due_to_DAS_Deadline__c = System.today().addDays(-1),
 						Next_Office_Deadline__c = System.today().addDays(-1)
 
 				)
 		);
-/*
-		//Create Staffing Assignment records
-		staffList = new List<Staffing_Assignment__c>();
-		staffList.add(
-				new Staffing_Assignment__c(
-						Id = fflib_IDGenerator.generate(Staffing_Assignment__c.SObjectType),
-						Locked__c = false,
-						ADCVD_Case__c = adcvdCaseList[0].Id,
-						Petition__c = petitionList[0].Id
-				)
-		);
-		staffList.add(
-				new Staffing_Assignment__c(
-						Id = fflib_IDGenerator.generate(Staffing_Assignment__c.SObjectType),
-						Locked__c = false,
-						ADCVD_Case__c = adcvdCaseList[0].Id,
-						Investigation__c = investigationList[0].Id
-				)
-		);
-		staffList.add(
-				new Staffing_Assignment__c(
-						Id = fflib_IDGenerator.generate(Staffing_Assignment__c.SObjectType),
-						Locked__c = false,
-						ADCVD_Case__c = adcvdCaseList[0].Id,
-						ADCVD_Order__c = orderList[0].Id
-				)
-		);
-*/
 
 		//Create relationship between ADCVD_Case and Petition
 		adcvdCaseList = (List<ADCVD_Case__c>) fflib_ApexMocksUtils.makeRelationship(
@@ -164,15 +138,10 @@ public class ScheduleRecordRefreshTest {
 						petitionList
 				}
 		);
+
 		//Create relationship between ADCVD_Case and Investigation
-		adcvdCaseList = (List<ADCVD_Case__c>) fflib_ApexMocksUtils.makeRelationship(
-				List<ADCVD_Case__c>.class,
-				adcvdCaseList,
-				Investigation__c.ADCVD_Case__c,
-				new List<List<Investigation__c>>{
-						investigationList
-				}
-		);
+		adcvdCaseList = (List<ADCVD_Case__c>) fflib_ApexMocksUtils.makeRelationship(List<ADCVD_Case__c>.class, adcvdCaseList, Investigation__c.ADCVD_Case__c, new List<List<Investigation__c>>{investigationList} );
+
 		//Create relationship between ADCVD_Case and ADCVD Order
 		adcvdCaseList = (List<ADCVD_Case__c>) fflib_ApexMocksUtils.makeRelationship(
 				List<ADCVD_Case__c>.class,
@@ -182,17 +151,7 @@ public class ScheduleRecordRefreshTest {
 						orderList
 				}
 		);
-/*
-		//Create relationship between ADCVD_Case and Related Organiztion
-		adcvdCaseList = (List<ADCVD_Case__c>) fflib_ApexMocksUtils.makeRelationship(
-				List<ADCVD_Case__c>.class,
-				adcvdCaseList,
-				Related_Organization__c.ADCVD_Case__c,
-				new List<List<Related_Organization__c>>{
-						relOrgList
-				}
-		);
-*/
+
 		//Create relationship between ADCVD_Case and Litigation
 		adcvdCaseList = (List<ADCVD_Case__c>) fflib_ApexMocksUtils.makeRelationship(
 				List<ADCVD_Case__c>.class,
@@ -211,17 +170,7 @@ public class ScheduleRecordRefreshTest {
 						segmentList
 				}
 		);
-/*
-		//Create relationship between ADCVD Case and Staffing Assignments
-		adcvdCaseList = (List<ADCVD_Case__c>) fflib_ApexMocksUtils.makeRelationship(
-				List<ADCVD_Case__c>.class,
-				adcvdCaseList,
-				Staffing_Assignment__c.ADCVD_Case__c,
-				new List<List<Staffing_Assignment__c>>{
-						staffList
-				}
-		);
-*/
+
 		//Create relationship between Petition and Investigation
 		petitionList = (List<Petition__c>) fflib_ApexMocksUtils.makeRelationship(
 				List<Petition__c>.class,
@@ -240,50 +189,6 @@ public class ScheduleRecordRefreshTest {
 						orderList
 				}
 		);
-/*
-		//Create relationship between Investigation and Related Organization
-		investigationList = (List<Investigation__c>) fflib_ApexMocksUtils.makeRelationship(
-				List<Investigation__c>.class,
-				investigationList,
-				Related_Organization__c.Investigation__c,
-				new List<List<Related_Organization__c>>{
-						relOrgList
-				}
-		);
-*/
-/*		//Create relationship between Petition and Staffing Assignments
-		petitionList = (List<Petition__c>) fflib_ApexMocksUtils.makeRelationship(
-				List<Petition__c>.class,
-				petitionList,
-				Staffing_Assignment__c.Petition__c,
-				new List<List<Staffing_Assignment__c>>{
-						new List<Staffing_Assignment__c>{
-								staffList[0]
-						}
-				}
-		);
-		//Create relationship between Investigation and Staffing Assignments
-		investigationList = (List<Investigation__c>) fflib_ApexMocksUtils.makeRelationship(
-				List<Investigation__c>.class,
-				investigationList,
-				Staffing_Assignment__c.Investigation__c,
-				new List<List<Staffing_Assignment__c>>{
-						new List<Staffing_Assignment__c>{
-								staffList[1]
-						}
-				}
-		);
-		//Create relationship between ADCVD Order and Staffing Assignments
-		orderList = (List<ADCVD_Order__c>) fflib_ApexMocksUtils.makeRelationship(
-				List<ADCVD_Order__c>.class,
-				orderList,
-				Staffing_Assignment__c.ADCVD_Order__c,
-				new List<List<Staffing_Assignment__c>>{
-						new List<Staffing_Assignment__c>{
-								staffList[2]
-						}
-				}
-		);*/
 	}
 
 	private static void selectorSetup() {
@@ -292,9 +197,7 @@ public class ScheduleRecordRefreshTest {
 		ADCVD_ICaseSelector mockADCVD_CaseSelector = (ADCVD_ICaseSelector) mocks.mock(ADCVD_ICaseSelector.class);
 		mocks.startStubbing();
 		mocks.when(mockADCVD_CaseSelector.sObjectType()).thenReturn(ADCVD_Case__c.SObjectType);
-		mocks.when(mockADCVD_CaseSelector.selectByIdWithRelations(new Set<Id>{
-				adcvdCaseList[0].Id
-		})).thenReturn(adcvdCaseList);
+		mocks.when(mockADCVD_CaseSelector.selectByIdWithRelations(new Set<Id>{adcvdCaseList[0].Id})).thenReturn(adcvdCaseList);
 		mocks.stopStubbing();
 		fflibext_Application.Selector.setMock(mockADCVD_CaseSelector);
 
@@ -302,9 +205,7 @@ public class ScheduleRecordRefreshTest {
 		IPetitionSelector mockPetitionSelector = (IPetitionSelector) mocks.mock(IPetitionSelector.class);
 		mocks.startStubbing();
 		mocks.when(mockPetitionSelector.sObjectType()).thenReturn(Petition__c.SObjectType);
-		mocks.when(mockPetitionSelector.selectById(new Set<Id>{
-				petitionList[0].Id
-		})).thenReturn(petitionList);
+		mocks.when(mockPetitionSelector.selectByWhereClause(ScheduleRecordsRefresh.wc)).thenReturn(petitionList);
 		mocks.stopStubbing();
 		fflibext_Application.Selector.setMock(mockPetitionSelector);
 
@@ -312,9 +213,7 @@ public class ScheduleRecordRefreshTest {
 		IInvestigationSelector mockInvestigationSelector = (IInvestigationSelector) mocks.mock(IInvestigationSelector.class);
 		mocks.startStubbing();
 		mocks.when(mockInvestigationSelector.sObjectType()).thenReturn(Investigation__c.SObjectType);
-		mocks.when(mockInvestigationSelector.selectById(new Set<Id>{
-				investigationList[0].Id
-		})).thenReturn(investigationList);
+		mocks.when(mockInvestigationSelector.selectByWhereClause(ScheduleRecordsRefresh.wc)).thenReturn(investigationList);
 		mocks.stopStubbing();
 		fflibext_Application.Selector.setMock(mockInvestigationSelector);
 
@@ -322,9 +221,7 @@ public class ScheduleRecordRefreshTest {
 		ADCVD_IOrderSelector mockADCVD_OrderSelector = (ADCVD_IOrderSelector) mocks.mock(ADCVD_IOrderSelector.class);
 		mocks.startStubbing();
 		mocks.when(mockADCVD_OrderSelector.sObjectType()).thenReturn(ADCVD_Order__c.SObjectType);
-		mocks.when(mockADCVD_OrderSelector.selectById(new Set<Id>{
-				orderList[0].Id
-		})).thenReturn(orderList);
+		mocks.when(mockADCVD_OrderSelector.selectById(new Set<Id>{orderList[0].Id})).thenReturn(orderList);
 		mocks.stopStubbing();
 		fflibext_Application.Selector.setMock(mockADCVD_OrderSelector);
 
@@ -332,9 +229,7 @@ public class ScheduleRecordRefreshTest {
 		ILitigationSelector mockLitigationSelector = (ILitigationSelector) mocks.mock(ILitigationSelector.class);
 		mocks.startStubbing();
 		mocks.when(mockLitigationSelector.sObjectType()).thenReturn(Litigation__c.SObjectType);
-		mocks.when(mockLitigationSelector.selectById(new Set<Id>{
-				litigationList[0].Id
-		})).thenReturn(litigationList);
+		mocks.when(mockLitigationSelector.selectByWhereClause(ScheduleRecordsRefresh.wc)).thenReturn(litigationList);
 		mocks.stopStubbing();
 		fflibext_Application.Selector.setMock(mockLitigationSelector);
 
@@ -342,26 +237,8 @@ public class ScheduleRecordRefreshTest {
 		ISegmentSelector mockSegmentSelector = (ISegmentSelector) mocks.mock(ISegmentSelector.class);
 		mocks.startStubbing();
 		mocks.when(mockSegmentSelector.sObjectType()).thenReturn(Segment__c.SObjectType);
-		mocks.when(mockSegmentSelector.selectById(new Set<Id>{
-				segmentList[0].Id
-		})).thenReturn(segmentList);
+		mocks.when(mockSegmentSelector.selectByWhereClause(ScheduleRecordsRefresh.wc)).thenReturn(segmentList);
 		mocks.stopStubbing();
 		fflibext_Application.Selector.setMock(mockSegmentSelector);
-/*
-		//Mock Staffing Assignment Selector
-		IStaffingAssignmentSelector mockStaffingAssignmentSelector = (IStaffingAssignmentSelector) mocks.mock(IStaffingAssignmentSelector.class);
-		mocks.startStubbing();
-		mocks.when(mockStaffingAssignmentSelector.sObjectType()).thenReturn(Staffing_Assignment__c.SObjectType);
-		mocks.when(mockStaffingAssignmentSelector.selectById(new Set<Id>{
-				staffList[0].Id,
-				staffList[1].Id,
-				staffList[2].Id
-				//staffList[3].Id
-				//staffList[4].Id
-		})).thenReturn(staffList);
-		mocks.stopStubbing();
-		fflibext_Application.Selector.setMock(mockStaffingAssignmentSelector);
-*/
 	}
-
 }
