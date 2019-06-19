@@ -1,10 +1,9 @@
 @isTest
-public class InvestigationSelectorTest
-{
-    @IsTest
-    static void testBehavior()
-    {
-        InvestigationSelector.newInstance().selectById(new Set<Id>());
-        InvestigationSelector.newInstance().selectAllToLimit();
-    }
+public class InvestigationSelectorTest {
+	@IsTest
+	static void testBehavior() {
+		InvestigationSelector.newInstance().selectById(new Set<Id>());
+		InvestigationSelector.newInstance().selectByWhereClause('test');
+		InvestigationSelector.newInstance().selectAllToLimit();
+	}
 }
