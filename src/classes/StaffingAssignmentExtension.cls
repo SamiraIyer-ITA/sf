@@ -55,6 +55,14 @@ public without sharing class StaffingAssignmentExtension {
     }
 
     public Boolean noParentError {get; set;}
+    public Boolean saveError {
+        get{
+            if (saveError == null) {
+                saveError = false;
+            }
+            return saveError;
+        } set;
+    }
 
     /**********************************
      * Variables for a parent record
@@ -258,13 +266,13 @@ public without sharing class StaffingAssignmentExtension {
 
     //Primary method to initialize data on page load
     private void init(Staffing_Assignment__c sa){
-        overwriteSegments = false;
+        saveError = false;
         staffList = getstaffList(parentId, parentSObjectType);
         staffWrapperList = addStaffWrapper(parentId, parentSObjectType, staffList, userIdSet, null);
         System.debug(staffWrapperList);
     }
     private void init(Staffing_Assignment__c sa, Integer addWrapper) {
-        overwriteSegments = false;
+        saveError = false;
         staffList = getstaffList(parentId, parentSObjectType);
         staffWrapperList = addStaffWrapper(parentId, parentSObjectType, staffList, userIdSet, addWrapper);
         System.debug(staffWrapperList);
@@ -284,7 +292,7 @@ public without sharing class StaffingAssignmentExtension {
         for(staffingAssignmentWrapper saw: staffWrapperList) {
             //AD-467
             if(!String.isBlank(saw.sa.Title__c)){
-                staffListToUpsert.add(saw.sa);//If user field is populated, upsert
+                staffListToUpsert.add(saw.sa);//If Title field is populated, upsert
             } else if (String.isBlank(saw.sa.Title__c) && saw.sa.Id != null) {
                 staffListToDelete.add(saw.sa);//If Title field is not populated, delete
             }
@@ -312,8 +320,24 @@ public without sharing class StaffingAssignmentExtension {
                 }
             }
         }*/
-        upsert staffListToUpsert;
-        delete staffListToDelete;
+        try {
+            upsert staffListToUpsert;
+        } catch (Exception e) {
+            if (e.getMessage().contains('There is no Program Manager for this parent record. Please add one to continue.')) {
+                e.setMessage('There is no Program Manager for this parent record. Please add one to continue.');
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getMessage()));
+            }
+            saveError = true;
+        }
+        try {
+            delete staffListToDelete;
+        } catch (Exception e) {
+            if (e.getMessage().contains('There is no Program Manager for this parent record. Please add one to continue.')) {
+                e.setMessage('There is no Program Manager for this parent record. Please add one to continue.');
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getMessage()));
+            }
+            saveError = true;
+        }
         return null;
 
     }

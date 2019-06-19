@@ -26,10 +26,19 @@ public without sharing class StaffingAssignmentTriggerHandler {
             newList = new LockedRecordHandler().removeLockedRecords(newList);
             initialize(newList, newMap);
             setCaseValues(newList);
+            setDefaultProgramManager(newList);
+            validateOneProgramManager(buildStaffListByParentInsertUpdate(newList));
         }
         if (isBefore && isUpdate) {
             newList = new LockedRecordHandler().removeLockedRecords(newList);
             initialize(newList, newMap);
+            setDefaultProgramManager(newList);
+            validateOneProgramManager(buildStaffListByParentInsertUpdate(newList));
+        }
+        if (isBefore && isDelete) {
+            newList = new LockedRecordHandler().removeLockedRecords(oldList);
+            initialize(oldList, oldMap);
+            validateOneProgramManager(buildStaffListByParentForDelete(oldList));
         }
         if (isAfter && isInsert) {
             newList = new LockedRecordHandler().removeLockedRecords(newList);
@@ -47,6 +56,8 @@ public without sharing class StaffingAssignmentTriggerHandler {
     @TestVisible private static StaffingAssignmentMapper staffMapper;
     //Mapper declared that will be initialized in the initialize method
     @TestVisible private static ADCVD_CaseMapper caseMapper;
+    
+    public class StaffingException extends Exception {}
 
     //method to initialize the caseMapper and if newMap is passed (after insert/update) it will add the new staff to the Mappers
     @TestVisible private static void initialize(List<Staffing_Assignment__c> newList, Map<Id,Staffing_Assignment__c> newMap) {
@@ -94,6 +105,106 @@ public without sharing class StaffingAssignmentTriggerHandler {
     @TestVisible private static void setSaParent (Staffing_Assignment__c sa, String parentName) {
         if (String.isBlank(sa.Staff_Parent__c)) {
             sa.Staff_Parent__c = parentName;
+        }
+    }
+    //used to set the default user for User__c on a Staffing Assignment on insert when Title__c is "Program Manager"
+    @TestVisible private static void setDefaultProgramManager (List<Staffing_Assignment__c> newList) {
+        //"Please Assign" user
+        User pleaseAssignUser = new User();
+        for (User u : [SELECT Id FROM User WHERE LastName = 'Please Assign']) {
+            pleaseAssignUser = u;
+        }
+        if (pleaseAssignUser == null) {return;}
+        for (Staffing_Assignment__c sa : newList) {
+            if (sa.Title__c == 'Program Manager' && sa.User__c == null) {
+                sa.User__c = pleaseAssignUser.Id;
+            }
+        }
+    }
+    
+    @TestVisible private static Map<Id, List<Staffing_Assignment__c>> buildStaffListByParentInsertUpdate (List<Staffing_Assignment__c> newList) {
+        staffMapper = (StaffingAssignmentMapper) caseMapper.getMapper('Staffing_Assignment__c');
+        Map <Id, List<Staffing_Assignment__c>> returnMap = new Map<Id, List<Staffing_Assignment__c>>();
+        Set<Id> existingStaffRecords = new Set<Id>();
+        //add new Staff to Map
+        for (Staffing_Assignment__c sa : newList) {
+            if(sa.User__c == null) {continue;}
+            if(sa.Id != null) {existingStaffRecords.add(sa.Id);}
+            List<Staffing_Assignment__c> tempList = new List<Staffing_Assignment__c>();
+            Id parentId = (Id)sa.get(sa.Staff_Parent__c);
+            if (parentId != null && !returnMap.isEmpty() && !returnMap.get(parentId).isEmpty()) {
+                tempList.addAll(returnMap.get(parentId));
+            }
+            tempList.add(sa);
+            returnMap.put(parentId, tempList);
+        }
+        if (staffMapper.getParentIdToStaffMap().isEmpty()) {return returnMap;}
+        
+        //add existing Staff to Map if not already in map (keep the newest version)
+        //separate iteration over newlist needed to confirm newest version is kept
+        for (Id parentId : returnMap.keySet()) {
+            if (staffMapper.getParentIdToStaffMap().get(parentId).isEmpty()) {continue;}
+            for (Staffing_Assignment__c sa : staffMapper.getParentIdToStaffMap().get(parentId).values()) {
+                if (existingStaffRecords.contains(sa.Id)) {continue;}//skip if already in the returnMap
+                List<Staffing_Assignment__c> tempList = new List<Staffing_Assignment__c>();
+                if (!returnMap.isEmpty() && returnMap.get(parentId) != null && !returnMap.get(parentId).isEmpty()) {
+                    tempList.addAll(returnMap.get(parentId));
+                }
+                tempList.add(sa);
+                returnMap.put(parentId, tempList);
+            }
+        }
+        return returnMap;
+    }
+    
+    @TestVisible private static Map<Id, List<Staffing_Assignment__c>> buildStaffListByParentForDelete (List<Staffing_Assignment__c> newList) {
+        staffMapper = (StaffingAssignmentMapper) caseMapper.getMapper('Staffing_Assignment__c');
+        Map <Id, List<Staffing_Assignment__c>> returnMap = new Map<Id, List<Staffing_Assignment__c>>();
+        Set<Id> staffToBeDeleted = new Set<Id>();
+        Set<Id> parentIdsInScope = new Set<Id>();
+        //add new Staff to Map
+        for (Staffing_Assignment__c sa : newList) {
+            if(sa.Id != null) {staffToBeDeleted.add(sa.Id);}
+            parentIdsInScope.add((Id)sa.get(sa.Staff_Parent__c));
+        }
+     
+        //add existing Staff to Map if not already in map (keep the newest version)
+        //separate iteration over newlist needed to confirm newest version is kept
+        for (Id parentId : parentIdsInScope) {
+            if (staffMapper.getParentIdToStaffMap().get(parentId).isEmpty()) {continue;}
+            for (Staffing_Assignment__c sa : staffMapper.getParentIdToStaffMap().get(parentId).values()) {
+                if (staffToBeDeleted.contains(sa.Id)) {continue;}//not already in a returnMap
+                List<Staffing_Assignment__c> tempList = new List<Staffing_Assignment__c>();
+                if (!returnMap.isEmpty() && returnMap.get(parentId) != null && !returnMap.get(parentId).isEmpty()) {
+                    tempList.addAll(returnMap.get(parentId));
+                }
+                tempList.add(sa);
+                returnMap.put(parentId, tempList);
+            }
+        }
+        return returnMap;
+    }
+    //Validates there is only one Staffing Assignment with Title__c == to "Program Manager" per parent
+    //Iterates through staffing assignments by parent ensuring there is one and only one Program Manager per parent
+    @TestVisible private static void validateOneProgramManager (Map <Id, List<Staffing_Assignment__c>> staffListByParentMap) {
+        if (!Master_Automation__c.getInstance().ValidationRulesEnabled__c) {return;}//same allowance as declarative VRs
+        Staffing_Assignment__c programManager = null;
+        //iterate over each staff record for each parent
+        for (Id parentId : staffListByParentMap.keySet()) {
+            for (Staffing_Assignment__c sa : staffListByParentMap.get(parentId)) {
+                if (sa.Title__c != 'Program Manager') {continue;}
+                //if we already have a PM and it is not an update
+                if (programManager != null && programManager.Id != sa.Id) {
+                    sa.User__c.addError('There must be only one Program Manager per parent record. Please remove additional Program Managers.');
+                    break;
+                } else {
+                    programManager = sa;
+                }
+            }
+            if (programManager == null) {
+                System.debug('staffListByParentMap: ' + staffListByParentMap);
+                throw new DmlException('There is no Program Manager for this parent record. Please add one to continue.');
+            }
         }
     }
     //method to add the Staff from the recent insert/update to the staffMapper, the caseMapper,

@@ -1,7 +1,7 @@
 <apex:page standardController="Staffing_Assignment__c" extensions="StaffingAssignmentExtension" id="page" 
     showHeader="{!isSalesforceClassic}" standardStylesheets="{!isSalesforceClassic}" 
     applyHtmlTag="{!isSalesforceClassic}" applyBodyTag="{!isSalesforceClassic}"
-    docType="html-5.0">
+    docType="html-5.0" lightningStylesheets="true">
     <!--For VF pages that are shared in Lightning, conditionally set page attributes based on user experience context-->
     <apex:includeLightning /><!--Always include lightning scripts-->
         <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" lang="en">
@@ -17,9 +17,10 @@
                 </head>
                 <body><!--conditionally display form based on user context-->
                         <apex:form id="form-ltng" rendered="true">
+                        <div class="slds-scope">
                         <apex:pageMessages id="pm-ltng"/>
                         <!-- REQUIRED SLDS WRAPPER -->
-                        <div class="slds-scope">
+                        
 
                         <!-- PAGE HEADER -->
                                 <div class="slds-page-header">
@@ -37,10 +38,11 @@
                                         <!-- ACTION BUTTONS -->
                                                 <div class="slds-col slds-no-flex slds-grid slds-align-top slds-align-middle">
                                                     <div class="slds-button-group" role="group">
-                                                        <apex:commandButton styleClass="slds-button slds-button--neutral" action="{!save}" status="status" value="Add New Assignment" id="addNewSA-ltng" reRender="wrapperList-ltng" oncomplete="addRowLEX();" rendered="{!!noParentError}"/>
-                            <apex:commandButton styleClass="slds-button slds-button--neutral" action="{!save}" status="status" value="Quick Save" id="saveButton-ltng" reRender="form-ltng, pm-ltng" oncomplete="refreshAfterQuickSave();" rendered="{!!noParentError}"/>
-                                                        <apex:commandButton styleClass="slds-button slds-button--neutral" action="{!save}" status="status" value="Save" id="QuickSaveButton-ltng" reRender="form-ltng, pm-ltng" oncomplete="navToParent();" rendered="{!!noParentError}"/>
-                                                        <apex:commandButton styleClass="slds-button slds-button--neutral" action="{!cancel}" status="status" value="Cancel" id="cancelButton-ltng" reRender="form-ltng, pm-ltng" immediate="true" oncomplete="navToParent();" rendered="{!!noParentError}"/>
+                                                        <apex:commandButton alt="Due to an error, you must go back to the staffing assignment page" styleClass="slds-button slds-button--neutral" status="status" value="Back to Staffing Assignments" id="Back-ltng" reRender="form-ltng, pm-ltng" oncomplete="refreshAfterQuickSave();" rendered="{!!noParentError && saveError}"/>
+                                                        <apex:commandButton styleClass="slds-button slds-button--neutral" action="{!save}" status="status" value="Add New Assignment" id="addNewSA-ltng" reRender="wrapperList-ltng" oncomplete="addRowLEX();" rendered="{!!noParentError && !saveError}"/>
+                            <apex:commandButton styleClass="slds-button slds-button--neutral" action="{!save}" status="status" value="Quick Save" id="saveButton-ltng" reRender="form-ltng, pm-ltng" oncomplete="if({!saveError}){return;}else{refreshAfterQuickSave();}" rendered="{!!noParentError && !saveError}"/>
+                                                        <apex:commandButton styleClass="slds-button slds-button--neutral" action="{!save}" status="status" value="Save" id="QuickSaveButton-ltng" reRender="form-ltng, pm-ltng" oncomplete="if({!saveError}){return;}else{navToParent();}" rendered="{!!noParentError && !saveError}"/>
+                                                        <apex:commandButton styleClass="slds-button slds-button--neutral" action="{!cancel}" status="status" value="Cancel" id="cancelButton-ltng" reRender="form-ltng, pm-ltng" immediate="true" oncomplete="navToParent();" rendered="{!!noParentError && !saveError}"/>
                                                     </div>
                                                 </div>
                                         <!-- / ACTION BUTTONS -->
@@ -65,7 +67,7 @@
               </div>
             </apex:facet>
             </apex:actionStatus>
-                                <apex:outputPanel > <!--pageBlocks are not supported in LEX, use outputPanels-->
+                                <apex:outputPanel rendered="{!!saveError}"> <!--pageBlocks are not supported in LEX, use outputPanels-->
                                         <apex:outputPanel >
                                                 <div class="slds-section">
                                                         <table class="slds-table slds-table--bordered slds-table--cell-buffer slds-table--striped"><!--for multi-column displays, use uiUtils methods to re-sort the fields displayed-->
