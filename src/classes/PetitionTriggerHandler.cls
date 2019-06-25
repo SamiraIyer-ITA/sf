@@ -61,7 +61,7 @@ public without sharing class PetitionTriggerHandler {
         }
         if(isAfter && isUpdate) {
             recalculateInvestigations(newMap, oldMap);
-            new ChatterPostService().getChatterPosts(oldMap, newMap, 'Petition__c');
+            new ChatterPostWriter('Petition__c', newMap, oldMap);
         }
     }
 
