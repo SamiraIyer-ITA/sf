@@ -356,11 +356,11 @@ public without sharing class StaffingAssignmentExtension {
         return null;
     }
 
-    private String getReturnUrl() {
+    @TestVisible private String getReturnUrl() {
         return ApexPages.currentPage().getParameters().get('retURL');
     }
     //if existing, return matching Staffing Assignment. Else return a new one
-    private Staffing_Assignment__c querySA(){
+    @TestVisible private Staffing_Assignment__c querySA(){
         if(parentId != null) {
             sa = [SELECT Id, ADCVD_Order__c, Investigation__c, Petition__c, 
                                 Related_Organization__c, Segment__c FROM Staffing_Assignment__c 
@@ -376,7 +376,7 @@ public without sharing class StaffingAssignmentExtension {
         return sa;
     }
     //Returns list of all Staffing Assignments for the parent
-    private List<Staffing_Assignment__c> getStaffList(Id parentId, String parentSObjectType) {
+    @TestVisible private List<Staffing_Assignment__c> getStaffList(Id parentId, String parentSObjectType) {
         List<Related_Organization__c> relOrgList = new List<Related_Organization__c>();
         relOrgList = parentSObjectType == RELATED_ORG ? getRelOrgList(parentId) : null;
         if(staffList == null || staffList.isEmpty()) {
@@ -430,7 +430,7 @@ public without sharing class StaffingAssignmentExtension {
         return staffList;
     }
 
-    private List<Related_Organization__c> getRelOrgList(Id parentId) {
+    @TestVisible private List<Related_Organization__c> getRelOrgList(Id parentId) {
         List<Related_Organization__c> returnList = new List<Related_Organization__c>();
         if (relOrgMap.isEmpty()) {
             for(Related_Organization__c r : [SELECT ADCVD_Order__c, ADCVD_Order__r.ADCVD_Order_Name__c, Investigation__c, Investigation__r.Investigation_Name__c, 
@@ -446,7 +446,7 @@ public without sharing class StaffingAssignmentExtension {
         return returnList;
     }
     //Initializes SelectOption lists
-    private void populateUserLists(){
+    @TestVisible private void populateUserLists(){
         userRoleMap = new Map<String, List<User>>();
         userSelectOptions = new Map<String, List<SelectOption>>();
         allUserSelectOptions = new List<SelectOption>();
@@ -572,7 +572,7 @@ public without sharing class StaffingAssignmentExtension {
         return sa;
     }
 
-    private Staffing_Assignment__c setSaRelatedOrgParentId(List<Related_Organization__c> relOrgList, Staffing_Assignment__c sa) {
+    @TestVisible private Staffing_Assignment__c setSaRelatedOrgParentId(List<Related_Organization__c> relOrgList, Staffing_Assignment__c sa) {
         if (relOrgList != null) {
             for(Related_Organization__c r : relOrgList) {
                 if (r.ADCVD_Order__c != null) {
