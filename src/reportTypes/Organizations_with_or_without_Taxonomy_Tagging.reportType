@@ -663,11 +663,6 @@
             <field>Trade_Region__c</field>
             <table>Account.Taxonomy_Tagging__r</table>
         </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Related_Call_to_Action__c</field>
-            <table>Account.Taxonomy_Tagging__r</table>
-        </columns>
         <masterLabel>Taxonomy Tagging</masterLabel>
     </sections>
 </ReportType>
