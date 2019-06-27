@@ -561,6 +561,18 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Litigation_Parent__c</fullName>
+        <externalId>false</externalId>
+        <label>Litigation Parent</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Locked__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
