@@ -39,7 +39,9 @@ public without sharing class ADCVD_CaseMapper implements ADCVD_IMapper {
 		mapperMap.put('Litigation__c', (ADCVD_IMapper) new LitigationMapper());
 		mapperMap.put('Related_Organization__c', (ADCVD_IMapper) new RelatedOrganizationMapper());
 		mapperMap.put('Custom_Instruction__c', (ADCVD_IMapper) new CustomInstructionMapper());
-		mapperMap.put('ADCVD_Case__c', (ADCVD_IMapper) new ADCVD_CaseMapper());
+        mapperMap.put('Staffing_Assignment__c', (ADCVD_IMapper) new StaffingAssignmentMapper());
+        mapperMap.put('ADCVD_Case__c', (ADCVD_IMapper) new ADCVD_CaseMapper());
+
 	}
 	//Master map of unlocked cases for execution
 	public static Map<Id,ADCVD_Case__c> idToUnlockedCaseMap = new Map<Id,ADCVD_Case__c>();

@@ -1,6 +1,12 @@
 public without sharing class ADCVD_RecusalUtility {
 	/*************************************************************
-//TODO: description
+    This utility accepts a list of SObjects and a set of User Ids.
+    It has 2 constructors.  One is public and empty for setting 
+    a class level variable in another class. The second
+    calls the query of all parents from the Cascade utility and calls
+    the first constructor to place the returned Recusals into class
+    instances.  It then returns a map of all User Ids for that parent to an instance
+    of this class with their recusals, both primary and secondary, mapped to the parent records.
 	 ************************************************************/
 	//Object agnostic variables
    //holds the name of the original object type being updated
@@ -131,10 +137,8 @@ public without sharing class ADCVD_RecusalUtility {
     	}
     	if(classPrimaryRecusalMap == null || classPrimaryRecusalMap.size() < 1) {
     		Id recordTypeId = utils.getRecordTypeIdMap('Recusal__c').get('Primary');
-	    	Date today = System.today();
-	    	for(Recusal__c r : [SELECT Id, Name, Actor__c, Actor_Start_Date__c, Actor_End_Date__c, Start_Date__c, End_Date__c, Reason_for_Recusal__c, 
-									User__c FROM Recusal__c WHERE RecordTypeId =: recordTypeId 
-	    		AND User__c IN: userIdSet AND Start_Date__c <=: today AND End_Date__c >=: today]) {
+			for(Recusal__c r : RecusalSelector.newInstance().selectByRecordTypeIdAndUserAndDate(new Set<Id> {recordTypeId}, userIdSet, Date.today()))
+			{
 	    		classPrimaryRecusalMap.put(r.Id, r);
 	    	}
     	}

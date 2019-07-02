@@ -30,7 +30,7 @@
         if(isAfter && isInsert) {
         	newList = new LockedRecordHandler().removeLockedRecords(newList);
             initialize(newList, newMap);
-            StaffingAssignmentExtension createStaff = new StaffingAssignmentExtension(newlist);
+            new StaffingAssignmentService().createStaffFromDefaults(newList, 'Related_Organization__c');
         }
     }
 

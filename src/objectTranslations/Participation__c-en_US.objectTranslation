@@ -469,12 +469,12 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Purpose --></label>
-            <section>Purpose</section>
+            <label><!-- Environmental Toolkit --></label>
+            <section>Environmental Toolkit</section>
         </sections>
         <sections>
-            <label><!-- Toolkit Details --></label>
-            <section>Toolkit Details</section>
+            <label><!-- Purpose --></label>
+            <section>Purpose</section>
         </sections>
     </layouts>
     <layouts>
@@ -534,7 +534,7 @@
         <name>USManufacturer_False_Needs_Explanation</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- US Postal Codes must be a 5 digit number. --></errorMessage>
+        <errorMessage><!-- US Postal Code must be in 5 digit or 5+4 format. --></errorMessage>
         <name>US_Postal_Code_Format</name>
     </validationRules>
 </CustomObjectTranslation>

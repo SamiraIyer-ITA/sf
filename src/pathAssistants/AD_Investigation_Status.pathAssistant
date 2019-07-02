@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Investigation__c</entityName>
+    <fieldName>Status__c</fieldName>
+    <masterLabel>AD Investigation Status</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Amend_Prelim_Issues_Due_to_DAS__c</fieldNames>
+        <fieldNames>Amend_Prelim_Concurrence_Due_to_DAS__c</fieldNames>
+        <fieldNames>Calc_Amended_Prelim_Determination_Sig__c</fieldNames>
+        <fieldNames>Amended_Preliminary_Announcement_Date__c</fieldNames>
+        <info>&lt;p&gt;1) If you receive ministerial error comments for the prelim, enter that information.&lt;/p&gt;&lt;p&gt;2) If you are amending the preliminary determination because of those comments, by answering yes to Amend the Preliminary Determination? a calculated amended preliminary signature date will display and the investigation will enter Amend Prelim status.&lt;/p&gt;&lt;p&gt;3) Enter the dates that you submit the issues and concurrence package to the DAS office.&lt;/p&gt;&lt;p&gt;4)  Enter the signature date of the amended preliminary determination in the Actual Amended Prelim Determination Sig field.&lt;/p&gt;</info>
+        <picklistValueName>Amend Prelim</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Investigation_Outcome__c</fieldNames>
+        <fieldNames>Name</fieldNames>
+        <info>&lt;p&gt;All possible work has been completed on this investigation and this investigation is now closed.&lt;/p&gt;</info>
+        <picklistValueName>Closed</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Have_Custom_Instruction_been_sent__c</fieldNames>
+        <info>&lt;p&gt;This is a status in which you confirm that all Customs instructions have been sent for the investigation. Once you can confirm that all Customs Instructions have been sent, this will close out the investigation.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;WARNING:&lt;/b&gt; This is not the only point at which Customs instructions should be sent. Reference the Deadlines for CBP Instructions in ACE document provided by the Customs Liaison Unit.&lt;/p&gt;</info>
+        <picklistValueName>Customs</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Final_Team_Meeting_Deadline__c</fieldNames>
+        <fieldNames>Final_Issues_Due_to_DAS__c</fieldNames>
+        <fieldNames>Final_Concurrence_Due_to_DAS__c</fieldNames>
+        <fieldNames>Calculated_Final_Signature__c</fieldNames>
+        <fieldNames>Final_Announcement_Date__c</fieldNames>
+        <info>&lt;p&gt;To complete the final phase of an investigation:&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;1.  Add an extension to adjust the Calculated Final Signature.&lt;/p&gt;&lt;p&gt;2. Submit Issues and a Concurrence Package to the DAS.  Input the dates that these activities are completed.&lt;/p&gt;&lt;p&gt;3. Input the Actual Final Signature and the Final determination publication information in the Federal Register related list.&lt;/p&gt;&lt;p&gt;4. If a suspension agreement is reached, input the information in the Investigation Outcome field.&lt;/p&gt;</info>
+        <picklistValueName>Final</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Litigation_Hold_Expiration_Date__c</fieldNames>
+        <fieldNames>Lotus_Notes_Litigation_ID__c</fieldNames>
+        <fieldNames>Litigation_YesNo__c</fieldNames>
+        <fieldNames>Litigation_Resolved__c</fieldNames>
+        <fieldNames>Injunction__c</fieldNames>
+        <info>&lt;p&gt;This stage of the investigation represents the time in which we determine whether there will be any litigation on the work or not.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;1) The litigation hold expiration date is set to 30 days from the last action taken in the investigation, i.e., ITC negative prelim, DOC negative final, ITC negative final, or the publication of the order. Therefore, make sure you have entered the investigation outcome and the appropriate publication information.&lt;/p&gt;&lt;p&gt;2) If we are sued on the investigation, enter the information in the Litigation field. If we have an injunction, enter that information as well.&lt;/p&gt;</info>
+        <picklistValueName>Hold</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Lotus_Notes_Litigation_ID__c</fieldNames>
+        <fieldNames>Injunction__c</fieldNames>
+        <fieldNames>Litigation_Resolved__c</fieldNames>
+        <info>&lt;p&gt;This stage of the investigation represents that we are in litigation on the investigation.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;1) When entering this status, enter the Lotus Notes Litigation ID # and add any remands or international litigation that results from the litigation.&lt;/p&gt;&lt;p&gt;2) Once the litigation is resolved, enter that in the Litigation Resolved field and continue the steps to close out the investigation.&lt;/p&gt;</info>
+        <picklistValueName>Litigation</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Amend_Final_Issues_Due_to_DAS__c</fieldNames>
+        <fieldNames>Amend_Final_Concurrence_Due_to_DAS__c</fieldNames>
+        <fieldNames>Calculated_Amended_Final_Signature__c</fieldNames>
+        <fieldNames>Est_ITC_Notification_to_DOC_of_Final_Det__c</fieldNames>
+        <fieldNames>Estimated_Order_FR_Published__c</fieldNames>
+        <info>&lt;p&gt;1) If you receive ministerial error comments for the final, enter that information.&lt;/p&gt;&lt;p&gt;2) If you are amending the final determination because of those comments, by answering yes to Will you Amend the Final? a calculated amended final signature date will display.&lt;/p&gt;&lt;p&gt;3) Enter the dates that the Issues and the Concurrence Package are submitted to the DAS office.&lt;/p&gt;&lt;p&gt;4) Enter the signature date of the amended final determination in the Actual Amended Final Signature field.&lt;/p&gt;&lt;p&gt;5) If the ITC makes a negative final determination, input the information in the Investigation Outcome field.&lt;/p&gt;&lt;p&gt;6) If a suspension agreement is reached, input the information in the Investigation Outcome field.&lt;/p&gt;&lt;p&gt;7) When the order publishes, create a new order.&lt;/p&gt;</info>
+        <picklistValueName>Pending Order</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Prelim_Team_Meeting_Deadline__c</fieldNames>
+        <fieldNames>Calculated_Postponement_of_PrelimDeterFR__c</fieldNames>
+        <fieldNames>Prelim_Issues_Due_to_DAS__c</fieldNames>
+        <fieldNames>Prelim_Concurrence_Due_to_DAS__c</fieldNames>
+        <fieldNames>Calculated_Preliminary_Signature__c</fieldNames>
+        <info>&lt;p&gt;To complete the prelim phase of an investigation:&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;1.  Add respondent information in the related organizations list.&lt;/p&gt;&lt;p&gt;2.  Add staffing information in the staffing related list.&lt;/p&gt;&lt;p&gt;3.  Add an extension to adjust the Calculated Preliminary Signature.&lt;/p&gt;&lt;p&gt;4.  Submit Issues and a Concurrence package to the DAS.  Input the dates these tasks are completed.&lt;/p&gt;&lt;p&gt;5.  Input the Actual Preliminary Signature and the preliminary determination publication information in the Federal Register related list.&lt;/p&gt;&lt;p&gt;6. If the ITC makes a negative preliminary determination, input the information in the Investigation Outcome field.&lt;/p&gt;&lt;p&gt;7. If a suspension agreement is reached, input the information in the Investigation Outcome field.&lt;/p&gt;</info>
+        <picklistValueName>Prelim</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Investigation_Outcome__c</fieldNames>
+        <info>&lt;p&gt;When a suspension agreement is put in place, update the investigation outcome to &amp;quot;suspension agreement.&amp;quot;&lt;/p&gt;</info>
+        <picklistValueName>Suspended</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>AD</recordTypeName>
+</PathAssistant>
