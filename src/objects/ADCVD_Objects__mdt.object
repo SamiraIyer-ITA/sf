@@ -39,11 +39,6 @@
                     <label>Investigation__c</label>
                 </value>
                 <value>
-                    <fullName>Issue__c</fullName>
-                    <default>false</default>
-                    <label>Issue__c</label>
-                </value>
-                <value>
                     <fullName>Litigation__c</fullName>
                     <default>false</default>
                     <label>Litigation__c</label>
@@ -77,6 +72,27 @@
                     <fullName>Suspension_Agreement__c</fullName>
                     <default>false</default>
                     <label>Suspension_Agreement__c</label>
+                </value>
+                <value>
+                    <fullName>ADCVD_Case__c</fullName>
+                    <default>false</default>
+                    <label>ADCVD_Case__c</label>
+                </value>
+                <value>
+                    <fullName>Custom_Instruction__c</fullName>
+                    <default>false</default>
+                    <label>Custom_Instruction__c</label>
+                </value>
+                <value>
+                    <fullName>Harmonized_Tariff_Schedule__c</fullName>
+                    <default>false</default>
+                    <label>Harmonized_Tariff_Schedule__c</label>
+                </value>
+                <value>
+                    <fullName>Issue__c</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Issue__c</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
@@ -156,6 +172,26 @@
                     <fullName>Related</fullName>
                     <default>false</default>
                     <label>Related</label>
+                </value>
+                <value>
+                    <fullName>Filed</fullName>
+                    <default>false</default>
+                    <label>Filed</label>
+                </value>
+                <value>
+                    <fullName>Self_Initiated</fullName>
+                    <default>false</default>
+                    <label>Self_Initiated</label>
+                </value>
+                <value>
+                    <fullName>Customs_Instructions_Only</fullName>
+                    <default>false</default>
+                    <label>Customs_Instructions_Only</label>
+                </value>
+                <value>
+                    <fullName>Petitioner_Respondent</fullName>
+                    <default>false</default>
+                    <label>Petitioner_Respondent</label>
                 </value>
             </valueSetDefinition>
         </valueSet>

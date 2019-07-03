@@ -9,6 +9,10 @@
         <value>Taxonomy Tagging</value>
     </caseValues>
     <fields>
+        <label><!-- Category --></label>
+        <name>Category__c</name>
+    </fields>
+    <fields>
         <label><!-- Country --></label>
         <name>Country__c</name>
     </fields>
@@ -54,10 +58,6 @@
         <name>Taxonomy_One__c</name>
     </fields>
     <fields>
-        <label><!-- Trade Issue - Category --></label>
-        <name>Category__c</name>
-    </fields>
-    <fields>
         <label><!-- Trade Issue --></label>
         <name>Trade_Issue__c</name>
     </fields>
@@ -89,6 +89,17 @@
         <sections>
             <label><!-- Industry --></label>
             <section>Industry</section>
+        </sections>
+        <sections>
+            <label><!-- Related Records --></label>
+            <section>Related Records</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Trade Issue</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
         </sections>
         <sections>
             <label><!-- Related Records --></label>
@@ -132,7 +143,7 @@
         <name>Only_Choose_One_Related_Record</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- You are required to choose an Industry, Country or Trade Region --></errorMessage>
+        <errorMessage><!-- You are required to choose a value before you can save this record. --></errorMessage>
         <name>Require_One_Taxonomy_Field</name>
     </validationRules>
 </CustomObjectTranslation>

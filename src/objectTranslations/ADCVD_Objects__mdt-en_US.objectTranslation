@@ -16,20 +16,28 @@
         <label><!-- Object API Name --></label>
         <name>Object_API_Name__c</name>
         <picklistValues>
+            <masterLabel>ADCVD_Case__c</masterLabel>
+            <translation><!-- ADCVD_Case__c --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>ADCVD_Order__c</masterLabel>
             <translation><!-- ADCVD_Order__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom_Instruction__c</masterLabel>
+            <translation><!-- Custom_Instruction__c --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Federal_Register__c</masterLabel>
             <translation><!-- Federal_Register__c --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Investigation__c</masterLabel>
-            <translation><!-- Investigation__c --></translation>
+            <masterLabel>Harmonized_Tariff_Schedule__c</masterLabel>
+            <translation><!-- Harmonized_Tariff_Schedule__c --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Issue__c</masterLabel>
-            <translation><!-- Issue__c --></translation>
+            <masterLabel>Investigation__c</masterLabel>
+            <translation><!-- Investigation__c --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Litigation__c</masterLabel>
@@ -84,8 +92,16 @@
             <translation><!-- Changed_Circumstances_Review --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Customs_Instructions_Only</masterLabel>
+            <translation><!-- Customs_Instructions_Only --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Expedited_Review</masterLabel>
             <translation><!-- Expedited_Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Filed</masterLabel>
+            <translation><!-- Filed --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>International_Litigation</masterLabel>
@@ -94,6 +110,10 @@
         <picklistValues>
             <masterLabel>New_Shipper_Review</masterLabel>
             <translation><!-- New_Shipper_Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Petitioner_Respondent</masterLabel>
+            <translation><!-- Petitioner_Respondent --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Primary</masterLabel>
@@ -110,6 +130,10 @@
         <picklistValues>
             <masterLabel>Scope_Inquiry</masterLabel>
             <translation><!-- Scope_Inquiry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Self_Initiated</masterLabel>
+            <translation><!-- Self_Initiated --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Sunset_Review</masterLabel>

@@ -9,6 +9,14 @@
         <value>Recusals</value>
     </caseValues>
     <fields>
+        <label><!-- ADCVD Case Number --></label>
+        <name>ADCVD_Case_Number_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- ADCVD Case Type --></label>
+        <name>ADCVD_Case_Type_Text__c</name>
+    </fields>
+    <fields>
         <label><!-- ADCVD Case --></label>
         <name>ADCVD_Case__c</name>
         <relationshipLabel><!-- Recusals --></relationshipLabel>
@@ -19,17 +27,29 @@
         <relationshipLabel><!-- Recusals --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Actor End Date --></label>
+        <label><!-- Acting User End Date --></label>
         <name>Actor_End_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Actor Start Date --></label>
+        <label><!-- Acting User Start Date --></label>
         <name>Actor_Start_Date__c</name>
     </fields>
     <fields>
-        <label><!-- Actor --></label>
+        <label><!-- Acting User --></label>
         <name>Actor__c</name>
-        <relationshipLabel><!-- Recusals (Actor) --></relationshipLabel>
+        <relationshipLabel><!-- Recusals (Acting User) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- CBP Case Number --></label>
+        <name>CBP_Case_Number_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commodity --></label>
+        <name>Commodity_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>Country_Text__c</name>
     </fields>
     <fields>
         <label><!-- End Date --></label>
@@ -58,6 +78,14 @@
         <label><!-- Primary Recusal Aligned To --></label>
         <name>Primary_Recusal_Aligned_To__c</name>
         <relationshipLabel><!-- Aligned Recusals --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Product Short Name --></label>
+        <name>Product_Short_Name_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>Product_Text__c</name>
     </fields>
     <fields>
         <label><!-- Reason for Recusal --></label>
