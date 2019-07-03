@@ -46,6 +46,7 @@
     <description>This object is to log decisions made by government leads, product owners, and/or any government authority.</description>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -118,6 +119,11 @@
     <label>Decision Log</label>
     <listViews>
         <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Justification__c</columns>
+        <columns>Status__c</columns>
+        <columns>Subject__c</columns>
+        <columns>Summary__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>

@@ -336,7 +336,7 @@ Already Registered? <a href="/CommunitiesLogin">Log In</a>
         <br/>
         
         <h2 class="itaFormHeaderblu">Single Sign-Up</h2>
-        <p class="lead itaFormHeaderblu">Sign-up today on <span id="sitename">{!webSite}</span> and enjoy access to all the sites operated by the International Trade Administration. One account and credentials will be used across all of our brands.</p>
+        <p class="lead itaFormHeaderblu">Sign-up today on <span id="sitename">{!webSite}</span> and enjoy access to all the sites operated by the International Trade Administration. One account and credentials will be used across all of our brands. <a href="/website-privacy-act">Click here</a> for Our Privacy Act Statement.</p>
 <br/>
         <div class="row reglayout_zeropad">
          <div class="col-md-6 col-sm-6 col-xs-6">

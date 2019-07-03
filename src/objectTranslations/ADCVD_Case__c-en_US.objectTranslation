@@ -32,6 +32,10 @@ C-###-### for CVD --></help>
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Batch Update --></label>
+        <name>Batch_Update__c</name>
+    </fields>
+    <fields>
         <label><!-- CBP Case Number --></label>
         <name>CBP_Case_Number__c</name>
     </fields>

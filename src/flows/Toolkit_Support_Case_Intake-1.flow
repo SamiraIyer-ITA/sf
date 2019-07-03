@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <constants>
+        <name>con_ToolkitSupportRecTypeID</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>012t0000000TSv2</stringValue>
+        </value>
+    </constants>
+    <description>Intake screen for Toolkit Support Cases</description>
+    <dynamicChoiceSets>
+        <name>ch_CaseType</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Type</picklistField>
+        <picklistObject>Case</picklistObject>
+    </dynamicChoiceSets>
+    <dynamicChoiceSets>
+        <name>ch_Priority</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>Priority</picklistField>
+        <picklistObject>Case</picklistObject>
+    </dynamicChoiceSets>
+    <interviewLabel>Toolkit Support Case Intake {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Toolkit Support Case Intake</label>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>Create_Toolkit_Support_Case</name>
+        <label>Create Toolkit Support Case</label>
+        <locationX>193</locationX>
+        <locationY>191</locationY>
+        <assignRecordIdToReference>var_CaseID</assignRecordIdToReference>
+        <connector>
+            <targetReference>ThankYou</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Description</field>
+            <value>
+                <elementReference>Description</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Priority</field>
+            <value>
+                <elementReference>Priority</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RecordTypeId</field>
+            <value>
+                <elementReference>con_ToolkitSupportRecTypeID</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Subject</field>
+            <value>
+                <elementReference>Summary</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Case</object>
+    </recordCreates>
+    <screens>
+        <name>ThankYou</name>
+        <label>ThankYou</label>
+        <locationX>191</locationX>
+        <locationY>285</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>ThankYouField</name>
+            <fieldText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;Thank you for submitting a Toolkit Support Case. Please check your email for a copy of your Case and a link to the Case record.&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;&lt;/FONT&gt;&lt;/DIV&gt;&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;Happy Salesforcing!&lt;/FONT&gt;&lt;/DIV&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Toolkit_Case_Input</name>
+        <label>Toolkit Case Input</label>
+        <locationX>192</locationX>
+        <locationY>84</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Create_Toolkit_Support_Case</targetReference>
+        </connector>
+        <fields>
+            <name>Intro</name>
+            <fieldText>Please fill out each of the below fields to create a Toolkit Support Case. Your case will be assigned to the Toolkit/Forms App Super Users&apos; Queue, who will address your request as soon as possible. You will receive an email with the details of your new Case.</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>Summary</name>
+            <dataType>String</dataType>
+            <fieldText>Summary</fieldText>
+            <fieldType>InputField</fieldType>
+            <helpText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;A &lt;I&gt;succinct&lt;/I&gt; summary of your request.&lt;/FONT&gt;&lt;/DIV&gt;</helpText>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Priority</name>
+            <choiceReferences>ch_Priority</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Priority</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <helpText>How would you prioritize this issue?</helpText>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Description</name>
+            <fieldText>Description</fieldText>
+            <fieldType>LargeTextArea</fieldType>
+            <helpText>&lt;DIV ALIGN=&quot;LEFT&quot;&gt;&lt;FONT FACE=&quot;Arial&quot; STYLE=&quot;font-size:12px&quot; COLOR=&quot;#000000&quot; LETTERSPACING=&quot;0&quot; KERNING=&quot;0&quot;&gt;Please enter in as much information about &lt;B&gt;how&lt;/B&gt;, &lt;B&gt;where&lt;/B&gt;, &lt;B&gt;why&lt;/B&gt;, and &lt;B&gt;when&lt;/B&gt; you experienced your issue, as well as instructions for &lt;I&gt;how you would like it to be solved&lt;/I&gt;, if applicable.&lt;/FONT&gt;&lt;/DIV&gt;</helpText>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <startElementReference>Toolkit_Case_Input</startElementReference>
+    <variables>
+        <name>var_CaseID</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

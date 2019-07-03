@@ -182,6 +182,34 @@
     </types>
     <types>
         <members>*</members>
+        <name>WaveApplication</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>WaveDashboard</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>WaveDataflow</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>WaveDataset</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>WaveLens</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>WaveTemplateBundle</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>WaveXmd</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>Workflow</name>
     </types>
     <version>45.0</version>
