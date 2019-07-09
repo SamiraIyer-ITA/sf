@@ -14715,6 +14715,20 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
         <errorMessage>&quot;Was the Product Preliminary Determined to be in Scope?&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>A1106RequestFiledNotUpdateable</fullName>
+        <active>true</active>
+        <description>AD-1988 On scope inquiries, once a request filed date has been entered it shouldn&apos;t be editable except by an ADCVD Manager Profile and System Admin</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false, 
+$Setup.Master_Automation__c.Scope_Inquiry_Edit_Request_Filed__c == false,
+And(
+$RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, 
+NOT(ISBLANK(Request_Filed__c)),
+ISCHANGED(Request_Filed__c) 
+))</errorConditionFormula>
+        <errorDisplayField>Request_Filed__c</errorDisplayField>
+        <errorMessage>The Request Filed cannot edited after it is set.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>A1106ScopeChangesHTS</fullName>
         <active>true</active>
         <description>&quot;HTS Changes&quot; is required only if &quot;Decision on How to Proceed&quot; is either &quot;Formal&quot; or &quot;Informal&quot;.</description>
