@@ -875,6 +875,24 @@
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
+        <fullName>A0201OnlyAdminReparentsOrder</fullName>
+        <active>true</active>
+        <description>Order records can only be reparented by a System Administrator.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            NOT( ISNEW() ),
+            OR(
+            ISCHANGED(ADCVD_Case__c),
+            ISCHANGED(Investigation__c)
+            ),
+            NOT(
+            $Permission.ADCVD_App_Modify_Parents
+            )
+            )</errorConditionFormula>
+        <errorMessage>You are not authorized to edit ADCVD Case or Investigation.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Cannot_Edit_Locked_Record</fullName>
         <active>true</active>
         <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false, 
@@ -885,7 +903,7 @@ PRIORVALUE(Locked__c) == true
     </validationRules>
     <validationRules>
         <fullName>Only_Admin_can_reparent_ADCVD_Order</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Only a System Admin can reparent an ADCVD Order to a different Investigation or ADCVD Case.</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
 Locked__c == false,
