@@ -13537,6 +13537,146 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
+        <fullName>A1101OnlyAdminReparentsSegments</fullName>
+        <active>true</active>
+        <description>Segment records can only be reparented by a System Administrator.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            NOT( ISNEW() ),
+            $RecordType.DeveloperName = &quot;Administrative_Review&quot;,
+            OR(
+            ISCHANGED(ADCVD_Order__c ),
+            ISCHANGED(Suspension_Agreement__c),
+            ISCHANGED(ADCVD_Case__c)
+            ),
+            NOT(
+            $Permission.ADCVD_App_Modify_Parents
+            )
+            )</errorConditionFormula>
+        <errorMessage>You are not authorized to edit ADCVD Case, ADCVD Order, Suspension Agreement, or Investigation.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1102OnlyAdminReparentsSegments</fullName>
+        <active>true</active>
+        <description>Segment records can only be reparented by a System Administrator.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            $RecordType.DeveloperName = &quot;Anti_Circumvention_Review&quot;,
+            NOT( ISNEW() ),
+            OR(
+            ISCHANGED(ADCVD_Order__c ),
+            ISCHANGED(Suspension_Agreement__c),
+            ISCHANGED(ADCVD_Case__c)
+            ),
+            NOT(
+            $Permission.ADCVD_App_Modify_Parents
+            )
+            )</errorConditionFormula>
+        <errorMessage>You are not authorized to edit ADCVD Case, ADCVD Order, Suspension Agreement, or Investigation.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1103OnlyAdminReparentsSegments</fullName>
+        <active>true</active>
+        <description>Segment records can only be reparented by a System Administrator.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            NOT( ISNEW() ),
+            $RecordType.DeveloperName = &quot;Changed_Circumstances_Review&quot;,
+            OR(
+            ISCHANGED(ADCVD_Order__c ),
+            ISCHANGED(Suspension_Agreement__c),
+            ISCHANGED(ADCVD_Case__c)
+            ),
+            NOT(
+            $Permission.ADCVD_App_Modify_Parents
+            )
+            )</errorConditionFormula>
+        <errorMessage>You are not authorized to edit ADCVD Case, ADCVD Order, Suspension Agreement, or Investigation.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1104OnlyAdminReparentsSegments</fullName>
+        <active>true</active>
+        <description>Segment records can only be reparented by a System Administrator.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            NOT( ISNEW() ),
+            $RecordType.DeveloperName = &quot;Expedited_Review&quot;,
+            OR(
+            ISCHANGED(ADCVD_Order__c ),
+            ISCHANGED(Suspension_Agreement__c),
+            ISCHANGED(ADCVD_Case__c)
+            ),
+            NOT(
+            $Permission.ADCVD_App_Modify_Parents
+            )
+            )</errorConditionFormula>
+        <errorMessage>You are not authorized to edit ADCVD Case, ADCVD Order, Suspension Agreement, or Investigation.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1105OnlyAdminReparentsSegments</fullName>
+        <active>true</active>
+        <description>Segment records can only be reparented by a System Administrator.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            NOT( ISNEW() ),
+            $RecordType.DeveloperName = &quot;New_Shipper_Review&quot;,
+            OR(
+            ISCHANGED(ADCVD_Order__c ),
+            ISCHANGED(Suspension_Agreement__c),
+            ISCHANGED(ADCVD_Case__c)
+            ),
+            NOT(
+            $Permission.ADCVD_App_Modify_Parents
+            )
+            )</errorConditionFormula>
+        <errorMessage>You are not authorized to edit ADCVD Case, ADCVD Order, Suspension Agreement, or Investigation.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1106OnlyAdminReparentsSegments</fullName>
+        <active>true</active>
+        <description>Segment records can only be reparented by a System Administrator.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            NOT( ISNEW() ),
+            $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;,
+            OR(
+            ISCHANGED(ADCVD_Order__c ),
+            ISCHANGED(Suspension_Agreement__c),
+            ISCHANGED(ADCVD_Case__c)
+            ),
+            NOT(
+            $Permission.ADCVD_App_Modify_Parents
+            )
+            )</errorConditionFormula>
+        <errorMessage>You are not authorized to edit ADCVD Case, ADCVD Order, Suspension Agreement, or Investigation.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1107OnlyAdminReparentsSegments</fullName>
+        <active>true</active>
+        <description>Segment records can only be reparented by a System Administrator.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            NOT( ISNEW() ),
+            $RecordType.DeveloperName = &quot;Sunset_Review&quot;,
+            OR(
+            ISCHANGED(ADCVD_Order__c ),
+            ISCHANGED(Suspension_Agreement__c),
+            ISCHANGED(ADCVD_Case__c)
+            ),
+            NOT(
+            $Permission.ADCVD_App_Modify_Parents
+            )
+            )</errorConditionFormula>
+        <errorMessage>You are not authorized to edit ADCVD Case, ADCVD Order, Suspension Agreement, or Investigation.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>ACR_Final_Extension</fullName>
         <active>true</active>
         <description>Legend to the Initials Placed on each rule name
@@ -13896,7 +14036,7 @@ SR = Sunset Review</description>
     </validationRules>
     <validationRules>
         <fullName>Only_Admin_reparents_Segments</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Segment records can only be reparented by a System Administrator.</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
 Locked__c == false, 
