@@ -2257,6 +2257,42 @@ C-###-### for CVD</inlineHelpText>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
+        <fullName>A0801OnlyAdminReparentsPetitions</fullName>
+        <active>true</active>
+        <description>Petition records can only be reparented by a System Administrator.</description>
+        <errorConditionFormula>AND(
+			$Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+			Locked__c == false,
+			NOT( ISNEW() ),
+			$RecordType.DeveloperName = &quot;Filed&quot;,
+			OR(
+				ISCHANGED(ADCVD_Case__c)
+			),
+			NOT(
+				$Permission.ADCVD_App_Modify_Parents
+			)
+			)</errorConditionFormula>
+        <errorMessage>You are not authorized to edit ADCVD Case.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A0802OnlyAdminReparentsPetitions</fullName>
+        <active>true</active>
+        <description>Petition records can only be reparented by a System Administrator.</description>
+        <errorConditionFormula>AND(
+			$Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+			Locked__c == false,
+			NOT( ISNEW() ),
+			$RecordType.DeveloperName = &quot;Self_Initiated&quot;,
+			OR(
+				ISCHANGED(ADCVD_Case__c)
+			),
+			NOT(
+				$Permission.ADCVD_App_Modify_Parents
+			)
+			)</errorConditionFormula>
+        <errorMessage>You are not authorized to edit ADCVD Case.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Actual_Initiation_Signature_Not_Blank</fullName>
         <active>true</active>
         <description>You cannot enter an Actual Initiation Signature Date until the Calculate Initiation Signature Date in not populated</description>
