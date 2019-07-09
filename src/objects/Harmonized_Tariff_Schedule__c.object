@@ -379,6 +379,25 @@
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
+        <fullName>A0901OnlyAdminReparentsHTS</fullName>
+        <active>true</active>
+        <description>Harmonized Tariff Schedule records can only be reparented by a System Administrator.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            NOT( ISNEW() ),
+            OR(
+            ISCHANGED(ADCVD_Case__c),
+            ISCHANGED(ADCVD_Order__c),
+            ISCHANGED(Suspension_Agreement__c)
+            ),
+            NOT(
+            $Permission.ADCVD_App_Modify_Parents
+            )
+            )</errorConditionFormula>
+        <errorMessage>You are not authorized to edit ADCVD Case, ADCVD Order, or Suspension Agreement.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Cannot_Edit_Locked_Record</fullName>
         <active>true</active>
         <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false, 
