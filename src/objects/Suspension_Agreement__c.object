@@ -572,6 +572,24 @@
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
+        <fullName>A1301OnlyAdminReparentsSuspAgreements</fullName>
+        <active>true</active>
+        <description>Suspension Agreement records can only be reparented by a System Administrator.</description>
+        <errorConditionFormula>AND(
+            $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+            Locked__c == false,
+            NOT( ISNEW() ),
+            OR(
+            ISCHANGED(ADCVD_Case__c),
+            ISCHANGED(Investigation__c)
+            ),
+            NOT(
+            $Permission.ADCVD_App_Modify_Parents
+            )
+            )</errorConditionFormula>
+        <errorMessage>You are not authorized to edit ADCVD Case or Investigation.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Cannot_Edit_Locked_Record</fullName>
         <active>true</active>
         <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false, 
