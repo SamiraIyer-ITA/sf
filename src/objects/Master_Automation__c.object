@@ -3,6 +3,16 @@
     <customSettingsType>Hierarchy</customSettingsType>
     <enableFeeds>false</enableFeeds>
     <fields>
+        <fullName>Scope_Inquiry_Edit_Request_Filed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>DO NOT CHECK FOR ORG SETTING
+If checked, that user/profile can update the Request Filed field on Scope Inquiries after the value has been set.</inlineHelpText>
+        <label>Scope Inquiry - Edit Request Filed</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>ValidationRulesEnabled__c</fullName>
         <defaultValue>true</defaultValue>
         <externalId>false</externalId>
