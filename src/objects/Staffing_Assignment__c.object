@@ -852,8 +852,30 @@ IF(NOT(ISBLANK(Related_Organization__c)), &quot;Interested Organization&quot;,
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
-        <fullName>Only_Admin_reparents_records</fullName>
+        <fullName>A1201OnlyAdminReparentsStaffing</fullName>
         <active>true</active>
+        <description>Staffing records can only be reparented by a System Administrator.</description>
+        <errorConditionFormula>AND(
+			$Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+			Locked__c == false,
+			NOT( ISNEW() ),
+			OR(
+			ISCHANGED(ADCVD_Case__c),
+			ISCHANGED(ADCVD_Order__c),
+			ISCHANGED(Related_Organization__c),
+			ISCHANGED(Investigation__c),
+			ISCHANGED(Petition__c),
+			ISCHANGED(Segment__c)
+			),
+			NOT(
+			$Permission.ADCVD_App_Modify_Parents
+			)
+			)</errorConditionFormula>
+        <errorMessage>You are not authorized to edit this field.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Only_Admin_reparents_records</fullName>
+        <active>false</active>
         <description>Staffing Assignment records can only be reparented by a System Administrator. This rule considered Interested Organization as a possible parent.</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
 Locked__c == false, 
