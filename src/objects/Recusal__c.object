@@ -49,9 +49,9 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
     <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
@@ -281,6 +281,18 @@
         <visibleLines>5</visibleLines>
     </fields>
     <fields>
+        <fullName>Recusal_Parent__c</fullName>
+        <description>Field name of the lookup field that is this recusal&apos;s parent. Typically an ADCVD Case.  Future use case could be Interested Organization</description>
+        <externalId>false</externalId>
+        <label>Recusal Parent</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Related_Organization__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -332,8 +344,9 @@
         <fullName>Active_Recusals</fullName>
         <columns>NAME</columns>
         <columns>User__c</columns>
+        <columns>ADCVD_Case__c</columns>
+        <columns>Start_Date__c</columns>
         <columns>End_Date__c</columns>
-        <columns>ADCVD_Order__c</columns>
         <columns>Country_Text__c</columns>
         <columns>Product_Text__c</columns>
         <columns>Reason_for_Recusal__c</columns>
