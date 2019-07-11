@@ -3381,7 +3381,7 @@ $RecordType.DeveloperName = &quot;CVD&quot;,
     </validationRules>
     <validationRules>
         <fullName>Only_SysAdmin_reparents_Investigations</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Cannot reparent an Investigation to another Petition or ADCVD Case unless a System Administrator.</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
 Locked__c == false, 
