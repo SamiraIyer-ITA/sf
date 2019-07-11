@@ -3108,9 +3108,9 @@
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
-        <fullName>A0701OnlyAdminReparentsLitigations</fullName>
+        <fullName>A0701PermSetReparentsLitigation</fullName>
         <active>true</active>
-        <description>Litigation records can only be reparented by a System Administrator.</description>
+        <description>Litigation records can only be reparented by members of ADCVD_App_Modify_Parents permission set.</description>
         <errorConditionFormula>AND(
             $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
             Locked__c == false,
@@ -3129,9 +3129,9 @@
         <errorMessage>You are not authorized to edit ADCVD Case, Petition, Investigation, or Segment.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>A0702OnlyAdminReparentsLitigations</fullName>
+        <fullName>A0702PermSetReparentsLitigation</fullName>
         <active>true</active>
-        <description>Litigation records can only be reparented by a System Administrator.</description>
+        <description>Litigation records can only be reparented by members of ADCVD_App_Modify_Parents permission set.</description>
         <errorConditionFormula>AND(
             $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
             Locked__c == false,
