@@ -408,7 +408,7 @@ PRIORVALUE(Locked__c) == true
     </validationRules>
     <validationRules>
         <fullName>Only_Admin_reparents_HTS_records</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>HTS records can only be reparented by a System Administrator.</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
 Locked__c == false, 
