@@ -128,6 +128,10 @@
         <fields>Calculated_Final_Signature__c</fields>
         <relatedList>Litigation__c.ADCVD_Case__c</relatedList>
     </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Recusal__c.ADCVD_Case__c</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>
