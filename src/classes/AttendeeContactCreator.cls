@@ -4,110 +4,115 @@
  */
 global with sharing class AttendeeContactCreator implements valence.TransformationFilter {
 
-  public Boolean validFor(valence.LinkContext context) {
-
-    if('business_conference_participants'.equalsIgnoreCase(context.linkSourceName) && 'Attendee__c'.equalsIgnoreCase(context.linkTargetName)) {
-      return true;
-    }
-    return false;
-  }
-
-  public void process(valence.LinkContext context, List<valence.RecordInFlight> records) {
-
-    /*
-     * 1. Find records that are missing a Contact
-     * 2. Look for existing Accounts
-     * 3. Create Accounts that need to be created
-     * 4. Create Contacts that need to be created (attaching Accounts)
-     * 5. Attach Contact Ids to appropriate RecordInFlight instances
-     */
-
-    List<valence.RecordInFlight> recordsMissingContact = new List<valence.RecordInFlight>();
-    Set<String> namesOfCompanies = new Set<String>();
-    for(valence.RecordInFlight record : records) {
-      if(!record.getProperties().containsKey('Contact__c')) {
-        recordsMissingContact.add(record);
-        namesOfCompanies.add(String.valueOf(record.getOriginalProperties().get('company')));
-
-        // TODO - remove
-        record.addWarning('Creating a new Contact (and maybe a new Account)');
-      }
-    }
-
-    // if all our records are good, bail out
-    if(recordsMissingContact.isEmpty()) {
-      return;
-    }
-
-    // fetch all existing Accounts we can find that would be associated with Contacts we're about to create
-    Map<String, Id> companyIdByName = new Map<String, Id>();
-    for(Account company : [SELECT Id, Name FROM Account WHERE Name IN :namesOfCompanies]) {
-      companyIdByName.put(company.Name, company.Id);
-    }
-
-    // create new contact records in memory
-    List<Contact> newContacts = new List<Contact>();
-    Map<String, List<Contact>> accountsAndRelatedContacts = new Map<String, List<Contact>>();
-    for(valence.RecordInFlight record : recordsMissingContact) {
-      Contact newContact = contactFromRecord(record);
-      String companyName = (String)record.getOriginalProperties().get('company');
-      if(companyIdByName.containsKey(companyName)) {
-        newContact.AccountId = companyIdByName.get(companyName);
-      }
-      else {
-        if(!accountsAndRelatedContacts.containsKey(companyName)) {
-          accountsAndRelatedContacts.put(companyName, new List<Contact>());
+    public Boolean validFor(valence.LinkContext context) {
+        if('business_conference_participants'.equalsIgnoreCase(context.linkSourceName) && 'Attendee__c'.equalsIgnoreCase(context.linkTargetName)) {
+            return true;
         }
-        accountsAndRelatedContacts.get(companyName).add(newContact);
-      }
-      newContacts.add(newContact);
+        return false;
     }
 
-    // if we have to create some accounts, create them now and backfill the related contacts
-    if(!accountsAndRelatedContacts.isEmpty()) {
-      List<Account> accountsToInsert = new List<Account>();
-      for(String companyName : accountsAndRelatedContacts.keySet()) {
-        accountsToInsert.add(new Account(Name = companyName));
-      }
-      insert accountsToInsert;
+    public void process(valence.LinkContext context, List<valence.RecordInFlight> records) {
 
-      for(Account company : accountsToInsert) {
-        for(Contact relatedContact : accountsAndRelatedContacts.get(company.Name)) {
-          relatedContact.AccountId = company.Id;
+        /*
+         * 1. Find records that are missing a Contact
+         * 2. Look for existing Accounts
+         * 3. Create Accounts that need to be created
+         * 4. Create Contacts that need to be created (attaching Accounts)
+         * 5. Attach Contact Ids to appropriate RecordInFlight instances
+         */
+
+        //Organization variables
+        Set<String> organizationNames = new Set<String>();
+        Map<String,Account> organizationNameToExistingOrganization = new Map<String,Account>();
+        Map<String,Account> organizationNameToNewOrganization = new Map<String,Account>();
+
+        //Contact variables
+        Set<String> contactEmails = new Set<String>();
+        Map<String,Contact> contactEmailToExistingContact = new Map<String,Contact>();
+        Map<String,Contact> contactEmailToNewContact = new Map<String,Contact>();
+        Map<String,valence.RecordInFlight> emailToAttendee = new Map<String,valence.RecordInFlight>();
+
+        Map<String,String> emailToOrganizationName = new Map<String,String>();
+
+        //Collect Organization Names and filter out trade.gov email
+        for(valence.RecordInFlight record : records) {
+            //Do not create Organization or Contact if Attendee has a trade.gov email
+            if(!String.valueOf(record.getOriginalProperties().get('email')).contains('@trade.gov')) {
+                organizationNames.add(String.valueOf(record.getOriginalProperties().get('company')));
+                contactEmails.add(String.valueOf(record.getOriginalProperties().get('email')));
+                emailToOrganizationName.put(String.valueOf(record.getOriginalProperties().get('email')),String.valueOf(record.getOriginalProperties().get('company')));
+            }
         }
-      }
+
+        //Use Organization Names to find existing Organizations with those names, map them
+        for(Account organization : [SELECT Name FROM Account WHERE Name IN :organizationNames]) {
+            if(!organizationNameToExistingOrganization.containsKey(organization.Name)) {
+                organizationNameToExistingOrganization.put(organization.Name, organization);
+            }
+        }
+
+        //Iterate through Attendee company names and collect the ones that don't have any matching Organizations,
+        //  then create new Organizations for those names that still don't have an Org, then map the new orgs by name
+        for(String orgName : organizationNames) {
+            if(organizationNameToExistingOrganization.containsKey(orgName) || organizationNameToNewOrganization.containsKey(orgName)) {
+                //Organization already exists with that name, do nothing
+            } else {
+                //Organization doesn't already exist, create it and map it
+                Account newOrganization = new Account(Name = orgName);
+                organizationNameToNewOrganization.put(orgName,newOrganization);
+            }
+        }
+
+        //Insert the new organizations
+        Database.insert(organizationNameToNewOrganization.values(),false);
+
+        //Update the map of Names to Existing Organizations to include the newly inserted ones
+        organizationNameToExistingOrganization.putAll(organizationNameToNewOrganization);
+
+        //Use contact emails to find existing contacts, map them
+        for(Contact contact : [SELECT Id, Email from Contact where Email IN :contactEmails]) {
+            contactEmailToExistingContact.put(contact.Email, contact);
+        }
+
+        //Find unmatched contacts and create new contacts
+        for(String contactEmail : contactEmails) {
+            if(contactEmailToExistingContact.containsKey(contactEmail) || contactEmailToNewContact.containsKey(contactEmail)) {
+                //Contact already exists with that email, do nothing
+            } else {
+                //Contact doesn't already exist, create it and map it
+                valence.RecordInFlight record = emailToAttendee.get(contactEmail);
+                Map<String, Object> props = record.getProperties();
+                Contact newContact = new Contact(
+                        FirstName = String.valueOf(props.get('FirstName__c')),
+                        LastName = String.valueOf(props.get('LastName__c')),
+                        Email = contactEmail,
+                        Phone = String.valueOf(props.get('Telephone__c')),
+                        Title = String.valueOf(props.get('Title__c')),
+                        MailingStreet = String.valueOf(props.get('MailingStreet__c')),
+                        MailingCity = String.valueOf(props.get('MailingCity__c')),
+                        MailingState = String.valueOf(props.get('MailingState__c')),
+                        MailingPostalCode = String.valueOf(props.get('MailingPostalCode__c')),
+                        MailingCountry = String.valueOf(props.get('MailingCountry__c'))
+                );
+                if(organizationNameToExistingOrganization.get(emailToOrganizationName.get(contactEmail)) != null) {
+                    //this conditional is to prevent a very rare edge case with a null pointer exception
+                    newContact.AccountId = organizationNameToExistingOrganization.get(emailToOrganizationName.get(contactEmail)).Id;
+                }
+                contactEmailToNewContact.put(newContact.Email,newContact);
+            }
+        }
+
+        //Insert the new contacts
+        Database.insert(contactEmailToNewContact.values(),false);
+
+        //Add newly inserted contacts with newly generated Ids into the map of existing contacts
+        contactEmailToExistingContact.putAll(contactEmailToNewContact);
+
+        //Update Attendee record with newly created or existing Contact Id (as long as they are not trade.gov)
+        for(valence.RecordInFlight record : records) {
+            if(!String.valueOf(record.getOriginalProperties().get('email')).contains('@trade.gov')) {
+                record.getProperties().put('Contact__c', contactEmailToExistingContact.get(String.valueOf(record.getOriginalProperties().get('email'))).Id);
+            }
+        }
     }
-
-    // write these new contacts to the database
-    insert newContacts;
-
-    // match inserted contacts back to records
-    for(Integer i = 0, j = newContacts.size(); i < j; i++) {
-      recordsMissingContact[i].getProperties().put('Contact__c', newContacts[i].Id);
-    }
-  }
-
-  /**
-   * Convert a RecordInFlight to a Contact.
-   *
-   * @param record
-   *
-   * @return A Contact with fields from the RecordInFlight
-   */
-  private Contact contactFromRecord(valence.RecordInFlight record) {
-
-    Map<String, Object> props = record.getProperties();
-    return new Contact(
-      FirstName = String.valueOf(props.get('FirstName__c')),
-      LastName = String.valueOf(props.get('LastName__c')),
-      Email = String.valueOf(props.get('Email__c')),
-      Phone = String.valueOf(props.get('Telephone__c')),
-      Title = String.valueOf(props.get('Title__c')),
-      MailingStreet = String.valueOf(props.get('MailingStreet__c')),
-      MailingCity = String.valueOf(props.get('MailingCity__c')),
-      MailingState = String.valueOf(props.get('MailingState__c')),
-      MailingPostalCode = String.valueOf(props.get('MailingPostalCode__c')),
-      MailingCountry = String.valueOf(props.get('MailingCountry__c'))
-    );
-  }
 }
