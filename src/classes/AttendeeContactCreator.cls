@@ -41,6 +41,7 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
                 organizationNames.add(String.valueOf(record.getOriginalProperties().get('company')));
                 contactEmails.add(String.valueOf(record.getOriginalProperties().get('email')));
                 emailToOrganizationName.put(String.valueOf(record.getOriginalProperties().get('email')),String.valueOf(record.getOriginalProperties().get('company')));
+                emailToAttendee.put(String.valueOf(record.getOriginalProperties().get('email')),record);
             }
         }
 
