@@ -15437,19 +15437,18 @@ $RecordType.DeveloperName = &quot;Scope_Inquiry&quot;, ISPICKVAL( Decision_on_Ho
 
     CASE(RecordType.DeveloperName,
       &quot;Scope_Inquiry&quot;,
-        IF (
-             AND( 
-                  NOT(ISBLANK(TEXT(Segment_Outcome__c))),
-                  OR(ISBLANK(TEXT(Decision_on_How_to_Proceed__c)), 
-                     ISBLANK(Actual_Date_of_Decision_on_HoP__c)) 
-                ),
-        1,0
+        IF(
+            OR(
+                AND(NOT(ISBLANK(TEXT(Decision_on_How_to_Proceed__c))), ISBLANK(Actual_Date_of_Decision_on_HoP__c)),
+                AND(OR(ISBLANK(TEXT(Decision_on_How_to_Proceed__c)), ISBLANK(Actual_Date_of_Decision_on_HoP__c)),NOT(ISBLANK(TEXT(Segment_Outcome__c))))
+              ),
+	1,0
          )
       ,
       0
     ) = 1
    )</errorConditionFormula>
-        <errorMessage>Decision on How to Proceed AND Actual date of Decision - How to Proceed field, both fields are required since you have selected a value in the Segment Outcome field.</errorMessage>
+        <errorMessage>Actual date of Decision-How to Proceed field is required if you have selected a value in the Decision on How to Proceed field AND/OR Segment Outcome field.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>SI_Actual_Date_of_Decision_on_HOP_Bound</fullName>
