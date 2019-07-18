@@ -38,10 +38,16 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
         for(valence.RecordInFlight record : records) {
             //Do not create Organization or Contact if Attendee has a trade.gov email
             if(!String.valueOf(record.getOriginalProperties().get('email')).contains('@trade.gov')) {
-                organizationNames.add(String.valueOf(record.getOriginalProperties().get('company')));
-                contactEmails.add(String.valueOf(record.getOriginalProperties().get('email')));
-                emailToOrganizationName.put(String.valueOf(record.getOriginalProperties().get('email')),String.valueOf(record.getOriginalProperties().get('company')));
-                emailToAttendee.put(String.valueOf(record.getOriginalProperties().get('email')),record);
+                if(!String.isBlank(String.valueOf(record.getOriginalProperties().get('company')))) {
+                    organizationNames.add(String.valueOf(record.getOriginalProperties().get('company')));
+                }
+                if(!String.isBlank(String.valueOf(record.getOriginalProperties().get('email')))) {
+                    contactEmails.add(String.valueOf(record.getOriginalProperties().get('email')));
+                    emailToAttendee.put(String.valueOf(record.getOriginalProperties().get('email')),record);
+                }
+                if(!String.isBlank(String.valueOf(record.getOriginalProperties().get('company'))) && !String.isBlank(String.valueOf(record.getOriginalProperties().get('email')))) {
+                    emailToOrganizationName.put(String.valueOf(record.getOriginalProperties().get('email')),String.valueOf(record.getOriginalProperties().get('company')));
+                }
             }
         }
 
