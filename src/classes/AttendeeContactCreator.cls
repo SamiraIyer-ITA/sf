@@ -25,6 +25,7 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
         Set<String> organizationNames = new Set<String>();
         Map<String,Account> organizationNameToExistingOrganization = new Map<String,Account>();
         Map<String,Account> organizationNameToNewOrganization = new Map<String,Account>();
+        Id orgRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByDeveloperName().get('ITA_User_Account_RT').getRecordTypeId();
 
         //Contact variables
         Set<String> contactEmails = new Set<String>();
@@ -65,7 +66,7 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
                 //Organization already exists with that name, do nothing
             } else {
                 //Organization doesn't already exist, create it and map it
-                Account newOrganization = new Account(Name = orgName);
+                Account newOrganization = new Account(Name = orgName, recordTypeId = orgRecordTypeId);
                 organizationNameToNewOrganization.put(orgName,newOrganization);
             }
         }
