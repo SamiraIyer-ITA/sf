@@ -1,0 +1,1884 @@
+{
+  "dataSourceLinks": [],
+  "filters": [],
+  "gridLayouts": [
+    {
+      "name": "Default",
+      "numColumns": 16,
+      "pages": [
+        {
+          "name": "58ed7c0e-8fc0-4f42-9b01-6bd59f29ebbe",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 7,
+              "column": 1,
+              "name": "chart_1",
+              "row": 47,
+              "rowspan": 22,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 6,
+              "column": 9,
+              "name": "chart_3",
+              "row": 15,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 7,
+              "column": 8,
+              "name": "chart_4",
+              "row": 25,
+              "rowspan": 21,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 7,
+              "column": 1,
+              "name": "chart_2",
+              "row": 70,
+              "rowspan": 25,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 7,
+              "column": 8,
+              "name": "chart_5",
+              "row": 70,
+              "rowspan": 25,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 5,
+              "name": "listselector_1",
+              "row": 0,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 1,
+              "name": "listselector_2",
+              "row": 0,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 3,
+              "name": "listselector_3",
+              "row": 0,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 14,
+              "column": 1,
+              "name": "text_1",
+              "row": 10,
+              "rowspan": 5,
+              "widgetStyle": {
+                "backgroundColor": "rgb(6, 28, 63)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 14,
+              "column": 1,
+              "name": "container_1",
+              "row": 0,
+              "rowspan": 8,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 14,
+              "column": 1,
+              "name": "container_2",
+              "row": 15,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 3,
+              "column": 4,
+              "name": "number_4",
+              "row": 15,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 7,
+              "column": 8,
+              "name": "chart_8",
+              "row": 47,
+              "rowspan": 22,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 11,
+              "name": "listselector_4",
+              "row": 0,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 9,
+              "name": "listselector_5",
+              "row": 0,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 13,
+              "name": "listselector_6",
+              "row": 0,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 7,
+              "name": "listselector_7",
+              "row": 0,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 1,
+              "name": "listselector_8",
+              "row": 4,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 7,
+              "name": "number_5",
+              "row": 15,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 7,
+              "column": 1,
+              "name": "chart_9",
+              "row": 25,
+              "rowspan": 21,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 3,
+              "name": "listselector_9",
+              "row": 4,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 5,
+              "name": "listselector_10",
+              "row": 4,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 7,
+              "name": "listselector_12",
+              "row": 4,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 3,
+              "column": 1,
+              "name": "number_6",
+              "row": 15,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            }
+          ]
+        }
+      ],
+      "rowHeight": "fine",
+      "selectors": [],
+      "style": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "backgroundColor": "#F2F6FA",
+        "cellSpacingX": 8,
+        "cellSpacingY": 0,
+        "fit": "original",
+        "gutterColor": "#C5D3E0"
+      },
+      "version": 1.0
+    },
+    {
+      "name": "Mobile",
+      "numColumns": 2,
+      "pages": [
+        {
+          "name": "58ed7c0e-8fc0-4f42-9b01-6bd59f29ebbe",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 1,
+              "column": 0,
+              "name": "listselector_2",
+              "row": 0,
+              "rowspan": 1,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 0,
+              "name": "listselector_3",
+              "row": 1,
+              "rowspan": 1,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 0,
+              "name": "listselector_1",
+              "row": 2,
+              "rowspan": 1,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 0,
+              "name": "listselector_7",
+              "row": 3,
+              "rowspan": 1,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 0,
+              "name": "listselector_5",
+              "row": 4,
+              "rowspan": 1,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 1,
+              "name": "listselector_4",
+              "row": 0,
+              "rowspan": 1,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 1,
+              "name": "listselector_6",
+              "row": 1,
+              "rowspan": 1,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 1,
+              "name": "listselector_8",
+              "row": 2,
+              "rowspan": 1,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 1,
+              "name": "listselector_9",
+              "row": 3,
+              "rowspan": 1,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 1,
+              "name": "listselector_10",
+              "row": 4,
+              "rowspan": 1,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "listselector_12",
+              "row": 5,
+              "rowspan": 1,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "container_1",
+              "row": 0,
+              "rowspan": 6,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "text_1",
+              "row": 6,
+              "rowspan": 2,
+              "widgetStyle": {
+                "backgroundColor": "rgb(6, 28, 63)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 0,
+              "name": "number_6",
+              "row": 8,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 0,
+              "name": "number_4",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 1,
+              "name": "number_5",
+              "row": 8,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 1,
+              "name": "chart_3",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "container_2",
+              "row": 8,
+              "rowspan": 7,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "chart_9",
+              "row": 15,
+              "rowspan": 6,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "chart_4",
+              "row": 21,
+              "rowspan": 6,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "chart_1",
+              "row": 27,
+              "rowspan": 5,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "chart_8",
+              "row": 32,
+              "rowspan": 5,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "chart_2",
+              "row": 37,
+              "rowspan": 6,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "chart_5",
+              "row": 43,
+              "rowspan": 6,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            }
+          ]
+        }
+      ],
+      "rowHeight": "normal",
+      "selectors": [
+        "maxWidth(599)"
+      ],
+      "style": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "backgroundColor": "#F2F6FA",
+        "cellSpacingX": 8,
+        "cellSpacingY": 8,
+        "fit": "original",
+        "gutterColor": "#C5D3E0"
+      },
+      "version": 1.0
+    }
+  ],
+  "layouts": [],
+  "steps": {
+    "BROWSER_NAME_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LightningPageViewWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"BROWSER_NAME\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "hbar"
+      }
+    },
+    "PAGE_ENTITY_TYPE_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LightningPageViewWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"pigql\":\"q = load \\\"LightningPageViewWithUsers\\\"; q = filter q by {{column(User_Name_1.selection, [\\\"User.Name\\\"]).asEquality(\\\"User.Name\\\")}}; q = filter q by {{column(PAGE_CONTEXT_1.selection, [\\\"PAGE_CONTEXT\\\"]).asEquality(\\\"PAGE_CONTEXT\\\")}};q = filter q by {{column(PAGE_CONTEXT_2.selection, [\\\"PAGE_CONTEXT\\\"]).asEquality(\\\"PAGE_CONTEXT\\\")}};q = filter q by {{column(USER_TYPE_1.selection, [\\\"USER_TYPE\\\"]).asEquality(\\\"USER_TYPE\\\")}};q = filter q by {{column(BROWSER_NAME_1.selection, [\\\"BROWSER_NAME\\\"]).asEquality(\\\"BROWSER_NAME\\\")}};q = filter q by {{column(PAGE_ENTITY_TYPE_2.selection, [\\\"PAGE_ENTITY_TYPE\\\"]).asEquality(\\\"PAGE_ENTITY_TYPE\\\")}};q = filter q by {{column(OS_NAME_1.selection, [\\\"OS_NAME\\\"]).asEquality(\\\"OS_NAME\\\")}};q = filter q by {{column(OS_VERSION_1.selection, [\\\"OS_VERSION\\\"]).asEquality(\\\"OS_VERSION\\\")}};q = filter q by {{column(CLIENT_IP_1.selection, [\\\"CLIENT_IP\\\"]).asEquality(\\\"CLIENT_IP\\\")}};q = filter q by {{column(APP_NAME_1.selection, [\\\"APP_NAME\\\"]).asEquality(\\\"APP_NAME\\\")}};q = filter q by {{column(TARGET_UI_ELEMENT_1.selection, [\\\"TARGET_UI_ELEMENT\\\"]).asEquality(\\\"TARGET_UI_ELEMENT\\\")}};  q = filter q by {{column(DEVICE_MODEL_2.selection, [\\\"DEVICE_MODEL\\\"]).asEquality(\\\"DEVICE_MODEL\\\")}};  q = filter q by {{column(PAGE_ENTITY_ID_1.selection, [\\\"PAGE_ENTITY_ID\\\"]).asEquality(\\\"PAGE_ENTITY_ID\\\")}};q = filter q by {{column(PAGE_ENTITY_TYPE_2.selection, [\\\"PAGE_ENTITY_TYPE\\\"]).asEquality(\\\"PAGE_ENTITY_TYPE\\\")}}; q = filter q by {{column(USER_TYPE_1.selection, [\\\"USER_TYPE\\\"]).asEquality(\\\"USER_TYPE\\\")}};\\nq = group q by 'PAGE_ENTITY_TYPE';\\nq = foreach q generate 'PAGE_ENTITY_TYPE' as 'PAGE_ENTITY_TYPE', count() as 'count';\\nq = order q by 'count' desc;\\nq = limit q 5;\",\"measures\":[[\"count\",\"*\",\"count\"]],\"measuresMap\":{},\"groups\":[\"PAGE_ENTITY_TYPE\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true
+    },
+    "USER_TYPE_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LightningPageViewWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"USER_TYPE\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "multi",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "hbar"
+      }
+    },
+    "PAGE_ENTITY_TYPE_2": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LightningPageViewWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"PAGE_ENTITY_TYPE\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "multi",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "hbar"
+      }
+    },
+    "PAGE_CONTEXT_2": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LightningPageViewWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"measures\":[[\"sum\",\"DURATION\"]],\"groups\":[\"PAGE_CONTEXT\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "hbar"
+      }
+    },
+    "PAGE_CONTEXT_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LightningPageViewWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"PAGE_CONTEXT\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "hbar"
+      }
+    },
+    "TIMESTAMP_DERIVED_Ye_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LightningPageViewWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[[\"TIMESTAMP_DERIVED_Year\",\"TIMESTAMP_DERIVED_Month\",\"TIMESTAMP_DERIVED_Day\"]],\"filters\":[[\"TIMESTAMP_DERIVED\",[[[\"month\",-6],[\"month\",0]]],\">=<=\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "time"
+      }
+    },
+    "TIMESTAMP_DERIVED_Ye_2": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LightningPageViewWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[[\"TIMESTAMP_DERIVED_Year\",\"TIMESTAMP_DERIVED_Month\",\"TIMESTAMP_DERIVED_Day\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "time"
+      }
+    },
+    "APP_NAME_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LightningPageViewWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"APP_NAME\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "hbar"
+      }
+    },
+    "TIMESTAMP_DERIVED_Ye_3": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LightningPageViewWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[[\"TIMESTAMP_DERIVED_Year\",\"TIMESTAMP_DERIVED_Month\",\"TIMESTAMP_DERIVED_Day\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "hbar"
+      }
+    },
+    "USER_ID_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LightningPageViewWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"USER_ID\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "hbar"
+      }
+    },
+    "Legend_TIMESTAMP_DER_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LightningPageViewWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"pigql\":\"q = load \\\"LightningPageViewWithUsers\\\";q = filter q by date('TIMESTAMP_DERIVED_Year', 'TIMESTAMP_DERIVED_Month', 'TIMESTAMP_DERIVED_Day') in [\\\"7 days ago\\\"..\\\"current day\\\"];\\nq = group q by ('TIMESTAMP_DERIVED_Year', 'TIMESTAMP_DERIVED_Month', 'TIMESTAMP_DERIVED_Day');\\nq = foreach q generate 'TIMESTAMP_DERIVED_Year' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Month' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Day' as 'TIMESTAMP_DERIVED_Year~~~TIMESTAMP_DERIVED_Month~~~TIMESTAMP_DERIVED_Day', count() as 'count', \\\"Adoption\\\" as 'Legend';\",\"measures\":[[\"count\",\"*\"]],\"groups\":[\"Legend\",\"TIMESTAMP_DERIVED_Year~~~TIMESTAMP_DERIVED_Month~~~TIMESTAMP_DERIVED_Day\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true
+    },
+    "DEVICE_MODEL_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LightningPageViewWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"DEVICE_MODEL\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "pie"
+      }
+    },
+    "DEVICE_MODEL_2": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LightningPageViewWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"DEVICE_MODEL\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "hbar"
+      }
+    },
+    "OS_NAME_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LightningPageViewWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"OS_NAME\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "hbar"
+      }
+    },
+    "all_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LightningPageViewWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"pigql\":\"q = load \\\"LightningPageViewWithUsers\\\"; q = filter q by {{column(User_Name_1.selection, [\\\"User.Name\\\"]).asEquality(\\\"User.Name\\\")}};q = filter q by {{column(PAGE_ENTITY_TYPE_2.selection, [\\\"PAGE_ENTITY_TYPE\\\"]).asEquality(\\\"PAGE_ENTITY_TYPE\\\")}}; q = filter q by {{column(USER_TYPE_1.selection, [\\\"USER_TYPE\\\"]).asEquality(\\\"USER_TYPE\\\")}};\\nq = group q by all;\\nq = foreach q generate count() as 'count',unique('User.Name') as 'unique_User_Name';\\ngobi = foreach q generate sum('count') / sum('unique_User_Name') as 'avg_adoption';\",\"measures\":[[\"count\",\"*\",\"avg_adoption\"]],\"measuresMap\":{},\"groups\":[]}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true
+    },
+    "all_3": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LightningPageViewWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"pigql\":\"\\n\\nq = load \\\"LightningPageViewWithUsers\\\";\\nq = filter q by date('TIMESTAMP_DERIVED_Year', 'TIMESTAMP_DERIVED_Month', 'TIMESTAMP_DERIVED_Day') in [\\\"1 month ago\\\"..\\\"1 month ago\\\"];\\nq = group q by  'USER_ID';\\nq = foreach q generate count() as 'Qcount','USER_ID' as 'USER_ID';\\nr = load \\\"LightningPageViewWithUsers\\\";\\nr = filter r by date('TIMESTAMP_DERIVED_Year', 'TIMESTAMP_DERIVED_Month', 'TIMESTAMP_DERIVED_Day') in [\\\"current month\\\"..\\\"current month\\\"];\\nr = group r by  'USER_ID';\\nr = foreach r generate count() as 'Rcount','USER_ID' as 'USER_ID';\\ngobi = group q by 'USER_ID' full, r by 'USER_ID';\\ngobi = foreach gobi generate q['USER_ID'] as 'User_ID', coalesce(sum(q['Qcount']),0) as 'qcount', coalesce(sum(r['Rcount']),0) as 'Rcount';\\nGobiYashi = group gobi by all;\\nGobiYashi = foreach GobiYashi generate coalesce((sum('Rcount') - sum('qcount')) / sum('qcount'),0) as 'avg_Adoption';\",\"measures\":[[\"count\",\"*\",\"avg_Adoption\"]],\"measuresMap\":{},\"groups\":[]}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true
+    },
+    "all_2": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LightningPageViewWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "hbar"
+      }
+    },
+    "all_4": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LightningPageViewWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"pigql\":\"q = load \\\"LightningPageViewWithUsers\\\";\\nq = group q by all;\\nq = foreach q generate unique('USER_ID') as 'unique_USER_ID';\",\"measures\":[[\"count\",\"*\",\"unique_USER_ID\"]],\"measuresMap\":{},\"groups\":[]}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true
+    },
+    "TARGET_UI_ELEMENT_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LightningPageViewWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"TARGET_UI_ELEMENT\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "hbar"
+      }
+    },
+    "User_Name_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LightningPageViewWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.Name\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "hbar"
+      }
+    },
+    "Version_2": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LightningPageViewWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"pigql\":\"q = load \\\"LightningPageViewWithUsers\\\";\\nq = filter q by 'PAGE_CONTEXT' matches \\\"one\\\";\\nq = group q by all;\\nq = foreach q generate unique('PAGE_CONTEXT') as 'Count', \\\"Classic\\\" as 'Version';\\nr = load \\\"LightningPageViewWithUsers\\\";\\nr = filter r by !('PAGE_CONTEXT' in [\\\"one:recordHomeFlexipage\\\", \\\"one:unsupportedHome\\\"]);\\nr = group r by all;\\nr = foreach r generate unique('PAGE_CONTEXT') as 'Count', \\\"Lightning\\\" as 'Version';\\ngobi = union q,r;\\n\",\"measures\":[[\"count\",\"*\",\"Count\"]],\"measuresMap\":{},\"groups\":[\"Version\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true
+    },
+    "PAGE_ENTITY_ID_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LightningPageViewWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"pigql\":\"q = load \\\"LightningPageViewWithUsers\\\"; q = filter q by {{column(User_Name_1.selection, [\\\"User.Name\\\"]).asEquality(\\\"User.Name\\\")}};q = filter q by {{column(PAGE_CONTEXT_1.selection, [\\\"PAGE_CONTEXT\\\"]).asEquality(\\\"PAGE_CONTEXT\\\")}};q = filter q by {{column(PAGE_CONTEXT_2.selection, [\\\"PAGE_CONTEXT\\\"]).asEquality(\\\"PAGE_CONTEXT\\\")}};q = filter q by {{column(USER_TYPE_1.selection, [\\\"USER_TYPE\\\"]).asEquality(\\\"USER_TYPE\\\")}};q = filter q by {{column(BROWSER_NAME_1.selection, [\\\"BROWSER_NAME\\\"]).asEquality(\\\"BROWSER_NAME\\\")}};q = filter q by {{column(PAGE_ENTITY_TYPE_2.selection, [\\\"PAGE_ENTITY_TYPE\\\"]).asEquality(\\\"PAGE_ENTITY_TYPE\\\")}};q = filter q by {{column(OS_NAME_1.selection, [\\\"OS_NAME\\\"]).asEquality(\\\"OS_NAME\\\")}};q = filter q by {{column(OS_VERSION_1.selection, [\\\"OS_VERSION\\\"]).asEquality(\\\"OS_VERSION\\\")}};q = filter q by {{column(CLIENT_IP_1.selection, [\\\"CLIENT_IP\\\"]).asEquality(\\\"CLIENT_IP\\\")}};q = filter q by {{column(APP_NAME_1.selection, [\\\"APP_NAME\\\"]).asEquality(\\\"APP_NAME\\\")}};q = filter q by {{column(TARGET_UI_ELEMENT_1.selection, [\\\"TARGET_UI_ELEMENT\\\"]).asEquality(\\\"TARGET_UI_ELEMENT\\\")}}; q = filter q by {{column(DEVICE_MODEL_2.selection, [\\\"DEVICE_MODEL\\\"]).asEquality(\\\"DEVICE_MODEL\\\")}}; q = filter q by {{column(PAGE_ENTITY_TYPE_1.selection, [\\\"PAGE_ENTITY_TYPE\\\"]).asEquality(\\\"PAGE_ENTITY_TYPE\\\")}}; q = filter q by {{column(PAGE_ENTITY_TYPE_2.selection, [\\\"PAGE_ENTITY_TYPE\\\"]).asEquality(\\\"PAGE_ENTITY_TYPE\\\")}}; q = filter q by {{column(USER_TYPE_1.selection, [\\\"USER_TYPE\\\"]).asEquality(\\\"USER_TYPE\\\")}};\\nq = group q by 'PAGE_ENTITY_ID';\\n\\nq = foreach q generate 'PAGE_ENTITY_ID' as 'PAGE_ENTITY_ID', count() as 'count';\\n\\nq = order q by 'count' desc;\\n\\n\",\"measures\":[[\"count\",\"*\",\"count\"]],\"measuresMap\":{},\"groups\":[\"PAGE_ENTITY_ID\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "hbar"
+      }
+    },
+    "CLIENT_IP_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LightningPageViewWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"CLIENT_IP\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "hbar"
+      }
+    },
+    "OS_VERSION_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LightningPageViewWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"OS_VERSION\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "hbar"
+      }
+    }
+  },
+  "widgetStyle": {
+    "backgroundColor": "#FFFFFF",
+    "borderColor": "#E6ECF2",
+    "borderEdges": [],
+    "borderRadius": 0,
+    "borderWidth": 1
+  },
+  "widgets": {
+    "number_6": {
+      "parameters": {
+        "compact": false,
+        "exploreLink": true,
+        "measureField": "unique_USER_ID",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "step": "all_4",
+        "textAlignment": "left",
+        "title": "Total Users",
+        "titleColor": "#FFFFFF",
+        "titleSize": 16
+      },
+      "type": "number"
+    },
+    "container_1": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "container_2": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "chart_9": {
+      "parameters": {
+        "totalValue": "computeTotal",
+        "showPoints": false,
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "time",
+        "missingValue": "connect",
+        "timeAxis": {
+          "showTitle": true,
+          "showAxis": true,
+          "title": "Date"
+        },
+        "exploreLink": true,
+        "title": {
+          "label": "How Much Traffic Is Lightning Experience Getting?",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "parameters": {},
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "fillArea": true,
+        "showZero": true,
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "Page Views"
+        },
+        "theme": "light",
+        "step": "TIMESTAMP_DERIVED_Ye_2"
+      },
+      "type": "chart"
+    },
+    "chart_6": {
+      "parameters": {
+        "totalValue": "computeTotal",
+        "totalLabel": "",
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "bottom-center",
+          "inside": false
+        },
+        "showMeasureTitle": true,
+        "showTotal": true,
+        "visualizationType": "pie",
+        "theme": "wave",
+        "step": "Version_2",
+        "exploreLink": false,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "parameters": {},
+          "chartsPerLine": 4
+        },
+        "inner": 90
+      },
+      "type": "chart"
+    },
+    "chart_5": {
+      "parameters": {
+        "autoFitMode": "fit",
+        "totalValue": "computeTotal",
+        "showValues": true,
+        "bins": {
+          "breakpoints": {
+            "high": 100,
+            "low": 0
+          },
+          "bands": {
+            "high": {
+              "color": "#008000",
+              "label": ""
+            },
+            "low": {
+              "color": "#B22222",
+              "label": ""
+            },
+            "medium": {
+              "color": "#ffa500",
+              "label": ""
+            }
+          }
+        },
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "hbar",
+        "exploreLink": true,
+        "title": {
+          "label": "Which Pages Are Users Staying On?",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "binValues": false,
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "parameters": {},
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": " "
+        },
+        "theme": "light",
+        "step": "PAGE_CONTEXT_2",
+        "dimensionAxis": {
+          "showTitle": true,
+          "customSize": "auto",
+          "showAxis": true,
+          "title": "Page Context"
+        }
+      },
+      "type": "chart"
+    },
+    "chart_8": {
+      "parameters": {
+        "autoFitMode": "none",
+        "totalValue": "computeTotal",
+        "showValues": true,
+        "bins": {
+          "breakpoints": {
+            "high": 100,
+            "low": 0
+          },
+          "bands": {
+            "high": {
+              "color": "#008000",
+              "label": ""
+            },
+            "low": {
+              "color": "#B22222",
+              "label": ""
+            },
+            "medium": {
+              "color": "#ffa500",
+              "label": ""
+            }
+          }
+        },
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "hbar",
+        "exploreLink": false,
+        "title": {
+          "label": "Which Page Entities Are Most Popular By ID?",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "binValues": false,
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "parameters": {},
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": " "
+        },
+        "theme": "light",
+        "step": "PAGE_ENTITY_ID_1",
+        "dimensionAxis": {
+          "showTitle": true,
+          "customSize": "auto",
+          "showAxis": true,
+          "title": "Page Entity ID"
+        }
+      },
+      "type": "chart"
+    },
+    "chart_7": {
+      "parameters": {
+        "totalValue": "computeTotal",
+        "showPoints": false,
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "time",
+        "missingValue": "connect",
+        "exploreLink": false,
+        "timeAxis": {
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "title": {
+          "label": "Adoption Over Time",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "parameters": {},
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "fillArea": true,
+        "showZero": true,
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "theme": "wave",
+        "step": "Legend_TIMESTAMP_DER_1"
+      },
+      "type": "chart"
+    },
+    "chart_2": {
+      "parameters": {
+        "autoFitMode": "fit",
+        "totalValue": "computeTotal",
+        "showValues": true,
+        "bins": {
+          "breakpoints": {
+            "high": 100,
+            "low": 0
+          },
+          "bands": {
+            "high": {
+              "color": "#008000",
+              "label": ""
+            },
+            "low": {
+              "color": "#B22222",
+              "label": ""
+            },
+            "medium": {
+              "color": "#ffa500",
+              "label": ""
+            }
+          }
+        },
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "hbar",
+        "exploreLink": true,
+        "title": {
+          "label": "Which Pages Are Visited the Most?",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "binValues": false,
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "parameters": {},
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": false,
+          "showAxis": true,
+          "title": ""
+        },
+        "theme": "light",
+        "step": "PAGE_CONTEXT_1",
+        "dimensionAxis": {
+          "showTitle": true,
+          "customSize": "auto",
+          "showAxis": true,
+          "title": "Page Context"
+        }
+      },
+      "type": "chart"
+    },
+    "chart_1": {
+      "parameters": {
+        "autoFitMode": "none",
+        "totalValue": "computeTotal",
+        "showValues": true,
+        "bins": {
+          "breakpoints": {
+            "high": 100,
+            "low": 0
+          },
+          "bands": {
+            "high": {
+              "color": "#008000",
+              "label": ""
+            },
+            "low": {
+              "color": "#B22222",
+              "label": ""
+            },
+            "medium": {
+              "color": "#ffa500",
+              "label": ""
+            }
+          }
+        },
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "hbar",
+        "exploreLink": false,
+        "title": {
+          "label": "Which Page Entity Types Are Most Popular by Name?",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "binValues": false,
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "parameters": {},
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": " "
+        },
+        "theme": "light",
+        "step": "PAGE_ENTITY_TYPE_1",
+        "dimensionAxis": {
+          "showTitle": true,
+          "customSize": "auto",
+          "showAxis": true,
+          "title": "Page Entity Type"
+        }
+      },
+      "type": "chart"
+    },
+    "chart_4": {
+      "parameters": {
+        "totalValue": "computeTotal",
+        "totalLabel": "",
+        "showMeasureTitle": false,
+        "legend": {
+          "showHeader": false,
+          "show": true,
+          "customSize": "auto",
+          "position": "bottom-center",
+          "inside": false
+        },
+        "showTotal": true,
+        "visualizationType": "pie",
+        "theme": "light",
+        "step": "DEVICE_MODEL_1",
+        "exploreLink": true,
+        "title": {
+          "label": "How Are Users Accessing Lightning Experience?",
+          "align": "center",
+          "subtitleLabel": "Click a segment to update the dashboard with that segment’s data only."
+        },
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "parameters": {},
+          "chartsPerLine": 4
+        },
+        "inner": 90
+      },
+      "type": "chart"
+    },
+    "chart_3": {
+      "parameters": {
+        "totalValue": "computeTotal",
+        "showPoints": false,
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "time",
+        "missingValue": "connect",
+        "timeAxis": {
+          "showTitle": false,
+          "predictiveLine": {
+            "color": "#8932ED",
+            "label": "TODAY",
+            "time": ""
+          },
+          "showAxis": false,
+          "title": ""
+        },
+        "exploreLink": true,
+        "title": {
+          "label": "Lightning Experience Usage",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "parameters": {},
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "fillArea": false,
+        "showZero": true,
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": false,
+          "showAxis": false,
+          "title": ""
+        },
+        "theme": "dark",
+        "step": "TIMESTAMP_DERIVED_Ye_1"
+      },
+      "type": "chart"
+    },
+    "listselector_7": {
+      "parameters": {
+        "compact": false,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "step": "BROWSER_NAME_1",
+        "title": "Browsers"
+      },
+      "type": "listselector"
+    },
+    "listselector_6": {
+      "parameters": {
+        "compact": false,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "step": "CLIENT_IP_1",
+        "title": "IP"
+      },
+      "type": "listselector"
+    },
+    "listselector_9": {
+      "parameters": {
+        "compact": false,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "step": "TARGET_UI_ELEMENT_1",
+        "title": "Target"
+      },
+      "type": "listselector"
+    },
+    "listselector_8": {
+      "parameters": {
+        "compact": false,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "step": "APP_NAME_1",
+        "title": "Apps"
+      },
+      "type": "listselector"
+    },
+    "listselector_3": {
+      "parameters": {
+        "compact": false,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "step": "USER_TYPE_1",
+        "title": "USER TYPE"
+      },
+      "type": "listselector"
+    },
+    "listselector_2": {
+      "parameters": {
+        "compact": false,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "step": "TIMESTAMP_DERIVED_Ye_3",
+        "title": "Date"
+      },
+      "type": "listselector"
+    },
+    "text_1": {
+      "parameters": {
+        "fontSize": 20,
+        "text": "Shows Lightning Experience and Salesforce1 usage from Lightning Interaction and Lightning Page View event data. Use this dashboard to see how users interact with Lightning Experience on the desktop and mobile devices.",
+        "textAlignment": "left",
+        "textColor": "#FFFFFF"
+      },
+      "type": "text"
+    },
+    "listselector_5": {
+      "parameters": {
+        "compact": false,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "step": "OS_NAME_1",
+        "title": "Operation Systems"
+      },
+      "type": "listselector"
+    },
+    "listselector_4": {
+      "parameters": {
+        "compact": false,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "step": "OS_VERSION_1",
+        "title": "OS Versions"
+      },
+      "type": "listselector"
+    },
+    "number_5": {
+      "parameters": {
+        "compact": false,
+        "exploreLink": true,
+        "measureField": "count",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "step": "all_2",
+        "textAlignment": "left",
+        "title": "Total Interactions",
+        "titleColor": "#FFFFFF",
+        "titleSize": 16
+      },
+      "type": "number"
+    },
+    "number_4": {
+      "parameters": {
+        "compact": false,
+        "exploreLink": true,
+        "measureField": "avg_adoption",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "step": "all_1",
+        "textAlignment": "left",
+        "title": "Avg Clicks Per User",
+        "titleColor": "#FFFFFF",
+        "titleSize": 16
+      },
+      "type": "number"
+    },
+    "number_3": {
+      "parameters": {
+        "compact": false,
+        "exploreLink": true,
+        "measureField": "avg_Adoption",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "step": "all_3",
+        "textAlignment": "left",
+        "title": " Adoption (vs Last Week)",
+        "titleColor": "#FFFFFF",
+        "titleSize": 16
+      },
+      "type": "number"
+    },
+    "number_1": {
+      "parameters": {
+        "compact": false,
+        "exploreLink": true,
+        "measureField": "unique_USER_ID",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "step": "USER_ID_1",
+        "textAlignment": "left",
+        "title": "Total Users",
+        "titleColor": "#FFFFFF",
+        "titleSize": 16
+      },
+      "type": "number"
+    },
+    "listselector_12": {
+      "parameters": {
+        "compact": false,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "step": "User_Name_1",
+        "title": "User_Name"
+      },
+      "type": "listselector"
+    },
+    "listselector_1": {
+      "parameters": {
+        "compact": false,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "step": "PAGE_ENTITY_TYPE_2",
+        "title": "Object"
+      },
+      "type": "listselector"
+    },
+    "listselector_10": {
+      "parameters": {
+        "compact": false,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "step": "DEVICE_MODEL_2",
+        "title": "Device Type"
+      },
+      "type": "listselector"
+    }
+  }
+}
