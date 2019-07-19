@@ -1,9 +1,9 @@
 /**
- * 
+ *
  *    Created by Joshua Moody
  *    on Feb 21 2017
  *    MIL Corporation
- * 
+ *
  **/
  public without sharing class FederalRegisterTriggerHandler {
      /***********************************************************
@@ -15,12 +15,12 @@
    * 4. Query and map parents that are affected by the new
    * or updated Federal Register records
    * 5. Update the parents in scope
-   ***********************************************************/ 
-	
-    public static void mainEntry(List<Federal_Register__c> newList, List<Federal_Register__c> oldList, Map<Id, Federal_Register__c> newMap, 
-        Map<Id, Federal_Register__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete, 
+   ***********************************************************/
+
+    public static void mainEntry(List<Federal_Register__c> newList, List<Federal_Register__c> oldList, Map<Id, Federal_Register__c> newMap,
+        Map<Id, Federal_Register__c> oldMap, Boolean isInsert, Boolean isUpdate, Boolean isDelete, Boolean isUndelete,
         Boolean isBefore, Boolean isAfter){
-        
+
         if (!AppConfigService.triggerEnabled) {return;}
 
         if(isBefore && isInsert) {
@@ -30,12 +30,12 @@
         if(isAfter && isInsert) {
             initialize(newList, newMap);
             recalculateParentsOfFederalRegister(newList);
-            new ChatterPostWriter('Federal_Register__c', newMap, oldMap);
+            //new ChatterPostWriter('Federal_Register__c', newMap, oldMap);
         }
         if(isAfter && isUpdate) {
             initialize(newList, newMap);
             recalculateParentsOfFederalRegister(newList);
-            new ChatterPostWriter('Federal_Register__c', newMap, oldMap);
+            //new ChatterPostWriter('Federal_Register__c', newMap, oldMap);
         }
         if(isAfter && isDelete) {
             initialize(oldMap.values(), null);
@@ -154,7 +154,7 @@
             //add related parent Ids to the parents that need an update
             parentIdSet.addAll(findRelatedInScope(fr));
         }
-        return parentIdSet;  
+        return parentIdSet;
     }
 
     @TestVisible private static Set<Id> findRelatedInScope(Federal_Register__c fr) {
