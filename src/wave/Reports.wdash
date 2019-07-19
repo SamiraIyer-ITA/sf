@@ -1,1 +1,1608 @@
-{"dataSourceLinks":[],"filters":[],"gridLayouts":[{"name":"Default","numColumns":18,"pages":[{"name":"3bc4a21e-1bfd-4d40-8309-2942c6c77e7f","navigationHidden":false,"widgets":[{"colspan":2,"column":1,"name":"listselector_1","row":1,"rowspan":4,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":3,"name":"listselector_2","row":1,"rowspan":4,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":5,"name":"listselector_4","row":1,"rowspan":4,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":7,"name":"listselector_3","row":1,"rowspan":4,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":9,"name":"listselector_5","row":1,"rowspan":4,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":11,"name":"listselector_6","row":1,"rowspan":4,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":13,"name":"listselector_7","row":1,"rowspan":4,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":16,"column":1,"name":"container_2","row":0,"rowspan":6,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":16,"column":1,"name":"text_7","row":8,"rowspan":4,"widgetStyle":{"backgroundColor":"rgb(6, 28, 63)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":3,"name":"number_2","row":12,"rowspan":9,"widgetStyle":{"backgroundColor":"rgb(20, 41, 94)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":11,"name":"number_7","row":12,"rowspan":9,"widgetStyle":{"backgroundColor":"rgb(20, 41, 94)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":16,"column":1,"name":"container_3","row":12,"rowspan":10,"widgetStyle":{"backgroundColor":"rgb(20, 41, 94)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":16,"column":1,"name":"text_3","row":25,"rowspan":3,"widgetStyle":{"backgroundColor":"#FFFFFF","borderColor":"#E6ECF2","borderEdges":["bottom"],"borderRadius":0,"borderWidth":1}},{"colspan":16,"column":1,"name":"chart_1","row":29,"rowspan":18,"widgetStyle":{"borderEdges":[]}},{"colspan":16,"column":1,"name":"container_4","row":24,"rowspan":24,"widgetStyle":{"borderEdges":[]}},{"colspan":8,"column":1,"name":"text_4","row":51,"rowspan":3,"widgetStyle":{"backgroundColor":"#FFFFFF","borderColor":"#E6ECF2","borderEdges":["bottom"],"borderRadius":0,"borderWidth":1}},{"colspan":8,"column":1,"name":"container_1","row":50,"rowspan":24,"widgetStyle":{"borderEdges":[]}},{"colspan":8,"column":9,"name":"text_5","row":51,"rowspan":3,"widgetStyle":{"backgroundColor":"#FFFFFF","borderColor":"#E6ECF2","borderEdges":["bottom"],"borderRadius":0,"borderWidth":1}},{"colspan":8,"column":9,"name":"container_8","row":50,"rowspan":24,"widgetStyle":{"borderEdges":[]}},{"colspan":16,"column":1,"name":"text_6","row":77,"rowspan":3,"widgetStyle":{"backgroundColor":"#FFFFFF","borderColor":"#E6ECF2","borderEdges":["bottom"],"borderRadius":0,"borderWidth":1}},{"colspan":16,"column":1,"name":"table_1","row":81,"rowspan":18,"widgetStyle":{"borderEdges":[]}},{"colspan":16,"column":1,"name":"container_7","row":76,"rowspan":24,"widgetStyle":{"borderEdges":[]}},{"colspan":2,"column":1,"name":"number_4","row":12,"rowspan":9,"widgetStyle":{"backgroundColor":"rgb(20, 41, 94)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":5,"name":"number_10","row":12,"rowspan":9,"widgetStyle":{"backgroundColor":"rgb(20, 41, 94)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":7,"name":"number_11","row":12,"rowspan":9,"widgetStyle":{"backgroundColor":"rgb(20, 41, 94)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":9,"name":"number_12","row":12,"rowspan":9,"widgetStyle":{"backgroundColor":"rgb(20, 41, 94)","borderEdges":[]}},{"colspan":8,"column":1,"name":"chart_3","row":55,"rowspan":18,"widgetStyle":{"borderEdges":[]}},{"colspan":8,"column":9,"name":"chart_7","row":54,"rowspan":18,"widgetStyle":{"borderEdges":[]}}]}],"rowHeight":"fine","selectors":[],"style":{"alignmentX":"left","alignmentY":"top","backgroundColor":"#F2F6FA","cellSpacingX":16,"cellSpacingY":0,"fit":"original","gutterColor":"#C5D3E0"},"version":1.0},{"name":"Mobile","numColumns":4,"pages":[{"name":"3bc4a21e-1bfd-4d40-8309-2942c6c77e7f","navigationHidden":false,"widgets":[{"colspan":4,"column":0,"name":"text_1","row":0,"rowspan":5,"widgetStyle":{"borderEdges":[]}},{"colspan":2,"column":0,"name":"listselector_1","row":8,"rowspan":3,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":2,"name":"listselector_2","row":8,"rowspan":3,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":0,"name":"listselector_4","row":12,"rowspan":3,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":2,"name":"listselector_3","row":12,"rowspan":3,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":0,"name":"listselector_5","row":16,"rowspan":3,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":2,"name":"listselector_6","row":16,"rowspan":3,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":4,"column":0,"name":"listselector_7","row":20,"rowspan":3,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":4,"column":0,"name":"container_2","row":7,"rowspan":17,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":1,"column":1,"name":"number_2","row":29,"rowspan":9,"widgetStyle":{"backgroundColor":"rgb(20, 41, 94)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":1,"column":1,"name":"number_7","row":39,"rowspan":9,"widgetStyle":{"backgroundColor":"rgb(20, 41, 94)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":4,"column":0,"name":"container_3","row":29,"rowspan":20,"widgetStyle":{"backgroundColor":"rgb(20, 41, 94)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":4,"column":0,"name":"text_3","row":51,"rowspan":3,"widgetStyle":{"backgroundColor":"#FFFFFF","borderColor":"#E6ECF2","borderEdges":["bottom"],"borderRadius":0,"borderWidth":1}},{"colspan":4,"column":0,"name":"chart_1","row":55,"rowspan":15,"widgetStyle":{"borderEdges":[]}},{"colspan":4,"column":0,"name":"container_4","row":51,"rowspan":20,"widgetStyle":{"borderEdges":[]}},{"colspan":4,"column":0,"name":"text_4","row":73,"rowspan":3,"widgetStyle":{"backgroundColor":"#FFFFFF","borderColor":"#E6ECF2","borderEdges":["bottom"],"borderRadius":0,"borderWidth":1}},{"colspan":4,"column":0,"name":"text_5","row":94,"rowspan":3,"widgetStyle":{"backgroundColor":"#FFFFFF","borderColor":"#E6ECF2","borderEdges":["bottom"],"borderRadius":0,"borderWidth":1}},{"colspan":4,"column":0,"name":"text_6","row":116,"rowspan":3,"widgetStyle":{"backgroundColor":"#FFFFFF","borderColor":"#E6ECF2","borderEdges":["bottom"],"borderRadius":0,"borderWidth":1}},{"colspan":4,"column":0,"name":"table_1","row":120,"rowspan":16,"widgetStyle":{"borderEdges":[]}},{"colspan":4,"column":0,"name":"container_7","row":116,"rowspan":21,"widgetStyle":{"borderEdges":[]}},{"colspan":4,"column":0,"name":"text_7","row":26,"rowspan":3,"widgetStyle":{"backgroundColor":"rgb(6, 28, 63)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":1,"column":0,"name":"number_4","row":29,"rowspan":9,"widgetStyle":{"backgroundColor":"rgb(20, 41, 94)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":1,"column":2,"name":"number_10","row":29,"rowspan":9,"widgetStyle":{"backgroundColor":"rgb(20, 41, 94)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":1,"column":3,"name":"number_11","row":29,"rowspan":9,"widgetStyle":{"backgroundColor":"rgb(20, 41, 94)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":1,"column":0,"name":"number_12","row":39,"rowspan":9,"widgetStyle":{"backgroundColor":"rgb(20, 41, 94)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":4,"column":0,"name":"container_1","row":73,"rowspan":19,"widgetStyle":{"borderEdges":[]}},{"colspan":4,"column":0,"name":"chart_3","row":77,"rowspan":14,"widgetStyle":{"borderEdges":[]}},{"colspan":4,"column":0,"name":"container_8","row":94,"rowspan":20,"widgetStyle":{"borderEdges":[]}},{"colspan":4,"column":0,"name":"chart_7","row":98,"rowspan":15,"widgetStyle":{"borderEdges":[]}}]}],"rowHeight":"fine","selectors":["maxWidth(599)"],"style":{"alignmentX":"left","alignmentY":"top","backgroundColor":"#F2F6FA","cellSpacingX":8,"cellSpacingY":0,"fit":"original","gutterColor":"#C5D3E0"},"version":1.0}],"layouts":[],"steps":{"Status":{"broadcastFacet":true,"datasets":[{"name":"ReportWithUsers"}],"isGlobal":false,"label":"","query":{"query":"{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"REQUEST_STATUS\"],\"order\":[[-1,{\"ascending\":false}]]}","version":-1.0},"receiveFacet":true,"selectMode":"single","type":"aggregateflex","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"hbar"}},"Dates":{"broadcastFacet":true,"datasets":[{"name":"ReportWithUsers"}],"isGlobal":false,"label":"","query":{"query":"{\"measures\":[[\"count\",\"*\"]],\"groups\":[[\"TIMESTAMP_DERIVED_Year\",\"TIMESTAMP_DERIVED_Month\",\"TIMESTAMP_DERIVED_Day\"]]}","version":-1.0},"receiveFacet":true,"selectMode":"single","type":"aggregateflex","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"hbar"}},"RawLogData":{"datasets":[{"name":"ReportWithUsers"}],"isFacet":true,"isGlobal":false,"label":"","query":{"query":"{\"values\":[\"CLIENT_IP\",\"CPU_TIME\",\"DB_TOTAL_TIME\",\"RUN_TIME\",\"Report.Name\",\"TIMESTAMP_DERIVED\",\"URI\",\"User.Name\",\"User.Profile.Name\",\"User.User.Role.Name\"]}","version":-1.0},"type":"grain","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"valuestable"}},"MaxDBTime":{"broadcastFacet":true,"datasets":[{"name":"ReportWithUsers"}],"isGlobal":false,"label":"MaxDBTime","query":{"query":"{\"measures\":[[\"max\",\"DB_TOTAL_TIME\"]],\"pigql\":\"a = load \\\"ReportWithUsers\\\"; a = group a by all; a = foreach a generate (max('DB_TOTAL_TIME')*0.000000001) as 'max';b = group a by all;b = foreach b generate max('max') as 'max_DB_TOTAL_TIME';\"}","version":-1.0},"receiveFacet":false,"selectMode":"single","type":"aggregateflex","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"hbar"}},"Roles":{"broadcastFacet":true,"datasets":[{"name":"ReportWithUsers"}],"isGlobal":false,"label":"","query":{"query":"{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.User.Role.Name\"],\"order\":[[-1,{\"ascending\":false}]]}","version":-1.0},"receiveFacet":true,"selectMode":"single","type":"aggregateflex","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"hbar"}},"ReportNames":{"broadcastFacet":true,"datasets":[{"name":"ReportWithUsers"}],"isGlobal":false,"label":"","query":{"query":"{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"Report.Name\"],\"order\":[[-1,{\"ascending\":false}]]}","version":-1.0},"receiveFacet":true,"selectMode":"single","type":"aggregateflex","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"hbar"}},"UserNames":{"broadcastFacet":true,"datasets":[{"name":"ReportWithUsers"}],"isGlobal":false,"label":"","query":{"query":"{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.Name\"],\"order\":[[-1,{\"ascending\":false}]]}","version":-1.0},"receiveFacet":true,"selectMode":"single","type":"aggregateflex","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"hbar"}},"IPs":{"broadcastFacet":true,"datasets":[{"name":"ReportWithUsers"}],"isGlobal":false,"label":"","query":{"query":"{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"CLIENT_IP\"],\"order\":[[-1,{\"ascending\":false}]]}","version":-1.0},"receiveFacet":true,"selectMode":"single","type":"aggregateflex","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"hbar"}},"MaxAPT":{"broadcastFacet":true,"datasets":[{"name":"ReportWithUsers"}],"isGlobal":false,"label":"MaxAPT","query":{"query":"{\"measures\":[[\"max\",\"RUN_TIME\"]],\"pigql\":\"a = load \\\"ReportWithUsers\\\"; a = group a by all; a = foreach a generate (max('RUN_TIME')*0.001) as 'max';b = group a by all;b = foreach b generate max('max') as 'max_RUN_TIME';\"}","version":-1.0},"receiveFacet":false,"selectMode":"single","type":"aggregateflex","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"hbar"}},"ReportsByUser":{"broadcastFacet":true,"datasets":[{"name":"ReportWithUsers"}],"isGlobal":false,"label":"ReportsByUser","query":{"query":"{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"Report.Name\",\"User.Name\"],\"order\":[[-1,{\"ascending\":false}]]}","version":-1.0},"receiveFacet":true,"selectMode":"single","type":"aggregateflex","useGlobal":true,"visualizationParameters":{"options":{"normalize":true},"visualizationType":"stackhbar"}},"Profiles":{"broadcastFacet":true,"datasets":[{"name":"ReportWithUsers"}],"isGlobal":false,"label":"","query":{"query":"{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.Profile.Name\"],\"order\":[[-1,{\"ascending\":false}]]}","version":-1.0},"receiveFacet":true,"selectMode":"single","type":"aggregateflex","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"hbar"}},"MaxCPUTime":{"broadcastFacet":true,"datasets":[{"name":"ReportWithUsers"}],"isGlobal":false,"label":"MaxCPUTime","query":{"query":"{\"measures\":[[\"max\",\"CPU_TIME\"]],\"pigql\":\"a = load \\\"ReportWithUsers\\\"; a = group a by all; a = foreach a generate (max('CPU_TIME')*0.001) as 'max';b = group a by all;b = foreach b generate max('max') as 'max_CPU_TIME';\"}","version":-1.0},"receiveFacet":false,"selectMode":"single","type":"aggregateflex","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"hbar"}},"UnsavedReports":{"broadcastFacet":true,"datasets":[{"name":"ReportWithUsers"}],"isGlobal":false,"label":"UnsavedReports","query":{"query":"{\"measures\":[[\"count\",\"*\"]],\"filters\":[[\"URI\",[\"/00O\"],\"in\"]]}","version":-1.0},"receiveFacet":true,"selectMode":"single","type":"aggregateflex","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"hbar"}},"SavedReports":{"broadcastFacet":true,"datasets":[{"name":"ReportWithUsers"}],"isGlobal":false,"label":"","query":{"query":"{\"measures\":[[\"count\",\"REPORT_ID\"]]}","version":-1.0},"receiveFacet":true,"selectMode":"single","type":"aggregateflex","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"hbar"}},"ReportPerformance":{"broadcastFacet":true,"datasets":[{"name":"ReportWithUsers"}],"isGlobal":false,"label":"ReportPerformance","query":{"query":"{\"measures\":[[\"max\",\"CPU_TIME\"],[\"max\",\"DB_TOTAL_TIME\"],[\"max\",\"NUMBER_COLUMNS\"]],\"groups\":[\"Report.Name\"]}","version":-1.0},"receiveFacet":true,"selectMode":"single","type":"aggregateflex","useGlobal":true,"visualizationParameters":{"options":{"fit":true},"visualizationType":"scatter"}},"MaxColumns":{"broadcastFacet":true,"datasets":[{"name":"ReportWithUsers"}],"isGlobal":false,"label":"","query":{"query":"{\"measures\":[[\"max\",\"NUMBER_COLUMNS\"]]}","version":-1.0},"receiveFacet":true,"selectMode":"single","type":"aggregateflex","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"hbar"}},"ReportTrends":{"broadcastFacet":true,"datasets":[{"name":"ReportWithUsers"}],"isGlobal":false,"label":"","query":{"query":"{\"measures\":[[\"count\",\"*\"]],\"groups\":[[\"TIMESTAMP_DERIVED_Year\",\"TIMESTAMP_DERIVED_Month\",\"TIMESTAMP_DERIVED_Day\"],\"User.Name\"]}","version":-1.0},"receiveFacet":true,"selectMode":"single","type":"aggregateflex","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"time"}}},"widgetStyle":{"backgroundColor":"#FFFFFF","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1},"widgets":{"number_12":{"parameters":{"compact":true,"exploreLink":true,"measureField":"max_DB_TOTAL_TIME","numberColor":"#FFFFFF","numberSize":32,"step":"MaxDBTime","textAlignment":"left","title":"Max DB Time","titleColor":"#FFFFFF","titleSize":12},"type":"number"},"number_11":{"parameters":{"compact":true,"exploreLink":true,"measureField":"max_CPU_TIME","numberColor":"#FFFFFF","numberSize":32,"step":"MaxCPUTime","textAlignment":"left","title":"Max CPU Time","titleColor":"#FFFFFF","titleSize":12},"type":"number"},"number_10":{"parameters":{"compact":true,"exploreLink":true,"measureField":"max_RUN_TIME","numberColor":"#FFFFFF","numberSize":32,"step":"MaxAPT","textAlignment":"left","title":"Max APT","titleColor":"#FFFFFF","titleSize":12},"type":"number"},"number_7":{"parameters":{"compact":true,"exploreLink":true,"measureField":"max_NUMBER_COLUMNS","numberColor":"#FFFFFF","numberSize":32,"step":"MaxColumns","textAlignment":"left","title":"Max Columns","titleColor":"#FFFFFF","titleSize":12},"type":"number"},"container_1":{"parameters":{"alignmentX":"left","alignmentY":"top","fit":"original"},"type":"container"},"container_2":{"parameters":{"alignmentX":"left","alignmentY":"top","fit":"original"},"type":"container"},"container_3":{"parameters":{"alignmentX":"left","alignmentY":"top","fit":"original"},"type":"container"},"container_4":{"parameters":{"alignmentX":"left","alignmentY":"top","fit":"original"},"type":"container"},"text_3":{"parameters":{"fontSize":20,"text":"Report Trends by User","textAlignment":"left","textColor":"#091A3E"},"type":"text"},"container_7":{"parameters":{"alignmentX":"left","alignmentY":"top","fit":"original"},"type":"container"},"text_5":{"parameters":{"fontSize":20,"text":"Report Performance","textAlignment":"left","textColor":"#091A3E"},"type":"text"},"container_8":{"parameters":{"alignmentX":"left","alignmentY":"top","fit":"original"},"type":"container"},"text_4":{"parameters":{"fontSize":20,"text":"Reports Names by User","textAlignment":"left","textColor":"#091A3E"},"type":"text"},"chart_7":{"parameters":{"totalValue":"computeTotal","totalLabel":"","legend":{"showHeader":true,"show":true,"customSize":"auto","position":"right-top","inside":false},"x":{"sqrtScale":false,"showZero":true,"showTitle":true,"showAxis":true,"title":""},"visualizationType":"scatter","y":{"sqrtScale":false,"showZero":true,"showTitle":true,"showAxis":true,"title":""},"theme":"wave","step":"ReportPerformance","exploreLink":true,"title":{"label":"","align":"center","subtitleLabel":""},"trellis":{"enable":false,"type":"x","chartsPerLine":4}},"type":"chart"},"text_7":{"parameters":{"fontSize":16,"text":"Report Usage Trends","textAlignment":"left","textColor":"#FFFFFF"},"type":"text"},"chart_1":{"parameters":{"totalValue":"computeTotal","showPoints":true,"legend":{"showHeader":true,"show":true,"customSize":"auto","position":"right-top","inside":false},"axisMode":"multi","visualizationType":"time","missingValue":"connect","timeAxis":{"showTitle":true,"showAxis":true,"title":""},"exploreLink":true,"title":{"label":"","align":"center","subtitleLabel":""},"trellis":{"enable":false,"type":"x","chartsPerLine":4},"totalLabel":"","fillArea":true,"showZero":true,"measureAxis2":{"sqrtScale":false,"showTitle":true,"showAxis":true,"title":""},"measureAxis1":{"sqrtScale":false,"showTitle":true,"showAxis":true,"title":""},"theme":"wave","step":"ReportTrends"},"type":"chart"},"text_6":{"parameters":{"fontSize":20,"text":"Raw Log Data","textAlignment":"left","textColor":"#091A3E"},"type":"text"},"chart_3":{"parameters":{"autoFitMode":"fit","totalValue":"computeTotal","showValues":true,"legend":{"showHeader":true,"show":true,"customSize":"auto","position":"right-top","inside":false},"axisMode":"multi","visualizationType":"stackhbar","exploreLink":true,"title":{"label":"","align":"center","subtitleLabel":""},"trellis":{"enable":false,"type":"x","chartsPerLine":4},"totalLabel":"","measureAxis2":{"sqrtScale":false,"showTitle":true,"showAxis":true,"title":""},"normalize":true,"measureAxis1":{"sqrtScale":false,"showTitle":true,"showAxis":true,"title":""},"theme":"wave","step":"ReportsByUser","dimensionAxis":{"showTitle":true,"customSize":"auto","showAxis":true,"title":""}},"type":"chart"},"listselector_7":{"parameters":{"compact":true,"exploreLink":false,"instant":true,"measureField":"count","step":"Status","title":"Status"},"type":"listselector"},"listselector_6":{"parameters":{"compact":true,"exploreLink":false,"instant":true,"measureField":"count","step":"ReportNames","title":"Report Names"},"type":"listselector"},"listselector_3":{"parameters":{"compact":true,"exploreLink":false,"instant":true,"measureField":"count","step":"Roles","title":"Roles"},"type":"listselector"},"listselector_2":{"parameters":{"compact":true,"exploreLink":false,"instant":true,"measureField":"count","step":"UserNames","title":"Users"},"type":"listselector"},"listselector_5":{"parameters":{"compact":true,"exploreLink":false,"instant":true,"measureField":"count","step":"IPs","title":"IPs"},"type":"listselector"},"text_1":{"parameters":{"fontSize":48,"text":"Reports","textAlignment":"center","textColor":"#091A3E"},"type":"text"},"listselector_4":{"parameters":{"compact":true,"exploreLink":false,"instant":true,"measureField":"count","step":"Profiles","title":"Profiles"},"type":"listselector"},"table_1":{"parameters":{"columnProperties":{},"columns":[],"customBulkActions":[],"exploreLink":true,"step":"RawLogData"},"type":"table"},"number_4":{"parameters":{"compact":true,"exploreLink":true,"measureField":"count","numberColor":"#FFFFFF","numberSize":32,"step":"UnsavedReports","textAlignment":"left","title":"Unsaved Reports","titleColor":"#FFFFFF","titleSize":12},"type":"number"},"number_2":{"parameters":{"compact":true,"exploreLink":true,"measureField":"unique_REPORT_ID","numberColor":"#FFFFFF","numberSize":32,"step":"SavedReports","textAlignment":"left","title":"Saved Reports","titleColor":"#FFFFFF","titleSize":12},"type":"number"},"listselector_1":{"parameters":{"compact":true,"exploreLink":false,"instant":true,"measureField":"count","step":"Dates","title":"Dates"},"type":"listselector"}}}
+{
+  "dataSourceLinks": [],
+  "filters": [],
+  "gridLayouts": [
+    {
+      "name": "Default",
+      "numColumns": 18,
+      "pages": [
+        {
+          "name": "3bc4a21e-1bfd-4d40-8309-2942c6c77e7f",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 2,
+              "column": 1,
+              "name": "listselector_1",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 3,
+              "name": "listselector_2",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 5,
+              "name": "listselector_4",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 7,
+              "name": "listselector_3",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 9,
+              "name": "listselector_5",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 11,
+              "name": "listselector_6",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 13,
+              "name": "listselector_7",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_2",
+              "row": 0,
+              "rowspan": 6,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "text_7",
+              "row": 8,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(6, 28, 63)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 3,
+              "name": "number_2",
+              "row": 12,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 11,
+              "name": "number_7",
+              "row": 12,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_3",
+              "row": 12,
+              "rowspan": 10,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "text_3",
+              "row": 25,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "chart_1",
+              "row": 29,
+              "rowspan": 18,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_4",
+              "row": 24,
+              "rowspan": 24,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "text_4",
+              "row": 51,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "container_1",
+              "row": 50,
+              "rowspan": 24,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 9,
+              "name": "text_5",
+              "row": 51,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 9,
+              "name": "container_8",
+              "row": 50,
+              "rowspan": 24,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "text_6",
+              "row": 77,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "table_1",
+              "row": 81,
+              "rowspan": 18,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_7",
+              "row": 76,
+              "rowspan": 24,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 1,
+              "name": "number_4",
+              "row": 12,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 5,
+              "name": "number_10",
+              "row": 12,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 7,
+              "name": "number_11",
+              "row": 12,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 9,
+              "name": "number_12",
+              "row": 12,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "chart_3",
+              "row": 55,
+              "rowspan": 18,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 9,
+              "name": "chart_7",
+              "row": 54,
+              "rowspan": 18,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            }
+          ]
+        }
+      ],
+      "rowHeight": "fine",
+      "selectors": [],
+      "style": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "backgroundColor": "#F2F6FA",
+        "cellSpacingX": 16,
+        "cellSpacingY": 0,
+        "fit": "original",
+        "gutterColor": "#C5D3E0"
+      },
+      "version": 1.0
+    },
+    {
+      "name": "Mobile",
+      "numColumns": 4,
+      "pages": [
+        {
+          "name": "3bc4a21e-1bfd-4d40-8309-2942c6c77e7f",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_1",
+              "row": 0,
+              "rowspan": 5,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "listselector_1",
+              "row": 8,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 2,
+              "name": "listselector_2",
+              "row": 8,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "listselector_4",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 2,
+              "name": "listselector_3",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "listselector_5",
+              "row": 16,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 2,
+              "name": "listselector_6",
+              "row": 16,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "listselector_7",
+              "row": 20,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_2",
+              "row": 7,
+              "rowspan": 17,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 1,
+              "name": "number_2",
+              "row": 29,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 1,
+              "name": "number_7",
+              "row": 39,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_3",
+              "row": 29,
+              "rowspan": 20,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_3",
+              "row": 51,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "chart_1",
+              "row": 55,
+              "rowspan": 15,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_4",
+              "row": 51,
+              "rowspan": 20,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_4",
+              "row": 73,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_5",
+              "row": 94,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_6",
+              "row": 116,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "table_1",
+              "row": 120,
+              "rowspan": 16,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_7",
+              "row": 116,
+              "rowspan": 21,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_7",
+              "row": 26,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(6, 28, 63)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 0,
+              "name": "number_4",
+              "row": 29,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 2,
+              "name": "number_10",
+              "row": 29,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 3,
+              "name": "number_11",
+              "row": 29,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 0,
+              "name": "number_12",
+              "row": 39,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_1",
+              "row": 73,
+              "rowspan": 19,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "chart_3",
+              "row": 77,
+              "rowspan": 14,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_8",
+              "row": 94,
+              "rowspan": 20,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "chart_7",
+              "row": 98,
+              "rowspan": 15,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            }
+          ]
+        }
+      ],
+      "rowHeight": "fine",
+      "selectors": [
+        "maxWidth(599)"
+      ],
+      "style": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "backgroundColor": "#F2F6FA",
+        "cellSpacingX": 8,
+        "cellSpacingY": 0,
+        "fit": "original",
+        "gutterColor": "#C5D3E0"
+      },
+      "version": 1.0
+    }
+  ],
+  "layouts": [],
+  "steps": {
+    "Status": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ReportWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"REQUEST_STATUS\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "Dates": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ReportWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[[\"TIMESTAMP_DERIVED_Year\",\"TIMESTAMP_DERIVED_Month\",\"TIMESTAMP_DERIVED_Day\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "RawLogData": {
+      "datasets": [
+        {
+          "name": "ReportWithUsers"
+        }
+      ],
+      "isFacet": true,
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"values\":[\"CLIENT_IP\",\"CPU_TIME\",\"DB_TOTAL_TIME\",\"RUN_TIME\",\"Report.Name\",\"TIMESTAMP_DERIVED\",\"URI\",\"User.Name\",\"User.Profile.Name\",\"User.User.Role.Name\"]}",
+        "version": -1.0
+      },
+      "type": "grain",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "valuestable"
+      }
+    },
+    "MaxDBTime": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ReportWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "MaxDBTime",
+      "query": {
+        "query": "{\"measures\":[[\"max\",\"DB_TOTAL_TIME\"]],\"pigql\":\"a = load \\\"ReportWithUsers\\\"; a = group a by all; a = foreach a generate (max('DB_TOTAL_TIME')*0.000000001) as 'max';b = group a by all;b = foreach b generate max('max') as 'max_DB_TOTAL_TIME';\"}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "Roles": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ReportWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.User.Role.Name\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "ReportNames": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ReportWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"Report.Name\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "UserNames": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ReportWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.Name\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "IPs": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ReportWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"CLIENT_IP\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "MaxAPT": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ReportWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "MaxAPT",
+      "query": {
+        "query": "{\"measures\":[[\"max\",\"RUN_TIME\"]],\"pigql\":\"a = load \\\"ReportWithUsers\\\"; a = group a by all; a = foreach a generate (max('RUN_TIME')*0.001) as 'max';b = group a by all;b = foreach b generate max('max') as 'max_RUN_TIME';\"}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "ReportsByUser": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ReportWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "ReportsByUser",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"Report.Name\",\"User.Name\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {
+          "normalize": true
+        },
+        "visualizationType": "stackhbar"
+      }
+    },
+    "Profiles": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ReportWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.Profile.Name\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "MaxCPUTime": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ReportWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "MaxCPUTime",
+      "query": {
+        "query": "{\"measures\":[[\"max\",\"CPU_TIME\"]],\"pigql\":\"a = load \\\"ReportWithUsers\\\"; a = group a by all; a = foreach a generate (max('CPU_TIME')*0.001) as 'max';b = group a by all;b = foreach b generate max('max') as 'max_CPU_TIME';\"}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "UnsavedReports": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ReportWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "UnsavedReports",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"filters\":[[\"URI\",[\"/00O\"],\"in\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "SavedReports": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ReportWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"REPORT_ID\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "ReportPerformance": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ReportWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "ReportPerformance",
+      "query": {
+        "query": "{\"measures\":[[\"max\",\"CPU_TIME\"],[\"max\",\"DB_TOTAL_TIME\"],[\"max\",\"NUMBER_COLUMNS\"]],\"groups\":[\"Report.Name\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {
+          "fit": true
+        },
+        "visualizationType": "scatter"
+      }
+    },
+    "MaxColumns": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ReportWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"max\",\"NUMBER_COLUMNS\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "ReportTrends": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ReportWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[[\"TIMESTAMP_DERIVED_Year\",\"TIMESTAMP_DERIVED_Month\",\"TIMESTAMP_DERIVED_Day\"],\"User.Name\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "time"
+      }
+    }
+  },
+  "widgetStyle": {
+    "backgroundColor": "#FFFFFF",
+    "borderColor": "#E6ECF2",
+    "borderEdges": [],
+    "borderRadius": 0,
+    "borderWidth": 1
+  },
+  "widgets": {
+    "number_12": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "max_DB_TOTAL_TIME",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "step": "MaxDBTime",
+        "textAlignment": "left",
+        "title": "Max DB Time",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "number_11": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "max_CPU_TIME",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "step": "MaxCPUTime",
+        "textAlignment": "left",
+        "title": "Max CPU Time",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "number_10": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "max_RUN_TIME",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "step": "MaxAPT",
+        "textAlignment": "left",
+        "title": "Max APT",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "number_7": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "max_NUMBER_COLUMNS",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "step": "MaxColumns",
+        "textAlignment": "left",
+        "title": "Max Columns",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "container_1": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "container_2": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "container_3": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "container_4": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "text_3": {
+      "parameters": {
+        "fontSize": 20,
+        "text": "Report Trends by User",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "container_7": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "text_5": {
+      "parameters": {
+        "fontSize": 20,
+        "text": "Report Performance",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "container_8": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "text_4": {
+      "parameters": {
+        "fontSize": 20,
+        "text": "Reports Names by User",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "chart_7": {
+      "parameters": {
+        "totalValue": "computeTotal",
+        "totalLabel": "",
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "x": {
+          "sqrtScale": false,
+          "showZero": true,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "visualizationType": "scatter",
+        "y": {
+          "sqrtScale": false,
+          "showZero": true,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "theme": "wave",
+        "step": "ReportPerformance",
+        "exploreLink": true,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        }
+      },
+      "type": "chart"
+    },
+    "text_7": {
+      "parameters": {
+        "fontSize": 16,
+        "text": "Report Usage Trends",
+        "textAlignment": "left",
+        "textColor": "#FFFFFF"
+      },
+      "type": "text"
+    },
+    "chart_1": {
+      "parameters": {
+        "totalValue": "computeTotal",
+        "showPoints": true,
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "time",
+        "missingValue": "connect",
+        "timeAxis": {
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "exploreLink": true,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "fillArea": true,
+        "showZero": true,
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "theme": "wave",
+        "step": "ReportTrends"
+      },
+      "type": "chart"
+    },
+    "text_6": {
+      "parameters": {
+        "fontSize": 20,
+        "text": "Raw Log Data",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "chart_3": {
+      "parameters": {
+        "autoFitMode": "fit",
+        "totalValue": "computeTotal",
+        "showValues": true,
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "stackhbar",
+        "exploreLink": true,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "normalize": true,
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "theme": "wave",
+        "step": "ReportsByUser",
+        "dimensionAxis": {
+          "showTitle": true,
+          "customSize": "auto",
+          "showAxis": true,
+          "title": ""
+        }
+      },
+      "type": "chart"
+    },
+    "listselector_7": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "step": "Status",
+        "title": "Status"
+      },
+      "type": "listselector"
+    },
+    "listselector_6": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "step": "ReportNames",
+        "title": "Report Names"
+      },
+      "type": "listselector"
+    },
+    "listselector_3": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "step": "Roles",
+        "title": "Roles"
+      },
+      "type": "listselector"
+    },
+    "listselector_2": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "step": "UserNames",
+        "title": "Users"
+      },
+      "type": "listselector"
+    },
+    "listselector_5": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "step": "IPs",
+        "title": "IPs"
+      },
+      "type": "listselector"
+    },
+    "text_1": {
+      "parameters": {
+        "fontSize": 48,
+        "text": "Reports",
+        "textAlignment": "center",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "listselector_4": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "step": "Profiles",
+        "title": "Profiles"
+      },
+      "type": "listselector"
+    },
+    "table_1": {
+      "parameters": {
+        "columnProperties": {},
+        "columns": [],
+        "customBulkActions": [],
+        "exploreLink": true,
+        "step": "RawLogData"
+      },
+      "type": "table"
+    },
+    "number_4": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "count",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "step": "UnsavedReports",
+        "textAlignment": "left",
+        "title": "Unsaved Reports",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "number_2": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "unique_REPORT_ID",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "step": "SavedReports",
+        "textAlignment": "left",
+        "title": "Saved Reports",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "listselector_1": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "step": "Dates",
+        "title": "Dates"
+      },
+      "type": "listselector"
+    }
+  }
+}

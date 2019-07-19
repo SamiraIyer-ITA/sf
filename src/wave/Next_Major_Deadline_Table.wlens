@@ -1,1 +1,60 @@
-{"dataSourceLinks":[],"filters":[],"gridLayouts":[],"layouts":[],"steps":{"grain":{"datasets":[{"name":"Augmented_Appended_Petition_Investigation_Segment"}],"isFacet":false,"isGlobal":false,"query":{"query":"{\"filters\":[[\"Next Major Deadline\",[[[\"month\",0],[\"month\",6]]],\">=\"]],\"values\":[\"Next_Major_Deadline__c\",\"Next_Announcement_Date__c\",\"Product_Short_Name__c\",\"Country__c\",\"Next_Major_Deadline_Type\",\"Status__c\",\"Remaining_Days_to_Extend\",\"Office_Director\",\"Program_Manager\",\"Senior_Legal\",\"Senior_Policy\",\"ADCVD_Case_Number__c\",\"Name\"]}","version":-1.0},"selectMode":"none","type":"grain","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"valuestable"}}},"widgets":{"grain_table":{"parameters":{"borderColor":"#e0e5ee","borderWidth":1,"cell":{"backgroundColor":"#ffffff","fontColor":"#16325c","fontSize":12},"columnProperties":{},"columns":[],"customBulkActions":[],"header":{"backgroundColor":"#f4f6f9","fontColor":"#16325c","fontSize":12},"innerMajorBorderColor":"#a8b7c7","innerMinorBorderColor":"#e0e5ee","maxColumnWidth":300,"minColumnWidth":40,"mode":"variable","numberOfLines":1,"showRowIndexColumn":true,"step":"grain","totals":true,"verticalPadding":8},"type":"table"}}}
+{
+  "dataSourceLinks": [],
+  "filters": [],
+  "gridLayouts": [],
+  "layouts": [],
+  "steps": {
+    "grain": {
+      "datasets": [
+        {
+          "name": "Augmented_Appended_Petition_Investigation_Segment"
+        }
+      ],
+      "isFacet": false,
+      "isGlobal": false,
+      "query": {
+        "query": "{\"filters\":[[\"Next Major Deadline\",[[[\"month\",0],[\"month\",6]]],\">=\"]],\"values\":[\"Next_Major_Deadline__c\",\"Next_Announcement_Date__c\",\"Product_Short_Name__c\",\"Country__c\",\"Next_Major_Deadline_Type\",\"Status__c\",\"Remaining_Days_to_Extend\",\"Office_Director\",\"Program_Manager\",\"Senior_Legal\",\"Senior_Policy\",\"ADCVD_Case_Number__c\",\"Name\"]}",
+        "version": -1.0
+      },
+      "selectMode": "none",
+      "type": "grain",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "valuestable"
+      }
+    }
+  },
+  "widgets": {
+    "grain_table": {
+      "parameters": {
+        "borderColor": "#e0e5ee",
+        "borderWidth": 1,
+        "cell": {
+          "backgroundColor": "#ffffff",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "columnProperties": {},
+        "columns": [],
+        "customBulkActions": [],
+        "header": {
+          "backgroundColor": "#f4f6f9",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "innerMajorBorderColor": "#a8b7c7",
+        "innerMinorBorderColor": "#e0e5ee",
+        "maxColumnWidth": 300,
+        "minColumnWidth": 40,
+        "mode": "variable",
+        "numberOfLines": 1,
+        "showRowIndexColumn": true,
+        "step": "grain",
+        "totals": true,
+        "verticalPadding": 8
+      },
+      "type": "table"
+    }
+  }
+}

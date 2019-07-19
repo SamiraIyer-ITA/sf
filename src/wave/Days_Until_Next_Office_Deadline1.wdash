@@ -1,1 +1,284 @@
-{"dataSourceLinks":[],"filters":[],"gridLayouts":[{"name":"Default","numColumns":12,"pages":[{"label":"Untitled","name":"b97b8e24-4fea-491e-8561-7389d9110417","navigationHidden":false,"widgets":[{"colspan":11,"column":0,"name":"chart_1","row":0,"rowspan":7,"widgetStyle":{"borderEdges":[]}}]}],"rowHeight":"normal","selectors":[],"style":{"alignmentX":"left","alignmentY":"top","backgroundColor":"#F2F6FA","cellSpacingX":8,"cellSpacingY":8,"fit":"original","gutterColor":"#C5D3E0"},"version":1.0}],"layouts":[],"steps":{"Days_Until_Next_Offi_1":{"broadcastFacet":true,"groups":[],"label":"Days Until Next Office Deadline","numbers":[],"query":"q = load \"Augmented_Appended_All_ADCVD_Records\";\nq = foreach q generate daysBetween(now(), toDate(Next_Office_Deadline__c, \"yyyy-MM-dd\")) as 'Days Until Next Office Deadline';\nq = limit q 2000;","receiveFacet":true,"selectMode":"single","strings":[],"type":"saql","useGlobal":true,"visualizationParameters":{"parameters":{"autoFitMode":"none","showValues":true,"bins":{"breakpoints":{"high":100,"low":0},"bands":{"high":{"color":"#008000","label":""},"low":{"color":"#B22222","label":""},"medium":{"color":"#ffa500","label":""}}},"legend":{"showHeader":true,"show":true,"customSize":"auto","position":"right-top","inside":false},"axisMode":"multi","tooltip":{"showBinLabel":true,"measures":"","showPercentage":true,"showDimensions":true,"showMeasures":true,"customizeTooltip":false,"dimensions":""},"visualizationType":"polargauge","title":{"fontSize":14,"subtitleFontSize":11,"label":"","align":"center","subtitleLabel":""},"binValues":false,"trellis":{"flipLabels":false,"showGridLines":true,"size":[100,100],"enable":false,"type":"x","chartsPerLine":4},"measureAxis2":{"sqrtScale":false,"showTitle":true,"showAxis":true,"title":"","customDomain":{"showDomain":false}},"measureAxis1":{"sqrtScale":false,"showTitle":true,"showAxis":true,"title":"","customDomain":{"showDomain":false}},"theme":"wave","dimensionAxis":{"showTitle":true,"customSize":"auto","showAxis":true,"title":"","icons":{"useIcons":false,"iconProps":{"fit":"cover","column":"","type":"round"}}}},"type":"chart"}}},"widgetStyle":{"backgroundColor":"#FFFFFF","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1},"widgets":{"chart_1":{"parameters":{"showValues":true,"legend":{"showHeader":true,"show":true,"customSize":"auto","position":"right-top","inside":false},"axisMode":"multi","tooltip":{"showBinLabel":true,"measures":"","showPercentage":true,"showDimensions":true,"showMeasures":true,"customizeTooltip":false,"dimensions":""},"visualizationType":"polargauge","medium":33,"exploreLink":true,"title":{"fontSize":14,"subtitleFontSize":11,"label":"Days Until Next Office Deadline","align":"center","subtitleLabel":"Refreshes Daily"},"binValues":false,"trellis":{"flipLabels":false,"showGridLines":true,"size":[100,100],"enable":false,"type":"x","chartsPerLine":4},"colors":{"mediumColor2":"#F29946","mediumColor1":"#FED444","lowColor1":"#F71979","lowColor2":"#CC203D","highColor1":"#7BDE4E","highColor2":"#169913"},"high":66,"min":0,"valueType":"number","theme":"wave","dimensionAxis":{"showTitle":true,"customSize":"auto","showAxis":true,"title":"","icons":{"useIcons":false,"iconProps":{"fit":"cover","column":"","type":"round"}}},"autoFitMode":"none","totalValue":"computeTotal","bins":{"breakpoints":{"high":100,"low":0},"bands":{"high":{"color":"#008000","label":""},"low":{"color":"#B22222","label":""},"medium":{"color":"#ffa500","label":""}}},"max":100,"icons":{"useIcons":false,"iconProps":{"fit":"cover","column":""}},"inner":80,"totalLabel":"","measureAxis2":{"sqrtScale":false,"showTitle":true,"showAxis":true,"title":"","customDomain":{"showDomain":false}},"measureAxis1":{"sqrtScale":false,"showTitle":true,"showAxis":true,"title":"","customDomain":{"showDomain":false}},"step":"Days_Until_Next_Offi_1"},"type":"chart"}}}
+{
+  "dataSourceLinks": [],
+  "filters": [],
+  "gridLayouts": [
+    {
+      "name": "Default",
+      "numColumns": 12,
+      "pages": [
+        {
+          "label": "Untitled",
+          "name": "b97b8e24-4fea-491e-8561-7389d9110417",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 11,
+              "column": 0,
+              "name": "chart_1",
+              "row": 0,
+              "rowspan": 7,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            }
+          ]
+        }
+      ],
+      "rowHeight": "normal",
+      "selectors": [],
+      "style": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "backgroundColor": "#F2F6FA",
+        "cellSpacingX": 8,
+        "cellSpacingY": 8,
+        "fit": "original",
+        "gutterColor": "#C5D3E0"
+      },
+      "version": 1.0
+    }
+  ],
+  "layouts": [],
+  "steps": {
+    "Days_Until_Next_Offi_1": {
+      "broadcastFacet": true,
+      "groups": [],
+      "label": "Days Until Next Office Deadline",
+      "numbers": [],
+      "query": "q = load \"Augmented_Appended_All_ADCVD_Records\";\nq = foreach q generate daysBetween(now(), toDate(Next_Office_Deadline__c, \"yyyy-MM-dd\")) as 'Days Until Next Office Deadline';\nq = limit q 2000;",
+      "receiveFacet": true,
+      "selectMode": "single",
+      "strings": [],
+      "type": "saql",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "parameters": {
+          "autoFitMode": "none",
+          "showValues": true,
+          "bins": {
+            "breakpoints": {
+              "high": 100,
+              "low": 0
+            },
+            "bands": {
+              "high": {
+                "color": "#008000",
+                "label": ""
+              },
+              "low": {
+                "color": "#B22222",
+                "label": ""
+              },
+              "medium": {
+                "color": "#ffa500",
+                "label": ""
+              }
+            }
+          },
+          "legend": {
+            "showHeader": true,
+            "show": true,
+            "customSize": "auto",
+            "position": "right-top",
+            "inside": false
+          },
+          "axisMode": "multi",
+          "tooltip": {
+            "showBinLabel": true,
+            "measures": "",
+            "showPercentage": true,
+            "showDimensions": true,
+            "showMeasures": true,
+            "customizeTooltip": false,
+            "dimensions": ""
+          },
+          "visualizationType": "polargauge",
+          "title": {
+            "fontSize": 14,
+            "subtitleFontSize": 11,
+            "label": "",
+            "align": "center",
+            "subtitleLabel": ""
+          },
+          "binValues": false,
+          "trellis": {
+            "flipLabels": false,
+            "showGridLines": true,
+            "size": [
+              100,
+              100
+            ],
+            "enable": false,
+            "type": "x",
+            "chartsPerLine": 4
+          },
+          "measureAxis2": {
+            "sqrtScale": false,
+            "showTitle": true,
+            "showAxis": true,
+            "title": "",
+            "customDomain": {
+              "showDomain": false
+            }
+          },
+          "measureAxis1": {
+            "sqrtScale": false,
+            "showTitle": true,
+            "showAxis": true,
+            "title": "",
+            "customDomain": {
+              "showDomain": false
+            }
+          },
+          "theme": "wave",
+          "dimensionAxis": {
+            "showTitle": true,
+            "customSize": "auto",
+            "showAxis": true,
+            "title": "",
+            "icons": {
+              "useIcons": false,
+              "iconProps": {
+                "fit": "cover",
+                "column": "",
+                "type": "round"
+              }
+            }
+          }
+        },
+        "type": "chart"
+      }
+    }
+  },
+  "widgetStyle": {
+    "backgroundColor": "#FFFFFF",
+    "borderColor": "#E6ECF2",
+    "borderEdges": [],
+    "borderRadius": 0,
+    "borderWidth": 1
+  },
+  "widgets": {
+    "chart_1": {
+      "parameters": {
+        "showValues": true,
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "tooltip": {
+          "showBinLabel": true,
+          "measures": "",
+          "showPercentage": true,
+          "showDimensions": true,
+          "showMeasures": true,
+          "customizeTooltip": false,
+          "dimensions": ""
+        },
+        "visualizationType": "polargauge",
+        "medium": 33,
+        "exploreLink": true,
+        "title": {
+          "fontSize": 14,
+          "subtitleFontSize": 11,
+          "label": "Days Until Next Office Deadline",
+          "align": "center",
+          "subtitleLabel": "Refreshes Daily"
+        },
+        "binValues": false,
+        "trellis": {
+          "flipLabels": false,
+          "showGridLines": true,
+          "size": [
+            100,
+            100
+          ],
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "colors": {
+          "mediumColor2": "#F29946",
+          "mediumColor1": "#FED444",
+          "lowColor1": "#F71979",
+          "lowColor2": "#CC203D",
+          "highColor1": "#7BDE4E",
+          "highColor2": "#169913"
+        },
+        "high": 66,
+        "min": 0,
+        "valueType": "number",
+        "theme": "wave",
+        "dimensionAxis": {
+          "showTitle": true,
+          "customSize": "auto",
+          "showAxis": true,
+          "title": "",
+          "icons": {
+            "useIcons": false,
+            "iconProps": {
+              "fit": "cover",
+              "column": "",
+              "type": "round"
+            }
+          }
+        },
+        "autoFitMode": "none",
+        "totalValue": "computeTotal",
+        "bins": {
+          "breakpoints": {
+            "high": 100,
+            "low": 0
+          },
+          "bands": {
+            "high": {
+              "color": "#008000",
+              "label": ""
+            },
+            "low": {
+              "color": "#B22222",
+              "label": ""
+            },
+            "medium": {
+              "color": "#ffa500",
+              "label": ""
+            }
+          }
+        },
+        "max": 100,
+        "icons": {
+          "useIcons": false,
+          "iconProps": {
+            "fit": "cover",
+            "column": ""
+          }
+        },
+        "inner": 80,
+        "totalLabel": "",
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "",
+          "customDomain": {
+            "showDomain": false
+          }
+        },
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "",
+          "customDomain": {
+            "showDomain": false
+          }
+        },
+        "step": "Days_Until_Next_Offi_1"
+      },
+      "type": "chart"
+    }
+  }
+}
