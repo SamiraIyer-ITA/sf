@@ -30,10 +30,12 @@
         if(isAfter && isInsert) {
             initialize(newList, newMap);
             recalculateParentsOfFederalRegister(newList);
+            new ChatterPostWriter('Federal_Register__c', newMap, oldMap);
         }
         if(isAfter && isUpdate) {
             initialize(newList, newMap);
             recalculateParentsOfFederalRegister(newList);
+            new ChatterPostWriter('Federal_Register__c', newMap, oldMap);
         }
         if(isAfter && isDelete) {
             initialize(oldMap.values(), null);
