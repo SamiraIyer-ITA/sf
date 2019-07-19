@@ -79,7 +79,20 @@ public without sharing class ReviewRecusalExtension {
 	private void init(){
 		caseMapper = caseMapper.getInstance(new Set<Id> {caseId});
 		recMapper = recMapper.getInstance(new Set<Id> {userId});
-		recusalList = recMapper.getMapByUserIds().get(userId);
+		recusalList = new List<Recusal__c>();
+		List<Recusal__c> recusalWithCases = new List<Recusal__c>();
+		List<Recusal__c> recusalWithoutCases = new List<Recusal__c>();
+
+		for (Recusal__c r : recMapper.getMapByUserIds().get(userId)) {
+			if (r.ADCVD_Case__c != null) {
+				recusalWithCases.add(r);
+			} else {
+				recusalWithoutCases.add(r);
+			}
+		}
+		recusalList.addAll(recusalWithCases);
+		recusalList.addAll(recusalWithoutCases);
+
 		System.debug('***recusalList: ' + recusalList);
 		noRecusals = setNoRecusals(recusalList);
 	}
