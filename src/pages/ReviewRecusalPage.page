@@ -151,9 +151,11 @@
 													                  styleClass="slds-output"/>
 												</td>
 												<td class="slds-form-element slds-size--1-of-2 slds-p-top--large slds-p-around--xx-small">
+													<div class="slds-cell-wrap">
 													<apex:outputField label="Reason for Recusal"
 													                  value="{!rl.Reason_for_Recusal__c}"
 													                  styleClass="slds-output"/>
+													</div>
 												</td>
 											</tr>
 										</div>

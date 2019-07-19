@@ -274,11 +274,10 @@
         <fullName>Reason_for_Recusal__c</fullName>
         <externalId>false</externalId>
         <label>Reason for Recusal</label>
-        <length>131072</length>
+        <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>5</visibleLines>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Recusal_Parent__c</fullName>

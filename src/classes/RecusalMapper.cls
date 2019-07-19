@@ -24,7 +24,7 @@ public without sharing class RecusalMapper implements ADCVD_IMapper{
     private RecusalMapper(Set<Id> recusalIdSet) {
         if(idToUnlockedRecusalMap.isEmpty()) {
             for (Recusal__c rec : RecusalSelector.newInstance().selectById(recusalIdSet)) {
-                addStaffToMap(rec);
+				addRecusalToMap(rec);
             }
         }
     }
@@ -81,7 +81,7 @@ public without sharing class RecusalMapper implements ADCVD_IMapper{
     }
 
     //method to add new or updated recusals to the maps, called in this class and in the recusal trigger handler
-    public void addStaffToMap(Recusal__c rec) {
+	public void addRecusalToMap(Recusal__c rec) {
         Date today = System.today();
         if (!rec.Locked__c && rec.Start_Date__c <= today && rec.End_Date__c >= today) {
             idToUnlockedRecusalMap.put(rec.Id, rec);
