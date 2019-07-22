@@ -1,1670 +1,229 @@
-{
-  "nodes": {
-    "Save Win": {
-      "action": "register",
-      "parameters": {
-        "label": "Global Markets: WIN Contributor",
-        "name": "Global_Markets_WIN_Contributor"
-      },
-      "sources": [
-        "Add Win Contributor Formulas"
-      ]
-    },
-    "Join Record Type to Win": {
-      "action": "augment",
-      "parameters": {
-        "leftKey": [
-          "RecordTypeId"
-        ],
-        "operation": "LookupSingleValue",
-        "relationship": "RecordType",
-        "rightKey": [
-          "Id"
-        ],
-        "rightSelect": [
-          "DeveloperName",
-          "Name"
-        ]
-      },
-      "sources": [
-        "Load WIN",
-        "Load Record Type"
-      ]
-    },
-    "Add IsLast for Industry": {
-      "action": "computeRelative",
-      "parameters": {
-        "computedFields": [
-          {
-            "expression": {
-              "saqlExpression": " case first('Order')\n    when current('Order') then \"true\"\n    else \"false\"\nend",
-              "type": "Text"
-            },
-            "label": "Is Last Order",
-            "name": "IsLastOrder"
-          }
-        ],
-        "orderBy": [
-          {
-            "direction": "desc",
-            "name": "Order"
-          }
-        ],
-        "partitionBy": [
-          "WIN__c"
-        ]
-      },
-      "sources": [
-        "Join Industry to Industries"
-      ]
-    },
-    "Join Record Type to Task": {
-      "action": "augment",
-      "parameters": {
-        "leftKey": [
-          "RecordTypeId"
-        ],
-        "operation": "LookupSingleValue",
-        "relationship": "RecordType",
-        "rightKey": [
-          "Id"
-        ],
-        "rightSelect": [
-          "DeveloperName",
-          "Name"
-        ]
-      },
-      "sources": [
-        "Load Light-Touch Task",
-        "Load Record Type"
-      ]
-    },
-    "Join Account to Task": {
-      "action": "augment",
-      "parameters": {
-        "leftKey": [
-          "AccountId"
-        ],
-        "operation": "LookupSingleValue",
-        "relationship": "Organization",
-        "rightKey": [
-          "Id"
-        ],
-        "rightSelect": [
-          "Account_Type__c",
-          "Actual_Create_Date__c",
-          "Associated_Business_Names__c",
-          "BillingCity",
-          "BillingCountry",
-          "BillingCountryCode",
-          "BillingGeocodeAccuracy",
-          "BillingLatitude",
-          "BillingLongitude",
-          "BillingPostalCode",
-          "BillingState",
-          "BillingStateCode",
-          "BillingStreet",
-          "Category__c",
-          "Congressional_District_formula__c",
-          "County_Name__c",
-          "CreatedById",
-          "CreatedDate",
-          "DandbCompanyId",
-          "DunsNumber",
-          "eMenu_ES_ID__c",
-          "eMenu_Org_Name__c",
-          "Id",
-          "Industries__c",
-          "Industry",
-          "Is_Holding__c",
-          "Is_Subsidiary__c",
-          "Local_ITA_Office__c",
-          "NaicsCode",
-          "NaicsDesc",
-          "NAICS__c",
-          "Name",
-          "NumberOfEmployees",
-          "OwnerId",
-          "Owner_Office__c",
-          "ParentId",
-          "RecordType.DeveloperName",
-          "RecordType.Name",
-          "RecordTypeId",
-          "SicDesc",
-          "SME__c",
-          "State_Code__c",
-          "Tradestyle",
-          "Type",
-          "Validated__c",
-          "YearStarted"
-        ]
-      },
-      "sources": [
-        "Join Record Type to Task",
-        "Join Record Type to Account"
-      ]
-    },
-    "Load Record Type": {
-      "action": "sobjectDigest",
-      "parameters": {
-        "fields": [
-          {
-            "name": "Id"
-          },
-          {
-            "name": "Name"
-          },
-          {
-            "name": "SobjectType"
-          },
-          {
-            "name": "DeveloperName"
-          }
-        ],
-        "object": "RecordType",
-        "passthroughFilter": "Id != null"
-      }
-    },
-    "Keep Case Contributor-Taxonomy": {
-      "action": "sliceDataset",
-      "parameters": {
-        "fields": [
-          {
-            "name": "RH_Lev_1_GM_All__c"
-          },
-          {
-            "name": "RH_Lev_2_DAS__c"
-          },
-          {
-            "name": "RH_Lev_3_Region_2__c"
-          },
-          {
-            "name": "RH_Lev_4_Region_1__c"
-          },
-          {
-            "name": "RH_Lev_5_Country__c"
-          },
-          {
-            "name": "RH_Lev_6_Office__c"
-          },
-          {
-            "name": "Organization.Congressional_District_formula__c"
-          },
-          {
-            "name": "Organization.Id"
-          },
-          {
-            "name": "Organization.State_Code__c"
-          },
-          {
-            "name": "Contributor"
-          },
-          {
-            "name": "Fiscal_Year"
-          },
-          {
-            "name": "Assist_Type"
-          },
-          {
-            "name": "Created_Date"
-          },
-          {
-            "name": "Parent_Type"
-          },
-          {
-            "name": "Parent_Id"
-          },
-          {
-            "name": "DAS_Label"
-          },
-          {
-            "name": "Organization.Name"
-          },
-          {
-            "name": "Parent_Name"
-          }
-        ],
-        "mode": "select"
-      },
-      "sources": [
-        "Add Case Contributor Formulas"
-      ]
-    },
-    "Keep Task Contributor-Taxonomy": {
-      "action": "sliceDataset",
-      "parameters": {
-        "fields": [
-          {
-            "name": "RH_Lev_6_Office__c"
-          },
-          {
-            "name": "RH_Lev_5_Country__c"
-          },
-          {
-            "name": "RH_Lev_4_Region_1__c"
-          },
-          {
-            "name": "RH_Lev_3_Region_2__c"
-          },
-          {
-            "name": "RH_Lev_2_DAS__c"
-          },
-          {
-            "name": "RH_Lev_1_GM_All__c"
-          },
-          {
-            "name": "Organization.Congressional_District_formula__c"
-          },
-          {
-            "name": "Organization.Id"
-          },
-          {
-            "name": "Organization.State_Code__c"
-          },
-          {
-            "name": "Contributor"
-          },
-          {
-            "name": "Fiscal_Year"
-          },
-          {
-            "name": "Assist_Type"
-          },
-          {
-            "name": "Created_Date"
-          },
-          {
-            "name": "Parent_Type"
-          },
-          {
-            "name": "Parent_Id"
-          },
-          {
-            "name": "DAS_Label"
-          },
-          {
-            "name": "Organization.Name"
-          },
-          {
-            "name": "Parent_Name"
-          }
-        ],
-        "mode": "select"
-      },
-      "sources": [
-        "Add Task Formulas"
-      ]
-    },
-    "Save Industry": {
-      "action": "register",
-      "parameters": {
-        "label": "Global Markets: Industry",
-        "name": "Global_Markets_Industry"
-      },
-      "sources": [
-        "Join Industry to Industries"
-      ]
-    },
-    "Save WINs with Industry": {
-      "action": "register",
-      "parameters": {
-        "label": "TEST: WINs with Industry",
-        "name": "TEST_WINs_with_Industry"
-      },
-      "sources": [
-        "Join Industry to WIN"
-      ]
-    },
-    "Join Account to Case Contributor": {
-      "action": "augment",
-      "parameters": {
-        "leftKey": [
-          "Case.AccountId"
-        ],
-        "operation": "LookupSingleValue",
-        "relationship": "Organization",
-        "rightKey": [
-          "Id"
-        ],
-        "rightSelect": [
-          "Actual_Create_Date__c",
-          "Associated_Business_Names__c",
-          "BillingCity",
-          "BillingCountry",
-          "BillingCountryCode",
-          "BillingGeocodeAccuracy",
-          "Account_Type__c",
-          "BillingLatitude",
-          "BillingLongitude",
-          "BillingPostalCode",
-          "BillingState",
-          "BillingStateCode",
-          "BillingStreet",
-          "Category__c",
-          "Congressional_District_formula__c",
-          "County_Name__c",
-          "CreatedById",
-          "CreatedDate",
-          "DandbCompanyId",
-          "DunsNumber",
-          "eMenu_ES_ID__c",
-          "eMenu_Org_Name__c",
-          "Id",
-          "Industries__c",
-          "Industry",
-          "Is_Holding__c",
-          "Is_Subsidiary__c",
-          "Local_ITA_Office__c",
-          "NaicsCode",
-          "NaicsDesc",
-          "NAICS__c",
-          "Name",
-          "NumberOfEmployees",
-          "OwnerId",
-          "Owner_Office__c",
-          "ParentId",
-          "RecordType.DeveloperName",
-          "RecordType.Name",
-          "RecordTypeId",
-          "SicDesc",
-          "SME__c",
-          "State_Code__c",
-          "Tradestyle",
-          "Type",
-          "Validated__c",
-          "YearStarted"
-        ]
-      },
-      "sources": [
-        "Join Case to Contributor",
-        "Join Record Type to Account"
-      ]
-    },
-    "Add Formulas for Industry": {
-      "action": "computeExpression",
-      "parameters": {
-        "computedFields": [
-          {
-            "label": "Parent_ID",
-            "name": "Parent_Id",
-            "saqlExpression": "case\n    when 'Organization__c' is not null then 'Organization__c' \n    when 'Case_Industrial_Hierarchy__c' is not null then 'Case_Industrial_Hierarchy__c' \n    else 'WIN_Industrial_Hierarchy__c'\nend",
-            "type": "Text"
-          },
-          {
-            "label": "Parent Type",
-            "name": "Parent_Type",
-            "saqlExpression": "case\n    when 'Organization__c' is not null then \"Organization\" \n    when 'Case_Industrial_Hierarchy__c' is not null then \"In-Depth Touch\" \n    else \"WIN\"\nend",
-            "type": "Text"
-          },
-          {
-            "label": "WIN",
-            "name": "WIN__c",
-            "saqlExpression": "'WIN_Industrial_Hierarchy__c'",
-            "type": "Text"
-          },
-          {
-            "label": "Case",
-            "name": "Case__c",
-            "saqlExpression": "'Case_Industrial_Hierarchy__c'",
-            "type": "Text"
-          },
-          {
-            "label": "Parent Object",
-            "name": "Parent_Object",
-            "saqlExpression": "case\n    when 'Organization__c' is not null then \"Organization\" \n    when 'Case_Industrial_Hierarchy__c' is not null then \"In-Depth Touch\" \n    else \"WIN\"\nend",
-            "type": "Text"
-          }
-        ],
-        "mergeWithSource": true
-      },
-      "sources": [
-        "Load Industry"
-      ]
-    },
-    "Join Case to Contributor": {
-      "action": "augment",
-      "parameters": {
-        "leftKey": [
-          "Case_ID__c"
-        ],
-        "operation": "LookupSingleValue",
-        "relationship": "Case",
-        "rightKey": [
-          "Id"
-        ],
-        "rightSelect": [
-          "AccountId",
-          "Actual_Create_Date__c",
-          "CaseNumber",
-          "ClosedDate",
-          "CreatedDate",
-          "Id",
-          "IsClosed",
-          "OwnerId",
-          "ParentId",
-          "RecordTypeId",
-          "Record_Type__c",
-          "Status",
-          "Subject",
-          "Type",
-          "RecordType.Name",
-          "RecordType.DeveloperName",
-          "Actual_Case_Closed_Date__c",
-          "Industry_Sector__c",
-          "ImportCountry__c",
-          "IsEscalated",
-          "Other_Countries__c",
-          "Primary_Country__c",
-          "Reason",
-          "Priority",
-          "Record_type_selector__c",
-          "Fee__c"
-        ]
-      },
-      "sources": [
-        "Load Case Contributor",
-        "Join Record Type to Case"
-      ]
-    },
-    "Save Contributor-Taxonomy": {
-      "action": "register",
-      "parameters": {
-        "label": "Global Markets: Contributor-Taxonomy",
-        "name": "Global_Markets_Contributor_Taxonomy"
-      },
-      "sources": [
-        "Join User Contributor-Taxonomy"
-      ]
-    },
-    "Join Industry to Industries": {
-      "action": "augment",
-      "parameters": {
-        "leftKey": [
-          "Industries"
-        ],
-        "operation": "LookupMultiValue",
-        "relationship": "Industries",
-        "rightKey": [
-          "Flatten_Self_ID"
-        ],
-        "rightSelect": [
-          "Industry__c",
-          "Sector__c",
-          "Sub_Sector__c"
-        ]
-      },
-      "sources": [
-        "Flatten Industry",
-        "Flatten Industry"
-      ]
-    },
-    "Add Task Formulas": {
-      "action": "computeExpression",
-      "parameters": {
-        "computedFields": [
-          {
-            "label": "Contributor",
-            "name": "Contributor",
-            "saqlExpression": "'OwnerId'",
-            "type": "Text"
-          },
-          {
-            "label": "Fiscal Year",
-            "name": "Fiscal_Year",
-            "saqlExpression": "'Actual_Create_Date__c_Year_Fiscal'",
-            "type": "Text"
-          },
-          {
-            "label": "Assist Type",
-            "name": "Assist_Type",
-            "saqlExpression": "case\n    when 'Investment_Promotion__c' == \"true\" then \"Investment Promotion\"\n    else \"Export Promotion\"\nend",
-            "type": "Text"
-          },
-          {
-            "format": "yyyy-MM-dd",
-            "label": "Created Date",
-            "name": "Created_Date",
-            "saqlExpression": "toDate('Actual_Create_Date__c_sec_epoch')",
-            "type": "Date"
-          },
-          {
-            "label": "Parent Type",
-            "name": "Parent_Type",
-            "saqlExpression": "\"Light Touch\"",
-            "type": "Text"
-          },
-          {
-            "label": "Parent ID",
-            "name": "Parent_Id",
-            "saqlExpression": "'Id'",
-            "type": "Text"
-          },
-          {
-            "label": "DAS Label",
-            "name": "DAS_Label",
-            "saqlExpression": "case\n\twhen 'RH_Lev_2_DAS__c' == \"GM Advocacy Everywhere\" then \"Advocacy\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM CS-Asia-HQ DAS Office\" then \"Asia\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM CS-China-HQ DAS Office\" then \"China\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM CS-EMEA-HQ DAS Office\" then \"EMEA\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM CS-EUR-HQ DAS Office\" then \"Europe\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM CS-MEA-HQ DAS Office\" then \"MEA\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM CS-USA-HQ DAS Office\" then \"U.S.\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM CS-WH-HQ DAS Office\" then \"WH\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM SelectUSA Everywhere\" then \"SUSA\"\n\twhen 'RH_Lev_2_DAS__c' == \"IA TPA DAS Office\" then \"IA TPA\"\n\telse 'RH_Lev_2_DAS__c'\nend",
-            "type": "Text"
-          },
-          {
-            "label": "Parent Name",
-            "name": "Parent_Name",
-            "saqlExpression": "'Subject'",
-            "type": "Text"
-          }
-        ],
-        "mergeWithSource": true
-      },
-      "sources": [
-        "Join Account to Task"
-      ]
-    },
-    "Join Record Type to Account": {
-      "action": "augment",
-      "parameters": {
-        "leftKey": [
-          "RecordTypeId"
-        ],
-        "operation": "LookupSingleValue",
-        "relationship": "RecordType",
-        "rightKey": [
-          "Id"
-        ],
-        "rightSelect": [
-          "DeveloperName",
-          "Name"
-        ]
-      },
-      "sources": [
-        "Load Accounts",
-        "Load Record Type"
-      ]
-    },
-    "Add User Formulas": {
-      "action": "computeExpression",
-      "parameters": {
-        "computedFields": [
-          {
-            "label": "Name",
-            "name": "Name",
-            "saqlExpression": "'LastName' + \", \" + 'FirstName'",
-            "type": "Text"
-          }
-        ],
-        "mergeWithSource": true
-      },
-      "sources": [
-        "Load Users"
-      ]
-    },
-    "Load Industry": {
-      "action": "sobjectDigest",
-      "parameters": {
-        "fields": [
-          {
-            "name": "Id"
-          },
-          {
-            "name": "Industry__c"
-          },
-          {
-            "name": "Organization__c"
-          },
-          {
-            "name": "Case_Industrial_Hierarchy__c"
-          },
-          {
-            "name": "Sector__c"
-          },
-          {
-            "name": "Sub_Sector__c"
-          },
-          {
-            "name": "WIN_Industrial_Hierarchy__c"
-          }
-        ],
-        "object": "Industry__c",
-        "passthroughFilter": "(\n    Organization__c != null\n    OR Case_Industrial_Hierarchy__c != null\n    OR WIN_Industrial_Hierarchy__c != null\n)"
-      }
-    },
-    "Add Win Contributor Formulas": {
-      "action": "computeExpression",
-      "parameters": {
-        "computedFields": [
-          {
-            "label": "Contributor",
-            "name": "Contributor",
-            "saqlExpression": "'Contributor_Name__c'",
-            "type": "Text"
-          },
-          {
-            "label": "Fiscal Year",
-            "name": "Fiscal_Year",
-            "saqlExpression": "'Win.Actual_Create_Date__c_Year_Fiscal'",
-            "type": "Text"
-          },
-          {
-            "label": "Assist Type",
-            "name": "Assist_Type",
-            "saqlExpression": "case\n\twhen 'Win.RecordType.DeveloperName' == \"Investment_Promotion\" then \"Investment Promotion\"\n\twhen 'Win.RecordType.DeveloperName' == \"Investment_Promotion_Locked\" then \"Investment Promotion\"\n\telse \"Export Promotion\"\nend",
-            "type": "Text"
-          },
-          {
-            "format": "yyyy-MM-dd",
-            "label": "Created Date",
-            "name": "Created_Date",
-            "saqlExpression": "toDate('Win.Actual_Create_Date__c_sec_epoch')",
-            "type": "Date"
-          },
-          {
-            "label": "Parent Type",
-            "name": "Parent_Type",
-            "saqlExpression": "\"WIN\"",
-            "type": "Text"
-          },
-          {
-            "label": "Parent ID",
-            "name": "Parent_Id",
-            "saqlExpression": "'Win.Id'",
-            "type": "Text"
-          },
-          {
-            "label": "DAS Label",
-            "name": "DAS_Label",
-            "saqlExpression": "case\n\twhen 'RH_Lev_2_DAS__c' == \"GM Advocacy Everywhere\" then \"Advocacy\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM CS-Asia-HQ DAS Office\" then \"Asia\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM CS-China-HQ DAS Office\" then \"China\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM CS-EMEA-HQ DAS Office\" then \"EMEA\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM CS-EUR-HQ DAS Office\" then \"Europe\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM CS-MEA-HQ DAS Office\" then \"MEA\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM CS-USA-HQ DAS Office\" then \"U.S.\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM CS-WH-HQ DAS Office\" then \"WH\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM SelectUSA Everywhere\" then \"SUSA\"\n\twhen 'RH_Lev_2_DAS__c' == \"IA TPA DAS Office\" then \"IA TPA\"\n\telse 'RH_Lev_2_DAS__c'\nend",
-            "type": "Text"
-          },
-          {
-            "label": "Primary_Outcome_Short",
-            "name": "Primary_Outcome_Short",
-            "saqlExpression": "case\n\twhen 'Win.Primary_Outcome__c' == \"Compliance with trade agreement\" then \"Compliance\"\n\twhen 'Win.Primary_Outcome__c' == \"Facilitated export transaction\" then \"Export\"\n\twhen 'Win.Primary_Outcome__c' == \"Reduced/Eliminated threat to US business\" then \"Threat\"\n\twhen 'Win.Primary_Outcome__c' == \"Reduced/Removed/Prevented trade barrier\" then \"Trade Barrier\"\n\telse 'Win.Primary_Outcome__c'\nend",
-            "type": "Text"
-          },
-          {
-            "label": "Parent Name",
-            "name": "Parent_Name",
-            "saqlExpression": "'Win.Name'",
-            "type": "Text"
-          }
-        ],
-        "mergeWithSource": true
-      },
-      "sources": [
-        "Join Account to Win Contributor"
-      ]
-    },
-    "Flatten Industry": {
-      "action": "flatten",
-      "parameters": {
-        "includeSelfId": true,
-        "multiField": {
-          "isSystemField": false,
-          "label": "Industries",
-          "name": "Industries"
-        },
-        "parentField": "Flatten_Parent_ID",
-        "pathField": {
-          "isSystemField": false,
-          "label": "Industries Path",
-          "name": "Industries_Path"
-        },
-        "selfField": "Flatten_Self_ID"
-      },
-      "sources": [
-        "Add Flatten IDs for Industry"
-      ]
-    },
-    "Load Case": {
-      "action": "sobjectDigest",
-      "parameters": {
-        "fields": [
-          {
-            "name": "AccountId"
-          },
-          {
-            "fiscalMonthOffset": 9,
-            "name": "Actual_Create_Date__c"
-          },
-          {
-            "name": "CaseNumber"
-          },
-          {
-            "fiscalMonthOffset": 9,
-            "name": "ClosedDate"
-          },
-          {
-            "fiscalMonthOffset": 9,
-            "name": "CreatedDate"
-          },
-          {
-            "name": "Id"
-          },
-          {
-            "name": "IsClosed"
-          },
-          {
-            "name": "OwnerId"
-          },
-          {
-            "name": "ParentId"
-          },
-          {
-            "name": "RecordTypeId"
-          },
-          {
-            "name": "Status"
-          },
-          {
-            "name": "Subject"
-          },
-          {
-            "name": "Type"
-          },
-          {
-            "name": "Record_Type__c"
-          },
-          {
-            "fiscalMonthOffset": 9,
-            "name": "Actual_Case_Closed_Date__c"
-          },
-          {
-            "name": "Industry_Sector__c"
-          },
-          {
-            "name": "ImportCountry__c"
-          },
-          {
-            "name": "IsEscalated"
-          },
-          {
-            "name": "Other_Countries__c"
-          },
-          {
-            "name": "Primary_Country__c"
-          },
-          {
-            "name": "Reason"
-          },
-          {
-            "name": "Priority"
-          },
-          {
-            "name": "Record_type_selector__c"
-          },
-          {
-            "name": "Fee__c"
-          }
-        ],
-        "object": "Case",
-        "passthroughFilter": "IsDeleted = false\nAND Request_Case_Removal__c = false\nAND RecordType.DeveloperName IN (\n    'Advocacy', \n    'Commercial_Diplomacy', \n    'Export_Promotion',\n    'Investment_Promotion'\n)\nAND Account.RecordType.DeveloperName = 'ITA_User_Account_RT'\nAND (\n    Account.BillingCountryCode = 'US'\n    OR Account.TracHier__DUNS_Global_Ultimate_Parent__r.BillingCountryCode = 'US'\n)\nAND (\n    Actual_Create_Date__c = LAST_N_FISCAL_YEARS:3\n    OR Actual_Create_Date__c = THIS_FISCAL_YEAR\n)"
-      }
-    },
-    "Save Accounts": {
-      "action": "register",
-      "parameters": {
-        "label": "Global Markets: Account",
-        "name": "Global_Markets_Account"
-      },
-      "sources": [
-        "Join Record Type to Account"
-      ]
-    },
-    "Add Order by Parent ID for Industry": {
-      "action": "computeRelative",
-      "parameters": {
-        "computedFields": [
-          {
-            "expression": {
-              "saqlExpression": "case\n    when previous('Order') > 0 then previous('Order') + 1\n    else 1\nend",
-              "type": "Numeric",
-              "scale": 10
-            },
-            "label": "Order",
-            "name": "Order"
-          }
-        ],
-        "orderBy": [
-          {
-            "direction": "asc",
-            "name": "Id"
-          }
-        ],
-        "partitionBy": [
-          "WIN__c"
-        ]
-      },
-      "sources": [
-        "Filter Parent_Object WIN for Industry"
-      ]
-    },
-    "Join Record Type to Case": {
-      "action": "augment",
-      "parameters": {
-        "leftKey": [
-          "RecordTypeId"
-        ],
-        "operation": "LookupSingleValue",
-        "relationship": "RecordType",
-        "rightKey": [
-          "Id"
-        ],
-        "rightSelect": [
-          "DeveloperName",
-          "Name"
-        ]
-      },
-      "sources": [
-        "Load Case",
-        "Load Record Type"
-      ]
-    },
-    "Load Case Contributor": {
-      "action": "sobjectDigest",
-      "parameters": {
-        "fields": [
-          {
-            "name": "Id"
-          },
-          {
-            "fiscalMonthOffset": 9,
-            "name": "CreatedDate"
-          },
-          {
-            "name": "RH_Lev_1_GM_All__c"
-          },
-          {
-            "name": "RH_Lev_2_DAS__c"
-          },
-          {
-            "name": "RH_Lev_3_Region_2__c"
-          },
-          {
-            "name": "RH_Lev_4_Region_1__c"
-          },
-          {
-            "name": "RH_Lev_5_Country__c"
-          },
-          {
-            "name": "RH_Lev_6_Office__c"
-          },
-          {
-            "name": "RH_Lev_7_Individual__c"
-          },
-          {
-            "name": "Case_ID__c"
-          },
-          {
-            "name": "Contributor_Name__c"
-          }
-        ],
-        "object": "Case_Contributor__c",
-        "passthroughFilter": "IsDeleted = false\nAND Case_ID__r.IsDeleted = false\nAND RH_Lev_1_GM_All__c = 'GM All'\nAND Case_ID__r.Request_Case_Removal__c = false\nAND Case_ID__r.RecordType.DeveloperName IN (\n    'Advocacy', \n    'Commercial_Diplomacy', \n    'Export_Promotion',\n    'Investment_Promotion'\n)\nAND Case_ID__r.Account.RecordType.DeveloperName = 'ITA_User_Account_RT'\nAND (\n    Case_ID__r.Account.BillingCountryCode = 'US'\n    OR Case_ID__r.Account.TracHier__DUNS_Global_Ultimate_Parent__r.BillingCountryCode = 'US'\n)\nAND (\n    Case_ID__r.Actual_Create_Date__c = LAST_N_FISCAL_YEARS:3\n    OR Case_ID__r.Actual_Create_Date__c = THIS_FISCAL_YEAR\n)"
-      }
-    },
-    "Keep Win Contributor-Taxonomy": {
-      "action": "sliceDataset",
-      "parameters": {
-        "fields": [
-          {
-            "name": "RH_Lev_1_GM_All__c"
-          },
-          {
-            "name": "RH_Lev_2_DAS__c"
-          },
-          {
-            "name": "RH_Lev_3_Region_2__c"
-          },
-          {
-            "name": "RH_Lev_4_Region_1__c"
-          },
-          {
-            "name": "RH_Lev_5_Country__c"
-          },
-          {
-            "name": "RH_Lev_6_Office__c"
-          },
-          {
-            "name": "Organization.Congressional_District_formula__c"
-          },
-          {
-            "name": "Organization.Id"
-          },
-          {
-            "name": "Organization.State_Code__c"
-          },
-          {
-            "name": "Contributor"
-          },
-          {
-            "name": "Fiscal_Year"
-          },
-          {
-            "name": "Assist_Type"
-          },
-          {
-            "name": "Created_Date"
-          },
-          {
-            "name": "Parent_Type"
-          },
-          {
-            "name": "Parent_Id"
-          },
-          {
-            "name": "DAS_Label"
-          },
-          {
-            "name": "Organization.Name"
-          },
-          {
-            "name": "Parent_Name"
-          }
-        ],
-        "mode": "select"
-      },
-      "sources": [
-        "Add Win Contributor Formulas"
-      ]
-    },
-    "Join Win to Contributor": {
-      "action": "augment",
-      "parameters": {
-        "leftKey": [
-          "WIN__c"
-        ],
-        "operation": "LookupSingleValue",
-        "relationship": "Win",
-        "rightKey": [
-          "Id"
-        ],
-        "rightSelect": [
-          "Actual_Create_Date__c",
-          "Id",
-          "Name",
-          "Organization__c",
-          "OwnerId",
-          "RecordTypeId",
-          "Primary_Outcome__c",
-          "WIN_Date__c",
-          "WIN_Title__c",
-          "WIN_Name__c",
-          "RecordType.Name",
-          "RecordType.DeveloperName",
-          "Advocacy_Total_Project_Value__c",
-          "Final_Line_Approval__c",
-          "Actual_Follow_on_Value__c",
-          "Related_Countries__c",
-          "WIN_Type_Selector__c",
-          "WIN_Type__c"
-        ]
-      },
-      "sources": [
-        "Load Win Contributor",
-        "Join Record Type to Win"
-      ]
-    },
-    "Add Flatten IDs for Industry": {
-      "action": "computeExpression",
-      "parameters": {
-        "computedFields": [
-          {
-            "label": "Flatten: Self ID",
-            "name": "Flatten_Self_ID",
-            "saqlExpression": "'WIN__c' + \":\" + number_to_string('Order', \"0\")",
-            "type": "Text"
-          },
-          {
-            "label": "Flatten: Parent ID",
-            "name": "Flatten_Parent_ID",
-            "saqlExpression": "case\n    when 'Order' > 1 then 'WIN__c' + \":\" + number_to_string('Order' - 1, \"0\")\nend\n   ",
-            "type": "Text"
-          }
-        ],
-        "mergeWithSource": true
-      },
-      "sources": [
-        "Add Order by Parent ID for Industry"
-      ]
-    },
-    "Filter IsLastOrder true for Industry": {
-      "action": "filter",
-      "parameters": {
-        "filter": "IsLastOrder:EQ:true"
-      },
-      "sources": [
-        "Add IsLast for Industry"
-      ]
-    },
-    "Load WIN": {
-      "action": "sobjectDigest",
-      "parameters": {
-        "fields": [
-          {
-            "fiscalMonthOffset": 9,
-            "name": "Actual_Create_Date__c"
-          },
-          {
-            "name": "Id"
-          },
-          {
-            "name": "Name"
-          },
-          {
-            "name": "Organization__c"
-          },
-          {
-            "name": "OwnerId"
-          },
-          {
-            "name": "RecordTypeId"
-          },
-          {
-            "name": "Primary_Outcome__c"
-          },
-          {
-            "fiscalMonthOffset": 9,
-            "name": "WIN_Date__c"
-          },
-          {
-            "name": "WIN_Title__c"
-          },
-          {
-            "name": "WIN_Name__c"
-          },
-          {
-            "name": "Advocacy_Total_Project_Value__c"
-          },
-          {
-            "name": "Final_Line_Approval__c"
-          },
-          {
-            "name": "Actual_Follow_on_Value__c"
-          },
-          {
-            "name": "Related_Countries__c"
-          },
-          {
-            "name": "WIN_Type_Selector__c"
-          },
-          {
-            "name": "WIN_Type__c"
-          }
-        ],
-        "object": "WIN__c",
-        "passthroughFilter": "IsDeleted = false\nAND RecordType.DeveloperName IN (\n    'Advocacy',\n    'Advocacy_Locked',\n    'Commercial_Diplomacy',\n    'Commercial_Diplomacy_Locked',\n    'Export_Promotion',\n    'Export_Promotion_Locked',\n    'Investment_Promotion',\n    'Investment_Promotion_Locked'\n)\nAND Final_Line_Approval__c = 'Approved'\nAND (\n    Actual_Create_Date__c = LAST_N_FISCAL_YEARS:3\n    OR Actual_Create_Date__c = THIS_FISCAL_YEAR\n)"
-      }
-    },
-    "Join Industry to WIN": {
-      "action": "augment",
-      "parameters": {
-        "leftKey": [
-          "Id"
-        ],
-        "operation": "LookupMultiValue",
-        "relationship": "Industry",
-        "rightKey": [
-          "WIN__c"
-        ],
-        "rightSelect": [
-          "Industries",
-          "Industries_Path",
-          "Industry__c",
-          "Sector__c",
-          "Sub_Sector__c",
-          "Industries.Industry__c",
-          "Industries.Sector__c",
-          "Industries.Sub_Sector__c"
-        ]
-      },
-      "sources": [
-        "Join Record Type to Win",
-        "Filter IsLastOrder true for Industry"
-      ]
-    },
-    "Load Accounts": {
-      "action": "sobjectDigest",
-      "parameters": {
-        "fields": [
-          {
-            "fiscalMonthOffset": 9,
-            "name": "Actual_Create_Date__c"
-          },
-          {
-            "name": "Associated_Business_Names__c"
-          },
-          {
-            "name": "BillingCity"
-          },
-          {
-            "name": "BillingCountry"
-          },
-          {
-            "name": "BillingCountryCode"
-          },
-          {
-            "name": "BillingGeocodeAccuracy"
-          },
-          {
-            "name": "BillingLatitude"
-          },
-          {
-            "name": "BillingLongitude"
-          },
-          {
-            "name": "BillingPostalCode"
-          },
-          {
-            "name": "BillingState"
-          },
-          {
-            "name": "BillingStateCode"
-          },
-          {
-            "name": "BillingStreet"
-          },
-          {
-            "name": "Congressional_District_formula__c"
-          },
-          {
-            "name": "County_Name__c"
-          },
-          {
-            "name": "CreatedById"
-          },
-          {
-            "fiscalMonthOffset": 9,
-            "name": "CreatedDate"
-          },
-          {
-            "name": "Id"
-          },
-          {
-            "name": "Industries__c"
-          },
-          {
-            "name": "Is_Holding__c"
-          },
-          {
-            "name": "Is_Subsidiary__c"
-          },
-          {
-            "name": "Local_ITA_Office__c"
-          },
-          {
-            "name": "NAICS__c"
-          },
-          {
-            "name": "NaicsDesc"
-          },
-          {
-            "name": "NaicsCode"
-          },
-          {
-            "name": "Name"
-          },
-          {
-            "name": "NumberOfEmployees"
-          },
-          {
-            "name": "OwnerId"
-          },
-          {
-            "name": "Owner_Office__c"
-          },
-          {
-            "name": "ParentId"
-          },
-          {
-            "name": "RecordTypeId"
-          },
-          {
-            "name": "State_Code__c"
-          },
-          {
-            "name": "SME__c"
-          },
-          {
-            "name": "SicDesc"
-          },
-          {
-            "name": "Tradestyle"
-          },
-          {
-            "name": "Validated__c"
-          },
-          {
-            "name": "YearStarted"
-          },
-          {
-            "name": "Account_Type__c"
-          },
-          {
-            "name": "Category__c"
-          },
-          {
-            "name": "DandbCompanyId"
-          },
-          {
-            "name": "DunsNumber"
-          },
-          {
-            "name": "eMenu_ES_ID__c"
-          },
-          {
-            "name": "eMenu_Org_Name__c"
-          },
-          {
-            "name": "Industry"
-          },
-          {
-            "name": "Type"
-          }
-        ],
-        "object": "Account",
-        "passthroughFilter": "IsDeleted = false"
-      }
-    },
-    "Save Task": {
-      "action": "register",
-      "parameters": {
-        "label": "Global Markets: Light-Touch Task",
-        "name": "Global_Markets_Light_Touch_Task"
-      },
-      "sources": [
-        "Add Task Formulas"
-      ]
-    },
-    "Save Case": {
-      "action": "register",
-      "parameters": {
-        "label": "Global Markets: Case Contributor",
-        "name": "Global_Markets_Case_Contributor"
-      },
-      "sources": [
-        "Add Case Contributor Formulas"
-      ]
-    },
-    "Filter Parent_Object WIN for Industry": {
-      "action": "filter",
-      "parameters": {
-        "filter": "Parent_Object:EQ:WIN"
-      },
-      "sources": [
-        "Add Formulas for Industry"
-      ]
-    },
-    "Join Account to Win Contributor": {
-      "action": "augment",
-      "parameters": {
-        "leftKey": [
-          "Win.Organization__c"
-        ],
-        "operation": "LookupSingleValue",
-        "relationship": "Organization",
-        "rightKey": [
-          "Id"
-        ],
-        "rightSelect": [
-          "Account_Type__c",
-          "Actual_Create_Date__c",
-          "Associated_Business_Names__c",
-          "BillingCity",
-          "BillingCountry",
-          "BillingCountryCode",
-          "BillingGeocodeAccuracy",
-          "BillingLatitude",
-          "BillingLongitude",
-          "BillingPostalCode",
-          "BillingState",
-          "BillingStateCode",
-          "BillingStreet",
-          "Category__c",
-          "Congressional_District_formula__c",
-          "County_Name__c",
-          "CreatedById",
-          "CreatedDate",
-          "DandbCompanyId",
-          "DunsNumber",
-          "eMenu_ES_ID__c",
-          "eMenu_Org_Name__c",
-          "Id",
-          "Industries__c",
-          "Industry",
-          "Is_Holding__c",
-          "Is_Subsidiary__c",
-          "Local_ITA_Office__c",
-          "NaicsCode",
-          "NaicsDesc",
-          "NAICS__c",
-          "Name",
-          "NumberOfEmployees",
-          "OwnerId",
-          "Owner_Office__c",
-          "ParentId",
-          "RecordType.DeveloperName",
-          "RecordType.Name",
-          "RecordTypeId",
-          "SicDesc",
-          "SME__c",
-          "State_Code__c",
-          "Tradestyle",
-          "Type",
-          "Validated__c",
-          "YearStarted"
-        ]
-      },
-      "sources": [
-        "Join Win to Contributor",
-        "Join Record Type to Account"
-      ]
-    },
-    "Save Filtered Industries": {
-      "action": "register",
-      "parameters": {
-        "label": "TEST_Industry_Filtered",
-        "name": "TEST_Industry_Filtered"
-      },
-      "sources": [
-        "Filter IsLastOrder true for Industry"
-      ]
-    },
-    "Union Contributors-Taxonomy": {
-      "action": "append",
-      "parameters": {
-        "enableDisjointedSchemaMerge": false
-      },
-      "sources": [
-        "Keep Case Contributor-Taxonomy",
-        "Keep Task Contributor-Taxonomy",
-        "Keep Win Contributor-Taxonomy"
-      ]
-    },
-    "Load Country": {
-      "action": "sobjectDigest",
-      "parameters": {
-        "fields": [
-          {
-            "name": "Case__c"
-          },
-          {
-            "name": "Id"
-          },
-          {
-            "name": "Country__c"
-          },
-          {
-            "name": "WIN__c"
-          }
-        ],
-        "object": "RelatedCountries__c",
-        "passthroughFilter": "(\n    Case__r.Actual_Create_Date__c = LAST_N_FISCAL_YEARS:3\n    OR Case__r.Actual_Create_Date__c = THIS_FISCAL_YEAR\n    OR WIN__r.Actual_Create_Date__c = LAST_N_FISCAL_YEARS:3\n    OR WIN__r.Actual_Create_Date__c = THIS_FISCAL_YEAR\n)"
-      }
-    },
-    "Load Users": {
-      "action": "sobjectDigest",
-      "parameters": {
-        "fields": [
-          {
-            "name": "Id"
-          },
-          {
-            "name": "FirstName"
-          },
-          {
-            "name": "LastName"
-          }
-        ],
-        "object": "User"
-      }
-    },
-    "Load Win Contributor": {
-      "action": "sobjectDigest",
-      "parameters": {
-        "fields": [
-          {
-            "name": "Contributor_Name__c"
-          },
-          {
-            "name": "Contributor__c"
-          },
-          {
-            "name": "Id"
-          },
-          {
-            "name": "RH_Lev_1_GM_All__c"
-          },
-          {
-            "name": "RH_Lev_2_DAS__c"
-          },
-          {
-            "name": "RH_Lev_3_Region_2__c"
-          },
-          {
-            "name": "RH_Lev_4_Region_1__c"
-          },
-          {
-            "name": "RH_Lev_5_Country__c"
-          },
-          {
-            "name": "RH_Lev_6_Office__c"
-          },
-          {
-            "name": "RH_Lev_7_Individual__c"
-          },
-          {
-            "name": "WIN__c"
-          },
-          {
-            "name": "Inactive__c"
-          },
-          {
-            "name": "Name"
-          }
-        ],
-        "object": "WIN_Contributor__c",
-        "passthroughFilter": "IsDeleted = false\nAND WIN__r.IsDeleted = false\nAND RH_Lev_1_GM_All__c = 'GM All'\nAND WIN__r.RecordType.DeveloperName IN (\n    'Advocacy',\n    'Advocacy_Locked',\n    'Commercial_Diplomacy',\n    'Commercial_Diplomacy_Locked',\n    'Export_Promotion',\n    'Export_Promotion_Locked',\n    'Investment_Promotion',\n    'Investment_Promotion_Locked'\n)\nAND WIN__r.Final_Line_Approval__c = 'Approved'\nAND (\n    WIN__r.Actual_Create_Date__c = LAST_N_FISCAL_YEARS:3\n    OR WIN__r.Actual_Create_Date__c = THIS_FISCAL_YEAR\n)"
-      }
-    },
-    "Add Formulas For Country": {
-      "action": "computeExpression",
-      "parameters": {
-        "computedFields": [
-          {
-            "label": "Parent ID",
-            "name": "Parent_ID",
-            "saqlExpression": "case\n    when 'Case__c' is not null then 'Case__c'\n    else 'WIN__c'\nend",
-            "type": "Text"
-          },
-          {
-            "label": "Parent Object",
-            "name": "Parent_Object",
-            "saqlExpression": "case\n    when 'Case__c' is not null then \"Case\"\n    else \"WIN\"\nend",
-            "type": "Text"
-          }
-        ],
-        "mergeWithSource": true
-      },
-      "sources": [
-        "Load Country"
-      ]
-    },
-    "Add Case Contributor Formulas": {
-      "action": "computeExpression",
-      "parameters": {
-        "computedFields": [
-          {
-            "label": "Contributor",
-            "name": "Contributor",
-            "saqlExpression": "'Contributor_Name__c'",
-            "type": "Text"
-          },
-          {
-            "label": "Fiscal Year",
-            "name": "Fiscal_Year",
-            "saqlExpression": "'Case.Actual_Create_Date__c_Year_Fiscal'",
-            "type": "Text"
-          },
-          {
-            "label": "Assist Type",
-            "name": "Assist_Type",
-            "saqlExpression": "case\n\twhen 'Case.RecordType.DeveloperName' == \"Investment_Promotion\" then \"Investment Promotion\"\n\telse \"Export Promotion\"\nend",
-            "type": "Text"
-          },
-          {
-            "format": "yyyy-MM-dd",
-            "label": "Created Date",
-            "name": "Created_Date",
-            "saqlExpression": "toDate('Case.Actual_Create_Date__c_sec_epoch')",
-            "type": "Date"
-          },
-          {
-            "label": "Parent Type",
-            "name": "Parent_Type",
-            "saqlExpression": "\"In-Depth Touch\"",
-            "type": "Text"
-          },
-          {
-            "label": "Parent ID",
-            "name": "Parent_Id",
-            "saqlExpression": "'Case.Id'",
-            "type": "Text"
-          },
-          {
-            "label": "DAS Label",
-            "name": "DAS_Label",
-            "saqlExpression": "case\n\twhen 'RH_Lev_2_DAS__c' == \"GM Advocacy Everywhere\" then \"Advocacy\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM CS-Asia-HQ DAS Office\" then \"Asia\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM CS-China-HQ DAS Office\" then \"China\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM CS-EMEA-HQ DAS Office\" then \"EMEA\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM CS-EUR-HQ DAS Office\" then \"Europe\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM CS-MEA-HQ DAS Office\" then \"MEA\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM CS-USA-HQ DAS Office\" then \"U.S.\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM CS-WH-HQ DAS Office\" then \"WH\"\n\twhen 'RH_Lev_2_DAS__c' == \"GM SelectUSA Everywhere\" then \"SUSA\"\n\twhen 'RH_Lev_2_DAS__c' == \"IA TPA DAS Office\" then \"IA TPA\"\n\telse 'RH_Lev_2_DAS__c'\nend",
-            "type": "Text"
-          },
-          {
-            "label": "Parent Name",
-            "name": "Parent_Name",
-            "saqlExpression": "'Case.CaseNumber'",
-            "type": "Text"
-          }
-        ],
-        "mergeWithSource": true
-      },
-      "sources": [
-        "Join Account to Case Contributor"
-      ]
-    },
-    "Load Light-Touch Task": {
-      "action": "sobjectDigest",
-      "parameters": {
-        "fields": [
-          {
-            "name": "AccountId"
-          },
-          {
-            "fiscalMonthOffset": 9,
-            "name": "ActivityDate"
-          },
-          {
-            "name": "WhatId"
-          },
-          {
-            "name": "WhoId"
-          },
-          {
-            "name": "Type"
-          },
-          {
-            "name": "TaskSubtype"
-          },
-          {
-            "name": "Subject"
-          },
-          {
-            "name": "Status"
-          },
-          {
-            "name": "RH_Lev_7_Individual__c"
-          },
-          {
-            "name": "RH_Lev_6_Office__c"
-          },
-          {
-            "name": "RH_Lev_5_Country__c"
-          },
-          {
-            "name": "RH_Lev_4_Region_1__c"
-          },
-          {
-            "name": "RH_Lev_3_Region_2__c"
-          },
-          {
-            "name": "RH_Lev_2_DAS__c"
-          },
-          {
-            "name": "RH_Lev_1_GM_All__c"
-          },
-          {
-            "fiscalMonthOffset": 9,
-            "name": "Actual_Create_Date__c"
-          },
-          {
-            "name": "Id"
-          },
-          {
-            "name": "IsArchived"
-          },
-          {
-            "name": "IsClosed"
-          },
-          {
-            "name": "IsHighPriority"
-          },
-          {
-            "name": "Priority"
-          },
-          {
-            "name": "OwnerId"
-          },
-          {
-            "name": "RecordTypeId"
-          },
-          {
-            "name": "Investment_Promotion__c"
-          },
-          {
-            "name": "eMenu_ID_c__c"
-          },
-          {
-            "name": "eMenu_Org_Name__c"
-          }
-        ],
-        "object": "Task",
-        "passthroughFilter": "IsDeleted = false\nAND RH_Lev_1_GM_All__c = 'GM All'\nAND Related_to_Case__c = false\nAND Account.RecordType.DeveloperName = 'ITA_User_Account_RT'\nAND (\n    Account.BillingCountryCode = 'US'\n    OR Account.TracHier__DUNS_Global_Ultimate_Parent__r.BillingCountryCode = 'US'\n)\nAND (\n    Actual_Create_Date__c = LAST_N_FISCAL_YEARS:3\n    OR Actual_Create_Date__c = THIS_FISCAL_YEAR\n)"
-      }
-    },
-    "Save Country": {
-      "action": "register",
-      "parameters": {
-        "label": "Global Markets: Case/WIN Country",
-        "name": "Global_Markets_Case_WIN_Country"
-      },
-      "sources": [
-        "Add Formulas For Country"
-      ]
-    },
-    "Join User Contributor-Taxonomy": {
-      "action": "augment",
-      "parameters": {
-        "leftKey": [
-          "Contributor"
-        ],
-        "operation": "LookupSingleValue",
-        "relationship": "Contributor",
-        "rightKey": [
-          "Id"
-        ],
-        "rightSelect": [
-          "Name"
-        ]
-      },
-      "sources": [
-        "Union Contributors-Taxonomy",
-        "Add User Formulas"
-      ]
-    }
-  }
+﻿{
+    "nodes":  {
+                  "Save Win":  {
+                                   "action":  "register",
+                                   "parameters":  "@{label=Global Markets: WIN Contributor; name=Global_Markets_WIN_Contributor}",
+                                   "sources":  "Add Win Contributor Formulas"
+                               },
+                  "Join Record Type to Win":  {
+                                                  "action":  "augment",
+                                                  "parameters":  "@{leftKey=System.Object[]; operation=LookupSingleValue; relationship=RecordType; rightKey=System.Object[]; rightSelect=System.Object[]}",
+                                                  "sources":  "Load WIN Load Record Type"
+                                              },
+                  "Add IsLast for Industry":  {
+                                                  "action":  "computeRelative",
+                                                  "parameters":  "@{computedFields=System.Object[]; orderBy=System.Object[]; partitionBy=System.Object[]}",
+                                                  "sources":  "Join Industry to Industries"
+                                              },
+                  "Join Record Type to Task":  {
+                                                   "action":  "augment",
+                                                   "parameters":  "@{leftKey=System.Object[]; operation=LookupSingleValue; relationship=RecordType; rightKey=System.Object[]; rightSelect=System.Object[]}",
+                                                   "sources":  "Load Light-Touch Task Load Record Type"
+                                               },
+                  "Join Account to Task":  {
+                                               "action":  "augment",
+                                               "parameters":  "@{leftKey=System.Object[]; operation=LookupSingleValue; relationship=Organization; rightKey=System.Object[]; rightSelect=System.Object[]}",
+                                               "sources":  "Join Record Type to Task Join Record Type to Account"
+                                           },
+                  "Load Record Type":  {
+                                           "action":  "sobjectDigest",
+                                           "parameters":  "@{fields=System.Object[]; object=RecordType; passthroughFilter=Id != null}"
+                                       },
+                  "Keep Case Contributor-Taxonomy":  {
+                                                         "action":  "sliceDataset",
+                                                         "parameters":  "@{fields=System.Object[]; mode=select}",
+                                                         "sources":  "Add Case Contributor Formulas"
+                                                     },
+                  "Keep Task Contributor-Taxonomy":  {
+                                                         "action":  "sliceDataset",
+                                                         "parameters":  "@{fields=System.Object[]; mode=select}",
+                                                         "sources":  "Add Task Formulas"
+                                                     },
+                  "Save Industry":  {
+                                        "action":  "register",
+                                        "parameters":  "@{label=Global Markets: Industry; name=Global_Markets_Industry}",
+                                        "sources":  "Join Industry to Industries"
+                                    },
+                  "Save WINs with Industry":  {
+                                                  "action":  "register",
+                                                  "parameters":  "@{label=TEST: WINs with Industry; name=TEST_WINs_with_Industry}",
+                                                  "sources":  "Join Industry to WIN"
+                                              },
+                  "Join Account to Case Contributor":  {
+                                                           "action":  "augment",
+                                                           "parameters":  "@{leftKey=System.Object[]; operation=LookupSingleValue; relationship=Organization; rightKey=System.Object[]; rightSelect=System.Object[]}",
+                                                           "sources":  "Join Case to Contributor Join Record Type to Account"
+                                                       },
+                  "Add Formulas for Industry":  {
+                                                    "action":  "computeExpression",
+                                                    "parameters":  "@{computedFields=System.Object[]; mergeWithSource=True}",
+                                                    "sources":  "Load Industry"
+                                                },
+                  "Join Case to Contributor":  {
+                                                   "action":  "augment",
+                                                   "parameters":  "@{leftKey=System.Object[]; operation=LookupSingleValue; relationship=Case; rightKey=System.Object[]; rightSelect=System.Object[]}",
+                                                   "sources":  "Load Case Contributor Join Record Type to Case"
+                                               },
+                  "Save Contributor-Taxonomy":  {
+                                                    "action":  "register",
+                                                    "parameters":  "@{label=Global Markets: Contributor-Taxonomy; name=Global_Markets_Contributor_Taxonomy}",
+                                                    "sources":  "Join User Contributor-Taxonomy"
+                                                },
+                  "Join Industry to Industries":  {
+                                                      "action":  "augment",
+                                                      "parameters":  "@{leftKey=System.Object[]; operation=LookupMultiValue; relationship=Industries; rightKey=System.Object[]; rightSelect=System.Object[]}",
+                                                      "sources":  "Flatten Industry Flatten Industry"
+                                                  },
+                  "Add Task Formulas":  {
+                                            "action":  "computeExpression",
+                                            "parameters":  "@{computedFields=System.Object[]; mergeWithSource=True}",
+                                            "sources":  "Join Account to Task"
+                                        },
+                  "Join Record Type to Account":  {
+                                                      "action":  "augment",
+                                                      "parameters":  "@{leftKey=System.Object[]; operation=LookupSingleValue; relationship=RecordType; rightKey=System.Object[]; rightSelect=System.Object[]}",
+                                                      "sources":  "Load Accounts Load Record Type"
+                                                  },
+                  "Add User Formulas":  {
+                                            "action":  "computeExpression",
+                                            "parameters":  "@{computedFields=System.Object[]; mergeWithSource=True}",
+                                            "sources":  "Load Users"
+                                        },
+                  "Load Industry":  {
+                                        "action":  "sobjectDigest",
+                                        "parameters":  "@{fields=System.Object[]; object=Industry__c; passthroughFilter=(\n    Organization__c != null\n    OR Case_Industrial_Hierarchy__c != null\n    OR WIN_Industrial_Hierarchy__c != null\n)}"
+                                    },
+                  "Add Win Contributor Formulas":  {
+                                                       "action":  "computeExpression",
+                                                       "parameters":  "@{computedFields=System.Object[]; mergeWithSource=True}",
+                                                       "sources":  "Join Account to Win Contributor"
+                                                   },
+                  "Flatten Industry":  {
+                                           "action":  "flatten",
+                                           "parameters":  "@{includeSelfId=True; multiField=; parentField=Flatten_Parent_ID; pathField=; selfField=Flatten_Self_ID}",
+                                           "sources":  "Add Flatten IDs for Industry"
+                                       },
+                  "Load Case":  {
+                                    "action":  "sobjectDigest",
+                                    "parameters":  "@{fields=System.Object[]; object=Case; passthroughFilter=IsDeleted = false\nAND Request_Case_Removal__c = false\nAND RecordType.DeveloperName IN (\n    \u0027Advocacy\u0027, \n    \u0027Commercial_Diplomacy\u0027, \n    \u0027Export_Promotion\u0027,\n    \u0027Investment_Promotion\u0027\n)\nAND Account.RecordType.DeveloperName = \u0027ITA_User_Account_RT\u0027\nAND (\n    Account.BillingCountryCode = \u0027US\u0027\n    OR Account.TracHier__DUNS_Global_Ultimate_Parent__r.BillingCountryCode = \u0027US\u0027\n)\nAND (\n    Actual_Create_Date__c = LAST_N_FISCAL_YEARS:3\n    OR Actual_Create_Date__c = THIS_FISCAL_YEAR\n)}"
+                                },
+                  "Save Accounts":  {
+                                        "action":  "register",
+                                        "parameters":  "@{label=Global Markets: Account; name=Global_Markets_Account}",
+                                        "sources":  "Join Record Type to Account"
+                                    },
+                  "Add Order by Parent ID for Industry":  {
+                                                              "action":  "computeRelative",
+                                                              "parameters":  "@{computedFields=System.Object[]; orderBy=System.Object[]; partitionBy=System.Object[]}",
+                                                              "sources":  "Filter Parent_Object WIN for Industry"
+                                                          },
+                  "Join Record Type to Case":  {
+                                                   "action":  "augment",
+                                                   "parameters":  "@{leftKey=System.Object[]; operation=LookupSingleValue; relationship=RecordType; rightKey=System.Object[]; rightSelect=System.Object[]}",
+                                                   "sources":  "Load Case Load Record Type"
+                                               },
+                  "Load Case Contributor":  {
+                                                "action":  "sobjectDigest",
+                                                "parameters":  "@{fields=System.Object[]; object=Case_Contributor__c; passthroughFilter=IsDeleted = false\nAND Case_ID__r.IsDeleted = false\nAND RH_Lev_1_GM_All__c = \u0027GM All\u0027\nAND Case_ID__r.Request_Case_Removal__c = false\nAND Case_ID__r.RecordType.DeveloperName IN (\n    \u0027Advocacy\u0027, \n    \u0027Commercial_Diplomacy\u0027, \n    \u0027Export_Promotion\u0027,\n    \u0027Investment_Promotion\u0027\n)\nAND Case_ID__r.Account.RecordType.DeveloperName = \u0027ITA_User_Account_RT\u0027\nAND (\n    Case_ID__r.Account.BillingCountryCode = \u0027US\u0027\n    OR Case_ID__r.Account.TracHier__DUNS_Global_Ultimate_Parent__r.BillingCountryCode = \u0027US\u0027\n)\nAND (\n    Case_ID__r.Actual_Create_Date__c = LAST_N_FISCAL_YEARS:3\n    OR Case_ID__r.Actual_Create_Date__c = THIS_FISCAL_YEAR\n)}"
+                                            },
+                  "Keep Win Contributor-Taxonomy":  {
+                                                        "action":  "sliceDataset",
+                                                        "parameters":  "@{fields=System.Object[]; mode=select}",
+                                                        "sources":  "Add Win Contributor Formulas"
+                                                    },
+                  "Join Win to Contributor":  {
+                                                  "action":  "augment",
+                                                  "parameters":  "@{leftKey=System.Object[]; operation=LookupSingleValue; relationship=Win; rightKey=System.Object[]; rightSelect=System.Object[]}",
+                                                  "sources":  "Load Win Contributor Join Record Type to Win"
+                                              },
+                  "Add Flatten IDs for Industry":  {
+                                                       "action":  "computeExpression",
+                                                       "parameters":  "@{computedFields=System.Object[]; mergeWithSource=True}",
+                                                       "sources":  "Add Order by Parent ID for Industry"
+                                                   },
+                  "Filter IsLastOrder true for Industry":  {
+                                                               "action":  "filter",
+                                                               "parameters":  "@{filter=IsLastOrder:EQ:true}",
+                                                               "sources":  "Add IsLast for Industry"
+                                                           },
+                  "Load WIN":  {
+                                   "action":  "sobjectDigest",
+                                   "parameters":  "@{fields=System.Object[]; object=WIN__c; passthroughFilter=IsDeleted = false\nAND RecordType.DeveloperName IN (\n    \u0027Advocacy\u0027,\n    \u0027Advocacy_Locked\u0027,\n    \u0027Commercial_Diplomacy\u0027,\n    \u0027Commercial_Diplomacy_Locked\u0027,\n    \u0027Export_Promotion\u0027,\n    \u0027Export_Promotion_Locked\u0027,\n    \u0027Investment_Promotion\u0027,\n    \u0027Investment_Promotion_Locked\u0027\n)\nAND Final_Line_Approval__c = \u0027Approved\u0027\nAND (\n    Actual_Create_Date__c = LAST_N_FISCAL_YEARS:3\n    OR Actual_Create_Date__c = THIS_FISCAL_YEAR\n)}"
+                               },
+                  "Join Industry to WIN":  {
+                                               "action":  "augment",
+                                               "parameters":  "@{leftKey=System.Object[]; operation=LookupMultiValue; relationship=Industry; rightKey=System.Object[]; rightSelect=System.Object[]}",
+                                               "sources":  "Join Record Type to Win Filter IsLastOrder true for Industry"
+                                           },
+                  "Load Accounts":  {
+                                        "action":  "sobjectDigest",
+                                        "parameters":  "@{fields=System.Object[]; object=Account; passthroughFilter=IsDeleted = false}"
+                                    },
+                  "Save Task":  {
+                                    "action":  "register",
+                                    "parameters":  "@{label=Global Markets: Light-Touch Task; name=Global_Markets_Light_Touch_Task}",
+                                    "sources":  "Add Task Formulas"
+                                },
+                  "Save Case":  {
+                                    "action":  "register",
+                                    "parameters":  "@{label=Global Markets: Case Contributor; name=Global_Markets_Case_Contributor}",
+                                    "sources":  "Add Case Contributor Formulas"
+                                },
+                  "Filter Parent_Object WIN for Industry":  {
+                                                                "action":  "filter",
+                                                                "parameters":  "@{filter=Parent_Object:EQ:WIN}",
+                                                                "sources":  "Add Formulas for Industry"
+                                                            },
+                  "Join Account to Win Contributor":  {
+                                                          "action":  "augment",
+                                                          "parameters":  "@{leftKey=System.Object[]; operation=LookupSingleValue; relationship=Organization; rightKey=System.Object[]; rightSelect=System.Object[]}",
+                                                          "sources":  "Join Win to Contributor Join Record Type to Account"
+                                                      },
+                  "Save Filtered Industries":  {
+                                                   "action":  "register",
+                                                   "parameters":  "@{label=TEST_Industry_Filtered; name=TEST_Industry_Filtered}",
+                                                   "sources":  "Filter IsLastOrder true for Industry"
+                                               },
+                  "Union Contributors-Taxonomy":  {
+                                                      "action":  "append",
+                                                      "parameters":  "@{enableDisjointedSchemaMerge=False}",
+                                                      "sources":  "Keep Case Contributor-Taxonomy Keep Task Contributor-Taxonomy Keep Win Contributor-Taxonomy"
+                                                  },
+                  "Load Country":  {
+                                       "action":  "sobjectDigest",
+                                       "parameters":  "@{fields=System.Object[]; object=RelatedCountries__c; passthroughFilter=(\n    Case__r.Actual_Create_Date__c = LAST_N_FISCAL_YEARS:3\n    OR Case__r.Actual_Create_Date__c = THIS_FISCAL_YEAR\n    OR WIN__r.Actual_Create_Date__c = LAST_N_FISCAL_YEARS:3\n    OR WIN__r.Actual_Create_Date__c = THIS_FISCAL_YEAR\n)}"
+                                   },
+                  "Load Users":  {
+                                     "action":  "sobjectDigest",
+                                     "parameters":  "@{fields=System.Object[]; object=User}"
+                                 },
+                  "Load Win Contributor":  {
+                                               "action":  "sobjectDigest",
+                                               "parameters":  "@{fields=System.Object[]; object=WIN_Contributor__c; passthroughFilter=IsDeleted = false\nAND WIN__r.IsDeleted = false\nAND RH_Lev_1_GM_All__c = \u0027GM All\u0027\nAND WIN__r.RecordType.DeveloperName IN (\n    \u0027Advocacy\u0027,\n    \u0027Advocacy_Locked\u0027,\n    \u0027Commercial_Diplomacy\u0027,\n    \u0027Commercial_Diplomacy_Locked\u0027,\n    \u0027Export_Promotion\u0027,\n    \u0027Export_Promotion_Locked\u0027,\n    \u0027Investment_Promotion\u0027,\n    \u0027Investment_Promotion_Locked\u0027\n)\nAND WIN__r.Final_Line_Approval__c = \u0027Approved\u0027\nAND (\n    WIN__r.Actual_Create_Date__c = LAST_N_FISCAL_YEARS:3\n    OR WIN__r.Actual_Create_Date__c = THIS_FISCAL_YEAR\n)}"
+                                           },
+                  "Add Formulas For Country":  {
+                                                   "action":  "computeExpression",
+                                                   "parameters":  "@{computedFields=System.Object[]; mergeWithSource=True}",
+                                                   "sources":  "Load Country"
+                                               },
+                  "Add Case Contributor Formulas":  {
+                                                        "action":  "computeExpression",
+                                                        "parameters":  "@{computedFields=System.Object[]; mergeWithSource=True}",
+                                                        "sources":  "Join Account to Case Contributor"
+                                                    },
+                  "Load Light-Touch Task":  {
+                                                "action":  "sobjectDigest",
+                                                "parameters":  "@{fields=System.Object[]; object=Task; passthroughFilter=IsDeleted = false\nAND RH_Lev_1_GM_All__c = \u0027GM All\u0027\nAND Related_to_Case__c = false\nAND Account.RecordType.DeveloperName = \u0027ITA_User_Account_RT\u0027\nAND (\n    Account.BillingCountryCode = \u0027US\u0027\n    OR Account.TracHier__DUNS_Global_Ultimate_Parent__r.BillingCountryCode = \u0027US\u0027\n)\nAND (\n    Actual_Create_Date__c = LAST_N_FISCAL_YEARS:3\n    OR Actual_Create_Date__c = THIS_FISCAL_YEAR\n)}"
+                                            },
+                  "Save Country":  {
+                                       "action":  "register",
+                                       "parameters":  "@{label=Global Markets: Case/WIN Country; name=Global_Markets_Case_WIN_Country}",
+                                       "sources":  "Add Formulas For Country"
+                                   },
+                  "Join User Contributor-Taxonomy":  {
+                                                         "action":  "augment",
+                                                         "parameters":  "@{leftKey=System.Object[]; operation=LookupSingleValue; relationship=Contributor; rightKey=System.Object[]; rightSelect=System.Object[]}",
+                                                         "sources":  "Union Contributors-Taxonomy Add User Formulas"
+                                                     }
+              }
 }

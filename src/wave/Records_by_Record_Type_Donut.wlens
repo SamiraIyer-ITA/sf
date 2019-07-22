@@ -1,63 +1,30 @@
-{
-  "dataSourceLinks": [],
-  "filters": [],
-  "gridLayouts": [],
-  "layouts": [],
-  "steps": {
-    "aggregateflex": {
-      "datasets": [
-        {
-          "name": "Augmented_Appended_Petition_Investigation_Segment"
-        }
-      ],
-      "isGlobal": false,
-      "query": {
-        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"Object_Name\"]}",
-        "version": -1.0
-      },
-      "type": "aggregateflex",
-      "useGlobal": true,
-      "visualizationParameters": {
-        "options": {},
-        "visualizationType": "pie"
-      }
-    }
-  },
-  "widgets": {
-    "aggregateflex_chart": {
-      "parameters": {
-        "centerText": "",
-        "totalValue": "computeTotal",
-        "legend": {
-          "showHeader": true,
-          "show": true,
-          "customSize": "auto",
-          "position": "right-top",
-          "inside": false
-        },
-        "showMeasureTitle": true,
-        "visualizationType": "pie",
-        "exploreLink": true,
-        "title": {
-          "label": "",
-          "align": "center",
-          "subtitleLabel": ""
-        },
-        "trellis": {
-          "flipLabels": false,
-          "showGridLines": true,
-          "enable": false,
-          "type": "x",
-          "chartsPerLine": 4
-        },
-        "inner": 60,
-        "totalLabel": "",
-        "centerValueType": "number",
-        "valueType": "compactNumber",
-        "step": "aggregateflex",
-        "theme": "wave"
-      },
-      "type": "chart"
-    }
-  }
+﻿{
+    "dataSourceLinks":  [
+
+                        ],
+    "filters":  [
+
+                ],
+    "gridLayouts":  [
+
+                    ],
+    "layouts":  [
+
+                ],
+    "steps":  {
+                  "aggregateflex":  {
+                                        "datasets":  "",
+                                        "isGlobal":  false,
+                                        "query":  "@{query={\"measures\":[[\"count\",\"*\"]],\"groups\":[\"Object_Name\"]}; version=-1.0}",
+                                        "type":  "aggregateflex",
+                                        "useGlobal":  true,
+                                        "visualizationParameters":  "@{options=; visualizationType=pie}"
+                                    }
+              },
+    "widgets":  {
+                    "aggregateflex_chart":  {
+                                                "parameters":  "@{centerText=; totalValue=computeTotal; legend=; showMeasureTitle=True; visualizationType=pie; exploreLink=True; title=; trellis=; inner=60; totalLabel=; showActionMenu=True; centerValueType=number; valueType=compactNumber; step=aggregateflex; theme=wave}",
+                                                "type":  "chart"
+                                            }
+                }
 }
