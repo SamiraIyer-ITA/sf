@@ -595,7 +595,6 @@ public without sharing class StaffingAssignmentExtension {
         private Id parentId {get; set;}
         private String parentSObjectType {get; set;}
         private List<Staffing_Assignment__c> staffList {get; set;}
-        private Map<Id,ADCVD_RecusalUtility> recUtil {get; set;}
         private Set<Id> userIdSet {get; set;}
 
         //variables for page and outer extension class access
