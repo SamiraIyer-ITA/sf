@@ -2,338 +2,1213 @@
     "nodes":  {
                   "RegisterVisualforceRequest":  {
                                                      "action":  "register",
-                                                     "parameters":  "@{label=VisualforceRequestWithUsers; name=VisualforceRequestWithUsers}",
-                                                     "sources":  "AugmentVisualforceRequestUser"
+                                                     "parameters":  {
+                                                                        "label":  "VisualforceRequestWithUsers",
+                                                                        "name":  "VisualforceRequestWithUsers"
+                                                                    },
+                                                     "sources":  [
+                                                                     "AugmentVisualforceRequestUser"
+                                                                 ]
                                                  },
                   "ExtractContentObject":  {
                                                "action":  "sobjectDigest",
-                                               "parameters":  "@{fields=System.Object[]; object=ContentDocument}"
+                                               "parameters":  {
+                                                                  "fields":  [
+                                                                                 {
+                                                                                     "name":  "Id"
+                                                                                 },
+                                                                                 {
+                                                                                     "name":  "Title"
+                                                                                 }
+                                                                             ],
+                                                                  "object":  "ContentDocument"
+                                                              }
                                            },
                   "ExtractURIFile":  {
                                          "action":  "dataset",
-                                         "parameters":  "@{name=URI}"
+                                         "parameters":  {
+                                                            "name":  "URI"
+                                                        }
                                      },
                   "ExtractDashboardFile":  {
                                                "action":  "dataset",
-                                               "parameters":  "@{name=Dashboard}"
+                                               "parameters":  {
+                                                                  "name":  "Dashboard"
+                                                              }
                                            },
                   "ExtractVisualforceRequestFile":  {
                                                         "action":  "dataset",
-                                                        "parameters":  "@{name=VisualforceRequest}"
+                                                        "parameters":  {
+                                                                           "name":  "VisualforceRequest"
+                                                                       }
                                                     },
                   "AugmentDashboardReport":  {
                                                  "action":  "augment",
-                                                 "parameters":  "@{leftKey=System.Object[]; relationship=Report; rightKey=System.Object[]; rightSelect=System.Object[]}",
-                                                 "sources":  "AugmentDashboardName ExtractReportObject"
+                                                 "parameters":  {
+                                                                    "leftKey":  [
+                                                                                    "REPORT_ID_DERIVED"
+                                                                                ],
+                                                                    "relationship":  "Report",
+                                                                    "rightKey":  [
+                                                                                     "Id"
+                                                                                 ],
+                                                                    "rightSelect":  [
+                                                                                        "Name"
+                                                                                    ]
+                                                                },
+                                                 "sources":  [
+                                                                 "AugmentDashboardName",
+                                                                 "ExtractReportObject"
+                                                             ]
                                              },
                   "RegisterWaveInteraction":  {
                                                   "action":  "register",
-                                                  "parameters":  "@{label=WaveInteractionWithUsers; name=WaveInteractionWithUsers}",
-                                                  "sources":  "AugmentWaveInteractionUser"
+                                                  "parameters":  {
+                                                                     "label":  "WaveInteractionWithUsers",
+                                                                     "name":  "WaveInteractionWithUsers"
+                                                                 },
+                                                  "sources":  [
+                                                                  "AugmentWaveInteractionUser"
+                                                              ]
                                               },
                   "AugmentLoginUser":  {
                                            "action":  "augment",
-                                           "parameters":  "@{leftKey=System.Object[]; relationship=User; rightKey=System.Object[]; rightSelect=System.Object[]}",
-                                           "sources":  "ExtractLoginFile AugmentUser"
+                                           "parameters":  {
+                                                              "leftKey":  [
+                                                                              "USER_ID_DERIVED"
+                                                                          ],
+                                                              "relationship":  "User",
+                                                              "rightKey":  [
+                                                                               "Id"
+                                                                           ],
+                                                              "rightSelect":  [
+                                                                                  "Name",
+                                                                                  "Username",
+                                                                                  "User.Role.Name",
+                                                                                  "Profile.Name",
+                                                                                  "Division",
+                                                                                  "Department",
+                                                                                  "City",
+                                                                                  "Country",
+                                                                                  "IsActive"
+                                                                              ]
+                                                          },
+                                           "sources":  [
+                                                           "ExtractLoginFile",
+                                                           "AugmentUser"
+                                                       ]
                                        },
                   "RegisterApexExecution":  {
                                                 "action":  "register",
-                                                "parameters":  "@{label=ApexExecutionWithUsers; name=ApexExecutionWithUsers}",
-                                                "sources":  "AugmentApexExecutionUser"
+                                                "parameters":  {
+                                                                   "label":  "ApexExecutionWithUsers",
+                                                                   "name":  "ApexExecutionWithUsers"
+                                                               },
+                                                "sources":  [
+                                                                "AugmentApexExecutionUser"
+                                                            ]
                                             },
                   "ExtractLoginAsFile":  {
                                              "action":  "dataset",
-                                             "parameters":  "@{name=LoginAs}"
+                                             "parameters":  {
+                                                                "name":  "LoginAs"
+                                                            }
                                          },
                   "RegisterAPI":  {
                                       "action":  "register",
-                                      "parameters":  "@{label=APIWithUsers; name=APIWithUsers}",
-                                      "sources":  "AugmentAPIUser"
+                                      "parameters":  {
+                                                         "label":  "APIWithUsers",
+                                                         "name":  "APIWithUsers"
+                                                     },
+                                      "sources":  [
+                                                      "AugmentAPIUser"
+                                                  ]
                                   },
                   "AugmentRole":  {
                                       "action":  "augment",
-                                      "parameters":  "@{leftKey=System.Object[]; relationship=Role; rightKey=System.Object[]; rightSelect=System.Object[]}",
-                                      "sources":  "ExtractUser FlattenRole"
+                                      "parameters":  {
+                                                         "leftKey":  [
+                                                                         "UserRoleId"
+                                                                     ],
+                                                         "relationship":  "Role",
+                                                         "rightKey":  [
+                                                                          "Id"
+                                                                      ],
+                                                         "rightSelect":  [
+                                                                             "Name",
+                                                                             "Roles",
+                                                                             "RolePath"
+                                                                         ]
+                                                     },
+                                      "sources":  [
+                                                      "ExtractUser",
+                                                      "FlattenRole"
+                                                  ]
                                   },
                   "RegisterLightningInteraction":  {
                                                        "action":  "register",
-                                                       "parameters":  "@{label=LightningInteractionWithUsers; name=LightningInteractionWithUsers}",
-                                                       "sources":  "AugmentLightningInteractionUser"
+                                                       "parameters":  {
+                                                                          "label":  "LightningInteractionWithUsers",
+                                                                          "name":  "LightningInteractionWithUsers"
+                                                                      },
+                                                       "sources":  [
+                                                                       "AugmentLightningInteractionUser"
+                                                                   ]
                                                    },
                   "ExtractDashboardObject":  {
                                                  "action":  "sobjectDigest",
-                                                 "parameters":  "@{fields=System.Object[]; object=Dashboard}"
+                                                 "parameters":  {
+                                                                    "fields":  [
+                                                                                   {
+                                                                                       "name":  "Id"
+                                                                                   },
+                                                                                   {
+                                                                                       "name":  "Title"
+                                                                                   }
+                                                                               ],
+                                                                    "object":  "Dashboard"
+                                                                }
                                              },
                   "RegisterContent":  {
                                           "action":  "register",
-                                          "parameters":  "@{label=ContentTransferWithUsers; name=ContentTransferWithUsers}",
-                                          "sources":  "AugmentContentUser"
+                                          "parameters":  {
+                                                             "label":  "ContentTransferWithUsers",
+                                                             "name":  "ContentTransferWithUsers"
+                                                         },
+                                          "sources":  [
+                                                          "AugmentContentUser"
+                                                      ]
                                       },
                   "AugmentLightningInteractionUser":  {
                                                           "action":  "augment",
-                                                          "parameters":  "@{leftKey=System.Object[]; relationship=User; rightKey=System.Object[]; rightSelect=System.Object[]}",
-                                                          "sources":  "ExtractLightningInteractionFile AugmentUser"
+                                                          "parameters":  {
+                                                                             "leftKey":  [
+                                                                                             "USER_ID_DERIVED"
+                                                                                         ],
+                                                                             "relationship":  "User",
+                                                                             "rightKey":  [
+                                                                                              "Id"
+                                                                                          ],
+                                                                             "rightSelect":  [
+                                                                                                 "Name",
+                                                                                                 "Username",
+                                                                                                 "User.Role.Name",
+                                                                                                 "Profile.Name",
+                                                                                                 "Division",
+                                                                                                 "Department",
+                                                                                                 "City",
+                                                                                                 "Country",
+                                                                                                 "IsActive"
+                                                                                             ]
+                                                                         },
+                                                          "sources":  [
+                                                                          "ExtractLightningInteractionFile",
+                                                                          "AugmentUser"
+                                                                      ]
                                                       },
                   "RegisterReportExport":  {
                                                "action":  "register",
-                                               "parameters":  "@{label=ReportExportWithUsers; name=ReportExportWithUsers}",
-                                               "sources":  "AugmentReportExportUser"
+                                               "parameters":  {
+                                                                  "label":  "ReportExportWithUsers",
+                                                                  "name":  "ReportExportWithUsers"
+                                                              },
+                                               "sources":  [
+                                                               "AugmentReportExportUser"
+                                                           ]
                                            },
                   "RegisterLightningError":  {
                                                  "action":  "register",
-                                                 "parameters":  "@{label=LightningErrorWithUsers; name=LightningErrorWithUsers}",
-                                                 "sources":  "AugmentLightningErrorUser"
+                                                 "parameters":  {
+                                                                    "label":  "LightningErrorWithUsers",
+                                                                    "name":  "LightningErrorWithUsers"
+                                                                },
+                                                 "sources":  [
+                                                                 "AugmentLightningErrorUser"
+                                                             ]
                                              },
                   "FlattenRole":  {
                                       "action":  "flatten",
-                                      "parameters":  "@{multiField=; parentField=ParentRoleId; pathField=; selfField=Id}",
-                                      "sources":  "ExtractRole"
+                                      "parameters":  {
+                                                         "multiField":  {
+                                                                            "name":  "Roles"
+                                                                        },
+                                                         "parentField":  "ParentRoleId",
+                                                         "pathField":  {
+                                                                           "name":  "RolePath"
+                                                                       },
+                                                         "selfField":  "Id"
+                                                     },
+                                      "sources":  [
+                                                      "ExtractRole"
+                                                  ]
                                   },
                   "AugmentReportName":  {
                                             "action":  "augment",
-                                            "parameters":  "@{leftKey=System.Object[]; relationship=Report; rightKey=System.Object[]; rightSelect=System.Object[]}",
-                                            "sources":  "ExtractReportFile ExtractReportObject"
+                                            "parameters":  {
+                                                               "leftKey":  [
+                                                                               "REPORT_ID_DERIVED"
+                                                                           ],
+                                                               "relationship":  "Report",
+                                                               "rightKey":  [
+                                                                                "Id"
+                                                                            ],
+                                                               "rightSelect":  [
+                                                                                   "Name"
+                                                                               ]
+                                                           },
+                                            "sources":  [
+                                                            "ExtractReportFile",
+                                                            "ExtractReportObject"
+                                                        ]
                                         },
                   "ExtractReportExportFile":  {
                                                   "action":  "dataset",
-                                                  "parameters":  "@{name=ReportExport}"
+                                                  "parameters":  {
+                                                                     "name":  "ReportExport"
+                                                                 }
                                               },
                   "AugmentURIUser":  {
                                          "action":  "augment",
-                                         "parameters":  "@{leftKey=System.Object[]; relationship=User; rightKey=System.Object[]; rightSelect=System.Object[]}",
-                                         "sources":  "ExtractURIFile AugmentUser"
+                                         "parameters":  {
+                                                            "leftKey":  [
+                                                                            "USER_ID_DERIVED"
+                                                                        ],
+                                                            "relationship":  "User",
+                                                            "rightKey":  [
+                                                                             "Id"
+                                                                         ],
+                                                            "rightSelect":  [
+                                                                                "Name",
+                                                                                "Username",
+                                                                                "User.Role.Name",
+                                                                                "Profile.Name",
+                                                                                "Division",
+                                                                                "Department",
+                                                                                "City",
+                                                                                "Country",
+                                                                                "IsActive"
+                                                                            ]
+                                                        },
+                                         "sources":  [
+                                                         "ExtractURIFile",
+                                                         "AugmentUser"
+                                                     ]
                                      },
                   "AugmentApexExecutionUser":  {
                                                    "action":  "augment",
-                                                   "parameters":  "@{leftKey=System.Object[]; relationship=User; rightKey=System.Object[]; rightSelect=System.Object[]}",
-                                                   "sources":  "ExtractApexExecutionFile AugmentUser"
+                                                   "parameters":  {
+                                                                      "leftKey":  [
+                                                                                      "USER_ID_DERIVED"
+                                                                                  ],
+                                                                      "relationship":  "User",
+                                                                      "rightKey":  [
+                                                                                       "Id"
+                                                                                   ],
+                                                                      "rightSelect":  [
+                                                                                          "Name",
+                                                                                          "Username",
+                                                                                          "User.Role.Name",
+                                                                                          "Profile.Name",
+                                                                                          "Division",
+                                                                                          "Department",
+                                                                                          "City",
+                                                                                          "Country",
+                                                                                          "IsActive"
+                                                                                      ]
+                                                                  },
+                                                   "sources":  [
+                                                                   "ExtractApexExecutionFile",
+                                                                   "AugmentUser"
+                                                               ]
                                                },
                   "ExtractWaveChangeFile":  {
                                                 "action":  "dataset",
-                                                "parameters":  "@{name=WaveChange}"
+                                                "parameters":  {
+                                                                   "name":  "WaveChange"
+                                                               }
                                             },
                   "RegisterRestApi":  {
                                           "action":  "register",
-                                          "parameters":  "@{label=RestApiWithUsers; name=RestApiWithUsers}",
-                                          "sources":  "AugmentRestApiUser"
+                                          "parameters":  {
+                                                             "label":  "RestApiWithUsers",
+                                                             "name":  "RestApiWithUsers"
+                                                         },
+                                          "sources":  [
+                                                          "AugmentRestApiUser"
+                                                      ]
                                       },
                   "ExtractProfile":  {
                                          "action":  "sobjectDigest",
-                                         "parameters":  "@{fields=System.Object[]; object=Profile}"
+                                         "parameters":  {
+                                                            "fields":  [
+                                                                           {
+                                                                               "name":  "Id"
+                                                                           },
+                                                                           {
+                                                                               "name":  "Name"
+                                                                           },
+                                                                           {
+                                                                               "name":  "PermissionsModifyAllData"
+                                                                           },
+                                                                           {
+                                                                               "name":  "PermissionsCustomizeApplication"
+                                                                           },
+                                                                           {
+                                                                               "name":  "PermissionsViewAllData"
+                                                                           },
+                                                                           {
+                                                                               "name":  "PermissionsViewSetup"
+                                                                           },
+                                                                           {
+                                                                               "name":  "PermissionsManageUsers"
+                                                                           }
+                                                                       ],
+                                                            "object":  "Profile"
+                                                        }
                                      },
                   "ExtractReportFile":  {
                                             "action":  "dataset",
-                                            "parameters":  "@{name=Report}"
+                                            "parameters":  {
+                                                               "name":  "Report"
+                                                           }
                                         },
                   "AugmentWaveChangeUser":  {
                                                 "action":  "augment",
-                                                "parameters":  "@{leftKey=System.Object[]; relationship=User; rightKey=System.Object[]; rightSelect=System.Object[]}",
-                                                "sources":  "ExtractWaveChangeFile AugmentUser"
+                                                "parameters":  {
+                                                                   "leftKey":  [
+                                                                                   "USER_ID_DERIVED"
+                                                                               ],
+                                                                   "relationship":  "User",
+                                                                   "rightKey":  [
+                                                                                    "Id"
+                                                                                ],
+                                                                   "rightSelect":  [
+                                                                                       "Name",
+                                                                                       "Username",
+                                                                                       "User.Role.Name",
+                                                                                       "Profile.Name",
+                                                                                       "Division",
+                                                                                       "Department",
+                                                                                       "City",
+                                                                                       "Country",
+                                                                                       "IsActive"
+                                                                                   ]
+                                                               },
+                                                "sources":  [
+                                                                "ExtractWaveChangeFile",
+                                                                "AugmentUser"
+                                                            ]
                                             },
                   "AugmentVisualforceRequestUser":  {
                                                         "action":  "augment",
-                                                        "parameters":  "@{leftKey=System.Object[]; relationship=User; rightKey=System.Object[]; rightSelect=System.Object[]}",
-                                                        "sources":  "ExtractVisualforceRequestFile AugmentUser"
+                                                        "parameters":  {
+                                                                           "leftKey":  [
+                                                                                           "USER_ID_DERIVED"
+                                                                                       ],
+                                                                           "relationship":  "User",
+                                                                           "rightKey":  [
+                                                                                            "Id"
+                                                                                        ],
+                                                                           "rightSelect":  [
+                                                                                               "Name",
+                                                                                               "Username",
+                                                                                               "User.Role.Name",
+                                                                                               "Profile.Name",
+                                                                                               "Division",
+                                                                                               "Department",
+                                                                                               "City",
+                                                                                               "Country",
+                                                                                               "IsActive"
+                                                                                           ]
+                                                                       },
+                                                        "sources":  [
+                                                                        "ExtractVisualforceRequestFile",
+                                                                        "AugmentUser"
+                                                                    ]
                                                     },
                   "AugmentReportExportUser":  {
                                                   "action":  "augment",
-                                                  "parameters":  "@{leftKey=System.Object[]; relationship=User; rightKey=System.Object[]; rightSelect=System.Object[]}",
-                                                  "sources":  "ExtractReportExportFile AugmentUser"
+                                                  "parameters":  {
+                                                                     "leftKey":  [
+                                                                                     "USER_ID_DERIVED"
+                                                                                 ],
+                                                                     "relationship":  "User",
+                                                                     "rightKey":  [
+                                                                                      "Id"
+                                                                                  ],
+                                                                     "rightSelect":  [
+                                                                                         "Name",
+                                                                                         "Username",
+                                                                                         "User.Role.Name",
+                                                                                         "Profile.Name",
+                                                                                         "Division",
+                                                                                         "Department",
+                                                                                         "City",
+                                                                                         "Country",
+                                                                                         "IsActive"
+                                                                                     ]
+                                                                 },
+                                                  "sources":  [
+                                                                  "ExtractReportExportFile",
+                                                                  "AugmentUser"
+                                                              ]
                                               },
                   "ExtractWavePerformanceFile":  {
                                                      "action":  "dataset",
-                                                     "parameters":  "@{name=WavePerformance}"
+                                                     "parameters":  {
+                                                                        "name":  "WavePerformance"
+                                                                    }
                                                  },
                   "RegisterWaveChange":  {
                                              "action":  "register",
-                                             "parameters":  "@{label=WaveChangeWithUsers; name=WaveChangeWithUsers}",
-                                             "sources":  "AugmentWaveChangeUser"
+                                             "parameters":  {
+                                                                "label":  "WaveChangeWithUsers",
+                                                                "name":  "WaveChangeWithUsers"
+                                                            },
+                                             "sources":  [
+                                                             "AugmentWaveChangeUser"
+                                                         ]
                                          },
                   "AugmentContentName":  {
                                              "action":  "augment",
-                                             "parameters":  "@{leftKey=System.Object[]; relationship=Content; rightKey=System.Object[]; rightSelect=System.Object[]}",
-                                             "sources":  "ExtractContentFile ExtractContentObject"
+                                             "parameters":  {
+                                                                "leftKey":  [
+                                                                                "DOCUMENT_ID_DERIVED"
+                                                                            ],
+                                                                "relationship":  "Content",
+                                                                "rightKey":  [
+                                                                                 "Id"
+                                                                             ],
+                                                                "rightSelect":  [
+                                                                                    "Title"
+                                                                                ]
+                                                            },
+                                             "sources":  [
+                                                             "ExtractContentFile",
+                                                             "ExtractContentObject"
+                                                         ]
                                          },
                   "AugmentLoginAsUser":  {
                                              "action":  "augment",
-                                             "parameters":  "@{leftKey=System.Object[]; relationship=User; rightKey=System.Object[]; rightSelect=System.Object[]}",
-                                             "sources":  "ExtractLoginAsFile AugmentUser"
+                                             "parameters":  {
+                                                                "leftKey":  [
+                                                                                "USER_ID_DERIVED"
+                                                                            ],
+                                                                "relationship":  "User",
+                                                                "rightKey":  [
+                                                                                 "Id"
+                                                                             ],
+                                                                "rightSelect":  [
+                                                                                    "Name",
+                                                                                    "Username",
+                                                                                    "User.Role.Name",
+                                                                                    "Profile.Name",
+                                                                                    "Division",
+                                                                                    "Department",
+                                                                                    "City",
+                                                                                    "Country",
+                                                                                    "IsActive"
+                                                                                ]
+                                                            },
+                                             "sources":  [
+                                                             "ExtractLoginAsFile",
+                                                             "AugmentUser"
+                                                         ]
                                          },
                   "ExtractSATObject":  {
                                            "action":  "sobjectDigest",
-                                           "parameters":  "@{fields=System.Object[]; filterConditions=System.Object[]; object=SetupAuditTrail; runtime=}"
+                                           "parameters":  {
+                                                              "fields":  [
+                                                                             {
+                                                                                 "name":  "Id"
+                                                                             },
+                                                                             {
+                                                                                 "name":  "Action"
+                                                                             },
+                                                                             {
+                                                                                 "name":  "CreatedById"
+                                                                             },
+                                                                             {
+                                                                                 "name":  "CreatedDate"
+                                                                             },
+                                                                             {
+                                                                                 "name":  "DelegateUser"
+                                                                             },
+                                                                             {
+                                                                                 "name":  "Display"
+                                                                             },
+                                                                             {
+                                                                                 "name":  "Section"
+                                                                             }
+                                                                         ],
+                                                              "filterConditions":  [
+                                                                                       {
+                                                                                           "field":  "CreatedDate",
+                                                                                           "operator":  "=",
+                                                                                           "value":  "Last_n_days:30"
+                                                                                       }
+                                                                                   ],
+                                                              "object":  "SetupAuditTrail",
+                                                              "runtime":  {
+                                                                              "enablePKChunking":  false
+                                                                          }
+                                                          }
                                        },
                   "RegisterUsers":  {
                                         "action":  "register",
-                                        "parameters":  "@{label=Users; name=Users}",
-                                        "sources":  "AugmentUser"
+                                        "parameters":  {
+                                                           "label":  "Users",
+                                                           "name":  "Users"
+                                                       },
+                                        "sources":  [
+                                                        "AugmentUser"
+                                                    ]
                                     },
                   "ExtractLightningPageViewFile":  {
                                                        "action":  "dataset",
-                                                       "parameters":  "@{name=LightningPageView}"
+                                                       "parameters":  {
+                                                                          "name":  "LightningPageView"
+                                                                      }
                                                    },
                   "RegisterLightningPerformance":  {
                                                        "action":  "register",
-                                                       "parameters":  "@{label=LightningPerformanceWithUsers; name=LightningPerformanceWithUsers}",
-                                                       "sources":  "AugmentLightningPerformanceUser"
+                                                       "parameters":  {
+                                                                          "label":  "LightningPerformanceWithUsers",
+                                                                          "name":  "LightningPerformanceWithUsers"
+                                                                      },
+                                                       "sources":  [
+                                                                       "AugmentLightningPerformanceUser"
+                                                                   ]
                                                    },
                   "AugmentWavePerformanceUser":  {
                                                      "action":  "augment",
-                                                     "parameters":  "@{leftKey=System.Object[]; relationship=User; rightKey=System.Object[]; rightSelect=System.Object[]}",
-                                                     "sources":  "ExtractWavePerformanceFile AugmentUser"
+                                                     "parameters":  {
+                                                                        "leftKey":  [
+                                                                                        "USER_ID_DERIVED"
+                                                                                    ],
+                                                                        "relationship":  "User",
+                                                                        "rightKey":  [
+                                                                                         "Id"
+                                                                                     ],
+                                                                        "rightSelect":  [
+                                                                                            "Name",
+                                                                                            "Username",
+                                                                                            "User.Role.Name",
+                                                                                            "Profile.Name",
+                                                                                            "Division",
+                                                                                            "Department",
+                                                                                            "City",
+                                                                                            "Country",
+                                                                                            "IsActive"
+                                                                                        ]
+                                                                    },
+                                                     "sources":  [
+                                                                     "ExtractWavePerformanceFile",
+                                                                     "AugmentUser"
+                                                                 ]
                                                  },
                   "AugmentProfile":  {
                                          "action":  "augment",
-                                         "parameters":  "@{leftKey=System.Object[]; relationship=Profile; rightKey=System.Object[]; rightSelect=System.Object[]}",
-                                         "sources":  "ExtractUser ExtractProfile"
+                                         "parameters":  {
+                                                            "leftKey":  [
+                                                                            "ProfileId"
+                                                                        ],
+                                                            "relationship":  "Profile",
+                                                            "rightKey":  [
+                                                                             "Id"
+                                                                         ],
+                                                            "rightSelect":  [
+                                                                                "Name",
+                                                                                "PermissionsModifyAllData",
+                                                                                "PermissionsCustomizeApplication",
+                                                                                "PermissionsViewAllData",
+                                                                                "PermissionsViewSetup",
+                                                                                "PermissionsManageUsers"
+                                                                            ]
+                                                        },
+                                         "sources":  [
+                                                         "ExtractUser",
+                                                         "ExtractProfile"
+                                                     ]
                                      },
                   "RegisterWavePerformance":  {
                                                   "action":  "register",
-                                                  "parameters":  "@{label=WavePerformanceWithUsers; name=WavePerformanceWithUsers}",
-                                                  "sources":  "AugmentWavePerformanceUser"
+                                                  "parameters":  {
+                                                                     "label":  "WavePerformanceWithUsers",
+                                                                     "name":  "WavePerformanceWithUsers"
+                                                                 },
+                                                  "sources":  [
+                                                                  "AugmentWavePerformanceUser"
+                                                              ]
                                               },
                   "RegisterReport":  {
                                          "action":  "register",
-                                         "parameters":  "@{label=ReportWithUsers; name=ReportWithUsers}",
-                                         "sources":  "AugmentReportUser"
+                                         "parameters":  {
+                                                            "label":  "ReportWithUsers",
+                                                            "name":  "ReportWithUsers"
+                                                        },
+                                         "sources":  [
+                                                         "AugmentReportUser"
+                                                     ]
                                      },
                   "RegisterLightningPageView":  {
                                                     "action":  "register",
-                                                    "parameters":  "@{label=LightningPageViewWithUsers; name=LightningPageViewWithUsers}",
-                                                    "sources":  "AugmentLightningPageViewUser"
+                                                    "parameters":  {
+                                                                       "label":  "LightningPageViewWithUsers",
+                                                                       "name":  "LightningPageViewWithUsers"
+                                                                   },
+                                                    "sources":  [
+                                                                    "AugmentLightningPageViewUser"
+                                                                ]
                                                 },
                   "AugmentDashboardUser":  {
                                                "action":  "augment",
-                                               "parameters":  "@{leftKey=System.Object[]; relationship=User; rightKey=System.Object[]; rightSelect=System.Object[]}",
-                                               "sources":  "AugmentDashboardReport AugmentUser"
+                                               "parameters":  {
+                                                                  "leftKey":  [
+                                                                                  "USER_ID_DERIVED"
+                                                                              ],
+                                                                  "relationship":  "User",
+                                                                  "rightKey":  [
+                                                                                   "Id"
+                                                                               ],
+                                                                  "rightSelect":  [
+                                                                                      "Name",
+                                                                                      "Username",
+                                                                                      "User.Role.Name",
+                                                                                      "Profile.Name",
+                                                                                      "Division",
+                                                                                      "Department",
+                                                                                      "City",
+                                                                                      "Country",
+                                                                                      "IsActive"
+                                                                                  ]
+                                                              },
+                                               "sources":  [
+                                                               "AugmentDashboardReport",
+                                                               "AugmentUser"
+                                                           ]
                                            },
                   "AugmentLightningErrorUser":  {
                                                     "action":  "augment",
-                                                    "parameters":  "@{leftKey=System.Object[]; relationship=User; rightKey=System.Object[]; rightSelect=System.Object[]}",
-                                                    "sources":  "ExtractLightningErrorFile AugmentUser"
+                                                    "parameters":  {
+                                                                       "leftKey":  [
+                                                                                       "USER_ID_DERIVED"
+                                                                                   ],
+                                                                       "relationship":  "User",
+                                                                       "rightKey":  [
+                                                                                        "Id"
+                                                                                    ],
+                                                                       "rightSelect":  [
+                                                                                           "Name",
+                                                                                           "Username",
+                                                                                           "User.Role.Name",
+                                                                                           "Profile.Name",
+                                                                                           "Division",
+                                                                                           "Department",
+                                                                                           "City",
+                                                                                           "Country",
+                                                                                           "IsActive"
+                                                                                       ]
+                                                                   },
+                                                    "sources":  [
+                                                                    "ExtractLightningErrorFile",
+                                                                    "AugmentUser"
+                                                                ]
                                                 },
                   "AugmentAPIUser":  {
                                          "action":  "augment",
-                                         "parameters":  "@{leftKey=System.Object[]; relationship=User; rightKey=System.Object[]; rightSelect=System.Object[]}",
-                                         "sources":  "ExtractAPIFile AugmentUser"
+                                         "parameters":  {
+                                                            "leftKey":  [
+                                                                            "USER_ID_DERIVED"
+                                                                        ],
+                                                            "relationship":  "User",
+                                                            "rightKey":  [
+                                                                             "Id"
+                                                                         ],
+                                                            "rightSelect":  [
+                                                                                "Name",
+                                                                                "Username",
+                                                                                "User.Role.Name",
+                                                                                "Profile.Name",
+                                                                                "Division",
+                                                                                "Department",
+                                                                                "City",
+                                                                                "Country",
+                                                                                "IsActive"
+                                                                            ]
+                                                        },
+                                         "sources":  [
+                                                         "ExtractAPIFile",
+                                                         "AugmentUser"
+                                                     ]
                                      },
                   "ExtractRestApiFile":  {
                                              "action":  "dataset",
-                                             "parameters":  "@{name=RestApi}"
+                                             "parameters":  {
+                                                                "name":  "RestApi"
+                                                            }
                                          },
                   "ExtractContentFile":  {
                                              "action":  "dataset",
-                                             "parameters":  "@{name=ContentTransfer}"
+                                             "parameters":  {
+                                                                "name":  "ContentTransfer"
+                                                            }
                                          },
                   "AugmentLightningPerformanceUser":  {
                                                           "action":  "augment",
-                                                          "parameters":  "@{leftKey=System.Object[]; relationship=User; rightKey=System.Object[]; rightSelect=System.Object[]}",
-                                                          "sources":  "ExtractLightningPerformanceFile AugmentUser"
+                                                          "parameters":  {
+                                                                             "leftKey":  [
+                                                                                             "USER_ID_DERIVED"
+                                                                                         ],
+                                                                             "relationship":  "User",
+                                                                             "rightKey":  [
+                                                                                              "Id"
+                                                                                          ],
+                                                                             "rightSelect":  [
+                                                                                                 "Name",
+                                                                                                 "Username",
+                                                                                                 "User.Role.Name",
+                                                                                                 "Profile.Name",
+                                                                                                 "Division",
+                                                                                                 "Department",
+                                                                                                 "City",
+                                                                                                 "Country",
+                                                                                                 "IsActive"
+                                                                                             ]
+                                                                         },
+                                                          "sources":  [
+                                                                          "ExtractLightningPerformanceFile",
+                                                                          "AugmentUser"
+                                                                      ]
                                                       },
                   "ExtractLoginFile":  {
                                            "action":  "dataset",
-                                           "parameters":  "@{name=Login}"
+                                           "parameters":  {
+                                                              "name":  "Login"
+                                                          }
                                        },
                   "ExtractUser":  {
                                       "action":  "sobjectDigest",
-                                      "parameters":  "@{fields=System.Object[]; object=User}"
+                                      "parameters":  {
+                                                         "fields":  [
+                                                                        {
+                                                                            "name":  "Id"
+                                                                        },
+                                                                        {
+                                                                            "name":  "Username"
+                                                                        },
+                                                                        {
+                                                                            "name":  "LastName"
+                                                                        },
+                                                                        {
+                                                                            "name":  "FirstName"
+                                                                        },
+                                                                        {
+                                                                            "name":  "Name"
+                                                                        },
+                                                                        {
+                                                                            "name":  "CompanyName"
+                                                                        },
+                                                                        {
+                                                                            "name":  "Division"
+                                                                        },
+                                                                        {
+                                                                            "name":  "Department"
+                                                                        },
+                                                                        {
+                                                                            "name":  "Street"
+                                                                        },
+                                                                        {
+                                                                            "name":  "City"
+                                                                        },
+                                                                        {
+                                                                            "name":  "State"
+                                                                        },
+                                                                        {
+                                                                            "name":  "PostalCode"
+                                                                        },
+                                                                        {
+                                                                            "name":  "Country"
+                                                                        },
+                                                                        {
+                                                                            "name":  "Title"
+                                                                        },
+                                                                        {
+                                                                            "name":  "Alias"
+                                                                        },
+                                                                        {
+                                                                            "name":  "CommunityNickname"
+                                                                        },
+                                                                        {
+                                                                            "name":  "UserType"
+                                                                        },
+                                                                        {
+                                                                            "name":  "UserRoleId"
+                                                                        },
+                                                                        {
+                                                                            "name":  "ProfileId"
+                                                                        },
+                                                                        {
+                                                                            "name":  "IsActive"
+                                                                        }
+                                                                    ],
+                                                         "object":  "User"
+                                                     }
                                   },
                   "ExtractLightningPerformanceFile":  {
                                                           "action":  "dataset",
-                                                          "parameters":  "@{name=LightningPerformance}"
+                                                          "parameters":  {
+                                                                             "name":  "LightningPerformance"
+                                                                         }
                                                       },
                   "RegisterLogin":  {
                                         "action":  "register",
-                                        "parameters":  "@{label=LoginWithUsers; name=LoginWithUsers}",
-                                        "sources":  "AugmentLoginUser"
+                                        "parameters":  {
+                                                           "label":  "LoginWithUsers",
+                                                           "name":  "LoginWithUsers"
+                                                       },
+                                        "sources":  [
+                                                        "AugmentLoginUser"
+                                                    ]
                                     },
                   "RegisterSAT":  {
                                       "action":  "register",
-                                      "parameters":  "@{label=SetupAuditTrailWithUsers; name=SetupAuditTrailWithUsers}",
-                                      "sources":  "AugmentSATUser"
+                                      "parameters":  {
+                                                         "label":  "SetupAuditTrailWithUsers",
+                                                         "name":  "SetupAuditTrailWithUsers"
+                                                     },
+                                      "sources":  [
+                                                      "AugmentSATUser"
+                                                  ]
                                   },
                   "ExtractWaveInteractionFile":  {
                                                      "action":  "dataset",
-                                                     "parameters":  "@{name=WaveInteraction}"
+                                                     "parameters":  {
+                                                                        "name":  "WaveInteraction"
+                                                                    }
                                                  },
                   "ExtractReportObject":  {
                                               "action":  "sobjectDigest",
-                                              "parameters":  "@{fields=System.Object[]; object=Report}"
+                                              "parameters":  {
+                                                                 "fields":  [
+                                                                                {
+                                                                                    "name":  "Id"
+                                                                                },
+                                                                                {
+                                                                                    "name":  "Name"
+                                                                                }
+                                                                            ],
+                                                                 "object":  "Report"
+                                                             }
                                           },
                   "ExtractLightningErrorFile":  {
                                                     "action":  "dataset",
-                                                    "parameters":  "@{name=LightningError}"
+                                                    "parameters":  {
+                                                                       "name":  "LightningError"
+                                                                   }
                                                 },
                   "ExtractApexExecutionFile":  {
                                                    "action":  "dataset",
-                                                   "parameters":  "@{name=ApexExecution}"
+                                                   "parameters":  {
+                                                                      "name":  "ApexExecution"
+                                                                  }
                                                },
                   "RegisterDashboard":  {
                                             "action":  "register",
-                                            "parameters":  "@{label=DashboardWithUsers; name=DashboardWithUsers}",
-                                            "sources":  "AugmentDashboardUser"
+                                            "parameters":  {
+                                                               "label":  "DashboardWithUsers",
+                                                               "name":  "DashboardWithUsers"
+                                                           },
+                                            "sources":  [
+                                                            "AugmentDashboardUser"
+                                                        ]
                                         },
                   "AugmentReportUser":  {
                                             "action":  "augment",
-                                            "parameters":  "@{leftKey=System.Object[]; relationship=User; rightKey=System.Object[]; rightSelect=System.Object[]}",
-                                            "sources":  "AugmentReportName AugmentUser"
+                                            "parameters":  {
+                                                               "leftKey":  [
+                                                                               "USER_ID_DERIVED"
+                                                                           ],
+                                                               "relationship":  "User",
+                                                               "rightKey":  [
+                                                                                "Id"
+                                                                            ],
+                                                               "rightSelect":  [
+                                                                                   "Name",
+                                                                                   "Username",
+                                                                                   "User.Role.Name",
+                                                                                   "Profile.Name",
+                                                                                   "Division",
+                                                                                   "Department",
+                                                                                   "City",
+                                                                                   "Country",
+                                                                                   "IsActive"
+                                                                               ]
+                                                           },
+                                            "sources":  [
+                                                            "AugmentReportName",
+                                                            "AugmentUser"
+                                                        ]
                                         },
                   "RegisterURI":  {
                                       "action":  "register",
-                                      "parameters":  "@{label=URIWithUsers; name=URIWithUsers}",
-                                      "sources":  "AugmentURIUser"
+                                      "parameters":  {
+                                                         "label":  "URIWithUsers",
+                                                         "name":  "URIWithUsers"
+                                                     },
+                                      "sources":  [
+                                                      "AugmentURIUser"
+                                                  ]
                                   },
                   "AugmentSATUser":  {
                                          "action":  "augment",
-                                         "parameters":  "@{leftKey=System.Object[]; relationship=User; rightKey=System.Object[]; rightSelect=System.Object[]}",
-                                         "sources":  "ExtractSATObject AugmentUser"
+                                         "parameters":  {
+                                                            "leftKey":  [
+                                                                            "CreatedById"
+                                                                        ],
+                                                            "relationship":  "User",
+                                                            "rightKey":  [
+                                                                             "Id"
+                                                                         ],
+                                                            "rightSelect":  [
+                                                                                "Name",
+                                                                                "Username",
+                                                                                "User.Role.Name",
+                                                                                "Profile.Name",
+                                                                                "Profile.PermissionsModifyAllData",
+                                                                                "Profile.PermissionsCustomizeApplication",
+                                                                                "Profile.PermissionsViewAllData",
+                                                                                "Profile.PermissionsViewSetup",
+                                                                                "Profile.PermissionsManageUsers",
+                                                                                "Division",
+                                                                                "Department",
+                                                                                "City",
+                                                                                "Country",
+                                                                                "IsActive"
+                                                                            ]
+                                                        },
+                                         "sources":  [
+                                                         "ExtractSATObject",
+                                                         "AugmentUser"
+                                                     ]
                                      },
                   "ExtractAPIFile":  {
                                          "action":  "dataset",
-                                         "parameters":  "@{name=API}"
+                                         "parameters":  {
+                                                            "name":  "API"
+                                                        }
                                      },
                   "AugmentDashboardName":  {
                                                "action":  "augment",
-                                               "parameters":  "@{leftKey=System.Object[]; relationship=Dashboard; rightKey=System.Object[]; rightSelect=System.Object[]}",
-                                               "sources":  "ExtractDashboardFile ExtractDashboardObject"
+                                               "parameters":  {
+                                                                  "leftKey":  [
+                                                                                  "DASHBOARD_ID_DERIVED"
+                                                                              ],
+                                                                  "relationship":  "Dashboard",
+                                                                  "rightKey":  [
+                                                                                   "Id"
+                                                                               ],
+                                                                  "rightSelect":  [
+                                                                                      "Title"
+                                                                                  ]
+                                                              },
+                                               "sources":  [
+                                                               "ExtractDashboardFile",
+                                                               "ExtractDashboardObject"
+                                                           ]
                                            },
                   "ExtractLightningInteractionFile":  {
                                                           "action":  "dataset",
-                                                          "parameters":  "@{name=LightningInteraction}"
+                                                          "parameters":  {
+                                                                             "name":  "LightningInteraction"
+                                                                         }
                                                       },
                   "AugmentWaveInteractionUser":  {
                                                      "action":  "augment",
-                                                     "parameters":  "@{leftKey=System.Object[]; relationship=User; rightKey=System.Object[]; rightSelect=System.Object[]}",
-                                                     "sources":  "ExtractWaveInteractionFile AugmentUser"
+                                                     "parameters":  {
+                                                                        "leftKey":  [
+                                                                                        "USER_ID_DERIVED"
+                                                                                    ],
+                                                                        "relationship":  "User",
+                                                                        "rightKey":  [
+                                                                                         "Id"
+                                                                                     ],
+                                                                        "rightSelect":  [
+                                                                                            "Name",
+                                                                                            "Username",
+                                                                                            "User.Role.Name",
+                                                                                            "Profile.Name",
+                                                                                            "Division",
+                                                                                            "Department",
+                                                                                            "City",
+                                                                                            "Country",
+                                                                                            "IsActive"
+                                                                                        ]
+                                                                    },
+                                                     "sources":  [
+                                                                     "ExtractWaveInteractionFile",
+                                                                     "AugmentUser"
+                                                                 ]
                                                  },
                   "ExtractRole":  {
                                       "action":  "sobjectDigest",
-                                      "parameters":  "@{fields=System.Object[]; object=UserRole}"
+                                      "parameters":  {
+                                                         "fields":  [
+                                                                        {
+                                                                            "name":  "Id"
+                                                                        },
+                                                                        {
+                                                                            "name":  "Name"
+                                                                        },
+                                                                        {
+                                                                            "name":  "ParentRoleId"
+                                                                        },
+                                                                        {
+                                                                            "name":  "RollupDescription"
+                                                                        },
+                                                                        {
+                                                                            "name":  "OpportunityAccessForAccountOwner"
+                                                                        },
+                                                                        {
+                                                                            "name":  "CaseAccessForAccountOwner"
+                                                                        },
+                                                                        {
+                                                                            "name":  "ContactAccessForAccountOwner"
+                                                                        },
+                                                                        {
+                                                                            "name":  "LastModifiedDate"
+                                                                        },
+                                                                        {
+                                                                            "name":  "LastModifiedById"
+                                                                        },
+                                                                        {
+                                                                            "name":  "SystemModstamp"
+                                                                        },
+                                                                        {
+                                                                            "name":  "DeveloperName"
+                                                                        },
+                                                                        {
+                                                                            "name":  "PortalAccountId"
+                                                                        },
+                                                                        {
+                                                                            "name":  "PortalType"
+                                                                        },
+                                                                        {
+                                                                            "name":  "PortalAccountOwnerId"
+                                                                        }
+                                                                    ],
+                                                         "object":  "UserRole"
+                                                     }
                                   },
                   "AugmentRestApiUser":  {
                                              "action":  "augment",
-                                             "parameters":  "@{leftKey=System.Object[]; relationship=User; rightKey=System.Object[]; rightSelect=System.Object[]}",
-                                             "sources":  "ExtractRestApiFile AugmentUser"
+                                             "parameters":  {
+                                                                "leftKey":  [
+                                                                                "USER_ID_DERIVED"
+                                                                            ],
+                                                                "relationship":  "User",
+                                                                "rightKey":  [
+                                                                                 "Id"
+                                                                             ],
+                                                                "rightSelect":  [
+                                                                                    "Name",
+                                                                                    "Username",
+                                                                                    "User.Role.Name",
+                                                                                    "Profile.Name",
+                                                                                    "Division",
+                                                                                    "Department",
+                                                                                    "City",
+                                                                                    "Country",
+                                                                                    "IsActive"
+                                                                                ]
+                                                            },
+                                             "sources":  [
+                                                             "ExtractRestApiFile",
+                                                             "AugmentUser"
+                                                         ]
                                          },
                   "AugmentUser":  {
                                       "action":  "augment",
-                                      "parameters":  "@{leftKey=System.Object[]; relationship=User; rightKey=System.Object[]; rightSelect=System.Object[]}",
-                                      "sources":  "AugmentProfile AugmentRole"
+                                      "parameters":  {
+                                                         "leftKey":  [
+                                                                         "Id"
+                                                                     ],
+                                                         "relationship":  "User",
+                                                         "rightKey":  [
+                                                                          "Id"
+                                                                      ],
+                                                         "rightSelect":  [
+                                                                             "Role.Name"
+                                                                         ]
+                                                     },
+                                      "sources":  [
+                                                      "AugmentProfile",
+                                                      "AugmentRole"
+                                                  ]
                                   },
                   "AugmentLightningPageViewUser":  {
                                                        "action":  "augment",
-                                                       "parameters":  "@{leftKey=System.Object[]; relationship=User; rightKey=System.Object[]; rightSelect=System.Object[]}",
-                                                       "sources":  "ExtractLightningPageViewFile AugmentUser"
+                                                       "parameters":  {
+                                                                          "leftKey":  [
+                                                                                          "USER_ID_DERIVED"
+                                                                                      ],
+                                                                          "relationship":  "User",
+                                                                          "rightKey":  [
+                                                                                           "Id"
+                                                                                       ],
+                                                                          "rightSelect":  [
+                                                                                              "Name",
+                                                                                              "Username",
+                                                                                              "User.Role.Name",
+                                                                                              "Profile.Name",
+                                                                                              "Division",
+                                                                                              "Department",
+                                                                                              "City",
+                                                                                              "Country",
+                                                                                              "IsActive"
+                                                                                          ]
+                                                                      },
+                                                       "sources":  [
+                                                                       "ExtractLightningPageViewFile",
+                                                                       "AugmentUser"
+                                                                   ]
                                                    },
                   "AugmentContentUser":  {
                                              "action":  "augment",
-                                             "parameters":  "@{leftKey=System.Object[]; relationship=User; rightKey=System.Object[]; rightSelect=System.Object[]}",
-                                             "sources":  "AugmentContentName AugmentUser"
+                                             "parameters":  {
+                                                                "leftKey":  [
+                                                                                "USER_ID_DERIVED"
+                                                                            ],
+                                                                "relationship":  "User",
+                                                                "rightKey":  [
+                                                                                 "Id"
+                                                                             ],
+                                                                "rightSelect":  [
+                                                                                    "Name",
+                                                                                    "Username",
+                                                                                    "User.Role.Name",
+                                                                                    "Profile.Name",
+                                                                                    "Division",
+                                                                                    "Department",
+                                                                                    "City",
+                                                                                    "Country",
+                                                                                    "IsActive"
+                                                                                ]
+                                                            },
+                                             "sources":  [
+                                                             "AugmentContentName",
+                                                             "AugmentUser"
+                                                         ]
                                          },
                   "RegisterLoginAs":  {
                                           "action":  "register",
-                                          "parameters":  "@{label=LoginAsWithUsers; name=LoginAsWithUsers}",
-                                          "sources":  "AugmentLoginAsUser"
+                                          "parameters":  {
+                                                             "label":  "LoginAsWithUsers",
+                                                             "name":  "LoginAsWithUsers"
+                                                         },
+                                          "sources":  [
+                                                          "AugmentLoginAsUser"
+                                                      ]
                                       }
               }
 }

@@ -14,19 +14,56 @@
     "steps":  {
                   "saql":  {
                                "broadcastFacet":  false,
-                               "groups":  "",
-                               "numbers":  "",
+                               "groups":  [
+
+                                          ],
+                               "numbers":  [
+
+                                           ],
                                "query":  "q = load \"Augmented_Appended_Petition_Investigation_Segment\";q = filter q by date(\u0027Next_Major_Deadline__c_Year\u0027, \u0027Next_Major_Deadline__c_Month\u0027, \u0027Next_Major_Deadline__c_Day\u0027) in [dateRange([1970,1,2], [9999,1,1])];q = foreach q generate \u0027ADCVD_Case_Number__c\u0027 as \u0027ADCVD_Case_Number__c\u0027, \u0027ADCVD_Case_Type__c\u0027 as \u0027ADCVD_Case_Type__c\u0027, \u0027Country__c\u0027 as \u0027Country__c\u0027, \u0027Next_Announcement_Date__c\u0027 as \u0027Next_Announcement_Date__c\u0027, \u0027Next_Due_to_DAS_Deadline__c\u0027 as \u0027Next_Due_to_DAS_Deadline__c\u0027, \u0027Next_Major_Deadline_Type\u0027 as \u0027Next_Major_Deadline_Type\u0027, \u0027Next_Major_Deadline__c\u0027 as \u0027Next_Major_Deadline__c\u0027, \u0027Next_Office_Deadline__c\u0027 as \u0027Next_Office_Deadline__c\u0027, \u0027Object_Name\u0027 as \u0027Object_Name\u0027, \u0027Period_End_Date\u0027 as \u0027Period_End_Date\u0027, \u0027Period_Start_Date\u0027 as \u0027Period_Start_Date\u0027, \u0027Product_Short_Name__c\u0027 as \u0027Product_Short_Name__c\u0027, \u0027Product__c\u0027 as \u0027Product__c\u0027, \u0027Program_Manager\u0027 as \u0027Program_Manager\u0027, \u0027Remaining_Days_to_Extend\u0027 as \u0027Remaining_Days_to_Extend\u0027, \u0027Senior_Legal\u0027 as \u0027Senior_Legal\u0027, \u0027Senior_Policy\u0027 as \u0027Senior_Policy\u0027;q = order q by \u0027Next_Major_Deadline__c\u0027 asc;q = limit q 100;",
                                "receiveFacet":  false,
                                "selectMode":  "none",
-                               "strings":  "",
+                               "strings":  [
+
+                                           ],
                                "type":  "saql",
                                "useGlobal":  true
                            }
               },
     "widgets":  {
                     "saql_table":  {
-                                       "parameters":  "@{borderColor=#e0e5ee; borderWidth=1; cell=; columnProperties=; columns=System.Object[]; customBulkActions=System.Object[]; header=; innerMajorBorderColor=#a8b7c7; innerMinorBorderColor=#e0e5ee; maxColumnWidth=300; minColumnWidth=40; mode=variable; numberOfLines=1; showActionMenu=True; step=saql; verticalPadding=8}",
+                                       "parameters":  {
+                                                          "borderColor":  "#e0e5ee",
+                                                          "borderWidth":  1,
+                                                          "cell":  {
+                                                                       "backgroundColor":  "#ffffff",
+                                                                       "fontColor":  "#16325c",
+                                                                       "fontSize":  12
+                                                                   },
+                                                          "columnProperties":  {
+
+                                                                               },
+                                                          "columns":  [
+
+                                                                      ],
+                                                          "customBulkActions":  [
+
+                                                                                ],
+                                                          "header":  {
+                                                                         "backgroundColor":  "#f4f6f9",
+                                                                         "fontColor":  "#16325c",
+                                                                         "fontSize":  12
+                                                                     },
+                                                          "innerMajorBorderColor":  "#a8b7c7",
+                                                          "innerMinorBorderColor":  "#e0e5ee",
+                                                          "maxColumnWidth":  300,
+                                                          "minColumnWidth":  40,
+                                                          "mode":  "variable",
+                                                          "numberOfLines":  1,
+                                                          "showActionMenu":  true,
+                                                          "step":  "saql",
+                                                          "verticalPadding":  8
+                                                      },
                                        "type":  "table"
                                    }
                 }

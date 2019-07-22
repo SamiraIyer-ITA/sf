@@ -14,19 +14,129 @@
     "steps":  {
                   "aggregateflex":  {
                                         "broadcastFacet":  false,
-                                        "datasets":  "",
+                                        "datasets":  [
+                                                         {
+                                                             "name":  "ADCVD_Orders_Orders_by_Country"
+                                                         }
+                                                     ],
                                         "isGlobal":  false,
-                                        "query":  "@{query={\"measures\":[[\"count\",\"*\"]]}; version=-1.0}",
+                                        "query":  {
+                                                      "query":  "{\"measures\":[[\"count\",\"*\"]]}",
+                                                      "version":  -1.0
+                                                  },
                                         "receiveFacet":  false,
                                         "selectMode":  "multi",
                                         "type":  "aggregateflex",
                                         "useGlobal":  true,
-                                        "visualizationParameters":  "@{options=; visualizationType=hbar}"
+                                        "visualizationParameters":  {
+                                                                        "options":  {
+
+                                                                                    },
+                                                                        "visualizationType":  "hbar"
+                                                                    }
                                     }
               },
     "widgets":  {
                     "aggregateflex_chart":  {
-                                                "parameters":  "@{autoFitMode=none; totalValue=computeTotal; showValues=True; bins=; legend=; axisMode=multi; tooltip=; visualizationType=hbar; exploreLink=True; title=; binValues=False; trellis=; totalLabel=; showActionMenu=True; measureAxis2=; measureAxis1=; theme=wave; step=aggregateflex; dimensionAxis=}",
+                                                "parameters":  {
+                                                                   "autoFitMode":  "none",
+                                                                   "totalValue":  "computeTotal",
+                                                                   "showValues":  true,
+                                                                   "bins":  {
+                                                                                "breakpoints":  {
+                                                                                                    "high":  100,
+                                                                                                    "low":  0
+                                                                                                },
+                                                                                "bands":  {
+                                                                                              "high":  {
+                                                                                                           "color":  "#008000",
+                                                                                                           "label":  ""
+                                                                                                       },
+                                                                                              "low":  {
+                                                                                                          "color":  "#B22222",
+                                                                                                          "label":  ""
+                                                                                                      },
+                                                                                              "medium":  {
+                                                                                                             "color":  "#ffa500",
+                                                                                                             "label":  ""
+                                                                                                         }
+                                                                                          }
+                                                                            },
+                                                                   "legend":  {
+                                                                                  "showHeader":  true,
+                                                                                  "show":  true,
+                                                                                  "customSize":  "auto",
+                                                                                  "position":  "right-top",
+                                                                                  "inside":  false
+                                                                              },
+                                                                   "axisMode":  "multi",
+                                                                   "tooltip":  {
+                                                                                   "showBinLabel":  true,
+                                                                                   "measures":  "",
+                                                                                   "showPercentage":  true,
+                                                                                   "showDimensions":  true,
+                                                                                   "showMeasures":  true,
+                                                                                   "customizeTooltip":  false,
+                                                                                   "dimensions":  ""
+                                                                               },
+                                                                   "visualizationType":  "hbar",
+                                                                   "exploreLink":  true,
+                                                                   "title":  {
+                                                                                 "fontSize":  14,
+                                                                                 "subtitleFontSize":  11,
+                                                                                 "label":  "",
+                                                                                 "align":  "center",
+                                                                                 "subtitleLabel":  ""
+                                                                             },
+                                                                   "binValues":  false,
+                                                                   "trellis":  {
+                                                                                   "flipLabels":  false,
+                                                                                   "showGridLines":  true,
+                                                                                   "size":  [
+                                                                                                100,
+                                                                                                100
+                                                                                            ],
+                                                                                   "enable":  false,
+                                                                                   "type":  "x",
+                                                                                   "chartsPerLine":  4
+                                                                               },
+                                                                   "totalLabel":  "",
+                                                                   "showActionMenu":  true,
+                                                                   "measureAxis2":  {
+                                                                                        "sqrtScale":  false,
+                                                                                        "showTitle":  true,
+                                                                                        "showAxis":  true,
+                                                                                        "title":  "",
+                                                                                        "customDomain":  {
+                                                                                                             "showDomain":  false
+                                                                                                         }
+                                                                                    },
+                                                                   "measureAxis1":  {
+                                                                                        "sqrtScale":  false,
+                                                                                        "showTitle":  true,
+                                                                                        "showAxis":  true,
+                                                                                        "title":  "",
+                                                                                        "customDomain":  {
+                                                                                                             "showDomain":  false
+                                                                                                         }
+                                                                                    },
+                                                                   "theme":  "wave",
+                                                                   "step":  "aggregateflex",
+                                                                   "dimensionAxis":  {
+                                                                                         "showTitle":  true,
+                                                                                         "customSize":  "auto",
+                                                                                         "showAxis":  true,
+                                                                                         "title":  "",
+                                                                                         "icons":  {
+                                                                                                       "useIcons":  false,
+                                                                                                       "iconProps":  {
+                                                                                                                         "fit":  "cover",
+                                                                                                                         "column":  "",
+                                                                                                                         "type":  "round"
+                                                                                                                     }
+                                                                                                   }
+                                                                                     }
+                                                               },
                                                 "type":  "chart"
                                             }
                 }

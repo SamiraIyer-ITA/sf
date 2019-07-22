@@ -9,19 +9,1115 @@
                         {
                             "name":  "Default",
                             "numColumns":  18,
-                            "pages":  "",
+                            "pages":  [
+                                          {
+                                              "name":  "468f4054-be94-4fdb-b214-230f4f2b73e4",
+                                              "navigationHidden":  false,
+                                              "widgets":  [
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  1,
+                                                                  "name":  "listselector_1",
+                                                                  "row":  1,
+                                                                  "rowspan":  4,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "rgb(224, 229, 238)",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  3,
+                                                                  "name":  "listselector_2",
+                                                                  "row":  1,
+                                                                  "rowspan":  4,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "rgb(224, 229, 238)",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  5,
+                                                                  "name":  "listselector_3",
+                                                                  "row":  1,
+                                                                  "rowspan":  4,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "rgb(224, 229, 238)",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  7,
+                                                                  "name":  "listselector_4",
+                                                                  "row":  1,
+                                                                  "rowspan":  4,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "rgb(224, 229, 238)",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  9,
+                                                                  "name":  "listselector_5",
+                                                                  "row":  1,
+                                                                  "rowspan":  4,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "rgb(224, 229, 238)",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  11,
+                                                                  "name":  "listselector_11",
+                                                                  "row":  1,
+                                                                  "rowspan":  4,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "rgb(224, 229, 238)",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  13,
+                                                                  "name":  "listselector_8",
+                                                                  "row":  1,
+                                                                  "rowspan":  4,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "rgb(224, 229, 238)",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  15,
+                                                                  "name":  "listselector_7",
+                                                                  "row":  1,
+                                                                  "rowspan":  4,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "rgb(224, 229, 238)",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  1,
+                                                                  "name":  "listselector_9",
+                                                                  "row":  6,
+                                                                  "rowspan":  4,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "rgb(224, 229, 238)",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  3,
+                                                                  "name":  "listselector_6",
+                                                                  "row":  6,
+                                                                  "rowspan":  4,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "rgb(224, 229, 238)",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  16,
+                                                                  "column":  1,
+                                                                  "name":  "container_2",
+                                                                  "row":  0,
+                                                                  "rowspan":  11,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "rgb(224, 229, 238)",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  16,
+                                                                  "column":  1,
+                                                                  "name":  "text_2",
+                                                                  "row":  13,
+                                                                  "rowspan":  5,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "rgb(6, 28, 63)",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  1,
+                                                                  "name":  "number_6",
+                                                                  "row":  18,
+                                                                  "rowspan":  9,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "rgb(20, 41, 94)",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  3,
+                                                                  "name":  "number_5",
+                                                                  "row":  18,
+                                                                  "rowspan":  9,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "rgb(20, 41, 94)",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  5,
+                                                                  "name":  "number_4",
+                                                                  "row":  18,
+                                                                  "rowspan":  9,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "rgb(20, 41, 94)",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  7,
+                                                                  "name":  "number_1",
+                                                                  "row":  18,
+                                                                  "rowspan":  9,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "rgb(20, 41, 94)",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  9,
+                                                                  "name":  "number_2",
+                                                                  "row":  18,
+                                                                  "rowspan":  9,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "rgb(20, 41, 94)",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  11,
+                                                                  "name":  "number_3",
+                                                                  "row":  18,
+                                                                  "rowspan":  9,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "rgb(20, 41, 94)",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  16,
+                                                                  "column":  1,
+                                                                  "name":  "container_3",
+                                                                  "row":  18,
+                                                                  "rowspan":  10,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "rgb(20, 41, 94)",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  16,
+                                                                  "column":  1,
+                                                                  "name":  "text_3",
+                                                                  "row":  31,
+                                                                  "rowspan":  3,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "#FFFFFF",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+                                                                                                          "bottom"
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  16,
+                                                                  "column":  1,
+                                                                  "name":  "chart_1",
+                                                                  "row":  35,
+                                                                  "rowspan":  16,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  16,
+                                                                  "column":  1,
+                                                                  "name":  "container_4",
+                                                                  "row":  30,
+                                                                  "rowspan":  22,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "#FFFFFF",
+                                                                                      "borderColor":  "#2EC2BA",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  7,
+                                                                  "column":  1,
+                                                                  "name":  "text_4",
+                                                                  "row":  55,
+                                                                  "rowspan":  3,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "#FFFFFF",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+                                                                                                          "bottom"
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  8,
+                                                                  "column":  1,
+                                                                  "name":  "chart_9",
+                                                                  "row":  59,
+                                                                  "rowspan":  15,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  8,
+                                                                  "column":  1,
+                                                                  "name":  "container_5",
+                                                                  "row":  54,
+                                                                  "rowspan":  21,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "#FFFFFF",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+                                                                                                          "bottom"
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  7,
+                                                                  "column":  9,
+                                                                  "name":  "text_5",
+                                                                  "row":  55,
+                                                                  "rowspan":  3,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "#FFFFFF",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+                                                                                                          "bottom"
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  8,
+                                                                  "column":  9,
+                                                                  "name":  "chart_4",
+                                                                  "row":  59,
+                                                                  "rowspan":  15,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  8,
+                                                                  "column":  9,
+                                                                  "name":  "container_6",
+                                                                  "row":  54,
+                                                                  "rowspan":  21,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "#FFFFFF",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+                                                                                                          "bottom"
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  7,
+                                                                  "column":  1,
+                                                                  "name":  "text_6",
+                                                                  "row":  78,
+                                                                  "rowspan":  3,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "#FFFFFF",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+                                                                                                          "bottom"
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  8,
+                                                                  "column":  1,
+                                                                  "name":  "chart_2",
+                                                                  "row":  82,
+                                                                  "rowspan":  16,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  8,
+                                                                  "column":  1,
+                                                                  "name":  "container_7",
+                                                                  "row":  77,
+                                                                  "rowspan":  22,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  7,
+                                                                  "column":  9,
+                                                                  "name":  "text_7",
+                                                                  "row":  78,
+                                                                  "rowspan":  3,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "#FFFFFF",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+                                                                                                          "bottom"
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  8,
+                                                                  "column":  9,
+                                                                  "name":  "chart_6",
+                                                                  "row":  82,
+                                                                  "rowspan":  16,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  8,
+                                                                  "column":  9,
+                                                                  "name":  "container_8",
+                                                                  "row":  77,
+                                                                  "rowspan":  22,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  16,
+                                                                  "column":  1,
+                                                                  "name":  "text_8",
+                                                                  "row":  102,
+                                                                  "rowspan":  3,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  16,
+                                                                  "column":  1,
+                                                                  "name":  "table_1",
+                                                                  "row":  106,
+                                                                  "rowspan":  19,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  16,
+                                                                  "column":  1,
+                                                                  "name":  "container_9",
+                                                                  "row":  101,
+                                                                  "rowspan":  25,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              }
+                                                          ]
+                                          }
+                                      ],
                             "rowHeight":  "fine",
-                            "selectors":  "",
-                            "style":  "@{alignmentX=left; alignmentY=top; backgroundColor=rgb(234, 238, 244); cellSpacingX=16; cellSpacingY=0; fit=original; gutterColor=#C5D3E0}",
+                            "selectors":  [
+
+                                          ],
+                            "style":  {
+                                          "alignmentX":  "left",
+                                          "alignmentY":  "top",
+                                          "backgroundColor":  "rgb(234, 238, 244)",
+                                          "cellSpacingX":  16,
+                                          "cellSpacingY":  0,
+                                          "fit":  "original",
+                                          "gutterColor":  "#C5D3E0"
+                                      },
                             "version":  1.0
                         },
                         {
                             "name":  "Mobile",
                             "numColumns":  4,
-                            "pages":  "",
+                            "pages":  [
+                                          {
+                                              "name":  "468f4054-be94-4fdb-b214-230f4f2b73e4",
+                                              "navigationHidden":  false,
+                                              "widgets":  [
+                                                              {
+                                                                  "colspan":  4,
+                                                                  "column":  0,
+                                                                  "name":  "text_1",
+                                                                  "row":  0,
+                                                                  "rowspan":  6,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "#FFFFFF",
+                                                                                      "borderColor":  "#44A2F5",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  4,
+                                                                  "column":  0,
+                                                                  "name":  "container_1",
+                                                                  "row":  0,
+                                                                  "rowspan":  6,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  0,
+                                                                  "name":  "listselector_1",
+                                                                  "row":  7,
+                                                                  "rowspan":  3,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  2,
+                                                                  "name":  "listselector_2",
+                                                                  "row":  7,
+                                                                  "rowspan":  3,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  0,
+                                                                  "name":  "listselector_3",
+                                                                  "row":  10,
+                                                                  "rowspan":  3,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  2,
+                                                                  "name":  "listselector_4",
+                                                                  "row":  10,
+                                                                  "rowspan":  3,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  0,
+                                                                  "name":  "listselector_5",
+                                                                  "row":  13,
+                                                                  "rowspan":  3,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  2,
+                                                                  "name":  "listselector_11",
+                                                                  "row":  13,
+                                                                  "rowspan":  3,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  0,
+                                                                  "name":  "listselector_8",
+                                                                  "row":  16,
+                                                                  "rowspan":  3,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  2,
+                                                                  "name":  "listselector_7",
+                                                                  "row":  16,
+                                                                  "rowspan":  3,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  0,
+                                                                  "name":  "listselector_9",
+                                                                  "row":  19,
+                                                                  "rowspan":  3,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  2,
+                                                                  "name":  "listselector_6",
+                                                                  "row":  19,
+                                                                  "rowspan":  3,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  4,
+                                                                  "column":  0,
+                                                                  "name":  "container_2",
+                                                                  "row":  6,
+                                                                  "rowspan":  17,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "rgb(224, 229, 238)",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  4,
+                                                                  "column":  0,
+                                                                  "name":  "text_2",
+                                                                  "row":  23,
+                                                                  "rowspan":  9,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "rgb(6, 28, 63)",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  0,
+                                                                  "name":  "number_6",
+                                                                  "row":  32,
+                                                                  "rowspan":  9,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "rgb(20, 41, 94)",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  2,
+                                                                  "name":  "number_5",
+                                                                  "row":  32,
+                                                                  "rowspan":  9,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "rgb(20, 41, 94)",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  0,
+                                                                  "name":  "number_4",
+                                                                  "row":  42,
+                                                                  "rowspan":  9,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "rgb(20, 41, 94)",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  2,
+                                                                  "name":  "number_1",
+                                                                  "row":  42,
+                                                                  "rowspan":  9,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "rgb(20, 41, 94)",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  0,
+                                                                  "name":  "number_2",
+                                                                  "row":  52,
+                                                                  "rowspan":  9,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "rgb(20, 41, 94)",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  2,
+                                                                  "column":  2,
+                                                                  "name":  "number_3",
+                                                                  "row":  52,
+                                                                  "rowspan":  9,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "rgb(20, 41, 94)",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  4,
+                                                                  "column":  0,
+                                                                  "name":  "container_3",
+                                                                  "row":  23,
+                                                                  "rowspan":  38,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "rgb(20, 41, 94)",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  4,
+                                                                  "column":  0,
+                                                                  "name":  "text_3",
+                                                                  "row":  61,
+                                                                  "rowspan":  3,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "#FFFFFF",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+                                                                                                          "bottom"
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  4,
+                                                                  "column":  0,
+                                                                  "name":  "chart_1",
+                                                                  "row":  64,
+                                                                  "rowspan":  15,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  4,
+                                                                  "column":  0,
+                                                                  "name":  "container_4",
+                                                                  "row":  61,
+                                                                  "rowspan":  18,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "#FFFFFF",
+                                                                                      "borderColor":  "#2EC2BA",
+                                                                                      "borderEdges":  [
+
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  4,
+                                                                  "column":  0,
+                                                                  "name":  "text_4",
+                                                                  "row":  81,
+                                                                  "rowspan":  3,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "#FFFFFF",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+                                                                                                          "bottom"
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  4,
+                                                                  "column":  0,
+                                                                  "name":  "chart_9",
+                                                                  "row":  84,
+                                                                  "rowspan":  20,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  4,
+                                                                  "column":  0,
+                                                                  "name":  "container_5",
+                                                                  "row":  81,
+                                                                  "rowspan":  25,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "#FFFFFF",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+                                                                                                          "bottom"
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  4,
+                                                                  "column":  0,
+                                                                  "name":  "text_5",
+                                                                  "row":  108,
+                                                                  "rowspan":  3,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "#FFFFFF",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+                                                                                                          "bottom"
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  4,
+                                                                  "column":  0,
+                                                                  "name":  "chart_4",
+                                                                  "row":  111,
+                                                                  "rowspan":  15,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  4,
+                                                                  "column":  0,
+                                                                  "name":  "container_6",
+                                                                  "row":  108,
+                                                                  "rowspan":  18,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "#FFFFFF",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+                                                                                                          "bottom"
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  4,
+                                                                  "column":  0,
+                                                                  "name":  "text_6",
+                                                                  "row":  128,
+                                                                  "rowspan":  3,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "#FFFFFF",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+                                                                                                          "bottom"
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  4,
+                                                                  "column":  0,
+                                                                  "name":  "chart_2",
+                                                                  "row":  131,
+                                                                  "rowspan":  15,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  4,
+                                                                  "column":  0,
+                                                                  "name":  "container_7",
+                                                                  "row":  128,
+                                                                  "rowspan":  18,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  4,
+                                                                  "column":  0,
+                                                                  "name":  "text_7",
+                                                                  "row":  148,
+                                                                  "rowspan":  3,
+                                                                  "widgetStyle":  {
+                                                                                      "backgroundColor":  "#FFFFFF",
+                                                                                      "borderColor":  "#E6ECF2",
+                                                                                      "borderEdges":  [
+                                                                                                          "bottom"
+                                                                                                      ],
+                                                                                      "borderRadius":  0,
+                                                                                      "borderWidth":  1
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  4,
+                                                                  "column":  0,
+                                                                  "name":  "chart_6",
+                                                                  "row":  151,
+                                                                  "rowspan":  16,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  4,
+                                                                  "column":  0,
+                                                                  "name":  "container_8",
+                                                                  "row":  148,
+                                                                  "rowspan":  20,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  4,
+                                                                  "column":  0,
+                                                                  "name":  "text_8",
+                                                                  "row":  170,
+                                                                  "rowspan":  3,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  4,
+                                                                  "column":  0,
+                                                                  "name":  "table_1",
+                                                                  "row":  173,
+                                                                  "rowspan":  15,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              },
+                                                              {
+                                                                  "colspan":  4,
+                                                                  "column":  0,
+                                                                  "name":  "container_9",
+                                                                  "row":  170,
+                                                                  "rowspan":  18,
+                                                                  "widgetStyle":  {
+                                                                                      "borderEdges":  [
+
+                                                                                                      ]
+                                                                                  }
+                                                              }
+                                                          ]
+                                          }
+                                      ],
                             "rowHeight":  "fine",
-                            "selectors":  "maxWidth(599)",
-                            "style":  "@{alignmentX=left; alignmentY=top; backgroundColor=#F2F6FA; cellSpacingX=8; cellSpacingY=0; fit=original; gutterColor=#C5D3E0}",
+                            "selectors":  [
+                                              "maxWidth(599)"
+                                          ],
+                            "style":  {
+                                          "alignmentX":  "left",
+                                          "alignmentY":  "top",
+                                          "backgroundColor":  "#F2F6FA",
+                                          "cellSpacingX":  8,
+                                          "cellSpacingY":  0,
+                                          "fit":  "original",
+                                          "gutterColor":  "#C5D3E0"
+                                      },
                             "version":  1.0
                         }
                     ],
@@ -31,264 +1127,516 @@
     "steps":  {
                   "ClientNames_1":  {
                                         "broadcastFacet":  true,
-                                        "datasets":  "",
+                                        "datasets":  [
+                                                         {
+                                                             "name":  "APIWithUsers"
+                                                         }
+                                                     ],
                                         "isGlobal":  false,
                                         "label":  "ClientNames",
-                                        "query":  "@{query={\"measures\":[[\"count\",\"*\"]],\"groups\":[\"CLIENT_NAME\"],\"order\":[[-1,{\"ascending\":false}]]}; version=-1.0}",
+                                        "query":  {
+                                                      "query":  "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"CLIENT_NAME\"],\"order\":[[-1,{\"ascending\":false}]]}",
+                                                      "version":  -1.0
+                                                  },
                                         "receiveFacet":  true,
                                         "selectMode":  "single",
                                         "type":  "aggregateflex",
                                         "useGlobal":  true,
-                                        "visualizationParameters":  "@{options=; visualizationType=pie}"
+                                        "visualizationParameters":  {
+                                                                        "options":  {
+
+                                                                                    },
+                                                                        "visualizationType":  "pie"
+                                                                    }
                                     },
                   "Roles_1":  {
                                   "broadcastFacet":  true,
-                                  "datasets":  "",
+                                  "datasets":  [
+                                                   {
+                                                       "name":  "APIWithUsers"
+                                                   }
+                                               ],
                                   "isGlobal":  false,
                                   "label":  "Roles",
-                                  "query":  "@{query={\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.User.Role.Name\"],\"order\":[[-1,{\"ascending\":false}]]}; version=-1.0}",
+                                  "query":  {
+                                                "query":  "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.User.Role.Name\"],\"order\":[[-1,{\"ascending\":false}]]}",
+                                                "version":  -1.0
+                                            },
                                   "receiveFacet":  true,
                                   "selectMode":  "single",
                                   "type":  "aggregateflex",
                                   "useGlobal":  true,
-                                  "visualizationParameters":  "@{options=; visualizationType=hbar}"
+                                  "visualizationParameters":  {
+                                                                  "options":  {
+
+                                                                              },
+                                                                  "visualizationType":  "hbar"
+                                                              }
                               },
                   "Profiles_1":  {
                                      "broadcastFacet":  true,
-                                     "datasets":  "",
+                                     "datasets":  [
+                                                      {
+                                                          "name":  "APIWithUsers"
+                                                      }
+                                                  ],
                                      "isGlobal":  false,
                                      "label":  "Profiles",
-                                     "query":  "@{query={\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.Profile.Name\"],\"order\":[[-1,{\"ascending\":false}]]}; version=-1.0}",
+                                     "query":  {
+                                                   "query":  "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.Profile.Name\"],\"order\":[[-1,{\"ascending\":false}]]}",
+                                                   "version":  -1.0
+                                               },
                                      "receiveFacet":  true,
                                      "selectMode":  "single",
                                      "type":  "aggregateflex",
                                      "useGlobal":  true,
-                                     "visualizationParameters":  "@{options=; visualizationType=hbar}"
+                                     "visualizationParameters":  {
+                                                                     "options":  {
+
+                                                                                 },
+                                                                     "visualizationType":  "hbar"
+                                                                 }
                                  },
                   "MaxAPT_1":  {
                                    "broadcastFacet":  true,
-                                   "datasets":  "",
+                                   "datasets":  [
+                                                    {
+                                                        "name":  "APIWithUsers"
+                                                    }
+                                                ],
                                    "isGlobal":  false,
                                    "label":  "MaxAPT",
-                                   "query":  "@{query={\"measures\":[[\"max\",\"RUN_TIME\"]],\"pigql\":\"a = load \\\"APIWithUsers\\\"; a = group a by all; a = foreach a generate (max(\u0027RUN_TIME\u0027)*0.001) as \u0027max\u0027;b = group a by all;b = foreach b generate max(\u0027max\u0027) as \u0027max_RUN_TIME\u0027;\"}; version=-1.0}",
+                                   "query":  {
+                                                 "query":  "{\"measures\":[[\"max\",\"RUN_TIME\"]],\"pigql\":\"a = load \\\"APIWithUsers\\\"; a = group a by all; a = foreach a generate (max(\u0027RUN_TIME\u0027)*0.001) as \u0027max\u0027;b = group a by all;b = foreach b generate max(\u0027max\u0027) as \u0027max_RUN_TIME\u0027;\"}",
+                                                 "version":  -1.0
+                                             },
                                    "receiveFacet":  false,
                                    "selectMode":  "single",
                                    "type":  "aggregateflex",
                                    "useGlobal":  true,
-                                   "visualizationParameters":  ""
+                                   "visualizationParameters":  {
+
+                                                               }
                                },
                   "Methods_1":  {
                                     "broadcastFacet":  true,
-                                    "datasets":  "",
+                                    "datasets":  [
+                                                     {
+                                                         "name":  "APIWithUsers"
+                                                     }
+                                                 ],
                                     "isGlobal":  false,
                                     "label":  "Methods",
-                                    "query":  "@{query={\"measures\":[[\"count\",\"*\"]],\"groups\":[\"METHOD_NAME\"],\"order\":[[-1,{\"ascending\":false}]]}; version=-1.0}",
+                                    "query":  {
+                                                  "query":  "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"METHOD_NAME\"],\"order\":[[-1,{\"ascending\":false}]]}",
+                                                  "version":  -1.0
+                                              },
                                     "receiveFacet":  true,
                                     "selectMode":  "single",
                                     "type":  "aggregateflex",
                                     "useGlobal":  true,
-                                    "visualizationParameters":  "@{options=; visualizationType=hbar}"
+                                    "visualizationParameters":  {
+                                                                    "options":  {
+
+                                                                                },
+                                                                    "visualizationType":  "hbar"
+                                                                }
                                 },
                   "RawLogData_1":  {
-                                       "datasets":  "",
+                                       "datasets":  [
+                                                        {
+                                                            "name":  "APIWithUsers"
+                                                        }
+                                                    ],
                                        "isFacet":  true,
                                        "isGlobal":  false,
                                        "label":  "RawLogData",
-                                       "query":  "@{query={\"values\":[\"TIMESTAMP_DERIVED\",\"User.Name\",\"User.Profile.Name\",\"CLIENT_IP\",\"CLIENT_NAME\",\"ENTITY_NAME\",\"METHOD_NAME\",\"ROWS_PROCESSED\",\"RUN_TIME\",\"CPU_TIME\",\"DB_TOTAL_TIME\",\"REQUEST_STATUS\",\"API_TYPE\",\"API_VERSION\"]}; version=-1.0}",
+                                       "query":  {
+                                                     "query":  "{\"values\":[\"TIMESTAMP_DERIVED\",\"User.Name\",\"User.Profile.Name\",\"CLIENT_IP\",\"CLIENT_NAME\",\"ENTITY_NAME\",\"METHOD_NAME\",\"ROWS_PROCESSED\",\"RUN_TIME\",\"CPU_TIME\",\"DB_TOTAL_TIME\",\"REQUEST_STATUS\",\"API_TYPE\",\"API_VERSION\"]}",
+                                                     "version":  -1.0
+                                                 },
                                        "type":  "grain",
                                        "useGlobal":  true,
-                                       "visualizationParameters":  "@{options=; visualizationType=valuestable}"
+                                       "visualizationParameters":  {
+                                                                       "options":  {
+
+                                                                                   },
+                                                                       "visualizationType":  "valuestable"
+                                                                   }
                                    },
                   "Clients_3":  {
                                     "broadcastFacet":  true,
-                                    "datasets":  "",
+                                    "datasets":  [
+                                                     {
+                                                         "name":  "APIWithUsers"
+                                                     }
+                                                 ],
                                     "isGlobal":  false,
                                     "label":  "Clients",
-                                    "query":  "@{query={\"measures\":[[\"count\",\"*\"]],\"groups\":[\"CLIENT_NAME\"],\"order\":[[-1,{\"ascending\":false}]]}; version=-1.0}",
+                                    "query":  {
+                                                  "query":  "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"CLIENT_NAME\"],\"order\":[[-1,{\"ascending\":false}]]}",
+                                                  "version":  -1.0
+                                              },
                                     "receiveFacet":  true,
                                     "selectMode":  "single",
                                     "type":  "aggregateflex",
                                     "useGlobal":  true,
-                                    "visualizationParameters":  "@{options=; visualizationType=hbar}"
+                                    "visualizationParameters":  {
+                                                                    "options":  {
+
+                                                                                },
+                                                                    "visualizationType":  "hbar"
+                                                                }
                                 },
                   "Users_1":  {
                                   "broadcastFacet":  true,
-                                  "datasets":  "",
+                                  "datasets":  [
+                                                   {
+                                                       "name":  "APIWithUsers"
+                                                   }
+                                               ],
                                   "isGlobal":  false,
                                   "label":  "Users",
-                                  "query":  "@{query={\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.Name\"],\"order\":[[-1,{\"ascending\":false}]]}; version=-1.0}",
+                                  "query":  {
+                                                "query":  "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.Name\"],\"order\":[[-1,{\"ascending\":false}]]}",
+                                                "version":  -1.0
+                                            },
                                   "receiveFacet":  true,
                                   "selectMode":  "single",
                                   "type":  "aggregateflex",
                                   "useGlobal":  true,
-                                  "visualizationParameters":  "@{options=; visualizationType=hbar}"
+                                  "visualizationParameters":  {
+                                                                  "options":  {
+
+                                                                              },
+                                                                  "visualizationType":  "hbar"
+                                                              }
                               },
                   "MaxRowsProcessed_1":  {
                                              "broadcastFacet":  true,
-                                             "datasets":  "",
+                                             "datasets":  [
+                                                              {
+                                                                  "name":  "APIWithUsers"
+                                                              }
+                                                          ],
                                              "isGlobal":  false,
                                              "label":  "MaxRowsProcessed",
-                                             "query":  "@{query={\"measures\":[[\"max\",\"ROWS_PROCESSED\"]]}; version=-1.0}",
+                                             "query":  {
+                                                           "query":  "{\"measures\":[[\"max\",\"ROWS_PROCESSED\"]]}",
+                                                           "version":  -1.0
+                                                       },
                                              "receiveFacet":  true,
                                              "selectMode":  "single",
                                              "type":  "aggregateflex",
                                              "useGlobal":  true,
-                                             "visualizationParameters":  "@{options=; visualizationType=hbar}"
+                                             "visualizationParameters":  {
+                                                                             "options":  {
+
+                                                                                         },
+                                                                             "visualizationType":  "hbar"
+                                                                         }
                                          },
                   "APITrends_1":  {
                                       "broadcastFacet":  true,
-                                      "datasets":  "",
+                                      "datasets":  [
+                                                       {
+                                                           "name":  "APIWithUsers"
+                                                       }
+                                                   ],
                                       "isGlobal":  false,
                                       "label":  "APITrends",
-                                      "query":  "@{query={\"measures\":[[\"count\",\"*\"]],\"groups\":[[\"TIMESTAMP_DERIVED_Year\",\"TIMESTAMP_DERIVED_Month\",\"TIMESTAMP_DERIVED_Day\"],\"ENTITY_NAME\"]}; version=-1.0}",
+                                      "query":  {
+                                                    "query":  "{\"measures\":[[\"count\",\"*\"]],\"groups\":[[\"TIMESTAMP_DERIVED_Year\",\"TIMESTAMP_DERIVED_Month\",\"TIMESTAMP_DERIVED_Day\"],\"ENTITY_NAME\"]}",
+                                                    "version":  -1.0
+                                                },
                                       "receiveFacet":  true,
                                       "selectMode":  "single",
                                       "type":  "aggregateflex",
                                       "useGlobal":  true,
-                                      "visualizationParameters":  "@{options=; visualizationType=time}"
+                                      "visualizationParameters":  {
+                                                                      "options":  {
+
+                                                                                  },
+                                                                      "visualizationType":  "time"
+                                                                  }
                                   },
                   "MaxCPUTime_1":  {
                                        "broadcastFacet":  true,
-                                       "datasets":  "",
+                                       "datasets":  [
+                                                        {
+                                                            "name":  "APIWithUsers"
+                                                        }
+                                                    ],
                                        "isGlobal":  false,
                                        "label":  "MaxCPUTime",
-                                       "query":  "@{query={\"measures\":[[\"max\",\"CPU_TIME\"]],\"pigql\":\"a = load \\\"APIWithUsers\\\"; a = group a by all; a = foreach a generate (max(\u0027CPU_TIME\u0027)*0.001) as \u0027max\u0027;b = group a by all;b = foreach b generate max(\u0027max\u0027) as \u0027max_CPU_TIME\u0027;\"}; version=-1.0}",
+                                       "query":  {
+                                                     "query":  "{\"measures\":[[\"max\",\"CPU_TIME\"]],\"pigql\":\"a = load \\\"APIWithUsers\\\"; a = group a by all; a = foreach a generate (max(\u0027CPU_TIME\u0027)*0.001) as \u0027max\u0027;b = group a by all;b = foreach b generate max(\u0027max\u0027) as \u0027max_CPU_TIME\u0027;\"}",
+                                                     "version":  -1.0
+                                                 },
                                        "receiveFacet":  false,
                                        "selectMode":  "single",
                                        "type":  "aggregateflex",
                                        "useGlobal":  true,
-                                       "visualizationParameters":  ""
+                                       "visualizationParameters":  {
+
+                                                                   }
                                    },
                   "Objects_1":  {
                                     "broadcastFacet":  true,
-                                    "datasets":  "",
+                                    "datasets":  [
+                                                     {
+                                                         "name":  "APIWithUsers"
+                                                     }
+                                                 ],
                                     "isGlobal":  false,
                                     "label":  "Objects",
-                                    "query":  "@{query={\"measures\":[[\"count\",\"*\"]],\"groups\":[\"ENTITY_NAME\"],\"order\":[[-1,{\"ascending\":false}]]}; version=-1.0}",
+                                    "query":  {
+                                                  "query":  "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"ENTITY_NAME\"],\"order\":[[-1,{\"ascending\":false}]]}",
+                                                  "version":  -1.0
+                                              },
                                     "receiveFacet":  true,
                                     "selectMode":  "single",
                                     "type":  "aggregateflex",
                                     "useGlobal":  true,
-                                    "visualizationParameters":  "@{options=; visualizationType=hbar}"
+                                    "visualizationParameters":  {
+                                                                    "options":  {
+
+                                                                                },
+                                                                    "visualizationType":  "hbar"
+                                                                }
                                 },
                   "MaxDBTime_1":  {
                                       "broadcastFacet":  true,
-                                      "datasets":  "",
+                                      "datasets":  [
+                                                       {
+                                                           "name":  "APIWithUsers"
+                                                       }
+                                                   ],
                                       "isGlobal":  false,
                                       "label":  "MaxDBTime",
-                                      "query":  "@{query={\"measures\":[[\"max\",\"DB_TOTAL_TIME\"]],\"pigql\":\"a = load \\\"APIWithUsers\\\"; a = group a by all; a = foreach a generate (max(\u0027DB_TOTAL_TIME\u0027)*0.000000001) as \u0027max\u0027;b = group a by all;b = foreach b generate max(\u0027max\u0027) as \u0027max_DB_TOTAL_TIME\u0027;\"}; version=-1.0}",
+                                      "query":  {
+                                                    "query":  "{\"measures\":[[\"max\",\"DB_TOTAL_TIME\"]],\"pigql\":\"a = load \\\"APIWithUsers\\\"; a = group a by all; a = foreach a generate (max(\u0027DB_TOTAL_TIME\u0027)*0.000000001) as \u0027max\u0027;b = group a by all;b = foreach b generate max(\u0027max\u0027) as \u0027max_DB_TOTAL_TIME\u0027;\"}",
+                                                    "version":  -1.0
+                                                },
                                       "receiveFacet":  false,
                                       "selectMode":  "single",
                                       "type":  "aggregateflex",
                                       "useGlobal":  true,
-                                      "visualizationParameters":  ""
+                                      "visualizationParameters":  {
+
+                                                                  }
                                   },
                   "Status_1":  {
                                    "broadcastFacet":  true,
-                                   "datasets":  "",
+                                   "datasets":  [
+                                                    {
+                                                        "name":  "APIWithUsers"
+                                                    }
+                                                ],
                                    "isGlobal":  false,
                                    "label":  "Status",
-                                   "query":  "@{query={\"measures\":[[\"count\",\"*\"]],\"groups\":[\"REQUEST_STATUS\"]}; version=-1.0}",
+                                   "query":  {
+                                                 "query":  "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"REQUEST_STATUS\"]}",
+                                                 "version":  -1.0
+                                             },
                                    "receiveFacet":  true,
                                    "selectMode":  "single",
                                    "type":  "aggregateflex",
                                    "useGlobal":  true,
-                                   "visualizationParameters":  "@{options=; visualizationType=hbar}"
+                                   "visualizationParameters":  {
+                                                                   "options":  {
+
+                                                                               },
+                                                                   "visualizationType":  "hbar"
+                                                               }
                                },
                   "TotalTransactions_1":  {
                                               "broadcastFacet":  true,
-                                              "datasets":  "",
+                                              "datasets":  [
+                                                               {
+                                                                   "name":  "APIWithUsers"
+                                                               }
+                                                           ],
                                               "isGlobal":  false,
                                               "label":  "TotalTransactions",
-                                              "query":  "@{query={\"measures\":[[\"count\",\"*\"]]}; version=-1.0}",
+                                              "query":  {
+                                                            "query":  "{\"measures\":[[\"count\",\"*\"]]}",
+                                                            "version":  -1.0
+                                                        },
                                               "receiveFacet":  true,
                                               "selectMode":  "single",
                                               "type":  "aggregateflex",
                                               "useGlobal":  true,
-                                              "visualizationParameters":  "@{options=; visualizationType=hbar}"
+                                              "visualizationParameters":  {
+                                                                              "options":  {
+
+                                                                                          },
+                                                                              "visualizationType":  "hbar"
+                                                                          }
                                           },
                   "APIPerformance_2":  {
                                            "broadcastFacet":  true,
-                                           "datasets":  "",
+                                           "datasets":  [
+                                                            {
+                                                                "name":  "APIWithUsers"
+                                                            }
+                                                        ],
                                            "isGlobal":  false,
                                            "label":  "APIPerformance",
-                                           "query":  "@{query={\"measures\":[[\"max\",\"CPU_TIME\"],[\"max\",\"DB_TOTAL_TIME\"],[\"max\",\"ROWS_PROCESSED\"]],\"groups\":[\"ENTITY_NAME\"]}; version=-1.0}",
+                                           "query":  {
+                                                         "query":  "{\"measures\":[[\"max\",\"CPU_TIME\"],[\"max\",\"DB_TOTAL_TIME\"],[\"max\",\"ROWS_PROCESSED\"]],\"groups\":[\"ENTITY_NAME\"]}",
+                                                         "version":  -1.0
+                                                     },
                                            "receiveFacet":  true,
                                            "selectMode":  "single",
                                            "type":  "aggregateflex",
                                            "useGlobal":  true,
-                                           "visualizationParameters":  "@{options=; visualizationType=scatter}"
+                                           "visualizationParameters":  {
+                                                                           "options":  {
+                                                                                           "sqrt":  true
+                                                                                       },
+                                                                           "visualizationType":  "scatter"
+                                                                       }
                                        },
                   "IPs_1":  {
                                 "broadcastFacet":  true,
-                                "datasets":  "",
+                                "datasets":  [
+                                                 {
+                                                     "name":  "APIWithUsers"
+                                                 }
+                                             ],
                                 "isGlobal":  false,
                                 "label":  "IPs",
-                                "query":  "@{query={\"measures\":[[\"count\",\"*\"]],\"groups\":[\"CLIENT_IP\"],\"order\":[[-1,{\"ascending\":false}]]}; version=-1.0}",
+                                "query":  {
+                                              "query":  "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"CLIENT_IP\"],\"order\":[[-1,{\"ascending\":false}]]}",
+                                              "version":  -1.0
+                                          },
                                 "receiveFacet":  true,
                                 "selectMode":  "single",
                                 "type":  "aggregateflex",
                                 "useGlobal":  true,
-                                "visualizationParameters":  "@{options=; visualizationType=hbar}"
+                                "visualizationParameters":  {
+                                                                "options":  {
+
+                                                                            },
+                                                                "visualizationType":  "hbar"
+                                                            }
                             },
                   "UpgradeAPI_1":  {
                                        "broadcastFacet":  true,
-                                       "datasets":  "",
+                                       "datasets":  [
+                                                        {
+                                                            "name":  "APIWithUsers"
+                                                        }
+                                                    ],
                                        "isGlobal":  false,
                                        "label":  "UpgradeAPI",
-                                       "query":  "@{query={\"measures\":[[\"count\",\"*\",\"count\"],[\"count\",\"*\",\"max_ROWS_PROCESSED\"],[\"count\",\"*\",\"unique_USER_NAME\"]],\"measuresMap\":{},\"pigql\":\"q = load \\\"APIWithUsers\\\"; q = group q by \u0027API_VERSION\u0027; q = foreach q generate \u0027API_VERSION\u0027 as \u0027API_VERSION\u0027, count() as \u0027count\u0027, max(\u0027ROWS_PROCESSED\u0027) as \u0027max_ROWS_PROCESSED\u0027, unique(\u0027User.Name\u0027) as \u0027unique_USER_NAME\u0027; q = order q by \u0027API_VERSION\u0027 asc;\",\"groups\":[\"API_VERSION\"]}; version=-1.0}",
+                                       "query":  {
+                                                     "query":  "{\"measures\":[[\"count\",\"*\",\"count\"],[\"count\",\"*\",\"max_ROWS_PROCESSED\"],[\"count\",\"*\",\"unique_USER_NAME\"]],\"measuresMap\":{},\"pigql\":\"q = load \\\"APIWithUsers\\\"; q = group q by \u0027API_VERSION\u0027; q = foreach q generate \u0027API_VERSION\u0027 as \u0027API_VERSION\u0027, count() as \u0027count\u0027, max(\u0027ROWS_PROCESSED\u0027) as \u0027max_ROWS_PROCESSED\u0027, unique(\u0027User.Name\u0027) as \u0027unique_USER_NAME\u0027; q = order q by \u0027API_VERSION\u0027 asc;\",\"groups\":[\"API_VERSION\"]}",
+                                                     "version":  -1.0
+                                                 },
                                        "receiveFacet":  false,
                                        "selectMode":  "single",
                                        "type":  "aggregateflex",
                                        "useGlobal":  true,
-                                       "visualizationParameters":  ""
+                                       "visualizationParameters":  {
+
+                                                                   }
                                    },
                   "Dates_1":  {
                                   "broadcastFacet":  true,
-                                  "datasets":  "",
+                                  "datasets":  [
+                                                   {
+                                                       "name":  "APIWithUsers"
+                                                   }
+                                               ],
                                   "isGlobal":  false,
                                   "label":  "Dates",
-                                  "query":  "@{query={\"measures\":[[\"count\",\"*\"]],\"groups\":[[\"TIMESTAMP_DERIVED_Year\",\"TIMESTAMP_DERIVED_Month\",\"TIMESTAMP_DERIVED_Day\"]]}; version=-1.0}",
+                                  "query":  {
+                                                "query":  "{\"measures\":[[\"count\",\"*\"]],\"groups\":[[\"TIMESTAMP_DERIVED_Year\",\"TIMESTAMP_DERIVED_Month\",\"TIMESTAMP_DERIVED_Day\"]]}",
+                                                "version":  -1.0
+                                            },
                                   "receiveFacet":  true,
                                   "selectMode":  "single",
                                   "type":  "aggregateflex",
                                   "useGlobal":  true,
-                                  "visualizationParameters":  "@{options=; visualizationType=hbar}"
+                                  "visualizationParameters":  {
+                                                                  "options":  {
+
+                                                                              },
+                                                                  "visualizationType":  "hbar"
+                                                              }
                               },
                   "MethodsByObject_1":  {
                                             "broadcastFacet":  true,
-                                            "datasets":  "",
+                                            "datasets":  [
+                                                             {
+                                                                 "name":  "APIWithUsers"
+                                                             }
+                                                         ],
                                             "isGlobal":  false,
                                             "label":  "MethodsByObject",
-                                            "query":  "@{query={\"measures\":[[\"count\",\"*\"]],\"groups\":[\"METHOD_NAME\",\"ENTITY_NAME\"],\"order\":[[-1,{\"ascending\":false}]]}; version=-1.0}",
+                                            "query":  {
+                                                          "query":  "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"METHOD_NAME\",\"ENTITY_NAME\"],\"order\":[[-1,{\"ascending\":false}]]}",
+                                                          "version":  -1.0
+                                                      },
                                             "receiveFacet":  true,
                                             "selectMode":  "single",
                                             "type":  "aggregateflex",
                                             "useGlobal":  true,
-                                            "visualizationParameters":  "@{options=; visualizationType=stackhbar}"
+                                            "visualizationParameters":  {
+                                                                            "options":  {
+                                                                                            "sqrt":  true
+                                                                                        },
+                                                                            "visualizationType":  "stackhbar"
+                                                                        }
                                         },
                   "API_VERSION_1":  {
                                         "broadcastFacet":  true,
-                                        "datasets":  "",
+                                        "datasets":  [
+                                                         {
+                                                             "name":  "APIWithUsers"
+                                                         }
+                                                     ],
                                         "isGlobal":  false,
-                                        "query":  "@{query={\"measures\":[[\"count\",\"*\"]],\"groups\":[\"API_VERSION\"],\"order\":[[-1,{\"ascending\":false}]]}; version=-1.0}",
+                                        "query":  {
+                                                      "query":  "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"API_VERSION\"],\"order\":[[-1,{\"ascending\":false}]]}",
+                                                      "version":  -1.0
+                                                  },
                                         "receiveFacet":  true,
                                         "selectMode":  "single",
                                         "type":  "aggregateflex",
                                         "useGlobal":  true,
-                                        "visualizationParameters":  "@{options=; visualizationType=hbar}"
+                                        "visualizationParameters":  {
+                                                                        "options":  {
+
+                                                                                    },
+                                                                        "visualizationType":  "hbar"
+                                                                    }
                                     },
                   "TotalVersions_1":  {
                                           "broadcastFacet":  true,
-                                          "datasets":  "",
+                                          "datasets":  [
+                                                           {
+                                                               "name":  "APIWithUsers"
+                                                           }
+                                                       ],
                                           "isGlobal":  false,
                                           "label":  "TotalVersions",
-                                          "query":  "@{query={\"measures\":[[\"count\",\"API_VERSION\"]]}; version=-1.0}",
+                                          "query":  {
+                                                        "query":  "{\"measures\":[[\"count\",\"API_VERSION\"]]}",
+                                                        "version":  -1.0
+                                                    },
                                           "receiveFacet":  true,
                                           "selectMode":  "single",
                                           "type":  "aggregateflex",
                                           "useGlobal":  true,
-                                          "visualizationParameters":  "@{options=; visualizationType=hbar}"
+                                          "visualizationParameters":  {
+                                                                          "options":  {
+
+                                                                                      },
+                                                                          "visualizationType":  "hbar"
+                                                                      }
                                       }
               },
     "widgetStyle":  {
@@ -302,159 +1650,654 @@
                     },
     "widgets":  {
                     "number_6":  {
-                                     "parameters":  "@{compact=True; exploreLink=True; measureField=count; numberColor=#FFFFFF; numberSize=32; showActionMenu=True; step=TotalTransactions_1; textAlignment=left; title=Total Transactions; titleColor=#FFFFFF; titleSize=12}",
+                                     "parameters":  {
+                                                        "compact":  true,
+                                                        "exploreLink":  true,
+                                                        "measureField":  "count",
+                                                        "numberColor":  "#FFFFFF",
+                                                        "numberSize":  32,
+                                                        "showActionMenu":  true,
+                                                        "step":  "TotalTransactions_1",
+                                                        "textAlignment":  "left",
+                                                        "title":  "Total Transactions",
+                                                        "titleColor":  "#FFFFFF",
+                                                        "titleSize":  12
+                                                    },
                                      "type":  "number"
                                  },
                     "container_1":  {
-                                        "parameters":  "@{alignmentX=left; alignmentY=top; fit=original}",
+                                        "parameters":  {
+                                                           "alignmentX":  "left",
+                                                           "alignmentY":  "top",
+                                                           "fit":  "original"
+                                                       },
                                         "type":  "container"
                                     },
                     "container_2":  {
-                                        "parameters":  "@{alignmentX=left; alignmentY=top; fit=original}",
+                                        "parameters":  {
+                                                           "alignmentX":  "left",
+                                                           "alignmentY":  "top",
+                                                           "fit":  "original"
+                                                       },
                                         "type":  "container"
                                     },
                     "container_3":  {
-                                        "parameters":  "@{alignmentX=left; alignmentY=top; fit=original}",
+                                        "parameters":  {
+                                                           "alignmentX":  "left",
+                                                           "alignmentY":  "top",
+                                                           "fit":  "original"
+                                                       },
                                         "type":  "container"
                                     },
                     "chart_9":  {
-                                    "parameters":  "@{totalValue=computeTotal; legend=; visualizationType=scatter; exploreLink=True; title=; trellis=; radiusRatio=5; totalLabel=; showActionMenu=True; x=; y=; theme=wave; step=APIPerformance_2}",
+                                    "parameters":  {
+                                                       "totalValue":  "computeTotal",
+                                                       "legend":  {
+                                                                      "showHeader":  true,
+                                                                      "show":  true,
+                                                                      "customSize":  "auto",
+                                                                      "position":  "right-top",
+                                                                      "inside":  false
+                                                                  },
+                                                       "visualizationType":  "scatter",
+                                                       "exploreLink":  true,
+                                                       "title":  {
+                                                                     "label":  "",
+                                                                     "align":  "center",
+                                                                     "subtitleLabel":  ""
+                                                                 },
+                                                       "trellis":  {
+                                                                       "flipLabels":  false,
+                                                                       "showGridLines":  true,
+                                                                       "enable":  false,
+                                                                       "type":  "x",
+                                                                       "chartsPerLine":  4
+                                                                   },
+                                                       "radiusRatio":  5,
+                                                       "totalLabel":  "",
+                                                       "showActionMenu":  true,
+                                                       "x":  {
+                                                                 "sqrtScale":  true,
+                                                                 "showZero":  true,
+                                                                 "showTitle":  true,
+                                                                 "showAxis":  true,
+                                                                 "title":  "Max CPU Time (ms)",
+                                                                 "customDomain":  {
+                                                                                      "showDomain":  false
+                                                                                  }
+                                                             },
+                                                       "y":  {
+                                                                 "sqrtScale":  true,
+                                                                 "showZero":  true,
+                                                                 "showTitle":  true,
+                                                                 "showAxis":  true,
+                                                                 "title":  "Max DB Time (ms)",
+                                                                 "customDomain":  {
+                                                                                      "showDomain":  false
+                                                                                  }
+                                                             },
+                                                       "theme":  "wave",
+                                                       "step":  "APIPerformance_2"
+                                                   },
                                     "type":  "chart"
                                 },
                     "container_4":  {
-                                        "parameters":  "@{alignmentX=left; alignmentY=top; fit=original}",
+                                        "parameters":  {
+                                                           "alignmentX":  "left",
+                                                           "alignmentY":  "top",
+                                                           "fit":  "original"
+                                                       },
                                         "type":  "container"
                                     },
                     "container_5":  {
-                                        "parameters":  "@{alignmentX=left; alignmentY=top; fit=original}",
+                                        "parameters":  {
+                                                           "alignmentX":  "left",
+                                                           "alignmentY":  "top",
+                                                           "fit":  "original"
+                                                       },
                                         "type":  "container"
                                     },
                     "text_3":  {
-                                   "parameters":  "@{fontSize=20; showActionMenu=True; text=Which API Entities Are Most Used?; textAlignment=left; textColor=#091A3E}",
+                                   "parameters":  {
+                                                      "fontSize":  20,
+                                                      "showActionMenu":  true,
+                                                      "text":  "Which API Entities Are Most Used?",
+                                                      "textAlignment":  "left",
+                                                      "textColor":  "#091A3E"
+                                                  },
                                    "type":  "text"
                                },
                     "container_6":  {
-                                        "parameters":  "@{alignmentX=left; alignmentY=top; fit=original}",
+                                        "parameters":  {
+                                                           "alignmentX":  "left",
+                                                           "alignmentY":  "top",
+                                                           "fit":  "original"
+                                                       },
                                         "type":  "container"
                                     },
                     "chart_6":  {
-                                    "parameters":  "@{totalValue=computeTotal; legend=; visualizationType=scatter; exploreLink=False; title=; trellis=; radiusRatio=5; totalLabel=; showActionMenu=True; x=; y=; theme=wave; step=UpgradeAPI_1}",
+                                    "parameters":  {
+                                                       "totalValue":  "computeTotal",
+                                                       "legend":  {
+                                                                      "showHeader":  true,
+                                                                      "show":  true,
+                                                                      "customSize":  "auto",
+                                                                      "position":  "right-top",
+                                                                      "inside":  false
+                                                                  },
+                                                       "visualizationType":  "scatter",
+                                                       "exploreLink":  false,
+                                                       "title":  {
+                                                                     "label":  "",
+                                                                     "align":  "center",
+                                                                     "subtitleLabel":  ""
+                                                                 },
+                                                       "trellis":  {
+                                                                       "flipLabels":  false,
+                                                                       "showGridLines":  true,
+                                                                       "enable":  false,
+                                                                       "type":  "x",
+                                                                       "chartsPerLine":  4
+                                                                   },
+                                                       "radiusRatio":  5,
+                                                       "totalLabel":  "",
+                                                       "showActionMenu":  true,
+                                                       "x":  {
+                                                                 "sqrtScale":  false,
+                                                                 "showZero":  true,
+                                                                 "showTitle":  true,
+                                                                 "showAxis":  true,
+                                                                 "title":  "Requests",
+                                                                 "customDomain":  {
+                                                                                      "showDomain":  false
+                                                                                  }
+                                                             },
+                                                       "y":  {
+                                                                 "sqrtScale":  false,
+                                                                 "showZero":  true,
+                                                                 "showTitle":  true,
+                                                                 "showAxis":  true,
+                                                                 "title":  "Max DB Rows",
+                                                                 "customDomain":  {
+                                                                                      "showDomain":  false
+                                                                                  }
+                                                             },
+                                                       "theme":  "wave",
+                                                       "step":  "UpgradeAPI_1"
+                                                   },
                                     "type":  "chart"
                                 },
                     "text_2":  {
-                                   "parameters":  "@{fontSize=16; showActionMenu=True; text=Shows API usage and performance from API event data. Use this dashboard to see your users’ API usage and API request performance in your org.; textAlignment=left; textColor=#FFFFFF}",
+                                   "parameters":  {
+                                                      "fontSize":  16,
+                                                      "showActionMenu":  true,
+                                                      "text":  "Shows API usage and performance from API event data. Use this dashboard to see your users’ API usage and API request performance in your org.",
+                                                      "textAlignment":  "left",
+                                                      "textColor":  "#FFFFFF"
+                                                  },
                                    "type":  "text"
                                },
                     "container_7":  {
-                                        "parameters":  "@{alignmentX=left; alignmentY=top; fit=original}",
+                                        "parameters":  {
+                                                           "alignmentX":  "left",
+                                                           "alignmentY":  "top",
+                                                           "fit":  "original"
+                                                       },
                                         "type":  "container"
                                     },
                     "text_5":  {
-                                   "parameters":  "@{fontSize=20; showActionMenu=True; text=Which Clients Access the API?; textAlignment=left; textColor=#091A3E}",
+                                   "parameters":  {
+                                                      "fontSize":  20,
+                                                      "showActionMenu":  true,
+                                                      "text":  "Which Clients Access the API?",
+                                                      "textAlignment":  "left",
+                                                      "textColor":  "#091A3E"
+                                                  },
                                    "type":  "text"
                                },
                     "container_8":  {
-                                        "parameters":  "@{alignmentX=left; alignmentY=top; fit=original}",
+                                        "parameters":  {
+                                                           "alignmentX":  "left",
+                                                           "alignmentY":  "top",
+                                                           "fit":  "original"
+                                                       },
                                         "type":  "container"
                                     },
                     "text_4":  {
-                                   "parameters":  "@{fontSize=20; showActionMenu=True; text=How Is the API Performing for Users?; textAlignment=left; textColor=#091A3E}",
+                                   "parameters":  {
+                                                      "fontSize":  20,
+                                                      "showActionMenu":  true,
+                                                      "text":  "How Is the API Performing for Users?",
+                                                      "textAlignment":  "left",
+                                                      "textColor":  "#091A3E"
+                                                  },
                                    "type":  "text"
                                },
                     "container_9":  {
-                                        "parameters":  "@{alignmentX=left; alignmentY=top; fit=original}",
+                                        "parameters":  {
+                                                           "alignmentX":  "left",
+                                                           "alignmentY":  "top",
+                                                           "fit":  "original"
+                                                       },
                                         "type":  "container"
                                     },
                     "text_7":  {
-                                   "parameters":  "@{fontSize=20; showActionMenu=True; text=Which API Versions Are In Use?; textAlignment=left; textColor=#091A3E}",
+                                   "parameters":  {
+                                                      "fontSize":  20,
+                                                      "showActionMenu":  true,
+                                                      "text":  "Which API Versions Are In Use?",
+                                                      "textAlignment":  "left",
+                                                      "textColor":  "#091A3E"
+                                                  },
                                    "type":  "text"
                                },
                     "chart_2":  {
-                                    "parameters":  "@{autoFitMode=fit; totalValue=computeTotal; showValues=True; legend=; axisMode=multi; visualizationType=stackhbar; exploreLink=True; title=; trellis=; totalLabel=; showActionMenu=True; measureAxis2=; normalize=False; measureAxis1=; theme=wave; step=MethodsByObject_1; dimensionAxis=}",
+                                    "parameters":  {
+                                                       "autoFitMode":  "fit",
+                                                       "totalValue":  "computeTotal",
+                                                       "showValues":  true,
+                                                       "legend":  {
+                                                                      "showHeader":  true,
+                                                                      "show":  true,
+                                                                      "customSize":  "auto",
+                                                                      "position":  "right-top",
+                                                                      "inside":  false
+                                                                  },
+                                                       "axisMode":  "multi",
+                                                       "visualizationType":  "stackhbar",
+                                                       "exploreLink":  true,
+                                                       "title":  {
+                                                                     "label":  "Requests",
+                                                                     "align":  "center",
+                                                                     "subtitleLabel":  ""
+                                                                 },
+                                                       "trellis":  {
+                                                                       "flipLabels":  false,
+                                                                       "showGridLines":  true,
+                                                                       "enable":  false,
+                                                                       "type":  "x",
+                                                                       "chartsPerLine":  4
+                                                                   },
+                                                       "totalLabel":  "",
+                                                       "showActionMenu":  true,
+                                                       "measureAxis2":  {
+                                                                            "sqrtScale":  true,
+                                                                            "showTitle":  true,
+                                                                            "showAxis":  true,
+                                                                            "title":  "",
+                                                                            "customDomain":  {
+                                                                                                 "showDomain":  false
+                                                                                             }
+                                                                        },
+                                                       "normalize":  false,
+                                                       "measureAxis1":  {
+                                                                            "sqrtScale":  true,
+                                                                            "showTitle":  false,
+                                                                            "showAxis":  true,
+                                                                            "title":  "",
+                                                                            "customDomain":  {
+                                                                                                 "showDomain":  false
+                                                                                             }
+                                                                        },
+                                                       "theme":  "wave",
+                                                       "step":  "MethodsByObject_1",
+                                                       "dimensionAxis":  {
+                                                                             "showTitle":  true,
+                                                                             "customSize":  "auto",
+                                                                             "showAxis":  true,
+                                                                             "title":  "",
+                                                                             "icons":  {
+                                                                                           "useIcons":  false,
+                                                                                           "iconProps":  {
+                                                                                                             "fit":  "cover",
+                                                                                                             "column":  "",
+                                                                                                             "type":  "round"
+                                                                                                         }
+                                                                                       }
+                                                                         }
+                                                   },
                                     "type":  "chart"
                                 },
                     "text_6":  {
-                                   "parameters":  "@{fontSize=20; showActionMenu=True; text=Which Methods Were Called by Object?; textAlignment=left; textColor=#091A3E}",
+                                   "parameters":  {
+                                                      "fontSize":  20,
+                                                      "showActionMenu":  true,
+                                                      "text":  "Which Methods Were Called by Object?",
+                                                      "textAlignment":  "left",
+                                                      "textColor":  "#091A3E"
+                                                  },
                                    "type":  "text"
                                },
                     "chart_1":  {
-                                    "parameters":  "@{totalValue=computeTotal; showPoints=True; legend=; axisMode=multi; visualizationType=time; missingValue=connect; timeAxis=; exploreLink=True; title=; trellis=; totalLabel=; fillArea=True; showActionMenu=True; showZero=True; measureAxis2=; measureAxis1=; theme=wave; step=APITrends_1}",
+                                    "parameters":  {
+                                                       "totalValue":  "computeTotal",
+                                                       "showPoints":  true,
+                                                       "legend":  {
+                                                                      "showHeader":  true,
+                                                                      "show":  true,
+                                                                      "customSize":  "auto",
+                                                                      "position":  "right-top",
+                                                                      "inside":  false
+                                                                  },
+                                                       "axisMode":  "multi",
+                                                       "visualizationType":  "time",
+                                                       "missingValue":  "connect",
+                                                       "timeAxis":  {
+                                                                        "showTitle":  true,
+                                                                        "showAxis":  true,
+                                                                        "title":  "Date"
+                                                                    },
+                                                       "exploreLink":  true,
+                                                       "title":  {
+                                                                     "label":  "",
+                                                                     "align":  "center",
+                                                                     "subtitleLabel":  ""
+                                                                 },
+                                                       "trellis":  {
+                                                                       "flipLabels":  false,
+                                                                       "showGridLines":  true,
+                                                                       "enable":  false,
+                                                                       "type":  "x",
+                                                                       "chartsPerLine":  4
+                                                                   },
+                                                       "totalLabel":  "",
+                                                       "fillArea":  true,
+                                                       "showActionMenu":  true,
+                                                       "showZero":  true,
+                                                       "measureAxis2":  {
+                                                                            "sqrtScale":  false,
+                                                                            "showTitle":  true,
+                                                                            "showAxis":  true,
+                                                                            "title":  "",
+                                                                            "customDomain":  {
+                                                                                                 "showDomain":  false
+                                                                                             }
+                                                                        },
+                                                       "measureAxis1":  {
+                                                                            "sqrtScale":  false,
+                                                                            "showTitle":  true,
+                                                                            "showAxis":  true,
+                                                                            "title":  "Requests",
+                                                                            "customDomain":  {
+                                                                                                 "showDomain":  false
+                                                                                             }
+                                                                        },
+                                                       "theme":  "wave",
+                                                       "step":  "APITrends_1"
+                                                   },
                                     "type":  "chart"
                                 },
                     "chart_4":  {
-                                    "parameters":  "@{centerText=; totalValue=computeTotal; showMeasureTitle=False; legend=; visualizationType=pie; exploreLink=True; title=; trellis=; inner=70; totalLabel=; showActionMenu=True; centerValueType=number; valueType=compactNumber; theme=wave; step=ClientNames_1}",
+                                    "parameters":  {
+                                                       "centerText":  "",
+                                                       "totalValue":  "computeTotal",
+                                                       "showMeasureTitle":  false,
+                                                       "legend":  {
+                                                                      "showHeader":  true,
+                                                                      "show":  true,
+                                                                      "customSize":  "auto",
+                                                                      "position":  "right-top",
+                                                                      "inside":  true
+                                                                  },
+                                                       "visualizationType":  "pie",
+                                                       "exploreLink":  true,
+                                                       "title":  {
+                                                                     "label":  "Requests",
+                                                                     "align":  "center",
+                                                                     "subtitleLabel":  ""
+                                                                 },
+                                                       "trellis":  {
+                                                                       "flipLabels":  false,
+                                                                       "showGridLines":  true,
+                                                                       "enable":  false,
+                                                                       "type":  "x",
+                                                                       "chartsPerLine":  4
+                                                                   },
+                                                       "inner":  70,
+                                                       "totalLabel":  "",
+                                                       "showActionMenu":  true,
+                                                       "centerValueType":  "number",
+                                                       "valueType":  "compactNumber",
+                                                       "theme":  "wave",
+                                                       "step":  "ClientNames_1"
+                                                   },
                                     "type":  "chart"
                                 },
                     "text_8":  {
-                                   "parameters":  "@{fontSize=20; showActionMenu=True; text=Raw Log Data; textAlignment=left; textColor=#091A3E}",
+                                   "parameters":  {
+                                                      "fontSize":  20,
+                                                      "showActionMenu":  true,
+                                                      "text":  "Raw Log Data",
+                                                      "textAlignment":  "left",
+                                                      "textColor":  "#091A3E"
+                                                  },
                                    "type":  "text"
                                },
                     "listselector_7":  {
-                                           "parameters":  "@{compact=True; exploreLink=False; instant=True; measureField=count; showActionMenu=False; step=Objects_1; title=Objects (Nouns)}",
+                                           "parameters":  {
+                                                              "compact":  true,
+                                                              "exploreLink":  false,
+                                                              "instant":  true,
+                                                              "measureField":  "count",
+                                                              "showActionMenu":  false,
+                                                              "step":  "Objects_1",
+                                                              "title":  "Objects (Nouns)"
+                                                          },
                                            "type":  "listselector"
                                        },
                     "listselector_6":  {
-                                           "parameters":  "@{compact=True; exploreLink=False; instant=True; measureField=count; showActionMenu=False; step=Status_1; title=Status}",
+                                           "parameters":  {
+                                                              "compact":  true,
+                                                              "exploreLink":  false,
+                                                              "instant":  true,
+                                                              "measureField":  "count",
+                                                              "showActionMenu":  false,
+                                                              "step":  "Status_1",
+                                                              "title":  "Status"
+                                                          },
                                            "type":  "listselector"
                                        },
                     "listselector_9":  {
-                                           "parameters":  "@{compact=True; exploreLink=False; instant=True; measureField=count; showActionMenu=False; step=Methods_1; title=Methods (Verbs)}",
+                                           "parameters":  {
+                                                              "compact":  true,
+                                                              "exploreLink":  false,
+                                                              "instant":  true,
+                                                              "measureField":  "count",
+                                                              "showActionMenu":  false,
+                                                              "step":  "Methods_1",
+                                                              "title":  "Methods (Verbs)"
+                                                          },
                                            "type":  "listselector"
                                        },
                     "listselector_8":  {
-                                           "parameters":  "@{compact=True; exploreLink=False; instant=True; measureField=count; showActionMenu=False; step=Clients_3; title=Clients}",
+                                           "parameters":  {
+                                                              "compact":  true,
+                                                              "exploreLink":  false,
+                                                              "instant":  true,
+                                                              "measureField":  "count",
+                                                              "showActionMenu":  false,
+                                                              "step":  "Clients_3",
+                                                              "title":  "Clients"
+                                                          },
                                            "type":  "listselector"
                                        },
                     "listselector_3":  {
-                                           "parameters":  "@{compact=True; exploreLink=False; instant=True; measureField=count; showActionMenu=False; step=Profiles_1; title=Profiles}",
+                                           "parameters":  {
+                                                              "compact":  true,
+                                                              "exploreLink":  false,
+                                                              "instant":  true,
+                                                              "measureField":  "count",
+                                                              "showActionMenu":  false,
+                                                              "step":  "Profiles_1",
+                                                              "title":  "Profiles"
+                                                          },
                                            "type":  "listselector"
                                        },
                     "listselector_2":  {
-                                           "parameters":  "@{compact=True; exploreLink=False; instant=True; measureField=count; showActionMenu=False; step=Users_1; title=Users}",
+                                           "parameters":  {
+                                                              "compact":  true,
+                                                              "exploreLink":  false,
+                                                              "instant":  true,
+                                                              "measureField":  "count",
+                                                              "showActionMenu":  false,
+                                                              "step":  "Users_1",
+                                                              "title":  "Users"
+                                                          },
                                            "type":  "listselector"
                                        },
                     "text_1":  {
-                                   "parameters":  "@{fontSize=64; showActionMenu=True; text=API; textAlignment=center; textColor=#091A3E}",
+                                   "parameters":  {
+                                                      "fontSize":  64,
+                                                      "showActionMenu":  true,
+                                                      "text":  "API",
+                                                      "textAlignment":  "center",
+                                                      "textColor":  "#091A3E"
+                                                  },
                                    "type":  "text"
                                },
                     "listselector_5":  {
-                                           "parameters":  "@{compact=True; exploreLink=False; instant=True; measureField=count; showActionMenu=False; step=IPs_1; title=IPs}",
+                                           "parameters":  {
+                                                              "compact":  true,
+                                                              "exploreLink":  false,
+                                                              "instant":  true,
+                                                              "measureField":  "count",
+                                                              "showActionMenu":  false,
+                                                              "step":  "IPs_1",
+                                                              "title":  "IPs"
+                                                          },
                                            "type":  "listselector"
                                        },
                     "listselector_4":  {
-                                           "parameters":  "@{compact=True; exploreLink=False; instant=True; measureField=count; showActionMenu=False; step=Roles_1; title=Roles}",
+                                           "parameters":  {
+                                                              "compact":  true,
+                                                              "exploreLink":  false,
+                                                              "instant":  true,
+                                                              "measureField":  "count",
+                                                              "showActionMenu":  false,
+                                                              "step":  "Roles_1",
+                                                              "title":  "Roles"
+                                                          },
                                            "type":  "listselector"
                                        },
                     "table_1":  {
-                                    "parameters":  "@{columnProperties=; columns=System.Object[]; customBulkActions=System.Object[]; exploreLink=True; showActionMenu=True; step=RawLogData_1}",
+                                    "parameters":  {
+                                                       "columnProperties":  {
+
+                                                                            },
+                                                       "columns":  [
+
+                                                                   ],
+                                                       "customBulkActions":  [
+
+                                                                             ],
+                                                       "exploreLink":  true,
+                                                       "showActionMenu":  true,
+                                                       "step":  "RawLogData_1"
+                                                   },
                                     "type":  "table"
                                 },
                     "number_5":  {
-                                     "parameters":  "@{compact=True; exploreLink=True; measureField=max_RUN_TIME; numberColor=#FFFFFF; numberSize=32; showActionMenu=True; step=MaxAPT_1; textAlignment=left; title=Max Request  TIme (ms); titleColor=#FFFFFF; titleSize=12}",
+                                     "parameters":  {
+                                                        "compact":  true,
+                                                        "exploreLink":  true,
+                                                        "measureField":  "max_RUN_TIME",
+                                                        "numberColor":  "#FFFFFF",
+                                                        "numberSize":  32,
+                                                        "showActionMenu":  true,
+                                                        "step":  "MaxAPT_1",
+                                                        "textAlignment":  "left",
+                                                        "title":  "Max Request  TIme (ms)",
+                                                        "titleColor":  "#FFFFFF",
+                                                        "titleSize":  12
+                                                    },
                                      "type":  "number"
                                  },
                     "number_4":  {
-                                     "parameters":  "@{compact=True; exploreLink=True; measureField=max_CPU_TIME; numberColor=#FFFFFF; numberSize=32; showActionMenu=True; step=MaxCPUTime_1; textAlignment=left; title=Max CPU Time (ms); titleColor=#FFFFFF; titleSize=12}",
+                                     "parameters":  {
+                                                        "compact":  true,
+                                                        "exploreLink":  true,
+                                                        "measureField":  "max_CPU_TIME",
+                                                        "numberColor":  "#FFFFFF",
+                                                        "numberSize":  32,
+                                                        "showActionMenu":  true,
+                                                        "step":  "MaxCPUTime_1",
+                                                        "textAlignment":  "left",
+                                                        "title":  "Max CPU Time (ms)",
+                                                        "titleColor":  "#FFFFFF",
+                                                        "titleSize":  12
+                                                    },
                                      "type":  "number"
                                  },
                     "number_3":  {
-                                     "parameters":  "@{compact=True; exploreLink=True; measureField=unique_API_VERSION; numberColor=#FFFFFF; numberSize=32; showActionMenu=True; step=TotalVersions_1; textAlignment=left; title=API Versions; titleColor=#FFFFFF; titleSize=12}",
+                                     "parameters":  {
+                                                        "compact":  true,
+                                                        "exploreLink":  true,
+                                                        "measureField":  "unique_API_VERSION",
+                                                        "numberColor":  "#FFFFFF",
+                                                        "numberSize":  32,
+                                                        "showActionMenu":  true,
+                                                        "step":  "TotalVersions_1",
+                                                        "textAlignment":  "left",
+                                                        "title":  "API Versions",
+                                                        "titleColor":  "#FFFFFF",
+                                                        "titleSize":  12
+                                                    },
                                      "type":  "number"
                                  },
                     "number_2":  {
-                                     "parameters":  "@{compact=True; exploreLink=True; measureField=max_ROWS_PROCESSED; numberColor=#FFFFFF; numberSize=32; showActionMenu=True; step=MaxRowsProcessed_1; textAlignment=left; title=Max DB Rows; titleColor=#FFFFFF; titleSize=12}",
+                                     "parameters":  {
+                                                        "compact":  true,
+                                                        "exploreLink":  true,
+                                                        "measureField":  "max_ROWS_PROCESSED",
+                                                        "numberColor":  "#FFFFFF",
+                                                        "numberSize":  32,
+                                                        "showActionMenu":  true,
+                                                        "step":  "MaxRowsProcessed_1",
+                                                        "textAlignment":  "left",
+                                                        "title":  "Max DB Rows",
+                                                        "titleColor":  "#FFFFFF",
+                                                        "titleSize":  12
+                                                    },
                                      "type":  "number"
                                  },
                     "number_1":  {
-                                     "parameters":  "@{compact=True; exploreLink=True; measureField=max_DB_TOTAL_TIME; numberColor=#FFFFFF; numberSize=32; showActionMenu=True; step=MaxDBTime_1; textAlignment=left; title=Max DB Time (ms); titleColor=#FFFFFF; titleSize=12}",
+                                     "parameters":  {
+                                                        "compact":  true,
+                                                        "exploreLink":  true,
+                                                        "measureField":  "max_DB_TOTAL_TIME",
+                                                        "numberColor":  "#FFFFFF",
+                                                        "numberSize":  32,
+                                                        "showActionMenu":  true,
+                                                        "step":  "MaxDBTime_1",
+                                                        "textAlignment":  "left",
+                                                        "title":  "Max DB Time (ms)",
+                                                        "titleColor":  "#FFFFFF",
+                                                        "titleSize":  12
+                                                    },
                                      "type":  "number"
                                  },
                     "listselector_11":  {
-                                            "parameters":  "@{compact=True; exploreLink=False; instant=True; measureField=count; showActionMenu=False; step=API_VERSION_1; title=API Versions}",
+                                            "parameters":  {
+                                                               "compact":  true,
+                                                               "exploreLink":  false,
+                                                               "instant":  true,
+                                                               "measureField":  "count",
+                                                               "showActionMenu":  false,
+                                                               "step":  "API_VERSION_1",
+                                                               "title":  "API Versions"
+                                                           },
                                             "type":  "listselector"
                                         },
                     "listselector_1":  {
-                                           "parameters":  "@{compact=True; exploreLink=False; instant=True; measureField=count; showActionMenu=False; step=Dates_1; title=Dates}",
+                                           "parameters":  {
+                                                              "compact":  true,
+                                                              "exploreLink":  false,
+                                                              "instant":  true,
+                                                              "measureField":  "count",
+                                                              "showActionMenu":  false,
+                                                              "step":  "Dates_1",
+                                                              "title":  "Dates"
+                                                          },
                                            "type":  "listselector"
                                        }
                 }

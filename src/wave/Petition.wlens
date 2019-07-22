@@ -13,17 +13,67 @@
                 ],
     "steps":  {
                   "aggregateflex":  {
-                                        "datasets":  "",
+                                        "datasets":  [
+                                                         {
+                                                             "name":  "Petition1"
+                                                         }
+                                                     ],
                                         "isGlobal":  false,
-                                        "query":  "@{query={\"measures\":[[\"count\",\"*\"]]}; version=-1.0}",
+                                        "query":  {
+                                                      "query":  "{\"measures\":[[\"count\",\"*\"]]}",
+                                                      "version":  -1.0
+                                                  },
                                         "type":  "aggregateflex",
                                         "useGlobal":  true,
-                                        "visualizationParameters":  "@{visualizationType=polargauge}"
+                                        "visualizationParameters":  {
+                                                                        "visualizationType":  "polargauge"
+                                                                    }
                                     }
               },
     "widgets":  {
                     "aggregateflex_chart":  {
-                                                "parameters":  "@{totalValue=computeTotal; max=10; visualizationType=polargauge; exploreLink=True; medium=3; title=; trellis=; icons=; inner=60; colors=; totalLabel=; high=5; min=0; showActionMenu=True; valueType=compactNumber; step=aggregateflex; theme=wave}",
+                                                "parameters":  {
+                                                                   "totalValue":  "computeTotal",
+                                                                   "max":  10,
+                                                                   "visualizationType":  "polargauge",
+                                                                   "exploreLink":  true,
+                                                                   "medium":  3,
+                                                                   "title":  {
+                                                                                 "label":  "",
+                                                                                 "align":  "center",
+                                                                                 "subtitleLabel":  ""
+                                                                             },
+                                                                   "trellis":  {
+                                                                                   "flipLabels":  false,
+                                                                                   "showGridLines":  true,
+                                                                                   "enable":  false,
+                                                                                   "type":  "x",
+                                                                                   "chartsPerLine":  4
+                                                                               },
+                                                                   "icons":  {
+                                                                                 "useIcons":  false,
+                                                                                 "iconProps":  {
+                                                                                                   "fit":  "cover",
+                                                                                                   "column":  ""
+                                                                                               }
+                                                                             },
+                                                                   "inner":  60,
+                                                                   "colors":  {
+                                                                                  "mediumColor2":  "#F29946",
+                                                                                  "mediumColor1":  "#FED444",
+                                                                                  "lowColor1":  "#F71979",
+                                                                                  "lowColor2":  "#CC203D",
+                                                                                  "highColor1":  "#7BDE4E",
+                                                                                  "highColor2":  "#169913"
+                                                                              },
+                                                                   "totalLabel":  "",
+                                                                   "high":  5,
+                                                                   "min":  0,
+                                                                   "showActionMenu":  true,
+                                                                   "valueType":  "compactNumber",
+                                                                   "step":  "aggregateflex",
+                                                                   "theme":  "wave"
+                                                               },
                                                 "type":  "chart"
                                             }
                 }
