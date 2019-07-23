@@ -2,7 +2,7 @@
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <fieldPermissions>
         <editable>false</editable>
-        <field>Staffing_Assignment__c.Status__c</field>
+        <field>Staffing_Assignment__c.Office__c</field>
         <readable>true</readable>
     </fieldPermissions>
 </Profile>
