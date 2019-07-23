@@ -49,9 +49,9 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
     <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
@@ -274,11 +274,22 @@
         <fullName>Reason_for_Recusal__c</fullName>
         <externalId>false</externalId>
         <label>Reason for Recusal</label>
-        <length>131072</length>
+        <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>5</visibleLines>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Recusal_Parent__c</fullName>
+        <description>Field name of the lookup field that is this recusal&apos;s parent. Typically an ADCVD Case.  Future use case could be Interested Organization</description>
+        <externalId>false</externalId>
+        <label>Recusal Parent</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Related_Organization__c</fullName>
@@ -332,8 +343,9 @@
         <fullName>Active_Recusals</fullName>
         <columns>NAME</columns>
         <columns>User__c</columns>
+        <columns>ADCVD_Case__c</columns>
+        <columns>Start_Date__c</columns>
         <columns>End_Date__c</columns>
-        <columns>ADCVD_Order__c</columns>
         <columns>Country_Text__c</columns>
         <columns>Product_Text__c</columns>
         <columns>Reason_for_Recusal__c</columns>
@@ -407,6 +419,24 @@
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
+        <fullName>A0901PermSetReparentsRecusal</fullName>
+        <active>true</active>
+        <description>Recusal records can only be reparented by members of ADCVD_App_Modify_Parents permission set.</description>
+        <errorConditionFormula>AND(
+			$Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
+			Locked__c == false,
+			NOT( ISNEW() ),
+			OR(
+			ISCHANGED(ADCVD_Case__c),
+			ISCHANGED(Related_Organization__c)
+			),
+			NOT(
+			$Permission.ADCVD_App_Modify_Parents
+			)
+			)</errorConditionFormula>
+        <errorMessage>You are not authorized to edit ADCVD Case or Interested Organization.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Cannot_Edit_Locked_Record</fullName>
         <active>true</active>
         <errorConditionFormula>AND( $Permission.Edit_ADCVD_Locked_Records == false, 
@@ -417,7 +447,7 @@ PRIORVALUE(Locked__c) == true
     </validationRules>
     <validationRules>
         <fullName>Only_Admin_can_reparent_Recusal</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Only a System Administrator can reparent a Recusal record.</description>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
 Locked__c == false, 
