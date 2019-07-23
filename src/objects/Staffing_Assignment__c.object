@@ -249,6 +249,24 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Office__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(!ISBLANK(Text(Investigation__r.Office__c)),TEXT(Investigation__r.Office__c), 
+if(!ISBLANK(TEXT(ADCVD_Order__r.Office__c)),Text(ADCVD_Order__r.Office__c),
+if(!ISBLANK(TEXT(Segment__r.Office__c)),TEXT(Segment__r.Office__c),
+if(!ISBLANK(TEXT(Petition__r.Office__c)),TEXT(Petition__r.Office__c),&apos;Unassigned&apos; )
+)
+)
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Office</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Parent_Name__c</fullName>
         <externalId>false</externalId>
         <formula>IF( ADCVD_Order__c != null,  ADCVD_Order__r.ADCVD_Order_Name__c , 
