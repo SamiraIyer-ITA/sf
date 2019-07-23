@@ -1,0 +1,1901 @@
+{
+  "dataSourceLinks": [],
+  "filters": [],
+  "gridLayouts": [
+    {
+      "name": "Default",
+      "numColumns": 18,
+      "pages": [
+        {
+          "name": "f3639587-7d48-4156-94f9-e74ec3ee8215",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 2,
+              "column": 1,
+              "name": "listselector_1",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 3,
+              "name": "listselector_2",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 5,
+              "name": "listselector_3",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 7,
+              "name": "listselector_4",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 9,
+              "name": "listselector_5",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 11,
+              "name": "listselector_6",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 13,
+              "name": "listselector_7",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 15,
+              "name": "listselector_8",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 1,
+              "name": "listselector_9",
+              "row": 6,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_2",
+              "row": 0,
+              "rowspan": 11,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "text_2",
+              "row": 13,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(6, 28, 63)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 1,
+              "name": "number_1",
+              "row": 17,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 3,
+              "name": "number_2",
+              "row": 17,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 5,
+              "name": "number_3",
+              "row": 17,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 7,
+              "name": "number_4",
+              "row": 17,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 9,
+              "name": "number_5",
+              "row": 17,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 11,
+              "name": "number_6",
+              "row": 17,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_3",
+              "row": 17,
+              "rowspan": 10,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "text_3",
+              "row": 30,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "chart_1",
+              "row": 34,
+              "rowspan": 17,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_4",
+              "row": 29,
+              "rowspan": 23,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "text_4",
+              "row": 55,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "chart_2",
+              "row": 59,
+              "rowspan": 18,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_5",
+              "row": 54,
+              "rowspan": 24,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "text_5",
+              "row": 81,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "chart_3",
+              "row": 85,
+              "rowspan": 21,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "container_6",
+              "row": 80,
+              "rowspan": 27,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 9,
+              "name": "text_6",
+              "row": 81,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 9,
+              "name": "chart_4",
+              "row": 85,
+              "rowspan": 21,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 9,
+              "name": "container_7",
+              "row": 80,
+              "rowspan": 27,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "text_7",
+              "row": 110,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "table_1",
+              "row": 114,
+              "rowspan": 20,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_8",
+              "row": 109,
+              "rowspan": 26,
+              "widgetStyle": {
+                "borderEdges": [
+                  "bottom"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "rowHeight": "fine",
+      "selectors": [],
+      "style": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "backgroundColor": "#F2F6FA",
+        "cellSpacingX": 16,
+        "cellSpacingY": 0,
+        "fit": "original",
+        "gutterColor": "#C5D3E0"
+      },
+      "version": 1.0
+    },
+    {
+      "name": "Mobile",
+      "numColumns": 4,
+      "pages": [
+        {
+          "name": "f3639587-7d48-4156-94f9-e74ec3ee8215",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_1",
+              "row": 0,
+              "rowspan": 6,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "listselector_1",
+              "row": 9,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 2,
+              "name": "listselector_2",
+              "row": 9,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 2,
+              "name": "listselector_3",
+              "row": 13,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "listselector_4",
+              "row": 13,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 2,
+              "name": "listselector_5",
+              "row": 17,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "listselector_6",
+              "row": 17,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 2,
+              "name": "listselector_7",
+              "row": 21,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "listselector_8",
+              "row": 21,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "listselector_9",
+              "row": 25,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_2",
+              "row": 8,
+              "rowspan": 21,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_2",
+              "row": 31,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(6, 28, 63)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 0,
+              "name": "number_1",
+              "row": 34,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 1,
+              "name": "number_2",
+              "row": 34,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 2,
+              "name": "number_3",
+              "row": 34,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 3,
+              "name": "number_4",
+              "row": 34,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 0,
+              "name": "number_5",
+              "row": 44,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 1,
+              "name": "number_6",
+              "row": 44,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_3",
+              "row": 34,
+              "rowspan": 20,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_3",
+              "row": 56,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "chart_1",
+              "row": 60,
+              "rowspan": 13,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_4",
+              "row": 56,
+              "rowspan": 18,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_4",
+              "row": 76,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "chart_2",
+              "row": 80,
+              "rowspan": 15,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_5",
+              "row": 76,
+              "rowspan": 20,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_5",
+              "row": 98,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "chart_3",
+              "row": 102,
+              "rowspan": 19,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_6",
+              "row": 98,
+              "rowspan": 24,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_6",
+              "row": 124,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "chart_4",
+              "row": 128,
+              "rowspan": 19,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_7",
+              "row": 124,
+              "rowspan": 24,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_7",
+              "row": 150,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "table_1",
+              "row": 154,
+              "rowspan": 16,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_8",
+              "row": 150,
+              "rowspan": 21,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            }
+          ]
+        }
+      ],
+      "rowHeight": "fine",
+      "selectors": [
+        "maxWidth(599)"
+      ],
+      "style": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "backgroundColor": "#F2F6FA",
+        "cellSpacingX": 8,
+        "cellSpacingY": 0,
+        "fit": "original",
+        "gutterColor": "#C5D3E0"
+      },
+      "version": 1.0
+    }
+  ],
+  "layouts": [],
+  "steps": {
+    "MaxFields": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "RestApiWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"max\",\"NUMBER_FIELDS\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "TotalTransactions": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "RestApiWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "RestAPIHotSpots": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "RestApiWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"],[\"max\",\"ROWS_PROCESSED\"],[\"max\",\"RUN_TIME\"],[\"max\",\"DB_TOTAL_TIME\"]],\"groups\":[\"URI\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "RowsProcessed": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "RestApiWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"sum\",\"ROWS_PROCESSED\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "Dates": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "RestApiWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[[\"TIMESTAMP_DERIVED_Year\",\"TIMESTAMP_DERIVED_Month\",\"TIMESTAMP_DERIVED_Day\"]],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "RawLogData": {
+      "datasets": [
+        {
+          "name": "RestApiWithUsers"
+        }
+      ],
+      "isFacet": true,
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"values\":[\"CLIENT_IP\",\"MEDIA_TYPE\",\"METHOD\",\"REQUEST_STATUS\",\"STATUS_CODE\",\"TIMESTAMP_DERIVED\",\"URI\",\"User.Name\",\"User.Profile.Name\"]}",
+        "version": -1.0
+      },
+      "type": "grain",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "valuestable"
+      }
+    },
+    "Roles": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "RestApiWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.User.Role.Name\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "AvgAPT": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "RestApiWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"avg\",\"RUN_TIME\"]],\"pigql\":\"a = load \\\"RestApiWithUsers\\\"; a = group a by all; a = foreach a generate (avg('RUN_TIME')*0.001) as 'avg';b = group a by all;b = foreach b generate avg('avg') as 'avg_RUN_TIME';\"}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "Users": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "RestApiWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.Name\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "StatusCode": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "RestApiWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"STATUS_CODE\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "EndPoints": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "RestApiWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"URI\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "IPs": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "RestApiWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"CLIENT_IP\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "IPsByStatusCode": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "RestApiWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"CLIENT_IP\",\"STATUS_CODE\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "stackhbar"
+      }
+    },
+    "MaxAPT": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "RestApiWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"max\",\"RUN_TIME\"]],\"pigql\":\"a = load \\\"RestApiWithUsers\\\"; a = group a by all; a = foreach a generate (max('RUN_TIME')*0.001) as 'max';b = group a by all;b = foreach b generate max('max') as 'max_RUN_TIME';\"}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "Profiles": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "RestApiWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.Profile.Name\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "RestAPITrends": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "RestApiWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[[\"TIMESTAMP_DERIVED_Year\",\"TIMESTAMP_DERIVED_Month\",\"TIMESTAMP_DERIVED_Day\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "time"
+      }
+    },
+    "TotalIPs": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "RestApiWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"CLIENT_IP\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "MethodsByEndpoint": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "RestApiWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"METHOD\",\"URI\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "pie"
+      }
+    },
+    "Methods": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "RestApiWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"METHOD\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "RequestStatus": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "RestApiWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"REQUEST_STATUS\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    }
+  },
+  "widgetStyle": {
+    "backgroundColor": "#FFFFFF",
+    "borderColor": "#E6ECF2",
+    "borderEdges": [],
+    "borderRadius": 0,
+    "borderWidth": 1
+  },
+  "widgets": {
+    "number_6": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "unique_CLIENT_IP",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "step": "TotalIPs",
+        "textAlignment": "left",
+        "title": "Total Client IPs",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "container_2": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "container_3": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "container_4": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "container_5": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "container_6": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "text_3": {
+      "parameters": {
+        "fontSize": 20,
+        "text": "How Often Is REST API Used?",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "container_7": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "text_2": {
+      "parameters": {
+        "fontSize": 16,
+        "text": "Shows REST API usage and performance from REST API event data. Use this dashboard to see your users’ REST API usage and REST API request performance in your org.",
+        "textAlignment": "left",
+        "textColor": "#FFFFFF"
+      },
+      "type": "text"
+    },
+    "container_8": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "text_5": {
+      "parameters": {
+        "fontSize": 20,
+        "text": "What Are the Top IPs by Status Code?",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "text_4": {
+      "parameters": {
+        "fontSize": 20,
+        "text": "What Are the REST API Hot Spots by Endpoint?",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "chart_2": {
+      "parameters": {
+        "autoFitMode": "none",
+        "totalValue": "computeTotal",
+        "showValues": true,
+        "bins": {
+          "breakpoints": {
+            "high": 100,
+            "low": 0
+          },
+          "bands": {
+            "high": {
+              "color": "#008000",
+              "label": ""
+            },
+            "low": {
+              "color": "#B22222",
+              "label": ""
+            },
+            "medium": {
+              "color": "#ffa500",
+              "label": ""
+            }
+          }
+        },
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "hbar",
+        "exploreLink": true,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "binValues": false,
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "theme": "wave",
+        "step": "RestAPIHotSpots",
+        "dimensionAxis": {
+          "showTitle": true,
+          "customSize": "auto",
+          "showAxis": true,
+          "title": "Endpoint"
+        }
+      },
+      "type": "chart"
+    },
+    "text_7": {
+      "parameters": {
+        "fontSize": 20,
+        "text": "Raw Log Data",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "chart_1": {
+      "parameters": {
+        "totalValue": "computeTotal",
+        "showPoints": true,
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "time",
+        "missingValue": "connect",
+        "timeAxis": {
+          "showTitle": true,
+          "showAxis": true,
+          "title": "Date"
+        },
+        "exploreLink": true,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "fillArea": true,
+        "showZero": true,
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "Requests"
+        },
+        "theme": "wave",
+        "step": "RestAPITrends"
+      },
+      "type": "chart"
+    },
+    "text_6": {
+      "parameters": {
+        "fontSize": 20,
+        "text": "What Are the [Top] Methods by Endpoint?",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "chart_4": {
+      "parameters": {
+        "totalValue": "computeTotal",
+        "totalLabel": "",
+        "showMeasureTitle": true,
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": 30,
+          "position": "right-top",
+          "inside": false
+        },
+        "showTotal": true,
+        "visualizationType": "pie",
+        "theme": "wave",
+        "step": "MethodsByEndpoint",
+        "exploreLink": true,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "enable": true,
+          "type": "wrap",
+          "chartsPerLine": 4
+        },
+        "inner": 70
+      },
+      "type": "chart"
+    },
+    "chart_3": {
+      "parameters": {
+        "autoFitMode": "none",
+        "totalValue": "computeTotal",
+        "showValues": true,
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "stackvbar",
+        "exploreLink": true,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "normalize": false,
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "Status Count"
+        },
+        "theme": "wave",
+        "step": "IPsByStatusCode",
+        "dimensionAxis": {
+          "showTitle": true,
+          "customSize": "auto",
+          "showAxis": true,
+          "title": ""
+        }
+      },
+      "type": "chart"
+    },
+    "listselector_7": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "step": "RequestStatus",
+        "title": "Status"
+      },
+      "type": "listselector"
+    },
+    "listselector_6": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "step": "Methods",
+        "title": "Methods"
+      },
+      "type": "listselector"
+    },
+    "listselector_9": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "step": "EndPoints",
+        "title": "Endpoints"
+      },
+      "type": "listselector"
+    },
+    "listselector_8": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "step": "StatusCode",
+        "title": "Status Codes"
+      },
+      "type": "listselector"
+    },
+    "listselector_3": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "step": "Profiles",
+        "title": "Profiles"
+      },
+      "type": "listselector"
+    },
+    "listselector_2": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "step": "Users",
+        "title": "Users"
+      },
+      "type": "listselector"
+    },
+    "listselector_5": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "step": "IPs",
+        "title": "Ips"
+      },
+      "type": "listselector"
+    },
+    "text_1": {
+      "parameters": {
+        "fontSize": 48,
+        "text": "Rest API",
+        "textAlignment": "center",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "listselector_4": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "step": "Roles",
+        "title": "Roles"
+      },
+      "type": "listselector"
+    },
+    "number_5": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "max_NUMBER_FIELDS",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "step": "MaxFields",
+        "textAlignment": "left",
+        "title": "Max Fields",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "table_1": {
+      "parameters": {
+        "columnProperties": {},
+        "columns": [],
+        "customBulkActions": [],
+        "exploreLink": true,
+        "step": "RawLogData"
+      },
+      "type": "table"
+    },
+    "number_4": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "avg_RUN_TIME",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "step": "AvgAPT",
+        "textAlignment": "left",
+        "title": "Avg APT (ms)",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "number_3": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "max_RUN_TIME",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "step": "MaxAPT",
+        "textAlignment": "left",
+        "title": "Max APT (ms)",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "number_2": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "sum_ROWS_PROCESSED",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "step": "RowsProcessed",
+        "textAlignment": "left",
+        "title": "Total DB Rows",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "number_1": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "count",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "step": "TotalTransactions",
+        "textAlignment": "left",
+        "title": "Total Requests",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "listselector_1": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "step": "Dates",
+        "title": "Dates"
+      },
+      "type": "listselector"
+    }
+  }
+}

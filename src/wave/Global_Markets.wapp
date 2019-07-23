@@ -4,17 +4,7 @@
     <masterLabel>Global Markets</masterLabel>
     <shares>
         <accessLevel>Manage</accessLevel>
-        <sharedTo>ayotunde.oyedokun@trade.gov</sharedTo>
-        <sharedToType>User</sharedToType>
-    </shares>
-    <shares>
-        <accessLevel>Manage</accessLevel>
         <sharedTo>sandip.menon@trade.gov</sharedTo>
-        <sharedToType>User</sharedToType>
-    </shares>
-    <shares>
-        <accessLevel>Manage</accessLevel>
-        <sharedTo>michael.griswold@trade.gov</sharedTo>
         <sharedToType>User</sharedToType>
     </shares>
 </WaveApplication>
