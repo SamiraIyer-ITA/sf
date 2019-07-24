@@ -7,7 +7,7 @@
       "numColumns": 16,
       "pages": [
         {
-          "name": "58ed7c0e-8fc0-4f42-9b01-6bd59f29ebbe",
+          "name": "d3cc2778-bce5-4846-9092-7f47e67aec88",
           "navigationHidden": false,
           "widgets": [
             {
@@ -334,7 +334,7 @@
       "numColumns": 2,
       "pages": [
         {
-          "name": "58ed7c0e-8fc0-4f42-9b01-6bd59f29ebbe",
+          "name": "d3cc2778-bce5-4846-9092-7f47e67aec88",
           "navigationHidden": false,
           "widgets": [
             {
@@ -1160,6 +1160,7 @@
         "measureField": "unique_USER_ID",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "all_4",
         "textAlignment": "left",
         "title": "Total Users",
@@ -1217,6 +1218,7 @@
         },
         "totalLabel": "",
         "fillArea": true,
+        "showActionMenu": true,
         "showZero": true,
         "measureAxis2": {
           "sqrtScale": false,
@@ -1238,7 +1240,6 @@
     "chart_6": {
       "parameters": {
         "totalValue": "computeTotal",
-        "totalLabel": "",
         "legend": {
           "showHeader": true,
           "show": true,
@@ -1247,10 +1248,7 @@
           "inside": false
         },
         "showMeasureTitle": true,
-        "showTotal": true,
         "visualizationType": "pie",
-        "theme": "wave",
-        "step": "Version_2",
         "exploreLink": false,
         "title": {
           "label": "",
@@ -1263,7 +1261,12 @@
           "parameters": {},
           "chartsPerLine": 4
         },
-        "inner": 90
+        "inner": 90,
+        "totalLabel": "",
+        "showActionMenu": true,
+        "showTotal": true,
+        "theme": "wave",
+        "step": "Version_2"
       },
       "type": "chart"
     },
@@ -1315,6 +1318,7 @@
           "chartsPerLine": 4
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,
@@ -1386,6 +1390,7 @@
           "chartsPerLine": 4
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,
@@ -1442,6 +1447,7 @@
         },
         "totalLabel": "",
         "fillArea": true,
+        "showActionMenu": true,
         "showZero": true,
         "measureAxis2": {
           "sqrtScale": false,
@@ -1508,6 +1514,7 @@
           "chartsPerLine": 4
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,
@@ -1579,6 +1586,7 @@
           "chartsPerLine": 4
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,
@@ -1605,7 +1613,6 @@
     "chart_4": {
       "parameters": {
         "totalValue": "computeTotal",
-        "totalLabel": "",
         "showMeasureTitle": false,
         "legend": {
           "showHeader": false,
@@ -1614,10 +1621,7 @@
           "position": "bottom-center",
           "inside": false
         },
-        "showTotal": true,
         "visualizationType": "pie",
-        "theme": "light",
-        "step": "DEVICE_MODEL_1",
         "exploreLink": true,
         "title": {
           "label": "How Are Users Accessing Lightning Experience?",
@@ -1630,7 +1634,12 @@
           "parameters": {},
           "chartsPerLine": 4
         },
-        "inner": 90
+        "inner": 90,
+        "totalLabel": "",
+        "showActionMenu": true,
+        "showTotal": true,
+        "theme": "light",
+        "step": "DEVICE_MODEL_1"
       },
       "type": "chart"
     },
@@ -1672,6 +1681,7 @@
         },
         "totalLabel": "",
         "fillArea": false,
+        "showActionMenu": true,
         "showZero": true,
         "measureAxis2": {
           "sqrtScale": false,
@@ -1696,6 +1706,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "BROWSER_NAME_1",
         "title": "Browsers"
       },
@@ -1707,6 +1718,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "CLIENT_IP_1",
         "title": "IP"
       },
@@ -1718,6 +1730,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "TARGET_UI_ELEMENT_1",
         "title": "Target"
       },
@@ -1729,6 +1742,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "APP_NAME_1",
         "title": "Apps"
       },
@@ -1740,6 +1754,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "USER_TYPE_1",
         "title": "USER TYPE"
       },
@@ -1751,6 +1766,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "TIMESTAMP_DERIVED_Ye_3",
         "title": "Date"
       },
@@ -1759,6 +1775,7 @@
     "text_1": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Shows Lightning Experience and Salesforce1 usage from Lightning Interaction and Lightning Page View event data. Use this dashboard to see how users interact with Lightning Experience on the desktop and mobile devices.",
         "textAlignment": "left",
         "textColor": "#FFFFFF"
@@ -1771,6 +1788,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "OS_NAME_1",
         "title": "Operation Systems"
       },
@@ -1782,6 +1800,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "OS_VERSION_1",
         "title": "OS Versions"
       },
@@ -1794,6 +1813,7 @@
         "measureField": "count",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "all_2",
         "textAlignment": "left",
         "title": "Total Interactions",
@@ -1809,6 +1829,7 @@
         "measureField": "avg_adoption",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "all_1",
         "textAlignment": "left",
         "title": "Avg Clicks Per User",
@@ -1824,6 +1845,7 @@
         "measureField": "avg_Adoption",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "all_3",
         "textAlignment": "left",
         "title": " Adoption (vs Last Week)",
@@ -1839,6 +1861,7 @@
         "measureField": "unique_USER_ID",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "USER_ID_1",
         "textAlignment": "left",
         "title": "Total Users",
@@ -1853,6 +1876,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "User_Name_1",
         "title": "User_Name"
       },
@@ -1864,6 +1888,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "PAGE_ENTITY_TYPE_2",
         "title": "Object"
       },
@@ -1875,6 +1900,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "DEVICE_MODEL_2",
         "title": "Device Type"
       },

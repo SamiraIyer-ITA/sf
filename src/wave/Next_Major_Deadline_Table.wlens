@@ -49,6 +49,7 @@
         "minColumnWidth": 40,
         "mode": "variable",
         "numberOfLines": 1,
+        "showActionMenu": true,
         "showRowIndexColumn": true,
         "step": "grain",
         "totals": true,

@@ -7,7 +7,7 @@
       "numColumns": 18,
       "pages": [
         {
-          "name": "d245d1f3-0a24-405b-91be-a70340bfc719",
+          "name": "4c7fdfe9-0e56-45cb-8674-7f1d876e98e5",
           "navigationHidden": false,
           "widgets": [
             {
@@ -219,7 +219,7 @@
       "numColumns": 4,
       "pages": [
         {
-          "name": "d245d1f3-0a24-405b-91be-a70340bfc719",
+          "name": "4c7fdfe9-0e56-45cb-8674-7f1d876e98e5",
           "navigationHidden": false,
           "widgets": [
             {
@@ -666,6 +666,7 @@
     "text_1": {
       "parameters": {
         "fontSize": 48,
+        "showActionMenu": true,
         "text": "My Trust",
         "textAlignment": "center",
         "textColor": "#091A3E"
@@ -679,6 +680,7 @@
         "measureField": "unique_USER_ID",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "CountUsers",
         "textAlignment": "left",
         "title": "Active Users",
@@ -694,6 +696,7 @@
         "measureField": "max_DELTA",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "MaxEPT",
         "textAlignment": "left",
         "title": "Max EPT",
@@ -709,6 +712,7 @@
         "measureField": "avg_DELTA",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "AvgEPT",
         "textAlignment": "left",
         "title": "Avg EPT",
@@ -724,6 +728,7 @@
         "measureField": "max_RUN_TIME",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "MaxAPT",
         "textAlignment": "left",
         "title": "Max APT",
@@ -739,6 +744,7 @@
         "measureField": "avg_RUN_TIME",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "AvgAPT",
         "textAlignment": "left",
         "title": "Avg APT",
@@ -762,6 +768,7 @@
         "measureField": "sum_Total",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "TotalCount",
         "textAlignment": "left",
         "title": "Total Transactions",
@@ -789,6 +796,7 @@
     "text_3": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Daily Transaction Count",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -798,6 +806,7 @@
     "text_2": {
       "parameters": {
         "fontSize": 16,
+        "showActionMenu": true,
         "text": "A single place to quickly view the health of your org.",
         "textAlignment": "left",
         "textColor": "#FFFFFF"
@@ -817,6 +826,7 @@
         "compact": true,
         "exploreLink": false,
         "instant": true,
+        "showActionMenu": false,
         "step": "EventTypeSelector",
         "title": "Type"
       },
@@ -854,6 +864,7 @@
         },
         "totalLabel": "",
         "fillArea": true,
+        "showActionMenu": true,
         "showZero": true,
         "measureAxis2": {
           "sqrtScale": false,
@@ -875,6 +886,7 @@
     "text_6": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Daily Transaction Speed (APT)",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -913,6 +925,7 @@
         },
         "totalLabel": "",
         "fillArea": true,
+        "showActionMenu": true,
         "showZero": true,
         "measureAxis2": {
           "sqrtScale": false,

@@ -7,7 +7,7 @@
       "numColumns": 18,
       "pages": [
         {
-          "name": "e1fe6029-e0c4-4c05-96ee-f647b4e199df",
+          "name": "67300926-bd0a-4c80-ba72-c5a0e56fb2ee",
           "navigationHidden": false,
           "widgets": [
             {
@@ -377,7 +377,7 @@
       "numColumns": 4,
       "pages": [
         {
-          "name": "e1fe6029-e0c4-4c05-96ee-f647b4e199df",
+          "name": "67300926-bd0a-4c80-ba72-c5a0e56fb2ee",
           "navigationHidden": false,
           "widgets": [
             {
@@ -1157,6 +1157,7 @@
     "text_3": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Who Logs In the Most?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1174,6 +1175,7 @@
     "text_2": {
       "parameters": {
         "fontSize": 16,
+        "showActionMenu": true,
         "text": "Shows user login activity from Login event data. Use this dashboard to see your org’s user login trends, such as who logs in the most.",
         "textAlignment": "left",
         "textColor": "#FFFFFF"
@@ -1191,6 +1193,7 @@
     "text_5": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Which IP Addresses Are Users Logging In From?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1200,6 +1203,7 @@
     "text_4": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Which User Agents Are Logged In From?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1234,6 +1238,7 @@
         },
         "inner": 70,
         "totalLabel": "",
+        "showActionMenu": true,
         "centerValueType": "number",
         "valueType": "compactNumber",
         "theme": "wave",
@@ -1244,6 +1249,7 @@
     "text_6": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Raw Log Data",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1282,6 +1288,7 @@
         },
         "totalLabel": "",
         "fillArea": true,
+        "showActionMenu": true,
         "showZero": true,
         "measureAxis2": {
           "sqrtScale": false,
@@ -1328,6 +1335,7 @@
           "chartsPerLine": 4
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,
@@ -1372,6 +1380,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "ClientIPs",
         "title": "IPs"
       },
@@ -1383,6 +1392,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "IsActive",
         "title": "Is Active"
       },
@@ -1394,6 +1404,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Roles",
         "title": "Roles"
       },
@@ -1405,6 +1416,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Profiles",
         "title": "Profiles"
       },
@@ -1416,6 +1428,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Users",
         "title": "Users"
       },
@@ -1424,6 +1437,7 @@
     "text_1": {
       "parameters": {
         "fontSize": 64,
+        "showActionMenu": true,
         "text": "User Logins",
         "textAlignment": "center",
         "textColor": "#091A3E"
@@ -1436,6 +1450,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "UserAgents",
         "title": "User Agents"
       },
@@ -1447,6 +1462,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "LoginURIs",
         "title": "Login URL"
       },
@@ -1458,6 +1474,7 @@
         "columns": [],
         "customBulkActions": [],
         "exploreLink": true,
+        "showActionMenu": true,
         "step": "RawLogData"
       },
       "type": "table"
@@ -1469,6 +1486,7 @@
         "measureField": "unique_USER_ID",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "TotalUsers",
         "textAlignment": "left",
         "title": "Total Users",
@@ -1484,6 +1502,7 @@
         "measureField": "count",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "TotalLogins",
         "textAlignment": "left",
         "title": "Total Logins",
@@ -1499,6 +1518,7 @@
         "measureField": "avg_RUN_TIME",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "AvgLoginTime",
         "textAlignment": "left",
         "title": "Avg Login Time (s)",
@@ -1514,6 +1534,7 @@
         "measureField": "max_RUN_TIME",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "MaxLoginTime",
         "textAlignment": "left",
         "title": "Max Login Time (s)",
@@ -1528,6 +1549,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Dates",
         "title": "Dates"
       },
