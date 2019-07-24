@@ -14423,6 +14423,17 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
         <errorMessage>Actual Date of Decision on How to Proceed (HOP) cannot be later than Deadline for Decision on HOP</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>A1106ActualFinalSignatureCompleted</fullName>
+        <active>true</active>
+        <description>Actual Final Signature is required if Segment Outcome is set to Completed.</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
+Locked__c == false,
+RecordType.DeveloperName  &lt;&gt; &apos;Scope_Inquiry&apos;,
+ISNULL(Actual_Final_Signature__c),
+ISPICKVAL(Segment_Outcome__c, &apos;Completed&apos;))</errorConditionFormula>
+        <errorMessage>Actual Final Signature must be filled when Segment Outcome is set to Completed.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>A1106ActualFinalSignatureNotBlank</fullName>
         <active>true</active>
         <description>You cannot enter an Actual Final Signature Date until the Calculate Final Signature Date is not populated</description>
@@ -14824,6 +14835,17 @@ ISCHANGED(Request_Filed__c)
             )</errorConditionFormula>
         <errorDisplayField>Was_product_determined_to_be_in_scope__c</errorDisplayField>
         <errorMessage>&quot;Was the Product Determined to be in Scope?&quot; is required only if &quot;Decision on How to Proceed&quot; is either &quot;Formal&quot; or &quot;Informal&quot;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>A1107ActualFinalSignatureCompleted</fullName>
+        <active>true</active>
+        <description>Actual Final Signature is required if Segment Outcome is set to Completed.</description>
+        <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, 
+Locked__c == false,
+RecordType.DeveloperName &lt;&gt; &apos;Sunset_Review&apos;, 
+ISNULL(Actual_Final_Signature__c),
+ISPICKVAL(Segment_Outcome__c, &apos;Completed&apos;))</errorConditionFormula>
+        <errorMessage>Actual Final Signature must be filled when Segment Outcome is set to Completed.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>A1107AFSRequiredIfSegOutcomeCompleted</fullName>
