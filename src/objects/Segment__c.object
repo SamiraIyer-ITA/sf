@@ -2128,7 +2128,6 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
  &apos;Administrative_Review&apos;, 120 - Prelim_Extension__c,
  &apos;Expedited_Review&apos;, 120 - Prelim_Extension__c ,
  &apos;New_Shipper_Review&apos;, 120 - Prelim_Extension__c ,
- &apos;Sunset_Review&apos;, 90 - Prelim_Extension__c ,
 0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Preliminary Extension Remaining</label>
