@@ -1,1 +1,1527 @@
-{"dataSourceLinks":[],"filters":[],"gridLayouts":[{"name":"Default","numColumns":18,"pages":[{"name":"027f272c-e8b2-490e-a644-e82a4060f7be","navigationHidden":false,"widgets":[{"colspan":2,"column":1,"name":"listselector_1","row":1,"rowspan":4,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":3,"name":"listselector_2","row":1,"rowspan":4,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":5,"name":"listselector_3","row":1,"rowspan":4,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":7,"name":"listselector_4","row":1,"rowspan":4,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":9,"name":"listselector_5","row":1,"rowspan":4,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":11,"name":"listselector_6","row":1,"rowspan":4,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":13,"name":"listselector_7","row":1,"rowspan":4,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":16,"column":1,"name":"container_3","row":0,"rowspan":6,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":16,"column":1,"name":"text_6","row":8,"rowspan":4,"widgetStyle":{"backgroundColor":"rgb(6, 28, 63)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":1,"name":"number_1","row":12,"rowspan":9,"widgetStyle":{"backgroundColor":"rgb(20, 41, 94)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":3,"name":"number_2","row":12,"rowspan":9,"widgetStyle":{"backgroundColor":"rgb(20, 41, 94)","borderColor":"rgb(230, 236, 242)","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":5,"name":"number_3","row":12,"rowspan":9,"widgetStyle":{"backgroundColor":"rgb(20, 41, 94)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":7,"name":"number_4","row":12,"rowspan":9,"widgetStyle":{"backgroundColor":"rgb(20, 41, 94)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":16,"column":1,"name":"container_2","row":12,"rowspan":10,"widgetStyle":{"backgroundColor":"rgb(20, 41, 94)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":16,"column":1,"name":"text_2","row":25,"rowspan":3,"widgetStyle":{"backgroundColor":"#FFFFFF","borderColor":"#E6ECF2","borderEdges":["bottom"],"borderRadius":0,"borderWidth":1}},{"colspan":16,"column":1,"name":"chart_1","row":29,"rowspan":16,"widgetStyle":{"borderEdges":[]}},{"colspan":16,"column":1,"name":"container_4","row":24,"rowspan":22,"widgetStyle":{"borderEdges":[]}},{"colspan":16,"column":1,"name":"text_1","row":49,"rowspan":3,"widgetStyle":{"backgroundColor":"#FFFFFF","borderColor":"#E6ECF2","borderEdges":["bottom"],"borderRadius":0,"borderWidth":1}},{"colspan":16,"column":1,"name":"chart_3","row":53,"rowspan":15,"widgetStyle":{"borderEdges":[]}},{"colspan":16,"column":1,"name":"container_5","row":48,"rowspan":21,"widgetStyle":{"borderEdges":[]}},{"colspan":16,"column":1,"name":"text_3","row":72,"rowspan":3,"widgetStyle":{"backgroundColor":"#FFFFFF","borderColor":"#E6ECF2","borderEdges":["bottom"],"borderRadius":0,"borderWidth":1}},{"colspan":16,"column":1,"name":"chart_4","row":76,"rowspan":15,"widgetStyle":{"borderEdges":[]}},{"colspan":16,"column":1,"name":"container_6","row":71,"rowspan":21,"widgetStyle":{"borderEdges":[]}},{"colspan":16,"column":1,"name":"text_5","row":95,"rowspan":3,"widgetStyle":{"backgroundColor":"#FFFFFF","borderColor":"#E6ECF2","borderEdges":["bottom"],"borderRadius":0,"borderWidth":1}},{"colspan":16,"column":1,"name":"table_1","row":99,"rowspan":17,"widgetStyle":{"borderEdges":[]}},{"colspan":16,"column":1,"name":"container_7","row":94,"rowspan":23,"widgetStyle":{"borderEdges":[]}}]}],"rowHeight":"fine","selectors":[],"style":{"alignmentX":"left","alignmentY":"top","backgroundColor":"#F2F6FA","cellSpacingX":16,"cellSpacingY":0,"fit":"original","gutterColor":"#C5D3E0"},"version":1.0},{"name":"Mobile","numColumns":4,"pages":[{"name":"027f272c-e8b2-490e-a644-e82a4060f7be","navigationHidden":false,"widgets":[{"colspan":4,"column":0,"name":"text_4","row":0,"rowspan":6,"widgetStyle":{"borderEdges":[]}},{"colspan":2,"column":0,"name":"listselector_1","row":9,"rowspan":3,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":2,"name":"listselector_2","row":9,"rowspan":3,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":0,"name":"listselector_3","row":13,"rowspan":3,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":2,"name":"listselector_4","row":13,"rowspan":3,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":0,"name":"listselector_5","row":17,"rowspan":3,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":2,"name":"listselector_6","row":17,"rowspan":3,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":2,"column":0,"name":"listselector_7","row":21,"rowspan":3,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":4,"column":0,"name":"container_3","row":8,"rowspan":17,"widgetStyle":{"backgroundColor":"rgb(224, 229, 238)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":4,"column":0,"name":"text_6","row":27,"rowspan":3,"widgetStyle":{"backgroundColor":"rgb(6, 28, 63)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":1,"column":0,"name":"number_1","row":30,"rowspan":9,"widgetStyle":{"backgroundColor":"rgb(20, 41, 94)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":1,"column":1,"name":"number_2","row":30,"rowspan":9,"widgetStyle":{"backgroundColor":"rgb(20, 41, 94)","borderColor":"rgb(230, 236, 242)","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":1,"column":2,"name":"number_3","row":30,"rowspan":9,"widgetStyle":{"backgroundColor":"rgb(20, 41, 94)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":1,"column":3,"name":"number_4","row":30,"rowspan":9,"widgetStyle":{"backgroundColor":"rgb(20, 41, 94)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":4,"column":0,"name":"container_2","row":30,"rowspan":10,"widgetStyle":{"backgroundColor":"rgb(20, 41, 94)","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}},{"colspan":4,"column":0,"name":"text_2","row":42,"rowspan":3,"widgetStyle":{"backgroundColor":"#FFFFFF","borderColor":"#E6ECF2","borderEdges":["bottom"],"borderRadius":0,"borderWidth":1}},{"colspan":4,"column":0,"name":"chart_1","row":46,"rowspan":15,"widgetStyle":{"borderEdges":[]}},{"colspan":4,"column":0,"name":"container_4","row":42,"rowspan":20,"widgetStyle":{"borderEdges":[]}},{"colspan":4,"column":0,"name":"text_1","row":64,"rowspan":3,"widgetStyle":{"backgroundColor":"#FFFFFF","borderColor":"#E6ECF2","borderEdges":["bottom"],"borderRadius":0,"borderWidth":1}},{"colspan":4,"column":0,"name":"chart_3","row":68,"rowspan":15,"widgetStyle":{"borderEdges":[]}},{"colspan":4,"column":0,"name":"container_5","row":64,"rowspan":20,"widgetStyle":{"borderEdges":[]}},{"colspan":4,"column":0,"name":"text_3","row":86,"rowspan":3,"widgetStyle":{"backgroundColor":"#FFFFFF","borderColor":"#E6ECF2","borderEdges":["bottom"],"borderRadius":0,"borderWidth":1}},{"colspan":4,"column":0,"name":"chart_4","row":90,"rowspan":15,"widgetStyle":{"borderEdges":[]}},{"colspan":4,"column":0,"name":"container_6","row":86,"rowspan":20,"widgetStyle":{"borderEdges":[]}},{"colspan":4,"column":0,"name":"text_5","row":108,"rowspan":3,"widgetStyle":{"backgroundColor":"#FFFFFF","borderColor":"#E6ECF2","borderEdges":["bottom"],"borderRadius":0,"borderWidth":1}},{"colspan":4,"column":0,"name":"table_1","row":112,"rowspan":11,"widgetStyle":{"borderEdges":[]}},{"colspan":4,"column":0,"name":"container_7","row":108,"rowspan":16,"widgetStyle":{"borderEdges":[]}}]}],"rowHeight":"fine","selectors":["maxWidth(599)"],"style":{"alignmentX":"left","alignmentY":"top","backgroundColor":"#F2F6FA","cellSpacingX":8,"cellSpacingY":0,"fit":"original","gutterColor":"#C5D3E0"},"version":1.0}],"layouts":[],"steps":{"URIs":{"broadcastFacet":true,"datasets":[{"name":"LoginAsWithUsers"}],"isGlobal":false,"label":"","query":{"query":"{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"URI\"],\"order\":[[-1,{\"ascending\":false}]]}","version":-1.0},"receiveFacet":true,"selectMode":"single","type":"aggregateflex","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"hbar"}},"AdminsAsEndUsers":{"broadcastFacet":true,"datasets":[{"name":"LoginAsWithUsers"}],"isGlobal":false,"label":"","query":{"query":"{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"DELEGATED_USER_NAME\",\"User.Name\"]}","version":-1.0},"receiveFacet":true,"selectMode":"single","type":"aggregateflex","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"stackhbar"}},"TotalTransactions":{"broadcastFacet":true,"datasets":[{"name":"LoginAsWithUsers"}],"isGlobal":false,"label":"","query":{"query":"{\"measures\":[[\"count\",\"*\"]]}","version":-1.0},"receiveFacet":true,"selectMode":"single","type":"aggregateflex","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"hbar"}},"Dates":{"broadcastFacet":true,"datasets":[{"name":"LoginAsWithUsers"}],"isGlobal":false,"label":"","query":{"query":"{\"measures\":[[\"count\",\"*\"]],\"groups\":[[\"TIMESTAMP_DERIVED_Year\",\"TIMESTAMP_DERIVED_Month\",\"TIMESTAMP_DERIVED_Day\"]]}","version":-1.0},"receiveFacet":true,"selectMode":"single","type":"aggregateflex","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"hbar"}},"RawLogData":{"datasets":[{"name":"LoginAsWithUsers"}],"isFacet":true,"isGlobal":false,"label":"","query":{"query":"{\"values\":[\"CLIENT_IP\",\"User.Name\",\"DELEGATED_USER_NAME\",\"TIMESTAMP_DERIVED\",\"URI\",\"User.Profile.Name\",\"User.User.Role.Name\"]}","version":-1.0},"selectMode":"single","type":"grain","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"valuestable"}},"Roles":{"broadcastFacet":true,"datasets":[{"name":"LoginAsWithUsers"}],"isGlobal":false,"label":"","query":{"query":"{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.User.Role.Name\"],\"order\":[[-1,{\"ascending\":false}]]}","version":-1.0},"receiveFacet":true,"selectMode":"single","type":"aggregateflex","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"hbar"}},"EndUsers":{"broadcastFacet":true,"datasets":[{"name":"LoginAsWithUsers"}],"isGlobal":false,"label":"","query":{"query":"{\"measures\":[[\"count\",\"USER_ID\"]]}","version":-1.0},"receiveFacet":true,"selectMode":"single","type":"aggregateflex","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"hbar"}},"UserNames":{"broadcastFacet":true,"datasets":[{"name":"LoginAsWithUsers"}],"isGlobal":false,"label":"","query":{"query":"{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.Name\"],\"order\":[[-1,{\"ascending\":false}]]}","version":-1.0},"receiveFacet":true,"selectMode":"single","type":"aggregateflex","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"hbar"}},"LoginAsTrends":{"broadcastFacet":true,"datasets":[{"name":"LoginAsWithUsers"}],"isGlobal":false,"label":"","query":{"query":"{\"measures\":[[\"count\",\"*\"]],\"groups\":[[\"TIMESTAMP_DERIVED_Year\",\"TIMESTAMP_DERIVED_Month\",\"TIMESTAMP_DERIVED_Day\"],\"DELEGATED_USER_NAME\"]}","version":-1.0},"receiveFacet":true,"selectMode":"single","type":"aggregateflex","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"time"}},"IPs":{"broadcastFacet":true,"datasets":[{"name":"LoginAsWithUsers"}],"isGlobal":false,"label":"","query":{"query":"{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"CLIENT_IP\"],\"order\":[[-1,{\"ascending\":false}]]}","version":-1.0},"receiveFacet":true,"selectMode":"single","type":"aggregateflex","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"hbar"}},"Client_IP":{"broadcastFacet":true,"datasets":[{"name":"LoginAsWithUsers"}],"isGlobal":false,"label":"","query":{"query":"{\"measures\":[[\"count\",\"CLIENT_IP\"]]}","version":-1.0},"receiveFacet":true,"selectMode":"single","type":"aggregateflex","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"hbar"}},"AdminUsers":{"broadcastFacet":true,"datasets":[{"name":"LoginAsWithUsers"}],"isGlobal":false,"label":"","query":{"query":"{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"DELEGATED_USER_NAME\"]}","version":-1.0},"receiveFacet":true,"selectMode":"single","type":"aggregateflex","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"hbar"}},"Profiles":{"broadcastFacet":true,"datasets":[{"name":"LoginAsWithUsers"}],"isGlobal":false,"label":"","query":{"query":"{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.Profile.Name\"],\"order\":[[-1,{\"ascending\":false}]]}","version":-1.0},"receiveFacet":true,"selectMode":"single","type":"aggregateflex","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"hbar"}},"LoginAsByIP":{"broadcastFacet":true,"datasets":[{"name":"LoginAsWithUsers"}],"isGlobal":false,"label":"","query":{"query":"{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"CLIENT_IP\",\"DELEGATED_USER_NAME\",\"User.Name\"]}","version":-1.0},"receiveFacet":true,"selectMode":"single","type":"aggregateflex","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"hdot"}},"KPIAdminUsers":{"broadcastFacet":true,"datasets":[{"name":"LoginAsWithUsers"}],"isGlobal":false,"label":"","query":{"query":"{\"measures\":[[\"count\",\"DELEGATED_USER_ID\"]]}","version":-1.0},"receiveFacet":true,"selectMode":"single","type":"aggregateflex","useGlobal":true,"visualizationParameters":{"options":{},"visualizationType":"hbar"}}},"widgetStyle":{"backgroundColor":"#FFFFFF","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1},"widgets":{"container_2":{"parameters":{"alignmentX":"left","alignmentY":"top","fit":"original"},"type":"container"},"container_3":{"parameters":{"alignmentX":"left","alignmentY":"top","fit":"original"},"type":"container"},"container_4":{"parameters":{"alignmentX":"left","alignmentY":"top","fit":"original"},"type":"container"},"container_5":{"parameters":{"alignmentX":"left","alignmentY":"top","fit":"original"},"type":"container"},"container_6":{"parameters":{"alignmentX":"left","alignmentY":"top","fit":"original"},"type":"container"},"text_3":{"parameters":{"fontSize":20,"text":"Which IP Addresses Are Admins Using to Login As Another User?","textAlignment":"left","textColor":"#091A3E"},"type":"text"},"text_2":{"parameters":{"fontSize":20,"text":"How Often Are Admins Logging In As Other Users?","textAlignment":"left","textColor":"#091A3E"},"type":"text"},"container_7":{"parameters":{"alignmentX":"left","alignmentY":"top","fit":"original"},"type":"container"},"text_5":{"parameters":{"fontSize":20,"text":"Raw Log Data","textAlignment":"left","textColor":"#091A3E"},"type":"text"},"text_4":{"parameters":{"fontSize":48,"text":"Login-As","textAlignment":"center","textColor":"#091A3E"},"type":"text"},"chart_1":{"parameters":{"totalValue":"computeTotal","showPoints":true,"legend":{"showHeader":true,"show":true,"customSize":"auto","position":"right-top","inside":false},"axisMode":"multi","visualizationType":"time","missingValue":"connect","timeAxis":{"showTitle":true,"showAxis":true,"title":"Date"},"exploreLink":true,"title":{"label":"","align":"center","subtitleLabel":""},"trellis":{"enable":false,"type":"x","chartsPerLine":4},"totalLabel":"","fillArea":true,"showZero":true,"measureAxis2":{"sqrtScale":false,"showTitle":true,"showAxis":true,"title":""},"measureAxis1":{"sqrtScale":false,"showTitle":true,"showAxis":true,"title":"Logins"},"theme":"wave","step":"LoginAsTrends"},"type":"chart"},"text_6":{"parameters":{"fontSize":16,"text":"Shows admins logging in as other users from Login As event data. Use this dashboard to see how admins are using the Login As feature in your org.","textAlignment":"left","textColor":"#FFFFFF"},"type":"text"},"chart_4":{"parameters":{"autoFitMode":"fit","totalValue":"computeTotal","showValues":true,"bins":{"breakpoints":{"high":100,"low":0},"bands":{"high":{"color":"#008000","label":""},"low":{"color":"#B22222","label":""},"medium":{"color":"#ffa500","label":""}}},"legend":{"showHeader":true,"show":true,"customSize":"auto","position":"right-top","inside":false},"axisMode":"multi","visualizationType":"hbar","exploreLink":true,"title":{"label":"","align":"center","subtitleLabel":""},"binValues":false,"trellis":{"enable":false,"type":"x","chartsPerLine":4},"totalLabel":"","measureAxis2":{"sqrtScale":false,"showTitle":true,"showAxis":true,"title":""},"measureAxis1":{"sqrtScale":false,"showTitle":true,"showAxis":true,"title":"Logins"},"theme":"wave","step":"LoginAsByIP","dimensionAxis":{"showTitle":true,"customSize":"auto","showAxis":true,"title":"Client IP"}},"type":"chart"},"chart_3":{"parameters":{"autoFitMode":"fit","totalValue":"computeTotal","showValues":true,"legend":{"showHeader":true,"show":true,"customSize":"auto","position":"right-top","inside":false},"axisMode":"multi","visualizationType":"stackhbar","exploreLink":true,"title":{"label":"","align":"center","subtitleLabel":""},"trellis":{"enable":false,"type":"x","chartsPerLine":4},"totalLabel":"","measureAxis2":{"sqrtScale":false,"showTitle":true,"showAxis":true,"title":""},"normalize":false,"measureAxis1":{"sqrtScale":false,"showTitle":true,"showAxis":true,"title":"Logins"},"theme":"wave","step":"AdminsAsEndUsers","dimensionAxis":{"showTitle":true,"customSize":"auto","showAxis":true,"title":"Admin Usernames"}},"type":"chart"},"listselector_7":{"parameters":{"compact":true,"exploreLink":false,"instant":true,"measureField":"count","step":"AdminUsers","title":"Admins"},"type":"listselector"},"listselector_6":{"parameters":{"compact":true,"exploreLink":false,"instant":true,"measureField":"count","step":"URIs","title":"Pages"},"type":"listselector"},"listselector_3":{"parameters":{"compact":true,"exploreLink":false,"instant":true,"measureField":"count","step":"Profiles","title":"Profiles"},"type":"listselector"},"listselector_2":{"parameters":{"compact":true,"exploreLink":false,"instant":true,"measureField":"count","step":"UserNames","title":"Users"},"type":"listselector"},"listselector_5":{"parameters":{"compact":true,"exploreLink":false,"instant":true,"measureField":"count","step":"IPs","title":"IPs"},"type":"listselector"},"text_1":{"parameters":{"fontSize":20,"text":"Which Users Are Admins Logging In As?","textAlignment":"left","textColor":"#091A3E"},"type":"text"},"listselector_4":{"parameters":{"compact":true,"exploreLink":false,"instant":true,"measureField":"count","step":"Roles","title":"Roles"},"type":"listselector"},"table_1":{"parameters":{"columnProperties":{},"columns":[],"customBulkActions":[],"exploreLink":true,"step":"RawLogData"},"type":"table"},"number_4":{"parameters":{"compact":true,"exploreLink":true,"measureField":"unique_CLIENT_IP","numberColor":"#FFFFFF","numberSize":32,"step":"Client_IP","textAlignment":"left","title":"Unique IPs","titleColor":"#FFFFFF","titleSize":12},"type":"number"},"number_3":{"parameters":{"compact":true,"exploreLink":true,"measureField":"unique_DELEGATED_USER_ID","numberColor":"#FFFFFF","numberSize":32,"step":"KPIAdminUsers","textAlignment":"left","title":"Admin Users","titleColor":"#FFFFFF","titleSize":12},"type":"number"},"number_2":{"parameters":{"compact":true,"exploreLink":true,"measureField":"unique_USER_ID","numberColor":"#FFFFFF","numberSize":32,"step":"EndUsers","textAlignment":"left","title":"End Users","titleColor":"#FFFFFF","titleSize":12},"type":"number"},"number_1":{"parameters":{"compact":true,"exploreLink":true,"measureField":"count","numberColor":"#FFFFFF","numberSize":32,"step":"TotalTransactions","textAlignment":"left","title":"Total Logins","titleColor":"#FFFFFF","titleSize":12},"type":"number"},"listselector_1":{"parameters":{"compact":true,"exploreLink":false,"instant":true,"measureField":"count","step":"Dates","title":"Dates"},"type":"listselector"}}}
+{
+  "dataSourceLinks": [],
+  "filters": [],
+  "gridLayouts": [
+    {
+      "name": "Default",
+      "numColumns": 18,
+      "pages": [
+        {
+          "name": "92ae76ef-41d0-48d5-a4f4-b6fb8ceae793",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 2,
+              "column": 1,
+              "name": "listselector_1",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 3,
+              "name": "listselector_2",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 5,
+              "name": "listselector_3",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 7,
+              "name": "listselector_4",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 9,
+              "name": "listselector_5",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 11,
+              "name": "listselector_6",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 13,
+              "name": "listselector_7",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_3",
+              "row": 0,
+              "rowspan": 6,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "text_6",
+              "row": 8,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(6, 28, 63)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 1,
+              "name": "number_1",
+              "row": 12,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 3,
+              "name": "number_2",
+              "row": 12,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "rgb(230, 236, 242)",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 5,
+              "name": "number_3",
+              "row": 12,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 7,
+              "name": "number_4",
+              "row": 12,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_2",
+              "row": 12,
+              "rowspan": 10,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "text_2",
+              "row": 25,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "chart_1",
+              "row": 29,
+              "rowspan": 16,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_4",
+              "row": 24,
+              "rowspan": 22,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "text_1",
+              "row": 49,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "chart_3",
+              "row": 53,
+              "rowspan": 15,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_5",
+              "row": 48,
+              "rowspan": 21,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "text_3",
+              "row": 72,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "chart_4",
+              "row": 76,
+              "rowspan": 15,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_6",
+              "row": 71,
+              "rowspan": 21,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "text_5",
+              "row": 95,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "table_1",
+              "row": 99,
+              "rowspan": 17,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_7",
+              "row": 94,
+              "rowspan": 23,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            }
+          ]
+        }
+      ],
+      "rowHeight": "fine",
+      "selectors": [],
+      "style": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "backgroundColor": "#F2F6FA",
+        "cellSpacingX": 16,
+        "cellSpacingY": 0,
+        "fit": "original",
+        "gutterColor": "#C5D3E0"
+      },
+      "version": 1.0
+    },
+    {
+      "name": "Mobile",
+      "numColumns": 4,
+      "pages": [
+        {
+          "name": "92ae76ef-41d0-48d5-a4f4-b6fb8ceae793",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_4",
+              "row": 0,
+              "rowspan": 6,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "listselector_1",
+              "row": 9,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 2,
+              "name": "listselector_2",
+              "row": 9,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "listselector_3",
+              "row": 13,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 2,
+              "name": "listselector_4",
+              "row": 13,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "listselector_5",
+              "row": 17,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 2,
+              "name": "listselector_6",
+              "row": 17,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "listselector_7",
+              "row": 21,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_3",
+              "row": 8,
+              "rowspan": 17,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_6",
+              "row": 27,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(6, 28, 63)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 0,
+              "name": "number_1",
+              "row": 30,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 1,
+              "name": "number_2",
+              "row": 30,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "rgb(230, 236, 242)",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 2,
+              "name": "number_3",
+              "row": 30,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 3,
+              "name": "number_4",
+              "row": 30,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_2",
+              "row": 30,
+              "rowspan": 10,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_2",
+              "row": 42,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "chart_1",
+              "row": 46,
+              "rowspan": 15,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_4",
+              "row": 42,
+              "rowspan": 20,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_1",
+              "row": 64,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "chart_3",
+              "row": 68,
+              "rowspan": 15,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_5",
+              "row": 64,
+              "rowspan": 20,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_3",
+              "row": 86,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "chart_4",
+              "row": 90,
+              "rowspan": 15,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_6",
+              "row": 86,
+              "rowspan": 20,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_5",
+              "row": 108,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "table_1",
+              "row": 112,
+              "rowspan": 11,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_7",
+              "row": 108,
+              "rowspan": 16,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            }
+          ]
+        }
+      ],
+      "rowHeight": "fine",
+      "selectors": [
+        "maxWidth(599)"
+      ],
+      "style": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "backgroundColor": "#F2F6FA",
+        "cellSpacingX": 8,
+        "cellSpacingY": 0,
+        "fit": "original",
+        "gutterColor": "#C5D3E0"
+      },
+      "version": 1.0
+    }
+  ],
+  "layouts": [],
+  "steps": {
+    "URIs": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LoginAsWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"URI\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "AdminsAsEndUsers": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LoginAsWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"DELEGATED_USER_NAME\",\"User.Name\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "stackhbar"
+      }
+    },
+    "TotalTransactions": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LoginAsWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "Dates": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LoginAsWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[[\"TIMESTAMP_DERIVED_Year\",\"TIMESTAMP_DERIVED_Month\",\"TIMESTAMP_DERIVED_Day\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "RawLogData": {
+      "datasets": [
+        {
+          "name": "LoginAsWithUsers"
+        }
+      ],
+      "isFacet": true,
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"values\":[\"CLIENT_IP\",\"User.Name\",\"DELEGATED_USER_NAME\",\"TIMESTAMP_DERIVED\",\"URI\",\"User.Profile.Name\",\"User.User.Role.Name\"]}",
+        "version": -1.0
+      },
+      "selectMode": "single",
+      "type": "grain",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "valuestable"
+      }
+    },
+    "Roles": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LoginAsWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.User.Role.Name\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "EndUsers": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LoginAsWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"USER_ID\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "UserNames": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LoginAsWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.Name\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "LoginAsTrends": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LoginAsWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[[\"TIMESTAMP_DERIVED_Year\",\"TIMESTAMP_DERIVED_Month\",\"TIMESTAMP_DERIVED_Day\"],\"DELEGATED_USER_NAME\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "time"
+      }
+    },
+    "IPs": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LoginAsWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"CLIENT_IP\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "Client_IP": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LoginAsWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"CLIENT_IP\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "AdminUsers": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LoginAsWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"DELEGATED_USER_NAME\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "Profiles": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LoginAsWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.Profile.Name\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "LoginAsByIP": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LoginAsWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"CLIENT_IP\",\"DELEGATED_USER_NAME\",\"User.Name\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hdot"
+      }
+    },
+    "KPIAdminUsers": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "LoginAsWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"DELEGATED_USER_ID\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    }
+  },
+  "widgetStyle": {
+    "backgroundColor": "#FFFFFF",
+    "borderColor": "#E6ECF2",
+    "borderEdges": [],
+    "borderRadius": 0,
+    "borderWidth": 1
+  },
+  "widgets": {
+    "container_2": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "container_3": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "container_4": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "container_5": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "container_6": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "text_3": {
+      "parameters": {
+        "fontSize": 20,
+        "showActionMenu": true,
+        "text": "Which IP Addresses Are Admins Using to Login As Another User?",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "text_2": {
+      "parameters": {
+        "fontSize": 20,
+        "showActionMenu": true,
+        "text": "How Often Are Admins Logging In As Other Users?",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "container_7": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "text_5": {
+      "parameters": {
+        "fontSize": 20,
+        "showActionMenu": true,
+        "text": "Raw Log Data",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "text_4": {
+      "parameters": {
+        "fontSize": 48,
+        "showActionMenu": true,
+        "text": "Login-As",
+        "textAlignment": "center",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "chart_1": {
+      "parameters": {
+        "totalValue": "computeTotal",
+        "showPoints": true,
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "time",
+        "missingValue": "connect",
+        "timeAxis": {
+          "showTitle": true,
+          "showAxis": true,
+          "title": "Date"
+        },
+        "exploreLink": true,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "fillArea": true,
+        "showActionMenu": true,
+        "showZero": true,
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "Logins"
+        },
+        "theme": "wave",
+        "step": "LoginAsTrends"
+      },
+      "type": "chart"
+    },
+    "text_6": {
+      "parameters": {
+        "fontSize": 16,
+        "showActionMenu": true,
+        "text": "Shows admins logging in as other users from Login As event data. Use this dashboard to see how admins are using the Login As feature in your org.",
+        "textAlignment": "left",
+        "textColor": "#FFFFFF"
+      },
+      "type": "text"
+    },
+    "chart_4": {
+      "parameters": {
+        "autoFitMode": "fit",
+        "totalValue": "computeTotal",
+        "showValues": true,
+        "bins": {
+          "breakpoints": {
+            "high": 100,
+            "low": 0
+          },
+          "bands": {
+            "high": {
+              "color": "#008000",
+              "label": ""
+            },
+            "low": {
+              "color": "#B22222",
+              "label": ""
+            },
+            "medium": {
+              "color": "#ffa500",
+              "label": ""
+            }
+          }
+        },
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "hbar",
+        "exploreLink": true,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "binValues": false,
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "showActionMenu": true,
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "Logins"
+        },
+        "theme": "wave",
+        "step": "LoginAsByIP",
+        "dimensionAxis": {
+          "showTitle": true,
+          "customSize": "auto",
+          "showAxis": true,
+          "title": "Client IP"
+        }
+      },
+      "type": "chart"
+    },
+    "chart_3": {
+      "parameters": {
+        "autoFitMode": "fit",
+        "totalValue": "computeTotal",
+        "showValues": true,
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "stackhbar",
+        "exploreLink": true,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "showActionMenu": true,
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "normalize": false,
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "Logins"
+        },
+        "theme": "wave",
+        "step": "AdminsAsEndUsers",
+        "dimensionAxis": {
+          "showTitle": true,
+          "customSize": "auto",
+          "showAxis": true,
+          "title": "Admin Usernames"
+        }
+      },
+      "type": "chart"
+    },
+    "listselector_7": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "showActionMenu": false,
+        "step": "AdminUsers",
+        "title": "Admins"
+      },
+      "type": "listselector"
+    },
+    "listselector_6": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "showActionMenu": false,
+        "step": "URIs",
+        "title": "Pages"
+      },
+      "type": "listselector"
+    },
+    "listselector_3": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "showActionMenu": false,
+        "step": "Profiles",
+        "title": "Profiles"
+      },
+      "type": "listselector"
+    },
+    "listselector_2": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "showActionMenu": false,
+        "step": "UserNames",
+        "title": "Users"
+      },
+      "type": "listselector"
+    },
+    "listselector_5": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "showActionMenu": false,
+        "step": "IPs",
+        "title": "IPs"
+      },
+      "type": "listselector"
+    },
+    "text_1": {
+      "parameters": {
+        "fontSize": 20,
+        "showActionMenu": true,
+        "text": "Which Users Are Admins Logging In As?",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "listselector_4": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "showActionMenu": false,
+        "step": "Roles",
+        "title": "Roles"
+      },
+      "type": "listselector"
+    },
+    "table_1": {
+      "parameters": {
+        "columnProperties": {},
+        "columns": [],
+        "customBulkActions": [],
+        "exploreLink": true,
+        "showActionMenu": true,
+        "step": "RawLogData"
+      },
+      "type": "table"
+    },
+    "number_4": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "unique_CLIENT_IP",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "showActionMenu": true,
+        "step": "Client_IP",
+        "textAlignment": "left",
+        "title": "Unique IPs",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "number_3": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "unique_DELEGATED_USER_ID",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "showActionMenu": true,
+        "step": "KPIAdminUsers",
+        "textAlignment": "left",
+        "title": "Admin Users",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "number_2": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "unique_USER_ID",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "showActionMenu": true,
+        "step": "EndUsers",
+        "textAlignment": "left",
+        "title": "End Users",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "number_1": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "count",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "showActionMenu": true,
+        "step": "TotalTransactions",
+        "textAlignment": "left",
+        "title": "Total Logins",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "listselector_1": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "showActionMenu": false,
+        "step": "Dates",
+        "title": "Dates"
+      },
+      "type": "listselector"
+    }
+  }
+}

@@ -1,1 +1,221 @@
-{"dataSourceLinks":[],"filters":[],"gridLayouts":[{"name":"Default","numColumns":1,"pages":[{"name":"d966e9ba-cb8f-4560-b1cb-4798f6d3ca1d","navigationHidden":false,"widgets":[{"colspan":1,"column":0,"name":"chart_1","row":0,"rowspan":5,"widgetStyle":{"backgroundColor":"#44A2F5","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1}}]}],"rowHeight":"normal","selectors":[],"style":{"alignmentX":"left","alignmentY":"top","backgroundColor":"#F2F6FA","cellSpacingX":8,"cellSpacingY":8,"fit":"original","gutterColor":"#C5D3E0"},"version":1.0}],"layouts":[],"steps":{"Peition_1":{"broadcastFacet":true,"datasets":[{"name":"Petition1"}],"isGlobal":false,"label":"Peition","query":{"query":"{\"measures\":[[\"count\",\"*\"]]}","version":-1.0},"receiveFacet":true,"type":"aggregateflex","useGlobal":true,"visualizationParameters":{"parameters":{"high":5,"min":0,"max":10,"valueType":"compactNumber","visualizationType":"polargauge","theme":"wave","medium":3,"title":{"label":"","align":"center","subtitleLabel":""},"trellis":{"flipLabels":false,"showGridLines":true,"enable":false,"type":"x","chartsPerLine":4},"icons":{"useIcons":false,"iconProps":{"fit":"cover","column":""}},"inner":60,"colors":{"mediumColor2":"#F29946","mediumColor1":"#FED444","lowColor1":"#F71979","lowColor2":"#CC203D","highColor1":"#7BDE4E","highColor2":"#169913"}},"type":"chart"}}},"widgetStyle":{"backgroundColor":"#FFFFFF","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1},"widgets":{"chart_1":{"parameters":{"showValues":true,"legend":{"showHeader":true,"show":true,"customSize":"auto","position":"right-top","inside":false},"axisMode":"multi","visualizationType":"polargauge","exploreLink":true,"medium":3,"title":{"label":"","align":"center","subtitleLabel":""},"binValues":false,"trellis":{"flipLabels":false,"showGridLines":true,"enable":false,"type":"x","chartsPerLine":4},"colors":{"mediumColor2":"#F29946","mediumColor1":"#FED444","lowColor1":"#F71979","lowColor2":"#CC203D","highColor1":"#7BDE4E","highColor2":"#169913"},"high":5,"min":0,"valueType":"compactNumber","theme":"dark","dimensionAxis":{"showTitle":true,"customSize":"auto","showAxis":true,"title":"","icons":{"useIcons":false,"iconProps":{"fit":"cover","column":"","type":"round"}}},"autoFitMode":"keepLabels","totalValue":"computeTotal","bins":{"breakpoints":{"high":100,"low":0},"bands":{"high":{"color":"#008000","label":""},"low":{"color":"#B22222","label":""},"medium":{"color":"#ffa500","label":""}}},"max":10,"icons":{"useIcons":false,"iconProps":{"fit":"cover","column":""}},"inner":60,"totalLabel":"","measureAxis2":{"sqrtScale":false,"showTitle":true,"showAxis":true,"title":"","customDomain":{"showDomain":false}},"measureAxis1":{"sqrtScale":false,"showTitle":true,"showAxis":true,"title":"","customDomain":{"showDomain":false}},"step":"Peition_1"},"type":"chart"}}}
+{
+  "dataSourceLinks": [],
+  "filters": [],
+  "gridLayouts": [
+    {
+      "name": "Default",
+      "numColumns": 1,
+      "pages": [
+        {
+          "name": "d966e9ba-cb8f-4560-b1cb-4798f6d3ca1d",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 1,
+              "column": 0,
+              "name": "chart_1",
+              "row": 0,
+              "rowspan": 5,
+              "widgetStyle": {
+                "backgroundColor": "#44A2F5",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            }
+          ]
+        }
+      ],
+      "rowHeight": "normal",
+      "selectors": [],
+      "style": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "backgroundColor": "#F2F6FA",
+        "cellSpacingX": 8,
+        "cellSpacingY": 8,
+        "fit": "original",
+        "gutterColor": "#C5D3E0"
+      },
+      "version": 1.0
+    }
+  ],
+  "layouts": [],
+  "steps": {
+    "Peition_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "Petition1"
+        }
+      ],
+      "isGlobal": false,
+      "label": "Peition",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "parameters": {
+          "high": 5,
+          "min": 0,
+          "max": 10,
+          "valueType": "compactNumber",
+          "visualizationType": "polargauge",
+          "theme": "wave",
+          "medium": 3,
+          "title": {
+            "label": "",
+            "align": "center",
+            "subtitleLabel": ""
+          },
+          "trellis": {
+            "flipLabels": false,
+            "showGridLines": true,
+            "enable": false,
+            "type": "x",
+            "chartsPerLine": 4
+          },
+          "icons": {
+            "useIcons": false,
+            "iconProps": {
+              "fit": "cover",
+              "column": ""
+            }
+          },
+          "inner": 60,
+          "colors": {
+            "mediumColor2": "#F29946",
+            "mediumColor1": "#FED444",
+            "lowColor1": "#F71979",
+            "lowColor2": "#CC203D",
+            "highColor1": "#7BDE4E",
+            "highColor2": "#169913"
+          }
+        },
+        "type": "chart"
+      }
+    }
+  },
+  "widgetStyle": {
+    "backgroundColor": "#FFFFFF",
+    "borderColor": "#E6ECF2",
+    "borderEdges": [],
+    "borderRadius": 0,
+    "borderWidth": 1
+  },
+  "widgets": {
+    "chart_1": {
+      "parameters": {
+        "showValues": true,
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "polargauge",
+        "exploreLink": true,
+        "medium": 3,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "binValues": false,
+        "trellis": {
+          "flipLabels": false,
+          "showGridLines": true,
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "colors": {
+          "mediumColor2": "#F29946",
+          "mediumColor1": "#FED444",
+          "lowColor1": "#F71979",
+          "lowColor2": "#CC203D",
+          "highColor1": "#7BDE4E",
+          "highColor2": "#169913"
+        },
+        "high": 5,
+        "min": 0,
+        "valueType": "compactNumber",
+        "theme": "dark",
+        "dimensionAxis": {
+          "showTitle": true,
+          "customSize": "auto",
+          "showAxis": true,
+          "title": "",
+          "icons": {
+            "useIcons": false,
+            "iconProps": {
+              "fit": "cover",
+              "column": "",
+              "type": "round"
+            }
+          }
+        },
+        "autoFitMode": "keepLabels",
+        "totalValue": "computeTotal",
+        "bins": {
+          "breakpoints": {
+            "high": 100,
+            "low": 0
+          },
+          "bands": {
+            "high": {
+              "color": "#008000",
+              "label": ""
+            },
+            "low": {
+              "color": "#B22222",
+              "label": ""
+            },
+            "medium": {
+              "color": "#ffa500",
+              "label": ""
+            }
+          }
+        },
+        "max": 10,
+        "icons": {
+          "useIcons": false,
+          "iconProps": {
+            "fit": "cover",
+            "column": ""
+          }
+        },
+        "inner": 60,
+        "totalLabel": "",
+        "showActionMenu": true,
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "",
+          "customDomain": {
+            "showDomain": false
+          }
+        },
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "",
+          "customDomain": {
+            "showDomain": false
+          }
+        },
+        "step": "Peition_1"
+      },
+      "type": "chart"
+    }
+  }
+}
