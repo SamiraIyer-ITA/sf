@@ -5,27 +5,7 @@
     <masterLabel>Global Markets: WOW</masterLabel>
     <shares>
         <accessLevel>Manage</accessLevel>
-        <sharedTo>ayotunde.oyedokun@trade.gov</sharedTo>
-        <sharedToType>User</sharedToType>
-    </shares>
-    <shares>
-        <accessLevel>View</accessLevel>
-        <sharedTo>john.seo@trade.gov</sharedTo>
-        <sharedToType>User</sharedToType>
-    </shares>
-    <shares>
-        <accessLevel>View</accessLevel>
-        <sharedTo>laura.kesy@trade.gov</sharedTo>
-        <sharedToType>User</sharedToType>
-    </shares>
-    <shares>
-        <accessLevel>Manage</accessLevel>
         <sharedTo>sandip.menon@trade.gov</sharedTo>
-        <sharedToType>User</sharedToType>
-    </shares>
-    <shares>
-        <accessLevel>Manage</accessLevel>
-        <sharedTo>michael.griswold@trade.gov</sharedTo>
         <sharedToType>User</sharedToType>
     </shares>
     <templateOrigin>wow_demo__Wow_Demo</templateOrigin>
