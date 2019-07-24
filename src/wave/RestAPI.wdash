@@ -7,7 +7,7 @@
       "numColumns": 18,
       "pages": [
         {
-          "name": "f3639587-7d48-4156-94f9-e74ec3ee8215",
+          "name": "3e3432d5-a05a-45b4-95cf-b1c0bee8f6d6",
           "navigationHidden": false,
           "widgets": [
             {
@@ -465,7 +465,7 @@
       "numColumns": 4,
       "pages": [
         {
-          "name": "f3639587-7d48-4156-94f9-e74ec3ee8215",
+          "name": "3e3432d5-a05a-45b4-95cf-b1c0bee8f6d6",
           "navigationHidden": false,
           "widgets": [
             {
@@ -1385,6 +1385,7 @@
         "measureField": "unique_CLIENT_IP",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "TotalIPs",
         "textAlignment": "left",
         "title": "Total Client IPs",
@@ -1436,6 +1437,7 @@
     "text_3": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "How Often Is REST API Used?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1453,6 +1455,7 @@
     "text_2": {
       "parameters": {
         "fontSize": 16,
+        "showActionMenu": true,
         "text": "Shows REST API usage and performance from REST API event data. Use this dashboard to see your users’ REST API usage and REST API request performance in your org.",
         "textAlignment": "left",
         "textColor": "#FFFFFF"
@@ -1470,6 +1473,7 @@
     "text_5": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "What Are the Top IPs by Status Code?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1479,6 +1483,7 @@
     "text_4": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "What Are the REST API Hot Spots by Endpoint?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1532,6 +1537,7 @@
           "chartsPerLine": 4
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,
@@ -1558,6 +1564,7 @@
     "text_7": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Raw Log Data",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1596,6 +1603,7 @@
         },
         "totalLabel": "",
         "fillArea": true,
+        "showActionMenu": true,
         "showZero": true,
         "measureAxis2": {
           "sqrtScale": false,
@@ -1617,6 +1625,7 @@
     "text_6": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "What Are the [Top] Methods by Endpoint?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1626,7 +1635,6 @@
     "chart_4": {
       "parameters": {
         "totalValue": "computeTotal",
-        "totalLabel": "",
         "showMeasureTitle": true,
         "legend": {
           "showHeader": true,
@@ -1635,10 +1643,7 @@
           "position": "right-top",
           "inside": false
         },
-        "showTotal": true,
         "visualizationType": "pie",
-        "theme": "wave",
-        "step": "MethodsByEndpoint",
         "exploreLink": true,
         "title": {
           "label": "",
@@ -1650,7 +1655,12 @@
           "type": "wrap",
           "chartsPerLine": 4
         },
-        "inner": 70
+        "inner": 70,
+        "totalLabel": "",
+        "showActionMenu": true,
+        "showTotal": true,
+        "theme": "wave",
+        "step": "MethodsByEndpoint"
       },
       "type": "chart"
     },
@@ -1680,6 +1690,7 @@
           "chartsPerLine": 4
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,
@@ -1710,6 +1721,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "RequestStatus",
         "title": "Status"
       },
@@ -1721,6 +1733,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Methods",
         "title": "Methods"
       },
@@ -1732,6 +1745,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "EndPoints",
         "title": "Endpoints"
       },
@@ -1743,6 +1757,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "StatusCode",
         "title": "Status Codes"
       },
@@ -1754,6 +1769,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Profiles",
         "title": "Profiles"
       },
@@ -1765,6 +1781,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Users",
         "title": "Users"
       },
@@ -1776,6 +1793,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "IPs",
         "title": "Ips"
       },
@@ -1784,6 +1802,7 @@
     "text_1": {
       "parameters": {
         "fontSize": 48,
+        "showActionMenu": true,
         "text": "Rest API",
         "textAlignment": "center",
         "textColor": "#091A3E"
@@ -1796,6 +1815,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Roles",
         "title": "Roles"
       },
@@ -1808,6 +1828,7 @@
         "measureField": "max_NUMBER_FIELDS",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "MaxFields",
         "textAlignment": "left",
         "title": "Max Fields",
@@ -1822,6 +1843,7 @@
         "columns": [],
         "customBulkActions": [],
         "exploreLink": true,
+        "showActionMenu": true,
         "step": "RawLogData"
       },
       "type": "table"
@@ -1833,6 +1855,7 @@
         "measureField": "avg_RUN_TIME",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "AvgAPT",
         "textAlignment": "left",
         "title": "Avg APT (ms)",
@@ -1848,6 +1871,7 @@
         "measureField": "max_RUN_TIME",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "MaxAPT",
         "textAlignment": "left",
         "title": "Max APT (ms)",
@@ -1863,6 +1887,7 @@
         "measureField": "sum_ROWS_PROCESSED",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "RowsProcessed",
         "textAlignment": "left",
         "title": "Total DB Rows",
@@ -1878,6 +1903,7 @@
         "measureField": "count",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "TotalTransactions",
         "textAlignment": "left",
         "title": "Total Requests",
@@ -1892,6 +1918,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Dates",
         "title": "Dates"
       },

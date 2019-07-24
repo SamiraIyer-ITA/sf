@@ -7,7 +7,7 @@
       "numColumns": 18,
       "pages": [
         {
-          "name": "edc17f91-2fa9-49ce-aaef-d1984b7f0af9",
+          "name": "f5478629-262f-4ac9-bc67-307a565ccedc",
           "navigationHidden": false,
           "widgets": [
             {
@@ -311,7 +311,7 @@
       "numColumns": 4,
       "pages": [
         {
-          "name": "edc17f91-2fa9-49ce-aaef-d1984b7f0af9",
+          "name": "f5478629-262f-4ac9-bc67-307a565ccedc",
           "navigationHidden": false,
           "widgets": [
             {
@@ -957,6 +957,7 @@
     "text_3": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Page View Trends By User",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -974,6 +975,7 @@
     "text_2": {
       "parameters": {
         "fontSize": 16,
+        "showActionMenu": true,
         "text": "See how users interact in the Aloha UI.",
         "textAlignment": "left",
         "textColor": "#FFFFFF"
@@ -983,6 +985,7 @@
     "text_5": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Page Views By User",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -992,6 +995,7 @@
     "text_4": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Shared IPs By User",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1030,6 +1034,7 @@
         },
         "totalLabel": "",
         "fillArea": true,
+        "showActionMenu": true,
         "showZero": true,
         "measureAxis2": {
           "sqrtScale": false,
@@ -1051,6 +1056,7 @@
     "text_6": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Raw Log Data",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1083,6 +1089,7 @@
           "chartsPerLine": 4
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,
@@ -1133,6 +1140,7 @@
           "chartsPerLine": 4
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,
@@ -1163,6 +1171,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Profiles",
         "title": "Profiles"
       },
@@ -1174,6 +1183,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Users",
         "title": "Users"
       },
@@ -1185,6 +1195,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "IPs",
         "title": "IPs"
       },
@@ -1193,6 +1204,7 @@
     "text_1": {
       "parameters": {
         "fontSize": 48,
+        "showActionMenu": true,
         "text": "Page View URIs",
         "textAlignment": "center",
         "textColor": "#091A3E"
@@ -1205,6 +1217,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Roles",
         "title": "Roles"
       },
@@ -1217,6 +1230,7 @@
         "measureField": "avg_RUN_TIME",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "AvgAPT",
         "textAlignment": "left",
         "title": "Avg APT",
@@ -1231,6 +1245,7 @@
         "columns": [],
         "customBulkActions": [],
         "exploreLink": true,
+        "showActionMenu": true,
         "step": "RawLogData"
       },
       "type": "table"
@@ -1242,6 +1257,7 @@
         "measureField": "max_RIUN_TIME",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "MaxAPT",
         "textAlignment": "left",
         "title": "Max APT",
@@ -1257,6 +1273,7 @@
         "measureField": "unique_USER_ID",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "TotalUsers",
         "textAlignment": "left",
         "title": "Total Users",
@@ -1272,6 +1289,7 @@
         "measureField": "count",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "ClickThroughs",
         "textAlignment": "left",
         "title": "Click Throughs",
@@ -1286,6 +1304,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Dates",
         "title": "Dates"
       },

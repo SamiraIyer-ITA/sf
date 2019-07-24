@@ -194,6 +194,7 @@
         "maxColumnWidth": 300,
         "minColumnWidth": 40,
         "mode": "variable",
+        "showActionMenu": true,
         "step": "All_Segments_By_Offi_1"
       },
       "type": "table"
@@ -247,6 +248,7 @@
           "chartsPerLine": 4
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,

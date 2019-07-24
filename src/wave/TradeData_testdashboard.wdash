@@ -7,7 +7,7 @@
       "numColumns": 12,
       "pages": [
         {
-          "name": "d51edf83-58aa-4c1e-b52e-084ccd623eb4",
+          "name": "9f31f2ee-3f7b-4b13-9a87-761b6c3d1076",
           "navigationHidden": false,
           "widgets": [
             {
@@ -198,7 +198,8 @@
         "compact": false,
         "expanded": true,
         "exploreLink": false,
-        "instant": true
+        "instant": true,
+        "showActionMenu": false
       },
       "type": "listselector"
     },
@@ -207,13 +208,15 @@
         "compact": false,
         "expanded": true,
         "exploreLink": false,
-        "instant": true
+        "instant": true,
+        "showActionMenu": false
       },
       "type": "listselector"
     },
     "text_1": {
       "parameters": {
         "fontSize": 24,
+        "showActionMenu": true,
         "text": "Dashboard Title",
         "textAlignment": "center",
         "textColor": "#335779"
@@ -228,7 +231,8 @@
         "exploreLink": false,
         "maxColumnWidth": 300,
         "minColumnWidth": 40,
-        "mode": "variable"
+        "mode": "variable",
+        "showActionMenu": true
       },
       "type": "table"
     },
@@ -238,6 +242,7 @@
         "exploreLink": true,
         "numberColor": "#335779",
         "numberSize": 32,
+        "showActionMenu": true,
         "textAlignment": "right",
         "titleColor": "#335779",
         "titleSize": 16
@@ -250,6 +255,7 @@
         "exploreLink": true,
         "numberColor": "#335779",
         "numberSize": 32,
+        "showActionMenu": true,
         "textAlignment": "right",
         "titleColor": "#335779",
         "titleSize": 16
@@ -271,6 +277,7 @@
         "exploreLink": true,
         "numberColor": "#335779",
         "numberSize": 32,
+        "showActionMenu": true,
         "textAlignment": "right",
         "titleColor": "#335779",
         "titleSize": 16
@@ -288,13 +295,15 @@
     },
     "rangeselector_1": {
       "parameters": {
-        "instant": true
+        "instant": true,
+        "showActionMenu": true
       },
       "type": "rangeselector"
     },
     "text_3": {
       "parameters": {
         "fontSize": 14,
+        "showActionMenu": true,
         "text": "KEY METRICS",
         "textAlignment": "center",
         "textColor": "#335779"
@@ -304,6 +313,7 @@
     "text_2": {
       "parameters": {
         "fontSize": 16,
+        "showActionMenu": true,
         "text": "Details",
         "textAlignment": "left",
         "textColor": "#335779"
@@ -315,7 +325,8 @@
         "compact": false,
         "expanded": true,
         "exploreLink": false,
-        "instant": true
+        "instant": true,
+        "showActionMenu": false
       },
       "type": "listselector"
     },
@@ -325,6 +336,7 @@
         "totalValue": "computeTotal",
         "totalLabel": "",
         "showValues": true,
+        "showActionMenu": true,
         "legend": {
           "showHeader": true,
           "show": true,

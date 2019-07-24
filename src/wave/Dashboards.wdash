@@ -7,7 +7,7 @@
       "numColumns": 18,
       "pages": [
         {
-          "name": "957a06c4-07c3-4bed-930a-ed640e922346",
+          "name": "2dd0f5be-d176-4c71-8e46-15a609660067",
           "navigationHidden": false,
           "widgets": [
             {
@@ -405,7 +405,7 @@
       "numColumns": 4,
       "pages": [
         {
-          "name": "957a06c4-07c3-4bed-930a-ed640e922346",
+          "name": "2dd0f5be-d176-4c71-8e46-15a609660067",
           "navigationHidden": false,
           "widgets": [
             {
@@ -1226,6 +1226,7 @@
         "measureField": "count",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "TotalViews_1",
         "textAlignment": "left",
         "title": "Total Views",
@@ -1241,6 +1242,7 @@
         "measureField": "unique_Dashboard.Title",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "TotalDashboards_1",
         "textAlignment": "left",
         "title": "Total Dashboards",
@@ -1256,6 +1258,7 @@
         "measureField": "unique_Report.Name",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "TotalReports_1",
         "textAlignment": "left",
         "title": "Total Reports",
@@ -1271,6 +1274,7 @@
         "measureField": "avg_RUN_TIME",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "AvgAPT_1",
         "textAlignment": "left",
         "title": "Avg APT",
@@ -1286,6 +1290,7 @@
         "measureField": "max_RUN_TIME",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "MaxAPT_1",
         "textAlignment": "left",
         "title": "Max APT",
@@ -1301,6 +1306,7 @@
         "measureField": "unique_USER_ID",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "TotalUsers_1",
         "textAlignment": "left",
         "title": "Total Users",
@@ -1344,6 +1350,7 @@
     "text_3": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "How Often Are Dashboards Used?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1361,6 +1368,7 @@
     "text_2": {
       "parameters": {
         "fontSize": 16,
+        "showActionMenu": true,
         "text": "Shows dashboard usage trends from Dashboard event data. Use this dashboard to see how your dashboards perform so that you can prioritize troubleshooting.",
         "textAlignment": "left",
         "textColor": "#FFFFFF"
@@ -1378,6 +1386,7 @@
     "text_5": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "How Many Reports Are Viewed from Dashboards?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1387,6 +1396,7 @@
     "text_4": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "How Are Dashboards Performing?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1397,6 +1407,7 @@
       "parameters": {
         "totalValue": "computeTotal",
         "totalLabel": "",
+        "showActionMenu": true,
         "legend": {
           "showHeader": true,
           "show": true,
@@ -1438,6 +1449,7 @@
     "text_6": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Raw Log Data",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1476,6 +1488,7 @@
         },
         "totalLabel": "",
         "fillArea": true,
+        "showActionMenu": true,
         "showZero": true,
         "measureAxis2": {
           "sqrtScale": false,
@@ -1520,6 +1533,7 @@
           "chartsPerLine": 4
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,
@@ -1550,6 +1564,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "IsScheduled_1",
         "title": "Scheduled"
       },
@@ -1561,6 +1576,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "IsSuccess_1",
         "title": "Succes"
       },
@@ -1572,6 +1588,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Profiles_1",
         "title": "Profiles"
       },
@@ -1583,6 +1600,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "IPs_1",
         "title": "IPs"
       },
@@ -1594,6 +1612,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Users_1",
         "title": "Users"
       },
@@ -1605,6 +1624,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Roles_1",
         "title": "Roles"
       },
@@ -1613,6 +1633,7 @@
     "text_1": {
       "parameters": {
         "fontSize": 64,
+        "showActionMenu": true,
         "text": "Dashboards",
         "textAlignment": "center",
         "textColor": "#091A3E"
@@ -1625,6 +1646,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Dates_1",
         "title": "Dates"
       },
@@ -1636,6 +1658,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "DashboardNames_1",
         "title": "Dashboard Names"
       },
@@ -1647,6 +1670,7 @@
         "columns": [],
         "customBulkActions": [],
         "exploreLink": true,
+        "showActionMenu": true,
         "step": "RawLogData_1"
       },
       "type": "table"

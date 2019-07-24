@@ -7,7 +7,7 @@
       "numColumns": 18,
       "pages": [
         {
-          "name": "bafd459d-c7a3-4f62-90b6-fcfe1889b0d3",
+          "name": "be5df188-3836-49b4-97b9-c2ac1ae2f3ca",
           "navigationHidden": false,
           "widgets": [
             {
@@ -387,7 +387,7 @@
       "numColumns": 4,
       "pages": [
         {
-          "name": "bafd459d-c7a3-4f62-90b6-fcfe1889b0d3",
+          "name": "be5df188-3836-49b4-97b9-c2ac1ae2f3ca",
           "navigationHidden": false,
           "widgets": [
             {
@@ -1104,6 +1104,7 @@
         "measureField": "unique_ENTRY_POINT",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "TotalClasses_1",
         "textAlignment": "left",
         "title": "Total Classes",
@@ -1119,6 +1120,7 @@
         "measureField": "count",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "TotalTransactions_1",
         "textAlignment": "left",
         "title": "Total Transactions",
@@ -1162,6 +1164,7 @@
     "text_3": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Which Apex Classes Are Most Used?",
         "textAlignment": "left",
         "textColor": "rgb(22, 50, 92)"
@@ -1223,6 +1226,7 @@
           "chartsPerLine": 4
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": true,
           "showTitle": true,
@@ -1249,6 +1253,7 @@
     "text_2": {
       "parameters": {
         "fontSize": 16,
+        "showActionMenu": true,
         "text": "Shows Apex class performance from Apex Execution event data. Use this dashboard to improve performance and load time of the custom parts of your app.",
         "textAlignment": "left",
         "textColor": "#FFFFFF"
@@ -1265,9 +1270,7 @@
     },
     "chart_5": {
       "parameters": {
-        "radiusRatio": 5,
         "totalValue": "computeTotal",
-        "totalLabel": "",
         "legend": {
           "showHeader": true,
           "show": true,
@@ -1275,29 +1278,7 @@
           "position": "right-top",
           "inside": false
         },
-        "x": {
-          "sqrtScale": false,
-          "showZero": true,
-          "showTitle": true,
-          "showAxis": true,
-          "title": "Max CPU Time (ms)",
-          "customDomain": {
-            "showDomain": false
-          }
-        },
         "visualizationType": "scatter",
-        "y": {
-          "sqrtScale": false,
-          "showZero": true,
-          "showTitle": true,
-          "showAxis": true,
-          "title": "Max DB Time (ms)",
-          "customDomain": {
-            "showDomain": false
-          }
-        },
-        "theme": "wave",
-        "step": "ApexPerformance_2",
         "exploreLink": true,
         "title": {
           "label": "",
@@ -1310,13 +1291,39 @@
           "enable": false,
           "type": "x",
           "chartsPerLine": 4
-        }
+        },
+        "radiusRatio": 5,
+        "totalLabel": "",
+        "showActionMenu": true,
+        "x": {
+          "sqrtScale": false,
+          "showZero": true,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "Max CPU Time (ms)",
+          "customDomain": {
+            "showDomain": false
+          }
+        },
+        "y": {
+          "sqrtScale": false,
+          "showZero": true,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "Max DB Time (ms)",
+          "customDomain": {
+            "showDomain": false
+          }
+        },
+        "theme": "wave",
+        "step": "ApexPerformance_2"
       },
       "type": "chart"
     },
     "text_5": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "What Are the Apex Hot Spots?",
         "textAlignment": "left",
         "textColor": "rgb(22, 50, 92)"
@@ -1326,6 +1333,7 @@
     "text_4": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "How Is Apex Performing for Users?",
         "textAlignment": "left",
         "textColor": "rgb(22, 50, 92)"
@@ -1335,6 +1343,7 @@
     "text_6": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Raw Log Data",
         "textAlignment": "left",
         "textColor": "rgb(22, 50, 92)"
@@ -1375,6 +1384,7 @@
         },
         "totalLabel": "",
         "fillArea": true,
+        "showActionMenu": true,
         "showZero": true,
         "measureAxis2": {
           "sqrtScale": false,
@@ -1448,6 +1458,7 @@
         },
         "binValues": false,
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,
@@ -1491,6 +1502,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Roles_1",
         "title": "Roles"
       },
@@ -1502,6 +1514,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Dates_1",
         "title": "Dates"
       },
@@ -1514,6 +1527,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "EntryPoints_1",
         "title": "Entry Points"
       },
@@ -1525,6 +1539,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Profiles_1",
         "title": "Profiles"
       },
@@ -1537,6 +1552,7 @@
         "measureField": "max_RUN_TIME",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "MaxAPT_1",
         "textAlignment": "left",
         "title": "Slowest Run Time (ms)",
@@ -1551,6 +1567,7 @@
         "columns": [],
         "customBulkActions": [],
         "exploreLink": true,
+        "showActionMenu": true,
         "step": "RawLogData_1"
       },
       "type": "table"
@@ -1562,6 +1579,7 @@
         "measureField": "max_CPU_TIME",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "MaxCPUTime_1",
         "textAlignment": "left",
         "title": "Max CPU Time (ms)",
@@ -1577,6 +1595,7 @@
         "measureField": "max_DB_TOTAL_TIME",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "MaxDBTime_1",
         "textAlignment": "left",
         "title": "Max DB Time (ms)",
@@ -1592,6 +1611,7 @@
         "measureField": "avg_NUMBER_SOQL_QUERIES",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "AvgQueries_1",
         "textAlignment": "left",
         "title": "Avg # Queries",
@@ -1606,6 +1626,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Users_1",
         "title": "Users"
       },
