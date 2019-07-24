@@ -3105,6 +3105,7 @@
           "mode": "fittocontainer",
           "numberOfLines": 1,
           "pivoted": false,
+          "showActionMenu": true,
           "totals": true,
           "verticalPadding": 8
         },
@@ -3463,6 +3464,7 @@
             "State"
           ]
         },
+        "showActionMenu": true,
         "computeTotal": false,
         "theme": "dark",
         "step": "lens_4",
@@ -3482,6 +3484,7 @@
     "text_3": {
       "parameters": {
         "fontSize": 16,
+        "showActionMenu": true,
         "text": "Most Assisted Clients",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -3562,6 +3565,7 @@
             "Congressional District"
           ]
         },
+        "showActionMenu": true,
         "computeTotal": false,
         "theme": "dark",
         "step": "lens_3",
@@ -3573,6 +3577,7 @@
     "text_2": {
       "parameters": {
         "fontSize": 24,
+        "showActionMenu": true,
         "text": "Global Markets Performance Measures FY18 Actuals By Region",
         "textAlignment": "center",
         "textColor": "#FFFFFF"
@@ -3654,6 +3659,7 @@
             "Congressional District"
           ]
         },
+        "showActionMenu": true,
         "computeTotal": false,
         "theme": "dark",
         "step": "lens_3",
@@ -3736,6 +3742,7 @@
             "State"
           ]
         },
+        "showActionMenu": true,
         "computeTotal": false,
         "theme": "dark",
         "step": "lens_4",
@@ -3747,6 +3754,7 @@
     "text_5": {
       "parameters": {
         "fontSize": 12,
+        "showActionMenu": true,
         "text": "Click a gauge to filter by that DAS",
         "textAlignment": "center",
         "textColor": "#C6D3E1"
@@ -3817,6 +3825,7 @@
         },
         "high": 66,
         "min": 0,
+        "showActionMenu": true,
         "computeTotal": false,
         "valueType": "percent",
         "theme": "dark",
@@ -3828,6 +3837,7 @@
     "text_4": {
       "parameters": {
         "fontSize": 16,
+        "showActionMenu": true,
         "text": "Unique Clients Assists / Target (%)",
         "textAlignment": "center",
         "textColor": "#FFFFFF"
@@ -3894,6 +3904,7 @@
         },
         "high": 66,
         "min": 0,
+        "showActionMenu": true,
         "computeTotal": false,
         "valueType": "percent",
         "theme": "dark",
@@ -3976,6 +3987,7 @@
             "Congressional District"
           ]
         },
+        "showActionMenu": true,
         "computeTotal": false,
         "theme": "dark",
         "step": "lens_3",
@@ -4058,6 +4070,7 @@
             "Congressional District"
           ]
         },
+        "showActionMenu": true,
         "computeTotal": false,
         "theme": "dark",
         "step": "lens_3",
@@ -4069,6 +4082,7 @@
     "text_1": {
       "parameters": {
         "fontSize": 14,
+        "showActionMenu": true,
         "text": "By the Numbers",
         "textAlignment": "center",
         "textColor": "#FFFFFF"
@@ -4210,6 +4224,7 @@
         "mode": "fittocontainer",
         "numberOfLines": 1,
         "pivoted": false,
+        "showActionMenu": true,
         "step": "lens_1",
         "totals": true,
         "verticalPadding": 4
@@ -4239,6 +4254,7 @@
         "mode": "fittocontainer",
         "numberOfLines": 1,
         "pivoted": false,
+        "showActionMenu": true,
         "step": "lens_2",
         "totals": true,
         "verticalPadding": 8
@@ -4282,6 +4298,7 @@
         "mode": "fittocontainer",
         "numberOfLines": 1,
         "pivoted": false,
+        "showActionMenu": true,
         "step": "lens_1_1",
         "totals": true,
         "verticalPadding": 4
@@ -4423,6 +4440,7 @@
           "chartsPerLine": 4
         },
         "fillArea": false,
+        "showActionMenu": true,
         "showZero": true,
         "measureAxis2": {
           "sqrtScale": false,
@@ -4537,6 +4555,7 @@
             "State"
           ]
         },
+        "showActionMenu": true,
         "computeTotal": false,
         "theme": "dark",
         "step": "lens_4",
@@ -4619,6 +4638,7 @@
             "State"
           ]
         },
+        "showActionMenu": true,
         "computeTotal": false,
         "theme": "dark",
         "step": "lens_4",

@@ -7,7 +7,7 @@
       "numColumns": 18,
       "pages": [
         {
-          "name": "3856609d-7ae6-4dd9-b5e7-04c1de4fab30",
+          "name": "0b67178a-9ad4-4b9b-943b-957181949370",
           "navigationHidden": false,
           "widgets": [
             {
@@ -443,7 +443,7 @@
       "numColumns": 4,
       "pages": [
         {
-          "name": "3856609d-7ae6-4dd9-b5e7-04c1de4fab30",
+          "name": "0b67178a-9ad4-4b9b-943b-957181949370",
           "navigationHidden": false,
           "widgets": [
             {
@@ -1321,6 +1321,7 @@
         "measureField": "unique_User.Profile.PermissionsModifyAllData",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "NumberModifyAllData",
         "textAlignment": "left",
         "title": "# MAD Users",
@@ -1364,6 +1365,7 @@
     "text_3": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Setup Audit Trail Trends by Type",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1381,6 +1383,7 @@
     "text_2": {
       "parameters": {
         "fontSize": 16,
+        "showActionMenu": true,
         "text": "See what your power users – Admins are doing in the setup of the app.",
         "textAlignment": "left",
         "textColor": "#FFFFFF"
@@ -1398,6 +1401,7 @@
     "text_5": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Audit Messages",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1415,6 +1419,7 @@
     "text_4": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Changes by Type",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1424,6 +1429,7 @@
     "text_7": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Raw Audit Data",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1433,7 +1439,6 @@
     "chart_2": {
       "parameters": {
         "totalValue": "computeTotal",
-        "totalLabel": "",
         "showMeasureTitle": true,
         "legend": {
           "showHeader": true,
@@ -1442,10 +1447,7 @@
           "position": "right-top",
           "inside": false
         },
-        "showTotal": true,
         "visualizationType": "pie",
-        "theme": "wave",
-        "step": "ChangesByType",
         "exploreLink": true,
         "title": {
           "label": "",
@@ -1457,13 +1459,19 @@
           "type": "x",
           "chartsPerLine": 4
         },
-        "inner": 70
+        "inner": 70,
+        "totalLabel": "",
+        "showActionMenu": true,
+        "showTotal": true,
+        "theme": "wave",
+        "step": "ChangesByType"
       },
       "type": "chart"
     },
     "text_6": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Setup Audit Trail Trends by LoginAs User",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1502,6 +1510,7 @@
         },
         "totalLabel": "",
         "fillArea": true,
+        "showActionMenu": true,
         "showZero": true,
         "measureAxis2": {
           "sqrtScale": false,
@@ -1552,6 +1561,7 @@
         },
         "totalLabel": "",
         "fillArea": true,
+        "showActionMenu": true,
         "showZero": true,
         "measureAxis2": {
           "sqrtScale": false,
@@ -1617,6 +1627,7 @@
           "chartsPerLine": 4
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,
@@ -1646,6 +1657,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Actions",
         "title": "Actions"
       },
@@ -1657,6 +1669,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "LoginAsUsers",
         "title": "LoginAs Users"
       },
@@ -1668,6 +1681,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Sections",
         "title": "Sections"
       },
@@ -1679,6 +1693,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Profiles",
         "title": "Profiles"
       },
@@ -1690,6 +1705,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Users",
         "title": "Users"
       },
@@ -1703,6 +1719,7 @@
         "instant": false,
         "presetsEnabled": false,
         "relativeModeEnabled": true,
+        "showActionMenu": true,
         "step": "Dates",
         "title": "Dates"
       },
@@ -1711,6 +1728,7 @@
     "text_1": {
       "parameters": {
         "fontSize": 64,
+        "showActionMenu": true,
         "text": "Setup Audit Trail",
         "textAlignment": "center",
         "textColor": "#091A3E"
@@ -1723,6 +1741,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "IsActive",
         "title": "Is Active"
       },
@@ -1734,6 +1753,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Roles",
         "title": "Roles"
       },
@@ -1745,6 +1765,7 @@
         "columns": [],
         "customBulkActions": [],
         "exploreLink": true,
+        "showActionMenu": true,
         "step": "RawAuditData"
       },
       "type": "table"
@@ -1756,6 +1777,7 @@
         "measureField": "unique_User.Profile.PermissionsCustomizeApplication",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "NumberCustomizeApplication",
         "textAlignment": "left",
         "title": "# Customization Users",
@@ -1771,6 +1793,7 @@
         "measureField": "unique_Action",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "NumberActions",
         "textAlignment": "left",
         "title": "# of Actions",
@@ -1786,6 +1809,7 @@
         "measureField": "unique_DelegateUser",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "NumberLoginAsUsers",
         "textAlignment": "left",
         "title": "# LoginAs Users",
@@ -1801,6 +1825,7 @@
         "measureField": "unique_CreatedById",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "NumberAdminUsers",
         "textAlignment": "left",
         "title": "# Admin Users",
@@ -1816,6 +1841,7 @@
         "measureField": "count",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "NumberSetupChanges",
         "textAlignment": "left",
         "title": "# Setup Changes",

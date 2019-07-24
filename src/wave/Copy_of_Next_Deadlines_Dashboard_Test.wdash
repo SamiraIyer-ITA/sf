@@ -764,6 +764,7 @@
         "mode": "variable",
         "numberOfLines": 1,
         "oddRowColor": "#ffffff",
+        "showActionMenu": true,
         "step": "Al_Next_Deadlines_1",
         "totals": true,
         "verticalPadding": 8
@@ -774,7 +775,17 @@
       "parameters": {
         "compact": false,
         "exploreLink": false,
-        "step": "deadline_type_dropdown"
+        "fontSize": 16,
+        "selectedTab": {
+          "backgroundColor": "#677A97",
+          "borderColor": "#C6D3E1",
+          "borderEdges": [],
+          "borderWidth": 1,
+          "textColor": "#FFFFFF"
+        },
+        "showActionMenu": true,
+        "step": "deadline_type_dropdown",
+        "textColor": "#5C7A99"
       },
       "type": "pillbox"
     },
@@ -783,13 +794,24 @@
         "compact": false,
         "displayTemplate": "[]",
         "exploreLink": false,
-        "step": "time_dropdown"
+        "fontSize": 16,
+        "selectedTab": {
+          "backgroundColor": "#677A97",
+          "borderColor": "#C6D3E1",
+          "borderEdges": [],
+          "borderWidth": 1,
+          "textColor": "#FFFFFF"
+        },
+        "showActionMenu": true,
+        "step": "time_dropdown",
+        "textColor": "#5C7A99"
       },
       "type": "pillbox"
     },
     "text_1": {
       "parameters": {
         "fontSize": 24,
+        "showActionMenu": true,
         "text": "Your Upcoming Deadlines",
         "textAlignment": "center",
         "textColor": "#335779"
@@ -799,6 +821,7 @@
     "text_2": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Click an ADCVD Case Number to view details.",
         "textAlignment": "center",
         "textColor": "#335779"
@@ -807,29 +830,7 @@
     },
     "chart_2": {
       "parameters": {
-        "autoFitMode": "keepLabels",
-        "totalValue": "computeTotal",
         "showValues": true,
-        "bins": {
-          "breakpoints": {
-            "high": 100,
-            "low": 0
-          },
-          "bands": {
-            "high": {
-              "color": "#008000",
-              "label": ""
-            },
-            "low": {
-              "color": "#B22222",
-              "label": ""
-            },
-            "medium": {
-              "color": "#ffa500",
-              "label": ""
-            }
-          }
-        },
         "legend": {
           "descOrder": false,
           "showHeader": false,
@@ -838,7 +839,6 @@
           "position": "bottom-center",
           "inside": false
         },
-        "autoZoom": true,
         "axisMode": "multi",
         "highColor": "#1674D9",
         "projectionType": "Mercator",
@@ -852,7 +852,6 @@
           "customizeTooltip": false,
           "dimensions": ""
         },
-        "lowColor": "#C5DBF7",
         "visualizationType": "choropleth",
         "exploreLink": true,
         "title": {
@@ -874,7 +873,49 @@
           "type": "x",
           "chartsPerLine": 4
         },
+        "theme": "wave",
+        "map": "World Countries",
+        "dimensionAxis": {
+          "showTitle": true,
+          "customSize": "auto",
+          "showAxis": true,
+          "title": "",
+          "icons": {
+            "useIcons": false,
+            "iconProps": {
+              "fit": "cover",
+              "column": "",
+              "type": "round"
+            }
+          }
+        },
+        "applyConditionalFormatting": false,
+        "autoFitMode": "keepLabels",
+        "totalValue": "computeTotal",
+        "bins": {
+          "breakpoints": {
+            "high": 100,
+            "low": 0
+          },
+          "bands": {
+            "high": {
+              "color": "#008000",
+              "label": ""
+            },
+            "low": {
+              "color": "#B22222",
+              "label": ""
+            },
+            "medium": {
+              "color": "#ffa500",
+              "label": ""
+            }
+          }
+        },
+        "autoZoom": true,
+        "lowColor": "#C5DBF7",
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,
@@ -893,24 +934,7 @@
             "showDomain": false
           }
         },
-        "theme": "wave",
-        "step": "Country_Text__c_1",
-        "map": "World Countries",
-        "dimensionAxis": {
-          "showTitle": true,
-          "customSize": "auto",
-          "showAxis": true,
-          "title": "",
-          "icons": {
-            "useIcons": false,
-            "iconProps": {
-              "fit": "cover",
-              "column": "",
-              "type": "round"
-            }
-          }
-        },
-        "applyConditionalFormatting": false
+        "step": "Country_Text__c_1"
       },
       "type": "chart"
     },
@@ -984,6 +1008,7 @@
         },
         "binValues": false,
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,

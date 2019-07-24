@@ -7,7 +7,7 @@
       "numColumns": 18,
       "pages": [
         {
-          "name": "fecbabcb-1b84-415c-9f33-949722f76cad",
+          "name": "d700b607-87f2-47a5-ad02-96d5a7a2bc84",
           "navigationHidden": false,
           "widgets": [
             {
@@ -493,7 +493,7 @@
       "numColumns": 4,
       "pages": [
         {
-          "name": "fecbabcb-1b84-415c-9f33-949722f76cad",
+          "name": "d700b607-87f2-47a5-ad02-96d5a7a2bc84",
           "navigationHidden": false,
           "widgets": [
             {
@@ -1482,6 +1482,7 @@
         "measureField": "count",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "TotalTransactions_1",
         "textAlignment": "left",
         "title": "Total Transactions",
@@ -1516,9 +1517,7 @@
     },
     "chart_9": {
       "parameters": {
-        "radiusRatio": 5,
         "totalValue": "computeTotal",
-        "totalLabel": "",
         "legend": {
           "showHeader": true,
           "show": true,
@@ -1526,29 +1525,7 @@
           "position": "right-top",
           "inside": false
         },
-        "x": {
-          "sqrtScale": true,
-          "showZero": true,
-          "showTitle": true,
-          "showAxis": true,
-          "title": "Max CPU Time (ms)",
-          "customDomain": {
-            "showDomain": false
-          }
-        },
         "visualizationType": "scatter",
-        "y": {
-          "sqrtScale": true,
-          "showZero": true,
-          "showTitle": true,
-          "showAxis": true,
-          "title": "Max DB Time (ms)",
-          "customDomain": {
-            "showDomain": false
-          }
-        },
-        "theme": "wave",
-        "step": "APIPerformance_2",
         "exploreLink": true,
         "title": {
           "label": "",
@@ -1561,7 +1538,32 @@
           "enable": false,
           "type": "x",
           "chartsPerLine": 4
-        }
+        },
+        "radiusRatio": 5,
+        "totalLabel": "",
+        "showActionMenu": true,
+        "x": {
+          "sqrtScale": true,
+          "showZero": true,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "Max CPU Time (ms)",
+          "customDomain": {
+            "showDomain": false
+          }
+        },
+        "y": {
+          "sqrtScale": true,
+          "showZero": true,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "Max DB Time (ms)",
+          "customDomain": {
+            "showDomain": false
+          }
+        },
+        "theme": "wave",
+        "step": "APIPerformance_2"
       },
       "type": "chart"
     },
@@ -1584,6 +1586,7 @@
     "text_3": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Which API Entities Are Most Used?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1600,9 +1603,7 @@
     },
     "chart_6": {
       "parameters": {
-        "radiusRatio": 5,
         "totalValue": "computeTotal",
-        "totalLabel": "",
         "legend": {
           "showHeader": true,
           "show": true,
@@ -1610,29 +1611,7 @@
           "position": "right-top",
           "inside": false
         },
-        "x": {
-          "sqrtScale": false,
-          "showZero": true,
-          "showTitle": true,
-          "showAxis": true,
-          "title": "Requests",
-          "customDomain": {
-            "showDomain": false
-          }
-        },
         "visualizationType": "scatter",
-        "y": {
-          "sqrtScale": false,
-          "showZero": true,
-          "showTitle": true,
-          "showAxis": true,
-          "title": "Max DB Rows",
-          "customDomain": {
-            "showDomain": false
-          }
-        },
-        "theme": "wave",
-        "step": "UpgradeAPI_1",
         "exploreLink": false,
         "title": {
           "label": "",
@@ -1645,13 +1624,39 @@
           "enable": false,
           "type": "x",
           "chartsPerLine": 4
-        }
+        },
+        "radiusRatio": 5,
+        "totalLabel": "",
+        "showActionMenu": true,
+        "x": {
+          "sqrtScale": false,
+          "showZero": true,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "Requests",
+          "customDomain": {
+            "showDomain": false
+          }
+        },
+        "y": {
+          "sqrtScale": false,
+          "showZero": true,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "Max DB Rows",
+          "customDomain": {
+            "showDomain": false
+          }
+        },
+        "theme": "wave",
+        "step": "UpgradeAPI_1"
       },
       "type": "chart"
     },
     "text_2": {
       "parameters": {
         "fontSize": 16,
+        "showActionMenu": true,
         "text": "Shows API usage and performance from API event data. Use this dashboard to see your users’ API usage and API request performance in your org.",
         "textAlignment": "left",
         "textColor": "#FFFFFF"
@@ -1669,6 +1674,7 @@
     "text_5": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Which Clients Access the API?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1686,6 +1692,7 @@
     "text_4": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "How Is the API Performing for Users?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1703,6 +1710,7 @@
     "text_7": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Which API Versions Are In Use?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1737,6 +1745,7 @@
           "chartsPerLine": 4
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": true,
           "showTitle": true,
@@ -1778,6 +1787,7 @@
     "text_6": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Which Methods Were Called by Object?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1818,6 +1828,7 @@
         },
         "totalLabel": "",
         "fillArea": true,
+        "showActionMenu": true,
         "showZero": true,
         "measureAxis2": {
           "sqrtScale": false,
@@ -1870,6 +1881,7 @@
         },
         "inner": 70,
         "totalLabel": "",
+        "showActionMenu": true,
         "centerValueType": "number",
         "valueType": "compactNumber",
         "theme": "wave",
@@ -1880,6 +1892,7 @@
     "text_8": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Raw Log Data",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1892,6 +1905,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Objects_1",
         "title": "Objects (Nouns)"
       },
@@ -1903,6 +1917,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Status_1",
         "title": "Status"
       },
@@ -1914,6 +1929,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Methods_1",
         "title": "Methods (Verbs)"
       },
@@ -1925,6 +1941,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Clients_3",
         "title": "Clients"
       },
@@ -1936,6 +1953,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Profiles_1",
         "title": "Profiles"
       },
@@ -1947,6 +1965,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Users_1",
         "title": "Users"
       },
@@ -1955,6 +1974,7 @@
     "text_1": {
       "parameters": {
         "fontSize": 64,
+        "showActionMenu": true,
         "text": "API",
         "textAlignment": "center",
         "textColor": "#091A3E"
@@ -1967,6 +1987,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "IPs_1",
         "title": "IPs"
       },
@@ -1978,6 +1999,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Roles_1",
         "title": "Roles"
       },
@@ -1989,6 +2011,7 @@
         "columns": [],
         "customBulkActions": [],
         "exploreLink": true,
+        "showActionMenu": true,
         "step": "RawLogData_1"
       },
       "type": "table"
@@ -2000,6 +2023,7 @@
         "measureField": "max_RUN_TIME",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "MaxAPT_1",
         "textAlignment": "left",
         "title": "Max Request  TIme (ms)",
@@ -2015,6 +2039,7 @@
         "measureField": "max_CPU_TIME",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "MaxCPUTime_1",
         "textAlignment": "left",
         "title": "Max CPU Time (ms)",
@@ -2030,6 +2055,7 @@
         "measureField": "unique_API_VERSION",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "TotalVersions_1",
         "textAlignment": "left",
         "title": "API Versions",
@@ -2045,6 +2071,7 @@
         "measureField": "max_ROWS_PROCESSED",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "MaxRowsProcessed_1",
         "textAlignment": "left",
         "title": "Max DB Rows",
@@ -2060,6 +2087,7 @@
         "measureField": "max_DB_TOTAL_TIME",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "MaxDBTime_1",
         "textAlignment": "left",
         "title": "Max DB Time (ms)",
@@ -2074,6 +2102,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "API_VERSION_1",
         "title": "API Versions"
       },
@@ -2085,6 +2114,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Dates_1",
         "title": "Dates"
       },

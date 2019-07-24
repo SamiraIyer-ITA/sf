@@ -7,7 +7,7 @@
       "numColumns": 18,
       "pages": [
         {
-          "name": "594f6e05-eb81-4f2c-93b7-9d8e1d26e46f",
+          "name": "6029a100-aeaa-4dbf-a415-c250edd87531",
           "navigationHidden": false,
           "widgets": [
             {
@@ -331,7 +331,7 @@
       "numColumns": 4,
       "pages": [
         {
-          "name": "594f6e05-eb81-4f2c-93b7-9d8e1d26e46f",
+          "name": "6029a100-aeaa-4dbf-a415-c250edd87531",
           "navigationHidden": false,
           "widgets": [
             {
@@ -969,6 +969,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Error",
         "title": "Error"
       },
@@ -980,6 +981,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "IPs",
         "title": "IPs"
       },
@@ -991,6 +993,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "ObjectType",
         "title": "Object Type"
       },
@@ -1002,6 +1005,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Users",
         "title": "Users"
       },
@@ -1010,6 +1014,7 @@
     "text_1": {
       "parameters": {
         "fontSize": 16,
+        "showActionMenu": true,
         "text": "Shows Lightning Experience page performance from Lightning Error, Lightning Interaction, Lightning Page View, and Lightning Performance event data. Use this dashboard to optimize performance and user interactions with your Lightning Experience app. ",
         "textAlignment": "left",
         "textColor": "#FFFFFF"
@@ -1022,6 +1027,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Roles",
         "title": "Roles"
       },
@@ -1033,6 +1039,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Profiles",
         "title": "Profiles"
       },
@@ -1045,6 +1052,7 @@
         "measureField": "sum_Error",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "SumError",
         "textAlignment": "left",
         "title": "Count of Error",
@@ -1060,6 +1068,7 @@
         "measureField": "avg_EFFECTIVE_PAGE_TIME",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "AvgEPT",
         "textAlignment": "left",
         "title": "Avg Effective Page Time (EPT)",
@@ -1083,6 +1092,7 @@
         "measureField": "max_EFFECTIVE_PAGE_TIME",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "MaxEPT",
         "textAlignment": "left",
         "title": "Max Effective Page Time (EPT)",
@@ -1106,6 +1116,7 @@
         "measureField": "min_EFFECTIVE_PAGE_TIME",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "MinEPT",
         "textAlignment": "left",
         "title": "Min Effective Page Time (EPT)",
@@ -1141,6 +1152,7 @@
     "text_3": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Top Error By Page Entity",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1194,6 +1206,7 @@
           "chartsPerLine": 4
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,
@@ -1220,6 +1233,7 @@
     "text_2": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Which Page Contexts Are Slowest?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1232,6 +1246,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Dates",
         "title": "Dates"
       },
@@ -1240,6 +1255,7 @@
     "text_4": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Which Page Entities Are Slowest?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1272,6 +1288,7 @@
           "chartsPerLine": 4
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,
@@ -1343,6 +1360,7 @@
           "chartsPerLine": 4
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,
