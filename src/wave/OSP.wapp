@@ -2,9 +2,4 @@
 <WaveApplication xmlns="http://soap.sforce.com/2006/04/metadata">
     <folder>OSP</folder>
     <masterLabel>OSP</masterLabel>
-    <shares>
-        <accessLevel>Manage</accessLevel>
-        <sharedTo>laura.kesy@trade.gov</sharedTo>
-        <sharedToType>User</sharedToType>
-    </shares>
 </WaveApplication>

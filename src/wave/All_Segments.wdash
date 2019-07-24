@@ -1,1 +1,290 @@
-{"dataSourceLinks":[],"filters":[],"gridLayouts":[{"name":"Default","numColumns":12,"pages":[{"name":"72e1595e-92fb-41a4-82f1-08dcc6f023e4","navigationHidden":false,"widgets":[{"colspan":12,"column":0,"name":"table_1","row":5,"rowspan":12,"widgetStyle":{"borderEdges":[]}},{"colspan":12,"column":0,"name":"chart_1","row":0,"rowspan":5,"widgetStyle":{"borderEdges":[]}}]}],"rowHeight":"normal","selectors":[],"style":{"alignmentX":"left","alignmentY":"top","backgroundColor":"#F2F6FA","cellSpacingX":8,"cellSpacingY":8,"fit":"original","gutterColor":"#C5D3E0"},"version":1.0}],"layouts":[],"steps":{"All_Segments_By_Offi_1":{"datasets":[{"name":"Augmented_Appended_Petition_Investigation_Segment"}],"isFacet":true,"isGlobal":false,"label":"All Segments By Office Table","query":{"query":"{\"values\":[\"Object_Name\",\"Status__c\",\"Office__c\",\"Office_Director\",\"Program_Manager\",\"Segments.Segment_Name__c\",\"Investigation.Investigation_Name__c\",\"Petition_Fields.Petition_Name__c\"],\"filters\":[[\"Status__c\",[\"Active\",\"Amend Prelim\",\"Closed\",\"Completed\",\"Final\",\"Hold\",\"How To Proceed\",\"In Progress\",\"Initiation\",\"Litigation\",\"Pending Order\",\"Prelim\",\"Rejected/Deficient/Negative Finding\",\"Remand/International Litigation\",\"Self Initiating\",\"Suspended\",\"With the Court\",\"Withdrawn/Rescinded\"],\"in\"]]}","version":-1.0},"type":"grain","useGlobal":true,"visualizationParameters":{"options":{},"parameters":{"columnProperties":{},"columns":[],"customBulkActions":[],"maxColumnWidth":300,"minColumnWidth":40,"mode":"variable"},"type":"table"}},"All_Segments_by_Fisc_1":{"broadcastFacet":true,"datasets":[{"name":"Augmented_Appended_Petition_Investigation_Segment"}],"isGlobal":false,"label":"All Segments by Fiscal Year","query":{"query":"{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"Next_Major_Deadline__c_Year\"]}","version":-1.0},"receiveFacet":true,"type":"aggregateflex","useGlobal":true,"visualizationParameters":{"parameters":{"autoFitMode":"none","showValues":true,"bins":{"breakpoints":{"high":100,"low":0},"bands":{"high":{"color":"#008000","label":""},"low":{"color":"#B22222","label":""},"medium":{"color":"#ffa500","label":""}}},"legend":{"showHeader":true,"show":true,"customSize":"auto","position":"right-top","inside":false},"axisMode":"multi","visualizationType":"hbar","title":{"label":"","align":"center","subtitleLabel":""},"binValues":false,"trellis":{"flipLabels":false,"showGridLines":true,"enable":false,"type":"x","chartsPerLine":4},"measureAxis2":{"sqrtScale":false,"showTitle":true,"showAxis":true,"title":"","customDomain":{"showDomain":false}},"measureAxis1":{"sqrtScale":false,"showTitle":true,"showAxis":true,"title":"","customDomain":{"showDomain":false}},"theme":"wave","dimensionAxis":{"showTitle":true,"customSize":"auto","showAxis":true,"title":"","icons":{"useIcons":false,"iconProps":{"fit":"cover","column":"","type":"round"}}}},"type":"chart"}}},"widgetStyle":{"backgroundColor":"#FFFFFF","borderColor":"#E6ECF2","borderEdges":[],"borderRadius":0,"borderWidth":1},"widgets":{"table_1":{"parameters":{"columnProperties":{},"columns":[],"customBulkActions":[],"exploreLink":true,"maxColumnWidth":300,"minColumnWidth":40,"mode":"variable","step":"All_Segments_By_Offi_1"},"type":"table"},"chart_1":{"parameters":{"autoFitMode":"none","totalValue":"computeTotal","showValues":true,"bins":{"breakpoints":{"high":100,"low":0},"bands":{"high":{"color":"#008000","label":""},"low":{"color":"#B22222","label":""},"medium":{"color":"#ffa500","label":""}}},"legend":{"showHeader":true,"show":true,"customSize":"auto","position":"right-top","inside":false},"axisMode":"multi","visualizationType":"hbar","exploreLink":true,"title":{"label":"Segments by Fiscal Year","align":"center","subtitleLabel":""},"binValues":false,"trellis":{"flipLabels":false,"showGridLines":true,"enable":false,"type":"x","chartsPerLine":4},"totalLabel":"","measureAxis2":{"sqrtScale":false,"showTitle":true,"showAxis":true,"title":"","customDomain":{"showDomain":false}},"measureAxis1":{"sqrtScale":false,"showTitle":true,"showAxis":true,"title":"","customDomain":{"showDomain":false}},"theme":"wave","step":"All_Segments_by_Fisc_1","dimensionAxis":{"showTitle":true,"customSize":"auto","showAxis":true,"title":"","icons":{"useIcons":false,"iconProps":{"fit":"cover","column":"","type":"round"}}}},"type":"chart"}}}
+{
+  "dataSourceLinks": [],
+  "filters": [],
+  "gridLayouts": [
+    {
+      "name": "Default",
+      "numColumns": 12,
+      "pages": [
+        {
+          "name": "72e1595e-92fb-41a4-82f1-08dcc6f023e4",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 12,
+              "column": 0,
+              "name": "table_1",
+              "row": 5,
+              "rowspan": 12,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 12,
+              "column": 0,
+              "name": "chart_1",
+              "row": 0,
+              "rowspan": 5,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            }
+          ]
+        }
+      ],
+      "rowHeight": "normal",
+      "selectors": [],
+      "style": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "backgroundColor": "#F2F6FA",
+        "cellSpacingX": 8,
+        "cellSpacingY": 8,
+        "fit": "original",
+        "gutterColor": "#C5D3E0"
+      },
+      "version": 1.0
+    }
+  ],
+  "layouts": [],
+  "steps": {
+    "All_Segments_By_Offi_1": {
+      "datasets": [
+        {
+          "name": "Augmented_Appended_Petition_Investigation_Segment"
+        }
+      ],
+      "isFacet": true,
+      "isGlobal": false,
+      "label": "All Segments By Office Table",
+      "query": {
+        "query": "{\"values\":[\"Object_Name\",\"Status__c\",\"Office__c\",\"Office_Director\",\"Program_Manager\",\"Segments.Segment_Name__c\",\"Investigation.Investigation_Name__c\",\"Petition_Fields.Petition_Name__c\"],\"filters\":[[\"Status__c\",[\"Active\",\"Amend Prelim\",\"Closed\",\"Completed\",\"Final\",\"Hold\",\"How To Proceed\",\"In Progress\",\"Initiation\",\"Litigation\",\"Pending Order\",\"Prelim\",\"Rejected/Deficient/Negative Finding\",\"Remand/International Litigation\",\"Self Initiating\",\"Suspended\",\"With the Court\",\"Withdrawn/Rescinded\"],\"in\"]]}",
+        "version": -1.0
+      },
+      "type": "grain",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "parameters": {
+          "columnProperties": {},
+          "columns": [],
+          "customBulkActions": [],
+          "maxColumnWidth": 300,
+          "minColumnWidth": 40,
+          "mode": "variable"
+        },
+        "type": "table"
+      }
+    },
+    "All_Segments_by_Fisc_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "Augmented_Appended_Petition_Investigation_Segment"
+        }
+      ],
+      "isGlobal": false,
+      "label": "All Segments by Fiscal Year",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"Next_Major_Deadline__c_Year\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "parameters": {
+          "autoFitMode": "none",
+          "showValues": true,
+          "bins": {
+            "breakpoints": {
+              "high": 100,
+              "low": 0
+            },
+            "bands": {
+              "high": {
+                "color": "#008000",
+                "label": ""
+              },
+              "low": {
+                "color": "#B22222",
+                "label": ""
+              },
+              "medium": {
+                "color": "#ffa500",
+                "label": ""
+              }
+            }
+          },
+          "legend": {
+            "showHeader": true,
+            "show": true,
+            "customSize": "auto",
+            "position": "right-top",
+            "inside": false
+          },
+          "axisMode": "multi",
+          "visualizationType": "hbar",
+          "title": {
+            "label": "",
+            "align": "center",
+            "subtitleLabel": ""
+          },
+          "binValues": false,
+          "trellis": {
+            "flipLabels": false,
+            "showGridLines": true,
+            "enable": false,
+            "type": "x",
+            "chartsPerLine": 4
+          },
+          "measureAxis2": {
+            "sqrtScale": false,
+            "showTitle": true,
+            "showAxis": true,
+            "title": "",
+            "customDomain": {
+              "showDomain": false
+            }
+          },
+          "measureAxis1": {
+            "sqrtScale": false,
+            "showTitle": true,
+            "showAxis": true,
+            "title": "",
+            "customDomain": {
+              "showDomain": false
+            }
+          },
+          "theme": "wave",
+          "dimensionAxis": {
+            "showTitle": true,
+            "customSize": "auto",
+            "showAxis": true,
+            "title": "",
+            "icons": {
+              "useIcons": false,
+              "iconProps": {
+                "fit": "cover",
+                "column": "",
+                "type": "round"
+              }
+            }
+          }
+        },
+        "type": "chart"
+      }
+    }
+  },
+  "widgetStyle": {
+    "backgroundColor": "#FFFFFF",
+    "borderColor": "#E6ECF2",
+    "borderEdges": [],
+    "borderRadius": 0,
+    "borderWidth": 1
+  },
+  "widgets": {
+    "table_1": {
+      "parameters": {
+        "columnProperties": {},
+        "columns": [],
+        "customBulkActions": [],
+        "exploreLink": true,
+        "maxColumnWidth": 300,
+        "minColumnWidth": 40,
+        "mode": "variable",
+        "showActionMenu": true,
+        "step": "All_Segments_By_Offi_1"
+      },
+      "type": "table"
+    },
+    "chart_1": {
+      "parameters": {
+        "autoFitMode": "none",
+        "totalValue": "computeTotal",
+        "showValues": true,
+        "bins": {
+          "breakpoints": {
+            "high": 100,
+            "low": 0
+          },
+          "bands": {
+            "high": {
+              "color": "#008000",
+              "label": ""
+            },
+            "low": {
+              "color": "#B22222",
+              "label": ""
+            },
+            "medium": {
+              "color": "#ffa500",
+              "label": ""
+            }
+          }
+        },
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "hbar",
+        "exploreLink": true,
+        "title": {
+          "label": "Segments by Fiscal Year",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "binValues": false,
+        "trellis": {
+          "flipLabels": false,
+          "showGridLines": true,
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "showActionMenu": true,
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "",
+          "customDomain": {
+            "showDomain": false
+          }
+        },
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "",
+          "customDomain": {
+            "showDomain": false
+          }
+        },
+        "theme": "wave",
+        "step": "All_Segments_by_Fisc_1",
+        "dimensionAxis": {
+          "showTitle": true,
+          "customSize": "auto",
+          "showAxis": true,
+          "title": "",
+          "icons": {
+            "useIcons": false,
+            "iconProps": {
+              "fit": "cover",
+              "column": "",
+              "type": "round"
+            }
+          }
+        }
+      },
+      "type": "chart"
+    }
+  }
+}
