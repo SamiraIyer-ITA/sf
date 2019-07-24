@@ -1,1823 +1,1679 @@
-﻿{
-    "dataSourceLinks":  [
-
-                        ],
-    "filters":  [
-
+{
+  "dataSourceLinks": [],
+  "filters": [],
+  "gridLayouts": [
+    {
+      "name": "Default",
+      "numColumns": 18,
+      "pages": [
+        {
+          "name": "2dd0f5be-d176-4c71-8e46-15a609660067",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 2,
+              "column": 1,
+              "name": "listselector_5",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 3,
+              "name": "listselector_3",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 5,
+              "name": "listselector_9",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 7,
+              "name": "listselector_2",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 9,
+              "name": "listselector_8",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 11,
+              "name": "listselector_7",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 13,
+              "name": "listselector_6",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 15,
+              "name": "listselector_4",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_2",
+              "row": 0,
+              "rowspan": 6,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 1,
+              "name": "number_11",
+              "row": 12,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 3,
+              "name": "number_10",
+              "row": 12,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 5,
+              "name": "number_9",
+              "row": 12,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 7,
+              "name": "number_8",
+              "row": 12,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 9,
+              "name": "number_7",
+              "row": 12,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 11,
+              "name": "number_6",
+              "row": 12,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_3",
+              "row": 12,
+              "rowspan": 10,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "text_3",
+              "row": 25,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
                 ],
-    "gridLayouts":  [
-                        {
-                            "name":  "Default",
-                            "numColumns":  18,
-                            "pages":  [
-                                          {
-                                              "name":  "754a9b51-0f68-4d71-91cb-cb303c79046f",
-                                              "navigationHidden":  false,
-                                              "widgets":  [
-                                                              {
-                                                                  "colspan":  2,
-                                                                  "column":  1,
-                                                                  "name":  "listselector_5",
-                                                                  "row":  1,
-                                                                  "rowspan":  4,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(224, 229, 238)",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ]
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  2,
-                                                                  "column":  3,
-                                                                  "name":  "listselector_3",
-                                                                  "row":  1,
-                                                                  "rowspan":  4,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(224, 229, 238)",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ]
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  2,
-                                                                  "column":  5,
-                                                                  "name":  "listselector_9",
-                                                                  "row":  1,
-                                                                  "rowspan":  4,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(224, 229, 238)",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ]
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  2,
-                                                                  "column":  7,
-                                                                  "name":  "listselector_2",
-                                                                  "row":  1,
-                                                                  "rowspan":  4,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(224, 229, 238)",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ]
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  2,
-                                                                  "column":  9,
-                                                                  "name":  "listselector_8",
-                                                                  "row":  1,
-                                                                  "rowspan":  4,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(224, 229, 238)",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ]
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  2,
-                                                                  "column":  11,
-                                                                  "name":  "listselector_7",
-                                                                  "row":  1,
-                                                                  "rowspan":  4,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(224, 229, 238)",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ]
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  2,
-                                                                  "column":  13,
-                                                                  "name":  "listselector_6",
-                                                                  "row":  1,
-                                                                  "rowspan":  4,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(224, 229, 238)",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ]
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  2,
-                                                                  "column":  15,
-                                                                  "name":  "listselector_4",
-                                                                  "row":  1,
-                                                                  "rowspan":  4,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(224, 229, 238)",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ]
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  16,
-                                                                  "column":  1,
-                                                                  "name":  "container_2",
-                                                                  "row":  0,
-                                                                  "rowspan":  6,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(224, 229, 238)",
-                                                                                      "borderColor":  "#E6ECF2",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  2,
-                                                                  "column":  1,
-                                                                  "name":  "number_11",
-                                                                  "row":  12,
-                                                                  "rowspan":  9,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(20, 41, 94)",
-                                                                                      "borderColor":  "#E6ECF2",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  2,
-                                                                  "column":  3,
-                                                                  "name":  "number_10",
-                                                                  "row":  12,
-                                                                  "rowspan":  9,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(20, 41, 94)",
-                                                                                      "borderColor":  "#E6ECF2",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  2,
-                                                                  "column":  5,
-                                                                  "name":  "number_9",
-                                                                  "row":  12,
-                                                                  "rowspan":  9,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(20, 41, 94)",
-                                                                                      "borderColor":  "#E6ECF2",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  2,
-                                                                  "column":  7,
-                                                                  "name":  "number_8",
-                                                                  "row":  12,
-                                                                  "rowspan":  9,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(20, 41, 94)",
-                                                                                      "borderColor":  "#E6ECF2",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  2,
-                                                                  "column":  9,
-                                                                  "name":  "number_7",
-                                                                  "row":  12,
-                                                                  "rowspan":  9,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(20, 41, 94)",
-                                                                                      "borderColor":  "#E6ECF2",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  2,
-                                                                  "column":  11,
-                                                                  "name":  "number_6",
-                                                                  "row":  12,
-                                                                  "rowspan":  9,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(20, 41, 94)",
-                                                                                      "borderColor":  "#E6ECF2",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  16,
-                                                                  "column":  1,
-                                                                  "name":  "container_3",
-                                                                  "row":  12,
-                                                                  "rowspan":  10,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(20, 41, 94)",
-                                                                                      "borderColor":  "#E6ECF2",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  16,
-                                                                  "column":  1,
-                                                                  "name":  "text_3",
-                                                                  "row":  25,
-                                                                  "rowspan":  3,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "#FFFFFF",
-                                                                                      "borderColor":  "#E6ECF2",
-                                                                                      "borderEdges":  [
-                                                                                                          "bottom"
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  16,
-                                                                  "column":  1,
-                                                                  "name":  "chart_1",
-                                                                  "row":  29,
-                                                                  "rowspan":  15,
-                                                                  "widgetStyle":  {
-                                                                                      "borderEdges":  [
-
-                                                                                                      ]
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  16,
-                                                                  "column":  1,
-                                                                  "name":  "container_4",
-                                                                  "row":  24,
-                                                                  "rowspan":  21,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "#FFFFFF",
-                                                                                      "borderColor":  "#2EC2BA",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  16,
-                                                                  "column":  1,
-                                                                  "name":  "text_2",
-                                                                  "row":  8,
-                                                                  "rowspan":  4,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(6, 28, 63)",
-                                                                                      "borderColor":  "#E6ECF2",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  8,
-                                                                  "column":  1,
-                                                                  "name":  "text_4",
-                                                                  "row":  48,
-                                                                  "rowspan":  3,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "#FFFFFF",
-                                                                                      "borderColor":  "#E6ECF2",
-                                                                                      "borderEdges":  [
-                                                                                                          "bottom"
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  8,
-                                                                  "column":  1,
-                                                                  "name":  "chart_2",
-                                                                  "row":  52,
-                                                                  "rowspan":  15,
-                                                                  "widgetStyle":  {
-                                                                                      "borderEdges":  [
-
-                                                                                                      ]
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  8,
-                                                                  "column":  1,
-                                                                  "name":  "container_5",
-                                                                  "row":  47,
-                                                                  "rowspan":  21,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "#FFFFFF",
-                                                                                      "borderColor":  "#E6ECF2",
-                                                                                      "borderEdges":  [
-                                                                                                          "bottom"
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  8,
-                                                                  "column":  9,
-                                                                  "name":  "text_5",
-                                                                  "row":  48,
-                                                                  "rowspan":  3,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "#FFFFFF",
-                                                                                      "borderColor":  "#E6ECF2",
-                                                                                      "borderEdges":  [
-                                                                                                          "bottom"
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  8,
-                                                                  "column":  9,
-                                                                  "name":  "chart_3",
-                                                                  "row":  52,
-                                                                  "rowspan":  15,
-                                                                  "widgetStyle":  {
-                                                                                      "borderEdges":  [
-
-                                                                                                      ]
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  8,
-                                                                  "column":  9,
-                                                                  "name":  "container_6",
-                                                                  "row":  47,
-                                                                  "rowspan":  21,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "#FFFFFF",
-                                                                                      "borderColor":  "#E6ECF2",
-                                                                                      "borderEdges":  [
-                                                                                                          "bottom"
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  16,
-                                                                  "column":  1,
-                                                                  "name":  "text_6",
-                                                                  "row":  71,
-                                                                  "rowspan":  3,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "#FFFFFF",
-                                                                                      "borderColor":  "#E6ECF2",
-                                                                                      "borderEdges":  [
-                                                                                                          "bottom"
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  16,
-                                                                  "column":  1,
-                                                                  "name":  "table_1",
-                                                                  "row":  75,
-                                                                  "rowspan":  19,
-                                                                  "widgetStyle":  {
-                                                                                      "borderEdges":  [
-
-                                                                                                      ]
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  16,
-                                                                  "column":  1,
-                                                                  "name":  "container_7",
-                                                                  "row":  70,
-                                                                  "rowspan":  25,
-                                                                  "widgetStyle":  {
-                                                                                      "borderEdges":  [
-
-                                                                                                      ]
-                                                                                  }
-                                                              }
-                                                          ]
-                                          }
-                                      ],
-                            "rowHeight":  "fine",
-                            "selectors":  [
-
-                                          ],
-                            "style":  {
-                                          "alignmentX":  "left",
-                                          "alignmentY":  "top",
-                                          "backgroundColor":  "rgb(234, 238, 244)",
-                                          "cellSpacingX":  16,
-                                          "cellSpacingY":  0,
-                                          "fit":  "original",
-                                          "gutterColor":  "#C5D3E0"
-                                      },
-                            "version":  1.0
-                        },
-                        {
-                            "name":  "Mobile",
-                            "numColumns":  4,
-                            "pages":  [
-                                          {
-                                              "name":  "754a9b51-0f68-4d71-91cb-cb303c79046f",
-                                              "navigationHidden":  false,
-                                              "widgets":  [
-                                                              {
-                                                                  "colspan":  4,
-                                                                  "column":  0,
-                                                                  "name":  "text_1",
-                                                                  "row":  0,
-                                                                  "rowspan":  6,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "#FFFFFF",
-                                                                                      "borderColor":  "#44A2F5",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  2,
-                                                                  "column":  0,
-                                                                  "name":  "listselector_5",
-                                                                  "row":  9,
-                                                                  "rowspan":  4,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(224, 229, 238)",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ]
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  2,
-                                                                  "column":  2,
-                                                                  "name":  "listselector_3",
-                                                                  "row":  9,
-                                                                  "rowspan":  4,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(224, 229, 238)",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ]
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  2,
-                                                                  "column":  0,
-                                                                  "name":  "listselector_9",
-                                                                  "row":  14,
-                                                                  "rowspan":  4,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(224, 229, 238)",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ]
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  2,
-                                                                  "column":  2,
-                                                                  "name":  "listselector_2",
-                                                                  "row":  14,
-                                                                  "rowspan":  4,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(224, 229, 238)",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ]
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  2,
-                                                                  "column":  0,
-                                                                  "name":  "listselector_8",
-                                                                  "row":  19,
-                                                                  "rowspan":  4,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(224, 229, 238)",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ]
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  2,
-                                                                  "column":  2,
-                                                                  "name":  "listselector_7",
-                                                                  "row":  19,
-                                                                  "rowspan":  4,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(224, 229, 238)",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ]
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  2,
-                                                                  "column":  0,
-                                                                  "name":  "listselector_6",
-                                                                  "row":  24,
-                                                                  "rowspan":  4,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(224, 229, 238)",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ]
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  2,
-                                                                  "column":  2,
-                                                                  "name":  "listselector_4",
-                                                                  "row":  24,
-                                                                  "rowspan":  4,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(224, 229, 238)",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ]
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  4,
-                                                                  "column":  0,
-                                                                  "name":  "container_2",
-                                                                  "row":  8,
-                                                                  "rowspan":  21,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(224, 229, 238)",
-                                                                                      "borderColor":  "#E6ECF2",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  4,
-                                                                  "column":  0,
-                                                                  "name":  "text_2",
-                                                                  "row":  31,
-                                                                  "rowspan":  4,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(6, 28, 63)",
-                                                                                      "borderColor":  "#E6ECF2",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  1,
-                                                                  "column":  0,
-                                                                  "name":  "number_11",
-                                                                  "row":  35,
-                                                                  "rowspan":  9,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(20, 41, 94)",
-                                                                                      "borderColor":  "#E6ECF2",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  1,
-                                                                  "column":  1,
-                                                                  "name":  "number_10",
-                                                                  "row":  35,
-                                                                  "rowspan":  9,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(20, 41, 94)",
-                                                                                      "borderColor":  "#E6ECF2",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  1,
-                                                                  "column":  2,
-                                                                  "name":  "number_9",
-                                                                  "row":  35,
-                                                                  "rowspan":  9,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(20, 41, 94)",
-                                                                                      "borderColor":  "#E6ECF2",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  1,
-                                                                  "column":  3,
-                                                                  "name":  "number_8",
-                                                                  "row":  35,
-                                                                  "rowspan":  9,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(20, 41, 94)",
-                                                                                      "borderColor":  "#E6ECF2",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  1,
-                                                                  "column":  0,
-                                                                  "name":  "number_7",
-                                                                  "row":  45,
-                                                                  "rowspan":  9,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(20, 41, 94)",
-                                                                                      "borderColor":  "#E6ECF2",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  1,
-                                                                  "column":  1,
-                                                                  "name":  "number_6",
-                                                                  "row":  45,
-                                                                  "rowspan":  9,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(20, 41, 94)",
-                                                                                      "borderColor":  "#E6ECF2",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  4,
-                                                                  "column":  0,
-                                                                  "name":  "container_3",
-                                                                  "row":  35,
-                                                                  "rowspan":  20,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "rgb(20, 41, 94)",
-                                                                                      "borderColor":  "#E6ECF2",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  4,
-                                                                  "column":  0,
-                                                                  "name":  "text_3",
-                                                                  "row":  57,
-                                                                  "rowspan":  3,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "#FFFFFF",
-                                                                                      "borderColor":  "#E6ECF2",
-                                                                                      "borderEdges":  [
-                                                                                                          "bottom"
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  4,
-                                                                  "column":  0,
-                                                                  "name":  "chart_1",
-                                                                  "row":  61,
-                                                                  "rowspan":  15,
-                                                                  "widgetStyle":  {
-                                                                                      "borderEdges":  [
-
-                                                                                                      ]
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  4,
-                                                                  "column":  0,
-                                                                  "name":  "container_4",
-                                                                  "row":  57,
-                                                                  "rowspan":  20,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "#FFFFFF",
-                                                                                      "borderColor":  "#2EC2BA",
-                                                                                      "borderEdges":  [
-
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  4,
-                                                                  "column":  0,
-                                                                  "name":  "text_4",
-                                                                  "row":  79,
-                                                                  "rowspan":  3,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "#FFFFFF",
-                                                                                      "borderColor":  "#E6ECF2",
-                                                                                      "borderEdges":  [
-                                                                                                          "bottom"
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  4,
-                                                                  "column":  0,
-                                                                  "name":  "chart_2",
-                                                                  "row":  83,
-                                                                  "rowspan":  15,
-                                                                  "widgetStyle":  {
-                                                                                      "borderEdges":  [
-
-                                                                                                      ]
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  4,
-                                                                  "column":  0,
-                                                                  "name":  "container_5",
-                                                                  "row":  79,
-                                                                  "rowspan":  20,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "#FFFFFF",
-                                                                                      "borderColor":  "#E6ECF2",
-                                                                                      "borderEdges":  [
-                                                                                                          "bottom"
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  4,
-                                                                  "column":  0,
-                                                                  "name":  "text_5",
-                                                                  "row":  101,
-                                                                  "rowspan":  3,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "#FFFFFF",
-                                                                                      "borderColor":  "#E6ECF2",
-                                                                                      "borderEdges":  [
-                                                                                                          "bottom"
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  4,
-                                                                  "column":  0,
-                                                                  "name":  "chart_3",
-                                                                  "row":  105,
-                                                                  "rowspan":  15,
-                                                                  "widgetStyle":  {
-                                                                                      "borderEdges":  [
-
-                                                                                                      ]
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  4,
-                                                                  "column":  0,
-                                                                  "name":  "container_6",
-                                                                  "row":  101,
-                                                                  "rowspan":  20,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "#FFFFFF",
-                                                                                      "borderColor":  "#E6ECF2",
-                                                                                      "borderEdges":  [
-                                                                                                          "bottom"
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  4,
-                                                                  "column":  0,
-                                                                  "name":  "text_6",
-                                                                  "row":  123,
-                                                                  "rowspan":  3,
-                                                                  "widgetStyle":  {
-                                                                                      "backgroundColor":  "#FFFFFF",
-                                                                                      "borderColor":  "#E6ECF2",
-                                                                                      "borderEdges":  [
-                                                                                                          "bottom"
-                                                                                                      ],
-                                                                                      "borderRadius":  0,
-                                                                                      "borderWidth":  1
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  4,
-                                                                  "column":  0,
-                                                                  "name":  "table_1",
-                                                                  "row":  127,
-                                                                  "rowspan":  15,
-                                                                  "widgetStyle":  {
-                                                                                      "borderEdges":  [
-
-                                                                                                      ]
-                                                                                  }
-                                                              },
-                                                              {
-                                                                  "colspan":  4,
-                                                                  "column":  0,
-                                                                  "name":  "container_7",
-                                                                  "row":  123,
-                                                                  "rowspan":  20,
-                                                                  "widgetStyle":  {
-                                                                                      "borderEdges":  [
-
-                                                                                                      ]
-                                                                                  }
-                                                              }
-                                                          ]
-                                          }
-                                      ],
-                            "rowHeight":  "fine",
-                            "selectors":  [
-                                              "maxWidth(599)"
-                                          ],
-                            "style":  {
-                                          "alignmentX":  "left",
-                                          "alignmentY":  "top",
-                                          "backgroundColor":  "#F2F6FA",
-                                          "cellSpacingX":  8,
-                                          "cellSpacingY":  0,
-                                          "fit":  "original",
-                                          "gutterColor":  "#C5D3E0"
-                                      },
-                            "version":  1.0
-                        }
-                    ],
-    "layouts":  [
-
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "chart_1",
+              "row": 29,
+              "rowspan": 15,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_4",
+              "row": 24,
+              "rowspan": 21,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#2EC2BA",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "text_2",
+              "row": 8,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(6, 28, 63)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "text_4",
+              "row": 48,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
                 ],
-    "steps":  {
-                  "DashboardNames_1":  {
-                                           "broadcastFacet":  true,
-                                           "datasets":  [
-                                                            {
-                                                                "name":  "DashboardWithUsers"
-                                                            }
-                                                        ],
-                                           "isGlobal":  false,
-                                           "label":  "DashboardNames",
-                                           "query":  {
-                                                         "query":  "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"Dashboard.Title\"],\"order\":[[-1,{\"ascending\":false}]]}",
-                                                         "version":  -1.0
-                                                     },
-                                           "receiveFacet":  true,
-                                           "selectMode":  "single",
-                                           "type":  "aggregateflex",
-                                           "useGlobal":  true,
-                                           "visualizationParameters":  {
-                                                                           "options":  {
-
-                                                                                       },
-                                                                           "visualizationType":  "hbar"
-                                                                       }
-                                       },
-                  "MaxAPT_1":  {
-                                   "broadcastFacet":  true,
-                                   "datasets":  [
-                                                    {
-                                                        "name":  "DashboardWithUsers"
-                                                    }
-                                                ],
-                                   "isGlobal":  false,
-                                   "label":  "MaxAPT",
-                                   "query":  {
-                                                 "query":  "{\"measures\":[[\"max\",\"RUN_TIME\"]],\"measuresMap\":{},\"pigql\":\"a = load \\\"DashboardWithUsers\\\"; a = group a by all;  a = foreach a generate (max(\u0027RUN_TIME\u0027)*0.001) as \u0027max\u0027;  b = group a by all;  b = foreach b generate max(\u0027max\u0027) as \u0027max_RUN_TIME\u0027;\",\"groups\":[]}",
-                                                 "version":  -1.0
-                                             },
-                                   "receiveFacet":  false,
-                                   "selectMode":  "single",
-                                   "type":  "aggregateflex",
-                                   "useGlobal":  true,
-                                   "visualizationParameters":  {
-
-                                                               }
-                               },
-                  "Roles_1":  {
-                                  "broadcastFacet":  true,
-                                  "datasets":  [
-                                                   {
-                                                       "name":  "DashboardWithUsers"
-                                                   }
-                                               ],
-                                  "isGlobal":  false,
-                                  "label":  "Roles",
-                                  "query":  {
-                                                "query":  "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.User.Role.Name\"],\"order\":[[-1,{\"ascending\":false}]]}",
-                                                "version":  -1.0
-                                            },
-                                  "receiveFacet":  true,
-                                  "selectMode":  "single",
-                                  "type":  "aggregateflex",
-                                  "useGlobal":  true,
-                                  "visualizationParameters":  {
-                                                                  "options":  {
-
-                                                                              },
-                                                                  "visualizationType":  "hbar"
-                                                              }
-                              },
-                  "Profiles_1":  {
-                                     "broadcastFacet":  true,
-                                     "datasets":  [
-                                                      {
-                                                          "name":  "DashboardWithUsers"
-                                                      }
-                                                  ],
-                                     "isGlobal":  false,
-                                     "label":  "Profiles",
-                                     "query":  {
-                                                   "query":  "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.Profile.Name\"],\"order\":[[-1,{\"ascending\":false}]]}",
-                                                   "version":  -1.0
-                                               },
-                                     "receiveFacet":  true,
-                                     "selectMode":  "single",
-                                     "type":  "aggregateflex",
-                                     "useGlobal":  true,
-                                     "visualizationParameters":  {
-                                                                     "options":  {
-
-                                                                                 },
-                                                                     "visualizationType":  "hbar"
-                                                                 }
-                                 },
-                  "RawLogData_1":  {
-                                       "datasets":  [
-                                                        {
-                                                            "name":  "DashboardWithUsers"
-                                                        }
-                                                    ],
-                                       "isFacet":  true,
-                                       "isGlobal":  false,
-                                       "label":  "RawLogData",
-                                       "query":  {
-                                                     "query":  "{\"values\":[\"CLIENT_IP\",\"CPU_TIME\",\"RUN_TIME\",\"Dashboard.Title\",\"IS_SCHEDULED\",\"IS_SUCCESS\",\"Report.Name\",\"TIMESTAMP_DERIVED\",\"User.Name\",\"User.Profile.Name\",\"User.User.Role.Name\"]}",
-                                                     "version":  -1.0
-                                                 },
-                                       "type":  "grain",
-                                       "useGlobal":  true,
-                                       "visualizationParameters":  {
-                                                                       "options":  {
-                                                                                       "totals":  true
-                                                                                   },
-                                                                       "visualizationType":  "valuestable"
-                                                                   }
-                                   },
-                  "IsScheduled_1":  {
-                                        "broadcastFacet":  true,
-                                        "datasets":  [
-                                                         {
-                                                             "name":  "DashboardWithUsers"
-                                                         }
-                                                     ],
-                                        "isGlobal":  false,
-                                        "label":  "IsScheduled",
-                                        "query":  {
-                                                      "query":  "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"IS_SCHEDULED\"],\"order\":[[-1,{\"ascending\":false}]]}",
-                                                      "version":  -1.0
-                                                  },
-                                        "receiveFacet":  true,
-                                        "selectMode":  "single",
-                                        "type":  "aggregateflex",
-                                        "useGlobal":  true,
-                                        "visualizationParameters":  {
-                                                                        "options":  {
-
-                                                                                    },
-                                                                        "visualizationType":  "hbar"
-                                                                    }
-                                    },
-                  "IsSuccess_1":  {
-                                      "broadcastFacet":  true,
-                                      "datasets":  [
-                                                       {
-                                                           "name":  "DashboardWithUsers"
-                                                       }
-                                                   ],
-                                      "isGlobal":  false,
-                                      "label":  "IsSuccess",
-                                      "query":  {
-                                                    "query":  "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"IS_SUCCESS\"],\"order\":[[-1,{\"ascending\":false}]]}",
-                                                    "version":  -1.0
-                                                },
-                                      "receiveFacet":  true,
-                                      "selectMode":  "single",
-                                      "type":  "aggregateflex",
-                                      "useGlobal":  true,
-                                      "visualizationParameters":  {
-                                                                      "options":  {
-
-                                                                                  },
-                                                                      "visualizationType":  "hbar"
-                                                                  }
-                                  },
-                  "TotalDashboards_1":  {
-                                            "broadcastFacet":  true,
-                                            "datasets":  [
-                                                             {
-                                                                 "name":  "DashboardWithUsers"
-                                                             }
-                                                         ],
-                                            "isGlobal":  false,
-                                            "label":  "TotalDashboards",
-                                            "query":  {
-                                                          "query":  "{\"measures\":[[\"unique\",\"Dashboard.Title\"]]}",
-                                                          "version":  -1.0
-                                                      },
-                                            "receiveFacet":  true,
-                                            "selectMode":  "single",
-                                            "type":  "aggregateflex",
-                                            "useGlobal":  true,
-                                            "visualizationParameters":  {
-                                                                            "options":  {
-
-                                                                                        },
-                                                                            "visualizationType":  "hbar"
-                                                                        }
-                                        },
-                  "Users_1":  {
-                                  "broadcastFacet":  true,
-                                  "datasets":  [
-                                                   {
-                                                       "name":  "DashboardWithUsers"
-                                                   }
-                                               ],
-                                  "isGlobal":  false,
-                                  "label":  "Users",
-                                  "query":  {
-                                                "query":  "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.Name\"],\"order\":[[-1,{\"ascending\":false}]]}",
-                                                "version":  -1.0
-                                            },
-                                  "receiveFacet":  true,
-                                  "selectMode":  "single",
-                                  "type":  "aggregateflex",
-                                  "useGlobal":  true,
-                                  "visualizationParameters":  {
-                                                                  "options":  {
-
-                                                                              },
-                                                                  "visualizationType":  "hbar"
-                                                              }
-                              },
-                  "DashboardTrends_1":  {
-                                            "broadcastFacet":  true,
-                                            "datasets":  [
-                                                             {
-                                                                 "name":  "DashboardWithUsers"
-                                                             }
-                                                         ],
-                                            "isGlobal":  false,
-                                            "label":  "DashboardTrends",
-                                            "query":  {
-                                                          "query":  "{\"measures\":[[\"count\",\"*\"]],\"groups\":[[\"TIMESTAMP_DERIVED_Year\",\"TIMESTAMP_DERIVED_Month\",\"TIMESTAMP_DERIVED_Day\"],\"Dashboard.Title\"]}",
-                                                          "version":  -1.0
-                                                      },
-                                            "receiveFacet":  true,
-                                            "selectMode":  "single",
-                                            "type":  "aggregateflex",
-                                            "useGlobal":  true,
-                                            "visualizationParameters":  {
-                                                                            "options":  {
-
-                                                                                        },
-                                                                            "visualizationType":  "time"
-                                                                        }
-                                        },
-                  "TotalUsers_1":  {
-                                       "broadcastFacet":  true,
-                                       "datasets":  [
-                                                        {
-                                                            "name":  "DashboardWithUsers"
-                                                        }
-                                                    ],
-                                       "isGlobal":  false,
-                                       "label":  "TotalUsers",
-                                       "query":  {
-                                                     "query":  "{\"measures\":[[\"count\",\"USER_ID\"]]}",
-                                                     "version":  -1.0
-                                                 },
-                                       "receiveFacet":  true,
-                                       "selectMode":  "single",
-                                       "type":  "aggregateflex",
-                                       "useGlobal":  true,
-                                       "visualizationParameters":  {
-                                                                       "options":  {
-
-                                                                                   },
-                                                                       "visualizationType":  "hbar"
-                                                                   }
-                                   },
-                  "AvgAPT_1":  {
-                                   "broadcastFacet":  true,
-                                   "datasets":  [
-                                                    {
-                                                        "name":  "DashboardWithUsers"
-                                                    }
-                                                ],
-                                   "isGlobal":  false,
-                                   "label":  "AvgAPT",
-                                   "query":  {
-                                                 "query":  "{\"measures\":[[\"avg\",\"RUN_TIME\"]],\"measuresMap\":{},\"pigql\":\"a = load \\\"DashboardWithUsers\\\"; a = group a by all;  a = foreach a generate (avg(\u0027RUN_TIME\u0027)*0.001) as \u0027avg\u0027;  b = group a by all;  b = foreach b generate avg(\u0027avg\u0027) as \u0027avg_RUN_TIME\u0027;\",\"groups\":[]}",
-                                                 "version":  -1.0
-                                             },
-                                   "receiveFacet":  false,
-                                   "selectMode":  "single",
-                                   "type":  "aggregateflex",
-                                   "useGlobal":  true,
-                                   "visualizationParameters":  {
-                                                                   "options":  {
-
-                                                                               },
-                                                                   "visualizationType":  "hbar"
-                                                               }
-                               },
-                  "TotalViews_1":  {
-                                       "broadcastFacet":  true,
-                                       "datasets":  [
-                                                        {
-                                                            "name":  "DashboardWithUsers"
-                                                        }
-                                                    ],
-                                       "isGlobal":  false,
-                                       "label":  "TotalViews",
-                                       "query":  {
-                                                     "query":  "{\"measures\":[[\"count\",\"*\"]]}",
-                                                     "version":  -1.0
-                                                 },
-                                       "receiveFacet":  true,
-                                       "selectMode":  "single",
-                                       "type":  "aggregateflex",
-                                       "useGlobal":  true,
-                                       "visualizationParameters":  {
-                                                                       "options":  {
-
-                                                                                   },
-                                                                       "visualizationType":  "hbar"
-                                                                   }
-                                   },
-                  "DashboardPerformance_1":  {
-                                                 "broadcastFacet":  true,
-                                                 "datasets":  [
-                                                                  {
-                                                                      "name":  "DashboardWithUsers"
-                                                                  }
-                                                              ],
-                                                 "isGlobal":  false,
-                                                 "label":  "DashboardPerformance",
-                                                 "query":  {
-                                                               "query":  "{\"measures\":[[\"max\",\"RUN_TIME\"],[\"count\",\"*\"]],\"groups\":[\"Dashboard.Title\"]}",
-                                                               "version":  -1.0
-                                                           },
-                                                 "receiveFacet":  true,
-                                                 "selectMode":  "single",
-                                                 "type":  "aggregateflex",
-                                                 "useGlobal":  true,
-                                                 "visualizationParameters":  {
-                                                                                 "options":  {
-
-                                                                                             },
-                                                                                 "visualizationType":  "scatter"
-                                                                             }
-                                             },
-                  "IPs_1":  {
-                                "broadcastFacet":  true,
-                                "datasets":  [
-                                                 {
-                                                     "name":  "DashboardWithUsers"
-                                                 }
-                                             ],
-                                "isGlobal":  false,
-                                "label":  "IPs",
-                                "query":  {
-                                              "query":  "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"CLIENT_IP\"],\"order\":[[-1,{\"ascending\":false}]]}",
-                                              "version":  -1.0
-                                          },
-                                "receiveFacet":  true,
-                                "selectMode":  "single",
-                                "type":  "aggregateflex",
-                                "useGlobal":  true,
-                                "visualizationParameters":  {
-                                                                "options":  {
-
-                                                                            },
-                                                                "visualizationType":  "hbar"
-                                                            }
-                            },
-                  "TotalReports_1":  {
-                                         "broadcastFacet":  true,
-                                         "datasets":  [
-                                                          {
-                                                              "name":  "DashboardWithUsers"
-                                                          }
-                                                      ],
-                                         "isGlobal":  false,
-                                         "label":  "TotalReports",
-                                         "query":  {
-                                                       "query":  "{\"measures\":[[\"unique\",\"Report.Name\"]]}",
-                                                       "version":  -1.0
-                                                   },
-                                         "receiveFacet":  true,
-                                         "selectMode":  "single",
-                                         "type":  "aggregateflex",
-                                         "useGlobal":  true,
-                                         "visualizationParameters":  {
-                                                                         "options":  {
-
-                                                                                     },
-                                                                         "visualizationType":  "hbar"
-                                                                     }
-                                     },
-                  "Dates_1":  {
-                                  "broadcastFacet":  true,
-                                  "datasets":  [
-                                                   {
-                                                       "name":  "DashboardWithUsers"
-                                                   }
-                                               ],
-                                  "isGlobal":  false,
-                                  "label":  "Dates",
-                                  "query":  {
-                                                "query":  "{\"measures\":[[\"count\",\"*\"]],\"groups\":[[\"TIMESTAMP_DERIVED_Year\",\"TIMESTAMP_DERIVED_Month\",\"TIMESTAMP_DERIVED_Day\"]]}",
-                                                "version":  -1.0
-                                            },
-                                  "receiveFacet":  true,
-                                  "selectMode":  "single",
-                                  "type":  "aggregateflex",
-                                  "useGlobal":  true,
-                                  "visualizationParameters":  {
-                                                                  "options":  {
-
-                                                                              },
-                                                                  "visualizationType":  "hbar"
-                                                              }
-                              },
-                  "ReportsViewedByDashb_1":  {
-                                                 "broadcastFacet":  true,
-                                                 "datasets":  [
-                                                                  {
-                                                                      "name":  "DashboardWithUsers"
-                                                                  }
-                                                              ],
-                                                 "isGlobal":  false,
-                                                 "label":  "ReportsViewedByDashboard",
-                                                 "query":  {
-                                                               "query":  "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"Report.Name\",\"Dashboard.Title\"],\"order\":[[-1,{\"ascending\":false}]]}",
-                                                               "version":  -1.0
-                                                           },
-                                                 "receiveFacet":  true,
-                                                 "selectMode":  "single",
-                                                 "type":  "aggregateflex",
-                                                 "useGlobal":  true,
-                                                 "visualizationParameters":  {
-                                                                                 "options":  {
-
-                                                                                             },
-                                                                                 "visualizationType":  "stackhbar"
-                                                                             }
-                                             }
-              },
-    "widgetStyle":  {
-                        "backgroundColor":  "#FFFFFF",
-                        "borderColor":  "#E6ECF2",
-                        "borderEdges":  [
-
-                                        ],
-                        "borderRadius":  0,
-                        "borderWidth":  1
-                    },
-    "widgets":  {
-                    "number_11":  {
-                                      "parameters":  {
-                                                         "compact":  true,
-                                                         "exploreLink":  true,
-                                                         "measureField":  "count",
-                                                         "numberColor":  "#FFFFFF",
-                                                         "numberSize":  32,
-                                                         "showActionMenu":  true,
-                                                         "step":  "TotalViews_1",
-                                                         "textAlignment":  "left",
-                                                         "title":  "Total Views",
-                                                         "titleColor":  "#FFFFFF",
-                                                         "titleSize":  12
-                                                     },
-                                      "type":  "number"
-                                  },
-                    "number_10":  {
-                                      "parameters":  {
-                                                         "compact":  true,
-                                                         "exploreLink":  true,
-                                                         "measureField":  "unique_Dashboard.Title",
-                                                         "numberColor":  "#FFFFFF",
-                                                         "numberSize":  32,
-                                                         "showActionMenu":  true,
-                                                         "step":  "TotalDashboards_1",
-                                                         "textAlignment":  "left",
-                                                         "title":  "Total Dashboards",
-                                                         "titleColor":  "#FFFFFF",
-                                                         "titleSize":  12
-                                                     },
-                                      "type":  "number"
-                                  },
-                    "number_9":  {
-                                     "parameters":  {
-                                                        "compact":  true,
-                                                        "exploreLink":  true,
-                                                        "measureField":  "unique_Report.Name",
-                                                        "numberColor":  "#FFFFFF",
-                                                        "numberSize":  32,
-                                                        "showActionMenu":  true,
-                                                        "step":  "TotalReports_1",
-                                                        "textAlignment":  "left",
-                                                        "title":  "Total Reports",
-                                                        "titleColor":  "#FFFFFF",
-                                                        "titleSize":  12
-                                                    },
-                                     "type":  "number"
-                                 },
-                    "number_8":  {
-                                     "parameters":  {
-                                                        "compact":  true,
-                                                        "exploreLink":  true,
-                                                        "measureField":  "avg_RUN_TIME",
-                                                        "numberColor":  "#FFFFFF",
-                                                        "numberSize":  32,
-                                                        "showActionMenu":  true,
-                                                        "step":  "AvgAPT_1",
-                                                        "textAlignment":  "left",
-                                                        "title":  "Avg APT",
-                                                        "titleColor":  "#FFFFFF",
-                                                        "titleSize":  12
-                                                    },
-                                     "type":  "number"
-                                 },
-                    "number_7":  {
-                                     "parameters":  {
-                                                        "compact":  true,
-                                                        "exploreLink":  true,
-                                                        "measureField":  "max_RUN_TIME",
-                                                        "numberColor":  "#FFFFFF",
-                                                        "numberSize":  32,
-                                                        "showActionMenu":  true,
-                                                        "step":  "MaxAPT_1",
-                                                        "textAlignment":  "left",
-                                                        "title":  "Max APT",
-                                                        "titleColor":  "#FFFFFF",
-                                                        "titleSize":  12
-                                                    },
-                                     "type":  "number"
-                                 },
-                    "number_6":  {
-                                     "parameters":  {
-                                                        "compact":  true,
-                                                        "exploreLink":  true,
-                                                        "measureField":  "unique_USER_ID",
-                                                        "numberColor":  "#FFFFFF",
-                                                        "numberSize":  32,
-                                                        "showActionMenu":  true,
-                                                        "step":  "TotalUsers_1",
-                                                        "textAlignment":  "left",
-                                                        "title":  "Total Users",
-                                                        "titleColor":  "#FFFFFF",
-                                                        "titleSize":  12
-                                                    },
-                                     "type":  "number"
-                                 },
-                    "container_2":  {
-                                        "parameters":  {
-                                                           "alignmentX":  "left",
-                                                           "alignmentY":  "top",
-                                                           "fit":  "original"
-                                                       },
-                                        "type":  "container"
-                                    },
-                    "container_3":  {
-                                        "parameters":  {
-                                                           "alignmentX":  "left",
-                                                           "alignmentY":  "top",
-                                                           "fit":  "original"
-                                                       },
-                                        "type":  "container"
-                                    },
-                    "container_4":  {
-                                        "parameters":  {
-                                                           "alignmentX":  "left",
-                                                           "alignmentY":  "top",
-                                                           "fit":  "original"
-                                                       },
-                                        "type":  "container"
-                                    },
-                    "container_5":  {
-                                        "parameters":  {
-                                                           "alignmentX":  "left",
-                                                           "alignmentY":  "top",
-                                                           "fit":  "original"
-                                                       },
-                                        "type":  "container"
-                                    },
-                    "text_3":  {
-                                   "parameters":  {
-                                                      "fontSize":  20,
-                                                      "showActionMenu":  true,
-                                                      "text":  "How Often Are Dashboards Used?",
-                                                      "textAlignment":  "left",
-                                                      "textColor":  "#091A3E"
-                                                  },
-                                   "type":  "text"
-                               },
-                    "container_6":  {
-                                        "parameters":  {
-                                                           "alignmentX":  "left",
-                                                           "alignmentY":  "top",
-                                                           "fit":  "original"
-                                                       },
-                                        "type":  "container"
-                                    },
-                    "text_2":  {
-                                   "parameters":  {
-                                                      "fontSize":  16,
-                                                      "showActionMenu":  true,
-                                                      "text":  "Shows dashboard usage trends from Dashboard event data. Use this dashboard to see how your dashboards perform so that you can prioritize troubleshooting.",
-                                                      "textAlignment":  "left",
-                                                      "textColor":  "#FFFFFF"
-                                                  },
-                                   "type":  "text"
-                               },
-                    "container_7":  {
-                                        "parameters":  {
-                                                           "alignmentX":  "left",
-                                                           "alignmentY":  "top",
-                                                           "fit":  "original"
-                                                       },
-                                        "type":  "container"
-                                    },
-                    "text_5":  {
-                                   "parameters":  {
-                                                      "fontSize":  20,
-                                                      "showActionMenu":  true,
-                                                      "text":  "How Many Reports Are Viewed from Dashboards?",
-                                                      "textAlignment":  "left",
-                                                      "textColor":  "#091A3E"
-                                                  },
-                                   "type":  "text"
-                               },
-                    "text_4":  {
-                                   "parameters":  {
-                                                      "fontSize":  20,
-                                                      "showActionMenu":  true,
-                                                      "text":  "How Are Dashboards Performing?",
-                                                      "textAlignment":  "left",
-                                                      "textColor":  "#091A3E"
-                                                  },
-                                   "type":  "text"
-                               },
-                    "chart_2":  {
-                                    "parameters":  {
-                                                       "totalValue":  "computeTotal",
-                                                       "totalLabel":  "",
-                                                       "showActionMenu":  true,
-                                                       "legend":  {
-                                                                      "showHeader":  true,
-                                                                      "show":  true,
-                                                                      "customSize":  "auto",
-                                                                      "position":  "right-top",
-                                                                      "inside":  false
-                                                                  },
-                                                       "x":  {
-                                                                 "sqrtScale":  false,
-                                                                 "showZero":  true,
-                                                                 "showTitle":  true,
-                                                                 "showAxis":  true,
-                                                                 "title":  ""
-                                                             },
-                                                       "visualizationType":  "scatter",
-                                                       "y":  {
-                                                                 "sqrtScale":  false,
-                                                                 "showZero":  true,
-                                                                 "showTitle":  true,
-                                                                 "showAxis":  true,
-                                                                 "title":  ""
-                                                             },
-                                                       "theme":  "wave",
-                                                       "step":  "DashboardPerformance_1",
-                                                       "exploreLink":  true,
-                                                       "title":  {
-                                                                     "label":  "",
-                                                                     "align":  "center",
-                                                                     "subtitleLabel":  ""
-                                                                 },
-                                                       "trellis":  {
-                                                                       "enable":  false,
-                                                                       "type":  "x",
-                                                                       "chartsPerLine":  4
-                                                                   }
-                                                   },
-                                    "type":  "chart"
-                                },
-                    "text_6":  {
-                                   "parameters":  {
-                                                      "fontSize":  20,
-                                                      "showActionMenu":  true,
-                                                      "text":  "Raw Log Data",
-                                                      "textAlignment":  "left",
-                                                      "textColor":  "#091A3E"
-                                                  },
-                                   "type":  "text"
-                               },
-                    "chart_1":  {
-                                    "parameters":  {
-                                                       "totalValue":  "computeTotal",
-                                                       "showPoints":  true,
-                                                       "legend":  {
-                                                                      "showHeader":  true,
-                                                                      "show":  true,
-                                                                      "customSize":  "auto",
-                                                                      "position":  "right-top",
-                                                                      "inside":  false
-                                                                  },
-                                                       "axisMode":  "multi",
-                                                       "visualizationType":  "time",
-                                                       "missingValue":  "connect",
-                                                       "timeAxis":  {
-                                                                        "showTitle":  true,
-                                                                        "showAxis":  true,
-                                                                        "title":  ""
-                                                                    },
-                                                       "exploreLink":  true,
-                                                       "title":  {
-                                                                     "label":  "",
-                                                                     "align":  "center",
-                                                                     "subtitleLabel":  ""
-                                                                 },
-                                                       "trellis":  {
-                                                                       "enable":  false,
-                                                                       "type":  "x",
-                                                                       "chartsPerLine":  4
-                                                                   },
-                                                       "totalLabel":  "",
-                                                       "fillArea":  true,
-                                                       "showActionMenu":  true,
-                                                       "showZero":  true,
-                                                       "measureAxis2":  {
-                                                                            "sqrtScale":  false,
-                                                                            "showTitle":  true,
-                                                                            "showAxis":  true,
-                                                                            "title":  ""
-                                                                        },
-                                                       "measureAxis1":  {
-                                                                            "sqrtScale":  false,
-                                                                            "showTitle":  true,
-                                                                            "showAxis":  true,
-                                                                            "title":  ""
-                                                                        },
-                                                       "theme":  "wave",
-                                                       "step":  "DashboardTrends_1"
-                                                   },
-                                    "type":  "chart"
-                                },
-                    "chart_3":  {
-                                    "parameters":  {
-                                                       "autoFitMode":  "fit",
-                                                       "totalValue":  "computeTotal",
-                                                       "showValues":  true,
-                                                       "legend":  {
-                                                                      "showHeader":  true,
-                                                                      "show":  true,
-                                                                      "customSize":  "auto",
-                                                                      "position":  "right-top",
-                                                                      "inside":  false
-                                                                  },
-                                                       "axisMode":  "multi",
-                                                       "visualizationType":  "stackhbar",
-                                                       "exploreLink":  true,
-                                                       "title":  {
-                                                                     "label":  "",
-                                                                     "align":  "center",
-                                                                     "subtitleLabel":  ""
-                                                                 },
-                                                       "trellis":  {
-                                                                       "enable":  false,
-                                                                       "type":  "x",
-                                                                       "chartsPerLine":  4
-                                                                   },
-                                                       "totalLabel":  "",
-                                                       "showActionMenu":  true,
-                                                       "measureAxis2":  {
-                                                                            "sqrtScale":  false,
-                                                                            "showTitle":  true,
-                                                                            "showAxis":  true,
-                                                                            "title":  ""
-                                                                        },
-                                                       "normalize":  false,
-                                                       "measureAxis1":  {
-                                                                            "sqrtScale":  false,
-                                                                            "showTitle":  true,
-                                                                            "showAxis":  true,
-                                                                            "title":  ""
-                                                                        },
-                                                       "theme":  "wave",
-                                                       "step":  "ReportsViewedByDashb_1",
-                                                       "dimensionAxis":  {
-                                                                             "showTitle":  true,
-                                                                             "customSize":  "auto",
-                                                                             "showAxis":  true,
-                                                                             "title":  ""
-                                                                         }
-                                                   },
-                                    "type":  "chart"
-                                },
-                    "listselector_7":  {
-                                           "parameters":  {
-                                                              "compact":  true,
-                                                              "exploreLink":  false,
-                                                              "instant":  true,
-                                                              "measureField":  "count",
-                                                              "showActionMenu":  false,
-                                                              "step":  "IsScheduled_1",
-                                                              "title":  "Scheduled"
-                                                          },
-                                           "type":  "listselector"
-                                       },
-                    "listselector_6":  {
-                                           "parameters":  {
-                                                              "compact":  true,
-                                                              "exploreLink":  false,
-                                                              "instant":  true,
-                                                              "measureField":  "count",
-                                                              "showActionMenu":  false,
-                                                              "step":  "IsSuccess_1",
-                                                              "title":  "Succes"
-                                                          },
-                                           "type":  "listselector"
-                                       },
-                    "listselector_9":  {
-                                           "parameters":  {
-                                                              "compact":  true,
-                                                              "exploreLink":  false,
-                                                              "instant":  true,
-                                                              "measureField":  "count",
-                                                              "showActionMenu":  false,
-                                                              "step":  "Profiles_1",
-                                                              "title":  "Profiles"
-                                                          },
-                                           "type":  "listselector"
-                                       },
-                    "listselector_8":  {
-                                           "parameters":  {
-                                                              "compact":  true,
-                                                              "exploreLink":  false,
-                                                              "instant":  true,
-                                                              "measureField":  "count",
-                                                              "showActionMenu":  false,
-                                                              "step":  "IPs_1",
-                                                              "title":  "IPs"
-                                                          },
-                                           "type":  "listselector"
-                                       },
-                    "listselector_3":  {
-                                           "parameters":  {
-                                                              "compact":  true,
-                                                              "exploreLink":  false,
-                                                              "instant":  true,
-                                                              "measureField":  "count",
-                                                              "showActionMenu":  false,
-                                                              "step":  "Users_1",
-                                                              "title":  "Users"
-                                                          },
-                                           "type":  "listselector"
-                                       },
-                    "listselector_2":  {
-                                           "parameters":  {
-                                                              "compact":  true,
-                                                              "exploreLink":  false,
-                                                              "instant":  true,
-                                                              "measureField":  "count",
-                                                              "showActionMenu":  false,
-                                                              "step":  "Roles_1",
-                                                              "title":  "Roles"
-                                                          },
-                                           "type":  "listselector"
-                                       },
-                    "text_1":  {
-                                   "parameters":  {
-                                                      "fontSize":  64,
-                                                      "showActionMenu":  true,
-                                                      "text":  "Dashboards",
-                                                      "textAlignment":  "center",
-                                                      "textColor":  "#091A3E"
-                                                  },
-                                   "type":  "text"
-                               },
-                    "listselector_5":  {
-                                           "parameters":  {
-                                                              "compact":  true,
-                                                              "exploreLink":  false,
-                                                              "instant":  true,
-                                                              "measureField":  "count",
-                                                              "showActionMenu":  false,
-                                                              "step":  "Dates_1",
-                                                              "title":  "Dates"
-                                                          },
-                                           "type":  "listselector"
-                                       },
-                    "listselector_4":  {
-                                           "parameters":  {
-                                                              "compact":  true,
-                                                              "exploreLink":  false,
-                                                              "instant":  true,
-                                                              "measureField":  "count",
-                                                              "showActionMenu":  false,
-                                                              "step":  "DashboardNames_1",
-                                                              "title":  "Dashboard Names"
-                                                          },
-                                           "type":  "listselector"
-                                       },
-                    "table_1":  {
-                                    "parameters":  {
-                                                       "columnProperties":  {
-
-                                                                            },
-                                                       "columns":  [
-
-                                                                   ],
-                                                       "customBulkActions":  [
-
-                                                                             ],
-                                                       "exploreLink":  true,
-                                                       "showActionMenu":  true,
-                                                       "step":  "RawLogData_1"
-                                                   },
-                                    "type":  "table"
-                                }
-                }
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "chart_2",
+              "row": 52,
+              "rowspan": 15,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "container_5",
+              "row": 47,
+              "rowspan": 21,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 9,
+              "name": "text_5",
+              "row": 48,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 9,
+              "name": "chart_3",
+              "row": 52,
+              "rowspan": 15,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 9,
+              "name": "container_6",
+              "row": 47,
+              "rowspan": 21,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "text_6",
+              "row": 71,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "table_1",
+              "row": 75,
+              "rowspan": 19,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_7",
+              "row": 70,
+              "rowspan": 25,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            }
+          ]
+        }
+      ],
+      "rowHeight": "fine",
+      "selectors": [],
+      "style": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "backgroundColor": "rgb(234, 238, 244)",
+        "cellSpacingX": 16,
+        "cellSpacingY": 0,
+        "fit": "original",
+        "gutterColor": "#C5D3E0"
+      },
+      "version": 1.0
+    },
+    {
+      "name": "Mobile",
+      "numColumns": 4,
+      "pages": [
+        {
+          "name": "2dd0f5be-d176-4c71-8e46-15a609660067",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_1",
+              "row": 0,
+              "rowspan": 6,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#44A2F5",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "listselector_5",
+              "row": 9,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 2,
+              "name": "listselector_3",
+              "row": 9,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "listselector_9",
+              "row": 14,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 2,
+              "name": "listselector_2",
+              "row": 14,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "listselector_8",
+              "row": 19,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 2,
+              "name": "listselector_7",
+              "row": 19,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "listselector_6",
+              "row": 24,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 2,
+              "name": "listselector_4",
+              "row": 24,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_2",
+              "row": 8,
+              "rowspan": 21,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_2",
+              "row": 31,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(6, 28, 63)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 0,
+              "name": "number_11",
+              "row": 35,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 1,
+              "name": "number_10",
+              "row": 35,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 2,
+              "name": "number_9",
+              "row": 35,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 3,
+              "name": "number_8",
+              "row": 35,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 0,
+              "name": "number_7",
+              "row": 45,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 1,
+              "name": "number_6",
+              "row": 45,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_3",
+              "row": 35,
+              "rowspan": 20,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_3",
+              "row": 57,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "chart_1",
+              "row": 61,
+              "rowspan": 15,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_4",
+              "row": 57,
+              "rowspan": 20,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#2EC2BA",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_4",
+              "row": 79,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "chart_2",
+              "row": 83,
+              "rowspan": 15,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_5",
+              "row": 79,
+              "rowspan": 20,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_5",
+              "row": 101,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "chart_3",
+              "row": 105,
+              "rowspan": 15,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_6",
+              "row": 101,
+              "rowspan": 20,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_6",
+              "row": 123,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "table_1",
+              "row": 127,
+              "rowspan": 15,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_7",
+              "row": 123,
+              "rowspan": 20,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            }
+          ]
+        }
+      ],
+      "rowHeight": "fine",
+      "selectors": [
+        "maxWidth(599)"
+      ],
+      "style": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "backgroundColor": "#F2F6FA",
+        "cellSpacingX": 8,
+        "cellSpacingY": 0,
+        "fit": "original",
+        "gutterColor": "#C5D3E0"
+      },
+      "version": 1.0
+    }
+  ],
+  "layouts": [],
+  "steps": {
+    "DashboardNames_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "DashboardWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "DashboardNames",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"Dashboard.Title\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "MaxAPT_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "DashboardWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "MaxAPT",
+      "query": {
+        "query": "{\"measures\":[[\"max\",\"RUN_TIME\"]],\"measuresMap\":{},\"pigql\":\"a = load \\\"DashboardWithUsers\\\"; a = group a by all;  a = foreach a generate (max('RUN_TIME')*0.001) as 'max';  b = group a by all;  b = foreach b generate max('max') as 'max_RUN_TIME';\",\"groups\":[]}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {}
+    },
+    "Roles_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "DashboardWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "Roles",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.User.Role.Name\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "Profiles_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "DashboardWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "Profiles",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.Profile.Name\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "RawLogData_1": {
+      "datasets": [
+        {
+          "name": "DashboardWithUsers"
+        }
+      ],
+      "isFacet": true,
+      "isGlobal": false,
+      "label": "RawLogData",
+      "query": {
+        "query": "{\"values\":[\"CLIENT_IP\",\"CPU_TIME\",\"RUN_TIME\",\"Dashboard.Title\",\"IS_SCHEDULED\",\"IS_SUCCESS\",\"Report.Name\",\"TIMESTAMP_DERIVED\",\"User.Name\",\"User.Profile.Name\",\"User.User.Role.Name\"]}",
+        "version": -1.0
+      },
+      "type": "grain",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {
+          "totals": true
+        },
+        "visualizationType": "valuestable"
+      }
+    },
+    "IsScheduled_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "DashboardWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "IsScheduled",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"IS_SCHEDULED\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "IsSuccess_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "DashboardWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "IsSuccess",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"IS_SUCCESS\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "TotalDashboards_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "DashboardWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "TotalDashboards",
+      "query": {
+        "query": "{\"measures\":[[\"unique\",\"Dashboard.Title\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "Users_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "DashboardWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "Users",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.Name\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "DashboardTrends_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "DashboardWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "DashboardTrends",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[[\"TIMESTAMP_DERIVED_Year\",\"TIMESTAMP_DERIVED_Month\",\"TIMESTAMP_DERIVED_Day\"],\"Dashboard.Title\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "time"
+      }
+    },
+    "TotalUsers_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "DashboardWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "TotalUsers",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"USER_ID\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "AvgAPT_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "DashboardWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "AvgAPT",
+      "query": {
+        "query": "{\"measures\":[[\"avg\",\"RUN_TIME\"]],\"measuresMap\":{},\"pigql\":\"a = load \\\"DashboardWithUsers\\\"; a = group a by all;  a = foreach a generate (avg('RUN_TIME')*0.001) as 'avg';  b = group a by all;  b = foreach b generate avg('avg') as 'avg_RUN_TIME';\",\"groups\":[]}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "TotalViews_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "DashboardWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "TotalViews",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "DashboardPerformance_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "DashboardWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "DashboardPerformance",
+      "query": {
+        "query": "{\"measures\":[[\"max\",\"RUN_TIME\"],[\"count\",\"*\"]],\"groups\":[\"Dashboard.Title\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "scatter"
+      }
+    },
+    "IPs_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "DashboardWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "IPs",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"CLIENT_IP\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "TotalReports_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "DashboardWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "TotalReports",
+      "query": {
+        "query": "{\"measures\":[[\"unique\",\"Report.Name\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "Dates_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "DashboardWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "Dates",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[[\"TIMESTAMP_DERIVED_Year\",\"TIMESTAMP_DERIVED_Month\",\"TIMESTAMP_DERIVED_Day\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "ReportsViewedByDashb_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "DashboardWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "ReportsViewedByDashboard",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"Report.Name\",\"Dashboard.Title\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "stackhbar"
+      }
+    }
+  },
+  "widgetStyle": {
+    "backgroundColor": "#FFFFFF",
+    "borderColor": "#E6ECF2",
+    "borderEdges": [],
+    "borderRadius": 0,
+    "borderWidth": 1
+  },
+  "widgets": {
+    "number_11": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "count",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "showActionMenu": true,
+        "step": "TotalViews_1",
+        "textAlignment": "left",
+        "title": "Total Views",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "number_10": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "unique_Dashboard.Title",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "showActionMenu": true,
+        "step": "TotalDashboards_1",
+        "textAlignment": "left",
+        "title": "Total Dashboards",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "number_9": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "unique_Report.Name",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "showActionMenu": true,
+        "step": "TotalReports_1",
+        "textAlignment": "left",
+        "title": "Total Reports",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "number_8": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "avg_RUN_TIME",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "showActionMenu": true,
+        "step": "AvgAPT_1",
+        "textAlignment": "left",
+        "title": "Avg APT",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "number_7": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "max_RUN_TIME",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "showActionMenu": true,
+        "step": "MaxAPT_1",
+        "textAlignment": "left",
+        "title": "Max APT",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "number_6": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "unique_USER_ID",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "showActionMenu": true,
+        "step": "TotalUsers_1",
+        "textAlignment": "left",
+        "title": "Total Users",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "container_2": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "container_3": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "container_4": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "container_5": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "text_3": {
+      "parameters": {
+        "fontSize": 20,
+        "showActionMenu": true,
+        "text": "How Often Are Dashboards Used?",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "container_6": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "text_2": {
+      "parameters": {
+        "fontSize": 16,
+        "showActionMenu": true,
+        "text": "Shows dashboard usage trends from Dashboard event data. Use this dashboard to see how your dashboards perform so that you can prioritize troubleshooting.",
+        "textAlignment": "left",
+        "textColor": "#FFFFFF"
+      },
+      "type": "text"
+    },
+    "container_7": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "text_5": {
+      "parameters": {
+        "fontSize": 20,
+        "showActionMenu": true,
+        "text": "How Many Reports Are Viewed from Dashboards?",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "text_4": {
+      "parameters": {
+        "fontSize": 20,
+        "showActionMenu": true,
+        "text": "How Are Dashboards Performing?",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "chart_2": {
+      "parameters": {
+        "totalValue": "computeTotal",
+        "totalLabel": "",
+        "showActionMenu": true,
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "x": {
+          "sqrtScale": false,
+          "showZero": true,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "visualizationType": "scatter",
+        "y": {
+          "sqrtScale": false,
+          "showZero": true,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "theme": "wave",
+        "step": "DashboardPerformance_1",
+        "exploreLink": true,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        }
+      },
+      "type": "chart"
+    },
+    "text_6": {
+      "parameters": {
+        "fontSize": 20,
+        "showActionMenu": true,
+        "text": "Raw Log Data",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "chart_1": {
+      "parameters": {
+        "totalValue": "computeTotal",
+        "showPoints": true,
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "time",
+        "missingValue": "connect",
+        "timeAxis": {
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "exploreLink": true,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "fillArea": true,
+        "showActionMenu": true,
+        "showZero": true,
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "theme": "wave",
+        "step": "DashboardTrends_1"
+      },
+      "type": "chart"
+    },
+    "chart_3": {
+      "parameters": {
+        "autoFitMode": "fit",
+        "totalValue": "computeTotal",
+        "showValues": true,
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "stackhbar",
+        "exploreLink": true,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "showActionMenu": true,
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "normalize": false,
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "theme": "wave",
+        "step": "ReportsViewedByDashb_1",
+        "dimensionAxis": {
+          "showTitle": true,
+          "customSize": "auto",
+          "showAxis": true,
+          "title": ""
+        }
+      },
+      "type": "chart"
+    },
+    "listselector_7": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "showActionMenu": false,
+        "step": "IsScheduled_1",
+        "title": "Scheduled"
+      },
+      "type": "listselector"
+    },
+    "listselector_6": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "showActionMenu": false,
+        "step": "IsSuccess_1",
+        "title": "Succes"
+      },
+      "type": "listselector"
+    },
+    "listselector_9": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "showActionMenu": false,
+        "step": "Profiles_1",
+        "title": "Profiles"
+      },
+      "type": "listselector"
+    },
+    "listselector_8": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "showActionMenu": false,
+        "step": "IPs_1",
+        "title": "IPs"
+      },
+      "type": "listselector"
+    },
+    "listselector_3": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "showActionMenu": false,
+        "step": "Users_1",
+        "title": "Users"
+      },
+      "type": "listselector"
+    },
+    "listselector_2": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "showActionMenu": false,
+        "step": "Roles_1",
+        "title": "Roles"
+      },
+      "type": "listselector"
+    },
+    "text_1": {
+      "parameters": {
+        "fontSize": 64,
+        "showActionMenu": true,
+        "text": "Dashboards",
+        "textAlignment": "center",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "listselector_5": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "showActionMenu": false,
+        "step": "Dates_1",
+        "title": "Dates"
+      },
+      "type": "listselector"
+    },
+    "listselector_4": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "showActionMenu": false,
+        "step": "DashboardNames_1",
+        "title": "Dashboard Names"
+      },
+      "type": "listselector"
+    },
+    "table_1": {
+      "parameters": {
+        "columnProperties": {},
+        "columns": [],
+        "customBulkActions": [],
+        "exploreLink": true,
+        "showActionMenu": true,
+        "step": "RawLogData_1"
+      },
+      "type": "table"
+    }
+  }
 }

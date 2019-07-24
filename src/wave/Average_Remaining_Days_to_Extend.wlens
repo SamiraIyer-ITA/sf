@@ -1,80 +1,72 @@
-﻿{
-    "dataSourceLinks":  [
-
-                        ],
-    "filters":  [
-
-                ],
-    "gridLayouts":  [
-
-                    ],
-    "layouts":  [
-
-                ],
-    "steps":  {
-                  "aggregateflex":  {
-                                        "datasets":  [
-                                                         {
-                                                             "name":  "Augmented_Appended_Petition_Investigation_Segment"
-                                                         }
-                                                     ],
-                                        "isGlobal":  false,
-                                        "query":  {
-                                                      "query":  "{\"measures\":[[\"avg\",\"Remaining_Days_to_Extend\"]]}",
-                                                      "version":  -1.0
-                                                  },
-                                        "type":  "aggregateflex",
-                                        "useGlobal":  true,
-                                        "visualizationParameters":  {
-                                                                        "visualizationType":  "polargauge"
-                                                                    }
-                                    }
-              },
-    "widgets":  {
-                    "aggregateflex_chart":  {
-                                                "parameters":  {
-                                                                   "totalValue":  "computeTotal",
-                                                                   "max":  100,
-                                                                   "visualizationType":  "polargauge",
-                                                                   "exploreLink":  true,
-                                                                   "medium":  33,
-                                                                   "title":  {
-                                                                                 "label":  "",
-                                                                                 "align":  "center",
-                                                                                 "subtitleLabel":  ""
-                                                                             },
-                                                                   "trellis":  {
-                                                                                   "flipLabels":  false,
-                                                                                   "showGridLines":  true,
-                                                                                   "enable":  false,
-                                                                                   "type":  "x",
-                                                                                   "chartsPerLine":  4
-                                                                               },
-                                                                   "icons":  {
-                                                                                 "useIcons":  false,
-                                                                                 "iconProps":  {
-                                                                                                   "fit":  "cover",
-                                                                                                   "column":  ""
-                                                                                               }
-                                                                             },
-                                                                   "inner":  80,
-                                                                   "colors":  {
-                                                                                  "mediumColor2":  "#F29946",
-                                                                                  "mediumColor1":  "#FED444",
-                                                                                  "lowColor1":  "#F71979",
-                                                                                  "lowColor2":  "#CC203D",
-                                                                                  "highColor1":  "#7BDE4E",
-                                                                                  "highColor2":  "#169913"
-                                                                              },
-                                                                   "totalLabel":  "",
-                                                                   "high":  66,
-                                                                   "min":  0,
-                                                                   "showActionMenu":  true,
-                                                                   "valueType":  "compactNumber",
-                                                                   "step":  "aggregateflex",
-                                                                   "theme":  "wave"
-                                                               },
-                                                "type":  "chart"
-                                            }
-                }
+{
+  "dataSourceLinks": [],
+  "filters": [],
+  "gridLayouts": [],
+  "layouts": [],
+  "steps": {
+    "aggregateflex": {
+      "datasets": [
+        {
+          "name": "Augmented_Appended_Petition_Investigation_Segment"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"measures\":[[\"avg\",\"Remaining_Days_to_Extend\"]]}",
+        "version": -1.0
+      },
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "polargauge"
+      }
+    }
+  },
+  "widgets": {
+    "aggregateflex_chart": {
+      "parameters": {
+        "totalValue": "computeTotal",
+        "max": 100,
+        "visualizationType": "polargauge",
+        "exploreLink": true,
+        "medium": 33,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "flipLabels": false,
+          "showGridLines": true,
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "icons": {
+          "useIcons": false,
+          "iconProps": {
+            "fit": "cover",
+            "column": ""
+          }
+        },
+        "inner": 80,
+        "colors": {
+          "mediumColor2": "#F29946",
+          "mediumColor1": "#FED444",
+          "lowColor1": "#F71979",
+          "lowColor2": "#CC203D",
+          "highColor1": "#7BDE4E",
+          "highColor2": "#169913"
+        },
+        "totalLabel": "",
+        "high": 66,
+        "min": 0,
+        "showActionMenu": true,
+        "valueType": "compactNumber",
+        "step": "aggregateflex",
+        "theme": "wave"
+      },
+      "type": "chart"
+    }
+  }
 }
