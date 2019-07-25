@@ -1,0 +1,13 @@
+<apex:page sidebar="false" showHeader="false" controller="article_controller" applyBodyTag="false" applyHtmlTag="false">
+ <apex:composition template="Site_Template">
+     <apex:define name="page">
+     <div class="main" id="content">
+     <div class="row content" style="margin-top:0;padding-top:0;">
+     <div class="containerInternal enforceHeight">
+        <iframe src="https://selectusa.github.io/mobile/greenfield.html" style="height: 900px; width: 100%; max-width: 100%; border-style: none;" />     
+     </div>
+     </div>
+     </div>    
+     </apex:define>
+ </apex:composition>
+</apex:page>

@@ -1,0 +1,1539 @@
+{
+  "dataSourceLinks": [],
+  "filters": [],
+  "gridLayouts": [
+    {
+      "name": "Default",
+      "numColumns": 18,
+      "pages": [
+        {
+          "name": "9643b375-6733-4252-aba7-d638e90bb705",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 2,
+              "column": 1,
+              "name": "listselector_1",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 3,
+              "name": "listselector_8",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 5,
+              "name": "listselector_3",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 7,
+              "name": "listselector_4",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 9,
+              "name": "listselector_5",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 11,
+              "name": "listselector_7",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 13,
+              "name": "listselector_6",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_2",
+              "row": 0,
+              "rowspan": 6,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "text_2",
+              "row": 8,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(6, 28, 63)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 1,
+              "name": "number_1",
+              "row": 12,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 3,
+              "name": "number_2",
+              "row": 12,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 5,
+              "name": "number_3",
+              "row": 12,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 7,
+              "name": "number_5",
+              "row": 12,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 9,
+              "name": "number_4",
+              "row": 12,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_3",
+              "row": 12,
+              "rowspan": 10,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "text_3",
+              "row": 25,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "chart_2",
+              "row": 29,
+              "rowspan": 16,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_4",
+              "row": 24,
+              "rowspan": 22,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#2EC2BA",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "text_4",
+              "row": 49,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "chart_3",
+              "row": 53,
+              "rowspan": 16,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "container_5",
+              "row": 48,
+              "rowspan": 22,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 9,
+              "name": "text_5",
+              "row": 49,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 9,
+              "name": "chart_1",
+              "row": 53,
+              "rowspan": 16,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 9,
+              "name": "container_6",
+              "row": 48,
+              "rowspan": 22,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "text_6",
+              "row": 73,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "table_1",
+              "row": 77,
+              "rowspan": 18,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_7",
+              "row": 72,
+              "rowspan": 24,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            }
+          ]
+        }
+      ],
+      "rowHeight": "fine",
+      "selectors": [],
+      "style": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "backgroundColor": "rgb(234, 238, 244)",
+        "cellSpacingX": 16,
+        "cellSpacingY": 0,
+        "fit": "original",
+        "gutterColor": "#C5D3E0"
+      },
+      "version": 1.0
+    },
+    {
+      "name": "Mobile",
+      "numColumns": 4,
+      "pages": [
+        {
+          "name": "9643b375-6733-4252-aba7-d638e90bb705",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_1",
+              "row": 0,
+              "rowspan": 6,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#44A2F5",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "listselector_1",
+              "row": 9,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 2,
+              "name": "listselector_8",
+              "row": 9,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "listselector_3",
+              "row": 14,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 2,
+              "name": "listselector_4",
+              "row": 14,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "listselector_5",
+              "row": 19,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 2,
+              "name": "listselector_7",
+              "row": 19,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "listselector_6",
+              "row": 24,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_2",
+              "row": 8,
+              "rowspan": 21,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_2",
+              "row": 31,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(6, 28, 63)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 0,
+              "name": "number_1",
+              "row": 35,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 1,
+              "name": "number_2",
+              "row": 35,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 2,
+              "name": "number_3",
+              "row": 35,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 3,
+              "name": "number_5",
+              "row": 35,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 0,
+              "name": "number_4",
+              "row": 45,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_3",
+              "row": 35,
+              "rowspan": 20,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_3",
+              "row": 57,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "chart_2",
+              "row": 61,
+              "rowspan": 15,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_4",
+              "row": 57,
+              "rowspan": 20,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#2EC2BA",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_4",
+              "row": 79,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "chart_3",
+              "row": 83,
+              "rowspan": 15,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_5",
+              "row": 79,
+              "rowspan": 20,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_5",
+              "row": 101,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "chart_1",
+              "row": 105,
+              "rowspan": 15,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_6",
+              "row": 101,
+              "rowspan": 20,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_6",
+              "row": 123,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "table_1",
+              "row": 127,
+              "rowspan": 15,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_7",
+              "row": 123,
+              "rowspan": 20,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            }
+          ]
+        }
+      ],
+      "rowHeight": "fine",
+      "selectors": [
+        "maxWidth(599)"
+      ],
+      "style": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "backgroundColor": "#F2F6FA",
+        "cellSpacingX": 8,
+        "cellSpacingY": 0,
+        "fit": "original",
+        "gutterColor": "#C5D3E0"
+      },
+      "version": 1.0
+    }
+  ],
+  "layouts": [],
+  "steps": {
+    "MaxSize_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ContentTransferWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "MaxSize",
+      "query": {
+        "query": "{\"measures\":[[\"max\",\"SIZE_BYTES\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "Roles_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ContentTransferWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "Roles",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.User.Role.Name\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "Profiles_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ContentTransferWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "Profiles",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.Profile.Name\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "RawLogData_1": {
+      "datasets": [
+        {
+          "name": "ContentTransferWithUsers"
+        }
+      ],
+      "isFacet": true,
+      "isGlobal": false,
+      "label": "RawLogData",
+      "query": {
+        "query": "{\"values\":[\"SIZE_BYTES\",\"Content.Title\",\"FILE_PREVIEW_TYPE\",\"FILE_TYPE\",\"TIMESTAMP_DERIVED\",\"TRANSACTION_TYPE\",\"User.Name\",\"User.Profile.Name\",\"User.User.Role.Name\"]}",
+        "version": -1.0
+      },
+      "type": "grain",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "valuestable"
+      }
+    },
+    "Titles_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ContentTransferWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "Titles",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"Content.Title\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "Users_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ContentTransferWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "Users",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.Name\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "AvgSize_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ContentTransferWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "AvgSize",
+      "query": {
+        "query": "{\"measures\":[[\"avg\",\"SIZE_BYTES\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "TotalUsers_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ContentTransferWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "TotalUsers",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"USER_ID\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "TotalTransactions_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ContentTransferWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "TotalTransactions",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "FileTypes_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ContentTransferWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "FileTypes",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"FILE_TYPE\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "Dates_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ContentTransferWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "Dates",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[[\"TIMESTAMP_DERIVED_Year\",\"TIMESTAMP_DERIVED_Month\",\"TIMESTAMP_DERIVED_Day\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "TransactionTypes_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ContentTransferWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "TransactionTypes",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"TRANSACTION_TYPE\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "TransactionsByFileTy_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ContentTransferWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "TransactionsByFileType",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"TRANSACTION_TYPE\",\"FILE_TYPE\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "pie"
+      }
+    },
+    "FileAdoption_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ContentTransferWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "FileAdoption",
+      "query": {
+        "query": "{\"measures\":[[\"avg\",\"SIZE_BYTES\"],[\"count\",\"*\"],[\"count\",\"FILE_TYPE\"]],\"groups\":[\"FILE_PREVIEW_TYPE\",\"User.Name\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "scatter"
+      }
+    },
+    "TotalFileTypes_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ContentTransferWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "TotalFileTypes",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"FILE_TYPE\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "FileTrends_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ContentTransferWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "FileTrends",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[[\"TIMESTAMP_DERIVED_Year\",\"TIMESTAMP_DERIVED_Month\",\"TIMESTAMP_DERIVED_Day\"],\"TRANSACTION_TYPE\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "time"
+      }
+    }
+  },
+  "widgetStyle": {
+    "backgroundColor": "#FFFFFF",
+    "borderColor": "#E6ECF2",
+    "borderEdges": [],
+    "borderRadius": 0,
+    "borderWidth": 1
+  },
+  "widgets": {
+    "container_2": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "container_3": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "container_4": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "container_5": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "text_3": {
+      "parameters": {
+        "fontSize": 20,
+        "showActionMenu": true,
+        "text": "How Many File Transactions Are Occurring in My Org?",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "container_6": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "text_2": {
+      "parameters": {
+        "fontSize": 16,
+        "showActionMenu": true,
+        "text": "Shows content and Chatter file access from Content Transfer event data. Use this dashboard to track user access of files in your org.",
+        "textAlignment": "left",
+        "textColor": "#FFFFFF"
+      },
+      "type": "text"
+    },
+    "container_7": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "text_5": {
+      "parameters": {
+        "fontSize": 20,
+        "showActionMenu": true,
+        "text": "Which File Transactions by File Type Occur the Most?",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "text_4": {
+      "parameters": {
+        "fontSize": 20,
+        "showActionMenu": true,
+        "text": "Which Public Files Are Most Accessed?",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "chart_2": {
+      "parameters": {
+        "totalValue": "computeTotal",
+        "showPoints": true,
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "time",
+        "missingValue": "connect",
+        "timeAxis": {
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "exploreLink": true,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "fillArea": true,
+        "showActionMenu": true,
+        "showZero": true,
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "theme": "wave",
+        "step": "FileTrends_1"
+      },
+      "type": "chart"
+    },
+    "text_6": {
+      "parameters": {
+        "fontSize": 20,
+        "showActionMenu": true,
+        "text": "Raw Log Data",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "chart_1": {
+      "parameters": {
+        "totalValue": "computeTotal",
+        "showMeasureTitle": true,
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "visualizationType": "pie",
+        "exploreLink": true,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "enable": true,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "inner": 70,
+        "totalLabel": "",
+        "showActionMenu": true,
+        "showTotal": true,
+        "theme": "wave",
+        "step": "TransactionsByFileTy_1"
+      },
+      "type": "chart"
+    },
+    "chart_3": {
+      "parameters": {
+        "totalValue": "computeTotal",
+        "totalLabel": "",
+        "showActionMenu": true,
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "x": {
+          "sqrtScale": false,
+          "showZero": true,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "visualizationType": "scatter",
+        "y": {
+          "sqrtScale": false,
+          "showZero": true,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "theme": "wave",
+        "step": "FileAdoption_1",
+        "exploreLink": true,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        }
+      },
+      "type": "chart"
+    },
+    "listselector_7": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "showActionMenu": false,
+        "step": "FileTypes_1",
+        "title": "File Types"
+      },
+      "type": "listselector"
+    },
+    "listselector_6": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "showActionMenu": false,
+        "step": "TransactionTypes_1",
+        "title": "Transaction Types"
+      },
+      "type": "listselector"
+    },
+    "listselector_8": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "unique_USER_ID",
+        "showActionMenu": false,
+        "step": "TotalUsers_1",
+        "title": "Users"
+      },
+      "type": "listselector"
+    },
+    "listselector_3": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "showActionMenu": false,
+        "step": "Profiles_1",
+        "title": "Profiles"
+      },
+      "type": "listselector"
+    },
+    "text_1": {
+      "parameters": {
+        "fontSize": 64,
+        "showActionMenu": true,
+        "text": "Files",
+        "textAlignment": "center",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "listselector_5": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "showActionMenu": false,
+        "step": "Titles_1",
+        "title": "Titles"
+      },
+      "type": "listselector"
+    },
+    "listselector_4": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "showActionMenu": false,
+        "step": "Roles_1",
+        "title": "Roles"
+      },
+      "type": "listselector"
+    },
+    "table_1": {
+      "parameters": {
+        "columnProperties": {},
+        "columns": [],
+        "customBulkActions": [],
+        "exploreLink": true,
+        "showActionMenu": true,
+        "step": "RawLogData_1"
+      },
+      "type": "table"
+    },
+    "number_5": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "max_SIZE_BYTES",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "showActionMenu": true,
+        "step": "MaxSize_1",
+        "textAlignment": "left",
+        "title": "Max File Size (Bytes)",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "number_4": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "unique_FILE_TYPE",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "showActionMenu": true,
+        "step": "TotalFileTypes_1",
+        "textAlignment": "left",
+        "title": "File Types",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "number_3": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "avg_SIZE_BYTES",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "showActionMenu": true,
+        "step": "AvgSize_1",
+        "textAlignment": "left",
+        "title": "Avg File Size (Bytes)",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "number_2": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "count",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "showActionMenu": true,
+        "step": "Users_1",
+        "textAlignment": "left",
+        "title": "Unique Users",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "number_1": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "count",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "showActionMenu": true,
+        "step": "TotalTransactions_1",
+        "textAlignment": "left",
+        "title": "Total Transactions",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "listselector_1": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "showActionMenu": false,
+        "step": "Dates_1",
+        "title": "Dates"
+      },
+      "type": "listselector"
+    }
+  }
+}
