@@ -32,13 +32,15 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
         Map<String,Contact> contactEmailToExistingContact = new Map<String,Contact>();
         Map<String,Contact> contactEmailToNewContact = new Map<String,Contact>();
         Map<String,valence.RecordInFlight> emailToAttendee = new Map<String,valence.RecordInFlight>();
+        Id contactRecordTypeId = Schema.SObjectType.Contact.getRecordTypeInfosByDeveloperName().get('ITA_Contacts').getRecordTypeId();
+
 
         Map<String,String> emailToOrganizationName = new Map<String,String>();
 
         //Collect Organization Names and filter out trade.gov email
         for(valence.RecordInFlight record : records) {
-            //Do not create Organization or Contact if Attendee has a trade.gov email
-            if(!String.valueOf(record.getOriginalProperties().get('email')).contains('@trade.gov')) {
+            //Do not create Organization or Contact if Attendee has a .gov email
+            if(String.valueOf(record.getOriginalProperties().get('email')).toLowerCase().endsWith('.gov') == false) {
                 if(!String.isBlank(String.valueOf(record.getOriginalProperties().get('company')))) {
                     organizationNames.add(String.valueOf(record.getOriginalProperties().get('company')));
                 }
@@ -75,7 +77,11 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
         Database.insert(organizationNameToNewOrganization.values(),false);
 
         //Update the map of Names to Existing Organizations to include the newly inserted ones
-        organizationNameToExistingOrganization.putAll(organizationNameToNewOrganization);
+        for(String key : organizationNameToNewOrganization.keySet()) {
+            if(!organizationNameToExistingOrganization.containsKey(key)) {
+                organizationNameToExistingOrganization.put(key,organizationNameToNewOrganization.get(key));
+            }
+        }
 
         //Use contact emails to find existing contacts, map them
         for(Contact contact : [SELECT Id, Email from Contact where Email IN :contactEmails]) {
@@ -100,7 +106,8 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
                         MailingCity = String.valueOf(props.get('MailingCity__c')),
                         MailingState = String.valueOf(props.get('MailingState__c')),
                         MailingPostalCode = String.valueOf(props.get('MailingPostalCode__c')),
-                        MailingCountry = String.valueOf(props.get('MailingCountry__c'))
+                        MailingCountry = String.valueOf(props.get('MailingCountry__c')),
+                        RecordTypeId = contactRecordTypeId
                 );
                 if(organizationNameToExistingOrganization.get(emailToOrganizationName.get(contactEmail)) != null) {
                     //this conditional is to prevent a very rare edge case with a null pointer exception
@@ -118,7 +125,7 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
 
         //Update Attendee record with newly created or existing Contact Id (as long as they are not trade.gov)
         for(valence.RecordInFlight record : records) {
-            if(!String.valueOf(record.getOriginalProperties().get('email')).contains('@trade.gov')) {
+            if(String.valueOf(record.getOriginalProperties().get('email')).toLowerCase().endsWith('.gov') == false) {
                 record.getProperties().put('Contact__c', contactEmailToExistingContact.get(String.valueOf(record.getOriginalProperties().get('email'))).Id);
             }
         }

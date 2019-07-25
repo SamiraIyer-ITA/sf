@@ -83,7 +83,8 @@
         List<Contact> contacts = [SELECT Id, AccountId, Account.Name, FirstName, LastName, Email, Phone FROM Contact ORDER BY LastName];
         // Bean, Fiddle, Sword, Thomas
 
-        System.assertEquals(4, contacts.size());
+        //2 unique, non-gov contacts should be created: Susie and Tom
+        System.assertEquals(2, contacts.size());
 
         // existing contact
         System.assertEquals('Susan', contacts[0].FirstName); // make sure we didn't change Susan to Susie
