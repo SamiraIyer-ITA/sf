@@ -1,7 +1,3 @@
-/**
- * Helps us to make sure no Attendee__c record ever goes into the database without a matching Contact.
- * If we couldn't find a Contact, create one (and possibly a related Account as well).
- */
 global with sharing class MeetingCaseCreator implements valence.TransformationFilter {
 
     public Boolean validFor(valence.LinkContext context) {
@@ -35,7 +31,6 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
             String meetingType = 'B2B';
 
             if(props.get('Attendee__c') != null) {
-                //finish this conditional statement
                 if(attendeesToEmails.get(String.valueOf(props.get('Attendee__c'))).toLowerCase().endsWith('.gov') == true) {
                     meetingType = 'G2B';
                 }
