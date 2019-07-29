@@ -40,7 +40,7 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
         //Collect Organization Names and filter out trade.gov email
         for(valence.RecordInFlight record : records) {
             //Do not create Organization or Contact if Attendee has a .gov email
-            if(String.valueOf(record.getOriginalProperties().get('email')).toLowerCase().endsWith('.gov') == false) {
+            if(String.valueOf(record.getOriginalProperties().get('email')) != null && String.valueOf(record.getOriginalProperties().get('email')).toLowerCase().endsWith('.gov') == false) {
                 if(!String.isBlank(String.valueOf(record.getOriginalProperties().get('company')))) {
                     organizationNames.add(String.valueOf(record.getOriginalProperties().get('company')));
                 }
