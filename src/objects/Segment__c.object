@@ -14437,7 +14437,7 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
     </validationRules>
     <validationRules>
         <fullName>A1106ActualFinalSignatureNotFormal</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>&quot;Actual Final Signature&quot; is required only if &quot;Decision on How to Proceed&quot; is &apos;Formal&apos;.</description>
         <errorConditionFormula>AND(
             $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
