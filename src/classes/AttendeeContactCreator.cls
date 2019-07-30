@@ -25,6 +25,7 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
         Set<String> organizationNames = new Set<String>();
         Map<String,Account> organizationNameToExistingOrganization = new Map<String,Account>();
         Map<String,Account> organizationNameToNewOrganization = new Map<String,Account>();
+        Map<String,Id> organizationNameToOrganizationOwnerId = new Map<String,Id>();
         Id orgRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByDeveloperName().get('ITA_User_Account_RT').getRecordTypeId();
 
         //Contact variables
@@ -33,23 +34,34 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
         Map<String,Contact> contactEmailToNewContact = new Map<String,Contact>();
         Map<String,valence.RecordInFlight> emailToAttendee = new Map<String,valence.RecordInFlight>();
         Id contactRecordTypeId = Schema.SObjectType.Contact.getRecordTypeInfosByDeveloperName().get('ITA_Contacts').getRecordTypeId();
-
-
         Map<String,String> emailToOrganizationName = new Map<String,String>();
+
+        //Case Variables
+        List<Id> attendeeIdList = new List<Id>();
+        Set<Id> acceptedMeetingAttendeeIds = new Set<Id>();
+        Set<String> acceptedMeetingEmails = new Set<String>();
+        Set<Id> acceptedMeetingContactIds = new Set<Id>();
+        Set<Id> contactsWithCases = new Set<Id>();
+        Map<String,Id> emailToBusinessConferenceId = new Map<String,Id>();
+        Map<Id,String> businessConferenceIdToCampaignName = new Map<Id,String>();
+        Map<Id,String> businessConferenceIdToOutgoingCommunicationEmail = new Map<Id,String>();
+        Map<String,Id> communicationEmailToUserId = new Map<String,Id>();
 
         //Collect Organization Names and filter out trade.gov email
         for(valence.RecordInFlight record : records) {
             //Do not create Organization or Contact if Attendee has a .gov email
-            if(String.valueOf(record.getOriginalProperties().get('email')) != null && String.valueOf(record.getOriginalProperties().get('email')).toLowerCase().endsWith('.gov') == false) {
-                if(!String.isBlank(String.valueOf(record.getOriginalProperties().get('company')))) {
-                    organizationNames.add(String.valueOf(record.getOriginalProperties().get('company')));
+            String company = String.valueOf(record.getOriginalProperties().get('company'));
+            String email = String.valueOf(record.getOriginalProperties().get('email'));
+            if(email != null && !email.toLowerCase().endsWith('.gov')) {
+                if(!String.isBlank(company)) {
+                    organizationNames.add(company);
                 }
-                if(!String.isBlank(String.valueOf(record.getOriginalProperties().get('email')))) {
-                    contactEmails.add(String.valueOf(record.getOriginalProperties().get('email')));
-                    emailToAttendee.put(String.valueOf(record.getOriginalProperties().get('email')),record);
+                if(!String.isBlank(email)) {
+                    contactEmails.add(email);
+                    emailToAttendee.put(email,record);
                 }
-                if(!String.isBlank(String.valueOf(record.getOriginalProperties().get('company'))) && !String.isBlank(String.valueOf(record.getOriginalProperties().get('email')))) {
-                    emailToOrganizationName.put(String.valueOf(record.getOriginalProperties().get('email')),String.valueOf(record.getOriginalProperties().get('company')));
+                if(!String.isBlank(company) && !String.isBlank(email)) {
+                    emailToOrganizationName.put(email,company);
                 }
             }
         }
@@ -64,9 +76,7 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
         //Iterate through Attendee company names and collect the ones that don't have any matching Organizations,
         //  then create new Organizations for those names that still don't have an Org, then map the new orgs by name
         for(String orgName : organizationNames) {
-            if(organizationNameToExistingOrganization.containsKey(orgName) || organizationNameToNewOrganization.containsKey(orgName)) {
-                //Organization already exists with that name, do nothing
-            } else {
+            if((organizationNameToExistingOrganization.containsKey(orgName) || organizationNameToNewOrganization.containsKey(orgName)) == false) {
                 //Organization doesn't already exist, create it and map it
                 Account newOrganization = new Account(Name = orgName, recordTypeId = orgRecordTypeId);
                 organizationNameToNewOrganization.put(orgName,newOrganization);
@@ -84,15 +94,14 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
         }
 
         //Use contact emails to find existing contacts, map them
-        for(Contact contact : [SELECT Id, Email from Contact where Email IN :contactEmails]) {
+        for(Contact contact : [SELECT Id, Email FROM Contact where Email IN :contactEmails]) {
             contactEmailToExistingContact.put(contact.Email, contact);
         }
 
         //Find unmatched contacts and create new contacts
         for(String contactEmail : contactEmails) {
-            if(contactEmailToExistingContact.containsKey(contactEmail) || contactEmailToNewContact.containsKey(contactEmail)) {
-                //Contact already exists with that email, do nothing
-            } else {
+            //contact email must not already be connected to a contact, whether it existed before or was created earlier in this operation
+            if((contactEmailToExistingContact.containsKey(contactEmail) || contactEmailToNewContact.containsKey(contactEmail)) == false) {
                 //Contact doesn't already exist, create it and map it
                 valence.RecordInFlight record = emailToAttendee.get(contactEmail);
                 Map<String, Object> props = record.getProperties();
@@ -125,9 +134,95 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
 
         //Update Attendee record with newly created or existing Contact Id (as long as they are not trade.gov)
         for(valence.RecordInFlight record : records) {
-            if(String.valueOf(record.getOriginalProperties().get('email')).toLowerCase().endsWith('.gov') == false) {
-                record.getProperties().put('Contact__c', contactEmailToExistingContact.get(String.valueOf(record.getOriginalProperties().get('email'))).Id);
+            String email = String.valueOf(record.getOriginalProperties().get('email'));
+            if(email != null && email.toLowerCase().endsWith('.gov') == false) {
+                record.getProperties().put('Contact__c', contactEmailToExistingContact.get(email).Id);
             }
         }
+
+        //attendees related to this bulk operation
+        List<Attendee__c> relatedAttendees = [SELECT Id,Email__c,BusinessConference__c FROM Attendee__c WHERE Email__c IN: contactEmailToExistingContact.keySet()];
+        for(Attendee__c attendee : relatedAttendees) {
+            attendeeIdList.add(attendee.Id);
+            emailToBusinessConferenceId.put(attendee.Email__c,attendee.BusinessConference__c);
+        }
+        //gather a list of emails from related attendees that have at least one accepted meeting as a host or attendee
+        for(Meeting__c meeting : [SELECT Id,Host__c,Attendee__c,Type__c FROM Meeting__c WHERE Status__c = '2' AND (Host__c IN: attendeeIdList OR Attendee__c IN: attendeeIdList)]) {
+            if(meeting.Host__c != null) {
+                acceptedMeetingAttendeeIds.add(meeting.Host__c);
+            }
+            if(meeting.Attendee__c != null) {
+                acceptedMeetingAttendeeIds.add(meeting.Attendee__c);
+            }
+        }
+        for(Attendee__c attendee : relatedAttendees) {
+            if(acceptedMeetingAttendeeIds.contains(attendee.Id)) {
+                acceptedMeetingEmails.add(attendee.Email__c);
+            }
+        }
+        //use the list of emails to gather a list of contact ids of related attendees that have at least one accepted meeting
+        for(String email : acceptedMeetingEmails) {
+            Contact myContact = contactEmailToExistingContact.get(email);
+            if(myContact != null) {
+                acceptedMeetingContactIds.add(myContact.Id);
+            }
+        }
+        //make a list of contacts that already have existing cases
+        for(Case thisCase : [SELECT Id,ContactId FROM Case WHERE ContactId IN: acceptedMeetingContactIds]) {
+            contactsWithCases.add(thisCase.ContactId);
+        }
+
+        //gather information about campaigns and business conferences for later use
+        for(Business_Conference__c networkingTrack : [SELECT Id,Campaign__r.Name,Campaign__c,Campaign__r.Outgoing_Communication_Email__c FROM Business_Conference__c WHERE Id IN: emailToBusinessConferenceId.values()]) {
+            if(networkingTrack.Campaign__c != null) {
+                businessConferenceIdToCampaignName.put(networkingTrack.Id,networkingTrack.Campaign__r.Name);
+                businessConferenceIdToOutgoingCommunicationEmail.put(networkingTrack.Id,networkingTrack.Campaign__r.Outgoing_Communication_Email__c);
+            }
+        }
+
+        //get users from list of users related to outgoing communications emails for later use
+        for(User thisUser : [SELECT Id,Email from User WHERE Email IN: businessConferenceIdToOutgoingCommunicationEmail.values()]) {
+            communicationEmailToUserId.put(thisUser.Email,thisUser.Id);
+        }
+
+        //Create Cases on Contacts associated by email with an attendee associated to an accepted meeting
+        List<Case> casesToCreate = new List<Case>();
+        for(Contact thisContact : [SELECT Id,Name,Account.Name,Account.OwnerId,Email FROM Contact WHERE Id IN: acceptedMeetingContactIds]) {
+            if(!contactsWithCases.contains(thisContact.Id)) {
+                Id businessConferenceId = emailToBusinessConferenceId.get(thisContact.Email);
+                String campaignName = businessConferenceIdToCampaignName.get(businessConferenceId);
+                String orgName = '';
+                String caseSubject = (String.isBlank(campaignName) ? '' : campaignName+' ')+orgName;
+                Id orgOwnerId = null;
+
+                //Case owner is associated org owner
+                if(thisContact.Account != null) {
+                    orgOwnerId = thisContact.Account.OwnerId;
+                    orgName = thisContact.Account.Name;
+                }
+                //If there is no org owner then use the user associated with the campaign outgoing communication email field
+                if(orgOwnerId == null && businessConferenceId != null) {
+                    String communicationEmail = businessConferenceIdToOutgoingCommunicationEmail.get(businessConferenceId);
+                    if(communicationEmail != null) {
+                        orgOwnerId = communicationEmailToUserId.get(communicationEmail);
+                    }
+                }
+                //If there is still no match just let the system automatically assign it
+                Case newCase = null;
+                if(orgOwnerId != null) {
+                    newCase = new Case(Subject=(String.isBlank(caseSubject) ? 'Case' : caseSubject),
+                            Description = 'U.S. Exhibitor/Client registered to value added programming (G2B, B2B, Demos Int\'l Reception), at an event.',
+                            OwnerId = orgOwnerId
+                    );
+                } else {
+                    newCase = new Case(Subject=(String.isBlank(caseSubject) ? 'Case' : caseSubject),
+                            Description = 'U.S. Exhibitor/Client registered to value added programming (G2B, B2B, Demos Int\'l Reception), at an event.'
+                    );
+                }
+
+                casesToCreate.add(newCase);
+            }
+        }
+        Database.insert(casesToCreate,false);
     }
 }
