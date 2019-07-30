@@ -61,6 +61,7 @@
     <description>The ADCVD Case object is the shell or &quot;manilla folder&quot; to tie all ADCVD Case activities together.</description>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>

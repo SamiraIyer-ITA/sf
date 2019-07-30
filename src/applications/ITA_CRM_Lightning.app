@@ -10,14 +10,6 @@
         <pageOrSobjectType>Asset</pageOrSobjectType>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Tab</actionName>
-        <content>CRM_Home_Page</content>
-        <formFactor>Large</formFactor>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Flexipage</type>
-        <pageOrSobjectType>standard-home</pageOrSobjectType>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>View</actionName>
         <comment>Action override created by Lightning App Builder during activation.</comment>
         <content>Case_Record_Page</content>
@@ -1913,9 +1905,9 @@
     <tabs>standard-Contact</tabs>
     <tabs>standard-Case</tabs>
     <tabs>WIN__c</tabs>
-    <tabs>standard-report</tabs>
     <tabs>standard-Feed</tabs>
-    <tabs>Lightning_Case</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-Dashboard</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>ITA_CRM_Lightning_UtilityBar</utilityBar>
 </CustomApplication>

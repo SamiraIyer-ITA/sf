@@ -4,6 +4,8 @@
  *    on 6/22/2018
  *    MIL Corporation
  * 
+ * 	  Updated by Skip Kleckner
+ * 
  **/
 public without sharing class FederalRegisterMapper implements ADCVD_IMapper{
 
@@ -24,15 +26,11 @@ public without sharing class FederalRegisterMapper implements ADCVD_IMapper{
     public FederalRegisterMapper() {}
     //private constructor based on FRs
     private FederalRegisterMapper(Set<Id> frIdSet) {
-        //if (idToUnlockedFrMap.isEmpty()) {
-            List<Federal_Register__c> tempList = new List<Federal_Register__c>();
-            String queryString = Utils.soqlBuilderAllFields('Federal_Register__c', false);
-            queryString += ' FROM Federal_Register__c WHERE Id IN: frIdSet';
-            tempList = database.query(queryString);
-            for (Federal_Register__c fr : tempList) {
+        if (idToUnlockedFrMap.isEmpty()) {
+            for (Federal_Register__c fr : FederalRegisterSelector.newInstance().selectById(frIdSet)) {
                 addFrToMap(fr);
             }
-        //}
+        }
     }
     //primary method for accessing this selector
     public static FederalRegisterMapper getInstance () {

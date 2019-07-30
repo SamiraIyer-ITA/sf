@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WaveXmd xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <dataset xsi:nil="true"/>
+    <type>Asset</type>
+    <waveVisualization>WINs_Metrics_Breakdown_3_1</waveVisualization>
+</WaveXmd>

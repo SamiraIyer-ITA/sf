@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Segment__c</entityName>
+    <fieldName>Status__c</fieldName>
+    <masterLabel>Administrative Review Segment Status</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Amend_Final_Issues_Due_to_DAS__c</fieldNames>
+        <fieldNames>Amend_Final_Concurrence_Due_to_DAS__c</fieldNames>
+        <fieldNames>Calculated_Amended_Final_Signature__c</fieldNames>
+        <fieldNames>Amended_Final_Announcement_Date__c</fieldNames>
+        <info>&lt;p&gt;1) If we receive ministerial error comments for the final, enter that information.&lt;/p&gt;&lt;p&gt;2) If we are amending the final results because of those comments, by answering yes to Will you Amend the Final? a calculated amended final signature date will display.&lt;/p&gt;&lt;p&gt;3) Submit Issues and a Concurrence Package to the DAS office.  Enter the date these tasks are completed.&lt;/p&gt;&lt;p&gt;4) Enter the signature date of the amended final determination in the Actual Amended Final Signature field.&lt;/p&gt;&lt;p&gt;5) Update the segment outcome as necessary.&lt;/p&gt;</info>
+        <picklistValueName>Amend Final</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Segment_Outcome__c</fieldNames>
+        <fieldNames>Name</fieldNames>
+        <info>&lt;p&gt;All possible work has been completed on this review and this review is now closed.&lt;/p&gt;</info>
+        <picklistValueName>Closed</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Have_Custom_Instruction_been_sent__c</fieldNames>
+        <info>&lt;p&gt;This is a status in which you confirm that all Customs instructions have been sent for the review. Once you can confirm that all Customs Instructions have been sent, this will close out the review.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;WARNING:&lt;/b&gt; This is not the only point at which Customs instructions should be sent. Reference the Deadlines for CBP Instructions in ACE document provided by the Customs Liaison Unit.&lt;/p&gt;</info>
+        <picklistValueName>Customs</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Final_Team_Meeting_Deadline__c</fieldNames>
+        <fieldNames>Final_Issues_Due_to_DAS__c</fieldNames>
+        <fieldNames>Final_Concurrence_Due_to_DAS__c</fieldNames>
+        <fieldNames>Calculated_Final_Signature__c</fieldNames>
+        <fieldNames>Final_Announcement_Date__c</fieldNames>
+        <info>&lt;p&gt;To complete the final phase of an administrative review:&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;1.  Add an extension to adjust the Calculated Final Signature.&lt;/p&gt;&lt;p&gt;2. Submit Issues and a Concurrence Package to the DAS office.  Enter the dates that these tasks are completed.&lt;/p&gt;&lt;p&gt;3. Input the Actual Final Signature and the Final determination publication information in the FR Notice list.&lt;/p&gt;&lt;p&gt;4. Update the segment outcome to reflect the appropriate outcome.&lt;/p&gt;</info>
+        <picklistValueName>Final</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Litigation_Hold_Expiration_Date__c</fieldNames>
+        <fieldNames>Lotus_Notes_Litigation_ID__c</fieldNames>
+        <fieldNames>Litigation_YesNo__c</fieldNames>
+        <fieldNames>Litigation_Resolved__c</fieldNames>
+        <fieldNames>Injunction__c</fieldNames>
+        <info>&lt;p&gt;This stage of the review represents the time in which we determine whether there will be any litigation on the work or not.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;1) The litigation hold expiration date is set to 30 days from the last action taken in the review for non-NAFTA countries and 45 days from the last action taken in the review for NAFTA countries, i.e., Canada and Mexico. Therefore, make sure you have entered the review outcome and the appropriate publication information.&lt;/p&gt;&lt;p&gt;2) If we are sued on the review, enter the information in the Litigation field. If there is an injunction, enter that information as well.&lt;/p&gt;</info>
+        <picklistValueName>Hold</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Segment_Outcome__c</fieldNames>
+        <fieldNames>Lotus_Notes_Litigation_ID__c</fieldNames>
+        <fieldNames>Litigation_Resolved__c</fieldNames>
+        <fieldNames>Injunction__c</fieldNames>
+        <info>&lt;p&gt;This stage of the review represents that we are in litigation on the review.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;1)  When entering this status, enter the Lotus Notes Litigation ID # and add any remands or international litigation that result from the litigation.&lt;/p&gt;&lt;p&gt;2)  Once the litigation is resolved, enter that in the Litigation Resolved field and continue the steps to close out the review.&lt;/p&gt;</info>
+        <picklistValueName>Litigation</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Prelim_Team_Meeting_Deadline__c</fieldNames>
+        <fieldNames>Prelim_Issues_Due_to_DAS__c</fieldNames>
+        <fieldNames>Prelim_Concurrence_Due_to_DAS__c</fieldNames>
+        <fieldNames>Calculated_Preliminary_Signature__c</fieldNames>
+        <fieldNames>Preliminary_Announcement_Date__c</fieldNames>
+        <info>&lt;p&gt;To complete the preliminary phase of an administrative review:&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;1.  Add respondent information in the organizations list.&lt;/p&gt;&lt;p&gt;2.  Add staffing information in the staff list.&lt;/p&gt;&lt;p&gt;3.  Add an extension to adjust the Calculated Preliminary Signature.&lt;/p&gt;&lt;p&gt;4.  Submit Issues and a Concurrence Package to the DAS office.  Enter the dates these tasks are completed.&lt;/p&gt;&lt;p&gt;5.  Input the Actual Preliminary Signature and the preliminary results publication information in the FR Notice list.&lt;/p&gt;&lt;p&gt;6. If the review is rescinded or withdrawn, update the segment outcome status.&lt;/p&gt;</info>
+        <picklistValueName>Prelim</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>Administrative_Review</recordTypeName>
+</PathAssistant>

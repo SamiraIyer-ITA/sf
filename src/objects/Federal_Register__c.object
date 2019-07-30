@@ -58,6 +58,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -402,6 +403,15 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Tolling_Update__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Tolling Update</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Type__c</fullName>
         <externalId>false</externalId>
         <label>Type</label>
@@ -504,7 +514,7 @@
                     <label>Termination</label>
                 </value>
                 <value>
-                    <fullName>Critical Circumstances</fullName> 
+                    <fullName>Critical Circumstances</fullName>
                     <default>false</default>
                     <label>Critical Circumstances</label>
                 </value>

@@ -29,6 +29,10 @@
                 <behavior>Readonly</behavior>
                 <field>Inactive__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>RH_Lev_6_Office__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>

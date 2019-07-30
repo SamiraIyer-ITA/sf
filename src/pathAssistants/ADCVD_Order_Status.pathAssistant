@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>ADCVD_Order__c</entityName>
+    <fieldName>Status__c</fieldName>
+    <masterLabel>ADCVD Order Status</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Anniversary_Month__c</fieldNames>
+        <fieldNames>Segment_Status__c</fieldNames>
+        <fieldNames>Next_Sunset_Initiation_Date_UI__c</fieldNames>
+        <info>&lt;p&gt;This order is currently in place and has an on-going segment.&lt;/p&gt;</info>
+        <picklistValueName>Current-Active</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Anniversary_Month__c</fieldNames>
+        <fieldNames>Segment_Status__c</fieldNames>
+        <fieldNames>Next_Sunset_Initiation_Date_UI__c</fieldNames>
+        <info>&lt;p&gt;This order is currently in place but does not have an on-going segment.&lt;/p&gt;</info>
+        <picklistValueName>Current-Inactive</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;Add the order publication information to the Federal Register related list.&lt;/p&gt;</info>
+        <picklistValueName>Order FR Needed</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>ADCVD_Order_Name__c</fieldNames>
+        <fieldNames>Name</fieldNames>
+        <fieldNames>Effective_Date_of_Revocation__c</fieldNames>
+        <fieldNames>Revocation_Reason__c</fieldNames>
+        <info>&lt;p&gt;This order has been revoked and all work associated with this order has been completed.  Once this status is true, this status must be indicated manually by the user.&lt;/p&gt;</info>
+        <picklistValueName>Revoked-Complete</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Effective_Date_of_Revocation__c</fieldNames>
+        <fieldNames>Revocation_Reason__c</fieldNames>
+        <fieldNames>Anniversary_Month__c</fieldNames>
+        <info>&lt;p&gt;This order is revoked, but either has current on-going work or will have work to be completed before this revoked order can be closed.&lt;/p&gt;</info>
+        <picklistValueName>Revoked-Incomplete</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>__MASTER__</recordTypeName>
+</PathAssistant>
