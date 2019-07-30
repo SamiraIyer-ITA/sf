@@ -72,24 +72,6 @@ For overall status of the health of the Salesforce GovCloud Platform, please vis
             </componentInstanceProperties>
             <componentName>forceChatter:exposedFeed</componentName>
         </componentInstances>
-        <componentInstances>
-            <componentName>home:recentRecordContainer</componentName>
-        </componentInstances>
-        <componentInstances>
-            <componentInstanceProperties>
-                <name>displayNumber</name>
-                <value>3</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>recommendationTypes</name>
-                <value>[&quot;users&quot;,&quot;groups&quot;]</value>
-            </componentInstanceProperties>
-            <componentInstanceProperties>
-                <name>title</name>
-                <value>Recommendations</value>
-            </componentInstanceProperties>
-            <componentName>forceChatter:recommendations</componentName>
-        </componentInstances>
         <mode>Replace</mode>
         <name>sidebar</name>
         <type>Region</type>
