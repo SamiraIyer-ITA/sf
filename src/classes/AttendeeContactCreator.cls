@@ -210,12 +210,12 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
                 //If there is still no match just let the system automatically assign it
                 Case newCase = null;
                 if(orgOwnerId != null) {
-                    newCase = new Case(Subject=(String.isBlank(caseSubject) ? 'Case' : caseSubject), //Campaign Name & Organization Name
+                    newCase = new Case(Subject=(String.isBlank(caseSubject) ? 'Case' : caseSubject),
                             Description = 'U.S. Exhibitor/Client registered to value added programming (G2B, B2B, Demos Int\'l Reception), at an event.',
-                            OwnerId = orgOwnerId //organization owner or if none, Outgoing_Communication_Email__c
+                            OwnerId = orgOwnerId
                     );
                 } else {
-                    newCase = new Case(Subject=(String.isBlank(caseSubject) ? 'Case' : caseSubject), //Campaign Name & Organization Name
+                    newCase = new Case(Subject=(String.isBlank(caseSubject) ? 'Case' : caseSubject),
                             Description = 'U.S. Exhibitor/Client registered to value added programming (G2B, B2B, Demos Int\'l Reception), at an event.'
                     );
                 }
@@ -224,9 +224,5 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
             }
         }
         Database.insert(casesToCreate,false);
-
-        for(Case thisCase : casesToCreate) {
-            //create task on each new case
-        }
     }
 }
