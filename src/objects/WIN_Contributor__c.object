@@ -195,6 +195,20 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Run_As_User__c</fullName>
+        <description>Checks the Win Contributor ID against the User ID to determine if they are the same.</description>
+        <externalId>false</externalId>
+        <formula>IF(WIN_Contributor_ID__c = $User.Id , 1 , 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Run As User</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>WIN_Contributor_ID__c</fullName>
         <description>CasesafeID(Contributor_Name__r.Id)</description>
