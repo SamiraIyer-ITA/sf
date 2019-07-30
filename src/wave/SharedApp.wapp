@@ -10,27 +10,12 @@
     </shares>
     <shares>
         <accessLevel>Manage</accessLevel>
-        <sharedTo>integration@00dr00000008yu0eai.com</sharedTo>
-        <sharedToType>User</sharedToType>
-    </shares>
-    <shares>
-        <accessLevel>Manage</accessLevel>
-        <sharedTo>laura.kesy@trade.gov</sharedTo>
+        <sharedTo>integration@00dt0000000gydleac.com</sharedTo>
         <sharedToType>User</sharedToType>
     </shares>
     <shares>
         <accessLevel>Manage</accessLevel>
         <sharedTo>sandip.menon@trade.gov</sharedTo>
-        <sharedToType>User</sharedToType>
-    </shares>
-    <shares>
-        <accessLevel>Manage</accessLevel>
-        <sharedTo>michael.griswold@trade.gov</sharedTo>
-        <sharedToType>User</sharedToType>
-    </shares>
-    <shares>
-        <accessLevel>Manage</accessLevel>
-        <sharedTo>ayotunde.oyedokun@trade.gov</sharedTo>
         <sharedToType>User</sharedToType>
     </shares>
 </WaveApplication>
