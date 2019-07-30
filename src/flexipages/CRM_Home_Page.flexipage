@@ -104,6 +104,8 @@
         <type>Region</type>
     </flexiPageRegions>
     <masterLabel>CRM Home Page</masterLabel>
-    <pageTemplate>home:desktopTemplate</pageTemplate>
+    <template>
+        <name>home:desktopTemplate</name>
+    </template>
     <type>HomePage</type>
 </FlexiPage>
