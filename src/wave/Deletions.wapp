@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WaveApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assetIcon>/analytics/wave/web/proto/images/app/icons/9.png</assetIcon>
+    <folder>Deletions</folder>
+    <masterLabel>Deletions</masterLabel>
+</WaveApplication>

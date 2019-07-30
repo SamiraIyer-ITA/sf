@@ -1,0 +1,566 @@
+{
+  "nodes": {
+    "CaseTeamCases": {
+      "action": "augment",
+      "parameters": {
+        "leftKey": [
+          "Id"
+        ],
+        "operation": "LookupMultiValue",
+        "relationship": "CaseContributors",
+        "rightKey": [
+          "Case_ID__c"
+        ],
+        "rightSelect": [
+          "Case_ID__c",
+          "Contributor_Name__c",
+          "RH_Lev_1_GM_All__c",
+          "RH_Lev_2_DAS__c",
+          "RH_Lev_3_Region_2__c",
+          "RH_Lev_4_Region_1__c",
+          "RH_Lev_5_Country__c",
+          "RH_Lev_6_Office__c"
+        ]
+      },
+      "sources": [
+        "augment_User",
+        "CaseTeam"
+      ]
+    },
+    "augment_Account_0": {
+      "action": "augment",
+      "parameters": {
+        "leftKey": [
+          "AccountId"
+        ],
+        "relationship": "AccountId",
+        "rightKey": [
+          "Id"
+        ],
+        "rightSelect": [
+          "AnnualRevenue",
+          "BillingCountryCode",
+          "Congressional_District_formula__c",
+          "DunsNumber",
+          "Minority_Owned_Indicator__c",
+          "NaicsCode",
+          "NaicsDesc",
+          "Organization_18_ID__c",
+          "Id",
+          "Name",
+          "TracHier__Owner__c",
+          "Owner_Office__c",
+          "SME__c",
+          "BillingStateCode",
+          "DandbCompanyId"
+        ]
+      },
+      "sources": [
+        "augment_User_0",
+        "sfdcDigest_Account_0"
+      ]
+    },
+    "sfdcDigest_User": {
+      "action": "sobjectDigest",
+      "parameters": {
+        "fields": [
+          {
+            "name": "Email"
+          },
+          {
+            "name": "RH_Lev_1_Top_Level__c"
+          },
+          {
+            "name": "RH_Lev_6_Office__c"
+          },
+          {
+            "name": "RH_Lev_3_Region_2__c"
+          },
+          {
+            "name": "RH_Lev_4_Region_1__c"
+          },
+          {
+            "name": "RH_Lev_5_Country__c"
+          },
+          {
+            "name": "Name"
+          },
+          {
+            "name": "Id"
+          }
+        ],
+        "object": "User"
+      }
+    },
+    "augment_Case_Account": {
+      "action": "augment",
+      "parameters": {
+        "leftKey": [
+          "AccountId"
+        ],
+        "relationship": "AccountId",
+        "rightKey": [
+          "Id"
+        ],
+        "rightSelect": [
+          "AnnualRevenue",
+          "Congressional_District_formula__c",
+          "BillingCountryCode",
+          "DunsNumber",
+          "NaicsCode",
+          "NaicsDesc",
+          "NumberOfEmployees",
+          "Organization_18_ID__c",
+          "Id",
+          "Name",
+          "BillingStateCode",
+          "Woman_Owned_Indicator__c",
+          "YearStarted",
+          "RecordTypeId",
+          "BillingCountry"
+        ]
+      },
+      "sources": [
+        "sfdcDigest_Case",
+        "sfdcDigest_Account"
+      ]
+    },
+    "augment_User_0": {
+      "action": "augment",
+      "parameters": {
+        "leftKey": [
+          "CreatedById"
+        ],
+        "relationship": "CreatedById",
+        "rightKey": [
+          "Id"
+        ],
+        "rightSelect": [
+          "Name",
+          "RH_Lev_1_Top_Level__c",
+          "RH_Lev_3_Region_2__c",
+          "RH_Lev_4_Region_1__c",
+          "RH_Lev_6_Office__c",
+          "RH_Lev_2_DAS_Level__c",
+          "RH_Lev_5_Country__c",
+          "Email"
+        ]
+      },
+      "sources": [
+        "augment_Task_User_0",
+        "sfdcDigest_User_0"
+      ]
+    },
+    "sfdcDigest_Account": {
+      "action": "sobjectDigest",
+      "parameters": {
+        "fields": [
+          {
+            "name": "AnnualRevenue"
+          },
+          {
+            "name": "Congressional_District_formula__c"
+          },
+          {
+            "name": "BillingCountryCode"
+          },
+          {
+            "name": "DunsNumber"
+          },
+          {
+            "name": "NaicsCode"
+          },
+          {
+            "name": "NaicsDesc"
+          },
+          {
+            "name": "NumberOfEmployees"
+          },
+          {
+            "name": "Organization_18_ID__c"
+          },
+          {
+            "name": "Id"
+          },
+          {
+            "name": "Name"
+          },
+          {
+            "name": "BillingStateCode"
+          },
+          {
+            "name": "Woman_Owned_Indicator__c"
+          },
+          {
+            "name": "YearStarted"
+          },
+          {
+            "name": "RecordTypeId"
+          },
+          {
+            "name": "BillingCountry"
+          }
+        ],
+        "object": "Account"
+      }
+    },
+    "augment_User": {
+      "action": "augment",
+      "parameters": {
+        "leftKey": [
+          "OwnerId"
+        ],
+        "relationship": "OwnerId",
+        "rightKey": [
+          "Id"
+        ],
+        "rightSelect": [
+          "Email",
+          "RH_Lev_1_Top_Level__c",
+          "RH_Lev_6_Office__c",
+          "RH_Lev_3_Region_2__c",
+          "RH_Lev_4_Region_1__c",
+          "RH_Lev_5_Country__c",
+          "Name"
+        ]
+      },
+      "sources": [
+        "augment_Case_Account",
+        "sfdcDigest_User"
+      ]
+    },
+    "register_ClientsInDepth": {
+      "action": "register",
+      "parameters": {
+        "label": "ClientsInDepth",
+        "name": "ClientsInDepth"
+      },
+      "sources": [
+        "augment_User"
+      ]
+    },
+    "sfdcDigest_Case": {
+      "action": "sobjectDigest",
+      "parameters": {
+        "fields": [
+          {
+            "name": "AccountId"
+          },
+          {
+            "name": "OwnerId"
+          },
+          {
+            "name": "Case_18_ID__c"
+          },
+          {
+            "name": "Id"
+          },
+          {
+            "name": "CaseNumber"
+          },
+          {
+            "name": "Case_Owner_Full_Name__c"
+          },
+          {
+            "name": "Type"
+          },
+          {
+            "name": "Record_Type__c"
+          },
+          {
+            "name": "Actual_Case_Closed_Date__c"
+          },
+          {
+            "name": "Fee__c"
+          },
+          {
+            "name": "Investment_Promotion__c"
+          },
+          {
+            "name": "Owners_Office__c"
+          },
+          {
+            "name": "Potential_Primary_Outcome__c"
+          },
+          {
+            "name": "Subject"
+          },
+          {
+            "name": "CD_Compliance_Case__c"
+          },
+          {
+            "name": "CD_Trade_Barrier__c"
+          },
+          {
+            "name": "CD_Tanc_Tags__c"
+          },
+          {
+            "name": "Actual_Create_Date__c"
+          },
+          {
+            "name": "ClosedDate"
+          },
+          {
+            "name": "CreatedDate"
+          },
+          {
+            "name": "LastModifiedDate"
+          },
+          {
+            "name": "LastReferencedDate"
+          },
+          {
+            "name": "LastViewedDate"
+          },
+          {
+            "name": "Request_Case_Removal__c"
+          }
+        ],
+        "object": "Case"
+      }
+    },
+    "register_ClientsLT_0": {
+      "action": "register",
+      "parameters": {
+        "label": "ClientsLT",
+        "name": "ClientsLT"
+      },
+      "sources": [
+        "augment_DandBCompany_0"
+      ]
+    },
+    "CaseTeam": {
+      "action": "sobjectDigest",
+      "parameters": {
+        "fields": [
+          {
+            "name": "Case_ID__c"
+          },
+          {
+            "name": "Contributor_Name__c"
+          },
+          {
+            "name": "RH_Lev_1_GM_All__c"
+          },
+          {
+            "name": "RH_Lev_2_DAS__c"
+          },
+          {
+            "name": "RH_Lev_3_Region_2__c"
+          },
+          {
+            "name": "RH_Lev_4_Region_1__c"
+          },
+          {
+            "name": "RH_Lev_5_Country__c"
+          },
+          {
+            "name": "RH_Lev_6_Office__c"
+          }
+        ],
+        "object": "Case_Contributor__c"
+      }
+    },
+    "sfdcDigest_User_0": {
+      "action": "sobjectDigest",
+      "parameters": {
+        "fields": [
+          {
+            "name": "RH_Lev_1_Top_Level__c"
+          },
+          {
+            "name": "RH_Lev_4_Region_1__c"
+          },
+          {
+            "name": "RH_Lev_3_Region_2__c"
+          },
+          {
+            "name": "RH_Lev_6_Office__c"
+          },
+          {
+            "name": "RH_Lev_2_DAS_Level__c"
+          },
+          {
+            "name": "RH_Lev_5_Country__c"
+          },
+          {
+            "name": "Name"
+          },
+          {
+            "name": "Email"
+          },
+          {
+            "name": "Id"
+          }
+        ],
+        "object": "User"
+      }
+    },
+    "sfdcDigest_Task_0": {
+      "action": "sobjectDigest",
+      "parameters": {
+        "fields": [
+          {
+            "name": "OwnerId"
+          },
+          {
+            "name": "CreatedById"
+          },
+          {
+            "name": "AccountId"
+          },
+          {
+            "name": "Id"
+          },
+          {
+            "name": "Actual_Create_Date__c"
+          },
+          {
+            "name": "Investment_Promotion__c"
+          },
+          {
+            "name": "Related_to_Case__c"
+          },
+          {
+            "name": "Subject"
+          },
+          {
+            "name": "RH_Lev_6_Office__c"
+          },
+          {
+            "name": "RH_Lev_2_DAS__c"
+          },
+          {
+            "name": "RH_Lev_3_Region_2__c"
+          },
+          {
+            "name": "RH_Lev_4_Region_1__c"
+          },
+          {
+            "name": "RH_Lev_1_GM_All__c"
+          },
+          {
+            "name": "RH_Lev_5_Country__c"
+          }
+        ],
+        "object": "Task"
+      }
+    },
+    "sfdcDigest_DandBCompany_0": {
+      "action": "sobjectDigest",
+      "parameters": {
+        "fields": [
+          {
+            "name": "CountryCode"
+          },
+          {
+            "name": "GlobalUltimateTotalEmployees"
+          },
+          {
+            "name": "Id"
+          }
+        ],
+        "object": "DandBCompany"
+      }
+    },
+    "augment_Task_User_0": {
+      "action": "augment",
+      "parameters": {
+        "leftKey": [
+          "OwnerId"
+        ],
+        "relationship": "OwnerId",
+        "rightKey": [
+          "Id"
+        ],
+        "rightSelect": [
+          "RH_Lev_1_Top_Level__c",
+          "RH_Lev_4_Region_1__c",
+          "RH_Lev_3_Region_2__c",
+          "RH_Lev_6_Office__c",
+          "RH_Lev_2_DAS_Level__c",
+          "RH_Lev_5_Country__c",
+          "Name",
+          "Email"
+        ]
+      },
+      "sources": [
+        "sfdcDigest_Task_0",
+        "sfdcDigest_User_0"
+      ]
+    },
+    "sfdcDigest_Account_0": {
+      "action": "sobjectDigest",
+      "parameters": {
+        "fields": [
+          {
+            "name": "AnnualRevenue"
+          },
+          {
+            "name": "BillingCountryCode"
+          },
+          {
+            "name": "Congressional_District_formula__c"
+          },
+          {
+            "name": "DunsNumber"
+          },
+          {
+            "name": "Minority_Owned_Indicator__c"
+          },
+          {
+            "name": "NaicsCode"
+          },
+          {
+            "name": "NaicsDesc"
+          },
+          {
+            "name": "Organization_18_ID__c"
+          },
+          {
+            "name": "Id"
+          },
+          {
+            "name": "Name"
+          },
+          {
+            "name": "TracHier__Owner__c"
+          },
+          {
+            "name": "Owner_Office__c"
+          },
+          {
+            "name": "SME__c"
+          },
+          {
+            "name": "BillingStateCode"
+          },
+          {
+            "name": "DandbCompanyId"
+          }
+        ],
+        "object": "Account"
+      }
+    },
+    "augment_DandBCompany_0": {
+      "action": "augment",
+      "parameters": {
+        "leftKey": [
+          "AccountId.DandbCompanyId"
+        ],
+        "relationship": "AccountId.DandbCompanyId",
+        "rightKey": [
+          "Id"
+        ],
+        "rightSelect": [
+          "CountryCode",
+          "GlobalUltimateTotalEmployees"
+        ]
+      },
+      "sources": [
+        "augment_Account_0",
+        "sfdcDigest_DandBCompany_0"
+      ]
+    }
+  }
+}
