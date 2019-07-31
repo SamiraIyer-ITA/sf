@@ -88,6 +88,7 @@ typemeta="      asset \
                 resource \
                 trigger \
 		wdash \
+		wdf \
 		wlens"
 
 # For creating the deployment change set
