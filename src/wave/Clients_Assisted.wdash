@@ -1080,7 +1080,7 @@
       "isGlobal": false,
       "label": "RH_Lev_2_DAS__c_1",
       "query": {
-        "query": "{\"measures\":[[\"unique\",\"ParentOrganization.Name\"]],\"groups\":[\"RH_Lev_2_DAS__c\"]}",
+        "query": "{\"measures\":[[\"unique\",\"ParentOrganization.Id\"]],\"groups\":[\"RH_Lev_2_DAS__c\"]}",
         "version": -1.0
       },
       "receiveFacet": true,
@@ -1156,7 +1156,7 @@
               "RH_Lev_2_DAS__c"
             ],
             "plots": [
-              "unique_ParentOrganization.Name"
+              "unique_ParentOrganization.Id"
             ]
           },
           "showActionMenu": true,
@@ -1208,7 +1208,7 @@
       "isGlobal": false,
       "label": "ParentOrganization_N_1",
       "query": {
-        "query": "{\"measures\":[[\"unique\",\"ParentOrganization.Name\"]],\"limit\":10000,\"groups\":[\"{{coalesce(cell(Agency_1.selection, 0, \\\"FieldName\\\"), \\\"Assisting_User\\\").asString()}}\"],\"filters\":[[\"{{cell(Fiscal_Year_1.selection, 0, \\\"filter_field\\\").asObject()}}\",[\"true\"],\"in\"]],\"order\":[[\"unique_ParentOrganization.Name\",{\"ascending\":false}]]}",
+        "query": "{\"measures\":[[\"unique\",\"ParentOrganization.Id\"]],\"limit\":10000,\"groups\":[\"{{coalesce(cell(Agency_1.selection, 0, \\\"FieldName\\\"), \\\"Assisting_User\\\").asString()}}\"],\"filters\":[[\"{{cell(Fiscal_Year_1.selection, 0, \\\"filter_field\\\").asObject()}}\",[\"true\"],\"in\"]],\"order\":[[\"unique_ParentOrganization.Id\",{\"ascending\":false}]]}",
         "version": -1.0
       },
       "receiveFacet": true,
@@ -1282,7 +1282,7 @@
           "plots": [
             {
               "column": [
-                "unique_ParentOrganization.Name"
+                "unique_ParentOrganization.Id"
               ]
             }
           ],
@@ -1292,7 +1292,7 @@
               "{{cell(Agency_1.selection, 0, \"FieldName\").asGrouping()}}"
             ],
             "plots": [
-              "unique_ParentOrganization.Name"
+              "unique_ParentOrganization.Id"
             ]
           },
           "showActionMenu": true,
@@ -1344,7 +1344,7 @@
       "isGlobal": false,
       "label": "ParentOrganization_N_2",
       "query": {
-        "query": "{\"measures\":[[\"unique\",\"ParentOrganization.Name\"]]}",
+        "query": "{\"measures\":[[\"unique\",\"ParentOrganization.Id\"]]}",
         "version": -1.0
       },
       "receiveFacet": true,
@@ -1418,7 +1418,7 @@
             "trellis": [],
             "dimensionAxis": [],
             "plots": [
-              "unique_ParentOrganization.Name"
+              "unique_ParentOrganization.Id"
             ]
           },
           "showActionMenu": true,
@@ -1485,8 +1485,9 @@
         }
       ],
       "isGlobal": false,
+      "label": "In_Depth_Assists",
       "query": {
-        "query": "{\"measures\":[[\"unique\",\"ParentOrganization.Name\"]],\"filters\":[[\"Light_InDepth\",[\"In Depth\"],\"in\"]]}",
+        "query": "{\"measures\":[[\"unique\",\"ParentOrganization.Id\"]],\"filters\":[[\"Light_InDepth\",[\"In Depth\"],\"in\"],[\"{{cell(Fiscal_Year_1.selection, 0, \\\"filter_field\\\").asObject()}}\",[\"true\"],\"in\"]]}",
         "version": -1.0
       },
       "receiveFacet": true,
@@ -1560,7 +1561,7 @@
             "trellis": [],
             "dimensionAxis": [],
             "plots": [
-              "unique_ParentOrganization.Name"
+              "unique_ParentOrganization.Id"
             ]
           },
           "showActionMenu": true,
@@ -1612,7 +1613,7 @@
       "isGlobal": false,
       "label": "RH_Lev_3_Region_2__c_1",
       "query": {
-        "query": "{\"measures\":[[\"unique\",\"ParentOrganization.Name\"]],\"groups\":[\"RH_Lev_3_Region_2__c\"]}",
+        "query": "{\"measures\":[[\"unique\",\"ParentOrganization.Id\"]],\"groups\":[\"RH_Lev_3_Region_2__c\"]}",
         "version": -1.0
       },
       "receiveFacet": true,
@@ -1688,7 +1689,7 @@
               "RH_Lev_3_Region_2__c"
             ],
             "plots": [
-              "unique_ParentOrganization.Name"
+              "unique_ParentOrganization.Id"
             ]
           },
           "showActionMenu": true,
@@ -1738,8 +1739,9 @@
         }
       ],
       "isGlobal": false,
+      "label": "ParentOrganization_N_7",
       "query": {
-        "query": "{\"measures\":[[\"unique\",\"ParentOrganization.Name\"]],\"filters\":[[\"Client_Type\",[\"Investment Client\"],\"in\"]]}",
+        "query": "{\"measures\":[[\"unique\",\"ParentOrganization.Id\"]],\"filters\":[[\"Client_Type\",[\"Investment Client\"],\"in\"],[\"{{cell(Fiscal_Year_1.selection, 0, \\\"filter_field\\\").asObject()}}\",[\"true\"],\"in\"]]}",
         "version": -1.0
       },
       "receiveFacet": true,
@@ -1813,7 +1815,7 @@
             "trellis": [],
             "dimensionAxis": [],
             "plots": [
-              "unique_ParentOrganization.Name"
+              "unique_ParentOrganization.Id"
             ]
           },
           "showActionMenu": true,
@@ -1863,8 +1865,9 @@
         }
       ],
       "isGlobal": false,
+      "label": "ParentOrganization_N_8",
       "query": {
-        "query": "{\"measures\":[[\"unique\",\"ParentOrganization.Name\"]],\"filters\":[[\"Light_InDepth\",[\"Light Touch\"],\"in\"]]}",
+        "query": "{\"measures\":[[\"unique\",\"ParentOrganization.Id\"]],\"filters\":[[\"Light_InDepth\",[\"Light Touch\"],\"in\"],[\"{{cell(Fiscal_Year_1.selection, 0, \\\"filter_field\\\").asObject()}}\",[\"true\"],\"in\"]]}",
         "version": -1.0
       },
       "receiveFacet": true,
@@ -1938,7 +1941,7 @@
             "trellis": [],
             "dimensionAxis": [],
             "plots": [
-              "unique_ParentOrganization.Name"
+              "unique_ParentOrganization.Id"
             ]
           },
           "showActionMenu": true,
@@ -2006,8 +2009,9 @@
         }
       ],
       "isGlobal": false,
+      "label": "ParentOrganization_N_5",
       "query": {
-        "query": "{\"measures\":[[\"unique\",\"ParentOrganization.Name\"]],\"filters\":[[\"Client_Type\",[\"Export Client\"],\"in\"]]}",
+        "query": "{\"measures\":[[\"unique\",\"ParentOrganization.Id\"]],\"filters\":[[\"Client_Type\",[\"Export Client\"],\"in\"],[\"{{cell(Fiscal_Year_1.selection, 0, \\\"filter_field\\\").asObject()}}\",[\"true\"],\"in\"]]}",
         "version": -1.0
       },
       "receiveFacet": true,
@@ -2081,7 +2085,7 @@
             "trellis": [],
             "dimensionAxis": [],
             "plots": [
-              "unique_ParentOrganization.Name"
+              "unique_ParentOrganization.Id"
             ]
           },
           "showActionMenu": true,
@@ -2132,7 +2136,7 @@
       ],
       "isGlobal": false,
       "query": {
-        "query": "{\"measures\":[[\"unique\",\"ParentOrganization.Name\"]]}",
+        "query": "{\"measures\":[[\"unique\",\"ParentOrganization.Id\"]]}",
         "version": -1.0
       },
       "receiveFacet": true,
@@ -2206,7 +2210,7 @@
             "trellis": [],
             "dimensionAxis": [],
             "plots": [
-              "unique_ParentOrganization.Name"
+              "unique_ParentOrganization.Id"
             ]
           },
           "showActionMenu": true,
@@ -2257,7 +2261,7 @@
       ],
       "isGlobal": false,
       "query": {
-        "query": "{\"measures\":[[\"unique\",\"ParentOrganization.Name\"]]}",
+        "query": "{\"measures\":[[\"unique\",\"ParentOrganization.Id\"]]}",
         "version": -1.0
       },
       "receiveFacet": true,
@@ -2331,7 +2335,7 @@
             "trellis": [],
             "dimensionAxis": [],
             "plots": [
-              "unique_ParentOrganization.Name"
+              "unique_ParentOrganization.Id"
             ]
           },
           "showActionMenu": true,
@@ -2383,7 +2387,7 @@
       "isGlobal": false,
       "label": "ParentOrganization_N_10",
       "query": {
-        "query": "{\"measures\":[[\"unique\",\"ParentOrganization.Name\"]],\"groups\":[\"{{cell(Organization_Level_1.selection, 0, \\\"unique_by_filter\\\").asObject()}}\"]}",
+        "query": "{\"measures\":[[\"unique\",\"ParentOrganization.Id\"]],\"groups\":[\"{{cell(Organization_Level_1.selection, 0, \\\"unique_by_filter\\\").asObject()}}\"]}",
         "version": -1.0
       },
       "receiveFacet": true,
@@ -2460,7 +2464,7 @@
               "RH_Lev_6_Office__c"
             ],
             "plots": [
-              "unique_ParentOrganization.Name"
+              "unique_ParentOrganization.Id"
             ]
           },
           "showActionMenu": true,
@@ -2510,8 +2514,9 @@
         }
       ],
       "isGlobal": false,
+      "label": "ParentOrganization_N_4",
       "query": {
-        "query": "{\"measures\":[[\"unique\",\"ParentOrganization.Name\"]]}",
+        "query": "{\"measures\":[[\"unique\",\"ParentOrganization.Id\"]],\"filters\":[[\"{{cell(Fiscal_Year_1.selection, 0, \\\"filter_field\\\").asObject()}}\",[\"true\"],\"in\"]]}",
         "version": -1.0
       },
       "receiveFacet": true,
@@ -2585,7 +2590,7 @@
             "trellis": [],
             "dimensionAxis": [],
             "plots": [
-              "unique_ParentOrganization.Name"
+              "unique_ParentOrganization.Id"
             ]
           },
           "showActionMenu": true,
@@ -2679,7 +2684,7 @@
       "parameters": {
         "compact": false,
         "exploreLink": true,
-        "measureField": "unique_ParentOrganization.Name",
+        "measureField": "unique_ParentOrganization.Id",
         "noResultsLabel": "0",
         "numberColor": "#FFFFFF",
         "numberSize": 64,
@@ -2706,7 +2711,7 @@
       "parameters": {
         "compact": false,
         "exploreLink": true,
-        "measureField": "unique_ParentOrganization.Name",
+        "measureField": "unique_ParentOrganization.Id",
         "noResultsLabel": "0",
         "numberColor": "#FFFFFF",
         "numberSize": 64,
@@ -2733,7 +2738,7 @@
       "parameters": {
         "compact": false,
         "exploreLink": true,
-        "measureField": "unique_ParentOrganization.Name",
+        "measureField": "unique_ParentOrganization.Id",
         "noResultsLabel": "0",
         "numberColor": "#FFFFFF",
         "numberSize": 64,
@@ -2750,7 +2755,7 @@
       "parameters": {
         "compact": false,
         "exploreLink": true,
-        "measureField": "unique_ParentOrganization.Name",
+        "measureField": "unique_ParentOrganization.Id",
         "noResultsLabel": "0",
         "numberColor": "#FFFFFF",
         "numberSize": 64,
@@ -2972,7 +2977,7 @@
         "plots": [
           {
             "column": [
-              "unique_ParentOrganization.Name"
+              "unique_ParentOrganization.Id"
             ]
           }
         ],
@@ -3061,7 +3066,7 @@
         "compact": false,
         "exploreLink": false,
         "instant": true,
-        "measureField": "unique_ParentOrganization.Name",
+        "measureField": "unique_ParentOrganization.Id",
         "showActionMenu": true,
         "step": "ParentOrganization_N_10",
         "title": ""
@@ -3107,7 +3112,7 @@
       "parameters": {
         "compact": false,
         "exploreLink": true,
-        "measureField": "unique_ParentOrganization.Name",
+        "measureField": "unique_ParentOrganization.Id",
         "numberColor": "#FFFFFF",
         "numberSize": 20,
         "showActionMenu": true,
@@ -3131,7 +3136,7 @@
       "parameters": {
         "compact": false,
         "exploreLink": true,
-        "measureField": "unique_ParentOrganization.Name",
+        "measureField": "unique_ParentOrganization.Id",
         "numberColor": "#FFFFFF",
         "numberSize": 20,
         "showActionMenu": true,
@@ -3146,7 +3151,7 @@
       "parameters": {
         "compact": false,
         "exploreLink": true,
-        "measureField": "unique_ParentOrganization.Name",
+        "measureField": "unique_ParentOrganization.Id",
         "numberColor": "#FFFFFF",
         "numberSize": 20,
         "showActionMenu": true,
@@ -3161,7 +3166,7 @@
       "parameters": {
         "compact": false,
         "exploreLink": true,
-        "measureField": "unique_ParentOrganization.Name",
+        "measureField": "unique_ParentOrganization.Id",
         "noResultsLabel": "0",
         "numberColor": "#FFFFFF",
         "numberSize": 64,
@@ -3178,7 +3183,7 @@
       "parameters": {
         "compact": false,
         "exploreLink": true,
-        "measureField": "unique_ParentOrganization.Name",
+        "measureField": "unique_ParentOrganization.Id",
         "numberColor": "#FFFFFF",
         "numberSize": 20,
         "showActionMenu": true,
