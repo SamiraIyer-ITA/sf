@@ -60,7 +60,7 @@
         if (isAfter && isUpdate) {
             initialize(newList, newMap);
             recalculateCVDinvestigations(newMap, oldMap);
-            new ChatterPostService().getChatterPosts(oldMap, newMap, INVESTIGATION);
+            new ChatterPostWriter(INVESTIGATION, newMap, oldMap);
         }
     }
     

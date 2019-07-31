@@ -1,0 +1,1323 @@
+{
+  "dataSourceLinks": [],
+  "filters": [],
+  "gridLayouts": [
+    {
+      "name": "Default",
+      "numColumns": 12,
+      "pages": [
+        {
+          "label": "2019",
+          "name": "13f7e0c9-0598-441d-b4ad-b1e7298df35d",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 12,
+              "column": 0,
+              "name": "text_1",
+              "row": 0,
+              "rowspan": 1,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "table_1",
+              "row": 1,
+              "rowspan": 6,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 2,
+              "name": "table_2",
+              "row": 1,
+              "rowspan": 6,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 6,
+              "name": "table_5",
+              "row": 1,
+              "rowspan": 6,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 3,
+              "column": 0,
+              "name": "table_7",
+              "row": 7,
+              "rowspan": 5,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 3,
+              "column": 3,
+              "name": "table_8",
+              "row": 7,
+              "rowspan": 5,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 3,
+              "column": 6,
+              "name": "table_9",
+              "row": 7,
+              "rowspan": 5,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 3,
+              "column": 9,
+              "name": "table_10",
+              "row": 7,
+              "rowspan": 5,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            }
+          ]
+        },
+        {
+          "label": "2018",
+          "name": "bb40ceaf-73c0-4bfd-bba0-93d44eb7cb63",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 12,
+              "column": 0,
+              "name": "text_2",
+              "row": 0,
+              "rowspan": 1,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "table_3",
+              "row": 1,
+              "rowspan": 7,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 2,
+              "name": "table_4",
+              "row": 1,
+              "rowspan": 7,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 6,
+              "name": "table_6",
+              "row": 1,
+              "rowspan": 7,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 3,
+              "column": 9,
+              "name": "table_11",
+              "row": 8,
+              "rowspan": 4,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 3,
+              "column": 6,
+              "name": "table_12",
+              "row": 8,
+              "rowspan": 4,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 3,
+              "column": 3,
+              "name": "table_13",
+              "row": 8,
+              "rowspan": 4,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 3,
+              "column": 0,
+              "name": "table_14",
+              "row": 8,
+              "rowspan": 4,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            }
+          ]
+        }
+      ],
+      "rowHeight": "normal",
+      "selectors": [],
+      "style": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "backgroundColor": "#F2F6FA",
+        "cellSpacingX": 8,
+        "cellSpacingY": 8,
+        "fit": "original",
+        "gutterColor": "#C5D3E0"
+      },
+      "version": 1.0
+    }
+  ],
+  "layouts": [],
+  "steps": {
+    "Type_E_I_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "Clients_Assisted_2018_YTD"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"measures\":[[\"unique\",\"Organization_ID\"]],\"groups\":[\"Type_E_I\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "parameters": {
+          "borderColor": "#e0e5ee",
+          "borderWidth": 1,
+          "cell": {
+            "backgroundColor": "#ffffff",
+            "fontColor": "#16325c",
+            "fontSize": 12
+          },
+          "columnProperties": {},
+          "columns": [],
+          "customBulkActions": [],
+          "header": {
+            "backgroundColor": "#f4f6f9",
+            "fontColor": "#16325c",
+            "fontSize": 12
+          },
+          "innerMajorBorderColor": "#a8b7c7",
+          "innerMinorBorderColor": "#e0e5ee",
+          "maxColumnWidth": 300,
+          "minColumnWidth": 40,
+          "mode": "variable",
+          "numberOfLines": 1,
+          "pivoted": true,
+          "showActionMenu": true,
+          "showRowIndexColumn": false,
+          "verticalPadding": 8
+        },
+        "type": "table"
+      }
+    },
+    "2019_by_region_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "Clients_Assisted_2019_YTD"
+        }
+      ],
+      "isGlobal": false,
+      "label": "2019 by region",
+      "query": {
+        "query": "{\"measures\":[[\"unique\",\"Organization_ID\"]],\"groups\":[\"RC_DAS\",\"Type_E_I\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "parameters": {
+          "borderColor": "#e0e5ee",
+          "borderWidth": 1,
+          "cell": {
+            "backgroundColor": "#ffffff",
+            "fontColor": "#16325c",
+            "fontSize": 12
+          },
+          "columnProperties": {},
+          "columns": [],
+          "customBulkActions": [],
+          "header": {
+            "backgroundColor": "#f4f6f9",
+            "fontColor": "#16325c",
+            "fontSize": 12
+          },
+          "innerMajorBorderColor": "#a8b7c7",
+          "innerMinorBorderColor": "#e0e5ee",
+          "mode": "fittocontainer",
+          "numberOfLines": 1,
+          "pivoted": true,
+          "showActionMenu": true,
+          "showRowIndexColumn": false,
+          "verticalPadding": 4
+        },
+        "type": "table"
+      }
+    },
+    "RC_Sub_Region_Networ_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "Clients_Assisted_2019_YTD"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"measures\":[[\"unique\",\"Organization_ID\"]],\"groups\":[\"RC_Sub_Region_Network\",\"Type_E_I\"],\"filters\":[[\"RC_DAS\",[\"US Field\"],\"in\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "parameters": {
+          "borderColor": "#e0e5ee",
+          "borderWidth": 1,
+          "cell": {
+            "backgroundColor": "#ffffff",
+            "fontColor": "#16325c",
+            "fontSize": 12
+          },
+          "columnProperties": {},
+          "columns": [],
+          "customBulkActions": [],
+          "header": {
+            "backgroundColor": "#f4f6f9",
+            "fontColor": "#16325c",
+            "fontSize": 12
+          },
+          "innerMajorBorderColor": "#a8b7c7",
+          "innerMinorBorderColor": "#e0e5ee",
+          "maxColumnWidth": 300,
+          "minColumnWidth": 40,
+          "mode": "variable",
+          "numberOfLines": 1,
+          "pivoted": true,
+          "showActionMenu": true,
+          "showRowIndexColumn": false,
+          "verticalPadding": 8
+        },
+        "type": "table"
+      }
+    },
+    "RC_Sub_Region_Networ_2": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "Clients_Assisted_2018_YTD"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"measures\":[[\"unique\",\"Organization_ID\"]],\"groups\":[\"RC_Sub_Region_Network\",\"Type_E_I\"],\"filters\":[[\"RC_DAS\",[\"US Field\"],\"in\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "parameters": {
+          "borderColor": "#e0e5ee",
+          "borderWidth": 1,
+          "cell": {
+            "backgroundColor": "#ffffff",
+            "fontColor": "#16325c",
+            "fontSize": 12
+          },
+          "columnProperties": {},
+          "columns": [],
+          "customBulkActions": [],
+          "header": {
+            "backgroundColor": "#f4f6f9",
+            "fontColor": "#16325c",
+            "fontSize": 12
+          },
+          "innerMajorBorderColor": "#a8b7c7",
+          "innerMinorBorderColor": "#e0e5ee",
+          "maxColumnWidth": 300,
+          "minColumnWidth": 40,
+          "mode": "variable",
+          "numberOfLines": 1,
+          "pivoted": true,
+          "showActionMenu": true,
+          "showRowIndexColumn": false,
+          "verticalPadding": 8
+        },
+        "type": "table"
+      }
+    },
+    "Totals_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "Clients_Assisted_2019_YTD"
+        }
+      ],
+      "isGlobal": false,
+      "label": "Totals",
+      "query": {
+        "query": "{\"measures\":[[\"unique\",\"Organization_ID\"]],\"groups\":[\"Type_E_I\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "parameters": {
+          "borderColor": "#e0e5ee",
+          "borderWidth": 1,
+          "cell": {
+            "backgroundColor": "#ffffff",
+            "fontColor": "#16325c",
+            "fontSize": 12
+          },
+          "columnProperties": {},
+          "columns": [],
+          "customBulkActions": [],
+          "header": {
+            "backgroundColor": "#f4f6f9",
+            "fontColor": "#16325c",
+            "fontSize": 12
+          },
+          "innerMajorBorderColor": "#a8b7c7",
+          "innerMinorBorderColor": "#e0e5ee",
+          "maxColumnWidth": 300,
+          "minColumnWidth": 40,
+          "mode": "variable",
+          "numberOfLines": 1,
+          "pivoted": true,
+          "showActionMenu": true,
+          "showRowIndexColumn": false,
+          "verticalPadding": 8
+        },
+        "type": "table"
+      }
+    },
+    "RC_DAS_Type_E_I_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "Clients_Assisted_2018_YTD"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"measures\":[[\"unique\",\"Organization_ID\"]],\"groups\":[\"RC_DAS\",\"Type_E_I\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "parameters": {
+          "borderColor": "#e0e5ee",
+          "borderWidth": 1,
+          "cell": {
+            "backgroundColor": "#ffffff",
+            "fontColor": "#16325c",
+            "fontSize": 12
+          },
+          "columnProperties": {},
+          "columns": [],
+          "customBulkActions": [],
+          "header": {
+            "backgroundColor": "#f4f6f9",
+            "fontColor": "#16325c",
+            "fontSize": 12
+          },
+          "innerMajorBorderColor": "#a8b7c7",
+          "innerMinorBorderColor": "#e0e5ee",
+          "maxColumnWidth": 300,
+          "minColumnWidth": 40,
+          "mode": "variable",
+          "numberOfLines": 1,
+          "pivoted": true,
+          "showActionMenu": true,
+          "showRowIndexColumn": false,
+          "verticalPadding": 8
+        },
+        "type": "table"
+      }
+    },
+    "Type_E_I_RC_Office_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "Clients_Assisted_2019_YTD"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"measures\":[[\"unique\",\"Organization_ID\",\"A\"]],\"columns\":[{\"query\":{\"measures\":[[\"unique\",\"Organization_ID\"]],\"groups\":[\"Type_E_I\",\"RC_Office\"]}}],\"groups\":[\"Type_E_I\",\"RC_Office\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "parameters": {
+          "borderColor": "#e0e5ee",
+          "borderWidth": 1,
+          "cell": {
+            "backgroundColor": "#ffffff",
+            "fontColor": "#16325c",
+            "fontSize": 12
+          },
+          "columnProperties": {},
+          "columns": [],
+          "customBulkActions": [],
+          "header": {
+            "backgroundColor": "#f4f6f9",
+            "fontColor": "#16325c",
+            "fontSize": 12
+          },
+          "innerMajorBorderColor": "#a8b7c7",
+          "innerMinorBorderColor": "#e0e5ee",
+          "maxColumnWidth": 300,
+          "minColumnWidth": 40,
+          "mode": "variable",
+          "numberOfLines": 1,
+          "showActionMenu": true,
+          "showRowIndexColumn": false,
+          "totals": true,
+          "verticalPadding": 8
+        },
+        "type": "table"
+      }
+    },
+    "RC_Office_Assigned_t_1": {
+      "broadcastFacet": true,
+      "groups": [],
+      "label": "RC_Office_Assigned_t_1",
+      "numbers": [],
+      "query": "q = load \"Clients_Assisted_2019_YTD\";\nresult = group q by ('Type_E_I', 'RC_Office', 'Assigned_to_Contributor_Name');\nresult = foreach result generate q.'Type_E_I' as 'Type_E_I', q.'RC_Office' as 'RC_Office', q.'Assigned_to_Contributor_Name' as 'Assigned_to_Contributor_Name', unique(q.'Organization_ID') as 'A';\nresult = order result by ('Type_E_I' asc, 'RC_Office' asc, 'Assigned_to_Contributor_Name' asc);\nresult = limit result 200000;",
+      "receiveFacet": true,
+      "selectMode": "single",
+      "strings": [],
+      "type": "saql",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "parameters": {
+          "borderColor": "#e0e5ee",
+          "borderWidth": 1,
+          "cell": {
+            "backgroundColor": "#ffffff",
+            "fontColor": "#16325c",
+            "fontSize": 12
+          },
+          "columnProperties": {},
+          "columns": [],
+          "customBulkActions": [],
+          "header": {
+            "backgroundColor": "#f4f6f9",
+            "fontColor": "#16325c",
+            "fontSize": 12
+          },
+          "innerMajorBorderColor": "#a8b7c7",
+          "innerMinorBorderColor": "#e0e5ee",
+          "maxColumnWidth": 300,
+          "minColumnWidth": 40,
+          "mode": "variable",
+          "numberOfLines": 1,
+          "pivoted": false,
+          "showActionMenu": true,
+          "totals": true,
+          "verticalPadding": 8
+        },
+        "type": "table"
+      }
+    },
+    "RC_DAS_RC_Country_St_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "Clients_Assisted_2019_YTD"
+        }
+      ],
+      "isGlobal": false,
+      "label": "RC_DAS_RC_Country_St_1",
+      "query": {
+        "query": "{\"measures\":[[\"unique\",\"Organization_ID\",\"A\"]],\"columns\":[{\"query\":{\"measures\":[[\"unique\",\"Organization_ID\"]],\"groups\":[\"Type_E_I\",\"RC_DAS\",\"RC_Country_State\"]}}],\"groups\":[\"Type_E_I\",\"RC_DAS\",\"RC_Country_State\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "parameters": {
+          "borderColor": "#e0e5ee",
+          "borderWidth": 1,
+          "cell": {
+            "backgroundColor": "#ffffff",
+            "fontColor": "#16325c",
+            "fontSize": 12
+          },
+          "columnProperties": {},
+          "columns": [],
+          "customBulkActions": [],
+          "header": {
+            "backgroundColor": "#f4f6f9",
+            "fontColor": "#16325c",
+            "fontSize": 12
+          },
+          "innerMajorBorderColor": "#a8b7c7",
+          "innerMinorBorderColor": "#e0e5ee",
+          "maxColumnWidth": 300,
+          "minColumnWidth": 40,
+          "mode": "variable",
+          "numberOfLines": 1,
+          "showActionMenu": true,
+          "showRowIndexColumn": false,
+          "verticalPadding": 8
+        },
+        "type": "table"
+      }
+    },
+    "RC_Office_Assigned_t_2": {
+      "broadcastFacet": true,
+      "groups": [],
+      "label": "RC_Office_Assigned_t_2",
+      "numbers": [],
+      "query": "q = load \"Clients_Assisted_2019_YTD\";\nresult = group q by ('Type_E_I', 'RC_Office', 'Assigned_to_Contributor_Name', 'Organization_Name');\nresult = foreach result generate q.'Type_E_I' as 'Type_E_I', q.'RC_Office' as 'RC_Office', q.'Assigned_to_Contributor_Name' as 'Assigned_to_Contributor_Name', q.'Organization_Name' as 'Organization_Name', unique(q.'Organization_ID') as 'A';\nresult = order result by ('Type_E_I' asc, 'RC_Office' asc, 'Assigned_to_Contributor_Name' asc, 'Organization_Name' asc);\nresult = limit result 200000;",
+      "receiveFacet": true,
+      "selectMode": "single",
+      "strings": [],
+      "type": "saql",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "parameters": {
+          "borderColor": "#e0e5ee",
+          "borderWidth": 1,
+          "cell": {
+            "backgroundColor": "#ffffff",
+            "fontColor": "#16325c",
+            "fontSize": 12
+          },
+          "columnProperties": {},
+          "columns": [],
+          "customBulkActions": [],
+          "header": {
+            "backgroundColor": "#f4f6f9",
+            "fontColor": "#16325c",
+            "fontSize": 12
+          },
+          "innerMajorBorderColor": "#a8b7c7",
+          "innerMinorBorderColor": "#e0e5ee",
+          "maxColumnWidth": 300,
+          "minColumnWidth": 40,
+          "mode": "variable",
+          "numberOfLines": 1,
+          "pivoted": false,
+          "showActionMenu": true,
+          "totals": true,
+          "verticalPadding": 8
+        },
+        "type": "table"
+      }
+    },
+    "Type_E_I_RC_Office_2": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "Clients_Assisted_2018_YTD"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"measures\":[[\"unique\",\"Organization_ID\",\"A\"]],\"columns\":[{\"query\":{\"measures\":[[\"unique\",\"Organization_ID\"]],\"groups\":[\"Type_E_I\",\"RC_Office\"]}}],\"groups\":[\"Type_E_I\",\"RC_Office\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "parameters": {
+          "borderColor": "#e0e5ee",
+          "borderWidth": 1,
+          "cell": {
+            "backgroundColor": "#ffffff",
+            "fontColor": "#16325c",
+            "fontSize": 12
+          },
+          "columnProperties": {},
+          "columns": [],
+          "customBulkActions": [],
+          "header": {
+            "backgroundColor": "#f4f6f9",
+            "fontColor": "#16325c",
+            "fontSize": 12
+          },
+          "innerMajorBorderColor": "#a8b7c7",
+          "innerMinorBorderColor": "#e0e5ee",
+          "maxColumnWidth": 300,
+          "minColumnWidth": 40,
+          "mode": "variable",
+          "numberOfLines": 1,
+          "showActionMenu": true,
+          "showRowIndexColumn": false,
+          "totals": true,
+          "verticalPadding": 8
+        },
+        "type": "table"
+      }
+    },
+    "Type_E_I_RC_DAS_RC_C_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "Clients_Assisted_2018_YTD"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"measures\":[[\"unique\",\"Organization_ID\",\"A\"]],\"columns\":[{\"query\":{\"measures\":[[\"unique\",\"Organization_ID\"]],\"groups\":[\"Type_E_I\",\"RC_DAS\",\"RC_Country_State\"]}}],\"groups\":[\"Type_E_I\",\"RC_DAS\",\"RC_Country_State\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "parameters": {
+          "borderColor": "#e0e5ee",
+          "borderWidth": 1,
+          "cell": {
+            "backgroundColor": "#ffffff",
+            "fontColor": "#16325c",
+            "fontSize": 12
+          },
+          "columnProperties": {},
+          "columns": [],
+          "customBulkActions": [],
+          "header": {
+            "backgroundColor": "#f4f6f9",
+            "fontColor": "#16325c",
+            "fontSize": 12
+          },
+          "innerMajorBorderColor": "#a8b7c7",
+          "innerMinorBorderColor": "#e0e5ee",
+          "maxColumnWidth": 300,
+          "minColumnWidth": 40,
+          "mode": "variable",
+          "numberOfLines": 1,
+          "showActionMenu": true,
+          "showRowIndexColumn": false,
+          "totals": true,
+          "verticalPadding": 8
+        },
+        "type": "table"
+      }
+    },
+    "Type_E_I_RC_Office_A_1": {
+      "broadcastFacet": true,
+      "groups": [],
+      "label": "Type_E_I_RC_Office_A_1",
+      "numbers": [],
+      "query": "q = load \"Clients_Assisted_2018_YTD\";\nresult = group q by ('Type_E_I', 'RC_Office', 'Assigned_to_Contributor_Name');\nresult = foreach result generate q.'Type_E_I' as 'Type_E_I', q.'RC_Office' as 'RC_Office', q.'Assigned_to_Contributor_Name' as 'Assigned_to_Contributor_Name', unique(q.'Organization_ID') as 'A';\nresult = order result by ('Type_E_I' asc, 'RC_Office' asc, 'Assigned_to_Contributor_Name' asc);\nresult = limit result 200000;",
+      "receiveFacet": true,
+      "selectMode": "single",
+      "strings": [],
+      "type": "saql",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "parameters": {
+          "borderColor": "#e0e5ee",
+          "borderWidth": 1,
+          "cell": {
+            "backgroundColor": "#ffffff",
+            "fontColor": "#16325c",
+            "fontSize": 12
+          },
+          "columnProperties": {},
+          "columns": [],
+          "customBulkActions": [],
+          "header": {
+            "backgroundColor": "#f4f6f9",
+            "fontColor": "#16325c",
+            "fontSize": 12
+          },
+          "innerMajorBorderColor": "#a8b7c7",
+          "innerMinorBorderColor": "#e0e5ee",
+          "maxColumnWidth": 300,
+          "minColumnWidth": 40,
+          "mode": "variable",
+          "numberOfLines": 1,
+          "pivoted": false,
+          "showActionMenu": true,
+          "totals": true,
+          "verticalPadding": 8
+        },
+        "type": "table"
+      }
+    },
+    "RC_Office_Assigned_t_3": {
+      "broadcastFacet": true,
+      "groups": [],
+      "label": "RC_Office_Assigned_t_3",
+      "numbers": [],
+      "query": "q = load \"Clients_Assisted_2018_YTD\";\nresult = group q by ('Type_E_I', 'RC_Office', 'Assigned_to_Contributor_Name', 'Organization_Name');\nresult = foreach result generate q.'Type_E_I' as 'Type_E_I', q.'RC_Office' as 'RC_Office', q.'Assigned_to_Contributor_Name' as 'Assigned_to_Contributor_Name', q.'Organization_Name' as 'Organization_Name', unique(q.'Organization_ID') as 'A';\nresult = order result by ('Type_E_I' asc, 'RC_Office' asc, 'Assigned_to_Contributor_Name' asc, 'Organization_Name' asc);\nresult = limit result 200000;",
+      "receiveFacet": true,
+      "selectMode": "single",
+      "strings": [],
+      "type": "saql",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "parameters": {
+          "borderColor": "#e0e5ee",
+          "borderWidth": 1,
+          "cell": {
+            "backgroundColor": "#ffffff",
+            "fontColor": "#16325c",
+            "fontSize": 12
+          },
+          "columnProperties": {},
+          "columns": [],
+          "customBulkActions": [],
+          "header": {
+            "backgroundColor": "#f4f6f9",
+            "fontColor": "#16325c",
+            "fontSize": 12
+          },
+          "innerMajorBorderColor": "#a8b7c7",
+          "innerMinorBorderColor": "#e0e5ee",
+          "maxColumnWidth": 300,
+          "minColumnWidth": 40,
+          "mode": "variable",
+          "numberOfLines": 1,
+          "pivoted": false,
+          "showActionMenu": true,
+          "totals": true,
+          "verticalPadding": 8
+        },
+        "type": "table"
+      }
+    }
+  },
+  "widgetStyle": {
+    "backgroundColor": "#FFFFFF",
+    "borderColor": "#E6ECF2",
+    "borderEdges": [],
+    "borderRadius": 0,
+    "borderWidth": 1
+  },
+  "widgets": {
+    "text_1": {
+      "parameters": {
+        "fontSize": 16,
+        "showActionMenu": true,
+        "text": "2019 Clients Assisted through June",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "table_1": {
+      "parameters": {
+        "borderColor": "#e0e5ee",
+        "borderWidth": 1,
+        "cell": {
+          "backgroundColor": "#ffffff",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "columnProperties": {},
+        "columns": [],
+        "customBulkActions": [],
+        "exploreLink": true,
+        "header": {
+          "backgroundColor": "#f4f6f9",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "innerMajorBorderColor": "#a8b7c7",
+        "innerMinorBorderColor": "#e0e5ee",
+        "mode": "fittocontainer",
+        "numberOfLines": 1,
+        "pivoted": true,
+        "showActionMenu": true,
+        "showRowIndexColumn": false,
+        "step": "Totals_1",
+        "verticalPadding": 8
+      },
+      "type": "table"
+    },
+    "table_10": {
+      "parameters": {
+        "borderColor": "#e0e5ee",
+        "borderWidth": 1,
+        "cell": {
+          "backgroundColor": "#ffffff",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "columnProperties": {},
+        "columns": [],
+        "customBulkActions": [],
+        "exploreLink": true,
+        "header": {
+          "backgroundColor": "#f4f6f9",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "innerMajorBorderColor": "#a8b7c7",
+        "innerMinorBorderColor": "#e0e5ee",
+        "maxColumnWidth": 300,
+        "minColumnWidth": 40,
+        "mode": "variable",
+        "numberOfLines": 1,
+        "pivoted": false,
+        "showActionMenu": true,
+        "step": "RC_Office_Assigned_t_2",
+        "totals": true,
+        "verticalPadding": 8
+      },
+      "type": "table"
+    },
+    "table_2": {
+      "parameters": {
+        "borderColor": "#e0e5ee",
+        "borderWidth": 1,
+        "cell": {
+          "backgroundColor": "#ffffff",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "columnProperties": {},
+        "columns": [],
+        "customBulkActions": [],
+        "exploreLink": true,
+        "header": {
+          "backgroundColor": "#f4f6f9",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "innerMajorBorderColor": "#a8b7c7",
+        "innerMinorBorderColor": "#e0e5ee",
+        "mode": "fittocontainer",
+        "numberOfLines": 1,
+        "pivoted": true,
+        "showActionMenu": true,
+        "showRowIndexColumn": false,
+        "step": "2019_by_region_1",
+        "verticalPadding": 4
+      },
+      "type": "table"
+    },
+    "table_11": {
+      "parameters": {
+        "borderColor": "#e0e5ee",
+        "borderWidth": 1,
+        "cell": {
+          "backgroundColor": "#ffffff",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "columnProperties": {},
+        "columns": [],
+        "customBulkActions": [],
+        "exploreLink": true,
+        "header": {
+          "backgroundColor": "#f4f6f9",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "innerMajorBorderColor": "#a8b7c7",
+        "innerMinorBorderColor": "#e0e5ee",
+        "maxColumnWidth": 300,
+        "minColumnWidth": 40,
+        "mode": "variable",
+        "numberOfLines": 1,
+        "pivoted": false,
+        "showActionMenu": true,
+        "step": "RC_Office_Assigned_t_3",
+        "totals": true,
+        "verticalPadding": 8
+      },
+      "type": "table"
+    },
+    "table_3": {
+      "parameters": {
+        "borderColor": "#e0e5ee",
+        "borderWidth": 1,
+        "cell": {
+          "backgroundColor": "#ffffff",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "columnProperties": {},
+        "columns": [],
+        "customBulkActions": [],
+        "exploreLink": true,
+        "header": {
+          "backgroundColor": "#f4f6f9",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "innerMajorBorderColor": "#a8b7c7",
+        "innerMinorBorderColor": "#e0e5ee",
+        "mode": "fittocontainer",
+        "numberOfLines": 1,
+        "pivoted": true,
+        "showActionMenu": true,
+        "showRowIndexColumn": false,
+        "step": "Type_E_I_1",
+        "verticalPadding": 8
+      },
+      "type": "table"
+    },
+    "table_12": {
+      "parameters": {
+        "borderColor": "#e0e5ee",
+        "borderWidth": 1,
+        "cell": {
+          "backgroundColor": "#ffffff",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "columnProperties": {},
+        "columns": [],
+        "customBulkActions": [],
+        "exploreLink": true,
+        "header": {
+          "backgroundColor": "#f4f6f9",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "innerMajorBorderColor": "#a8b7c7",
+        "innerMinorBorderColor": "#e0e5ee",
+        "maxColumnWidth": 300,
+        "minColumnWidth": 40,
+        "mode": "variable",
+        "numberOfLines": 1,
+        "pivoted": false,
+        "showActionMenu": true,
+        "step": "Type_E_I_RC_Office_A_1",
+        "totals": true,
+        "verticalPadding": 8
+      },
+      "type": "table"
+    },
+    "table_4": {
+      "parameters": {
+        "borderColor": "#e0e5ee",
+        "borderWidth": 1,
+        "cell": {
+          "backgroundColor": "#ffffff",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "columnProperties": {},
+        "columns": [],
+        "customBulkActions": [],
+        "exploreLink": true,
+        "header": {
+          "backgroundColor": "#f4f6f9",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "innerMajorBorderColor": "#a8b7c7",
+        "innerMinorBorderColor": "#e0e5ee",
+        "maxColumnWidth": 300,
+        "minColumnWidth": 40,
+        "mode": "variable",
+        "numberOfLines": 1,
+        "pivoted": true,
+        "showActionMenu": true,
+        "showRowIndexColumn": false,
+        "step": "RC_DAS_Type_E_I_1",
+        "verticalPadding": 4
+      },
+      "type": "table"
+    },
+    "table_13": {
+      "parameters": {
+        "borderColor": "#e0e5ee",
+        "borderWidth": 1,
+        "cell": {
+          "backgroundColor": "#ffffff",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "columnProperties": {},
+        "columns": [],
+        "customBulkActions": [],
+        "exploreLink": true,
+        "header": {
+          "backgroundColor": "#f4f6f9",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "innerMajorBorderColor": "#a8b7c7",
+        "innerMinorBorderColor": "#e0e5ee",
+        "maxColumnWidth": 300,
+        "minColumnWidth": 40,
+        "mode": "variable",
+        "numberOfLines": 1,
+        "pivoted": false,
+        "showActionMenu": true,
+        "showRowIndexColumn": false,
+        "step": "Type_E_I_RC_Office_2",
+        "totals": true,
+        "verticalPadding": 8
+      },
+      "type": "table"
+    },
+    "table_5": {
+      "parameters": {
+        "borderColor": "#e0e5ee",
+        "borderWidth": 1,
+        "cell": {
+          "backgroundColor": "#ffffff",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "columnProperties": {},
+        "columns": [],
+        "customBulkActions": [],
+        "exploreLink": true,
+        "header": {
+          "backgroundColor": "#f4f6f9",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "innerMajorBorderColor": "#a8b7c7",
+        "innerMinorBorderColor": "#e0e5ee",
+        "maxColumnWidth": 300,
+        "minColumnWidth": 40,
+        "mode": "variable",
+        "numberOfLines": 1,
+        "pivoted": true,
+        "showActionMenu": true,
+        "showRowIndexColumn": false,
+        "step": "RC_Sub_Region_Networ_1",
+        "verticalPadding": 4
+      },
+      "type": "table"
+    },
+    "table_14": {
+      "parameters": {
+        "borderColor": "#e0e5ee",
+        "borderWidth": 1,
+        "cell": {
+          "backgroundColor": "#ffffff",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "columnProperties": {},
+        "columns": [],
+        "customBulkActions": [],
+        "exploreLink": true,
+        "header": {
+          "backgroundColor": "#f4f6f9",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "innerMajorBorderColor": "#a8b7c7",
+        "innerMinorBorderColor": "#e0e5ee",
+        "maxColumnWidth": 300,
+        "minColumnWidth": 40,
+        "mode": "variable",
+        "numberOfLines": 1,
+        "pivoted": false,
+        "showActionMenu": true,
+        "showRowIndexColumn": false,
+        "step": "Type_E_I_RC_DAS_RC_C_1",
+        "totals": true,
+        "verticalPadding": 8
+      },
+      "type": "table"
+    },
+    "table_6": {
+      "parameters": {
+        "borderColor": "#e0e5ee",
+        "borderWidth": 1,
+        "cell": {
+          "backgroundColor": "#ffffff",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "columnProperties": {},
+        "columns": [],
+        "customBulkActions": [],
+        "exploreLink": true,
+        "header": {
+          "backgroundColor": "#f4f6f9",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "innerMajorBorderColor": "#a8b7c7",
+        "innerMinorBorderColor": "#e0e5ee",
+        "maxColumnWidth": 300,
+        "minColumnWidth": 40,
+        "mode": "variable",
+        "numberOfLines": 1,
+        "pivoted": true,
+        "showActionMenu": true,
+        "showRowIndexColumn": false,
+        "step": "RC_Sub_Region_Networ_2",
+        "verticalPadding": 4
+      },
+      "type": "table"
+    },
+    "table_7": {
+      "parameters": {
+        "borderColor": "#e0e5ee",
+        "borderWidth": 1,
+        "cell": {
+          "backgroundColor": "#ffffff",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "columnProperties": {},
+        "columns": [],
+        "customBulkActions": [],
+        "exploreLink": true,
+        "header": {
+          "backgroundColor": "#f4f6f9",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "innerMajorBorderColor": "#a8b7c7",
+        "innerMinorBorderColor": "#e0e5ee",
+        "maxColumnWidth": 300,
+        "minColumnWidth": 40,
+        "mode": "variable",
+        "numberOfLines": 1,
+        "pivoted": false,
+        "showActionMenu": true,
+        "showRowIndexColumn": false,
+        "step": "RC_DAS_RC_Country_St_1",
+        "verticalPadding": 8
+      },
+      "type": "table"
+    },
+    "table_8": {
+      "parameters": {
+        "borderColor": "#e0e5ee",
+        "borderWidth": 1,
+        "cell": {
+          "backgroundColor": "#ffffff",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "columnProperties": {},
+        "columns": [],
+        "customBulkActions": [],
+        "exploreLink": true,
+        "header": {
+          "backgroundColor": "#f4f6f9",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "innerMajorBorderColor": "#a8b7c7",
+        "innerMinorBorderColor": "#e0e5ee",
+        "maxColumnWidth": 300,
+        "minColumnWidth": 40,
+        "mode": "variable",
+        "numberOfLines": 1,
+        "pivoted": false,
+        "showActionMenu": true,
+        "showRowIndexColumn": false,
+        "step": "Type_E_I_RC_Office_1",
+        "totals": true,
+        "verticalPadding": 8
+      },
+      "type": "table"
+    },
+    "table_9": {
+      "parameters": {
+        "borderColor": "#e0e5ee",
+        "borderWidth": 1,
+        "cell": {
+          "backgroundColor": "#ffffff",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "columnProperties": {},
+        "columns": [],
+        "customBulkActions": [],
+        "exploreLink": true,
+        "header": {
+          "backgroundColor": "#f4f6f9",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "innerMajorBorderColor": "#a8b7c7",
+        "innerMinorBorderColor": "#e0e5ee",
+        "maxColumnWidth": 300,
+        "minColumnWidth": 40,
+        "mode": "variable",
+        "numberOfLines": 1,
+        "pivoted": false,
+        "showActionMenu": true,
+        "step": "RC_Office_Assigned_t_1",
+        "totals": true,
+        "verticalPadding": 8
+      },
+      "type": "table"
+    },
+    "text_2": {
+      "parameters": {
+        "fontSize": 16,
+        "showActionMenu": true,
+        "text": "2018 Clients Assisted through June",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    }
+  }
+}
