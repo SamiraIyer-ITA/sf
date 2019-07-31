@@ -70,6 +70,7 @@ types=" approvalProcess  \
         trigger \
 	wapp \
 	wdash \
+	wdf \
 	wds \
 	wlens \
         workflow \
