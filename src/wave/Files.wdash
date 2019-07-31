@@ -7,7 +7,7 @@
       "numColumns": 18,
       "pages": [
         {
-          "name": "0832736e-8dab-4d8c-a097-cebcf98daac7",
+          "name": "9643b375-6733-4252-aba7-d638e90bb705",
           "navigationHidden": false,
           "widgets": [
             {
@@ -380,7 +380,7 @@
       "numColumns": 4,
       "pages": [
         {
-          "name": "0832736e-8dab-4d8c-a097-cebcf98daac7",
+          "name": "9643b375-6733-4252-aba7-d638e90bb705",
           "navigationHidden": false,
           "widgets": [
             {
@@ -1161,6 +1161,7 @@
     "text_3": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "How Many File Transactions Are Occurring in My Org?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1178,6 +1179,7 @@
     "text_2": {
       "parameters": {
         "fontSize": 16,
+        "showActionMenu": true,
         "text": "Shows content and Chatter file access from Content Transfer event data. Use this dashboard to track user access of files in your org.",
         "textAlignment": "left",
         "textColor": "#FFFFFF"
@@ -1195,6 +1197,7 @@
     "text_5": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Which File Transactions by File Type Occur the Most?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1204,6 +1207,7 @@
     "text_4": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Which Public Files Are Most Accessed?",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1242,6 +1246,7 @@
         },
         "totalLabel": "",
         "fillArea": true,
+        "showActionMenu": true,
         "showZero": true,
         "measureAxis2": {
           "sqrtScale": false,
@@ -1263,6 +1268,7 @@
     "text_6": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Raw Log Data",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1272,7 +1278,6 @@
     "chart_1": {
       "parameters": {
         "totalValue": "computeTotal",
-        "totalLabel": "",
         "showMeasureTitle": true,
         "legend": {
           "showHeader": true,
@@ -1281,10 +1286,7 @@
           "position": "right-top",
           "inside": false
         },
-        "showTotal": true,
         "visualizationType": "pie",
-        "theme": "wave",
-        "step": "TransactionsByFileTy_1",
         "exploreLink": true,
         "title": {
           "label": "",
@@ -1296,7 +1298,12 @@
           "type": "x",
           "chartsPerLine": 4
         },
-        "inner": 70
+        "inner": 70,
+        "totalLabel": "",
+        "showActionMenu": true,
+        "showTotal": true,
+        "theme": "wave",
+        "step": "TransactionsByFileTy_1"
       },
       "type": "chart"
     },
@@ -1304,6 +1311,7 @@
       "parameters": {
         "totalValue": "computeTotal",
         "totalLabel": "",
+        "showActionMenu": true,
         "legend": {
           "showHeader": true,
           "show": true,
@@ -1348,6 +1356,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "FileTypes_1",
         "title": "File Types"
       },
@@ -1359,6 +1368,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "TransactionTypes_1",
         "title": "Transaction Types"
       },
@@ -1370,6 +1380,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "unique_USER_ID",
+        "showActionMenu": false,
         "step": "TotalUsers_1",
         "title": "Users"
       },
@@ -1381,6 +1392,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Profiles_1",
         "title": "Profiles"
       },
@@ -1389,6 +1401,7 @@
     "text_1": {
       "parameters": {
         "fontSize": 64,
+        "showActionMenu": true,
         "text": "Files",
         "textAlignment": "center",
         "textColor": "#091A3E"
@@ -1401,6 +1414,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Titles_1",
         "title": "Titles"
       },
@@ -1412,6 +1426,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Roles_1",
         "title": "Roles"
       },
@@ -1423,6 +1438,7 @@
         "columns": [],
         "customBulkActions": [],
         "exploreLink": true,
+        "showActionMenu": true,
         "step": "RawLogData_1"
       },
       "type": "table"
@@ -1434,6 +1450,7 @@
         "measureField": "max_SIZE_BYTES",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "MaxSize_1",
         "textAlignment": "left",
         "title": "Max File Size (Bytes)",
@@ -1449,6 +1466,7 @@
         "measureField": "unique_FILE_TYPE",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "TotalFileTypes_1",
         "textAlignment": "left",
         "title": "File Types",
@@ -1464,6 +1482,7 @@
         "measureField": "avg_SIZE_BYTES",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "AvgSize_1",
         "textAlignment": "left",
         "title": "Avg File Size (Bytes)",
@@ -1479,6 +1498,7 @@
         "measureField": "count",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "Users_1",
         "textAlignment": "left",
         "title": "Unique Users",
@@ -1494,6 +1514,7 @@
         "measureField": "count",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "TotalTransactions_1",
         "textAlignment": "left",
         "title": "Total Transactions",
@@ -1508,6 +1529,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Dates_1",
         "title": "Dates"
       },

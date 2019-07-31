@@ -48,7 +48,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Termination_Date__c</field>
+                <field>Effective_Date_of_Termination__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -158,11 +158,19 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
+        <excludeButtons>MassChangeOwner</excludeButtons>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
+        <fields>Status__c</fields>
+        <fields>Period_Covered_Start_Date__c</fields>
+        <fields>Period_Covered_End_Date__c</fields>
+        <fields>Product_Description__c</fields>
+        <fields>Calculated_Preliminary_Signature__c</fields>
+        <fields>Calculated_Final_Signature__c</fields>
         <relatedList>Segment__c.Suspension_Agreement__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>MassChangeOwner</excludeButtons>
         <fields>NAME</fields>
         <fields>ADCVD_Case__c</fields>
         <fields>CBP_Case_Number_Text__c</fields>
@@ -174,14 +182,18 @@
         <relatedList>Custom_Instruction__c.Suspension_Agreement__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>MassChangeOwner</excludeButtons>
         <fields>NAME</fields>
+        <fields>HTS_Number_Formatted__c</fields>
         <relatedList>Harmonized_Tariff_Schedule__c.Suspension_Agreement__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>MassChangeOwner</excludeButtons>
         <fields>NAME</fields>
         <fields>Type__c</fields>
         <fields>Cite_Number__c</fields>
         <fields>Published_Date__c</fields>
+        <fields>FR_URL__c</fields>
         <relatedList>Federal_Register__c.Suspension_Agreement__c</relatedList>
     </relatedLists>
     <relatedLists>

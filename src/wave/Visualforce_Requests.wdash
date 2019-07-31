@@ -7,7 +7,7 @@
       "numColumns": 18,
       "pages": [
         {
-          "name": "4576a346-200f-4915-8988-03da33c0821a",
+          "name": "e61b5b15-7092-4fed-870a-4b944d30fb1b",
           "navigationHidden": false,
           "widgets": [
             {
@@ -438,7 +438,7 @@
       "numColumns": 4,
       "pages": [
         {
-          "name": "4576a346-200f-4915-8988-03da33c0821a",
+          "name": "e61b5b15-7092-4fed-870a-4b944d30fb1b",
           "navigationHidden": false,
           "widgets": [
             {
@@ -1322,6 +1322,7 @@
     "text_3": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Page Hits by Name",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1339,6 +1340,7 @@
     "text_2": {
       "parameters": {
         "fontSize": 16,
+        "showActionMenu": true,
         "text": "Summary.",
         "textAlignment": "left",
         "textColor": "#FFFFFF"
@@ -1356,6 +1358,7 @@
     "text_5": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "AppExchange Adoption",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1365,6 +1368,7 @@
     "text_4": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Visualforce Performance",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1383,6 +1387,7 @@
       "parameters": {
         "totalValue": "computeTotal",
         "totalLabel": "",
+        "showActionMenu": true,
         "legend": {
           "showHeader": true,
           "show": true,
@@ -1424,6 +1429,7 @@
     "text_6": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Visualforce Prioritization",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1477,6 +1483,7 @@
           "chartsPerLine": 4
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,
@@ -1532,6 +1539,7 @@
         },
         "totalLabel": "",
         "fillArea": true,
+        "showActionMenu": true,
         "showZero": true,
         "measureAxis2": {
           "sqrtScale": false,
@@ -1553,6 +1561,7 @@
     "text_8": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Raw Log Data",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1585,6 +1594,7 @@
           "chartsPerLine": 4
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,
@@ -1615,6 +1625,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Dates",
         "title": "Dates"
       },
@@ -1626,6 +1637,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Profiles",
         "title": "Profiles"
       },
@@ -1637,6 +1649,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Status",
         "title": "Status"
       },
@@ -1648,6 +1661,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Users",
         "title": "Users"
       },
@@ -1659,6 +1673,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "PageNames",
         "title": "Page Names"
       },
@@ -1671,6 +1686,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "PackageNamespaces",
         "title": "AppExchange Packages"
       },
@@ -1679,6 +1695,7 @@
     "text_1": {
       "parameters": {
         "fontSize": 64,
+        "showActionMenu": true,
         "text": "Visualforce Requests",
         "textAlignment": "center",
         "textColor": "#091A3E"
@@ -1691,6 +1708,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Roles",
         "title": "Roles"
       },
@@ -1702,6 +1720,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "IPs",
         "title": "IPs"
       },
@@ -1713,6 +1732,7 @@
         "columns": [],
         "customBulkActions": [],
         "exploreLink": true,
+        "showActionMenu": true,
         "step": "RawLogData"
       },
       "type": "table"
@@ -1724,6 +1744,7 @@
         "measureField": "count",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "NumberPageHits",
         "textAlignment": "left",
         "title": "Total Page Hits",
@@ -1739,6 +1760,7 @@
         "measureField": "unique_USER_ID",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "TotalUsers",
         "textAlignment": "left",
         "title": "Total Users",
@@ -1754,6 +1776,7 @@
         "measureField": "avg_RUN_TIME",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "AvgAPT",
         "textAlignment": "left",
         "title": "Avg APT",
@@ -1769,6 +1792,7 @@
         "measureField": "max_RUN_TIME",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "MaxAPT",
         "textAlignment": "left",
         "title": "Max APT",
@@ -1784,6 +1808,7 @@
         "measureField": "max_VIEW_STATE_SIZE",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "MaxViewState",
         "textAlignment": "left",
         "title": "Max View State Size",
@@ -1798,6 +1823,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "HTTPMethod",
         "title": "HTTP Method"
       },

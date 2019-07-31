@@ -46,6 +46,17 @@
     </actionOverrides>
     <allowInChatterGroups>true</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>Recusal</fullName>
+        <fields>Name</fields>
+        <fields>ADCVD_Case__c</fields>
+        <fields>User__c</fields>
+        <fields>Product_Text__c</fields>
+        <fields>Country_Text__c</fields>
+        <fields>Start_Date__c</fields>
+        <fields>End_Date__c</fields>
+        <label>Recusal</label>
+    </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
@@ -53,7 +64,7 @@
     <enableHistory>true</enableHistory>
     <enableLicensing>false</enableLicensing>
     <enableReports>true</enableReports>
-    <enableSearch>false</enableSearch>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
@@ -369,33 +380,6 @@
         <filterScope>Everything</filterScope>
         <label>All</label>
     </listViews>
-    <listViews>
-        <fullName>Recusals_ClosedLocked_Queue_Recusal</fullName>
-        <filterScope>Queue</filterScope>
-        <label>Recusals-ClosedLocked Queue</label>
-        <queue>Recusals_ClosedLocked_Queue</queue>
-        <sharedTo>
-            <allInternalUsers></allInternalUsers>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>Recusals_MigratedClosedLocked_Queue_Recusal</fullName>
-        <filterScope>Queue</filterScope>
-        <label>Recusals-MigratedClosedLocked Queue</label>
-        <queue>Recusals_MigratedClosedLocked_Queue</queue>
-        <sharedTo>
-            <allInternalUsers></allInternalUsers>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>Recusals_Open_Queue_Recusal</fullName>
-        <filterScope>Queue</filterScope>
-        <label>Recusals-Open Queue</label>
-        <queue>Recusals_Open_Queue</queue>
-        <sharedTo>
-            <allInternalUsers></allInternalUsers>
-        </sharedTo>
-    </listViews>
     <nameField>
         <displayFormat>R-{000000}</displayFormat>
         <label>Recusal Name</label>
@@ -407,16 +391,26 @@
     <recordTypes>
         <fullName>Primary</fullName>
         <active>true</active>
+        <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
         <description>Primary recusals with details about the recusal</description>
         <label>Primary</label>
     </recordTypes>
     <recordTypes>
         <fullName>Related</fullName>
         <active>false</active>
+        <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
         <description>Recusals that link a primary recusal and a record</description>
         <label>Related</label>
     </recordTypes>
-    <searchLayouts/>
+    <searchLayouts>
+        <searchResultsAdditionalFields>ADCVD_Case__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>User__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Product_Text__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Country_Text__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Start_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>End_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Reason_for_Recusal__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
         <fullName>Cannot_Edit_Locked_Record</fullName>
@@ -448,7 +442,7 @@ $Profile.Name
     </validationRules>
     <validationRules>
         <fullName>Related_Recusal_must_have_a_primary</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND(RecordType.DeveloperName = &apos;Related&apos;,
      Primary_Recusal_Aligned_To__c  = null
 ))</errorConditionFormula>
@@ -456,7 +450,7 @@ $Profile.Name
     </validationRules>
     <validationRules>
         <fullName>Related_Recusal_one_parent_Investigation</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND(
 	RecordType.DeveloperName = &apos;Related&apos;,
 	OR(
@@ -498,7 +492,7 @@ $Profile.Name
     </validationRules>
     <validationRules>
         <fullName>Related_Recusal_one_parent_Litigation</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND(
 	RecordType.DeveloperName = &apos;Related&apos;,
 	OR(
@@ -532,7 +526,7 @@ $Profile.Name
     </validationRules>
     <validationRules>
         <fullName>Related_Recusal_one_parent_Petition</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND(
 	RecordType.DeveloperName = &apos;Related&apos;,
 	OR(
@@ -558,7 +552,7 @@ $Profile.Name
     </validationRules>
     <validationRules>
         <fullName>Related_Recusal_one_parent_rel_org</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND(
 	RecordType.DeveloperName = &apos;Related&apos;,
 	OR(
@@ -576,7 +570,7 @@ $Profile.Name
     </validationRules>
     <validationRules>
         <fullName>Related_Recusals_must_have_a_parent</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND(RecordType.DeveloperName = &apos;Related&apos;,
 ADCVD_Order__c = null,
  Investigation__c = null,
@@ -589,7 +583,7 @@ ADCVD_Order__c = null,
     </validationRules>
     <validationRules>
         <fullName>Related_Recusals_one_parent_ADCVD_Order</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND($Setup.Master_Automation__c.ValidationRulesEnabled__c == true, Locked__c == false,AND(
 	RecordType.DeveloperName = &apos;Related&apos;,
 	OR(

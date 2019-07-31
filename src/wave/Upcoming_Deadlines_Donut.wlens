@@ -52,6 +52,7 @@
         },
         "inner": 60,
         "totalLabel": "",
+        "showActionMenu": true,
         "centerValueType": "number",
         "valueType": "compactNumber",
         "step": "aggregateflex",

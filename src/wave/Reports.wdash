@@ -7,7 +7,7 @@
       "numColumns": 18,
       "pages": [
         {
-          "name": "3bc4a21e-1bfd-4d40-8309-2942c6c77e7f",
+          "name": "e7f5a744-d87c-42cc-87dd-9331ed871aab",
           "navigationHidden": false,
           "widgets": [
             {
@@ -396,7 +396,7 @@
       "numColumns": 4,
       "pages": [
         {
-          "name": "3bc4a21e-1bfd-4d40-8309-2942c6c77e7f",
+          "name": "e7f5a744-d87c-42cc-87dd-9331ed871aab",
           "navigationHidden": false,
           "widgets": [
             {
@@ -1190,6 +1190,7 @@
         "measureField": "max_DB_TOTAL_TIME",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "MaxDBTime",
         "textAlignment": "left",
         "title": "Max DB Time",
@@ -1205,6 +1206,7 @@
         "measureField": "max_CPU_TIME",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "MaxCPUTime",
         "textAlignment": "left",
         "title": "Max CPU Time",
@@ -1220,6 +1222,7 @@
         "measureField": "max_RUN_TIME",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "MaxAPT",
         "textAlignment": "left",
         "title": "Max APT",
@@ -1235,6 +1238,7 @@
         "measureField": "max_NUMBER_COLUMNS",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "MaxColumns",
         "textAlignment": "left",
         "title": "Max Columns",
@@ -1278,6 +1282,7 @@
     "text_3": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Report Trends by User",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1295,6 +1300,7 @@
     "text_5": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Report Performance",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1312,6 +1318,7 @@
     "text_4": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Reports Names by User",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1322,6 +1329,7 @@
       "parameters": {
         "totalValue": "computeTotal",
         "totalLabel": "",
+        "showActionMenu": true,
         "legend": {
           "showHeader": true,
           "show": true,
@@ -1363,6 +1371,7 @@
     "text_7": {
       "parameters": {
         "fontSize": 16,
+        "showActionMenu": true,
         "text": "Report Usage Trends",
         "textAlignment": "left",
         "textColor": "#FFFFFF"
@@ -1401,6 +1410,7 @@
         },
         "totalLabel": "",
         "fillArea": true,
+        "showActionMenu": true,
         "showZero": true,
         "measureAxis2": {
           "sqrtScale": false,
@@ -1422,6 +1432,7 @@
     "text_6": {
       "parameters": {
         "fontSize": 20,
+        "showActionMenu": true,
         "text": "Raw Log Data",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1454,6 +1465,7 @@
           "chartsPerLine": 4
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,
@@ -1484,6 +1496,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Status",
         "title": "Status"
       },
@@ -1495,6 +1508,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "ReportNames",
         "title": "Report Names"
       },
@@ -1506,6 +1520,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Roles",
         "title": "Roles"
       },
@@ -1517,6 +1532,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "UserNames",
         "title": "Users"
       },
@@ -1528,6 +1544,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "IPs",
         "title": "IPs"
       },
@@ -1536,6 +1553,7 @@
     "text_1": {
       "parameters": {
         "fontSize": 48,
+        "showActionMenu": true,
         "text": "Reports",
         "textAlignment": "center",
         "textColor": "#091A3E"
@@ -1548,6 +1566,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Profiles",
         "title": "Profiles"
       },
@@ -1559,6 +1578,7 @@
         "columns": [],
         "customBulkActions": [],
         "exploreLink": true,
+        "showActionMenu": true,
         "step": "RawLogData"
       },
       "type": "table"
@@ -1570,6 +1590,7 @@
         "measureField": "count",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "UnsavedReports",
         "textAlignment": "left",
         "title": "Unsaved Reports",
@@ -1585,6 +1606,7 @@
         "measureField": "unique_REPORT_ID",
         "numberColor": "#FFFFFF",
         "numberSize": 32,
+        "showActionMenu": true,
         "step": "SavedReports",
         "textAlignment": "left",
         "title": "Saved Reports",
@@ -1599,6 +1621,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Dates",
         "title": "Dates"
       },

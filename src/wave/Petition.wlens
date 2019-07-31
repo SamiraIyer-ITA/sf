@@ -61,6 +61,7 @@
         "totalLabel": "",
         "high": 5,
         "min": 0,
+        "showActionMenu": true,
         "valueType": "compactNumber",
         "step": "aggregateflex",
         "theme": "wave"

@@ -852,6 +852,7 @@
     "text_13": {
       "parameters": {
         "fontSize": 12,
+        "showActionMenu": true,
         "text": "Add some descriptive text here.",
         "textAlignment": "left",
         "textColor": "rgb(125, 152, 179)"
@@ -861,6 +862,7 @@
     "text_10": {
       "parameters": {
         "fontSize": 16,
+        "showActionMenu": true,
         "text": "Chart Title",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -870,6 +872,7 @@
     "text_12": {
       "parameters": {
         "fontSize": 16,
+        "showActionMenu": true,
         "text": "Chart Title",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -879,6 +882,7 @@
     "text_11": {
       "parameters": {
         "fontSize": 16,
+        "showActionMenu": true,
         "text": "Chart Title",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -888,7 +892,8 @@
     "chart_9": {
       "parameters": {
         "totalValue": "computeTotal",
-        "totalLabel": ""
+        "totalLabel": "",
+        "showActionMenu": true
       },
       "type": "chart"
     },
@@ -911,13 +916,15 @@
     "chart_6": {
       "parameters": {
         "totalValue": "computeTotal",
-        "totalLabel": ""
+        "totalLabel": "",
+        "showActionMenu": true
       },
       "type": "chart"
     },
     "text_3": {
       "parameters": {
         "fontSize": 12,
+        "showActionMenu": true,
         "text": "Orgs requested for removal with last activity older than 6 years\n",
         "textAlignment": "left",
         "textColor": "rgb(125, 152, 179)"
@@ -927,6 +934,7 @@
     "text_2": {
       "parameters": {
         "fontSize": 16,
+        "showActionMenu": true,
         "text": "Last Activity Older than 6 years\n",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -944,20 +952,23 @@
     "chart_5": {
       "parameters": {
         "totalValue": "computeTotal",
-        "totalLabel": ""
+        "totalLabel": "",
+        "showActionMenu": true
       },
       "type": "chart"
     },
     "chart_8": {
       "parameters": {
         "totalValue": "computeTotal",
-        "totalLabel": ""
+        "totalLabel": "",
+        "showActionMenu": true
       },
       "type": "chart"
     },
     "text_5": {
       "parameters": {
         "fontSize": 12,
+        "showActionMenu": true,
         "text": "Add some descriptive text here.",
         "textAlignment": "left",
         "textColor": "rgb(125, 152, 179)"
@@ -967,13 +978,15 @@
     "chart_7": {
       "parameters": {
         "totalValue": "computeTotal",
-        "totalLabel": ""
+        "totalLabel": "",
+        "showActionMenu": true
       },
       "type": "chart"
     },
     "text_4": {
       "parameters": {
         "fontSize": 12,
+        "showActionMenu": true,
         "text": "Add some descriptive text here.",
         "textAlignment": "left",
         "textColor": "rgb(125, 152, 179)"
@@ -983,6 +996,7 @@
     "text_7": {
       "parameters": {
         "fontSize": 16,
+        "showActionMenu": true,
         "text": "Chart Title",
         "textAlignment": "left",
         "textColor": "rgb(9, 26, 62)"
@@ -1053,6 +1067,7 @@
           "chartsPerLine": 4
         },
         "totalLabel": "",
+        "showActionMenu": true,
         "measureAxis2": {
           "sqrtScale": false,
           "showTitle": true,
@@ -1093,6 +1108,7 @@
     "text_6": {
       "parameters": {
         "fontSize": 12,
+        "showActionMenu": true,
         "text": "Add some descriptive text here.",
         "textAlignment": "left",
         "textColor": "rgb(125, 152, 179)"
@@ -1102,6 +1118,7 @@
     "text_9": {
       "parameters": {
         "fontSize": 12,
+        "showActionMenu": true,
         "text": "Add some descriptive text here.",
         "textAlignment": "left",
         "textColor": "rgb(125, 152, 179)"
@@ -1111,6 +1128,7 @@
     "text_8": {
       "parameters": {
         "fontSize": 16,
+        "showActionMenu": true,
         "text": "Chart Title",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -1123,6 +1141,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "title": "Title"
       },
       "type": "listselector"
@@ -1133,6 +1152,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "title": "Title"
       },
       "type": "listselector"
@@ -1143,6 +1163,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "title": "Title"
       },
       "type": "listselector"
@@ -1209,6 +1230,7 @@
         "exploreLink": false,
         "instant": true,
         "measureField": "count",
+        "showActionMenu": false,
         "step": "Request_For_Removal__1",
         "title": "True "
       },

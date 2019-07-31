@@ -238,6 +238,7 @@
           "mode": "variable",
           "numberOfLines": 1,
           "pivoted": true,
+          "showActionMenu": true,
           "showRowIndexColumn": false,
           "verticalPadding": 8
         },
@@ -284,6 +285,7 @@
           "mode": "fittocontainer",
           "numberOfLines": 1,
           "pivoted": true,
+          "showActionMenu": true,
           "showRowIndexColumn": false,
           "verticalPadding": 4
         },
@@ -331,6 +333,7 @@
           "mode": "variable",
           "numberOfLines": 1,
           "pivoted": true,
+          "showActionMenu": true,
           "showRowIndexColumn": false,
           "verticalPadding": 8
         },
@@ -378,6 +381,7 @@
           "mode": "variable",
           "numberOfLines": 1,
           "pivoted": true,
+          "showActionMenu": true,
           "showRowIndexColumn": false,
           "verticalPadding": 8
         },
@@ -426,6 +430,7 @@
           "mode": "variable",
           "numberOfLines": 1,
           "pivoted": true,
+          "showActionMenu": true,
           "showRowIndexColumn": false,
           "verticalPadding": 8
         },
@@ -473,6 +478,7 @@
           "mode": "variable",
           "numberOfLines": 1,
           "pivoted": true,
+          "showActionMenu": true,
           "showRowIndexColumn": false,
           "verticalPadding": 8
         },
@@ -519,6 +525,7 @@
           "minColumnWidth": 40,
           "mode": "variable",
           "numberOfLines": 1,
+          "showActionMenu": true,
           "showRowIndexColumn": false,
           "totals": true,
           "verticalPadding": 8
@@ -561,6 +568,7 @@
           "mode": "variable",
           "numberOfLines": 1,
           "pivoted": false,
+          "showActionMenu": true,
           "totals": true,
           "verticalPadding": 8
         },
@@ -608,6 +616,7 @@
           "minColumnWidth": 40,
           "mode": "variable",
           "numberOfLines": 1,
+          "showActionMenu": true,
           "showRowIndexColumn": false,
           "verticalPadding": 8
         },
@@ -649,6 +658,7 @@
           "mode": "variable",
           "numberOfLines": 1,
           "pivoted": false,
+          "showActionMenu": true,
           "totals": true,
           "verticalPadding": 8
         },
@@ -695,6 +705,7 @@
           "minColumnWidth": 40,
           "mode": "variable",
           "numberOfLines": 1,
+          "showActionMenu": true,
           "showRowIndexColumn": false,
           "totals": true,
           "verticalPadding": 8
@@ -742,6 +753,7 @@
           "minColumnWidth": 40,
           "mode": "variable",
           "numberOfLines": 1,
+          "showActionMenu": true,
           "showRowIndexColumn": false,
           "totals": true,
           "verticalPadding": 8
@@ -784,6 +796,7 @@
           "mode": "variable",
           "numberOfLines": 1,
           "pivoted": false,
+          "showActionMenu": true,
           "totals": true,
           "verticalPadding": 8
         },
@@ -825,6 +838,7 @@
           "mode": "variable",
           "numberOfLines": 1,
           "pivoted": false,
+          "showActionMenu": true,
           "totals": true,
           "verticalPadding": 8
         },
@@ -843,6 +857,7 @@
     "text_1": {
       "parameters": {
         "fontSize": 16,
+        "showActionMenu": true,
         "text": "2019 Clients Assisted through June",
         "textAlignment": "left",
         "textColor": "#091A3E"
@@ -872,6 +887,7 @@
         "mode": "fittocontainer",
         "numberOfLines": 1,
         "pivoted": true,
+        "showActionMenu": true,
         "showRowIndexColumn": false,
         "step": "Totals_1",
         "verticalPadding": 8
@@ -903,6 +919,7 @@
         "mode": "variable",
         "numberOfLines": 1,
         "pivoted": false,
+        "showActionMenu": true,
         "step": "RC_Office_Assigned_t_2",
         "totals": true,
         "verticalPadding": 8
@@ -932,6 +949,7 @@
         "mode": "fittocontainer",
         "numberOfLines": 1,
         "pivoted": true,
+        "showActionMenu": true,
         "showRowIndexColumn": false,
         "step": "2019_by_region_1",
         "verticalPadding": 4
@@ -963,6 +981,7 @@
         "mode": "variable",
         "numberOfLines": 1,
         "pivoted": false,
+        "showActionMenu": true,
         "step": "RC_Office_Assigned_t_3",
         "totals": true,
         "verticalPadding": 8
@@ -992,6 +1011,7 @@
         "mode": "fittocontainer",
         "numberOfLines": 1,
         "pivoted": true,
+        "showActionMenu": true,
         "showRowIndexColumn": false,
         "step": "Type_E_I_1",
         "verticalPadding": 8
@@ -1023,6 +1043,7 @@
         "mode": "variable",
         "numberOfLines": 1,
         "pivoted": false,
+        "showActionMenu": true,
         "step": "Type_E_I_RC_Office_A_1",
         "totals": true,
         "verticalPadding": 8
@@ -1054,6 +1075,7 @@
         "mode": "variable",
         "numberOfLines": 1,
         "pivoted": true,
+        "showActionMenu": true,
         "showRowIndexColumn": false,
         "step": "RC_DAS_Type_E_I_1",
         "verticalPadding": 4
@@ -1085,6 +1107,7 @@
         "mode": "variable",
         "numberOfLines": 1,
         "pivoted": false,
+        "showActionMenu": true,
         "showRowIndexColumn": false,
         "step": "Type_E_I_RC_Office_2",
         "totals": true,
@@ -1117,6 +1140,7 @@
         "mode": "variable",
         "numberOfLines": 1,
         "pivoted": true,
+        "showActionMenu": true,
         "showRowIndexColumn": false,
         "step": "RC_Sub_Region_Networ_1",
         "verticalPadding": 4
@@ -1148,6 +1172,7 @@
         "mode": "variable",
         "numberOfLines": 1,
         "pivoted": false,
+        "showActionMenu": true,
         "showRowIndexColumn": false,
         "step": "Type_E_I_RC_DAS_RC_C_1",
         "totals": true,
@@ -1180,6 +1205,7 @@
         "mode": "variable",
         "numberOfLines": 1,
         "pivoted": true,
+        "showActionMenu": true,
         "showRowIndexColumn": false,
         "step": "RC_Sub_Region_Networ_2",
         "verticalPadding": 4
@@ -1211,6 +1237,7 @@
         "mode": "variable",
         "numberOfLines": 1,
         "pivoted": false,
+        "showActionMenu": true,
         "showRowIndexColumn": false,
         "step": "RC_DAS_RC_Country_St_1",
         "verticalPadding": 8
@@ -1242,6 +1269,7 @@
         "mode": "variable",
         "numberOfLines": 1,
         "pivoted": false,
+        "showActionMenu": true,
         "showRowIndexColumn": false,
         "step": "Type_E_I_RC_Office_1",
         "totals": true,
@@ -1274,6 +1302,7 @@
         "mode": "variable",
         "numberOfLines": 1,
         "pivoted": false,
+        "showActionMenu": true,
         "step": "RC_Office_Assigned_t_1",
         "totals": true,
         "verticalPadding": 8
@@ -1283,6 +1312,7 @@
     "text_2": {
       "parameters": {
         "fontSize": 16,
+        "showActionMenu": true,
         "text": "2018 Clients Assisted through June",
         "textAlignment": "left",
         "textColor": "#091A3E"
