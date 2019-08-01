@@ -75,7 +75,7 @@
               "column": 0,
               "name": "container_3",
               "row": 8,
-              "rowspan": 46,
+              "rowspan": 55,
               "widgetStyle": {
                 "backgroundColor": "rgb(24, 42, 82)",
                 "borderColor": "#E6ECF2",
@@ -89,7 +89,7 @@
               "column": 14,
               "name": "container_4",
               "row": 8,
-              "rowspan": 46,
+              "rowspan": 55,
               "widgetStyle": {
                 "backgroundColor": "rgb(9, 26, 62)",
                 "borderColor": "#E6ECF2",
@@ -103,7 +103,7 @@
               "column": 15,
               "name": "chart_1",
               "row": 12,
-              "rowspan": 40,
+              "rowspan": 49,
               "widgetStyle": {
                 "borderEdges": []
               }
@@ -154,7 +154,7 @@
               "colspan": 12,
               "column": 1,
               "name": "number_7",
-              "row": 36,
+              "row": 45,
               "rowspan": 18,
               "widgetStyle": {
                 "backgroundColor": "rgba(255, 255, 255, 0)",
@@ -168,7 +168,7 @@
               "colspan": 12,
               "column": 0,
               "name": "number_2",
-              "row": 54,
+              "row": 63,
               "rowspan": 22,
               "widgetStyle": {
                 "borderEdges": []
@@ -178,7 +178,7 @@
               "colspan": 12,
               "column": 25,
               "name": "number_6",
-              "row": 54,
+              "row": 63,
               "rowspan": 22,
               "widgetStyle": {
                 "borderEdges": []
@@ -188,7 +188,7 @@
               "colspan": 12,
               "column": 12,
               "name": "number_8",
-              "row": 54,
+              "row": 63,
               "rowspan": 22,
               "widgetStyle": {
                 "borderEdges": []
@@ -198,7 +198,7 @@
               "colspan": 12,
               "column": 37,
               "name": "number_9",
-              "row": 54,
+              "row": 63,
               "rowspan": 22,
               "widgetStyle": {
                 "borderEdges": []
@@ -208,7 +208,7 @@
               "colspan": 49,
               "column": 0,
               "name": "container_8",
-              "row": 54,
+              "row": 63,
               "rowspan": 22,
               "widgetStyle": {
                 "backgroundColor": "rgb(24, 42, 82)",
@@ -331,6 +331,32 @@
               "column": 2,
               "name": "listselector_3",
               "row": 31,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "all"
+                ],
+                "borderRadius": 4,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 1,
+              "name": "text_16",
+              "row": 36,
+              "rowspan": 4,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 2,
+              "name": "listselector_4",
+              "row": 40,
               "rowspan": 4,
               "widgetStyle": {
                 "backgroundColor": "#FFFFFF",
@@ -1527,6 +1553,25 @@
         "{\"display\":\"User\",\"value\":\"user\",\"grouped_by_filter\":\"User\",\"unique_by_filter\":\"Assisting_User\",\"chart_Title\":\"Users\"}"
       ]
     },
+    "ParentOrganization_I_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "All_Touches_With_Global_Filters"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"measures\":[[\"unique\",\"ParentOrganization.Id\"]],\"groups\":[\"{{cell(Segments_1.selection, 0, \\\"value\\\").asString()}}\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "multi",
+      "start": "[]",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {}
+    },
     "ParentOrganization_N_9": {
       "broadcastFacet": true,
       "datasets": [
@@ -2436,12 +2481,12 @@
       ],
       "isGlobal": false,
       "query": {
-        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"Date of Assist\"]}",
+        "query": "{\"measures\":[[\"unique\",\"ParentOrganization.Id\"]],\"groups\":[\"Date of Assist\"]}",
         "version": -1.0
       },
       "receiveFacet": true,
       "selectMode": "single",
-      "start": "[]",
+      "start": "[[[\"fiscal_year\",0],[\"fiscal_year\",0]]]",
       "type": "aggregateflex",
       "useGlobal": true,
       "visualizationParameters": {}
@@ -2725,7 +2770,7 @@
       "start": "{\"display\":[\"All\"]}",
       "type": "staticflex",
       "values": [
-        "{\"display\":\"All\",\"value\":\"RH_Lev_7_Individual__c\"}",
+        "{\"display\":\"All\",\"value\":\"All\"}",
         "{\"display\":\"Industry\",\"value\":\"ParentOrganization.Industry\"}",
         "{\"display\":\"Country\",\"value\":\"ParentOrganization.BillingCountry\"}",
         "{\"display\":\"State/Province\",\"value\":\"ParentOrganization.BillingState\"}",
@@ -2759,6 +2804,16 @@
         "text": "Details 2\n",
         "textAlignment": "left",
         "textColor": "rgb(9, 26, 62)"
+      },
+      "type": "text"
+    },
+    "text_16": {
+      "parameters": {
+        "fontSize": 24,
+        "showActionMenu": false,
+        "text": "Select Segment",
+        "textAlignment": "left",
+        "textColor": "#FFFFFF"
       },
       "type": "text"
     },
@@ -2864,7 +2919,7 @@
       "parameters": {
         "fontSize": 24,
         "showActionMenu": false,
-        "text": "Filter By",
+        "text": "Filter By Org Level",
         "textAlignment": "left",
         "textColor": "#FFFFFF"
       },
@@ -3181,6 +3236,18 @@
         "tooltip": "Unique Clients Assisted from Light and In Depth Assists"
       },
       "type": "text"
+    },
+    "listselector_4": {
+      "parameters": {
+        "compact": false,
+        "exploreLink": false,
+        "instant": false,
+        "measureField": "count",
+        "showActionMenu": false,
+        "step": "ParentOrganization_I_1",
+        "title": ""
+      },
+      "type": "listselector"
     },
     "filterpanel_1": {
       "parameters": {
