@@ -136,6 +136,24 @@
         "filter Org Record Type"
       ]
     },
+    "computeExpression All": {
+      "action": "computeExpression",
+      "parameters": {
+        "computedFields": [
+          {
+            "defaultValue": "All",
+            "label": "All",
+            "name": "All",
+            "saqlExpression": "\"All\"",
+            "type": "Text"
+          }
+        ],
+        "mergeWithSource": true
+      },
+      "sources": [
+        "filter US_Org"
+      ]
+    },
     "augment Case Contributor Fields": {
       "action": "augment",
       "parameters": {
@@ -456,38 +474,6 @@
         "augment Case Dates"
       ]
     },
-    "computeExpression FY Fields": {
-      "action": "computeExpression",
-      "parameters": {
-        "computedFields": [
-          {
-            "defaultValue": "false",
-            "label": "Current FY",
-            "name": "Current_FY",
-            "saqlExpression": "case\nwhen date('CreatedDate_Year', 'CreatedDate_Month', 'CreatedDate_Day') in [\"current fiscal_year\"..\"current fiscal_year\"] then\n\"true\"\nwhen date('ParentCase.Actual_Create_Date__c_Year', 'ParentCase.Actual_Create_Date__c_Month', 'ParentCase.Actual_Create_Date__c_Day') in [\"current fiscal_year\"..\"current fiscal_year\"] then\n\"true\"\nwhen date('ParentCase.Actual_Case_Closed_Date__c_Year', 'ParentCase.Actual_Case_Closed_Date__c_Month', 'ParentCase.Actual_Case_Closed_Date__c_Day') in [\"current fiscal_year\"..\"current fiscal_year\"] then\n\"true\"\nend",
-            "type": "Text"
-          },
-          {
-            "defaultValue": "false",
-            "label": "Previous FY",
-            "name": "Previous_FY",
-            "saqlExpression": "case\nwhen date('CreatedDate_Year', 'CreatedDate_Month', 'CreatedDate_Day') in [\"1 fiscal_year ago\"..\"1 fiscal_year ago\"] then\n\"true\"\nwhen date('ParentCase.Actual_Create_Date__c_Year', 'ParentCase.Actual_Create_Date__c_Month', 'ParentCase.Actual_Create_Date__c_Day') in [\"1 fiscal_year ago\"..\"1 fiscal_year ago\"] then\n\"true\"\nwhen date('ParentCase.Actual_Case_Closed_Date__c_Year', 'ParentCase.Actual_Case_Closed_Date__c_Month', 'ParentCase.Actual_Case_Closed_Date__c_Day') in [\"1 fiscal_year ago\"..\"1 fiscal_year ago\"] then\n\"true\"\nend",
-            "type": "Text"
-          },
-          {
-            "defaultValue": "false",
-            "label": "FY 2 Years Ago",
-            "name": "FY_2_Years_Ago",
-            "saqlExpression": "case\nwhen date('CreatedDate_Year', 'CreatedDate_Month', 'CreatedDate_Day') in [\"2 fiscal_years ago\"..\"2 fiscal_years ago\"] then\n\"true\"\nwhen date('ParentCase.Actual_Create_Date__c_Year', 'ParentCase.Actual_Create_Date__c_Month', 'ParentCase.Actual_Create_Date__c_Day') in [\"2 fiscal_years ago\"..\"2 fiscal_years ago\"] then\n\"true\"\nwhen date('ParentCase.Actual_Case_Closed_Date__c_Year', 'ParentCase.Actual_Case_Closed_Date__c_Month', 'ParentCase.Actual_Case_Closed_Date__c_Day') in [\"2 fiscal_years ago\"..\"2 fiscal_years ago\"] then\n\"true\"\nend",
-            "type": "Text"
-          }
-        ],
-        "mergeWithSource": true
-      },
-      "sources": [
-        "filter US_Org"
-      ]
-    },
     "filter US_Org": {
       "action": "filter",
       "parameters": {
@@ -538,7 +524,7 @@
         "name": "All_Touches_With_Global_Filters"
       },
       "sources": [
-        "computeExpression FY Fields"
+        "computeExpression All"
       ]
     },
     "slice Task on Create Date": {
