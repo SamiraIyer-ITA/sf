@@ -14610,7 +14610,7 @@ Final_Announcement_Date__c , TEXT(Final_Extension_Remaining__c) ,&apos;-&apos;) 
     </validationRules>
     <validationRules>
         <fullName>A1106OutcomeReqDecOnHowToProcInformal</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Segment Outcome is required when Decision on How to Proceed is &quot;Informal&quot;</description>
         <errorConditionFormula>AND(
             $Setup.Master_Automation__c.ValidationRulesEnabled__c == true,
