@@ -58,16 +58,16 @@ public without sharing class SegmentTriggerHandler {
 			recalculateOrdersOnSegmentDelete(oldMap);
 		}
 		if(isAfter && isInsert) {
-			Map<Id, Segment__c> noLockedRecordsMap = new Map<Id, Segment__c>((List<Segment__c>)new LockedRecordHandler().removeLockedRecords(newList));
-			recalculateOrders(noLockedRecordsMap, oldMap);
-
             newList = new LockedRecordHandler().removeLockedRecords(newList);
+			Map<Id, Segment__c> noLockedRecordsMap = new Map<Id, Segment__c>(newList);
+			recalculateOrders(noLockedRecordsMap, oldMap);
             initialize(newList, newMap);
             createStaffing(newList);
 			recalculateOrders(newMap, oldMap);
 		}
 		if (isAfter && isUpdate) {
-			Map<Id, Segment__c> noLockedRecordsMap = new Map<Id, Segment__c>((List<Segment__c>)new LockedRecordHandler().removeLoc
+			newList = new LockedRecordHandler().removeLockedRecords(newList);
+			Map<Id, Segment__c> noLockedRecordsMap = new Map<Id, Segment__c>(newList);
 			recalculateNewShipperReviews(newMap);
 			recalculateOrders(noLockedRecordsMap, oldMap);
 			new ChatterPostWriter('Segment__c', newMap, oldMap);
