@@ -68,7 +68,6 @@ public class StaffingAssignmentExtensionTest {
         new StaffingAssignmentExtension(new ApexPages.StandardController(new Staffing_Assignment__c()));
         orderSetup();
         Object testSaveError = ext.saveError;
-        Object testOverwriteSegments = ext.overwriteSegments;
         Object testAddWrapper = ext.addWrapper;
         List<SelectOption> testallUserSelectOptions = ext.allUserSelectOptions;
         Map<String,List<SelectOption>> testUserSelectOptions = ext.userSelectOptions;
@@ -80,6 +79,7 @@ public class StaffingAssignmentExtensionTest {
         Staffing_Assignment__c testNewSA = StaffingAssignmentExtension.createNewStaffingAssignment(ext.parentId, 'Office Director');
         Test.stopTest();
     }
+
 
     @isTest static void orderTest() {
         Test.startTest();
