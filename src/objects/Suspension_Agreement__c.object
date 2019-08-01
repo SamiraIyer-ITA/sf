@@ -449,7 +449,7 @@
     <fields>
         <fullName>Termination_Date__c</fullName>
         <externalId>false</externalId>
-        <label>Termination Date</label>
+        <label>Termination Date - Deprecated</label>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
