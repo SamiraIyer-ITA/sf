@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>African Growth and Opportunity Act</fullName>
+        <default>false</default>
+        <label>African Growth and Opportunity Act</label>
+    </customValue>
+    <customValue>
+        <fullName>Andean Community</fullName>
+        <default>false</default>
+        <label>Andean Community</label>
+    </customValue>
+    <customValue>
+        <fullName>Asia Pacific Economic Cooperation</fullName>
+        <default>false</default>
+        <label>Asia Pacific Economic Cooperation</label>
+    </customValue>
+    <customValue>
+        <fullName>Association of Southeast Asian Nations</fullName>
+        <default>false</default>
+        <label>Association of Southeast Asian Nations</label>
+    </customValue>
+    <customValue>
+        <fullName>CAFTA-DR</fullName>
+        <default>false</default>
+        <label>CAFTA-DR</label>
+    </customValue>
+    <customValue>
+        <fullName>Caribbean Community and Common Market</fullName>
+        <default>false</default>
+        <label>Caribbean Community and Common Market</label>
+    </customValue>
+    <customValue>
+        <fullName>Common Market for Eastern and Southern Africa</fullName>
+        <default>false</default>
+        <label>Common Market for Eastern and Southern Africa</label>
+    </customValue>
+    <customValue>
+        <fullName>Commonwealth of Independent States</fullName>
+        <default>false</default>
+        <label>Commonwealth of Independent States</label>
+    </customValue>
+    <customValue>
+        <fullName>Economic and Monetary Community of Central Africa</fullName>
+        <default>false</default>
+        <label>Economic and Monetary Community of Central Africa</label>
+    </customValue>
+    <customValue>
+        <fullName>Economic Cooperation Organization</fullName>
+        <default>false</default>
+        <label>Economic Cooperation Organization</label>
+    </customValue>
+    <customValue>
+        <fullName>Eurasian Economic Union</fullName>
+        <default>false</default>
+        <label>Eurasian Economic Union</label>
+    </customValue>
+    <customValue>
+        <fullName>European Free Trade Association</fullName>
+        <default>false</default>
+        <label>European Free Trade Association</label>
+    </customValue>
+    <customValue>
+        <fullName>European Union - 28</fullName>
+        <default>false</default>
+        <label>European Union - 28</label>
+    </customValue>
+    <customValue>
+        <fullName>Global System of Trade Preferences among Developing Countries</fullName>
+        <default>false</default>
+        <label>Global System of Trade Preferences among Developing Countries</label>
+    </customValue>
+    <customValue>
+        <fullName>Gulf Cooperation Council</fullName>
+        <default>false</default>
+        <label>Gulf Cooperation Council</label>
+    </customValue>
+    <customValue>
+        <fullName>NAFTA</fullName>
+        <default>false</default>
+        <label>NAFTA</label>
+    </customValue>
+    <customValue>
+        <fullName>Organization of the Petroleum Exporting Countries</fullName>
+        <default>false</default>
+        <label>Organization of the Petroleum Exporting Countries</label>
+    </customValue>
+    <customValue>
+        <fullName>South African Customs Union</fullName>
+        <default>false</default>
+        <label>South African Customs Union</label>
+    </customValue>
+    <customValue>
+        <fullName>South African Development Community</fullName>
+        <default>false</default>
+        <label>South African Development Community</label>
+    </customValue>
+    <customValue>
+        <fullName>South Asian Association for Regional Cooperation</fullName>
+        <default>false</default>
+        <label>South Asian Association for Regional Cooperation</label>
+    </customValue>
+    <customValue>
+        <fullName>Southern Common Market</fullName>
+        <default>false</default>
+        <label>Southern Common Market</label>
+    </customValue>
+    <customValue>
+        <fullName>Trans Pacific Partnership</fullName>
+        <default>false</default>
+        <label>Trans Pacific Partnership</label>
+    </customValue>
+    <customValue>
+        <fullName>West African Economic and Monetary Union</fullName>
+        <default>false</default>
+        <label>West African Economic and Monetary Union</label>
+    </customValue>
+    <description>The Trade Regions taxonomy taken from the &quot;Thesaurus of International Trade Terms&quot; on trade.gov dev site.</description>
+    <masterLabel>Trade Region</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

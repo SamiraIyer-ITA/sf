@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <frameHeight>600</frameHeight>
+    <hasSidebar>true</hasSidebar>
+    <label>Lightning Case</label>
+    <mobileReady>false</mobileReady>
+    <motif>Custom1: Heart</motif>
+    <url>/flow/Lightning_Enablement_Case_Intake_Flow</url>
+    <urlEncodingKey>UTF-8</urlEncodingKey>
+</CustomTab>

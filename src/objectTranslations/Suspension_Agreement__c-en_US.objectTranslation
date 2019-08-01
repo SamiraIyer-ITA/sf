@@ -9,11 +9,19 @@
         <value>Suspension Agreements</value>
     </caseValues>
     <fields>
-        <label><!-- ADCVD Case Number Text Value --></label>
+        <label><!-- ADCVD Case Number --></label>
+        <name>ADCVD_Case_Number_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- ADCVD Case Number Text Value Deprecated --></label>
         <name>ADCVD_Case_Number__c</name>
     </fields>
     <fields>
         <label><!-- ADCVD Case Type --></label>
+        <name>ADCVD_Case_Type_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- ADCVD Case Type Deprecated --></label>
         <name>ADCVD_Case_Type__c</name>
     </fields>
     <fields>
@@ -31,6 +39,10 @@
     </fields>
     <fields>
         <label><!-- CBP Case Number --></label>
+        <name>CBP_Case_Number_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- CBP Case Number Deprecated --></label>
         <name>CBP_Case_Number__c</name>
     </fields>
     <fields>
@@ -39,10 +51,18 @@
     </fields>
     <fields>
         <label><!-- Commodity --></label>
+        <name>Commodity_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commodity Deprecated --></label>
         <name>Commodity__c</name>
     </fields>
     <fields>
         <label><!-- Country --></label>
+        <name>Country_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country Deprecated --></label>
         <name>Country__c</name>
     </fields>
     <fields>
@@ -92,6 +112,10 @@
     </fields>
     <fields>
         <label><!-- Product Short Name --></label>
+        <name>Product_Short_Name_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Short Name Deprecated --></label>
         <name>Product_Short_Name__c</name>
     </fields>
     <fields>
@@ -100,7 +124,27 @@
     </fields>
     <fields>
         <label><!-- Product --></label>
+        <name>Product_Text__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Deprecated --></label>
         <name>Product__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Current - Active</masterLabel>
+            <translation><!-- Current - Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Terminated - Other</masterLabel>
+            <translation><!-- Terminated - Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Terminated - Sunset</masterLabel>
+            <translation><!-- Terminated - Sunset --></translation>
+        </picklistValues>
     </fields>
     <fields>
         <label><!-- Suspension Date --></label>
@@ -113,6 +157,42 @@
     <fields>
         <label><!-- This Investigation has a Susp. Agreement --></label>
         <name>This_Investigation_has_a_Susp_Agreement__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>AD - 734(b) - Cessation of Exports</masterLabel>
+            <translation><!-- AD - 734(b) - Cessation of Exports --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AD - 734(b) - Normal Value</masterLabel>
+            <translation><!-- AD - 734(b) - Normal Value --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AD - 734(c) - Reference Price</masterLabel>
+            <translation><!-- AD - 734(c) - Reference Price --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AD - 734(l) - NME</masterLabel>
+            <translation><!-- AD - 734(l) - NME --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CVD - 704(b) - Cessation of Exports</masterLabel>
+            <translation><!-- CVD - 704(b) - Cessation of Exports --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CVD - 704(b) - Elimination of Subsidy</masterLabel>
+            <translation><!-- CVD - 704(b) - Elimination of Subsidy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CVD - 704(c) - Other than Quantitative Restriction</masterLabel>
+            <translation><!-- CVD - 704(c) - Other than Quantitative Restriction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CVD - 704(c) - Quantitative Restriction</masterLabel>
+            <translation><!-- CVD - 704(c) - Quantitative Restriction --></translation>
+        </picklistValues>
     </fields>
     <layouts>
         <layout>Suspension Agreement Layout</layout>

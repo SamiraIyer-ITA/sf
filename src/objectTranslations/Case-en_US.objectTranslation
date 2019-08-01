@@ -268,6 +268,22 @@
         </sections>
     </layouts>
     <quickActions>
+        <label><!-- AC Fields --></label>
+        <name>AC_Fields</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Add Contributor --></label>
+        <name>Add_Contributor</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Add Country --></label>
+        <name>Add_Country</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Add Industry --></label>
+        <name>Add_Industry</name>
+    </quickActions>
+    <quickActions>
         <label><!-- Create New Industry --></label>
         <name>CaseTaxonomy</name>
     </quickActions>
@@ -284,7 +300,19 @@
         <name>NewChildCase</name>
     </quickActions>
     <quickActions>
+        <label><!-- New Trade Issue --></label>
+        <name>New_Trade_Issue</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- SUSA Fields --></label>
+        <name>SUSA_Fields</name>
+    </quickActions>
+    <quickActions>
         <label><!-- SendEmail --></label>
         <name>SendEmail</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- TANC Fields --></label>
+        <name>TANC_Fields</name>
     </quickActions>
 </CustomObjectTranslation>

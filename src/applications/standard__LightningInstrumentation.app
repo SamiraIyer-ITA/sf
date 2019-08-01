@@ -7,4 +7,5 @@
     <navType>Standard</navType>
     <tabs>standard-LightningInstrumentation</tabs>
     <uiType>Lightning</uiType>
+    <utilityBar>LightningInstrumentation_UtilityBar</utilityBar>
 </CustomApplication>

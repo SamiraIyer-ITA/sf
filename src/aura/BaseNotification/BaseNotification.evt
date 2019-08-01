@@ -1,0 +1,9 @@
+<aura:event type="COMPONENT"
+            description="Base notification event for message notifications." >
+
+    <aura:attribute name="type"
+                    type="String"/>
+    <aura:attribute name="config"
+                    type="Object"/>
+
+</aura:event>

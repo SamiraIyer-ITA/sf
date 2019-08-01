@@ -28,4 +28,5 @@
     <tabs>NTM_Search_Log__c</tabs>
     <tabs>standard-report</tabs>
     <uiType>Lightning</uiType>
+    <utilityBar>New_To_Market_App_UtilityBar</utilityBar>
 </CustomApplication>
