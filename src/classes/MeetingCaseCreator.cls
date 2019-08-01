@@ -90,14 +90,12 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
             campaignIdToCampaignName.put(myCampaign.Id,myCampaign.Name);
         }
 
-        for(Contact myContact : [SELECT Name,Id,Email,AccountId,Account.Name from Contact WHERE Email IN: acceptedMeetingEmails]) {
-            if(myContact != null && myContact.Id != null) {
+        for(Contact myContact : [SELECT Id FROM Contact WHERE Email IN: acceptedMeetingEmails]) {
                 acceptedMeetingContactIds.add(myContact.Id);
-            }
         }
 
         //make a list of contacts that already have existing cases
-        for(Case thisCase : [SELECT Id,ContactId FROM Case WHERE ContactId IN: acceptedMeetingContactIds]) {
+        for(Case thisCase : [SELECT ContactId FROM Case WHERE ContactId IN: acceptedMeetingContactIds]) {
             contactsWithCases.add(thisCase.ContactId);
         }
 
@@ -115,7 +113,7 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
         }
 
         //Create Cases on Contacts associated by email with an attendee associated to an accepted meeting
-        for(Contact thisContact : [SELECT Id,Name,Account.Name,Account.OwnerId,Email FROM Contact WHERE Id IN: acceptedMeetingContactIds]) {
+        for(Contact thisContact : [SELECT Id,AccountId,Account.Name,Account.OwnerId,Email FROM Contact WHERE Id IN: acceptedMeetingContactIds]) {
             if(!contactsWithCases.contains(thisContact.Id)) {
                 Id businessConferenceId = emailToBusinessConferenceId.get(thisContact.Email);
                 String campaignName = businessConferenceIdToCampaignName.get(businessConferenceId);
@@ -123,12 +121,12 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
 
                 Id orgOwnerId = null;
                 //Case owner is associated org owner
-                if(thisContact.Account != null) {
+                if(thisContact.AccountId != null) {
                     orgOwnerId = thisContact.Account.OwnerId;
                     orgName = thisContact.Account.Name;
                 }
 
-                String caseSubject = (String.isBlank(campaignName) ? '' : campaignName+' ')+orgName;
+                String caseSubject = (String.isBlank(campaignName) ? '' : campaignName)+(!String.isBlank(orgName) ? ' '+orgName : '');
                 //If there is no org owner then use the user associated with the campaign outgoing communication email field
                 if(orgOwnerId == null && businessConferenceId != null) {
                     String communicationEmail = businessConferenceIdToOutgoingCommunicationEmail.get(businessConferenceId);
@@ -170,9 +168,9 @@ global with sharing class MeetingCaseCreator implements valence.TransformationFi
         for(Case myCase : acceptedMeetingCases) {
             if(!casesWithExistingTasks.contains(myCase.Id) && myCase.ContactId != null && myCase.Contact.Email != null && emailsG2B.contains(myCase.Contact.Email)) {
                 Id campaignId = emailToCampaignId.get(myCase.Contact.Email);
-                String campaignName = (campaignId != null ? campaignIdToCampaignName.get(campaignId) : 'Campaign');
+                String campaignName = (campaignId != null ? ' '+campaignIdToCampaignName.get(campaignId) : ' Campaign');
                 String contactCountry = (myCase.ContactId != null ? ' - '+myCase.Contact.MailingCountry : '');
-                Task thisTask = new Task(Subject='G2B '+campaignName+contactCountry,
+                Task thisTask = new Task(Subject='G2B'+campaignName+contactCountry,
                                         OwnerId = myCase.OwnerId,
                                         WhoId = myCase.ContactId,
                                         WhatId = myCase.Id,
