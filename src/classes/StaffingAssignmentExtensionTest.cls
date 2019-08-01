@@ -62,6 +62,23 @@ public class StaffingAssignmentExtensionTest {
     static PageReference pageRef;
     static ApexPages.StandardController con;
 
+    @isTest static void exerciseAttributes() {
+        Test.startTest();
+        new StaffingAssignmentExtension(new ApexPages.StandardController(new Staffing_Assignment__c()));
+        orderSetup();
+        Object testSaveError = ext.saveError;
+        Object testAddWrapper = ext.addWrapper;
+        List<SelectOption> testallUserSelectOptions = ext.allUserSelectOptions;
+        Map<String,List<SelectOption>> testUserSelectOptions = ext.userSelectOptions;
+        Map<String, List<User>> testUserRoleMap = ext.userRoleMap;
+        List<Object> testStaffWrapperList = ext.staffWrapperList;
+        ext.getReturnUrl();
+        Staffing_Assignment__c testSA = ext.querySA();
+        List<SObject> testRelOrgList = ext.getRelOrgList(ext.parentId);
+        Staffing_Assignment__c testNewSA = StaffingAssignmentExtension.createNewStaffingAssignment(ext.parentId, 'Office Director');
+        Test.stopTest();
+    }
+
     @isTest static void orderTest() {
         Test.startTest();
         orderSetup();
