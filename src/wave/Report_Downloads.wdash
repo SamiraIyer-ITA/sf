@@ -1,0 +1,1552 @@
+{
+  "dataSourceLinks": [],
+  "filters": [],
+  "gridLayouts": [
+    {
+      "name": "Default",
+      "numColumns": 18,
+      "pages": [
+        {
+          "name": "26a34929-5fac-4cf8-9d5d-398dca020719",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 2,
+              "column": 1,
+              "name": "listselector_1",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 3,
+              "name": "listselector_2",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 5,
+              "name": "listselector_3",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 7,
+              "name": "listselector_4",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 9,
+              "name": "listselector_5",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 11,
+              "name": "listselector_6",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_2",
+              "row": 0,
+              "rowspan": 6,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "text_9",
+              "row": 8,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(6, 28, 63)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 1,
+              "name": "number_1",
+              "row": 12,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 3,
+              "name": "number_2",
+              "row": 12,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 5,
+              "name": "number_3",
+              "row": 12,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_3",
+              "row": 12,
+              "rowspan": 10,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "text_4",
+              "row": 25,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "chart_1",
+              "row": 29,
+              "rowspan": 17,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_4",
+              "row": 24,
+              "rowspan": 23,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "text_5",
+              "row": 50,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "container_5",
+              "row": 49,
+              "rowspan": 24,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 9,
+              "name": "text_6",
+              "row": 50,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 9,
+              "name": "container_6",
+              "row": 49,
+              "rowspan": 24,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "text_1",
+              "row": 76,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "chart_4",
+              "row": 80,
+              "rowspan": 15,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_7",
+              "row": 75,
+              "rowspan": 23,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "text_7",
+              "row": 101,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_8",
+              "row": 100,
+              "rowspan": 24,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "chart_2",
+              "row": 54,
+              "rowspan": 18,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 9,
+              "name": "chart_8",
+              "row": 54,
+              "rowspan": 18,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "table_1",
+              "row": 105,
+              "rowspan": 17,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            }
+          ]
+        }
+      ],
+      "rowHeight": "fine",
+      "selectors": [],
+      "style": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "backgroundColor": "#F2F6FA",
+        "cellSpacingX": 16,
+        "cellSpacingY": 0,
+        "fit": "original",
+        "gutterColor": "#C5D3E0"
+      },
+      "version": 1.0
+    },
+    {
+      "name": "Mobile",
+      "numColumns": 4,
+      "pages": [
+        {
+          "name": "26a34929-5fac-4cf8-9d5d-398dca020719",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "listselector_1",
+              "row": 8,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 2,
+              "name": "listselector_2",
+              "row": 8,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "listselector_3",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 2,
+              "name": "listselector_4",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "listselector_5",
+              "row": 16,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 2,
+              "name": "listselector_6",
+              "row": 16,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_2",
+              "row": 7,
+              "rowspan": 13,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 0,
+              "name": "number_1",
+              "row": 26,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 1,
+              "name": "number_2",
+              "row": 26,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 2,
+              "name": "number_3",
+              "row": 26,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_3",
+              "row": 26,
+              "rowspan": 10,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_4",
+              "row": 38,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "chart_1",
+              "row": 41,
+              "rowspan": 15,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_4",
+              "row": 38,
+              "rowspan": 18,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_5",
+              "row": 58,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_5",
+              "row": 58,
+              "rowspan": 18,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_6",
+              "row": 78,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "chart_8",
+              "row": 81,
+              "rowspan": 15,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_6",
+              "row": 78,
+              "rowspan": 18,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_1",
+              "row": 98,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "chart_4",
+              "row": 101,
+              "rowspan": 15,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_7",
+              "row": 98,
+              "rowspan": 18,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_7",
+              "row": 118,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_8",
+              "row": 118,
+              "rowspan": 21,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_9",
+              "row": 22,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(6, 28, 63)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "table_1",
+              "row": 122,
+              "rowspan": 16,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "chart_2",
+              "row": 62,
+              "rowspan": 13,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_2",
+              "row": 0,
+              "rowspan": 5,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            }
+          ]
+        }
+      ],
+      "rowHeight": "fine",
+      "selectors": [
+        "maxWidth(599)"
+      ],
+      "style": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "backgroundColor": "#F2F6FA",
+        "cellSpacingX": 8,
+        "cellSpacingY": 0,
+        "fit": "original",
+        "gutterColor": "#C5D3E0"
+      },
+      "version": 1.0
+    }
+  ],
+  "layouts": [],
+  "steps": {
+    "IsActive": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ReportExportWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.IsActive\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "ReportExportsPercent": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ReportExportWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "ReportExportsPercent",
+      "query": {
+        "query": "{\"measures\":[[\"sum\",\"download_rate\"]],\"pigql\":\"a = load \\\"ReportWithUsers\\\"; a = group a by all; a = foreach a generate count() as 'count'; a = limit a 2000;b = load \\\"ReportExportWithUsers\\\"; b = group b by all; b = foreach b generate count() as 'count'; b = limit b 2000;c = group a by all, b by all;d = foreach c generate sum(b['count'])/sum(a['count'])*100 as 'sum_download_rate'; \",\"values\":[],\"order\":[]}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "RawLogData": {
+      "datasets": [
+        {
+          "name": "ReportExportWithUsers"
+        }
+      ],
+      "isFacet": true,
+      "isGlobal": false,
+      "label": "RawLogData",
+      "query": {
+        "query": "{\"values\":[\"TIMESTAMP_DERIVED\",\"CLIENT_IP\",\"User.Name\",\"User.IsActive\",\"User.Profile.Name\",\"User.User.Role.Name\",\"URI\",\"RUN_TIME\",\"CLIENT_INFO\"]}",
+        "version": -1.0
+      },
+      "selectMode": "single",
+      "type": "grain",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "valuestable"
+      }
+    },
+    "Dates": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ReportExportWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[[\"TIMESTAMP_DERIVED_Year\",\"TIMESTAMP_DERIVED_Month\",\"TIMESTAMP_DERIVED_Day\"]],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "ReportViews": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ReportExportWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "Roles": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ReportExportWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.User.Role.Name\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "UserNames": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ReportExportWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.Name\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "ExportsByIP": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ReportExportWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "ExportsByIP",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"CLIENT_IP\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "IPs": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ReportExportWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"CLIENT_IP\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "TrendsByUser": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ReportExportWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[[\"TIMESTAMP_DERIVED_Year\",\"TIMESTAMP_DERIVED_Month\",\"TIMESTAMP_DERIVED_Day\"],\"User.Name\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "time"
+      }
+    },
+    "DownloadsByUserAgent": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ReportExportWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "DownloadsByUserAgent",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"CLIENT_INFO\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "pie"
+      }
+    },
+    "ReportsDownloadByUser": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ReportExportWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.Name\",\"URI\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "Profiles": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ReportExportWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.Profile.Name\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    },
+    "ReportExportsCount": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "ReportExportWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "options": {},
+        "visualizationType": "hbar"
+      }
+    }
+  },
+  "widgetStyle": {
+    "backgroundColor": "#FFFFFF",
+    "borderColor": "#E6ECF2",
+    "borderEdges": [],
+    "borderRadius": 0,
+    "borderWidth": 1
+  },
+  "widgets": {
+    "container_2": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "container_3": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "container_4": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "container_5": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "container_6": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "container_7": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "text_2": {
+      "parameters": {
+        "fontSize": 48,
+        "showActionMenu": true,
+        "text": "Report Downloads",
+        "textAlignment": "center",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "container_8": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "text_5": {
+      "parameters": {
+        "fontSize": 20,
+        "showActionMenu": true,
+        "text": "From Which User Agents Are Reports Downloaded?",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "chart_8": {
+      "parameters": {
+        "autoFitMode": "fit",
+        "totalValue": "computeTotal",
+        "showValues": true,
+        "bins": {
+          "breakpoints": {
+            "high": 100,
+            "low": 0
+          },
+          "bands": {
+            "high": {
+              "color": "#008000",
+              "label": ""
+            },
+            "low": {
+              "color": "#B22222",
+              "label": ""
+            },
+            "medium": {
+              "color": "#ffa500",
+              "label": ""
+            }
+          }
+        },
+        "legend": {
+          "showHeader": true,
+          "show": false,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "hbar",
+        "exploreLink": true,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "binValues": false,
+        "trellis": {
+          "flipLabels": false,
+          "showGridLines": true,
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "showActionMenu": true,
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "",
+          "customDomain": {
+            "showDomain": false
+          }
+        },
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "Reports",
+          "customDomain": {
+            "showDomain": false
+          }
+        },
+        "theme": "wave",
+        "step": "ExportsByIP",
+        "dimensionAxis": {
+          "showTitle": true,
+          "customSize": "auto",
+          "showAxis": true,
+          "title": "Client IP",
+          "icons": {
+            "useIcons": false,
+            "iconProps": {
+              "fit": "cover",
+              "column": "",
+              "type": "round"
+            }
+          }
+        }
+      },
+      "type": "chart"
+    },
+    "text_4": {
+      "parameters": {
+        "fontSize": 20,
+        "showActionMenu": true,
+        "text": "How Many Reports Are Downloaded?",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "text_7": {
+      "parameters": {
+        "fontSize": 20,
+        "showActionMenu": true,
+        "text": "Raw Log Data",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "chart_2": {
+      "parameters": {
+        "totalValue": "computeTotal",
+        "showMeasureTitle": false,
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": true
+        },
+        "visualizationType": "pie",
+        "exploreLink": true,
+        "title": {
+          "label": "Reports",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "inner": 70,
+        "totalLabel": "",
+        "showActionMenu": true,
+        "showTotal": true,
+        "theme": "wave",
+        "step": "DownloadsByUserAgent"
+      },
+      "type": "chart"
+    },
+    "chart_1": {
+      "parameters": {
+        "totalValue": "computeTotal",
+        "showPoints": true,
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "time",
+        "missingValue": "connect",
+        "timeAxis": {
+          "showTitle": true,
+          "showAxis": true,
+          "title": "Date"
+        },
+        "exploreLink": true,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "fillArea": true,
+        "showActionMenu": true,
+        "showZero": true,
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "Reports"
+        },
+        "theme": "wave",
+        "step": "TrendsByUser"
+      },
+      "type": "chart"
+    },
+    "text_6": {
+      "parameters": {
+        "fontSize": 20,
+        "showActionMenu": true,
+        "text": "From Which IP Addresses Are Reports Downloaded?",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "chart_4": {
+      "parameters": {
+        "autoFitMode": "none",
+        "totalValue": "computeTotal",
+        "showValues": true,
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "axisMode": "sync",
+        "visualizationType": "stackhbar",
+        "exploreLink": true,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "showActionMenu": true,
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "Reports"
+        },
+        "normalize": false,
+        "theme": "wave",
+        "step": "ReportsDownloadByUser",
+        "dimensionAxis": {
+          "showTitle": true,
+          "customSize": "auto",
+          "showAxis": true,
+          "title": ""
+        }
+      },
+      "type": "chart"
+    },
+    "text_9": {
+      "parameters": {
+        "fontSize": 16,
+        "showActionMenu": true,
+        "text": "Shows report download trends by user agent and IP from Report and Report Export event data. Use this dashboard to focus on a specific user segment by profile, role, or even drill down to a specific user. Inact",
+        "textAlignment": "left",
+        "textColor": "#FFFFFF"
+      },
+      "type": "text"
+    },
+    "listselector_6": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "showActionMenu": false,
+        "step": "IsActive",
+        "title": "Is Active"
+      },
+      "type": "listselector"
+    },
+    "listselector_3": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "showActionMenu": false,
+        "step": "Profiles",
+        "title": "Profiles"
+      },
+      "type": "listselector"
+    },
+    "listselector_2": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "showActionMenu": false,
+        "step": "UserNames",
+        "title": "Users"
+      },
+      "type": "listselector"
+    },
+    "listselector_5": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "showActionMenu": false,
+        "step": "IPs",
+        "title": "IPs"
+      },
+      "type": "listselector"
+    },
+    "text_1": {
+      "parameters": {
+        "fontSize": 20,
+        "showActionMenu": true,
+        "text": "Which Reports Are Downloaded Most?",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "listselector_4": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "showActionMenu": false,
+        "step": "Roles",
+        "title": "Roles"
+      },
+      "type": "listselector"
+    },
+    "table_1": {
+      "parameters": {
+        "columnProperties": {},
+        "columns": [],
+        "customBulkActions": [],
+        "exploreLink": true,
+        "showActionMenu": true,
+        "step": "RawLogData"
+      },
+      "type": "table"
+    },
+    "number_3": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "sum_download_rate",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "showActionMenu": true,
+        "step": "ReportExportsPercent",
+        "textAlignment": "left",
+        "title": "Export % of Views",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "number_2": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "count",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "showActionMenu": true,
+        "step": "ReportExportsCount",
+        "textAlignment": "left",
+        "title": "Report Exports",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "number_1": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "count",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "showActionMenu": true,
+        "step": "ReportViews",
+        "textAlignment": "left",
+        "title": "Report Views",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "listselector_1": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "showActionMenu": false,
+        "step": "Dates",
+        "title": "Dates"
+      },
+      "type": "listselector"
+    }
+  }
+}

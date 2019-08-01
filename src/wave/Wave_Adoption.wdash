@@ -1,0 +1,1718 @@
+{
+  "dataSourceLinks": [],
+  "filters": [],
+  "gridLayouts": [
+    {
+      "name": "Default",
+      "numColumns": 18,
+      "pages": [
+        {
+          "name": "7bf31700-00b3-46ff-b125-b7fa6af00094",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 2,
+              "column": 1,
+              "name": "listselector_1",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_2",
+              "row": 0,
+              "rowspan": 6,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "text_9",
+              "row": 8,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(6, 28, 63)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 1,
+              "name": "number_1",
+              "row": 12,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 3,
+              "name": "number_2",
+              "row": 12,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 5,
+              "name": "number_3",
+              "row": 12,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 7,
+              "name": "number_4",
+              "row": 12,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_3",
+              "row": 12,
+              "rowspan": 10,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "text_3",
+              "row": 49,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "chart_1",
+              "row": 53,
+              "rowspan": 19,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "container_4",
+              "row": 24,
+              "rowspan": 22,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#2EC2BA",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 9,
+              "name": "text_4",
+              "row": 49,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "container_5",
+              "row": 48,
+              "rowspan": 24,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "text_5",
+              "row": 25,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 9,
+              "name": "container_6",
+              "row": 48,
+              "rowspan": 24,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "text_6",
+              "row": 101,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "chart_5",
+              "row": 105,
+              "rowspan": 19,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "container_7",
+              "row": 74,
+              "rowspan": 24,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 9,
+              "name": "text_7",
+              "row": 101,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 9,
+              "name": "container_8",
+              "row": 74,
+              "rowspan": 24,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 9,
+              "name": "chart_3",
+              "row": 105,
+              "rowspan": 19,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 16,
+              "column": 1,
+              "name": "chart_6",
+              "row": 29,
+              "rowspan": 16,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 9,
+              "name": "chart_7",
+              "row": 53,
+              "rowspan": 19,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 3,
+              "name": "listselector_2",
+              "row": 1,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "container_1",
+              "row": 100,
+              "rowspan": 24,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 9,
+              "name": "container_9",
+              "row": 100,
+              "rowspan": 24,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "text_1",
+              "row": 75,
+              "rowspan": 3,
+              "widgetStyle": {
+                "borderEdges": [
+                  "bottom"
+                ]
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 9,
+              "name": "text_2",
+              "row": 75,
+              "rowspan": 3,
+              "widgetStyle": {
+                "borderEdges": [
+                  "bottom"
+                ]
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 9,
+              "name": "chart_2",
+              "row": 79,
+              "rowspan": 19,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "chart_4",
+              "row": 79,
+              "rowspan": 19,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            }
+          ]
+        }
+      ],
+      "rowHeight": "fine",
+      "selectors": [],
+      "style": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "backgroundColor": "rgb(234, 238, 244)",
+        "cellSpacingX": 16,
+        "cellSpacingY": 0,
+        "fit": "original",
+        "gutterColor": "#C5D3E0"
+      },
+      "version": 1.0
+    },
+    {
+      "name": "Mobile",
+      "numColumns": 4,
+      "pages": [
+        {
+          "name": "7bf31700-00b3-46ff-b125-b7fa6af00094",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 2,
+              "column": 0,
+              "name": "listselector_1",
+              "row": 10,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 2,
+              "column": 2,
+              "name": "listselector_2",
+              "row": 10,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_2",
+              "row": 9,
+              "rowspan": 5,
+              "widgetStyle": {
+                "backgroundColor": "rgb(224, 229, 238)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_9",
+              "row": 16,
+              "rowspan": 4,
+              "widgetStyle": {
+                "backgroundColor": "rgb(6, 28, 63)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 0,
+              "name": "number_1",
+              "row": 20,
+              "rowspan": 10,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 1,
+              "name": "number_2",
+              "row": 20,
+              "rowspan": 10,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 2,
+              "name": "number_3",
+              "row": 20,
+              "rowspan": 10,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 3,
+              "name": "number_4",
+              "row": 20,
+              "rowspan": 10,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_3",
+              "row": 20,
+              "rowspan": 11,
+              "widgetStyle": {
+                "backgroundColor": "rgb(20, 41, 94)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_5",
+              "row": 34,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "chart_6",
+              "row": 38,
+              "rowspan": 14,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_4",
+              "row": 33,
+              "rowspan": 20,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#2EC2BA",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_3",
+              "row": 56,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "chart_1",
+              "row": 60,
+              "rowspan": 17,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_5",
+              "row": 55,
+              "rowspan": 23,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_4",
+              "row": 81,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "chart_7",
+              "row": 85,
+              "rowspan": 16,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_6",
+              "row": 80,
+              "rowspan": 22,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_1",
+              "row": 105,
+              "rowspan": 3,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "chart_4",
+              "row": 109,
+              "rowspan": 18,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_7",
+              "row": 104,
+              "rowspan": 24,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_2",
+              "row": 131,
+              "rowspan": 3,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "chart_2",
+              "row": 135,
+              "rowspan": 19,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_8",
+              "row": 130,
+              "rowspan": 25,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_6",
+              "row": 158,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "chart_5",
+              "row": 162,
+              "rowspan": 19,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_1",
+              "row": 157,
+              "rowspan": 25,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_7",
+              "row": 185,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#FFFFFF",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [
+                  "bottom"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "chart_3",
+              "row": 189,
+              "rowspan": 18,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "container_9",
+              "row": 184,
+              "rowspan": 24,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 0,
+              "name": "text_10",
+              "row": 0,
+              "rowspan": 7,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            }
+          ]
+        }
+      ],
+      "rowHeight": "fine",
+      "selectors": [
+        "maxWidth(599)"
+      ],
+      "style": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "backgroundColor": "#F2F6FA",
+        "cellSpacingX": 8,
+        "cellSpacingY": 0,
+        "fit": "original",
+        "gutterColor": "#C5D3E0"
+      },
+      "version": 1.0
+    }
+  ],
+  "layouts": [],
+  "steps": {
+    "DashboardInteractionsByUsers": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "WaveInteractionWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "DashboardInteractionsByUsers",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"pigql\":\"a = load \\\"WaveInteractionWithUsers\\\"; a = filter a by {{column(Type.selection, [\\\"TYPE\\\"]).asEquality(\\\"TYPE\\\")}}; a = filter a by {{column(Type.selection, [\\\"TYPE\\\"]).asEquality(\\\"TYPE\\\")}}; a = filter a by {{column(Users.selection, [\\\"User.Name\\\"]).asEquality(\\\"User.Name\\\")}};a = group a by ('RECORD_ID', 'User.Name'); a = foreach a generate 'RECORD_ID' as 'RECORD_ID', 'User.Name' as 'User.Name', count() as 'count'; a = order a by 'count' desc; \",\"groups\":[\"RECORD_ID\",\"User.Name\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "stackhbar"
+      }
+    },
+    "DashboardChangesByType": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "WaveChangeWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "DashboardChangesByType",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"TYPE\",\"User.Name\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "stackhbar"
+      }
+    },
+    "Users": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "WaveChangeWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "Users",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"User.Name\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "hbar"
+      }
+    },
+    "DashboardInteractionsByType": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "WaveInteractionWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "DashboardInteractionsByType",
+      "query": {
+        "query": "{\"pigql\":\"a = load \\\"WaveInteractionWithUsers\\\"; a = filter a by {{column(Type.selection, [\\\"TYPE\\\"]).asEquality(\\\"TYPE\\\")}}; a = filter a by {{column(Users.selection, [\\\"User.Name\\\"]).asEquality(\\\"User.Name\\\")}};a = group a by ('TYPE', 'User.Name'); a = foreach a generate 'TYPE' as 'TYPE', 'User.Name' as 'User.Name', count() as 'count'; a = order a by 'count' desc; \",\"measures\":[[\"count\",\"*\"]],\"groups\":[\"TYPE\",\"User.Name\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "stackhbar"
+      }
+    },
+    "AvgEPT": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "WavePerformanceWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "AvgEPT",
+      "query": {
+        "query": "{\"pigql\":\"a = load \\\"WavePerformanceWithUsers\\\";a = group a by all;a = foreach a generate (avg('EPT')*0.001) as 'avg_EPT';\",\"measures\":[[\"avg\",\"EPT\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "hbar"
+      }
+    },
+    "WaveInteractionTrends": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "WaveInteractionWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "WaveInteractionTrends",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"pigql\":\"a = load \\\"WaveInteractionWithUsers\\\"; a = filter a by {{column(Type.selection, [\\\"TYPE\\\"]).asEquality(\\\"TYPE\\\")}}; a = group a by ('TIMESTAMP_DERIVED_Year', 'TIMESTAMP_DERIVED_Month', 'TIMESTAMP_DERIVED_Day', 'User.Name'); a = foreach a generate 'TIMESTAMP_DERIVED_Year' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Month' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Day' as 'TIMESTAMP_DERIVED_Year~~~TIMESTAMP_DERIVED_Month~~~TIMESTAMP_DERIVED_Day', 'User.Name' as 'User.Name', count() as 'count'; b = filter a by {{column(Users.selection, [\\\"User.Name\\\"]).asEquality(\\\"User.Name\\\")}}\",\"groups\":[[\"TIMESTAMP_DERIVED_Year\",\"TIMESTAMP_DERIVED_Month\",\"TIMESTAMP_DERIVED_Day\"],\"User.Name\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "time"
+      }
+    },
+    "Type": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "WaveChangeWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "Type",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"TYPE\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "hbar"
+      }
+    },
+    "WavePerformanceTrends": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "WavePerformanceWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "WavePerformanceTrends",
+      "query": {
+        "query": "{\"measures\":[[\"max\",\"EPT\"]],\"pigql\":\"a = load \\\"WavePerformanceWithUsers\\\"; a = group a by ('TIMESTAMP_DERIVED_Year', 'TIMESTAMP_DERIVED_Month', 'TIMESTAMP_DERIVED_Day', 'User.Name'); a = foreach a generate 'TIMESTAMP_DERIVED_Year' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Month' + \\\"~~~\\\" + 'TIMESTAMP_DERIVED_Day' as 'TIMESTAMP_DERIVED_Year~~~TIMESTAMP_DERIVED_Month~~~TIMESTAMP_DERIVED_Day', 'User.Name' as 'User.Name', max('EPT') as 'max_EPT'; b = filter a by {{column(Users.selection, [\\\"User.Name\\\"]).asEquality(\\\"User.Name\\\")}}\",\"groups\":[[\"TIMESTAMP_DERIVED_Year\",\"TIMESTAMP_DERIVED_Month\",\"TIMESTAMP_DERIVED_Day\"],\"User.Name\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "time"
+      }
+    },
+    "DashboardChangesByUsers": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "WaveChangeWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "DashboardChangesByUsers",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[\"RECORD_ID\",\"User.Name\"],\"order\":[[-1,{\"ascending\":false}]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "stackhbar"
+      }
+    },
+    "MaxEPT": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "WavePerformanceWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "MaxEPT",
+      "query": {
+        "query": "{\"pigql\":\"a = load \\\"WavePerformanceWithUsers\\\";a = group a by all;a = foreach a generate (max('EPT')*0.001) as 'max_EPT';\",\"measures\":[[\"max\",\"EPT\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "hbar"
+      }
+    },
+    "NumberWaveInteractions": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "WaveInteractionWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "NumberWaveInteractions",
+      "query": {
+        "query": "{\"pigql\":\"a = load \\\"WaveInteractionWithUsers\\\"; a = filter a by {{column(Type.selection, [\\\"TYPE\\\"]).asEquality(\\\"TYPE\\\")}}; a = filter a by {{column(Users.selection, [\\\"User.Name\\\"]).asEquality(\\\"User.Name\\\")}};a = group a by ('TYPE'); a = foreach a generate 'TYPE' as 'TYPE', count() as 'count'; a = order a by 'count' desc; \",\"measures\":[[\"count\",\"*\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": false,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "hbar"
+      }
+    },
+    "NumberWaveChanges": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "WaveChangeWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "NumberWaveChanges",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "hbar"
+      }
+    },
+    "WaveChangeTrends": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "WaveChangeWithUsers"
+        }
+      ],
+      "isGlobal": false,
+      "label": "WaveChangeTrends",
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]],\"groups\":[[\"TIMESTAMP_DERIVED_Year\",\"TIMESTAMP_DERIVED_Month\",\"TIMESTAMP_DERIVED_Day\"],\"User.Name\"]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "visualizationType": "time"
+      }
+    }
+  },
+  "widgetStyle": {
+    "backgroundColor": "#FFFFFF",
+    "borderColor": "#E6ECF2",
+    "borderEdges": [],
+    "borderRadius": 0,
+    "borderWidth": 1
+  },
+  "widgets": {
+    "text_10": {
+      "parameters": {
+        "fontSize": 64,
+        "showActionMenu": true,
+        "text": "Analytics Adoption",
+        "textAlignment": "center",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "container_1": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "container_2": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "container_3": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "container_4": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "container_5": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "text_3": {
+      "parameters": {
+        "fontSize": 20,
+        "showActionMenu": true,
+        "text": "Who Is Using Analytics?",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "container_6": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "chart_6": {
+      "parameters": {
+        "totalValue": "computeTotal",
+        "showPoints": true,
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "time",
+        "missingValue": "connect",
+        "timeAxis": {
+          "showTitle": true,
+          "showAxis": true,
+          "title": "Date"
+        },
+        "exploreLink": false,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "fillArea": true,
+        "showActionMenu": true,
+        "showZero": true,
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "Max EPT (ms)"
+        },
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "Max EPT (ms)"
+        },
+        "theme": "wave",
+        "step": "WavePerformanceTrends"
+      },
+      "type": "chart"
+    },
+    "chart_5": {
+      "parameters": {
+        "autoFitMode": "keepLabels",
+        "totalValue": "computeTotal",
+        "showValues": true,
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "bottom-center",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "stackhbar",
+        "exploreLink": true,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "showActionMenu": true,
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "Record ID"
+        },
+        "normalize": false,
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "Changes"
+        },
+        "theme": "wave",
+        "step": "DashboardChangesByUsers",
+        "dimensionAxis": {
+          "showTitle": true,
+          "customSize": "auto",
+          "showAxis": true,
+          "title": "Record ID"
+        }
+      },
+      "type": "chart"
+    },
+    "container_7": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "text_2": {
+      "parameters": {
+        "fontSize": 20,
+        "showActionMenu": true,
+        "text": "Dashboard Interactions by Type",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "text_5": {
+      "parameters": {
+        "fontSize": 20,
+        "showActionMenu": true,
+        "text": "How Is Analytics Performing for Users?",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "container_8": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "text_4": {
+      "parameters": {
+        "fontSize": 20,
+        "showActionMenu": true,
+        "text": "How Long Are Users Spending in Analytics Assets?",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "chart_7": {
+      "parameters": {
+        "totalValue": "computeTotal",
+        "showPoints": true,
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "bottom-center",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "time",
+        "missingValue": "connect",
+        "timeAxis": {
+          "showTitle": true,
+          "showAxis": true,
+          "title": "Date"
+        },
+        "exploreLink": false,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "fillArea": true,
+        "showActionMenu": true,
+        "showZero": true,
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "Assets Closed"
+        },
+        "theme": "wave",
+        "step": "WaveInteractionTrends"
+      },
+      "type": "chart"
+    },
+    "container_9": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "text_7": {
+      "parameters": {
+        "fontSize": 20,
+        "showActionMenu": true,
+        "text": "Which Analytics Assets Are Most Popular?",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "chart_2": {
+      "parameters": {
+        "autoFitMode": "keepLabels",
+        "totalValue": "computeTotal",
+        "showValues": true,
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "bottom-center",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "stackhbar",
+        "exploreLink": true,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "showActionMenu": true,
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "normalize": false,
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "theme": "wave",
+        "step": "DashboardInteractionsByType",
+        "dimensionAxis": {
+          "showTitle": true,
+          "customSize": "auto",
+          "showAxis": true,
+          "title": ""
+        }
+      },
+      "type": "chart"
+    },
+    "chart_1": {
+      "parameters": {
+        "totalValue": "computeTotal",
+        "showPoints": true,
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "bottom-center",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "time",
+        "missingValue": "connect",
+        "timeAxis": {
+          "showTitle": true,
+          "showAxis": true,
+          "title": "Date"
+        },
+        "exploreLink": true,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "fillArea": true,
+        "showActionMenu": true,
+        "showZero": true,
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "Asset Views"
+        },
+        "theme": "wave",
+        "step": "WaveChangeTrends"
+      },
+      "type": "chart"
+    },
+    "text_6": {
+      "parameters": {
+        "fontSize": 20,
+        "showActionMenu": true,
+        "text": "Which Analytics Assets Change the Most?",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "text_9": {
+      "parameters": {
+        "fontSize": 16,
+        "showActionMenu": true,
+        "text": "Shows Analytics usage and performance information from Wave Change, Wave Interaction, and Wave Performance event data. In this dashboard, EPT is Experienced Page Time.",
+        "textAlignment": "left",
+        "textColor": "#FFFFFF"
+      },
+      "type": "text"
+    },
+    "chart_4": {
+      "parameters": {
+        "autoFitMode": "fit",
+        "totalValue": "computeTotal",
+        "showValues": true,
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "bottom-center",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "stackhbar",
+        "exploreLink": true,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "showActionMenu": true,
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "normalize": false,
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "theme": "wave",
+        "step": "DashboardChangesByType",
+        "dimensionAxis": {
+          "showTitle": true,
+          "customSize": "auto",
+          "showAxis": true,
+          "title": ""
+        }
+      },
+      "type": "chart"
+    },
+    "chart_3": {
+      "parameters": {
+        "autoFitMode": "keepLabels",
+        "totalValue": "computeTotal",
+        "showValues": true,
+        "legend": {
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "bottom-center",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "visualizationType": "stackhbar",
+        "exploreLink": false,
+        "title": {
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "totalLabel": "",
+        "showActionMenu": true,
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": ""
+        },
+        "normalize": false,
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "Dashboard Interactions"
+        },
+        "theme": "wave",
+        "step": "DashboardInteractionsByUsers",
+        "dimensionAxis": {
+          "showTitle": true,
+          "customSize": "auto",
+          "showAxis": true,
+          "title": "Record ID"
+        }
+      },
+      "type": "chart"
+    },
+    "listselector_2": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "showActionMenu": false,
+        "step": "Type",
+        "title": "Type"
+      },
+      "type": "listselector"
+    },
+    "text_1": {
+      "parameters": {
+        "fontSize": 20,
+        "showActionMenu": true,
+        "text": "Dashboard Changes by Type",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "number_4": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "max_EPT",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "showActionMenu": true,
+        "step": "MaxEPT",
+        "textAlignment": "left",
+        "title": "Max EPT (ms)",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "number_3": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "avg_EPT",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "showActionMenu": true,
+        "step": "AvgEPT",
+        "textAlignment": "left",
+        "title": "Avg EPT (ms)",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "number_2": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "count",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "showActionMenu": true,
+        "step": "NumberWaveInteractions",
+        "textAlignment": "left",
+        "title": "Total Interactions",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "number_1": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": true,
+        "measureField": "count",
+        "numberColor": "#FFFFFF",
+        "numberSize": 32,
+        "showActionMenu": true,
+        "step": "NumberWaveChanges",
+        "textAlignment": "left",
+        "title": "Total Changes",
+        "titleColor": "#FFFFFF",
+        "titleSize": 12
+      },
+      "type": "number"
+    },
+    "listselector_1": {
+      "parameters": {
+        "compact": true,
+        "exploreLink": false,
+        "instant": true,
+        "measureField": "count",
+        "showActionMenu": false,
+        "step": "Users",
+        "title": "Users"
+      },
+      "type": "listselector"
+    }
+  }
+}

@@ -35,7 +35,7 @@ public class LitigationTriggerHandlerTest {
 				intLit = [SELECT Id, RecordTypeId, Request_Filed__c, Calculated_Initiation_Signature__c, Calculated_Preliminary_Signature__c,
 								Calculated_Final_Signature__c, Prelim_Extension_of_days__c, Status__c, Final_Extension_of_days__c, 
 								Prelim_Issues_Due_to_DAS__c, Prelim_Concurrence_Due_to_DAS__c, Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, 
-								Prelim_Team_Meeting_Deadline__c, Final_Team_Meeting_Deadline__c, ADCVD_Case_Number__c, 
+								Prelim_Team_Meeting_Deadline__c, Final_Team_Meeting_Deadline__c, ADCVD_Case_Number_Text__c, 
 								Next_Due_to_DAS_Deadline__c, Next_Major_Deadline__c, Next_Office_Deadline__c 
 								FROM Litigation__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
 			}
@@ -49,7 +49,7 @@ public class LitigationTriggerHandlerTest {
 				remand = [SELECT Id, RecordTypeId, Final_Extension_of_days__c, Expected_Final_Signature_Before_Ext__c, Calculated_Amended_Final_Signature__c,
 								Calculated_Draft_Remand_release_to_party__c, Calculated_Final_Signature__c, Court_of_Panel_s_Ruling__c, Status__c, 
 								Draft_Remand_Concurrence_Due_to_DAS__c, Draft_Remand_Issues_Due_to_DAS__c, Final_Issues_Due_to_DAS__c, Final_Concurrence_Due_to_DAS__c, 
-								Prelim_Team_Meeting_Deadline__c, Final_Team_Meeting_Deadline__c, ADCVD_Case_Number__c, 
+								Prelim_Team_Meeting_Deadline__c, Final_Team_Meeting_Deadline__c, ADCVD_Case_Number_Text__c, 
 								Next_Due_to_DAS_Deadline__c, Next_Major_Deadline__c, Next_Office_Deadline__c 
 							FROM Litigation__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
 			}
@@ -61,7 +61,7 @@ public class LitigationTriggerHandlerTest {
 		get{
 			if (adminSeg == null) {
 				Id recordTypeId = Utils.getRecordTypeIdMap('Segment__c').get('Administrative_Review');
-				adminSeg = [SELECT Id, ADCVD_Case_Number__c FROM Segment__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
+				adminSeg = [SELECT Id, ADCVD_Case_Number_Text__c FROM Segment__c WHERE RecordTypeId =: recordTypeId LIMIT 1];
 			}
 			return adminSeg;
 		}
@@ -72,7 +72,7 @@ public class LitigationTriggerHandlerTest {
 	@isTest static void setCalculatedInitiationSignature(){
 		Test.startTest();
 		//International Litigation
-		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(intLit.Request_Filed__c.addDays(7));
+		testCalculated = intLit.Request_Filed__c.addDays(7);
 
 		Test.stopTest();
 		System.assertEquals(testCalculated,
@@ -88,7 +88,7 @@ public class LitigationTriggerHandlerTest {
 		intLit = null;
 
 		//International Litigation
-		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(intLit.Request_Filed__c.addDays(45).addDays(7));
+		testCalculated = intLit.Request_Filed__c.addDays(45).addDays(7);
 
 		Test.stopTest();
 		System.assertEquals(testCalculated,
@@ -108,12 +108,12 @@ public class LitigationTriggerHandlerTest {
 		remand = null;
 
 		//International Litigation
-		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(intLit.Request_Filed__c.addDays(180).addDays(7));
+		testCalculated = intLit.Request_Filed__c.addDays(180).addDays(7);
 		System.assertEquals(testCalculated,
 			[SELECT Id, Calculated_Final_Signature__c FROM Litigation__c WHERE Id =:intLit.Id  LIMIT 1].Calculated_Final_Signature__c);
 
 		//Remand
-		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(remand.Expected_Final_Signature_Before_Ext__c.addDays(7));
+		testCalculated = remand.Expected_Final_Signature_Before_Ext__c.addDays(7);
 
 		Test.stopTest();
 		System.assertEquals(testCalculated,
@@ -129,7 +129,7 @@ public class LitigationTriggerHandlerTest {
 		remand = null;
 
 		//Remand
-		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(remand.Expected_Final_Signature_Before_Ext__c.addDays(-30));
+		testCalculated = remand.Expected_Final_Signature_Before_Ext__c.addDays(-28);
 
 
 		Test.stopTest();
@@ -146,7 +146,7 @@ public class LitigationTriggerHandlerTest {
 		remand = null;
 
 		//Remand
-		testCalculated = ADCVD_TollingDayUtility.rollForwardNextBusinessDay(remand.Court_of_Panel_s_Ruling__c.addDays(7));
+		testCalculated = remand.Court_of_Panel_s_Ruling__c.addDays(7);
 
 		Test.stopTest();
 		System.assertEquals(testCalculated,
@@ -391,7 +391,7 @@ public class LitigationTriggerHandlerTest {
 		Test.startTest();
 
 		Test.stopTest();
-		System.assertEquals(intLit.ADCVD_Case_Number__c, adminSeg.ADCVD_Case_Number__c);
+		System.assertEquals(adminSeg.ADCVD_Case_Number_Text__c, intLit.ADCVD_Case_Number_Text__c);
 	}
 
 	@testSetup static void dataSetup() {
