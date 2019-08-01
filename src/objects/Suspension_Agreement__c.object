@@ -59,6 +59,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -534,15 +535,32 @@
         <columns>Commodity_Text__c</columns>
         <columns>Suspension_Date__c</columns>
         <columns>Termination_Date__c</columns>
-        <columns>LAST_UPDATE</columns>
-        <columns>UPDATEDBY_USER</columns>
         <filterScope>Everything</filterScope>
         <filters>
-             <field>Status__c</field>
-             <operation>equals</operation>
-             <value>Current - Active</value>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Current - Active</value>
         </filters>
         <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Active_Suspension_Agreements</fullName>
+        <columns>NAME</columns>
+        <columns>Investigation__c</columns>
+        <columns>ADCVD_Case__c</columns>
+        <columns>Country_Text__c</columns>
+        <columns>ADCVD_Case_Type_Text__c</columns>
+        <columns>Product_Text__c</columns>
+        <columns>Commodity_Text__c</columns>
+        <columns>Suspension_Date__c</columns>
+        <columns>Termination_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Current - Active</value>
+        </filters>
+        <label>All Active Suspension Agreements</label>
     </listViews>
     <nameField>
         <displayFormat>SA-{00000000}</displayFormat>

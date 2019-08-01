@@ -255,6 +255,16 @@
     <platformActionList>
         <actionListContext>Record</actionListContext>
         <platformActionListItems>
+            <actionName>PrintableView</actionName>
+            <actionType>StandardButton</actionType>
+            <sortOrder>7</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
+            <actionName>Delete</actionName>
+            <actionType>StandardButton</actionType>
+            <sortOrder>8</sortOrder>
+        </platformActionListItems>
+        <platformActionListItems>
             <actionName>Edit</actionName>
             <actionType>StandardButton</actionType>
             <sortOrder>0</sortOrder>
@@ -288,16 +298,6 @@
             <actionName>ChangeOwnerOne</actionName>
             <actionType>StandardButton</actionType>
             <sortOrder>6</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
-            <actionName>PrintableView</actionName>
-            <actionType>StandardButton</actionType>
-            <sortOrder>7</sortOrder>
-        </platformActionListItems>
-        <platformActionListItems>
-            <actionName>Delete</actionName>
-            <actionType>StandardButton</actionType>
-            <sortOrder>8</sortOrder>
         </platformActionListItems>
     </platformActionList>
     <quickActionList>
@@ -347,19 +347,6 @@
         <fields>Category__c</fields>
         <fields>Trade_Issue__c</fields>
         <relatedList>Taxonomy_Tagging__c.Related_WIN__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>Country__c</fields>
-        <fields>CREATEDBY_USER</fields>
-        <relatedList>RelatedCountries__c.WIN__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>Industry__c</fields>
-        <fields>Sector__c</fields>
-        <fields>Sub_Sector__c</fields>
-        <relatedList>Industry__c.WIN_Industrial_Hierarchy__c</relatedList>
-        <sortField>Industry__c</sortField>
-        <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
         <excludeButtons>LogCall</excludeButtons>

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssignmentRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <assignmentRule>
+        <fullName>Active Case Assignments</fullName>
+        <active>true</active>
+        <ruleEntry>
+            <assignedTo>Salesforce_Support</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Salesforce Support</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>Email</value>
+            </criteriaItems>
+            <template>Tier_3_Salesforce_Support/Salesforce_Support_Request_Alert</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>PS_Participation</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Privacy Shield</value>
+            </criteriaItems>
+            <template>Privacy_Shield_Templates/PS_PS_Participation_Case_Assignment_Alert</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Environmental_Tech_Toolkit</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Environmental Solutions</value>
+            </criteriaItems>
+            <template>Participation_App_Templates/New_Toolkit_Case_Application_Submitted</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Nextgen_Toolkit</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>NextGen</value>
+            </criteriaItems>
+            <template>Participation_App_Templates/New_Toolkit_Case_Application_Submitted</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Civil_Nuclear_Toolkit</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Civil Nuclear</value>
+            </criteriaItems>
+            <template>Participation_App_Templates/New_Toolkit_Case_Application_Submitted</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Renewable_Energies_Toolkit</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Renewable Energy</value>
+            </criteriaItems>
+            <template>Participation_App_Templates/New_Toolkit_Case_Application_Submitted</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Oil_Gas_Toolkit</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Oil &amp; Gas</value>
+            </criteriaItems>
+            <template>Participation_App_Templates/New_Toolkit_Case_Application_Submitted</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Environmental_Tech_Toolkit</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Lead Generation</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Program__c</field>
+                <operation>equals</operation>
+                <value>U.S. Environmental Solutions</value>
+            </criteriaItems>
+            <template>Participation_App_Templates/New_Lead_Generation_Case_Created</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>SmartGrid_Toolkit</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Smart Grid</value>
+            </criteriaItems>
+            <template>Participation_App_Templates/New_Toolkit_Case_Application_Submitted</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Renewable_Energies_Toolkit</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Lead Generation</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Program__c</field>
+                <operation>equals</operation>
+                <value>Renewable Energy</value>
+            </criteriaItems>
+            <template>Participation_App_Templates/FE_Lead_Generation_email</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Civil_Nuclear_Toolkit</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Lead Generation</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Program__c</field>
+                <operation>equals</operation>
+                <value>Civil Nuclear</value>
+            </criteriaItems>
+            <template>Participation_App_Templates/FE_Lead_Generation_email</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>SmartGrid_Toolkit</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Lead Generation</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Program__c</field>
+                <operation>equals</operation>
+                <value>SmartGrid</value>
+            </criteriaItems>
+            <template>Participation_App_Templates/FE_Lead_Generation_email</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Oil_Gas_Toolkit</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Lead Generation</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Program__c</field>
+                <operation>equals</operation>
+                <value>Oil &amp; Gas</value>
+            </criteriaItems>
+            <template>Participation_App_Templates/FE_Lead_Generation_email</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Nextgen_Toolkit</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Lead Generation</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Program__c</field>
+                <operation>equals</operation>
+                <value>NextGen</value>
+            </criteriaItems>
+            <template>Participation_App_Templates/FE_Lead_Generation_email</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>Toolkit_Support</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Toolkit Support</value>
+            </criteriaItems>
+            <template>Participation_App_Templates/New_Toolkit_Support_Case</template>
+        </ruleEntry>
+    </assignmentRule>
+    <assignmentRule>
+        <fullName>Case Comments Rule</fullName>
+        <active>false</active>
+    </assignmentRule>
+    <assignmentRule>
+        <fullName>Salesforce Support Case Assignment</fullName>
+        <active>false</active>
+        <ruleEntry>
+            <assignedTo>Salesforce_Support</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Salesforce Support</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>Email</value>
+            </criteriaItems>
+            <template>Tier_3_Salesforce_Support/Salesforce_Support_Request_Alert</template>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>PS_Participation</assignedTo>
+            <assignedToType>Queue</assignedToType>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Privacy Shield</value>
+            </criteriaItems>
+            <template>Privacy_Shield_Templates/PS_PS_Participation_Case_Assignment_Alert</template>
+        </ruleEntry>
+    </assignmentRule>
+</AssignmentRules>

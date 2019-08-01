@@ -1,0 +1,4875 @@
+{
+  "dataSourceLinks": [],
+  "filters": [],
+  "gridLayouts": [
+    {
+      "maxWidth": 1400,
+      "name": "Default",
+      "numColumns": 48,
+      "pages": [
+        {
+          "label": "Target Performance",
+          "name": "807fc19e-2c99-4770-b7a1-ff11d40219cb",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 38,
+              "column": 10,
+              "name": "container_2",
+              "row": 9,
+              "rowspan": 62,
+              "widgetStyle": {
+                "backgroundColor": "#091A3E",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 8
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 0,
+              "name": "container_3",
+              "row": 0,
+              "rowspan": 71,
+              "widgetStyle": {
+                "backgroundColor": "rgb(5, 16, 39)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 8
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 0,
+              "name": "chart_2",
+              "row": 20,
+              "rowspan": 51,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 36,
+              "column": 11,
+              "name": "table_1",
+              "row": 49,
+              "rowspan": 21,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 36,
+              "column": 11,
+              "name": "text_1",
+              "row": 42,
+              "rowspan": 2,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 36,
+              "column": 11,
+              "name": "text_2",
+              "row": 0,
+              "rowspan": 5,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 48,
+              "column": 0,
+              "name": "container_1",
+              "row": 71,
+              "rowspan": 59,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 46,
+              "column": 1,
+              "name": "table_2",
+              "row": 77,
+              "rowspan": 51,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 1,
+              "name": "image_1",
+              "row": 72,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgba(127, 141, 225, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 13,
+              "column": 2,
+              "name": "text_3",
+              "row": 72,
+              "rowspan": 3,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 38,
+              "column": 10,
+              "name": "container_4",
+              "row": 0,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "#091A3E",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 36,
+              "name": "link_1",
+              "row": 5,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 16,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 12,
+              "name": "link_2",
+              "row": 5,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#335779",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 16,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 24,
+              "name": "link_13",
+              "row": 5,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 16,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 36,
+              "column": 11,
+              "name": "table_3",
+              "row": 44,
+              "rowspan": 5,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 3,
+              "name": "chart_7",
+              "row": 7,
+              "rowspan": 13,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 0,
+              "name": "text_4",
+              "row": 0,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "text_5",
+              "row": 3,
+              "rowspan": 2,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 36,
+              "column": 11,
+              "name": "chart_12",
+              "row": 10,
+              "rowspan": 31,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 12,
+              "column": 4,
+              "name": "chart_1",
+              "row": 131,
+              "rowspan": 11,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            }
+          ]
+        },
+        {
+          "label": "Congressional District: Unique Clients Assisted",
+          "name": "e9b9ac60-78ff-46b8-8757-924b76ebaaf6",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 38,
+              "column": 10,
+              "name": "container_2",
+              "row": 9,
+              "rowspan": 62,
+              "widgetStyle": {
+                "backgroundColor": "#091A3E",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 8
+              }
+            },
+            {
+              "colspan": 36,
+              "column": 11,
+              "name": "text_2",
+              "row": 0,
+              "rowspan": 5,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 48,
+              "column": 0,
+              "name": "container_1",
+              "row": 71,
+              "rowspan": 59,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 46,
+              "column": 1,
+              "name": "table_2",
+              "row": 77,
+              "rowspan": 51,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 1,
+              "name": "image_1",
+              "row": 72,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgba(127, 141, 225, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 13,
+              "column": 2,
+              "name": "text_3",
+              "row": 72,
+              "rowspan": 3,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 38,
+              "column": 10,
+              "name": "container_4",
+              "row": 0,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "#091A3E",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 12,
+              "name": "link_3",
+              "row": 5,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 16,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 36,
+              "name": "link_4",
+              "row": 5,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#335779",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 16,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 36,
+              "column": 11,
+              "name": "chart_5",
+              "row": 16,
+              "rowspan": 54,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 20,
+              "name": "link_5",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#C6D3E1",
+                "borderEdges": [
+                  "right"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 11,
+              "name": "link_6",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#335779",
+                "borderColor": "#C6D3E1",
+                "borderEdges": [
+                  "right"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 29,
+              "name": "link_7",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#C6D3E1",
+                "borderEdges": [
+                  "right"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 38,
+              "name": "link_8",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 24,
+              "name": "link_13",
+              "row": 5,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 16,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 0,
+              "name": "container_3",
+              "row": 0,
+              "rowspan": 71,
+              "widgetStyle": {
+                "backgroundColor": "rgb(5, 16, 39)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 8
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 0,
+              "name": "chart_2",
+              "row": 20,
+              "rowspan": 51,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 3,
+              "name": "chart_7",
+              "row": 7,
+              "rowspan": 13,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 0,
+              "name": "text_4",
+              "row": 0,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "text_5",
+              "row": 3,
+              "rowspan": 2,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            }
+          ]
+        },
+        {
+          "label": "Congressional District: Total Assists",
+          "name": "8f68bde2-7c3f-4eee-bbc1-96a7eb5f1d97",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 38,
+              "column": 10,
+              "name": "container_2",
+              "row": 9,
+              "rowspan": 62,
+              "widgetStyle": {
+                "backgroundColor": "#091A3E",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 8
+              }
+            },
+            {
+              "colspan": 36,
+              "column": 11,
+              "name": "text_2",
+              "row": 0,
+              "rowspan": 5,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 48,
+              "column": 0,
+              "name": "container_1",
+              "row": 71,
+              "rowspan": 59,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 46,
+              "column": 1,
+              "name": "table_2",
+              "row": 77,
+              "rowspan": 51,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 1,
+              "name": "image_1",
+              "row": 72,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgba(127, 141, 225, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 13,
+              "column": 2,
+              "name": "text_3",
+              "row": 72,
+              "rowspan": 3,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 38,
+              "column": 10,
+              "name": "container_4",
+              "row": 0,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "#091A3E",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 12,
+              "name": "link_3",
+              "row": 5,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 16,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 36,
+              "name": "link_4",
+              "row": 5,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#335779",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 16,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 29,
+              "name": "link_7",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#C6D3E1",
+                "borderEdges": [
+                  "right"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 38,
+              "name": "link_8",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 11,
+              "name": "link_9",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#C6D3E1",
+                "borderEdges": [
+                  "right"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 20,
+              "name": "link_10",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#335779",
+                "borderColor": "#C6D3E1",
+                "borderEdges": [
+                  "right"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 36,
+              "column": 11,
+              "name": "chart_3",
+              "row": 15,
+              "rowspan": 55,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 24,
+              "name": "link_13",
+              "row": 5,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 16,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 0,
+              "name": "container_3",
+              "row": 0,
+              "rowspan": 71,
+              "widgetStyle": {
+                "backgroundColor": "rgb(5, 16, 39)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 8
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 0,
+              "name": "chart_2",
+              "row": 20,
+              "rowspan": 51,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 3,
+              "name": "chart_7",
+              "row": 7,
+              "rowspan": 13,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 0,
+              "name": "text_4",
+              "row": 0,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "text_5",
+              "row": 3,
+              "rowspan": 2,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            }
+          ]
+        },
+        {
+          "label": "Congressional District: Export Promotion Assists",
+          "name": "76364f7c-8666-4145-85cf-56103df592eb",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 38,
+              "column": 10,
+              "name": "container_2",
+              "row": 9,
+              "rowspan": 62,
+              "widgetStyle": {
+                "backgroundColor": "#091A3E",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 8
+              }
+            },
+            {
+              "colspan": 36,
+              "column": 11,
+              "name": "text_2",
+              "row": 0,
+              "rowspan": 5,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 48,
+              "column": 0,
+              "name": "container_1",
+              "row": 71,
+              "rowspan": 59,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 46,
+              "column": 1,
+              "name": "table_2",
+              "row": 77,
+              "rowspan": 51,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 1,
+              "name": "image_1",
+              "row": 72,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgba(127, 141, 225, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 13,
+              "column": 2,
+              "name": "text_3",
+              "row": 72,
+              "rowspan": 3,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 38,
+              "column": 10,
+              "name": "container_4",
+              "row": 0,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "#091A3E",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 12,
+              "name": "link_3",
+              "row": 5,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 16,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 36,
+              "name": "link_4",
+              "row": 5,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#335779",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 16,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 20,
+              "name": "link_5",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#C6D3E1",
+                "borderEdges": [
+                  "right"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 38,
+              "name": "link_8",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 11,
+              "name": "link_9",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#C6D3E1",
+                "borderEdges": [
+                  "right"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 29,
+              "name": "link_11",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#335779",
+                "borderColor": "#C6D3E1",
+                "borderEdges": [
+                  "right"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 36,
+              "column": 11,
+              "name": "chart_4",
+              "row": 15,
+              "rowspan": 55,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 24,
+              "name": "link_13",
+              "row": 5,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 16,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 0,
+              "name": "container_3",
+              "row": 0,
+              "rowspan": 71,
+              "widgetStyle": {
+                "backgroundColor": "rgb(5, 16, 39)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 8
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 0,
+              "name": "chart_2",
+              "row": 20,
+              "rowspan": 51,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 3,
+              "name": "chart_7",
+              "row": 7,
+              "rowspan": 13,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 0,
+              "name": "text_4",
+              "row": 0,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "text_5",
+              "row": 3,
+              "rowspan": 2,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            }
+          ]
+        },
+        {
+          "label": "Congressional District: Investment Promotion Assists",
+          "name": "ecc88089-982b-4d60-a422-77b9fb2ed86d",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 38,
+              "column": 10,
+              "name": "container_2",
+              "row": 9,
+              "rowspan": 62,
+              "widgetStyle": {
+                "backgroundColor": "#091A3E",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 8
+              }
+            },
+            {
+              "colspan": 36,
+              "column": 11,
+              "name": "text_2",
+              "row": 0,
+              "rowspan": 5,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 48,
+              "column": 0,
+              "name": "container_1",
+              "row": 71,
+              "rowspan": 59,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 46,
+              "column": 1,
+              "name": "table_2",
+              "row": 77,
+              "rowspan": 51,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 1,
+              "name": "image_1",
+              "row": 72,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgba(127, 141, 225, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 13,
+              "column": 2,
+              "name": "text_3",
+              "row": 72,
+              "rowspan": 3,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 38,
+              "column": 10,
+              "name": "container_4",
+              "row": 0,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "#091A3E",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 12,
+              "name": "link_3",
+              "row": 5,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 16,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 36,
+              "name": "link_4",
+              "row": 5,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#335779",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 16,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 20,
+              "name": "link_5",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#C6D3E1",
+                "borderEdges": [
+                  "right"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 29,
+              "name": "link_7",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#C6D3E1",
+                "borderEdges": [
+                  "right"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 11,
+              "name": "link_9",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#C6D3E1",
+                "borderEdges": [
+                  "right"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 38,
+              "name": "link_12",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#335779",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 36,
+              "column": 11,
+              "name": "chart_6",
+              "row": 15,
+              "rowspan": 55,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 24,
+              "name": "link_13",
+              "row": 5,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 16,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 0,
+              "name": "container_3",
+              "row": 0,
+              "rowspan": 71,
+              "widgetStyle": {
+                "backgroundColor": "rgb(5, 16, 39)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 8
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 0,
+              "name": "chart_2",
+              "row": 20,
+              "rowspan": 51,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 3,
+              "name": "chart_7",
+              "row": 7,
+              "rowspan": 13,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 0,
+              "name": "text_4",
+              "row": 0,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "text_5",
+              "row": 3,
+              "rowspan": 2,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            }
+          ]
+        },
+        {
+          "label": "State: Unique Clients Assisted",
+          "name": "089017a2-c0fe-4ee6-8929-2616764d7eb6",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 38,
+              "column": 10,
+              "name": "container_2",
+              "row": 9,
+              "rowspan": 62,
+              "widgetStyle": {
+                "backgroundColor": "#091A3E",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 8
+              }
+            },
+            {
+              "colspan": 36,
+              "column": 11,
+              "name": "text_2",
+              "row": 0,
+              "rowspan": 5,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 48,
+              "column": 0,
+              "name": "container_1",
+              "row": 71,
+              "rowspan": 59,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 46,
+              "column": 1,
+              "name": "table_2",
+              "row": 77,
+              "rowspan": 51,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 1,
+              "name": "image_1",
+              "row": 72,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgba(127, 141, 225, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 13,
+              "column": 2,
+              "name": "text_3",
+              "row": 72,
+              "rowspan": 3,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 38,
+              "column": 10,
+              "name": "container_4",
+              "row": 0,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "#091A3E",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 12,
+              "name": "link_3",
+              "row": 5,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 16,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 36,
+              "column": 11,
+              "name": "chart_8",
+              "row": 15,
+              "rowspan": 55,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 36,
+              "name": "link_1",
+              "row": 5,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 16,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 24,
+              "name": "link_15",
+              "row": 5,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#335779",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 16,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 11,
+              "name": "link_16",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#335779",
+                "borderColor": "#C6D3E1",
+                "borderEdges": [
+                  "right"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 20,
+              "name": "link_17",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#C6D3E1",
+                "borderEdges": [
+                  "right"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 29,
+              "name": "link_18",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#C6D3E1",
+                "borderEdges": [
+                  "right"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 38,
+              "name": "link_19",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 0,
+              "name": "container_3",
+              "row": 0,
+              "rowspan": 71,
+              "widgetStyle": {
+                "backgroundColor": "rgb(5, 16, 39)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 8
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 0,
+              "name": "chart_2",
+              "row": 20,
+              "rowspan": 51,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 3,
+              "name": "chart_7",
+              "row": 7,
+              "rowspan": 13,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 0,
+              "name": "text_4",
+              "row": 0,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "text_5",
+              "row": 3,
+              "rowspan": 2,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            }
+          ]
+        },
+        {
+          "label": "State: Total Assists",
+          "name": "7d88a625-8ea9-4394-a414-e3ef2b5eb477",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 38,
+              "column": 10,
+              "name": "container_2",
+              "row": 9,
+              "rowspan": 62,
+              "widgetStyle": {
+                "backgroundColor": "#091A3E",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 8
+              }
+            },
+            {
+              "colspan": 36,
+              "column": 11,
+              "name": "text_2",
+              "row": 0,
+              "rowspan": 5,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 48,
+              "column": 0,
+              "name": "container_1",
+              "row": 71,
+              "rowspan": 59,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 46,
+              "column": 1,
+              "name": "table_2",
+              "row": 77,
+              "rowspan": 51,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 1,
+              "name": "image_1",
+              "row": 72,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgba(127, 141, 225, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 13,
+              "column": 2,
+              "name": "text_3",
+              "row": 72,
+              "rowspan": 3,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 38,
+              "column": 10,
+              "name": "container_4",
+              "row": 0,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "#091A3E",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 12,
+              "name": "link_3",
+              "row": 5,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 16,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 36,
+              "column": 11,
+              "name": "chart_11",
+              "row": 16,
+              "rowspan": 54,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 36,
+              "name": "link_1",
+              "row": 5,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 16,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 24,
+              "name": "link_15",
+              "row": 5,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#335779",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 16,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 29,
+              "name": "link_18",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#C6D3E1",
+                "borderEdges": [
+                  "right"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 38,
+              "name": "link_19",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 20,
+              "name": "link_22",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#335779",
+                "borderColor": "#C6D3E1",
+                "borderEdges": [
+                  "right"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 11,
+              "name": "link_23",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#C6D3E1",
+                "borderEdges": [
+                  "right"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 0,
+              "name": "container_3",
+              "row": 0,
+              "rowspan": 71,
+              "widgetStyle": {
+                "backgroundColor": "rgb(5, 16, 39)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 8
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 0,
+              "name": "chart_2",
+              "row": 20,
+              "rowspan": 51,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 3,
+              "name": "chart_7",
+              "row": 7,
+              "rowspan": 13,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 0,
+              "name": "text_4",
+              "row": 0,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "text_5",
+              "row": 3,
+              "rowspan": 2,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            }
+          ]
+        },
+        {
+          "label": "State: Export Promotion Assists",
+          "name": "7549ee18-2877-4ce5-a27a-65a4bcc16d14",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 38,
+              "column": 10,
+              "name": "container_2",
+              "row": 9,
+              "rowspan": 62,
+              "widgetStyle": {
+                "backgroundColor": "#091A3E",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 8
+              }
+            },
+            {
+              "colspan": 36,
+              "column": 11,
+              "name": "text_2",
+              "row": 0,
+              "rowspan": 5,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 48,
+              "column": 0,
+              "name": "container_1",
+              "row": 71,
+              "rowspan": 59,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 46,
+              "column": 1,
+              "name": "table_2",
+              "row": 77,
+              "rowspan": 51,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 1,
+              "name": "image_1",
+              "row": 72,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgba(127, 141, 225, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 13,
+              "column": 2,
+              "name": "text_3",
+              "row": 72,
+              "rowspan": 3,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 38,
+              "column": 10,
+              "name": "container_4",
+              "row": 0,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "#091A3E",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 12,
+              "name": "link_3",
+              "row": 5,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 16,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 36,
+              "column": 11,
+              "name": "chart_10",
+              "row": 15,
+              "rowspan": 55,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 36,
+              "name": "link_1",
+              "row": 5,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 16,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 24,
+              "name": "link_15",
+              "row": 5,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#335779",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 16,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 20,
+              "name": "link_17",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#C6D3E1",
+                "borderEdges": [
+                  "right"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 29,
+              "name": "link_20",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#335779",
+                "borderColor": "#C6D3E1",
+                "borderEdges": [
+                  "right"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 38,
+              "name": "link_19",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 11,
+              "name": "link_23",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#C6D3E1",
+                "borderEdges": [
+                  "right"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 0,
+              "name": "container_3",
+              "row": 0,
+              "rowspan": 71,
+              "widgetStyle": {
+                "backgroundColor": "rgb(5, 16, 39)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 8
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 0,
+              "name": "chart_2",
+              "row": 20,
+              "rowspan": 51,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 3,
+              "name": "chart_7",
+              "row": 7,
+              "rowspan": 13,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 0,
+              "name": "text_4",
+              "row": 0,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "text_5",
+              "row": 3,
+              "rowspan": 2,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            }
+          ]
+        },
+        {
+          "label": "State: Investment Promotion Assists",
+          "name": "e0b32c08-ac42-468b-93bb-d41fdccbef09",
+          "navigationHidden": false,
+          "widgets": [
+            {
+              "colspan": 38,
+              "column": 10,
+              "name": "container_2",
+              "row": 9,
+              "rowspan": 62,
+              "widgetStyle": {
+                "backgroundColor": "#091A3E",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 8
+              }
+            },
+            {
+              "colspan": 36,
+              "column": 11,
+              "name": "text_2",
+              "row": 0,
+              "rowspan": 5,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 48,
+              "column": 0,
+              "name": "container_1",
+              "row": 71,
+              "rowspan": 59,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 46,
+              "column": 1,
+              "name": "table_2",
+              "row": 77,
+              "rowspan": 51,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 1,
+              "column": 1,
+              "name": "image_1",
+              "row": 72,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgba(127, 141, 225, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 13,
+              "column": 2,
+              "name": "text_3",
+              "row": 72,
+              "rowspan": 3,
+              "widgetStyle": {
+                "borderEdges": []
+              }
+            },
+            {
+              "colspan": 38,
+              "column": 10,
+              "name": "container_4",
+              "row": 0,
+              "rowspan": 9,
+              "widgetStyle": {
+                "backgroundColor": "#091A3E",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 12,
+              "name": "link_3",
+              "row": 5,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 16,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 36,
+              "column": 11,
+              "name": "chart_9",
+              "row": 15,
+              "rowspan": 55,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 36,
+              "name": "link_1",
+              "row": 5,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 16,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 24,
+              "name": "link_15",
+              "row": 5,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#335779",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 16,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 20,
+              "name": "link_17",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#C6D3E1",
+                "borderEdges": [
+                  "right"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 29,
+              "name": "link_18",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#C6D3E1",
+                "borderEdges": [
+                  "right"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 38,
+              "name": "link_21",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#335779",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 9,
+              "column": 11,
+              "name": "link_23",
+              "row": 12,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "#E6ECF2",
+                "borderColor": "#C6D3E1",
+                "borderEdges": [
+                  "right"
+                ],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 0,
+              "name": "container_3",
+              "row": 0,
+              "rowspan": 71,
+              "widgetStyle": {
+                "backgroundColor": "rgb(5, 16, 39)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 8
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 0,
+              "name": "chart_2",
+              "row": 20,
+              "rowspan": 51,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 4,
+              "column": 3,
+              "name": "chart_7",
+              "row": 7,
+              "rowspan": 13,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 10,
+              "column": 0,
+              "name": "text_4",
+              "row": 0,
+              "rowspan": 3,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            },
+            {
+              "colspan": 8,
+              "column": 1,
+              "name": "text_5",
+              "row": 3,
+              "rowspan": 2,
+              "widgetStyle": {
+                "backgroundColor": "rgba(255, 255, 255, 0)",
+                "borderColor": "#E6ECF2",
+                "borderEdges": [],
+                "borderRadius": 0,
+                "borderWidth": 1
+              }
+            }
+          ]
+        }
+      ],
+      "rowHeight": "fine",
+      "selectors": [],
+      "style": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "backgroundColor": "rgb(230, 236, 242)",
+        "cellSpacingX": 0,
+        "cellSpacingY": 0,
+        "fit": "original",
+        "gutterColor": "rgb(230, 236, 242)"
+      },
+      "version": 1.0
+    }
+  ],
+  "layouts": [],
+  "steps": {
+    "DAS_Label_Assist_Typ_1": {
+      "broadcastFacet": false,
+      "groups": [],
+      "label": "DAS_Label_Assist_Typ_2",
+      "numbers": [],
+      "query": "data = load \"Global_Markets_Contributor_Taxonomy\";\r\n\r\ndata = filter data by \r\n    'Parent_Type' in [\"Light Touch\", \"In-Depth Touch\"]\r\n    && 'Fiscal_Year' in [\"2018\"]\r\n    && 'DAS_Label' != \"EMEA\";\r\n\r\ndata = group data by all; \r\n\r\ndata = foreach data generate \r\n    \"GM All\" as 'DAS_Label', \r\n    unique('Organization.Id') as 'Total_Assists', \r\n    58912 as 'Total_Target';\r\n\r\ndata = foreach data generate \r\n    'DAS_Label', \r\n    'Total_Assists' as 'Unique Clients Assisted', \r\n    'Total_Target' as 'Target', \r\n    case \r\n        when 'Total_Target' > 0 then round('Total_Assists' / 'Total_Target' * 100, 0)\r\n        else 0\r\n    end as 'Target Percent';\r\n    \r\n-- data = filter data by 'Target Percent' > 0;\r\n    \r\ndata = order data by (\r\n    'Target Percent' desc nulls last\r\n);\r\n\r\ndata = foreach data generate\r\n    'DAS_Label', \r\n    'Target Percent';",
+      "receiveFacet": false,
+      "selectMode": "none",
+      "strings": [],
+      "type": "saql",
+      "useGlobal": false,
+      "visualizationParameters": {
+        "parameters": {
+          "autoFitMode": "keepLabels",
+          "max": 100,
+          "legend": {
+            "showHeader": true,
+            "show": false,
+            "position": "right-top",
+            "inside": false
+          },
+          "tooltip": {
+            "showBinLabel": true,
+            "measures": [
+              "Target Percent"
+            ],
+            "showNullValues": true,
+            "showPercentage": true,
+            "customText": [],
+            "showDimensions": true,
+            "showMeasures": true,
+            "customizeTooltip": true,
+            "dimensions": [
+              "DAS_Label"
+            ]
+          },
+          "visualizationType": "polargauge",
+          "medium": 33,
+          "title": {
+            "fontSize": 14,
+            "subtitleFontSize": 11,
+            "label": "",
+            "align": "center",
+            "subtitleLabel": ""
+          },
+          "trellis": {
+            "flipLabels": false,
+            "showGridLines": true,
+            "size": [
+              50,
+              50
+            ],
+            "enable": true,
+            "type": "wrap",
+            "chartsPerLine": 1
+          },
+          "icons": {
+            "useIcons": false,
+            "iconProps": {
+              "fit": "cover",
+              "column": ""
+            }
+          },
+          "inner": 80,
+          "colors": {
+            "mediumColor2": "#F29946",
+            "mediumColor1": "#FED444",
+            "lowColor1": "#F71979",
+            "lowColor2": "#CC203D",
+            "highColor1": "#7BDE4E",
+            "highColor2": "#169913"
+          },
+          "high": 66,
+          "showActionMenu": true,
+          "min": 0,
+          "valueType": "percent",
+          "theme": "wave",
+          "applyConditionalFormatting": true
+        },
+        "type": "chart"
+      }
+    },
+    "DAS_Label_Assist_Typ_2": {
+      "broadcastFacet": true,
+      "groups": [],
+      "label": "DAS_Label_Assist_Typ_2",
+      "numbers": [],
+      "query": "data = load \"Global_Markets_Contributor_Taxonomy\";\r\n\r\ndata = filter data by \r\n    'Parent_Type' in [\"Light Touch\", \"In-Depth Touch\"]\r\n    && 'Fiscal_Year' in [\"2018\"]\r\n    && 'DAS_Label' != \"EMEA\";\r\n\r\ndata = group data by (\r\n    'DAS_Label'\r\n);\r\ndata = foreach data generate \r\n    'DAS_Label', \r\n    unique('Organization.Id') as 'Total_Assists', \r\n    123 as 'Total_Target';\r\n\r\ndata = foreach data generate \r\n    'DAS_Label', \r\n    'Total_Assists' as 'Unique Clients Assisted', \r\n    'Total_Target' as 'Target', \r\n    case \r\n        when 'Total_Target' > 0 then round('Total_Assists' / 'Total_Target' * 100, 0)\r\n        else 0\r\n    end as 'Target Percent';\r\n    \r\n-- data = filter data by 'Target Percent' > 0;\r\n    \r\ndata = order data by (\r\n    'Target Percent' desc nulls last\r\n);\r\n\r\ndata = foreach data generate\r\n    'DAS_Label', \r\n    'Target Percent';",
+      "receiveFacet": true,
+      "selectMode": "multi",
+      "strings": [],
+      "type": "saql",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "parameters": {
+          "autoFitMode": "keepLabels",
+          "max": 100,
+          "legend": {
+            "showHeader": true,
+            "show": false,
+            "position": "right-top",
+            "inside": false
+          },
+          "tooltip": {
+            "showBinLabel": true,
+            "measures": "",
+            "showNullValues": true,
+            "showPercentage": true,
+            "customText": [],
+            "showDimensions": true,
+            "showMeasures": true,
+            "customizeTooltip": false,
+            "dimensions": ""
+          },
+          "visualizationType": "polargauge",
+          "medium": 33,
+          "title": {
+            "fontSize": 14,
+            "subtitleFontSize": 11,
+            "label": "",
+            "align": "center",
+            "subtitleLabel": ""
+          },
+          "trellis": {
+            "flipLabels": false,
+            "showGridLines": true,
+            "size": [
+              150,
+              80
+            ],
+            "enable": true,
+            "type": "wrap",
+            "chartsPerLine": 2
+          },
+          "icons": {
+            "useIcons": false,
+            "iconProps": {
+              "fit": "cover",
+              "column": ""
+            }
+          },
+          "inner": 80,
+          "colors": {
+            "mediumColor2": "#F29946",
+            "mediumColor1": "#FED444",
+            "lowColor1": "#F71979",
+            "lowColor2": "#CC203D",
+            "highColor1": "#7BDE4E",
+            "highColor2": "#169913"
+          },
+          "high": 66,
+          "showActionMenu": true,
+          "min": 0,
+          "valueType": "percent",
+          "theme": "wave",
+          "applyConditionalFormatting": true
+        },
+        "type": "chart"
+      }
+    },
+    "all_1": {
+      "broadcastFacet": true,
+      "datasets": [
+        {
+          "name": "Assist_Targets_sample"
+        }
+      ],
+      "isGlobal": false,
+      "query": {
+        "query": "{\"measures\":[[\"count\",\"*\"]]}",
+        "version": -1.0
+      },
+      "receiveFacet": true,
+      "selectMode": "single",
+      "type": "aggregateflex",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "parameters": {
+          "autoFitMode": "keepLabels",
+          "showValues": true,
+          "bins": {
+            "breakpoints": {
+              "high": 100,
+              "low": 0
+            },
+            "bands": {
+              "high": {
+                "color": "#008000",
+                "label": ""
+              },
+              "low": {
+                "color": "#B22222",
+                "label": ""
+              },
+              "medium": {
+                "color": "#ffa500",
+                "label": ""
+              }
+            }
+          },
+          "legend": {
+            "descOrder": false,
+            "showHeader": true,
+            "show": true,
+            "customSize": "auto",
+            "position": "right-top",
+            "inside": false
+          },
+          "axisMode": "multi",
+          "tooltip": {
+            "showBinLabel": true,
+            "measures": "",
+            "showNullValues": true,
+            "showPercentage": true,
+            "showDimensions": true,
+            "showMeasures": true,
+            "customizeTooltip": false,
+            "dimensions": ""
+          },
+          "visualizationType": "hbar",
+          "title": {
+            "fontSize": 14,
+            "subtitleFontSize": 11,
+            "label": "",
+            "align": "center",
+            "subtitleLabel": ""
+          },
+          "binValues": false,
+          "trellis": {
+            "flipLabels": false,
+            "showGridLines": true,
+            "size": [
+              100,
+              100
+            ],
+            "enable": false,
+            "type": "x",
+            "chartsPerLine": 4
+          },
+          "columnMap": {
+            "trellis": [],
+            "dimensionAxis": [],
+            "plots": [
+              "count"
+            ]
+          },
+          "showActionMenu": true,
+          "measureAxis2": {
+            "sqrtScale": false,
+            "showTitle": true,
+            "showAxis": true,
+            "title": "",
+            "customDomain": {
+              "showDomain": false
+            }
+          },
+          "measureAxis1": {
+            "sqrtScale": false,
+            "showTitle": true,
+            "showAxis": true,
+            "title": "",
+            "customDomain": {
+              "showDomain": false
+            }
+          },
+          "theme": "wave",
+          "dimensionAxis": {
+            "showTitle": true,
+            "customSize": "auto",
+            "showAxis": true,
+            "title": "",
+            "icons": {
+              "useIcons": false,
+              "iconProps": {
+                "fit": "cover",
+                "column": "",
+                "type": "round"
+              }
+            }
+          },
+          "applyConditionalFormatting": true
+        },
+        "type": "chart"
+      }
+    },
+    "lens_1_1": {
+      "broadcastFacet": false,
+      "groups": [],
+      "label": "lens_1",
+      "numbers": [],
+      "query": "data = load \"Global_Markets_Contributor_Taxonomy\";\r\n\r\ndata = filter data by \r\n    'Parent_Type' in [\"Light Touch\", \"In-Depth Touch\"]\r\n    && 'Fiscal_Year' in [\"2018\"]\r\n    && 'DAS_Label' != \"EMEA\";\r\n\r\n-- Export Promotion\r\nexportPromotion = filter data by 'Assist_Type' == \"Export Promotion\";\r\n    \r\nexportPromotion = group exportPromotion by all;\r\nexportPromotion = foreach exportPromotion generate \r\n    \"GM All\" as 'DAS_Label', \r\n    unique('Organization.Id') as 'Assits';\r\n\r\n-- Investment Promotion\r\ninvestmentPromotion = filter data by 'Assist_Type' == \"Investment Promotion\";\r\n\r\ninvestmentPromotion = group investmentPromotion by all;\r\ninvestmentPromotion = foreach investmentPromotion generate \r\n    \"GM All\" as 'DAS_Label', \r\n    unique('Organization.Id') as 'Assits';\r\n\r\n-- Data\r\ndata = group data by all;\r\ndata = foreach data generate \r\n    \"GM All\" as 'DAS_Label', \r\n    unique('Organization.Id') as 'Total_Assists', \r\n    58912 as 'Total_Target';\r\n\r\n-- Join exportPromotion to data\r\nresult = cogroup data by ('DAS_Label') left, exportPromotion by ('DAS_Label');\r\nresult = foreach result generate \r\n    data.'DAS_Label' as 'DAS_Label', \r\n    sum(data.'Total_Assists') as 'Total_Assists', \r\n    sum(exportPromotion.'Assits') as 'Export_Promotion_Assists', \r\n    sum(data.'Total_Target') as 'Total_Target';\r\n\r\n\r\n-- Join investmentPromotion to result\r\nresult = cogroup result by ('DAS_Label') left, investmentPromotion by ('DAS_Label');\r\nresult = foreach result generate \r\n    result.'DAS_Label' as 'DAS_Label', \r\n    sum(result.'Total_Assists') as 'Total_Assists', \r\n    sum(result.'Export_Promotion_Assists') as 'Export_Promotion_Assists', \r\n    sum(investmentPromotion.'Assits') as 'Investment_Promotion_Assists', \r\n    sum(result.'Total_Target') as 'Total_Target';\r\n\r\n-- Format results\r\nresult = foreach result generate \r\n    'DAS_Label' as 'DAS', \r\n    number_to_string('Export_Promotion_Assists', \"###,###,###0\") as 'Export Promotion Clients Assisted', \r\n    number_to_string('Investment_Promotion_Assists', \"###,###,###0\") as 'Investment Promotion Clients Assisted', \r\n    number_to_string('Total_Assists', \"###,###,###0\") as 'Total Clients Assisted', \r\n    case\r\n        when 'Total_Target' is null then \" N/A \" \r\n        when 'Total_Target' <= 0 then \" N/A \"\r\n        else number_to_string('Total_Target', \"###,###,###0\")\r\n    end as 'Target', \r\n    case \r\n        when 'Total_Target' > 0 then number_to_string('Total_Assists' / 'Total_Target', \"00.00%\")\r\n        else \" N/A \"\r\n    end as 'Target %';\r\n    \r\nresult = order result by (\r\n    'Target %' desc\r\n);",
+      "receiveFacet": false,
+      "selectMode": "none",
+      "strings": [],
+      "type": "saql",
+      "useGlobal": false,
+      "visualizationParameters": {
+        "parameters": {
+          "borderColor": "#54698d",
+          "borderWidth": 1,
+          "cell": {
+            "backgroundColor": "#16325c",
+            "fontColor": "#ffffff",
+            "fontSize": 12
+          },
+          "columnProperties": {},
+          "columns": [],
+          "customBulkActions": [],
+          "header": {
+            "backgroundColor": "#000000",
+            "fontColor": "#ffffff",
+            "fontSize": 12
+          },
+          "innerMajorBorderColor": "#54698d",
+          "innerMinorBorderColor": "#54698d",
+          "mode": "fittocontainer",
+          "numberOfLines": 1,
+          "pivoted": false,
+          "totals": true,
+          "verticalPadding": 4
+        },
+        "type": "table"
+      }
+    },
+    "Created_Date_Year_Cr_2": {
+      "broadcastFacet": true,
+      "groups": [],
+      "label": "Created_Date_Year_Cr_1",
+      "numbers": [],
+      "query": "q = load \"Global_Markets_Contributor_Taxonomy\";\r\nq = filter q by \r\n    'Fiscal_Year' == \"2018\"\r\n    && 'Parent_Type' in [\"In-Depth Touch\", \"Light Touch\"]\r\n    && 'DAS_Label' != \"EMEA\";\r\nq = foreach q generate\r\n    'DAS_Label',\r\n    'Organization.Id',\r\n    'Created_Date', \r\n    'Created_Date_Year',\r\n    'Created_Date_Month',\r\n    123 as 'Target';\r\n\r\nq = order q by (\r\n    'DAS_Label', \r\n    'Organization.Id', \r\n    'Created_Date'\r\n);\r\n\r\ngmAll = group q by (\r\n    'Organization.Id'\r\n);\r\n\r\ngmAll = foreach gmAll generate\r\n    \"GM All\" as 'DAS_Label', \r\n    'Organization.Id',\r\n    first('Created_Date_Year') as 'Created_Date_Year', \r\n    first('Created_Date_Month') as 'Created_Date_Month', \r\n    58912 as 'Target';\r\n\r\nq = group q by (\r\n    'DAS_Label', \r\n    'Organization.Id'\r\n);\r\n\r\nq = foreach q generate\r\n    'DAS_Label', \r\n    'Organization.Id',\r\n    first('Created_Date_Year') as 'Created_Date_Year', \r\n    first('Created_Date_Month') as 'Created_Date_Month', \r\n    first('Target') as 'Target';\r\n    \r\nq= union q, gmAll;\r\n\r\nq = group q by (\r\n    'DAS_Label', \r\n    'Created_Date_Year', \r\n    'Created_Date_Month'\r\n);\r\nq = foreach q generate\r\n    'Created_Date_Year', \r\n    'Created_Date_Month', \r\n    'DAS_Label', \r\n    'Created_Date_Year' + \"~~~\" + 'Created_Date_Month' as 'Created_Date_Year~~~Created_Date_Month', \r\n    count() as 'Organizations_Assisted', \r\n    sum(count()) over (\r\n        [..0] \r\n        partition by 'DAS_Label' \r\n        order by ('Created_Date_Year', 'Created_Date_Month')\r\n    ) as 'Total_Organizations_Assisted', \r\n    first('Target') as 'Target';\r\n    \r\n   \r\nq = foreach q generate\r\n    'Created_Date_Year' as 'Year', \r\n    'Created_Date_Month' as 'Month', \r\n    'DAS_Label' as 'DAS', \r\n    'Total_Organizations_Assisted', \r\n    'Target', \r\n    case \r\n        when 'Target' is null then 0\r\n        when 'Target' <= 0 then 0\r\n        else 'Total_Organizations_Assisted' / 'Target' * 100\r\n    end as 'Target_Complete', \r\n    case\r\n        when ('Target' is null || 'Target' == 0) then \"false\"\r\n        else \"true\"\r\n    end as 'IsMeasureable';\r\n\r\nq = filter q by 'IsMeasureable' == \"true\";\r\n\r\nq = foreach q generate\r\n    'Year', \r\n    'Month', \r\n    'DAS', \r\n    'Target_Complete';\r\n\r\nq = fill q by (\r\n    dateCols=(\r\n        'Year', \r\n        'Month', \r\n        \"Y-M\"\r\n    ), \r\n    partition='DAS'\r\n);\r\n\r\nq = timeseries q generate\r\n    'Target_Complete' as 'Target_Complete_Prediction' with (\r\n        partition='DAS', \r\n        length=4,\r\n        dateCols=(\r\n            'Year', \r\n            'Month', \r\n            \"Y-M\"\r\n        ), \r\n        ignoreLast=true,\r\n        predictionInterval=95\r\n    );\r\n    \r\nq = foreach q generate\r\n    'DAS', \r\n    'Year' + \"~~~\" + 'Month' as 'Created_Date_Year~~~Created_Date_Month', \r\n    round(coalesce('Target_Complete', 'Target_Complete_Prediction'), 2) as 'Goal Progress (%)', \r\n    round('Target_Complete_Prediction_high_95', 2) as 'Goal Progress (%): High 95% Confidence', \r\n    round('Target_Complete_Prediction_low_95', 2) as 'Goal Progress (%): Low 95% Confidence';\r\n ",
+      "receiveFacet": true,
+      "selectMode": "multi",
+      "strings": [],
+      "type": "saql",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "parameters": {
+          "autoFitMode": "keepLabels",
+          "showPoints": true,
+          "legend": {
+            "descOrder": false,
+            "showHeader": true,
+            "show": true,
+            "customSize": "auto",
+            "position": "left-top",
+            "inside": false
+          },
+          "axisMode": "sync",
+          "tooltip": {
+            "showBinLabel": true,
+            "measures": [
+              "Goal Progress (%)"
+            ],
+            "showNullValues": true,
+            "showPercentage": true,
+            "customText": [],
+            "showDimensions": true,
+            "showMeasures": true,
+            "customizeTooltip": true,
+            "dimensions": [
+              "DAS",
+              "Created_Date_Year~~~Created_Date_Month"
+            ]
+          },
+          "visualizationType": "time",
+          "missingValue": "connect",
+          "dashLine": {
+            "measures": [
+              "Goal_Progress"
+            ],
+            "showDashLine": false
+          },
+          "timeAxis": {
+            "showTitle": false,
+            "predictiveLine": {
+              "color": "#8932ED",
+              "time": "2018-06",
+              "label": "TODAY"
+            },
+            "showAxis": true,
+            "title": ""
+          },
+          "title": {
+            "fontSize": 14,
+            "subtitleFontSize": 11,
+            "label": "Unique Clients Assisted Progress Towards Target",
+            "align": "center",
+            "subtitleLabel": ""
+          },
+          "trellis": {
+            "flipLabels": false,
+            "showGridLines": true,
+            "size": [
+              100,
+              100
+            ],
+            "enable": false,
+            "type": "x",
+            "chartsPerLine": 4
+          },
+          "fillArea": false,
+          "showActionMenu": true,
+          "showZero": true,
+          "measureAxis2": {
+            "sqrtScale": false,
+            "showTitle": true,
+            "showAxis": true,
+            "title": "",
+            "customDomain": {
+              "showDomain": false
+            }
+          },
+          "measureAxis1": {
+            "sqrtScale": false,
+            "showTitle": true,
+            "showAxis": true,
+            "referenceLines": [
+              {
+                "color": "#B3B400",
+                "label": "100%",
+                "value": 100
+              }
+            ],
+            "title": "Unique Clients Assisted / Target (%)",
+            "customDomain": {
+              "showDomain": false
+            }
+          },
+          "valueType": "none",
+          "theme": "wave",
+          "applyConditionalFormatting": true,
+          "drawArea": {
+            "measure": "Goal Progress (%)",
+            "showDrawArea": true,
+            "bounding1": "Goal Progress (%): High 95% Confidence",
+            "bounding2": "Goal Progress (%): Low 95% Confidence"
+          }
+        },
+        "type": "chart"
+      }
+    },
+    "lens_3": {
+      "broadcastFacet": false,
+      "groups": [],
+      "label": "lens_3",
+      "numbers": [],
+      "query": "q = load \"Global_Markets_Contributor_Taxonomy\";\r\nq = filter q by \r\n    'Fiscal_Year' == \"2018\"\r\n    && 'Parent_Type' in [\"In-Depth Touch\", \"Light Touch\"];\r\n \r\nq = foreach q generate\r\n    'DAS_Label', \r\n    'Assist_Type', \r\n    'Organization.Id', \r\n    'Organization.Name', \r\n    'Organization.State_Code__c' as 'State', \r\n    'Organization.Congressional_District_formula__c' as 'Congressional_District', \r\n    'Created_Date', \r\n    'Parent_Id';\r\n \r\nq = order q by (\r\n    'Organization.Id', \r\n    'Created_Date'\r\n);\r\n  \r\nq = group q by (\r\n    'Assist_Type', \r\n    'Organization.Id'\r\n);\r\n\r\nq = foreach q generate\r\n    'Organization.Id', \r\n    first('Organization.Name') as 'Organization.Name', \r\n    first('State') as 'State', \r\n    first('Congressional_District') as 'Congressional_District', \r\n    first('Created_Date') as 'First_Assist_Date', \r\n    first('DAS_Label') as 'First_Assist_DAS', \r\n    case 'Assist_Type'\r\n        when \"Export Promotion\" then unique('Parent_Id')\r\n        else 0 \r\n    end as 'Export_Promotion_Assists', \r\n    case 'Assist_Type'\r\n        when \"Investment Promotion\" then unique('Parent_Id')\r\n        else 0 \r\n    end as 'Investment_Promotion_Assists';\r\n    \r\nq = group q by (\r\n    'Organization.Id'\r\n);\r\nq = foreach q generate\r\n    'Organization.Id', \r\n    first('Organization.Name') as 'Organization.Name', \r\n    first('State') as 'State', \r\n    first('Congressional_District') as 'Congressional District', \r\n    first('First_Assist_Date') as 'First FY18 Assist', \r\n    first('First_Assist_DAS') as 'First Assist DAS', \r\n    sum('Export_Promotion_Assists') as 'Export Promotion Assists', \r\n    sum('Investment_Promotion_Assists') as 'Investment Promotion Assists',\r\n    sum('Export_Promotion_Assists')  + sum('Investment_Promotion_Assists') as 'Total Assists';\r\n\r\nq = group q by (\r\n    'Congressional District'\r\n);\r\n\r\nq = foreach q generate\r\n    'Congressional District', \r\n    unique('Organization.Id') as 'Unique Clients Assisted', \r\n    sum('Export Promotion Assists') as 'Export Promotion Assists', \r\n    sum('Investment Promotion Assists') as 'Investment Promotion Assists', \r\n    sum('Total Assists') as 'Total Assists';\r\n    \r\nq = filter q by 'Congressional District' is not null;",
+      "receiveFacet": true,
+      "selectMode": "none",
+      "strings": [],
+      "type": "saql",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "parameters": {
+          "autoFitMode": "keepLabels",
+          "bins": {
+            "breakpoints": {
+              "high": 100,
+              "low": 0
+            },
+            "bands": {
+              "high": {
+                "color": "#008000",
+                "label": ""
+              },
+              "low": {
+                "color": "#B22222",
+                "label": ""
+              },
+              "medium": {
+                "color": "#ffa500",
+                "label": ""
+              }
+            }
+          },
+          "legend": {
+            "descOrder": true,
+            "showHeader": true,
+            "show": true,
+            "customSize": "auto",
+            "position": "right-top",
+            "inside": false
+          },
+          "autoZoom": false,
+          "highColor": "#1674D9",
+          "tooltip": {
+            "showBinLabel": true,
+            "measures": "",
+            "showNullValues": true,
+            "showPercentage": true,
+            "showDimensions": true,
+            "showMeasures": true,
+            "customizeTooltip": false,
+            "dimensions": ""
+          },
+          "projectionType": "AlbersUSA",
+          "lowColor": "#C5DBF7",
+          "visualizationType": "choropleth",
+          "title": {
+            "fontSize": 14,
+            "subtitleFontSize": 11,
+            "label": "",
+            "align": "center",
+            "subtitleLabel": ""
+          },
+          "binValues": false,
+          "trellis": {
+            "flipLabels": false,
+            "showGridLines": true,
+            "size": [
+              100,
+              100
+            ],
+            "enable": false,
+            "type": "x",
+            "chartsPerLine": 4
+          },
+          "columnMap": {
+            "color": [
+              "Unique Clients Assisted"
+            ],
+            "trellis": [],
+            "plots": [
+              "Congressional District"
+            ]
+          },
+          "showActionMenu": true,
+          "theme": "wave",
+          "map": "Custom: map_1538768533792",
+          "applyConditionalFormatting": true
+        },
+        "type": "chart"
+      }
+    },
+    "lens_4": {
+      "broadcastFacet": false,
+      "groups": [],
+      "numbers": [],
+      "query": "q = load \"Global_Markets_Contributor_Taxonomy\";\r\nq = filter q by \r\n    'Fiscal_Year' == \"2018\"\r\n    && 'Parent_Type' in [\"In-Depth Touch\", \"Light Touch\"];\r\n \r\nq = foreach q generate\r\n    'DAS_Label', \r\n    'Assist_Type', \r\n    'Organization.Id', \r\n    'Organization.Name', \r\n    'Organization.State_Code__c' as 'State', \r\n    'Organization.Congressional_District_formula__c' as 'Congressional_District', \r\n    'Created_Date', \r\n    'Parent_Id';\r\n \r\nq = order q by (\r\n    'Organization.Id', \r\n    'Created_Date'\r\n);\r\n  \r\nq = group q by (\r\n    'Assist_Type', \r\n    'Organization.Id'\r\n);\r\n\r\nq = foreach q generate\r\n    'Organization.Id', \r\n    first('Organization.Name') as 'Organization.Name', \r\n    first('State') as 'State', \r\n    first('Congressional_District') as 'Congressional_District', \r\n    first('Created_Date') as 'First_Assist_Date', \r\n    first('DAS_Label') as 'First_Assist_DAS', \r\n    case 'Assist_Type'\r\n        when \"Export Promotion\" then unique('Parent_Id')\r\n        else 0 \r\n    end as 'Export_Promotion_Assists', \r\n    case 'Assist_Type'\r\n        when \"Investment Promotion\" then unique('Parent_Id')\r\n        else 0 \r\n    end as 'Investment_Promotion_Assists';\r\n    \r\nq = group q by (\r\n    'Organization.Id'\r\n);\r\nq = foreach q generate\r\n    'Organization.Id', \r\n    first('Organization.Name') as 'Organization.Name', \r\n    first('State') as 'State', \r\n    first('Congressional_District') as 'Congressional District', \r\n    first('First_Assist_Date') as 'First FY18 Assist', \r\n    first('First_Assist_DAS') as 'First Assist DAS', \r\n    sum('Export_Promotion_Assists') as 'Export Promotion Assists', \r\n    sum('Investment_Promotion_Assists') as 'Investment Promotion Assists',\r\n    sum('Export_Promotion_Assists')  + sum('Investment_Promotion_Assists') as 'Total Assists';\r\n\r\nq = group q by (\r\n    'State'\r\n);\r\n\r\nq = foreach q generate\r\n    'State', \r\n    unique('Organization.Id') as 'Unique Clients Assisted', \r\n    sum('Export Promotion Assists') as 'Export Promotion Assists', \r\n    sum('Investment Promotion Assists') as 'Investment Promotion Assists', \r\n    sum('Total Assists') as 'Total Assists';\r\n    \r\nq = filter q by 'State' is not null;",
+      "receiveFacet": true,
+      "selectMode": "none",
+      "strings": [],
+      "type": "saql",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "parameters": {
+          "bins": {
+            "breakpoints": {
+              "high": 100,
+              "low": 0
+            },
+            "bands": {
+              "high": {
+                "color": "#008000",
+                "label": ""
+              },
+              "low": {
+                "color": "#B22222",
+                "label": ""
+              },
+              "medium": {
+                "color": "#ffa500",
+                "label": ""
+              }
+            }
+          },
+          "legend": {
+            "descOrder": true,
+            "showHeader": true,
+            "show": true,
+            "customSize": "auto",
+            "position": "right-top",
+            "inside": false
+          },
+          "autoZoom": true,
+          "highColor": "#1674D9",
+          "tooltip": {
+            "showBinLabel": true,
+            "measures": "",
+            "showNullValues": true,
+            "showPercentage": true,
+            "showDimensions": true,
+            "showMeasures": true,
+            "customizeTooltip": false,
+            "dimensions": ""
+          },
+          "projectionType": "AlbersUSA",
+          "lowColor": "#C5DBF7",
+          "visualizationType": "choropleth",
+          "title": {
+            "fontSize": 14,
+            "subtitleFontSize": 11,
+            "label": "",
+            "align": "center",
+            "subtitleLabel": ""
+          },
+          "binValues": false,
+          "trellis": {
+            "flipLabels": false,
+            "showGridLines": true,
+            "size": [
+              100,
+              100
+            ],
+            "enable": false,
+            "type": "x",
+            "chartsPerLine": 4
+          },
+          "columnMap": {
+            "color": [
+              "Unique Clients Assisted"
+            ],
+            "trellis": [],
+            "plots": [
+              "State"
+            ]
+          },
+          "showActionMenu": true,
+          "theme": "wave",
+          "map": "US States",
+          "applyConditionalFormatting": true
+        },
+        "type": "chart"
+      }
+    },
+    "lens_1": {
+      "broadcastFacet": true,
+      "groups": [],
+      "label": "lens_1",
+      "numbers": [],
+      "query": "data = load \"Global_Markets_Contributor_Taxonomy\";\r\n\r\ndata = filter data by \r\n    'Parent_Type' in [\"Light Touch\", \"In-Depth Touch\"]\r\n    && 'Fiscal_Year' in [\"2018\"]\r\n    && 'DAS_Label' != \"EMEA\";\r\n\r\n-- Export Promotion\r\nexportPromotion = filter data by 'Assist_Type' == \"Export Promotion\";\r\n    \r\nexportPromotion = group exportPromotion by ('DAS_Label');\r\nexportPromotion = foreach exportPromotion generate \r\n    'DAS_Label', \r\n    unique('Organization.Id') as 'Assits';\r\n\r\n-- Investment Promotion\r\ninvestmentPromotion = filter data by 'Assist_Type' == \"Investment Promotion\";\r\n\r\ninvestmentPromotion = group investmentPromotion by ('DAS_Label');\r\ninvestmentPromotion = foreach investmentPromotion generate \r\n    'DAS_Label', \r\n    unique('Organization.Id') as 'Assits';\r\n\r\n-- Data\r\ndata = group data by (\r\n    'DAS_Label'\r\n);\r\ndata = foreach data generate \r\n    'DAS_Label', \r\n    unique('Organization.Id') as 'Total_Assists', \r\n    123 as 'Total_Target';\r\n\r\n-- Join exportPromotion to data\r\nresult = cogroup data by ('DAS_Label') left, exportPromotion by ('DAS_Label');\r\nresult = foreach result generate \r\n    data.'DAS_Label' as 'DAS_Label', \r\n    sum(data.'Total_Assists') as 'Total_Assists', \r\n    sum(exportPromotion.'Assits') as 'Export_Promotion_Assists', \r\n    sum(data.'Total_Target') as 'Total_Target';\r\n\r\n-- Join investmentPromotion to result\r\nresult = cogroup result by ('DAS_Label') left, investmentPromotion by ('DAS_Label');\r\nresult = foreach result generate \r\n    result.'DAS_Label' as 'DAS_Label', \r\n    sum(result.'Total_Assists') as 'Total_Assists', \r\n    sum(result.'Export_Promotion_Assists') as 'Export_Promotion_Assists', \r\n    sum(investmentPromotion.'Assits') as 'Investment_Promotion_Assists', \r\n    sum(result.'Total_Target') as 'Total_Target';\r\n\r\n-- Format results\r\nresult = foreach result generate \r\n    'DAS_Label' as 'DAS', \r\n    number_to_string('Export_Promotion_Assists', \"###,###,###0\") as 'Export Promotion Clients Assisted', \r\n    number_to_string('Investment_Promotion_Assists', \"###,###,###0\") as 'Investment Promotion Clients Assisted', \r\n    number_to_string('Total_Assists', \"###,###,###0\") as 'Total Clients Assisted', \r\n    case\r\n        when 'Total_Target' is null then \" N/A \" \r\n        when 'Total_Target' <= 0 then \" N/A \"\r\n        else number_to_string('Total_Target', \"###,###,###0\")\r\n    end as 'Target', \r\n    case \r\n        when 'Total_Target' > 0 then number_to_string('Total_Assists' / 'Total_Target', \"00.00%\")\r\n        else \" N/A \"\r\n    end as 'Target %';\r\n    \r\nresult = order result by (\r\n    'Target %' desc\r\n);",
+      "receiveFacet": true,
+      "selectMode": "multi",
+      "strings": [],
+      "type": "saql",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "parameters": {
+          "borderColor": "#54698d",
+          "borderWidth": 1,
+          "cell": {
+            "backgroundColor": "#16325c",
+            "fontColor": "#ffffff",
+            "fontSize": 12
+          },
+          "columnProperties": {},
+          "columns": [],
+          "customBulkActions": [],
+          "header": {
+            "backgroundColor": "#000000",
+            "fontColor": "#ffffff",
+            "fontSize": 12
+          },
+          "innerMajorBorderColor": "#54698d",
+          "innerMinorBorderColor": "#54698d",
+          "mode": "fittocontainer",
+          "numberOfLines": 1,
+          "pivoted": false,
+          "totals": true,
+          "verticalPadding": 4
+        },
+        "type": "table"
+      }
+    },
+    "lens_2": {
+      "broadcastFacet": true,
+      "groups": [],
+      "label": "lens_2",
+      "numbers": [],
+      "query": "q = load \"Global_Markets_Contributor_Taxonomy\";\r\nq = filter q by \r\n    'Fiscal_Year' == \"2018\"\r\n    && 'Parent_Type' in [\"In-Depth Touch\", \"Light Touch\"]\r\n    && 'DAS_Label' != \"EMEA\";\r\n \r\nq = foreach q generate\r\n    'DAS_Label', \r\n    'Assist_Type', \r\n    'Organization.Id', \r\n    'Organization.Name', \r\n    'Organization.Congressional_District_formula__c' as 'Congressional_District', \r\n    'Organization.State_Code__c' as 'State', \r\n    'Created_Date', \r\n    'Parent_Id';\r\n \r\nq = order q by (\r\n    'Organization.Id', \r\n    'Created_Date'\r\n);\r\n  \r\nq = group q by (\r\n    'Assist_Type', \r\n    'Organization.Id'\r\n);\r\n\r\nq = foreach q generate\r\n    'Organization.Id', \r\n    first('Organization.Name') as 'Organization.Name', \r\n    first('Congressional_District') as 'Congressional_District', \r\n    first('State') as 'State', \r\n    first('Created_Date') as 'First_Assist_Date', \r\n    first('DAS_Label') as 'First_Assist_DAS', \r\n    case 'Assist_Type'\r\n        when \"Export Promotion\" then unique('Parent_Id')\r\n        else 0 \r\n    end as 'Export_Promotion_Assists', \r\n    case 'Assist_Type'\r\n        when \"Investment Promotion\" then unique('Parent_Id')\r\n        else 0 \r\n    end as 'Investment_Promotion_Assists';\r\n    \r\nq = group q by (\r\n    'Organization.Id'\r\n);\r\nq = foreach q generate\r\n    first('Organization.Name') as 'Organization.Name', \r\n    first('Congressional_District') as 'Congressional District', \r\n    first('State') as 'State', \r\n    first('First_Assist_Date') as 'First FY18 Assist', \r\n    first('First_Assist_DAS') as 'First FY18 Assist DAS',\r\n    sum('Export_Promotion_Assists') as 'Export Promotion Assists', \r\n    sum('Investment_Promotion_Assists') as 'Investment Promotion Assists',\r\n    sum('Export_Promotion_Assists')  + sum('Investment_Promotion_Assists') as 'Total Assists';\r\n\r\nq = order q by 'Total Assists' desc;",
+      "receiveFacet": true,
+      "selectMode": "multi",
+      "strings": [],
+      "type": "saql",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "parameters": {
+          "borderColor": "#e0e5ee",
+          "borderWidth": 1,
+          "cell": {
+            "backgroundColor": "#ffffff",
+            "fontColor": "#16325c",
+            "fontSize": 12
+          },
+          "columnProperties": {},
+          "columns": [],
+          "customBulkActions": [],
+          "header": {
+            "backgroundColor": "#f4f6f9",
+            "fontColor": "#16325c",
+            "fontSize": 12
+          },
+          "innerMajorBorderColor": "#a8b7c7",
+          "innerMinorBorderColor": "#e0e5ee",
+          "mode": "fittocontainer",
+          "numberOfLines": 1,
+          "pivoted": false,
+          "totals": true,
+          "verticalPadding": 8
+        },
+        "type": "table"
+      }
+    },
+    "Created_Date_Year_Cr_1": {
+      "broadcastFacet": true,
+      "groups": [],
+      "label": "Created_Date_Year_Cr_1",
+      "numbers": [],
+      "query": "q = load \"Global_Markets_Contributor_Taxonomy\";\r\nq = filter q by \r\n    'Fiscal_Year' == \"2018\"\r\n    && 'Parent_Type' in [\"In-Depth Touch\", \"Light Touch\"]\r\n    && 'DAS_Label' != \"EMEA\";\r\nq = foreach q generate\r\n    'DAS_Label',\r\n    'Organization.Id',\r\n    'Created_Date', \r\n    'Created_Date_Year',\r\n    'Created_Date_Month',\r\n    123 as 'Target';\r\n\r\nq = order q by (\r\n    'DAS_Label', \r\n    'Organization.Id', \r\n    'Created_Date'\r\n);\r\n\r\ngmAll = group q by (\r\n    'Organization.Id'\r\n);\r\n\r\ngmAll = foreach gmAll generate\r\n    \"GM All\" as 'DAS_Label', \r\n    'Organization.Id',\r\n    first('Created_Date_Year') as 'Created_Date_Year', \r\n    first('Created_Date_Month') as 'Created_Date_Month', \r\n    58912 as 'Target';\r\n\r\nq = group q by (\r\n    'DAS_Label', \r\n    'Organization.Id'\r\n);\r\n\r\nq = foreach q generate\r\n    'DAS_Label', \r\n    'Organization.Id',\r\n    first('Created_Date_Year') as 'Created_Date_Year', \r\n    first('Created_Date_Month') as 'Created_Date_Month', \r\n    first('Target') as 'Target';\r\n    \r\nq= union q, gmAll;\r\n\r\nq = group q by (\r\n    'DAS_Label', \r\n    'Created_Date_Year', \r\n    'Created_Date_Month'\r\n);\r\nq = foreach q generate\r\n    'Created_Date_Year', \r\n    'Created_Date_Month', \r\n    'DAS_Label', \r\n    'Created_Date_Year' + \"~~~\" + 'Created_Date_Month' as 'Created_Date_Year~~~Created_Date_Month', \r\n    count() as 'Organizations_Assisted', \r\n    sum(count()) over (\r\n        [..0] \r\n        partition by 'DAS_Label' \r\n        order by ('Created_Date_Year', 'Created_Date_Month')\r\n    ) as 'Total_Organizations_Assisted', \r\n    first('Target') as 'Target';\r\n    \r\n   \r\nq = foreach q generate\r\n    'Created_Date_Year' as 'Year', \r\n    'Created_Date_Month' as 'Month', \r\n    'DAS_Label' as 'DAS', \r\n    'Total_Organizations_Assisted', \r\n    'Target', \r\n    case \r\n        when 'Target' is null then 0\r\n        when 'Target' <= 0 then 0\r\n        else 'Total_Organizations_Assisted' / 'Target' * 100\r\n    end as 'Target_Complete', \r\n    case\r\n        when ('Target' is null || 'Target' == 0) then \"false\"\r\n        else \"true\"\r\n    end as 'IsMeasureable';\r\n\r\nq = filter q by 'IsMeasureable' == \"true\";\r\n\r\nq = foreach q generate\r\n    'Year', \r\n    'Month', \r\n    'DAS', \r\n    'Target_Complete';\r\n\r\nq = fill q by (\r\n    dateCols=(\r\n        'Year', \r\n        'Month', \r\n        \"Y-M\"\r\n    ), \r\n    partition='DAS'\r\n);\r\n\r\nq = timeseries q generate\r\n    'Target_Complete' as 'Target_Complete_Prediction' with (\r\n        partition='DAS', \r\n        length=4,\r\n        dateCols=(\r\n            'Year', \r\n            'Month', \r\n            \"Y-M\"\r\n        ), \r\n        ignoreLast=true,\r\n        predictionInterval=95\r\n    );\r\n    \r\nq = foreach q generate\r\n    'DAS', \r\n    'Year' + \"~~~\" + 'Month' as 'Created_Date_Year~~~Created_Date_Month', \r\n    round(coalesce('Target_Complete', 'Target_Complete_Prediction'), 2) as 'Goal Progress (%)', \r\n    round('Target_Complete_Prediction_high_95', 2) as 'Goal Progress (%): High 95% Confidence', \r\n    round('Target_Complete_Prediction_low_95', 2) as 'Goal Progress (%): Low 95% Confidence';\r\n ",
+      "receiveFacet": true,
+      "selectMode": "multi",
+      "strings": [],
+      "type": "saql",
+      "useGlobal": true,
+      "visualizationParameters": {
+        "parameters": {
+          "autoFitMode": "keepLabels",
+          "showPoints": true,
+          "legend": {
+            "descOrder": false,
+            "showHeader": true,
+            "show": true,
+            "customSize": "auto",
+            "position": "left-top",
+            "inside": false
+          },
+          "axisMode": "sync",
+          "tooltip": {
+            "showBinLabel": true,
+            "measures": [
+              "Goal Progress (%)",
+              "Goal Progress (%): High 95% Confidence",
+              "Goal Progress (%): Low 95% Confidence"
+            ],
+            "showNullValues": true,
+            "showPercentage": true,
+            "customText": [],
+            "showDimensions": true,
+            "showMeasures": true,
+            "customizeTooltip": true,
+            "dimensions": [
+              "DAS",
+              "Created_Date_Year~~~Created_Date_Month"
+            ]
+          },
+          "visualizationType": "time",
+          "missingValue": "connect",
+          "dashLine": {
+            "measures": [
+              "Goal_Progress"
+            ],
+            "showDashLine": false
+          },
+          "timeAxis": {
+            "showTitle": false,
+            "predictiveLine": {
+              "color": "#8932ED",
+              "time": "2018-06",
+              "label": "TODAY"
+            },
+            "showAxis": true,
+            "title": ""
+          },
+          "title": {
+            "fontSize": 14,
+            "subtitleFontSize": 11,
+            "label": "Unique Clients Assisted Progress Towards Target",
+            "align": "center",
+            "subtitleLabel": "Prediction is shown as a dotted line"
+          },
+          "trellis": {
+            "flipLabels": false,
+            "showGridLines": true,
+            "size": [
+              100,
+              100
+            ],
+            "enable": false,
+            "type": "x",
+            "chartsPerLine": 4
+          },
+          "fillArea": false,
+          "showActionMenu": true,
+          "showZero": true,
+          "measureAxis2": {
+            "sqrtScale": false,
+            "showTitle": true,
+            "showAxis": true,
+            "title": "",
+            "customDomain": {
+              "showDomain": false
+            }
+          },
+          "measureAxis1": {
+            "sqrtScale": false,
+            "showTitle": true,
+            "showAxis": true,
+            "referenceLines": [
+              {
+                "color": "#B3B400",
+                "label": "100%",
+                "value": 100
+              }
+            ],
+            "title": "Unique Clients Assisted / Target (%)",
+            "customDomain": {
+              "showDomain": false
+            }
+          },
+          "valueType": "none",
+          "theme": "wave",
+          "applyConditionalFormatting": true,
+          "drawArea": {
+            "measure": "Goal Progress (%)",
+            "showDrawArea": true,
+            "bounding1": "Goal Progress (%): High 95% Confidence",
+            "bounding2": "Goal Progress (%): Low 95% Confidence"
+          }
+        },
+        "type": "chart"
+      }
+    }
+  },
+  "widgetStyle": {
+    "backgroundColor": "#FFFFFF",
+    "borderColor": "#E6ECF2",
+    "borderEdges": [],
+    "borderRadius": 0,
+    "borderWidth": 1
+  },
+  "widgets": {
+    "link_18": {
+      "parameters": {
+        "destinationLink": {
+          "name": "7549ee18-2877-4ce5-a27a-65a4bcc16d14"
+        },
+        "destinationType": "page",
+        "fontSize": 12,
+        "includeState": false,
+        "text": "Export Promotion Assists",
+        "textAlignment": "center",
+        "textColor": "rgb(0, 0, 0)"
+      },
+      "type": "link"
+    },
+    "link_19": {
+      "parameters": {
+        "destinationLink": {
+          "name": "e0b32c08-ac42-468b-93bb-d41fdccbef09"
+        },
+        "destinationType": "page",
+        "fontSize": 12,
+        "includeState": false,
+        "text": "Investment Promotion Assists",
+        "textAlignment": "center",
+        "textColor": "rgb(0, 0, 0)"
+      },
+      "type": "link"
+    },
+    "link_16": {
+      "parameters": {
+        "destinationLink": {
+          "name": "089017a2-c0fe-4ee6-8929-2616764d7eb6"
+        },
+        "destinationType": "page",
+        "fontSize": 12,
+        "includeState": false,
+        "text": "Unique Clients Assisted",
+        "textAlignment": "center",
+        "textColor": "#FFFFFF"
+      },
+      "type": "link"
+    },
+    "link_17": {
+      "parameters": {
+        "destinationLink": {
+          "name": "7d88a625-8ea9-4394-a414-e3ef2b5eb477"
+        },
+        "destinationType": "page",
+        "fontSize": 12,
+        "includeState": false,
+        "text": "Total Assists",
+        "textAlignment": "center",
+        "textColor": "rgb(0, 0, 0)"
+      },
+      "type": "link"
+    },
+    "link_15": {
+      "parameters": {
+        "destinationLink": {
+          "name": "089017a2-c0fe-4ee6-8929-2616764d7eb6"
+        },
+        "destinationType": "page",
+        "fontSize": 12,
+        "includeState": false,
+        "text": "State Impact",
+        "textAlignment": "center",
+        "textColor": "#FFFFFF"
+      },
+      "type": "link"
+    },
+    "link_12": {
+      "parameters": {
+        "destinationLink": {
+          "name": "ecc88089-982b-4d60-a422-77b9fb2ed86d"
+        },
+        "destinationType": "page",
+        "fontSize": 12,
+        "includeState": false,
+        "text": "Investment Promotion Assists",
+        "textAlignment": "center",
+        "textColor": "#FFFFFF"
+      },
+      "type": "link"
+    },
+    "link_13": {
+      "parameters": {
+        "destinationLink": {
+          "name": "089017a2-c0fe-4ee6-8929-2616764d7eb6"
+        },
+        "destinationType": "page",
+        "fontSize": 12,
+        "includeState": false,
+        "text": "State Impact",
+        "textAlignment": "center",
+        "textColor": "rgb(0, 0, 0)"
+      },
+      "type": "link"
+    },
+    "link_10": {
+      "parameters": {
+        "destinationLink": {
+          "name": "8f68bde2-7c3f-4eee-bbc1-96a7eb5f1d97"
+        },
+        "destinationType": "page",
+        "fontSize": 12,
+        "includeState": false,
+        "text": "Total Assists",
+        "textAlignment": "center",
+        "textColor": "#FFFFFF"
+      },
+      "type": "link"
+    },
+    "link_11": {
+      "parameters": {
+        "destinationLink": {
+          "name": "76364f7c-8666-4145-85cf-56103df592eb"
+        },
+        "destinationType": "page",
+        "fontSize": 12,
+        "includeState": false,
+        "text": "Export Promotion Assists",
+        "textAlignment": "center",
+        "textColor": "#FFFFFF"
+      },
+      "type": "link"
+    },
+    "container_1": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "container_2": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "container_3": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "chart_9": {
+      "parameters": {
+        "bins": {
+          "breakpoints": {
+            "high": 100,
+            "low": 0
+          },
+          "bands": {
+            "high": {
+              "color": "#008000",
+              "label": ""
+            },
+            "low": {
+              "color": "#B22222",
+              "label": ""
+            },
+            "medium": {
+              "color": "#ffa500",
+              "label": ""
+            }
+          }
+        },
+        "legend": {
+          "descOrder": true,
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "autoZoom": true,
+        "highColor": "#1674D9",
+        "tooltip": {
+          "showBinLabel": true,
+          "measures": "",
+          "showNullValues": true,
+          "showPercentage": true,
+          "showDimensions": true,
+          "showMeasures": true,
+          "customizeTooltip": false,
+          "dimensions": ""
+        },
+        "projectionType": "AlbersUSA",
+        "lowColor": "#C5DBF7",
+        "visualizationType": "choropleth",
+        "exploreLink": true,
+        "title": {
+          "fontSize": 14,
+          "subtitleFontSize": 11,
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "binValues": false,
+        "trellis": {
+          "flipLabels": false,
+          "showGridLines": true,
+          "size": [
+            100,
+            100
+          ],
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "columnMap": {
+          "color": [
+            "Investment Promotion Assists"
+          ],
+          "trellis": [],
+          "plots": [
+            "State"
+          ]
+        },
+        "computeTotal": false,
+        "theme": "dark",
+        "step": "lens_4",
+        "map": "US States",
+        "applyConditionalFormatting": true
+      },
+      "type": "chart"
+    },
+    "container_4": {
+      "parameters": {
+        "alignmentX": "left",
+        "alignmentY": "top",
+        "fit": "original"
+      },
+      "type": "container"
+    },
+    "text_3": {
+      "parameters": {
+        "fontSize": 16,
+        "text": "  Top Clients",
+        "textAlignment": "left",
+        "textColor": "#091A3E"
+      },
+      "type": "text"
+    },
+    "chart_6": {
+      "parameters": {
+        "bins": {
+          "breakpoints": {
+            "high": 100,
+            "low": 0
+          },
+          "bands": {
+            "high": {
+              "color": "#008000",
+              "label": ""
+            },
+            "low": {
+              "color": "#B22222",
+              "label": ""
+            },
+            "medium": {
+              "color": "#ffa500",
+              "label": ""
+            }
+          }
+        },
+        "legend": {
+          "descOrder": true,
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "autoZoom": false,
+        "highColor": "#1674D9",
+        "tooltip": {
+          "showBinLabel": true,
+          "measures": "",
+          "showNullValues": true,
+          "showPercentage": true,
+          "showDimensions": true,
+          "showMeasures": true,
+          "customizeTooltip": false,
+          "dimensions": ""
+        },
+        "projectionType": "AlbersUSA",
+        "lowColor": "#C5DBF7",
+        "visualizationType": "choropleth",
+        "exploreLink": true,
+        "title": {
+          "fontSize": 14,
+          "subtitleFontSize": 11,
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "binValues": false,
+        "trellis": {
+          "flipLabels": false,
+          "showGridLines": true,
+          "size": [
+            100,
+            100
+          ],
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "columnMap": {
+          "color": [
+            "Investment Promotion Assists"
+          ],
+          "trellis": [],
+          "plots": [
+            "Congressional District"
+          ]
+        },
+        "computeTotal": false,
+        "theme": "dark",
+        "step": "lens_3",
+        "map": "Custom: map_1538768533792",
+        "applyConditionalFormatting": true
+      },
+      "type": "chart"
+    },
+    "text_2": {
+      "parameters": {
+        "fontSize": 24,
+        "text": "Global Markets Performance Measures FY18 Actuals By Region",
+        "textAlignment": "center",
+        "textColor": "#FFFFFF"
+      },
+      "type": "text"
+    },
+    "chart_5": {
+      "parameters": {
+        "autoFitMode": "keepLabels",
+        "bins": {
+          "breakpoints": {
+            "high": 100,
+            "low": 0
+          },
+          "bands": {
+            "high": {
+              "color": "#008000",
+              "label": ""
+            },
+            "low": {
+              "color": "#B22222",
+              "label": ""
+            },
+            "medium": {
+              "color": "#ffa500",
+              "label": ""
+            }
+          }
+        },
+        "legend": {
+          "descOrder": true,
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "autoZoom": false,
+        "highColor": "#1674D9",
+        "tooltip": {
+          "showBinLabel": true,
+          "measures": "",
+          "showNullValues": true,
+          "showPercentage": true,
+          "showDimensions": true,
+          "showMeasures": true,
+          "customizeTooltip": false,
+          "dimensions": ""
+        },
+        "projectionType": "AlbersUSA",
+        "lowColor": "#C5DBF7",
+        "visualizationType": "choropleth",
+        "exploreLink": true,
+        "title": {
+          "fontSize": 14,
+          "subtitleFontSize": 11,
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "binValues": false,
+        "trellis": {
+          "flipLabels": false,
+          "showGridLines": true,
+          "size": [
+            100,
+            100
+          ],
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "columnMap": {
+          "color": [
+            "Unique Clients Assisted"
+          ],
+          "trellis": [],
+          "plots": [
+            "Congressional District"
+          ]
+        },
+        "computeTotal": false,
+        "theme": "dark",
+        "step": "lens_3",
+        "map": "Custom: map_1538768533792",
+        "applyConditionalFormatting": true
+      },
+      "type": "chart"
+    },
+    "chart_8": {
+      "parameters": {
+        "bins": {
+          "breakpoints": {
+            "high": 100,
+            "low": 0
+          },
+          "bands": {
+            "high": {
+              "color": "#008000",
+              "label": ""
+            },
+            "low": {
+              "color": "#B22222",
+              "label": ""
+            },
+            "medium": {
+              "color": "#ffa500",
+              "label": ""
+            }
+          }
+        },
+        "legend": {
+          "descOrder": true,
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "autoZoom": true,
+        "highColor": "#1674D9",
+        "tooltip": {
+          "showBinLabel": true,
+          "measures": "",
+          "showNullValues": true,
+          "showPercentage": true,
+          "showDimensions": true,
+          "showMeasures": true,
+          "customizeTooltip": false,
+          "dimensions": ""
+        },
+        "projectionType": "AlbersUSA",
+        "lowColor": "#C5DBF7",
+        "visualizationType": "choropleth",
+        "exploreLink": true,
+        "title": {
+          "fontSize": 14,
+          "subtitleFontSize": 11,
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "binValues": false,
+        "trellis": {
+          "flipLabels": false,
+          "showGridLines": true,
+          "size": [
+            100,
+            100
+          ],
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "columnMap": {
+          "color": [
+            "Unique Clients Assisted"
+          ],
+          "trellis": [],
+          "plots": [
+            "State"
+          ]
+        },
+        "computeTotal": false,
+        "theme": "dark",
+        "step": "lens_4",
+        "map": "US States",
+        "applyConditionalFormatting": true
+      },
+      "type": "chart"
+    },
+    "text_5": {
+      "parameters": {
+        "fontSize": 12,
+        "text": "Click a gauge to filter by that DAS",
+        "textAlignment": "center",
+        "textColor": "#C6D3E1"
+      },
+      "type": "text"
+    },
+    "chart_7": {
+      "parameters": {
+        "autoFitMode": "keepLabels",
+        "max": 100,
+        "legend": {
+          "showHeader": true,
+          "show": false,
+          "position": "right-top",
+          "inside": false
+        },
+        "tooltip": {
+          "showBinLabel": true,
+          "measures": [
+            "Target Percent"
+          ],
+          "showNullValues": true,
+          "showPercentage": true,
+          "customText": [],
+          "showDimensions": true,
+          "showMeasures": true,
+          "customizeTooltip": true,
+          "dimensions": [
+            "DAS_Label"
+          ]
+        },
+        "visualizationType": "polargauge",
+        "exploreLink": true,
+        "medium": 33,
+        "title": {
+          "fontSize": 14,
+          "subtitleFontSize": 11,
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "flipLabels": false,
+          "showGridLines": true,
+          "size": [
+            50,
+            50
+          ],
+          "enable": true,
+          "type": "wrap",
+          "chartsPerLine": 1
+        },
+        "icons": {
+          "useIcons": false,
+          "iconProps": {
+            "fit": "cover",
+            "column": ""
+          }
+        },
+        "inner": 80,
+        "colors": {
+          "mediumColor2": "#F29946",
+          "mediumColor1": "#FED444",
+          "lowColor1": "#F71979",
+          "lowColor2": "#CC203D",
+          "highColor1": "#7BDE4E",
+          "highColor2": "#169913"
+        },
+        "high": 66,
+        "min": 0,
+        "computeTotal": false,
+        "valueType": "percent",
+        "theme": "dark",
+        "step": "DAS_Label_Assist_Typ_1",
+        "applyConditionalFormatting": true
+      },
+      "type": "chart"
+    },
+    "text_4": {
+      "parameters": {
+        "fontSize": 16,
+        "text": "Unique Clients Assists / Target (%)",
+        "textAlignment": "center",
+        "textColor": "#FFFFFF"
+      },
+      "type": "text"
+    },
+    "chart_2": {
+      "parameters": {
+        "autoFitMode": "keepLabels",
+        "max": 100,
+        "legend": {
+          "showHeader": true,
+          "show": false,
+          "position": "right-top",
+          "inside": false
+        },
+        "tooltip": {
+          "showBinLabel": true,
+          "measures": "",
+          "showNullValues": true,
+          "showPercentage": true,
+          "customText": [],
+          "showDimensions": true,
+          "showMeasures": true,
+          "customizeTooltip": false,
+          "dimensions": ""
+        },
+        "visualizationType": "polargauge",
+        "exploreLink": true,
+        "medium": 33,
+        "title": {
+          "fontSize": 14,
+          "subtitleFontSize": 11,
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "flipLabels": false,
+          "showGridLines": true,
+          "size": [
+            150,
+            80
+          ],
+          "enable": true,
+          "type": "wrap",
+          "chartsPerLine": 2
+        },
+        "icons": {
+          "useIcons": false,
+          "iconProps": {
+            "fit": "cover",
+            "column": ""
+          }
+        },
+        "inner": 80,
+        "colors": {
+          "mediumColor2": "#F29946",
+          "mediumColor1": "#FED444",
+          "lowColor1": "#F71979",
+          "lowColor2": "#CC203D",
+          "highColor1": "#7BDE4E",
+          "highColor2": "#169913"
+        },
+        "high": 66,
+        "min": 0,
+        "computeTotal": false,
+        "valueType": "percent",
+        "theme": "dark",
+        "step": "DAS_Label_Assist_Typ_2",
+        "applyConditionalFormatting": true
+      },
+      "type": "chart"
+    },
+    "chart_1": {
+      "parameters": {
+        "autoFitMode": "keepLabels",
+        "showValues": true,
+        "bins": {
+          "breakpoints": {
+            "high": 100,
+            "low": 0
+          },
+          "bands": {
+            "high": {
+              "color": "#008000",
+              "label": ""
+            },
+            "low": {
+              "color": "#B22222",
+              "label": ""
+            },
+            "medium": {
+              "color": "#ffa500",
+              "label": ""
+            }
+          }
+        },
+        "legend": {
+          "descOrder": false,
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "axisMode": "multi",
+        "tooltip": {
+          "showBinLabel": true,
+          "measures": "",
+          "showNullValues": true,
+          "showPercentage": true,
+          "showDimensions": true,
+          "showMeasures": true,
+          "customizeTooltip": false,
+          "dimensions": ""
+        },
+        "visualizationType": "hbar",
+        "title": {
+          "fontSize": 14,
+          "subtitleFontSize": 11,
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "binValues": false,
+        "trellis": {
+          "flipLabels": false,
+          "showGridLines": true,
+          "size": [
+            100,
+            100
+          ],
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "columnMap": {
+          "trellis": [],
+          "dimensionAxis": [],
+          "plots": [
+            "count"
+          ]
+        },
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "",
+          "customDomain": {
+            "showDomain": false
+          }
+        },
+        "computeTotal": false,
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "",
+          "customDomain": {
+            "showDomain": false
+          }
+        },
+        "theme": "wave",
+        "step": "all_1",
+        "dimensionAxis": {
+          "showTitle": true,
+          "customSize": "auto",
+          "showAxis": true,
+          "title": "",
+          "icons": {
+            "useIcons": false,
+            "iconProps": {
+              "fit": "cover",
+              "column": "",
+              "type": "round"
+            }
+          }
+        },
+        "applyConditionalFormatting": true
+      },
+      "type": "chart"
+    },
+    "chart_4": {
+      "parameters": {
+        "bins": {
+          "breakpoints": {
+            "high": 100,
+            "low": 0
+          },
+          "bands": {
+            "high": {
+              "color": "#008000",
+              "label": ""
+            },
+            "low": {
+              "color": "#B22222",
+              "label": ""
+            },
+            "medium": {
+              "color": "#ffa500",
+              "label": ""
+            }
+          }
+        },
+        "legend": {
+          "descOrder": true,
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "autoZoom": false,
+        "highColor": "#1674D9",
+        "tooltip": {
+          "showBinLabel": true,
+          "measures": "",
+          "showNullValues": true,
+          "showPercentage": true,
+          "showDimensions": true,
+          "showMeasures": true,
+          "customizeTooltip": false,
+          "dimensions": ""
+        },
+        "projectionType": "AlbersUSA",
+        "lowColor": "#C5DBF7",
+        "visualizationType": "choropleth",
+        "exploreLink": true,
+        "title": {
+          "fontSize": 14,
+          "subtitleFontSize": 11,
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "binValues": false,
+        "trellis": {
+          "flipLabels": false,
+          "showGridLines": true,
+          "size": [
+            100,
+            100
+          ],
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "columnMap": {
+          "color": [
+            "Export Promotion Assists"
+          ],
+          "trellis": [],
+          "plots": [
+            "Congressional District"
+          ]
+        },
+        "computeTotal": false,
+        "theme": "dark",
+        "step": "lens_3",
+        "map": "Custom: map_1538768533792",
+        "applyConditionalFormatting": true
+      },
+      "type": "chart"
+    },
+    "chart_3": {
+      "parameters": {
+        "bins": {
+          "breakpoints": {
+            "high": 100,
+            "low": 0
+          },
+          "bands": {
+            "high": {
+              "color": "#008000",
+              "label": ""
+            },
+            "low": {
+              "color": "#B22222",
+              "label": ""
+            },
+            "medium": {
+              "color": "#ffa500",
+              "label": ""
+            }
+          }
+        },
+        "legend": {
+          "descOrder": true,
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "autoZoom": false,
+        "highColor": "#1674D9",
+        "tooltip": {
+          "showBinLabel": true,
+          "measures": "",
+          "showNullValues": true,
+          "showPercentage": true,
+          "showDimensions": true,
+          "showMeasures": true,
+          "customizeTooltip": false,
+          "dimensions": ""
+        },
+        "projectionType": "AlbersUSA",
+        "lowColor": "#C5DBF7",
+        "visualizationType": "choropleth",
+        "exploreLink": true,
+        "title": {
+          "fontSize": 14,
+          "subtitleFontSize": 11,
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "binValues": false,
+        "trellis": {
+          "flipLabels": false,
+          "showGridLines": true,
+          "size": [
+            100,
+            100
+          ],
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "columnMap": {
+          "color": [
+            "Total Assists"
+          ],
+          "trellis": [],
+          "plots": [
+            "Congressional District"
+          ]
+        },
+        "computeTotal": false,
+        "theme": "dark",
+        "step": "lens_3",
+        "map": "Custom: map_1538768533792",
+        "applyConditionalFormatting": true
+      },
+      "type": "chart"
+    },
+    "text_1": {
+      "parameters": {
+        "fontSize": 14,
+        "text": "By the Numbers",
+        "textAlignment": "center",
+        "textColor": "#FFFFFF"
+      },
+      "type": "text"
+    },
+    "link_3": {
+      "parameters": {
+        "destinationLink": {
+          "name": "807fc19e-2c99-4770-b7a1-ff11d40219cb"
+        },
+        "destinationType": "page",
+        "fontSize": 12,
+        "includeState": false,
+        "text": "Progress Towards Target",
+        "textAlignment": "center",
+        "textColor": "rgb(0, 0, 0)"
+      },
+      "type": "link"
+    },
+    "link_23": {
+      "parameters": {
+        "destinationLink": {
+          "name": "089017a2-c0fe-4ee6-8929-2616764d7eb6"
+        },
+        "destinationType": "page",
+        "fontSize": 12,
+        "includeState": false,
+        "text": "Unique Clients Assisted",
+        "textAlignment": "center",
+        "textColor": "rgb(0, 0, 0)"
+      },
+      "type": "link"
+    },
+    "link_4": {
+      "parameters": {
+        "destinationLink": {
+          "name": "e9b9ac60-78ff-46b8-8757-924b76ebaaf6"
+        },
+        "destinationType": "page",
+        "fontSize": 12,
+        "includeState": false,
+        "text": "Congressional District Impact",
+        "textAlignment": "center",
+        "textColor": "#FFFFFF"
+      },
+      "type": "link"
+    },
+    "link_1": {
+      "parameters": {
+        "destinationLink": {
+          "name": "e9b9ac60-78ff-46b8-8757-924b76ebaaf6"
+        },
+        "destinationType": "page",
+        "fontSize": 12,
+        "includeState": false,
+        "text": "Congressional District Impact",
+        "textAlignment": "center",
+        "textColor": "rgb(0, 0, 0)"
+      },
+      "type": "link"
+    },
+    "link_21": {
+      "parameters": {
+        "destinationLink": {
+          "name": "e0b32c08-ac42-468b-93bb-d41fdccbef09"
+        },
+        "destinationType": "page",
+        "fontSize": 12,
+        "includeState": false,
+        "text": "Investment Promotion Assists",
+        "textAlignment": "center",
+        "textColor": "#FFFFFF"
+      },
+      "type": "link"
+    },
+    "link_2": {
+      "parameters": {
+        "destinationLink": {
+          "name": "807fc19e-2c99-4770-b7a1-ff11d40219cb"
+        },
+        "destinationType": "page",
+        "fontSize": 12,
+        "includeState": false,
+        "text": "Progress Towards Target",
+        "textAlignment": "center",
+        "textColor": "#FFFFFF"
+      },
+      "type": "link"
+    },
+    "link_22": {
+      "parameters": {
+        "destinationLink": {
+          "name": "7d88a625-8ea9-4394-a414-e3ef2b5eb477"
+        },
+        "destinationType": "page",
+        "fontSize": 12,
+        "includeState": false,
+        "text": "Total Assists",
+        "textAlignment": "center",
+        "textColor": "#FFFFFF"
+      },
+      "type": "link"
+    },
+    "link_20": {
+      "parameters": {
+        "destinationLink": {
+          "name": "7549ee18-2877-4ce5-a27a-65a4bcc16d14"
+        },
+        "destinationType": "page",
+        "fontSize": 12,
+        "includeState": false,
+        "text": "Export Promotion Assists",
+        "textAlignment": "center",
+        "textColor": "#FFFFFF"
+      },
+      "type": "link"
+    },
+    "table_1": {
+      "parameters": {
+        "borderColor": "#54698d",
+        "borderWidth": 1,
+        "cell": {
+          "backgroundColor": "#16325c",
+          "fontColor": "#ffffff",
+          "fontSize": 12
+        },
+        "columnProperties": {},
+        "columns": [],
+        "customBulkActions": [],
+        "exploreLink": true,
+        "header": {
+          "backgroundColor": "#000000",
+          "fontColor": "#ffffff",
+          "fontSize": 12
+        },
+        "innerMajorBorderColor": "#54698d",
+        "innerMinorBorderColor": "#54698d",
+        "mode": "fittocontainer",
+        "numberOfLines": 1,
+        "pivoted": false,
+        "step": "lens_1",
+        "totals": true,
+        "verticalPadding": 4
+      },
+      "type": "table"
+    },
+    "table_2": {
+      "parameters": {
+        "borderColor": "#e0e5ee",
+        "borderWidth": 1,
+        "cell": {
+          "backgroundColor": "#ffffff",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "columnProperties": {},
+        "columns": [],
+        "customBulkActions": [],
+        "exploreLink": true,
+        "header": {
+          "backgroundColor": "#f4f6f9",
+          "fontColor": "#16325c",
+          "fontSize": 12
+        },
+        "innerMajorBorderColor": "#a8b7c7",
+        "innerMinorBorderColor": "#e0e5ee",
+        "mode": "fittocontainer",
+        "numberOfLines": 1,
+        "pivoted": false,
+        "step": "lens_2",
+        "totals": true,
+        "verticalPadding": 8
+      },
+      "type": "table"
+    },
+    "link_9": {
+      "parameters": {
+        "destinationLink": {
+          "name": "e9b9ac60-78ff-46b8-8757-924b76ebaaf6"
+        },
+        "destinationType": "page",
+        "fontSize": 12,
+        "includeState": false,
+        "text": "Unique Clients Assisted",
+        "textAlignment": "center",
+        "textColor": "rgb(0, 0, 0)"
+      },
+      "type": "link"
+    },
+    "table_3": {
+      "parameters": {
+        "borderColor": "#54698d",
+        "borderWidth": 1,
+        "cell": {
+          "backgroundColor": "#16325c",
+          "fontColor": "#ffffff",
+          "fontSize": 12
+        },
+        "columnProperties": {},
+        "columns": [],
+        "customBulkActions": [],
+        "exploreLink": true,
+        "header": {
+          "backgroundColor": "#000000",
+          "fontColor": "#ffffff",
+          "fontSize": 12
+        },
+        "innerMajorBorderColor": "#54698d",
+        "innerMinorBorderColor": "#54698d",
+        "mode": "fittocontainer",
+        "numberOfLines": 1,
+        "pivoted": false,
+        "step": "lens_1_1",
+        "totals": true,
+        "verticalPadding": 4
+      },
+      "type": "table"
+    },
+    "link_7": {
+      "parameters": {
+        "destinationLink": {
+          "name": "76364f7c-8666-4145-85cf-56103df592eb"
+        },
+        "destinationType": "page",
+        "fontSize": 12,
+        "includeState": false,
+        "text": "Export Promotion Assists",
+        "textAlignment": "center",
+        "textColor": "rgb(0, 0, 0)"
+      },
+      "type": "link"
+    },
+    "link_8": {
+      "parameters": {
+        "destinationLink": {
+          "name": "ecc88089-982b-4d60-a422-77b9fb2ed86d"
+        },
+        "destinationType": "page",
+        "fontSize": 12,
+        "includeState": false,
+        "text": "Investment Promotion Assists",
+        "textAlignment": "center",
+        "textColor": "rgb(0, 0, 0)"
+      },
+      "type": "link"
+    },
+    "link_5": {
+      "parameters": {
+        "destinationLink": {
+          "name": "8f68bde2-7c3f-4eee-bbc1-96a7eb5f1d97"
+        },
+        "destinationType": "page",
+        "fontSize": 12,
+        "includeState": false,
+        "text": "Total Assists",
+        "textAlignment": "center",
+        "textColor": "rgb(0, 0, 0)"
+      },
+      "type": "link"
+    },
+    "link_6": {
+      "parameters": {
+        "destinationLink": {
+          "name": "e9b9ac60-78ff-46b8-8757-924b76ebaaf6"
+        },
+        "destinationType": "page",
+        "fontSize": 12,
+        "includeState": false,
+        "text": "Unique Clients Assisted",
+        "textAlignment": "center",
+        "textColor": "#FFFFFF"
+      },
+      "type": "link"
+    },
+    "image_1": {
+      "parameters": {
+        "alignmentX": "center",
+        "alignmentY": "center",
+        "fit": "fitwidth",
+        "image": {
+          "name": "Account_Iconpng",
+          "namespace": ""
+        }
+      },
+      "type": "image"
+    },
+    "chart_12": {
+      "parameters": {
+        "autoFitMode": "keepLabels",
+        "showPoints": true,
+        "legend": {
+          "descOrder": false,
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "left-top",
+          "inside": false
+        },
+        "axisMode": "sync",
+        "tooltip": {
+          "showBinLabel": true,
+          "measures": [
+            "Goal Progress (%)"
+          ],
+          "showNullValues": true,
+          "showPercentage": true,
+          "customText": [],
+          "showDimensions": true,
+          "showMeasures": true,
+          "customizeTooltip": true,
+          "dimensions": [
+            "DAS",
+            "Created_Date_Year~~~Created_Date_Month"
+          ]
+        },
+        "visualizationType": "time",
+        "missingValue": "connect",
+        "dashLine": {
+          "measures": [
+            "Goal_Progress"
+          ],
+          "showDashLine": false
+        },
+        "timeAxis": {
+          "showTitle": false,
+          "predictiveLine": {
+            "color": "#8932ED",
+            "time": "2018-06",
+            "label": "TODAY"
+          },
+          "showAxis": true,
+          "title": ""
+        },
+        "exploreLink": true,
+        "title": {
+          "fontSize": 14,
+          "subtitleFontSize": 11,
+          "label": "Unique Clients Assisted Progress Towards Target",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "trellis": {
+          "flipLabels": false,
+          "showGridLines": true,
+          "size": [
+            100,
+            100
+          ],
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "fillArea": false,
+        "showZero": true,
+        "measureAxis2": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "title": "",
+          "customDomain": {
+            "showDomain": false
+          }
+        },
+        "computeTotal": false,
+        "measureAxis1": {
+          "sqrtScale": false,
+          "showTitle": true,
+          "showAxis": true,
+          "referenceLines": [
+            {
+              "color": "#B3B400",
+              "label": "100%",
+              "value": 100
+            }
+          ],
+          "title": "Unique Clients Assisted / Target (%)",
+          "customDomain": {
+            "showDomain": false
+          }
+        },
+        "valueType": "none",
+        "theme": "dark",
+        "step": "Created_Date_Year_Cr_2",
+        "applyConditionalFormatting": true,
+        "drawArea": {
+          "measure": "Goal Progress (%)",
+          "showDrawArea": true,
+          "bounding1": "Goal Progress (%): High 95% Confidence",
+          "bounding2": "Goal Progress (%): Low 95% Confidence"
+        }
+      },
+      "type": "chart"
+    },
+    "chart_11": {
+      "parameters": {
+        "bins": {
+          "breakpoints": {
+            "high": 100,
+            "low": 0
+          },
+          "bands": {
+            "high": {
+              "color": "#008000",
+              "label": ""
+            },
+            "low": {
+              "color": "#B22222",
+              "label": ""
+            },
+            "medium": {
+              "color": "#ffa500",
+              "label": ""
+            }
+          }
+        },
+        "legend": {
+          "descOrder": true,
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "autoZoom": true,
+        "highColor": "#1674D9",
+        "tooltip": {
+          "showBinLabel": true,
+          "measures": "",
+          "showNullValues": true,
+          "showPercentage": true,
+          "showDimensions": true,
+          "showMeasures": true,
+          "customizeTooltip": false,
+          "dimensions": ""
+        },
+        "projectionType": "AlbersUSA",
+        "lowColor": "#C5DBF7",
+        "visualizationType": "choropleth",
+        "exploreLink": true,
+        "title": {
+          "fontSize": 14,
+          "subtitleFontSize": 11,
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "binValues": false,
+        "trellis": {
+          "flipLabels": false,
+          "showGridLines": true,
+          "size": [
+            100,
+            100
+          ],
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "columnMap": {
+          "color": [
+            "Total Assists"
+          ],
+          "trellis": [],
+          "plots": [
+            "State"
+          ]
+        },
+        "computeTotal": false,
+        "theme": "dark",
+        "step": "lens_4",
+        "map": "US States",
+        "applyConditionalFormatting": true
+      },
+      "type": "chart"
+    },
+    "chart_10": {
+      "parameters": {
+        "bins": {
+          "breakpoints": {
+            "high": 100,
+            "low": 0
+          },
+          "bands": {
+            "high": {
+              "color": "#008000",
+              "label": ""
+            },
+            "low": {
+              "color": "#B22222",
+              "label": ""
+            },
+            "medium": {
+              "color": "#ffa500",
+              "label": ""
+            }
+          }
+        },
+        "legend": {
+          "descOrder": true,
+          "showHeader": true,
+          "show": true,
+          "customSize": "auto",
+          "position": "right-top",
+          "inside": false
+        },
+        "autoZoom": true,
+        "highColor": "#1674D9",
+        "tooltip": {
+          "showBinLabel": true,
+          "measures": "",
+          "showNullValues": true,
+          "showPercentage": true,
+          "showDimensions": true,
+          "showMeasures": true,
+          "customizeTooltip": false,
+          "dimensions": ""
+        },
+        "projectionType": "AlbersUSA",
+        "lowColor": "#C5DBF7",
+        "visualizationType": "choropleth",
+        "exploreLink": true,
+        "title": {
+          "fontSize": 14,
+          "subtitleFontSize": 11,
+          "label": "",
+          "align": "center",
+          "subtitleLabel": ""
+        },
+        "binValues": false,
+        "trellis": {
+          "flipLabels": false,
+          "showGridLines": true,
+          "size": [
+            100,
+            100
+          ],
+          "enable": false,
+          "type": "x",
+          "chartsPerLine": 4
+        },
+        "columnMap": {
+          "color": [
+            "Export Promotion Assists"
+          ],
+          "trellis": [],
+          "plots": [
+            "State"
+          ]
+        },
+        "computeTotal": false,
+        "theme": "dark",
+        "step": "lens_4",
+        "map": "US States",
+        "applyConditionalFormatting": true
+      },
+      "type": "chart"
+    }
+  }
+}

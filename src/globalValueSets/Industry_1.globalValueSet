@@ -975,6 +975,12 @@
         <isActive>false</isActive>
         <label>Entertainment (incl media, publishing)</label>
     </customValue>
+    <customValue>
+        <fullName>Construction</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Construction</label>
+    </customValue>
     <description>The Industry taxonomy taken from the &quot;Thesaurus of International Trade Terms&quot; on trade.gov dev site.</description>
     <masterLabel>Industry</masterLabel>
     <sorted>false</sorted>
