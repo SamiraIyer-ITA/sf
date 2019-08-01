@@ -36,17 +36,6 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
         Id contactRecordTypeId = Schema.SObjectType.Contact.getRecordTypeInfosByDeveloperName().get('ITA_Contacts').getRecordTypeId();
         Map<String,String> emailToOrganizationName = new Map<String,String>();
 
-        //Case Variables
-        List<Id> attendeeIdList = new List<Id>();
-        Set<Id> acceptedMeetingAttendeeIds = new Set<Id>();
-        Set<String> acceptedMeetingEmails = new Set<String>();
-        Set<Id> acceptedMeetingContactIds = new Set<Id>();
-        Set<Id> contactsWithCases = new Set<Id>();
-        Map<String,Id> emailToBusinessConferenceId = new Map<String,Id>();
-        Map<Id,String> businessConferenceIdToCampaignName = new Map<Id,String>();
-        Map<Id,String> businessConferenceIdToOutgoingCommunicationEmail = new Map<Id,String>();
-        Map<String,Id> communicationEmailToUserId = new Map<String,Id>();
-
         //Collect Organization Names and filter out trade.gov email
         for(valence.RecordInFlight record : records) {
             //Do not create Organization or Contact if Attendee has a .gov email
@@ -132,97 +121,12 @@ global with sharing class AttendeeContactCreator implements valence.Transformati
         //Add newly inserted contacts with newly generated Ids into the map of existing contacts
         contactEmailToExistingContact.putAll(contactEmailToNewContact);
 
-        //Update Attendee record with newly created or existing Contact Id (as long as they are not trade.gov)
+        //Update Attendee record with newly created or existing Contact Id (as long as they are not .gov)
         for(valence.RecordInFlight record : records) {
             String email = String.valueOf(record.getOriginalProperties().get('email'));
             if(email != null && email.toLowerCase().endsWith('.gov') == false) {
                 record.getProperties().put('Contact__c', contactEmailToExistingContact.get(email).Id);
             }
         }
-
-        //attendees related to this bulk operation
-        List<Attendee__c> relatedAttendees = [SELECT Id,Email__c,BusinessConference__c FROM Attendee__c WHERE Email__c IN: contactEmailToExistingContact.keySet()];
-        for(Attendee__c attendee : relatedAttendees) {
-            attendeeIdList.add(attendee.Id);
-            emailToBusinessConferenceId.put(attendee.Email__c,attendee.BusinessConference__c);
-        }
-        //gather a list of emails from related attendees that have at least one accepted meeting as a host or attendee
-        for(Meeting__c meeting : [SELECT Id,Host__c,Attendee__c,Type__c FROM Meeting__c WHERE Status__c = '2' AND (Host__c IN: attendeeIdList OR Attendee__c IN: attendeeIdList)]) {
-            if(meeting.Host__c != null) {
-                acceptedMeetingAttendeeIds.add(meeting.Host__c);
-            }
-            if(meeting.Attendee__c != null) {
-                acceptedMeetingAttendeeIds.add(meeting.Attendee__c);
-            }
-        }
-        for(Attendee__c attendee : relatedAttendees) {
-            if(acceptedMeetingAttendeeIds.contains(attendee.Id)) {
-                acceptedMeetingEmails.add(attendee.Email__c);
-            }
-        }
-        //use the list of emails to gather a list of contact ids of related attendees that have at least one accepted meeting
-        for(String email : acceptedMeetingEmails) {
-            Contact myContact = contactEmailToExistingContact.get(email);
-            if(myContact != null) {
-                acceptedMeetingContactIds.add(myContact.Id);
-            }
-        }
-        //make a list of contacts that already have existing cases
-        for(Case thisCase : [SELECT Id,ContactId FROM Case WHERE ContactId IN: acceptedMeetingContactIds]) {
-            contactsWithCases.add(thisCase.ContactId);
-        }
-
-        //gather information about campaigns and business conferences for later use
-        for(Business_Conference__c networkingTrack : [SELECT Id,Campaign__r.Name,Campaign__c,Campaign__r.Outgoing_Communication_Email__c FROM Business_Conference__c WHERE Id IN: emailToBusinessConferenceId.values()]) {
-            if(networkingTrack.Campaign__c != null) {
-                businessConferenceIdToCampaignName.put(networkingTrack.Id,networkingTrack.Campaign__r.Name);
-                businessConferenceIdToOutgoingCommunicationEmail.put(networkingTrack.Id,networkingTrack.Campaign__r.Outgoing_Communication_Email__c);
-            }
-        }
-
-        //get users from list of users related to outgoing communications emails for later use
-        for(User thisUser : [SELECT Id,Email from User WHERE Email IN: businessConferenceIdToOutgoingCommunicationEmail.values()]) {
-            communicationEmailToUserId.put(thisUser.Email,thisUser.Id);
-        }
-
-        //Create Cases on Contacts associated by email with an attendee associated to an accepted meeting
-        List<Case> casesToCreate = new List<Case>();
-        for(Contact thisContact : [SELECT Id,Name,Account.Name,Account.OwnerId,Email FROM Contact WHERE Id IN: acceptedMeetingContactIds]) {
-            if(!contactsWithCases.contains(thisContact.Id)) {
-                Id businessConferenceId = emailToBusinessConferenceId.get(thisContact.Email);
-                String campaignName = businessConferenceIdToCampaignName.get(businessConferenceId);
-                String orgName = '';
-                String caseSubject = (String.isBlank(campaignName) ? '' : campaignName+' ')+orgName;
-                Id orgOwnerId = null;
-
-                //Case owner is associated org owner
-                if(thisContact.Account != null) {
-                    orgOwnerId = thisContact.Account.OwnerId;
-                    orgName = thisContact.Account.Name;
-                }
-                //If there is no org owner then use the user associated with the campaign outgoing communication email field
-                if(orgOwnerId == null && businessConferenceId != null) {
-                    String communicationEmail = businessConferenceIdToOutgoingCommunicationEmail.get(businessConferenceId);
-                    if(communicationEmail != null) {
-                        orgOwnerId = communicationEmailToUserId.get(communicationEmail);
-                    }
-                }
-                //If there is still no match just let the system automatically assign it
-                Case newCase = null;
-                if(orgOwnerId != null) {
-                    newCase = new Case(Subject=(String.isBlank(caseSubject) ? 'Case' : caseSubject),
-                            Description = 'U.S. Exhibitor/Client registered to value added programming (G2B, B2B, Demos Int\'l Reception), at an event.',
-                            OwnerId = orgOwnerId
-                    );
-                } else {
-                    newCase = new Case(Subject=(String.isBlank(caseSubject) ? 'Case' : caseSubject),
-                            Description = 'U.S. Exhibitor/Client registered to value added programming (G2B, B2B, Demos Int\'l Reception), at an event.'
-                    );
-                }
-
-                casesToCreate.add(newCase);
-            }
-        }
-        Database.insert(casesToCreate,false);
     }
 }
