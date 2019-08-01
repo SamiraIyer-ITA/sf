@@ -518,7 +518,12 @@
           "RecordType.DeveloperName",
           "RecordType.Name",
           "RecordType.SobjectType",
-          "Id"
+          "Id",
+          "BillingPostalCode",
+          "AnnualRevenue",
+          "Congressional_District_formula__c",
+          "Industry",
+          "NAICS__c"
         ]
       },
       "sources": [
@@ -669,6 +674,21 @@
           },
           {
             "name": "RecordTypeId"
+          },
+          {
+            "name": "BillingPostalCode"
+          },
+          {
+            "name": "AnnualRevenue"
+          },
+          {
+            "name": "Congressional_District_formula__c"
+          },
+          {
+            "name": "Industry"
+          },
+          {
+            "name": "NAICS__c"
           }
         ],
         "object": "Account"
@@ -819,14 +839,19 @@
         "updateColumns": {
           "ParentOrganization.RecordType.SobjectType": "RecordType.SobjectType",
           "ParentOrganization.BillingCountry": "BillingCountry",
-          "ParentOrganization.BillingStateCode": "BillingStateCode",
           "ParentOrganization.BillingState": "BillingState",
+          "ParentOrganization.AnnualRevenue": "AnnualRevenue",
+          "ParentOrganization.Congressional_District_formula__c": "Congressional_District_formula__c",
+          "ParentOrganization.Industry": "Industry",
           "ParentOrganization.Id": "Id",
-          "ParentOrganization.RecordType.Name": "RecordType.Name",
           "ParentOrganization.TracHier__DUNS_Global_Ultimate_Parent__c": "TracHier__DUNS_Global_Ultimate_Parent__c",
           "ParentOrganization.Name": "Name",
-          "ParentOrganization.RecordType.DeveloperName": "RecordType.DeveloperName",
-          "ParentOrganization.RecordTypeId": "RecordTypeId"
+          "ParentOrganization.RecordTypeId": "RecordTypeId",
+          "ParentOrganization.BillingStateCode": "BillingStateCode",
+          "ParentOrganization.BillingPostalCode": "BillingPostalCode",
+          "ParentOrganization.NAICS__c": "NAICS__c",
+          "ParentOrganization.RecordType.Name": "RecordType.Name",
+          "ParentOrganization.RecordType.DeveloperName": "RecordType.DeveloperName"
         }
       },
       "sources": [
