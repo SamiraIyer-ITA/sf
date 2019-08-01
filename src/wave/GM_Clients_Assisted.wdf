@@ -20,6 +20,68 @@
         "object": "Case_Contributor__c"
       }
     },
+    "filter Case Contributors Create Date": {
+      "action": "filter",
+      "parameters": {
+        "saqlFilter": "'CaseForDates.Actual_Create_Date__c' != null"
+      },
+      "sources": [
+        "augment Case Dates"
+      ]
+    },
+    "slice Case Contributor on Case Create": {
+      "action": "sliceDataset",
+      "parameters": {
+        "fields": [
+          {
+            "name": "CreatedById"
+          },
+          {
+            "name": "CreatedDate"
+          },
+          {
+            "name": "Date_of_Assist"
+          },
+          {
+            "name": "Id"
+          },
+          {
+            "name": "LastModifiedById"
+          },
+          {
+            "name": "LastModifiedDate"
+          },
+          {
+            "name": "RH_Lev_1_GM_All__c"
+          },
+          {
+            "name": "RH_Lev_2_DAS__c"
+          },
+          {
+            "name": "RH_Lev_3_Region_2__c"
+          },
+          {
+            "name": "RH_Lev_4_Region_1__c"
+          },
+          {
+            "name": "RH_Lev_5_Country__c"
+          },
+          {
+            "name": "RH_Lev_6_Office__c"
+          },
+          {
+            "name": "RH_Lev_7_Individual__c"
+          },
+          {
+            "name": "SystemModstamp"
+          }
+        ],
+        "mode": "select"
+      },
+      "sources": [
+        "computeExpression Normalize CC Create Date"
+      ]
+    },
     "computeExpression isTask Using Prefix": {
       "action": "computeExpression",
       "parameters": {
@@ -96,14 +158,68 @@
         "sfdcDigest Case Contributor For Augment"
       ]
     },
+    "slice Case Contributor on Case Closed": {
+      "action": "sliceDataset",
+      "parameters": {
+        "fields": [
+          {
+            "name": "CreatedById"
+          },
+          {
+            "name": "CreatedDate"
+          },
+          {
+            "name": "Date_of_Assist"
+          },
+          {
+            "name": "Id"
+          },
+          {
+            "name": "LastModifiedById"
+          },
+          {
+            "name": "LastModifiedDate"
+          },
+          {
+            "name": "RH_Lev_1_GM_All__c"
+          },
+          {
+            "name": "RH_Lev_2_DAS__c"
+          },
+          {
+            "name": "RH_Lev_3_Region_2__c"
+          },
+          {
+            "name": "RH_Lev_4_Region_1__c"
+          },
+          {
+            "name": "RH_Lev_5_Country__c"
+          },
+          {
+            "name": "RH_Lev_6_Office__c"
+          },
+          {
+            "name": "RH_Lev_7_Individual__c"
+          },
+          {
+            "name": "SystemModstamp"
+          }
+        ],
+        "mode": "select"
+      },
+      "sources": [
+        "computeExpression Normalize CC Close Date"
+      ]
+    },
     "append Case Contributor and Task": {
       "action": "append",
       "parameters": {
         "enableDisjointedSchemaMerge": false
       },
       "sources": [
-        "sfdcDigest Case Contributor For Append",
-        "sfdcDigest Task For Append"
+        "slice Case Contributor on Case Closed",
+        "slice Case Contributor on Case Create",
+        "slice Task on Create Date"
       ]
     },
     "augment Case Fields": {
@@ -194,6 +310,9 @@
           },
           {
             "name": "SystemModstamp"
+          },
+          {
+            "name": "Actual_Create_Date__c"
           }
         ],
         "object": "Task"
@@ -218,6 +337,45 @@
         ],
         "object": "RecordType"
       }
+    },
+    "computeExpression Normalize CC Create Date": {
+      "action": "computeExpression",
+      "parameters": {
+        "computedFields": [
+          {
+            "format": "MM/dd/yyyy hh:mm:ss a",
+            "label": "Date of Assist",
+            "name": "Date_of_Assist",
+            "saqlExpression": "toDate('CaseForDates.Actual_Create_Date__c_sec_epoch')",
+            "type": "Date"
+          }
+        ],
+        "mergeWithSource": true
+      },
+      "sources": [
+        "filter Case Contributors Create Date"
+      ]
+    },
+    "augment Case Dates": {
+      "action": "augment",
+      "parameters": {
+        "leftKey": [
+          "Case_ID__c"
+        ],
+        "operation": "LookupSingleValue",
+        "relationship": "CaseForDates",
+        "rightKey": [
+          "Id"
+        ],
+        "rightSelect": [
+          "Actual_Case_Closed_Date__c",
+          "Actual_Create_Date__c"
+        ]
+      },
+      "sources": [
+        "sfdcDigest Case Contributor For Append",
+        "sfdcDigest Case For Augment"
+      ]
     },
     "filter Client_Type": {
       "action": "filter",
@@ -287,6 +445,15 @@
       },
       "sources": [
         "computeExpression US Export"
+      ]
+    },
+    "filter Case Contributors Close Date": {
+      "action": "filter",
+      "parameters": {
+        "saqlFilter": "'CaseForDates.Actual_Case_Closed_Date__c' != null"
+      },
+      "sources": [
+        "augment Case Dates"
       ]
     },
     "computeExpression FY Fields": {
@@ -367,6 +534,77 @@
       },
       "sources": [
         "computeExpression FY Fields"
+      ]
+    },
+    "slice Task on Create Date": {
+      "action": "sliceDataset",
+      "parameters": {
+        "fields": [
+          {
+            "name": "CreatedById"
+          },
+          {
+            "name": "CreatedDate"
+          },
+          {
+            "name": "Date_of_Assist"
+          },
+          {
+            "name": "Id"
+          },
+          {
+            "name": "LastModifiedById"
+          },
+          {
+            "name": "LastModifiedDate"
+          },
+          {
+            "name": "RH_Lev_1_GM_All__c"
+          },
+          {
+            "name": "RH_Lev_2_DAS__c"
+          },
+          {
+            "name": "RH_Lev_3_Region_2__c"
+          },
+          {
+            "name": "RH_Lev_4_Region_1__c"
+          },
+          {
+            "name": "RH_Lev_5_Country__c"
+          },
+          {
+            "name": "RH_Lev_6_Office__c"
+          },
+          {
+            "name": "RH_Lev_7_Individual__c"
+          },
+          {
+            "name": "SystemModstamp"
+          }
+        ],
+        "mode": "select"
+      },
+      "sources": [
+        "computeExpression Normalize Task Create Date"
+      ]
+    },
+    "computeExpression Normalize Task Create Date": {
+      "action": "computeExpression",
+      "parameters": {
+        "computedFields": [
+          {
+            "format": "MM/dd/yyyy hh:mm:ss a",
+            "label": "Date of Assist",
+            "name": "Date_of_Assist",
+            "saqlExpression": "toDate('Actual_Create_Date__c_sec_epoch')",
+            "type": "Date"
+          }
+        ],
+        "mergeWithSource": true
+      },
+      "sources": [
+        "sfdcDigest Task For Append"
       ]
     },
     "sfdcDigest Task for Augment": {
@@ -464,6 +702,24 @@
         "sfdcDigest Task for Augment"
       ]
     },
+    "computeExpression Normalize CC Close Date": {
+      "action": "computeExpression",
+      "parameters": {
+        "computedFields": [
+          {
+            "format": "MM/dd/yyyy hh:mm:ss a",
+            "label": "Date of Assist",
+            "name": "Date_of_Assist",
+            "saqlExpression": "toDate('CaseForDates.Actual_Case_Closed_Date__c_sec_epoch')",
+            "type": "Date"
+          }
+        ],
+        "mergeWithSource": true
+      },
+      "sources": [
+        "filter Case Contributors Close Date"
+      ]
+    },
     "augment Case Fields with Record Type": {
       "action": "augment",
       "parameters": {
@@ -543,6 +799,9 @@
           },
           {
             "name": "RH_Lev_7_Individual__c"
+          },
+          {
+            "name": "Case_ID__c"
           }
         ],
         "object": "Case_Contributor__c"
